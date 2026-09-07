@@ -24,8 +24,39 @@
 import fs from 'node:fs';
 import { diffLocaleKeys } from './locale-map-diff.mjs';
 
-/** @type {Array<{ts:number,jobId:string,locale:string|null,slug:string,action:string,source:string,reason?:string}>} */
+/**
+ * How many event objects stay in memory. The journal used to retain EVERY
+ * event for the whole process, but the only bulk consumer is `summarize()`,
+ * which needs counters and not the objects: measured on a 5000-job slice with
+ * all four locales restored, `restoreExistingSlugIdentity` pushed 25 000
+ * events (~5.6 MB retained) to render a 116-char summary, and
+ * `assemble-jobs-dataset.mjs` walks every crawler slice inside ONE process, so
+ * that cost is paid once per slice and never released (follow-up #7633). The
+ * counters are now folded in at record time, so they stay EXACT for the whole
+ * run regardless of retention; only the tail kept for debugging is bounded.
+ * `SLUG_JOURNAL_MAX_EVENTS` raises/lowers it when a run needs a deeper trace.
+ */
+export const RETAINED_EVENTS_CAP = (() => {
+  const raw = Number(process.env.SLUG_JOURNAL_MAX_EVENTS);
+  return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 2000;
+})();
+
+/**
+ * Circular buffer of the newest `RETAINED_EVENTS_CAP` events. A ring (rather
+ * than `push` + `shift`) keeps recording O(1) on the hot path of a full
+ * corpus pass.
+ * @type {Array<{ts:number,jobId:string,locale:string|null,slug:string,action:string,source:string,reason?:string}>}
+ */
 const _events = [];
+let _writeIdx = 0;
+let _wrapped = false;
+
+/** Running aggregates — independent of retention, never truncated. */
+const _byAction = { capture: 0, drop: 0, restore: 0, 'cap-trim': 0, sync: 0 };
+const _bySource = new Map();
+const _jobs = new Set();
+let _total = 0;
+
 let _exitHookRegistered = false;
 
 const VALID_ACTIONS = new Set(['capture', 'drop', 'cap-trim', 'restore', 'sync']);
@@ -37,20 +68,36 @@ const VALID_ACTIONS = new Set(['capture', 'drop', 'cap-trim', 'restore', 'sync']
 export function recordSlugMutation({ jobId, locale, slug, action, source, reason } = {}) {
   if (!jobId || !slug || !action || !source) return;
   if (!VALID_ACTIONS.has(action)) return;
-  _events.push({
+  const id = String(jobId);
+  const src = String(source);
+
+  _total++;
+  _byAction[action] = (_byAction[action] || 0) + 1;
+  _bySource.set(src, (_bySource.get(src) || 0) + 1);
+  _jobs.add(id);
+
+  const event = {
     ts: Date.now(),
-    jobId: String(jobId),
+    jobId: id,
     locale: locale ? String(locale) : null,
     slug: String(slug),
     action,
-    source: String(source),
+    source: src,
     reason: reason ? String(reason) : undefined,
-  });
+  };
+  _events[_writeIdx] = event;
+  _writeIdx = (_writeIdx + 1) % RETAINED_EVENTS_CAP;
+  if (_writeIdx === 0) _wrapped = true;
 }
 
-/** Get a defensive copy of all recorded events. */
+/**
+ * Get a defensive copy of the retained events, oldest-first. Bounded by
+ * `RETAINED_EVENTS_CAP`: on a run that exceeds it this is the newest slice of
+ * the trace, not the whole history — `summarize()` stays exact either way.
+ */
 export function getEvents() {
-  return _events.slice();
+  if (!_wrapped) return _events.slice(0, _writeIdx);
+  return [..._events.slice(_writeIdx), ..._events.slice(0, _writeIdx)];
 }
 
 /**
@@ -203,30 +250,35 @@ export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = [],
 /** Reset the journal. Tests only. */
 export function clear() {
   _events.length = 0;
+  _writeIdx = 0;
+  _wrapped = false;
+  for (const key of Object.keys(_byAction)) _byAction[key] = 0;
+  _bySource.clear();
+  _jobs.clear();
+  _total = 0;
 }
 
 /**
- * Compute aggregate counts per action, per source, per job.
+ * Read the aggregate counts per action, per source, per job.
+ *
+ * Folded in at record time rather than recomputed from the retained events:
+ * the retained tail is capped (`RETAINED_EVENTS_CAP`), so recounting it would
+ * make the commit-message numbers silently under-report the moment a run
+ * crossed the cap — the counters must describe the RUN, not the buffer.
  */
 export function summarize() {
-  const byAction = { capture: 0, drop: 0, restore: 0, 'cap-trim': 0, sync: 0 };
-  const bySource = new Map();
-  const jobs = new Set();
-  for (const e of _events) {
-    byAction[e.action] = (byAction[e.action] || 0) + 1;
-    bySource.set(e.source, (bySource.get(e.source) || 0) + 1);
-    jobs.add(e.jobId);
-  }
   return {
-    total: _events.length,
-    captured: byAction.capture,
-    dropped: byAction.drop,
-    restored: byAction.restore,
-    capTrimmed: byAction['cap-trim'],
-    synced: byAction.sync,
-    sources: [...bySource.entries()].sort((a, b) => b[1] - a[1]),
-    jobsAffected: jobs.size,
-    net: byAction.capture + byAction.restore - byAction.drop - byAction['cap-trim'],
+    total: _total,
+    captured: _byAction.capture,
+    dropped: _byAction.drop,
+    restored: _byAction.restore,
+    capTrimmed: _byAction['cap-trim'],
+    synced: _byAction.sync,
+    sources: [..._bySource.entries()].sort((a, b) => b[1] - a[1]),
+    jobsAffected: _jobs.size,
+    net: _byAction.capture + _byAction.restore - _byAction.drop - _byAction['cap-trim'],
+    retained: _wrapped ? RETAINED_EVENTS_CAP : _writeIdx,
+    truncated: Math.max(0, _total - (_wrapped ? RETAINED_EVENTS_CAP : _writeIdx)),
   };
 }
 
