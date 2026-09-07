@@ -110,6 +110,14 @@ Dal 2026-09-06 lo step `Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`,
 
 Conseguenza pratica per chi conia: un item scritto senza `- Suggested action:` con un token-codice non sopravvive al gate. Scrivi il simbolo, la costante o il path che un `grep` futuro dovrà trovare.
 
+**Seconda strada, dal 2026-09-07 (decisione del proprietario, D3): la scheda con un `COMANDO`.** L'oracolo condiviso è ora una **disgiunzione**, non una congiunzione: un item passa con `Suggested action` + token distintivo **oppure** con una riga di scheda `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` il cui comando **nomina un referente** — un file, uno script o un test, cioè un path con una `/` e un'estensione. È lo stesso campo `COMANDO` che `issue-decompose.yml` già emette nel blocco `## Scheda` e che `scripts/audit-canton-url-drift.mjs` emette in forma completa; il gate non conia un vocabolario nuovo, valida quello che esiste. Tre regole che ne discendono, e che il gate applica:
+
+- **Il referente non deve esistere ancora.** Un comando che nomina un test che la PR di fix dovrà scrivere è valido: il costo del nominare si paga alla chiusura, non al conio. Effetto voluto — una issue che si chiude solo quando quel file esiste, per chiudersi ha bisogno di una PR.
+- **Una metrica già al bersaglio viene rifiutata.** `prima=N atteso=N` dichiara che non c'è niente da muovere: è irrobustimento travestito da lavoro, ed è la classe che questo gate esiste per non far nascere. Una soglia (`atteso=<N`) non è un bersaglio raggiunto e resta ammessa.
+- **Il gate non esegue il comando.** Verifica che ci sia e che nomini un referente, mai che oggi fallisca. Far eseguire i `COMANDO` al gate è una decisione separata e non presa qui.
+
+Il ramo nuovo vive in `hasFalsifiableAcceptance()`, cioè nell'unico simbolo che apertura e chiusura condividono: allargarlo li allarga insieme. Un item ammesso da questa strada non porta token prescritti, quindi `detectAlreadyResolved()` resta `false` su di lui e l'aggregata **non** si auto-chiude — la disgiunzione allarga il conio, non la chiusura.
+
 **Il metro si applica alla tua `Suggested action`, non al bullet grezzo — e il token si DERIVA, non si aspetta.** Sul bullet grezzo `suggestedActionText()` ricade sull'intero testo, quindi i backtick che finiranno in `Original text` fanno sembrare l'item ammissibile; alla chiusura quella regione è esclusa per costruzione e l'item vale `no-valid-item`, cioè è nato già non chiudibile. Misurato eseguendo le funzioni sullo stesso item: `citedTokens()` sul bullet grezzo dà `["manifest.counts"]`, sull'item coniato dà `[]`. Perciò prima formuli l'azione, poi giudichi quella; e se l'item è azionabile ma la frase non porta un token, vai a cercare il file, il simbolo o il campo da toccare e scrivilo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1` — mai un identificatore nudo né un path nudo, che `isDistinctiveToken()` rifiuta per scelta esplicita). Un item funnel-critico scartato per forma è il caso peggiore: ha codice da cambiare e finisce in un commento che nessun reconciler drena. La rinuncia vale solo quando non c'è niente da toccare.
 
 ## Dedup
@@ -143,6 +151,7 @@ Body:
 - Funnel impact: <monetizzazione | traffico | funnel | none>
 - Rationale: <perché passa il filtro>
 - Suggested action: <concrete next step se ovvio dal contesto; altrimenti "investigate + decide drop or impl">
+- METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file/script/test>   ← facoltativa; ammette l'item anche senza token distintivo
 
 ### 2. <one-line item>
 - Source: ...

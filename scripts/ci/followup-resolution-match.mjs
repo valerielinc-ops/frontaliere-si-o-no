@@ -175,9 +175,124 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
   },
 });
 
-/** True se l'item porta una condizione di accettazione falsificabile. */
+/**
+ * Il `COMANDO` di una scheda, oppure `null`. Copre le DUE forme già in uso, che
+ * differiscono solo per decorazione: la riga del template di `issue-decompose.yml`
+ * (`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>`) e quella emessa da
+ * `scripts/audit-canton-url-drift.mjs` (`**3-METRICA.** … | **COMANDO**: \`<comando>\``).
+ * Il marker `COMANDO` è l'ancora esplicita: non si deduce da una riga che «sembra»
+ * un comando, per la stessa ragione per cui `ACCEPTANCE_CONDITION` pretende la
+ * regione `Suggested action` invece di dedurla dai token. Puro.
+ *
+ * @param {string} itemText @returns {string|null}
+ */
+export function schedaCommand(itemText) {
+  for (const line of String(itemText || '').split('\n')) {
+    const m = line.match(/\*{0,2}COMANDO\*{0,2}\s*:\s*(.+)$/);
+    if (!m) continue;
+    const cmd = m[1].trim().replace(/^`+|`+$/g, '').trim();
+    if (cmd) return cmd;
+  }
+  return null;
+}
+
+/**
+ * Il referente nominato da un comando: il primo path di repository che il comando
+ * cita (con almeno una `/` e un'estensione). È la metà VERIFICABILE della scheda —
+ * un nome si scrive, un referente si risolve.
+ *
+ * Il vincolo della `/` è lo stesso di `citedFiles()`, e per la stessa ragione: un
+ * `package.json` nudo non individua un file in questo repo. Un comando che non
+ * nomina nessun referente (`npm test`, `gh run list --branch main`) NON è
+ * risolvibile: non dice su cosa si legge il verdetto. Puro.
+ *
+ * @param {string} command @returns {string|null}
+ */
+export function commandReferent(command) {
+  const m = String(command || '').match(
+    /(?:^|[\s`'":=(])([\w.-]+(?:\/[\w.-]+)+\.[a-z]{2,5})(?=$|[\s`'":,)])/i,
+  );
+  return m ? m[1] : null;
+}
+
+/**
+ * La scheda dichiara una metrica GIA' al bersaglio (`prima=N atteso=N`)?
+ *
+ * È il terzo stato della D2: referente esistente e già verde → l'item non muove
+ * niente, è irrobustimento travestito da lavoro. Si legge dal TESTO, non
+ * eseguendo il comando: questo modulo non esegue nulla.
+ *
+ * Solo numeri NUDI. `atteso=<6.17%` dichiara una soglia sotto cui scendere, non un
+ * bersaglio raggiunto: leggerlo come «già verde» scarterebbe lavoro vero, e in
+ * questo gate scartare a torto costa più che ammettere a torto (l'item demoto esce
+ * dal tracciamento, l'item ammesso resta comunque da chiudere con una PR). Puro.
+ *
+ * @param {string} itemText @returns {boolean}
+ */
+export function metricAlreadyGreen(itemText) {
+  const m = String(itemText || '').match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
+  if (!m) return false;
+  if (/[<>≤≥]/.test(m[1]) || /[<>≤≥]/.test(m[2])) return false;
+  const a = Number.parseFloat(m[1].replace(/%$/, ''));
+  const b = Number.parseFloat(m[2].replace(/%$/, ''));
+  return Number.isFinite(a) && Number.isFinite(b) && a === b;
+}
+
+/**
+ * Seconda condizione di accettazione: la scheda con un `COMANDO` risolvibile.
+ *
+ * Perché SOSTITUISCE e non si somma (decisione del proprietario, D3 del 2026-09-07):
+ * un `COMANDO` che nomina un referente prova più di un token backtickato — il token
+ * è un proxy dell'azionabilità, il comando *è* l'azionabilità. Sommarli in
+ * congiunzione farebbe pagare due volte la stessa prova e alzerebbe un tasso di
+ * demozione già al 55%.
+ *
+ * NON è un allentamento di `isDistinctiveToken()`. Quel tentativo è stato misurato e
+ * ritirato il 2026-09-06 — ammetteva +93 item di cui 32 su 45 portavano un token GIA'
+ * presente nel file citato, cioè `detectAlreadyResolved()` avrebbe letto «fatto» su
+ * lavoro pendente (classe #1647). Qui la soglia del token resta intatta: questo ramo
+ * apre una strada DIVERSA, e non può produrre quella classe di falso positivo perché
+ * non alimenta `citedTokens()` — un item ammesso di qui non ha alcun token prescritto
+ * da confermare, quindi `detectAlreadyResolved()` resta `false` e l'aggregata NON si
+ * auto-chiude su di lui. È la D2 letta al contrario, ed è l'effetto voluto: un item
+ * che si chiude solo quando un referente esiste, per chiudersi ha bisogno di una PR.
+ *
+ * Per la stessa ragione qui non serve il guardrail che `ACCEPTANCE_CONDITION` mette
+ * sulla regione `Suggested action`: la trappola che quel guardrail chiude è
+ * l'AUTO-CHIUSURA su token dello status quo, e un item ammesso da questo ramo non è
+ * auto-chiudibile per costruzione.
+ *
+ * Quello che questo ramo NON fa, deliberatamente: eseguire il comando. Il gate
+ * verifica che il `COMANDO` ci sia e nomini un referente, mai che oggi fallisca —
+ * eseguire una stringa derivata dal body di una PR dentro un job con `GH_TOKEN` in
+ * scrittura è una decisione separata (D8), non una conseguenza di questa.
+ */
+export const COMMAND_CONDITION = Object.freeze({
+  id: 'scheda-comando',
+  describe: 'un `COMANDO` di scheda che nomina un referente (file/script/test)',
+  /** @param {string} itemText @returns {boolean} */
+  holds: (itemText) => {
+    const s = String(itemText || '');
+    const cmd = schedaCommand(s);
+    if (!cmd || !commandReferent(cmd)) return false;
+    return !metricAlreadyGreen(s);
+  },
+});
+
+/**
+ * True se l'item porta una condizione di accettazione falsificabile.
+ *
+ * DISGIUNZIONE, non congiunzione (D3). Le due condizioni sono strade alternative
+ * verso la stessa prova, e questa funzione è l'UNICO punto in cui vivono: la usano
+ * sia il gate in APERTURA (`scripts/ci/gate-minted-followups.mjs`) sia il predicato
+ * in CHIUSURA (`aggregateCloseGate()` in `scripts/ci/reconcile-followups.mjs`).
+ * Allargarla qui le allarga insieme, nello stesso commit e per costruzione — che è
+ * esattamente il vincolo di #7587: un criterio più permissivo in apertura che in
+ * chiusura è ciò che ha prodotto la coda immortale.
+ */
 export function hasFalsifiableAcceptance(itemText) {
-  return ACCEPTANCE_CONDITION.holds(String(itemText || ''));
+  const s = String(itemText || '');
+  return ACCEPTANCE_CONDITION.holds(s) || COMMAND_CONDITION.holds(s);
 }
 
 /**

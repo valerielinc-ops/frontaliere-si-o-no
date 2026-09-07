@@ -24,6 +24,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { hasFalsifiableAcceptance, ACCEPTANCE_CONDITION } from '../scripts/ci/followup-resolution-match.mjs';
 import { aggregateCloseGate } from '../scripts/ci/reconcile-followups.mjs';
+import { decideMintGate } from '../scripts/ci/gate-minted-followups.mjs';
 
 const prose = `
 - Source: reviewer \`## Adversarial check\`
@@ -126,5 +127,103 @@ describe('pin sul sorgente', () => {
     const wf = read('../.github/workflows/post-merge-followup.yml');
     expect(wf).toContain('no-acceptance-condition');
     expect(wf).toMatch(/condizione di accettazione falsificabile/i);
+  });
+});
+
+/**
+ * La seconda strada verso la stessa prova: la scheda con un `COMANDO`
+ * (decisione del proprietario, D3 del 2026-09-07).
+ *
+ * Il difetto che questi test sorvegliano è di forma, non di comportamento
+ * visibile: `hasFalsifiableAcceptance()` è l'UNICO simbolo che il gate in
+ * apertura (`gate-minted-followups.mjs`) e il predicato in chiusura
+ * (`aggregateCloseGate()`) condividono. Finché il ramo nuovo vive lì dentro, i
+ * due lati si allargano insieme per costruzione; se un giorno qualcuno lo
+ * duplicasse in uno dei due, tornerebbe la classe di #7587 — apertura più
+ * permissiva della chiusura, cioè la coda immortale. L'ultimo test di questo
+ * blocco è quel guardiano, e va letto come tale.
+ */
+describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () => {
+  const scheda = (comando: string, metrica = 'prima=12 atteso=0') => `
+- Source: reviewer \`## Adversarial check\`
+- Stato dichiarato nella PR: nessuno
+- METRICA: ${metrica} | COMANDO: ${comando}
+- OSSERVATORE: il test che la fix dovra' scrivere
+`;
+
+  it('un COMANDO che nomina un referente ammette l\'item anche senza `Suggested action`', () => {
+    const item = scheda('npx vitest run tests/canton-pin-crawler-authority.test.ts');
+    expect(item).not.toMatch(/suggested action/i);
+    expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('la forma con i marker in grassetto del monitor conta come quella del template', () => {
+    // `scripts/audit-canton-url-drift.mjs` emette `**3-METRICA.** … | **COMANDO**: `…``:
+    // stesso campo, decorazione diversa. Due parser sarebbero due verità.
+    const item = `
+- Source: monitor
+**3-METRICA.** prima=12.34% atteso=<6.17% | **COMANDO**: \`node scripts/audit-canton-url-drift.mjs\`
+`;
+    expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('D2: il referente NON deve esistere ancora — lo crea la PR di fix', () => {
+    const item = scheda('npx vitest run tests/questo-file-non-esiste-ancora.test.ts');
+    expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('D2: metrica gia\' al bersaglio (`prima=N atteso=N`) → RIFIUTATA, e\' irrobustimento travestito', () => {
+    const item = scheda('npx vitest run tests/foo.test.ts', 'prima=0 atteso=0');
+    expect(hasFalsifiableAcceptance(item)).toBe(false);
+  });
+
+  it('una SOGLIA (`atteso=<N`) non e\' un bersaglio raggiunto e resta ammessa', () => {
+    const item = scheda('node scripts/audit-canton-url-drift.mjs', 'prima=6.17% atteso=<6.17%');
+    expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('un COMANDO che non nomina nessun referente non e\' risolvibile', () => {
+    // `npm test` non dice su cosa si legge il verdetto: nessun file, nessuno
+    // script, nessun test. Stessa regola della `/` di `citedFiles()`.
+    expect(hasFalsifiableAcceptance(scheda('npm test'))).toBe(false);
+    expect(hasFalsifiableAcceptance(scheda('gh run list --branch main'))).toBe(false);
+    expect(hasFalsifiableAcceptance(scheda('npm run audit:canton'))).toBe(false);
+  });
+
+  it('senza la riga COMANDO la scheda non ammette niente', () => {
+    const senzaComando = `
+- Source: reviewer
+- METRICA: prima=12 atteso=0
+- OSSERVATORE: il monitor settimanale
+`;
+    expect(hasFalsifiableAcceptance(senzaComando)).toBe(false);
+  });
+
+  it('la disgiunzione NON allarga la chiusura: un item-COMANDO non si auto-chiude', () => {
+    // Non porta token prescritti, quindi `detectAlreadyResolved()` resta false
+    // qualunque cosa contenga il file citato. E' la D2 letta al contrario:
+    // l'item si chiude quando il referente esiste ed e' verde, e quella prova
+    // arriva da una PR, non da questo reconciler.
+    const item = scheda('npx vitest run tests/foo.test.ts');
+    const g = aggregateCloseGate(body([prose, item]), io('qualunque contenuto, anche il comando verbatim: npx vitest run tests/foo.test.ts'));
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('valid-item-unconfirmed');
+  });
+
+  it('D3: apertura e chiusura si muovono INSIEME sullo stesso item', () => {
+    // Il guardiano di #7587. Un\'aggregata il cui unico item valido e\' un
+    // item-COMANDO non deve risultare `no-valid-item` da nessuno dei due lati:
+    // se un lato lo vedesse valido e l\'altro no, quell\'item entrerebbe in coda
+    // senza poterne uscire. I due lati leggono lo stesso simbolo — questo test
+    // fallisce nel momento in cui smettono.
+    const item = scheda('npx vitest run tests/foo.test.ts');
+    const aggregata = body([prose, item]);
+
+    const apertura = decideMintGate({ body: aggregata, createdAt: new Date().toISOString() });
+    expect(apertura.reason).not.toBe('no-valid-item');
+    expect(apertura.valid).toHaveLength(1);
+
+    const chiusura = aggregateCloseGate(aggregata, io('niente'));
+    expect(chiusura.reason).not.toBe('no-valid-item');
   });
 });
