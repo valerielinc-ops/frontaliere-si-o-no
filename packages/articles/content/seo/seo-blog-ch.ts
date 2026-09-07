@@ -76148,6 +76148,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cybersecurity-casa-data-center': {
+    title: 'Ognuno dovrebbe essere un hacker: la nostra casa è un data center',
+    description: 'Keren Elazari, esperta di cybersicurezza, spiega come l\'intelligenza artificiale sta cambiando il mondo degli attacchi informatici e come possiamo proteggere',
+    keywords: 'frontalieri, ticino, svizzera, italia, ognuno, dovrebbe, essere, hacker',
+    ogTitle: 'Ognuno dovrebbe essere un hacker: la nostra casa è un data center',
+    ogDescription: 'Keren Elazari, esperta di cybersicurezza, spiega come l\'intelligenza artificiale sta cambiando il mondo degli attacchi informatici e come possiamo proteggere la nostra privacy. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/cybersecurity-casa-data-center/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ognuno dovrebbe essere un hacker: la nostra casa è un data center",
+      "description": "Keren Elazari, esperta di cybersicurezza, spiega come l'intelligenza artificiale sta cambiando il mondo degli attacchi informatici e come possiamo proteggere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cybersecurity-casa-data-center.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una moderna sala di soggiorno con dispositivi connessi, tra cui una smart TV, un laptop e elettrodomestici intelligenti, tutti collegati a un router Wi-Fi sicuro."
+      },
+      "datePublished": "2026-09-07T07:24:43+00:00",
+      "dateModified": "2026-09-07T07:24:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cybersecurity-casa-data-center/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

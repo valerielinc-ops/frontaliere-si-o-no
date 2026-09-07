@@ -5866,6 +5866,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ddps-thun-difesa-innovazione.title': 'DDPS Strengthens Thun Headquarters for Defense and Innovation',
     'blog.article.ddps-thun-difesa-innovazione.excerpt': 'DDPS will maintain Confederation-owned areas on the Thun parade ground for military purposes.',
     'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Aerial view of Thun military base with modern defense and innovation facilities.',
+    'blog.article.cybersecurity-casa-data-center.title': 'Everyone should be a hacker: our home is a data center',
+    'blog.article.cybersecurity-casa-data-center.excerpt': 'Cybersecurity expert Keren Elazari explains how artificial intelligence is changing the world of cyberattacks and how we can protect our privacy.',
+    'blog.article.cybersecurity-casa-data-center.imageAlt': 'A modern living room with connected devices, including a smart TV, laptop, and smart home appliances, all connected to a secure Wi-Fi router.',
 };
 
 export default blogMetaChEn;

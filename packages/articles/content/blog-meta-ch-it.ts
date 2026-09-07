@@ -5866,6 +5866,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ddps-thun-difesa-innovazione.title': 'Il DDPS rafforza la sede di Thun per la difesa e l’innovazione',
     'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Il DDPS manterrà le aree di proprietà della Confederazione sulla piazza d’armi di Thun per scopi militari.',
     'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Vista aerea della piazza d’armi di Thun con strutture moderne per la difesa e l’innovazione.',
+    'blog.article.cybersecurity-casa-data-center.title': 'Ognuno dovrebbe essere un hacker: la nostra casa è un data center',
+    'blog.article.cybersecurity-casa-data-center.excerpt': 'Keren Elazari, esperta di cybersicurezza, spiega come l\'intelligenza artificiale sta cambiando il mondo degli attacchi informatici e come possiamo proteggere la nostra privacy.',
+    'blog.article.cybersecurity-casa-data-center.imageAlt': 'Una moderna sala di soggiorno con dispositivi connessi, tra cui una smart TV, un laptop e elettrodomestici intelligenti, tutti collegati a un router Wi-Fi sicuro.',
 };
 
 export default blogMetaChIt;

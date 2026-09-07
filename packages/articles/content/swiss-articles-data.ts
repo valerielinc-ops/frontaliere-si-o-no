@@ -17596,6 +17596,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cybersecurity-casa-data-center',
+    category: 'novita',
+    date: '2026-09-07T07:24:43.816Z',
+    image: '/images/blog/cybersecurity-casa-data-center.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
