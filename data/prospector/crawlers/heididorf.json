@@ -1,0 +1,21 @@
+{
+  "companyKey": "heididorf",
+  "companyName": "Heidihaus",
+  "companyHost": "heididorf.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.heididorf.ch/info/offene-stellen/"
+  ],
+  "detailTemplate": "/info/offene-stellen/fileadmin/user_upload/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "(Download Stellenbeschrieb)",
+    "(Download Beschrieb szenische Belebung)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-07T09:20:50.249Z"
+}
