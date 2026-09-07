@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-09-07T15:14:24.799Z",
+  "generatedAt": "2026-09-07T23:36:22.897Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25490,
-  "avgDurationMs": 25490,
+  "durationMs": 26445,
+  "avgDurationMs": 26445,
   "durationHistory": [
-    25490
+    26445
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-02T13:45:20.607Z",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,8 +81,6 @@
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
       "firstSeenAt": "2026-08-31T17:16:34.884Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -375,8 +374,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-03T13:44:23.388Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

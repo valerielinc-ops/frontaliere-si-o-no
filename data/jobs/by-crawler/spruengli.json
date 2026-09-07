@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spruengli",
-  "assembledAt": "2026-09-07T15:13:32.576Z",
+  "assembledAt": "2026-09-07T23:35:32.150Z",
   "jobs": [
     {
       "id": "spruengli-38a6aa65af9b",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "turn-manager-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
         "en": "shift-manager-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
-        "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+        "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
         "fr": "gestionnaire-de-poste-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/116352/1257/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.588Z",
+      "crawledAt": "2026-09-07T23:35:21.522Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -69,6 +69,9 @@
         ],
         "fr": [
           "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "de": [
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -93,7 +96,7 @@
       "slugByLocale": {
         "it": "personale-di-servizio-80-100-cafe-lounge-e-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich",
         "en": "service-staff-80-100-cafe-lounge-and-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
-        "de": "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
+        "de": "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
         "fr": "personnel-du-service-80-100-cafe-salon-et-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -118,7 +121,7 @@
       "url": "https://apply.refline.ch/116352/1203/pub/21/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.587Z",
+      "crawledAt": "2026-09-07T23:35:21.521Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -158,6 +161,7 @@
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ],
         "de": [
+          "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-spruengli-zurich",
           "servicemitarbeiter-in-80-100-cafe-lounge-und-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ],
         "fr": [
@@ -185,7 +189,7 @@
       "slugByLocale": {
         "it": "personale-di-servizio-in-80-100-paradeplatz-zurigo-confiserie-sprungli-ag-zurich",
         "en": "service-staff-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
-        "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich",
+        "de": "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich",
         "fr": "personnel-de-service-a-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -210,7 +214,7 @@
       "url": "https://apply.refline.ch/116352/1247/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.585Z",
+      "crawledAt": "2026-09-07T23:35:21.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -260,6 +264,9 @@
         ],
         "fr": [
           "servicemitarbeiter-in-80-100-paradeplatz-zurich-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "servicemitarbeiter-in-80-100-paradeplatz-zurich-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -283,8 +290,8 @@
       "slug": "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
         "it": "ufficio-dipendente-a-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "en": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
-        "de": "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich",
+        "en": "office-buffet-employee-100-paradeplatz-confiserie-sprungli-ag-zurich",
+        "de": "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich",
         "fr": "employe-de-bureau-buffet-100-paradeplatz-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -309,7 +316,7 @@
       "url": "https://apply.refline.ch/116352/1201/pub/29/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.584Z",
+      "crawledAt": "2026-09-07T23:35:21.518Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -346,6 +353,12 @@
         ],
         "fr": [
           "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
+        ],
+        "en": [
+          "office-buffetmitarbeiter-in-100-paradeplatz-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "office-buffetmitarbeiter-in-100-paradeplatz-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -370,7 +383,7 @@
       "slugByLocale": {
         "it": "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "en": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-        "de": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
+        "de": "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
         "fr": "commis-de-cuisine-chef-de-partie-100-spruengli-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -395,7 +408,7 @@
       "url": "https://apply.refline.ch/116352/1246/pub/11/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.583Z",
+      "crawledAt": "2026-09-07T23:35:21.517Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -418,8 +431,8 @@
       "previousSlugs": [
         "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich-2a8909",
         "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
-        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich",
-        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich"
+        "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich",
+        "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -428,6 +441,7 @@
           "commissione-di-cucina-chef-de-partie-100-confiserie-sprungli-ag-zurich"
         ],
         "de": [
+          "commis-de-cuisine-chef-de-partie-100-spruengli-zurich",
           "commis-de-cuisine-chef-de-partie-100-confiserie-sprungli-ag-zurich"
         ]
       },
@@ -478,7 +492,7 @@
       "url": "https://apply.refline.ch/116352/1223/pub/22/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.582Z",
+      "crawledAt": "2026-09-07T23:35:21.515Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -520,7 +534,7 @@
       "slugByLocale": {
         "it": "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen",
         "en": "barista-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich-flughafen",
-        "de": "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+        "de": "barista-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
         "fr": "barista-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich-flughafen"
       },
       "company": "Confiserie Sprüngli AG",
@@ -545,7 +559,7 @@
       "url": "https://apply.refline.ch/116352/1252/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.581Z",
+      "crawledAt": "2026-09-07T23:35:21.514Z",
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "streetAddress": "Postfach 1462",
@@ -568,9 +582,9 @@
       "previousSlugs": [
         "barista-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich-flughafen",
         "barista-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "barista-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
         "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen"
+        "barista-100-cafe-bar-aeroporto-di-zurigo-confiserie-sprungli-ag-zurich-flughafen",
+        "barista-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -583,6 +597,7 @@
           "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich"
         ],
         "de": [
+          "barista-100-cafe-bar-flughafen-zurich-spruengli-zurich",
           "barista-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ],
         "fr": [
@@ -611,7 +626,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
         "en": "sales-consultant-80-bahnhof-baden-confiserie-sprungli-ag-aargau",
-        "de": "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau",
+        "de": "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden",
         "fr": "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
@@ -636,7 +651,7 @@
       "url": "https://apply.refline.ch/116352/1206/pub/30/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.579Z",
+      "crawledAt": "2026-09-07T23:35:21.512Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -684,10 +699,13 @@
         "fr": [
           "consultant-en-ventes-80-bahnhof-baden-confiserie-sprungli-ag-aargau-81814a",
           "verkaufsberater-in-80-bahnhof-baden-confiserie-sprungli-ag-baden"
+        ],
+        "de": [
+          "verkaufsberater-in-80-bahnhof-baden-spruengli-aargau"
         ]
       },
-      "firstSeenAt": "2026-09-01T00:41:48.698Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:41:48.698Z",
       "salaryMin": 59200,
       "salaryMax": 90800,
       "salarySource": "estimated",
@@ -708,7 +726,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
         "en": "sales-consultant-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "de": "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
+        "de": "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
         "fr": "consultant-commercial-80-100-bern-station-confiserie-sprungli-ag-bern"
       },
       "company": "Confiserie Sprüngli AG",
@@ -733,7 +751,7 @@
       "url": "https://apply.refline.ch/116352/1172/pub/41/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.578Z",
+      "crawledAt": "2026-09-07T23:35:21.511Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -772,14 +790,15 @@
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "de": [
+          "verkaufsberater-in-80-100-bahnhof-bern-spruengli-bern",
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "fr": [
           "verkaufsberater-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ]
       },
-      "firstSeenAt": "2026-09-01T14:17:28.134Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:17:28.134Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -800,7 +819,7 @@
       "slugByLocale": {
         "it": "consulente-commerciale-60-100-zermatt-confiserie-sprungli-ag-zermatt",
         "en": "sales-consultant-60-100-zermatt-confiserie-sprungli-ag-zermatt",
-        "de": "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
+        "de": "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt",
         "fr": "consultant-en-ventes-60-100-zermatt-confiserie-sprungli-ag-zermatt"
       },
       "company": "Confiserie Sprüngli AG",
@@ -825,7 +844,7 @@
       "url": "https://apply.refline.ch/116352/1064/pub/80/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.575Z",
+      "crawledAt": "2026-09-07T23:35:21.510Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "streetAddress": "Bahnhofstrasse 9",
@@ -864,14 +883,15 @@
           "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ],
         "de": [
+          "verkaufsberater-in-60-100-zermatt-spruengli-zermatt",
           "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ],
         "fr": [
           "verkaufsberater-in-60-100-zermatt-confiserie-sprungli-ag-zermatt"
         ]
       },
-      "firstSeenAt": "2026-09-01T14:17:28.133Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:17:28.133Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -917,7 +937,7 @@
       "url": "https://apply.refline.ch/116352/1232/pub/10/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.574Z",
+      "crawledAt": "2026-09-07T23:35:21.509Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -979,6 +999,107 @@
       }
     },
     {
+      "id": "spruengli-8b6bf645ecf1",
+      "slug": "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
+      "slugByLocale": {
+        "it": "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
+        "en": "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
+        "de": "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+        "fr": "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon"
+      },
+      "company": "Confiserie Sprüngli AG",
+      "companyKey": "spruengli",
+      "companyDomain": "spruengli.ch",
+      "title": "Techniker*in / Mechaniker*in Instandhaltung (100%)",
+      "titleByLocale": {
+        "it": "Tecnico di manutenzione (100%)",
+        "en": "Maintenance technician (100%)",
+        "de": "Techniker*in / Mechaniker*in Instandhaltung (100%)",
+        "fr": "Technicien d'entretien (100 %)"
+      },
+      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\n Deine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+      "descriptionByLocale": {
+        "it": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "en": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
+        "fr": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen."
+      },
+      "location": "Dietikon",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/116352/1255/pub/5/index.html",
+      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T23:35:21.508Z",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernstrasse 89",
+      "postalCode": "8953",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Alimentare / Confetteria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-19",
+      "applyUrl": "https://apply.refline.ch/116352/1255/pub/5/index.html",
+      "hiringOrganizationName": "Confiserie Sprüngli AG",
+      "jobReqId": "1255",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
+        "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
+        "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
+        "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
+        "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+        "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
+          "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
+          "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
+          "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
+          "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+          "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "en": [
+          "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+        ],
+        "de": [
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "fr": [
+          "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
+          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T10:13:02.910Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spruengli-e9e88dc1b689",
       "slug": "produzione-temporanea-dei-dipendenti-fino-alla-fine-di-dicembre-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
@@ -1009,7 +1130,7 @@
       "url": "https://apply.refline.ch/116352/1233/pub/21/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.573Z",
+      "crawledAt": "2026-09-07T23:35:21.508Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1100,112 +1221,12 @@
       }
     },
     {
-      "id": "spruengli-8b6bf645ecf1",
-      "slug": "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
-      "slugByLocale": {
-        "it": "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon",
-        "en": "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
-        "de": "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "fr": "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon"
-      },
-      "company": "Confiserie Sprüngli AG",
-      "companyKey": "spruengli",
-      "companyDomain": "spruengli.ch",
-      "title": "Techniker*in / Mechaniker*in Instandhaltung (100%)",
-      "titleByLocale": {
-        "it": "Tecnico di manutenzione (100%)",
-        "en": "Maintenance technician (100%)",
-        "de": "Techniker*in / Mechaniker*in Instandhaltung (100%)",
-        "fr": "Technicien d'entretien (100 %)"
-      },
-      "description": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\n Deine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-      "descriptionByLocale": {
-        "it": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "en": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "de": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen.",
-        "fr": "Das 1836 gegründete Schweizer Familienunternehmen zählt heute mit seinem erlesenen Sortiment zu den renommiertesten Confiserien Europas. Die Produkte aus dem Hause Sprüngli stehen für beste Qualität, einmalige Frische und Natürlichkeit. Die vollendeten Kreationen bringen täglich Kundinnen und Kunden aus aller Welt ins Schwärmen.\n\nTechniker*in / Mechaniker*in Instandhaltung (100%)\n\n100%, Dietikon\n\nArbeiten bei Sprüngli\n\nIn unserer Manufaktur in Dietikon suchen wir für die Abteilung Technischer Dienst per sofort oder nach Vereinbarung eine*n erfahrene*n, motivierte*n und engagierte*n\n\nWas du bei uns bewegst\n\nDu arbeitest im Technischen Dienst am Standort Dietikon und unterstützt das Team bei den täglichen Wartungs- sowie Reparaturaufgaben. Dein Arbeitstag beginnt von Montag bis Freitag zwischen 06.30 und 08.00 Uhr (in Gleitzeit). Aufgrund des Rotationsmodus im Team ist zudem ca. alle 6 Wochen ein Einsatz in der Frühschicht, die um 06.00 Uhr beginnt, erforderlich. Alle 4-6 Wochen übernimmst du zudem während 1 Woche den Pikett-Dienst.\nDeine Aufgaben:\n\n• Wartungs- sowie Reparaturaufgaben an unseren Produktionsanlagen und Infrastruktur in Dietikon\n\n• Maschinenoptimierungen und laufende Verbesserungen\n\n• Installationen von Neuanlagen, Verschiebungen und Anpassungen an bestehenden Anlagen\n\nWas wir uns wünschen\n\n• Abgeschlossene EFZ-Ausbildung im technischen Bereich\n\n• Fahrausweis Kat. B ist ein Muss\n\n• Mehrjährige Berufserfahrung\n\n• Selbstständige und mitdenkende Arbeitsweise\n\n• Eigenverantwortung, Teamfähigkeit, Durchsetzungsvermögen und Flexibilität\n\n• Stilsicheres Deutsch in Wort und Schrift\n\n• Gute EDV-Anwenderkenntnisse\n\nDarauf kannst du dich freuen\n\nBei uns erwartet dich ein vielseitiges und herausforderndes Aufgabengebiet in einem lebhaften und modernen Umfeld mit einem motivierten Team und einer kollegialen Du-Kultur. Für die Arbeitskleidung und deren Reinigung sowie für abwechslungsreiche Verpflegungsmöglichkeiten unter anderem in unserem Personalrestaurant sorgen wir gerne. Wir bieten dir gute Anstellungsbedingungen wie 5 Wochen Ferien, einen zusätzlichen freien Tag im Geburtstagsmonat, einen kostenlosen Parkplatz und grosszügige Einkaufsvergünstigungen.\n\nBist du interessiert?\nDann freuen wir uns auf deine elektronische Bewerbung.*\nDerzeit nehmen wir keine Bewerbungen von Stellenvermittlungen für diese Position entgegen."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/116352/1255/pub/5/index.html",
-      "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.572Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Bernstrasse 89",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Alimentare / Confetteria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://apply.refline.ch/116352/1255/pub/5/index.html",
-      "hiringOrganizationName": "Confiserie Sprüngli AG",
-      "jobReqId": "1255",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
-        "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
-        "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
-        "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
-        "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
-        "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
-        "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-        "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manutenzione-tecnica-meccanica-100-confiserie-sprungli-ag-dietikon",
-          "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
-          "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
-          "maintenance-technician-100-confiserie-sprungli-ag-dietikon",
-          "technicien-d-entretien-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon",
-          "tecnico-di-manutenzione-100-confiserie-sprungli-ag-dietikon"
-        ],
-        "en": [
-          "technician-mechanic-maintenance-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
-        ],
-        "de": [
-          "techniker-in-mechaniker-in-instandhaltung-100-confiserie-sprungli-ag-dietikon"
-        ],
-        "fr": [
-          "technicien-entretien-mecanique-100-confiserie-sprungli-ag-dietikon",
-          "techniker-in-mechaniker-in-instandhaltung-100-spruengli-dietikon"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T10:13:02.910Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "spruengli-68d43b47e6f8",
       "slug": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
       "slugByLocale": {
         "it": "stv-branch-manager-80-100-stazione-di-berna-confiserie-sprungli-ag-bern",
         "en": "stv-branch-manager-80-100-bern-station-confiserie-sprungli-ag-bern",
-        "de": "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
+        "de": "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern",
         "fr": "stv-gestionnaire-de-succursale-80-100-bern-station-confiserie-sprungli-ag-bern"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1230,7 +1251,7 @@
       "url": "https://apply.refline.ch/116352/1240/pub/10/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.571Z",
+      "crawledAt": "2026-09-07T23:35:21.506Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 10A",
@@ -1269,6 +1290,7 @@
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "de": [
+          "stv-filialleiter-in-80-100-bahnhof-bern-spruengli-bern",
           "stv-filialleiter-in-80-100-bahnhof-bern-confiserie-sprungli-ag-bern"
         ],
         "fr": [
@@ -1297,7 +1319,7 @@
       "slugByLocale": {
         "it": "stv-filiale-manager-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-aargau",
         "en": "stv-branch-manager-80-100-railway-station-baden-confiserie-sprungli-ag-aargau",
-        "de": "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
+        "de": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
         "fr": "directeur-de-succursale-stv-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1322,7 +1344,7 @@
       "url": "https://apply.refline.ch/116352/1259/pub/1/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.569Z",
+      "crawledAt": "2026-09-07T23:35:21.504Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "Bahnhofstrasse 25",
@@ -1358,6 +1380,9 @@
         ],
         "fr": [
           "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        ],
+        "de": [
+          "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -1382,7 +1407,7 @@
       "slugByLocale": {
         "it": "stv-branch-manager-100-zona-di-zurigo-confiserie-sprungli-ag-zurich",
         "en": "stv-branch-manager-100-zurich-area-confiserie-sprungli-ag-zurich",
-        "de": "stv-filialleiter-in-100-raum-zurich-spruengli-zurich",
+        "de": "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich",
         "fr": "directeur-de-succursale-stv-100-region-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1407,7 +1432,7 @@
       "url": "https://apply.refline.ch/116352/1125/pub/56/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.568Z",
+      "crawledAt": "2026-09-07T23:35:21.503Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -1461,6 +1486,9 @@
         "fr": [
           "directeur-de-succursale-stv-100-region-de-zurich-confiserie-sprungli-ag-zurich-3a2314",
           "stv-filialleiter-in-100-raum-zurich-confiserie-sprungli-ag-zurich"
+        ],
+        "de": [
+          "stv-filialleiter-in-100-raum-zurich-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1510,7 +1538,7 @@
       "url": "https://apply.refline.ch/116352/1112/pub/15/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.566Z",
+      "crawledAt": "2026-09-07T23:35:21.501Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1576,7 +1604,7 @@
       "slugByLocale": {
         "it": "dipendente-di-produzione-nel-funzionamento-della-macchina-100-dipartimento-luxembourgerli-confiserie-sprungli-ag",
         "en": "production-employee-in-machine-operation-100-luxembourgerli-department-confiserie-sprungli-ag-dietikon",
-        "de": "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli",
+        "de": "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon",
         "fr": "employe-de-production-en-machine-100-luxembourgerli-departement-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1601,7 +1629,7 @@
       "url": "https://apply.refline.ch/116352/1237/pub/13/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.565Z",
+      "crawledAt": "2026-09-07T23:35:21.500Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1643,6 +1671,7 @@
           "production-employee-in-machine-operation-100-luxembourgerli-department-confiserie-sprungli-ag-dietikon-8a0cf3"
         ],
         "de": [
+          "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-spruengli",
           "produktionsmitarbeiter-in-maschinenbedienung-100-abteilung-luxemburgerli-confiserie-sprungli-ag-dietikon"
         ],
         "fr": [
@@ -1672,7 +1701,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-master-80-100-confiserie-sprungli-ag-dietikon",
         "en": "master-data-management-80-100-spruengli-dietikon",
-        "de": "master-data-management-80-100-spruengli-dietikon",
+        "de": "master-data-management-80-100-confiserie-sprungli-ag-dietikon",
         "fr": "master-data-management-80-100-spruengli-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
@@ -1697,7 +1726,7 @@
       "url": "https://apply.refline.ch/116352/1250/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.564Z",
+      "crawledAt": "2026-09-07T23:35:21.498Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1718,9 +1747,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "master-data-management-80-100-confiserie-sprungli-ag-dietikon",
         "master-data-management-80-100-spruengli-dietikon",
-        "gestione-dei-dati-master-80-100-confiserie-sprungli-ag-dietikon"
+        "gestione-dei-dati-master-80-100-confiserie-sprungli-ag-dietikon",
+        "master-data-management-80-100-confiserie-sprungli-ag-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1728,6 +1757,7 @@
           "gestione-dei-dati-master-80-100-confiserie-sprungli-ag-dietikon"
         ],
         "de": [
+          "master-data-management-80-100-spruengli-dietikon",
           "master-data-management-80-100-confiserie-sprungli-ag-dietikon"
         ]
       },
@@ -1754,7 +1784,7 @@
         "it": "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
         "en": "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
         "de": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "fr": "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
+        "fr": "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -1778,7 +1808,7 @@
       "url": "https://apply.refline.ch/116352/1190/pub/40/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.562Z",
+      "crawledAt": "2026-09-07T23:35:21.496Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -1849,7 +1879,8 @@
         ],
         "fr": [
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-          "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon"
+          "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
+          "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "needsRetranslation": true,
@@ -1875,7 +1906,7 @@
         "it": "consulente-commerciale-stazione-di-ginevra-60-confiserie-sprungli-ag-genf",
         "en": "sales-advisor-geneva-station-60-confiserie-sprungli-ag-genf",
         "de": "verkaufsberater-bahnhof-genf-60-confiserie-sprungli-ag-genf",
-        "fr": "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
+        "fr": "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -1899,7 +1930,7 @@
       "url": "https://apply.refline.ch/116352/1245/pub/4/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:24.561Z",
+      "crawledAt": "2026-09-07T23:35:21.493Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Place de Cornavin 7",
@@ -1920,9 +1951,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve",
         "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
-        "consulente-commerciale-stazione-di-ginevra-60-confiserie-sprungli-ag-genf"
+        "consulente-commerciale-stazione-di-ginevra-60-confiserie-sprungli-ag-genf",
+        "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1936,6 +1967,7 @@
           "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf"
         ],
         "fr": [
+          "conseillere-conseiller-de-vente-gare-de-geneve-60-spruengli-genf",
           "conseillere-conseiller-de-vente-gare-de-geneve-60-confiserie-sprungli-ag-geneve"
         ]
       },
@@ -1985,7 +2017,7 @@
       "url": "https://apply.refline.ch/116352/1248/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.559Z",
+      "crawledAt": "2026-09-07T23:35:21.492Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
@@ -2068,7 +2100,7 @@
       "url": "https://apply.refline.ch/116352/1253/pub/2/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.557Z",
+      "crawledAt": "2026-09-07T23:35:21.488Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 21",
@@ -2103,8 +2135,8 @@
           "demand-planner-process-automation-specialist-100-spruengli-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-13T10:21:56.386Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:21:56.386Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2150,7 +2182,7 @@
       "url": "https://apply.refline.ch/116352/1039/pub/68/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.555Z",
+      "crawledAt": "2026-09-07T23:35:21.486Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Bahnhofstrasse 21",
@@ -2236,7 +2268,7 @@
       "url": "https://apply.refline.ch/116352/1251/pub/5/index.html",
       "source": "Confiserie Sprüngli Dedicated Parser (Refline 116352)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:24.551Z",
+      "crawledAt": "2026-09-07T23:35:21.481Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bernstrasse 89",
