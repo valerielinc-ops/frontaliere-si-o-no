@@ -5896,6 +5896,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mondo-auto-grigio-impressione-colore.title': 'Il mondo delle auto diventa sempre più grigio e non è solo un\'impressione',
     'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Secondo un\'analisi dell\'Ufficio federale delle strade, il rosso era il colore più gettonato per le nuove immatricolazioni nel 1985, con quasi il 23%. Oggi quella quota si è ridotta al 4%.',
     'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Una strada svizzera con auto di vari colori, con un focus su auto grigie, nere e bianche.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics raccoglie 4,3 milioni per l\'espansione internazionale',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'La startup svizzera con sede al Tecnopolo Ticino di Manno ha annunciato la chiusura di un investimento da EUR 4,3 milioni per accelerare la propria espansione internazionale.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Vista aerea del Tecnopolo Ticino a Manno, Svizzera, con edifici moderni e spazi verdi.',
 };
 
 export default blogMetaChIt;

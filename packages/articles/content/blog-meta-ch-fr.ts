@@ -5896,6 +5896,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mondo-auto-grigio-impressione-colore.title': 'Le monde des voitures devient gris',
     'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Selon une analyse de l\'Office fédéral des routes, le rouge était la couleur la plus prisée pour les nouvelles immatriculations en 1985, avec près de 23%. Aujourd\'hui, cette part est tombée à 4 %.',
     'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Une route suisse avec des voitures de différentes couleurs, avec un focus sur les voitures grises, noires et blanches.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics lève 4,3 millions d\'euros pour son expansion internationale',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'La start-up suisse basée à Tecnopolo Ticino di Manno a annoncé la clôture d\'un investissement de 4,3 millions d\'euros pour accélérer son expansion internationale.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Vue aérienne du Tecnopolo Ticino à Manno, Suisse, avec des bâtiments modernes et des espaces verts.',
 };
 
 export default blogMetaChFr;

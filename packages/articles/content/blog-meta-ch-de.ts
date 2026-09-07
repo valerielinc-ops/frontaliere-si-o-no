@@ -5896,6 +5896,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mondo-auto-grigio-impressione-colore.title': 'Die Autowelt wird immer grauer und es ist nicht nur ein Eindruck',
     'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Laut einer Analyse des Bundesamtes für Strassen war Rot 1985 mit fast 23 Prozent die beliebteste Farbe für Neuzulassungen. Heute ist dieser Anteil auf 4% gesunken.',
     'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Eine Schweizer Straße mit Autos in verschiedenen Farben, mit einem Fokus auf graue, schwarze und weiße Autos.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics sammelt 4,3 Millionen für die internationale Expansion',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'Das Schweizer Startup mit Sitz am Tecnopolo Ticino di Manno hat den Abschluss einer Investition in Höhe von 4,3 Millionen Euro angekündigt, um seine internationale Expansion zu beschleunigen.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Luftaufnahme des Tecnopolo Ticino in Manno, Schweiz, mit modernen Gebäuden und Grünflächen.',
 };
 
 export default blogMetaChDe;
