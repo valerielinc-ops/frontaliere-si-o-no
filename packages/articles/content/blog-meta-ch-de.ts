@@ -5863,6 +5863,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neuchatel-salari-livelli-formazione.title': 'Löhne und Arbeit in Neuenburg: Branchen und Ebenen',
     'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Arbeitsmarkt im Kanton Neuchâtel: Wie Löhne funktionieren, welche Faktoren die Bezahlung beeinflussen, Rechte und Werkzeuge zur Gehaltsbewertung.',
     'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Fachleute arbeiten in einem modernen Schweizer Büro mit Bergaussicht.',
+    'blog.article.ddps-thun-difesa-innovazione.title': 'VBS stärkt Thuner Standort für Verteidigung und Innovation',
+    'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Das VBS wird die Gebiete des Bundes auf dem Waffenplatz Thun für militärische Zwecke unterhalten.',
+    'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Luftaufnahme des Militärplatzes Thun mit modernen Einrichtungen für Verteidigung und Innovation.',
 };
 
 export default blogMetaChDe;
