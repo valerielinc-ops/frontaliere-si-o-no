@@ -77201,6 +77201,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-dimora-b-canton-ginevra-requisiti-rinnovo': {
+    title: 'Permesso di dimora B nel Canton Ginevra: requisiti e rinnovo',
+    description: 'Scopri i requisiti e la procedura per ottenere e rinnovare il permesso di dimora B nel Canton Ginevra. Tutto su residenza legale e lavoro stabile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, canton, ginevra',
+    ogTitle: 'Permesso di dimora B nel Canton Ginevra: requisiti e rinnovo',
+    ogDescription: 'Scopri i requisiti e la procedura per ottenere e rinnovare il permesso di dimora B nel Canton Ginevra. Tutto su residenza legale e lavoro stabile.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-canton-ginevra-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B nel Canton Ginevra: requisiti e rinnovo",
+      "description": "Scopri i requisiti e la procedura per ottenere e rinnovare il permesso di dimora B nel Canton Ginevra. Tutto su residenza legale e lavoro stabile.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-canton-ginevra-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Ginevra con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-07T12:22:21+00:00",
+      "dateModified": "2026-09-07T12:22:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-canton-ginevra-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

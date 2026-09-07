@@ -17839,6 +17839,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-canton-ginevra-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-09-07T12:22:21.792Z',
+    image: '/images/blog/permesso-dimora-b-canton-ginevra-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
