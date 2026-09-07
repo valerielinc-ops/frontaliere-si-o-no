@@ -87784,6 +87784,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-arredamento-uffici-ticino-ai': {
+    title: 'Le 5 aziende top per uffici in Ticino | Frontaliere Ticino',
+    description: 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, uffici, scopri, quali',
+    ogTitle: 'Le 5 aziende per arredamento e progettazione di uffici più consigliate dall’AI in Ticino',
+    ogDescription: 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Baumgartner e Chiodoni Luigi SA sono tra le scelte consigliate.',
+    canonicalPath: '/articoli-frontaliere/arredamento-uffici-ticino-ai',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le 5 aziende top per uffici in Ticino",
+      "description": "Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arredamento-uffici-ticino-ai.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Ticino con arredamento su misura e tecnologia avanzata."
+      },
+      "datePublished": "2026-09-07T07:42:37+00:00",
+      "dateModified": "2026-09-07T07:42:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arredamento-uffici-ticino-ai/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

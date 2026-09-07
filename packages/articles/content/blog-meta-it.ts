@@ -11521,6 +11521,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Vivere a Aymavilles e lavorare in Vallese da frontaliere',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi di trasferirsi a Aymavilles per lavorare in Vallese.',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Panoramica di Aymavilles con le Alpi svizzere sullo sfondo',
+    'blog.article.arredamento-uffici-ticino-ai.title': 'Le 5 aziende top per uffici in Ticino',
+    'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI.',
+    'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Ufficio moderno in Ticino con arredamento su misura e tecnologia avanzata.',
 };
 
 export default blogMetaIt;
