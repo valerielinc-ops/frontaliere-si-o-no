@@ -5923,6 +5923,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rana-caff-scoperta-costa-rica.title': 'La « grenouille du café » : découverte d\'une nouvelle espèce au Costa Rica',
     'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'Des plantations de café aux écosystèmes aquatiques : la découverte de l\'amphibien et la relation entre agriculture, tourisme et protection de la biodiversité',
     'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Vue panoramique de Castelgrande à Bellinzona, Suisse',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Permis de conduire dans le canton de Neuchâtel : conversion et examens',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Découvrez comment convertir votre permis étranger et passer les examens dans le canton de Neuchâtel.',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'Une personne étudiant pour l\'examen du permis de conduire en Suisse',
 };
 
 export default blogMetaChFr;

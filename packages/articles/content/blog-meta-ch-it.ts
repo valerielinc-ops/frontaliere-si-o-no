@@ -5923,6 +5923,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rana-caff-scoperta-costa-rica.title': 'La “rana del caffè”: scoperta una nuova specie in Costa Rica',
     'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'Dalle piantagioni di caffè agli ecosistemi acquatici: la scoperta dell’anfibio e il rapporto tra agricoltura, turismo e tutela della biodiversità',
     'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Vista panoramica di Castelgrande a Bellinzona, Svizzera',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Patente di guida nel Canton Neuchâtel: conversione ed esami',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Scopri come convertire la tua patente estera e sostenere gli esami nel Canton Neuchâtel.',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'Una persona che studia per l\'esame della patente di guida in Svizzera',
 };
 
 export default blogMetaChIt;

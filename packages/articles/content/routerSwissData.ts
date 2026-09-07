@@ -2000,6 +2000,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tragitto-casa-scuola-rischioso': { it: 'tragitto-casa-scuola-rischioso', en: 'school-commute-risky', de: 'schulweg-gefahrlich', fr: 'trajets-ecole-dangereux' },
  'settembre-mese-ambiente-collina-doro': { it: 'settembre-mese-ambiente-collina-doro', en: 'september-environment-month-collina-doro', de: 'september-umweltmonat-collina-doro', fr: 'septembre-mois-environnement-collina-doro' },
  'rana-caff-scoperta-costa-rica': { it: 'rana-caff-scoperta-costa-rica', en: 'coffee-frog-discovered-in-costa-rica', de: 'kaffeefrosch-in-kosta-rica-entdeckt', fr: 'grenouille-cafe-decouverte-au-costa-rica' },
+ 'patente-guida-neuchatel-conversione-ed-esami': { it: 'patente-guida-neuchatel-conversione-ed-esami', en: 'driving-license-neuchatel-conversion-and-exams', de: 'fuhrerschein-neuchatel-umwandlung-und-pruefungen', fr: 'permis-de-conduire-neuchatel-conversion-et-examens' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

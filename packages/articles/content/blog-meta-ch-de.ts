@@ -5923,6 +5923,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rana-caff-scoperta-costa-rica.title': 'Der „Kaffeefrosch“: Entdeckung einer neuen Art in Costa Rica',
     'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'Von Kaffeeplantagen bis zu aquatischen Ökosystemen: Die Entdeckung der Amphibie und die Beziehung zwischen Landwirtschaft, Tourismus und Schutz der Artenvielfalt',
     'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Panoramablick auf Castelgrande in Bellinzona, Schweiz',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.title': 'Führerschein im Kanton Neuenburg: Umschulung und Prüfungen',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.excerpt': 'Erfahren Sie, wie Sie Ihren ausländischen Führerschein umtauschen und Prüfungen im Kanton Neuenburg ablegen können.',
+    'blog.article.patente-guida-neuchatel-conversione-ed-esami.imageAlt': 'Eine Person, die für die Führerscheinprüfung in der Schweiz lernt',
 };
 
 export default blogMetaChDe;
