@@ -706,10 +706,55 @@ const SEC_SEP = '[\\s\\-–—/_.]{1,3}';
  * inclusi, come in `SEC_SEP`) e l'alternativa tiene la punteggiatura dei
  * composti intra-campo (`ICT-Architekt`, `IT/OT Architect`).
  *
- * Solo per i lookaround: nei matcher POSITIVI il salto di campo e' voluto
- * (`Security` nel titolo + `Officer` nella category e' un match legittimo).
+ * Nei matcher POSITIVI il salto di campo e' voluto di regola (`Security` nel
+ * titolo + `Officer` nella category e' un match legittimo), con UNA eccezione:
+ * quando il matcher positivo e il lookaround che lo veta condividono lo stesso
+ * qualificatore, devono condividere anche il separatore. Se il positivo usa
+ * `SEC_SEP` e il veto `INTRA_FIELD_SEP`, un qualificatore in un campo e
+ * `Security Guard` in quello dopo matchano il lessico cyber senza far scattare
+ * il veto fisico: e' il doppio-landing di #7553 sulla terza dimensione, dopo
+ * lessico e ancoraggio. Percio' `CYBER_QUALIFIER_SRC` gira su `INTRA_FIELD_SEP`
+ * su ENTRAMBI i lati.
  */
 const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
+
+/**
+ * Le qualificazioni che trasformano `Security <ruolo>` da guardiano fisico a
+ * ruolo cyber.
+ *
+ * UNA sola sorgente perche' la lista compare in DUE posti che devono restare
+ * speculari: l'alternativa positiva di `cybersecurity` e il lookbehind di
+ * `sicurezza` che la esclude. Scritte a mano due volte hanno gia' divergito:
+ * `cyber` stava nel lessico cyber ma non nel veto fisico, e un
+ * `Cyber Security Officer` cadeva su ENTRAMBE le landing indicizzate — il
+ * doppio contenuto che il lookbehind esiste per impedire (#7553). Con la
+ * costante condivisa la divergenza non e' piu' esprimibile, come per
+ * `ARCHITECT_TECH_QUALIFIER_SRC`.
+ *
+ * I `\b` stanno DENTRO la costante, non ai call site, per lo stesso motivo:
+ * una sorgente unica che non porta i propri confini lascia i due lati liberi
+ * di divergere sull'ANCORAGGIO invece che sul lessico, ed e' lo stesso
+ * doppio-landing. Col `\b` solo sul veto, `it` era ancorato di la' e nudo
+ * nell'alternativa positiva: ogni parola che finisce in `it` — `Transit`,
+ * `Unit`, `Audit`, `Summit`, `Deposit` — davanti a `Security Guard/Officer`
+ * matchava `cybersecurity` senza far scattare il veto, cioe' cadeva su
+ * ENTRAMBE le landing. `\bit\b` (chiuso anche in coda, come in
+ * `ARCHITECT_TECH_QUALIFIER_SRC`) tiene fuori pure il verso opposto: un
+ * `Italia Security Guard` vetato dalla sua landing fisica per un `it` che
+ * non e' una parola.
+ *
+ * Terza dimensione, stesso argomento: il SEPARATORE. Col positivo su `SEC_SEP`
+ * (che matcha per intero il joiner ` \n ` di `jobMatchesSectorCanonical`) e il
+ * veto su `INTRA_FIELD_SEP` (che il joiner non lo attraversa), un qualificatore
+ * a fine campo e `Security Guard/Officer` nel campo dopo — `{title: 'Junior
+ * IT', category: 'Security Officer'}` — matchavano il lessico cyber senza far
+ * scattare il veto fisico: ancora il doppio-landing di #7553. I due lati
+ * coincidono su `INTRA_FIELD_SEP` LI', cioe' sulla forma `security
+ * (guard|officer)` che il veto presidia; il positivo tiene un secondo ramo
+ * cross-campo su `SEC_SEP` per tutto il resto (`Security Manager/Lead/...`),
+ * che senza il salto di campo non cadrebbe su NESSUNA landing.
+ */
+const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
 export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   infermieri: /infermier|infermiere|pfleger|pflegepersonal|pflegefach|krankenpfleg|krankensch|nurse|nursing|infirmier|infirmi[eè]re/i,
@@ -757,10 +802,24 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // guardiano fisico e vivono in `sicurezza`, che li esclude con il lookbehind
   // simmetrico a questo quando li precede una qualificazione informatica.
   cybersecurity: new RegExp(
-    'cybersecurity|cyber' + SEC_SEP + 'security'
+    'cybersecurity'
     + '|sicurezza' + SEC_SEP + 'informatic'
     + '|security' + SEC_SEP + '(?:engineer|analyst|architect|specialist|consultant)'
-    + `|(?:information|it|cloud|network)${SEC_SEP}security`
+    // Due rami, non uno. Il primo e' intra-campo (`INTRA_FIELD_SEP`, la stessa
+    // costante del veto di `sicurezza`): li' il veto scatta, quindi il positivo
+    // deve fermarsi allo stesso confine, altrimenti `{title: 'Junior IT',
+    // category: 'Security Officer'}` scavalcherebbe il joiner ` \n ` di
+    // `jobMatchesSectorCanonical` col positivo mentre il veto no — di nuovo
+    // ENTRAMBE le landing (#7553).
+    // Il secondo ramo riattraversa il campo (`SEC_SEP`), perche' togliere il
+    // salto a TUTTO il cross-field cyber e' piu' largo della collisione da
+    // chiudere: `{title: 'IT', category: 'Security Manager'}` non e' un
+    // guardiano fisico (`sicurezza` vuole `guard|officer`), quindi senza questo
+    // ramo cadrebbe su ZERO landing invece che su una. Il negative lookahead
+    // esclude la SOLA forma che il veto di `sicurezza` presidia, cosi' il
+    // cross-field vale ovunque tranne dove genererebbe il doppio-landing.
+    + `|${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP}security`
+    + `|${CYBER_QUALIFIER_SRC}${SEC_SEP}security(?!${SEC_SEP}(?:guard|officer))`
     + '|informationssicherheit|sicherheitsarchitekt'
     + '|s[eé]curit[eé]' + SEC_SEP + 'informatique'
     + '|penetration' + SEC_SEP + 'test|\\bpentester\\b|\\bsoc' + SEC_SEP + 'analyst',
@@ -803,17 +862,25 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     /\bcameri[eè]r|\bkellner|\bwaiter\b|\bwaitress\b|\bserveur|\bserveuse|\bservice[ -]de[ -]table|\bbarista\b|\bbarman\b|\bbartender\b|\b(?:impiegat|collaborat)\S*\s+(?:di|della)\s+ristorazione/i,
   hotel: /\bhotel\b|\balbergh|\bhotelfach|\bhospitality\b|\breceptionist|\brezeption|\bconcierge\b|\bgouvernante\b|\bh[oô]tellerie|\bgovernante\b/i,
   pulizie: /\bpulizi|\breinigung|\bcleaning\b|\bnettoyage\b|\bputzfrau|\braumpfleg|\baddetto[ -]alle[ -]pulizie|\bagent[ -]d.entretien|\bfacility[ -]cleaning/i,
-  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network
-  // Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
+  // Sicurezza FISICA. Il lookbehind tiene fuori `Information/IT/Cloud/Network/
+  // Cyber Security Officer`, che non e' un guardiano ma un ruolo cyber: senza,
   // l'allargamento del lessico `cybersecurity` sopra lo farebbe comparire su
   // ENTRAMBE le landing. Il separatore del lookbehind e' `INTRA_FIELD_SEP`: un
   // separatore fisso non vedrebbe `Information  Security Officer` col doppio
   // spazio ne' `Information/Security Officer` (e proprio quei casi tornerebbero
   // a comparire su due landing), ma `SEC_SEP` matcherebbe anche il joiner di
   // campo e vieterebbe un `Security Guard` in category dopo un `IT` nel titolo.
+  // L'alternanza del veto e' `CYBER_QUALIFIER_SRC`, la STESSA costante del
+  // lessico positivo di `cybersecurity`: le due liste, scritte a mano, erano
+  // gia' divergite su `cyber` (#7553). Il `\b` iniziale NON e' qui ma dentro
+  // la costante, cosi' i due lati non divergono nemmeno sull'ancoraggio; e
+  // il ramo positivo che copre questa stessa forma usa lo stesso
+  // `INTRA_FIELD_SEP` di questo veto, cosi' non divergono nemmeno sul
+  // separatore (il ramo cross-campo di `cybersecurity` esclude `security
+  // (guard|officer)` con un lookahead, quindi non rientra qui).
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
-    + `|(?<!\\b(?:information|it|cloud|network)${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
+    + `|(?<!${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`
     + '|\\bsicherheitsdienst|\\bwachmann|\\bvigilanz'
     + '|\\bguardia' + SEC_SEP + 'giurat'
     + '|\\bagent' + SEC_SEP + 'de' + SEC_SEP + 's[eé]curit'
