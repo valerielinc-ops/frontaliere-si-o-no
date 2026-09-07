@@ -1,20 +1,21 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-09-06T23:11:30.821Z",
+  "generatedAt": "2026-09-07T15:18:37.355Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 2,
+  "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 28149,
-  "avgDurationMs": 28149,
+  "unchangedCount": 1,
+  "durationMs": 28694,
+  "avgDurationMs": 28694,
   "durationHistory": [
-    28149
+    28694
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T23:11:23.457Z",
+      "crawledAt": "2026-09-07T15:18:30.266Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -64,7 +65,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-06T23:11:24.460Z",
+      "crawledAt": "2026-09-07T15:18:31.236Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -85,10 +86,13 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "logitech-318c1af909a7",
-      "slug": "head-of-product-security-logitech-ch",
+      "slug": "responsabile-product-security-logitech-lausanne-switzerland",
       "company": "Logitech",
       "companyKey": "logitech",
       "companyDomain": "logitech.com",
@@ -112,15 +116,18 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "firstSeenAt": "2026-05-28T13:21:24.884Z",
-      "_qualityScore": 79,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "addressRegion": "VD",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
