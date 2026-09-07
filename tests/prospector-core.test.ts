@@ -9,13 +9,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath } from '../scripts/lib/prospector/registrable.mjs';
+import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
@@ -30,6 +30,7 @@ import { evaluatePromotion, selectForPromotion, clampMinDays, findOpenPromotionP
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
+  evaluateSourceBackedSwissGeography,
   freeTextPostalCandidates,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
@@ -59,6 +60,20 @@ describe('registrable domains', () => {
 
   it('handles multi-label suffixes', () => {
     expect(registrableDomain('jobs.acme.co.uk')).toBe('acme.co.uk');
+  });
+
+  it('strips a compound public suffix, not just its last label', () => {
+    // A single-label peel left `com` on `foo.com.br`, which is what pushed a
+    // host off its own brand in the pairing guard (#7770).
+    expect(stripPublicSuffix('foo.com.br')).toBe('foo');
+    expect(stripPublicSuffix('www.acme.co.uk')).toBe('acme');
+    expect(stripPublicSuffix('jobs.acme.ch')).toBe('jobs.acme');
+    // `.swiss` is five letters: a `[a-z]{2,4}` cap would have kept it.
+    expect(stripPublicSuffix('arosalenzerheide.swiss')).toBe('arosalenzerheide');
+    // Nothing to strip below eTLD+1, and no crash on junk input.
+    expect(stripPublicSuffix('co.uk')).toBe('co');
+    expect(stripPublicSuffix('localhost')).toBe('localhost');
+    expect(stripPublicSuffix('')).toBe('');
   });
 
   it('normalises www and ports', () => {
@@ -222,6 +237,63 @@ describe('vacancy extraction', () => {
     ]);
     expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
       .toMatchObject({ location: '1201 Genève', canton: 'GE' });
+  });
+
+  // Regressione #7772. Una detail page che elenca anche altre posizioni porta
+  // più di un container main/article: prendere il PRIMO in ordine di documento
+  // corrobora la sede leggendo l'annuncio sbagliato, e il mismatch si spegne
+  // proprio dove la sede pubblicata è davvero errata. La regione della vacancy
+  // è quella che contiene il suo titolo.
+  it('reads the workplace from the container that carries this vacancy title', () => {
+    const html = `<article class="related"><h2>Altre posizioni</h2>`
+      + `<label>Arbeitsort:</label><span>3003 Bern</span></article>`
+      + `<article><h1>Wissenschaftliche Mitarbeiterin</h1>`
+      + `<label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span></article>`;
+    expect(renderedWorkplaceLabelValues(html, 'Wissenschaftliche Mitarbeiterin'))
+      .toEqual(['Reckenholzstrasse 191, 8046 Zürich']);
+    expect(extractDetailFields(html, 'https://jobs.admin.ch/x/y').workplaceLabels)
+      .toEqual(['Reckenholzstrasse 191, 8046 Zürich']);
+  });
+
+  // Il <main> avvolge sia la vacancy sia il blocco di annunci correlati: fra i
+  // container ANNIDATI che contengono il titolo vince il più interno, l'unico
+  // che esclude i vicini. Senza titolo riconoscibile si ricade sul primo, come
+  // prima.
+  it('prefers the innermost title-bearing region and falls back to the first', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><p>1201 Genève</p></div></article>`
+      + `<article class="related"><h2>Autres postes</h2>`
+      + `<div class="contact-info"><p>6900 Lugano</p></div></article></main>`;
+    expect(renderedPostalAddressCandidates(html, 'Comptable'))
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    // Nessun titolo: comportamento invariato, primo container del documento.
+    expect(renderedPostalAddressCandidates(html))
+      .toEqual([
+        expect.objectContaining({ location: '1201 Genève' }),
+        expect.objectContaining({ location: '6900 Lugano' }),
+      ]);
+  });
+
+  // L'appartenenza è un match di sottostringa: la card di un annuncio correlato
+  // il cui titolo è un SUPERSET (`Comptable` ⊂ `Comptable senior`) contiene il
+  // titolo cercato pure lei, ed essendo una card è più corta dell'article della
+  // vacancy vera. Fra FRATELLI il più corto non vince: l'ordine di documento
+  // tiene, altrimenti la sede la corroborerebbe l'annuncio vicino.
+  it('keeps document order between sibling regions whose teaser title is a superset', () => {
+    const html = `<article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><p>1201 Genève</p></div></article>`
+      + `<article class="related"><h3>Comptable senior</h3>`
+      + `<div class="contact-info"><p>6900 Lugano</p></div></article>`;
+    expect(renderedPostalAddressCandidates(html, 'Comptable'))
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
   });
 
   // L'indirizzo dell'azienda nel chrome del sito è ripetuto identico su ogni
@@ -427,6 +499,54 @@ describe('vacancy extraction', () => {
       geography: null,
       explicitlyForeign: true,
     });
+  });
+
+  it('never raises the authoritative conflict on evidence that merely disagrees within Switzerland', () => {
+    // The flag is the only input allowed to quarantine a single record in the
+    // batch parsers (#7702): raising it without an explicitly foreign candidate
+    // would let a live Swiss vacancy disappear from the published slice instead
+    // of failing the batch closed. Two Swiss representations that name
+    // different municipalities disagree, but neither excludes the vacancy.
+    const pageUrl = 'https://x.example/job/current';
+    const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+      jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+    })}</script>` +
+      '<article itemscope itemtype="https://schema.org/JobPosting">' +
+      '<meta itemprop="title" content="Current Engineer">' +
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Lausanne">' +
+      '<meta itemprop="addressRegion" content="VD"><meta itemprop="addressCountry" content="CH"></div>' +
+      '</article>';
+    const detail = extractDetailFields(html, pageUrl);
+    expect(detail.locationCandidates).toHaveLength(2);
+    expect(detail.authoritativeLocationConflict).toBe(false);
+  });
+
+  it('always ships an explicitly foreign candidate alongside the authoritative conflict', () => {
+    // Contract the batch parsers rely on to tell an exclusion the source proved
+    // from evidence that merely disagrees: whenever the flag is up, the foreign
+    // record that raised it is among `locationCandidates`.
+    const pageUrl = 'https://x.example/job/current';
+    const conflicting = [
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Geneva">'
+        + '<meta itemprop="addressRegion" content="NY"><meta itemprop="addressCountry" content="US"></div>',
+      '<div itemprop="jobLocation"><meta itemprop="addressLocality" content="Berlin">'
+        + '<meta itemprop="addressRegion" content="Berlin"></div>',
+    ];
+    for (const jobLocation of conflicting) {
+      const html = `<h1>Current Engineer</h1><script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting', title: 'Current Engineer', url: pageUrl,
+        jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      })}</script>`
+        + '<article itemscope itemtype="https://schema.org/JobPosting">'
+        + '<meta itemprop="title" content="Current Engineer">'
+        + `${jobLocation}</article>`;
+      const detail = extractDetailFields(html, pageUrl);
+      expect(detail.authoritativeLocationConflict).toBe(true);
+      expect(detail.locationCandidates.some(
+        (candidate) => evaluateSourceBackedSwissGeography([candidate]).explicitlyForeign,
+      )).toBe(true);
+    }
   });
 
   it('detects authoritative foreign subdivision evidence without addressCountry', () => {
@@ -1284,7 +1404,20 @@ describe('promotion gate', () => {
     expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
   });
 
-  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+  it('ignora anche il timestamp ISO con la T attaccata', () => {
+    // `2026-09-05T11:01:22`: fra `05` e `T` non c'e' confine di parola, quindi
+    // la regex data e quella orario non lo vedono. Se un layout stampa quella
+    // forma come data di generazione, quattro copie della stessa pagina
+    // firmano quattro volte diverso e `detailDistinctRate` legge 1.00.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const copy = (n: number) => `${shell} generato il 2026-09-0${n}T1${n}:0${n}:2${n}`;
+    expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+    // stesse varianti che i layout server-rendered serializzano
+    const withMillis = `${shell} generato il 2026-09-05T11:01:22.417Z`;
+    const withOffset = `${shell} generato il 2026-09-05T11:01+02:00`;
+    expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
+  });
+it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
     // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
     // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
     // contenuto, e se collassassero il promotion gate leggerebbe «pagine

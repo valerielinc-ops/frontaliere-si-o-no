@@ -149,6 +149,62 @@ describe('MediPersonal crawler parser', () => {
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
     });
 
+    it('pubblica la riga il cui corpo ricco lo vede solo il confine iPersonal', async () => {
+      // Il detail extractor consegnato a `runSpecInProduction` E' il verdetto
+      // (cfr. #7717): il floor condiviso sulla descrizione, in spec-crawler.mjs,
+      // giudica quello che l'estrattore dichiara. Qui il JSON-LD non porta
+      // descrizione utile e solo il confine Simple Job Board vede il corpo
+      // autoriale — contare sul riempimento successivo faceva cadere la riga
+      // (o far fallire l'intero batch sulla prova di completezza) prima che
+      // quel riempimento girasse.
+      const seedUrl = 'https://ipersonal-authored-body.example/';
+      const detailUrl = `${seedUrl}jobs/nur-im-koerper/`;
+      const authored = 'Du planst und dokumentierst die Pflege in einem professionellen Team, berätst Angehörige und koordinierst Termine mit den behandelnden Ärztinnen und Ärzten zuverlässig und nachvollziehbar.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${detailUrl}">Pflegefachperson Bern</a>`, { status: 200 });
+        }
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Pflegefachperson Bern',
+            url: detailUrl,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Bern',
+                addressRegion: 'BE',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${authored}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Pflege sorgfältig dokumentieren</li></ul>
+          </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].description).toContain(authored);
+      expect(jobs[0].description).toContain('\n• Pflege sorgfältig dokumentieren');
+      // Il conteggio non deve dichiarare la riga scartata per qualita': il
+      // corpo c'e', ed e' quello che viene pubblicato.
+      expect((jobs as any).qualityDroppedCount).toBe(0);
+      expect((jobs as any).parsedDetailCount).toBe(1);
+    });
+
     it('commits observer state and parsed content only from the retry that succeeds', async () => {
       const seedUrl = 'https://ipersonal-retry.example/';
       const detailUrl = `${seedUrl}jobs/retry-winner/`;

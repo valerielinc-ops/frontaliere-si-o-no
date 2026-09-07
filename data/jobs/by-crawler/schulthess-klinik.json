@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-09-05T22:44:22.435Z",
+  "assembledAt": "2026-09-06T22:49:13.335Z",
   "jobs": [
     {
       "id": "schulthess-klinik-6ed643a871b5",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-hueft-und-kniechirurgie/d50311fc-79bc-46fa-a357-6e833fe8f669",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.647Z",
+      "crawledAt": "2026-09-06T22:49:06.555Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-mpa-perioperative-medizin/4781af4c-ddd2-41d2-bb9e-0d0d634fcada",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.646Z",
+      "crawledAt": "2026-09-06T22:49:06.554Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -132,11 +132,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+        "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
+        "segretario-medico-segretario-medico-medicina-perioperativa-mpa-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
+          "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2",
+          "segretario-medico-segretario-medico-medicina-perioperativa-mpa-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "arztsekretarin-arztsekretar-mpa-perioperative-medizin-schulthess-klinik-lengghalde-2"
@@ -192,7 +194,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung/f210a1bf-77c7-43c1-aa15-712fc3c7fdd4",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.641Z",
+      "crawledAt": "2026-09-06T22:49:06.553Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,12 +214,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich",
-        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich"
+        "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich",
+        "dipendenti-pulizia-dei-dipendenti-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich",
-          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich"
+          "mitarbeiterin-collaboratore-trice-reinigung-schulthess-klinik-lengghalde-2-zurich",
+          "dipendenti-pulizia-dei-dipendenti-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-reinigung-schulthess-klinik-lengghalde-2-zurich"
@@ -246,16 +250,16 @@
       "slug": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "it": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
-        "en": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
+        "en": "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "de": "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
-        "fr": "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
+        "fr": "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
       "title": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
       "titleByLocale": {
-        "it": "Med. assistente di pratica / Med. Assistente di pratica Rheumatology & Rehabilitation",
+        "it": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "en": "Med. practice assistant / Med. Practice assistant Rheumatology & Rehabilitation",
         "de": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "fr": "Med. assistant de pratique / Med. assistant de pratique Rheumatology & Rehabilitation"
@@ -267,12 +271,13 @@
         "de": "Aufgaben:\n• Sprechstundenorganisation und Terminplanung\n\n• Empfang und Betreuung der Patienten\n\n• Erstellen von Arztberichten (Hintergrundspracherkennung), erfassen von deren Leistungen nach TARDOC und Falldatenpflege\n\n• Freundliche telefonische Auskünfte und Weiterleitungen an die zuständige Instanz\n\n• Blutentnahmen, Injektionen, Infusionen\n\n• Knochendichtemessungen (Röntgenschein erforderlich oder Bereitschaft, diesen zu erlangen)\n\n• Instruktion von Patienten zur selbständigen Medikamentenapplikation\n\nAnforderungen:\n• Ausbildung als Medizinische/r Praxisassistent/in\n\n• Freude am Erstellen von Arztberichten und sichere Anwendung der medizinischen Terminologie\n\n• Hohe Motivation für administrative Tätigkeiten\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch von Vorteil\n\n• Zur Erweiterung unseres Teams freuen wir uns auf eine freundliche, teamfähige und selbstständige Persönlichkeit\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Trainingsmöglichkeiten\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "fr": "Tâches :\n• Organisation et programmation des heures de bureau\n\n• Réception et soins des patients\n\n• Préparation de rapports médicaux (reconnaissance de la parole en arrière-plan), enregistrement de leurs services selon TARDOC et mise à jour des données de cas\n\n• Information téléphonique amicale et transmission à l'autorité compétente\n\n• Prélèvement sanguin, injections, perfusions\n\n• Mesure de la densité osseuse\n\n• Instruction aux patients pour l'application indépendante du médicament\n\nExigences\n• Formation en tant qu ' assistant médical et professionnel\n\n• Délice de créer des rapports médicaux et l'application sûre de la terminologie médicale\n\n• Une forte motivation pour les activités administratives\n\n• Orientation vers le service et jouissance des contacts directs avec le patient\n\n• Très bonne et stylée connaissance de l'allemand, la connaissance en anglais est avantageuse\n\n• Pour élargir notre équipe, nous nous réjouissons à la perspective d'une personnalité amicale, capable d'équipe et indépendante\n\nNous offrons:\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Esprit d'équipe\n\n• Possibilités de formation\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
       },
+      "needsRetranslation": true,
       "location": "Lengghalde 2, Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/79a6f436-47bc-41fb-b5f4-95831b961f86",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.640Z",
+      "crawledAt": "2026-09-06T22:49:06.553Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -292,12 +297,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+        "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich",
         "med-assistant-de-pratique-med-assistant-de-pratique-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess"
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-amp-rehabilitation-schulthess",
+          "med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "med-practice-assistant-med-practice-assistant-rheumatology-rehabilitation-schulthess-klinik-lengghalde-2-zurich"
@@ -307,6 +314,89 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:06:50.597Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-06d8ffbf6cca",
+      "slug": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
+      "slugByLocale": {
+        "it": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
+        "en": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "de": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "fr": "secretaire-medical-secretaire-medical-chirurgie-manuelle-schulthess-klinik-lengghalde-2-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Arztsekretärin / Arztsekretär Handchirurgie",
+      "titleByLocale": {
+        "it": "Segreto medico / Segreto medico Chirurgia della mano",
+        "en": "Arztsekretärin / Arztsekretär Handchirurgie",
+        "de": "Arztsekretärin / Arztsekretär Handchirurgie",
+        "fr": "Secrétaire médical / Secrétaire médical Chirurgie manuelle"
+      },
+      "description": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritt-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Eine Dienstleistungs- und teamorientierte Arbeitsweise und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige und freundliche Persönlichkeit\n\n• Sehr gute und stilsichere Deutschkenntnisse sowie gute Kenntnisse in Englisch, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Trainingsmöglichkeiten\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Compiti:\n• Organizzazione, coordinamento e preparazione delle ore di consultazione\n\n• Ordine di immagini e file di raggi X mancanti dei pazienti da chiedere\n\n• Scrivere consultazioni, uscite, operazioni e rapporti assicurativi da Diktaphon e registrare i dati nel sistema\n\n• Completamento delle richieste di posta e di telefono in entrata\n\n• stretta collaborazione con il team medico e la persona di contatto per i loro pazienti\n\nRequisiti\n• Formazione come MPA e/o formazione aggiuntiva come assistente ospedaliero e medico con esperienza professionale in una posizione paragonabile\n\n• Gioia di scrittura e applicazione sicura della terminologia medica\n\n• Un modo di lavorare e di godere di un contatto diretto con i pazienti\n\n• Personalità affidabile, indipendente e amichevole\n\n• Conoscenza molto buona ed elegante del tedesco e buona conoscenza dell'inglese, ulteriori competenze linguistiche utili\n\nOffriamo:\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Opportunità di formazione\n\n• Equilibrio di vita / Amica della famiglia\n\n• Cibo economico nel ristorante del personale\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Organisation, coordination and preparation of consultation hours\n\n• Order of missing X-ray images and files of the patients to be asked\n\n• Writing consultation, exit, operation and insurance reports from Diktaphon and recording the data in the system\n\n• Completion of incoming mail and telephone requests\n\n• Close cooperation with the medical team and contact person for their patients\n\nRequirements\n• Training as MPA and/or additional training as hospital and medical secretary with professional experience in a comparable position\n\n• Joy of writing and safe application of medical terminology\n\n• A service- and team-oriented way of working and enjoyment of direct patient contact\n\n• Trustworthy, independent and friendly personality\n\n• Very good and stylish knowledge of German as well as good knowledge of English, further language skills beneficial\n\nWe offer:\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Training opportunities\n\n• Work-Life Balance / Family Friendliness\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritt-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Eine Dienstleistungs- und teamorientierte Arbeitsweise und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige und freundliche Persönlichkeit\n\n• Sehr gute und stilsichere Deutschkenntnisse sowie gute Kenntnisse in Englisch, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Trainingsmöglichkeiten\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Tâches :\n• Organisation, coordination et préparation des heures de consultation\n\n• Ordre des images et fichiers radio manquants des patients à demander\n\n• Rédaction de rapports de consultation, de sortie, d'exploitation et d'assurance de Diktaphon et enregistrement des données dans le système\n\n• Traitement des demandes de courrier et de téléphone reçues\n\n• Coopération étroite avec l'équipe médicale et la personne de contact pour leurs patients\n\nExigences\n• Formation en tant que député et/ou formation supplémentaire en tant que secrétaire hospitalier et médical ayant une expérience professionnelle dans un poste comparable\n\n• Joy de rédaction et application sûre de la terminologie médicale\n\n• Un mode de travail axé sur le service et l'équipe et la jouissance des contacts directs avec le patient\n\n• Personnalité fiable, indépendante et amicale\n\n• Très bonne et élégante connaissance de l'allemand ainsi que bonne connaissance de l'anglais, d'autres compétences linguistiques bénéfiques\n\nNous offrons:\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Possibilités de formation\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
+      },
+      "needsRetranslation": true,
+      "location": "Lengghalde 2, Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-handchirurgie/7099fe6e-2886-4f85-8592-bea0843ca315",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:49:06.552Z",
+      "addressLocality": "Lengghalde 2, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "Lengghalde 2",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2086",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich",
+        "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
+          "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich",
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-01T14:09:05.664Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -353,7 +443,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-manuelle-medizin/79e3eb8f-e7b5-47e4-96d2-f339b56188e0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.639Z",
+      "crawledAt": "2026-09-06T22:49:06.552Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -372,11 +462,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-manuelle-medizin-schulthess-klinik-lengghalde-2-zurich"
+        "arztsekretarin-arztsekretar-manuelle-medizin-schulthess-klinik-lengghalde-2-zurich",
+        "segretariato-medico-medicina-medica-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-manuelle-medizin-schulthess-klinik-lengghalde-2-zurich"
+          "arztsekretarin-arztsekretar-manuelle-medizin-schulthess-klinik-lengghalde-2-zurich",
+          "segretariato-medico-medicina-medica-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "arztsekretarin-arztsekretar-manuelle-medizin-schulthess-klinik-lengghalde-2-zurich"
@@ -401,116 +493,38 @@
       }
     },
     {
-      "id": "schulthess-klinik-06d8ffbf6cca",
-      "slug": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
-      "slugByLocale": {
-        "it": "segreto-medico-segreto-medico-chirurgia-della-mano-schulthess-klinik-lengghalde-2-zurich",
-        "en": "medical-secretary-medical-secretary-hand-surgery-schulthess-klinik-lengghalde-2-zurich",
-        "de": "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "secretaire-medical-secretaire-medical-chirurgie-manuelle-schulthess-klinik-lengghalde-2-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Arztsekretärin / Arztsekretär Handchirurgie",
-      "titleByLocale": {
-        "it": "Segreto medico / Segreto medico Chirurgia della mano",
-        "en": "Medical secretary / Medical secretary Hand surgery",
-        "de": "Arztsekretärin / Arztsekretär Handchirurgie",
-        "fr": "Secrétaire médical / Secrétaire médical Chirurgie manuelle"
-      },
-      "description": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritt-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Eine Dienstleistungs- und teamorientierte Arbeitsweise und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige und freundliche Persönlichkeit\n\n• Sehr gute und stilsichere Deutschkenntnisse sowie gute Kenntnisse in Englisch, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Trainingsmöglichkeiten\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Organizzazione, coordinamento e preparazione delle ore di consultazione\n\n• Ordine di immagini e file di raggi X mancanti dei pazienti da chiedere\n\n• Scrivere consultazioni, uscite, operazioni e rapporti assicurativi da Diktaphon e registrare i dati nel sistema\n\n• Completamento delle richieste di posta e di telefono in entrata\n\n• stretta collaborazione con il team medico e la persona di contatto per i loro pazienti\n\nRequisiti\n• Formazione come MPA e/o formazione aggiuntiva come assistente ospedaliero e medico con esperienza professionale in una posizione paragonabile\n\n• Gioia di scrittura e applicazione sicura della terminologia medica\n\n• Un modo di lavorare e di godere di un contatto diretto con i pazienti\n\n• Personalità affidabile, indipendente e amichevole\n\n• Conoscenza molto buona ed elegante del tedesco e buona conoscenza dell'inglese, ulteriori competenze linguistiche utili\n\nOffriamo:\n• 40 settimana oraria\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Opportunità di formazione\n\n• Equilibrio di vita / Amica della famiglia\n\n• Cibo economico nel ristorante del personale\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
-        "en": "Tasks:\n• Organisation, coordination and preparation of consultation hours\n\n• Order of missing X-ray images and files of the patients to be asked\n\n• Writing consultation, exit, operation and insurance reports from Diktaphon and recording the data in the system\n\n• Completion of incoming mail and telephone requests\n\n• Close cooperation with the medical team and contact person for their patients\n\nRequirements\n• Training as MPA and/or additional training as hospital and medical secretary with professional experience in a comparable position\n\n• Joy of writing and safe application of medical terminology\n\n• A service- and team-oriented way of working and enjoyment of direct patient contact\n\n• Trustworthy, independent and friendly personality\n\n• Very good and stylish knowledge of German as well as good knowledge of English, further language skills beneficial\n\nWe offer:\n• 40 hourly week\n\n• Attractive social benefits and numerous benefits\n\n• Training opportunities\n\n• Work-Life Balance / Family Friendliness\n\n• Cheap food in the staff restaurant\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritt-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Eine Dienstleistungs- und teamorientierte Arbeitsweise und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige und freundliche Persönlichkeit\n\n• Sehr gute und stilsichere Deutschkenntnisse sowie gute Kenntnisse in Englisch, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Trainingsmöglichkeiten\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Tâches :\n• Organisation, coordination et préparation des heures de consultation\n\n• Ordre des images et fichiers radio manquants des patients à demander\n\n• Rédaction de rapports de consultation, de sortie, d'exploitation et d'assurance de Diktaphon et enregistrement des données dans le système\n\n• Traitement des demandes de courrier et de téléphone reçues\n\n• Coopération étroite avec l'équipe médicale et la personne de contact pour leurs patients\n\nExigences\n• Formation en tant que député et/ou formation supplémentaire en tant que secrétaire hospitalier et médical ayant une expérience professionnelle dans un poste comparable\n\n• Joy de rédaction et application sûre de la terminologie médicale\n\n• Un mode de travail axé sur le service et l'équipe et la jouissance des contacts directs avec le patient\n\n• Personnalité fiable, indépendante et amicale\n\n• Très bonne et élégante connaissance de l'allemand ainsi que bonne connaissance de l'anglais, d'autres compétences linguistiques bénéfiques\n\nNous offrons:\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Possibilités de formation\n\n• Équilibre travail-vie personnelle / Amabilité familiale\n\n• Nourriture bon marché dans le restaurant du personnel\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
-      },
-      "location": "Lengghalde 2, Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-handchirurgie/7099fe6e-2886-4f85-8592-bea0843ca315",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.634Z",
-      "addressLocality": "Lengghalde 2, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "Lengghalde 2",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=2086",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-01T14:09:05.664Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
-        ],
-        "en": [
-          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
-        ],
-        "fr": [
-          "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-handchirurgie-schulthess-klinik-lengghalde-2-zurich"
-      ]
-    },
-    {
       "id": "schulthess-klinik-33def48d83c8",
-      "slug": "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-        "en": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+        "it": "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich",
+        "en": "bed-care-professional-schulthess-klinik-lengghalde-2-zurich",
         "de": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        "fr": "specialiste-des-soins-du-lit-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
       "companyDomain": "schulthess-klinik.ch",
       "title": "Pflegefachperson für die Bettenstationen",
       "titleByLocale": {
-        "it": "Pflegefachperson per la Bettenstationen",
-        "en": "Pflegefachperson für die Bettenstationen",
+        "it": "Cura del letto professionale",
+        "en": "Bed care professional",
         "de": "Pflegefachperson für die Bettenstationen",
-        "fr": "Pflegefachperson für die Bettenstationen"
+        "fr": "Spécialiste des soins du lit"
       },
       "description": "Aufgaben:\n• Pflege und Betreuung der Patientinnen und Patienten vor und nach orthopädisch-chirurgischen Eingriffen\n\n• Sicherstellen einer lückenlosen und fachgerechten Dokumentation\n\n• Offene, respektvolle Kommunikation mit Patientinnen, Angehörigen und dem Behandlungsteam\n\n• Aktive Mitgestaltung eines motivierenden Teamspirits\n\n• Mitarbeit bei organisatorischen und administrativen Aufgaben\n\nAnforderungen:\n• Anerkanntes Pflege-Diplom (HF/FH)\n\n• Teamgeist, Empathie, Belastbarkeit und Freude an Verantwortung\n\n• Berufserfahrung in der Orthopädie von Vorteil\n\n• Gute IT-Kenntnisse (MS Office, KIS)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Pflege und Betreuung der Patientinnen und Patienten vor und nach orthopädisch-chirurgischen Eingriffen\n\n• Sicherstellen einer lückenlosen und fachgerechten Dokumentation\n\n• Offene, respektvolle Kommunikation mit Patientinnen, Angehörigen und dem Behandlungsteam\n\n• Aktive Mitgestaltung eines motivierenden Teamspirits\n\n• Mitarbeit bei organisatorischen und administrativen Aufgaben\n\nAnforderungen:\n• Anerkanntes Pflege-Diplom (HF/FH)\n\n• Teamgeist, Empathie, Belastbarkeit und Freude an Verantwortung\n\n• Berufserfahrung in der Orthopädie von Vorteil\n\n• Gute IT-Kenntnisse (MS Office, KIS)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "en": "Aufgaben:\n• Pflege und Betreuung der Patientinnen und Patienten vor und nach orthopädisch-chirurgischen Eingriffen\n\n• Sicherstellen einer lückenlosen und fachgerechten Dokumentation\n\n• Offene, respektvolle Kommunikation mit Patientinnen, Angehörigen und dem Behandlungsteam\n\n• Aktive Mitgestaltung eines motivierenden Teamspirits\n\n• Mitarbeit bei organisatorischen und administrativen Aufgaben\n\nAnforderungen:\n• Anerkanntes Pflege-Diplom (HF/FH)\n\n• Teamgeist, Empathie, Belastbarkeit und Freude an Verantwortung\n\n• Berufserfahrung in der Orthopädie von Vorteil\n\n• Gute IT-Kenntnisse (MS Office, KIS)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "it": "Compiti:\n• Cura e cura dei pazienti prima e dopo la chirurgia ortopedica\n\n• Garantire una documentazione senza soluzione di continuità e professionale\n\n• Comunicazione aperta e rispettosa con pazienti, parenti e il team di trattamento\n\n• Co-creazione attiva di uno spirito di squadra motivante\n\n• Cooperazione nei compiti organizzativi e amministrativi\n\nRequisiti\n• Diploma di allattamento riconosciuto (HF/FH)\n\n• Spirito di squadra, empatia, resilienza e gioia di responsabilità\n\n• Esperienza professionale in ortopedia è benefica\n\n• Buona conoscenza dell'IT (MS Office, KIS)\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\nOffriamo:\n• Periodo di flessibilità nel servizio di prima, tarda e notte\n\n• Prestazioni sociali interessanti e numerosi vantaggi\n\n• Tempo di cambio pagato o compensabile (15 min./giorno / 6.5 Venerdì/anno)\n\n• 40 ore settimana / 12.5 venerdì programmato aggiuntivo all'anno\n\n• Assegno notturno CHF 10.-/h più il 20% di tempo di credito\n\n• Fine settimana, ferie pubbliche e assegni di servizio tardivo CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa Schulthes Clinic di Zurigo è una delle principali cliniche ortopediche in Europa con oltre 1.100 dipendenti. La nostra preoccupazione centrale è quella di liberare le persone dal loro dolore e ripristinare la loro mobilità. Come clinica specializzata, ci concentriamo su ortopedia chirurgica, neurologia, reumatologia e medicina sportiva. La clinica Schulthess è il centro medico olimpico svizzero.",
+        "en": "Tasks:\n• Care and care of patients before and after orthopaedic surgery\n\n• Ensuring seamless and professional documentation\n\n• Open, respectful communication with patients, relatives and the treatment team\n\n• Active co-creation of a motivating team spirit\n\n• Cooperation in organisational and administrative tasks\n\nRequirements\n• Recognised nursing diploma (HF/FH)\n\n• Team spirit, empathy, resilience and joy of responsibility\n\n• Professional experience in orthopaedics is beneficial\n\n• Good IT knowledge (MS Office, KIS)\n\n• Very good knowledge of German in word and writing\n\nWe offer:\n• Flexibility period in early, late and night service\n\n• Attractive social benefits and numerous benefits\n\n• Paid or compensable changing time (15 min./day / 6.5 Fridays/year)\n\n• 40 hour week / 12.5 additional scheduled Fridays per year\n\n• Night shift allowance CHF 10.-/h plus 20% time credit\n\n• Weekend, public holiday and late service allowance CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nThe Schulthess Clinic in Zurich is one of the leading orthopaedic clinics in Europe with over 1,100 employees. Our central concern is to free people from their pain and restore their mobility. As a specialist clinic, we focus on surgical orthopedics, neurology, rheumatology and sports medicine. Schulthess Clinic is Swiss Olympic Medical Center.",
         "de": "Aufgaben:\n• Pflege und Betreuung der Patientinnen und Patienten vor und nach orthopädisch-chirurgischen Eingriffen\n\n• Sicherstellen einer lückenlosen und fachgerechten Dokumentation\n\n• Offene, respektvolle Kommunikation mit Patientinnen, Angehörigen und dem Behandlungsteam\n\n• Aktive Mitgestaltung eines motivierenden Teamspirits\n\n• Mitarbeit bei organisatorischen und administrativen Aufgaben\n\nAnforderungen:\n• Anerkanntes Pflege-Diplom (HF/FH)\n\n• Teamgeist, Empathie, Belastbarkeit und Freude an Verantwortung\n\n• Berufserfahrung in der Orthopädie von Vorteil\n\n• Gute IT-Kenntnisse (MS Office, KIS)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Aufgaben:\n• Pflege und Betreuung der Patientinnen und Patienten vor und nach orthopädisch-chirurgischen Eingriffen\n\n• Sicherstellen einer lückenlosen und fachgerechten Dokumentation\n\n• Offene, respektvolle Kommunikation mit Patientinnen, Angehörigen und dem Behandlungsteam\n\n• Aktive Mitgestaltung eines motivierenden Teamspirits\n\n• Mitarbeit bei organisatorischen und administrativen Aufgaben\n\nAnforderungen:\n• Anerkanntes Pflege-Diplom (HF/FH)\n\n• Teamgeist, Empathie, Belastbarkeit und Freude an Verantwortung\n\n• Berufserfahrung in der Orthopädie von Vorteil\n\n• Gute IT-Kenntnisse (MS Office, KIS)\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• Nachtschichtzulage CHF 10.-/h plus 20% Zeitgutschrift\n\n• Wochenend-, Feiertags- und Spätdienstzulage CHF 8.-/h\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+        "fr": "Tâches :\n• Soins et soins des patients avant et après une chirurgie orthopédique\n\n• Assurer une documentation transparente et professionnelle\n\n• Communication ouverte et respectueuse avec les patients, les proches et l'équipe de traitement\n\n• Co-création active d'un esprit d'équipe motivant\n\n• Coopération dans les tâches organisationnelles et administratives\n\nExigences\n• Diplôme reconnu d'infirmière (HF/FH)\n\n• Esprit d'équipe, empathie, résilience et joie de responsabilité\n\n• Expérience professionnelle en orthopédie est bénéfique\n\n• Bonnes connaissances en matière de TI (Bureau du SM, KIS)\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons:\n• Période de flexibilité au début, à la fin et à la nuit\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\n• Semaine de 40 heures / 12,5 vendredis supplémentaires par an\n\n• Indemnité de nuit CHF 10.-/h plus 20% de temps crédit\n\n• Week-end, jours fériés et service en retard CHF 8.-/h\n\n• ZVV BonusPass / ZVV BonusPass Flex\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lengghalde 2, Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/84a22ec0-d420-4b90-be37-d8d73b0b2186",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.633Z",
+      "crawledAt": "2026-09-06T22:49:06.549Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -529,10 +543,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+        "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+        "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+          "pflegefachperson-per-la-bettenstationen-schulthess-klinik-lengghalde-2-zurich",
+          "cura-del-letto-professionale-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-bettenstationen-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
@@ -583,7 +607,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/radiologiefachperson/2d5195ed-3b09-4113-914e-723770022592",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.625Z",
+      "crawledAt": "2026-09-06T22:49:06.544Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -602,11 +626,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "radiologiefachperson-schulthess-klinik-zurich"
+        "radiologiefachperson-schulthess-klinik-zurich",
+        "specialista-della-radiologia-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-schulthess-klinik-zurich"
+          "radiologiefachperson-schulthess-klinik-zurich",
+          "specialista-della-radiologia-schulthess-klinik-zurich"
         ],
         "en": [
           "radiologiefachperson-schulthess-klinik-zurich"
@@ -662,7 +688,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-op-und-bettendisposition/1a5446cb-3d73-467e-9c26-4746d27ac462",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.621Z",
+      "crawledAt": "2026-09-06T22:49:06.543Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -682,12 +708,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
-        "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich"
+        "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich",
+        "dipendente-membro-del-personale-operativo-e-disposizione-del-letto-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
-          "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich"
+          "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich",
+          "dipendente-membro-del-personale-operativo-e-disposizione-del-letto-schulthess-klinik-zurich"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
@@ -737,12 +765,13 @@
         "de": "Aufgaben:\nDu bedienst und betreust im Selbstbedienungsrestaurant sowie im Bistro unsere anspruchsvollen Gäste, Patienten und Klinikmitarbeitenden. Du bist verantwortlich für die korrekte Bedienung der Kasse, inklusive Abrechnung. Ebenfalls betreust du das warme und das kalte Buffet im Restaurant und führst diverse Reinigungs-und Auffüllarbeiten aus. Es erwartet dich ein lebhaftes Umfeld mit verschiedenster Gästestruktur. Das Serviceteam arbeitet in diversen Schichten von 06.30 bis 19.30 Uhr (ohne Zimmerstunde), jeweils montags bis freitags. Am Wochenende bleibt die Restauration geschlossen. Zudem übernehmen wir bei Kongressen und Weiterbildungsanlässen den Cateringservice.\n\nAnforderungen:\n• Abgeschlossene Gastronomieausbildung EFZ\n\n• Service- und Banketterfahrung\n\n• Angenehme Umgangsformen, gepflegte Erscheinung\n\n• Freundlich, zuverlässig, flexibel, hilfsbereit und teamfähig\n\n• Sehr gute Deutschkenntnisse\n\nWir bieten:\n• Planbarkeit der Arbeitszeiten und Schichten\n\n• Wenig Nacht- und Wochenendeinsätze\n\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "fr": "Tâches :\nVous servez et vous occupez de nos clients éclairés, patients et cliniciens dans le restaurant libre-service et dans le bistro. Vous êtes responsable du bon fonctionnement de la caisse enregistreuse, y compris la facturation. Vous gérez également le buffet chaud et froid dans le restaurant et effectuez divers travaux de nettoyage et de remplissage. Un environnement animé avec différentes structures d'invités vous attend. L'équipe de service travaille en différentes équipes de 06.30 à 19.30 (sans heure de chambre), tous les lundis au vendredi. Le week-end, la restauration est fermée. En outre, nous prenons en charge le service de restauration lors de congrès et d'événements de formation continue.\n\nExigences\n• Formation complète en restauration EFZ\n\n• Service et banquet\n\n• Les bonnes manières, l'apparence bien gardée\n\n• Amiable, fiable, flexible, utile et capable de travailler en équipe\n\n• Très bonne connaissance de l'allemand\n\nNous offrons:\n• Plannibilité des heures de travail et des postes\n\n• Petite utilisation nuit et week-end\n\n• 40 semaines horaires\n\n• Prestations sociales attractives et nombreuses prestations\n\n• Temps de changement payé ou indemnisable (15 min./jour / 6,5 vendredis/année)\n\nLa clinique Schulthess de Zurich est l'une des principales cliniques orthopédiques en Europe avec plus de 1 100 employés. Notre principale préoccupation est de libérer les gens de leur douleur et de rétablir leur mobilité. En tant que clinique spécialisée, nous nous concentrons sur l'orthopédie chirurgicale, la neurologie, la rhumatologie et la médecine sportive. La clinique Schulthess est le centre médical olympique suisse."
       },
+      "needsRetranslation": true,
       "location": "Lengghalde 2, Zürich",
       "canton": "ZH",
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-restaurant-bistro/c6a7a7f1-2cca-46d3-813b-05f7a2313c57",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.616Z",
+      "crawledAt": "2026-09-06T22:49:06.542Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -761,11 +790,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
+        "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich",
+        "mitarbeiterin-collaboratore-trice-restaurant-bistro-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
+          "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich",
+          "mitarbeiterin-collaboratore-trice-restaurant-bistro-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-restaurant-amp-bistro-schulthess-klinik-lengghalde-2-zurich"
@@ -821,7 +852,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/53b6fb03-244c-4c3a-b1fb-de26056b7c37",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.615Z",
+      "crawledAt": "2026-09-06T22:49:06.541Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -840,11 +871,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
+        "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
+          "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik"
         ],
         "en": [
           "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
@@ -900,7 +933,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/fachfrau-apotheke-fachmann-apotheke/5c7dff5e-1939-4706-8d5e-7d6c1987d92d",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:44:10.599Z",
+      "crawledAt": "2026-09-06T22:49:06.530Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -919,11 +952,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+        "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
+        "farmacia-professionale-farmacia-professionale-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+          "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
+          "farmacia-professionale-farmacia-professionale-schulthess-klinik-lengghalde-2-zurich"
         ],
         "en": [
           "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"

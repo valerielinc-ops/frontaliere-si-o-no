@@ -20,7 +20,7 @@ import path from 'node:path';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import CANTON_URL_SLUGS from '../../data/canton-url-slugs.json' with { type: 'json' };
 import { MUNICIPALITIES } from '../../data/municipalities.ts';
-import { freeTranslateWithRetry } from './free-translate.mjs';
+import { freeTranslateWithRetryDetailed, asTranslationResult } from './free-translate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -338,8 +338,38 @@ export function normalizeText(value) {
     .trim();
 }
 
-/** Canonical URL slug for a comune name (diacritic-free, hyphenated, ascii). */
-export function slugifyComune(value) {
+/**
+ * Segment shape the events tree reserves for its own overflow ladder:
+ * `overflowLadderPath()` mints `<bucket-path>page-N/`, and the bucket path is
+ * `<canton-base>/` when the bucket has no comune, so a comune whose name
+ * normalizes to `page-N` would land on the very URL of ladder page N of the
+ * canton. The same shape is reachable from an event detail slug whose date part
+ * is empty. Both `slugifyComune()` and `slugifyEvent()` disambiguate a finished
+ * segment that lands on this shape, so the collision is closed by construction
+ * rather than by convention.
+ */
+export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
+
+/** Append `suffix` to a freshly minted segment that lands on the reserved
+ *  ladder shape. No comune of `data/canton-municipalities.json` (0 of 2110) and
+ *  no crawled event title normalizes to `page-N` today, so this never rewrites
+ *  a live URL — it only makes the collision unrepresentable.
+ *
+ *  Exported because the minter is not the only place a segment is FINISHED:
+ *  `assignEventSlugs()` (build-plugins/eventsSeoPagesPlugin.ts) breaks ties
+ *  with an incrementing `-N` suffix AFTER `slugifyEvent()`, so a dateless
+ *  event titled `Page` (base `page`, correctly not reserved) would otherwise
+ *  hand its second peer-group sibling the slug `page-2` — exactly
+ *  `overflowLadderPath(locale, canton, comune, 2)`. A guard that only runs in
+ *  the minter is a guard the dedup step walks around. */
+export function reserveLadderShape(slug, suffix) {
+  return RESERVED_EVENTS_SEGMENT_RE.test(slug) ? `${slug}-${suffix}` : slug;
+}
+
+/** Shared normalization: diacritic-free, lowercase, hyphenated, ascii. Kept
+ *  separate from `slugifyComune()` so the reservation applies to a FINISHED
+ *  URL segment — an event title is only a fragment of one. */
+function normalizeSlug(value) {
   return String(value ?? '')
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -349,17 +379,28 @@ export function slugifyComune(value) {
     .replace(/^-+|-+$/g, '');
 }
 
+/** Canonical URL slug for a comune name (diacritic-free, hyphenated, ascii). */
+export function slugifyComune(value) {
+  return reserveLadderShape(normalizeSlug(value), 'comune');
+}
+
 /**
  * Stable, URL-safe slug for a single event detail page: `<title>-<YYYY-MM-DD>`
  * (title truncated at a word boundary). Deterministic from title+startDate so
  * the detail-page URL is stable across crawl runs. Collisions (same title+date
  * in the same comune) are disambiguated by the caller (the SSG emit loop).
+ *
+ * The reserved ladder shape is checked on the ASSEMBLED slug, not on the title:
+ * an event without a `startDate` has an empty date part, so the slug is the
+ * title alone — and the word-boundary truncation can cut a longer title down to
+ * the reserved shape. Checking the title alone would also tag `Page 2` events
+ * that a date already disambiguates.
  */
 export function slugifyEvent(event) {
-  const titlePart = truncateSlugAtWordBoundary(slugifyComune(event?.title || ''), 60).replace(/-+$/, '');
+  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), 60).replace(/-+$/, '');
   const datePart = String(event?.startDate || '').slice(0, 10);
-  const base = [titlePart, datePart].filter(Boolean).join('-');
-  return base || `evento-${slugifyComune(event?.id || 'senza-data')}`;
+  const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
+  return base || `evento-${normalizeSlug(event?.id || 'senza-data')}`;
 }
 
 // ── Comuni loader ────────────────────────────────────────────
@@ -1082,7 +1123,12 @@ export async function enrichEventsWithGeoComune(
 // titles cost a network call.
 const TRANSLATION_CACHE_PATH = path.join(REPO_ROOT, 'data', 'events-translation-cache.json');
 
-/** Load the on-disk title translation cache (`{ [normalizedItTitle]: {en?,de?,fr?} }`). */
+/**
+ * Load the on-disk title translation cache
+ * (`{ [normalizedItTitle]: {en?,de?,fr?} }`). Un valore `null` in uno slot e'
+ * il memo di un passthrough: la cascata ha gia' stabilito che la sorgente e'
+ * identica in quella lingua, quindi non va ripagata (vedi `fillLocaleGaps`).
+ */
 export function loadEventTitleTranslationCache() {
   try {
     if (!existsSync(TRANSLATION_CACHE_PATH)) return {};
@@ -1116,6 +1162,10 @@ export function saveEventTitleTranslationCache(cache) {
 // entries collision-free against tio-agenda's own bare-title keys.
 const LOCALE_FALLBACK_DELAY_MS = 200;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+// Variante che riporta anche il MOTIVO della stringa vuota (passthrough vs
+// motore giu'), necessaria per memoizzare solo il primo. Il seam iniettabile
+// dei test resta a stringa: `asTranslationResult` accetta entrambe le forme.
+const DEFAULT_TRANSLATE_FN = freeTranslateWithRetryDetailed;
 
 /**
  * Which locales in `byLocale` (a `titleByLocale`/`descriptionByLocale`-shaped
@@ -1149,6 +1199,11 @@ export function localesNeedingTranslation(byLocale, locales = ['it', 'en', 'de',
  * disk in `cache` (caller loads/saves once per run, same convention as
  * `loadEventTitleTranslationCache`). Returns a NEW map — never mutates
  * `byLocale` — or the SAME reference when nothing needs translating.
+ *
+ * Memoizza DUE esiti, non uno: la traduzione riuscita e il passthrough (la
+ * cascata rende `''` perche' la sorgente e' gia' identica nella lingua
+ * target). Senza il secondo, dal #7750 in poi ogni titolo legittimamente
+ * uguale fra it/en ripagava l'intera cascata a ogni run, per sempre.
  */
 async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, translateFn }) {
   const needing = localesNeedingTranslation(byLocale, locales);
@@ -1165,15 +1220,29 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
     if (target === sourceLocale) continue;
     const cacheKey = `${fieldType}::${sourceLocale}::${normalizedSource}`;
     const entry = cache[cacheKey] || {};
-    let translated = entry[target];
-    if (!translated) {
-      translated = await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 });
-      if (translated) {
-        cache[cacheKey] = { ...entry, [target]: translated };
-        if (translateFn === freeTranslateWithRetry) await sleep(delayMs);
-      }
+    if (Object.prototype.hasOwnProperty.call(entry, target)) {
+      // `null` = passthrough memoizzato (vedi sotto): esito noto, nessuna rete.
+      const memo = entry[target];
+      if (typeof memo === 'string' && memo) updated[target] = memo;
+      continue;
     }
-    if (translated) updated[target] = translated;
+    const { text: translated, passthrough } = asTranslationResult(
+      await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 }),
+    );
+    if (translated) {
+      cache[cacheKey] = { ...entry, [target]: translated };
+      updated[target] = translated;
+      if (translateFn === DEFAULT_TRANSLATE_FN) await sleep(delayMs);
+    } else if (passthrough) {
+      // La cascata ha stabilito che la sorgente e' gia' identica in `target`
+      // («Locarno Film Festival», i toponimi): esito deterministico, si
+      // memoizza come `null` cosi' il prossimo run non ripaga l'intera
+      // cascata sulla stessa stringa. Marker e non la sorgente di proposito:
+      // scrivere la sorgente riempirebbe uno slot MANCANTE con testo italiano
+      // pubblicato sotto /de/, cioe' il difetto che la guardia #7750 esiste
+      // per impedire. Lo slot resta com'era — zero byte pubblicati cambiano.
+      cache[cacheKey] = { ...entry, [target]: null };
+    }
   }
   return updated;
 }
@@ -1210,7 +1279,7 @@ export async function enrichEventsWithLocaleFallbackTranslations(events, cache, 
   const {
     locales = ['it', 'en', 'de', 'fr'],
     delayMs = LOCALE_FALLBACK_DELAY_MS,
-    translateFn = freeTranslateWithRetry,
+    translateFn = DEFAULT_TRANSLATE_FN,
     deadline = null,
   } = options;
   const out = [];

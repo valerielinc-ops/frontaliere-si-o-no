@@ -34,6 +34,10 @@ import {
   goPathFromId,
   getEnabledPartner,
 } from './affiliatePartnersRegistry.js';
+import {
+  PLACEMENT_PARAM,
+  newsletterRecommendedPlacement,
+} from './newsletterPlacements.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -218,25 +222,37 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
  * the parameter and the sponsor reports on the same key.
  *
  * @param {{ kind: string, goId?: string, url?: string, id: string }} rec
- * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string }} [opts]
+ * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [opts]
  * @returns {string}
  */
-export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement } = {}) {
+export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot } = {}) {
   const params = new URLSearchParams();
   params.set('utm_source', 'newsletter');
   params.set('utm_medium', 'email');
   params.set('utm_campaign', campaign || 'recommended');
   params.set('utm_content', rec.id);
-  params.set('pos', placement || `${campaign || 'recommended'}-${rec.id}`);
+  params.set(PLACEMENT_PARAM, placement || `${campaign || 'recommended'}-${rec.id}`);
   if (acquisitionSource) params.set('as', String(acquisitionSource));
 
   if (rec.kind === 'affiliate' && rec.goId) {
-    // Placement slot, same shape as the newsletter partner rows
-    // (`nl-partner-<n>-<id>` in scripts/newsletter-template.mjs): utm_campaign
-    // says WHICH email, `pos` says WHERE inside it the click came from, so two
-    // links to the same /go/{id}/ stay attributable. The /go/ page is a static
-    // redirect that ignores the query today — the param is inert until it reads it.
-    params.set('pos', `nl-recommended-${rec.goId}`);
+    // Placement slot, same shape family as the newsletter partner rows
+    // (`nl-partner-<n>-<id>`): utm_campaign says WHICH email, the placement
+    // param says WHERE inside it the click came from, so two links to the same
+    // /go/{id}/ stay attributable. Both the param NAME and the shape come from
+    // newsletterPlacements.js, the single source shared with the consumer
+    // (build-plugins/affiliateRedirectPlugin.ts) — a divergence there produces
+    // an EMPTY pubref without failing, so it must not be spelled out twice.
+    // Un `placement` esplicito vince: e' il chiamante che dichiara lo slot.
+    // Senza, la forma canonica del blocco, che porta la campagna perche' le
+    // quattro superfici che lo rendono puntano tutte allo stesso /go/{goId}/,
+    // e l'indice di slot (`slot`, 1-based, default 1) perche' dentro UN SINGOLO
+    // invio niente vieta a un chiamante di rendere il blocco due volte: senza
+    // indice quelle due righe hanno campagna e goId identici, tornano con lo
+    // stesso `pos` e restano indistinguibili — l'ambiguita' che le righe
+    // partner evitano da sempre con `nl-partner-<n>-<id>`.
+    if (!placement) {
+      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId, slot));
+    }
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
   }
@@ -255,15 +271,19 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
  * no partner/sponsor is active. Styling mirrors the newsletter template card
  * language (light card, orange accent). Clear disclosure line above the card.
  *
- * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string }} [args]
+ * `slot` is the 1-based position of THIS block inside the send: a surface that
+ * renders the block once can omit it (defaults to 1), one that renders it twice
+ * must number them, or the two clicks come back under the same `pos`.
+ *
+ * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [args]
  * @returns {string} HTML `<tr>…</tr>` or ''
  */
-export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement } = {}) {
+export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement, slot } = {}) {
   const loc = normLocale(locale);
   const rec = pickNewsletterRecommendation({ locale: loc, interest });
   if (!rec) return '';
 
-  const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement });
+  const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot });
   const eyebrow = chrome(loc, 'eyebrow');
 
   return `

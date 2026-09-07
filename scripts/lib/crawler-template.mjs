@@ -902,7 +902,13 @@ export async function runStandardCrawlerPipeline(config) {
   // classify "found candidates, filtered to 0" as healthy instead of broken,
   // without a human adding the slug to EMPTY_OK_CRAWLERS. Parsers that don't
   // set `.discoveredCount` leave counts.discovered null — unchanged behaviour.
-  const counts = { discovered: null };
+  // `counts.parsed` (issue #7707) is the complementary post-parser count: how
+  // many jobs the parser emitted AFTER its own geographic filter and BEFORE
+  // this pipeline's merge/expiry/localization/validation/slice stages. Without
+  // it, a run that the pipeline empties for a NON-geographic reason is
+  // indistinguishable from a geographic filter-empty (`discovered > 0`,
+  // `written === 0`) and check-crawler-health calls a broken crawler healthy.
+  const counts = { discovered: null, parsed: null };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -959,6 +965,9 @@ export async function runStandardCrawlerPipeline(config) {
   if (Number.isFinite(parsedJobs?.discoveredCount)) {
     counts.discovered = parsedJobs.discoveredCount;
   }
+  // Set before every early return below, so a soft-exit slice written by the
+  // exit guard carries the same evidence a published one would.
+  counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
 
   // Only source-specific crawlers with an explicit completeness proof may
   // retire every unmatched record immediately. Validation runs before the
@@ -1116,6 +1125,7 @@ export async function runStandardCrawlerPipeline(config) {
     generatedAt: new Date().toISOString(),
     total: sliceJobs.length,
     discovered: counts.discovered,
+    parsed: counts.parsed,
     written: sliceJobs.length,
     // Per-run proof, not a per-slug guess: true only when this run's parser
     // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved

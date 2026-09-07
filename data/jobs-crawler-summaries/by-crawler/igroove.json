@@ -1,19 +1,20 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-09-05T22:59:59.383Z",
+  "generatedAt": "2026-09-06T23:02:39.118Z",
   "total": 1,
   "discovered": null,
+  "parsed": 1,
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8840,
-  "avgDurationMs": 8840,
+  "durationMs": 4751,
+  "avgDurationMs": 4751,
   "durationHistory": [
-    8840
+    4751
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +30,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:59:50.484Z",
+      "crawledAt": "2026-09-06T23:02:22.853Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "",

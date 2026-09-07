@@ -11,6 +11,7 @@ import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset
 
 interface JobLike {
   location?: string;
+  url?: string;
   canton?: string;
   addressLocality?: string;
   addressCountry?: string;
@@ -97,5 +98,30 @@ describe('normalizeParsedJobsForSlice', () => {
     const jobs = [null, undefined, 'x', { location: 'Locarno' }] as unknown[];
     expect(() => normalizeParsedJobsForSlice(jobs)).not.toThrow();
     expect((jobs[3] as { addressLocality?: string }).addressLocality).toBe('Locarno');
+  });
+  it('rewrites a scheme-less url to its absolute form before the slice is written', () => {
+    // Persisted scheme-less, `med-ipersonal.ch/jobs/1` becomes an href that
+    // resolves relative to frontaliereticino.ch (broken apply CTA) and a
+    // liveness probe that fails on the shape, not on the listing (#7769).
+    const jobs: JobLike[] = [
+      { url: 'med-ipersonal.ch/jobs/1' },
+      { url: 'med-ipersonal.ch:8080/jobs/1' },
+      { url: 'https://med-ipersonal.ch/jobs/2' },
+      { url: 'mailto:jobs@med-ipersonal.ch' },
+    ];
+    const report = normalizeParsedJobsForSlice(jobs);
+    expect(jobs[0].url).toBe('https://med-ipersonal.ch/jobs/1');
+    expect(jobs[1].url).toBe('https://med-ipersonal.ch:8080/jobs/1');
+    expect(jobs[2].url).toBe('https://med-ipersonal.ch/jobs/2');
+    expect(jobs[3].url).toBe('mailto:jobs@med-ipersonal.ch');
+    expect(report.urlNormalized).toBe(2);
+  });
+
+  it('leaves a missing or blank url alone (no invented https:// row)', () => {
+    const jobs: JobLike[] = [{ location: 'Lugano' }, { url: '   ' }];
+    const report = normalizeParsedJobsForSlice(jobs);
+    expect(jobs[0].url).toBeUndefined();
+    expect(jobs[1].url).toBe('   ');
+    expect(report.urlNormalized).toBe(0);
   });
 });

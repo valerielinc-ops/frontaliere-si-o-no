@@ -12,6 +12,8 @@
  * and ambiguous responses are treated as "valid" to avoid false positives.
  */
 
+import { absoluteJobUrl } from './job-url-host.mjs';
+
 // ── Defaults ──────────────────────────────────────────────────────────────────
 
 const DEFAULT_TIMEOUT_MS = 7000;
@@ -260,7 +262,14 @@ function hasTiChClosedSignal(htmlLower, url) {
  * @param {string} [options.id]           - Pass-through job ID for result
  * @returns {Promise<ValidationResult>}
  */
-export async function validateJobUrl(url, { timeoutMs, userAgent, id } = {}) {
+export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) {
+  // A scheme-less row (`med-ipersonal.ch/jobs/1`) reaches here since #7721/#7758
+  // claimed it back from the keyless fallback. Fetched as-is it throws on the
+  // SHAPE and lands in the `network-error` fail-open branch: a "still live"
+  // verdict about our own string, never about the listing — so an expired job
+  // stays published forever and a real 404 is unprovable. Normalizing the
+  // scheme first makes the probe answer the question it was asked.
+  const url = absoluteJobUrl(rawUrl);
   if (!url) return { id, valid: true, reason: 'no-url' };
 
   const timeout = timeoutMs || DEFAULT_TIMEOUT_MS;

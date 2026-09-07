@@ -341,9 +341,71 @@ const violations = [];
 // stop minting keys and fold the tail into GROUP_OVERFLOW_KEY, which keeps the
 // breakdown honest (its count is still exact) at bounded memory. The ratchet
 // gates on violationsTotal, which never depended on this map.
+//
+// WHICH keys keep a bucket is a DELIBERATE CHOICE, not the arrival order
+// (follow-up of #7679). Folding "every key minted after the cap is full" made
+// the retained set a function of DISCOVERY ORDER, which is LIFO plus inline
+// descent past DIR_STACK_HIGH_WATER and therefore depends on how the 24 walkers
+// interleave: two runs over the SAME dist/ could publish two different
+// byFeature breakdowns, so the per-area numbers were not comparable run over run
+// (the verdict never was affected — violationsTotal is accumulated live).
+// The retained set is now "the GROUP_CAP smallest keys in UTF-16 code-unit
+// order", a function of the key SET alone: when a new key arrives with the map
+// full and it sorts BELOW the current maximum, that maximum is evicted into
+// GROUP_OVERFLOW_KEY and the new key takes its place. An evicted key is never
+// re-minted (every key still held sorts below it, so the maximum only ever
+// decreases), which is what keeps each retained count EXACT rather than partial.
+// Ordering by key and not by count is also deliberate: an exact top-N by count
+// under a memory cap is the heavy-hitters problem, and its approximate counters
+// (Misra-Gries et al.) would trade the exactness of the retained numbers for the
+// ranking. Only the `samples` of the overflow bucket stay arrival-ordered —
+// they are cosmetic, like the offender order already is.
 const GROUP_CAP = 5_000;
 const GROUP_OVERFLOW_KEY = '<other>';
 const groups = new Map();
+// Max-heap over the retained keys (GROUP_OVERFLOW_KEY excluded — the overflow
+// bucket is never evicted). A heap, not a sorted array: eviction needs only the
+// current maximum, so push/pop cost O(log GROUP_CAP) instead of the O(GROUP_CAP)
+// splice or rescan a sorted structure would pay on every one of them, and a
+// descending-order dist/ evicts once per distinct key.
+const retainedKeys = [];
+const heapPush = (key) => {
+  retainedKeys.push(key);
+  let i = retainedKeys.length - 1;
+  while (i > 0) {
+    const parent = (i - 1) >> 1;
+    if (retainedKeys[parent] >= retainedKeys[i]) break;
+    [retainedKeys[parent], retainedKeys[i]] = [retainedKeys[i], retainedKeys[parent]];
+    i = parent;
+  }
+};
+const heapPopMax = () => {
+  const max = retainedKeys[0];
+  const last = retainedKeys.pop();
+  if (retainedKeys.length > 0) {
+    retainedKeys[0] = last;
+    for (let i = 0; ; ) {
+      const left = i * 2 + 1;
+      const right = left + 1;
+      let largest = i;
+      if (left < retainedKeys.length && retainedKeys[left] > retainedKeys[largest]) largest = left;
+      if (right < retainedKeys.length && retainedKeys[right] > retainedKeys[largest]) largest = right;
+      if (largest === i) break;
+      [retainedKeys[i], retainedKeys[largest]] = [retainedKeys[largest], retainedKeys[i]];
+      i = largest;
+    }
+  }
+  return max;
+};
+/** The overflow bucket, minted on first use so `groups.has()` stays meaningful. */
+const overflowGroup = () => {
+  let group = groups.get(GROUP_OVERFLOW_KEY);
+  if (!group) {
+    group = { count: 0, samples: [] };
+    groups.set(GROUP_OVERFLOW_KEY, group);
+  }
+  return group;
+};
 
 await scanIndexHtml(DIST, (relDir, html) => {
   if (SKIP_PATHS.has(relDir)) {
@@ -366,15 +428,34 @@ await scanIndexHtml(DIST, (relDir, html) => {
     return;
   }
   violationsTotal++;
-  let key = relDir.split('/').slice(0, 2).join('/') || '<root>';
+  const key = relDir.split('/').slice(0, 2).join('/') || '<root>';
   let group = groups.get(key);
-  if (!group && groups.size >= GROUP_CAP) {
-    key = GROUP_OVERFLOW_KEY;
-    group = groups.get(key);
-  }
   if (!group) {
-    group = { count: 0, samples: [] };
-    groups.set(key, group);
+    if (retainedKeys.length < GROUP_CAP) {
+      group = { count: 0, samples: [] };
+      groups.set(key, group);
+      heapPush(key);
+    } else if (key >= retainedKeys[0]) {
+      // Sorts at or above the current maximum: it never belonged to the
+      // retained set, so it folds straight into the overflow bucket.
+      group = overflowGroup();
+    } else {
+      // Sorts below the maximum: that maximum is not one of the GROUP_CAP
+      // smallest keys after all — fold everything it had counted so far into
+      // the overflow bucket and give its slot to this key.
+      const evicted = heapPopMax();
+      const evictedGroup = groups.get(evicted);
+      groups.delete(evicted);
+      const overflow = overflowGroup();
+      overflow.count += evictedGroup.count;
+      for (const sample of evictedGroup.samples) {
+        if (overflow.samples.length >= 3) break;
+        overflow.samples.push(sample);
+      }
+      group = { count: 0, samples: [] };
+      groups.set(key, group);
+      heapPush(key);
+    }
   }
   group.count++;
   if (group.samples.length < 3) group.samples.push(relDir + '/');
@@ -443,6 +524,11 @@ if (REBASELINE) {
         skippedExplicit,
         skippedRedirect,
         groups: groupsObject,
+        // Recorded so the NEXT run knows this breakdown is folded without
+        // having to infer it from the presence of the overflow key: a key
+        // missing from a folded `groups` is "0 or inside <other>", not 0.
+        byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+        groupCap: GROUP_CAP,
         rebasedAt: new Date().toISOString(),
       },
       null,
@@ -509,6 +595,11 @@ if (!baseline) {
         skippedExplicit,
         skippedRedirect,
         groups: groupsObject,
+        // Recorded so the NEXT run knows this breakdown is folded without
+        // having to infer it from the presence of the overflow key: a key
+        // missing from a folded `groups` is "0 or inside <other>", not 0.
+        byFeatureTruncated: groups.has(GROUP_OVERFLOW_KEY),
+        groupCap: GROUP_CAP,
         rebasedAt: new Date().toISOString(),
         note: 'auto-created on first run; commit me',
       },
@@ -566,9 +657,48 @@ console.error('Affected directories (top 2 path segments):');
 // each of N groups is the "dumping 100k paths" the breakdown exists to avoid.
 // Groups are sorted by count, so the slice keeps the worst offenders.
 const REGRESSION_GROUPS_SHOWN = 50;
+// A per-group delta only means something when both runs put that key in the
+// SAME bucket. The GROUP_CAP fold breaks that in two ways, and both used to
+// print a number that was silently wrong (follow-up of #7679):
+//   • GROUP_OVERFLOW_KEY itself — this run folded the tail of ITS key set, the
+//     baseline (when it was folded too) folded the tail of a DIFFERENT one, so
+//     the two buckets never describe the same directories. Subtracting them is
+//     arithmetic over non-homologous populations, and against an unfolded
+//     baseline it is worse still: there is no `<other>` entry at all, the
+//     lookup reads 0, and the whole fold is reported as a `+count` regression.
+//   • any key ABSENT from a folded baseline — absent means either "no offenders
+//     there at the time" or "folded into the baseline's own overflow bucket",
+//     and the baseline file cannot tell the two apart. Reading it as 0 invents
+//     a regression for an area that may not have moved.
+// Both cases now print `baseline=n/a, delta=n/a` plus the reason. Their samples
+// are printed unconditionally: with no delta to gate on, the samples are the
+// only diagnostic left for that bucket. Every other key is compared exactly as
+// before — a complete baseline entry against a retained (exact) count.
+const baselineGroups =
+  baseline.groups && typeof baseline.groups === 'object' ? baseline.groups : null;
+const baselineTruncated =
+  baseline.byFeatureTruncated === true ||
+  (baselineGroups !== null && typeof baselineGroups[GROUP_OVERFLOW_KEY] === 'number');
+let nonComparableGroups = 0;
 for (const [key, { count, samples }] of sortedGroups.slice(0, REGRESSION_GROUPS_SHOWN)) {
-  const baselineCount =
-    baseline.groups && typeof baseline.groups[key] === 'number' ? baseline.groups[key] : 0;
+  const hasBaselineCount = baselineGroups !== null && typeof baselineGroups[key] === 'number';
+  const nonComparableReason =
+    key === GROUP_OVERFLOW_KEY
+      ? `overflow bucket — folds a different directory set than the baseline`
+      : baselineTruncated && !hasBaselineCount
+        ? `absent from a folded baseline — 0 or inside its ${GROUP_OVERFLOW_KEY}`
+        : null;
+  if (nonComparableReason !== null) {
+    nonComparableGroups++;
+    console.error(
+      `  ${String(count).padStart(6)} × ${key}  (baseline=n/a, delta=n/a: ${nonComparableReason})`,
+    );
+    for (const s of samples) {
+      console.error(`           ${s}`);
+    }
+    continue;
+  }
+  const baselineCount = hasBaselineCount ? baselineGroups[key] : 0;
   const groupDelta = count - baselineCount;
   const marker = groupDelta > 0 ? `+${groupDelta}` : `${groupDelta}`;
   console.error(`  ${String(count).padStart(6)} × ${key}  (baseline=${baselineCount}, delta=${marker})`);
@@ -583,10 +713,13 @@ if (sortedGroups.length > REGRESSION_GROUPS_SHOWN) {
     `  … ${sortedGroups.length - REGRESSION_GROUPS_SHOWN} more group(s) not shown (see the JSON report's byFeature breakdown)`,
   );
 }
-if (groups.has(GROUP_OVERFLOW_KEY)) {
+if (groups.has(GROUP_OVERFLOW_KEY) || baselineTruncated) {
   console.error(
     `  note: past ${GROUP_CAP} distinct directories the breakdown folds the tail into ${GROUP_OVERFLOW_KEY}; ` +
-      `the ${current} total above is exact.`,
+      `the ${current} total above is exact.` +
+      (nonComparableGroups > 0
+        ? ` ${nonComparableGroups} group(s) above carry no delta: their bucket is not the same population as the baseline's.`
+        : ''),
   );
 }
 console.error('');

@@ -33,7 +33,6 @@ const STEP_UP = 'il gradino di RAL successivo';
 const STEP_DOWN = 'il gradino di RAL precedente';
 /** `stepVsOther` in italiano: "... fra queste due leve: A e B. A questo livello ...". */
 const STEP_VS_OTHER = /^Il confronto che si muove più in fretta.*due leve: (.+?) e (.+?)\. A questo livello/;
-const HEAVIER_NONE = 'A questa RAL nessun';
 
 const scenarios = generateAllScenarios();
 const netIt = (s: (typeof scenarios)[number]): number =>
@@ -108,10 +107,16 @@ describe('le frasi sul gradino di RAL usano una sola definizione di gradino', ()
         offenders.push(`${label}: manca la frase su chi batte il gradino`);
         continue;
       }
-      // `other` è la leva non salariale più pesante: se batte il gradino deve
-      // comparire nell'elenco, se non lo batte l'elenco dev'essere vuoto.
-      if (stepFirst && !heavier.startsWith(HEAVIER_NONE)) {
-        offenders.push(`${label}: il gradino pesa più di «${other}», ma qualche leva risulta batterlo`);
+      // Le due frasi devono concordare su `other`: se il gradino lo batte non
+      // può comparire fra le leve che battono il gradino, e viceversa.
+      // Fino a #7729 qui si pretendeva l'elenco VUOTO, perché `other` era per
+      // costruzione la leva non salariale più pesante. Ora `stepVsOther`
+      // scarta i candidati la cui coppia col gradino è già stata nominata da
+      // `ratio`, quindi `other` può essere una leva più leggera mentre
+      // un'altra batte comunque il gradino: l'elenco non vuoto non è più una
+      // contraddizione, la presenza di `other` dentro l'elenco sì.
+      if (stepFirst && heavier.includes(other)) {
+        offenders.push(`${label}: il gradino pesa più di «${other}», ma la frase adiacente lo dà fra chi lo batte`);
       }
       if (!stepFirst && !heavier.includes(other)) {
         offenders.push(`${label}: «${other}» pesa più del gradino, ma non è fra quelle che lo battono`);

@@ -28,6 +28,7 @@ import {
  POSTHOG_SNIPPET,
  SEO_STATIC_CSS_LINK,
 } from './constants';
+import { PLACEMENT_PARAM } from '../functions/src/lib/newsletterPlacements.js';
 import { WriteCollector } from './batchWrite';
 
 /**
@@ -52,13 +53,25 @@ const REDIRECT_TRACKING_TIMEOUT_MS = 400;
 
 /**
  * Query parameter every surface may append to `/go/{partner}/` to declare WHICH
- * slot the click came from (`/go/wise/?pos=nl-partner-2`). The redirect turns it
- * into the Partnerize `pubref`, which is the per-position signal the dashboard
- * reports on. Without it the page falls back to the referring path, so surfaces
- * that don't (yet) pass `pos` still land in a distinguishable bucket instead of
- * collapsing into one undifferentiated count.
+ * slot the click came from (`/go/wise/?pos=nl-partner-2-wise`). The redirect
+ * turns it into the Partnerize `pubref`, which is the per-position signal the
+ * dashboard reports on. Without it the page falls back to the referrer, so
+ * surfaces that don't (yet) pass it still land in a distinguishable bucket
+ * instead of collapsing into one undifferentiated count.
+ *
+ * That fallback is deliberately COARSE: the first path segment of a same-origin
+ * referrer (`ref-lavoro`, `ref-home`), and a single `ref-ext` for everything
+ * off-site. The full pathname would mint one bucket per slug and one more per
+ * external SERP/social URL — unbounded cardinality on the very dimension that
+ * exists to compare slots, plus silent collisions once `PUBREF_MAX_LEN` cuts
+ * two long paths to the same 48 characters.
+ *
+ * The name is NOT declared here: it comes from the same module the email
+ * surfaces build their placements with (#7695). Two literals would let the
+ * emitter and this consumer drift apart without anything failing — the reader
+ * would just miss the param and quietly fall back, i.e. affiliate revenue with
+ * no slot attached.
  */
-const PLACEMENT_PARAM = 'pos';
 
 export function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  const targetUrl = buildAffiliateUrl(partner, 'go-redirect');
@@ -69,7 +82,7 @@ export function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  ? `try{
 var q=new URLSearchParams(location.search);
 var raw=q.get(${JSON.stringify(PLACEMENT_PARAM)})||q.get('utm_content')||q.get('utm_campaign')||'';
-if(!raw&&document.referrer){try{raw='ref-'+new URL(document.referrer).pathname;}catch(e){}}
+if(!raw&&document.referrer){try{var r=new URL(document.referrer);raw=r.origin===location.origin?'ref-'+(r.pathname.split('/')[1]||'home'):'ref-ext';}catch(e){}}
 var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INVALID_RE.source)},'g'),'-').replace(/^-+|-+$/g,'').slice(0,${PUBREF_MAX_LEN}).replace(/-+$/,'');
 if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();
 var patch=function(){var a=document.getElementById('go-link');if(a)a.setAttribute('href',u);};

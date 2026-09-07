@@ -40,6 +40,7 @@ import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -286,7 +287,10 @@ function mergeJobs(discoveredJobs) {
 }
 
 function refreshLocalizedSlugs() {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  // The run's own working set, not the previous run's published slice:
+  // reading through `readExistingCrawlerJobs()` here handed back the jobs this
+  // run had just merged away and wrote them back over `DATA_JOBS` (#7706).
+  const jobs = readCurrentRunJobs(DATA_JOBS);
   let changed = 0;
   const nextJobs = jobs.map((job) => {
     if (!isTargetJob(job)) return job;
@@ -373,9 +377,14 @@ async function main() {
   const { total , diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
-  // Seed the slice with the freshly-merged jobs now, so refreshLocalizedSlugs()
-  // (which reads via readExistingCrawlerJobs) sees the fresh dataset instead of
-  // the STALE committed slice and doesn't clobber DATA_JOBS back down to it.
+  // Seed the slice with the freshly-merged jobs now. This was the workaround
+  // for the clobber fixed in #7706: refreshLocalizedSlugs() read via
+  // readExistingCrawlerJobs() and got the STALE committed slice back, so the
+  // slice was pre-seeded to make that stale read return the fresh dataset.
+  // It now reads the run's working set directly and the pre-seed is redundant
+  // for that purpose; kept because dropping a slice write also moves WHICH
+  // write faces the shrink guard, and that is a behaviour change this runner
+  // has no test to cover.
   writeJobsCrawlerSlice(COMPANY_KEY, (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isTargetJob));
 
   console.log('\n🌐 Running locale fill for Skyguide jobs...');

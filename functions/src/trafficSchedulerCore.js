@@ -42,9 +42,13 @@ const MAX_FLOW_DELAY_MIN = 45;
 const HERE_MONTHLY_BUDGET = (() => {
   const raw = process.env.HERE_MONTHLY_BUDGET;
   if (raw === undefined || raw === null || String(raw).trim() === '') return 4500;
-  const n = Number(String(raw).trim());
-  if (!Number.isInteger(n) || n < 0) {
-    console.warn(`[traffic-scheduler] HERE_MONTHLY_BUDGET=${JSON.stringify(String(raw))} non e' un intero >= 0 — uso 4500`);
+  const trimmed = String(raw).trim();
+  const n = Number(trimmed);
+  // Anche la FORMA conta: `Number('0x10')` fa 16 e `Number('1e3')` fa 1000, due
+  // interi >= 0 che passavano di qui senza avviso e cambiavano il tetto di
+  // spesa senza dirlo (issue #7701, item 3). Solo notazione decimale.
+  if (!/^[+-]?\d+$/.test(trimmed) || !Number.isInteger(n) || n < 0) {
+    console.warn(`[traffic-scheduler] HERE_MONTHLY_BUDGET=${JSON.stringify(String(raw))} non e' un intero decimale >= 0 — uso 4500`);
     return 4500;
   }
   return n;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-09-05T22:49:20.217Z",
+  "assembledAt": "2026-09-06T22:48:10.092Z",
   "jobs": [
     {
       "id": "transgourmet-be06ba69-831",
@@ -33,7 +33,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-allrounder/be06ba69-831f-44ec-b295-34bb989ecdfc",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.268Z",
+      "crawledAt": "2026-09-06T22:47:56.542Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,7 +75,8 @@
         "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
         "mitarbeiterin-vendeur-se-allrounder-50-transgourmet-hinwil",
         "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-hinwil-fte7qr",
-        "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2"
+        "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2",
+        "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -87,7 +88,8 @@
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil",
           "mitarbeiterin-vendeur-se-allrounder-50-transgourmet-hinwil",
           "mitarbeiterin-addetto-a-alle-vendite-allrounder-50-transgourmet-hinwil-fte7qr",
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2"
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-50-transgourmet-hinwil-2",
+          "mitarbeiterin-addetto-a-alle-vendite-allrounder-80-100-transgourmet-hinwil"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-allrounder-80-100-transgourmet-hinwil",
@@ -99,6 +101,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:09:16.546Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -144,7 +147,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-abteilung/44c24f2d-cc41-44fe-a2c1-b6906ab085e6",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.266Z",
+      "crawledAt": "2026-09-06T22:47:56.537Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,11 +183,13 @@
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-dubendorf",
         "mitarbeiterin-sales-associate-abteilung-transgourmet-dubendorf",
-        "mitarbeiterin-vendeur-se-abteilung-transgourmet-dubendorf"
+        "mitarbeiterin-vendeur-se-abteilung-transgourmet-dubendorf",
+        "mitarbeiterin-addetto-a-alle-vendite-abteilung-transgourmet-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-dubendorf"
+          "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-dubendorf",
+          "mitarbeiterin-addetto-a-alle-vendite-abteilung-transgourmet-dubendorf"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-abteilung-transgourmet-dubendorf",
@@ -196,6 +201,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:09:16.539Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -241,7 +247,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out/22d83680-c71b-4071-856b-a8813ab8a843",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.265Z",
+      "crawledAt": "2026-09-06T22:47:56.536Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -276,12 +282,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens",
         "mitarbeiterin-addetto-a-alle-vendite-check-out-transgourmet-kriens",
         "mitarbeiterin-vendeur-se-check-out-transgourmet-kriens",
-        "mitarbeiterin-sales-associate-check-out-transgourmet-kriens"
+        "mitarbeiterin-sales-associate-check-out-transgourmet-kriens",
+        "dipendenti-dipendenti-vendite-check-out-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens",
-          "mitarbeiterin-addetto-a-alle-vendite-check-out-transgourmet-kriens"
+          "mitarbeiterin-addetto-a-alle-vendite-check-out-transgourmet-kriens",
+          "dipendenti-dipendenti-vendite-check-out-transgourmet-kriens"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-transgourmet-kriens",
@@ -293,6 +301,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:11:32.016Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -314,7 +323,7 @@
         "it": "ordina-picker-berna-100-transgourmet-bern",
         "en": "order-picker-bern-100-transgourmet-bern",
         "de": "kommissioniererin-kommissionierer-bern-100-transgourmet-bern",
-        "fr": "recuperateur-de-commandes-berne-100-transgourmet-bern"
+        "fr": "kommissioniererin-kommissionierer-bern-100-transgourmet-bern"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -324,7 +333,7 @@
         "it": "Ordina picker, Berna, 100%",
         "en": "Order picker, Bern, 100 %",
         "de": "Kommissioniererin / Kommissionierer, Bern, 100%",
-        "fr": "Récupérateur de commandes, Berne, 100 %"
+        "fr": "Kommissioniererin / Kommissionierer, Bern, 100%"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.",
       "descriptionByLocale": {
@@ -338,7 +347,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer-bern/5d08cc65-7e9f-44b9-8f68-31dd30db5ed4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.265Z",
+      "crawledAt": "2026-09-06T22:47:56.536Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -374,20 +383,25 @@
         ]
       },
       "previousSlugs": [
-        "kommissioniererin-kommissionierer-bern-100-transgourmet-bern"
+        "kommissioniererin-kommissionierer-bern-100-transgourmet-bern",
+        "recuperateur-de-commandes-berne-100-transgourmet-bern",
+        "ordina-picker-berna-100-transgourmet-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissioniererin-kommissionierer-bern-100-transgourmet-bern"
+          "kommissioniererin-kommissionierer-bern-100-transgourmet-bern",
+          "ordina-picker-berna-100-transgourmet-bern"
         ],
         "en": [
           "kommissioniererin-kommissionierer-bern-100-transgourmet-bern"
         ],
         "fr": [
+          "recuperateur-de-commandes-berne-100-transgourmet-bern",
           "kommissioniererin-kommissionierer-bern-100-transgourmet-bern"
         ]
       },
       "firstSeenAt": "2026-08-11T21:52:54.975Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -433,7 +447,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke/8c51a980-a7a8-479c-ac1b-104d45553e97",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.264Z",
+      "crawledAt": "2026-09-06T22:47:56.528Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -472,12 +486,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
         "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
-        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur",
+        "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
-          "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur"
+          "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
+          "dipendenti-dipendenti-vendite-bevande-80-100-transgourmet-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-80-100-transgourmet-winterthur",
@@ -489,6 +505,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:11:32.009Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -534,7 +551,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-winterthur/f6a2fcbc-4568-4ff4-9fa0-053fb290c9d4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.262Z",
+      "crawledAt": "2026-09-06T22:47:56.523Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -600,6 +617,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:32.319Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -645,7 +663,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.262Z",
+      "crawledAt": "2026-09-06T22:47:56.523Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -686,13 +704,15 @@
         "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
         "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
         "employee-employe-de-vente-en-marche-transgourmet-gamsen",
-        "sales-assistant-in-market-department-transgourmet-gamsen"
+        "sales-assistant-in-market-department-transgourmet-gamsen",
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
           "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
-          "sales-assistant-in-market-department-transgourmet-gamsen"
+          "sales-assistant-in-market-department-transgourmet-gamsen",
+          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen"
@@ -703,6 +723,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:22.804Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -748,7 +769,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/51206166-7ebc-4a47-b186-7d714f980607",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.260Z",
+      "crawledAt": "2026-09-06T22:47:56.522Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -785,12 +806,14 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
-        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-d7640c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
-          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
+          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+          "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon-d7640c"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
@@ -800,6 +823,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:00.478Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -845,7 +869,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/481eb24d-a01e-4abd-ba4b-9d403d580b9f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.259Z",
+      "crawledAt": "2026-09-06T22:47:56.517Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -887,7 +911,8 @@
         "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
         "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon-qsl8fe",
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2",
-        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
+        "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -897,7 +922,8 @@
           "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
           "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon-qsl8fe",
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2",
-          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon"
+          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
+          "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon"
         ],
         "en": [
           "mitarbeiterin-sales-associate-metzgerei-transgourmet-dietikon",
@@ -909,6 +935,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:15:00.355Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -930,7 +957,7 @@
         "it": "ordina-picker-ordina-picker-winterthur-80-100-transgourmet-winterthur",
         "en": "order-picker-order-picker-winterthur-80-100-transgourmet-winterthur",
         "de": "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur",
-        "fr": "picker-de-commande-picker-de-commande-winterthur-80-100-transgourmet-winterthur"
+        "fr": "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -940,7 +967,7 @@
         "it": "Ordina picker / Ordina picker Winterthur 80-100 %",
         "en": "Order picker / Order picker Winterthur 80-100 %",
         "de": "Kommissioniererin / Kommissionierer Winterthur 80-100%",
-        "fr": "Picker de commande / Picker de commande Winterthur 80-100 %"
+        "fr": "Kommissioniererin / Kommissionierer Winterthur 80-100%"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kommissionierst Kundenaufträge termingerecht, fehlerfrei und qualitativ top – auch in Kühlräumen (3–5 °C).\n\n• Du hältst Rüstreihenfolgen ein und belädst die Transportgebinde korrekt.\n\n• Du ordnest Aufträge der richtigen Tour zu und platzierst sie am passenden Bereitstellungsplatz.\n\n• Du löst Nachschub aus, wenn Artikel zur Neige gehen.\n\n• Du unterstützt bei Inventuren und entsorgst Abfall fachgerecht.\n\n• Du arbeitest systemgeführt und hältst alle Kommissionier-, QS- und ASIB-Richtlinien ein.\n\n## Anforderungen\n• Du hast Erfahrung im Wareneingang und in der Kommissionierung.\n\n• Du besitzt ein gültigen SUVA-anerkannten Staplerausweis.\n\n• Du arbeitest zielorientiert, strukturiert und mit hoher Eigeninitiative.\n\n• Du bist körperlich belastbar und für Kühlräume gemacht.\n\n• Du kennst dich mit Lagerverwaltungssystemen aus.\n\n• Du sprichst gut Deutsch und bist zuverlässig.\n\nEinsatzzeiten\n• Hegi, Stegackerstrasse 22, 8409 Winterthur:            Ab 06.00 Uhr bis keine Aufträge mehr vorhanden sind\n\n• Grüze, Rudolf-Diesel-Strasse 25, 8404 Winterthur:  Ab 10.00 Uhr bis keine Aufträge mehr vorhanden sind",
       "descriptionByLocale": {
@@ -954,7 +981,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer-winterthur/465af80a-2b3c-4fa6-82fb-d3cd483342e3",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.258Z",
+      "crawledAt": "2026-09-06T22:47:56.516Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -994,21 +1021,26 @@
       },
       "previousSlugs": [
         "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur",
-        "recuperateur-de-commandes-recuperateur-de-commandes-winterthur-80-100-transgourmet-winterthur"
+        "recuperateur-de-commandes-recuperateur-de-commandes-winterthur-80-100-transgourmet-winterthur",
+        "picker-de-commande-picker-de-commande-winterthur-80-100-transgourmet-winterthur",
+        "ordina-picker-ordina-picker-winterthur-80-100-transgourmet-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur"
+          "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur",
+          "ordina-picker-ordina-picker-winterthur-80-100-transgourmet-winterthur"
         ],
         "en": [
           "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur"
         ],
         "fr": [
           "recuperateur-de-commandes-recuperateur-de-commandes-winterthur-80-100-transgourmet-winterthur",
+          "picker-de-commande-picker-de-commande-winterthur-80-100-transgourmet-winterthur",
           "kommissioniererin-kommissionierer-winterthur-80-100-transgourmet-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:32.312Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1054,7 +1086,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiter-in-bereitstellung-winterthur/66782e43-675d-4501-bfb8-cd3e13aea1ce",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.257Z",
+      "crawledAt": "2026-09-06T22:47:56.515Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1096,12 +1128,14 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-bereitstellung-winterthur-80-100-transgourmet-winterthur",
-        "collaboratore-trice-in-bereitstellung-winterthur-80-100-transgourmet-winterthur"
+        "collaboratore-trice-in-bereitstellung-winterthur-80-100-transgourmet-winterthur",
+        "fornitura-dei-dipendenti-winterthur-80-100-transgourmet-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bereitstellung-winterthur-80-100-transgourmet-winterthur",
-          "collaboratore-trice-in-bereitstellung-winterthur-80-100-transgourmet-winterthur"
+          "collaboratore-trice-in-bereitstellung-winterthur-80-100-transgourmet-winterthur",
+          "fornitura-dei-dipendenti-winterthur-80-100-transgourmet-winterthur"
         ],
         "en": [
           "mitarbeiter-in-bereitstellung-winterthur-80-100-transgourmet-winterthur"
@@ -1111,6 +1145,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:32.308Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1156,7 +1191,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out/de3aa871-b803-47bd-adf9-f2b320cc5104",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.256Z",
+      "crawledAt": "2026-09-06T22:47:56.504Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1197,12 +1232,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon",
         "mitarbeiterin-addetto-a-alle-vendite-check-out-25-transgourmet-dietikon",
         "mitarbeiterin-vendeur-se-check-out-25-transgourmet-dietikon",
-        "mitarbeiterin-sales-associate-check-out-25-transgourmet-dietikon"
+        "mitarbeiterin-sales-associate-check-out-25-transgourmet-dietikon",
+        "dipendenti-dipendenti-vendite-check-out-25-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon",
-          "mitarbeiterin-addetto-a-alle-vendite-check-out-25-transgourmet-dietikon"
+          "mitarbeiterin-addetto-a-alle-vendite-check-out-25-transgourmet-dietikon",
+          "dipendenti-dipendenti-vendite-check-out-25-transgourmet-dietikon"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-25-transgourmet-dietikon",
@@ -1214,6 +1251,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:34:20.867Z",
+      "needsRetranslation": true,
       "salaryMin": 20800,
       "salaryMax": 31900,
       "salarySource": "estimated",
@@ -1259,7 +1297,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei/6273057e-7cd7-4fa6-8afc-a5eef39038b4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.256Z",
+      "crawledAt": "2026-09-06T22:47:56.504Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1295,11 +1333,13 @@
         ]
       },
       "previousSlugs": [
-        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei"
+        "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei",
+        "capo-dipartimento-aggiunto-capo-dipartimento-aggiunto-transgourmet-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei"
+          "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei",
+          "capo-dipartimento-aggiunto-capo-dipartimento-aggiunto-transgourmet-langenthal"
         ],
         "en": [
           "stellvertretende-abteilungsleiterin-stellvertretender-abteilungsleiter-metzgerei"
@@ -1309,6 +1349,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:34:20.872Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1354,7 +1395,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/73085cfb-bc22-4bf1-9f75-fd98a58d755d",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.252Z",
+      "crawledAt": "2026-09-06T22:47:56.500Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1393,12 +1434,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf",
         "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf",
         "mitarbeiterin-sales-associate-metzgerei-transgourmet-dubendorf",
-        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf"
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dubendorf",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf",
-          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf"
+          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dubendorf",
+          "dipendenti-dipendenti-vendite-macelleria-transgourmet-dubendorf"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dubendorf",
@@ -1410,6 +1453,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:13.718Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -1430,7 +1474,7 @@
       "slugByLocale": {
         "it": "driver-cat-c-transgourmet-gals",
         "en": "driver-cat-c-transgourmet-gals",
-        "de": "fahrer-katze-c-transgourmet-gals",
+        "de": "chauffeuse-chauffeur-cat-c-transgourmet-gals",
         "fr": "chauffeuse-chauffeur-cat-c-transgourmet-gals"
       },
       "company": "Transgourmet",
@@ -1440,7 +1484,7 @@
       "titleByLocale": {
         "it": "Driver/Cat. C",
         "en": "Driver/Cat. C",
-        "de": "Fahrer/Katze C",
+        "de": "Chauffeuse/Chauffeur cat. C",
         "fr": "Chauffeuse/Chauffeur cat. C"
       },
       "description": "Notre cœur bat pour le secteur gastronomique suisse. Nous nous engageons sans cesse pour nos clients. Dans nos 31 marchés de libre-service, par le biais du Service externe et de la livraison, tout autant que dans le monde numérique. Avec un assortiment varié, des marques propres attrayantes, des conseils spécialisés et professionnels et des services innovateurs.\n\nTransgourmet Suisse SA fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de livraison et de libre-service en Suisse et compte quelque 2'100 collaborateurs, ainsi que 100'000 clients (restaurants, hôtels, cantines, foyers et hôpitaux, ainsi que commerce de détail).\n\n## Aufgaben\n• Établir la tournée quotidienne à l'aide du bordereau de la tournée\n\n• Traiter le jour même les tournées et la clôture des tournées à l'aide du système de préparation des marchandises pour le transport\n\n• Charger le véhicule en respectant les directives de températures, y compris arrimage du chargement\n\n• Vérifier l'exactitude et l'intégralité des commandes de clients à l'aide des bulletins de livraison\n\n• Décharger correctement la livraison chez le client\n\n• Reprise d'emballages consignés et d'éventuels retours de marchandises\n\n• Reconnaître, saisir et transmettre les besoins des clients à l'agent de transport\n\n## Anforderungen\n• Permis de conduire cat. C\n\n• Plusieurs années d'expérience en tant que chauffeuse/chauffeur\n\n• Bonnes connaissances de géographie\n\n• Bonne constitution physique\n\n• Bonne expression orale et écrite en français\n\n• Initiative personnelle, fiabilité et forte volonté de s'engager\n\n• Manière de travailler structurée et orientée vers les objectifs et le client",
@@ -1455,7 +1499,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/chauffeuse-chauffeur-cat-c/d9d9a649-b65c-4169-abc5-093197a20453",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T22:48:59.247Z",
+      "crawledAt": "2026-09-06T22:47:56.496Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1494,21 +1538,25 @@
       },
       "previousSlugs": [
         "fahrer-katze-c-transgourmet-gals",
-        "chauffeuse-chauffeur-cat-c-transgourmet-gals"
+        "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+        "driver-cat-c-transgourmet-gals"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrer-katze-c-transgourmet-gals",
-          "chauffeuse-chauffeur-cat-c-transgourmet-gals"
+          "chauffeuse-chauffeur-cat-c-transgourmet-gals",
+          "driver-cat-c-transgourmet-gals"
         ],
         "en": [
           "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ],
         "de": [
+          "fahrer-katze-c-transgourmet-gals",
           "chauffeuse-chauffeur-cat-c-transgourmet-gals"
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:41.625Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1525,22 +1573,22 @@
     },
     {
       "id": "transgourmet-ee4631a4-c0a",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
+      "slug": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
-        "en": "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
+        "it": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
+        "en": "employee-employee-sales-checkout-check-in-check-out-transgourmet-pratteln",
         "de": "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-        "fr": "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln"
+        "fr": "employe-vente-des-employes-check-out-check-in-check-out-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
       "companyDomain": "transgourmet.ch",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Kasse/Check-In/Check-out",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Addetto/a alle vendite Kasse/Check-In/Check-out",
-        "en": "Mitarbeiterin / Sales Associate Kasse/Check-In/Check-out",
+        "it": "Checkout/Check-in/Check-out dei dipendenti",
+        "en": "Employee / Employee Sales Checkout/Check-In/Check-out",
         "de": "Mitarbeiterin / Mitarbeiter Verkauf Kasse/Check-In/Check-out",
-        "fr": "Mitarbeiterin / Vendeur/se Kasse/Check-In/Check-out"
+        "fr": "Employé / Vente des employés Check-out/Check-In/Check-out"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du erfasst Kundendaten, erstellst Tageskarten und aktualisierst den Kundenstamm\n\n• Du nimmst Leergut und Retouren entgegen und kontrollierst Eintritte\n\n• Du betreust die Telefonzentrale sowie Info- und Prospektbereiche\n\n• Du wickelst das Inkasso effizient ab und machst die Kassenabrechnung korrekt\n\n• Du begrüsst unsere Kundschaft freundlich und sorgst für einen professionellen ersten Eindruck\n\n• Du übernimmst Zusatzaufgaben rund um Empfang und Service, wo's dich braucht\n\n• Am Check-out scannst du die Ware\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)\n\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n\n• Du bist fit im Umgang mit MS Office\n\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\n\n• Von Vorteil hast du bereits die Stapler-und/oder Deichselgerätausbildung ( SUVA-Norm) absolviert",
       "descriptionByLocale": {
@@ -1554,7 +1602,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out/ee4631a4-c0ad-4bb1-a36b-0773c2c12766",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.244Z",
+      "crawledAt": "2026-09-06T22:47:56.495Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1600,7 +1648,11 @@
         "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
         "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
         "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil"
+        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
+        "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
+        "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
+        "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln",
+        "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1612,11 +1664,14 @@
           "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
           "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
           "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil"
+          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
+          "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
+          "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln"
         ],
         "en": [
           "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
+          "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln"
         ],
         "de": [
           "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf",
@@ -1627,7 +1682,8 @@
         ],
         "fr": [
           "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
+          "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln"
         ]
       },
       "needsRetranslation": true,
@@ -1648,36 +1704,36 @@
     },
     {
       "id": "transgourmet-91d38dc5-927",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
+      "slug": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
-        "en": "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach",
+        "it": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
+        "en": "employee-employee-sales-acceptance-of-goods-non-food-transgourmet-bellach",
         "de": "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-        "fr": "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
+        "fr": "ventes-d-employes-et-d-employes-acceptation-de-biens-et-de-produits-non-alimentaires-transgourmet-bellach"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
       "companyDomain": "transgourmet.ch",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Warenannahme & Non-Food",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Addetto/a alle vendite Warenannahme & Non-Food",
-        "en": "Mitarbeiterin / Sales Associate Warenannahme & Non-Food",
+        "it": "Dipendenti / Dipendenti vendite Accettazione di beni & Non-Food",
+        "en": "Employee / Employee Sales Acceptance of Goods & Non-Food",
         "de": "Mitarbeiterin / Mitarbeiter Verkauf Warenannahme & Non-Food",
-        "fr": "Mitarbeiterin / Vendeur/se Warenannahme & Non-Food"
+        "fr": "Ventes d'employés et d'employés Acceptation de biens et de produits non alimentaires"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
       "descriptionByLocale": {
-        "it": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
-        "en": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Si controllano le merci in arrivo per quantità, temperatura e qualità\n\n• Si segnalano deviazioni direttamente alla gestione del dipartimento\n\n• Accetti consegne, ritorni di processo e contenitori vuoti professionalmente\n\n• Tenere correttamente la rivista di flusso e disporre di materiali riciclabili in modo ecologico\n\n• Conformi in modo affidabile i requisiti interni e legali (QS, ASIB, BUWAL)\n\n• Hai un rapporto rispettoso con gli autisti e le attrezzature di maniglia con attenzione\n\n• Si crea un ambiente in cui i nostri clienti trovano la loro strada intorno bene e piace fare acquisti e comunicare con esperti a livello degli occhi\n\n• Oltre a garantire la freschezza e la presentazione delle merci, siete responsabili di una corretta etichettatura\n\n• Garantisci la costante disponibilità dei nostri prodotti e effettua regolarmente inventari\n\n• Prendere reclami professionalmente e trasmetterli di conseguenza\n\n• Al check-out si esegue la scansione della merce\n\n## Requisiti\n• Hai completato la formazione nel settore alimentare (cook, panettiere, rivenditore, macellaio)\n\n• Ti piace offrire ai nostri clienti una grande esperienza di shopping\n\n• Si distingue per il vostro modo di lavorare altamente affidabile ed efficiente e sono fisicamente resilienti\n\n• Sei un team capace personalità che è entusiasta di nuove sfide\n\n• Comunichi perfettamente in tedesco\n\n• Hai già completato l'allenamento del camion e/o del drawbar (standard SUVA)",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You control incoming goods for quantity, temperature and quality\n\n• You report deviations directly to the department management\n\n• You accept deliveries, process returns and empty containers professionally\n\n• You keep the flow journal correctly and dispose of recyclable materials in an environmentally friendly manner\n\n• You comply reliably with internal and legal requirements (QS, ASIB, BUWAL)\n\n• You have a respectful relationship with chauffeurs and handle equipment carefully\n\n• You create an environment in which our customers find their way around well and like to shop and communicate with experts at eye level\n\n• In addition to ensuring the freshness and presentation of goods, you are responsible for a correct labeling\n\n• You ensure the constant availability of our products and regularly carry out inventories\n\n• You take complaints professionally and forward them accordingly\n\n• At the check-out you scan the goods\n\n## Requirements\n• You have completed training in the food industry (cook, baker, retailer, butcher)\n\n• You enjoy offering our customers a great shopping experience\n\n• You stand out for your highly reliable and efficient way of working and are physically resilient\n\n• You are a team capable personality who is enthusiastic about new challenges\n\n• You communicate perfectly in German\n\n• You have already completed the truck and/or drawbar training (SUVA standard)",
         "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
-        "fr": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert"
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous contrôlez les marchandises entrantes pour la quantité, la température et la qualité\n\n• Vous signalez les écarts directement à la direction du ministère\n\n• Vous acceptez les livraisons, les retours et les conteneurs vides professionnellement\n\n• Vous gardez le journal de flux correctement et jetez des matériaux recyclables d'une manière respectueuse de l'environnement\n\n• Vous répondez de manière fiable aux exigences internes et légales (QS, ASIB, BUWAL)\n\n• Vous avez une relation respectueuse avec les chauffeurs et manipulez soigneusement les équipements\n\n• Vous créez un environnement dans lequel nos clients trouvent leur chemin et aiment acheter et communiquer avec des experts au niveau des yeux\n\n• En plus d'assurer la fraîcheur et la présentation des marchandises, vous êtes responsable d'un étiquetage correct\n\n• Vous assurez la disponibilité constante de nos produits et effectuez régulièrement des inventaires\n\n• Vous prenez des plaintes professionnellement et les transmettez en conséquence\n\n• Au check-out, vous scannez les marchandises\n\n## Exigences\n• Vous avez suivi une formation dans l'industrie alimentaire (cuisson, boulanger, détaillant, boucher)\n\n• Vous aimez offrir à nos clients une excellente expérience d'achat\n\n• Vous vous démarquez pour votre façon de travailler très fiable et efficace et êtes physiquement résistant\n\n• Vous êtes une personnalité capable d'équipe qui est enthousiaste face aux nouveaux défis\n\n• Vous communiquez parfaitement en allemand\n\n• Vous avez déjà terminé la formation de camion et/ou de timon (norme SUVA)"
       },
       "location": "Bellach",
       "canton": "SO",
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-warenannahme-non-food/91d38dc5-9277-446b-a01e-bf962a167f2b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.243Z",
+      "crawledAt": "2026-09-06T22:47:56.492Z",
       "addressLocality": "Bellach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1713,21 +1769,29 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+        "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
+        "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach",
+        "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach",
+        "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
+          "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach"
+          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
+          "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:33:58.238Z",
+      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1744,36 +1808,36 @@
     },
     {
       "id": "transgourmet-b5e2f911-4e9",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
+      "slug": "mercato-commerciale-dei-dipendenti-transgourmet-pratteln",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
-        "en": "mitarbeiterin-sales-associate-markt-transgourmet-pratteln",
+        "it": "mercato-commerciale-dei-dipendenti-transgourmet-pratteln",
+        "en": "employee-employee-sales-market-transgourmet-pratteln",
         "de": "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
-        "fr": "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
+        "fr": "marche-des-ventes-des-employes-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
       "companyDomain": "transgourmet.ch",
       "title": "Mitarbeiterin / Mitarbeiter Verkauf Markt",
       "titleByLocale": {
-        "it": "Mitarbeiterin / Addetto/a alle vendite Markt",
-        "en": "Mitarbeiterin / Sales Associate Markt",
+        "it": "Mercato commerciale dei dipendenti",
+        "en": "Employee / Employee Sales Market",
         "de": "Mitarbeiterin / Mitarbeiter Verkauf Markt",
-        "fr": "Mitarbeiterin / Vendeur/se Markt"
+        "fr": "Marché des ventes des employés"
       },
       "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
       "descriptionByLocale": {
-        "it": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
-        "en": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Si crea un ambiente in cui i nostri clienti trovano la loro strada intorno bene e come fare acquisti e comunicare a livello degli occhi con gli esperti\n\n• Garantisci il rispetto delle linee guida QS e ASIB interne e legali\n\n• Oltre a garantire la freschezza e la presentazione delle merci, sei responsabile di una corretta etichettatura\n\n• Garantisci la costante disponibilità dei nostri prodotti e effettua regolarmente inventari\n\n• Prendere reclami professionalmente e trasmetterli di conseguenza\n\n• Al check-out si esegue la scansione della merce\n\n## Requisiti\n• Hai completato la formazione nel settore alimentare (cook, panettiere, rivenditore, macellaio)\n\n• Ti piace offrire ai nostri clienti una grande esperienza di shopping\n\n• Si distingue il vostro metodo di lavoro altamente affidabile ed efficiente\n\n• Sei un team capace personalità che è entusiasta di nuove sfide\n\n• Si comunica perfettamente in tedesco\n\n• Vantaggiosamente, avete già completato il camion e/o la formazione del carrello (standard SUVA)",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You create an environment in which our customers find their way around well and like to shop and communicate at eye level with experts\n\n• You ensure compliance with the internal and legal QS and ASIB guidelines\n\n• In addition to ensuring the freshness and presentation of goods, you are responsible for a correct labeling\n\n• You ensure the constant availability of our products and regularly carry out inventories\n\n• You take complaints professionally and forward them accordingly\n\n• At the check-out you scan the goods\n\n## Requirements\n• You have completed training in the food industry (cook, baker, retailer, butcher)\n\n• You enjoy offering our customers a great shopping experience\n\n• You distinguish your highly reliable and efficient work method\n\n• You are a team capable personality who is enthusiastic about new challenges\n\n• You communicate perfectly in German\n\n• Advantageously, you have already completed the truck and/or drawbar training (SUVA standard)",
         "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert",
-        "fr": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n\n• Du sorgst für die Einhaltung der vorgegebenen internen und gesetzlichen QS- und ASIB Richtlinien\n\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus\n\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n\n• Du kommunizierst einwandfrei in Deutsch\n\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert"
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâches\n• Vous créez un environnement dans lequel nos clients trouvent leur chemin et aiment acheter et communiquer au niveau des yeux avec des experts\n\n• Vous veillez au respect des lignes directrices internes et légales QS et ASIB\n\n• En plus d'assurer la fraîcheur et la présentation des marchandises, vous êtes responsable d'un étiquetage correct\n\n• Vous assurez la disponibilité constante de nos produits et effectuez régulièrement des inventaires\n\n• Vous prenez des plaintes professionnellement et les transmettez en conséquence\n\n• Au check-out, vous balayez les marchandises\n\n## Exigences\n• Vous avez suivi une formation dans l'industrie alimentaire (cuisson, boulanger, détaillant, boucher)\n\n• Vous aimez offrir à nos clients une excellente expérience d'achat\n\n• Vous distinguez votre méthode de travail hautement fiable et efficace\n\n• Vous êtes une personnalité capable d'équipe qui est enthousiaste face aux nouveaux défis\n\n• Vous communiquez parfaitement en allemand\n\n• Avantageux, vous avez déjà terminé la formation de camion et/ou de timon (standard SUVA)"
       },
       "location": "Pratteln",
       "canton": "BS",
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/b5e2f911-4e94-4ec3-b9e9-e1a39622ca5a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.239Z",
+      "crawledAt": "2026-09-06T22:47:56.489Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1809,20 +1873,25 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
+        "mitarbeiterin-sales-associate-markt-transgourmet-pratteln",
+        "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+          "mitarbeiterin-sales-associate-markt-transgourmet-pratteln"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+          "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T23:09:02.199Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1869,7 +1938,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/marktleiterin-marktleiter/51da45b4-40d6-44f6-9f61-0a47b4c05151",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.237Z",
+      "crawledAt": "2026-09-06T22:47:56.488Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1905,11 +1974,13 @@
         ]
       },
       "previousSlugs": [
-        "marktleiterin-marktleiter-100-transgourmet-kriens"
+        "marktleiterin-marktleiter-100-transgourmet-kriens",
+        "market-manager-market-manager-100-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marktleiterin-marktleiter-100-transgourmet-kriens"
+          "marktleiterin-marktleiter-100-transgourmet-kriens",
+          "market-manager-market-manager-100-transgourmet-kriens"
         ],
         "en": [
           "marktleiterin-marktleiter-100-transgourmet-kriens"
@@ -1965,7 +2036,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/leiterin-leiter-payroll/3bd06ceb-a444-4a1b-aa6e-e742825d4b25",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:48:59.233Z",
+      "crawledAt": "2026-09-06T22:47:56.484Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1999,11 +2070,13 @@
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-payroll-transgourmet-moosseedorf"
+        "leiterin-leiter-payroll-transgourmet-moosseedorf",
+        "head-head-payroll-transgourmet-moosseedorf-14bff8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-payroll-transgourmet-moosseedorf"
+          "leiterin-leiter-payroll-transgourmet-moosseedorf",
+          "head-head-payroll-transgourmet-moosseedorf-14bff8"
         ],
         "en": [
           "leiterin-leiter-payroll-transgourmet-moosseedorf"
@@ -2013,6 +2086,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:00.452Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2026,102 +2100,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "transgourmet-d1ce1b5e-b77",
-      "slug": "testa-di-cibo-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "testa-di-cibo-transgourmet-moosseedorf",
-        "en": "head-of-food-transgourmet-moosseedorf",
-        "de": "leiterin-leiter-kulinarik-transgourmet-moosseedorf",
-        "fr": "chef-de-l-alimentation-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Leiterin / Leiter Kulinarik",
-      "titleByLocale": {
-        "it": "Testa di cibo",
-        "en": "Head of Food",
-        "de": "Leiterin / Leiter Kulinarik",
-        "fr": "Chef de l'alimentation"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nDu willst deine Leidenschaft für Kulinarik auf neue Art ausleben? Dann wartet bei Transgourmet eine Funktion auf dich, die es so kaum ein zweites Mal gibt. Im Zuge der Weiterentwicklung unserer kulinarischen Konzeptmarken suchen wir eine Persönlichkeit, die mit Kreativität, Innovationsgeist und Unternehmergeist neue Impulse setzt. Nutze deinen Gestaltungsspielraum, bringe eigene Ideen zum Leben, werde das kulinarische Gesicht von Transgourmet und gestalte die Schweizer Gastronomie aktiv mit.\n\n• Gemeinsam mit dem Marketing entwickelst du inspirierende Rezepte, erzählst Food Stories, setzt Trends wirkungsvoll in Szene und produzierst kreativen Content - von Reels, Fotos bis zu redaktionellen Beiträgen\n\n• Du planst und realisierst Live Cookings, Workshops und Messeauftritte\n\n• Unterstütze das Category Management bei Produktneuheiten und trage mit Vergleichsdegustationen zur Weiterentwicklung unseres Sortiments bei\n\n• Du führst als Gastgeber unser Mitarbeiterrestaurant \"Inside\" mit Leidenschaft und Qualitätsbewusstsein\n\n## Anforderungen\n• Du hast mehrjährige Erfahrung auf mittlerem bis hohem gastronomischem Niveau\n\n• Kulinarik ist deine Leidenschaft und du inspirierst andere mit deiner Begeisterung\n\n• Du bist eine offene, extrovertierte Persönlichkeit mit natürlichem Charisma\n\n• Du hast Freude daran vor der Kamera zu stehen und Inhalte kreativ umzusetzen\n\n• Du bringst eine ausgeprägte Hands-on-Mentalität mit und hast den Mut, neue Wege zu gehen\n\n• Von Vorteil bringst du bereits Führungserfahrung mit, entscheidend ist jedoch deine Persönlichkeit",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\nVuoi vivere la tua passione per la cucina in modo nuovo? Poi una funzione vi aspetta a Transgourmet che esiste appena una seconda volta. Nel corso dell'ulteriore sviluppo dei nostri marchi di concetto culinario, stiamo cercando una personalità che imposta nuovi impulsi con creatività, innovazione e imprenditorialità. Usa la tua strada creativa, porta le tue idee alla vita, diventa il volto culinario di Transgourmet e forma attivamente la gastronomia svizzera.\n\n• Insieme al marketing, si sviluppano ricette ispiranti, raccontano storie di cibo, vetrina tendenze e produrre contenuti creativi – da bobine, foto a contributi editoriali.\n\n• Pianifica e realizza cucine dal vivo, laboratori e apparizioni fieristiche\n\n• Supporta la gestione delle categorie nelle innovazioni dei prodotti e contribuisce allo sviluppo della nostra gamma di prodotti con degustazioni comparative\n\n• Come ospite gestisci il nostro ristorante \"Inside\" con passione e consapevolezza della qualità\n\n## Requisiti\n• Hai diversi anni di esperienza a livello gastronomico medio-alto\n\n• La cucina è la vostra passione e voi ispirate gli altri con il vostro entusiasmo\n\n• Sei una personalità aperta ed estroversa con il carisma naturale\n\n• Ti piace stare davanti alla telecamera e implementare creativamente contenuti\n\n• Porti una mentalità forte e hai il coraggio di rompere un nuovo terreno\n\n• Hai già esperienza di leadership, ma la tua personalità è cruciale",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\nDo you want to live out your passion for cuisine in a new way? Then a function awaits you at Transgourmet that hardly exists a second time. In the course of the further development of our culinary concept brands, we are looking for a personality who sets new impulses with creativity, innovation and entrepreneurship. Use your creative leeway, bring your own ideas to life, become the culinary face of Transgourmet and actively shape Swiss gastronomy.\n\n• Together with marketing, you develop inspiring recipes, tell food stories, showcase trends and produce creative content – from reels, photos to editorial contributions.\n\n• You plan and realize live cookings, workshops and trade fair appearances\n\n• Support category management in product innovations and contribute to the further development of our product range with comparative tastings\n\n• As host you run our staff restaurant \"Inside\" with passion and quality awareness\n\n## Requirements\n• You have several years of experience at medium to high gastronomic level\n\n• Culinary is your passion and you inspire others with your enthusiasm\n\n• You are an open, extroverted personality with natural charisma\n\n• You enjoy standing in front of the camera and creatively implementing content\n\n• You bring a strong hands-on mentality and have the courage to break new ground\n\n• You already have leadership experience, but your personality is crucial",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\n\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\nDu willst deine Leidenschaft für Kulinarik auf neue Art ausleben? Dann wartet bei Transgourmet eine Funktion auf dich, die es so kaum ein zweites Mal gibt. Im Zuge der Weiterentwicklung unserer kulinarischen Konzeptmarken suchen wir eine Persönlichkeit, die mit Kreativität, Innovationsgeist und Unternehmergeist neue Impulse setzt. Nutze deinen Gestaltungsspielraum, bringe eigene Ideen zum Leben, werde das kulinarische Gesicht von Transgourmet und gestalte die Schweizer Gastronomie aktiv mit.\n\n• Gemeinsam mit dem Marketing entwickelst du inspirierende Rezepte, erzählst Food Stories, setzt Trends wirkungsvoll in Szene und produzierst kreativen Content - von Reels, Fotos bis zu redaktionellen Beiträgen\n\n• Du planst und realisierst Live Cookings, Workshops und Messeauftritte\n\n• Unterstütze das Category Management bei Produktneuheiten und trage mit Vergleichsdegustationen zur Weiterentwicklung unseres Sortiments bei\n\n• Du führst als Gastgeber unser Mitarbeiterrestaurant \"Inside\" mit Leidenschaft und Qualitätsbewusstsein\n\n## Anforderungen\n• Du hast mehrjährige Erfahrung auf mittlerem bis hohem gastronomischem Niveau\n\n• Kulinarik ist deine Leidenschaft und du inspirierst andere mit deiner Begeisterung\n\n• Du bist eine offene, extrovertierte Persönlichkeit mit natürlichem Charisma\n\n• Du hast Freude daran vor der Kamera zu stehen und Inhalte kreativ umzusetzen\n\n• Du bringst eine ausgeprägte Hands-on-Mentalität mit und hast den Mut, neue Wege zu gehen\n\n• Von Vorteil bringst du bereits Führungserfahrung mit, entscheidend ist jedoch deine Persönlichkeit",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\nVoulez-vous vivre votre passion pour la cuisine d'une nouvelle façon? Puis une fonction vous attend à Transgourmet qui existe à peine une seconde fois. Au cours du développement de nos marques de concepts culinaires, nous recherchons une personnalité qui insuffle de nouvelles impulsions à la créativité, à l'innovation et à l'entrepreneuriat. Utilisez votre marge de manœuvre créative, donnez vie à vos propres idées, devenez le visage culinaire de Transgourmet et façonnez activement la gastronomie suisse.\n\n• Avec le marketing, vous développez des recettes inspirantes, racontez des histoires culinaires, présentez des tendances et produisez du contenu créatif – des bobines, des photos aux contributions éditoriales.\n\n• Vous planifiez et réalisez des cuisines en direct, des ateliers et des expositions commerciales\n\n• Soutenir la gestion de catégorie dans les innovations de produits et contribuer au développement de notre gamme de produits avec des dégustations comparatives\n\n• En tant qu'hôte vous dirigez notre restaurant personnel \"Inside\" avec passion et sensibilisation à la qualité\n\n## Exigences\n• Vous avez plusieurs années d'expérience au niveau gastronomique moyen à élevé\n\n• Culinaire est votre passion et vous inspirez les autres avec votre enthousiasme\n\n• Vous êtes une personnalité ouverte, extravertie avec charisme naturel\n\n• Vous aimez vous tenir devant l'appareil photo et mettre en œuvre du contenu de manière créative\n\n• Vous apportez une forte mentalité pratique et avez le courage de briser un nouveau terrain\n\n• Vous avez déjà une expérience de leadership, mais votre personnalité est cruciale"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/leiterin-leiter-kulinarik/d1ce1b5e-b77c-40a7-a3ca-280f7962aa90",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T12:40:26.454Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Altro",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-07",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169000",
-      "requirements": [
-        "• Du hast mehrjährige Erfahrung auf mittlerem bis hohem gastronomischem Niveau",
-        "• Kulinarik ist deine Leidenschaft und du inspirierst andere mit deiner Begeisterung",
-        "• Du bist eine offene, extrovertierte Persönlichkeit mit natürlichem Charisma",
-        "• Du hast Freude daran vor der Kamera zu stehen und Inhalte kreativ umzusetzen",
-        "• Du bringst eine ausgeprägte Hands-on-Mentalität mit und hast den Mut, neue Wege zu gehen",
-        "• Von Vorteil bringst du bereits Führungserfahrung mit, entscheidend ist jedoch deine Persönlichkeit"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du hast mehrjährige Erfahrung auf mittlerem bis hohem gastronomischem Niveau",
-          "• Kulinarik ist deine Leidenschaft und du inspirierst andere mit deiner Begeisterung",
-          "• Du bist eine offene, extrovertierte Persönlichkeit mit natürlichem Charisma",
-          "• Du hast Freude daran vor der Kamera zu stehen und Inhalte kreativ umzusetzen",
-          "• Du bringst eine ausgeprägte Hands-on-Mentalität mit und hast den Mut, neue Wege zu gehen",
-          "• Von Vorteil bringst du bereits Führungserfahrung mit, entscheidend ist jedoch deine Persönlichkeit"
-        ]
-      },
-      "previousSlugs": [
-        "leiterin-leiter-kulinarik-transgourmet-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-leiter-kulinarik-transgourmet-moosseedorf"
-        ],
-        "en": [
-          "leiterin-leiter-kulinarik-transgourmet-moosseedorf"
-        ],
-        "fr": [
-          "leiterin-leiter-kulinarik-transgourmet-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T10:19:09.460Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }

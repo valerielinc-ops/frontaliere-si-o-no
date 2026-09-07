@@ -147,6 +147,58 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('reports the post-parser count so a pipeline-level emptying is not read as filtered-empty (#7707)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'post-parser-count-root-'));
+    // The parser hands 2 jobs to the pipeline; a post-parser stage drops them
+    // all. Without `parsed`, the slice reads `discovered > 0, written === 0` —
+    // the exact shape of a legitimate geographic filter-empty — and
+    // check-crawler-health classifies a broken crawler as healthy.
+    mocks.mergePreserveLocaleData.mockImplementationOnce(() => []);
+    const parsedJobs = Object.assign(
+      [
+        { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
+        { id: 'test-new-2', slug: 'other-job', url: 'https://example.com/other-job' },
+      ],
+      { discoveredCount: 7 },
+    );
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Authoritative Empty Test',
+        root,
+        fetchJobs: async () => parsedJobs,
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({ discovered: 7, parsed: 2, written: 0 }),
+    );
+  });
+
+  it('reports parsed alongside written on a run that published every parsed job', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'post-parser-count-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Authoritative Empty Test',
+        root,
+        fetchJobs: async () => [
+          { id: 'test-new-1', slug: 'new-job', url: 'https://example.com/new-job' },
+        ],
+        isCompanyJob: (job: { id?: string }) => job.id === 'test-new-1',
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({ parsed: 1, written: 1 }),
+    );
+  });
+
   it('does not claim an authoritative empty snapshot on a run that published jobs', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-empty-root-'));
     try {
