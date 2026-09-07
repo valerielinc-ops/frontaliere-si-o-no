@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 
 import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
+import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
 
 /**
  * Suppression recovery — the single decision point shared by every
@@ -185,6 +186,7 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
   // event is tolerated (the caller already gated on the event type) but then
   // there is nothing to record as the cause.
   if (eventType && !POSITIVE_RECOVERY_EVENTS.has(eventType)) return {};
+  if (isAccountDeletedTombstone(subscriber)) return {};
   // The stamp is checked BEFORE the status, and refuses on its own: a document
   // whose `status` a webhook overwrote to `suppressed` still carries the
   // camelCase `unsubscribedAt` the person's own click wrote, and the fact wins
@@ -239,6 +241,7 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
 export function positiveEventStatusFields({ currentStatus, bounceSeverity, event, subscriber } = {}) {
   const eventType = norm(event);
   if (eventType && !POSITIVE_RECOVERY_EVENTS.has(eventType)) return {};
+  if (isAccountDeletedTombstone(subscriber)) return {};
   if (hasBindingOptOutStamp(subscriber)) return {};
 
   const recovery = positiveEventRecoveryFields({ currentStatus, bounceSeverity, event, subscriber });

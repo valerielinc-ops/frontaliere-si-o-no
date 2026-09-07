@@ -59,6 +59,7 @@ import {
  scopeForAction,
  TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
+import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -498,6 +499,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  if (subDoc.exists) {
  const data = subDoc.data() || {};
+ if (isAccountDeletedTombstone(data)) {
+ refuseAutologin('account_deleted', verdict.scheme);
+ return { status: 403, json: { success: false, error: 'account_deleted' } };
+ }
  optedOut = data.autologin_enabled === false;
  revokedBefore = revokedBeforeMs(data.autologin_revoked_before);
  }
@@ -641,6 +646,38 @@ export async function handleSubscriptionManagement({ action, email, token, local
  const resubscribeFormToken = () => (
  mintNewsletterActionToken(normalizedEmail, TOKEN_SCOPES.RESUBSCRIBE, { secret, policy: tokenPol }) || token
  );
+
+ // A leftover confirmation / resubscribe / preferences-on click after
+ // Auth-delete must not resurrect the subscriber (or mint a new Auth user).
+ // Unsubscribe stays reachable: ending mail is never harder after deletion.
+ const desiredOn = subscribed === true || subscribed === 'true' || subscribed === '1';
+ const wouldResubscribe = action === 'confirm'
+  || action === 'resubscribe'
+  || (action === 'toggle_newsletter_subscription' && desiredOn);
+ if (wouldResubscribe) {
+  try {
+   const deletedSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+   if (deletedSnap.exists && isAccountDeletedTombstone(deletedSnap.data())) {
+    if (action === 'toggle_newsletter_subscription') {
+     return { status: 403, json: { success: false, error: 'account_deleted' } };
+    }
+    return {
+     status: 403,
+     accountDeleted: true,
+     html: buildResponseHtml({
+      title: t(lang, 'manageErrorTitle'),
+      message: t(lang, 'manageErrorInvalidAction'),
+      showResubscribe: false,
+      email: '',
+      token: '',
+      locale: lang,
+     }),
+    };
+   }
+  } catch (tombstoneErr) {
+   console.warn('[newsletterManage] tombstone read failed:', tombstoneErr?.message || tombstoneErr);
+  }
+ }
 
  if (action === 'get_autologin_status') {
  try {

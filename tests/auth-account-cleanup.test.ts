@@ -78,6 +78,14 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
   let autoId = 0;
   const makeCollection = (colPath: string): any => ({
     doc: (id?: string) => makeDoc(`${colPath}/${id || `auto-${++autoId}`}`),
+    add: async (data: Record<string, unknown>) => {
+      store[`${colPath}/auto-${++autoId}`] = data;
+    },
+    orderBy: () => ({
+      limit: () => ({
+        get: async () => ({ docs: [] }),
+      }),
+    }),
     limit: (n: number) => ({
       get: async () => {
         const prefix = `${colPath}/`;
@@ -305,6 +313,153 @@ describe('syncAuthAccountForSubscriber after account-delete cleanup', () => {
       emailVerified: false,
       disabled: false,
     });
+  });
+});
+
+describe('click/open after account-delete must not resubscribe', () => {
+  const SECRET = 'test-secret';
+
+  it('a leftover confirmation-link click does not confirm or mint authToken', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const { handleSubscriptionManagement } = await import(
+      '../functions/src/newsletterSubscriptionManagement.js'
+    );
+    const { generateConfirmationToken } = await import(
+      '../functions/src/newsletterConfirmationEmail.js'
+    );
+    const db = seedDeletedUser();
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+    const before = { ...db.store[`newsletter_subscribers/${EMAIL}`] };
+
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email: EMAIL,
+      token: generateConfirmationToken(EMAIL, SECRET),
+      secret: SECRET,
+      locale: 'it',
+      db: db as never,
+    });
+
+    expect(result.status).toBe(403);
+    expect(result.accountDeleted).toBe(true);
+    expect(result.authToken).toBeUndefined();
+    const after = db.store[`newsletter_subscribers/${EMAIL}`];
+    expect(isAccountDeletedTombstone(after)).toBe(true);
+    expect(after.status).toBe(before.status);
+    expect(after.isActive).toBe(false);
+  });
+
+  it('a leftover resubscribe POST does not lift the tombstone', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const { handleSubscriptionManagement } = await import(
+      '../functions/src/newsletterSubscriptionManagement.js'
+    );
+    const { mintNewsletterActionToken, TOKEN_SCOPES } = await import(
+      '../functions/src/lib/newsletterActionToken.js'
+    );
+    const db = seedDeletedUser();
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+    const token = mintNewsletterActionToken(EMAIL, TOKEN_SCOPES.RESUBSCRIBE, { secret: SECRET });
+
+    const result = await handleSubscriptionManagement({
+      action: 'resubscribe',
+      email: EMAIL,
+      token,
+      secret: SECRET,
+      locale: 'it',
+      method: 'POST',
+      db: db as never,
+    });
+
+    expect(result.status).toBe(403);
+    expect(result.resubscribeApplied).not.toBe(true);
+    const after = db.store[`newsletter_subscribers/${EMAIL}`];
+    expect(isAccountDeletedTombstone(after)).toBe(true);
+    expect(after.status).toBe('unsubscribed');
+  });
+
+  it('ESP open and click do not recover status on a tombstoned subscriber', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const { persistMailtrapEvent } = await import(
+      '../functions/src/newsletterMailtrapWebhookCore.js'
+    );
+    const { positiveEventRecoveryFields } = await import(
+      '../functions/src/lib/subscriberReactivation.js'
+    );
+    const db = seedDeletedUser();
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+    const tombstone = db.store[`newsletter_subscribers/${EMAIL}`];
+
+    expect(
+      positiveEventRecoveryFields({
+        currentStatus: tombstone.status,
+        event: 'open',
+        subscriber: tombstone,
+      }),
+    ).toEqual({});
+    expect(
+      positiveEventRecoveryFields({
+        currentStatus: 'inactive',
+        event: 'click',
+        subscriber: { ...tombstone, status: 'inactive' },
+      }),
+    ).toEqual({});
+
+    await persistMailtrapEvent(db as never, {
+      event: 'open',
+      email: EMAIL,
+      message_id: 'm-open',
+      timestamp: 1700000000,
+    });
+    await persistMailtrapEvent(db as never, {
+      event: 'click',
+      email: EMAIL,
+      message_id: 'm-click',
+      url: 'https://frontaliereticino.ch/',
+      timestamp: 1700000001,
+    });
+
+    const after = db.store[`newsletter_subscribers/${EMAIL}`];
+    expect(isAccountDeletedTombstone(after)).toBe(true);
+    expect(after.status).toBe('unsubscribed');
+    expect(after.isActive).toBe(false);
+    expect(after.reactivated_at).toBeUndefined();
+  });
+
+  it('an autologin code in a leftover email does not mint a session', async () => {
+    const { cleanupUserDataForDeletedAccount } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const { handleSubscriptionManagement } = await import(
+      '../functions/src/newsletterSubscriptionManagement.js'
+    );
+    const { mintAutologinCode, resolveAutologinPolicy } = await import(
+      '../functions/src/lib/autologinCode.js'
+    );
+    const db = seedDeletedUser();
+    await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
+    const env = { NEWSLETTER_AC_SCHEME: 'v1', NEWSLETTER_AC_TTL_DAYS: '30' };
+    const token = mintAutologinCode(EMAIL, { secret: SECRET, env, now: Date.now() });
+
+    const result = await handleSubscriptionManagement({
+      action: 'exchange_auth_code',
+      email: EMAIL,
+      token,
+      secret: SECRET,
+      locale: 'it',
+      autologinPolicy: resolveAutologinPolicy(env),
+      db: db as never,
+    });
+
+    expect(result.status).toBe(403);
+    expect(result.json).toEqual({ success: false, error: 'account_deleted' });
+    expect(result.json?.authToken).toBeUndefined();
   });
 });
 
