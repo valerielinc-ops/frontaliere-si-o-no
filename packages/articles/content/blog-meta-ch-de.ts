@@ -5911,6 +5911,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vicere-caracas-indagine-lugano.title': 'Der "Vizekönig von Caracas" in Zürich untersucht: die Passage von Lugano',
     'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, beschrieben als "Trumps Mann für venezolanisches Rohöl", wird in Zürich angeklagt und war Aktionär einer Tessiner Bank.',
     'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Luftaufnahme des Finanzviertels von Lugano am See bei Dämmerung',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Kinderbetreuung Appenzell: Kosten & Tarife',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Entdecken Sie die Kinderbetreuungsmöglichkeiten im Kanton Appenzell Innerrhoden, inklusive Kindergärten, Tages- und Nachschulfamilien, mit einkommensabhängigen Tarifen und kantonalen Zuschüssen.',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Kindertagesstätte im Kanton Appenzell Innerrhoden',
 };
 
 export default blogMetaChDe;

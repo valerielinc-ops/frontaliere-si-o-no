@@ -5911,6 +5911,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vicere-caracas-indagine-lugano.title': 'Le \'vice-roi de Caracas\' enquêté à Zurich : le passage de Lugano',
     'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, décrit comme « l\'homme de Trump pour le pétrole brut vénézuélien », fait l\'objet d\'une enquête à Zurich et était actionnaire d\'une banque tessinoise.',
     'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Vue aérienne du quartier financier de Lugano au bord du lac au crépuscule',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Garderie et garde d\'enfants dans le canton d\'Appenzell : coûts et tarifs',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Découvrez les options de garde d\'enfants dans le canton d\'Appenzell Interne, y compris les crèches, les familles de jour et après l\'école, avec des tarifs calculés sur le revenu et des subventions cantonales disponibles.',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Centre de garde d\'enfants dans le canton d\'Appenzell Rhodes-Intérieures',
 };
 
 export default blogMetaChFr;

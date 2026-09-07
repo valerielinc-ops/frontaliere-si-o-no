@@ -5911,6 +5911,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vicere-caracas-indagine-lugano.title': 'Il \'viceré di Caracas\' indagato a Zurigo: il passaggio da Lugano',
     'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, descritto come \'l\'uomo di Trump per il greggio venezuelano\', è indagato a Zurigo ed è stato azionista di una banca ticinese.',
     'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Veduta aerea del distretto finanziario di Lugano sul lago al tramonto',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Asilo nido e custodia bambini nel Canton Appenzello Interno: costi e tariffe',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito e sussidi cantonali disponibili.',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Asilo nido nel Canton Appenzello Interno',
 };
 
 export default blogMetaChIt;

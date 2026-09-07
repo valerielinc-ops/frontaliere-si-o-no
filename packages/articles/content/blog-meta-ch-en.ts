@@ -5911,6 +5911,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vicere-caracas-indagine-lugano.title': 'The \'Viceroy of Caracas\' investigated in Zurich: the passage from Lugano',
     'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, described as\' Trump\'s man for Venezuelan crude \', is under investigation in Zurich and was a shareholder in a Ticino bank.',
     'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Aerial view of Lugano\'s financial district along the lake at dusk',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Nursery and childcare in the Inner Appenzell Canton: costs and fees',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Discover childcare options in the Inner Appenzell Canton, including nurseries, day families and after-school, with income-based fees and cantonal subsidies available.',
+    'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Daycare center in the Canton of Appenzell Innerrhoden',
 };
 
 export default blogMetaChEn;

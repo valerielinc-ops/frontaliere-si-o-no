@@ -76733,6 +76733,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-nido-custodia-bambini-canton-appenzello-interno': {
+    title: 'Asilo nido e custodia bambini nel Canton Appenzello Interno: costi e tariffe',
+    description: 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini nel Canton Appenzello Interno',
+    ogDescription: 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito e sussidi cantonali disponibili. Questo articolo fornisce informazioni dettagliate sulle',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-canton-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini nel Canton Appenzello Interno: costi e tariffe",
+      "description": "Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-bambini-canton-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido nel Canton Appenzello Interno"
+      },
+      "datePublished": "2026-09-07T10:09:56+00:00",
+      "dateModified": "2026-09-07T10:09:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-bambini-canton-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
