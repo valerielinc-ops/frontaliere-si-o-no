@@ -111,6 +111,16 @@ describe('source-host ownership', () => {
       .toBe("https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4264");
   });
 
+  it('folds a scheme-less spelling onto the same identity key', () => {
+    // Without the scheme, `new URL()` throws, the catch drops every identity
+    // param and each cantonal vacancy collapses onto the bare listing URL —
+    // the same scheme-less shape #7721/#7758 claimed back, here as a false
+    // duplicate instead of a dropped row (#7769).
+    expect(normalizeJobUrl("www.concorsi.ti.ch/offerte-d'impieghi.html?sid=abc&yid=4264"))
+      .toBe(normalizeJobUrl("https://www.concorsi.ti.ch/offerte-d'impieghi.html?sid=abc&yid=4264"));
+    expect(normalizeJobUrl('Host.ch/Job/1/?utm=x#top')).toBe('https://host.ch/job/1');
+  });
+
   it('preserves identity value case while normalising its safe URL components', () => {
     expect(normalizeJobUrl('HTTPS://WWW.COOPERS.CH/Jobs/?utm=x&RefCode=AbC9#apply'))
       .toBe('https://www.coopers.ch/jobs?refcode=AbC9');

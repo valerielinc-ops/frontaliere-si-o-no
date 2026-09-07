@@ -24,6 +24,7 @@
  * Slices are scanned as TEXT, not parsed. They total ~422 MB and the two fields
  * needed are flat strings, so `JSON.parse` on each would buy nothing but latency.
  */
+import { absoluteJobUrl } from './job-url-host.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isSliceFile } from './crawler-slice-files.mjs';
@@ -259,7 +260,14 @@ export function loadSourceHostOwnership(root, opts = {}) {
  * @returns {string}
  */
 export function normalizeJobUrl(raw = '') {
-  const s = String(raw).trim();
+  // Same scheme-less shape #7721/#7758 claimed back from the keyless fallback:
+  // here it is not a dropped row but a COLLAPSED identity. `new URL()` below
+  // throws on `concorsi.ti.ch/...?yid=4264`, the catch drops every identity
+  // query param, and each cantonal vacancy folds onto the bare listing URL as
+  // a false duplicate — and the same posting keys differently depending on
+  // whether the slice that wrote it carried the scheme. Absolutising first
+  // makes the two spellings one key.
+  const s = absoluteJobUrl(raw);
   const [withoutFragment] = s.split('#');
   const queryAt = withoutFragment.indexOf('?');
   const base = (queryAt >= 0 ? withoutFragment.slice(0, queryAt) : withoutFragment)

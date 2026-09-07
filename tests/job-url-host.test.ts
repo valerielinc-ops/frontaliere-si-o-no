@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { jobUrlHost } from '../scripts/lib/job-url-host.mjs';
+import { jobUrlHost, absoluteJobUrl } from '../scripts/lib/job-url-host.mjs';
 import { isIpersonalJob } from '../scripts/lib/ipersonal-job-parser.mjs';
 import { isMedIpersonalJob } from '../scripts/lib/med-ipersonal-job-parser.mjs';
 import { isRheinmetallAirDefenceJob } from '../scripts/lib/rheinmetall-air-defence-job-parser.mjs';
@@ -108,5 +108,49 @@ describe('keyless fallback with a scheme-less URL', () => {
     expect(isMedIpersonalJob({ url: 'med-ipersonal.ch:8080/jobs/1' })).toBe(false);
     expect(isBreitlingJob({ url: 'careers.breitling.com:8443/job/1' })).toBe(true);
     expect(isBreitlingJob({ url: 'evil.com:8443/www.breitling.com' })).toBe(false);
+  });
+});
+
+describe('absoluteJobUrl', () => {
+  it('rewrites a scheme-less URL to its absolute form', () => {
+    // A row claimed by #7721/#7758 but persisted scheme-less is a broken apply
+    // CTA (`href` resolves relative to frontaliereticino.ch) and a liveness
+    // probe that fails on the shape instead of on the listing.
+    expect(absoluteJobUrl('med-ipersonal.ch/jobs/1')).toBe('https://med-ipersonal.ch/jobs/1');
+    expect(absoluteJobUrl('med-ipersonal.ch:8080/jobs/1')).toBe('https://med-ipersonal.ch:8080/jobs/1');
+    expect(absoluteJobUrl('//med-ipersonal.ch/jobs/1')).toBe('https://med-ipersonal.ch/jobs/1');
+    expect(absoluteJobUrl('  med-ipersonal.ch/jobs/1  ')).toBe('https://med-ipersonal.ch/jobs/1');
+  });
+
+  it('leaves a URL that already carries a scheme untouched', () => {
+    expect(absoluteJobUrl('https://med-ipersonal.ch/jobs/1')).toBe('https://med-ipersonal.ch/jobs/1');
+    expect(absoluteJobUrl('http://med-ipersonal.ch/jobs/1')).toBe('http://med-ipersonal.ch/jobs/1');
+    // Never invent a host that was not there.
+    expect(absoluteJobUrl('mailto:jobs@med-ipersonal.ch')).toBe('mailto:jobs@med-ipersonal.ch');
+    expect(absoluteJobUrl('tel:0041')).toBe('tel:0041');
+  });
+
+  it('returns the input untouched when no absolute form can be derived', () => {
+    expect(absoluteJobUrl('')).toBe('');
+    expect(absoluteJobUrl('   ')).toBe('');
+    expect(absoluteJobUrl(undefined)).toBe('');
+  });
+
+  it('never turns a relative path into an invented host', () => {
+    // `https://${anything}` parses, so "it parses" is not a guard: without the
+    // authority-shape check these are persisted as the apply CTA and fetched
+    // by the liveness probe as `https://en/jobs/123` / `https://jobs/1`.
+    expect(absoluteJobUrl('/en/jobs/123')).toBe('/en/jobs/123');
+    expect(absoluteJobUrl('jobs/1')).toBe('jobs/1');
+    expect(absoluteJobUrl('/careers.html')).toBe('/careers.html');
+    expect(absoluteJobUrl('offerte')).toBe('offerte');
+    expect(jobUrlHost('/en/jobs/123')).toBe('');
+    expect(jobUrlHost('jobs/1')).toBe('');
+  });
+
+  it('agrees with jobUrlHost on the authority it exposes', () => {
+    for (const raw of ['med-ipersonal.ch/jobs/1', 'evil.com:8080/med-ipersonal.ch', 'https://med-ipersonal.ch.evil.com/x']) {
+      expect(new URL(absoluteJobUrl(raw)).hostname.toLowerCase()).toBe(jobUrlHost(raw));
+    }
   });
 });
