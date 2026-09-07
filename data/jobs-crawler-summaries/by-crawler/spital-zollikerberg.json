@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-07T15:01:33.593Z",
+  "generatedAt": "2026-09-07T23:22:50.432Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -9,16 +9,18 @@
   "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 33925,
-  "avgDurationMs": 33925,
+  "unchangedCount": 1,
+  "durationMs": 32887,
+  "avgDurationMs": 32887,
   "durationHistory": [
-    33925
+    32887
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-d21cbb15bb30",
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-chirurgia-e-ginecologia-focus-sui-dipendenti-spital-zollikerberg",
@@ -51,7 +53,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
