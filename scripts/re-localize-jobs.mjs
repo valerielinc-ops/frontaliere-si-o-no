@@ -15,7 +15,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
-import { detectLanguage } from './lib/detect-language.mjs';
+import { detectLanguage, detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { isSourcePassthrough } from './lib/free-translate.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -136,9 +136,13 @@ async function translateDescription(description, locale, sourceLang) {
   // locale richiesto — allora la chiamata riprodurrebbe quello che abbiamo gia'
   // e il controllo `translated !== clean` la scarterebbe comunque — e si rende
   // '', cioe' il contratto «nessuna traduzione»: il chiamante tiene la sorgente.
-  // `detectLanguage` ricade su `sourceLang` (!== locale) sul segnale ambiguo:
-  // nel dubbio si traduce.
-  if (passthrough && detectLanguage(clean, sourceLang) === locale) return '';
+  // Il gate vuole un PAVIMENTO DI CONFIDENZA e non l'argmax nudo: su un body
+  // misto (annuncio bilingue) l'argmax puo' coincidere col locale con una
+  // confidenza vicina a zero, e li' saltare l'LLM pubblicherebbe la sorgente
+  // sotto /de/. Soglia 0.65, la stessa delle altre decisioni locale-mismatch del
+  // repo; sotto soglia si cade nell'LLM, cioe' il verso sicuro.
+  const langDet = detectLanguageWithConfidence(clean, sourceLang);
+  if (passthrough && langDet.confidence >= 0.65 && langDet.lang === locale) return '';
 
   // Fallback to LLM
   const prompt = [

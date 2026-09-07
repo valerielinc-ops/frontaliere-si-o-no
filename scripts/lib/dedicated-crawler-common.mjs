@@ -2194,9 +2194,18 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     // Si salta il modello SOLO quando il testo e' verificabilmente gia' nel
     // locale richiesto: li' la chiamata riprodurrebbe cio' che abbiamo gia' e
     // il controllo `translated !== cleanDesc` la scarterebbe comunque.
-    // `detectLanguage` ricade su `sourceLang` (!== locale) quando il segnale e'
-    // ambiguo, cioe' nel dubbio si traduce.
-    if (deeplPassthrough && detectLanguage(cleanDesc, sourceLang) === locale) {
+    // Il gate vuole un PAVIMENTO DI CONFIDENZA, non l'argmax nudo: il fallback
+    // a `sourceLang` di `detectLanguageWithConfidence` scatta solo sotto i 50
+    // caratteri, mentre qui `cleanDesc` ha gia' passato il floor (>= 120), quindi
+    // su un body misto (annuncio bilingue de/en) l'argmax puo' coincidere col
+    // locale con una confidenza vicina a zero. Li' saltare l'LLM E memoizzare la
+    // sentinella renderebbe PERMANENTE la sorgente pubblicata sotto /de/ (il ramo
+    // cache-hit ritenta solo la cascata, che ri-passthrough-a). Soglia 0.65, la
+    // stessa di ogni altra decisione locale-mismatch del repo (guard di cache qui
+    // sotto, mark-mistranslated-jobs, flag-wrong-locale-descriptions): sotto
+    // soglia si cade nell'LLM, cioe' il verso sicuro.
+    const descLangDet = detectLanguageWithConfidence(cleanDesc, sourceLang);
+    if (deeplPassthrough && descLangDet.confidence >= 0.65 && descLangDet.lang === locale) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
       return '';
     }

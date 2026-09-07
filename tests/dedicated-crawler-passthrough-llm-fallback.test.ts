@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { aiTranslateJobDescriptionDCC } from '@/scripts/lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry, freeTranslateWithRetryDetailed } from '@/scripts/lib/free-translate.mjs';
+import { detectLanguageWithConfidence } from '@/scripts/lib/detect-language.mjs';
 
 vi.mock('@/scripts/lib/free-translate.mjs', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/scripts/lib/free-translate.mjs')>();
@@ -25,9 +26,11 @@ vi.mock('@/scripts/lib/free-translate.mjs', async (importOriginal) => {
  * traduce davvero e la sua uscita viene pubblicata: spegnerlo pubblicherebbe la
  * lingua sorgente sotto /de/ e /fr/.
  *
- * Questo file pinna i TRE versi: il modello si salta solo quando il testo e'
- * verificabilmente gia' nel locale richiesto; sull'echo genuino e coi motori
- * giu' il modello DEVE ancora essere chiamato.
+ * Questo file pinna i QUATTRO versi: il modello si salta solo quando il testo e'
+ * verificabilmente gia' nel locale richiesto — argmax E confidenza >= 0.65, che
+ * e' il pavimento senza cui un body bilingue passerebbe per «gia' tradotto»;
+ * sull'echo genuino, sul segnale ambiguo e coi motori giu' il modello DEVE
+ * ancora essere chiamato.
  */
 
 const TRANSLATED_DE = 'Wir suchen einen Softwareentwickler fuer unser Team in Lugano. '
@@ -39,6 +42,13 @@ const TRANSLATED_DE = 'Wir suchen einen Softwareentwickler fuer unser Team in Lu
 const ALREADY_DE = 'Wir sind ein Team in Lugano und suchen eine Person, die unsere '
   + 'Datenpipeline betreut. Sie verantworten die Qualitaet der veroeffentlichten '
   + 'Inhalte von Anfang bis Ende und arbeiten eng mit der Redaktion zusammen.';
+
+// Annuncio bilingue de/en: l'argmax resta 'de' ma la confidenza crolla, cioe'
+// il segnale NON dimostra «gia' nella lingua target».
+const MIXED_DE_EN = 'Wir sind ein Team in Lugano und suchen eine Person, die unsere '
+  + 'Datenpipeline betreut und die Qualitaet der Inhalte verantwortet. '
+  + 'We are looking for a software engineer to join our Lugano team and own the '
+  + 'quality of the published content end to end.';
 
 const SOURCE = [
   'We are looking for a software engineer to join our Lugano team.',
@@ -96,6 +106,29 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     // sotto /en/, /de/, /fr/). Il rung LLM e' l'unico recovery che resta.
     const out = await aiTranslateJobDescriptionDCC(
       { description: SOURCE, locale: 'de', sourceLang: 'en' }, ctx,
+    );
+
+    expect(ctx.callLLM).toHaveBeenCalledTimes(1);
+    expect(out.toLowerCase()).toBe(TRANSLATED_DE.toLowerCase());
+    expect([...cache.values()]).toEqual([out]);
+  });
+
+  it('sul passthrough di un body misto (argmax = locale ma confidenza sotto soglia) il modello viene chiamato', async () => {
+    vi.mocked(freeTranslateWithRetryDetailed).mockResolvedValue({ text: '', passthrough: true });
+    vi.mocked(freeTranslateWithRetry).mockResolvedValue('');
+    const { cache, ctx } = makeCtx();
+    vi.mocked(ctx.callLLM).mockResolvedValue(TRANSLATED_DE);
+
+    // MIXED_DE_EN e' un annuncio bilingue: l'argmax e' 'de' (= locale) ma con
+    // confidenza ~0.09. L'argmax nudo lo avrebbe letto come «gia' in tedesco»,
+    // saltato l'LLM E memoizzato la sentinella, rendendo PERMANENTE la sorgente
+    // pubblicata sotto /de/. Il pavimento a 0.65 lo manda al modello.
+    const det = detectLanguageWithConfidence(MIXED_DE_EN, 'en');
+    expect(det.lang).toBe('de');
+    expect(det.confidence).toBeLessThan(0.65);
+
+    const out = await aiTranslateJobDescriptionDCC(
+      { description: MIXED_DE_EN, locale: 'de', sourceLang: 'en' }, ctx,
     );
 
     expect(ctx.callLLM).toHaveBeenCalledTimes(1);
