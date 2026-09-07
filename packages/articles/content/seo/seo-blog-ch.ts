@@ -75329,6 +75329,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-appenzello-esterno-conversione': {
+    title: 'Patente di guida Appenzello Esterno: conversione e esami',
+    description: 'Come convertire la patente estera ad Appenzello Esterno: esame teorico, pratico, corsi e procedura presso l\'Ufficio della circolazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, appenzello, esterno, conversione',
+    ogTitle: 'Patente di guida Appenzello Esterno: conversione e esami',
+    ogDescription: 'Scopri come convertire la tua patente di guida estera nel Cantone Appenzello Esterno: guida agli esami teorico e pratico, corsi obbligatori, documentazione richiesta e procedura completa presso l\'Ufficio della circolazione.',
+    canonicalPath: '/articoli-svizzera/patente-guida-appenzello-esterno-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida Appenzello Esterno: conversione e esami",
+      "description": "Come convertire la patente estera ad Appenzello Esterno: esame teorico, pratico, corsi e procedura presso l'Ufficio della circolazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-appenzello-esterno-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della circolazione cantonale con insegna ufficiale, luogo dove si convertono le patenti di guida."
+      },
+      "datePublished": "2026-09-07T00:59:19+00:00",
+      "dateModified": "2026-09-07T00:59:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-appenzello-esterno-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
