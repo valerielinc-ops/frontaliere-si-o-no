@@ -5950,6 +5950,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Genève : exigences et renouvellement',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.excerpt': 'Tout sur l\'obtention et le renouvellement du permis de séjour B dans le canton de Genève : exigences, documents et procédures.',
     'blog.article.permesso-dimora-b-canton-ginevra-requisiti-rinnovo.imageAlt': 'Vue aérienne de Genève avec le lac et les montagnes en arrière-plan',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'IA e telecom: Syndicom formula rivendicazioni',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Étude Ecoplan pour Syndicom : l\'IA augmente l\'efficacité mais aussi la pression au travail, les employés demandent plus de formation et de transparence',
+    'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Bureau moderne en Suisse avec des employés collaborant autour d\'un ordinateur affichant des données et des diagrammes liés à l\'IA',
 };
 
 export default blogMetaChFr;
