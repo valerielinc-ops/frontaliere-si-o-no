@@ -136,6 +136,18 @@ describe('absoluteJobUrl', () => {
     expect(absoluteJobUrl(undefined)).toBe('');
   });
 
+  it('never turns a relative path into an invented host', () => {
+    // `https://${anything}` parses, so "it parses" is not a guard: without the
+    // authority-shape check these are persisted as the apply CTA and fetched
+    // by the liveness probe as `https://en/jobs/123` / `https://jobs/1`.
+    expect(absoluteJobUrl('/en/jobs/123')).toBe('/en/jobs/123');
+    expect(absoluteJobUrl('jobs/1')).toBe('jobs/1');
+    expect(absoluteJobUrl('/careers.html')).toBe('/careers.html');
+    expect(absoluteJobUrl('offerte')).toBe('offerte');
+    expect(jobUrlHost('/en/jobs/123')).toBe('');
+    expect(jobUrlHost('jobs/1')).toBe('');
+  });
+
   it('agrees with jobUrlHost on the authority it exposes', () => {
     for (const raw of ['med-ipersonal.ch/jobs/1', 'evil.com:8080/med-ipersonal.ch', 'https://med-ipersonal.ch.evil.com/x']) {
       expect(new URL(absoluteJobUrl(raw)).hostname.toLowerCase()).toBe(jobUrlHost(raw));

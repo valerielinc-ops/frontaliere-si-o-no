@@ -11,9 +11,20 @@
  * 404 of our own site. Claiming the row without fixing its URL only moves the
  * silent drop one step further down the funnel.
  *
- * Conservative by construction: the prepend applies only when the result
- * actually parses, so an input this helper cannot make absolute is returned
- * untouched instead of being turned into an invented `https://` URL.
+ * Conservative by construction: the prepend applies only when the input
+ * really starts with an AUTHORITY (a dotted registrable name, optionally with
+ * a port, or a protocol-relative `//host/…`), so an input this helper cannot
+ * make absolute is returned untouched instead of being turned into an
+ * invented `https://` URL. "The result parses" is not a guard on its own:
+ * `https://${anything-without-spaces}` always parses, which would turn the
+ * root-relative `/en/jobs/123` into the host `en` and the bare path `jobs/1`
+ * into the host `jobs` — strings this PR now PERSISTS as the apply CTA (and
+ * as `url` of the `JobPosting` JSON-LD) and FETCHES for the liveness probe.
+ * A confident URL to a host that does not exist is worse than the scheme-less
+ * form: it never resolves, and `fetch()` on it lands in the fail-open
+ * `network-error` branch — the "still alive" verdict about our own string
+ * that this helper exists to remove. The same parsers that emit a raw
+ * `med-ipersonal.ch/jobs/1` emit a raw `/jobs/1`.
  *
  * @param {string} rawUrl
  * @returns {string} absolute URL when one can be derived, else the trimmed input.
@@ -37,7 +48,16 @@ export function absoluteJobUrl(rawUrl = '') {
   // `tel:0041` would invent `tel`, exactly the host this comment forbids.
   const portAuthority = /^[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+:\d{1,5}(?:[/?#]|$)/i.test(raw);
   if (!portAuthority && /^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw;
-  const candidate = `https://${raw.replace(/^\/+/, '')}`;
+  // A single leading slash is a root-relative PATH, never an authority:
+  // `/careers.html` is host-shaped only by accident of the dot. Only the
+  // protocol-relative `//host/x` puts an authority after the slashes.
+  const protocolRelative = raw.startsWith('//');
+  if (raw.startsWith('/') && !protocolRelative) return raw;
+  const authority = protocolRelative ? raw.slice(2) : raw;
+  // Same authority shape as `portAuthority` above: a dotted registrable name,
+  // an optional port, then end-of-string or a path/query/fragment.
+  if (!/^[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+(?::\d{1,5})?(?=[/?#]|$)/i.test(authority)) return raw;
+  const candidate = `https://${authority}`;
   try {
     new URL(candidate);
     return candidate;
