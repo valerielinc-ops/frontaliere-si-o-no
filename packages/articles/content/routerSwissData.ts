@@ -1997,6 +1997,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'action-negozio-20esimo-schattdorf': { it: 'action-negozio-20esimo-schattdorf', en: 'action-20th-store-schattdorf', de: 'action-20-laden-schattdorf', fr: 'action-magasin-20eme-schattdorf' },
  'vicere-caracas-indagine-lugano': { it: 'vicere-caracas-indagine-lugano', en: 'caracas-viceroy-zurich-probe-lugano', de: 'vikar-von-caracas-untersuchung-lugano', fr: 'vice-roi-caracas-enquete-zurich-lugano' },
  'asilo-nido-custodia-bambini-canton-appenzello-interno': { it: 'asilo-nido-custodia-bambini-canton-appenzello-interno', en: 'daycare-childcare-canton-appenzell-innerrhoden', de: 'kindertagesstatte-kinderbetreuung-kanton-appenzell-innerrhoden', fr: 'garde-d-enfants-canton-appenzell-rhodes-interieures' },
+ 'tragitto-casa-scuola-rischioso': { it: 'tragitto-casa-scuola-rischioso', en: 'school-commute-risky', de: 'schulweg-gefahrlich', fr: 'trajets-ecole-dangereux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5914,6 +5914,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Kinderbetreuung Appenzell: Kosten & Tarife',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Entdecken Sie die Kinderbetreuungsmöglichkeiten im Kanton Appenzell Innerrhoden, inklusive Kindergärten, Tages- und Nachschulfamilien, mit einkommensabhängigen Tarifen und kantonalen Zuschüssen.',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Kindertagesstätte im Kanton Appenzell Innerrhoden',
+    'blog.article.tragitto-casa-scuola-rischioso.title': 'Schulweg: Für 41% der Eltern ist es riskant, zu studieren',
+    'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Vier von zehn Eltern halten den Schulweg für ihre Kinder für gefährlich, so eine Studie im Auftrag DES VEREINS VERKEHR und UMWELT (ATA) und DES VERKEHRSSICHERHEITSFONDS (FSS).',
+    'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Ein Kind, das in einer Schweizer Stadt auf einem sicheren Fußweg zur Schule geht',
 };
 
 export default blogMetaChDe;

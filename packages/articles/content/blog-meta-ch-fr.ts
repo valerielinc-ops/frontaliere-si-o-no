@@ -5914,6 +5914,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Garderie et garde d\'enfants dans le canton d\'Appenzell : coûts et tarifs',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Découvrez les options de garde d\'enfants dans le canton d\'Appenzell Interne, y compris les crèches, les familles de jour et après l\'école, avec des tarifs calculés sur le revenu et des subventions cantonales disponibles.',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Centre de garde d\'enfants dans le canton d\'Appenzell Rhodes-Intérieures',
+    'blog.article.tragitto-casa-scuola-rischioso.title': 'Parcours maison-école : pour 41% des parents c\'est risqué, étude',
+    'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Quatre parents sur dix considèrent que le trajet domicile-école est dangereux pour leurs enfants, selon une étude commandée par l\'ASSOCIATION TRAFIC ET ENVIRONNEMENT (ATA) et le FONDS DE SÉCURITÉ ROUTIÈRE (FSS).',
+    'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Un enfant marchant à l\'école dans une ville suisse avec un chemin piéton sûr',
 };
 
 export default blogMetaChFr;

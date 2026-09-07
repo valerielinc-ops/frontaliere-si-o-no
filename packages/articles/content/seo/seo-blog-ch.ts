@@ -76772,6 +76772,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tragitto-casa-scuola-rischioso': {
+    title: 'Tragitto casa-scuola: per il 41% dei genitori è rischioso, studio',
+    description: 'Quattro genitori su dieci considerano pericoloso il tragitto casa-scuola per i loro figli, secondo uno studio commissionato dall\'ASSOCIAZIONE TRAFFICO',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragitto, casa-scuola, genitori, rischioso',
+    ogTitle: 'Tragitto casa-scuola: per il 41% dei genitori è rischioso, studio',
+    ogDescription: 'Quattro genitori su dieci considerano pericoloso il tragitto casa-scuola per i loro figli, secondo uno studio commissionato dall\'ASSOCIAZIONE TRAFFICO E AMBIENTE (ATA) e dal FONDO DI SICUREZZA STRADALE (FSS).',
+    canonicalPath: '/articoli-svizzera/tragitto-casa-scuola-rischioso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragitto casa-scuola: per il 41% dei genitori è rischioso, studio",
+      "description": "Quattro genitori su dieci considerano pericoloso il tragitto casa-scuola per i loro figli, secondo uno studio commissionato dall'ASSOCIAZIONE TRAFFICO",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tragitto-casa-scuola-rischioso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un bambino che cammina verso la scuola in una città svizzera con un percorso pedonale sicuro"
+      },
+      "datePublished": "2026-09-07T10:21:28+00:00",
+      "dateModified": "2026-09-07T10:21:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tragitto-casa-scuola-rischioso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
