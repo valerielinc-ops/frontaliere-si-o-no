@@ -16919,12 +16919,12 @@
     },
     {
       "id": "jumbo-e14a4b85-5eb",
-      "slug": "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
+      "slug": "marketing-assistant-materiale-elettrico-e-luce-jumbo-dietlikon",
       "slugByLocale": {
         "de": "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
-        "it": "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
-        "en": "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon",
-        "fr": "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+        "it": "marketing-assistant-materiale-elettrico-e-luce-jumbo-dietlikon",
+        "en": "marketing-assistant-electrical-material-and-light-jumbo-dietlikon",
+        "fr": "assistant-marketing-materiel-electrique-et-lumiere-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16997,7 +16997,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.469Z"
+      "firstSeenAt": "2026-09-06T22:52:27.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+        ],
+        "en": [
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+        ],
+        "fr": [
+          "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-assistant-elektromaterial-e-licht-jumbo-dietlikon",
+        "marketing-assistant-elektromaterial-und-licht-jumbo-dietlikon"
+      ]
     },
     {
       "id": "jumbo-578d4ea7-4a8",
@@ -17005,8 +17021,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich",
         "it": "addetto-a-alle-vendite-administration-kundendienst-jumbo-zurich",
-        "en": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich",
-        "fr": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich"
+        "en": "associate-sales-administration-kundendienst-jumbo-zurich",
+        "fr": "employe-en-vente-administration-service-a-la-clientele-jumbo-zurich"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17080,12 +17096,12 @@
     },
     {
       "id": "jumbo-930db320-f6a",
-      "slug": "verkaufer-in-kassen-services-jumbo-arbon",
+      "slug": "venditore-in-cassa-servizi-jumbo-arbon",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-arbon",
-        "it": "verkaufer-in-kassen-services-jumbo-arbon",
-        "en": "verkaufer-in-kassen-services-jumbo-arbon",
-        "fr": "verkaufer-in-kassen-services-jumbo-arbon"
+        "it": "venditore-in-cassa-servizi-jumbo-arbon",
+        "en": "seller-in-cash-registers-services-jumbo-arbon",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17163,33 +17179,37 @@
           "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-arbon",
           "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
           "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0",
-          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufer-in-kassen-services-jumbo-arbon"
         ],
         "en": [
-          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon"
+          "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufer-in-kassen-services-jumbo-arbon"
         ],
         "de": [
           "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0"
         ],
         "fr": [
-          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon",
+          "verkaufer-in-kassen-services-jumbo-arbon"
         ]
       },
       "previousSlugs": [
         "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-arbon",
         "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
         "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0",
-        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon"
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon",
+        "verkaufer-in-kassen-services-jumbo-arbon"
       ]
     },
     {
       "id": "jumbo-434daf19-fde",
-      "slug": "verkaufer-in-kassen-services-jumbo-baden",
+      "slug": "venditore-in-cassa-servizi-jumbo-baden",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-baden",
-        "it": "verkaufer-in-kassen-services-jumbo-baden",
-        "en": "verkaufer-in-kassen-services-jumbo-baden",
-        "fr": "verkaufer-in-kassen-services-jumbo-baden"
+        "it": "venditore-in-cassa-servizi-jumbo-baden",
+        "en": "seller-in-cash-registers-services-jumbo-baden",
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17259,7 +17279,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.449Z"
+      "firstSeenAt": "2026-09-06T22:52:27.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-baden"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-baden"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-baden"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-baden"
+      ]
     },
     {
       "id": "jumbo-352e9ade-fbd",
@@ -17267,8 +17301,8 @@
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
         "it": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
-        "en": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey",
-        "de": "conseillere-conseiller-de-vente-do-it-f-h-d-jumbo-conthey"
+        "en": "do-it-sales-advisor-m-f-d-jumbo-conthey",
+        "de": "do-it-verkaufsberater-m-w-d-jumbo-conthey"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17343,12 +17377,12 @@
     },
     {
       "id": "jumbo-e01f8044-db5",
-      "slug": "verkaufsberater-in-do-it-jumbo-villmergen",
+      "slug": "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-villmergen",
-        "it": "verkaufsberater-in-do-it-jumbo-villmergen",
-        "en": "verkaufsberater-in-do-it-jumbo-villmergen",
-        "fr": "verkaufsberater-in-do-it-jumbo-villmergen"
+        "it": "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a",
+        "en": "sales-consultant-in-do-it-jumbo-villmergen-881e6a",
+        "fr": "consultant-en-ventes-a-do-it-jumbo-villmergen-881e6a"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17420,16 +17454,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.448Z"
+      "firstSeenAt": "2026-09-06T22:52:27.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-villmergen"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-villmergen"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-villmergen"
+      ]
     },
     {
       "id": "jumbo-527a88fa-7aa",
-      "slug": "verkaufer-in-kasse-services-jumbo-chur",
+      "slug": "venditore-in-cassa-servizi-jumbo-chur",
       "slugByLocale": {
         "de": "verkaufer-in-kasse-services-jumbo-chur",
-        "it": "verkaufer-in-kasse-services-jumbo-chur",
-        "en": "verkaufer-in-kasse-services-jumbo-chur",
-        "fr": "verkaufer-in-kasse-services-jumbo-chur"
+        "it": "venditore-in-cassa-servizi-jumbo-chur",
+        "en": "seller-in-cash-register-services-jumbo-chur",
+        "fr": "vendeur-en-caisse-services-jumbo-chur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17499,16 +17547,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.447Z"
+      "firstSeenAt": "2026-09-06T22:52:27.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kasse-services-jumbo-chur"
+        ],
+        "en": [
+          "verkaufer-in-kasse-services-jumbo-chur"
+        ],
+        "fr": [
+          "verkaufer-in-kasse-services-jumbo-chur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kasse-services-jumbo-chur"
+      ]
     },
     {
       "id": "jumbo-79fd962e-48f",
-      "slug": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
+      "slug": "rayon-leader-in-admin-jumbo-arbon-textilstrasse",
       "slugByLocale": {
         "de": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
-        "it": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
+        "it": "rayon-leader-in-admin-jumbo-arbon-textilstrasse",
         "en": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
-        "fr": "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+        "fr": "chef-de-rayon-en-admin-jumbo-arbon-textilstrasse"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17580,7 +17642,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.446Z"
+      "firstSeenAt": "2026-09-06T22:52:27.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+        ],
+        "fr": [
+          "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+      ]
     },
     {
       "id": "jumbo-8bcf0a19-b04",
@@ -17589,7 +17662,7 @@
         "de": "lagerist-in-jumbo-arbon",
         "it": "lagerist-in-jumbo-arbon",
         "en": "lagerist-in-jumbo-arbon",
-        "fr": "lagerist-in-jumbo-arbon"
+        "fr": "lageriste-in-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17663,12 +17736,12 @@
     },
     {
       "id": "jumbo-c9461a5a-8c3",
-      "slug": "verkaufsberater-in-garden-jumbo-ilanz-glion",
+      "slug": "consulente-vendite-in-garden-jumbo-ilanz-glion",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-ilanz-glion",
-        "it": "verkaufsberater-in-garden-jumbo-ilanz-glion",
-        "en": "verkaufsberater-in-garden-jumbo-ilanz-glion",
-        "fr": "verkaufsberater-in-garden-jumbo-ilanz-glion"
+        "it": "consulente-vendite-in-garden-jumbo-ilanz-glion",
+        "en": "sales-advisor-in-garden-jumbo-ilanz-glion",
+        "fr": "conseiller-commercial-a-garden-jumbo-ilanz-glion"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17740,16 +17813,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.442Z"
+      "firstSeenAt": "2026-09-06T22:52:27.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-ilanz-glion"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-ilanz-glion"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-ilanz-glion"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-ilanz-glion"
+      ]
     },
     {
       "id": "jumbo-348b9ed5-488",
-      "slug": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
+      "slug": "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen",
       "slugByLocale": {
         "de": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
-        "it": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
-        "en": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen",
-        "fr": "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
+        "it": "consulente-commerciale-in-jumbo-do-it-jumbo-st-gallen",
+        "en": "sales-consultant-in-jumbo-do-it-jumbo-st-gallen",
+        "fr": "consultant-commercial-en-jumbo-do-it-jumbo-st-gallen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17828,16 +17915,19 @@
           "consulente-commerciale-in-do-it-jumbo-kusnacht",
           "consultant-commercial-a-do-it-jumbo-kusnacht",
           "sales-consultant-do-it-jumbo-chur-graubunden",
-          "consulente-vendite-do-it-jumbo-chur-graubunden"
+          "consulente-vendite-do-it-jumbo-chur-graubunden",
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
         ],
         "en": [
-          "sales-consultant-do-it-jumbo-chur-graubunden"
+          "sales-consultant-do-it-jumbo-chur-graubunden",
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
         ],
         "de": [
           "verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l"
         ],
         "fr": [
-          "conseiller-e-en-vente-do-it-jumbo-chur-graubunden"
+          "conseiller-e-en-vente-do-it-jumbo-chur-graubunden",
+          "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -17847,17 +17937,18 @@
         "sales-consultant-do-it-jumbo-chur-graubunden",
         "consulente-vendite-do-it-jumbo-chur-graubunden",
         "verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
-        "conseiller-e-en-vente-do-it-jumbo-chur-graubunden"
+        "conseiller-e-en-vente-do-it-jumbo-chur-graubunden",
+        "verkaufsberater-in-jumbo-do-it-jumbo-st-gallen"
       ]
     },
     {
       "id": "jumbo-902d60be-e14",
-      "slug": "verkaufsberater-in-deco-jumbo-schwyz",
+      "slug": "consulente-commerciale-a-deco-jumbo-schwyz",
       "slugByLocale": {
         "de": "verkaufsberater-in-deco-jumbo-schwyz",
-        "it": "verkaufsberater-in-deco-jumbo-schwyz",
-        "en": "verkaufsberater-in-deco-jumbo-schwyz",
-        "fr": "verkaufsberater-in-deco-jumbo-schwyz"
+        "it": "consulente-commerciale-a-deco-jumbo-schwyz",
+        "en": "sales-consultant-in-deco-jumbo-schwyz",
+        "fr": "consultant-en-ventes-en-deco-jumbo-schwyz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17935,33 +18026,37 @@
           "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-schwyz",
           "verkaufsberater-in-deco-jumbo-schwyz-xqcsiz",
           "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-schwyz",
-          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz"
+          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz",
+          "verkaufsberater-in-deco-jumbo-schwyz"
         ],
         "en": [
-          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-schwyz"
+          "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-schwyz",
+          "verkaufsberater-in-deco-jumbo-schwyz"
         ],
         "de": [
           "verkaufsberater-in-deco-jumbo-schwyz-xqcsiz"
         ],
         "fr": [
-          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz"
+          "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz",
+          "verkaufsberater-in-deco-jumbo-schwyz"
         ]
       },
       "previousSlugs": [
         "sales-consultant-in-deco-jumbo-division-der-coop-genossenschaft-schwyz",
         "verkaufsberater-in-deco-jumbo-schwyz-xqcsiz",
         "consulente-commerciale-a-deco-jumbo-division-der-coop-genossenschaft-schwyz",
-        "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz"
+        "consultant-en-ventes-en-deco-jumbo-division-der-coop-genossenschaft-schwyz",
+        "verkaufsberater-in-deco-jumbo-schwyz"
       ]
     },
     {
       "id": "jumbo-25675227-a72",
-      "slug": "rayonleiter-in-garden-jumbo-thalwil",
+      "slug": "rayon-leader-in-garden-jumbo-thalwil",
       "slugByLocale": {
         "de": "rayonleiter-in-garden-jumbo-thalwil",
-        "it": "rayonleiter-in-garden-jumbo-thalwil",
+        "it": "rayon-leader-in-garden-jumbo-thalwil",
         "en": "rayonleiter-in-garden-jumbo-thalwil",
-        "fr": "rayonleiter-in-garden-jumbo-thalwil"
+        "fr": "chef-de-rayon-a-garden-jumbo-thalwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18033,16 +18128,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.427Z"
+      "firstSeenAt": "2026-09-06T22:52:27.427Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-garden-jumbo-thalwil"
+        ],
+        "fr": [
+          "rayonleiter-in-garden-jumbo-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-garden-jumbo-thalwil"
+      ]
     },
     {
       "id": "jumbo-455097ba-cb9",
-      "slug": "caissiere-caissier-f-h-d-jumbo-conthey",
+      "slug": "cashier-cashier-m-f-d-jumbo-conthey",
       "slugByLocale": {
         "fr": "caissiere-caissier-f-h-d-jumbo-conthey",
-        "it": "caissiere-caissier-f-h-d-jumbo-conthey",
+        "it": "cashier-cashier-m-f-d-jumbo-conthey",
         "en": "caissiere-caissier-f-h-d-jumbo-conthey",
-        "de": "caissiere-caissier-f-h-d-jumbo-conthey"
+        "de": "kassierer-kassierer-m-w-d-jumbo-conthey"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18111,7 +18217,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-06T22:52:27.393Z"
+      "firstSeenAt": "2026-09-06T22:52:27.393Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "caissiere-caissier-f-h-d-jumbo-conthey"
+        ],
+        "de": [
+          "caissiere-caissier-f-h-d-jumbo-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "caissiere-caissier-f-h-d-jumbo-conthey"
+      ]
     },
     {
       "id": "jumbo-d2d4411f-ba0",

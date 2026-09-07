@@ -356,7 +356,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318662-1",
-      "slug": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
+      "slug": "host-hostess-mcdonald-s-switzerland-brugg-ag",
       "location": "BRUGG AG",
       "canton": "AG",
       "country": "CH",
@@ -379,7 +379,7 @@
       },
       "slugByLocale": {
         "de": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
-        "it": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
+        "it": "host-hostess-mcdonald-s-switzerland-brugg-ag",
         "en": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-brugg-ag"
       },
@@ -406,7 +406,15 @@
       },
       "addressLocality": "BRUGG AG",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-06T23:07:03.370Z"
+      "firstSeenAt": "2026-09-06T23:07:03.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1"
+        ]
+      },
+      "previousSlugs": [
+        "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1"
+      ]
     },
     {
       "title": "Hôte / Hôtesse",
@@ -414,7 +422,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318663-1",
-      "slug": "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1",
+      "slug": "host-hostess-mcdonald-s-switzerland-dielsdorf",
       "location": "DIELSDORF",
       "canton": "ZH",
       "country": "CH",
@@ -437,7 +445,7 @@
       },
       "slugByLocale": {
         "de": "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1",
-        "it": "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1",
+        "it": "host-hostess-mcdonald-s-switzerland-dielsdorf",
         "en": "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-dielsdorf"
       },
@@ -464,7 +472,15 @@
       },
       "addressLocality": "DIELSDORF",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-06T23:07:03.370Z"
+      "firstSeenAt": "2026-09-06T23:07:03.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1"
+        ]
+      },
+      "previousSlugs": [
+        "hote-hotesse-mcdonalds-switzerland-dielsdorf-p8-318663-1"
+      ]
     },
     {
       "title": "Hôte / Hôtesse",
@@ -472,7 +488,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318664-1",
-      "slug": "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1",
+      "slug": "host-hostess-mcdonald-s-switzerland-regensdorf",
       "location": "REGENSDORF",
       "canton": "ZH",
       "country": "CH",
@@ -495,7 +511,7 @@
       },
       "slugByLocale": {
         "de": "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1",
-        "it": "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1",
+        "it": "host-hostess-mcdonald-s-switzerland-regensdorf",
         "en": "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-regensdorf"
       },
@@ -522,7 +538,15 @@
       },
       "addressLocality": "REGENSDORF",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-06T23:07:03.370Z"
+      "firstSeenAt": "2026-09-06T23:07:03.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1"
+        ]
+      },
+      "previousSlugs": [
+        "hote-hotesse-mcdonalds-switzerland-regensdorf-p8-318664-1"
+      ]
     },
     {
       "title": "Hôte / Hôtesse",
@@ -530,7 +554,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318661-1",
-      "slug": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
+      "slug": "host-hostess-mcdonald-s-switzerland-baden",
       "location": "BADEN",
       "canton": "AG",
       "country": "CH",
@@ -553,7 +577,7 @@
       },
       "slugByLocale": {
         "de": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
-        "it": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
+        "it": "host-hostess-mcdonald-s-switzerland-baden",
         "en": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-baden"
       },
@@ -586,7 +610,8 @@
           "hote-hotesse-mcdonalds-switzerland-heimberg-p8-318304-1",
           "hote-hotesse-mcdonald-s-switzerland-heimberg",
           "hote-hotesse-mcdonalds-switzerland-zurich-p8-318026-1",
-          "hote-hotesse-mcdonald-s-switzerland-zurich"
+          "hote-hotesse-mcdonald-s-switzerland-zurich",
+          "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1"
         ],
         "de": [
           "hote-hotesse-mcdonalds-switzerland-heimberg-p8-318304-1",
@@ -605,7 +630,8 @@
         "hote-hotesse-mcdonalds-switzerland-zurich-p8-318026-1",
         "hote-hotesse-mcdonald-s-switzerland-zurich",
         "hote-hotesse-mcdonalds-switzerland-schaffhausen-p8-318744-1",
-        "hote-hotesse-mcdonald-s-switzerland-schaffhausen"
+        "hote-hotesse-mcdonald-s-switzerland-schaffhausen",
+        "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1"
       ]
     },
     {
@@ -637,8 +663,8 @@
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-lugano-pazzallo",
-        "en": "host-hostess-mcdonald-s-switzerland-lugano-pazzallo",
-        "de": "host-hostess-mcdonald-s-switzerland-lugano-pazzallo",
+        "en": "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1",
+        "de": "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-lugano-pazzallo"
       },
       "descriptionByLocale": {
@@ -649,18 +675,10 @@
       },
       "id": "mcdonald-s-switzerland-446874a2e4c7",
       "previousSlugs": [
-        "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1",
-        "host-hostess-mcdonald-s-switzerland-lugano-pazzallo"
+        "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1",
-          "host-hostess-mcdonald-s-switzerland-lugano-pazzallo"
-        ],
-        "en": [
-          "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1"
-        ],
-        "de": [
           "hote-hotesse-mcdonalds-switzerland-lugano-pazzallo-p8-310071-1"
         ]
       },
@@ -723,13 +741,11 @@
       },
       "id": "mcdonald-s-switzerland-4ff3ee5bb2a9",
       "previousSlugs": [
-        "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
-        "host-host-mcdonald-s-switzerland-affoltern"
+        "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
-          "host-host-mcdonald-s-switzerland-affoltern"
+          "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:04.897Z",
@@ -791,13 +807,11 @@
       },
       "id": "mcdonald-s-switzerland-e0273abb08ef",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-bienne"
+        "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-bienne"
+          "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
@@ -880,15 +894,7 @@
         }
       },
       "addressLocality": "CHESEAUX-SUR-LAUSANNE",
-      "addressRegion": "VD",
-      "previousSlugsByLocale": {
-        "de": [
-          "guest-experience-leader-mcdonald-s-switzerland-cheseaux-sur-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "guest-experience-leader-mcdonald-s-switzerland-cheseaux-sur-lausanne"
-      ]
+      "addressRegion": "VD"
     },
     {
       "title": "Guest Experience Leader",
@@ -934,15 +940,13 @@
         "guest-experience-leader-mcdonalds-switzerland-affoltern-a-a-p8-318971-1",
         "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
         "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern",
-        "chef-d-experience-invite-mcdonald-s-switzerland-affoltern",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern-a"
+        "chef-d-experience-invite-mcdonald-s-switzerland-affoltern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "guest-experience-leader-mcdonalds-switzerland-affoltern-a-a-p8-318971-1",
           "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern-a"
+          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
@@ -1016,13 +1020,11 @@
       },
       "id": "mcdonald-s-switzerland-103d9ceb6a5d",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-burgdorf"
+        "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-burgdorf"
+          "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
@@ -1090,13 +1092,11 @@
       },
       "id": "mcdonald-s-switzerland-c92d9b099537",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baar"
+        "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baar"
+          "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
@@ -1129,7 +1129,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/guest-experience-leader/job/P8-396693-1",
-      "slug": "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1",
+      "slug": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-heimberg",
       "location": "HEIMBERG",
       "canton": "BE",
       "country": "CH",
@@ -1152,9 +1152,9 @@
       },
       "slugByLocale": {
         "de": "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1",
-        "it": "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1",
+        "it": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-heimberg",
         "en": "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1",
-        "fr": "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1"
+        "fr": "chef-d-experience-invite-mcdonald-s-switzerland-heimberg"
       },
       "descriptionByLocale": {
         "de": "Unternehmensvorstellung\n\nBei McDonald’s wird jeder Besuch zum sonnigen Erlebnis. Unser Team liebt es, Gäste zum Lächeln zu bringen und eine einladende Atmosphäre zu schaffen, in der sich alle wohlfühlen. Wenn du gerne mit Menschen in Kontakt bist und einen Job suchst, der leicht, dynamisch und voller Möglichkeiten ist, bist du bei uns genau richtig!\n\nStellenbeschreibung\n\nAls Guest Experience Leader bist du das strahlende Herz unseres Restaurants. Du begrüsst unsere Gäste mit einem Lächeln, stellst ihnen unsere neuesten Angebote vor und unterstützt sie bei der Bestellung. Mit deiner positiven Energie motivierst du das Team und sorgst dafür, dass jeder Gast glücklich geht. Du hast ein Auge für die kleinen Details und ein offenes Ohr für die Wünsche und das Feedback unserer Gäste, die du mit dem Management teilst, um jeden Besuch noch besser zu machen.\n\nHauptaufgaben\n\n• Begrüssung der Gäste und Schaffung einer fröhlichen Atmosphäre\n\n• Vorstellung neuer Angebote und Unterstützung bei Bestellungen\n\n• Weitergabe von Gästefeedback an Team und Management\n\n• Unterstützung des Teams mit Begeisterung und Teamgeist\n\n• Sicherstellung eines perfekten Restauranterlebnisses für jeden Gast\n Anforderungen\n\n• Sonniges, offenes Wesen\n\n• Leidenschaft, Menschen glücklich zu machen\n\n• Teamgeist und Zuverlässigkeit\n\n• Aufmerksamkeit für Details und Bereitschaft zuzuhören\n\n• Motivation zu lernen und sich weiterzuentwickeln – keine Erfahrung nötig!\n Vorteile\n\n• Flexible Arbeitszeiten für eine gute Work‑Life‑Balance\n\n• Dynamisches, freundliches und unterstützendes Team\n\n• Aus- und Weiterbildungsmöglichkeiten – viele Manager starten als Teammitglieder!\n\n• Vergütung und Arbeitsbedingungen gemäss den Bestimmungen des Gesamtarbeitsvertrags (L-GAV)\n\n• 50% Rabatt auf unsere Produkte in unseren Restaurants in der Schweiz und in Liechtenstein\n\n• Sunrise-Abos zu einem reduzierten Preis\n\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n\n• Zusätzliche angebotene Ferien für über 50-Jährige\n\n• Kostenloser Zugang zur grössten Online-Schulungsbibliothek\n Bewerbung\n\nBereit, dein Strahlen ins Team zu bringen? Bewirb dich jetzt und starte deine Reise bei McDonald’s. Wir freuen uns auf dich!",
@@ -1180,7 +1180,18 @@
       },
       "addressLocality": "HEIMBERG",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-06T23:07:03.366Z"
+      "firstSeenAt": "2026-09-06T23:07:03.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1"
+        ],
+        "fr": [
+          "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1"
+      ]
     },
     {
       "title": "Guest Experience Leader",
@@ -1223,13 +1234,11 @@
       },
       "id": "mcdonald-s-switzerland-689bbf24e589",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-spiez"
+        "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-spiez"
+          "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
@@ -1297,13 +1306,11 @@
       },
       "id": "mcdonald-s-switzerland-68c1a681a6ef",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-thun"
+        "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-thun"
+          "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
@@ -1336,7 +1343,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/guest-experience-leader/job/P8-318668-2",
-      "slug": "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2",
+      "slug": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-regensdorf",
       "location": "REGENSDORF",
       "canton": "ZH",
       "country": "CH",
@@ -1359,9 +1366,9 @@
       },
       "slugByLocale": {
         "de": "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2",
-        "it": "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2",
+        "it": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-regensdorf",
         "en": "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2",
-        "fr": "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2"
+        "fr": "chef-d-experience-invite-mcdonald-s-switzerland-regensdorf"
       },
       "descriptionByLocale": {
         "de": "Unternehmensvorstellung\n\nBei McDonald’s wird jeder Besuch zum sonnigen Erlebnis. Unser Team liebt es, Gäste zum Lächeln zu bringen und eine einladende Atmosphäre zu schaffen, in der sich alle wohlfühlen. Wenn du gerne mit Menschen in Kontakt bist und einen Job suchst, der leicht, dynamisch und voller Möglichkeiten ist, bist du bei uns genau richtig!\n\nStellenbeschreibung\n\nAls Guest Experience Leader bist du das strahlende Herz unseres Restaurants. Du begrüsst unsere Gäste mit einem Lächeln, stellst ihnen unsere neuesten Angebote vor und unterstützt sie bei der Bestellung. Mit deiner positiven Energie motivierst du das Team und sorgst dafür, dass jeder Gast glücklich geht. Du hast ein Auge für die kleinen Details und ein offenes Ohr für die Wünsche und das Feedback unserer Gäste, die du mit dem Management teilst, um jeden Besuch noch besser zu machen.\n\nHauptaufgaben\n\n• Begrüssung der Gäste und Schaffung einer fröhlichen Atmosphäre\n\n• Vorstellung neuer Angebote und Unterstützung bei Bestellungen\n\n• Weitergabe von Gästefeedback an Team und Management\n\n• Unterstützung des Teams mit Begeisterung und Teamgeist\n\n• Sicherstellung eines perfekten Restauranterlebnisses für jeden Gast\n Anforderungen\n\n• Sonniges, offenes Wesen\n\n• Leidenschaft, Menschen glücklich zu machen\n\n• Teamgeist und Zuverlässigkeit\n\n• Aufmerksamkeit für Details und Bereitschaft zuzuhören\n\n• Motivation zu lernen und sich weiterzuentwickeln – keine Erfahrung nötig!\n Vorteile\n\n• Flexible Arbeitszeiten für eine gute Work‑Life‑Balance\n\n• Dynamisches, freundliches und unterstützendes Team\n\n• Aus- und Weiterbildungsmöglichkeiten – viele Manager starten als Teammitglieder!\n\n• Vergütung und Arbeitsbedingungen gemäss den Bestimmungen des Gesamtarbeitsvertrags (L-GAV)\n\n• 50% Rabatt auf unsere Produkte in unseren Restaurants in der Schweiz und in Liechtenstein\n\n• Sunrise-Abos zu einem reduzierten Preis\n\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n\n• Zusätzliche angebotene Ferien für über 50-Jährige\n\n• Kostenloser Zugang zur grössten Online-Schulungsbibliothek\n Bewerbung\n\nBereit, dein Strahlen ins Team zu bringen? Bewirb dich jetzt und starte deine Reise bei McDonald’s. Wir freuen uns auf dich!",
@@ -1387,7 +1394,18 @@
       },
       "addressLocality": "REGENSDORF",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-06T23:07:03.365Z"
+      "firstSeenAt": "2026-09-06T23:07:03.365Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2"
+        ],
+        "fr": [
+          "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-leader-mcdonalds-switzerland-regensdorf-p8-318668-2"
+      ]
     },
     {
       "title": "Guest Experience Leader",
@@ -1430,13 +1448,11 @@
       },
       "id": "mcdonald-s-switzerland-ba3108bcddff",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-lugano-pazzallo-p8-310075-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-lugano-pazzallo"
+        "guest-experience-leader-mcdonalds-switzerland-lugano-pazzallo-p8-310075-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-lugano-pazzallo-p8-310075-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-lugano-pazzallo"
+          "guest-experience-leader-mcdonalds-switzerland-lugano-pazzallo-p8-310075-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-lugano-pazzallo-p8-310075-1"
@@ -1504,13 +1520,11 @@
       },
       "id": "mcdonald-s-switzerland-b048dc3c3690",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-interlaken"
+        "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-interlaken"
+          "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
@@ -1578,13 +1592,11 @@
       },
       "id": "mcdonald-s-switzerland-472196c1e86c",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-frauenfeld"
+        "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-frauenfeld"
+          "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
@@ -1617,7 +1629,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/guest-experience-leader/job/P8-318665-1",
-      "slug": "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1",
+      "slug": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baden",
       "location": "BADEN",
       "canton": "AG",
       "country": "CH",
@@ -1640,9 +1652,9 @@
       },
       "slugByLocale": {
         "de": "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1",
-        "it": "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1",
+        "it": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baden",
         "en": "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1",
-        "fr": "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
+        "fr": "chef-d-experience-invite-mcdonald-s-switzerland-baden"
       },
       "descriptionByLocale": {
         "de": "Unternehmensvorstellung\n\nBei McDonald’s wird jeder Besuch zum sonnigen Erlebnis. Unser Team liebt es, Gäste zum Lächeln zu bringen und eine einladende Atmosphäre zu schaffen, in der sich alle wohlfühlen. Wenn du gerne mit Menschen in Kontakt bist und einen Job suchst, der leicht, dynamisch und voller Möglichkeiten ist, bist du bei uns genau richtig!\n\nStellenbeschreibung\n\nAls Guest Experience Leader bist du das strahlende Herz unseres Restaurants. Du begrüsst unsere Gäste mit einem Lächeln, stellst ihnen unsere neuesten Angebote vor und unterstützt sie bei der Bestellung. Mit deiner positiven Energie motivierst du das Team und sorgst dafür, dass jeder Gast glücklich geht. Du hast ein Auge für die kleinen Details und ein offenes Ohr für die Wünsche und das Feedback unserer Gäste, die du mit dem Management teilst, um jeden Besuch noch besser zu machen.\n\nHauptaufgaben\n\n• Begrüssung der Gäste und Schaffung einer fröhlichen Atmosphäre\n\n• Vorstellung neuer Angebote und Unterstützung bei Bestellungen\n\n• Weitergabe von Gästefeedback an Team und Management\n\n• Unterstützung des Teams mit Begeisterung und Teamgeist\n\n• Sicherstellung eines perfekten Restauranterlebnisses für jeden Gast\n Anforderungen\n\n• Sonniges, offenes Wesen\n\n• Leidenschaft, Menschen glücklich zu machen\n\n• Teamgeist und Zuverlässigkeit\n\n• Aufmerksamkeit für Details und Bereitschaft zuzuhören\n\n• Motivation zu lernen und sich weiterzuentwickeln – keine Erfahrung nötig!\n Vorteile\n\n• Flexible Arbeitszeiten für eine gute Work‑Life‑Balance\n\n• Dynamisches, freundliches und unterstützendes Team\n\n• Aus- und Weiterbildungsmöglichkeiten – viele Manager starten als Teammitglieder!\n\n• Vergütung und Arbeitsbedingungen gemäss den Bestimmungen des Gesamtarbeitsvertrags (L-GAV)\n\n• 50% Rabatt auf unsere Produkte in unseren Restaurants in der Schweiz und in Liechtenstein\n\n• Sunrise-Abos zu einem reduzierten Preis\n\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n\n• Zusätzliche angebotene Ferien für über 50-Jährige\n\n• Kostenloser Zugang zur grössten Online-Schulungsbibliothek\n Bewerbung\n\nBereit, dein Strahlen ins Team zu bringen? Bewirb dich jetzt und starte deine Reise bei McDonald’s. Wir freuen uns auf dich!",
@@ -1668,7 +1680,18 @@
       },
       "addressLocality": "BADEN",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-06T23:07:03.364Z"
+      "firstSeenAt": "2026-09-06T23:07:03.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
+        ],
+        "fr": [
+          "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
+      ]
     },
     {
       "title": "Guest Experience Leader",
@@ -1676,7 +1699,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/guest-experience-leader/job/P8-318666-1",
-      "slug": "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1",
+      "slug": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-brugg-ag",
       "location": "BRUGG AG",
       "canton": "AG",
       "country": "CH",
@@ -1699,9 +1722,9 @@
       },
       "slugByLocale": {
         "de": "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1",
-        "it": "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1",
+        "it": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-brugg-ag",
         "en": "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1",
-        "fr": "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
+        "fr": "chef-d-experience-invite-mcdonald-s-switzerland-brugg-ag"
       },
       "descriptionByLocale": {
         "de": "Unternehmensvorstellung\n\nBei McDonald’s wird jeder Besuch zum sonnigen Erlebnis. Unser Team liebt es, Gäste zum Lächeln zu bringen und eine einladende Atmosphäre zu schaffen, in der sich alle wohlfühlen. Wenn du gerne mit Menschen in Kontakt bist und einen Job suchst, der leicht, dynamisch und voller Möglichkeiten ist, bist du bei uns genau richtig!\n\nStellenbeschreibung\n\nAls Guest Experience Leader bist du das strahlende Herz unseres Restaurants. Du begrüsst unsere Gäste mit einem Lächeln, stellst ihnen unsere neuesten Angebote vor und unterstützt sie bei der Bestellung. Mit deiner positiven Energie motivierst du das Team und sorgst dafür, dass jeder Gast glücklich geht. Du hast ein Auge für die kleinen Details und ein offenes Ohr für die Wünsche und das Feedback unserer Gäste, die du mit dem Management teilst, um jeden Besuch noch besser zu machen.\n\nHauptaufgaben\n\n• Begrüssung der Gäste und Schaffung einer fröhlichen Atmosphäre\n\n• Vorstellung neuer Angebote und Unterstützung bei Bestellungen\n\n• Weitergabe von Gästefeedback an Team und Management\n\n• Unterstützung des Teams mit Begeisterung und Teamgeist\n\n• Sicherstellung eines perfekten Restauranterlebnisses für jeden Gast\n Anforderungen\n\n• Sonniges, offenes Wesen\n\n• Leidenschaft, Menschen glücklich zu machen\n\n• Teamgeist und Zuverlässigkeit\n\n• Aufmerksamkeit für Details und Bereitschaft zuzuhören\n\n• Motivation zu lernen und sich weiterzuentwickeln – keine Erfahrung nötig!\n Vorteile\n\n• Flexible Arbeitszeiten für eine gute Work‑Life‑Balance\n\n• Dynamisches, freundliches und unterstützendes Team\n\n• Aus- und Weiterbildungsmöglichkeiten – viele Manager starten als Teammitglieder!\n\n• Vergütung und Arbeitsbedingungen gemäss den Bestimmungen des Gesamtarbeitsvertrags (L-GAV)\n\n• 50% Rabatt auf unsere Produkte in unseren Restaurants in der Schweiz und in Liechtenstein\n\n• Sunrise-Abos zu einem reduzierten Preis\n\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n\n• Zusätzliche angebotene Ferien für über 50-Jährige\n\n• Kostenloser Zugang zur grössten Online-Schulungsbibliothek\n Bewerbung\n\nBereit, dein Strahlen ins Team zu bringen? Bewirb dich jetzt und starte deine Reise bei McDonald’s. Wir freuen uns auf dich!",
@@ -1727,7 +1750,18 @@
       },
       "addressLocality": "BRUGG AG",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-06T23:07:03.364Z"
+      "firstSeenAt": "2026-09-06T23:07:03.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
+        ],
+        "fr": [
+          "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
+      ]
     },
     {
       "title": "Guest Experience Leader",
@@ -1735,7 +1769,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/guest-experience-leader/job/P8-318667-3",
-      "slug": "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3",
+      "slug": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-dielsdorf",
       "location": "DIELSDORF",
       "canton": "ZH",
       "country": "CH",
@@ -1758,9 +1792,9 @@
       },
       "slugByLocale": {
         "de": "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3",
-        "it": "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3",
+        "it": "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-dielsdorf",
         "en": "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3",
-        "fr": "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3"
+        "fr": "chef-d-experience-invite-mcdonald-s-switzerland-dielsdorf"
       },
       "descriptionByLocale": {
         "de": "Unternehmensvorstellung\n\nBei McDonald’s wird jeder Besuch zum sonnigen Erlebnis. Unser Team liebt es, Gäste zum Lächeln zu bringen und eine einladende Atmosphäre zu schaffen, in der sich alle wohlfühlen. Wenn du gerne mit Menschen in Kontakt bist und einen Job suchst, der leicht, dynamisch und voller Möglichkeiten ist, bist du bei uns genau richtig!\n\nStellenbeschreibung\n\nAls Guest Experience Leader bist du das strahlende Herz unseres Restaurants. Du begrüsst unsere Gäste mit einem Lächeln, stellst ihnen unsere neuesten Angebote vor und unterstützt sie bei der Bestellung. Mit deiner positiven Energie motivierst du das Team und sorgst dafür, dass jeder Gast glücklich geht. Du hast ein Auge für die kleinen Details und ein offenes Ohr für die Wünsche und das Feedback unserer Gäste, die du mit dem Management teilst, um jeden Besuch noch besser zu machen.\n\nHauptaufgaben\n\n• Begrüssung der Gäste und Schaffung einer fröhlichen Atmosphäre\n\n• Vorstellung neuer Angebote und Unterstützung bei Bestellungen\n\n• Weitergabe von Gästefeedback an Team und Management\n\n• Unterstützung des Teams mit Begeisterung und Teamgeist\n\n• Sicherstellung eines perfekten Restauranterlebnisses für jeden Gast\n Anforderungen\n\n• Sonniges, offenes Wesen\n\n• Leidenschaft, Menschen glücklich zu machen\n\n• Teamgeist und Zuverlässigkeit\n\n• Aufmerksamkeit für Details und Bereitschaft zuzuhören\n\n• Motivation zu lernen und sich weiterzuentwickeln – keine Erfahrung nötig!\n Vorteile\n\n• Flexible Arbeitszeiten für eine gute Work‑Life‑Balance\n\n• Dynamisches, freundliches und unterstützendes Team\n\n• Aus- und Weiterbildungsmöglichkeiten – viele Manager starten als Teammitglieder!\n\n• Vergütung und Arbeitsbedingungen gemäss den Bestimmungen des Gesamtarbeitsvertrags (L-GAV)\n\n• 50% Rabatt auf unsere Produkte in unseren Restaurants in der Schweiz und in Liechtenstein\n\n• Sunrise-Abos zu einem reduzierten Preis\n\n• Zugang zu exklusiven Rabatten über die Plattform \"Corporate Benefits\"\n\n• Zusätzliche angebotene Ferien für über 50-Jährige\n\n• Kostenloser Zugang zur grössten Online-Schulungsbibliothek\n Bewerbung\n\nBereit, dein Strahlen ins Team zu bringen? Bewirb dich jetzt und starte deine Reise bei McDonald’s. Wir freuen uns auf dich!",
@@ -1786,7 +1820,18 @@
       },
       "addressLocality": "DIELSDORF",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-06T23:07:03.364Z"
+      "firstSeenAt": "2026-09-06T23:07:03.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3"
+        ],
+        "fr": [
+          "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-leader-mcdonalds-switzerland-dielsdorf-p8-318667-3"
+      ]
     },
     {
       "title": "Crew Member",
@@ -1830,13 +1875,11 @@
       "id": "mcdonald-s-switzerland-c69512a0a431",
       "previousSlugs": [
         "besatzungsmitglied-mcdonald-s-switzerland-affoltern",
-        "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
-        "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern"
+        "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
-          "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern"
+          "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
         ],
         "de": [
           "besatzungsmitglied-mcdonald-s-switzerland-affoltern"
@@ -1901,13 +1944,11 @@
       },
       "id": "mcdonald-s-switzerland-ddd5f220e7d5",
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-etoy-p8-318234-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-etoy"
+        "guest-experience-leader-mcdonalds-switzerland-etoy-p8-318234-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-etoy-p8-318234-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-etoy"
+          "guest-experience-leader-mcdonalds-switzerland-etoy-p8-318234-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-etoy-p8-318234-1"
@@ -2165,7 +2206,7 @@
         "en": "Crew"
       },
       "slugByLocale": {
-        "de": "crew-mcdonald-s-switzerland-zurich",
+        "de": "besatzung-mcdonald-s-switzerland-zurich",
         "it": "crew-mcdonalds-switzerland-zurich-p8-319398-8",
         "en": "crew-mcdonalds-switzerland-zurich-p8-319398-8",
         "fr": "crew-mcdonald-s-switzerland-zurich"
@@ -2180,8 +2221,8 @@
         "crew-mcdonalds-switzerland-zurich-p8-318021-1",
         "crew-mcdonalds-switzerland-zurich-p8-318022-1",
         "vereinte-nationen-mcdonald-s-switzerland-zurich",
-        "besatzung-mcdonald-s-switzerland-zurich",
-        "crew-mcdonalds-switzerland-zurich-p8-319396-6"
+        "crew-mcdonalds-switzerland-zurich-p8-319396-6",
+        "crew-mcdonald-s-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2198,8 +2239,8 @@
           "crew-mcdonalds-switzerland-zurich-p8-318021-1",
           "crew-mcdonalds-switzerland-zurich-p8-318022-1",
           "vereinte-nationen-mcdonald-s-switzerland-zurich",
-          "besatzung-mcdonald-s-switzerland-zurich",
-          "crew-mcdonalds-switzerland-zurich-p8-319396-6"
+          "crew-mcdonalds-switzerland-zurich-p8-319396-6",
+          "crew-mcdonald-s-switzerland-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3783,7 +3824,7 @@
         "en": "Crew"
       },
       "slugByLocale": {
-        "de": "crew-mcdonalds-switzerland-heimberg-p8-396692-1",
+        "de": "besatzung-mcdonald-s-switzerland-heimberg",
         "it": "crew-mcdonalds-switzerland-heimberg-p8-396692-1",
         "en": "crew-mcdonalds-switzerland-heimberg-p8-396692-1",
         "fr": "crew-mcdonald-s-switzerland-heimberg"
@@ -4223,7 +4264,7 @@
         "en": "Crew"
       },
       "slugByLocale": {
-        "de": "crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6",
+        "de": "besatzung-mcdonald-s-switzerland-morbio-inferiore",
         "it": "crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6",
         "en": "crew-mcdonalds-switzerland-morbio-inferiore-p8-319611-6",
         "fr": "crew-mcdonald-s-switzerland-morbio-inferiore"
@@ -8416,7 +8457,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/coordinateur-coordinatrice-de-quart/job/P8-396694-1",
-      "slug": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
+      "slug": "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-heimberg",
       "location": "HEIMBERG",
       "canton": "BE",
       "country": "CH",
@@ -8438,9 +8479,9 @@
         "en": "Coordinator/Quarter Coordinator"
       },
       "slugByLocale": {
-        "de": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
-        "it": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
-        "en": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
+        "de": "koordinator-viertelkoordinator-mcdonald-s-switzerland-heimberg",
+        "it": "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-heimberg",
+        "en": "coordinator-quarter-coordinator-mcdonald-s-switzerland-heimberg",
         "fr": "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-heimberg"
       },
       "descriptionByLocale": {
@@ -8466,7 +8507,21 @@
       },
       "addressLocality": "HEIMBERG",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-06T23:07:03.327Z"
+      "firstSeenAt": "2026-09-06T23:07:03.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
+        ],
+        "en": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
+        ],
+        "de": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
+      ]
     },
     {
       "title": "Coordinateur / Coordinatrice de quart",

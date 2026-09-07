@@ -27,9 +27,9 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "housekeeper-in-postparc-bern-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
-        "fr": "menageur-a-postparc-bern-die-schweizerische-post-bern"
+        "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -52,19 +52,15 @@
         ],
         "fr": [
           "hauswart-in-postparc-bern-die-schweizerische-post-bern",
-          "femme-de-menage-die-schweizerische-post-bern",
           "menageur-a-postparc-bern-die-schweizerische-post-bern"
         ],
         "en": [
-          "hauswart-in-post",
           "housekeeper-in-postparc-bern-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
         "hauswart-in-postparc-bern-post",
         "hauswart-in-postparc-bern-die-schweizerische-post-bern",
-        "hauswart-in-post",
-        "femme-de-menage-die-schweizerische-post-bern",
         "menageur-a-postparc-bern-die-schweizerische-post-bern",
         "housekeeper-in-postparc-bern-die-schweizerische-post-bern"
       ],
@@ -3865,7 +3861,7 @@
       },
       "slug": "information-security-officer-die-schweizerische-post-bellinzona",
       "slugByLocale": {
-        "it": "information-security-officer-die-schweizerische-post-bellinzona",
+        "it": "responsabile-della-sicurezza-die-schweizerische-post-bellinzona",
         "en": "information-security-officer-post",
         "de": "information-security-officer-post",
         "fr": "specialiste-de-la-securite-informatique-die-schweizerische-post-bellinzona"
@@ -3907,16 +3903,14 @@
       "firstSeenAt": "2026-08-25T21:45:31.521Z",
       "previousSlugsByLocale": {
         "it": [
-          "information-security-officer-post",
-          "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+          "information-security-officer-post"
         ],
         "fr": [
           "information-security-officer-post"
         ]
       },
       "previousSlugs": [
-        "information-security-officer-post",
-        "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+        "information-security-officer-post"
       ],
       "salarySource": "estimated",
       "retranslationAttempts": 1
@@ -9622,7 +9616,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -9646,7 +9640,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -9655,8 +9648,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -13835,12 +13827,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-8b8afa",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-8b8afa",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-willisau",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-8b8afa"
       },
       "sourceLang": "de",
       "department": "",
@@ -13874,7 +13866,21 @@
       },
       "addressLocality": "Willisau",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-09-06T22:58:23.253Z"
+      "firstSeenAt": "2026-09-06T22:58:23.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73990-de_DE",
@@ -15515,7 +15521,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -15539,7 +15545,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

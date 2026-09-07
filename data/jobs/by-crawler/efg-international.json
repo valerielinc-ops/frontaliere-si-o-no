@@ -1062,7 +1062,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-international-ag-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1095,14 +1095,12 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ],
       "salarySource": "reported"
@@ -2769,9 +2767,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "switchboard-operator-efg-international-ag-lugano",
+        "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2797,19 +2795,15 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ],
       "salarySource": "estimated"
