@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-09-07T15:02:44.848Z",
+  "assembledAt": "2026-09-07T23:25:11.048Z",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -34,7 +34,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.446Z",
+      "crawledAt": "2026-09-07T23:25:00.418Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -116,7 +116,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126720699-developpeur-fiori-sapui5-btp?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.445Z",
+      "crawledAt": "2026-09-07T23:25:00.417Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -198,7 +198,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.442Z",
+      "crawledAt": "2026-09-07T23:25:00.416Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -277,7 +277,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.431Z",
+      "crawledAt": "2026-09-07T23:25:00.406Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -307,6 +307,85 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:50.426Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-338bfd5acd78",
+      "slug": "business-analyst-core-banking-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analyst-core-banking-talan-geneve",
+        "en": "business-analyste-core-banking-talan-geneve-switzerland",
+        "de": "business-analyst-core-banking-talan-geneve",
+        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyste Core Banking",
+      "titleByLocale": {
+        "it": "Business Analyst Core Banking",
+        "en": "Business Analyste Core Banking",
+        "de": "Business Analyst Core Banking",
+        "fr": "Business Analyste Core Banking"
+      },
+      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
+        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
+        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
+        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-07T23:25:00.400Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "jobReqId": "744000144774739",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyste-core-banking-talan-geneve-switzerland",
+        "business-analyst-core-banking-talan-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyste-core-banking-talan-geneve-switzerland",
+          "business-analyst-core-banking-talan-geneve"
+        ],
+        "de": [
+          "business-analyste-core-banking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.523Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -353,7 +432,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000145209489-system-engineer-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.425Z",
+      "crawledAt": "2026-09-07T23:25:00.398Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -432,7 +511,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.419Z",
+      "crawledAt": "2026-09-07T23:25:00.383Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -483,85 +562,6 @@
       }
     },
     {
-      "id": "talan-338bfd5acd78",
-      "slug": "business-analyst-core-banking-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analyst-core-banking-talan-geneve",
-        "en": "business-analyste-core-banking-talan-geneve-switzerland",
-        "de": "business-analyst-core-banking-talan-geneve",
-        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyste Core Banking",
-      "titleByLocale": {
-        "it": "Business Analyst Core Banking",
-        "en": "Business Analyste Core Banking",
-        "de": "Business Analyst Core Banking",
-        "fr": "Business Analyste Core Banking"
-      },
-      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
-        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
-        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
-        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.413Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "jobReqId": "744000144774739",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyste-core-banking-talan-geneve-switzerland",
-        "business-analyst-core-banking-talan-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyste-core-banking-talan-geneve-switzerland",
-          "business-analyst-core-banking-talan-geneve"
-        ],
-        "de": [
-          "business-analyste-core-banking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-844767b140bb",
       "slug": "senior-java-platform-ingegnere-talan-geneve",
       "slugByLocale": {
@@ -593,7 +593,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.384Z",
+      "crawledAt": "2026-09-07T23:25:00.350Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -672,7 +672,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000147543059-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.355Z",
+      "crawledAt": "2026-09-07T23:25:00.313Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -758,7 +758,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000147542689-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.350Z",
+      "crawledAt": "2026-09-07T23:25:00.311Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -844,7 +844,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000145757829-enterprise-architect?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:02:34.340Z",
+      "crawledAt": "2026-09-07T23:25:00.300Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -910,7 +910,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000147543319-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.328Z",
+      "crawledAt": "2026-09-07T23:25:00.292Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1002,7 +1002,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000147543429-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:02:34.323Z",
+      "crawledAt": "2026-09-07T23:25:00.286Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1121,7 +1121,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "talan-8559adbcbb05",
@@ -1208,7 +1208,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
