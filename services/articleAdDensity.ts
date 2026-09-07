@@ -46,6 +46,22 @@ export const STANDARD_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
 };
 
 /**
+ * Ceiling of the longform word gap — the spacing `docs/ads-placement-longform.md`
+ * §4 calibrates on the corpus. See `longformWordGap` for why it is a ceiling
+ * and not the value every longform article gets.
+ */
+export const LONGFORM_MAX_WORD_GAP = 300;
+
+/**
+ * Floor of the longform word gap. Deliberately the STANDARD profile's gap: the
+ * longform profile may space its ads WIDER than the short format, never
+ * tighter, so scaling the gap down for a short-segmented body can restore the
+ * ads it lost but can never push it past the density it had before the profile
+ * existed (AGENTS.md #7 in both directions).
+ */
+export const LONGFORM_MIN_WORD_GAP = STANDARD_ARTICLE_AD_DENSITY.minWordGap;
+
+/**
  * Longform profile — `docs/ads-placement-longform.md` §3/§4: 3 in-content ads
  * (the closing `ARTICLE_END_MULTIPLEX` is placed by the component and is not
  * part of this cap), spread rather than clustered at the top. The wider gap is
@@ -59,12 +75,51 @@ export const STANDARD_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
  * of 1.57 ads — BELOW the three the spec asks for, which would make this a
  * density cut instead of the specified profile. At 300 the mean is 2.75 and
  * 342 of the 402 longform articles land on exactly 3.
+ *
+ * `minWordGap` here is the CEILING of the gap, not a constant: a body whose
+ * segments are too short to ever bank 300 words pays a reduced gap instead of
+ * losing its ads — see `longformWordGap` and `resolveArticleAdDensity`.
  */
 export const LONGFORM_ARTICLE_AD_DENSITY: ArticleAdDensityProfile = {
   inlineCap: 3,
-  minWordGap: 300,
+  minWordGap: LONGFORM_MAX_WORD_GAP,
   longform: true,
 };
+
+/**
+ * Words of body a longform segment must bank before an ad becomes eligible,
+ * given the shape of THIS article (issue #7746).
+ *
+ * Why it cannot stay the constant 300: the renderer's word credit is
+ * per-SEGMENT, not per-article — `renderFormattedContent` is called once per
+ * body segment and `wordsSinceLastAd` restarts from 0 on every call. A longform
+ * article of 900 words over 3 segments therefore offers ~300 words of credit
+ * per segment and, needing 300 in a single segment to fire, lands on ONE
+ * in-content ad or none, while carrying the ≥7 sections that make it longform.
+ * Measured on the `it` corpus: 35 of the 401 ad-eligible longform articles sat
+ * under 2 ads (4 at zero, 31 at one) — a tail the mean of 2.75 hid.
+ *
+ * The gap therefore scales with what a segment can actually pay: half the mean
+ * segment length, so an ad has room to fire once per segment and still sit at a
+ * section boundary rather than on top of the previous one.
+ *
+ * Both ends of the clamp are load-bearing:
+ *   - ceiling `LONGFORM_MAX_WORD_GAP` (300) — an article whose segments are
+ *     long enough keeps exactly today's spacing (108 of 401 are unchanged), so
+ *     this is a floor for the starved tail, never a densification of the rest;
+ *   - floor `LONGFORM_MIN_WORD_GAP` = the STANDARD profile's gap (200) — a
+ *     longform article can never be spaced TIGHTER than the same body would be
+ *     under the short-form profile. That is what keeps this from turning into a
+ *     density increase on thin bodies: measured, no article ends up with more
+ *     ads than the pre-#7336 standard profile gave it, and none with fewer than
+ *     it has today (mean 2.75 → 2.95, articles under 2 ads 35 → 5).
+ */
+export function longformWordGap(segments: readonly string[]): number {
+  const bodyParts = segments.filter(segment => segment && !segment.startsWith('blog.article.'));
+  if (bodyParts.length === 0) return LONGFORM_MAX_WORD_GAP;
+  const perSegment = Math.floor(countWords(bodyParts) / bodyParts.length / 2);
+  return Math.min(LONGFORM_MAX_WORD_GAP, Math.max(LONGFORM_MIN_WORD_GAP, perSegment));
+}
 
 /**
  * Counts `## ` section headings the way the renderer sees them: blocks split on
@@ -98,7 +153,15 @@ export function isLongformArticle(segments: readonly string[]): boolean {
     && countWords(segments) >= LONGFORM_MIN_WORDS;
 }
 
-/** Profile the inline placement must use for this body. */
+/**
+ * Profile the inline placement must use for this body. The longform gap is
+ * resolved per article (`longformWordGap`), so a short-segmented longform piece
+ * keeps its ads instead of failing a gap its segments cannot pay (#7746).
+ */
 export function resolveArticleAdDensity(segments: readonly string[]): ArticleAdDensityProfile {
-  return isLongformArticle(segments) ? LONGFORM_ARTICLE_AD_DENSITY : STANDARD_ARTICLE_AD_DENSITY;
+  if (!isLongformArticle(segments)) return STANDARD_ARTICLE_AD_DENSITY;
+  const minWordGap = longformWordGap(segments);
+  return minWordGap === LONGFORM_ARTICLE_AD_DENSITY.minWordGap
+    ? LONGFORM_ARTICLE_AD_DENSITY
+    : { ...LONGFORM_ARTICLE_AD_DENSITY, minWordGap };
 }
