@@ -5833,6 +5833,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-turgovia.title': 'Kurzzeitbewilligung Thurgau: Verlängerung und Erneuerung',
     'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'Mit der Bewilligung L können Sie bis zu einem Jahr in der Schweiz arbeiten. Erfahren Sie, wie es im Thurgau funktioniert, die Verlängerungsbedingungen und den Übergang zur B-Bewilligung.',
     'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Schweizer Verwaltungsbuero mit Formularen fuer befristete Arbeitsgenehmigung L',
+    'blog.article.apprendistato-turgovia.title': 'Lehre und Ausbildung im Kanton Thurgau',
+    'blog.article.apprendistato-turgovia.excerpt': 'Praktischer Leitfaden zur Lehrlingsausbildung in der Schweiz: Wie finde ich eine Lehre, lerne die Rechte der Lernenden und den Ausbildungsvertrag kennen?',
+    'blog.article.apprendistato-turgovia.imageAlt': 'Junger Lehrling bei der praktischen Berufsausbildung in einer Schweizer Berufsschule',
 };
 
 export default blogMetaChDe;
