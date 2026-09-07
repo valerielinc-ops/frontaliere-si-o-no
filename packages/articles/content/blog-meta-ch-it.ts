@@ -5842,6 +5842,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.startup-crypto-difficolta-bancarie.title': 'Startup crypto e banche: sempre più difficile operare',
     'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'Una società di mining Bitcoin a Lugano si vede chiudere i conti bancari. Le banche svizzere mettono in crisi l\'innovazione digitale.',
     'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Palazzo moderno a Lugano, contesto economico ticinese.',
+    'blog.article.avs-integrazioni-canton-berna.title': 'AVS e prestazioni complementari nel Canton Berna',
+    'blog.article.avs-integrazioni-canton-berna.excerpt': 'Come funziona il calcolo della rendita AVS nel Canton Berna: contributi obbligatori, lacune contributive, prestazioni complementari e copertura del minimo vitale.',
+    'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Consulente finanziario svizzero esamina calcoli rendita AVS in ufficio canton Berna',
 };
 
 export default blogMetaChIt;
