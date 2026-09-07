@@ -5920,6 +5920,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.settembre-mese-ambiente-collina-doro.title': 'September? It\'s Environment Month',
     'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'September 2026 will be dedicated to the environment in Collina d \'Oro with numerous sustainable initiatives.',
     'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Aerial view of Collina d\'Oro, Switzerland, focusing on environmental initiatives and community activities.',
+    'blog.article.rana-caff-scoperta-costa-rica.title': 'The "coffee frog": a new species discovered in Costa Rica',
+    'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'From coffee plantations to aquatic ecosystems: the discovery of the amphibian and the relationship between agriculture, tourism and the protection of biodiversity',
+    'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Panoramic view of Castelgrande in Bellinzona, Switzerland',
 };
 
 export default blogMetaChEn;

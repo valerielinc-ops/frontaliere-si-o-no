@@ -5920,6 +5920,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settembre-mese-ambiente-collina-doro.title': 'Septembre ? C\'est le mois de l\'environnement',
     'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'Septembre 2026 sera consacré à l\'environnement à Collina d\'Oro avec de nombreuses initiatives durables.',
     'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Vue aérienne de Collina d\'Oro, Suisse, avec un accent sur les initiatives environnementales et les activités communautaires.',
+    'blog.article.rana-caff-scoperta-costa-rica.title': 'La « grenouille du café » : découverte d\'une nouvelle espèce au Costa Rica',
+    'blog.article.rana-caff-scoperta-costa-rica.excerpt': 'Des plantations de café aux écosystèmes aquatiques : la découverte de l\'amphibien et la relation entre agriculture, tourisme et protection de la biodiversité',
+    'blog.article.rana-caff-scoperta-costa-rica.imageAlt': 'Vue panoramique de Castelgrande à Bellinzona, Suisse',
 };
 
 export default blogMetaChFr;
