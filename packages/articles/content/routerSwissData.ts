@@ -2022,6 +2022,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-ginevra': { it: 'permesso-domicilio-c-ginevra', en: 'c-permit-geneva-canton-requirements', de: 'c-bewilligung-kanton-genf-voraussetzungen', fr: 'permis-c-canton-geneve-conditions' },
  'posta-svizzera-taglio-posti': { it: 'posta-svizzera-taglio-posti', en: 'swiss-post-job-cuts', de: 'schweizer-post-stellenabbau', fr: 'poste-suisse-suppression-postes' },
  'permesso-c-lucerna-requisiti-domanda': { it: 'permesso-c-lucerna-requisiti-domanda', en: 'lucerne-c-permit-requirements', de: 'lucerne-c-aufenthaltsbewilligung-voraussetzungen', fr: 'permis-c-lucerne-conditions-demande' },
+ 'affitti-turgovia-canoni-diritto-locazione': { it: 'affitti-turgovia-canoni-diritto-locazione', en: 'rent-thurgau-canton-average-rent-tenancy-law', de: 'mieten-thurgau-kanton-durchschnittsmiete-mietrecht', fr: 'loyers-thurgovie-cantons-loyers-moyens-droit-bail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

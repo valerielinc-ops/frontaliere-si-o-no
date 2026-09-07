@@ -5989,6 +5989,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permis C à Lucerne : exigences, années et procédure',
     'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'Comment obtenir le permis de séjour C dans le canton de Lucerne : années de résidence, intégration, langue et procédure de demande.',
     'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Vue de la vieille ville de Lucerne avec le pont de la Chapelle et le lac',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Location en Thurgovie : loyers moyens et droit de location',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Marché locatif dans le canton de Thurgovie : dépôt de garantie, résiliation, contestation de la redevance et autorité de conciliation selon le Code des obligations.',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Rue résidentielle dans une commune thurgovienne avec maisons traditionnelles',
 };
 
 export default blogMetaChFr;

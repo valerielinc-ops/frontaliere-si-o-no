@@ -5989,6 +5989,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permesso C a Lucerna: requisiti, anni e procedura',
     'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'Come ottenere il permesso di domicilio C nel Canton Lucerna: anni di residenza, integrazione, lingua e procedura di domanda.',
     'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Vista del centro storico di Lucerna con il Kapellbrücke e il lago',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Affitti in Turgovia: canoni medi e diritto di locazione',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Mercato locativo nel Canton Turgovia: deposito cauzionale, disdetta, contestazione del canone e autorità di conciliazione secondo il Codice delle obbligazioni.',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Strada residenziale in un comune del Canton Turgovia con case tradizionali',
 };
 
 export default blogMetaChIt;
