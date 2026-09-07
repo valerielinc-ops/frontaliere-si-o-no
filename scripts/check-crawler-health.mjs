@@ -64,17 +64,31 @@
  * reports them today; instrumenting the rest of the fleet is incremental,
  * per-crawler follow-up (each has a bespoke discover/filter boundary).
  *
- * Follow-up (not in this script): adding `lastFetchOutcome` to each summary
- * slice — values like "ok" / "anti_bot_block" / "selector_miss" /
- * "filtered_empty" — would let the monitor distinguish a fetch failure from
- * a legitimately empty source on the FIRST observation, rather than waiting
- * 3 days for the empty-streak gate.
+ * Fetch outcome (issue #7897): a summary slice MAY report `lastFetchOutcome`,
+ * the run's own verdict on WHY it ended up empty — `ok`, `anti_bot_block`,
+ * `selector_miss` or `filtered_empty`. It answers on the FIRST observation the
+ * question the empty-streak gate can only guess at after three days, and even
+ * then only as "0 jobs, cause unknown": a source that refused the fetch, a
+ * parser whose selectors stopped matching, and a source that is legitimately
+ * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block` are
+ * a proof of breakage, so they flag `broken` immediately and NAME the cause;
+ * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
+ * signal above and clears the streak. Like `discovered`/`written`, the field is
+ * OPTIONAL: a slice without it — every historical slice included — is read
+ * exactly as before, so no backfill is needed. Only the SMN clinic parsers
+ * report it today (via `runStandardCrawlerPipeline`); instrumenting the rest of
+ * the fleet is incremental, per-crawler work (each has its own fetch/parse
+ * boundary).
  */
 
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import {
+  CRAWLER_FETCH_FAILURE_OUTCOMES,
+  normalizeFetchOutcome,
+} from './lib/crawler-fetch-outcome.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -942,6 +956,12 @@ async function inspectCrawler(slug) {
   // pipeline — the run RETURNED BEFORE PUBLISHING and kept the previous slice
   // live. Its `total: 0` is the guard's placeholder, NOT an observation that
   // the source is empty.
+  // The run's own verdict on why it ended up empty (#7897). Optional and
+  // closed-set validated: `null` for every slice that predates the field or is
+  // produced by a crawler that doesn't report it — unchanged behaviour.
+  const lastFetchOutcome = normalizeFetchOutcome(
+    summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
+  );
   const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
   // Separates a deliberate bail-out (0) from a crash (non-zero) — different
   // triage, and the guard already records it. `null` when absent: "unknown" is
@@ -984,6 +1004,7 @@ async function inspectCrawler(slug) {
     written,
     parsed,
     authoritativeEmpty,
+    lastFetchOutcome,
     earlyExit,
     exitCode,
   };
@@ -1066,6 +1087,14 @@ function corpusObservationFromPayloads(slug, data, summary) {
       ? summary.parsed
       : null;
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
+  // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
+  // reason the counts above are: the corpus republishes the slice verbatim, and
+  // for cross-repo crawlers this observation is usually the one that wins
+  // `selectNewestCrawlerObservation` — dropping the field here would lose the
+  // named cause exactly where it is the only evidence available.
+  const lastFetchOutcome = normalizeFetchOutcome(
+    summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
+  );
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
   // whatever slice the crawler wrote, exit-guard placeholders included — and
   // for cross-repo crawlers the corpus observation is usually the one that
@@ -1087,6 +1116,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
     written,
     parsed,
     authoritativeEmpty,
+    lastFetchOutcome,
     earlyExit,
     exitCode,
   };
@@ -1279,8 +1309,34 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // the crawler throws.
   const authoritativeEmpty = observation.authoritativeEmpty === true && lastObservedJobs === 0;
 
+  // The run's own verdict on WHY it is empty (#7897). Every signal above is
+  // the monitor INFERRING a cause from counts it can compare; this one is the
+  // run reporting what it actually saw at the fetch/parse boundary, which is
+  // the only place the difference is observable at all. Unknown or absent →
+  // `null` → every branch below behaves exactly as it did before the field
+  // existed, which is what keeps historical slices readable without a backfill.
+  const fetchOutcome = normalizeFetchOutcome(observation.lastFetchOutcome);
+  // Same evidence as the #5945 filtered-empty counts, stated directly instead
+  // of derived: the run fetched and parsed fine, its own filter kept nothing.
+  const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
+  // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
+  // adds nothing here: the cause is already known and named.
+  const fetchFailed =
+    CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) && lastObservedJobs === 0;
+
+  // A proven fetch failure cancels every empty-ok signal, including a manual
+  // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
+  // of breakage"; `anti_bot_block`/`selector_miss` are evidence of breakage, on
+  // the run's own report. Letting the allowlist win would mask exactly the case
+  // #6496 is about — a listed source that has actually died — and would also
+  // reset the streak that must keep growing while it stays broken. Same
+  // reasoning as `abortedRun` below, one step earlier in the pipeline.
   const emptyOk =
-    EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty || authoritativeEmpty;
+    (EMPTY_OK_CRAWLERS.has(observation.slug) ||
+      autoFilteredEmpty ||
+      authoritativeEmpty ||
+      filteredEmptyOutcome) &&
+    !fetchFailed;
 
   // The run aborted before publishing (exit-guard slice). This deliberately
   // does NOT feed `emptyOk`: an aborting crawler is broken and must keep its
@@ -1393,6 +1449,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   if (freshnessAgeDays > STALE_AFTER_DAYS) {
     status = 'stale';
     reason = `crawler not run in ${Math.round(freshnessAgeDays)} days (freshnessAt=${freshnessAt ?? 'unknown'}, source=${freshnessSource})`;
+  } else if (fetchFailed) {
+    // FIRST observation, no streak. The empty-streak gate needs three runs
+    // because `total: 0` on its own is ambiguous — anti-bot block, dead
+    // selector and a genuinely quiet source are the same number — so it waits
+    // for a pattern it can only ever describe as "N runs returned 0 jobs",
+    // still without a cause. This run already carries the cause, so the wait
+    // buys nothing but three days of a broken crawler serving a stale slice,
+    // and the reason can send triage to the right layer instead of the parser
+    // by default.
+    status = 'broken';
+    reason = fetchOutcome === 'anti_bot_block'
+      ? 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser'
+      : 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
   } else if (lastObservedJobs === 0 && emptyOk) {
     status = 'healthy';
     reason = null;
@@ -1449,6 +1518,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _autoFilteredEmpty: autoFilteredEmpty,
       _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,
+      _lastObservedFetchOutcome: fetchOutcome,
       _abortedRun: abortedRun,
     },
     reason,

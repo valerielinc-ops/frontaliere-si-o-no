@@ -35,6 +35,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
+import { normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -98,6 +99,12 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
       // Post-parser count (#7707): an aborted run that had already parsed jobs
       // must not leave a slice that reads as a geographic filter-empty.
       const parsed = counts && Number.isFinite(counts.parsed) ? counts.parsed : null;
+      // Fetch verdict (#7897). The soft exit on a zero-job run is exactly the
+      // slice whose cause matters most — a `selector_miss` reaches the monitor
+      // only through here, because the pipeline returns before ever writing a
+      // published summary. Dropping it on the guard path would instrument the
+      // one case that never needed instrumenting.
+      const lastFetchOutcome = normalizeFetchOutcome(counts ? counts.lastFetchOutcome : null);
       writeSummaryCrawlerSlice({
         key,
         label: label || key,
@@ -105,6 +112,7 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
         total: 0,
         discovered,
         parsed,
+        lastFetchOutcome,
         written: 0,
         newCount: 0,
         updatedCount: 0,
