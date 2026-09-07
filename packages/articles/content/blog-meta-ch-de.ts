@@ -5812,6 +5812,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Familienzulagen Bern: Bedingungen und Antrag',
     'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'Im Kanton Bern garantieren die Familienzulagen Unterstützung für jedes Kind. Entdecken Sie Rechte, Antragsverfahren und wo Sie sich informieren können.',
     'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Ausgleichskasse für Familienzulagen im Kanton Bern, Bürger erkundigen sich nach Kinderbeihilfen.',
+    'blog.article.imposta-eredita-appenzello-esterno.title': 'Erbschafts- und Schenkungssteuer in Appenzell Ausserrhoden',
+    'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Sätze nach Verwandtschaftsgrad, Befreiungen für Ehegatten und direkte Nachkommen, Erklärung und Zahlungsfristen im Kanton Appenzell Ausserrhoden.',
+    'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Schreibtisch mit Schweizer Erbschaftssteuerdokumenten, Anmeldungsformularen und Taschenrechner bei natürlichem Licht, Alpenlandschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;

@@ -1963,6 +1963,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-appenzello-esterno-conversione': { it: 'patente-guida-appenzello-esterno-conversione', en: 'driving-license-appenzell-eastern-conversion', de: 'fuehrerschein-appenzell-ausserrhoden-umwandlung', fr: 'permis-conduire-appenzell-externe-conversion' },
  'avs-cassa-compensazione-canton': { it: 'avs-cassa-compensazione-canton', en: 'avs-contribution-compensation-fund-canton', de: 'avs-ausgleichskasse-kanton', fr: 'avs-caisse-de-compensation-canton' },
  'assegni-familiari-berna-diritti-domanda': { it: 'assegni-familiari-berna-diritti-domanda', en: 'family-allowances-bern-conditions-application', de: 'familienzulagen-bern-bedingungen-antrag', fr: 'allocations-familiales-berne-conditions-demande' },
+ 'imposta-eredita-appenzello-esterno': { it: 'imposta-eredita-appenzello-esterno', en: 'inheritance-tax-appenzell-rhodes-outer', de: 'erbschaftsteuer-appenzell-ausserrhoden', fr: 'impot-succession-appenzell-rhodes-externes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

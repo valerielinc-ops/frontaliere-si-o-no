@@ -5812,6 +5812,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Family allowances Bern: conditions and application',
     'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'In the Canton of Bern, family allowances guarantee support for each child. Learn about rights, application procedures, and where to find information.',
     'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Cantonal family allowance office in Bern, residents inquiring about child benefit procedures.',
+    'blog.article.imposta-eredita-appenzello-esterno.title': 'Inheritance and donation tax in Appenzello Esterno',
+    'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Rates for degree of kinship, exemptions for spouse and direct descendants, declaration and payment terms in the Outer Appenzell Canton.',
+    'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Desk with Swiss inheritance tax documents, declaration forms and calculator under natural daylight, Alpine landscape visible through the window.',
 };
 
 export default blogMetaChEn;

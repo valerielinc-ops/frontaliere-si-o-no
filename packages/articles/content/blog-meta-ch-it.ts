@@ -5812,6 +5812,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Assegni familiari Berna: condizioni e domanda',
     'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'Nel Canton Berna gli assegni familiari garantiscono sostegno per ogni figlio. Scopri diritti, procedure di domanda e dove informarsi.',
     'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Ufficio della cassa di compensazione familiari nel Canton Berna, cittadini che richiedono informazioni sugli assegni.',
+    'blog.article.imposta-eredita-appenzello-esterno.title': 'Imposta di successione e donazione in Appenzello Esterno',
+    'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Aliquote per grado di parentela, esenzioni per coniuge e discendenti diretti, dichiarazione e termini di pagamento nel Canton Appenzello Esterno.',
+    'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Scrivania con documenti fiscali di successione svizzeri, moduli di dichiarazione e calcolatrice sotto luce naturale, paesaggio alpino sullo sfondo.',
 };
 
 export default blogMetaChIt;

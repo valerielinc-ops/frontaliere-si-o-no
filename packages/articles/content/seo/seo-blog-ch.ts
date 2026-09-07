@@ -75446,6 +75446,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-eredita-appenzello-esterno': {
+    title: 'Imposta di successione e donazione in Appenzello Esterno',
+    description: 'Aliquote per grado di parentela, esenzioni per coniuge e discendenti diretti, dichiarazione e termini di pagamento nel Canton Appenzello Esterno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, appenzello',
+    ogTitle: 'Imposta di successione e donazione in Appenzello Esterno',
+    ogDescription: 'Aliquote per grado di parentela, esenzioni per coniuge e discendenti diretti, dichiarazione e termini di pagamento nel Canton Appenzello Esterno.',
+    canonicalPath: '/articoli-svizzera/imposta-eredita-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione in Appenzello Esterno",
+      "description": "Aliquote per grado di parentela, esenzioni per coniuge e discendenti diretti, dichiarazione e termini di pagamento nel Canton Appenzello Esterno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-eredita-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania con documenti fiscali di successione svizzeri, moduli di dichiarazione e calcolatrice sotto luce naturale, paesaggio alpino sullo sfondo."
+      },
+      "datePublished": "2026-09-07T02:20:47+00:00",
+      "dateModified": "2026-09-07T02:20:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-eredita-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
