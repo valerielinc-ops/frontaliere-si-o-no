@@ -27,6 +27,15 @@
  *
  * Sitemap *indexes* are dropped too: their `<loc>`s point at other `.xml`
  * files, not at pages, so every one of them would count as a missing file.
+ *
+ * An empty population is a failure, not a pass
+ * --------------------------------------------
+ * The `readdirSync(sitemapDir)` this discovery replaced *threw* when the
+ * directory was absent, so a run without a build was loud. Returning an empty
+ * list instead would turn the blocking gate into a silent green tick — the
+ * very bug class this module closes (a ✅ over zero URLs), re-entered from the
+ * side of absence. `soft404PopulationError()` is the shared verdict both gates
+ * call, so the two cannot disagree on what "nothing to judge" means.
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
@@ -75,4 +84,33 @@ export function discoverSoft404Sitemaps(rootDir) {
     files.push(file);
   }
   return { dir, files, excluded };
+}
+
+/**
+ * Verdict on a population that turned out to be empty.
+ *
+ * A post-build gate that finds nothing to judge is a configuration error
+ * (task run before the build, wrong cwd, a build that emitted no sitemap),
+ * never a pass. Shared by `validate-soft404.mjs` and the `loadSoft404Urls()`
+ * re-implementation in `validate-sitemap-pages.mjs`.
+ *
+ * @param {{ dir: string, files: string[], rootDir: string, checkedPages: number }} args
+ * @returns {string|null} the failure message, or `null` when the run is sound.
+ */
+export function soft404PopulationError({ dir, files, rootDir, checkedPages }) {
+  const distDir = path.join(rootDir, 'dist');
+  if (!existsSync(distDir)) {
+    return `dist/ not found at ${distDir} — this gate runs after the build; ` +
+      'nothing was judged. Run `npm run build` first, or run from the repo root.';
+  }
+  if (files.length === 0) {
+    return `no sitemap to judge in ${dir} — the build emitted none, or every ` +
+      'candidate was excluded (job shards / sitemap indexes).';
+  }
+  if (checkedPages === 0) {
+    return `${files.length} sitemap(s) in ${dir} but 0 pages resolved under ` +
+      `${distDir} — every URL was counted as a missing file, so no page was ` +
+      'actually validated.';
+  }
+  return null;
 }

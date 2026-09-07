@@ -100,7 +100,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { flatString } from './lib/flat-string.mjs';
-import { discoverSoft404Sitemaps } from './lib/soft404-sitemap-discovery.mjs';
+import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
@@ -332,6 +332,9 @@ function loadSoft404Urls() {
   // Shared with validate-soft404.mjs so the two populations cannot drift: this
   // runner re-implements that gate and must judge the same sitemaps (#7744).
   const { dir: sitemapDir, files: sitemapFiles } = discoverSoft404Sitemaps(ROOT);
+  // sitemapDir travels with the population: the caller needs it to report an
+  // empty run through the shared soft404PopulationError() verdict.
+
   const perSitemap = [];
   for (const file of sitemapFiles) {
     const xml = readFileSync(join(sitemapDir, file), 'utf-8');
@@ -353,7 +356,7 @@ function loadSoft404Urls() {
     const allUrls = [...new Set([...locs, ...hreflangs])];
     perSitemap.push({ file, urls: allUrls });
   }
-  return { sitemapFiles, perSitemap };
+  return { sitemapDir, sitemapFiles, perSitemap };
 }
 
 function urlToDistPath_soft404(url) {
@@ -664,7 +667,7 @@ function runValidateSoft404() {
   const out = [];
   out.push('\n🔍 Soft-404 Validation\n\n');
 
-  const { sitemapFiles, perSitemap } = loadSoft404Urls();
+  const { sitemapDir, sitemapFiles, perSitemap } = loadSoft404Urls();
   const issues = [];
   let totalChecked = 0;
   let skippedMissing = 0;
@@ -720,6 +723,18 @@ function runValidateSoft404() {
   }
 
   out.push(`\n📊 Checked ${totalChecked} pages across ${sitemapFiles.length} sitemaps (${skippedMissing} missing files skipped)\n`);
+
+  // Same verdict as validate-soft404.mjs: a sub-check that judged nothing is a
+  // FAIL, not a PASS — otherwise this runner reports green over zero URLs.
+  const populationError = soft404PopulationError({
+    dir: sitemapDir, files: sitemapFiles, rootDir: ROOT, checkedPages: totalChecked,
+  });
+  if (populationError) {
+    out.push(`\n❌ Empty soft-404 population: ${populationError}\n\n`);
+    checks.soft404.pass = false;
+    checks.soft404.summary = out.join('');
+    return;
+  }
 
   const errors = issues.filter(i => i.severity === 'error');
   const warnings = issues.filter(i => i.severity === 'warning');

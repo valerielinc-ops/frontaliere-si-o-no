@@ -16,7 +16,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { flatString } from './lib/flat-string.mjs';
-import { discoverSoft404Sitemaps } from './lib/soft404-sitemap-discovery.mjs';
+import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -205,6 +205,22 @@ if (excludedSitemaps.length > 0) {
   const offenders = new Set(issues.map(i => i.url)).size;
   const rate = totalChecked > 0 ? ((offenders / totalChecked) * 100).toFixed(2) : '0.00';
   console.log(`   Offender rate: ${offenders}/${totalChecked} pages (${rate}%)`);
+}
+
+// Nothing judged = misconfiguration, not a pass. The readdirSync this gate
+// used to do threw when the directory was absent; the discovery returns an
+// empty list instead, which would make a blocking gate exit 0 over zero URLs
+// — the same green-tick-on-nothing bug #7744 closes, from the other side.
+const populationError = soft404PopulationError({
+  dir: sitemapDir, files: sitemapFiles, rootDir: ROOT, checkedPages: totalChecked,
+});
+if (populationError) {
+  if (WARN_ONLY) {
+    console.warn(`\n⚠️  Empty soft-404 population: ${populationError}\n`);
+  } else {
+    console.error(`\n❌ Empty soft-404 population: ${populationError}\n`);
+    process.exit(1);
+  }
 }
 
 const errors = issues.filter(i => i.severity === 'error');

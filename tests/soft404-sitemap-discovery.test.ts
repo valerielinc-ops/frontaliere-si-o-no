@@ -23,6 +23,7 @@ import {
   discoverSoft404Sitemaps,
   isJobSitemap,
   isSitemapIndex,
+  soft404PopulationError,
 } from '../scripts/lib/soft404-sitemap-discovery.mjs';
 
 const urlset = (loc: string) =>
@@ -128,5 +129,40 @@ describe('exclusion predicates', () => {
   it('isSitemapIndex distinguishes an index from a urlset', () => {
     expect(isSitemapIndex(sitemapindex('https://frontaliereticino.ch/sitemap-pages.xml'))).toBe(true);
     expect(isSitemapIndex(urlset('https://frontaliereticino.ch/'))).toBe(false);
+  });
+});
+
+/**
+ * The gate is blocking and post-build: judging nothing is a misconfiguration,
+ * never a pass. The `readdirSync` the discovery replaced threw on an absent
+ * directory, so an un-built run was loud; an empty list would have made the
+ * gate exit 0 over zero URLs — the same green-tick-on-nothing this PR closes.
+ */
+describe('soft404PopulationError', () => {
+  const call = (files: string[], checkedPages: number) =>
+    soft404PopulationError({ dir: path.join(root, 'dist'), files, rootDir: root, checkedPages });
+
+  it('flags a run without a build: dist/ absent means nothing was judged', () => {
+    write('public', 'sitemap-pages.xml', urlset('https://frontaliereticino.ch/'));
+
+    expect(call(['sitemap-pages.xml'], 0)).toMatch(/dist\/ not found/);
+  });
+
+  it('flags a build that emitted no sitemap to judge', () => {
+    fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+
+    expect(call([], 0)).toMatch(/no sitemap to judge/);
+  });
+
+  it('flags sitemaps whose URLs all resolved to missing files', () => {
+    write('dist', 'sitemap-eventi.xml', urlset('https://frontaliereticino.ch/eventi/'));
+
+    expect(call(['sitemap-eventi.xml'], 0)).toMatch(/0 pages resolved/);
+  });
+
+  it('stays silent on a sound run, so the gate keeps its own verdict', () => {
+    write('dist', 'sitemap-eventi.xml', urlset('https://frontaliereticino.ch/eventi/'));
+
+    expect(call(['sitemap-eventi.xml'], 42)).toBeNull();
   });
 });
