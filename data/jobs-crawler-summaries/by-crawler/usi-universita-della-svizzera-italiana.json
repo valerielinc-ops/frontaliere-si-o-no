@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-06T23:04:00.502Z",
+  "generatedAt": "2026-09-07T15:18:01.286Z",
   "total": 22,
   "newCount": 0,
-  "updatedCount": 22,
+  "updatedCount": 20,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 31535,
-  "avgDurationMs": 31535,
+  "unchangedCount": 2,
+  "durationMs": 73899,
+  "avgDurationMs": 73899,
   "durationHistory": [
-    31535
+    73899
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -180,13 +180,13 @@
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro funzionale alla genetica",
+      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-funzionale-alla-genetica-usi-lugano",
+      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
       "department": "Institute of Oncology Research (IOR)",
       "category": "researcher",
       "datePosted": "2026-05-21",
@@ -361,10 +361,10 @@
       "id": "usi-universita-della-svizzera-italiana-91715087b937",
       "sourceLang": "it",
       "firstSeenAt": "2026-05-27T00:41:02.159Z",
-      "_qualityScore": 77,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 9
       }
@@ -461,38 +461,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
-      "title": "Coordinatore/Coordinatrice",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "coordinatore-coordinatrice-usi-lugano",
-      "department": "USI Startup Centre",
-      "category": "staff",
-      "datePosted": "2026-08-11",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-1e01fa07c06e",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-08-11T10:17:03.725Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 25,
         "completeness": 9
       }
@@ -688,6 +656,50 @@
         "translation": 25,
         "completeness": 9
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
+      "title": "Coordinatore/Coordinatrice",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "coordinatore-coordinatrice-usi-lugano",
+      "department": "USI Startup Centre",
+      "category": "staff",
+      "datePosted": "2026-08-11",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-1e01fa07c06e",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-08-11T10:17:03.725Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
@@ -713,15 +725,22 @@
       "id": "usi-universita-della-svizzera-italiana-5132bcaf0603",
       "sourceLang": "it",
       "firstSeenAt": "2026-08-17T22:00:33.993Z",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 9
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
