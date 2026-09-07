@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-09-07T15:08:48.226Z",
+  "assembledAt": "2026-09-07T23:30:14.327Z",
   "jobs": [
     {
       "id": "spital-sts-7f9deb32d7b4",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:38.587Z",
+      "crawledAt": "2026-09-07T23:30:04.823Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:38.175Z",
+      "crawledAt": "2026-09-07T23:30:04.390Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:37.749Z",
+      "crawledAt": "2026-09-07T23:30:03.980Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -284,7 +284,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:37.240Z",
+      "crawledAt": "2026-09-07T23:30:03.509Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -364,7 +364,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:36.833Z",
+      "crawledAt": "2026-09-07T23:30:03.031Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ef097c63-0366-45fd-829c-ad48b2eac151/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:36.367Z",
+      "crawledAt": "2026-09-07T23:30:02.366Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -561,7 +561,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4a5e872a-75e2-44df-85ca-24f2d03af648/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:35.938Z",
+      "crawledAt": "2026-09-07T23:30:01.945Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -638,7 +638,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c6125f64-2b40-499e-9bc6-2890e9d2ecb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:35.404Z",
+      "crawledAt": "2026-09-07T23:30:01.447Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -718,7 +718,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:34.978Z",
+      "crawledAt": "2026-09-07T23:30:01.037Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -770,9 +770,9 @@
       "id": "spital-sts-b8fff13e586c",
       "slug": "hr-business-partner-spital-sts-thun",
       "slugByLocale": {
-        "de": "hr-business-partner-spital-sts-thun",
         "it": "hr-business-partner-spital-sts-thun",
         "en": "hr-business-partner-spital-sts-thun",
+        "de": "hr-business-partner-spital-sts-thun",
         "fr": "hr-business-partner-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -780,16 +780,16 @@
       "companyDomain": "spitalstsag.ch",
       "title": "HR Business Partner",
       "titleByLocale": {
-        "de": "Personalwesen Business Partner",
-        "fr": "HR Business Partner",
         "it": "Risorse Umane Business Partner",
-        "en": "HR Business Partner"
+        "en": "HR Business Partner",
+        "de": "Personalwesen Business Partner",
+        "fr": "HR Business Partner"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
         "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
         "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
         "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil"
       },
       "needsRetranslation": true,
@@ -798,7 +798,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9378e829-2288-4254-a9dd-4b7059b675e7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:34.531Z",
+      "crawledAt": "2026-09-07T23:30:00.604Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -814,9 +814,8 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/9378e829-2288-4254-a9dd-4b7059b675e7",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-07T15:08:34.531Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -829,8 +828,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-07T15:08:34.531Z"
+      }
     },
     {
       "id": "spital-sts-10cba5f6c3b0",
@@ -911,7 +909,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
