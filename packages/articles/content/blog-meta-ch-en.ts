@@ -5914,6 +5914,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Nursery and childcare in the Inner Appenzell Canton: costs and fees',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Discover childcare options in the Inner Appenzell Canton, including nurseries, day families and after-school, with income-based fees and cantonal subsidies available.',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Daycare center in the Canton of Appenzell Innerrhoden',
+    'blog.article.tragitto-casa-scuola-rischioso.title': 'Home-school journey: for 41% of parents it is risky, study',
+    'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Four out of ten parents consider the home-school journey dangerous for their children, according to a study commissioned by the TRAFFIC and ENVIRONMENT ASSOCIATION (ATA) and the ROAD SAFETY FUND (FSS).',
+    'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'A child walking to school in a Swiss city with a safe pedestrian path',
 };
 
 export default blogMetaChEn;

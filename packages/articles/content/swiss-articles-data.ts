@@ -17740,6 +17740,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tragitto-casa-scuola-rischioso',
+    category: 'pratico',
+    date: '2026-09-07T10:21:28.905Z',
+    image: '/images/blog/tragitto-casa-scuola-rischioso.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

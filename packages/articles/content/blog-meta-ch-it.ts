@@ -5914,6 +5914,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.title': 'Asilo nido e custodia bambini nel Canton Appenzello Interno: costi e tariffe',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.excerpt': 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito e sussidi cantonali disponibili.',
     'blog.article.asilo-nido-custodia-bambini-canton-appenzello-interno.imageAlt': 'Asilo nido nel Canton Appenzello Interno',
+    'blog.article.tragitto-casa-scuola-rischioso.title': 'Tragitto casa-scuola: per il 41% dei genitori è rischioso, studio',
+    'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Quattro genitori su dieci considerano pericoloso il tragitto casa-scuola per i loro figli, secondo uno studio commissionato dall\'ASSOCIAZIONE TRAFFICO E AMBIENTE (ATA) e dal FONDO DI SICUREZZA STRADALE (FSS).',
+    'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Un bambino che cammina verso la scuola in una città svizzera con un percorso pedonale sicuro',
 };
 
 export default blogMetaChIt;
