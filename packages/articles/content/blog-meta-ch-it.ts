@@ -5938,6 +5938,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.confederazione-mantiene-aree-thun-difesa.title': 'Confederazione vuole mantenere aree Thun per esercito e difesa',
     'blog.article.confederazione-mantiene-aree-thun-difesa.excerpt': 'La Confederazione non cederà aree nel polo di sviluppo economico di Thun Nord per usi esclusivamente civili',
     'blog.article.confederazione-mantiene-aree-thun-difesa.imageAlt': 'Vista aerea di Thun con l\'area di addestramento militare e le zone industriali circostanti',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.title': 'Disoccupazione giovani Svizzera: 3,4% in agosto 2023',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.excerpt': 'Il mercato del lavoro svizzero mostra solidità, con un aumento stagionale di 3,4% tra i giovani in agosto 2023.',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.imageAlt': 'Vista aerea di Locarno, Svizzera, con il paesaggio del Ticino sullo sfondo, che mostra una piazza del mercato vivace e edifici moderni.',
 };
 
 export default blogMetaChIt;

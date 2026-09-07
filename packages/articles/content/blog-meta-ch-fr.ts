@@ -5938,6 +5938,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.confederazione-mantiene-aree-thun-difesa.title': 'La Confédération veut maintenir des zones Thoune pour l\'armée et la défense',
     'blog.article.confederazione-mantiene-aree-thun-difesa.excerpt': 'La Confédération ne cédera pas de zones du pôle de développement économique de Thoune-Nord à des fins exclusivement civiles',
     'blog.article.confederazione-mantiene-aree-thun-difesa.imageAlt': 'Vue aérienne de Thun avec la zone d\'entraînement militaire et les zones industrielles environnantes',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.title': 'Chômage des jeunes Suisse : 3,4 % en août 2023',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.excerpt': 'Le marché du travail suisse fait preuve de solidité, avec une hausse saisonnière de 3,4 % chez les jeunes en août 2023.',
+    'blog.article.disoccupazione-giovani-svizzera-agosto-2023.imageAlt': 'Vue aérienne de Locarno, en Suisse, avec le paysage du Tessin à l\'arrière-plan, montrant une place du marché animée et des bâtiments modernes.',
 };
 
 export default blogMetaChFr;
