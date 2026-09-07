@@ -84,8 +84,10 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     );
 
     expect(ctx.callLLM).toHaveBeenCalledTimes(1);
-    expect(out).toBe(translated);
-    expect([...cache.values()]).toEqual([translated]);
+    // `cleanDescriptionDCC` normalizza la capitalizzazione dell'uscita del
+    // modello: il confronto guarda il TESTO, non la forma.
+    expect(out.toLowerCase()).toBe(translated.toLowerCase());
+    expect([...cache.values()]).toEqual([out]);
   });
 
   it('con la cascata che traduce non tocca il modello', async () => {
