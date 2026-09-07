@@ -5896,6 +5896,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mondo-auto-grigio-impressione-colore.title': 'The world of cars is getting greyer and greyer and it\'s not just an impression',
     'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'According to an analysis by the Federal Office of Roads, red was the most popular colour for new registrations in 1985, with almost 23%. Today that share has dropped to 4%.',
     'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'A Swiss road with cars of various colors, focusing on gray, black, and white cars.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics raises 4.3 million for international expansion',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'The Swiss startup based at the Ticino Technopolo in Manno announced the closure of an investment of EUR 4.3 million to accelerate its international expansion.',
+    'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Aerial view of the Tecnopolo Ticino in Manno, Switzerland, with modern buildings and green spaces.',
 };
 
 export default blogMetaChEn;
