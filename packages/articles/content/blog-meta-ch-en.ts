@@ -5809,6 +5809,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-cassa-compensazione-canton.title': 'AVS and benefits: cantonal compensation fund',
     'blog.article.avs-cassa-compensazione-canton.excerpt': 'How the cantonal compensation fund works for the AVS, the calculation of the pension and supplementary benefits for those who have contribution gaps.',
     'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Financial advisor reviewing AVS contributions in a Swiss cantonal office',
+    'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Family allowances Bern: conditions and application',
+    'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'In the Canton of Bern, family allowances guarantee support for each child. Learn about rights, application procedures, and where to find information.',
+    'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Cantonal family allowance office in Bern, residents inquiring about child benefit procedures.',
 };
 
 export default blogMetaChEn;
