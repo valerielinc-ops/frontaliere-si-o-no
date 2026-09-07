@@ -24,7 +24,14 @@ export function jobUrlHost(rawUrl = '') {
   if (!raw) return '';
   // Anything already carrying a scheme is parsed as-is: prepending `https://`
   // to `mailto:jobs@example.ch` would invent a host that was never there.
-  const candidate = /^[a-z][a-z0-9+.-]*:/i.test(raw)
+  //
+  // The `(?!\d)` matters: `-` and `.` are legal scheme characters, so the bare
+  // test also matched the scheme-LESS `med-ipersonal.ch:8080/jobs/1`, which
+  // `new URL()` then read as the protocol `med-ipersonal.ch:` with an empty
+  // hostname — the same silent drop of a publishable row (#7721) this helper
+  // exists to close, just in the form that carries a port. No scheme is ever
+  // followed by a digit, while a scheme-less authority with a port always is.
+  const candidate = /^[a-z][a-z0-9+.-]*:(?!\d)/i.test(raw)
     ? raw
     : `https://${raw.replace(/^\/+/, '')}`;
   try {

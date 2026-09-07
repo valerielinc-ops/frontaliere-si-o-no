@@ -16,6 +16,17 @@ describe('jobUrlHost', () => {
     expect(jobUrlHost('WWW.Med-Ipersonal.CH/jobs/1')).toBe('www.med-ipersonal.ch');
   });
 
+  it('reads the host of a scheme-less URL that carries a port', () => {
+    // `-` and `.` are legal scheme characters, so the scheme test matched
+    // `med-ipersonal.ch:8080/...` too and `new URL()` read it as the protocol
+    // `med-ipersonal.ch:` with an empty hostname — the row stayed dropped.
+    expect(jobUrlHost('med-ipersonal.ch:8080/jobs/1')).toBe('med-ipersonal.ch');
+    expect(jobUrlHost('med-ipersonal.ch:8080')).toBe('med-ipersonal.ch');
+    expect(jobUrlHost('https://med-ipersonal.ch:8080/jobs/1')).toBe('med-ipersonal.ch');
+    // Exactness survives the port form too.
+    expect(jobUrlHost('evil.com:8080/med-ipersonal.ch')).toBe('evil.com');
+  });
+
   it('keeps the host exact — a look-alike host in the path is not the host', () => {
     // The property #7474 established, which normalizing the scheme must not undo.
     expect(jobUrlHost('https://evil.com/med-ipersonal.ch')).toBe('evil.com');
@@ -28,6 +39,9 @@ describe('jobUrlHost', () => {
     expect(jobUrlHost(undefined)).toBe('');
     // A scheme that carries no authority stays authority-less.
     expect(jobUrlHost('mailto:jobs@med-ipersonal.ch')).toBe('');
+    // A scheme whose opaque part starts with a digit is not an authority
+    // either: it must stay host-less rather than become `https://tel:0041...`.
+    expect(jobUrlHost('tel:0041791234567')).toBe('');
   });
 });
 
@@ -80,5 +94,12 @@ describe('keyless fallback with a scheme-less URL', () => {
 
     expect(isKomaxJob({ url: 'jobs.komaxgroup.com/1' })).toBe(true);
     expect(isKomaxJob({ url: 'evil.com/komaxgroup.com' })).toBe(false);
+  });
+
+  it('claims a scheme-less row that carries a port, and only the owner does', () => {
+    expect(isIpersonalJob({ url: 'med-ipersonal.ch:8080/jobs/1' })).toBe(true);
+    expect(isMedIpersonalJob({ url: 'med-ipersonal.ch:8080/jobs/1' })).toBe(false);
+    expect(isBreitlingJob({ url: 'careers.breitling.com:8443/job/1' })).toBe(true);
+    expect(isBreitlingJob({ url: 'evil.com:8443/www.breitling.com' })).toBe(false);
   });
 });
