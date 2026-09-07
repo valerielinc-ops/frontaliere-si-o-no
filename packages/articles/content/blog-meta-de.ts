@@ -11587,6 +11587,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: Dokumente und Verfahren für Grenzgänger',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'G-Genehmigung im Kanton Tessin: Dokumente, Verfahren beim Migrationsamt, Gültigkeit für fünf Jahre und Verlängerung nach der Neuen Grenzgängervereinbarung 2024.',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Grenzgänger am Brogeda-Zoll mit G-Bewilligung-Unterlagen im Tessin',
+    'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Pendlerstudent Tessin: Gebrauchs- UND SUPSI-LEITFADEN',
+    'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Leben als Pendler-Student zwischen Italien und dem Kanton Tessin: Einschreibung, Kosten und praktische Unterschiede zur Grenzarbeit.',
+    'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Pendelnder Student zwischen Italien und Tessin',
 };
 
 export default blogMetaDe;

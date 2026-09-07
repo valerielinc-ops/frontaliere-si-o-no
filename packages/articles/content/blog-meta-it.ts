@@ -11589,6 +11589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: documenti e procedura per frontalieri',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permesso G in Canton Ticino: documenti, iter al Migrationsamt, validità quinquennale e rinnovo dopo il Nuovo Accordo Frontalieri 2024.',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Frontaliere al valico di Brogeda con documenti per il permesso G in Canton Ticino',
+    'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Studente pendolare Ticino: guida USI e SUPSI',
+    'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Vivere la vita da studente pendolare tra Italia e Canton Ticino: iscrizione, costi e differenze pratiche rispetto al lavoro frontaliero.',
+    'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Studente universitario pendolare tra Italia e Ticino',
 };
 
 export default blogMetaIt;
