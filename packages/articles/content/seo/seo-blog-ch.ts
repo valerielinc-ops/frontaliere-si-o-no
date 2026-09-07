@@ -77513,6 +77513,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-investito-treno-13-anni-berna': {
+    title: 'Investito mortalmente da un treno: aveva 13 anni',
+    description: 'Un adolescente russo di 13 anni è morto dopo essere stato investito da un treno alla stazione di Berna Europaplatz. Scopri i dettagli dell\'incidente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, investito, mortalmente, treno, aveva',
+    ogTitle: 'Investito mortalmente da un treno: aveva 13 anni',
+    ogDescription: 'Un adolescente russo di 13 anni è morto dopo essere stato investito da un treno alla stazione di Berna Europaplatz. Scopri i dettagli dell\'incidente e le implicazioni per la sicurezza ferroviaria.',
+    canonicalPath: '/articoli-svizzera/investito-treno-13-anni-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Investito mortalmente da un treno: aveva 13 anni",
+      "description": "Un adolescente russo di 13 anni è morto dopo essere stato investito da un treno alla stazione di Berna Europaplatz. Scopri i dettagli dell'incidente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/investito-treno-13-anni-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Berna Europaplatz dopo l'incidente mortale di un adolescente investito da un treno"
+      },
+      "datePublished": "2026-09-07T14:02:05+00:00",
+      "dateModified": "2026-09-07T14:02:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investito-treno-13-anni-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

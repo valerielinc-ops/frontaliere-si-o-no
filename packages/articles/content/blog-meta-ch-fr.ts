@@ -5971,6 +5971,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nepal-inondazione-lutto-vittime.title': 'Népal : deuil national pour les victimes des inondations',
     'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Le Népal observe une journée de deuil pour les victimes de l\'inondation du 26 août, avec au moins 1398 morts et 5515 disparus',
     'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Vue aérienne du Népal avec les eaux de l\'inondation et des personnes en deuil',
+    'blog.article.investito-treno-13-anni-berna.title': 'Mortellement percuté par un train : il avait 13 ans',
+    'blog.article.investito-treno-13-anni-berna.excerpt': 'Un adolescent russe de 13 ans est mort après avoir été percuté par un train à la gare de Berne Europaplatz',
+    'blog.article.investito-treno-13-anni-berna.imageAlt': 'Gare de Berna Europaplatz après l\'accident mortel d\'un adolescent',
 };
 
 export default blogMetaChFr;

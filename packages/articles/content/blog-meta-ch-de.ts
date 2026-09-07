@@ -5971,6 +5971,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: Nationale Trauer für die Opfer der Überschwemmung',
     'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Nepal erlebt einen Tag der Trauer für die Opfer der Überschwemmung vom 26. August mit mindestens 1398 Toten und 5515 Vermissten',
     'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Luftaufnahme von Nepal mit Überschwemmungswasser und trauernden Menschen',
+    'blog.article.investito-treno-13-anni-berna.title': 'Tödlich von einem Zug angefahren: Er war 13 Jahre alt',
+    'blog.article.investito-treno-13-anni-berna.excerpt': 'Ein 13-jähriger russischer Teenager ist am Berner Europaplatz von einem Zug erfasst und getötet worden.',
+    'blog.article.investito-treno-13-anni-berna.imageAlt': 'Zugbahnhof Bern Europaplatz nach dem tödlichen Unfall eines Jugendlichen',
 };
 
 export default blogMetaChDe;
