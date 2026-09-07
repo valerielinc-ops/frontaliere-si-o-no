@@ -263,6 +263,22 @@ describe('UNPARK-DELIVERED — una parked che ha CONSEGNATO non ha fallito', () 
     expect(branch).toContain('aveva consegnato, non fallito');
   });
 
+  it('il log di PRODUZIONE dice quale dei due rami, non solo il --dry-run', () => {
+    // La riga di log e' l'unica traccia con cui si audita il drenaggio a
+    // posteriori. Renderla condizionale solo nel ramo DRY lascia il log di
+    // produzione ad attribuire «parked senza verdetto» anche a un unpark
+    // `pr-created` — cioe' la causa sbagliata su un pool misto. Nit della
+    // review di #7908, riparato: qui si pinna perche' non torni.
+    const branch = src.slice(
+      src.indexOf('if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {'),
+      src.indexOf('const d = verdictExitDecision(outcome, {'),
+    );
+    const prod = branch.slice(branch.indexOf('console.log(`UNPARK #'));
+    expect(prod).toContain("deliveredParked ? 'aveva consegnato'");
+    // E la description della label non puo' descrivere solo meta' dei casi.
+    expect(branch).not.toContain("era parked senza alcun verdetto del fixer'");
+  });
+
   it('resta idempotente: `fu-unparked` copre entrambi i rami, non solo il primo', () => {
     // La guardia sta FUORI dalla parentesi dell'or, quindi vale per tutti e due.
     // Se qualcuno la spostasse dentro il solo ramo no-verdict, una parked
