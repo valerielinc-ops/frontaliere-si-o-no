@@ -6010,6 +6010,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'School system in the Canton of Geneva: cycles, enrolment and calendar',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'How compulsory school works in Geneva: cycles, enrolment age, teaching languages and transition to high school.',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Primary school classroom in Canton Geneva with French textbooks',
+    'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprenticeship and vocational training in the Canton of Geneva',
+    'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Dual path in Geneva: internship contract, salary, professional maturity and access to the SUP. Complete guide.',
+    'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprentice at work in a training company in Canton Geneva',
 };
 
 export default blogMetaChEn;

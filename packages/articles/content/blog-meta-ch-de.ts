@@ -6010,6 +6010,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Schulsystem im Kanton Genf: Zyklen, Einschreibung und Kalender',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Wie funktioniert die obligatorische Schule in Genf: Zyklen, Einschreibungsalter, Unterrichtssprachen und Übergang in die Sekundarstufe II?',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Primarschulzimmer im Kanton Genf mit französischen Lehrmitteln',
+    'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Lehre und Berufsausbildung im Kanton Genf',
+    'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Dualer Weg in Genf: Lehrvertrag, Gehalt, Berufsmaturität und Zugang zu den SUP. Komplette Anleitung.',
+    'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Lehrling bei der Arbeit in einem Ausbildungsbetrieb im Kanton Genf',
 };
 
 export default blogMetaChDe;

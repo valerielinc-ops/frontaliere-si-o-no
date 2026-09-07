@@ -6010,6 +6010,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Système scolaire dans le canton de Genève : cycles, inscription et calendrier',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Comment fonctionne l\'école obligatoire à Genève : cycles, âge d\'inscription, langues d\'enseignement et passage au lycée.',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Salle de classe primaire dans le canton de Genève avec manuels en français',
+    'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprentissage et formation professionnelle dans le canton de Genève',
+    'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Double parcours à Genève : contrat de stage, salaire, maturité professionnelle et accès aux SUP. Guide complet.',
+    'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprenti au travail dans une entreprise formatrice du canton de Genève',
 };
 
 export default blogMetaChFr;
