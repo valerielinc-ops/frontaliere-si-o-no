@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
-import { freeTranslateWithRetry, getCascadeStats } from './free-translate.mjs';
+import { freeTranslateWithRetry, freeTranslateWithRetryDetailed, getCascadeStats } from './free-translate.mjs';
 import {
   translateTextWithLocalPipeline,
   localizeJobContentWithPipeline,
@@ -2179,10 +2179,35 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       return '';
     }
     // DeepL first
-    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
+    const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateWithRetryDetailed({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (deepl && deepl.length >= floor) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
+    }
+    // Passthrough rifiutato: due casi opposti sotto lo stesso ''. Da #7750 la
+    // cascata rende '' sia coi motori giu' sia quando i motori RISPONDONO
+    // rendendo la sorgente verbatim. Ma «i motori hanno reso la sorgente» non
+    // dimostra «il testo e' gia' nella lingua target»: la misura che motiva
+    // #7750 e' il verso opposto, cioe' body che avevano bisogno di traduzione e
+    // che i tier gratuiti hanno echeggiato. Su quegli echi genuini l'LLM
+    // traduce davvero e la sua uscita viene pubblicata, quindi il rung resta.
+    // Si salta il modello SOLO quando il testo e' verificabilmente gia' nel
+    // locale richiesto: li' la chiamata riprodurrebbe cio' che abbiamo gia' e
+    // il controllo `translated !== cleanDesc` la scarterebbe comunque.
+    // Il gate vuole un PAVIMENTO DI CONFIDENZA, non l'argmax nudo: il fallback
+    // a `sourceLang` di `detectLanguageWithConfidence` scatta solo sotto i 50
+    // caratteri, mentre qui `cleanDesc` ha gia' passato il floor (>= 120), quindi
+    // su un body misto (annuncio bilingue de/en) l'argmax puo' coincidere col
+    // locale con una confidenza vicina a zero. Li' saltare l'LLM E memoizzare la
+    // sentinella renderebbe PERMANENTE la sorgente pubblicata sotto /de/ (il ramo
+    // cache-hit ritenta solo la cascata, che ri-passthrough-a). Soglia 0.65, la
+    // stessa di ogni altra decisione locale-mismatch del repo (guard di cache qui
+    // sotto, mark-mistranslated-jobs, flag-wrong-locale-descriptions): sotto
+    // soglia si cade nell'LLM, cioe' il verso sicuro.
+    const descLangDet = detectLanguageWithConfidence(cleanDesc, sourceLang);
+    if (deeplPassthrough && descLangDet.confidence >= 0.65 && descLangDet.lang === locale) {
+      setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
+      return '';
     }
     // LLM fallback
     const prompt = [
