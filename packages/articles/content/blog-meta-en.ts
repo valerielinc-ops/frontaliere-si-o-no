@@ -11588,6 +11588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: documents and procedure for cross-border commuters',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permit G in Canton Ticino: documents, procedure at the Migrationsamt, five-year validity and renewal after the New Frontier Agreement 2024.',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Cross-border worker at Brogeda crossing with G permit documents in Ticino',
+    'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Student commuter Ticino: USI AND SUPSI guide',
+    'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Living life as a commuter student between Italy and Canton Ticino: enrolment, costs and practical differences compared to cross-border work.',
+    'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Commuter university student between Italy and Ticino',
 };
 
 export default blogMetaEn;

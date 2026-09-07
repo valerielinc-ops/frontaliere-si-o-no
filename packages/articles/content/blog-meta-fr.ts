@@ -11590,6 +11590,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026 : documents et procédure pour les frontaliers',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permis G dans le canton du Tessin : documents, procédure au Migrationsamt, validité de cinq ans et renouvellement après le nouvel accord frontalier 2024.',
     'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Travailleur frontalier au poste de Brogeda avec documents pour le permis G au Tessin',
+    'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Étudiant pendulaire Tessin : guide USAGES et SUPSI',
+    'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Vivre la vie d\'étudiant en déplacement entre l\'Italie et le canton du Tessin : inscription, coûts et différences pratiques par rapport au travail frontalier.',
+    'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Étudiant navetteur entre l\'Italie et le Tessin',
 };
 
 export default blogMetaFr;
