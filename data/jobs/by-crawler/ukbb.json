@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ukbb",
-  "assembledAt": "2026-09-06T22:47:04.443Z",
+  "assembledAt": "2026-09-07T14:44:22.952Z",
   "jobs": [
     {
       "id": "ukbb-e7925ffef938",
@@ -1313,85 +1313,6 @@
           "@type": "QuantitativeValue",
           "minValue": 58000,
           "maxValue": 99000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ukbb-908577387a59",
-      "slug": "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel",
-      "slugByLocale": {
-        "it": "arztsekretar-in-orthopala-60-100-universitats-kinderspital-beider-basel-basel",
-        "en": "medical-secretary-in-orthopaedics-60-100-universitats-kinderspital-beider-basel-basel",
-        "de": "arztsekretar-in-orthopadie-60-100-ukbb-basel",
-        "fr": "secretaire-medical-en-orthopedie-60-100-universitats-kinderspital-beider-basel-basel"
-      },
-      "company": "Universitäts-Kinderspital beider Basel",
-      "companyKey": "ukbb",
-      "companyDomain": "ukbb.ch",
-      "title": "Arztsekretär*in Orthopädie 60-100%",
-      "titleByLocale": {
-        "it": "Arztsekretär*in Orthopäla 60-100%",
-        "en": "Medical Secretary* in Orthopaedics 60-100 %",
-        "de": "Arztsekretär*in Orthopädie 60-100%",
-        "fr": "Secrétaire médical* en orthopédie 60-100 %"
-      },
-      "description": "• Zuständig für die Jahresplanung und -Organisation der Ärzteschaft\n\n• Betreuen des Berichtswesens und Bearbeitung von medizinischen Dokumenten\n\n• Erstellen, Redigieren und Verwalten von Berichten\n\n• Verantwortlich für die externen Sprechstunden u.a. mit Korrespondenz in Französisch\n\n• Kontaktperson zu internen und externen Stellen, Institutionen, Therapeuten, Spitälern, Sozialversicherungen sowie Eltern und Patienten und regelmässige Absprachen mit der zugeordneten Ärzteschaft\n\n• Korrespondenz in den Sprachen Deutsch, Französisch und Italienisch\n\n• Allgemeine Sekretariatsaufgaben (Führen diverser Agenden der Ärzteschaft, Bearbeitung eingehender Emails, Anlegen der Sprechstundenberichte, Erstellen und Versand von Verordnungen, Rezepten sowie Hilfsmitteln, Stammdatenpflege, Aktenherausgabe, Abrechnungen, etc.)\n\n• Bearbeiten von Versicherungs- und IV-Anfragen\n\n• Allg. administrative Unterstützung der Ärzte\n\n• Ferienvertretung der Teamkolleginnen",
-      "descriptionByLocale": {
-        "it": "• Responsabile per la pianificazione annuale e l'organizzazione della professione medica\n\n• Supervisione della segnalazione e del trattamento dei documenti medici\n\n• Creare, modificare e gestire report\n\n• Responsabile delle ore di consultazione esterne, compresa la corrispondenza in francese\n\n• Contattare la persona a corpi interni ed esterni, istituzioni, terapisti, ospedali, assicurazione sociale, genitori e pazienti e arrangiamenti regolari con la professione medica assegnata\n\n• Corrispondenza in tedesco, francese e italiano\n\n• Compiti di segreteria generale (gestione di vari ordini del giorno medici, elaborazione di e-mail in arrivo, creazione di rapporti di ore di ufficio, creazione e invio di prescrizioni, prescrizioni e strumenti, manutenzione dei dati master, pubblicazione di file, fatturazione, ecc.)\n\n• Elaborazione delle domande di assicurazione e IV\n\n• Supporto amministrativo generale per medici\n\n• Rappresentanza dei compagni di squadra",
-        "en": "• Responsible for annual planning and organisation of the medical profession\n\n• Supervision of reporting and processing of medical documents\n\n• Create, edit and manage reports\n\n• Responsible for the external consultation hours including correspondence in French\n\n• Contact person to internal and external bodies, institutions, therapists, hospitals, social insurance as well as parents and patients and regular arrangements with the assigned medical profession\n\n• Correspondence in German, French and Italian\n\n• General secretarial tasks (management of various medical agendas, processing of incoming emails, creation of office hours reports, creation and sending of prescriptions, prescriptions as well as tools, master data maintenance, file publication, billing, etc.)\n\n• Processing of insurance and IV inquiries\n\n• General Administrative support for doctors\n\n• Representation of teammates",
-        "de": "• Zuständig für die Jahresplanung und -Organisation der Ärzteschaft\n\n• Betreuen des Berichtswesens und Bearbeitung von medizinischen Dokumenten\n\n• Erstellen, Redigieren und Verwalten von Berichten\n\n• Verantwortlich für die externen Sprechstunden u.a. mit Korrespondenz in Französisch\n\n• Kontaktperson zu internen und externen Stellen, Institutionen, Therapeuten, Spitälern, Sozialversicherungen sowie Eltern und Patienten und regelmässige Absprachen mit der zugeordneten Ärzteschaft\n\n• Korrespondenz in den Sprachen Deutsch, Französisch und Italienisch\n\n• Allgemeine Sekretariatsaufgaben (Führen diverser Agenden der Ärzteschaft, Bearbeitung eingehender Emails, Anlegen der Sprechstundenberichte, Erstellen und Versand von Verordnungen, Rezepten sowie Hilfsmitteln, Stammdatenpflege, Aktenherausgabe, Abrechnungen, etc.)\n\n• Bearbeiten von Versicherungs- und IV-Anfragen\n\n• Allg. administrative Unterstützung der Ärzte\n\n• Ferienvertretung der Teamkolleginnen",
-        "fr": "• Responsable de la planification et de l'organisation annuelles de la profession médicale\n\n• Surveillance de la déclaration et du traitement des documents médicaux\n\n• Créer, modifier et gérer des rapports\n\n• Responsable des heures de consultation externe, y compris la correspondance en français\n\n• Personne-ressource auprès d'organismes internes et externes, d'institutions, de thérapeutes, d'hôpitaux, d'assurances sociales ainsi que de parents et de patients et d'arrangements réguliers avec la profession médicale désignée\n\n• Correspondance en allemand, français et italien\n\n• Tâches générales de secrétariat (gestion de divers agendas médicaux, traitement des courriels entrants, création de rapports d'heures de bureau, création et envoi d'ordonnances, de prescriptions ainsi que d'outils, maintenance des données maîtresses, publication de fichiers, facturation, etc.)\n\n• Traitement des demandes d'assurance et IV\n\n• Soutien administratif général aux médecins\n\n• Représentation des coéquipiers"
-      },
-      "needsRetranslation": true,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-60-100/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
-      "source": "UKBB Dedicated Parser (sitemap + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:47.524Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4056",
-      "streetAddress": "Spitalstrasse 33",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "part-time",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://jobs.ukbb.ch/jobs/arztsekretaer-in-orthopaedie-60-100/6e8cc8b2-3193-4acc-8c63-7c6bedc9ff45",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "arztsekretar-in-orthopadie-60-100-ukbb-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
-        ],
-        "en": [
-          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
-        ],
-        "fr": [
-          "arztsekretar-in-orthopadie-60-100-ukbb-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T11:16:36.655Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
