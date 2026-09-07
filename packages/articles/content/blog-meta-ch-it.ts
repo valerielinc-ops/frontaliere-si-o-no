@@ -5878,6 +5878,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'Da 3\'500 a zero: stage e disuguaglianze in Svizzera',
     'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'Le retribuzioni degli stage in Svizzera variano enormemente, da 3’500 franchi a zero, contribuendo a definire il rapporto dei giovani con il lavoro.',
     'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'Un giovane professionista che lavora in un ufficio moderno a Lugano',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Stabile il tasso di disoccupazione in Svizzera ad agosto',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% ad agosto, con un lieve aumento dello 0,2% su base annua.',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra la stabilità economica della regione.',
 };
 
 export default blogMetaChIt;

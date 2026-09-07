@@ -5878,6 +5878,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'Von 3\'500 bis null: Praktika und Ungleichheiten in der Schweiz',
     'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'Die Vergütungen für Praktika in der Schweiz variieren stark, von 3’500 Franken bis null, was dazu beiträgt, das Verhältnis von Jugendlichen zur Arbeit zu definieren.',
     'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'Ein junger Fachmann arbeitet in einem modernen Büro in Lugano',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Arbeitslosenquote in der Schweiz im August stabil',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August mit einem leichten Anstieg von 0,2% gegenüber dem Vorjahr stabil bei 3%.',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund, die die wirtschaftliche Stabilität der Region zeigt.',
 };
 
 export default blogMetaChDe;

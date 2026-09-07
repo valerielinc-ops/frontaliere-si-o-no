@@ -17632,6 +17632,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'disoccupazione-stabile-svizzera-agosto-2024',
+    category: 'fiscale',
+    date: '2026-09-07T08:14:49.931Z',
+    image: '/images/blog/disoccupazione-stabile-svizzera-agosto-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

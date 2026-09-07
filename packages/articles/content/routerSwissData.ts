@@ -1985,6 +1985,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-lavoro-svizzera-agosto-2026': { it: 'mercato-lavoro-svizzera-agosto-2026', en: 'swiss-labor-market-august-2026', de: 'schweizer-arbeitsmarkt-august-2026', fr: 'marche-du-travail-suisse-aout-2026' },
  'intelligenza-artificiale-cardiologia-2026': { it: 'intelligenza-artificiale-cardiologia-2026', en: 'artificial-intelligence-cardiology-2026', de: 'kuenstliche-intelligenz-kardiologie-2026', fr: 'intelligence-artificielle-cardiologie-2026' },
  'disuguaglianze-salariali-stage-svizzera': { it: 'disuguaglianze-salariali-stage-svizzera', en: 'wage-disparities-internships-switzerland', de: 'gehalt-differenzen-praktika-schweiz', fr: 'ecarts-salariaux-stages-suisse' },
+ 'disoccupazione-stabile-svizzera-agosto-2024': { it: 'disoccupazione-stabile-svizzera-agosto-2024', en: 'unemployment-rate-stable-switzerland-august-2024', de: 'arbeitslosenquote-stabil-schweiz-august-2024', fr: 'taux-de-chomage-stable-suisse-aout-2024' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

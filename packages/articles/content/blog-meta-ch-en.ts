@@ -5878,6 +5878,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'From 3,500 to zero: internships and inequalities in Switzerland',
     'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'The salaries of internships in Switzerland vary enormously, from 3,500francs to zero, helping to define the relationship of young people with work.',
     'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'A young professional working in a modern office in Lugano',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Switzerland\'s Unemployment Rate Stable in August',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'The unemployment rate in Switzerland remained stable at 3% in August, with a slight increase of 0.2% year-on-year.',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showcasing the economic stability of the region.',
 };
 
 export default blogMetaChEn;
