@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
-import { freeTranslateWithRetry, getCascadeStats } from './free-translate.mjs';
+import { freeTranslateWithRetry, freeTranslateWithRetryDetailed, getCascadeStats } from './free-translate.mjs';
 import {
   translateTextWithLocalPipeline,
   localizeJobContentWithPipeline,
@@ -2179,10 +2179,29 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       return '';
     }
     // DeepL first
-    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
+    const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateWithRetryDetailed({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (deepl && deepl.length >= floor) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
+    }
+    // Passthrough rifiutato ≠ motori giu'. Da #7750 la cascata rende '' anche
+    // quando i motori RISPONDONO rendendo la sorgente verbatim, cioe' quando il
+    // testo e' gia' quello della lingua target. Su quel ramo il fallback LLM
+    // qui sotto non ha niente da tradurre: pagherebbe una chiamata per
+    // riprodurre il testo che abbiamo gia', e la scarterebbe subito dopo col
+    // controllo `translated.toLowerCase() !== cleanDesc.toLowerCase()`. Il
+    // segnale e' quello di `freeTranslateWithRetryDetailed`, che dichiara
+    // `passthrough` solo se un tier ha reso la sorgente E nessun tier ha
+    // fallito nella stessa chiamata: coi motori giu' resta `false` e si passa
+    // di qui come prima, perche' li' il testo e' davvero da tradurre.
+    // Si tiene la sorgente (il '' del contratto: il chiamante ricade sul testo
+    // sorgente, come documentato in `isSourcePassthrough`) e si memoizza la
+    // sentinella, cioe' esattamente lo stato in cui la funzione finiva comunque
+    // dopo aver speso la chiamata — zero byte pubblicati cambiano, cambia solo
+    // che il budget LLM non viene bruciato su una stringa che non ne ha bisogno.
+    if (deeplPassthrough) {
+      setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
+      return '';
     }
     // LLM fallback
     const prompt = [
