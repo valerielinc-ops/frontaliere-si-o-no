@@ -1733,7 +1733,7 @@
         "it": "manor-boucher-ere-100-vevey-boucherere-100",
         "en": "boucher-rear-100-manor-ag-vevey-boucherere-100",
         "de": "boucher-hinterer-100-manor-ag-vevey-boucherere-100",
-        "fr": "boucher-arriere-100-manor-ag-vevey-boucherere-100"
+        "fr": "boucher-relever-100-manor-ag-vevey-boucherere-100"
       },
       "titleByLocale": {
         "it": "Boucher/ère 100%",
@@ -1761,7 +1761,15 @@
       },
       "addressLocality": "Vevey Boucherère 100",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "fr": [
+          "boucher-arriere-100-manor-ag-vevey-boucherere-100"
+        ]
+      },
+      "previousSlugs": [
+        "boucher-arriere-100-manor-ag-vevey-boucherere-100"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (Papeterie) 50%",
@@ -6850,7 +6858,7 @@
       "slug": "manor-boucher-ere-70-marin-epagnier-boucherere-70",
       "slugByLocale": {
         "it": "manor-boucher-ere-70-marin-epagnier-boucherere-70",
-        "en": "manor-boucher-ere-70-marin-epagnier-boucherere-70",
+        "en": "boucher-restaurant-70-manor-ag-marin-epagnier-boucherere-70",
         "de": "manor-boucher-ere-70-marin-epagnier-boucherere-70",
         "fr": "manor-boucher-ere-70-marin-epagnier-boucherere-70"
       },
