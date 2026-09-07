@@ -153,8 +153,8 @@ export function buildIssueBody(e) {
         ],
         fix: [
           'Dipende da cosa mostra il profilo della pagina; non preassegnata qui. **Mai',
-          "sopprimendo Auto Ads** (AGENTS.md Non-Negotiable #7): lo spazio si riserva",
-          '(`min-height`/`aspect-ratio`), non si toglie. | **REPO**: sito.',
+          "sopprimendo la pubblicita' automatica** (AGENTS.md Non-Negotiable #7): lo spazio si",
+          'riserva dichiarandone le dimensioni, non si toglie. | **REPO**: sito.',
         ],
         metrica: `prima=${e.fmt(e.current[e.metric === 'CLS' ? 'cls_p75' : 'inp_p75'])} atteso=<${e.threshold}${e.metric === 'CLS' ? '' : 'ms'}`,
         comando: 'node scripts/cwv-monitor-check.mjs --dry-run',

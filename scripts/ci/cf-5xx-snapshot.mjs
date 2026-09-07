@@ -211,7 +211,7 @@ export const CHECK_URL_DEFAULT_SNAPSHOTS = 7;
 export const CHECK_URL_MAX_AGE_DAYS = 3;
 
 /** `cdn.frontaliereticino.ch/assets/x.js`, con o senza schema, sempre nella stessa forma. */
-function normalizeUrl(u) {
+function historyUrlKey(u) {
   return String(u ?? '').trim().replace(/^https?:\/\//, '').replace(/\/+$/, '') || '/';
 }
 
@@ -239,7 +239,7 @@ function normalizeUrl(u) {
  * Il prezzo di quella scelta e' dichiarato e pagato qui: se il monitor si
  * ferma del tutto, le ultime N righe restano pulite per sempre e il criterio
  * leggerebbe «verde» su dati morti. Percio' la freschezza e' un requisito
- * SEPARATO e fail-closed — serie piu' vecchia di `maxAgeDays` o piu' corta di
+ * SEPARATO e fail-closed — serie piu' vecchia di `staleAfterDays` o piu' corta di
  * N snapshot: `ok: false` con la ragione, mai un verde per assenza di dati.
  *
  * @param {Array<object>} history
@@ -249,22 +249,22 @@ function normalizeUrl(u) {
 export function checkUrlClean(history, url, {
   snapshots = CHECK_URL_DEFAULT_SNAPSHOTS,
   now = Date.now(),
-  maxAgeDays = CHECK_URL_MAX_AGE_DAYS,
+  staleAfterDays = CHECK_URL_MAX_AGE_DAYS,
 } = {}) {
-  const target = normalizeUrl(url);
+  const target = historyUrlKey(url);
   if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
   const all = (history || []).filter((s) => s && s.ts);
   if (all.length < snapshots) {
     return { ok: false, reason: `storia troppo corta: ${all.length} snapshot su ${snapshots} richiesti`, checked: all.length, lastSeenAt: null };
   }
   const ageDays = (now - Date.parse(all[all.length - 1].ts)) / 86_400_000;
-  if (!(ageDays <= maxAgeDays)) {
-    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${maxAgeDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
+  if (!(ageDays <= staleAfterDays)) {
+    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
   }
   const window = all.slice(-snapshots);
   let lastSeenAt = null;
   for (const s of window) {
-    if ((s.topPaths || []).some((p) => normalizeUrl(p?.url) === target)) lastSeenAt = s.ts;
+    if ((s.topPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
   }
   return lastSeenAt
     ? { ok: false, reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
@@ -332,11 +332,11 @@ async function main() {
     const i = argv.indexOf(flag);
     return i >= 0 ? argv[i + 1] : undefined;
   };
-  const checkUrl = valueOf('--check-url');
-  if (checkUrl) {
+  const urlToCheck = valueOf('--check-url');
+  if (urlToCheck) {
     const snapshots = Number(valueOf('--snapshots') ?? CHECK_URL_DEFAULT_SNAPSHOTS);
-    const res = checkUrlClean(loadHistory(historyFile), checkUrl, { snapshots });
-    console.log(`${res.ok ? '✅' : '❌'} ${checkUrl}: ${res.reason}`);
+    const res = checkUrlClean(loadHistory(historyFile), urlToCheck, { snapshots });
+    console.log(`${res.ok ? '✅' : '❌'} ${urlToCheck}: ${res.reason}`);
     process.exitCode = res.ok ? 0 : 1;
     return;
   }
