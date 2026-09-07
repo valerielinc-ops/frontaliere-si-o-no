@@ -11498,6 +11498,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Leben in Cedrasco, Arbeiten in Graubünden: Leitfaden',
     'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Umzug nach Cedrasco, um in Graubünden zu arbeiten: Entdecken Sie die Bewilligung G, die Grenzbesteuerung, die AHV, das KVG und das vollständige Registrierungsverfahren.',
     'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Berglandschaft an der Schweizer-italienischen Grenze in der Graubünden-Region, Symbol des Grenzgebiets',
+    'blog.article.schilpario-frontaliere-grigioni-guida.title': 'Von Schilpario nach Graubünden: Leben wie ein Grenzgänger',
+    'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Bewilligung G, Besteuerung, Quellensteuer, AHV und KVG: Erfahren Sie, wie das Steuersystem für Grenzgänger funktioniert, die in Schilpario leben und in Graubünden arbeiten.',
+    'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'Aussicht von Graubünden nach Lombardien: Grenzübergreifende Alpenlandschaft für Grenzgänger',
 };
 
 export default blogMetaDe;
