@@ -5797,6 +5797,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.title': 'Gestion du premier pilier AVS dans le canton d\'Appenzell Extérieur',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.excerpt': 'Le canton d\'Appenzell-Extérieur gère le premier pilier AVS par l\'intermédiaire d\'une caisse de compensation cantonale, garantissant les prestations aux contribuables.',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.imageAlt': 'Castelgrande à Bellinzone, Suisse',
+    'blog.article.attivita-appenzello-esterno-registro.title': 'Ouvrir une entreprise à Appenzell Extérieur : procédures et coûts',
+    'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Guide complet : formes juridiques, registre du commerce, capital minimum, cotisations AVS/LPP et obligations d\'assurance pour créer une entreprise dans le canton.',
+    'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Bureau dans une administration cantonale suisse avec des formulaires d\'enregistrement commercial.',
 };
 
 export default blogMetaChFr;

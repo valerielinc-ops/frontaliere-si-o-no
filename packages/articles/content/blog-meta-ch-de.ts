@@ -5797,6 +5797,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.title': 'Verwaltung der ersten AHV-Säule im Kanton Appenzell Ausserrhoden',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.excerpt': 'Der Kanton Appenzell Ausserrhoden betreibt die erste AHV-Säule über eine kantonale Ausgleichskasse und stellt die Leistungen für die Steuerpflichtigen sicher.',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.imageAlt': 'Castelgrande in Bellinzona, Schweiz',
+    'blog.article.attivita-appenzello-esterno-registro.title': 'Ein Geschäft in Appenzell Ausserrhoden eröffnen: Verfahren und Kosten',
+    'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Vollständiger Leitfaden: Rechtsformen, Handelsregister, Mindestkapital, AHV/BVG-BEITRÄGE und Versicherungspflichten zur Firmengründung im Kanton.',
+    'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Schreibtisch in einem Schweizer Kantonsamt mit Handelsregistrierungsformularen.',
 };
 
 export default blogMetaChDe;
