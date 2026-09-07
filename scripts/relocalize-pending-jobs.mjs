@@ -267,10 +267,21 @@ function readJson(filePath) {
 /** Ledger del salto per azienda sterile — vedi COMPANY_SKIP_STATE_PATH. */
 function readCompanySkipState() {
   const raw = readJson(COMPANY_SKIP_STATE_PATH);
-  return {
-    run: Number(raw?.run) || 0,
-    companies: (raw && typeof raw.companies === 'object' && raw.companies) || {},
-  };
+  const run = Number(raw?.run) || 0;
+  const stored = (raw && typeof raw.companies === 'object' && raw.companies) || {};
+  // Pota le voci con un salto gia' scaduto. E' esattamente equivalente a
+  // tenerle — `shouldSkipCompany` le ignora e `nextCompanySkipEntry` riparte
+  // comunque da `sterile: 1`, perche' una voce scaduta porta `sterile: 0` — ma
+  // senza la potatura il file cresce con lo storico di ogni azienda mai
+  // osservata e non torna mai indietro, e il rewrite completo per azienda
+  // diventa il caso peggiore proprio nelle run lunghe che questa regola vuole
+  // accorciare.
+  const companies = {};
+  for (const [key, entry] of Object.entries(stored)) {
+    if (entry?.skipUntilRun && Number(entry.skipUntilRun) < run) continue;
+    companies[key] = entry;
+  }
+  return { run, companies };
 }
 
 function writeCompanySkipState(state) {
@@ -465,9 +476,19 @@ export const COMPANY_STERILE_RUNS = 2;
 export const COMPANY_SKIP_RUNS = 3;
 
 /**
- * Signature of a company's SOURCE text within this run's cap window. Used as
- * the early-rearm trigger: nuovo testo da tradurre ⇒ l'osservazione «sterile»
- * precedente non vale piu' e l'azienda rientra subito, senza aspettare K.
+ * Firma dell'INSIEME dei job pending di un'azienda: le coppie (slug, titolo),
+ * ordinate. Usata come innesco del riarmo anticipato — l'insieme cambia ⇒
+ * l'osservazione «sterile» precedente non vale piu' e l'azienda rientra
+ * subito, senza aspettare K.
+ *
+ * Osserva slug e titolo, NON la description. Una description riscritta dal
+ * re-crawl a slug e titolo invariati non fa scattare il riarmo anticipato:
+ * l'azienda resta fuori fino alla scadenza di K, che e' al piu' 3 run. E' un
+ * ritardo, non una perdita — e includere la description qui la renderebbe
+ * sensibile alla normalizzazione del crawler, cioe' reintrodurrebbe proprio
+ * l'instabilita' che la scelta dell'insieme pieno (invece della fetta capped)
+ * esiste per evitare. Il campo va aggiunto solo con una misura che mostri
+ * quante aziende aspettano davvero K per questo motivo.
  */
 export function companySourceSignature(companyJobs) {
   // JSON.stringify come separatore, non un carattere scelto a mano: qualunque
@@ -1482,15 +1503,37 @@ async function runRelocalization(phase) {
   const effectiveMax = Math.min(MAX_JOBS, pending.length);
   const cappedPending = pending.slice(0, effectiveMax);
   const companyJobCounts = new Map();
-  const companyCapWindowJobs = new Map();
   for (const job of cappedPending) {
     const key = normalizeCompanyKey(job.companyKey || job.company || '');
     if (!key) {
       continue;
     }
     companyJobCounts.set(key, (companyJobCounts.get(key) || 0) + 1);
-    if (!companyCapWindowJobs.has(key)) companyCapWindowJobs.set(key, []);
-    companyCapWindowJobs.get(key).push(job);
+  }
+
+  // La firma sorgente si calcola sull'insieme PIENO dei job pending di
+  // un'azienda, non sulla fetta dentro il cap. La fetta capped cambia da sola
+  // fra due run senza che nulla sia cambiato lato azienda: `orderPendingByTraffic`
+  // riordina su data/job-popularity.json, aggiornato a ogni run, e i job liberati
+  // dalle ALTRE aziende escono da `pending` facendo entrare nella finestra job
+  // piu' in basso. Un solo job in entrata o in uscita cambierebbe lo sha1,
+  // `nextCompanySkipEntry` leggerebbe `sameSource === false` e riporterebbe
+  // `sterile` a 1: l'azienda non arriverebbe mai a N e il salto non si
+  // armerebbe. Sarebbe una QUARTA via di disarmo, della stessa classe delle tre
+  // che questa regola esiste per aggirare — un contatore azzerato da un evento
+  // che non e' «l'azienda e' stata riparata» — e per giunta silenziosa, perche'
+  // il fallimento e' fail-safe e non lascia traccia nel log.
+  // Sull'insieme pieno invece, per un'azienda sterile, `cleared == 0` significa
+  // che nessuno dei suoi job e' uscito dalla coda: e' stabile per costruzione e
+  // cambia solo sul re-crawl, che e' la semantica dichiarata.
+  const companyPendingJobs = new Map();
+  for (const job of pending) {
+    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    if (!key) {
+      continue;
+    }
+    if (!companyPendingJobs.has(key)) companyPendingJobs.set(key, []);
+    companyPendingJobs.get(key).push(job);
   }
 
   const companyKeys = [...companyJobCounts.keys()];
@@ -1513,7 +1556,7 @@ async function runRelocalization(phase) {
   const skippedCompanies = [];
   const cascadeCompanyKeys = [];
   for (const key of companyKeys) {
-    const signature = companySourceSignature(companyCapWindowJobs.get(key) || []);
+    const signature = companySourceSignature(companyPendingJobs.get(key) || []);
     companySignatures.set(key, signature);
     if (shouldSkipCompany(companySkipState.companies?.[key], companySkipRun, signature)) {
       skippedCompanies.push(key);
@@ -1597,6 +1640,17 @@ async function runRelocalization(phase) {
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
   let cascadeStop = 'queue exhausted';
+  // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
+  // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
+  // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
+  // `totalProcessed == 0` e la ragione di default «queue exhausted» — cioe'
+  // indistinguibile da uno stallo, con la regola che produce un falso allarme
+  // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
+  // meccanismo diverso e puo' ancora liberare job.
+  if (cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+    console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
+    cascadeStop = 'all companies skipped';
+  }
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
   // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs per il perche'

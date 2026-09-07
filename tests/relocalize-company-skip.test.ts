@@ -132,6 +132,30 @@ describe('salto per azienda sterile — scenario marriott (N=2, K=3)', () => {
     expect(runCascade(back.ledger, 7, 0).skipped).toBe(false);
   });
 
+  it('la firma non cambia quando cambia solo la finestra del cap', () => {
+    // Il 🔴 di review #7901: se la firma si calcola sulla fetta capped invece
+    // che sull'insieme pieno dei pending, cambia da sola fra due run —
+    // `orderPendingByTraffic` riordina su job-popularity aggiornato ogni run e
+    // i job liberati dalle ALTRE aziende fanno entrare in finestra job più in
+    // basso. `sameSource` diventa false, `sterile` torna a 1 e il salto non si
+    // arma mai: una quarta via di disarmo, silenziosa. Qui si pinna che la
+    // firma dipende SOLO dall'insieme dei job dell'azienda.
+    const full = [
+      { slug: 'a', title: 'Receptionist' },
+      { slug: 'b', title: 'Night Auditor' },
+      { slug: 'c', title: 'Concierge' },
+    ];
+    // Stesso insieme, ordine diverso (il riordino per traffico): firma uguale.
+    expect(companySourceSignature([full[2], full[0], full[1]])).toBe(
+      companySourceSignature(full),
+    );
+    // Un sottoinsieme — cioè quel che vedrebbe la fetta capped — è una firma
+    // DIVERSA: è proprio il motivo per cui non va usata come sorgente.
+    expect(companySourceSignature(full.slice(0, 2))).not.toBe(
+      companySourceSignature(full),
+    );
+  });
+
   it('N e K restano quelli ratificati dalla simulazione', () => {
     // Cambiarli e' lecito, ma il valore atteso (23,9 min recuperati, 2 cleared
     // persi) e' misurato su questa coppia: va rimisurato, non ereditato.
