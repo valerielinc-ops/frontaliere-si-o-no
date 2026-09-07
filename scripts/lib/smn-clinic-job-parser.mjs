@@ -361,6 +361,9 @@ export function createSmnClinicParser(config) {
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
+    // Per-run fetch verdict surfaced to the pipeline (#7897); only the
+    // zero-match branch below has anything to say about it.
+    let fetchOutcome = null;
     let detailHits = 0;
     scannedPostings = 0;
     seenDepartmentLabels.clear();
@@ -462,12 +465,30 @@ export function createSmnClinicParser(config) {
         ? new Set(departments.map(({ label }) => normalizeClinicLabel(label)).filter(Boolean))
         : null;
 
-      switch (classifyZeroMatchRun({
+      const verdict = classifyZeroMatchRun({
         targets,
         directoryTargets: ownTargets,
         seenLabels: seenDepartmentLabels,
         directoryLabels,
-      })) {
+      });
+      // Hand the verdict to the pipeline, not just to the log (#7897). This is
+      // the one place in the fleet that already KNOWS why a run came out empty
+      // — the directory call has just separated a renamed department from an
+      // idle one — and until now that knowledge died in a console.warn while
+      // check-crawler-health waited three days to announce "0 jobs" without a
+      // cause. `unverified` stays unreported on purpose: the directory was
+      // unreachable, so the run separated nothing and has nothing to assert;
+      // an omitted field means "no verdict", which is not the same claim as
+      // `ok`. `matched`/`empty-board` are `ok` — the fetch and the parser both
+      // worked, the board is simply empty — and `label-drift` is the selector
+      // miss the streak gate can only ever describe as "returned 0 jobs".
+      fetchOutcome = verdict === 'label-drift'
+        ? 'selector_miss'
+        : verdict === 'unverified'
+          ? null
+          : 'ok';
+
+      switch (verdict) {
         case 'matched':
           console.log(`ℹ️ ${companyName}: 0 matches but a configured department label is present in the payload — treating as legitimately empty board.`);
           break;
@@ -485,6 +506,10 @@ export function createSmnClinicParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
+    // Same optional-property channel `runStandardCrawlerPipeline` already reads
+    // `discoveredCount` through, so the verdict survives the zero-job soft exit
+    // and reaches the summary slice the exit guard writes.
+    if (fetchOutcome) jobs.fetchOutcome = fetchOutcome;
     return jobs;
   }
 
