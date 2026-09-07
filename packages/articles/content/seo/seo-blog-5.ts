@@ -88681,6 +88681,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tram-treno-lavori-ottobre': {
+    title: 'Tram-treno in Ticino: via ai primi cantieri a ottobre',
+    description: 'Rttl Sa assegna dieci mandati di progettazione per 44,8 milioni. Scopri i dettagli sull\'avvio dei primi lavori a ottobre e le prospettive per il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tram-treno, primi, cantieri, ottobre',
+    ogTitle: 'Tram-treno in Ticino: via ai primi cantieri a ottobre',
+    ogDescription: 'Rttl Sa ha assegnato dieci mandati di progettazione per 44,8 milioni di franchi. Primi lavori in arrivo a ottobre e opere principali nel 2027.',
+    canonicalPath: '/articoli-frontaliere/tram-treno-lavori-ottobre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tram-treno in Ticino: via ai primi cantieri a ottobre",
+      "description": "Rttl Sa assegna dieci mandati di progettazione per 44,8 milioni. Scopri i dettagli sull'avvio dei primi lavori a ottobre e le prospettive per il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-lavori-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano in Ticino con infrastrutture di trasporto"
+      },
+      "datePublished": "2026-09-07T17:30:45+00:00",
+      "dateModified": "2026-09-07T17:30:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-lavori-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -11592,6 +11592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Studente pendolare Ticino: guida USI e SUPSI',
     'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Vivere la vita da studente pendolare tra Italia e Canton Ticino: iscrizione, costi e differenze pratiche rispetto al lavoro frontaliero.',
     'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Studente universitario pendolare tra Italia e Ticino',
+    'blog.article.tram-treno-lavori-ottobre.title': 'Tram-treno in Ticino: via ai primi cantieri a ottobre',
+    'blog.article.tram-treno-lavori-ottobre.excerpt': 'Rttl Sa assegna dieci mandati di progettazione per 44,8 milioni e prepara l\'avvio delle opere principali nel 2027.',
+    'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Panorama di Lugano in Ticino con infrastrutture di trasporto',
 };
 
 export default blogMetaIt;
