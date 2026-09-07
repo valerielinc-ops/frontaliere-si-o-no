@@ -5824,6 +5824,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.argovia-salari-livelli-formazione.title': 'Argovia: salari, settori e livelli di formazione',
     'blog.article.argovia-salari-livelli-formazione.excerpt': 'Come sono strutturati i salari in Argovia secondo il grado di formazione, i settori che assumono e i contratti collettivi previsti.',
     'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Vista panoramica di una città svizzera, simbolo di economia e mercato del lavoro',
+    'blog.article.salari-mercato-lavoro-argovia.title': 'Salari e mercato del lavoro in Argovia: settori e livelli',
+    'blog.article.salari-mercato-lavoro-argovia.excerpt': 'Nel cantone Argovia, i salari variano per formazione e contratti collettivi. Scopri i differenziali retributivi, i contributi sociali e le protezioni federali del lavoro.',
+    'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Ufficio moderno di una società svizzera con lavoratori: ambiente di lavoro professionale tipico del cantone Argovia',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Turgovia: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Scopri i requisiti e la procedura per il rinnovo del permesso di dimora B nel Cantone di Turgovia.',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Ufficio cantonale della migrazione in Turgovia',
 };
 
 export default blogMetaChIt;

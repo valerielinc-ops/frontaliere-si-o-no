@@ -5824,6 +5824,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.argovia-salari-livelli-formazione.title': 'Aargau: salaries, sectors and levels of training',
     'blog.article.argovia-salari-livelli-formazione.excerpt': 'How salaries are structured in Aargau according to the degree of training, the sectors they hire and the collective agreements envisaged.',
     'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Panoramic view of a Swiss city, symbol of economy and labor market',
+    'blog.article.salari-mercato-lavoro-argovia.title': 'Wages and the labour market in Aargau: sectors and levels',
+    'blog.article.salari-mercato-lavoro-argovia.excerpt': 'In the canton of Aargau, salaries vary for training and collective agreements. Learn about pay differentials, social contributions, and federal labor protections.',
+    'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Modern Swiss office workspace with employees: typical professional environment in Aargau\'s job market',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Residence permit B in the Canton of Thurgau: requirements and renewal',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Learn about the requirements and procedure for renewing a B residence permit in the Canton of Thurgau.',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Cantonal immigration office in Turgovia',
 };
 
 export default blogMetaChEn;
