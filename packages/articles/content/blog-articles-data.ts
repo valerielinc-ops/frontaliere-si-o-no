@@ -34509,6 +34509,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'morazzone-tante-care-cose-2026',
+ category: 'novita',
+ date: '2026-09-07T10:25:44.988Z',
+ image: '/images/blog/morazzone-tante-care-cose-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

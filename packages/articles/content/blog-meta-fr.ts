@@ -11557,6 +11557,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula nommé directeur des USAGES à partir de 2026',
     'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'L\'économiste spécialisé en prévoyance et finances familiales dirigera l\'Institut de recherches économiques de l\'USI à partir du 1er septembre 2026.',
     'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'Campus USI à Lugano avec vue sur le lac',
+    'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - revient « beaucoup de choses chères » à la maison taches',
+    'blog.article.morazzone-tante-care-cose-2026.excerpt': 'Samedi 12 et dimanche 13 septembre, Casa Macchi accueille une nouvelle édition du marché dédié aux rayonnages, aux antiquités et au modernisme.',
+    'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Marché d\'objets anciens et vintage à Casa Macchi, Morazzone',
 };
 
 export default blogMetaFr;

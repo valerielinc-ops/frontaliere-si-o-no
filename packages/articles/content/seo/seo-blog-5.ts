@@ -88213,6 +88213,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-morazzone-tante-care-cose-2026': {
+    title: 'Morazzone - torna “tante care cose” a casa macchi',
+    description: 'Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, morazzone, torna, tante, care',
+    ogTitle: 'Morazzone - A Morazzone torna “Tante Care Cose”, il mercato di rigatterie e anticaglie a Casa Macchi',
+    ogDescription: 'Scopri il mercato di rigatterie e anticaglie a Casa Macchi a Morazzone, in programma sabato 12 e domenica 13 settembre dalle 10 alle 18. Un\'opportunità unica per i frontalieri di trovare oggetti unici e di valore.',
+    canonicalPath: '/articoli-frontaliere/morazzone-tante-care-cose-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morazzone - torna “tante care cose” a casa macchi",
+      "description": "Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/morazzone-tante-care-cose-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato di rigatterie e anticaglie a Casa Macchi, Morazzone"
+      },
+      "datePublished": "2026-09-07T10:25:45+00:00",
+      "dateModified": "2026-09-07T10:25:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morazzone-tante-care-cose-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
