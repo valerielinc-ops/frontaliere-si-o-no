@@ -11526,6 +11526,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Living in Introd and working in Valais as a border worker',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Practical guide for Italian border workers: Introd-Vallese connection, taxation, G Permit, costs and operational aspects of the transfer.',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'View of the Alpine village of Introd in Aosta Valley with snowy mountains in the background',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Living in Saint-Christophe and working in Valais as a border worker',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of living in Saint-Christophe and working in Valais.',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

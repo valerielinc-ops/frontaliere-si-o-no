@@ -11527,6 +11527,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Vivere a Introd e lavorare in Vallese da frontaliere',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Guida pratica per frontalieri italiani: collegamento Introd–Vallese, fiscalità, Permesso G, costi e aspetti operativi del trasferimento.',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'Vista del villaggio alpino di Introd in Valle d\'Aosta con montagne innevate sullo sfondo',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Vivere a Saint-Christophe e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Saint-Christophe e lavorare in Vallese.',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

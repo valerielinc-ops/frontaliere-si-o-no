@@ -11525,6 +11525,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.title': 'Wohnen in Introd und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden für italienische Grenzgänger: Introd-Walliser-Verbindung, Steuern, Genehmigung G, Kosten und operative Aspekte des Transfers.',
     'blog.article.vivere-introd-lavorare-vallese-frontaliere.imageAlt': 'Blick auf das Alpendorf Introd im Aostatal mit verschneiten Bergen im Hintergrund',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Wohnen in Saint-Christophe und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Saint-Christophe zu leben und im Wallis zu arbeiten.',
+    'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;
