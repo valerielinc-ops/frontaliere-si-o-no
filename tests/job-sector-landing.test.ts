@@ -276,6 +276,125 @@ describe('jobSectorLanding — sector match regex', () => {
     }
   });
 
+  // ── `cyber` era nel lessico cyber ma non nel veto fisico (#7553) ──
+  //
+  // `Cyber Security Officer` cadeva su ENTRAMBE le landing: `cybersecurity` lo
+  // prendeva con `cyber SEC_SEP security`, e il lookbehind di `sicurezza`
+  // elencava information/it/cloud/network ma non `cyber`. Ora le due liste sono
+  // la stessa costante (`CYBER_QUALIFIER_SRC`), quindi non possono divergere.
+  it('un Cyber Security Officer cade su UNA sola landing (#7553)', () => {
+    for (const title of [
+      'Cyber Security Officer',
+      'Cyber Security Guard',
+      'Cybersecurity Officer',
+      'Cyber-Security Officer',
+      'Cyber  Security Officer',
+      'Cyber/Security Officer',
+      'Cyber\u00a0Security Officer',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${JSON.stringify(title)}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `NON doppio landing: ${JSON.stringify(title)}`).toBe(false);
+    }
+  });
+
+  // ── Il token corto `it` ancorato da un lato solo (#7553, round 2) ──
+  //
+  // `CYBER_QUALIFIER_SRC` non portava i propri `\b`: il veto di `sicurezza` li
+  // aggiungeva al call site, l'alternativa positiva di `cybersecurity` no.
+  // Quindi ogni parola che FINISCE in `it` davanti a `Security Guard/Officer`
+  // matchava il lessico cyber senza far scattare il veto fisico — lo stesso
+  // doppio-landing di #7553, per divergenza sull'ancoraggio invece che sul
+  // lessico. Ora i `\b` stanno dentro la costante e i due lati non possono
+  // divergere nemmeno li'.
+  it('non scambia per cyber una parola che finisce in `it` (#7553)', () => {
+    for (const title of [
+      'Transit Security Officer', 'Unit Security Guard', 'Audit Security Officer',
+      'Summit Security Guard', 'Deposit Security Officer', 'Sicherheit Security Guard',
+    ]) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `non cyber: ${title}`).toBe(false);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `resta fisica: ${title}`).toBe(true);
+    }
+    // Il verso opposto dello stesso ancoraggio: `\bit\b` chiuso anche in coda
+    // toglie dal veto un `it` che non e' una parola, e l'annuncio non sparisce
+    // dalla sua landing fisica.
+    expect(jobMatchesSector({ title: 'Italia Security Guard' }, 'sicurezza')).toBe(true);
+    // Il qualificatore vero resta cyber, su tutte le forme.
+    for (const title of ['IT Security Officer', 'IT/Security Guard', 'It  Security Officer']) {
+      expect(jobMatchesSector({ title }, 'cybersecurity'), `cyber: ${title}`).toBe(true);
+      expect(jobMatchesSector({ title }, 'sicurezza'), `NON doppio landing: ${title}`).toBe(false);
+    }
+  });
+
+  // ── Il qualificatore in un campo, `Security Officer` in quello dopo (#7553) ──
+  //
+  // Terza dimensione della stessa divergenza: il SEPARATORE. L'alternativa
+  // positiva di `cybersecurity` usava `SEC_SEP`, che matcha per intero il
+  // joiner ` \n ` con cui `jobMatchesSectorCanonical` unisce title+category+
+  // tags; il veto di `sicurezza` usa `INTRA_FIELD_SEP`, che il joiner non lo
+  // attraversa. Quindi un `IT` a fine titolo e `Security Officer` in category
+  // matchavano il lessico cyber senza far scattare il veto fisico: doppio
+  // landing, come per il lessico (#7553) e per l'ancoraggio (round 2).
+  it('non scavalca il confine di campo col qualificatore cyber (#7553)', () => {
+    for (const job of [
+      { title: 'Junior IT', category: 'Security Officer' },
+      { title: 'Cloud', category: 'Security Guard' },
+      { title: 'Network', category: 'Security Officer' },
+      { title: 'Security Guard', tags: ['cyber'] },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `non cyber: ${label}`).toBe(false);
+      expect(jobMatchesSector(job, 'sicurezza'), `resta fisica: ${label}`).toBe(true);
+    }
+    // Dentro il campo il qualificatore continua a valere, ed e' cyber.
+    for (const job of [
+      { title: 'IT Security Officer', category: 'Sicurezza' },
+      { title: 'Cloud Security Guard', tags: ['ticino'] },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `cyber: ${label}`).toBe(true);
+      expect(jobMatchesSector(job, 'sicurezza'), `NON doppio landing: ${label}`).toBe(false);
+    }
+    // Il salto di campo che NON dipende dal qualificatore condiviso resta
+    // vivo: `Security` + suffisso di ruolo cyber attraversa il joiner.
+    expect(jobMatchesSector({ title: 'Security', category: 'Engineer' }, 'cybersecurity')).toBe(true);
+  });
+
+  // ── Cross-campo cyber FUORI dalla forma vetata: una landing, non zero ──────
+  //
+  // Restringere il positivo a `INTRA_FIELD_SEP` chiudeva il doppio-landing ma
+  // toglieva il salto di campo a TUTTO il cyber cross-campo, anche dove nessun
+  // doppio-landing era possibile: `sicurezza` vuole `security (guard|officer)`,
+  // quindi un `Security Manager` in category dopo un `IT` nel titolo non e'
+  // fisico — e senza ramo cross-campo non era piu' nemmeno cyber, cioe' ZERO
+  // landing indicizzate. Il ramo cross-campo esclude col lookahead la sola
+  // forma che il veto presidia.
+  it('tiene su cybersecurity il cyber cross-campo che nessun veto reclama (#7553)', () => {
+    for (const job of [
+      { title: 'IT', category: 'Security Manager' },
+      { title: 'IT', category: 'Security Lead' },
+      { title: 'Cloud', category: 'Security Responsabile' },
+      // Il qualificatore deve PRECEDERE il sostantivo, e i campi si
+      // concatenano nell'ordine title → category → tags: `cyber` in un tag
+      // dopo `Security Manager` nel titolo non e' mai stato un match.
+      { title: 'IT', tags: ['Security Manager'] },
+      { title: 'Information', category: 'Security Specialist' },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `cyber: ${label}`).toBe(true);
+      expect(jobMatchesSector(job, 'sicurezza'), `NON doppio landing: ${label}`).toBe(false);
+    }
+    // Il ramo cross-campo non riapre la collisione: la forma vetata resta
+    // fuori dal positivo e su una sola landing, quella fisica.
+    for (const job of [
+      { title: 'Junior IT', category: 'Security Officer' },
+      { title: 'Cloud', category: 'Security Guard' },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `non cyber: ${label}`).toBe(false);
+      expect(jobMatchesSector(job, 'sicurezza'), `resta fisica: ${label}`).toBe(true);
+    }
+  });
+
   it('nessun annuncio puo\' matchare cybersecurity E sicurezza insieme', () => {
     // L'invariante che i due casi sopra servono: qualunque titolo, se cade in
     // entrambi i settori finisce su due landing. Qui si esercita sull'unione
@@ -285,10 +404,29 @@ describe('jobSectorLanding — sector match regex', () => {
       'Information/Security Officer', 'IT Security Officer', 'Cloud Security Officer',
       'Network Security Officer', 'Security Officer', 'Security Guard notturno',
       'IT SECURITY ARCHITECT', 'Guardia giurata Lugano', 'Sicherheitsdienst Mitarbeiter',
+      'Cyber Security Officer', 'Cyber Security Guard', 'Cyber-Security Officer',
       'AI Security \u2013 Consultant / Manager 80-100%',
+      'Transit Security Officer', 'Unit Security Guard', 'Audit Security Officer',
+      'Summit Security Guard', 'Deposit Security Officer', 'Italia Security Guard',
     ]) {
       const both = jobMatchesSector({ title }, 'cybersecurity') && jobMatchesSector({ title }, 'sicurezza');
       expect(both, `doppio landing su ${JSON.stringify(title)}`).toBe(false);
+    }
+    // Su titolo singolo l'invariante non vede la divergenza di SEPARATORE: il
+    // pattern gira su title+category+tags uniti da ` \n `, e il doppio landing
+    // si apre proprio a cavallo del joiner. Quindi la si esercita anche su
+    // annunci multi-campo.
+    for (const job of [
+      { title: 'Junior IT', category: 'Security Officer' },
+      { title: 'Cloud', category: 'Security Guard' },
+      { title: 'Network', category: 'Security Officer' },
+      { title: 'Information', category: 'Security Officer', tags: ['ticino'] },
+      { title: 'Cyber', category: 'Security Guard' },
+      { title: 'Security Guard', tags: ['cyber'] },
+      { title: 'Security Officer', category: 'Sorveglianza', tags: ['it'] },
+    ]) {
+      const both = jobMatchesSector(job, 'cybersecurity') && jobMatchesSector(job, 'sicurezza');
+      expect(both, `doppio landing su ${JSON.stringify(job)}`).toBe(false);
     }
   });
 
