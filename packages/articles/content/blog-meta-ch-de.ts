@@ -5866,6 +5866,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ddps-thun-difesa-innovazione.title': 'VBS stärkt Thuner Standort für Verteidigung und Innovation',
     'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Das VBS wird die Gebiete des Bundes auf dem Waffenplatz Thun für militärische Zwecke unterhalten.',
     'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Luftaufnahme des Militärplatzes Thun mit modernen Einrichtungen für Verteidigung und Innovation.',
+    'blog.article.cybersecurity-casa-data-center.title': 'Jeder sollte ein Hacker sein: Unser Haus ist ein Rechenzentrum',
+    'blog.article.cybersecurity-casa-data-center.excerpt': 'Keren Elazari, Cybersicherheitsexpertin, erklärt, wie künstliche Intelligenz die Welt der Cyberangriffe verändert und wie wir unsere Privatsphäre schützen können.',
+    'blog.article.cybersecurity-casa-data-center.imageAlt': 'Ein modernes Wohnzimmer mit verbundenen Geräten, darunter ein Smart-TV, ein Laptop und intelligente Haushaltsgeräte, die alle mit einem sicheren Wi-Fi-Router verbunden sind.',
 };
 
 export default blogMetaChDe;

@@ -5866,6 +5866,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ddps-thun-difesa-innovazione.title': 'Le DDPS renforce le siège de Thoune pour la défense et l’innovation',
     'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Le DDPS maintiendra les zones appartenant à la Confédération sur la place d’armes de Thoune à des fins militaires.',
     'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Vue aérienne de la place d\'armes de Thun avec des installations modernes pour la défense et l\'innovation.',
+    'blog.article.cybersecurity-casa-data-center.title': 'Tout le monde devrait être un hacker : notre maison est un centre de données',
+    'blog.article.cybersecurity-casa-data-center.excerpt': 'Keren Elazari, experte en cybersécurité, explique comment l\'intelligence artificielle est en train de changer le monde des cyberattaques et comment nous pouvons protéger notre vie privée.',
+    'blog.article.cybersecurity-casa-data-center.imageAlt': 'Un salon moderne avec des appareils connectés, y compris une smart TV, un ordinateur portable et des appareils électroménagers intelligents, tous connectés à un routeur Wi-Fi sécurisé.',
 };
 
 export default blogMetaChFr;
