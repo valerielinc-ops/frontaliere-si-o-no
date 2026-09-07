@@ -2010,6 +2010,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'laboratorio-intelligenza-artificiale-terza-eta': { it: 'laboratorio-intelligenza-artificiale-terza-eta', en: 'artificial-intelligence-workshop-for-seniors', de: 'kuenstliche-intelligenz-workshop-fuer-senioren', fr: 'atelier-intelligence-artificielle-pour-seniors' },
  'permesso-dimora-b-canton-ginevra-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-ginevra-requisiti-rinnovo', en: 'residence-permit-b-canton-geneva-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-genf-anforderungen-erneuerung', fr: 'permis-de-sejour-b-canton-geneve-exigences-renouvellement' },
  'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni': { it: 'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni', en: 'impact-ai-telecom-workers-syndicom-demand', de: 'auswirkung-kuenstliche-intelligenz-telekommitarbeiter-syndicom-forderungen', fr: 'impact-intelligence-artificielle-employes-telecom-syndicom-revendications' },
+ 'melide-riqualifica-centro': { it: 'melide-riqualifica-centro', en: 'melide-town-center-renovation', de: 'melide-stadtzentrum-renovierung', fr: 'melide-centre-ville-renovation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5953,6 +5953,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'KI-Auswirkung auf Telekommunikationsmitarbeiter, Syndicom formuliert Ansprüche',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Ecoplan-Studie für Syndicom: KI steigert Effizienz, aber auch Arbeitsdruck, Mitarbeiter fordern mehr Schulung und Transparenz',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Moderne Arbeitsstätte in der Schweiz mit Mitarbeitern, die um einen Computer mit AI-bezogenen Daten und Diagrammen zusammenarbeiten',
+    'blog.article.melide-riqualifica-centro.title': 'Wie sich der Kern von Melide dank der Arbeiten verändert hat',
+    'blog.article.melide-riqualifica-centro.excerpt': 'Die Sanierungsarbeiten im Zentrum von Melide wurden am 6. September mit Granit aus Iragna und rosa Porphyr aus Cuasso al Monte abgeschlossen.',
+    'blog.article.melide-riqualifica-centro.imageAlt': 'Melide Stadtzentrum nach Renovierungsarbeiten',
 };
 
 export default blogMetaChDe;

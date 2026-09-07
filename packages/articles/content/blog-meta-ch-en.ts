@@ -5953,6 +5953,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'AI Impact on Telecom Employees, Syndicom Formulates Claims',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Ecoplan study for Syndicom: AI increases efficiency but also work pressure, employees demand more training and transparency',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Modern office in Switzerland with employees collaborating around a computer showing AI-related data and diagrams',
+    'blog.article.melide-riqualifica-centro.title': 'How the core of Melide has changed thanks to the work',
+    'blog.article.melide-riqualifica-centro.excerpt': 'The redevelopment of the centre of Melide was completed on 6 September with Iragna granite and pink porphyry from Cuasso al Monte.',
+    'blog.article.melide-riqualifica-centro.imageAlt': 'Melide town center after renovation work',
 };
 
 export default blogMetaChEn;
