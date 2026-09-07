@@ -11498,6 +11498,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivre à San Giacomo Filippo et travailler dans les Grisons',
     'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nouvel accord frontalier 2024, fiscalité, LAMal et AVS : le guide complet pour déménager à San Giacomo Filippo et travailler dans les Grisons en tant que frontalier.',
     'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Voiture garée sur route de montagne du Tessin au coucher du soleil, avec vue sur les Alpes des Grisons en arrière-plan',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Vivre à Cedrasco, travailler dans les Grisons : guide',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Déménager à Cedrasco pour travailler dans les Grisons : découvrez le permis G, la fiscalité frontalière, l\'AVS, la LAMal et la procédure d\'enregistrement complète.',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Paysage montagneux à la frontière entre la Suisse et l\'Italie dans la région des Grisons, symbole du territoire frontalier',
 };
 
 export default blogMetaFr;

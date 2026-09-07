@@ -11496,6 +11496,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-giacomo-lavorare-grigioni.title': 'Living in San Giacomo Filippo and working in Graubünden',
     'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'New Frontier Agreement 2024, taxation, LAMal and AVS: the complete guide to move to San Giacomo Filippo and work in Graubünden as a border worker.',
     'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Parked car on a mountain road in Ticino at sunset, with Alpine peaks of Grisons in the background',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Living in Cedrasco, working in Graubünden: a guide',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Moving to Cedrasco to work in Graubünden: discover Permit G, border taxation, AVS, LAMal and the complete registration procedure.',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Mountain landscape at the Swiss-Italian border in the Grisons region, symbol of the cross-border frontier territory',
 };
 
 export default blogMetaEn;

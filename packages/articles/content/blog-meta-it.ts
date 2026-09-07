@@ -11497,6 +11497,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivere a San Giacomo Filippo e lavorare nei Grigioni',
     'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nuovo Accordo Frontalieri 2024, fiscalità, LAMal e AVS: la guida completa per trasferirsi a San Giacomo Filippo e lavorare nei Grigioni da frontaliere.',
     'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Auto parcheggiata su strada di montagna nel Ticino al tramonto, con vista sulle Alpi dei Grigioni sullo sfondo',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Vivere a Cedrasco, lavorare in Grigioni: guida',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Trasferirsi a Cedrasco per lavorare nei Grigioni: scopri Permesso G, tassazione frontaliere, AVS, LAMal e la procedura di registrazione completa.',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Paesaggio montano della regione di confine tra Italia e Svizzera, simbolo del territorio frontaliere dei Grigioni',
 };
 
 export default blogMetaIt;
