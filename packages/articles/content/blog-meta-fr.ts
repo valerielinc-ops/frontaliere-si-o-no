@@ -11546,6 +11546,14 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.luganese-tram-treno-cantieri-2035.title': 'Lugano Tram-Train : premiers chantiers en octobre, opérationnel en 2035',
     'blog.article.luganese-tram-treno-cantieri-2035.excerpt': 'Les travaux préliminaires débuteront fin octobre 2026 sur la liaison Manno-Bioggio.',
     'blog.article.luganese-tram-treno-cantieri-2035.imageAlt': 'Vue aérienne de Lugano avec le nouveau réseau Tram-Train en construction',
+    'blog.article.tram-treno-lugano-lavori-inizio.title': 'Début de la construction du tram-train du Luganese',
+    'blog.article.tram-treno-lugano-lavori-inizio.excerpt': 'Les travaux préliminaires pour le tram-train du Luganese débuteront fin octobre 2026 sur le tronçon Bioggio-Manno.',
+    'blog.article.tram-treno-lugano-lavori-inizio.imageAlt': 'Vue aérienne de Lugano avec les rails du tram-train en construction',
+    'blog.article.bollettino-frontaliere-2026-09-07.title': 'Bulletin du frontalier – 7 septembre 2026 : 118 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-07.excerpt': 'Les chiffres du jour, 7 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'Les chiffres du jour pour les frontaliers – 7 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Bulletin du frontalier du 7 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'Les chiffres du 7 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
