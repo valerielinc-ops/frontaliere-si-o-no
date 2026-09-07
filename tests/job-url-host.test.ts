@@ -1,11 +1,16 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { jobUrlHost, absoluteJobUrl } from '../scripts/lib/job-url-host.mjs';
+import { jobUrlHost, absoluteJobUrl, canonicalJobHost } from '../scripts/lib/job-url-host.mjs';
 import { isIpersonalJob } from '../scripts/lib/ipersonal-job-parser.mjs';
 import { isMedIpersonalJob } from '../scripts/lib/med-ipersonal-job-parser.mjs';
 import { isRheinmetallAirDefenceJob } from '../scripts/lib/rheinmetall-air-defence-job-parser.mjs';
 import { isBreitlingJob } from '../scripts/lib/breitling-job-parser.mjs';
-import { isKomaxJob } from '../scripts/lib/komax-group-job-parser.mjs';
+import { isKomaxJob, KOMAX_COMPANY_DOMAIN } from '../scripts/lib/komax-group-job-parser.mjs';
+import { RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN } from '../scripts/lib/rheinmetall-air-defence-job-parser.mjs';
+import { KSGL_COMPANY_DOMAIN } from '../scripts/lib/ksgl-job-parser.mjs';
+import { LUPS_COMPANY_DOMAIN } from '../scripts/lib/lups-job-parser.mjs';
+import { normalizeSourceHost } from '../scripts/lib/crawler-source-hosts.mjs';
+import { normalizeHost } from '../scripts/lib/prospector/registrable.mjs';
 
 describe('jobUrlHost', () => {
   it('reads the host of a scheme-less URL instead of throwing', () => {
@@ -152,5 +157,65 @@ describe('absoluteJobUrl', () => {
     for (const raw of ['med-ipersonal.ch/jobs/1', 'evil.com:8080/med-ipersonal.ch', 'https://med-ipersonal.ch.evil.com/x']) {
       expect(new URL(absoluteJobUrl(raw)).hostname.toLowerCase()).toBe(jobUrlHost(raw));
     }
+  });
+});
+
+describe('canonicalJobHost', () => {
+  it('puts an IDN host and its punycode spelling on one key', () => {
+    // `new URL()` punycodes the authority, so a host that arrives written in
+    // unicode and the same host read back out of a parsed URL were two
+    // different strings for every `===`/`Set.has` comparison downstream.
+    expect(canonicalJobHost('münchen-jobs.ch')).toBe('xn--mnchen-jobs-thb.ch');
+    expect(canonicalJobHost('xn--mnchen-jobs-thb.ch')).toBe('xn--mnchen-jobs-thb.ch');
+    expect(canonicalJobHost('MÜNCHEN-jobs.CH.')).toBe('xn--mnchen-jobs-thb.ch');
+  });
+
+  it('keeps the raw spelling when the host cannot be mapped', () => {
+    // `domainToASCII` answers '' on an unmappable host. That is a rejection,
+    // not a canonical form: collapsing to '' would make two unrelated bad
+    // hosts compare EQUAL to each other.
+    expect(canonicalJobHost('a..b')).toBe('a..b');
+    expect(canonicalJobHost('')).toBe('');
+    expect(canonicalJobHost('  ')).toBe('');
+  });
+
+  it('leaves every host constant the parsers compare against untouched', () => {
+    // The constant side of those comparisons is only safe while it is already
+    // canonical; a constant added in unicode would match nothing, silently.
+    for (const domain of [
+      KOMAX_COMPANY_DOMAIN,
+      RHEINMETALL_AIR_DEFENCE_COMPANY_DOMAIN,
+      KSGL_COMPANY_DOMAIN,
+      LUPS_COMPANY_DOMAIN,
+      'med-ipersonal.ch',
+      'ohws.prospective.ch',
+    ]) {
+      expect(canonicalJobHost(domain)).toBe(domain);
+    }
+  });
+});
+
+describe('IDN hosts across the host normalisers', () => {
+  it('claims a scheme-less IDN row instead of dropping it for its alphabet', () => {
+    // The authority shape was ASCII-only, so a scheme-less unicode host looked
+    // like a bare path, stayed untouched and answered '' — the #7758 drop, in
+    // the form that carries an umlaut.
+    expect(absoluteJobUrl('zürich-spital.ch/stelle/1')).toBe('https://zürich-spital.ch/stelle/1');
+    expect(absoluteJobUrl('//zürich-spital.ch/stelle/1')).toBe('https://zürich-spital.ch/stelle/1');
+    expect(absoluteJobUrl('zürich-spital.ch:8080/stelle/1')).toBe('https://zürich-spital.ch:8080/stelle/1');
+    expect(jobUrlHost('zürich-spital.ch/stelle/1')).toBe('xn--zrich-spital-dlb.ch');
+    expect(jobUrlHost('zürich-spital.ch:8080/stelle/1')).toBe('xn--zrich-spital-dlb.ch');
+    expect(jobUrlHost('https://zürich-spital.ch/stelle/1')).toBe('xn--zrich-spital-dlb.ch');
+  });
+
+  it('gives one identity to a host scraped as text and the same host parsed', () => {
+    // `crawler-source-hosts` feeds `normalizeSourceHost` from BOTH a raw-text
+    // regex over the slice JSON and `new URL().hostname`: two spellings would
+    // split one front door into two owners.
+    expect(normalizeSourceHost('www.zürich-spital.ch:8443')).toBe('xn--zrich-spital-dlb.ch');
+    expect(normalizeSourceHost(new URL('https://www.zürich-spital.ch/x').hostname)).toBe(
+      'xn--zrich-spital-dlb.ch',
+    );
+    expect(normalizeHost('https://zürich-spital.ch/x')).toBe(normalizeHost('zürich-spital.ch'));
   });
 });

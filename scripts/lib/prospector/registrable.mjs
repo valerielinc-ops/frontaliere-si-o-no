@@ -14,6 +14,8 @@
  *                    looks like its own platform and nothing ever clusters.
  */
 
+import { canonicalJobHost } from '../job-url-host.mjs';
+
 /** Multi-label public suffixes seen on Swiss/EU employer sites. */
 const MULTI_LABEL_SUFFIXES = new Set([
   'co.uk', 'org.uk', 'ac.uk', 'gov.uk', 'me.uk', 'net.uk',
@@ -24,8 +26,15 @@ const MULTI_LABEL_SUFFIXES = new Set([
 ]);
 
 /**
- * Normalise a host: lowercase, strip a leading `www.`/`www2.`, drop a trailing
- * dot and any port.
+ * Normalise a host: lowercase, punycode, strip a leading `www.`/`www2.`, drop a
+ * trailing dot and any port.
+ *
+ * The punycode step closes an asymmetry inside this very function: the `://`
+ * branch hands the host to `new URL()`, which returns it punycoded, while a
+ * BARE host is kept in whatever alphabet it was written in. The prospector then
+ * compares the two forms of the same IDN domain by equality
+ * (`coverage.domains.has(domain)`) and they never match — a covered employer
+ * reads as uncovered and gets prospected again, the same mute match as #7769.
  *
  * @param {string} raw
  * @returns {string}
@@ -35,7 +44,7 @@ export function normalizeHost(raw = '') {
   if (h.includes('://')) {
     try { h = new URL(h).hostname; } catch { /* not a URL, treat as bare host */ }
   }
-  h = h.split('/')[0].split(':')[0].replace(/\.$/, '');
+  h = canonicalJobHost(h.split('/')[0].split(':')[0]);
   return h.replace(/^www\d?\./, '');
 }
 
