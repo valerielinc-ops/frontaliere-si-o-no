@@ -5869,6 +5869,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cybersecurity-casa-data-center.title': 'Jeder sollte ein Hacker sein: Unser Haus ist ein Rechenzentrum',
     'blog.article.cybersecurity-casa-data-center.excerpt': 'Keren Elazari, Cybersicherheitsexpertin, erklärt, wie künstliche Intelligenz die Welt der Cyberangriffe verändert und wie wir unsere Privatsphäre schützen können.',
     'blog.article.cybersecurity-casa-data-center.imageAlt': 'Ein modernes Wohnzimmer mit verbundenen Geräten, darunter ein Smart-TV, ein Laptop und intelligente Haushaltsgeräte, die alle mit einem sicheren Wi-Fi-Router verbunden sind.',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.title': 'Anstieg der Arbeitslosen im August 2026: +1,6% monatlich, +7,1% jährlich',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.excerpt': 'Das SECO hat die Arbeitsmarktdaten für den Monat August 2026 in der Schweiz veröffentlicht und zeigt einen Anstieg der Arbeitslosenzahlen.',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit dem Luganersee im Hintergrund, die die wirtschaftliche Aktivität in der Region zeigt.',
 };
 
 export default blogMetaChDe;

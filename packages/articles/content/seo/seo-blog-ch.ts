@@ -76187,6 +76187,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-svizzera-agosto-2026': {
+    title: 'Aumento disoccupati agosto 2026: +1,6% mensile, +7,1% annuale',
+    description: 'La SECO ha pubblicato i dati sul mercato del lavoro in Svizzera per il mese di agosto 2026, mostrando un aumento del numero di disoccupati. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, disoccupati, agosto, mensile',
+    ogTitle: 'Aumento disoccupati agosto 2026: +1,6% mensile, +7,1% annuale',
+    ogDescription: 'La SECO ha pubblicato i dati sul mercato del lavoro in Svizzera per il mese di agosto 2026, mostrando un aumento del numero di disoccupati. Il numero dei disoccupati è aumentato di 2’268 unità (+1,6%) rispetto al mese precedente e di 9’439 unità',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-svizzera-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento disoccupati agosto 2026: +1,6% mensile, +7,1% annuale",
+      "description": "La SECO ha pubblicato i dati sul mercato del lavoro in Svizzera per il mese di agosto 2026, mostrando un aumento del numero di disoccupati. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Lugano con il Lago di Lugano sullo sfondo, che mostra l'attività economica nella regione."
+      },
+      "datePublished": "2026-09-07T07:38:18+00:00",
+      "dateModified": "2026-09-07T07:38:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-svizzera-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

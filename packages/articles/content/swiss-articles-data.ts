@@ -17605,6 +17605,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-lavoro-svizzera-agosto-2026',
+    category: 'novita',
+    date: '2026-09-07T07:38:18.916Z',
+    image: '/images/blog/mercato-lavoro-svizzera-agosto-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
