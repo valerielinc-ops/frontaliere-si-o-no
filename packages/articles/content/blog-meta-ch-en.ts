@@ -5833,6 +5833,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-turgovia.title': 'Permit L short duration Thurgau: extension and renewal',
     'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'The L permit allows you to work in Switzerland for periods of up to one year. Find out how it works in Thurgau, the extension conditions and the switch to the B permit.',
     'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Swiss administrative office with temporary work permit L forms and documents',
+    'blog.article.apprendistato-turgovia.title': 'Apprenticeship and training in Canton Thurgau',
+    'blog.article.apprendistato-turgovia.excerpt': 'Practical guide to the apprenticeship system in Switzerland: how to find an apprenticeship, learn about the apprentice\'s rights and the training contract.',
+    'blog.article.apprendistato-turgovia.imageAlt': 'Young apprentice undergoing practical training in a Swiss vocational workshop',
 };
 
 export default blogMetaChEn;

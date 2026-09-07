@@ -5833,6 +5833,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-turgovia.title': 'Permesso L breve durata Turgovia: proroga e rinnovo',
     'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'Il permesso L consente di lavorare in Svizzera per periodi fino a un anno. Scopri come funziona in Turgovia, le condizioni di proroga e il passaggio al permesso B.',
     'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Ufficio amministrativo svizzero con moduli per permesso L di breve durata',
+    'blog.article.apprendistato-turgovia.title': 'Apprendistato e formazione in Canton Turgovia',
+    'blog.article.apprendistato-turgovia.excerpt': 'Guida pratica al sistema di apprendistato in Svizzera: come trovare un tirocinio, conoscere i diritti dell\'apprendista e il contratto di formazione.',
+    'blog.article.apprendistato-turgovia.imageAlt': 'Giovane apprendista in formazione pratica presso un laboratorio professionale svizzero',
 };
 
 export default blogMetaChIt;

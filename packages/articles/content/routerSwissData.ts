@@ -1970,6 +1970,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-argovia': { it: 'salari-mercato-lavoro-argovia', en: 'salaries-job-market-aargau', de: 'loehne-arbeitsmarkt-aargau', fr: 'salaires-marche-travail-argovie' },
  'permesso-dimora-b-canton-turgovia-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-turgovia-requisiti-rinnovo', en: 'residence-permit-b-canton-turgovia-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-thurgau-voraussetzungen-verlaengerung', fr: 'permis-de-sejour-b-canton-de-thurgovie-exigences-renouvellement' },
  'permesso-l-breve-durata-turgovia': { it: 'permesso-l-breve-durata-turgovia', en: 'permit-l-short-term-thurgau', de: 'arbeitsgenehmigung-l-kurzfristig-thurgau', fr: 'permis-l-courte-duree-thurgovie' },
+ 'apprendistato-turgovia': { it: 'apprendistato-turgovia', en: 'apprenticeship-thurgau', de: 'lehre-thurgau', fr: 'apprentissage-thurgovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

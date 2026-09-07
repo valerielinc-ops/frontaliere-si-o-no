@@ -5833,6 +5833,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-turgovia.title': 'Permis L courte durée Thurgovie : prorogation et renouvellement',
     'blog.article.permesso-l-breve-durata-turgovia.excerpt': 'Le permis L permet de travailler en Suisse pour des périodes allant jusqu\'à un an. Découvrez comment cela fonctionne en Thurgovie, les conditions de prolongation et le passage au permis B.',
     'blog.article.permesso-l-breve-durata-turgovia.imageAlt': 'Bureau administratif suisse avec dossiers de permis de travail de courte duree',
+    'blog.article.apprendistato-turgovia.title': 'Apprentissage et formation dans le canton de Thurgovie',
+    'blog.article.apprendistato-turgovia.excerpt': 'Guide pratique du système d\'apprentissage en Suisse : comment trouver un stage, connaître les droits de l\'apprenti et le contrat de formation.',
+    'blog.article.apprendistato-turgovia.imageAlt': 'Jeune apprenti suivant une formation pratique dans un atelier de formation professionnelle suisse',
 };
 
 export default blogMetaChFr;
