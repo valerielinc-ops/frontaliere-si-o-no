@@ -11561,6 +11561,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rete-tram-treno-cantieri-inizio.title': 'Tram-Train Network, bulldozer at work since mid-October',
     'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'Work on the Tram-Train Network will begin in mid-October with the retaining walls on the Bioggio-Manno section.',
     'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Aerial view of Lugano city center with construction sites visible',
+    'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese: conference on renewable energy communities',
+    'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'The Varese Chamber of Commerce is organising a conference on Renewable Energy Communities for businesses, local authorities and private citizens.',
+    'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops.',
 };
 
 export default blogMetaEn;
