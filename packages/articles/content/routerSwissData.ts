@@ -2019,6 +2019,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'investito-treno-13-anni-berna': { it: 'investito-treno-13-anni-berna', en: 'fatal-train-accident-berna', de: 'todlicher-zugunfall-berna', fr: 'accident-train-mortel-berne' },
  'affitti-appenzello-interno-canoni': { it: 'affitti-appenzello-interno-canoni', en: 'rent-appenzell-innerrhoden-rental-fees', de: 'mieten-appenzell-innerrhoden-mietpreise', fr: 'loyers-appenzell-rhodes-interieures' },
  'seco-mercato-lavoro-svizzero-solido': { it: 'seco-mercato-lavoro-svizzero-solido', en: 'seco-swiss-labor-market-solid', de: 'seco-schweizer-arbeitsmarkt-solid', fr: 'seco-marche-du-travail-suisse-solide' },
+ 'permesso-domicilio-c-ginevra': { it: 'permesso-domicilio-c-ginevra', en: 'c-permit-geneva-canton-requirements', de: 'c-bewilligung-kanton-genf-voraussetzungen', fr: 'permis-c-canton-geneve-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
