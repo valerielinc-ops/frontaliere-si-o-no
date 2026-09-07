@@ -418,7 +418,10 @@ const SCAN_ROTATION_PERIOD_MS = intFromEnv('FOLLOWUP_SCAN_ROTATION_MS', 20 * 60_
 // di consumare i tentativi residui (3 run identiche → 1). Esclusi di proposito:
 // `overlap-skip`/`pr-already-open` (transienti: la PR bloccante può mergiare →
 // ri-tentabile) e l'ASSENZA di marker (run crashata/max_turns davvero orfana →
-// rescue normale). `pr-created` non arriva qui: `hasFixPR` lo intercetta prima.
+// rescue normale). `pr-created` ARRIVA qui appena la PR mergia — `hasFixPR`
+// guarda solo le PR APERTE — ma non e' un verdetto fermo: lo intercetta
+// `deliveredThisAttempt` piu' sotto, che lo ri-accoda SENZA consumare un
+// tentativo invece di parcheggiarlo.
 // `skip-duplicate-diagnosis` (#5288): stesso verdetto fermo di
 // `blocked-workflows-scope`, da cui è stato separato solo per non far salire il
 // bucket dell'harvester quando il guard FUNZIONA (vedi check-workflows-scope.mjs,
@@ -1873,6 +1876,65 @@ function hasFixPREver(num) {
   } catch { return true; }
 }
 
+/** Quante fix PR ha MAI prodotto questa issue (open|merged|closed).
+ * Gemello contatore di `hasFixPREver`, con il fail-safe ROVESCIATO di
+ * proposito: su errore `gh` torna 0, cioe' «non risulta consegnato», che fa
+ * addebitare il tentativo. E' il comportamento di oggi, quindi un glitch di
+ * rete non puo' regalare passaggi liberi all'infinito. */
+function fixPRCountEver(num) {
+  try {
+    const prs = gh(['pr', 'list', '--repo', REPO, '--head', `fix/issue-${num}`, '--state', 'all', '--json', 'number', '--limit', '100']);
+    return Array.isArray(prs) ? prs.length : 0;
+  } catch { return 0; }
+}
+
+/**
+ * Questo giro del RESCUE ha davanti una run che ha CONSEGNATO, non una run
+ * morta? Se si', il re-queue non deve consumare un `fu-attempt`.
+ *
+ * `fu-attempt:N` conta i tentativi FALLITI: a N>=MAX_ATTEMPTS la issue viene
+ * parcheggiata `fu-parked`, cioe' dichiarata «tre volte tentata invano». Il
+ * RESCUE ci arriva per esclusione, dopo aver scartato ZERO_WORK e
+ * NON_RETRYABLE, e il commento su `NON_RETRYABLE` dichiara la premessa che
+ * rende corretto quel per-esclusione: «`pr-created` non arriva qui:
+ * `hasFixPR` lo intercetta prima».
+ *
+ * La premessa e' falsa appena la PR MERGIA. `hasFixPR` interroga di proposito
+ * solo `--state open` (e deve restare cosi': con `--state all` una PR mergiata
+ * su una issue ancora aperta la teneva in-flight per sempre — #1049 #1707
+ * #1824). Ma la PR di un fix passa da `pr-review-loop` + `auto-merge-on-lgtm`
+ * in ~20-25 minuti, mentre `ORPHAN_MIN_AGE_MIN` e' 30: quando il RESCUE guarda,
+ * la PR e' gia' mergiata e sparita dalle aperte. Quindi `hasFixPR` risponde
+ * `false`, l'ultimo marker e' `pr-created`, e una run RIUSCITA cade nel ramo
+ * eta'-tentativi e si prende un `fu-attempt`.
+ *
+ * Misurato il 2026-09-07 sulle 47 issue `fu-attempt:3` aperte del sito (42
+ * delle quali `fu-parked`): 28 hanno come ULTIMO verdetto `pr-created` e 30
+ * hanno almeno una PR realmente esistente su `fix/issue-N`. Solo 11 non hanno
+ * alcun marker, che e' il caso «run davvero morta» per cui il contatore esiste.
+ * Il caso di scuola e' #7769: tre run, tre PR (#7862 #7877 #7881), un item
+ * dell'aggregata chiuso da ciascuna — e la issue finisce `fu-parked` +
+ * `fu-attempt:3`, come se nessuno l'avesse mai guardata.
+ *
+ * Il predicato non si accontenta del marker, perche' `latestFixOutcome` rilegge
+ * lo STESSO commento a ogni tick: un solo `pr-created` regalerebbe passaggi
+ * liberi per sempre. Chiede che le PR mai prodotte siano piu' dei tentativi
+ * gia' addebitati, cioe' che questo giro abbia aggiunto una PR sua. Il
+ * passaggio libero costa quindi una PR nuova e vera, e il ciclo resta limitato:
+ * quando l'aggregata finisce gli item il fixer emette `already-fixed`, che e'
+ * in `NON_RETRYABLE` e parcheggia sopra.
+ *
+ * Puro (nessun I/O) cosi' il test lo pilota senza rete.
+ *
+ * @param {{outcome: string|null, prCountEver: number, attempt: number}} args
+ *   `attempt` = i tentativi GIA' addebitati (`attemptOf(iss)`), non il prossimo.
+ */
+export function deliveredThisAttempt({ outcome, prCountEver, attempt }) {
+  return outcome === 'pr-created'
+    && Number.isFinite(prCountEver)
+    && prCountEver > (Number.isFinite(attempt) ? attempt : 0);
+}
+
 function minutesSince(iso) {
   const then = Date.parse(iso);
   if (Number.isNaN(then)) return Number.POSITIVE_INFINITY;
@@ -1969,6 +2031,7 @@ export function crawlerFixDecision({
   ageMin,
   attempt = 0,
   hasPR = false,
+  prCountEver = 0,
   quotaBackoffActive = false,
   settleMin = SETTLE_MIN,
   orphanMinAgeMin = ORPHAN_MIN_AGE_MIN,
@@ -1977,6 +2040,15 @@ export function crawlerFixDecision({
 } = {}) {
   const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
   if (hasPR) return keep('skip', 'ha una PR fix aperta');
+  // Stesso difetto del RESCUE queue-managed, stessa causa: `hasPR` viene da
+  // `hasFixPR`, che guarda solo le PR APERTE, quindi una PR gia' MERGIATA
+  // arriva qui come «nessuna PR» con `outcome === 'pr-created'` e cade nel ramo
+  // eta'-tentativi piu' sotto — che la descriveva letteralmente «esito
+  // transiente pr-created, nessuna PR» mentre le addebitava un tentativo.
+  // Vedi `deliveredThisAttempt` per la misura e per il limite del ciclo.
+  if (deliveredThisAttempt({ outcome, prCountEver, attempt })) {
+    return keep('requeue-delivered', 'pr-created: la run ha consegnato una PR (tentativo NON consumato)');
+  }
   // `max-turns` = troppo grande per una run, non un verdetto fermo. La path
   // queue-managed di questo stesso file lo manda alla DECOMPOSE-ROUTE; qui,
   // per l'unica categoria che `isQueueManaged` esclude, il park era
@@ -2873,6 +2945,15 @@ export function runDrain() {
       edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
       continue;
     }
+    // Una run che ha CONSEGNATO non e' una run morta: ri-accoda per gli item
+    // rimasti dell'aggregata, ma senza consumare un tentativo. Vedi
+    // `deliveredThisAttempt` per la premessa che si rompe (`hasFixPR` guarda
+    // solo le PR aperte, e la PR mergia prima che il RESCUE la guardi).
+    if (deliveredThisAttempt({ outcome, prCountEver: fixPRCountEver(iss.number), attempt: attemptOf(iss) })) {
+      console.log(`RE-QUEUE #${iss.number} (${outcome}, PR gia' consegnata e mergiata) → tentativo NON consumato (la run ha lavorato)`);
+      edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
+      continue;
+    }
     // rescue/park per età-tentativi (run davvero morta, nessun verdetto)
     const attempt = attemptOf(iss) + 1;
     const prevAttemptLabel = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
@@ -2912,6 +2993,7 @@ export function runDrain() {
       ageMin: minutesSince(iss.updatedAt),
       attempt,
       hasPR,
+      prCountEver: hasPR ? 0 : fixPRCountEver(iss.number),
       quotaBackoffActive: quotaBackoffUntil !== null,
       decomposeEligible: DECOMPOSE_ENABLED && isDecomposeEligible(iss),
     });
@@ -2920,6 +3002,11 @@ export function runDrain() {
     if (d.action === 'settling') { settlingPromotions++; continue; }
     if (d.action === 'hold-quota') {
       console.log(`HOLD CRAWLER ${tag} (${d.reason}) → resta agent:fix come beacon, nessun tentativo consumato`);
+      continue;
+    }
+    if (d.action === 'requeue-delivered') {
+      console.log(`RE-QUEUE CRAWLER ${tag} (${d.reason}) → agent:fix-queued, tentativo NON consumato`);
+      edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
       continue;
     }
     if (d.action === 'requeue-zero-work') {
