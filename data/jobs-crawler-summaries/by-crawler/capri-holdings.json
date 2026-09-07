@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-07T15:22:00.998Z",
+  "generatedAt": "2026-09-07T23:41:55.660Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 21077,
-  "avgDurationMs": 21077,
+  "durationMs": 17314,
+  "avgDurationMs": 17314,
   "durationHistory": [
-    21077
+    17314
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/General-Services-Coordinator_R_786390",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/General-Services-Coordinator_R_786390",
@@ -40,18 +41,18 @@
         "canton": "TI",
         "location": "Manno"
       },
-      "crawledAt": "",
+      "id": "capri-holdings-5e4718030019",
       "needsRetranslation": true,
-      "_qualityScore": 68,
+      "firstSeenAt": "2026-09-07T15:21:58.179Z",
+      "crawledAt": "",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 8,
+        "translation": 23,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -80,9 +81,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,9 +196,9 @@
         "location": "Geneva"
       },
       "id": "capri-holdings-7593aa4af27d",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -243,7 +244,8 @@
       "salaryMax": 105000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -286,7 +288,8 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -330,7 +333,7 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
