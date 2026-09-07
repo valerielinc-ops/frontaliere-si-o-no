@@ -75641,6 +75641,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-dimora-b-canton-turgovia-requisiti-rinnovo': {
+    title: 'Permesso di dimora B nel Cantone di Turgovia: requisiti e rinnovo',
+    description: 'Scopri i requisiti e la procedura per il rinnovo del permesso di dimora B nel Cantone di Turgovia. Informazioni utili per i residenti stranieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, dimora, cantone, turgovia',
+    ogTitle: 'Permesso di dimora B nel Cantone di Turgovia: requisiti e rinnovo',
+    ogDescription: 'Scopri i requisiti e la procedura per il rinnovo del permesso di dimora B nel Cantone di Turgovia. Informazioni utili per i residenti stranieri che desiderano stabilirsi in Svizzera per un periodo prolungato.',
+    canonicalPath: '/articoli-svizzera/permesso-dimora-b-canton-turgovia-requisiti-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di dimora B nel Cantone di Turgovia: requisiti e rinnovo",
+      "description": "Scopri i requisiti e la procedura per il rinnovo del permesso di dimora B nel Cantone di Turgovia. Informazioni utili per i residenti stranieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-dimora-b-canton-turgovia-requisiti-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio cantonale della migrazione in Turgovia"
+      },
+      "datePublished": "2026-09-07T03:40:46+00:00",
+      "dateModified": "2026-09-07T03:40:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-dimora-b-canton-turgovia-requisiti-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

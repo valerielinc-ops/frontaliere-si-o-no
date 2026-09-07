@@ -5827,6 +5827,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-argovia.title': 'Löhne und Arbeitsmarkt im Aargau: Branchen und Niveaus',
     'blog.article.salari-mercato-lavoro-argovia.excerpt': 'Im Kanton Aargau variieren die Löhne je nach Ausbildung und Kollektivverträgen. Entdecken Sie Lohnunterschiede, Sozialbeiträge und Bundesarbeitsschutz.',
     'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Modernes Büro eines Schweizer Unternehmens mit Mitarbeitern: typische Arbeitsumgebung im Kanton Aargau',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B im Kanton Thurgau: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren zur Verlängerung der Aufenthaltsbewilligung B im Kanton Thurgau.',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Kantonales Migrationsamt in Turgovia',
 };
 
 export default blogMetaChDe;
