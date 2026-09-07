@@ -5935,6 +5935,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cibo-per-cani-gatti-errori-comuni.title': 'Dog and cat food: the five most common mistakes',
     'blog.article.cibo-per-cani-gatti-errori-comuni.excerpt': 'Overly large portions, dirty bowls or leftovers from the table - here\'s what not to do to keep these pets healthy',
     'blog.article.cibo-per-cani-gatti-errori-comuni.imageAlt': 'Dog and cat eating from their bowls in a clean, well-lit kitchen',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.title': 'Confederation wants to maintain Thun areas for army and defense',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.excerpt': 'The Confederation will not cede areas in the economic development pole of Thun Nord for exclusively civil uses',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.imageAlt': 'Aerial view of Thun with the military training area and surrounding industrial zones',
 };
 
 export default blogMetaChEn;

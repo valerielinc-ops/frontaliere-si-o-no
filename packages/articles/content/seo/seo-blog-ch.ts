@@ -77045,6 +77045,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confederazione-mantiene-aree-thun-difesa': {
+    title: 'Confederazione vuole mantenere aree Thun per esercito e difesa',
+    description: 'La Confederazione non cederà aree nel polo di sviluppo economico di Thun Nord per usi esclusivamente civili. Scopri le implicazioni per la città e la Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, confederazione, vuole, mantenere, aree',
+    ogTitle: 'Confederazione mantiene aree Thun per esercito e difesa',
+    ogDescription: 'La Confederazione non cederà aree nel polo di sviluppo economico di Thun Nord per usi esclusivamente civili. Scopri le implicazioni per la città e la Svizzera.',
+    canonicalPath: '/articoli-svizzera/confederazione-mantiene-aree-thun-difesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confederazione vuole mantenere aree Thun per esercito e difesa",
+      "description": "La Confederazione non cederà aree nel polo di sviluppo economico di Thun Nord per usi esclusivamente civili. Scopri le implicazioni per la città e la Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confederazione-mantiene-aree-thun-difesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Thun con l'area di addestramento militare e le zone industriali circostanti"
+      },
+      "datePublished": "2026-09-07T11:45:17+00:00",
+      "dateModified": "2026-09-07T11:45:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/confederazione-mantiene-aree-thun-difesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

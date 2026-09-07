@@ -5935,6 +5935,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cibo-per-cani-gatti-errori-comuni.title': 'Cibo per cani e gatti: i cinque errori più comuni',
     'blog.article.cibo-per-cani-gatti-errori-comuni.excerpt': 'Porzioni troppo grandi, ciotole sporche o avanzi dal tavolo: ecco cosa non fare per tenere in salute questi animali domestici',
     'blog.article.cibo-per-cani-gatti-errori-comuni.imageAlt': 'Cane e gatto che mangiano dai loro piatti in una cucina pulita e illuminata',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.title': 'Confederazione vuole mantenere aree Thun per esercito e difesa',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.excerpt': 'La Confederazione non cederà aree nel polo di sviluppo economico di Thun Nord per usi esclusivamente civili',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.imageAlt': 'Vista aerea di Thun con l\'area di addestramento militare e le zone industriali circostanti',
 };
 
 export default blogMetaChIt;

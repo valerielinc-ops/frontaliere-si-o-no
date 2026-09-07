@@ -17803,6 +17803,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'confederazione-mantiene-aree-thun-difesa',
+    category: 'novita',
+    date: '2026-09-07T11:45:17.729Z',
+    image: '/images/blog/confederazione-mantiene-aree-thun-difesa.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
