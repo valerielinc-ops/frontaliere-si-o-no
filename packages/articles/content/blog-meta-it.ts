@@ -11518,6 +11518,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-2024.title': 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
     'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua.',
     'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Vivere a Aymavilles e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi di trasferirsi a Aymavilles per lavorare in Vallese.',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Panoramica di Aymavilles con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
