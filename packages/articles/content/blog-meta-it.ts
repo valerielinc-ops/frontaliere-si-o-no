@@ -11503,6 +11503,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.schilpario-frontaliere-grigioni-guida.title': 'Da Schilpario ai Grigioni: vivere da frontaliere',
     'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Permesso G, tassazione, imposta alla fonte, AVS e LAMal: scopri come funziona il regime fiscale per frontalieri che vivono a Schilpario e lavorano nei Grigioni.',
     'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'Veduta dai Grigioni verso la Lombardia: paesaggio alpino transfrontaliero per frontalieri',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Vivere a Colorina e lavorare in Grigioni',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'Permesso G, tassazione in Svizzera, credito d\'imposta italiano, AVS/LPP, LAMal e procedure: la guida completa per frontalieri tra Sondrio e Grigioni.',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina, comune di confine in provincia di Sondrio: scenario residenziale per frontalieri che lavorano in Grigioni',
 };
 
 export default blogMetaIt;
