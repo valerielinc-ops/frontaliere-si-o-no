@@ -514,7 +514,7 @@ function cacheDirFor(rootDir: string, cacheKey: string): string {
   return path.join(rootDir, '.cache', 'related-search-clusters', cacheKey);
 }
 
-async function tryRestoreFromCache(
+export async function tryRestoreFromCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
@@ -613,7 +613,7 @@ async function tryRestoreFromCache(
   return { ...manifest, emittedCount: restored };
 }
 
-function saveToCache(
+export function saveToCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
