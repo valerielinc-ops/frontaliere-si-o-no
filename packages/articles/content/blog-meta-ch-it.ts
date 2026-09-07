@@ -5884,6 +5884,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cannabis-farmacia-berna-bienne-lucerna.title': 'Cannabis in farmacia: meno rischi e più consapevolezza',
     'blog.article.cannabis-farmacia-berna-bienne-lucerna.excerpt': 'Il progetto pilota di vendita di cannabis nelle farmacie di Berna, Bienne e Lucerna sta dimostrando di favorire un consumo meno rischioso.',
     'blog.article.cannabis-farmacia-berna-bienne-lucerna.imageAlt': 'Una farmacia a Berna, Bienne o Lucerna con un cartello per la vendita di cannabis.',
+    'blog.article.padula-direttore-ire-usi-2026.title': 'Mario Padula nuovo direttore IRE dell\'USI dal 1° settembre',
+    'blog.article.padula-direttore-ire-usi-2026.excerpt': 'L\'economista, già presidente COVIP e membro EIOPA, succede a Mario Jametti alla guida dell\'Istituto di ricerche economiche dell\'USI.',
+    'blog.article.padula-direttore-ire-usi-2026.imageAlt': 'Campus USI a Lugano con la nuova direzione dell\'IRE',
 };
 
 export default blogMetaChIt;
