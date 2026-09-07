@@ -75485,6 +75485,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-argovia-mercato-lavoro-settori': {
+    title: 'Mercato del lavoro Argovia: salari, settori e formazione',
+    description: 'Scopri come funziona il mercato del lavoro nel canton Argovia: livelli salariali per formazione, settori che assumono, contratti collettivi e diritti',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, argovia, salari',
+    ogTitle: 'Mercato del lavoro Argovia: salari e settori',
+    ogDescription: 'Nel canton Argovia il mercato del lavoro segue il sistema svizzero. Scopri i livelli salariali per grado di formazione (AFC, diplomi, università), i settori che assumono, i contratti collettivi e come negoziare il tuo stipendio netto',
+    canonicalPath: '/articoli-svizzera/argovia-mercato-lavoro-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro Argovia: salari, settori e formazione",
+      "description": "Scopri come funziona il mercato del lavoro nel canton Argovia: livelli salariali per formazione, settori che assumono, contratti collettivi e diritti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/argovia-mercato-lavoro-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti svizzeri in ambiente di lavoro moderno rappresentanti i settori del mercato del lavoro dell'Argovia"
+      },
+      "datePublished": "2026-09-07T02:52:54+00:00",
+      "dateModified": "2026-09-07T02:52:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/argovia-mercato-lavoro-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-berna-tariffe-sussidi': {
+    title: 'Asilo nido Berna: tariffe, costi e sussidi | Frontaliere Ticino',
+    description: 'Custodia bambini nel canton Berna: asili nido, Tagesfamilien, doposcuola. Tariffe calcolate sul reddito e sussidi cantonali disponibili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, berna, tariffe',
+    ogTitle: 'Asilo nido Berna: tariffe, costi e sussidi',
+    ogDescription: 'Nel canton Berna le famiglie hanno diverse opzioni per la custodia dei bambini con tariffe calcolate sul reddito familiare e sussidi disponibili. Scopri come accedere ai servizi.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-berna-tariffe-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido Berna: tariffe, costi e sussidi",
+      "description": "Custodia bambini nel canton Berna: asili nido, Tagesfamilien, doposcuola. Tariffe calcolate sul reddito e sussidi cantonali disponibili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-berna-tariffe-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido nel canton Berna con bambini in area giochi esterna"
+      },
+      "datePublished": "2026-09-07T03:01:36+00:00",
+      "dateModified": "2026-09-07T03:01:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-berna-tariffe-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
