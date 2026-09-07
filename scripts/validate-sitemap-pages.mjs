@@ -100,6 +100,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { flatString } from './lib/flat-string.mjs';
+import { discoverSoft404Sitemaps } from './lib/soft404-sitemap-discovery.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isExternallyServedUrl, isExternallyServedPath } from './lib/externally-served-paths.mjs';
@@ -112,7 +113,6 @@ import {
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
-const PUBLIC_DIR = join(ROOT, 'public');
 const HOST = 'https://frontaliereticino.ch';
 const BASE_URL_TRAILING = HOST + '/';
 
@@ -327,15 +327,14 @@ const isLegitLegacyAlias = isLegitLegacyAliasCanonicalization;
 // shared definition, so check 1 above and check 2 below cannot disagree.
 const isLegitJobConsolidation = isLegitJobCanonicalConsolidation;
 
-/** validate-soft404: public/sitemap-*.xml minus sitemap-jobs.xml. */
+/** validate-soft404: dist/sitemap-*.xml minus job shards and sitemap indexes. */
 function loadSoft404Urls() {
-  if (!existsSync(PUBLIC_DIR)) return { sitemapFiles: [], perSitemap: [] };
-  const sitemapFiles = readdirSync(PUBLIC_DIR)
-    .filter(f => f.startsWith('sitemap-') && f.endsWith('.xml') && f !== 'sitemap-jobs.xml')
-    .sort();
+  // Shared with validate-soft404.mjs so the two populations cannot drift: this
+  // runner re-implements that gate and must judge the same sitemaps (#7744).
+  const { dir: sitemapDir, files: sitemapFiles } = discoverSoft404Sitemaps(ROOT);
   const perSitemap = [];
   for (const file of sitemapFiles) {
-    const xml = readFileSync(join(PUBLIC_DIR, file), 'utf-8');
+    const xml = readFileSync(join(sitemapDir, file), 'utf-8');
     const locs = [];
     {
       const re = /<loc>\s*(https?:\/\/[^<]+?)\s*<\/loc>/gi;

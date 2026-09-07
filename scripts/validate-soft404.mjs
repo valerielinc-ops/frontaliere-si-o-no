@@ -13,9 +13,10 @@
  *   node scripts/validate-soft404.mjs                # full validation
  *   node scripts/validate-soft404.mjs --warn-only    # report issues but don't block
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { flatString } from './lib/flat-string.mjs';
+import { discoverSoft404Sitemaps } from './lib/soft404-sitemap-discovery.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -108,11 +109,11 @@ function isSkeletonDominated(html) {
 
 console.log('\n🔍 Soft-404 Validation\n');
 
-// Discover sitemap files (skip sitemap-jobs.xml — job pages have different rules)
-const sitemapDir = path.join(DIST.replace('/dist', ''), 'public');
-const sitemapFiles = readdirSync(sitemapDir)
-  .filter(f => f.startsWith('sitemap-') && f.endsWith('.xml') && f !== 'sitemap-jobs.xml')
-  .sort();
+// Discover the sitemaps that are actually served — dist/, not public/ (#7744).
+// public/ holds only the ten checked-in sitemaps; every plugin-generated one
+// (sitemap-eventi.xml and friends) exists solely in dist/ and was never judged.
+const { dir: sitemapDir, files: sitemapFiles, excluded: excludedSitemaps } =
+  discoverSoft404Sitemaps(ROOT);
 
 const issues = [];
 let totalChecked = 0;
@@ -190,7 +191,21 @@ for (const file of sitemapFiles) {
   console.log(`  ${status} ${file}: ${allUrls.length} URLs, ${fileIssues} issues`);
 }
 
-console.log(`\n📊 Checked ${totalChecked} pages across ${sitemapFiles.length} sitemaps (${skippedMissing} missing files skipped)`);
+console.log(
+  `\n📊 Checked ${totalChecked} pages across ${sitemapFiles.length} sitemaps ` +
+  `in ${path.relative(ROOT, sitemapDir) || '.'}/ (${skippedMissing} missing files skipped)`
+);
+if (excludedSitemaps.length > 0) {
+  console.log(`   Excluded by design (job shards / sitemap indexes): ${excludedSitemaps.join(', ')}`);
+}
+// Offender rate on the population, printed every run: the population widened
+// from 10 sitemaps to whatever dist/ serves, so the next threshold decision is
+// taken on a measurement instead of an intuition (AGENTS.md #1 corollary).
+{
+  const offenders = new Set(issues.map(i => i.url)).size;
+  const rate = totalChecked > 0 ? ((offenders / totalChecked) * 100).toFixed(2) : '0.00';
+  console.log(`   Offender rate: ${offenders}/${totalChecked} pages (${rate}%)`);
+}
 
 const errors = issues.filter(i => i.severity === 'error');
 const warnings = issues.filter(i => i.severity === 'warning');
