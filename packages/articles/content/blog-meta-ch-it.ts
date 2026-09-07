@@ -5845,6 +5845,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-integrazioni-canton-berna.title': 'AVS e prestazioni complementari nel Canton Berna',
     'blog.article.avs-integrazioni-canton-berna.excerpt': 'Come funziona il calcolo della rendita AVS nel Canton Berna: contributi obbligatori, lacune contributive, prestazioni complementari e copertura del minimo vitale.',
     'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Consulente finanziario svizzero esamina calcoli rendita AVS in ufficio canton Berna',
+    'blog.article.riassetto-vw-impatti-svizzera.title': 'Riassetto VW: per la Svizzera l’impatto è limitato',
+    'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen taglierà 100’000 posti di lavoro entro il 2030. Feintool perde oltre il 3% in borsa a Zurigo.',
+    'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Vista aerea di Lugano, Svizzera, con focus sulle aree industriali e le montagne circostanti.',
 };
 
 export default blogMetaChIt;
