@@ -24,7 +24,7 @@
  * Slices are scanned as TEXT, not parsed. They total ~422 MB and the two fields
  * needed are flat strings, so `JSON.parse` on each would buy nothing but latency.
  */
-import { absoluteJobUrl } from './job-url-host.mjs';
+import { absoluteJobUrl, canonicalJobHost } from './job-url-host.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { isSliceFile } from './crawler-slice-files.mjs';
@@ -95,15 +95,23 @@ const JOB_IDENTITY_QUERY_PARAMS_BY_HOST = new Map([
  * Lowercase a host and drop the `www.` and any port, so two spellings of the
  * same front door compare equal.
  *
+ * The punycode step is not decoration: this function is fed from BOTH sides of
+ * an encoding boundary — `URL_HOST_RE` scrapes the host as raw TEXT out of the
+ * slice JSON (an IDN host stays in its unicode spelling), while `normalizeJobUrl`
+ * hands over `new URL().hostname` (already `xn--…`). Without a common form the
+ * same front door counts as two hosts: it lands in `byHost` twice, each with one
+ * key, so a shared ATS lobby reads as two DEDICATED hosts and the ownership
+ * answer this module exists to give comes out wrong.
+ *
  * @param {string} raw
  * @returns {string}
  */
 export function normalizeSourceHost(raw = '') {
-  return String(raw)
-    .trim()
-    .toLowerCase()
-    .replace(/^www\./, '')
-    .replace(/:\d+$/, '');
+  return canonicalJobHost(
+    String(raw)
+      .trim()
+      .replace(/:\d+$/, ''),
+  ).replace(/^www\./, '');
 }
 
 /**
