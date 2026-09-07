@@ -261,6 +261,21 @@ export function checkUrlClean(history, url, {
   if (!(ageDays <= staleAfterDays)) {
     return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
   }
+  // Fail-closed sull'URL introvabile. `topPaths` tiene i 15 peggiori per
+  // snapshot, e la chiave arriva da fuori (il titolo della issue, sanificato):
+  // un URL che non compare in NESSUNO snapshot dell'intera storia non e' un URL
+  // guarito, e' una chiave che non ha mai fatto match — refuso, sanificazione
+  // che ha riscritto un carattere, o un path troppo raro per entrare nei top.
+  // Trattarlo come pulito darebbe un verde permanente su una issue ancora rossa.
+  if (!all.some((s) => (s.topPaths || []).some((p) => historyUrlKey(p?.url) === target))) {
+    return {
+      ok: false,
+      reason: `mai visto in ${all.length} snapshot: la chiave non fa match (refuso, o path fuori dai top path di ogni snapshot) — non e' una prova di guarigione`,
+      checked: 0,
+      lastSeenAt: null,
+    };
+  }
+
   const window = all.slice(-snapshots);
   let lastSeenAt = null;
   for (const s of window) {
@@ -334,7 +349,18 @@ async function main() {
   };
   const urlToCheck = valueOf('--check-url');
   if (urlToCheck) {
-    const snapshots = Number(valueOf('--snapshots') ?? CHECK_URL_DEFAULT_SNAPSHOTS);
+    const raw = valueOf('--snapshots');
+    const snapshots = raw === undefined ? CHECK_URL_DEFAULT_SNAPSHOTS : Number(raw);
+    // Senza questo, `--snapshots pippo` (o `--snapshots` in coda ad argv) da'
+    // NaN: `all.length < NaN` e' falso e `slice(-NaN)` degrada a `slice(0)`, cioe'
+    // la finestra diventa la storia intera mentre la ragione stampata ne annuncia
+    // un'altra. Un criterio che mente sulla finestra che ha usato e' peggio di uno
+    // che rifiuta di rispondere.
+    if (!Number.isInteger(snapshots) || snapshots < 1) {
+      console.error(`[cf-5xx-snapshot] --snapshots non valido: ${raw} (serve un intero >= 1)`);
+      process.exitCode = 2;
+      return;
+    }
     const res = checkUrlClean(loadHistory(historyFile), urlToCheck, { snapshots });
     console.log(`${res.ok ? '✅' : '❌'} ${urlToCheck}: ${res.reason}`);
     process.exitCode = res.ok ? 0 : 1;

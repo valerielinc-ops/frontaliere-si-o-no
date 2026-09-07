@@ -82,9 +82,11 @@ export function buildIssueBody(verdict) {
         'commit** ma una chiave scaduta o una quota. | **REPO**: sito.',
       ],
       metrica: `prima=sotto ${verdict.floor} eventi/giorno atteso=>=${verdict.floor} su ogni giorno pieno della finestra di ${verdict.windowDays}gg`,
-      comando: 'node scripts/check-source-liveness.mjs --json',
+      comando: 'node scripts/check-source-liveness.mjs --json --dry-run',
       note: [
-        'Il comando stampa il verdetto e non conia: la issue si chiude quando `alive` torna',
+        '`--dry-run` non e\' decorativo: senza, con la sorgente ancora morta questo stesso',
+        'script conia la issue invece di limitarsi a misurarla. Stampa il verdetto: la issue si',
+        'chiude quando `alive` torna',
         'vero. Vuole le credenziali della sorgente — dalla root del workspace,',
         '`source bin/rc-env.sh`.',
       ],

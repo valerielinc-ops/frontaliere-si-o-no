@@ -395,7 +395,7 @@ export function buildFailBody(a, days, since, policy) {
         '`_dmarc.frontaliereticino.ch`. | **REPO**: nessuno (zona DNS Cloudflare).',
       ],
       metrica: `prima=${a.failingSources.length} sorgenti che falliscono in volume atteso=0`,
-      comando: `node scripts/dmarc-monitor.mjs --days ${days} --json --dry-run`,
+      comando: `node scripts/dmarc-monitor.mjs --days=${days} --json --dry-run`,
       note: [
         'Il comando stampa `failingSources`: la issue si chiude quando quell\'array è vuoto',
         'sulla stessa finestra. Vuole `CF_API_TOKEN` — dalla root del workspace,',
@@ -464,7 +464,7 @@ export function buildReadyBody(a, days, since, step) {
         '| **REPO**: nessuno (zona DNS Cloudflare).',
       ],
       metrica: `prima=${cfg.from} atteso=${cfg.to}`,
-      comando: `node scripts/dmarc-monitor.mjs --days ${days} --json --dry-run`,
+      comando: `node scripts/dmarc-monitor.mjs --days=${days} --json --dry-run`,
       note: [
         'Il comando stampa `policy`: la issue si chiude quando quel campo legge',
         `\`${step}\`. Vuole \`CF_API_TOKEN\` — dalla root del workspace,`,

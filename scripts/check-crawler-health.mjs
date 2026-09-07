@@ -1692,11 +1692,13 @@ export function buildHealthScheda(issue) {
       '**MODE**: nessun vincolo di mirror (i crawler non sono nel manifest del ciclo).',
     ],
     metrica: `prima=status:${status} atteso=status:healthy`,
-    comando: `node scripts/check-crawler-health.mjs; jq -r '.crawlers["${slug}"] | .status + " advisory=" + (.advisory // false | tostring)' data/crawler-health.json`,
+    comando: `git show origin/main:data/crawler-health.json | jq -r '.crawlers["${slug}"] | .status + " advisory=" + (.advisory // false | tostring)'`,
     note: [
       '`healthy advisory=false` e\' la condizione esatta con cui lo step di chiusura',
-      'risolve questa issue: qualunque altro valore la tiene aperta. Il primo comando',
-      'ricalcola lo stato dai dati sul disco, il secondo lo legge.',
+      'risolve questa issue: qualunque altro valore la tiene aperta. Si legge da git e non',
+      'dal disco per due motivi: lo stato che il closer guarda e\' quello che il monitor',
+      'committa su `main`, non uno ricalcolato in locale, e cosi\' verificare il criterio non',
+      'lascia file dati modificati nel working tree di chi verifica.',
     ],
     osservatore: [
       '`.github/workflows/crawler-health-monitor.yml` — lo step "Close recovered',

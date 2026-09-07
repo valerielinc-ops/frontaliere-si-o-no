@@ -18,6 +18,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import { buildScheda } from '../scripts/lib/monitor-scheda.mjs';
+import { checkUrlClean } from '../scripts/ci/cf-5xx-snapshot.mjs';
 import { buildAlertBody } from '../scripts/audit-canton-url-drift.mjs';
 import { buildHealthScheda } from '../scripts/check-crawler-health.mjs';
 import { buildFailBody, buildReadyBody } from '../scripts/dmarc-monitor.mjs';
@@ -166,5 +167,52 @@ describe('buildScheda — l\'invariante e\' eseguibile, non un commento', () => 
 
   it('rifiuta una scheda senza OSSERVATORE', () => {
     expect(() => buildScheda({ ...ok, osservatore: ['', '  '] })).toThrow(/OSSERVATORE mancante/);
+  });
+});
+
+/**
+ * Il criterio di chiusura di `cf-5xx` decide se una issue si puo' chiudere, quindi
+ * ogni suo ramo che risponde «si'» senza averlo verificato e' un verde permanente.
+ */
+describe('checkUrlClean — nessun verde per assenza di dati', () => {
+  const snap = (ts: string, urls: string[]) => ({ ts, topPaths: urls.map((url) => ({ url, count: 1 })) });
+  const NOW = Date.parse('2026-09-07T00:00:00Z');
+  const sette = (urlsPerSnap: string[][]) =>
+    urlsPerSnap.map((u, i) => snap(`2026-09-0${i + 1}T00:00:00Z`, u));
+
+  it('verde solo se l\'URL c\'era e non c\'e\' piu\' nella finestra', () => {
+    const h = sette([['a/x.js'], ['a/x.js'], [], [], [], [], []]);
+    const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-09-07T12:00:00Z') });
+    expect(r.ok).toBe(true);
+  });
+
+  it('rosso se l\'URL e\' ancora nella finestra', () => {
+    const h = sette([[], [], [], [], [], [], ['a/x.js']]);
+    const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-09-07T12:00:00Z') });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/ancora fra i path/);
+  });
+
+  it('una chiave mai vista NON e\' una prova di guarigione', () => {
+    // Il caso che rendeva verde una issue ancora rossa: refuso, sanificazione
+    // che riscrive un carattere, o path fuori dai top di ogni snapshot.
+    const h = sette([['a/x.js'], ['a/x.js'], [], [], [], [], []]);
+    const r = checkUrlClean(h, 'a/MAI-VISTO.js', { snapshots: 3, now: Date.parse('2026-09-07T12:00:00Z') });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/mai visto/);
+  });
+
+  it('serie ferma: fail-closed, non verde', () => {
+    const h = sette([['a/x.js'], ['a/x.js'], [], [], [], [], []]);
+    const r = checkUrlClean(h, 'a/x.js', { snapshots: 3, now: Date.parse('2026-10-01T00:00:00Z') });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/serie ferma/);
+  });
+
+  it('storia piu\' corta di N: fail-closed, non verde', () => {
+    const h = sette([['a/x.js'], []]).slice(0, 2);
+    const r = checkUrlClean(h, 'a/x.js', { snapshots: 7, now: NOW });
+    expect(r.ok).toBe(false);
+    expect(r.reason).toMatch(/storia troppo corta/);
   });
 });
