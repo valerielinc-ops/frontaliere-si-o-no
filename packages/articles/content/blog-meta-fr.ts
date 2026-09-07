@@ -11560,6 +11560,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - revient « beaucoup de choses chères » à la maison taches',
     'blog.article.morazzone-tante-care-cose-2026.excerpt': 'Samedi 12 et dimanche 13 septembre, Casa Macchi accueille une nouvelle édition du marché dédié aux rayonnages, aux antiquités et au modernisme.',
     'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Marché d\'objets anciens et vintage à Casa Macchi, Morazzone',
+    'blog.article.rete-tram-treno-cantieri-inizio.title': 'Réseau Tram-Train, bulldozer au travail à partir de la mi-octobre',
+    'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'Les travaux pour le Réseau Tram-Train débuteront à la mi-octobre avec les murs de contrerive sur le tronçon Bioggio-Manno.',
+    'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des chantiers visibles',
 };
 
 export default blogMetaFr;
