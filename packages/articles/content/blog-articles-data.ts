@@ -34527,6 +34527,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varese-comunita-energetiche-rinnovabili',
+ category: 'novita',
+ date: '2026-09-07T11:05:11.613Z',
+ image: '/images/blog/varese-comunita-energetiche-rinnovabili.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

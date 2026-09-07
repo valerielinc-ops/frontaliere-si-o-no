@@ -11562,6 +11562,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rete-tram-treno-cantieri-inizio.title': 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
     'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno.',
     'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Vista aerea del centro di Lugano con cantieri visibili',
+    'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese: convegno su comunità energetiche rinnovabili',
+    'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'La Camera di Commercio di Varese organizza un convegno sulle Comunità Energetiche Rinnovabili per imprese, enti locali e privati cittadini.',
+    'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti.',
 };
 
 export default blogMetaIt;

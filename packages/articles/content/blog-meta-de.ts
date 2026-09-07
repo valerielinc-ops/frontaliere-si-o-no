@@ -11560,6 +11560,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rete-tram-treno-cantieri-inizio.title': 'Tram-Zugnetz, Bagger arbeiten seit Mitte Oktober',
     'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'Die Arbeiten für das Tram-Zug-Netz werden Mitte Oktober mit den Gegenmauern auf der Strecke Bioggio-Manno beginnen.',
     'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit Baustellen',
+    'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese: Tagung über erneuerbare Energiegemeinschaften',
+    'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'Die Handelskammer von Varese organisiert eine Konferenz über erneuerbare Energiegemeinschaften für Unternehmen, lokale Behörden und private Bürger.',
+    'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Luftaufnahme des Luganer Sees mit Solarpaneelen auf den Dächern.',
 };
 
 export default blogMetaDe;
