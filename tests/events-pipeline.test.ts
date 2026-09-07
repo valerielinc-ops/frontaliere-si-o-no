@@ -515,6 +515,27 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
     expect(Object.keys(cache['concerto sinfonico'])).toHaveLength(3);
   });
 
+  // #7771: un titolo gia' identico in una lingua (un festival, un toponimo)
+  // esce '' dalla cascata dal #7750 in poi. Senza memo di quell'esito l'entry
+  // non raggiungeva mai i tre locale, non veniva mai scritta, e questo crawler
+  // — che riscrive la slice da zero ogni giorno — ripagava la cascata ogni run.
+  it('memoizes a rejected passthrough so the entry is cached and never re-paid', async () => {
+    const cache: Record<string, Record<string, string | null>> = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) =>
+      targetLang === 'en' ? { text: '', passthrough: true } : `Translated-${targetLang}`,
+    );
+    const passthroughEvents = [{ title: 'Locarno Film Festival', id: 'tio-agenda:2' }];
+
+    const out = await enrichEventsWithTranslations(passthroughEvents, cache, translateFn);
+    // Il marker non e' una traduzione: `en` resta scoperto, legge l'italiano.
+    expect(out[0].titleByLocale).toEqual({ it: 'Locarno Film Festival', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(cache['locarno film festival']).toEqual({ en: null, de: 'Translated-de', fr: 'Translated-fr' });
+
+    const translateFn2 = vi.fn();
+    await enrichEventsWithTranslations(passthroughEvents, cache, translateFn2);
+    expect(translateFn2).not.toHaveBeenCalled();
+  });
+
   it('skips re-translation when cache entry is already complete', async () => {
     const cache: Record<string, Record<string, string>> = { 'concerto sinfonico': { en: 'Good-en', de: 'Good-de', fr: 'Good-fr' } };
     const noopTranslate = vi.fn();
