@@ -11585,6 +11585,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permit G in Ticino: request, costs and steps',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Complete guide to applying for the G permit for border workers in Ticino: necessary documents, costs and validity.',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'G permit for cross-border workers in Ticino',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: documents and procedure for cross-border commuters',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permit G in Canton Ticino: documents, procedure at the Migrationsamt, five-year validity and renewal after the New Frontier Agreement 2024.',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Cross-border worker at Brogeda crossing with G permit documents in Ticino',
 };
 
 export default blogMetaEn;

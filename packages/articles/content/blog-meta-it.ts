@@ -11586,6 +11586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permesso G in Ticino: richiesta, costi e passaggi',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Guida completa alla richiesta del permesso G per frontalieri in Ticino: documenti necessari, costi e validità.',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'Permesso G per frontalieri in Ticino',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: documenti e procedura per frontalieri',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permesso G in Canton Ticino: documenti, iter al Migrationsamt, validità quinquennale e rinnovo dopo il Nuovo Accordo Frontalieri 2024.',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Frontaliere al valico di Brogeda con documenti per il permesso G in Canton Ticino',
 };
 
 export default blogMetaIt;
