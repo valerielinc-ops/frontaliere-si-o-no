@@ -5872,6 +5872,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-agosto-2026.title': 'Augmentation des chômeurs août 2026 : +1,6% par mois, +7,1% par an',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.excerpt': 'Le SECO a publié les données du marché du travail en Suisse pour le mois d\'août 2026, montrant une augmentation du nombre de chômeurs.',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.imageAlt': 'Vue aérienne du centre-ville de Lugano avec le lac de Lugano en arrière-plan, mettant en évidence l\'activité économique dans la région.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.title': 'Coeur et intelligence artificielle : nouveaux outils prédictifs',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.excerpt': 'Deux recherches de l\'Inselspital et de l\'Université de Berne indiquent que l’IA améliore le pronostic des maladies cardiaques.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.imageAlt': 'Un médecin analyse des données sur un ordinateur dans un laboratoire de recherche médicale avec l\'Université de Berne en arrière-plan.',
 };
 
 export default blogMetaChFr;

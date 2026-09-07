@@ -76226,6 +76226,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-intelligenza-artificiale-cardiologia-2026': {
+    title: 'Cuore e intelligenza artificiale: nuovi strumenti predittivi',
+    description: 'Due ricerche dell’Inselspital e dell’Università di Berna indicano che l’IA migliora la prognosi delle malattie cardiache. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cuore, intelligenza, artificiale, nuovi',
+    ogTitle: 'Cuore e intelligenza artificiale: nuovi strumenti predittivi',
+    ogDescription: 'Scopri come l’intelligenza artificiale sta rivoluzionando la prognosi delle malattie cardiache grazie a due importanti studi dell’Inselspital e dell’Università di Berna.',
+    canonicalPath: '/articoli-svizzera/intelligenza-artificiale-cardiologia-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cuore e intelligenza artificiale: nuovi strumenti predittivi",
+      "description": "Due ricerche dell’Inselspital e dell’Università di Berna indicano che l’IA migliora la prognosi delle malattie cardiache. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/intelligenza-artificiale-cardiologia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico analizza dati su un computer in un laboratorio di ricerca medica con l'Università di Berna in sfondo."
+      },
+      "datePublished": "2026-09-07T07:46:22+00:00",
+      "dateModified": "2026-09-07T07:46:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/intelligenza-artificiale-cardiologia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

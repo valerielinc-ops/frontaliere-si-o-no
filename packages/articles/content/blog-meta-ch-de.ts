@@ -5872,6 +5872,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-agosto-2026.title': 'Anstieg der Arbeitslosen im August 2026: +1,6% monatlich, +7,1% jährlich',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.excerpt': 'Das SECO hat die Arbeitsmarktdaten für den Monat August 2026 in der Schweiz veröffentlicht und zeigt einen Anstieg der Arbeitslosenzahlen.',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit dem Luganersee im Hintergrund, die die wirtschaftliche Aktivität in der Region zeigt.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.title': 'Herz und künstliche Intelligenz: neue Prognosewerkzeuge',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.excerpt': 'Zwei Untersuchungen des Inselspitals und der Universität Bern zeigen, dass KI die Prognose von Herzerkrankungen verbessert.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.imageAlt': 'Ein Arzt analysiert Daten auf einem Computer in einem medizinischen Forschungslabor mit der Universität Bern im Hintergrund.',
 };
 
 export default blogMetaChDe;
