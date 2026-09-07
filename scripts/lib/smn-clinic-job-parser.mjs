@@ -159,6 +159,34 @@ export function classifyZeroMatchRun({
 }
 
 /**
+ * Map a `classifyZeroMatchRun` verdict to the summary slice's
+ * `lastFetchOutcome` (issue #7897).
+ *
+ * This is the one place in the fleet that already KNOWS why a run came out
+ * empty — the tenant directory call has just separated a renamed department
+ * from a merely idle one — and until now that knowledge died in a
+ * `console.warn` while check-crawler-health waited three consecutive empty runs
+ * to announce "N consecutive runs returned 0 jobs", a symptom with no cause
+ * attached. Reporting it lets the monitor name the cause on the FIRST run.
+ *
+ * `unverified` maps to `null`, i.e. the field is omitted: the directory was
+ * unreachable, so the run separated nothing and has nothing to assert. "No
+ * verdict" is a different claim from `ok`, and collapsing the two would
+ * resurrect the same guess-from-absence that #7320 exists to kill — here in
+ * the direction of declaring a drifted parser healthy.
+ *
+ * @param {'matched'|'empty-board'|'label-drift'|'unverified'} verdict
+ * @returns {'ok'|'selector_miss'|null}
+ */
+export function fetchOutcomeForZeroMatch(verdict) {
+  // The fetch succeeded and the parser matched nothing it used to match.
+  if (verdict === 'label-drift') return 'selector_miss';
+  // Fetch and parse both worked; the board is simply empty.
+  if (verdict === 'matched' || verdict === 'empty-board') return 'ok';
+  return null;
+}
+
+/**
  * Directory labels that share a significant word with a configured label —
  * the rename candidates to put in front of whoever reads the drift warning
  * ("Clinique de Montchoisi" → "Centre Médical Montchoisi").
@@ -471,22 +499,8 @@ export function createSmnClinicParser(config) {
         seenLabels: seenDepartmentLabels,
         directoryLabels,
       });
-      // Hand the verdict to the pipeline, not just to the log (#7897). This is
-      // the one place in the fleet that already KNOWS why a run came out empty
-      // — the directory call has just separated a renamed department from an
-      // idle one — and until now that knowledge died in a console.warn while
-      // check-crawler-health waited three days to announce "0 jobs" without a
-      // cause. `unverified` stays unreported on purpose: the directory was
-      // unreachable, so the run separated nothing and has nothing to assert;
-      // an omitted field means "no verdict", which is not the same claim as
-      // `ok`. `matched`/`empty-board` are `ok` — the fetch and the parser both
-      // worked, the board is simply empty — and `label-drift` is the selector
-      // miss the streak gate can only ever describe as "returned 0 jobs".
-      fetchOutcome = verdict === 'label-drift'
-        ? 'selector_miss'
-        : verdict === 'unverified'
-          ? null
-          : 'ok';
+      // Hand the verdict to the pipeline, not just to the log (#7897).
+      fetchOutcome = fetchOutcomeForZeroMatch(verdict);
 
       switch (verdict) {
         case 'matched':
