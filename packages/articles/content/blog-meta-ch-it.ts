@@ -5857,6 +5857,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Aprire un\'attività a Neuchâtel: costi e registro commercio',
     'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un\'impresa nel cantone.',
     'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Ufficio di consulenza aziendale in Svizzera con documenti di registrazione e moduli commerciali su una scrivania',
+    'blog.article.neuchatel-salari-settori-formazione.title': 'Salari e mercato del lavoro Neuchâtel: settori e formazione',
+    'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Stipendi, settori che assumono e contratti collettivi nel Cantone di Neuchâtel: come funziona il sistema svizzero di salari per grado di formazione e contributi.',
+    'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Professionista svizzero al lavoro in ufficio con documenti di salario, paesaggio del Cantone di Neuchâtel sullo sfondo',
 };
 
 export default blogMetaChIt;

@@ -5857,6 +5857,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Opening a business in Neuchâtel: costs and trade register',
     'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Legal forms, registration in the trade register, social security contributions and taxes. Practical guide to starting a business in the canton.',
     'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Swiss business consultation office with company registration documents and commercial forms on desk',
+    'blog.article.neuchatel-salari-settori-formazione.title': 'Wages and the labour market Neuchâtel: sectors and training',
+    'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Salaries, hiring sectors and collective agreements in the Canton of Neuchâtel: how the Swiss system of salaries by level of training and contributions works.',
+    'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Swiss professional working at office desk with salary documents and Neuchâtel landscape in background',
 };
 
 export default blogMetaChEn;
