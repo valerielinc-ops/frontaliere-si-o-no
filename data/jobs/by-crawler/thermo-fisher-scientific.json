@@ -197,7 +197,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -353,7 +352,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:37.670Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -584,7 +582,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:12.435Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -690,7 +687,7 @@
       "companyDomain": "thermofisher.com",
       "title": "Operator Secondary",
       "titleByLocale": {
-        "it": "Operator Secondary",
+        "it": "Operatore Secondario",
         "en": "Operator Secondary",
         "de": "Operator Secondary",
         "fr": "Opérateur Secondary"
@@ -846,8 +843,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-3bf1b93758db",
@@ -923,7 +919,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:07.457Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -1272,8 +1267,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "thermo-fisher-scientific-f7175e2596bc",
@@ -1391,8 +1385,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
