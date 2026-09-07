@@ -39,8 +39,15 @@ describe('jobUrlHost', () => {
     expect(jobUrlHost(undefined)).toBe('');
     // A scheme that carries no authority stays authority-less.
     expect(jobUrlHost('mailto:jobs@med-ipersonal.ch')).toBe('');
-    // A scheme whose opaque part starts with a digit is not an authority
-    // either: it must stay host-less rather than become `https://tel:0041...`.
+    // Same, when the opaque part starts with a digit: the port-authority test
+    // must not disarm the scheme guard here, or the prepend turns the local
+    // part into userinfo and invents `med-ipersonal.ch` out of a mailto.
+    expect(jobUrlHost('mailto:24h@med-ipersonal.ch')).toBe('');
+    // `tel:0041` has a port-SHAPED opaque part (4 digits, in range) but no
+    // dotted authority, so it must stay host-less rather than become
+    // `https://tel:0041` → `tel`. The 13-digit form below is the same claim,
+    // not a stronger one: it would also be caught by the out-of-range port.
+    expect(jobUrlHost('tel:0041')).toBe('');
     expect(jobUrlHost('tel:0041791234567')).toBe('');
   });
 });
