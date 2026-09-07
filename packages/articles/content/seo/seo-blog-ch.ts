@@ -77084,6 +77084,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-giovani-svizzera-agosto-2023': {
+    title: 'Disoccupazione giovani Svizzera: 3,4% in agosto 2023',
+    description: 'Il mercato del lavoro svizzero mostra solidità, con un aumento stagionale di 3,4% tra i giovani in agosto 2023. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, giovani, agosto, mercato',
+    ogTitle: 'Disoccupazione giovani Svizzera: 3,4% in agosto 2023',
+    ogDescription: 'Scopri come il mercato del lavoro svizzero mostra solidità nonostante l\'aumento stagionale di 3,4% tra i giovani in agosto 2023.',
+    canonicalPath: '/articoli-svizzera/disoccupazione-giovani-svizzera-agosto-2023/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione giovani Svizzera: 3,4% in agosto 2023",
+      "description": "Il mercato del lavoro svizzero mostra solidità, con un aumento stagionale di 3,4% tra i giovani in agosto 2023. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-giovani-svizzera-agosto-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Locarno, Svizzera, con il paesaggio del Ticino sullo sfondo, che mostra una piazza del mercato vivace e edifici moderni."
+      },
+      "datePublished": "2026-09-07T11:50:27+00:00",
+      "dateModified": "2026-09-07T11:50:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disoccupazione-giovani-svizzera-agosto-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

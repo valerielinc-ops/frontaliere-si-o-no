@@ -17812,6 +17812,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'disoccupazione-giovani-svizzera-agosto-2023',
+    category: 'pratico',
+    date: '2026-09-07T11:50:27.197Z',
+    image: '/images/blog/disoccupazione-giovani-svizzera-agosto-2023.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
