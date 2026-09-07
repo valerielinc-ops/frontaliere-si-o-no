@@ -77006,6 +77006,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cibo-per-cani-gatti-errori-comuni': {
+    title: 'Cibo per cani e gatti: i cinque errori più comuni',
+    description: 'Scopri i cinque errori più comuni nel cibo per cani e gatti e come evitarli per mantenere in salute i tuoi animali domestici. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cibo, cani, gatti, cinque',
+    ogTitle: 'Cibo per cani e gatti: i cinque errori più comuni',
+    ogDescription: 'Scopri i cinque errori più comuni nel cibo per cani e gatti e come evitarli per mantenere in salute i tuoi animali domestici. Consigli pratici e utili per una nutrizione equilibrata.',
+    canonicalPath: '/articoli-svizzera/cibo-per-cani-gatti-errori-comuni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cibo per cani e gatti: i cinque errori più comuni",
+      "description": "Scopri i cinque errori più comuni nel cibo per cani e gatti e come evitarli per mantenere in salute i tuoi animali domestici. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cibo-per-cani-gatti-errori-comuni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cane e gatto che mangiano dai loro piatti in una cucina pulita e illuminata"
+      },
+      "datePublished": "2026-09-07T11:40:59+00:00",
+      "dateModified": "2026-09-07T11:40:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cibo-per-cani-gatti-errori-comuni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

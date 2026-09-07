@@ -5932,6 +5932,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bepi-colombo-missione-mercurio.title': 'BepiColombo vers Mercure : la mission dans la phase cruciale',
     'blog.article.bepi-colombo-missione-mercurio.excerpt': 'Après huit ans et plus de 10 milliards de kilomètres, la mission BepiColombo se prépare à l\'insertion orbitale de Mercure.',
     'blog.article.bepi-colombo-missione-mercurio.imageAlt': 'La sonde BepiColombo en approche de Mercure',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.title': 'Nourriture pour chiens et chats : les cinq erreurs les plus courantes',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.excerpt': 'Portions trop grandes, bols sales ou restes de table : voici ce qu\'il ne faut pas faire pour garder ces animaux en bonne santé',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.imageAlt': 'Chien et chat mangeant de leurs bols dans une cuisine propre et bien éclairée',
 };
 
 export default blogMetaChFr;

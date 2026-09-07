@@ -5932,6 +5932,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bepi-colombo-missione-mercurio.title': 'BepiColombo auf dem Weg zum Merkur: Die Mission in der entscheidenden Phase',
     'blog.article.bepi-colombo-missione-mercurio.excerpt': 'Nach acht Jahren und mehr als 10 Milliarden Kilometern bereitet sich die BepiColombo-Mission auf die Einschleusung des Merkurs in die Umlaufbahn vor.',
     'blog.article.bepi-colombo-missione-mercurio.imageAlt': 'Der BepiColombo-Raumschiffsanflug auf Merkur',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.title': 'Hunde- und Katzenfutter: Die fünf häufigsten Fehler',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.excerpt': 'Zu große Portionen, schmutzige Schüsseln oder Reste vom Tisch: Das sollten Sie nicht tun, um diese Haustiere gesund zu halten',
+    'blog.article.cibo-per-cani-gatti-errori-comuni.imageAlt': 'Hund und Katze essen aus ihren Schüsseln in einem sauberen, gut beleuchteten Küchenbereich',
 };
 
 export default blogMetaChDe;
