@@ -11569,6 +11569,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.title': 'Vivre à Nus et travailler en Valais comme frontalier',
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Nus et de travailler en Valais en tant que frontalier, y compris les liaisons, les temps de trajet et le coût de la vie.',
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les Alpes suisses en arrière-plan, montrant une maison confortable avec un balcon dominant l\'eau.',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.title': 'Sergio Savoia revient en politique avec Avanti con Ticino&Lavoro',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.excerpt': 'L\'ancien coordinateur des Verts choisit Avanti avec Tessin&Travail pour les cantonales 2027',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.imageAlt': 'Sergio Savoia lors d\'une réunion politique à Bellinzona',
 };
 
 export default blogMetaFr;

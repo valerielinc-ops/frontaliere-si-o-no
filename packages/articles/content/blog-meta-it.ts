@@ -11568,6 +11568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.title': 'Vivere a Nus e lavorare in Vallese da frontaliere',
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
     'blog.article.vivere-nus-lavorare-vallese-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando una casa accogliente con un balcone che guarda sull\'acqua.',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.title': 'Sergio Savoia torna in politica con Avanti con Ticino&Lavoro',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.excerpt': 'L\'ex coordinatore dei Verdi sceglie Avanti con Ticino&Lavoro per le cantonali 2027',
+    'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.imageAlt': 'Sergio Savoia in un incontro politico a Bellinzona',
 };
 
 export default blogMetaIt;
