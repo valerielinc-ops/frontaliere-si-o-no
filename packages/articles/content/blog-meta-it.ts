@@ -11553,6 +11553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'I numeri del giorno per i frontalieri – 7 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Bollettino frontalieri del 7 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'I numeri del 7 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula nominato direttore IRE USI dal 2026',
+    'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'L\'economista specializzato in previdenza e finanza familiare guiderà l\'Istituto di ricerche economiche dell\'USI dal 1° settembre 2026.',
+    'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'Campus USI a Lugano con vista sul lago',
 };
 
 export default blogMetaIt;

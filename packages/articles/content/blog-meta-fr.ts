@@ -11554,6 +11554,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'Les chiffres du jour pour les frontaliers – 7 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Bulletin du frontalier du 7 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'Les chiffres du 7 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula nommé directeur des USAGES à partir de 2026',
+    'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'L\'économiste spécialisé en prévoyance et finances familiales dirigera l\'Institut de recherches économiques de l\'USI à partir du 1er septembre 2026.',
+    'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'Campus USI à Lugano avec vue sur le lac',
 };
 
 export default blogMetaFr;

@@ -11552,6 +11552,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'The day\'s numbers for cross-border commuters – September 7, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Cross-border brief, September 7, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'The numbers for September 7, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula appointed IRE USI director since 2026',
+    'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'The economist specialising in retirement and family finance will lead the USI Economic Research Institute from 1 September 2026.',
+    'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'USI campus in Lugano overlooking the lake',
 };
 
 export default blogMetaEn;
