@@ -5854,6 +5854,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Aprire attività a Berna: registro di commercio e costi',
     'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Registrazione impresa a Berna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
     'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Vista di una città svizzera con edifici storici e paesaggio alpino di sfondo',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Aprire un\'attività a Neuchâtel: costi e registro commercio',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un\'impresa nel cantone.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Ufficio di consulenza aziendale in Svizzera con documenti di registrazione e moduli commerciali su una scrivania',
 };
 
 export default blogMetaChIt;
