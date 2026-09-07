@@ -5974,6 +5974,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.investito-treno-13-anni-berna.title': 'He was 13 years old and fatally hit by a train.',
     'blog.article.investito-treno-13-anni-berna.excerpt': 'A 13-year-old Russian teenager died after being hit by a train at Bern\'s Europaplatz station',
     'blog.article.investito-treno-13-anni-berna.imageAlt': 'Berna Europaplatz train station after a teenager was fatally hit by a train',
+    'blog.article.affitti-appenzello-interno-canoni.title': 'Apenzello Interno Rentals: fees and lease',
+    'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analysis of the average rents in the Canton of Appenzell Interior, security deposit, rent dispute and federal rules on renting.',
+    'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Traditional houses and landscape in the Canton of Appenzell Innerrhoden',
 };
 
 export default blogMetaChEn;

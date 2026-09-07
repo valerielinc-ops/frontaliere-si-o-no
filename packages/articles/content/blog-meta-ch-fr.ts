@@ -5974,6 +5974,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.investito-treno-13-anni-berna.title': 'Mortellement percuté par un train : il avait 13 ans',
     'blog.article.investito-treno-13-anni-berna.excerpt': 'Un adolescent russe de 13 ans est mort après avoir été percuté par un train à la gare de Berne Europaplatz',
     'blog.article.investito-treno-13-anni-berna.imageAlt': 'Gare de Berna Europaplatz après l\'accident mortel d\'un adolescent',
+    'blog.article.affitti-appenzello-interno-canoni.title': 'Location Appenzell Interne : loyers et loyers',
+    'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analyse des loyers moyens dans le canton d\'Appenzell Interne, dépôt de garantie, contestation du loyer et règles fédérales sur la location.',
+    'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Maisons traditionnelles et paysage dans le canton d\'Appenzell Rhodes-Intérieures',
 };
 
 export default blogMetaChFr;

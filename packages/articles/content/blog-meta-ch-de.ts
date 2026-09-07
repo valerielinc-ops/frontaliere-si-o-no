@@ -5974,6 +5974,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.investito-treno-13-anni-berna.title': 'Tödlich von einem Zug angefahren: Er war 13 Jahre alt',
     'blog.article.investito-treno-13-anni-berna.excerpt': 'Ein 13-jähriger russischer Teenager ist am Berner Europaplatz von einem Zug erfasst und getötet worden.',
     'blog.article.investito-treno-13-anni-berna.imageAlt': 'Zugbahnhof Bern Europaplatz nach dem tödlichen Unfall eines Jugendlichen',
+    'blog.article.affitti-appenzello-interno-canoni.title': 'Mieten Appenzell Innerrhoden: Miete und Miete',
+    'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analyse der Durchschnittsmieten im Kanton Appenzell Innerrhoden, Kaution, Gebührenbeanstandung und Bundesmietvorschriften.',
+    'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Traditionelle Häuser und Landschaft im Kanton Appenzell Innerrhoden',
 };
 
 export default blogMetaChDe;
