@@ -5848,6 +5848,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riassetto-vw-impatti-svizzera.title': 'Réaménagement VW : pour la Suisse, l’impact est limité',
     'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen va supprimer 100’000 emplois d\'ici 2030. Feintool perd plus de 3% en bourse à Zurich.',
     'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Vue aérienne de Lugano, Suisse, avec un focus sur les zones industrielles et les montagnes environnantes.',
+    'blog.article.fondazione-beloved-primi-versamenti.title': 'Fondation Beloved : premiers versements pour les victimes',
+    'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Fondation Beloved commence les versements : 24 millions de CHF pour les victimes de l\'incendie de Crans-Montana. Priorité : réinsertion professionnelle et soutien psychologique à long terme.',
+    'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Bâtiment institutionnel suisse représentant le travail de la Fondation Beloved pour soutenir les victimes',
 };
 
 export default blogMetaChFr;
