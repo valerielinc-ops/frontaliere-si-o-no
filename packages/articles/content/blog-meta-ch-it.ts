@@ -5953,6 +5953,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.title': 'Impatto IA su dipendenti telecom, Syndicom formula rivendicazioni',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.excerpt': 'Studio Ecoplan per Syndicom: IA aumenta efficienza ma anche pressione lavorativa, dipendenti chiedono più formazione e trasparenza',
     'blog.article.impatto-ia-dipendenti-telecom-syndicom-rivendicazioni.imageAlt': 'Ufficio moderno in Svizzera con dipendenti che collaborano intorno a un computer con dati e diagrammi relativi all\'IA',
+    'blog.article.melide-riqualifica-centro.title': 'Com\'è cambiato il nucleo di Melide grazie ai lavori',
+    'blog.article.melide-riqualifica-centro.excerpt': 'I lavori di riqualifica del centro di Melide sono stati conclusi il 6 settembre con granito di Iragna e porfido rosa di Cuasso al Monte.',
+    'blog.article.melide-riqualifica-centro.imageAlt': 'Centro di Melide dopo i lavori di riqualifica',
 };
 
 export default blogMetaChIt;

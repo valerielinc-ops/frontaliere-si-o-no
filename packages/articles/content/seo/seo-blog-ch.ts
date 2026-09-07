@@ -77279,6 +77279,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-melide-riqualifica-centro': {
+    title: 'Com\'è cambiato il nucleo di Melide grazie ai lavori',
+    description: 'I lavori di riqualifica del centro di Melide sono stati conclusi il 6 settembre con granito di Iragna e porfido rosa di Cuasso al Monte. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambiato, nucleo, melide, grazie',
+    ogTitle: 'Melide: il centro è stato riqualificato',
+    ogDescription: 'I lavori di riqualifica del centro di Melide sono stati conclusi il 6 settembre con granito di Iragna e porfido rosa di Cuasso al Monte. Scopri come è cambiato il centro del paese.',
+    canonicalPath: '/articoli-svizzera/melide-riqualifica-centro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Com'è cambiato il nucleo di Melide grazie ai lavori",
+      "description": "I lavori di riqualifica del centro di Melide sono stati conclusi il 6 settembre con granito di Iragna e porfido rosa di Cuasso al Monte. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/melide-riqualifica-centro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di Melide dopo i lavori di riqualifica"
+      },
+      "datePublished": "2026-09-07T12:45:00+00:00",
+      "dateModified": "2026-09-07T12:45:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/melide-riqualifica-centro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
