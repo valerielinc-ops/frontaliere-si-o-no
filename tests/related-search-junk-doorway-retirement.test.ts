@@ -26,6 +26,7 @@ import {
   junkRetirementWrites,
   loadPreviouslyEmittedClusterKeys,
   restoredKeywordLandingPaths,
+  restoredRetiredLandingPaths,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
@@ -176,6 +177,23 @@ describe('restoredKeywordLandingPaths — cache HIT must not re-plan a withdrawa
     const plan = restoredKeywordLandingPaths([CLUSTER, RETIRED], [RETIRED]);
     expect(plan).toEqual(['/cerca-lavoro-svizzera/ricerca-infermiere-lugano']);
     expect(plan).not.toContain('/cerca-lavoro-svizzera/ricerca-cookie-bern');
+  });
+
+  it('declares the withdrawal EMITTED-but-unplanned, both pair halves (issue #7756)', () => {
+    // The complement of the exclusion above. Dropping a retirement from the
+    // plan says "not advertised"; without this second half the hreflang gate
+    // reads it as "written nowhere" and strips the whole block off every LIVE
+    // sibling of the retired locale. Both published halves collapse onto the
+    // same landing path, which is what the registry keys on.
+    const RETIRED_FLAT = 'cerca-lavoro-svizzera/ricerca-cookie-bern.html';
+    expect(restoredRetiredLandingPaths([RETIRED, RETIRED_FLAT])).toEqual([
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+    ]);
+    // Disjoint from what the same manifest puts in the plan.
+    expect(restoredKeywordLandingPaths([CLUSTER, RETIRED], [RETIRED])).not.toContain(
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+    );
   });
 
   it('still restores the retirement as a FILE — only the plan excludes it', () => {

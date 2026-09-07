@@ -30,6 +30,9 @@ import {
   isKeywordLandingPath,
   isStaleKeywordLanding,
   isPlannedKeywordLanding,
+  registerRetiredKeywordLandingPaths,
+  isRetiredKeywordLanding,
+  retiredKeywordLandingCount,
   landingPathFromDistRelative,
   normalizeLandingPath,
   keywordLandingPlanSize,
@@ -40,6 +43,10 @@ import { transformHreflang } from '../../build-plugins/hreflangPostprocessPlugin
 const BASE = 'https://frontaliereticino.ch';
 const LIVE = '/cerca-lavoro-ticino/ricerca-jobs-scuol';
 const STALE = '/fr/trouver-emploi-tessin/recherche-groupe-mutuel-emploi';
+/** The three siblings of `STALE`'s keyword, as `page()` below emits them. */
+const IT = '/cerca-lavoro-ticino/ricerca-groupe-mutuel-emploi';
+const EN = '/en/find-jobs-ticino/search-groupe-mutuel-emploi';
+const DE = '/de/jobs-im-tessin/suche-groupe-mutuel-emploi';
 
 /** Register both owners so the plan is sealed and authoritative. */
 function sealPlanWith(paths: string[]): void {
@@ -228,6 +235,105 @@ describe('transformHreflang — stale landing repair', () => {
     const r = transformHreflang(page(STALE), '/dist', BASE, () => true);
     expect(r).not.toBeNull();
     expect(r!.html).not.toContain('hreflang=');
+  });
+});
+
+/**
+ * Emitted-but-unplanned targets — junk-doorway withdrawals (issue #7756).
+ *
+ * Before #7316 "unplanned" and "written nowhere" were the same set, so the
+ * plan gate could read one as the other. Retirement split them: a withdrawal
+ * is a real 200 `noindex,follow` document AND deliberately absent from the
+ * plan (`restoredKeywordLandingPaths`). Read as missing, one junk locale made
+ * each of its three LIVE siblings drop their entire five-entry block —
+ * `hasUnplannedTarget` fires on the page holding the alternate, not on the
+ * target.
+ *
+ * Thinning is not the alternative: `audit-hreflang` invariant 1 requires 4
+ * locales + x-default once ANY hreflang is present, so a 4-entry set trades
+ * `missingTarget` for `tooFew`. The block is kept WHOLE, because the target it
+ * points at resolves.
+ */
+describe('transformHreflang — emitted-but-unplanned target (#7756)', () => {
+  const alt = (loc: string, url: string) =>
+    `<link rel="alternate" hreflang="${loc}" href="${url}">`;
+  /** The keyword's four-locale set, `fr` being the retired one. */
+  const page = (self: string) =>
+    `<html><head><link rel="canonical" href="${BASE}${self}/">\n` +
+    alt('it', `${BASE}${IT}/`) + '\n' +
+    alt('en', `${BASE}${EN}/`) + '\n' +
+    alt('de', `${BASE}${DE}/`) + '\n' +
+    alt('fr', `${BASE}${STALE}/`) + '\n' +
+    alt('x-default', `${BASE}${IT}/`) +
+    `</head><body>x</body></html>`;
+  const distRel = (p: string) => `${p.slice(1)}/index.html`;
+
+  it('registers a withdrawal without ever re-planning it', () => {
+    sealPlanWith([IT, EN, DE]);
+    registerRetiredKeywordLandingPaths([`${BASE}${STALE}/`]);
+    expect(isRetiredKeywordLanding(STALE)).toBe(true);
+    expect(retiredKeywordLandingCount()).toBe(1);
+    // The two sets stay disjoint: the withdrawal is still not a landing this
+    // build advertises, so it must keep answering "stale" about itself.
+    expect(isPlannedKeywordLanding(STALE)).toBe(false);
+    expect(isStaleKeywordLanding(STALE)).toBe(true);
+  });
+
+  it('keeps the WHOLE block on a live page whose sibling locale is retired', () => {
+    // The METRIC of #7756: before, this page kept 0 of its 5 entries.
+    sealPlanWith([IT, EN, DE]);
+    registerRetiredKeywordLandingPaths([STALE]);
+    // `() => true`: the withdrawal is EMITTED — that is the whole distinction.
+    const r = transformHreflang(page(IT), '/dist', BASE, () => true, distRel(IT));
+    expect(r).toBeNull(); // null === no rewrite === all five entries survive
+  });
+
+  it('still strips the withdrawal page ITSELF — that is the point of retiring it', () => {
+    sealPlanWith([IT, EN, DE]);
+    registerRetiredKeywordLandingPaths([STALE]);
+    const r = transformHreflang(page(STALE), '/dist', BASE, () => true, distRel(STALE));
+    expect(r).not.toBeNull();
+    expect(r!.kept).toBe(0);
+    expect(r!.dropped).toBe(5);
+    expect(r!.html).not.toContain('hreflang=');
+    expect(r!.html).toContain('rel="canonical"');
+  });
+
+  it('fails closed: an UNregistered withdrawal still strips the live sibling', () => {
+    // No owner seal guards this registry, so the safety property has to be the
+    // default: a target in neither set is treated as missing, exactly as
+    // before #7756. An incomplete registration loses hreflang, never ships a
+    // broken one.
+    sealPlanWith([IT, EN, DE]);
+    const r = transformHreflang(page(IT), '/dist', BASE, () => true, distRel(IT));
+    expect(r).not.toBeNull();
+    expect(r!.html).not.toContain('hreflang=');
+  });
+
+  it('exempts only the registered path, not every unplanned target', () => {
+    // DE is unplanned and NOT retired — genuinely written nowhere. One
+    // exemption must not blanket the page.
+    sealPlanWith([IT, EN]);
+    registerRetiredKeywordLandingPaths([STALE]);
+    const r = transformHreflang(page(IT), '/dist', BASE, () => true, distRel(IT));
+    expect(r).not.toBeNull();
+    expect(r!.dropped).toBe(5);
+  });
+
+  it('normalises the registered path like the plan does', () => {
+    // Producers hand over three shapes — absolute URL, trailing slash, bare
+    // path. A registry that stored them verbatim would exempt none of them.
+    registerRetiredKeywordLandingPaths([`${BASE}${STALE}/`]);
+    expect(isRetiredKeywordLanding(STALE)).toBe(true);
+    expect(isRetiredKeywordLanding(`${STALE}/`)).toBe(true);
+    expect(isRetiredKeywordLanding(`${BASE}${STALE}`)).toBe(true);
+    expect(isRetiredKeywordLanding(LIVE)).toBe(false);
+  });
+
+  it('is inert while the plan is half-registered', () => {
+    registerKeywordLandingPaths('jobs-seo-pages', []);
+    registerRetiredKeywordLandingPaths([STALE]);
+    expect(transformHreflang(page(IT), '/dist', BASE, () => true, distRel(IT))).toBeNull();
   });
 });
 
