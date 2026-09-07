@@ -19,20 +19,35 @@ import admin from 'firebase-admin';
 // with adminEmployerInsights.js, journalistRoleCore.js and
 // stripePublisherCore.js.
 import { EMAIL_RE } from './lib/emailValidation.js';
+import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 
 /**
  * @param {string} rawEmail  the newsletter_subscribers/{email} doc id (or an email field)
+ * @param {{db?: import('firebase-admin/firestore').Firestore, auth?: import('firebase-admin/auth').Auth}} [deps]
  * @returns {Promise<{created: boolean, uid?: string, reason?: string, error?: string}>}
  */
-export async function syncAuthAccountForSubscriber(rawEmail) {
+export async function syncAuthAccountForSubscriber(rawEmail, deps = {}) {
   const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
 
   if (!email || email === '_meta_' || !EMAIL_RE.test(email)) {
     return { created: false, reason: 'invalid_email' };
   }
 
+  const db = deps.db || admin.firestore();
   try {
-    await admin.auth().getUserByEmail(email);
+    const snap = await db.collection('newsletter_subscribers').doc(email).get();
+    if (snap.exists && isAccountDeletedTombstone(snap.data())) {
+      return { created: false, reason: 'account_deleted' };
+    }
+  } catch (error) {
+    // Fail open: a lookup hiccup must not block the 522-orphan Auth create.
+    console.error('[syncAuthAccountForSubscriber] tombstone read', error instanceof Error ? error.message : String(error));
+  }
+
+  const auth = deps.auth || admin.auth();
+
+  try {
+    await auth.getUserByEmail(email);
     return { created: false, reason: 'already_exists' };
   } catch (error) {
     if (error?.code !== 'auth/user-not-found') {
@@ -42,7 +57,7 @@ export async function syncAuthAccountForSubscriber(rawEmail) {
   }
 
   try {
-    const userRecord = await admin.auth().createUser({ email, emailVerified: false, disabled: false });
+    const userRecord = await auth.createUser({ email, emailVerified: false, disabled: false });
     return { created: true, uid: userRecord.uid };
   } catch (error) {
     if (error?.code === 'auth/email-already-exists') {

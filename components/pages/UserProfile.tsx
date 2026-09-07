@@ -699,6 +699,7 @@ const UserProfile: React.FC = () => {
  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
  const [autologinEnabled, setAutologinEnabled] = useState<boolean>(true);
  const [autologinSaving, setAutologinSaving] = useState<boolean>(false);
+ const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
  useEffect(() => {
  try {
@@ -718,6 +719,10 @@ const UserProfile: React.FC = () => {
 
  const handleDeleteAccount = async () => {
  if (!user?.uid) return;
+ if (saveTimerRef.current) {
+ clearTimeout(saveTimerRef.current);
+ saveTimerRef.current = null;
+ }
  setDeleting(true);
  try {
  // 1. Delete Firestore profile
@@ -729,27 +734,14 @@ const UserProfile: React.FC = () => {
  } catch { return null; }
  })();
  if (db) {
- const { doc, deleteDoc, collection, getDocs, query, where } = await import('firebase/firestore');
- // user_profiles no longer used — data is in newsletter_subscribers (deleted below)
- // Delete the newsletter subscription by its deterministic docId.
- //
- // The two `where('email','==',…)` sweeps that used to follow this line were
- // removed with #5751: they were a `list` on `newsletter_subscribers`, and
- // that grant is what let an unauthenticated browser page the whole
- // subscriber list. They were also the quietest of the three call sites —
- // `.catch(() => null)` on the query meant a denial here would have deleted
- // the canonical document and skipped the rest without a word, which is the
- // worst possible shape for an erasure path.
- //
- // What is lost is bounded and stated rather than hidden: a legacy row whose
- // id is NOT the normalized address survives this deletion. An id-keyed read
- // cannot find one by construction, so on a GDPR erasure that residue is
- // Admin-SDK work — see the follow-up issue on the PR that removed this.
- const delEmail = getAuthEmail(user);
- if (delEmail) {
- const normalizedEmail = delEmail.trim().toLowerCase();
- await deleteDoc(doc(db, 'newsletter_subscribers', normalizedEmail)).catch(() => {});
- }
+ const { deleteDoc, collection, getDocs, query, where } = await import('firebase/firestore');
+ // Newsletter / job-alert rows are email-keyed and the client cannot delete
+ // `newsletter_subscribers/{email}` (no `allow delete` in firestore.rules).
+ // Swallowing that denial used to look like a PII wipe while the pending
+ // subscriber stayed and still got the confirmation email. Erasure of those
+ // docs is Admin-SDK `cleanupUserDataOnAccountDelete` (auth onDelete), which
+ // runs after `deleteCurrentUser` below. A pending auto-save is cancelled
+ // above so it cannot recreate the row between here and Auth delete.
  // Delete feedback entries
  const feedbackQuery = query(collection(db, 'feedback'), where('userId', '==', user.uid));
  const feedbackSnap = await getDocs(feedbackQuery).catch(() => null);
@@ -803,9 +795,6 @@ const UserProfile: React.FC = () => {
  URL.revokeObjectURL(url);
  Analytics.trackUIInteraction('profile', 'gdpr', 'export_data', 'click');
  };
-
- // Auto-save debounce ref
- const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
  const autoSave = useCallback((updatedProfile: UserProfileData) => {
  localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(updatedProfile));

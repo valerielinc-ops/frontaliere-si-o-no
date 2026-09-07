@@ -81,7 +81,7 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
-import { cleanupSavedJobsForDeletedUser } from './src/authAccountCleanup.js';
+import { cleanupUserDataForDeletedAccount } from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
@@ -1769,11 +1769,13 @@ export const syncNewsletterSubscriberAuth = onDocumentCreated(
 // confirmed. functions.auth.user().onDelete() is a plain non-blocking gen1
 // trigger that works on any stock Firebase Auth project — fires AFTER
 // deleteCurrentUser() (services/authService.ts) removes the Auth user, and
-// cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs.
+// cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs,
+// plus tombstones email-keyed newsletter / job-alert subscriber docs (client
+// rules deny delete on newsletter_subscribers, so the profile wipe cannot).
 export const cleanupUserDataOnAccountDelete = functionsV1.auth.user().onDelete(async (user) => {
  try {
- const { deletedSavedJobs } = await cleanupSavedJobsForDeletedUser(user.uid);
- console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${deletedSavedJobs}`);
+ const result = await cleanupUserDataForDeletedAccount({ uid: user.uid, email: user.email });
+ console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);
  } catch (error) {
  console.error('[cleanupUserDataOnAccountDelete]', error instanceof Error ? error.message : String(error));
  }

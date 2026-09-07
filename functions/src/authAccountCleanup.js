@@ -13,6 +13,14 @@
  * no other reader in the repo, so deleting the whole doc alongside the
  * subcollection is safe — nothing else depends on it surviving.
  *
+ * Email-keyed subscriber docs are a different hole: firestore.rules has no
+ * `allow delete` on `newsletter_subscribers/{email}`, so the profile page's
+ * client `deleteDoc` is denied and was being swallowed. Auth disappears, the
+ * `pending` row stays, and `sendNewsletterConfirmationEmail` still mails.
+ * Client rules cannot fix that; this Admin-SDK path tombstones those rows
+ * (kept, not deleted) so a later merge-write cannot mint a fresh Auth user
+ * via `onDocumentCreated` / `syncAuthAccountForSubscriber`.
+ *
  * Deletes in pages of 450 (under Firestore's 500-writes-per-batch limit)
  * because the client-side SAVED_JOBS_CAP (100) is a soft, client-enforced
  * ceiling, not a server-guaranteed one.
@@ -21,6 +29,18 @@
 import admin from 'firebase-admin';
 
 const DELETE_PAGE_SIZE = 450;
+
+export const ACCOUNT_DELETED_STATUS = 'account_deleted';
+
+/**
+ * @param {Record<string, unknown>|null|undefined} data
+ * @returns {boolean}
+ */
+export function isAccountDeletedTombstone(data) {
+  if (!data || typeof data !== 'object') return false;
+  if (data.account_deleted_at) return true;
+  return String(data.status || '').trim().toLowerCase() === ACCOUNT_DELETED_STATUS;
+}
 
 /**
  * @param {string} uid
@@ -45,4 +65,54 @@ export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
   await db.collection('users').doc(uid).delete();
 
   return { deletedSavedJobs };
+}
+
+/**
+ * @param {string|null|undefined} rawEmail
+ * @param {import('firebase-admin/firestore').Firestore} db
+ * @returns {Promise<{tombstonedNewsletter: boolean, tombstonedJobAlert: boolean}>}
+ */
+export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
+  const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
+  if (!email || !email.includes('@')) {
+    return { tombstonedNewsletter: false, tombstonedJobAlert: false };
+  }
+
+  const stamp = new Date().toISOString();
+  // Newsletter: `unsubscribed` is already in NEWSLETTER_EXCLUDED_STATUSES and
+  // CROSS_CHANNEL_STOP_STATUSES. Confirmation mail is transactional and still
+  // sends to `unsubscribed` — `account_deleted_at` is the extra signal that
+  // send + Auth-sync consult. Job alerts: `inactive` is that channel's
+  // exclusion status (it has no `unsubscribed`).
+  const newsletterTombstone = {
+    status: 'unsubscribed',
+    isActive: false,
+    account_deleted_at: stamp,
+    unsubscribed_at: stamp,
+  };
+  const jobAlertTombstone = {
+    status: 'inactive',
+    isActive: false,
+    account_deleted_at: stamp,
+  };
+
+  await Promise.all([
+    db.collection('newsletter_subscribers').doc(email).set(newsletterTombstone, { merge: true }),
+    db.collection('job_alert_subscribers').doc(email).set(jobAlertTombstone, { merge: true }),
+  ]);
+
+  return { tombstonedNewsletter: true, tombstonedJobAlert: true };
+}
+
+/**
+ * @param {{uid: string, email?: string|null}} user
+ * @param {import('firebase-admin/firestore').Firestore} [injectedDb]
+ * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean}>}
+ */
+export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
+  const db = injectedDb || admin.firestore();
+  const { uid, email } = user || {};
+  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
+  const subscribers = await tombstoneEmailKeyedSubscribers(email, db);
+  return { ...saved, ...subscribers };
 }
