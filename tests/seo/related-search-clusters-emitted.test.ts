@@ -41,6 +41,8 @@ import {
 } from '../../build-plugins/shared/headLinkPatterns';
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { isArchivedStubHtml } from './_bridgeMarker';
+import { buildJunkRetirementHtml } from '../../build-plugins/relatedSearchClustersPlugin';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -337,9 +339,47 @@ function ratio(html: string): number {
  * `tests/seo/search-pages-head-contract.test.ts` ("AGENTS.md below-floor
  * bridge doctrine"). Google never indexes these, so their short body isn't
  * the thin-content emission break this gate exists to catch.
+ *
+ * SECOND PRODUCER of the same shape (issue #7754): the junk-doorway
+ * withdrawals of `buildJunkRetirementHtml` / `junkRetirementWrites`. They sit
+ * at cluster-shaped paths under the very directories `listClusterDirs` walks,
+ * so this gate samples them, and they are `buildCanonicalBridgePage` output —
+ * `noindex,follow`, canonical → hub, no JSON-LD — exactly like the below-floor
+ * bridge. The predicate is therefore about the SHAPE, not about which emitter
+ * wrote it.
+ *
+ * The noindex half delegates to `isArchivedStubHtml` instead of keeping a
+ * second local regex: the local `/<meta[^>]+noindex/i` was a weaker copy of
+ * `isNoindexHtml` (attribute-order-independent, quote-flexible, #3060) that
+ * AGENTS.md #6 asks to collapse into the one shared module rather than let
+ * drift. `REDIRECT_STUB_MARKER` stays OR-ed in front: it is the marker the
+ * cluster emitters stamp, and `isArchivedStubHtml` keys off `bridge.css`,
+ * so dropping it would narrow the existing exemption.
  */
 function isBridgePage(html: string): boolean {
-  return html.includes(REDIRECT_STUB_MARKER) || /<meta[^>]+noindex/i.test(html);
+  return html.includes(REDIRECT_STUB_MARKER) || isArchivedStubHtml(html);
+}
+
+/**
+ * The BreadcrumbList check's offender predicate.
+ *
+ * Extracted (issue #7754) so the always-run retirement guard at the bottom of
+ * this file can assert on the SAME expression the dist gate evaluates — a
+ * guard that re-implemented it would keep passing after someone deleted the
+ * exemption from the gate.
+ *
+ * The exemption itself: `buildCanonicalBridgePage` emits no `ld+json` at all,
+ * so every bridge under a cluster dir is a permanent offender of a check that
+ * exists to catch the CLUSTER TEMPLATE dropping its breadcrumbs. A `noindex`
+ * stub has no breadcrumb to show in a SERP it is never in. Left unexempted the
+ * junk-retirement family — an unbounded set of paths, growing with the junk
+ * denylist — pushed this rate toward the 15 % systemic ceiling and would have
+ * turned the whole withdrawal into a post-deploy red (the fixed-window head of
+ * run 32261742920, "19 missing BreadcrumbList", is the same offenders seen
+ * before the stride sampling).
+ */
+function missesBreadcrumbList(html: string): boolean {
+  return !isBridgePage(html) && !findByType(extractLdJson(html), 'BreadcrumbList');
 }
 
 function totalClusterCount(): number {
@@ -489,8 +529,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       for (const loc of LOCALES) {
         for (const page of loadClusterPages(loc, 50)) {
           scanned++;
-          const nodes = extractLdJson(page.html);
-          if (!findByType(nodes, 'BreadcrumbList')) {
+          if (missesBreadcrumbList(page.html)) {
             offenders.push(`${page.file} — missing BreadcrumbList JSON-LD`);
           }
         }
@@ -751,6 +790,47 @@ describe.skipIf(RUN_DIST_GATES && HAS_DIST && HAS_PAGES)(
     });
   },
 );
+
+// Junk-doorway withdrawals vs. this gate's own per-page predicates (#7754).
+//
+// The withdrawal documents are emitted into `dist/` at cluster-shaped paths but
+// are deliberately absent from `sitemapLocs` / `crossSectionMirrorLocs` and from
+// every hub that links clusters. That keeps them OUT of the sitemap-driven gates
+// by construction (`audit:orphan-sitemap-pages` diffs `sitemapUrls − linkedUrls`,
+// `audit:max-bfs-depth` scores only URLs carrying a `<loc>`), but it puts them
+// squarely IN the population of the dist-WALKING ones — this gate first, since
+// `listClusterDirs` matches on the `{prefix}-` directory name alone.
+//
+// Runs WITHOUT a dist build: it feeds `buildJunkRetirementHtml` straight to the
+// predicates above, so a future edit that drops the bridge exemption from
+// `missesBreadcrumbList` fails HERE, in `tests`, instead of turning an entire
+// family of paths red in post-deploy where no repo change can clear it.
+describe('junk-doorway retirement — not an offender of the cluster dist gate (#7754)', () => {
+  for (const loc of LOCALES) {
+    it(`${loc}: the withdrawal document passes every per-page cluster predicate`, () => {
+      const html = buildJunkRetirementHtml(loc);
+
+      // Exempt where the shape makes the invariant inapplicable.
+      expect(isBridgePage(html), 'withdrawal must read as a bridge/archived stub').toBe(true);
+      expect(missesBreadcrumbList(html), 'BreadcrumbList check must exempt the withdrawal').toBe(false);
+
+      // Satisfied on its own merits everywhere else — these need NO exemption,
+      // and asserting them is what keeps the exemption above narrow.
+      expect(extractTag(html, 'h1')).toHaveLength(1);
+      expect(countCanonicalLinks(html)).toBe(1);
+      expect(countHreflangLinks(html)).toBe(0);
+      expect([...extractTag(html, 'title')[0].trim()].length).toBeLessThanOrEqual(66);
+      expect(html.match(/\sdark:[a-z-]+/g)).toBeNull();
+      expect(findByType(extractLdJson(html), 'FAQPage')).toBeNull();
+
+      // mobile-fold order: an <h1> exists and no <details> precedes it.
+      const h1Idx = html.indexOf('<h1');
+      const detailsIdx = html.indexOf('<details');
+      expect(h1Idx).toBeGreaterThan(-1);
+      expect(detailsIdx === -1 || detailsIdx > h1Idx).toBe(true);
+    });
+  }
+});
 
 // Data-driven boilerplate-strip invariant. Runs WITHOUT a dist build: it reads
 // the candidate corpus directly, so it gates every CI run rather than only

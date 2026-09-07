@@ -87511,6 +87511,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-schilpario-frontaliere-grigioni-guida': {
+    title: 'Da Schilpario ai Grigioni: vivere da frontaliere',
+    description: 'Permesso G, tassazione, imposta alla fonte, AVS e LAMal: scopri come funziona il regime fiscale per frontalieri che vivono a Schilpario e lavorano nei Grigioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, schilpario, grigioni, vivere, permesso',
+    ogTitle: 'Da Schilpario ai Grigioni: vivere da frontaliere',
+    ogDescription: 'Permesso G, tassazione, imposta alla fonte, AVS e LAMal: scopri come funziona il regime fiscale per frontalieri che vivono a Schilpario e lavorano nei Grigioni.',
+    canonicalPath: '/articoli-frontaliere/schilpario-frontaliere-grigioni-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da Schilpario ai Grigioni: vivere da frontaliere",
+      "description": "Permesso G, tassazione, imposta alla fonte, AVS e LAMal: scopri come funziona il regime fiscale per frontalieri che vivono a Schilpario e lavorano nei Grigioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/schilpario-frontaliere-grigioni-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta dai Grigioni verso la Lombardia: paesaggio alpino transfrontaliero per frontalieri"
+      },
+      "datePublished": "2026-09-07T02:28:58+00:00",
+      "dateModified": "2026-09-07T02:28:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/schilpario-frontaliere-grigioni-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
