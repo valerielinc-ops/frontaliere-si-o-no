@@ -5908,6 +5908,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.action-negozio-20esimo-schattdorf.title': 'Action accelerates and opens 20th store',
     'blog.article.action-negozio-20esimo-schattdorf.excerpt': 'Action opens its 20th store in Switzerland in Schattdorf, Uri, on September 17, with 14 new local hires.',
     'blog.article.action-negozio-20esimo-schattdorf.imageAlt': 'Aerial view of the new Action store in Schattdorf, Uri, Switzerland',
+    'blog.article.vicere-caracas-indagine-lugano.title': 'The \'Viceroy of Caracas\' investigated in Zurich: the passage from Lugano',
+    'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, described as\' Trump\'s man for Venezuelan crude \', is under investigation in Zurich and was a shareholder in a Ticino bank.',
+    'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Aerial view of Lugano\'s financial district along the lake at dusk',
 };
 
 export default blogMetaChEn;
