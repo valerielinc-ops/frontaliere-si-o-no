@@ -8,6 +8,7 @@ import {
   mergePreviousSlugsCapped,
   capSlugArray,
   restoreExistingSlugIdentity,
+  RETAINED_EVENTS_CAP,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
   addPreviousSlugForLocale,
@@ -97,6 +98,46 @@ describe('slug-history-journal', () => {
     expect(out).toContain('drop: 1');
     expect(out).toContain('srcA:2');
     expect(out).toContain('net: +1 across 2 jobs');
+  });
+
+  // Regression for follow-up #7633: a massive restore (assemble-jobs-dataset
+  // walks every crawler slice in ONE process) used to retain one event object
+  // per restored slug per locale for the whole run — 25 000 objects / ~5.6 MB
+  // measured on a single 5000-job slice, to render a 116-char summary. The
+  // retained trace is now capped; the counters that end up in the commit
+  // message must stay exact ACROSS the cap, otherwise the only measure that
+  // says whether slug redirects were preserved starts under-reporting.
+  it('caps the retained event trace but keeps the aggregate counters exact', () => {
+    const n = RETAINED_EVENTS_CAP + 137;
+    for (let i = 0; i < n; i++) {
+      recordSlugMutation({
+        jobId: `job-${i}`, locale: 'it', slug: `slug-${i}`,
+        action: 'restore', source: 'bulk/source',
+      });
+    }
+    const s = summarize();
+    expect(s.total).toBe(n);
+    expect(s.restored).toBe(n);
+    expect(s.jobsAffected).toBe(n);
+    expect(s.sources).toEqual([['bulk/source', n]]);
+    expect(s.retained).toBe(RETAINED_EVENTS_CAP);
+    expect(s.truncated).toBe(137);
+    // Bounded, newest-last, chronological.
+    const ev = getEvents();
+    expect(ev).toHaveLength(RETAINED_EVENTS_CAP);
+    expect(ev[0].jobId).toBe('job-137');
+    expect(ev[ev.length - 1].jobId).toBe(`job-${n - 1}`);
+    // The commit-message body stays a fixed-size aggregate.
+    expect(formatSummary()).toContain(`restore: ${n}`);
+  });
+
+  it('clear() resets the aggregates too, not just the retained trace', () => {
+    recordSlugMutation({ jobId: 'j', locale: 'it', slug: 's', action: 'capture', source: 'src' });
+    clear();
+    expect(summarize()).toMatchObject({ total: 0, captured: 0, jobsAffected: 0, retained: 0, truncated: 0 });
+    expect(summarize().sources).toEqual([]);
+    expect(getEvents()).toEqual([]);
+    expect(formatSummary()).toBe('');
   });
 
   it('addPreviousSlugForLocale writes to byLocale and journals capture', () => {

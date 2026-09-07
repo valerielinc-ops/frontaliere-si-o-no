@@ -5848,6 +5848,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riassetto-vw-impatti-svizzera.title': 'VW-Sanierung: Für die Schweiz sind die Auswirkungen begrenzt',
     'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen will bis 2030 100’000 Stellen abbauen. Feintool verliert in Zürich über 3% an der Börse.',
     'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit Fokus auf die Industriegebiete und die umliegenden Berge.',
+    'blog.article.fondazione-beloved-primi-versamenti.title': 'Beloved-Stiftung: Erste Auszahlungen für die Opfer',
+    'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Die Stiftung Beloved beginnt mit den Zahlungen: 24 Millionen CHF für die Opfer des Brandes von Crans-Montana. Priorität: Wiedereingliederung in den Arbeitsmarkt und langfristige psychologische Unterstützung.',
+    'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Schweizer Institutionsgebäude, das die Arbeit der Fondation Beloved bei der Unterstützung von Opfern darstellt',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Geschäft in Bern eröffnen: Handelsregister und Kosten',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Unternehmensregistrierung in Bern: Wahl der Rechtsform, Handelsregistereintragung, Mindestkapital und Versicherungspflichten.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Schweizer Stadtsicht mit historischen Gebäuden und Alpenlandschaft im Hintergrund',
 };
 
 export default blogMetaChDe;
