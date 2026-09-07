@@ -8,19 +8,25 @@
 //
 // Pure helpers (unit-tested); the network/DNS parts live in the calling script.
 
+import { registrableDomain } from './prospector/registrable.mjs';
+
 const EMAIL_RE = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi;
 // Non-global, anchored copy for validation — `.test()` on the /g regex above is
 // stateful (advances lastIndex) and would drop valid emails intermittently.
 const EMAIL_ONE = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
 const BAD_LOCAL = /\.(css|js|jpe?g|png|webp|gif|svg|min|html?)$|^[0-9a-f]{8,}$/i;
 
-/** Registrable domain (last 2 labels) from a URL or hostname. */
+/**
+ * Registrable domain from a URL or hostname.
+ *
+ * Delegated to the shared public-suffix table: taking the last two labels made
+ * the apex of `acme.com.br` read `com.br`, which merges unrelated employers
+ * under one contact record and guesses addresses at the wrong domain (#7770).
+ */
 export function apexDomain(input) {
   let host = String(input || '').trim().toLowerCase();
   try { if (/^https?:\/\//.test(host)) host = new URL(host).hostname; } catch { /* keep raw */ }
-  host = host.replace(/^www\./, '').replace(/\/.*$/, '');
-  const parts = host.split('.').filter(Boolean);
-  return parts.length <= 2 ? host : parts.slice(-2).join('.');
+  return registrableDomain(host.replace(/\/.*$/, ''));
 }
 
 /** Cloudflare email-protection decoder (data-cfemail="hex"). */

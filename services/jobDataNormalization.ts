@@ -16,6 +16,7 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // Relative path (not `@/data/...`) so this resolves under Node when build
 // plugins import it without the Vite path-alias resolver kicking in.
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
+import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 
 type JobLike = {
  company?: string;
@@ -604,12 +605,13 @@ function normalizeDomain(input: unknown): string {
  return host;
 }
 
+// Shared public-suffix table (same module the crawler side uses, imported as a
+// plain .mjs like `haversine.mjs` next door): folding to the last two labels
+// turned `acme.com.br` into the bare suffix `com.br`, so unrelated employers
+// shared one host key and the logo/registry lookup keyed off it (#7770).
 function toBaseDomain(host: string): string {
  const clean = normalizeDomain(host);
- if (!clean) return '';
- const parts = clean.split('.').filter(Boolean);
- if (parts.length <= 2) return clean;
- return parts.slice(-2).join('.');
+ return clean ? registrableDomain(clean) : '';
 }
 
 export function hostFromExternalUrl(raw?: string): string {
