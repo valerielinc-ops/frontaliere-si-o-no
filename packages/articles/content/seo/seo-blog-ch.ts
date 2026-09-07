@@ -76616,6 +76616,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zurich-hcl-gold-sponsor-2030': {
+    title: 'Zurich rinnova con l’HCL: Gold Sponsor fino al 2030',
+    description: 'Zurich Assicurazioni ha rinnovato la sua partnership con l’Hockey Club Lugano fino al 2030, confermandosi Gold Sponsor. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurich, rinnova, gold, sponsor',
+    ogTitle: 'Zurich rinnova con l’HCL: Gold Sponsor fino al 2030',
+    ogDescription: 'Zurich Assicurazioni ha rinnovato la sua partnership con l’Hockey Club Lugano fino al 2030, confermandosi Gold Sponsor. Scopri di più su questa importante collaborazione.',
+    canonicalPath: '/articoli-svizzera/zurich-hcl-gold-sponsor-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zurich rinnova con l’HCL: Gold Sponsor fino al 2030",
+      "description": "Zurich Assicurazioni ha rinnovato la sua partnership con l’Hockey Club Lugano fino al 2030, confermandosi Gold Sponsor. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zurich-hcl-gold-sponsor-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con l'Hockey Club Lugano e Zurich Assicurazioni"
+      },
+      "datePublished": "2026-09-07T09:33:52+00:00",
+      "dateModified": "2026-09-07T09:33:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurich-hcl-gold-sponsor-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
