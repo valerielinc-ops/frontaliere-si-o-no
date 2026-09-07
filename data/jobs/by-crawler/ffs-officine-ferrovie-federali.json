@@ -3341,7 +3341,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -4891,7 +4892,7 @@
       "title": "Product Architect Microsoft 365 (m/w/d)",
       "titleByLocale": {
         "it": "Architetto di prodotto Microsoft 365 (m/f/d)",
-        "en": "Product Architect Microsoft 365 (m/w/d)",
+        "en": "Product Architect Microsoft 365 (m/f/d)",
         "de": "Product Architect Microsoft 365 (m/w/d)",
         "fr": "Architecte produit Microsoft 365 (h/f/d)"
       },
@@ -4947,8 +4948,7 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -6492,7 +6492,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },

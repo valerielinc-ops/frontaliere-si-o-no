@@ -540,7 +540,6 @@
         ]
       },
       "firstSeenAt": "2026-09-05T22:49:34.246Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -697,21 +696,34 @@
       "addressRegion": "TI",
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-chef-fe-gmo-ch"
+          "infirmier-ere-chef-fe-gmo-ch",
+          "un-infermiera-d-emergenza-gmo-lugano",
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
+          "an-emergency-nurse-gmo-lugano",
+          "eine-notfallkrankenschwester-gmo-lugano"
         ],
         "en": [
-          "infirmier-ere-chef-fe-gmo-ch"
+          "infirmier-ere-chef-fe-gmo-ch",
+          "an-emergency-nurse-gmo-lugano"
         ],
         "de": [
           "infirmier-ere-chef-fe-gmo-ch",
           "hauptkrankenschwester-gmo-lugano",
-          "infirmier-ere-chef-fe-gmo-lugano"
+          "infirmier-ere-chef-fe-gmo-lugano",
+          "eine-notfallkrankenschwester-gmo-lugano"
+        ],
+        "fr": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
         ]
       },
       "previousSlugs": [
         "infirmier-ere-chef-fe-gmo-ch",
         "hauptkrankenschwester-gmo-lugano",
-        "infirmier-ere-chef-fe-gmo-lugano"
+        "infirmier-ere-chef-fe-gmo-lugano",
+        "un-infermiera-d-emergenza-gmo-lugano",
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
+        "an-emergency-nurse-gmo-lugano",
+        "eine-notfallkrankenschwester-gmo-lugano"
       ],
       "crawlerMissStreak": 2,
       "needsRetranslation": true
@@ -808,7 +820,7 @@
       "title": "Psychologue psychothérapeute FSP",
       "titleByLocale": {
         "it": "Psicologia psicoterapeuta FSP",
-        "en": "Psychologue psychothérapeute FSP",
+        "en": "Psychologist psychotherapist FSP",
         "de": "Psychologe Psychotherapeut FSP",
         "fr": "Psychologue psychothérapeute FSP"
       },
@@ -868,8 +880,7 @@
       "previousSlugs": [
         "psychologue-psychotherapeute-fsp-gmo-ch"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "gmo-287e39d62086",
@@ -946,8 +957,7 @@
       "previousSlugs": [
         "comptable-gmo-ch"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }
