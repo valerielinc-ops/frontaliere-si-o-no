@@ -17515,6 +17515,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'startup-crypto-difficolta-bancarie',
+    category: 'novita',
+    date: '2026-09-07T04:46:39.609Z',
+    image: '/images/blog/startup-crypto-difficolta-bancarie.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

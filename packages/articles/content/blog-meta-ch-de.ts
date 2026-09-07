@@ -5839,6 +5839,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Haus kaufen in Bern: Preise, Hypothek und Steuern',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Bern: Stempelsteuer, Notarkosten, geforderte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Luftaufnahme eines modernen Wohnviertels in Bern mit Häusern und grünen Gärten',
+    'blog.article.startup-crypto-difficolta-bancarie.title': 'Krypto-Startups und Banken: Der Betrieb wird immer schwieriger',
+    'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'Ein Bitcoin-Mining-Unternehmen in Lugano sieht sich mit der Schließung von Bankkonten konfrontiert. Schweizer Banken gefährden die digitale Innovation.',
+    'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Modernes Gebäude in Lugano, wirtschaftlicher Kontext im Tessin.',
 };
 
 export default blogMetaChDe;

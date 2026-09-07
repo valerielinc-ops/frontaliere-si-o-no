@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Mon, 07 Sep 2026 04:34:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 04:46:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,69 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Krypto-Startups und Banken: Der Betrieb wird immer schwieriger</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/krypto-startup-banken-probleme/</link>
+      <description><![CDATA[Ein Bitcoin-Mining-Unternehmen in Lugano sieht sich mit der Schließung von Bankkonten konfrontiert. Schweizer Banken gefährden die digitale Innovation.]]></description>
+      <content:encoded><![CDATA[## In Kürze
+- Ein Schweizer Bitcoin-Mining-Startup sieht sich mit der Betriebsblockade konfrontiert, die durch das De-Risking von Banken verursacht wird.
+- Die Inkohärenz zwischen der Crypto Nation-Strategie und der täglichen Bankenrealität lähmt die Innovation.
+- Lugano hat trotz des Ehrgeizes eines Blockchain-Pools Schwierigkeiten, zwischen Instituten und Betreibern zu vermitteln.
+
+## Eckdaten
+- Was: Zwangsschließung von Geschäftskonten für Bergbauaktivitäten.
+- Wann: Q3 2024
+- Wo: Lugano und Kanton Tessin.
+- Wer: Startup mit Doppellizenz (Immobilien und Bergbau).
+- Auswirkung: Totaler Stillstand des Cashflows.
+
+Die Geschichte von S. spiegelt einen tiefen Bruch in der Schweizer Finanzlandschaft wider. Sein Unternehmen, das im Immobilien- und Bitcoin-Mining tätig ist, kollidiert mit dem strengen Compliance-Protokoll der Kantonal- und Nationalbanken. Das Mining, das als strategische Liquiditätsreserve konzipiert wurde, ist zur Achillesferse seines Bankgeschäfts geworden.
+
+Technisch basiert das Mining auf ASIC-Hardware. Mit einer Investition von 130.000 Franken generiert S. rund 0,1 BTC pro Monat (Gegenwartswert rund 6.500 USD) bei einem Energieaufwand von 5.000 USD. Die Marge ist zwar volatil, aber rückverfolgbar. Die Banken wenden jedoch Entriskungsrichtlinien an, die nicht zwischen illegalen Aktivitäten und transparentem industriellem Mining unterscheiden.
+
+> „Ich habe immer alles transparent gehandhabt, aber die Banken haben die Konten ohne Einspruch geschlossen und es unmöglich gemacht, Lieferanten und Gehälter zu bezahlen.“
+
+Das Paradoxon wird durch das Gesetz verschärft
+## Praktische Analyse
+
+Die Schwierigkeiten, auf die S. stößt, sind kein Einzelfall, sondern spiegeln eine systemische Kritikalität wider, die das gesamte Schweizer Ökosystem betrifft. Blockchain-Anwalt Lars Schlichting bestätigt, dass die Bankenblockade nicht nur das Mining trifft, sondern das gesamte innovative Unternehmertum erstickt. Oft eröffnen die Banken das Gründungskonto, das für die Einlage des Stammkapitals von mindestens 100'000 Franken für eine AG notwendig ist, lehnen aber die Umwandlung in ein Betriebskonto ab. Dieser Stillstand zwingt Startups dazu, zu ausländischen Neobanken wie Revolut oder Wise zu migrieren, was die inländische Finanzkontrolle schwächt.
+
+> „Die Banken haben Angst vor dem Unkonventionellen und begünstigen unfreiwillig die Kapitalflucht ins Ausland.“
+
+### Implikationen für Startups
+
+Lorenzo Ambrosini, Direktor der Stiftung Agire, betont, dass das Fehlen eines Finanzhistorikers junge Unternehmen zu einem hohen Risiko für traditionelle Institute macht. Besonders angespannt ist die Situation in Innovationszentren wie dem Tessin oder dem Kanton Zug, wo die Konzentration von Krypto-Unternehmen hoch ist.
+
+📊 Praktisches Szenario: die Kosten des Ausschlusses
+Ein Startup, das innerhalb von 30 Tagen nach der Gründung kein Bankkonto in der Schweiz erhält, erleidet Betriebsverzögerungen, die zusätzliche Rechtsberatungen zwischen 5'000 und 15'000 Franken kosten können. Im Vergleich dazu entstehen einem Startup, das auf den traditionellen Bankkredit zugreift, jährliche Betriebskosten von ca.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
+## Aktion
+Wenn Ihr Startup mit der Ablehnung der Kontoeröffnung durch traditionelle Institute kollidiert, beschränken Sie sich nicht auf das Warten. Er analysiert die technischen Gründe: Oft liegt das Problem in einem Risikoprofil, das nicht den FINMA-Standards von 2021 zur Bekämpfung der Geldwäscherei entspricht. Konsultieren Sie einen erfahrenen Anwalt für Schweizer Bankrecht, um ein Gutachten über die Konformität Ihrer Transaktionen zu erstellen. Erkunden Sie lokale Alternativen wie innovationsorientierte Kantonalbanken (z. Zug oder Genf) oder spezialisierte Institute wie Sygnum oder SEBA, die dedizierte Konten mit Ersteinzahlungsschwellen oft über CHF 50'000 anbieten.
+
+> Dokumententransparenz ist der beste Schutz gegen einseitige Kontoschließung.
+
+Dokumentiert jede Operation mit Schweizer Präzision. Wenn Sie im Zuger Crypto Valley tätig sind, stellen Sie sicher, dass Ihr Audit von lokalen Wirtschaftsprüfern zertifiziert ist. Führen Sie ein aktuelles Transaktionsprotokoll, um präventive Sperrungen zu vermeiden.
+
+### Tools und operative Checkliste
+Gehen Sie wie folgt vor, um mit der Komplexität umzugehen:
+- Überprüfung der AML/KYC-Konformität gemäß den FINMA-Richtlinien 2016/7.
+- Vergleichen Sie Wechselkurse auf spezialisierten Portalen, um die Liquidität in CHF/EUR zu optimieren.
+- Verwenden Sie Steuerrechner, um die Auswirkungen der Verrechnungssteuer (35%) auf mögliche Erträge abzuschätzen.
+
+📊 Checkliste für Startups:
+1. Compliance-Risikoanalyse (externes Audit).
+2. Periodische Berichterstattung für Kreditinstitute.
+3. Diversifikation auf
+
+*Quelle: [tio.ch](https://www.tio.ch/ticino/attualita/1946997/fabbrica-bitcoin-gli-chiudono-il-conto-e-nessuna-banca-lo-vuole)*]]></content:encoded>
+      <pubDate>Mon, 07 Sep 2026 04:46:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/startup-crypto-difficolta-bancarie</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/startup-crypto-difficolta-bancarie.webp" medium="image"/>
+    </item>
     <item>
       <title>Haus kaufen in Bern: Preise, Hypothek und Steuern</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/haus-kaufen-bern-hypothek-steuern-leitfaden/</link>
@@ -3578,76 +3641,6 @@ Für weitere Informationen und Unterstützung bei der Verwaltung der AHV-Beiträ
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/avs-prestazioni-complementari-basilea-campagna</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-basilea-campagna.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Neutralität reimt sich auf Wohlstand</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-neutralitaet-wohlstand/</link>
-      <description><![CDATA[Lorenzo Quadri diskutiert die Bedeutung der Schweizer Neutralität und ihre wirtschaftlichen und politischen Implikationen.]]></description>
-      <content:encoded><![CDATA[## Kurz gesagt
-- Die Schweizer Neutralität steht zur Abstimmung
-- Gegner sehen die Neutralität als Hindernis für die EU-Integration
-- Die Neutralität ermöglicht wirtschaftliche Diversifizierung und internationalen Dialog
-
-## Wichtige Fakten
-- **Was**: Abstimmung über die Neutralitätsinitiative
-- Wann: Noch nicht spezifiziert
-- Wo: Schweiz
-- Wer: Lorenzo Quadri, Nationalrat der Lega dei Ticinesi
-- Betrag: Nicht anwendbar
-
-Lorenzo Quadri, Nationalrat der Lega dei Ticinesi, hat kürzlich die Bedeutung der Schweizer Neutralität diskutiert. Laut Quadri ist die Neutralität keine Frage von rechts oder links, sondern ein grundlegender Pfeiler des Schweizer Modells. Die Neutralität hat dazu beigetragen, die Schweiz prosperierend, sicher und offen für die Welt zu machen. Am 27. September werden die Schweizer Bürger darüber abstimmen, ob sie die dauerhafte und bewaffnete Neutralität fortsetzen wollen, die es dem Land ermöglicht hat, die wirtschaftlichen Beziehungen zu diversifizieren und weniger erpressbar zu sein.
-
-Gegner der Neutralitätsinitiative sind oft diejenigen, die eine Integration der Schweiz in die Europäische Union befürworten. Die Neutralität stellt ein Hindernis für die Unterwerfung unter die EU dar. Quadri betont, dass die Neutralität einer der Pfeiler des Schweizer Modells ist, zusammen mit der direkten Demokratie, dem Föderalismus, der Unabhängigkeit und dem Milizprinzip. Dank der Neutralität ist die Schweiz zu einer privilegierten Plattform für internationalen Dialog und Vermittlung geworden.
-
-### Neutralität und Wirtschaft
-
-Die Neutralität ermöglicht es der Schweiz, die wirtschaftlichen Beziehungen zu diversifizieren und das Land weniger abhängig von der EU zu machen. Dies ist besonders in einem globalisierten Kontext wichtig, in dem Diversifizierung eine Priorität ist. Die Neutralität muss jedoch kohärent sein und nicht nur dann angewendet werden, wenn sie bequem ist. Sie ist kein bequemer Weg: Sie erfordert einen geraden Rücken und die Fähigkeit, Widerstand zu leisten.
-
-Deshalb ist der Vorwurf, die Neutralität bedeute Isolation, absurd. Im Gegenteil, die Schweiz ist eines der offensten Länder der Welt. Die Neutralität ermöglicht es uns, mit allen zu sprechen und uns wirtschaftlich zu vernetzen, zu vermitteln und eine Rolle zu spielen, die eine parteiische Schweiz unvermeidlich verlieren würde.
-
-Am 27. September werden die Schweizer Bürger entscheiden, ob sie ihre Sicherheitspolitik weiterhin autonom bestimmen oder alles nach Brüssel und der NATO delegieren wollen. Neutralität, Souveränität und Unabhängigkeit gehen Hand in Hand. Auf die Neutralität zu verzichten bedeutet, auch die anderen beiden in Frage zu stellen.
-
-Deshalb ist am 27. September ein Ja zur Neutralitätsinitiative notwendig.
-### Praktische Auswirkungen der Neutralität
-
-Die schweizerische Neutralität hat erhebliche praktische Auswirkungen auf die Wirtschaft und Politik des Landes. Die Diversifizierung der wirtschaftlichen Beziehungen ermöglicht es der Schweiz, weniger abhängig von der EU zu sein und das Risiko wirtschaftlicher Erpressung zu verringern. Dies ist insbesondere in einem globalisierten Kontext von Bedeutung, in dem Diversifizierung eine Priorität darstellt.
-
-Die Neutralität ermöglicht es der Schweiz, eine Rolle als internationaler Vermittler zu spielen und das Land zu einer privilegierten Plattform für den Dialog zu machen. Diese Rolle ist entscheidend, um Frieden und Stabilität in einem Kontext internationaler Spannungen zu bewahren.
-
-### Neutralität und europäische Integration
-
-Gegner der Initiative zur Neutralität sehen die Neutralität als Hindernis für die Integration in die Europäische Union. Die Neutralität ist jedoch einer der Pfeiler des schweizerischen Modells, zusammen mit der direkten Demokratie, dem Föderalismus, der Unabhängigkeit und dem Milizprinzip. Die Neutralität ermöglicht es der Schweiz, ihre Autonomie zu bewahren und ihre Sicherheitspolitik unabhängig zu bestimmen.
-
-### Neutralität und Sicherheitspolitik
-
-Am 27. September entscheiden die Schweizer Bürger, ob sie weiterhin ihre Sicherheitspolitik autonom bestimmen oder alles an Brüssel und die NATO delegieren wollen. Neutralität, Souveränität und Unabhängigkeit gehen Hand in Hand. Auf die Neutralität zu verzichten bedeutet, auch die anderen beiden in Frage zu stellen.
-
-Deshalb ist am 27. September ein Ja zur Initiative zur Neutralität notwendig.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).
-### Was tun am 27. September
-
-Am 27. September stimmen die Schweizerinnen und Schweizer über die Neutralitätsinitiative ab. Es ist wichtig, sich über die praktischen Implikationen der Neutralität zu informieren und eine bewusste Entscheidung zu treffen. Neutralität ist eine der Säulen des Schweizer Modells und hat erhebliche Auswirkungen auf die Wirtschaft und Politik des Landes.
-
-## # Abstimmungsverfahren
-
-Um abstimmen zu können, müssen Sie in den Wählerlisten registriert sein. Sie können sich bei Ihrer Gemeinde nach den Registrierungs- und Abstimmungsmodalitäten erkundigen. Es ist wichtig, an der Abstimmung teilzunehmen und eine bewusste Entscheidung zu treffen.
-
-### Nützliche Tools
-
-Um mehr über die praktischen Auswirkungen der Neutralität zu erfahren, können Sie [calcolatore stipendio](nav:calculator) und [comparatore CHF/EUR](nav:exchange) konsultieren. Diese Instrumente ermöglichen es, die wirtschaftlichen Auswirkungen der Neutralität besser zu verstehen und eine bewusste Entscheidung zu treffen.
-
-### Fazit
-
-Die Schweizer Neutralität ist eine tragende Säule des Schweizer Modells und hat erhebliche Auswirkungen auf die Wirtschaft und Politik des Landes. Am 27. September werden die Schweizerinnen und Schweizer darüber entscheiden müssen, ob sie die permanente und bewaffnete Neutralität aufrechterhalten wollen. Es ist wichtig, sich über die praktischen Implikationen der Neutralität zu informieren und eine bewusste Entscheidung zu treffen.
-
-*Quelle: [tio.ch](https://www.tio.ch/rubriche/ospite/1948272/neutralita-lorenzo-quadri-fa-svizzera)*]]></content:encoded>
-      <pubDate>Sun, 06 Sep 2026 07:05:05 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/neutralita-svizzera-prospeta</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/neutralita-svizzera-prospeta.webp" medium="image"/>
     </item>
   </channel>
 </rss>

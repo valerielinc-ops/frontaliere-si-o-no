@@ -75797,6 +75797,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-startup-crypto-difficolta-bancarie': {
+    title: 'Startup crypto e banche: sempre più difficile operare',
+    description: 'Difficoltà bancarie per le startup crypto a Lugano: conti chiusi e attività bloccate. Analisi del caso e le prospettive nel settore bancario svizzero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, startup, crypto, banche, sempre',
+    ogTitle: 'Startup crypto e banche: sempre più difficile operare',
+    ogDescription: 'Le banche svizzere chiudono i conti alle startup crypto: una realtà complessa che mette a rischio l\'innovazione. Analizziamo il caso di una società ticinese.',
+    canonicalPath: '/articoli-svizzera/startup-crypto-difficolta-bancarie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Startup crypto e banche: sempre più difficile operare",
+      "description": "Difficoltà bancarie per le startup crypto a Lugano: conti chiusi e attività bloccate. Analisi del caso e le prospettive nel settore bancario svizzero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/startup-crypto-difficolta-bancarie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo moderno a Lugano, contesto economico ticinese."
+      },
+      "datePublished": "2026-09-07T04:46:39+00:00",
+      "dateModified": "2026-09-07T04:46:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/startup-crypto-difficolta-bancarie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
