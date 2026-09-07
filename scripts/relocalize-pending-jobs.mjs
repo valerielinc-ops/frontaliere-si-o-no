@@ -32,6 +32,7 @@
  * ×17,5 gain over the previous ordering, and the oldest-first reserve.
  */
 
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
@@ -70,6 +71,13 @@ const ROOT = path.resolve(__dirname, '..');
 
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+// Ledger del salto per azienda sterile (workspace#24). Deliberatamente FUORI
+// da data/jobs/by-crawler/: assemble-jobs-dataset.mjs:2029-2032 ricostruisce
+// lo slice {crawlerKey, assembledAt, jobs} da zero a ogni assemblaggio e
+// cancellerebbe qualunque chiave in piu'. Il path e' nell'elenco del commit
+// in .github/workflows/translate-pending-logic.yml, altrimenti lo stato non
+// sopravvive alla run e la regola non conta mai oltre 1.
+const COMPANY_SKIP_STATE_PATH = path.join(ROOT, 'data', 'cascade-company-skip.json');
 const JOB_POPULARITY_PATH = path.join(ROOT, TRAFFIC_SOURCE_PATH);
 // Deliberate run without traffic priority (e.g. a local dry run with no data/).
 // Anything else that finds the traffic source empty must FAIL, not degrade —
@@ -256,6 +264,30 @@ function readJson(filePath) {
   }
 }
 
+/** Ledger del salto per azienda sterile — vedi COMPANY_SKIP_STATE_PATH. */
+function readCompanySkipState() {
+  const raw = readJson(COMPANY_SKIP_STATE_PATH);
+  const run = Number(raw?.run) || 0;
+  const stored = (raw && typeof raw.companies === 'object' && raw.companies) || {};
+  // Pota le voci con un salto gia' scaduto. E' esattamente equivalente a
+  // tenerle — `shouldSkipCompany` le ignora e `nextCompanySkipEntry` riparte
+  // comunque da `sterile: 1`, perche' una voce scaduta porta `sterile: 0` — ma
+  // senza la potatura il file cresce con lo storico di ogni azienda mai
+  // osservata e non torna mai indietro, e il rewrite completo per azienda
+  // diventa il caso peggiore proprio nelle run lunghe che questa regola vuole
+  // accorciare.
+  const companies = {};
+  for (const [key, entry] of Object.entries(stored)) {
+    if (entry?.skipUntilRun && Number(entry.skipUntilRun) < run) continue;
+    companies[key] = entry;
+  }
+  return { run, companies };
+}
+
+function writeCompanySkipState(state) {
+  writeJsonAtomic(COMPANY_SKIP_STATE_PATH, state);
+}
+
 /**
  * Check if a job needs translation work.
  * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
@@ -395,6 +427,117 @@ export function shouldStopAfterConsecutiveFailures(
   max = MAX_CONSECUTIVE_COMPANY_FAILURES,
 ) {
   return consecutiveFailures >= max;
+}
+
+// ── Salto per azienda sterile (valerielinc-ops/frontaliere-workspace#24) ───
+// Il freno PER JOB (MAX_RETRANSLATION_ATTEMPTS, :89) non scatta mai: tre vie
+// indipendenti lo disarmano — il contatore avanza solo se l'output e'
+// CAMBIATO (reconcileRetranslationState esce 'waiting' su `!attempted`), il
+// ri-flag di un job incompleto lo azzera, e il re-crawl riscrive lo slice da
+// zero. Il punto (1) NON va riparato al suo posto: «unchanged ⇒ not
+// attempted» e' la scelta deliberata documentata a :353-359, ed e' il lato
+// sicuro (contare la sola presenza in coda riporterebbe la soppressione di
+// massa della coda mai raggiunta, regressione #5976).
+//
+// Un contatore PER AZIENDA non ha quel problema: e' un'osservazione sul
+// risultato di una `runSharedCrawler` effettivamente avvenuta, non
+// un'inferenza su un job non raggiunto, e sopravvive sia all'azzeramento del
+// contatore per-job sia al re-crawl. Dopo N run consecutive in cui l'azienda
+// non ha liberato un solo job, la si salta per le K run successive; rientra
+// alla scadenza, o prima se il testo sorgente dell'azienda e' cambiato.
+//
+// N=2/K=3 dalla simulazione retroattiva sui 10 artifact `translation-thinking-ab`
+// del 2026-09-05/07. Il guadagno atteso e' un INTERVALLO, non un numero: due
+// simulazioni indipendenti sulla stessa serie danno 17,8 min (workspace#27,
+// .agents/references/cascade-short-row-fixed-cost-research.md) e 23,9 min
+// (workspace#24), al prezzo di 2 `cleared` persi. La forbice viene per intero
+// dalla CONVENZIONE DI AZZERAMENTO del contatore, che e' percio' fissata qui
+// esplicitamente invece di essere lasciata implicita nel codice:
+//
+//   1. Qualunque riga con `cleared > 0` DIMENTICA l'azienda (voce cancellata),
+//      non la decrementa soltanto. Vale anche per un `cleared` che arriva dal
+//      retry pass, non solo dal passaggio principale.
+//   2. Quando il salto viene ARMATO, `sterile` torna a 0. Dopo la scadenza
+//      l'azienda deve quindi collezionare N righe sterili NUOVE per essere
+//      saltata di nuovo: il contatore non riprende da dove era rimasto.
+//   3. Una firma sorgente diversa da quella osservata riparte da 1: le righe
+//      contate valevano per un altro testo.
+//
+// E' la convenzione CONSERVATIVA — la (2) e' quella che separa le due stime, e
+// scegliendola questa implementazione punta all'estremo BASSO dell'intervallo,
+// intorno ai 17,8 min. Tenere il contatore attraverso il salto darebbe piu'
+// minuti (un'azienda risaltata dopo una sola riga sterile) ma alza il rischio
+// di tenere fuori un'azienda riparabile, che e' il fallimento che questa
+// regola deve evitare: il prezzo dichiarato e' 2 `cleared` persi, non di piu'.
+//
+// `marriott` — 3 run a zero e poi 1 su ciascuna delle due successive — e' la
+// prova che il riarmo funziona: rientra alla run successiva alla scadenza.
+export const COMPANY_STERILE_RUNS = 2;
+export const COMPANY_SKIP_RUNS = 3;
+
+/**
+ * Firma dell'INSIEME dei job pending di un'azienda: le coppie (slug, titolo),
+ * ordinate. Usata come innesco del riarmo anticipato — l'insieme cambia ⇒
+ * l'osservazione «sterile» precedente non vale piu' e l'azienda rientra
+ * subito, senza aspettare K.
+ *
+ * Osserva slug e titolo, NON la description. Una description riscritta dal
+ * re-crawl a slug e titolo invariati non fa scattare il riarmo anticipato:
+ * l'azienda resta fuori fino alla scadenza di K, che e' al piu' 3 run. E' un
+ * ritardo, non una perdita — e includere la description qui la renderebbe
+ * sensibile alla normalizzazione del crawler, cioe' reintrodurrebbe proprio
+ * l'instabilita' che la scelta dell'insieme pieno (invece della fetta capped)
+ * esiste per evitare. Il campo va aggiunto solo con una misura che mostri
+ * quante aziende aspettano davvero K per questo motivo.
+ */
+export function companySourceSignature(companyJobs) {
+  // JSON.stringify come separatore, non un carattere scelto a mano: qualunque
+  // byte di controllo in questo file fa rosso il gate di
+  // tests/translation-shadow-preflight-v2.test.ts (readFileSync(...).includes(0)),
+  // ed e' anche il modo giusto di non far collidere due coppie slug/titolo
+  // diverse che, concatenate, darebbero la stessa stringa.
+  const parts = companyJobs
+    .map((j) => JSON.stringify([j.slug || '', j.title || '']))
+    .sort();
+  return createHash('sha1').update(parts.join('')).digest('hex').slice(0, 16);
+}
+
+/**
+ * True when this company must be skipped for this run. `entry` is its record
+ * in the skip ledger (undefined = mai osservata sterile).
+ */
+export function shouldSkipCompany(entry, runCounter, signature) {
+  if (!entry || !entry.skipUntilRun) return false;
+  // Riarmo anticipato: il sorgente e' cambiato, l'osservazione e' scaduta.
+  if (signature && entry.signature && signature !== entry.signature) return false;
+  return runCounter <= entry.skipUntilRun;
+}
+
+/**
+ * Ledger entry for a company the cascade has just processed. Returns null when
+ * the company must be forgotten (ha liberato qualcosa ⇒ non e' sterile).
+ *
+ * `cleared` e' lo STESSO numero che la riga A/B registra negli artifact
+ * (`totalFixed - fixedBeforeCompany`), cosi' la misura e l'intervento non
+ * possono divergere.
+ */
+export function nextCompanySkipEntry(entry, {
+  cleared,
+  runCounter,
+  signature,
+  sterileRuns = COMPANY_STERILE_RUNS,
+  skipRuns = COMPANY_SKIP_RUNS,
+}) {
+  if (cleared > 0) return null;
+  // Un sorgente diverso da quello osservato riparte da capo: le run sterili
+  // contate valevano per un altro testo.
+  const sameSource = !entry || !entry.signature || entry.signature === signature;
+  const sterile = (sameSource ? Number(entry?.sterile) || 0 : 0) + 1;
+  if (sterile >= sterileRuns) {
+    // Armata: saltata per le prossime `skipRuns` run, poi riparte da zero.
+    return { sterile: 0, signature, skipUntilRun: runCounter + skipRuns };
+  }
+  return { sterile, signature };
 }
 
 /**
@@ -1368,7 +1511,63 @@ async function runRelocalization(phase) {
     companyJobCounts.set(key, (companyJobCounts.get(key) || 0) + 1);
   }
 
+  // La firma sorgente si calcola sull'insieme PIENO dei job pending di
+  // un'azienda, non sulla fetta dentro il cap. La fetta capped cambia da sola
+  // fra due run senza che nulla sia cambiato lato azienda: `orderPendingByTraffic`
+  // riordina su data/job-popularity.json, aggiornato a ogni run, e i job liberati
+  // dalle ALTRE aziende escono da `pending` facendo entrare nella finestra job
+  // piu' in basso. Un solo job in entrata o in uscita cambierebbe lo sha1,
+  // `nextCompanySkipEntry` leggerebbe `sameSource === false` e riporterebbe
+  // `sterile` a 1: l'azienda non arriverebbe mai a N e il salto non si
+  // armerebbe. Sarebbe una QUARTA via di disarmo, della stessa classe delle tre
+  // che questa regola esiste per aggirare — un contatore azzerato da un evento
+  // che non e' «l'azienda e' stata riparata» — e per giunta silenziosa, perche'
+  // il fallimento e' fail-safe e non lascia traccia nel log.
+  // Sull'insieme pieno invece, per un'azienda sterile, `cleared == 0` significa
+  // che nessuno dei suoi job e' uscito dalla coda: e' stabile per costruzione e
+  // cambia solo sul re-crawl, che e' la semantica dichiarata.
+  const companyPendingJobs = new Map();
+  for (const job of pending) {
+    const key = normalizeCompanyKey(job.companyKey || job.company || '');
+    if (!key) {
+      continue;
+    }
+    if (!companyPendingJobs.has(key)) companyPendingJobs.set(key, []);
+    companyPendingJobs.get(key).push(job);
+  }
+
   const companyKeys = [...companyJobCounts.keys()];
+
+  // ── Salto per azienda sterile (workspace#24) ─────────────────────────────
+  // La DECISIONE si prende qui, sull'unica riga da cui il ciclo per-azienda
+  // prende il suo input e dopo l'ordinamento per traffico, ma e' pura: nessuna
+  // scrittura precede l'emissione dello shadow preflight, che per contratto
+  // osserva lo stato pre-decisione senza effetti collaterali a monte
+  // (tests/translation-shadow-preflight-v2.test.ts pinna quest'ordine).
+  // `companyKeys` resta la lista PIENA — e' quella che il preflight e il
+  // controllo di coda vuota descrivono; il ciclo consuma la lista filtrata.
+  // Il tempo liberato non resta inutilizzato: un'azienda saltata non
+  // incrementa `totalProcessed`, quindi la finestra scorre piu' in basso
+  // nell'ordine per traffico prima della deadline.
+  const companySkipState = readCompanySkipState();
+  companySkipState.run = Number(companySkipState.run || 0) + 1;
+  const companySkipRun = companySkipState.run;
+  const companySignatures = new Map();
+  const skippedCompanies = [];
+  const cascadeCompanyKeys = [];
+  for (const key of companyKeys) {
+    const signature = companySourceSignature(companyPendingJobs.get(key) || []);
+    companySignatures.set(key, signature);
+    if (shouldSkipCompany(companySkipState.companies?.[key], companySkipRun, signature)) {
+      skippedCompanies.push(key);
+      continue;
+    }
+    cascadeCompanyKeys.push(key);
+  }
+  const cascadeCompanyKeySet = new Set(cascadeCompanyKeys);
+  if (skippedCompanies.length > 0) {
+    console.log(`\n⏭️  Run ${companySkipRun}: ${skippedCompanies.length} aziende saltate — ${COMPANY_STERILE_RUNS} run consecutive senza un solo job liberato, rientrano entro ${COMPANY_SKIP_RUNS} run o prima se il sorgente cambia: ${skippedCompanies.join(', ')}`);
+  }
 
   emitTranslationShadowPreflightV2(() => ({
     dryRun: false,
@@ -1412,6 +1611,11 @@ async function runRelocalization(phase) {
     },
   }));
 
+  // Persistito solo ORA, a preflight emesso: il contatore di run deve avanzare
+  // anche se questa run non processa nemmeno un'azienda, altrimenti un salto
+  // armato non scadrebbe mai.
+  writeCompanySkipState(companySkipState);
+
   if (companyKeys.length === 0) {
     console.log('⚠️  No valid company keys found. Skipping.');
     // Not the same as an empty queue: there WAS pending work, it just carried no
@@ -1420,7 +1624,7 @@ async function runRelocalization(phase) {
     return;
   }
 
-  console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${companyKeys.length} companies (incremental save)...`);
+  console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${cascadeCompanyKeys.length} companies (incremental save)...`);
 
   // Process each company separately with intermediate saves
   let totalFixed = 0;
@@ -1436,6 +1640,17 @@ async function runRelocalization(phase) {
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
   let cascadeStop = 'queue exhausted';
+  // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
+  // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
+  // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
+  // `totalProcessed == 0` e la ragione di default «queue exhausted» — cioe'
+  // indistinguibile da uno stallo, con la regola che produce un falso allarme
+  // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
+  // meccanismo diverso e puo' ancora liberare job.
+  if (cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+    console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
+    cascadeStop = 'all companies skipped';
+  }
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
   // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs per il perche'
@@ -1447,7 +1662,7 @@ async function runRelocalization(phase) {
     console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni azienda va a un braccio, il tempo e l'accettazione sono registrati per braccio.`);
   }
 
-  for (const key of companyKeys) {
+  for (const key of cascadeCompanyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
     // Stop before starting a new company once the RUN-WIDE cascade deadline
@@ -1469,7 +1684,7 @@ async function runRelocalization(phase) {
       cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
       console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
-      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
+      console.log(`   ${totalFixed} jobs translated so far; ${cascadeCompanyKeys.length - cascadeCompanyKeys.indexOf(key)} companies remaining (deferred to next run).`);
       break;
     }
 
@@ -1603,6 +1818,24 @@ async function runRelocalization(phase) {
         console.log(`   🧪 ${key}: braccio ${row.arm}, ${Math.round(row.elapsedMs / 1000)}s per ${row.jobCount} job, ${row.cleared}/${row.attempted} accettate`);
       }
 
+      // Contatore del salto per azienda (workspace#24). Legge lo STESSO
+      // `totalFixed - fixedBeforeCompany` della riga A/B qui sopra — non un
+      // secondo conteggio — cosi' la misura negli artifact e l'intervento non
+      // possono divergere. Fuori dal ramo `if (thinkingArm)` perche' l'A/B e'
+      // spento di default (TRANSLATION_THINKING_AB=1): dentro, la regola non
+      // conterebbe mai nulla in produzione.
+      const entry = nextCompanySkipEntry(companySkipState.companies[key], {
+        cleared: totalFixed - fixedBeforeCompany,
+        runCounter: companySkipRun,
+        signature: companySignatures.get(key),
+      });
+      if (entry) companySkipState.companies[key] = entry;
+      else delete companySkipState.companies[key];
+      // Scritto per azienda, non a fine ciclo: la run muore sulla deadline del
+      // cascade o sul timeout del job, e uno stato perso a meta' run azzera il
+      // contatore esattamente come faceva il freno per-job.
+      writeCompanySkipState(companySkipState);
+
       totalProcessed += companyJobCount;
       consecutiveFailures = 0;
       if (totalProcessed >= effectiveMax) break;
@@ -1644,7 +1877,10 @@ async function runRelocalization(phase) {
     const retryCompanies = new Map();
     for (const j of retryPending) {
       const k = normalizeCompanyKey(j.companyKey || j.company || '');
-      if (k && companyJobCounts.has(k)) {
+      // `cascadeCompanyKeys`, non `companyJobCounts`: senza questo il retry pass
+    // ripescherebbe proprio le aziende appena saltate — i loro job sono ancora
+    // pending per definizione — e rispenderebbe il tempo che il salto libera.
+    if (k && cascadeCompanyKeySet.has(k)) {
         retryCompanies.set(k, (retryCompanies.get(k) || 0) + 1);
       }
     }
@@ -1718,6 +1954,11 @@ async function runRelocalization(phase) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
+              // Il passaggio principale ha appena registrato questa azienda come
+              // sterile; il retry lo smentisce. Senza questa riga un'azienda che
+              // produce solo al secondo tentativo verrebbe contata verso il salto.
+              delete companySkipState.companies[key];
+              writeCompanySkipState(companySkipState);
               syncTranslationsToCrawlerFile(key, afterRetry, retryAttemptedAll);
               if (retryArm) {
                 // La riga e' gia' in coda: qui si aggiorna solo l'esito.
