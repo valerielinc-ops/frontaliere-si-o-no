@@ -5854,6 +5854,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Business opening in Bern: trade register and costs',
     'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Business registration in Bern: choice of legal form, registration in the commercial register, minimum capital and insurance obligations.',
     'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Swiss city skyline with historic buildings and alpine landscape backdrop',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Opening a business in Neuchâtel: costs and trade register',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Legal forms, registration in the trade register, social security contributions and taxes. Practical guide to starting a business in the canton.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Swiss business consultation office with company registration documents and commercial forms on desk',
 };
 
 export default blogMetaChEn;

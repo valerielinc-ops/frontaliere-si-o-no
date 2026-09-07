@@ -5854,6 +5854,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Ouvrir des activités à Berne : registre du commerce et des coûts',
     'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Enregistrement d\'entreprise à Berne : choix de la forme juridique, inscription au registre du commerce, capital minimum et obligations d\'assurance.',
     'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Vue d\'une ville suisse avec bâtiments historiques et paysage alpin en arrière-plan',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Ouvrir une entreprise à Neuchâtel : coûts et registre du commerce',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Formes juridiques, inscription au registre du commerce, cotisations de sécurité sociale et taxes. Guide pratique pour démarrer une entreprise dans le canton.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Bureau de conseil aux entreprises suisse avec documents d\'enregistrement commercial sur le bureau',
 };
 
 export default blogMetaChFr;
