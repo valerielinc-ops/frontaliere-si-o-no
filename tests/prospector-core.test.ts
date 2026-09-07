@@ -1417,7 +1417,51 @@ describe('promotion gate', () => {
     const withOffset = `${shell} generato il 2026-09-05T11:01+02:00`;
     expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
   });
-it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
+
+  it('tiene distinti due annunci template che differiscono solo per la data di entrata', () => {
+    // La data e' l'unica forma di coda che e' anche CONTENUTO: denoisata senza
+    // distinguere, due annunci template dello stesso datore che differiscono
+    // solo per l'entrata in servizio firmano uguale, `detailDistinctRate`
+    // crolla e il promotion gate boccia un datore valido — il danno inverso a
+    // quello che il denoise chiude.
+    const shell = `${'chrome '.repeat(900)}sachbearbeiterin sede`;
+    const ad = (marker: string, date: string) =>
+      `${shell} ${marker} ${date} ultimo aggiornamento 05.09.2026 11:01 visite 1234`;
+    for (const marker of [
+      'Eintritt per',
+      'Eintrittsdatum:',
+      'Stellenantritt:',
+      'data di inizio:',
+      'entrata in servizio il',
+      'a partire dal',
+      'dès le',
+      'à partir du',
+      'entrée en fonction:',
+      'start date:',
+    ]) {
+      expect(bodySignature(ad(marker, '01.11.2026'))).not.toBe(bodySignature(ad(marker, '01.03.2027')));
+    }
+    // idem sulle altre due forme che le regex data coprono
+    expect(bodySignature(ad('Eintritt per', '2026-11-01'))).not.toBe(bodySignature(ad('Eintritt per', '2027-03-01')));
+    expect(bodySignature(ad('Eintrittsdatum:', '2026-11-01T00:00:00'))).not.toBe(
+      bodySignature(ad('Eintrittsdatum:', '2027-03-01T00:00:00')),
+    );
+  });
+
+  it('denoisa comunque la data di coda senza marcatore di contenuto', () => {
+    // La guardia vale solo dietro un marcatore esplicito: il footer di
+    // generazione non ne ha, quindi resta rumore e quattro copie della stessa
+    // pagina continuano a firmare uguale.
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const copy = (n: number) => `${shell} Stand: 0${n}.09.2026 generato il 2026-09-0${n}T1${n}:0${n}:2${n}`;
+    expect(new Set([1, 2, 3, 4].map(copy).map(bodySignature)).size).toBe(1);
+    // un marcatore che chiude la frase prima della data non la copre: la data
+    // di coda che segue e' un'altra cosa e resta rumore
+    const stale = (d: string) => `${shell} data di inizio 01.11.2026. Stand: ${d}`;
+    expect(bodySignature(stale('05.09.2026'))).toBe(bodySignature(stale('06.09.2026')));
+  });
+
+  it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {
     // Il rumore di coda si toglie sulle forme grezze (data, ora, contatore),
     // non su ogni token di cifre: NPA, pensum e numero di riferimento sono
     // contenuto, e se collassassero il promotion gate leggerebbe «pagine
