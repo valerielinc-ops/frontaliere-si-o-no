@@ -79753,12 +79753,12 @@
     },
     {
       "id": "roche-df1720a4db64",
-      "slug": "global-head-regulatory-data-digital-and-ai-roche-ch",
+      "slug": "dati-regolatori-della-testa-globale-digitale-e-ai-roche-basel",
       "slugByLocale": {
-        "it": "global-head-regulatory-data-digital-and-ai-roche-ch",
+        "it": "dati-regolatori-della-testa-globale-digitale-e-ai-roche-basel",
         "en": "global-head-regulatory-data-digital-and-ai-roche-ch",
         "de": "global-head-regulatory-data-digital-and-ai-roche-ch",
-        "fr": "global-head-regulatory-data-digital-and-ai-roche-ch"
+        "fr": "donnees-sur-la-reglementation-le-numerique-et-l-ia-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -79812,16 +79812,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-head-regulatory-data-digital-and-ai-roche-ch"
+        ],
+        "fr": [
+          "global-head-regulatory-data-digital-and-ai-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-head-regulatory-data-digital-and-ai-roche-ch"
+      ]
     },
     {
       "id": "roche-be711e2e9a2e",
-      "slug": "elektriker-automatiker-unbefristet-roche-ch",
+      "slug": "elettricista-automatico-permanente-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "elektriker-automatiker-unbefristet-roche-ch",
-        "en": "elektriker-automatiker-unbefristet-roche-ch",
+        "it": "elettricista-automatico-permanente-roche-kaiseraugst",
+        "en": "electrician-automatic-permanent-roche-kaiseraugst",
         "de": "elektriker-automatiker-unbefristet-roche-ch",
-        "fr": "elektriker-automatiker-unbefristet-roche-ch"
+        "fr": "electricien-automatique-permanent-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -79874,16 +79885,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "elektriker-automatiker-unbefristet-roche-ch"
+        ],
+        "en": [
+          "elektriker-automatiker-unbefristet-roche-ch"
+        ],
+        "fr": [
+          "elektriker-automatiker-unbefristet-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "elektriker-automatiker-unbefristet-roche-ch"
+      ]
     },
     {
       "id": "roche-bd745aaeeaf1",
-      "slug": "elektriker-automatiker-befristet-bis-ende-november-2028-roche-kaiseraugst",
+      "slug": "elettricista-automatico-temporaneo-fino-alla-fine-di-novembre-2028-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "elektriker-automatiker-befristet-bis-ende-november-2028-roche-kaiseraugst",
-        "en": "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch",
+        "it": "elettricista-automatico-temporaneo-fino-alla-fine-di-novembre-2028-roche-kaiseraugst",
+        "en": "electrician-automatician-temporary-until-the-end-of-november-2028-roche-kaiseraugst",
         "de": "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch",
-        "fr": "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch"
+        "fr": "electricien-automatique-temporaire-jusqu-a-fin-novembre-2028-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -79923,10 +79948,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch"
+        "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch",
+        "elektriker-automatiker-befristet-bis-ende-november-2028-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch",
+          "elektriker-automatiker-befristet-bis-ende-november-2028-roche-kaiseraugst"
+        ],
+        "en": [
+          "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch"
+        ],
+        "fr": [
           "elektriker-automatiker-befristet-bis-ende-november-2028-roche-ch"
         ]
       },
@@ -79948,12 +79981,12 @@
     },
     {
       "id": "roche-b848ba69968b",
-      "slug": "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-kaiseraugst",
+      "slug": "ingegnere-meccanico-meccanico-temporaneo-fino-alla-fine-di-novembre-2028-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-kaiseraugst",
-        "en": "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch",
+        "it": "ingegnere-meccanico-meccanico-temporaneo-fino-alla-fine-di-novembre-2028-roche-kaiseraugst",
+        "en": "mechanic-mechatronics-engineer-temporary-until-the-end-of-november-2028-roche-kaiseraugst",
         "de": "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch",
-        "fr": "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch"
+        "fr": "mecanicien-ingenieur-mecatronique-temporaire-jusqu-a-fin-novembre-2028-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -79993,10 +80026,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch"
+        "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch",
+        "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch",
+          "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-kaiseraugst"
+        ],
+        "en": [
+          "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch"
+        ],
+        "fr": [
           "mechaniker-mechatroniker-befristet-bis-ende-november-2028-roche-ch"
         ]
       },
@@ -80019,12 +80060,12 @@
     },
     {
       "id": "roche-d249bf815698",
-      "slug": "mechaniker-mechatroniker-unbefristet-roche-ch",
+      "slug": "meccanico-meccatronica-permanente-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "mechaniker-mechatroniker-unbefristet-roche-ch",
-        "en": "mechaniker-mechatroniker-unbefristet-roche-ch",
+        "it": "meccanico-meccatronica-permanente-roche-kaiseraugst",
+        "en": "mechanic-mechatronics-technician-permanent-roche-kaiseraugst",
         "de": "mechaniker-mechatroniker-unbefristet-roche-ch",
-        "fr": "mechaniker-mechatroniker-unbefristet-roche-ch"
+        "fr": "technicien-mecanicien-mecatronique-permanent-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80078,16 +80119,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-mechatroniker-unbefristet-roche-ch"
+        ],
+        "en": [
+          "mechaniker-mechatroniker-unbefristet-roche-ch"
+        ],
+        "fr": [
+          "mechaniker-mechatroniker-unbefristet-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-mechatroniker-unbefristet-roche-ch"
+      ]
     },
     {
       "id": "roche-60f12c6a3dd4",
-      "slug": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
+      "slug": "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-san-jose-costa-rica",
       "slugByLocale": {
-        "it": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
+        "it": "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-san-jose-costa-rica",
         "en": "manufacturing-directory-services-rdt-identity-access-management-roche-ch",
         "de": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
-        "fr": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+        "fr": "services-d-annuaires-de-fabrication-rdt-gestion-de-l-identite-et-de-l-acces-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80127,11 +80182,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "manufacturing-directory-services-rdt-identity-access-management-roche-ch"
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch",
+        "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-directory-services-rdt-identity-access-management-roche-ch"
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch",
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
+        ],
+        "fr": [
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -80234,12 +80294,12 @@
     },
     {
       "id": "roche-0710049a46a0",
-      "slug": "continuous-improvement-expert-rdt-workforce-enablement-roche-ch",
+      "slug": "esperto-di-miglioramento-continuo-abilitazione-della-forza-lavoro-rdt-roche-madrid",
       "slugByLocale": {
-        "it": "continuous-improvement-expert-rdt-workforce-enablement-roche-ch",
+        "it": "esperto-di-miglioramento-continuo-abilitazione-della-forza-lavoro-rdt-roche-madrid",
         "en": "continuous-improvement-expert-rdt-workforce-enablement-roche-ch",
-        "de": "continuous-improvement-expert-rdt-workforce-enablement-roche-ch",
-        "fr": "continuous-improvement-expert-rdt-workforce-enablement-roche-ch"
+        "de": "experte-fur-kontinuierliche-verbesserung-rdt-workforce-enablement-roche-madrid",
+        "fr": "expert-en-amelioration-continue-rdt-activement-des-effectifs-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80292,7 +80352,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "continuous-improvement-expert-rdt-workforce-enablement-roche-ch"
+        ],
+        "de": [
+          "continuous-improvement-expert-rdt-workforce-enablement-roche-ch"
+        ],
+        "fr": [
+          "continuous-improvement-expert-rdt-workforce-enablement-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "continuous-improvement-expert-rdt-workforce-enablement-roche-ch"
+      ]
     },
     {
       "id": "roche-5352d03d0153",
@@ -80529,7 +80603,7 @@
         "it": "project-enablement-manager-roche-ch",
         "en": "project-enablement-manager-roche-ch",
         "de": "project-enablement-manager-roche-ch",
-        "fr": "project-enablement-manager-roche-ch"
+        "fr": "gestionnaire-d-activation-de-projet-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80587,9 +80661,9 @@
     },
     {
       "id": "roche-bc2e07cacb3c",
-      "slug": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
+      "slug": "amministratore-della-piattaforma-di-potenza-rdt-engineering-excellence-experience-roche-madrid",
       "slugByLocale": {
-        "it": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
+        "it": "amministratore-della-piattaforma-di-potenza-rdt-engineering-excellence-experience-roche-madrid",
         "en": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
         "de": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch",
         "fr": "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
@@ -80646,7 +80720,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "power-platform-administrator-rdt-engineering-excellence-experience-roche-ch"
+      ]
     },
     {
       "id": "roche-fb68827139c5",
@@ -80885,12 +80967,12 @@
     },
     {
       "id": "roche-41334f341539",
-      "slug": "clinical-site-manager-roche-ch",
+      "slug": "responsabile-del-sito-clinico-roche-basel",
       "slugByLocale": {
-        "it": "clinical-site-manager-roche-ch",
+        "it": "responsabile-del-sito-clinico-roche-basel",
         "en": "clinical-site-manager-roche-ch",
         "de": "clinical-site-manager-roche-ch",
-        "fr": "clinical-site-manager-roche-ch"
+        "fr": "gestionnaire-de-site-clinique-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -80943,16 +81025,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-site-manager-roche-ch"
+        ],
+        "fr": [
+          "clinical-site-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-site-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-f49f7355fb3c",
-      "slug": "business-operations-associate-roche-ch",
+      "slug": "operazioni-commerciali-associate-roche-san-jose-costa-rica",
       "slugByLocale": {
-        "it": "business-operations-associate-roche-ch",
+        "it": "operazioni-commerciali-associate-roche-san-jose-costa-rica",
         "en": "business-operations-associate-roche-ch",
         "de": "business-operations-associate-roche-ch",
-        "fr": "business-operations-associate-roche-ch"
+        "fr": "associe-aux-operations-commerciales-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -81006,7 +81099,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-operations-associate-roche-ch"
+        ],
+        "fr": [
+          "business-operations-associate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-operations-associate-roche-ch"
+      ]
     },
     {
       "id": "roche-8a14edbb04d5",
@@ -85478,12 +85582,12 @@
     },
     {
       "id": "roche-187b9e3c352c",
-      "slug": "quality-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex",
+      "slug": "qualita-regolamentazione-e-affari-esterni-programma-di-esperienza-di-apprendimento-foundational-qr-e-flex-roche-basel",
       "slugByLocale": {
-        "it": "quality-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex",
+        "it": "qualita-regolamentazione-e-affari-esterni-programma-di-esperienza-di-apprendimento-foundational-qr-e-flex-roche-basel",
         "en": "quality-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex",
         "de": "qualitat-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex-roche-basel",
-        "fr": "qualite-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex-roche-basel"
+        "fr": "programme-d-experience-d-apprentissage-fondamental-en-matiere-de-qualite-de-reglementation-et-d-affaires-exterieures-qr"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85537,7 +85641,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex"
+        ],
+        "fr": [
+          "qualite-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex-roche-basel"
+        ]
+      },
+      "previousSlugs": [
+        "quality-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex",
+        "qualite-regulatory-external-affairs-foundational-learning-experience-program-qr-e-flex-roche-basel"
+      ]
     },
     {
       "id": "roche-4e9ba826b934",

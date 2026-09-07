@@ -1808,12 +1808,12 @@
     },
     {
       "id": "transgourmet-b5e2f911-4e9",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
+      "slug": "mercato-commerciale-dei-dipendenti-transgourmet-pratteln",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
-        "en": "mitarbeiterin-sales-associate-markt-transgourmet-pratteln",
+        "it": "mercato-commerciale-dei-dipendenti-transgourmet-pratteln",
+        "en": "employee-employee-sales-market-transgourmet-pratteln",
         "de": "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
-        "fr": "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
+        "fr": "marche-des-ventes-des-employes-transgourmet-pratteln"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1874,7 +1874,9 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
-        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln"
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
+        "mitarbeiterin-sales-associate-markt-transgourmet-pratteln",
+        "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1882,10 +1884,12 @@
           "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+          "mitarbeiterin-sales-associate-markt-transgourmet-pratteln"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln"
+          "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
+          "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:02.199Z",

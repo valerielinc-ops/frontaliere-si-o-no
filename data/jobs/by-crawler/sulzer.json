@@ -15168,9 +15168,9 @@
     },
     {
       "id": "sulzer-e9661abdcedd",
-      "slug": "montador-ajustador-i-sulzer-jundiai",
+      "slug": "i-miei-amici-sulzer-jundiai",
       "slugByLocale": {
-        "it": "montador-ajustador-i-sulzer-jundiai",
+        "it": "i-miei-amici-sulzer-jundiai",
         "en": "montador-ajustador-i-sulzer-ch",
         "de": "montador-ajustador-i-sulzer-ch",
         "fr": "ajusteur-de-montage-i-sulzer-jundiai"
@@ -24499,12 +24499,12 @@
     },
     {
       "id": "sulzer-9645a4ecaf48",
-      "slug": "packaging-welding-worker-sulzer-ch",
+      "slug": "imballaggio-e-saldatrice-sulzer-suzhou",
       "slugByLocale": {
-        "it": "packaging-welding-worker-sulzer-ch",
+        "it": "imballaggio-e-saldatrice-sulzer-suzhou",
         "en": "packaging-welding-worker-sulzer-ch",
-        "de": "packaging-welding-worker-sulzer-ch",
-        "fr": "packaging-welding-worker-sulzer-ch"
+        "de": "verpackungs-und-schwei-arbeiter-sulzer-suzhou",
+        "fr": "travailleur-d-emballage-et-de-soudage-sulzer-suzhou"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24557,16 +24557,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "packaging-welding-worker-sulzer-ch"
+        ],
+        "de": [
+          "packaging-welding-worker-sulzer-ch"
+        ],
+        "fr": [
+          "packaging-welding-worker-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "packaging-welding-worker-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-3ccb90037786",
-      "slug": "manager-maintenance-sulzer-ch",
+      "slug": "manager-manutenzione-sulzer-navi-mumbai",
       "slugByLocale": {
-        "it": "manager-maintenance-sulzer-ch",
+        "it": "manager-manutenzione-sulzer-navi-mumbai",
         "en": "manager-maintenance-sulzer-ch",
-        "de": "manager-maintenance-sulzer-ch",
-        "fr": "manager-maintenance-sulzer-ch"
+        "de": "manager-wartung-sulzer-navi-mumbai",
+        "fr": "gestionnaire-entretien-sulzer-navi-mumbai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24619,7 +24633,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-maintenance-sulzer-ch"
+        ],
+        "de": [
+          "manager-maintenance-sulzer-ch"
+        ],
+        "fr": [
+          "manager-maintenance-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-maintenance-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-4f3d5827776e",

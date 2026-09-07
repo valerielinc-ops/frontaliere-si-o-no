@@ -3773,12 +3773,12 @@
     },
     {
       "id": "lindenhofgruppe-73ee90904fdc",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "case-handler-centro-di-emergenza-di-ammissione-paziente-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-        "en": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
+        "it": "case-handler-centro-di-emergenza-di-ammissione-paziente-lindenhofgruppe-lindenhofspital",
+        "en": "case-handler-patient-admission-emergency-centre-lindenhofgruppe-lindenhofspital",
         "de": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-        "fr": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        "fr": "centre-d-urgence-pour-le-traitement-des-cas-hospitalisation-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3833,16 +3833,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-05734b37062b",
-      "slug": "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
+      "slug": "segretario-medico-ginecologia-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
-        "en": "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
+        "it": "segretario-medico-ginecologia-lindenhofgruppe-lindenhofspital",
+        "en": "medical-secretary-gynecology-lindenhofgruppe-lindenhofspital",
         "de": "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-        "fr": "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
+        "fr": "secretaire-medical-gynecologie-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3894,6 +3908,12 @@
         ],
         "de": [
           "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
+          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
+        ],
+        "fr": [
           "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
         ]
       },

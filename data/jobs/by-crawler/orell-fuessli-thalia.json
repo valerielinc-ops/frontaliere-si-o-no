@@ -1951,12 +1951,12 @@
     },
     {
       "id": "orell-fuessli-thalia-11b8f7d2df1e",
-      "slug": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig",
+      "slug": "rivenditore-uomo-papeterie-40-a-orell-fussli-thalia-brig",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig",
-        "en": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
+        "it": "rivenditore-uomo-papeterie-40-a-orell-fussli-thalia-brig",
+        "en": "retailer-man-papeterie-40-a-orell-fussli-thalia-brig",
         "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
-        "fr": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
+        "fr": "detaillant-homme-papeterie-40-a-orell-fussli-thalia-brig"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2007,6 +2007,12 @@
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig",
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-brig"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-brig"
         ]
       },
       "needsRetranslation": true,
@@ -2027,12 +2033,12 @@
     },
     {
       "id": "orell-fuessli-thalia-7ff87b50c544",
-      "slug": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-adliswil",
+      "slug": "rivenditore-uomo-papeterie-40-a-orell-fussli-thalia-adliswil",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-adliswil",
-        "en": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
+        "it": "rivenditore-uomo-papeterie-40-a-orell-fussli-thalia-adliswil",
+        "en": "retailer-man-papeterie-40-a-orell-fussli-thalia-adliswil",
         "de": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
-        "fr": "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
+        "fr": "detaillant-homme-papeterie-40-a-orell-fussli-thalia-adliswil"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2083,6 +2089,12 @@
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil",
           "detailhandelsfachfrau-mann-papeterie-40-a-orell-fussli-thalia-adliswil"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-papeterie-40-a-orell-fuessli-thalia-adliswil"
         ]
       },
       "needsRetranslation": true,
@@ -2103,12 +2115,12 @@
     },
     {
       "id": "orell-fuessli-thalia-64d173c5a6f5",
-      "slug": "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich",
+      "slug": "dipendente-di-vendita-in-libreria-30-a-orell-fussli-thalia-zurich",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich",
-        "en": "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich",
+        "it": "dipendente-di-vendita-in-libreria-30-a-orell-fussli-thalia-zurich",
+        "en": "sales-employee-in-bookseller-30-a-orell-fussli-thalia-zurich",
         "de": "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich",
-        "fr": "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich"
+        "fr": "employe-de-vente-dans-libraire-30-a-orell-fussli-thalia-zurich"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2152,14 +2164,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten"
+        "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten",
+        "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten"
+          "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten",
+          "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich"
         ],
         "fr": [
-          "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten"
+          "verkaufsmitarbeiter-in-buchhandel-80-100-a-orell-fuessli-thalia-olten",
+          "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-buchhandel-30-a-orell-fuessli-thalia-zurich"
         ]
       },
       "needsRetranslation": true,

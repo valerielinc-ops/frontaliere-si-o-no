@@ -4053,12 +4053,12 @@
     },
     {
       "id": "kispi-275634b5d9de",
-      "slug": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department",
+      "slug": "posizione-di-dottorato-nello-sviluppo-di-metodi-di-linguaggio-model-per-la-cura-critica-pediatrica-dipartimento-di-cura",
       "slugByLocale": {
-        "it": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department",
+        "it": "posizione-di-dottorato-nello-sviluppo-di-metodi-di-linguaggio-model-per-la-cura-critica-pediatrica-dipartimento-di-cura",
         "en": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department",
-        "de": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department",
-        "fr": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department"
+        "de": "phd-position-in-der-entwicklung-von-sprachmodell-methoden-fur-padiatrische-critical-care-abteilung-fur-intensivpflege",
+        "fr": "poste-de-doctorat-en-developpement-de-methodes-de-modeles-linguistiques-pour-les-soins-critiques-pediatriques"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4113,7 +4113,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department"
+        ],
+        "de": [
+          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department"
+        ],
+        "fr": [
+          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-department"
+      ]
     }
   ]
 }

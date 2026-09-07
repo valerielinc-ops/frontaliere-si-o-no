@@ -1639,11 +1639,11 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-a5bf05d20280",
-      "slug": "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg",
+      "slug": "collaboratore-amministrativo-w-80-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg",
-        "en": "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg",
-        "de": "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg",
+        "it": "collaboratore-amministrativo-w-80-hopital-fribourgeois-hfr-fribourg",
+        "en": "administrative-collaborator-w-80-hopital-fribourgeois-hfr-fribourg",
+        "de": "administrativer-mitarbeiter-w-80-hopital-fribourgeois-hfr-fribourg",
         "fr": "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1700,7 +1700,21 @@
           "maxValue": 83200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ve-80-hfr-hopital-fribourgeois-fribourg"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-c2e344188a9b",

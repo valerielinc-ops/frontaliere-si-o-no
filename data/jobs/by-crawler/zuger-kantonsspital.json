@@ -941,12 +941,12 @@
     },
     {
       "id": "zuger-kantonsspital-d8f9ce6c3d65",
-      "slug": "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar",
+      "slug": "servizio-serale-per-i-dipendenti-40-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar",
-        "en": "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar",
+        "it": "servizio-serale-per-i-dipendenti-40-m-f-zuger-kantonsspital-baar",
+        "en": "employee-reception-evening-service-40-m-f-zuger-kantonsspital-baar",
         "de": "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar",
-        "fr": "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar"
+        "fr": "service-de-reception-des-employes-en-soiree-40-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1001,7 +1001,21 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-empfang-abenddienst-40-m-w-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-0df8ce07a5e1",

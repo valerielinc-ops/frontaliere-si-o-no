@@ -1190,7 +1190,7 @@
       "slug": "vet-consulente-nestle-la-tour-de-peilz",
       "slugByLocale": {
         "it": "vet-consulente-nestle-la-tour-de-peilz",
-        "en": "vet-advisor-nestle-la-tour-de-peilz",
+        "en": "vet-advisors-nestle-la-tour-de-peilz",
         "de": "vet-advisor-nestle-ch",
         "fr": "vet-conseiller-nestle-la-tour-de-peilz"
       },
@@ -1236,7 +1236,8 @@
         "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch",
         "tierarztberater-in-vet-advisor-nestle-ch",
         "tierarztberater-in-vet-conseiller-nestle-la-tour-de-peilz-ch",
-        "vet-consulente-nestle-la-tour-de-peilz"
+        "vet-consulente-nestle-la-tour-de-peilz",
+        "vet-advisor-nestle-la-tour-de-peilz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1252,6 +1253,9 @@
         "fr": [
           "vet-advisor-nestle-ch",
           "tierarztberater-in-vet-conseiller-nestle-la-tour-de-peilz-ch"
+        ],
+        "en": [
+          "vet-advisor-nestle-la-tour-de-peilz"
         ]
       },
       "firstSeenAt": "2026-09-02T13:49:06.242Z",

@@ -9649,7 +9649,7 @@
         "it": "boutique-manager-richemont-geneva",
         "en": "boutique-manager-panerai-geneva",
         "de": "boutique-manager-richemont-geneva",
-        "fr": "boutique-manager-richemont-geneva"
+        "fr": "gestionnaire-de-boutiques-panerai-geneva"
       },
       "company": "Panerai",
       "companyKey": "richemont",
@@ -14149,11 +14149,11 @@
     },
     {
       "id": "richemont-67a994c9a6b9",
-      "slug": "technicien-methodes-richemont-couvet",
+      "slug": "tecnica-del-metodo-cartier-manufacture-couvet",
       "slugByLocale": {
-        "it": "technicien-methodes-richemont-couvet",
-        "en": "technicien-methodes-richemont-couvet",
-        "de": "technicien-methodes-richemont-couvet",
+        "it": "tecnica-del-metodo-cartier-manufacture-couvet",
+        "en": "method-technician-cartier-manufacture-couvet",
+        "de": "methodentechniker-cartier-manufacture-couvet",
         "fr": "technicien-methodes-richemont-couvet"
       },
       "company": "Cartier Manufacture",
@@ -14208,7 +14208,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-methodes-richemont-couvet"
+        ],
+        "en": [
+          "technicien-methodes-richemont-couvet"
+        ],
+        "de": [
+          "technicien-methodes-richemont-couvet"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-methodes-richemont-couvet"
+      ]
     },
     {
       "id": "richemont-267fded64812",

@@ -3810,12 +3810,12 @@
     },
     {
       "id": "valora-fe89168cd526",
-      "slug": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
+      "slug": "venditore-venditore-press-books-22-ore-valora-group-bern",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "en": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
+        "it": "venditore-venditore-press-books-22-ore-valora-group-bern",
+        "en": "seller-seller-press-books-22-hours-valora-group-bern",
         "de": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern",
-        "fr": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        "fr": "vendeur-vendeur-presse-livres-22-heures-valora-group-bern"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3871,16 +3871,30 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+      ]
     },
     {
       "id": "valora-5d8a7d108673",
-      "slug": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
+      "slug": "venditore-venditore-press-books-22-ore-valora-group-bern-a25f1b",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
-        "en": "verkauferin-verkaufer-press-books-22-std-valora-group-bern",
+        "it": "venditore-venditore-press-books-22-ore-valora-group-bern-a25f1b",
+        "en": "seller-seller-press-books-22-hours-valora-group-bern-a25f1b",
         "de": "verkauferin-verkaufer-press-amp-books-22-std-valora-bern-jo0syc",
-        "fr": "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
+        "fr": "vendeur-vendeur-presse-livres-22-heures-valora-group-bern-a25f1b"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3936,6 +3950,12 @@
         ],
         "de": [
           "verkauferin-verkaufer-press-amp-books-22-std-valora-bern"
+        ],
+        "en": [
+          "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-press-books-22-std-valora-group-bern"
         ]
       },
       "firstSeenAt": "2026-09-02T23:08:02.499Z",

@@ -4242,12 +4242,12 @@
     },
     {
       "id": "decathlon-7eb27b797d47",
-      "slug": "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-heimberg",
+      "slug": "sport-leader-sales-advisor-m-f-d-temporary-50-sport-invernali-heimberg-decathlon-heimberg",
       "slugByLocale": {
-        "it": "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-heimberg",
-        "en": "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch",
+        "it": "sport-leader-sales-advisor-m-f-d-temporary-50-sport-invernali-heimberg-decathlon-heimberg",
+        "en": "sport-leader-sales-advisor-m-f-d-temporary-50-winter-sports-heimberg-decathlon-heimberg",
         "de": "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-50-sports-d-hiver-heimberg-decathlon-heimberg"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4288,10 +4288,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-heimberg"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-50-wintersport-heimberg-decathlon-ch"
         ]
       },
@@ -4312,12 +4320,12 @@
     },
     {
       "id": "decathlon-1920f7d46968",
-      "slug": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-heimberg",
+      "slug": "sport-leader-sales-advisor-m-f-d-temporary-40-outdoorsport-heimberg-decathlon-heimberg",
       "slugByLocale": {
-        "it": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-heimberg",
+        "it": "sport-leader-sales-advisor-m-f-d-temporary-40-outdoorsport-heimberg-decathlon-heimberg",
         "en": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch",
         "de": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-40-outdoorsport-heimberg-decathlon-heimberg"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4358,10 +4366,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-heimberg"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-40-outdoorsport-heimberg-decathlon-ch"
         ]
       },
@@ -4382,11 +4395,11 @@
     },
     {
       "id": "decathlon-5f2a0470c1ef",
-      "slug": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
+      "slug": "venditore-sportivo-m-f-passionate-outdoor-decathlon-biel",
       "slugByLocale": {
-        "it": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
-        "en": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
-        "de": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
+        "it": "venditore-sportivo-m-f-passionate-outdoor-decathlon-biel",
+        "en": "sports-seller-m-f-passionate-outdoor-decathlon-biel",
+        "de": "sportverkaufer-m-w-passionate-outdoor-decathlon-biel",
         "fr": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4433,7 +4446,8 @@
         "sports-seller-h-f-passionate-outdoor-decathlon-biel",
         "sportverkaufer-h-f-passionate-outdoor-decathlon-biel",
         "sports-salesperson-m-f-outdoor-enthusiast-decathlon-biel",
-        "sportverkaufer-m-w-outdoor-enthusiast-decathlon-biel"
+        "sportverkaufer-m-w-outdoor-enthusiast-decathlon-biel",
+        "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4442,13 +4456,16 @@
           "sports-seller-h-f-passionate-outdoor-decathlon-biel",
           "sportverkaufer-h-f-passionate-outdoor-decathlon-biel",
           "sports-salesperson-m-f-outdoor-enthusiast-decathlon-biel",
-          "sportverkaufer-m-w-outdoor-enthusiast-decathlon-biel"
+          "sportverkaufer-m-w-outdoor-enthusiast-decathlon-biel",
+          "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel"
         ],
         "en": [
-          "sports-seller-h-f-passionate-outdoor-decathlon-biel"
+          "sports-seller-h-f-passionate-outdoor-decathlon-biel",
+          "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
         ],
         "de": [
-          "sportverkaufer-h-f-passionate-outdoor-decathlon-biel"
+          "sportverkaufer-h-f-passionate-outdoor-decathlon-biel",
+          "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-09-02T13:44:53.187Z",
@@ -4546,12 +4563,12 @@
     },
     {
       "id": "decathlon-7f7b96b919cd",
-      "slug": "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny",
+      "slug": "financial-planning-analysis-fp-a-logistica-trasporti-e-attivita-di-fornitura-decathlon-bussigny",
       "slugByLocale": {
-        "it": "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny",
+        "it": "financial-planning-analysis-fp-a-logistica-trasporti-e-attivita-di-fornitura-decathlon-bussigny",
         "en": "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
-        "de": "financial-planning-analysis-fp-a-logistik-transports-and-supply-activities-decathlon-bussigny",
-        "fr": "financial-planning-analysis-fp-a-logistique-transports-and-supply-activities-decathlon-bussigny"
+        "de": "finanzplanung-analyse-fp-a-logistik-transporte-und-versorgungsaktivitaten-decathlon-bussigny",
+        "fr": "planification-et-analyse-financieres-fp-a-activites-logistiques-de-transport-et-d-approvisionnement-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4593,7 +4610,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
-        "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny"
+        "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny",
+        "financial-planning-analysis-fp-a-logistik-transports-and-supply-activities-decathlon-bussigny",
+        "financial-planning-analysis-fp-a-logistique-transports-and-supply-activities-decathlon-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4601,10 +4620,12 @@
           "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny"
         ],
         "de": [
-          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch"
+          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
+          "financial-planning-analysis-fp-a-logistik-transports-and-supply-activities-decathlon-bussigny"
         ],
         "fr": [
-          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch"
+          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
+          "financial-planning-analysis-fp-a-logistique-transports-and-supply-activities-decathlon-bussigny"
         ]
       },
       "firstSeenAt": "2026-09-02T23:17:37.446Z",

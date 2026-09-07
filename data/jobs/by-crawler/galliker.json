@@ -1547,12 +1547,12 @@
     },
     {
       "id": "galliker-0f0fe9f38e52",
-      "slug": "carrosserielackierer-nfz-a-galliker-altishofen",
+      "slug": "carrosserie-pittore-nfz-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "carrosserielackierer-nfz-a-galliker-altishofen",
-        "en": "carrosserielackierer-nfz-a-galliker-altishofen",
+        "it": "carrosserie-pittore-nfz-a-galliker-transport-ag-altishofen",
+        "en": "carrosserie-painter-nfz-a-galliker-transport-ag-altishofen",
         "de": "carrosserielackierer-nfz-a-galliker-altishofen",
-        "fr": "carrosserielackierer-nfz-a-galliker-altishofen"
+        "fr": "carrosserie-peintre-nfz-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -1609,7 +1609,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosserielackierer-nfz-a-galliker-altishofen"
+        ],
+        "en": [
+          "carrosserielackierer-nfz-a-galliker-altishofen"
+        ],
+        "fr": [
+          "carrosserielackierer-nfz-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "carrosserielackierer-nfz-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-c182db83760a",
@@ -1795,12 +1809,12 @@
     },
     {
       "id": "galliker-3b7f1818aaa4",
-      "slug": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
+      "slug": "specialista-meccatronica-nfz-spatdienst-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
-        "en": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
+        "it": "specialista-meccatronica-nfz-spatdienst-a-galliker-transport-ag-altishofen",
+        "en": "automotive-specialist-mechatronics-specialist-nfz-spatdienst-a-galliker-transport-ag-altishofen",
         "de": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
-        "fr": "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+        "fr": "specialiste-automobile-mecatronique-specialiste-nfz-spatdienst-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -1857,7 +1871,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+        ],
+        "en": [
+          "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+        ],
+        "fr": [
+          "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+        ]
+      },
+      "previousSlugs": [
+        "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+      ]
     },
     {
       "id": "galliker-f922ddcd3e3e",

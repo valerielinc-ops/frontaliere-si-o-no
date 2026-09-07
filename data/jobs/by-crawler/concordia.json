@@ -3462,12 +3462,12 @@
     },
     {
       "id": "concordia-aa0d4ca4cd0f",
-      "slug": "versicherungsberater-in-100-in-luzern-concordia-luzern",
+      "slug": "consulente-assicurativo-in-100-a-lucerna-concordia-luzern",
       "slugByLocale": {
-        "it": "versicherungsberater-in-100-in-luzern-concordia-luzern",
-        "en": "versicherungsberater-in-100-in-luzern-concordia-luzern",
+        "it": "consulente-assicurativo-in-100-a-lucerna-concordia-luzern",
+        "en": "insurance-consultant-in-100-in-lucerne-concordia-luzern",
         "de": "versicherungsberater-in-100-in-luzern-concordia-luzern",
-        "fr": "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        "fr": "consultant-en-assurance-in-100-a-lucerne-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3523,16 +3523,30 @@
           "maxValue": 123500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        ],
+        "en": [
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        ],
+        "fr": [
+          "versicherungsberater-in-100-in-luzern-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-luzern-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-c9c1fdd1a2a1",
-      "slug": "kundenberater-in-80-100-in-biel-concordia-biel",
+      "slug": "consulente-clienti-in-80-100-in-biel-concordia-biel",
       "slugByLocale": {
-        "it": "kundenberater-in-80-100-in-biel-concordia-biel",
-        "en": "kundenberater-in-80-100-in-biel-concordia-biel",
+        "it": "consulente-clienti-in-80-100-in-biel-concordia-biel",
+        "en": "customer-consultant-in-80-100-in-biel-concordia-biel",
         "de": "kundenberater-in-80-100-in-biel-concordia-biel",
-        "fr": "kundenberater-in-80-100-in-biel-concordia-biel"
+        "fr": "consultant-client-en-80-100-en-biel-concordia-biel"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3576,21 +3590,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consulente-clienti-in-80-100-in-biel-concordia-biel",
         "customer-consultant-in-80-100-in-biel-concordia-biel",
-        "consultant-client-en-80-100-en-biel-concordia-biel"
+        "consultant-client-en-80-100-en-biel-concordia-biel",
+        "kundenberater-in-80-100-in-biel-concordia-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-clienti-in-80-100-in-biel-concordia-biel",
           "customer-consultant-in-80-100-in-biel-concordia-biel",
-          "consultant-client-en-80-100-en-biel-concordia-biel"
+          "consultant-client-en-80-100-en-biel-concordia-biel",
+          "kundenberater-in-80-100-in-biel-concordia-biel"
         ],
         "en": [
-          "customer-consultant-in-80-100-in-biel-concordia-biel"
+          "kundenberater-in-80-100-in-biel-concordia-biel"
         ],
         "fr": [
-          "consultant-client-en-80-100-en-biel-concordia-biel"
+          "kundenberater-in-80-100-in-biel-concordia-biel"
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:05.236Z",

@@ -3547,12 +3547,12 @@
     },
     {
       "id": "unibe-5d24c57f66a5",
-      "slug": "doktorand-in-e-assistent-in-universitat-bern",
+      "slug": "dottorato-e-assistente-universitat-bern-bern",
       "slugByLocale": {
-        "it": "doktorand-in-e-assistent-in-universitat-bern",
-        "en": "doktorand-in-und-assistent-in-unibe-bern",
+        "it": "dottorato-e-assistente-universitat-bern-bern",
+        "en": "doctoral-student-and-assistant-universitat-bern-bern",
         "de": "doktorand-in-und-assistent-in-unibe-bern",
-        "fr": "doktorand-in-und-assistent-in-unibe-bern"
+        "fr": "etudiante-au-doctorat-et-assistante-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3595,12 +3595,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "de": [
+          "doktorand-in-und-assistent-in-universitat-bern-bern"
+        ],
         "it": [
           "doktorand-in-und-assistent-in-unibe-bern",
           "doktorand-in-e-assistent-in-universitat-bern"
         ],
-        "de": [
-          "doktorand-in-und-assistent-in-universitat-bern-bern"
+        "en": [
+          "doktorand-in-und-assistent-in-unibe-bern"
+        ],
+        "fr": [
+          "doktorand-in-und-assistent-in-unibe-bern"
         ]
       },
       "previousSlugs": [

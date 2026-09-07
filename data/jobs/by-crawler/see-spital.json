@@ -3547,12 +3547,12 @@
     },
     {
       "id": "see-spital-8f8f102ed05a",
-      "slug": "fachfrau-mann-gesundheit-cfc-interdisziplinar-see-spital-horgen",
+      "slug": "salute-efz-interdisciplinare-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-cfc-interdisziplinar-see-spital-horgen",
-        "en": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
+        "it": "salute-efz-interdisciplinare-see-spital-horgen",
+        "en": "health-efz-interdisciplinary-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
-        "fr": "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
+        "fr": "sante-efz-interdisciplinaire-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3602,6 +3602,12 @@
         "it": [
           "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch",
           "fachfrau-mann-gesundheit-cfc-interdisziplinar-see-spital-horgen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-interdisziplinar-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-09-02T13:53:42.146Z",
@@ -3622,12 +3628,12 @@
     },
     {
       "id": "see-spital-99b4074f7140",
-      "slug": "stationssekretar-in-interdisziplinar-see-spital-ch",
+      "slug": "segretario-della-stazione-interdisciplinare-see-spital-horgen",
       "slugByLocale": {
-        "it": "stationssekretar-in-interdisziplinar-see-spital-ch",
-        "en": "stationssekretar-in-interdisziplinar-see-spital-ch",
+        "it": "segretario-della-stazione-interdisciplinare-see-spital-horgen",
+        "en": "station-secretary-interdisciplinary-see-spital-horgen",
         "de": "stationssekretar-in-interdisziplinar-see-spital-ch",
-        "fr": "stationssekretar-in-interdisziplinar-see-spital-ch"
+        "fr": "secretaire-interdisciplinaire-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3683,7 +3689,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationssekretar-in-interdisziplinar-see-spital-ch"
+        ],
+        "en": [
+          "stationssekretar-in-interdisziplinar-see-spital-ch"
+        ],
+        "fr": [
+          "stationssekretar-in-interdisziplinar-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stationssekretar-in-interdisziplinar-see-spital-ch"
+      ]
     },
     {
       "id": "see-spital-4ffacbb58628",

@@ -17348,12 +17348,12 @@
     },
     {
       "id": "hoch-health-87f76efa8818",
-      "slug": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-grabs",
+      "slug": "salute-professionale-80-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-grabs",
-        "en": "fachfrau-mann-gesundheit-80-100-hoch-health-grabs",
+        "it": "salute-professionale-80-100-hoch-health-ostschweiz-grabs",
+        "en": "professional-health-80-100-hoch-health-ostschweiz-grabs",
         "de": "fachfrau-mann-gesundheit-80-100-hoch-health-grabs",
-        "fr": "fachfrau-mann-gesundheit-80-100-hoch-health-grabs"
+        "fr": "sante-professionnelle-80-100-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17396,10 +17396,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-100-hoch-health-grabs"
+        "fachfrau-mann-gesundheit-80-100-hoch-health-grabs",
+        "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-80-100-hoch-health-grabs",
+          "fachfrau-mann-gesundheit-80-100-hoch-health-ostschweiz-grabs"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-80-100-hoch-health-grabs"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-80-100-hoch-health-grabs"
         ]
       },
@@ -17420,12 +17428,12 @@
     },
     {
       "id": "hoch-health-c39542678d43",
-      "slug": "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen",
+      "slug": "infermiera-coordinatore-di-studio-in-50-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen",
+        "it": "infermiera-coordinatore-di-studio-in-50-100-hoch-health-ostschweiz-st-gallen",
         "en": "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen",
         "de": "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen",
-        "fr": "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen"
+        "fr": "infirmiere-coordonnatrice-de-l-etude-dans-50-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17480,7 +17488,18 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-studienkoordinator-in-50-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-b3d10967db52",
@@ -17748,12 +17767,12 @@
     },
     {
       "id": "hoch-health-d4439b69f3a3",
-      "slug": "dipl-ergotherapeut-in-80-hoch-health-grabs",
+      "slug": "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "dipl-ergotherapeut-in-80-hoch-health-grabs",
-        "en": "dipl-ergotherapeut-in-80-hoch-health-grabs",
+        "it": "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs",
+        "en": "dipl-occupational-therapist-in-80-hoch-health-ostschweiz-grabs",
         "de": "dipl-ergotherapeut-in-80-hoch-health-grabs",
-        "fr": "dipl-ergotherapeut-in-80-hoch-health-grabs"
+        "fr": "dipl-ergotherapeute-in-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17808,7 +17827,21 @@
           "maxValue": 91200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-80-hoch-health-grabs"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-80-hoch-health-grabs"
+        ],
+        "fr": [
+          "dipl-ergotherapeut-in-80-hoch-health-grabs"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-80-hoch-health-grabs"
+      ]
     },
     {
       "id": "hoch-health-439e7206c49c",

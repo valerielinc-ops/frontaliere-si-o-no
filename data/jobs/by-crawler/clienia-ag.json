@@ -6967,12 +6967,12 @@
     },
     {
       "id": "clienia-ag-b6273b90ca63",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
+      "slug": "dipl-specialista-hf-fh-m-f-d-in-servizio-notturno-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon",
+        "it": "dipl-specialista-hf-fh-m-f-d-in-servizio-notturno-80-100-clienia-ag-pfaffikon-zh",
+        "en": "dipl-care-specialist-hf-fh-m-f-d-on-night-duty-80-100-clienia-ag-pfaffikon-zh",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
+        "fr": "dipl-specialiste-des-soins-hf-fh-h-f-d-en-service-de-nuit-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7048,10 +7048,12 @@
           "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-m-f-d-on-night-duty-80-100-clienia-ag-pfaffikon-zh"
+          "dipl-care-professional-hf-fh-m-f-d-on-night-duty-80-100-clienia-ag-pfaffikon-zh",
+          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
         ],
         "fr": [
-          "dipl-professionnel-de-soins-hf-fh-m-f-j-en-service-de-nuit-80-100-clienia-ag-pfaffikon-zh"
+          "dipl-professionnel-de-soins-hf-fh-m-f-j-en-service-de-nuit-80-100-clienia-ag-pfaffikon-zh",
+          "dipl-pflegefachperson-hf-fh-m-w-d-im-nachtdienst-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-02T23:16:39.174Z",
@@ -7159,12 +7161,12 @@
     },
     {
       "id": "clienia-ag-d682e932ba7c",
-      "slug": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
+      "slug": "stv-gestione-stazione-dipl-infermiera-hf-fh-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
-        "en": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon",
+        "it": "stv-gestione-stazione-dipl-infermiera-hf-fh-60-clienia-ag-pfaffikon-zh",
+        "en": "stv-station-management-dipl-nurse-hf-fh-60-clienia-ag-pfaffikon-zh",
         "de": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
-        "fr": "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        "fr": "stv-gestion-de-station-infirmiere-diplomee-hf-fh-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -7213,6 +7215,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-zurich",
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
           "stv-stationsleitung-dipl-pflegefachperson-hf-fh-60-clienia-ag-pfaffikon"
         ]
       },
