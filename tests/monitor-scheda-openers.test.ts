@@ -28,6 +28,9 @@ import { buildIssueBody as buildCwvBody } from '../scripts/cwv-monitor-check.mjs
 import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram-member-count.mjs';
 import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
 import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
+import { buildIssueBody as buildSourceLivenessBody } from '../scripts/check-source-liveness.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 /** Il corpo di ogni opener, con l'input minimo che lo fa rendere. */
 const OPENERS: Array<[string, () => string]> = [
@@ -86,6 +89,21 @@ const OPENERS: Array<[string, () => string]> = [
   ['gsc-structured-data', () => buildStructuredDataIssueBody(
     [{ url: 'https://frontaliereticino.ch/it/x/', richResults: 'FAIL', richResultsIssues: ['manca baseSalary'] }],
   )],
+  ['source-liveness', () => buildSourceLivenessBody({
+    alive: false, reason: '3 giorni sotto la soglia', floor: 200, windowDays: 7,
+    deadDays: [{ date: '2026-09-05', count: 3 }],
+  })],
+];
+
+/**
+ * Gli opener il cui corpo si costruisce dentro una funzione async non
+ * esportata: chiamarli qui vorrebbe dire esportare mezzo script per un test.
+ * Il controllo statico costa una riga e prende il caso che conta davvero —
+ * qualcuno toglie la scheda da un opener.
+ */
+const OPENERS_STATICI = [
+  'scripts/monitor-jobs-pipeline-queue.mjs',
+  'scripts/monitor-seo-ctr-by-template.mjs',
 ];
 
 describe('opener dei monitor — il blocco `## Scheda`', () => {
@@ -117,6 +135,16 @@ describe('opener dei monitor — il blocco `## Scheda`', () => {
       it('dice cosa si misura, prima e dopo', () => {
         expect(body).toMatch(/\*\*3-METRICA\.\*\* .*atteso=/);
       });
+    });
+  }
+});
+
+describe('opener senza corpo esportato — controllo statico', () => {
+  for (const rel of OPENERS_STATICI) {
+    it(`${rel} chiama ancora buildScheda`, () => {
+      const src = readFileSync(path.join(__dirname, '..', rel), 'utf8');
+      expect(src).toContain("from './lib/monitor-scheda.mjs'");
+      expect(src).toContain('buildScheda({');
     });
   }
 });
