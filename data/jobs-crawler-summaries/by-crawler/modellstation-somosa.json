@@ -1,23 +1,24 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-09-07T15:03:59.451Z",
+  "generatedAt": "2026-09-07T23:27:12.469Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4937,
-  "avgDurationMs": 4937,
+  "durationMs": 6505,
+  "avgDurationMs": 6505,
   "durationHistory": [
-    4937
+    6505
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "modellstation-somosa-63c8b671b2e5",
       "slug": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
@@ -31,7 +32,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:51.396Z",
+      "crawledAt": "2026-09-07T23:27:03.567Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -46,11 +47,12 @@
       "featured": false,
       "postedDate": "2026-09-07",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-07T15:03:51.396Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -67,7 +69,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:51.881Z",
+      "crawledAt": "2026-09-07T23:27:04.082Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,16 +84,16 @@
       "featured": false,
       "postedDate": "2026-09-07",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-07T15:03:51.881Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

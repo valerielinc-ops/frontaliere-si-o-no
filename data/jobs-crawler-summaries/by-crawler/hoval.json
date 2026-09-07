@@ -1,49 +1,18 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-07T15:04:08.168Z",
+  "generatedAt": "2026-09-07T23:27:18.609Z",
   "total": 13,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16772,
-  "avgDurationMs": 16772,
+  "unchangedCount": 1,
+  "durationMs": 18189,
+  "avgDurationMs": 18189,
   "durationHistory": [
-    16772
+    18189
   ],
-  "newJobs": [
-    {
-      "title": "Technicien/ne de Service Gaz/Mazout Region Vaud (m/f/d)",
-      "slug": "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier",
-      "url": "https://www.hoval.it/it_IT/job/4031",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4031/Application/New/3?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-09-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
@@ -111,6 +80,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T11:43:47.058Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -492,5 +462,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Technicien/ne de Service Gaz/Mazout Region Vaud (m/f/d)",
+      "slug": "technicien-ne-de-service-gaz-mazout-region-vaud-m-f-d-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/4031",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4031/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-09-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-dc519d15acc2",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-07T15:04:04.419Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ]
 }

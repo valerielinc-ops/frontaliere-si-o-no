@@ -1,23 +1,24 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-09-07T15:03:34.902Z",
+  "generatedAt": "2026-09-07T23:26:51.244Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4369,
-  "avgDurationMs": 4369,
+  "durationMs": 5927,
+  "avgDurationMs": 5927,
   "durationHistory": [
-    4369
+    5927
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-de-lavaux-c09293977d21",
       "slug": "controleur-euse-de-gestion-60-80-hopital-de-lavaux-bourg-en-lavaux",
@@ -25,13 +26,13 @@
       "companyKey": "hopital-de-lavaux",
       "companyDomain": "hopitaldelavaux.ch",
       "title": "Contrôleur·euse de gestion (60–80%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bourg-en-Lavaux",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/_ce7R-DpY",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:03:27.875Z",
+      "crawledAt": "2026-09-07T23:26:42.664Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -47,16 +48,15 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://app.beehire.com/invite/_ce7R-DpY",
       "careerSiteUrl": "https://www.hopitaldelavaux.ch/jcms/lav_5237/emplois",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-09-07T15:03:27.875Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-de-lavaux-a7255dd10142",
       "slug": "physiotherapeute-a-80-100-hopital-de-lavaux-bourg-en-lavaux",
@@ -64,13 +64,13 @@
       "companyKey": "hopital-de-lavaux",
       "companyDomain": "hopitaldelavaux.ch",
       "title": "Physiothérapeute à 80% - 100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Bourg-en-Lavaux",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:03:27.884Z",
+      "crawledAt": "2026-09-07T23:26:42.673Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:03:27.877Z",
+      "crawledAt": "2026-09-07T23:26:42.666Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
