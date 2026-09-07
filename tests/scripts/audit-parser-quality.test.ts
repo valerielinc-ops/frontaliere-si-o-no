@@ -644,6 +644,69 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-corroborated');
   });
 
+  // Issue #7772: the published value is the Italian exonym on the Italian
+  // site, the page that carries the address is German or French, so comparing
+  // the raw normalised strings left an entire language region falsely red.
+  it('corroborates an Italian published name against the German postal address', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zurigo',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Wädenswil, Wädenswil',
+        description: 'Arbeitsort: Reckenholzstrasse 191, 8046 Zürich. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('corroborates an Italian published name against the French postal address', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Ginevra',
+        sourceLang: 'fr',
+        description: 'Nous cherchons une personne pour notre succursale. '.repeat(10),
+      },
+      {
+        title: 'Conseiller*ère de vente',
+        location: 'Lausanne, Vaud',
+        description: 'Lieu de travail: Rue du Stand 3, 1204 Genève. '
+          + 'Nous cherchons une personne pour notre succursale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('source-corroborated');
+  });
+
+  it('keeps the mismatch when the postal address names another locality', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Zurigo',
+        sourceLang: 'de',
+        description: 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      {
+        title: 'Verkaufsberater*in',
+        location: 'Winterthur, Winterthur',
+        description: 'Arbeitsort: Technikumstrasse 9, 8400 Winterthur. '
+          + 'Wir suchen eine Fachperson fuer unsere Filiale. '.repeat(10),
+      },
+      { locationEvidence: 'jsonld' },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
   it('keeps the mismatch when the page names the canton without postal geography', () => {
     const result = compareSourceDetail(
       {
