@@ -108,6 +108,7 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   registerKeywordLandingPaths,
+  registerRetiredKeywordLandingPaths,
   keywordLandingPlanSize,
   landingPathFromDistRelative,
   normalizeLandingPath,
@@ -1850,6 +1851,26 @@ export function restoredKeywordLandingPaths(
   assertNoRestoredRetirementCollision(files, retiredFiles);
   const retired = new Set(retiredFiles);
   return files.filter((rel) => !retired.has(rel)).map(landingPathFromDistRelative);
+}
+
+/**
+ * The withdrawal paths a cache-HIT build must declare EMITTED-but-unplanned.
+ *
+ * The complement of {@link restoredKeywordLandingPaths} over the same manifest:
+ * that one drops the retirements from the plan, this one hands the very same
+ * rels to the hreflang gate as "written, just not advertised". Both halves are
+ * needed or the two build paths disagree — the emit path knows a withdrawal is
+ * on disk, and a cache HIT that only reproduced the ABSENCE would still make
+ * every live sibling of a retired locale lose its whole block (issue #7756).
+ *
+ * Both halves of the published pair (`<path>/index.html` and the flat
+ * `<path>.html` sibling, issue #7751) map to the SAME landing path, so the Set
+ * in the registry collapses them — no de-duplication is needed here.
+ */
+export function restoredRetiredLandingPaths(
+  retiredFiles: ReadonlyArray<string>,
+): string[] {
+  return retiredFiles.map(landingPathFromDistRelative);
 }
 
 /**
@@ -3640,6 +3661,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             'related-search-clusters',
             restoredKeywordLandingPaths(restored.files ?? [], restored.retiredFiles ?? []),
           );
+          // The same rels, declared EMITTED-but-unplanned so a live sibling of a
+          // retired locale keeps its own block (issue #7756).
+          registerRetiredKeywordLandingPaths(
+            restoredRetiredLandingPaths(restored.retiredFiles ?? []),
+          );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
@@ -3876,6 +3902,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // (issue #7752).
       assertRetirementsDisjointFromPlan(junkRetirements, plannedPaths);
       registerKeywordLandingPaths('related-search-clusters', plannedPaths);
+      // Withdrawals are EMITTED, just never advertised: declaring them keeps
+      // the hreflang gate from reading "unplanned" as "written nowhere" and
+      // stripping the whole block off every live sibling (issue #7756). All
+      // locales, not just this shard's — the IT shard has to know the FR
+      // withdrawal exists to keep the alternate pointing at it.
+      registerRetiredKeywordLandingPaths(junkRetirements.flatMap((r) => r.paths));
       profileRecord('register-landing-plan', __tPlan);
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
