@@ -1,7 +1,8 @@
 import { JSDOM } from 'jsdom';
 import { stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
-import { extractDetailFields, isSufficientVacancyDescription } from './prospector/extract.mjs';
+import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
+import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
@@ -154,7 +155,13 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const loadedSeedUrls = new Set();
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
-  const upstreamDetailExtractor = runtime.detailExtractor || extractDetailFields;
+  // Explicit composition: without a caller-supplied extractor the base is the
+  // very chain `runSpecInProduction` would have used on its own, not a
+  // hard-coded generic cascade. Instrumenting a run must not change which
+  // extractor decides — see `extractRuntimeDetailFields`, where a wrapper
+  // handed in as `detailExtractor` is the whole verdict.
+  const upstreamDetailExtractor = runtime.detailExtractor
+    || ((html, pageUrl) => extractRuntimeDetailFields(spec, html, pageUrl));
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
@@ -216,7 +223,17 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     return response;
   };
   const capturingDetailExtractor = (html, pageUrl) => {
-    const detail = upstreamDetailExtractor(html, pageUrl);
+    const base = upstreamDetailExtractor(html, pageUrl);
+    // The Simple Job Board body is the description this runtime publishes (see
+    // the `enriched` map below), so it belongs to the verdict this extractor
+    // returns, not to a later fill. Returning the generic reading and counting
+    // on that fill made the two disagree: the shared description floor in
+    // `spec-crawler.mjs` judges what the extractor says, so a page whose rich
+    // body only the iPersonal boundary can see was dropped — or, when the
+    // source proof caught the gap, failed the whole batch — before the fill
+    // ever ran.
+    const authored = extractIpersonalDescription(html);
+    const detail = authored ? { ...base, description: authored } : base;
     parsedDetails.set(canonicalUrl(pageUrl), detail);
     return detail;
   };
