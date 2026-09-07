@@ -11532,6 +11532,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Stable unemployment in Switzerland and Ticino in August 2024',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'The unemployment rate in Switzerland remained stable at 3% in August, with an increase of 0.2 points on an annual basis. In Ticino, the rate is 2.9%, with an increase of 0.1 points on a monthly basis and 0.3 points on a yearly basis.',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Aerial view of Lugano with mountains and lake',
+    'blog.article.disoccupazione-stabile-agosto-2023.title': 'Stable unemployment in Switzerland in August',
+    'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'The unemployment rate in Switzerland remained stable at 3.0% in August, with Ticino at 2.9%. Long-term unemployed are on the rise.',
+    'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Aerial view of Lugano with mountains in the background',
 };
 
 export default blogMetaEn;

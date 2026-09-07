@@ -11533,6 +11533,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Disoccupazione stabile in Svizzera e Ticino ad agosto 2024',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% in agosto, con un aumento di 0,2 punti su base annua. In Ticino, il tasso è del 2,9%, con un incremento di 0,1 punti su base mensile e di 0,3 punti su base annua.',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Vista aerea di Lugano con montagne e lago',
+    'blog.article.disoccupazione-stabile-agosto-2023.title': 'Disoccupazione stabile in Svizzera ad agosto',
+    'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3,0% ad agosto, con il Ticino al 2,9%. Aumentano i disoccupati di lunga durata.',
+    'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Vista aerea di Lugano con le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

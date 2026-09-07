@@ -11534,6 +11534,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Chômage stable en Suisse et au Tessin en août 2024',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'Le taux de chômage en Suisse est resté stable à 3 % en août, en hausse de 0,2 point sur un an. Au Tessin, le taux est de 2,9 %, avec une augmentation de 0,1 point sur une base mensuelle et de 0,3 point sur une base annuelle.',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Vue aérienne de Lugano avec montagnes et lac',
+    'blog.article.disoccupazione-stabile-agosto-2023.title': 'Chômage stable en Suisse en août',
+    'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Le taux de chômage en Suisse est resté stable à 3,0% en août, avec le Tessin à 2,9%. Les chômeurs de longue durée augmentent.',
+    'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Vue aérienne de Lugano avec les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;
