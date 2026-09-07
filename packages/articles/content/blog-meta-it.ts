@@ -11542,6 +11542,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-ferroviario-italia-ticino.title': 'Sciopero ferroviario: possibili ritardi in Ticino',
     'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'Uno sciopero nazionale delle Ferrovie dello Stato Italiane potrebbe causare disagi anche in Ticino.',
     'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
+    'blog.article.luganese-tram-treno-cantieri-2035.title': 'Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035',
+    'blog.article.luganese-tram-treno-cantieri-2035.excerpt': 'I lavori preliminari prenderanno il via alla fine di ottobre 2026 sulla tratta tra Manno e Bioggio.',
+    'blog.article.luganese-tram-treno-cantieri-2035.imageAlt': 'Vista aerea di Lugano con la nuova rete Tram-Treno in costruzione',
 };
 
 export default blogMetaIt;
