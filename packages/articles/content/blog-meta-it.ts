@@ -11583,6 +11583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Tasse grenzgänger svizzera: obblighi e nuovo accordo',
     'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Guida completa alle imposte per grenzgänger tra Svizzera e Italia: obblighi fiscali, distinzione tra vecchi e nuovi frontalieri e calcoli.',
     'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Vista panoramica di Lugano e del lago nel Canton Ticino',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permesso G in Ticino: richiesta, costi e passaggi',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Guida completa alla richiesta del permesso G per frontalieri in Ticino: documenti necessari, costi e validità.',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'Permesso G per frontalieri in Ticino',
 };
 
 export default blogMetaIt;

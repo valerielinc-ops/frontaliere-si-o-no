@@ -34590,6 +34590,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'g-bewilligung-antrag-schritt-fuer-schritt',
+ category: 'pratico',
+ date: '2026-09-07T16:45:41.910Z',
+ image: '/images/blog/g-bewilligung-antrag-schritt-fuer-schritt.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11581,6 +11581,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Steuern grenzgänger Schweiz: Verpflichtungen und neues Abkommen',
     'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Vollständiger Steuerleitfaden für Grenzgänger zwischen der Schweiz und Italien: Steuerpflichten, Unterscheidung zwischen alten und neuen Grenzgängern und Berechnungen.',
     'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Panoramablick auf Lugano und den See im Tessin',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'G-Genehmigung im Tessin: Antrag, Kosten und Schritte',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Vollständiger Leitfaden zur Beantragung der G-Genehmigung für Grenzgänger im Tessin: notwendige Unterlagen, Kosten und Gültigkeit.',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'G-Bewilligung für Grenzgänger im Tessin',
 };
 
 export default blogMetaDe;

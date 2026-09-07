@@ -11582,6 +11582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Swiss grenzgänger taxes: obligations and new agreement',
     'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Complete guide to taxes for grenzgänger between Switzerland and Italy: tax obligations, distinction between old and new border workers and calculations.',
     'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Panoramic view of Lugano and lake in Canton Ticino',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permit G in Ticino: request, costs and steps',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Complete guide to applying for the G permit for border workers in Ticino: necessary documents, costs and validity.',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'G permit for cross-border workers in Ticino',
 };
 
 export default blogMetaEn;

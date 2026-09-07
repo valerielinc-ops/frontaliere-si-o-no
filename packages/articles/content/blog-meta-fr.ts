@@ -11584,6 +11584,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Taxes grenzgänger suisse : obligations et nouvel accord',
     'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Guide complet des taxes pour grenzgänger entre la Suisse et l\'Italie : obligations fiscales, distinction entre anciens et nouveaux frontaliers et calculs.',
     'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Vue panoramique de Lugano et du lac au Tessin',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permis G au Tessin : demande, coûts et passages',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Guide complet pour la demande du permis G pour les frontaliers au Tessin : documents nécessaires, coûts et validité.',
+    'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'Permis G pour frontaliers au Tessin',
 };
 
 export default blogMetaFr;
