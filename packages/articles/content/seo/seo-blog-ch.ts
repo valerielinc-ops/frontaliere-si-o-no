@@ -77162,6 +77162,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-laboratorio-intelligenza-artificiale-terza-eta': {
+    title: 'Laboratorio gratuito sull\'IA per la terza età a Lugano',
+    description: 'Il Sindacato OCST organizza un laboratorio gratuito sull\'intelligenza artificiale per la terza età il 11 settembre 2024 a Lugano. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, laboratorio, gratuito, sull, terza',
+    ogTitle: 'Laboratorio IA per la terza età a Lugano',
+    ogDescription: 'Il Sindacato OCST organizza un laboratorio gratuito sull\'intelligenza artificiale per la terza età il 11 settembre 2024 a Lugano. Impara a riconoscere truffe e contenuti falsi in modo pratico.',
+    canonicalPath: '/articoli-svizzera/laboratorio-intelligenza-artificiale-terza-eta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Laboratorio gratuito sull'IA per la terza età a Lugano",
+      "description": "Il Sindacato OCST organizza un laboratorio gratuito sull'intelligenza artificiale per la terza età il 11 settembre 2024 a Lugano. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/laboratorio-intelligenza-artificiale-terza-eta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di anziani che imparano l'intelligenza artificiale in un laboratorio a Lugano"
+      },
+      "datePublished": "2026-09-07T12:03:46+00:00",
+      "dateModified": "2026-09-07T12:03:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/laboratorio-intelligenza-artificiale-terza-eta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5944,6 +5944,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.title': 'Warum die Schweiz die USA für den Angriff auf den Iran nicht sanktioniert',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.excerpt': 'Ignazio Cassis erklärt, dass jeder Krieg anders ist und dass die Schweiz das Vorgehen der USA nicht verurteilen kann, ohne konkrete Fakten aufzuzeigen.',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.imageAlt': 'Herbstliche Luftaufnahme von Bern aus den Schweizer Alpen mit dem Bundeshaus im Vordergrund und dem Eiger im Hintergrund.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Kostenloses KI-Labor für Senioren in Lugano',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'Die Gewerkschaft OCST organisiert am 11. September 2024 in Lugano einen kostenlosen Workshop zur künstlichen Intelligenz für Senioren.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Gruppe von Senioren, die Künstliche Intelligenz in einem Labor in Lugano lernen',
 };
 
 export default blogMetaChDe;

@@ -5944,6 +5944,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.title': 'Perché la Svizzera non sanziona gli Stati Uniti per l\'attacco all\'Iran',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.excerpt': 'Ignazio Cassis spiega che ogni guerra è diversa e che la Svizzera non può condannare le azioni degli Stati Uniti senza dimostrare fatti concreti.',
     'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.imageAlt': 'Vista aerea di Berna dalle Alpi svizzere in autunno, con il Palazzo Federale in primo piano e la montagna dell\'Eiger in secondo piano.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.title': 'Laboratorio gratuito sull\'IA per la terza età a Lugano',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.excerpt': 'Il Sindacato OCST organizza un laboratorio gratuito sull\'intelligenza artificiale per la terza età il 11 settembre 2024 a Lugano.',
+    'blog.article.laboratorio-intelligenza-artificiale-terza-eta.imageAlt': 'Gruppo di anziani che imparano l\'intelligenza artificiale in un laboratorio a Lugano',
 };
 
 export default blogMetaChIt;
