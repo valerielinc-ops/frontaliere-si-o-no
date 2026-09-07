@@ -77825,6 +77825,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-turgovia-canoni-locazione-conciliazione': {
+    title: 'Affitti in Turgovia: canoni medi, deposito e conciliazione',
+    description: 'Mercato affitti in Turgovia: diritto di locazione, deposito cauzionale max 3 mensilità, contestazione entro 30 giorni e autorità di conciliazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, turgovia, canoni, medi',
+    ogTitle: 'Affitti in Turgovia: come funziona il diritto di locazione',
+    ogDescription: 'Diritto di locazione applicato in Turgovia: deposito cauzionale fino a 3 mensilità, contestazione del canone entro 30 giorni e procedura davanti all\'autorità di conciliazione cantonale. Una guida pratica per inquilini e locatori.',
+    canonicalPath: '/articoli-svizzera/affitti-turgovia-canoni-locazione-conciliazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Turgovia: canoni medi, deposito e conciliazione",
+      "description": "Mercato affitti in Turgovia: diritto di locazione, deposito cauzionale max 3 mensilità, contestazione entro 30 giorni e autorità di conciliazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-turgovia-canoni-locazione-conciliazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un quartiere residenziale nel Canton Turgovia con edifici locativi tipici"
+      },
+      "datePublished": "2026-09-07T15:29:20+00:00",
+      "dateModified": "2026-09-07T15:29:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-turgovia-canoni-locazione-conciliazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

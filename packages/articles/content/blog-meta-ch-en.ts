@@ -5995,6 +5995,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riserve-bns-aumento-agosto.title': 'SNB: foreign currency reserves rise to 771 billion in August',
     'blog.article.riserve-bns-aumento-agosto.excerpt': 'Foreign currency assets at CHF 771 billion (+1.9 on July); total reserves, excluding gold, from 780 to 782 billion. Euro and dollar cover 80% of the portfolio.',
     'blog.article.riserve-bns-aumento-agosto.imageAlt': 'Swiss National Bank foreign currency reserves, August data published on the SNB website.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Rentals in Thurgau: average fees, deposit and conciliation',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Rental market in the canton of Thurgau: how the security deposit works, when to challenge the initial rent and how to act before the conciliation authority.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'View of a residential neighborhood in Thurgau Canton with typical rental buildings',
 };
 
 export default blogMetaChEn;

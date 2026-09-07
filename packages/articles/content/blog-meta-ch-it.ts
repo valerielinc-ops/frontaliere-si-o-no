@@ -5995,6 +5995,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riserve-bns-aumento-agosto.title': 'BNS: riserve in divise estere salgono a 771 miliardi ad agosto',
     'blog.article.riserve-bns-aumento-agosto.excerpt': 'Attivi in valuta estera a 771 miliardi di franchi (+1,9 su luglio); totale riserve, oro escluso, da 780 a 782 miliardi. Euro e dollaro coprono l\'80% del portafoglio.',
     'blog.article.riserve-bns-aumento-agosto.imageAlt': 'Riserve in divise estere della Banca nazionale svizzera, dati di agosto pubblicati sul sito BNS.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Affitti in Turgovia: canoni medi, deposito e conciliazione',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Mercato degli affitti nel Canton Turgovia: come funziona il deposito cauzionale, quando contestare il canone iniziale e come agire davanti all\'autorità di conciliazione.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'Veduta di un quartiere residenziale nel Canton Turgovia con edifici locativi tipici',
 };
 
 export default blogMetaChIt;

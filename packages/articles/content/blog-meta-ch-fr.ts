@@ -5995,6 +5995,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riserve-bns-aumento-agosto.title': 'BNS : les réserves en devises étrangères s\'élèvent à 771 milliards en août',
     'blog.article.riserve-bns-aumento-agosto.excerpt': 'Avoirs en devises à 771 milliards de francs (+1,9 sur juillet) ; total des réserves, or exclu, de 780 à 782 milliards. L\'euro et le dollar couvrent 80 % du portefeuille.',
     'blog.article.riserve-bns-aumento-agosto.imageAlt': 'Réserves en devises de la Banque nationale suisse, données d\'août publiées sur le site de la BNS.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.title': 'Location en Thurgovie : loyers moyens, dépôt et conciliation',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.excerpt': 'Marché locatif dans le canton de Thurgovie : comment fonctionne le dépôt de garantie, quand contester le loyer initial et comment agir devant l\'autorité de conciliation.',
+    'blog.article.affitti-turgovia-canoni-locazione-conciliazione.imageAlt': 'Vue d\'un quartier résidentiel dans le canton de Thurgovie avec des immeubles locatifs typiques',
 };
 
 export default blogMetaChFr;
