@@ -2013,6 +2013,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'melide-riqualifica-centro': { it: 'melide-riqualifica-centro', en: 'melide-town-center-renovation', de: 'melide-stadtzentrum-renovierung', fr: 'melide-centre-ville-renovation' },
  'luna-wedler-golden-eye-award-zurigo': { it: 'luna-wedler-golden-eye-award-zurigo', en: 'luna-wedler-golden-eye-award-zurich', de: 'luna-wedler-golden-eye-award-zuerich', fr: 'luna-wedler-golden-eye-award-zurich' },
  'salute-parchi-giochi-svizzeri-mozziconi-sigarette': { it: 'salute-parchi-giochi-svizzeri-mozziconi-sigarette', en: 'health-swiss-playgrounds-cigarette-butts', de: 'gesundheit-schweizer-spielplaetze-zigarettenstummel', fr: 'sante-parcs-jeux-suisses-megots-cigarettes' },
+ 'imposta-successione-donazione-neuchatel-aliquote': { it: 'imposta-successione-donazione-neuchatel-aliquote', en: 'inheritance-and-donation-tax-neuchatel-rates', de: 'erbschaft-und-spendensteuer-neuchatel-satz', fr: 'impot-succession-donation-neuchatel-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

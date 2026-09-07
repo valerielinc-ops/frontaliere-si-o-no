@@ -5962,6 +5962,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Health: 91 cigarette butts in Swiss playgrounds',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'National analysis on snus, nicotine sachets and e-cigarettes in Swiss playgrounds, with annual cleaning costs estimated at over CHF 52 million.',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Swiss playgrounds with scattered cigarette butts, environmental and health risks',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Neuchâtel inheritance tax: rates and exemptions',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Learn about inheritance and gift tax rates in the Canton of Neuchâtel, spouse and descendant exemptions, and filing deadlines.',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Panoramic view of Lake Lugano with focus on the Swiss-French border',
 };
 
 export default blogMetaChEn;

@@ -5962,6 +5962,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Salute: nei parchi giochi svizzeri 91 mozziconi di sigarette',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'Analisi nazionale su snus, bustine di nicotina e sigarette elettroniche nei parchi giochi svizzeri, con costi di pulizia annuali stimati a oltre 52 milioni di franchi.',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Parchi giochi svizzeri con mozziconi di sigarette sparse, rischi ambientali e sanitari',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Imposta successione Neuchâtel: aliquote e esenzioni',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Scopri le aliquote dell\'imposta di successione e donazione nel Cantone di Neuchâtel, le esenzioni per coniuge e discendenti e i termini per la dichiarazione.',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Vista panoramica del Lago di Lugano con focus sul confine Svizzera-Francia',
 };
 
 export default blogMetaChIt;
