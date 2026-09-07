@@ -114,4 +114,29 @@ describe('cluster cache manifest honesty', () => {
     expect(restored).toBeNull();
     expect(warn.mock.calls.some((c) => String(c[0]).includes('cache INVALID'))).toBe(true);
   });
+
+  it('invalidates the restore when a copy fails for a reason other than ENOENT', async () => {
+    const dist = path.join(root, 'dist');
+    write(dist, 'cerca-lavoro-ticino/ricerca-a/index.html', '<html>a</html>');
+    write(dist, 'de/stellensuche-tessin/suche-b/index.html', '<html>b</html>');
+    saveToCache(root, dist, KEY, [
+      'cerca-lavoro-ticino/ricerca-a/index.html',
+      'de/stellensuche-tessin/suche-b/index.html',
+    ], [], [], [], []);
+
+    // Every blob is present: the copy itself fails. A regular file where the
+    // restore needs a directory makes mkdirSync/copyFile throw ENOTDIR — the
+    // same shape as the EMFILE/EACCES/ENOSPC/EIO the runner can throw at
+    // concurrency 64, none of which is ENOENT.
+    const dist2 = path.join(root, 'dist2');
+    fs.mkdirSync(dist2, { recursive: true });
+    fs.writeFileSync(path.join(dist2, 'cerca-lavoro-ticino'), 'not a directory', 'utf-8');
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const restored = await tryRestoreFromCache(root, dist2, KEY);
+
+    expect(restored).toBeNull();
+    expect(warn.mock.calls.some((c) => String(c[0]).includes('restore failed for'))).toBe(true);
+    expect(warn.mock.calls.some((c) => String(c[0]).includes('cache INVALID'))).toBe(true);
+  });
 });

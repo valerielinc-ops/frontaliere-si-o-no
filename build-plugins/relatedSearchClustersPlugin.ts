@@ -562,30 +562,38 @@ export async function tryRestoreFromCache(
         await fs.promises.copyFile(src, dst);
         restored++;
       } catch (err) {
-        // A manifest entry without a blob is a CORRUPT cache, not a benign
-        // gap: `saveToCache` only lists rels it actually copied, and the
-        // plugin source is a `CACHE_KEY_INPUTS` entry, so no manifest written
-        // by an older (pre-#7755) build can ever match this key. Count it and
-        // let the caller invalidate — a silent skip shipped a dist/ with
+        // ANY failure here leaves `dst` absent from dist/, and that is a
+        // CORRUPT restore regardless of errno: `saveToCache` only lists rels
+        // it actually copied, and the plugin source is a `CACHE_KEY_INPUTS`
+        // entry, so no manifest written by an older (pre-#7755) build can
+        // ever match this key. ENOENT means the blob is gone; EMFILE (the
+        // very risk the concurrency note above weighs), EACCES, ENOSPC, EIO
+        // and ENOTDIR mean the copy did not land — downstream the difference
+        // is nil, because the landing plan is registered from
+        // `manifest.files`, not from what reached the disk. Count them all
+        // and let the caller invalidate — a silent skip shipped a dist/ with
         // missing cluster pages while `restoredKeywordLandingPaths` still
         // registered them as planned landings.
-        if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
-          missing++;
-        } else {
+        missing++;
+        if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+          // Different diagnostic: the blob exists but the copy failed, so the
+          // cache dir is fine and the runner (fd limit, perms, disk) is not.
           console.warn(`\x1b[33m[related-search-clusters]\x1b[0m restore failed for ${rel}:`, err);
         }
       }
     }));
   }
 
-  // Criterion (issue #7755): ONE missing entry invalidates the whole restore.
+  // Criterion (issue #7755): ONE entry that did not land invalidates the
+  // whole restore — missing blob or failed copy, the outcome on disk is the
+  // same.
   // A partial restore is indistinguishable from a complete one downstream —
   // the plan is registered from `manifest.files`, not from what landed on
   // disk — so the only honest fallback is to re-emit. The already-copied
   // files are harmless: the emit path rewrites the same set.
   if (missing > 0) {
     console.warn(
-      `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): ${missing}/${files.length} manifest entries have no blob — falling back to a full emit`,
+      `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): ${missing}/${files.length} manifest entries failed to restore — falling back to a full emit`,
     );
     return null;
   }
