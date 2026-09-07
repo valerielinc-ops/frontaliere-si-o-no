@@ -5836,6 +5836,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-turgovia.title': 'Lehre und Ausbildung im Kanton Thurgau',
     'blog.article.apprendistato-turgovia.excerpt': 'Praktischer Leitfaden zur Lehrlingsausbildung in der Schweiz: Wie finde ich eine Lehre, lerne die Rechte der Lernenden und den Ausbildungsvertrag kennen?',
     'blog.article.apprendistato-turgovia.imageAlt': 'Junger Lehrling bei der praktischen Berufsausbildung in einer Schweizer Berufsschule',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Haus kaufen in Bern: Preise, Hypothek und Steuern',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Praktischer Leitfaden zum Immobilienkauf im Kanton Bern: Stempelsteuer, Notarkosten, geforderte Eigenmittel und Tragbarkeit des Hypothekardarlehens.',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Luftaufnahme eines modernen Wohnviertels in Bern mit Häusern und grünen Gärten',
 };
 
 export default blogMetaChDe;

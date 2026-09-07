@@ -5836,6 +5836,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-turgovia.title': 'Apprendistato e formazione in Canton Turgovia',
     'blog.article.apprendistato-turgovia.excerpt': 'Guida pratica al sistema di apprendistato in Svizzera: come trovare un tirocinio, conoscere i diritti dell\'apprendista e il contratto di formazione.',
     'blog.article.apprendistato-turgovia.imageAlt': 'Giovane apprendista in formazione pratica presso un laboratorio professionale svizzero',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Comprare casa a Berna: prezzi, mutuo e tasse',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Guida pratica all\'acquisto immobiliare nel Canton Berna: imposta sui trapassi, spese notarili, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Vista aerea di un quartiere residenziale moderno a Berna con case e giardini verdi',
 };
 
 export default blogMetaChIt;

@@ -5836,6 +5836,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-turgovia.title': 'Apprentissage et formation dans le canton de Thurgovie',
     'blog.article.apprendistato-turgovia.excerpt': 'Guide pratique du système d\'apprentissage en Suisse : comment trouver un stage, connaître les droits de l\'apprenti et le contrat de formation.',
     'blog.article.apprendistato-turgovia.imageAlt': 'Jeune apprenti suivant une formation pratique dans un atelier de formation professionnelle suisse',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Acheter une maison à Berne : prix, hypothèque et taxes',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Guide pratique de l\'achat immobilier dans le canton de Berne : taxe de passage, frais de notaire, fonds propres requis et viabilité du prêt hypothécaire.',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Vue aérienne d\'un quartier résidentiel moderne à Berne avec maisons et jardins verts',
 };
 
 export default blogMetaChFr;
