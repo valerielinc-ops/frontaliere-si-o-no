@@ -5881,6 +5881,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Arbeitslosenquote in der Schweiz im August stabil',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August mit einem leichten Anstieg von 0,2% gegenüber dem Vorjahr stabil bei 3%.',
     'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund, die die wirtschaftliche Stabilität der Region zeigt.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.title': 'Cannabis in der Apotheke: weniger Risiken und mehr Bewusstsein',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.excerpt': 'Das Pilotprojekt für den Verkauf von Cannabis in Apotheken in Bern, Biel und Luzern erweist sich als risikoärmer.',
+    'blog.article.cannabis-farmacia-berna-bienne-lucerna.imageAlt': 'Eine Apotheke in Berna, Bienne oder Lucerna mit einem Schild für den Verkauf von Cannabis.',
 };
 
 export default blogMetaChDe;
