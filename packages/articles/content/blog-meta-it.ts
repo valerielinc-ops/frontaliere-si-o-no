@@ -11509,6 +11509,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Vivere a Jovençan, lavorare in Vallese da frontaliere',
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS e costi di vita: guida pratica per chi vive in Valle d\'Aosta e lavora in Vallese',
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio alpino della Valle d\'Aosta con strada di collegamento verso il Vallese svizzero al confine',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Vivere a Villeneuve e lavorare in Vallese: guida frontaliere',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve è meta di frontalieri che lavorano in Vallese. Scopri permessi G, imposte alla fonte, LAMal, AVS, LPP, ristorni e procedure per trasferirsi.',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Valle del Vallese con strada principale, scenario di pendolarismo frontaliero Vallese-Italia',
 };
 
 export default blogMetaIt;

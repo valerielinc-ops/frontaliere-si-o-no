@@ -11508,6 +11508,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Living in Jovençan, working in Valais as a border worker',
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Permit G, tax at source, AVS and living costs: a practical guide for those who live in Valle d \'Aosta and work in Valais',
     'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Alpine valley landscape in Aosta Valley with road connecting to Swiss Valais at the border',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Living in Villeneuve and working in Valais: border guide',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve is a destination for border workers working in Valais. Discover G permits, taxes at source, LAMal, AVS, LPP, refunds and transfer procedures.',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Valais valley with main road, Valese-Italy border commute scene',
 };
 
 export default blogMetaEn;
