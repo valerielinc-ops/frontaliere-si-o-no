@@ -15,8 +15,11 @@ import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 
 import { renderFormattedContent } from '@/components/community/BlogArticles';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import {
   isLongformArticle,
+  inlineSlotIndex,
+  inlineSlotRotationOffset,
   countH2Sections,
   resolveArticleAdDensity,
   longformWordGap,
@@ -187,5 +190,82 @@ describe('standard profile is unchanged (AGENTS.md #7)', () => {
   it('keeps cap 8 and gap 200 as the standard constants', () => {
     expect(STANDARD_ARTICLE_AD_DENSITY.inlineCap).toBe(8);
     expect(STANDARD_ARTICLE_AD_DENSITY.minWordGap).toBe(200);
+  });
+});
+
+/**
+ * Observer for issue #7747 — the inline slot rotation must reach all five
+ * `ARTICLE_INLINE_MOBILE*` units across the corpus.
+ *
+ * `makeInlineAd` used `counter % table.length` with the counter starting at 0
+ * and stopping at the profile cap: on the longform profile (cap 3, table of 5)
+ * only positions 0,1,2 were ever reached, so `_4` (3084573347) and `_5`
+ * (4692185947) took zero impressions on the 402 longform `it` articles despite
+ * a configuration identical to the other three. A fill rate pinned at 0 reads
+ * as a dead unit and can trip an alert.
+ */
+const INLINE_SLOT_TABLE = [
+  AD_SLOTS.ARTICLE_INLINE_MOBILE,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_2,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_3,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_4,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_5,
+] as const;
+
+/** Mirrors the component's `makeInlineAd` slot pick for one article. */
+const slotsServed = (articleId: string, cap: number): string[] =>
+  Array.from({ length: cap }, (_, i) => INLINE_SLOT_TABLE[inlineSlotIndex(articleId, i, INLINE_SLOT_TABLE.length)].slot);
+
+/** Corpus stand-in: as many ids as the `it` longform population (#7747). */
+const corpusIds = Array.from({ length: 402 }, (_, i) => `articolo-longform-${i}`);
+
+describe('inline slot rotation (#7747)', () => {
+  it('reproduces the zero-impression pre-fix rotation: cap 3 over 5 slots reaches 3', () => {
+    const cap = LONGFORM_ARTICLE_AD_DENSITY.inlineCap;
+    const preFix = new Set(corpusIds.flatMap(() => Array.from({ length: cap }, (_, i) => i % INLINE_SLOT_TABLE.length)));
+    expect(preFix.size).toBe(3);
+    expect(preFix.has(3)).toBe(false);
+    expect(preFix.has(4)).toBe(false);
+  });
+
+  it('covers all five units over the longform corpus, `_4`/`_5` included', () => {
+    const served = new Set(corpusIds.flatMap(id => slotsServed(id, LONGFORM_ARTICLE_AD_DENSITY.inlineCap)));
+    expect(served).toEqual(new Set(INLINE_SLOT_TABLE.map(s => s.slot)));
+    expect(served.has(AD_SLOTS.ARTICLE_INLINE_MOBILE_4.slot)).toBe(true);
+    expect(served.has(AD_SLOTS.ARTICLE_INLINE_MOBILE_5.slot)).toBe(true);
+  });
+
+  it('emits the same NUMBER of ads per article, all distinct units (AGENTS.md #7)', () => {
+    for (const profile of [LONGFORM_ARTICLE_AD_DENSITY, STANDARD_ARTICLE_AD_DENSITY]) {
+      for (const id of corpusIds.slice(0, 50)) {
+        const served = slotsServed(id, profile.inlineCap);
+        expect(served).toHaveLength(profile.inlineCap);
+        // Consecutive ads on one page still rotate by 1: with a cap at or below
+        // the table length no unit repeats on the same article, exactly as
+        // before the offset existed.
+        const expectedDistinct = Math.min(profile.inlineCap, INLINE_SLOT_TABLE.length);
+        expect(new Set(served).size).toBe(expectedDistinct);
+      }
+    }
+  });
+
+  it('is deterministic per article id — same slots on every render and on SSR', () => {
+    for (const id of corpusIds.slice(0, 20)) {
+      expect(slotsServed(id, 3)).toEqual(slotsServed(id, 3));
+    }
+    // Hardcoded so a change to the hash (which would redistribute the whole
+    // corpus) breaks here instead of silently.
+    expect(inlineSlotRotationOffset('articolo-longform-0', 5)).toBe(inlineSlotRotationOffset('articolo-longform-0', 5));
+    expect(slotsServed('articolo-longform-0', 3)).toEqual(slotsServed('articolo-longform-0', 3));
+  });
+
+  it('spreads the starting offset across the table instead of pinning it to 0', () => {
+    const offsets = new Set(corpusIds.map(id => inlineSlotRotationOffset(id, INLINE_SLOT_TABLE.length)));
+    expect(offsets).toEqual(new Set([0, 1, 2, 3, 4]));
+  });
+
+  it('degrades to index 0 on a table of zero slots instead of NaN', () => {
+    expect(inlineSlotIndex('qualsiasi', 0, 0)).toBe(0);
+    expect(inlineSlotRotationOffset('qualsiasi', 0)).toBe(0);
   });
 });

@@ -14,6 +14,8 @@
  * (`tests/community/BlogArticles.longform-ad-density.test.tsx`).
  */
 
+import { fnv1a32Mod } from '../scripts/lib/fnv1a.mjs';
+
 /** Number of `## ` sections from which an article is treated as longform. */
 export const LONGFORM_MIN_H2_SECTIONS = 7;
 
@@ -164,4 +166,42 @@ export function resolveArticleAdDensity(segments: readonly string[]): ArticleAdD
   return minWordGap === LONGFORM_ARTICLE_AD_DENSITY.minWordGap
     ? LONGFORM_ARTICLE_AD_DENSITY
     : { ...LONGFORM_ARTICLE_AD_DENSITY, minWordGap };
+}
+
+/**
+ * Start index of the inline slot rotation for THIS article (issue #7747).
+ *
+ * The rotation in `makeInlineAd` is `counter % slotTable.length` with the
+ * counter starting at 0 and stopping at the profile cap. On the longform
+ * profile the cap is 3 and the table holds 5 units, so indices 0,1,2 were the
+ * only ones ever reached: `ARTICLE_INLINE_MOBILE_4` and `_5` took zero
+ * impressions on the 402 longform `it` articles while carrying a configuration
+ * identical to the other three (`fluid`/`in-article`, minHeight 220) — a fill
+ * rate stuck at 0 that reads as a broken unit rather than as an unused one.
+ *
+ * Offsetting the START of the rotation per article moves WHICH unit serves
+ * without touching HOW MANY ads are emitted (AGENTS.md #7): every article still
+ * gets exactly `inlineCap` ads, and across the corpus all five units are
+ * reached. The offset is a deterministic hash of the article id, not a random
+ * draw, for three reasons: the same article always renders the same slots
+ * across re-renders and across SSR/hydration (a random pick would mismatch the
+ * server markup), the distribution over the corpus is uniform by construction,
+ * and the audit can recompute the expected slot for any article offline.
+ *
+ * `fnv1a32Mod` is the shared hash of `scripts/lib/fnv1a.mjs` — the one place
+ * this algorithm lives (AGENTS.md #6), not a fourth hand-rolled copy.
+ */
+export function inlineSlotRotationOffset(articleId: string, slotCount: number): number {
+  if (!Number.isInteger(slotCount) || slotCount <= 0) return 0;
+  return fnv1a32Mod(String(articleId ?? ''), slotCount);
+}
+
+/**
+ * Index into the inline slot table for the `adIndex`-th in-content ad of this
+ * article. Step stays 1 — consecutive ads on the same page keep serving
+ * DIFFERENT units, exactly as before; only the starting point moves.
+ */
+export function inlineSlotIndex(articleId: string, adIndex: number, slotCount: number): number {
+  if (!Number.isInteger(slotCount) || slotCount <= 0) return 0;
+  return (inlineSlotRotationOffset(articleId, slotCount) + adIndex) % slotCount;
 }
