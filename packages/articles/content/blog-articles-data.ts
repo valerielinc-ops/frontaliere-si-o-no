@@ -34383,6 +34383,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'empatia-lavoro-immobiliare-ticino',
+ category: 'pratico',
+ date: '2026-09-07T07:11:01.000Z',
+ image: '/images/blog/empatia-lavoro-immobiliare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

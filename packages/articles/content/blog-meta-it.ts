@@ -11512,6 +11512,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Vivere a Villeneuve e lavorare in Vallese: guida frontaliere',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve è meta di frontalieri che lavorano in Vallese. Scopri permessi G, imposte alla fonte, LAMal, AVS, LPP, ristorni e procedure per trasferirsi.',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Valle del Vallese con strada principale, scenario di pendolarismo frontaliero Vallese-Italia',
+    'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Senza empatia non sai fare questo lavoro',
+    'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'L\'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano.',
+    'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'Un professionista del settore immobiliare ascolta empaticamente un cliente in un ufficio moderno in Ticino.',
 };
 
 export default blogMetaIt;

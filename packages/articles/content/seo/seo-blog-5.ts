@@ -87667,6 +87667,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-empatia-lavoro-immobiliare-ticino': {
+    title: 'Senza empatia non sai fare questo lavoro | Frontaliere Ticino',
+    description: 'L\'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, senza, empatia, fare, questo',
+    ogTitle: 'Senza empatia non sai fare questo lavoro',
+    ogDescription: 'Scopri perché l\'empatia è fondamentale nel lavoro immobiliare e come un episodio reale di subentro ha messo in luce l\'importanza di ascoltare le persone.',
+    canonicalPath: '/articoli-frontaliere/empatia-lavoro-immobiliare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Senza empatia non sai fare questo lavoro",
+      "description": "L'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/empatia-lavoro-immobiliare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un professionista del settore immobiliare ascolta empaticamente un cliente in un ufficio moderno in Ticino."
+      },
+      "datePublished": "2026-09-07T07:11:01+00:00",
+      "dateModified": "2026-09-07T07:11:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/empatia-lavoro-immobiliare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
