@@ -156,7 +156,7 @@ describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un te
     // Leggere uno stato al posto della prova è l'errore che qui ha già
     // cancellato 848 iscritti («pending» letto come «non confermato»). Un
     // verdetto è la sola prova che una run ha eseguito.
-    expect(src).toContain('if (outcome === null && !isUnparkedOnce(iss)) {');
+    expect(src).toContain('if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {');
   });
 
   it('una lettura commenti fallita non ri-accoda al buio', () => {
@@ -164,7 +164,7 @@ describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un te
     // `latestFixOutcome` le confonde entrambe in `null`, e su quella confusione
     // un errore di rete diventerebbe un ri-accodo di massa.
     const glitchGuard = src.indexOf('if (comments === null) continue;');
-    const decision = src.indexOf('if (outcome === null && !isUnparkedOnce(iss)) {');
+    const decision = src.indexOf('if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {');
     expect(glitchGuard, 'guardia sul glitch gh assente').toBeGreaterThan(-1);
     expect(glitchGuard, 'la guardia deve precedere la decisione').toBeLessThan(decision);
   });
@@ -174,7 +174,7 @@ describe('UNPARK-NO-VERDICT — una parked senza verdetto non ha mai avuto un te
     // rientrerebbe in coda a ogni tick per sempre: un livelock al posto di un
     // backlog, cioè un guasto più difficile da vedere e non meno grave.
     const branch = src.slice(
-      src.indexOf('if (outcome === null && !isUnparkedOnce(iss)) {'),
+      src.indexOf('if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {'),
       src.indexOf('const d = verdictExitDecision(outcome, {'),
     );
     expect(branch).toContain('add: [LBL_QUEUED, LBL_UNPARKED]');
@@ -212,5 +212,61 @@ describe('la guardia dell\'idempotenza dell\'UNPARK tollera la vecchia forma con
     for (const n of ['fu-unparked-manual', 'fu-parked', 'fu-attempt:1', 'unparked', 'fu-unparked:x']) {
       expect(re.test(n), n).toBe(false);
     }
+  });
+});
+
+describe('UNPARK-DELIVERED — una parked che ha CONSEGNATO non ha fallito', () => {
+  // L'immagine speculare di UNPARK-NO-VERDICT, e la stessa ingiustizia da
+  // un'altra causa. #7903 ha chiuso la produzione del difetto (il RESCUE non
+  // addebita piu' un `fu-attempt` a una run che ha consegnato), ma le issue
+  // gia' parcheggiate restavano in uno stato terminale: il loro ultimo verdetto
+  // e' `pr-created`, la PR di fix e' mergiata, e nessuno stadio le guardava —
+  // l'unpark esistente pretende «nessun `FIX_OUTCOME`», che e' precisamente
+  // cio' che queste hanno.
+  //
+  // Misurato il 2026-09-07 sulle parked non gia' sparcheggiate: 14 sul sito e 4
+  // nel corpus. L'adversarial check della review di #7903 temeva che una PR
+  // mergiata da un branch con nome diverso da `fix/issue-N` leggesse `null` e
+  // consumasse il tentativo comunque: misurato, 18 su 18 hanno la PR esattamente
+  // li', e `gh pr list --head` concorda con `GET /pulls` su tutte e 14 le
+  // candidate del sito (merge piu' vecchio 09-02). Resta vero in generale, ed e'
+  // il motivo per cui la condizione e' `!== null`: chi non risolve resta parked.
+
+  const src = readFileSync(DRAINER_SRC, 'utf8');
+
+  it('ammette pr-created SOLO con una PR di fix realmente mergiata', () => {
+    expect(src).toContain("const deliveredParked = outcome === 'pr-created' && mergedFixPrAt(iss.number) !== null;");
+  });
+
+  it('paga la chiamata gh solo dopo il test sul verdetto, che e\' gia\' in memoria', () => {
+    // `mergedFixPrAt()` e' una `gh pr list` per issue, dentro un loop a budget.
+    // Invertire i due termini della `&&` la farebbe pagare su ogni parked del
+    // pool invece che sulle sole `pr-created` — un costo che cresce col backlog.
+    const cond = src.slice(src.indexOf('const deliveredParked ='));
+    const posOutcome = cond.indexOf("outcome === 'pr-created'");
+    const posGh = cond.indexOf('mergedFixPrAt(');
+    expect(posOutcome).toBeGreaterThanOrEqual(0);
+    expect(posGh).toBeGreaterThan(posOutcome);
+  });
+
+  it('non chiude la issue: la rimette in coda, e lo dice a chi legge', () => {
+    // Un'aggregata puo' avere item ancora dovuti oltre a quello consegnato: a
+    // dichiararla finita dev'essere il rilevatore di gia'-risolto sul CORPO, non
+    // questo ramo sulla PROVENIENZA. Se qualcuno un giorno ci mette un `close`,
+    // questo test diventa rosso.
+    const branch = src.slice(
+      src.indexOf('if ((outcome === null || deliveredParked) && !isUnparkedOnce(iss)) {'),
+      src.indexOf('const d = verdictExitDecision(outcome, {'),
+    );
+    expect(branch).toContain('add: [LBL_QUEUED, LBL_UNPARKED]');
+    expect(branch).not.toContain("'issue', 'close'");
+    expect(branch).toContain('aveva consegnato, non fallito');
+  });
+
+  it('resta idempotente: `fu-unparked` copre entrambi i rami, non solo il primo', () => {
+    // La guardia sta FUORI dalla parentesi dell'or, quindi vale per tutti e due.
+    // Se qualcuno la spostasse dentro il solo ramo no-verdict, una parked
+    // consegnata rientrerebbe in coda a ogni tick: livelock invece di backlog.
+    expect(src).toContain('(outcome === null || deliveredParked) && !isUnparkedOnce(iss)');
   });
 });
