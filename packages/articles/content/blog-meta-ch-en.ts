@@ -6007,6 +6007,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-canton-ginevra.title': 'Family allowances Geneva: amounts and demand',
     'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Complete guide to family and training allowances in the Canton of Geneva: monthly amounts, conditions and compensation funds.',
     'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'View of Canton Geneva with historic buildings and waterfront',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'School system in the Canton of Geneva: cycles, enrolment and calendar',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'How compulsory school works in Geneva: cycles, enrolment age, teaching languages and transition to high school.',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Primary school classroom in Canton Geneva with French textbooks',
 };
 
 export default blogMetaChEn;
