@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-09-07T15:14:00.839Z",
+  "generatedAt": "2026-09-07T23:37:57.208Z",
   "total": 8,
   "discovered": null,
   "parsed": 7,
@@ -12,10 +12,10 @@
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 44925,
-  "avgDurationMs": 44925,
+  "durationMs": 43787,
+  "avgDurationMs": 43787,
   "durationHistory": [
-    44925
+    43787
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:47.874Z",
+      "crawledAt": "2026-09-07T23:37:44.546Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -46,6 +46,7 @@
       "featured": false,
       "postedDate": "2026-09-02",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:45:28.253Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -67,7 +68,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3799/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:48.181Z",
+      "crawledAt": "2026-09-07T23:37:44.848Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -82,6 +83,7 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3799/Description/1",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:30:39.823Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -103,7 +105,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3795/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:48.490Z",
+      "crawledAt": "2026-09-07T23:37:45.150Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -140,7 +142,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:48.793Z",
+      "crawledAt": "2026-09-07T23:37:45.454Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -157,11 +159,11 @@
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3794/Description/1",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T10:32:04.862Z",
-      "_qualityScore": 87,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -177,7 +179,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3793/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:49.097Z",
+      "crawledAt": "2026-09-07T23:37:45.756Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -214,7 +216,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:49.410Z",
+      "crawledAt": "2026-09-07T23:37:46.072Z",
       "addressLocality": "St. Margrethen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -251,7 +253,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:13:49.712Z",
+      "crawledAt": "2026-09-07T23:37:46.374Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -266,6 +268,7 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-1154.umantis.com/Vacancies/3780/Description/1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:39:21.969Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -309,7 +312,7 @@
       "salaryMin": 46000,
       "salaryMax": 69600,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
