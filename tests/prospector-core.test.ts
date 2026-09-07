@@ -1459,6 +1459,12 @@ describe('promotion gate', () => {
     // di coda che segue e' un'altra cosa e resta rumore
     const stale = (d: string) => `${shell} data di inizio 01.11.2026. Stand: ${d}`;
     expect(bodySignature(stale('05.09.2026'))).toBe(bodySignature(stale('06.09.2026')));
+    // idem quando la data del marcatore e' in forma trattino: li' non c'e'
+    // nessun `.` a chiudere la frase, e senza la cifra esclusa dal connettivo
+    // il marcatore scavalcherebbe la propria data e terrebbe nell'hash quella
+    // di generazione che segue
+    const staleIso = (d: string) => `${shell} data di inizio 2026-11-01 Stand: ${d}`;
+    expect(bodySignature(staleIso('05.09.2026'))).toBe(bodySignature(staleIso('06.09.2026')));
   });
 
   it('tiene distinti due annunci template che differiscono solo per NPA, pensum e riferimento', () => {

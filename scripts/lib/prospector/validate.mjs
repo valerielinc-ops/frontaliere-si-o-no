@@ -150,8 +150,12 @@ const CONTENT_DATE_MARKERS = new RegExp(
   // Fra il marcatore e la data solo il connettivo della coppia
   // etichetta/valore («Eintritt per », «data di inizio: »): nessun terminatore
   // di frase, o un marcatore di un periodo precedente coprirebbe una data che
-  // non e' la sua.
-  '[^.!?;]{0,24}$',
+  // non e' la sua. E nessuna CIFRA: nella forma trattino/ISO la data intermedia
+  // («Eintritt per 2026-11-01 Stand: 05.09.2026») non porta nessun `.!?;`, e
+  // senza `\d` nella classe il marcatore scavalcherebbe la data sua e coprirebbe
+  // quella di generazione che segue — N copie della stessa pagina tornerebbero a
+  // firmare diverso, il danno inverso a quello che la guardia chiude.
+  '[^.!?;\\d]{0,24}$',
   'i',
 );
 
