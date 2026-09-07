@@ -5842,6 +5842,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.startup-crypto-difficolta-bancarie.title': 'Krypto-Startups und Banken: Der Betrieb wird immer schwieriger',
     'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'Ein Bitcoin-Mining-Unternehmen in Lugano sieht sich mit der Schließung von Bankkonten konfrontiert. Schweizer Banken gefährden die digitale Innovation.',
     'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Modernes Gebäude in Lugano, wirtschaftlicher Kontext im Tessin.',
+    'blog.article.avs-integrazioni-canton-berna.title': 'AHV und Ergänzungsleistungen im Kanton Bern',
+    'blog.article.avs-integrazioni-canton-berna.excerpt': 'So funktioniert die Berechnung der AHV-Rente im Kanton Bern: Pflichtbeiträge, Beitragslücken, Ergänzungsleistungen und Lebensminimum.',
+    'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Schweizer Finanzberater prüft AHV-Rentenberechnungen im Kanton Bern Büro',
 };
 
 export default blogMetaChDe;

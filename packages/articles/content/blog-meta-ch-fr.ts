@@ -5842,6 +5842,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.startup-crypto-difficolta-bancarie.title': 'Startups crypto et banques : il devient de plus en plus difficile d\'opérer',
     'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'Une société minière Bitcoin à Lugano voit ses comptes bancaires fermés. Les banques suisses mettent en crise l\'innovation numérique.',
     'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Bâtiment moderne à Lugano, contexte économique tessinois.',
+    'blog.article.avs-integrazioni-canton-berna.title': 'AVS et prestations complémentaires dans le canton de Berne',
+    'blog.article.avs-integrazioni-canton-berna.excerpt': 'Comment fonctionne le calcul de la rente AVS dans le canton de Berne : cotisations obligatoires, lacunes de cotisation, prestations complémentaires et couverture du minimum vital.',
+    'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Conseiller financier suisse examinant calculs retraite AVS au bureau canton Berne',
 };
 
 export default blogMetaChFr;

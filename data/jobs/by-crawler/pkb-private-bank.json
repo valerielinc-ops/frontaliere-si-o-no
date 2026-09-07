@@ -30,7 +30,7 @@
       "slugByLocale": {
         "it": "risk-officer-pkb-private-bank-lugano",
         "en": "risk-officer-pkb-private-bank-lugano",
-        "de": "risikosteigerung-pkb-private-bank-sa-lugano",
+        "de": "risikobeauftragter-pkb-private-bank-sa-lugano",
         "fr": "specialiste-des-risques-pkb-private-bank-sa-lugano"
       },
       "descriptionByLocale": {
@@ -75,14 +75,13 @@
         ]
       },
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "risikobeauftragter-pkb-private-bank-sa-lugano"
+          "risikosteigerung-pkb-private-bank-sa-lugano"
         ]
       },
       "previousSlugs": [
-        "risikobeauftragter-pkb-private-bank-sa-lugano"
+        "risikosteigerung-pkb-private-bank-sa-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

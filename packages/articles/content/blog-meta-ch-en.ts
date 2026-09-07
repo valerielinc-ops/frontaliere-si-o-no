@@ -5842,6 +5842,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.startup-crypto-difficolta-bancarie.title': 'Crypto startups and banks: increasingly difficult to operate',
     'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'A Bitcoin mining company in Lugano is seen closing bank accounts. Swiss banks are undermining digital innovation.',
     'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Modern building in Lugano, Ticino economic context.',
+    'blog.article.avs-integrazioni-canton-berna.title': 'AVS and complementary services in Canton Bern',
+    'blog.article.avs-integrazioni-canton-berna.excerpt': 'How the calculation of the AVS pension works in the Canton of Bern: mandatory contributions, contribution gaps, supplementary benefits and coverage of the minimum living allowance.',
+    'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Swiss financial advisor reviewing AVS pension calculations in Bern cantonal office',
 };
 
 export default blogMetaChEn;

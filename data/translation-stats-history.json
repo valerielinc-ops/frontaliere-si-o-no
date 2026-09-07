@@ -1,129 +1,5 @@
 [
   {
-    "timestamp": "2026-08-13T06:04:57.386Z",
-    "label": "before",
-    "total": 26924,
-    "needsRetranslation": 10479,
-    "suppressed": 49,
-    "incomplete": 133,
-    "complete": 26791,
-    "slotsPresent": 26791,
-    "flaggedAmongSlotsPresent": 10375,
-    "verifiedTranslated": 16416,
-    "sourceCopyExcused": 1977,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 63,
-      "en": 41,
-      "de": 71,
-      "fr": 68
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 30
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 18
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 12
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 9
-      },
-      {
-        "company": "Manor AG",
-        "pending": 8
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-13T06:14:26.743Z",
-    "label": "after",
-    "total": 26924,
-    "needsRetranslation": 10209,
-    "suppressed": 48,
-    "incomplete": 133,
-    "complete": 26791,
-    "slotsPresent": 26791,
-    "flaggedAmongSlotsPresent": 10105,
-    "verifiedTranslated": 16686,
-    "sourceCopyExcused": 1977,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 63,
-      "en": 41,
-      "de": 71,
-      "fr": 68
-    },
-    "topPending": [
-      {
-        "company": "Swiss Medical Network",
-        "pending": 30
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 18
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 12
-      },
-      {
-        "company": "CSD ENGINEERS",
-        "pending": 12
-      },
-      {
-        "company": "IKEA",
-        "pending": 9
-      },
-      {
-        "company": "Manor AG",
-        "pending": 8
-      },
-      {
-        "company": "Kantonsspital Aarau (KSA)",
-        "pending": 5
-      },
-      {
-        "company": "Roche",
-        "pending": 5
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      },
-      {
-        "company": "Kantonsspital Uri",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-13T10:24:47.001Z",
     "label": "before",
     "total": 26782,
@@ -15792,6 +15668,190 @@
       {
         "company": "JUMBO",
         "pending": 154
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-07T03:21:00.959Z",
+    "label": "before",
+    "total": 28564,
+    "needsRetranslation": 16835,
+    "suppressed": 108,
+    "incomplete": 11243,
+    "complete": 17321,
+    "slotsPresent": 17321,
+    "flaggedAmongSlotsPresent": 6446,
+    "verifiedTranslated": 10875,
+    "sourceCopyExcused": 837,
+    "slotsPresentByLength": 28346,
+    "languageVerified": 18230,
+    "missingByLocale": {
+      "it": 784,
+      "en": 426,
+      "de": 251,
+      "fr": 441
+    },
+    "queueAge": {
+      "count": 16835,
+      "withTimestamp": 16835,
+      "oldestAgeDays": 146.7,
+      "p50AgeDays": 27.7,
+      "p90AgeDays": 96.6,
+      "buckets": {
+        "0-1d": 144,
+        "1-2d": 42,
+        "2-7d": 3400,
+        "0-7d": 3586,
+        "7-30d": 4882,
+        "30-90d": 6337,
+        "90-180d": 2030,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1241
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 987
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 326
+      },
+      {
+        "company": "Migrol AG",
+        "pending": 266
+      },
+      {
+        "company": "BKW",
+        "pending": 243
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 199
+      },
+      {
+        "company": "Sulzer",
+        "pending": 199
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      },
+      {
+        "company": "PEMSA",
+        "pending": 190
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-07T03:25:29.528Z",
+    "label": "after",
+    "total": 28564,
+    "needsRetranslation": 10389,
+    "suppressed": 108,
+    "incomplete": 11243,
+    "complete": 17321,
+    "slotsPresent": 17321,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 17321,
+    "sourceCopyExcused": 837,
+    "slotsPresentByLength": 28346,
+    "languageVerified": 18230,
+    "missingByLocale": {
+      "it": 784,
+      "en": 426,
+      "de": 251,
+      "fr": 441
+    },
+    "queueAge": {
+      "count": 10389,
+      "withTimestamp": 10389,
+      "oldestAgeDays": 146.7,
+      "p50AgeDays": 20.6,
+      "p90AgeDays": 83.2,
+      "buckets": {
+        "0-1d": 143,
+        "1-2d": 26,
+        "2-7d": 2588,
+        "0-7d": 2757,
+        "7-30d": 3229,
+        "30-90d": 3588,
+        "90-180d": 815,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 0,
+      "withTimestamp": 0,
+      "oldestAgeDays": null,
+      "p50AgeDays": null,
+      "p90AgeDays": null,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 0,
+        "2-7d": 0,
+        "0-7d": 0,
+        "7-30d": 0,
+        "30-90d": 0,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1241
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 987
+      },
+      {
+        "company": "Roche",
+        "pending": 552
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 326
+      },
+      {
+        "company": "Migrol AG",
+        "pending": 266
+      },
+      {
+        "company": "BKW",
+        "pending": 243
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 199
+      },
+      {
+        "company": "Sulzer",
+        "pending": 199
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      },
+      {
+        "company": "PEMSA",
+        "pending": 190
       }
     ]
   }
