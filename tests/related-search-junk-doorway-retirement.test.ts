@@ -19,9 +19,11 @@ import {
   buildJunkRetirementHtml,
   clusterKeywordFromCandidate,
   enumerateJunkRetirements,
+  junkRetirementWrites,
   restoredKeywordLandingPaths,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
+import { transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
 import type { CandidateEntry, RawJob } from '../build-plugins/relatedSearchClustersData';
 
 const JUNK: CandidateEntry = {
@@ -128,5 +130,76 @@ describe('restoredKeywordLandingPaths — cache HIT must not re-plan a withdrawa
     const files = [CLUSTER, RETIRED];
     expect(files).toContain(RETIRED);
     expect(restoredKeywordLandingPaths(files, [RETIRED])).toHaveLength(1);
+  });
+});
+
+describe('junkRetirementWrites — the flat sibling is withdrawn too (issue #7751)', () => {
+  const PATH = '/cerca-lavoro-svizzera/ricerca-cookie-bern/';
+  const HTML = buildJunkRetirementHtml('it');
+
+  it('emits BOTH halves of the pair the doorway was published as', () => {
+    // The per-cluster loop emits `<path>/index.html` AND the flat
+    // `<path>.html` bridge. Writing only the index left the no-slash URL —
+    // the one Google indexed — serving the original doorway bytes.
+    expect(junkRetirementWrites(PATH, HTML).map((w) => w.rel)).toEqual([
+      'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html',
+      'cerca-lavoro-svizzera/ricerca-cookie-bern.html',
+    ]);
+  });
+
+  it('keeps the withdrawal document itself on the index half', () => {
+    const [index] = junkRetirementWrites(PATH, HTML);
+    expect(index.html).toBe(HTML);
+    expect(index.html).toContain('href="https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca/"');
+  });
+
+  it('serves noindex,follow on the flat half, canonicalized to the withdrawal', () => {
+    const flat = junkRetirementWrites(PATH, HTML)[1];
+    expect(flat.html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(flat.html).toContain(
+      '<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-cookie-bern/">',
+    );
+    // The old doorway markup is gone — that is the whole point.
+    expect(flat.html).not.toContain('ricerca-cookie-bern"');
+  });
+
+  it('is byte-identical to what the post-walk would build from the sibling', () => {
+    // Binding assertion: the pre-emitted bridge must match
+    // `transformFlatRedirect` exactly, or postWalkCoordinator's
+    // `html === original` guard misses and rewrites every retirement again.
+    const flat = junkRetirementWrites(PATH, HTML)[1];
+    const viaPostWalk = transformFlatRedirect({
+      filePath: '/dist/cerca-lavoro-svizzera/ricerca-cookie-bern.html',
+      distDir: '/dist',
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: () => HTML,
+    });
+    expect(flat.html).toBe(viaPostWalk);
+  });
+
+  it('normalizes the path form, with or without slashes', () => {
+    const bare = junkRetirementWrites('cerca-lavoro-ticino/ricerca-cookie-bern', HTML);
+    expect(bare.map((w) => w.rel)).toEqual([
+      'cerca-lavoro-ticino/ricerca-cookie-bern/index.html',
+      'cerca-lavoro-ticino/ricerca-cookie-bern.html',
+    ]);
+  });
+
+  it('never produces a `.html` dotfile for an empty path', () => {
+    // `dist/.html` would be served for the DIRECTORY URL as
+    // application/octet-stream, masking the real index.html.
+    expect(junkRetirementWrites('/', HTML)).toEqual([]);
+    expect(junkRetirementWrites('', HTML)).toEqual([]);
+  });
+
+  it('tags both halves as retired, so a cache HIT re-plans neither', () => {
+    // `landingPathFromDistRelative` maps `<path>.html` and
+    // `<path>/index.html` to the SAME landing path: an untagged flat would
+    // put the withdrawal back into the keyword-landing plan on every hit.
+    const rels = junkRetirementWrites(PATH, HTML).map((w) => w.rel);
+    expect(restoredKeywordLandingPaths(rels, rels)).toEqual([]);
+    expect(restoredKeywordLandingPaths(rels, [rels[0]])).toEqual([
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern',
+    ]);
   });
 });

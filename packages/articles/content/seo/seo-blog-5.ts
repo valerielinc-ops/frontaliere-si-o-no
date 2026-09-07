@@ -87277,6 +87277,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-valmadrera-lavorare-ticino-frontaliere': {
+    title: 'Valmadrera frontaliere Ticino: guida 2026 | Frontaliere Ticino',
+    description: 'Vivere a Valmadrera e lavorare in Ticino da frontaliere: scopri il Nuovo Accordo, franchigia €10.000, Permesso G, fiscalità, AVS e procedura dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, valmadrera, vivere, lavorare, nuovo',
+    ogTitle: 'Valmadrera frontaliere Ticino: guida fiscale',
+    ogDescription: 'Guida completa 2026 per chi abita a Valmadrera e lavora in Canton Ticino. Scopri il Nuovo Accordo Frontalieri, franchigia €10.000, come ottenere il Permesso G, dichiarare il reddito e gestire AVS/LAMal/LPP. Procedure step-by-step e calcolo netto',
+    canonicalPath: '/articoli-frontaliere/vivere-valmadrera-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valmadrera frontaliere Ticino: guida 2026",
+      "description": "Vivere a Valmadrera e lavorare in Ticino da frontaliere: scopri il Nuovo Accordo, franchigia €10.000, Permesso G, fiscalità, AVS e procedura dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-valmadrera-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dal Monte Generoso verso la Valle d'Intelvi e le montagne ticinesi al confine fra Italia e Svizzera"
+      },
+      "datePublished": "2026-09-06T19:53:39+00:00",
+      "dateModified": "2026-09-06T19:53:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-valmadrera-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-montescheno-frontaliere-ticino-guida': {
+    title: 'Montescheno: vivere e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Vivere a Montescheno e lavorare in Ticino: scopri le implicazioni fiscali, il Nuovo Accordo frontalieri 2024, i costi e le procedure per il Permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, montescheno, vivere, lavorare, cosa',
+    ogTitle: 'Montescheno: la guida del frontaliere Ticino',
+    ogDescription: 'Stai pensando di trasferire a Montescheno per lavorare in Ticino? Scopri cosa aspettarsi: Permesso G, Nuovo Accordo frontalieri 2024, tassazione, AVS e procedure amministrative.',
+    canonicalPath: '/articoli-frontaliere/montescheno-frontaliere-ticino-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Montescheno: vivere e lavorare in Ticino",
+      "description": "Vivere a Montescheno e lavorare in Ticino: scopri le implicazioni fiscali, il Nuovo Accordo frontalieri 2024, i costi e le procedure per il Permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/montescheno-frontaliere-ticino-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in transito al valico di confine tra Montescheno e Ticino al tramonto"
+      },
+      "datePublished": "2026-09-06T22:21:14+00:00",
+      "dateModified": "2026-09-06T22:21:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/montescheno-frontaliere-ticino-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ponte-valtellina-grigioni-frontaliere': {
+    title: 'Vivere a Ponte in Valtellina, lavorare nei Grigioni',
+    description: 'Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita a Ponte in Valtellina vs Grigioni. Dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, ponte, valtellina, lavorare',
+    ogTitle: 'Vivere a Ponte, lavorare nei Grigioni: guida frontaliere',
+    ogDescription: 'Scopri come vivere a Ponte in Valtellina e lavorare nei Grigioni con Permesso G. Nuovo accordo 2024: imposta alla fonte, franchigia €10.000, contributi AVS, LAMal, dichiarazioni fiscali. Procedura, step-by-step, ristorni e scadenze critiche.',
+    canonicalPath: '/articoli-frontaliere/ponte-valtellina-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Ponte in Valtellina, lavorare nei Grigioni",
+      "description": "Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita a Ponte in Valtellina vs Grigioni. Dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ponte-valtellina-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama alpino di Ponte in Valtellina con vista verso i Grigioni, paesaggio montano di confine tra Italia e Svizzera."
+      },
+      "datePublished": "2026-09-06T23:13:28+00:00",
+      "dateModified": "2026-09-06T23:13:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ponte-valtellina-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-poggiridenti-grigioni': {
+    title: 'Frontaliere Poggiridenti-Grigioni: tassazione e permessi',
+    description: 'Vivere a Poggiridenti e lavorare in Grigioni: permesso G, imposta alla fonte, Nuovo Accordo Frontalieri 2024, AVS/LPP/LAMal, doppia imposizione. Checklist',
+    keywords: 'frontalieri, ticino, svizzera, italia, poggiridenti-grigioni, tassazione, permessi, vivere',
+    ogTitle: 'Frontaliere Poggiridenti-Grigioni: tassazione e permessi',
+    ogDescription: 'Guida completa per frontalieri che vivono a Poggiridenti (Bergamo) e lavorano nei Grigioni. Permesso G, regime fiscale, contributi previdenziali, Nuovo Accordo 2024, procedura richiesta. Calcola il tuo netto.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-poggiridenti-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Poggiridenti-Grigioni: tassazione e permessi",
+      "description": "Vivere a Poggiridenti e lavorare in Grigioni: permesso G, imposta alla fonte, Nuovo Accordo Frontalieri 2024, AVS/LPP/LAMal, doppia imposizione. Checklist",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-poggiridenti-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino al confine tra Italia e Svizzera, valli con nebbia e pendii verdi al tramonto."
+      },
+      "datePublished": "2026-09-06T23:47:41+00:00",
+      "dateModified": "2026-09-06T23:47:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-poggiridenti-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-san-giacomo-lavorare-grigioni': {
+    title: 'Vivere a San Giacomo Filippo e lavorare nei Grigioni',
+    description: 'Guida completa al frontaliere: Nuovo Accordo 2024, Permesso G, LAMal, contributi AVS, imposta alla fonte, franchigia CHF 10.000, dichiarazione 730 e checklist',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, giacomo, filippo, lavorare',
+    ogTitle: 'Vivere a San Giacomo Filippo e lavorare nei Grigioni',
+    ogDescription: 'Scopri come trasferirsi a San Giacomo Filippo e lavorare nei Grigioni: Nuovo Accordo 2024, imposta alla fonte, LAMal, AVS, Permesso G, franchigia CHF 10.000 e guida step-by-step completa.',
+    canonicalPath: '/articoli-frontaliere/san-giacomo-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a San Giacomo Filippo e lavorare nei Grigioni",
+      "description": "Guida completa al frontaliere: Nuovo Accordo 2024, Permesso G, LAMal, contributi AVS, imposta alla fonte, franchigia CHF 10.000, dichiarazione 730 e checklist",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/san-giacomo-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto parcheggiata su strada di montagna nel Ticino al tramonto, con vista sulle Alpi dei Grigioni sullo sfondo"
+      },
+      "datePublished": "2026-09-07T00:44:45+00:00",
+      "dateModified": "2026-09-07T00:44:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-giacomo-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

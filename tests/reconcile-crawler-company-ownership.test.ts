@@ -25,7 +25,14 @@ import {
   transferOverlappingJobs,
   withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
-import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  DEFAULT_PREV_SLUG_CAP,
+  getPreviousSlugsForLocale,
+  isLegacyRouteCapRefusal,
+  LEGACY_PREV_SLUGS_CAP,
+  LegacyRouteCapError,
+  promotePreviousSlugToLegacy,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 import { collapseDuplicateRouteEntries } from '../scripts/lib/expired-jobs-archive.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
@@ -230,6 +237,112 @@ describe('issue #6759 reconciliation', () => {
     expect(result.entries).toHaveLength(2);
     const served = new Set(result.entries.flatMap((e) => [...localeRouteKeys(e)]));
     for (const route of requiredRoutes) expect(served.has(route), route).toBe(true);
+  });
+
+  it('types the legacy-cap refusal, so its message is not the contract', () => {
+    // `collapseDuplicateRouteEntries` assorbe SOLO il rifiuto del cap e rilancia
+    // tutto il resto. Finche' quella distinzione si faceva con una regex sul
+    // messaggio, le due meta' del contratto stavano in file diversi e nessun
+    // gate le legava: riformulare il testo (o aggiungere un secondo cap con un
+    // testo suo) trasformava ogni rifiuto legittimo in un abort dell'intero
+    // step di archiviazione, e un guasto qualunque il cui messaggio combaciasse
+    // finiva degradato a `unmergeable` silenzioso.
+    const job = {
+      id: 'acme-deep-history',
+      previousSlugs: Array.from({ length: LEGACY_PREV_SLUGS_CAP }, (_, i) => `legacy-${i}`),
+      previousSlugsByLocale: {},
+    };
+    let thrown: unknown;
+    try {
+      promotePreviousSlugToLegacy(job, 'one-slug-too-many');
+    } catch (error) {
+      thrown = error;
+    }
+    expect(thrown).toBeInstanceOf(LegacyRouteCapError);
+    expect((thrown as { code?: string }).code).toBe('LEGACY_PREV_SLUGS_CAP');
+    expect(isLegacyRouteCapRefusal(thrown)).toBe(true);
+    // Il cap ha rifiutato: la voce non e' stata scritta oltre il limite.
+    expect(job.previousSlugs).toHaveLength(LEGACY_PREV_SLUGS_CAP);
+
+    // Un guasto qualunque con lo STESSO messaggio non e' un rifiuto del cap.
+    const impostor = new Error((thrown as Error).message);
+    expect(isLegacyRouteCapRefusal(impostor)).toBe(false);
+    expect(isLegacyRouteCapRefusal(new TypeError('x is not a function'))).toBe(false);
+  });
+
+  it('propagates a non-cap failure instead of degrading the component to unmergeable', () => {
+    // Il guasto (qui `previousSlugs` che non e' un array, quindi `.filter`
+    // esplode dentro `transferSlugHistory`) deve arrivare al chiamante: un
+    // `unmergeable` silenzioso e' indistinguibile da un rifiuto legittimo e
+    // invisibile nel log del cron.
+    const entry = (slug: string, expiredAt: string) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug },
+      previousSlugs: ['shared-history-slug'],
+      previousSlugsByLocale: {} as Record<string, string[]>,
+    });
+    const broken = {
+      ...entry('broken', '2026-08-01T00:00:00.000Z'),
+      previousSlugs: 'shared-history-slug' as unknown as string[],
+      previousSlugsByLocale: { it: ['shared-history-slug'] },
+    };
+
+    expect(() => collapseDuplicateRouteEntries([
+      broken,
+      entry('survivor', '2026-09-01T00:00:00.000Z'),
+    ])).toThrow(TypeError);
+  });
+
+  it('does not let a merge steal a route from an entry further down the input', () => {
+    // L'indice delle rotte era costruito INCREMENTALMENTE dentro il loop: al
+    // momento del check anti-furto conosceva solo le voci gia' processate. Un
+    // survivor che, per overflow del cap, vede una rotta promossa a
+    // `previousSlugs` flat — e quindi servita sotto OGNI prefisso di locale —
+    // la trovava libera se il vero proprietario stava piu' a valle nell'input,
+    // e se la prendeva: quell'URL indicizzato finiva a 301 sull'annuncio
+    // sbagliato. Qui `a-middle` fonde con `b-newest` facendo tracimare il
+    // bucket `fr`, lo slug sfrattato diventa legacy piatto e reclama
+    // `de:fr-b-0`, che appartiene a `c-oldest` — l'ultima voce dell'input.
+    const withFrHistory = (slug: string, expiredAt: string, fr: string[]) => ({
+      slug,
+      companyKey: 'acme',
+      expiredAt,
+      slugByLocale: { it: slug } as Record<string, string>,
+      previousSlugsByLocale: { fr, it: ['bridge'] } as Record<string, string[]>,
+    });
+    const input = () => [
+      withFrHistory('b-newest', '2026-09-03T00:00:00.000Z', Array.from({ length: DEFAULT_PREV_SLUG_CAP }, (_, i) => `fr-b-${i}`)),
+      withFrHistory('a-middle', '2026-09-02T00:00:00.000Z', ['ghost-route']),
+      {
+        slug: 'c-oldest',
+        companyKey: 'acme',
+        expiredAt: '2026-09-01T00:00:00.000Z',
+        slugByLocale: { it: 'c-oldest', de: 'fr-b-0' } as Record<string, string>,
+        previousSlugsByLocale: {} as Record<string, string[]>,
+      },
+    ];
+
+    const forward = collapseDuplicateRouteEntries(input());
+    // La fusione avrebbe portato via una rotta di terzi: va rifiutata, non
+    // applicata. `c-oldest` resta una voce sua e continua a servire la rotta.
+    expect(forward.unmergeable).toBe(1);
+    expect(forward.collapsed).toBe(0);
+    expect(forward.entries.map((e) => e.slug).sort()).toEqual(['a-middle', 'b-newest', 'c-oldest']);
+    const stolen = forward.entries.filter((e) => [...localeRouteKeys(e)].includes('de:fr-b-0'));
+    expect(stolen.map((e) => e.slug)).toEqual(['c-oldest']);
+
+    // E l'esito non dipende da dove le voci stanno nell'input: l'insieme delle
+    // rotte servite e' lo stesso a input invertito.
+    const reversed = collapseDuplicateRouteEntries(input().reverse());
+    const routesOf = (result: { entries: Array<Record<string, unknown>> }) => [...new Set(
+      result.entries.flatMap((e) => [...localeRouteKeys(e)].map((r) => `${e.companyKey}::${r}`)),
+    )].sort();
+    expect(routesOf(reversed)).toEqual(routesOf(forward));
+    expect(reversed.entries.map((e) => e.slug).sort()).toEqual(forward.entries.map((e) => e.slug).sort());
+    expect(reversed.collapsed).toBe(forward.collapsed);
+    expect(reversed.unmergeable).toBe(forward.unmergeable);
   });
 
   it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {

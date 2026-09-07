@@ -11483,6 +11483,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino : incendie dans un tunnel, exercice',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri avec 50 figurants et 100 sauveteurs.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Exercice de sauvetage dans le tunnel du Monte Ceneri',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontalier Tessin : guide 2026',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivre à Valmadrera et travailler au Tessin : le nouvel accord frontalier, franchise de 10 000 € , permis G, fiscalité et procédure de déclaration.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vue depuis le Monte Generoso vers la vallée d\'Intelvi et les montagnes tessinoises à la frontière italo-suisse',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno : vivre et travailler au Tessin',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Que signifie vivre à Montescheno et travailler comme frontalier au Tessin ? Guide sur le permis G, la fiscalité, le coût de la vie et les procédures administratives.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Frontalier passant la frontière entre Montescheno et le Tessin le matin',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Vivre à Ponte in Valtellina, travailler dans les Grisons',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Guide complet pour frontaliers : taxe à la source, permis G, franchise € 10k, AVS/LAMal, coût de la vie. A partir de 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Panorama alpin de Ponte en Valteline avec vue vers les Grisons, paysage montagneux de la frontière suisse-italienne.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontière Poggiridenti-Grisons : fiscalité et permis',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivre à Poggiridenti et travailler dans les Grisons : permis G, impôt à la source, nouvel accord frontalier 2024 et cotisations AVS/LPP. Guide pratique et checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paysage alpin à la frontière Italie-Suisse avec vallées brumeuses et pentes vertes.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivre à San Giacomo Filippo et travailler dans les Grisons',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nouvel accord frontalier 2024, fiscalité, LAMal et AVS : le guide complet pour déménager à San Giacomo Filippo et travailler dans les Grisons en tant que frontalier.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Voiture garée sur route de montagne du Tessin au coucher du soleil, avec vue sur les Alpes des Grisons en arrière-plan',
 };
 
 export default blogMetaFr;

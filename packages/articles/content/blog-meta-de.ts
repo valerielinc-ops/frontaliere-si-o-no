@@ -11480,6 +11480,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Kanton Tessin, Tunnelbrand an Bord eines Zuges: aber es ist eine Übung',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Rettungsübung im Ceneri-Tunnel mit 50 Komparsen und 100 Rettungskräften.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Rettungsübung im Monte-Ceneri-Tunnel',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera Grenzgänger Tessin: Leitfaden 2026',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Leben in Valmadrera und Arbeiten im Tessin: Neue Vereinbarung für Grenzgänger, Selbstbehalt von 10.000 €, G-Bewilligung, Steuer- und Deklarationsverfahren.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Aussicht vom Monte Generoso zum Intelvi-Tal und Tessiner Berge an der italienisch-schweizerischen Grenze',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: Leben und Arbeiten im Tessin',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Was es bedeutet, in Montescheno zu leben und als Grenzgänger im Tessin zu arbeiten. Führerschein G, Besteuerung, Lebenshaltungskosten und Verwaltungsverfahren.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Grenzgänger am Grenzübergang Montescheno-Tessin in der Morgenröte',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Leben in Ponte in Valtellina, Arbeiten in Graubünden',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Vollständiger Leitfaden für Grenzgänger: Quellensteuer, G-Bewilligung, € 10k-Franchise, AHV/KVG, Lebenshaltungskosten. Ab 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpenpanorama von Ponte in der Veltlin mit Blick auf Graubünden, Berglandschaft an der Schweizer-italienischen Grenze.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Grenzgänger Wohnortstütze-Graubünden: Besteuerung und Bewilligungen',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Wohnen in Poggiridenti und Arbeiten in Graubünden: Bewilligung G, Quellensteuer, Neue Grenzgängervereinbarung 2024 und AHV/BVG-BEITRÄGE. Praktischer Leitfaden und Checkliste.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpines Berglandschaft an der Grenze zwischen Italien und der Schweiz mit nebligen Tälern.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Leben in St. Jakob Philipp und Arbeiten in Graubünden',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Neue Frontalieri-Vereinbarung 2024, Steuern, KVG und AHV: Der komplette Leitfaden für den Umzug nach San Giacomo Filippo und die Arbeit in Graubünden als Grenzgänger.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Geparktes Auto auf Bergstraße im Tessin bei Sonnenuntergang, mit Blick auf Graubündner Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

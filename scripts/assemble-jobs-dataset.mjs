@@ -61,7 +61,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -94,12 +94,16 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
     try {
       const discovered =
         counts && Number.isFinite(counts.discovered) ? counts.discovered : null;
+      // Post-parser count (#7707): an aborted run that had already parsed jobs
+      // must not leave a slice that reads as a geographic filter-empty.
+      const parsed = counts && Number.isFinite(counts.parsed) ? counts.parsed : null;
       writeSummaryCrawlerSlice({
         key,
         label: label || key,
         generatedAt: new Date().toISOString(),
         total: 0,
         discovered,
+        parsed,
         written: 0,
         newCount: 0,
         updatedCount: 0,
@@ -767,6 +771,16 @@ const SHRINK_GUARD_SMALL_BASELINE_RATIO = 0.2;
  * Below MIN_BASELINE, a near-total (non-zero) drop is caught too, via a much
  * stricter ratio than the one used at/above baseline (#3840).
  */
+/**
+ * Machine-readable marker of the shrink-guard refusal, so a caller that can
+ * handle it (`writeJobsCrawlerSliceVerified`) recognises it by `code` and not
+ * by the `[shrink-guard]` prefix of the message. Same reason as
+ * `LegacyRouteCapError`: the wording is a log string no gate protects, so a
+ * reword would make the refusal unrecognisable and an unrelated defect whose
+ * message happened to start with the prefix would be handled as a refusal.
+ */
+export const SHRINK_GUARD_ERROR_CODE = 'SHRINK_GUARD_REFUSAL';
+
 export function shouldBlockShrink(priorCount, newCount) {
   if (priorCount > 0 && newCount === 0) return true;
   if (priorCount >= SHRINK_GUARD_MIN_BASELINE) {
@@ -964,7 +978,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
     return { written: true, shrinkAccepted: false };
   } catch (err) {
-    if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
+    if (err?.code !== SHRINK_GUARD_ERROR_CODE) throw err;
 
     // Use the arrays the guard ACTUALLY measured, not this function's `jobs`
     // argument. writeJobsCrawlerSlice reassigns `jobs` internally
@@ -1918,6 +1932,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       // shrink entirely and see an empty diff — i.e. "nothing disappeared" —
       // which is vacuously true and would wave the write through with zero
       // evidence. Attaching the measured arrays makes that class impossible.
+      shrinkErr.code = SHRINK_GUARD_ERROR_CODE;
       shrinkErr.shrinkGuard = {
         crawlerKey,
         priorCount,
@@ -2695,6 +2710,10 @@ function assembleExpiredJobs() {
       continue;
     }
     totalSliceEntries += entries.length;
+    // Repair before the entries reach the sort + `slice(0, EXPIRED_JOBS_CAP)`
+    // below: `compareExpiredAt` sends an unparseable value to the tail, which
+    // past the cap means the soft landing for a still-indexed URL disappears.
+    normalizeExpiredAtEntries(entries, { source: `assemble/${path.basename(slicePath)}` });
     for (const entry of entries) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
@@ -2716,6 +2735,7 @@ function assembleExpiredJobs() {
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
   const existingAgg = readJson(DATA_EXPIRED, []);
   if (Array.isArray(existingAgg)) {
+    normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);

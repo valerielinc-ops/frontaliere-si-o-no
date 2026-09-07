@@ -37,10 +37,14 @@ import { borderMunicipalityPathFor } from '../build-plugins/borderMunicipalityDa
 import {
   renderComunePage,
   renderOtherEventsPage,
+  renderHubPage,
   pathForEventDetail,
   renderOverflowLadderPage,
   overflowLadderPageCount,
   overflowLadderPath,
+  pathFor,
+  cantonLadders,
+  sitemapLadders,
 } from '../build-plugins/eventsSeoPagesPlugin';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -382,5 +386,142 @@ describe('the overflow ladder keeps the rows it carries reachable (#7329)', () =
     for (let page = 3; page <= pageCount; page += 1) {
       expect(linked).toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
     }
+  });
+
+  /**
+   * `comune` is optional in `overflowLadderPath`, so the ladder of a
+   * comune-less bucket is `<canton-base>/page-N/` — the same shape `pathFor()`
+   * mints for a comune bucket. Whoever is emitted second overwrites the first:
+   * either the ladder page or a whole comune bucket disappears. The guard is
+   * `slugifyComune()` reserving `^page-\d+$`, so this asserts the two path
+   * families are disjoint over the real comuni AND over the adversarial names
+   * that used to collide (#7743).
+   */
+  it('no ladder page ever lands on a comune bucket path', () => {
+    const comuni = [
+      ...Object.values(
+        (JSON.parse(readFileSync(path.join(ROOT, 'data', 'canton-municipalities.json'), 'utf8')).cantons ?? {}) as Record<
+          string,
+          { municipalities?: string[] }
+        >,
+      ).flatMap((c) => c.municipalities ?? []),
+      'Page 2',
+      'Page-3',
+      'PAGE 07',
+    ];
+    const bucketPaths = new Set(comuni.map((c) => pathFor('it', 'altri-cantoni', c)));
+    expect(bucketPaths.size).toBeGreaterThan(2000);
+    for (let page = 2; page <= 40; page += 1) {
+      expect(bucketPaths).not.toContain(overflowLadderPath('it', 'altri-cantoni', undefined, page));
+    }
+  });
+});
+
+// ── 5. the ladder is counted once, not once per consumer ────────────────────
+
+/**
+ * The hub pills, the pages the emit loop writes and the sitemap entries used to
+ * be three independent recomputations of `overflowLadderPageCount()` from three
+ * different `detailHref`s — two per-locale and one pinned to `it` (issue
+ * #7742). They agreed only because `detailHref` returned `null` on a
+ * locale-INDEPENDENT property (the event has no detail page in any language),
+ * and nothing asserted that coincidence.
+ *
+ * This fixture removes the coincidence: `detailHref` is null for a subset of
+ * events in ONE locale only. Under it the three answers genuinely differ, which
+ * is the state in which a hub pill without a page behind it is an internal 404
+ * and a sitemapped `<loc>` carries an `xhtml:link` alternate that 404s.
+ */
+describe('the ladder has one source of truth across locales (#7742)', () => {
+  const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+  /** Mirrors the sentinel bucket's own lower cap, stated rather than imported —
+   *  same reason as the `CAP` above. */
+  const CAP = 24;
+  const EVENTS = Array.from({ length: 700 }, (_, i) => ({
+    id: `ev:${i}`,
+    title: `Sagra del borgo numero ${i}`,
+    startDate: `2026-07-${String((i % 27) + 1).padStart(2, '0')}`,
+    category: 'tradizioni',
+    venue: 'Piazza del municipio',
+    canton: 'altri-cantoni',
+    sourceKey: 'guidle',
+    sourceName: 'Guidle',
+  }));
+
+  /** The point of the fixture: in `fr` the tail of the bucket has no detail
+   *  page, so `fr` has a SHORTER ladder than the other three. */
+  const hrefFor = (locale: string) => (e: { id: string }) =>
+    locale === 'fr' && Number(e.id.slice(3)) >= 400
+      ? null
+      : pathForEventDetail(locale as never, 'altri-eventi', `slug-${e.id.replace(':', '-')}`, 'altri-cantoni');
+
+  /** Page numbers of the ladder pills the hub actually draws. Minifier-tolerant
+   *  (see `hrefs()`): only ladder URLs end in `page-N/`. */
+  const pillPages = (locale: string): number[] => {
+    const { html } = renderHubPage({
+      locale: locale as never,
+      canton: 'altri-cantoni',
+      events: EVENTS as never,
+      byComune: new Map(),
+      dateStamp: '2026-09-04',
+      weekendDays: new Set(['2026-07-04', '2026-07-05']),
+      distDir,
+      detailHref: hrefFor(locale) as never,
+      otherEvents: EVENTS as never,
+    });
+    return [...hrefs(html)]
+      .map((h) => h.match(/\/page-(\d+)\/$/)?.[1])
+      .filter((n): n is string => Boolean(n))
+      .map(Number)
+      .sort((a, b) => a - b);
+  };
+
+  /**
+   * Ground truth, derived from CONTENT and not from the counter under test: the
+   * pages that actually carry rows. A ladder page past the end renders no
+   * overflow index at all (`renderOverflowIndex` returns '' on an empty slice),
+   * so it has no `ev-lnk` row — that is the page a stale pill would link to.
+   */
+  const pagesWithRows = (locale: string): number[] => {
+    const out: number[] = [];
+    for (let page = 2; page <= 8; page += 1) {
+      const { html } = renderOverflowLadderPage({
+        locale: locale as never,
+        canton: 'altri-cantoni',
+        comune: undefined,
+        events: EVENTS as never,
+        cap: CAP,
+        page,
+        dateStamp: '2026-09-04',
+        distDir,
+        detailHref: hrefFor(locale) as never,
+      });
+      if (html.includes('ev-lnk')) out.push(page);
+    }
+    return out;
+  };
+
+  it('exercises a real per-locale divergence — otherwise the rest asserts nothing', () => {
+    const it_ = overflowLadderPageCount(EVENTS as never, CAP, hrefFor('it') as never);
+    const fr = overflowLadderPageCount(EVENTS as never, CAP, hrefFor('fr') as never);
+    expect(it_).toBeGreaterThan(1);
+    expect(fr).toBeLessThan(it_);
+  });
+
+  it('draws exactly the pills the emit loop backs with a page, in every locale', () => {
+    for (const locale of LOCALES) {
+      expect({ locale, pills: pillPages(locale) }).toEqual({ locale, pills: pagesWithRows(locale) });
+    }
+  });
+
+  it('sitemaps only the ladder pages every locale emits — a <loc> promises all four alternates', () => {
+    const byLocale = new Map(LOCALES.map((locale) => [locale, cantonLadders(new Map(), EVENTS as never, hrefFor(locale) as never)]));
+    // Concrete, not a restatement of the implementation: `it`/`en`/`de` reach
+    // page 3 here and `fr` stops at page 2, so the sitemap must stop at 2 too.
+    // The `it`-pinned count this replaced would have published `page-3/` with
+    // an `hreflang="fr"` alternate that 404s.
+    expect(byLocale.get('it')!.map((l) => l.pageCount)).toEqual([3]);
+    expect(byLocale.get('fr')!.map((l) => l.pageCount)).toEqual([2]);
+    expect(sitemapLadders(byLocale as never).map((l) => l.pageCount)).toEqual([2]);
   });
 });

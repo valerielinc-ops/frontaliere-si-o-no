@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-09-05T22:44:41.535Z",
+  "assembledAt": "2026-09-06T22:49:24.270Z",
   "jobs": [
     {
       "id": "gavi-b02c416d7edd",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:33.529Z",
+      "crawledAt": "2026-09-06T22:49:20.620Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -80,12 +80,12 @@
     },
     {
       "id": "gavi-46907ae4fc28",
-      "slug": "manager-governance-gavi-le-grand-saconnex",
+      "slug": "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
-        "it": "manager-governance-gavi-le-grand-saconnex",
+        "it": "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex",
         "en": "manager-governance-gavi-le-grand-saconnex",
         "de": "manager-governance-gavi-le-grand-saconnex",
-        "fr": "manager-governance-gavi-le-grand-saconnex"
+        "fr": "gestionnaire-gouvernance-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -109,7 +109,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:32.727Z",
+      "crawledAt": "2026-09-06T22:49:19.995Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -128,6 +128,19 @@
       "jobReqId": "VN2489",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "manager-governance-gavi-le-grand-saconnex",
+        "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-governance-gavi-le-grand-saconnex",
+          "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex"
+        ],
+        "fr": [
+          "manager-governance-gavi-le-grand-saconnex"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:33:34.798Z",
       "salaryMin": 107000,
@@ -175,7 +188,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T22:44:32.026Z",
+      "crawledAt": "2026-09-06T22:49:19.362Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",

@@ -46,6 +46,20 @@ describe('intFromEnv — comportamento', () => {
     expect(intFromEnv('X', 1, { env: { X: 'Infinity' }, warn: vi.fn() })).toBe(1);
   });
 
+  it('le forme non decimali NON passano: 0x10 non e 16, 1e3 non e 1000', () => {
+    // Issue #7701 item 3: sono interi finiti, quindi attraversavano
+    // `Number.isInteger` senza `::warning::` — e il tetto su cui girava il
+    // crawler era un altro rispetto a quello scritto nel workflow.
+    const warn = vi.fn();
+    for (const raw of ['0x10', '1e3', '0b11', '0o17', '1_0', '1E3']) {
+      expect(intFromEnv('X', 42, { env: { X: raw }, warn }), `${raw} accettato`).toBe(42);
+    }
+    expect(warn).toHaveBeenCalledTimes(6);
+    expect(warn.mock.calls[0][0]).toContain('::warning::');
+    // Il segno esplicito resta un modo normale di scrivere un decimale.
+    expect(intFromEnv('X', 42, { env: { X: '+7' } })).toBe(7);
+  });
+
   it('il default puo essere un intero calcolato: e il valore, non una stringa', () => {
     expect(intFromEnv('X', 5 * 60 * 1000, { env: {} })).toBe(300_000);
     // Il costrutto vecchio faceva `Number('2')` e rendeva 2; il default deve
@@ -111,6 +125,18 @@ describe('positiveIntFromEnv — il conteggio che non puo essere <= 0', () => {
   it('accetta gli interi positivi, con spazi', () => {
     expect(positiveIntFromEnv('MAX', 25, { env: { MAX: '7' } })).toBe(7);
     expect(positiveIntFromEnv('MAX', 25, { env: { MAX: ' 100000 ' } })).toBe(100000);
+    expect(positiveIntFromEnv('MAX', 25, { env: { MAX: '+7' } })).toBe(7);
+  });
+
+  it('rifiuta le forme non decimali, che sono interi positivi ma di un altro valore', () => {
+    // Issue #7701 item 3: `0x10` -> 16 e `1e3` -> 1000 sono interi positivi;
+    // passavano senza avviso e cambiavano il tetto di paginazione in silenzio.
+    const warn = vi.fn();
+    for (const raw of ['0x10', '1e3', '0b11', '0o17', '1_0']) {
+      expect(positiveIntFromEnv('MAX', 25, { env: { MAX: raw }, warn }), `${raw} accettato`).toBe(25);
+    }
+    expect(warn).toHaveBeenCalledTimes(5);
+    expect(warn.mock.calls[0][0]).toContain('intero positivo');
   });
 });
 

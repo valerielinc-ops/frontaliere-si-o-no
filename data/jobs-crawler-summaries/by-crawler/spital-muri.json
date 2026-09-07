@@ -1,19 +1,20 @@
 {
   "key": "spital-muri",
   "label": "Spital Muri",
-  "generatedAt": "2026-09-05T22:49:08.219Z",
+  "generatedAt": "2026-09-06T22:54:10.129Z",
   "total": 1,
   "discovered": null,
+  "parsed": 1,
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6727,
-  "avgDurationMs": 6727,
+  "durationMs": 7200,
+  "avgDurationMs": 7200,
   "durationHistory": [
-    6727
+    7200
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://recruitingapp-2997.umantis.com/Vacancies/239/Description/1",
       "source": "Spital Muri Dedicated Parser (Umantis listing tenant 2997)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:49:00.806Z",
+      "crawledAt": "2026-09-06T22:54:00.179Z",
       "addressLocality": "Muri",
       "addressRegion": "AG",
       "addressCountry": "CH",

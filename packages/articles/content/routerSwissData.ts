@@ -1952,6 +1952,15 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sciaffusa-canone-locazione-deposito-guida': { it: 'sciaffusa-canone-locazione-deposito-guida', en: 'schaffhausen-rental-lease-guide', de: 'schaffhausen-mietrecht-kaution', fr: 'schaffhouse-loyer-locaction-guide' },
  'beloved-richieste-settantina': { it: 'beloved-richieste-settantina', en: 'beloved-requests-seventy', de: 'beloved-anfragen-siebzig', fr: 'beloved-soixante-dix-demandes' },
  'borse-studio-neuchatel': { it: 'borse-studio-neuchatel', en: 'neuchatel-scholarships-requirements-amounts', de: 'neuchatel-stipendien-voraussetzungen-betrage', fr: 'neuchatel-bourses-etude-conditions-montants' },
+ 'salari-svizzera-settori-formazione-contratti': { it: 'salari-svizzera-settori-formazione-contratti', en: 'salaries-switzerland-sectors-education-contracts', de: 'lohne-schweiz-sektoren-bildung-kollektivvertraege', fr: 'salaires-suisse-secteurs-formation-conventions' },
+ 'sciaffusa-lavoro-contratti-collettivi': { it: 'sciaffusa-lavoro-contratti-collettivi', en: 'schaffhausen-work-collective-labour-agreements', de: 'schaffhausen-arbeit-kollektivvertrage', fr: 'schaffhouse-travail-conventions-collectives' },
+ 'naturalizzazione-appenzello-esterno-requisiti-procedura': { it: 'naturalizzazione-appenzello-esterno-requisiti-procedura', en: 'naturalization-appenzell-ausserrhoden-requirements-procedure', de: 'einbuergerung-appenzell-ausserrhoden-anforderungen-verfahren', fr: 'naturalisation-appenzell-ausserrhoden-conditions-procedure' },
+ 'acquisto-casa-neuchatel-costi-mutuo': { it: 'acquisto-casa-neuchatel-costi-mutuo', en: 'buying-house-neuchatel-costs-mortgage', de: 'haus-kaufen-neuenburg-kosten-hypothek', fr: 'acheter-maison-neuchatel-couts-hypotheque' },
+ 'abbonamenti-trasporti-neuchatel-zone': { it: 'abbonamenti-trasporti-neuchatel-zone', en: 'public-transport-passes-neuchatel-zones', de: 'oepnv-abos-neuchatel-zonen', fr: 'abonnements-transports-neuchatel-zones' },
+ 'avs-prestazioni-complementari-appenzello-esterno': { it: 'avs-prestazioni-complementari-appenzello-esterno', en: 'avs-complementary-benefits-appenzell-outer-rhodes', de: 'avs-zusatzleistungen-appenzell-ausserrhoden', fr: 'avs-prestations-complementaires-appenzell-exterieur' },
+ 'attivita-appenzello-esterno-registro': { it: 'attivita-appenzello-esterno-registro', en: 'open-business-appenzell-ausserrhoden-registry', de: 'unternehmen-appenzell-ausserrhoden-register', fr: 'ouvrir-activite-appenzell-rhodes-exterieures' },
+ 'fondare-impresa-appenzello-esterno': { it: 'fondare-impresa-appenzello-esterno', en: 'founding-business-eastern-appenzell', de: 'unternehmen-gruenden-appenzell-ausserrhoden', fr: 'creer-entreprise-appenzell-rhodes' },
+ 'patente-guida-appenzello-esterno-conversione': { it: 'patente-guida-appenzello-esterno-conversione', en: 'driving-license-appenzell-eastern-conversion', de: 'fuehrerschein-appenzell-ausserrhoden-umwandlung', fr: 'permis-conduire-appenzell-externe-conversion' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

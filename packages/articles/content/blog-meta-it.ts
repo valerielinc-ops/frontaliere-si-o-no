@@ -11482,6 +11482,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, incendio in galleria a bordo di un treno: ma è un\'esercitazione',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri con 50 comparse e 100 soccorritori.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Esercitazione di salvataggio nella galleria del Monte Ceneri',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera frontaliere Ticino: guida 2026',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Vivere a Valmadrera e lavorare in Ticino: il Nuovo Accordo Frontalieri, franchigia €10.000, Permesso G, fiscalità e procedura dichiarazione.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'Vista dal Monte Generoso verso la Valle d\'Intelvi e le montagne ticinesi al confine fra Italia e Svizzera',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: vivere e lavorare in Ticino',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'Cosa significa vivere a Montescheno e lavorare come frontaliere in Ticino. Guida su Permesso G, tassazione, costo della vita e procedure amministrative.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Frontaliere in transito al valico di confine tra Montescheno e Ticino al tramonto',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Vivere a Ponte in Valtellina, lavorare nei Grigioni',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Guida completa per frontalieri: imposta alla fonte, Permesso G, franchigia €10k, AVS/LAMal, costo della vita. Dal 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Panorama alpino di Ponte in Valtellina con vista verso i Grigioni, paesaggio montano di confine tra Italia e Svizzera.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontaliere Poggiridenti-Grigioni: tassazione e permessi',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivere a Poggiridenti e lavorare nei Grigioni: permesso G, imposta alla fonte, Nuovo Accordo Frontalieri 2024 e contributi AVS/LPP. Guida pratica e checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paesaggio alpino al confine tra Italia e Svizzera, valli con nebbia e pendii verdi al tramonto.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivere a San Giacomo Filippo e lavorare nei Grigioni',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nuovo Accordo Frontalieri 2024, fiscalità, LAMal e AVS: la guida completa per trasferirsi a San Giacomo Filippo e lavorare nei Grigioni da frontaliere.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Auto parcheggiata su strada di montagna nel Ticino al tramonto, con vista sulle Alpi dei Grigioni sullo sfondo',
 };
 
 export default blogMetaIt;

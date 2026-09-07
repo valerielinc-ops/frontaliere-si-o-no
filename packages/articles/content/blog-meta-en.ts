@@ -11481,6 +11481,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.title': 'Canton Ticino, tunnel fire on board a train: but it\'s a drill',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.excerpt': 'Rescue exercise in the Monte Ceneri tunnel with 50 extras and 100 rescuers.',
     'blog.article.incendio-galleria-monte-ceneri-esercitazione.imageAlt': 'Rescue exercise in the Monte Ceneri tunnel',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.title': 'Valmadrera Ticino border commuters: 2026 guide',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.excerpt': 'Living in Valmadrera and working in Ticino: the New Frontier Agreement, €10,000 deductible, Permit G, taxation and declaration procedure.',
+    'blog.article.vivere-valmadrera-lavorare-ticino-frontaliere.imageAlt': 'View from Monte Generoso towards the Intelvi Valley and Ticino mountains at the Italy-Switzerland border',
+    'blog.article.montescheno-frontaliere-ticino-guida.title': 'Montescheno: living and working in Ticino',
+    'blog.article.montescheno-frontaliere-ticino-guida.excerpt': 'What it means to live in Montescheno and work as a border worker in Ticino. Guidance on G Leave, Taxation, Cost of Living and Administrative Procedures.',
+    'blog.article.montescheno-frontaliere-ticino-guida.imageAlt': 'Cross-border worker at the Montescheno-Ticino frontier crossing at sunrise',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.title': 'Living in Ponte in Valtellina, working in Graubünden',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.excerpt': 'Complete guide for border workers: source tax, G Permit, €10k deductible, AVS/LAMal, cost of living. Since 2024.',
+    'blog.article.ponte-valtellina-grigioni-frontaliere.imageAlt': 'Alpine panorama of Ponte in Valtelline valley with views toward Grisons, border mountain landscape for cross-border workers.',
+    'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontiere Poggiridenti-Grisioni: taxation and permits',
+    'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Living in Poggiridenti and working in Graubünden: G permit, tax at source, New Frontier Agreement 2024 and AVS/LPP contributions. Practical guide and checklist.',
+    'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpine landscape at the Italy-Switzerland border with misty valleys and green slopes at sunset.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Living in San Giacomo Filippo and working in Graubünden',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'New Frontier Agreement 2024, taxation, LAMal and AVS: the complete guide to move to San Giacomo Filippo and work in Graubünden as a border worker.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Parked car on a mountain road in Ticino at sunset, with Alpine peaks of Grisons in the background',
 };
 
 export default blogMetaEn;

@@ -75017,6 +75017,357 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-svizzera-settori-formazione-contratti': {
+    title: 'Salari e mercato del lavoro: formazione, settori e livelli',
+    description: 'Scopri come si compone uno stipendio svizzero: lordo, deduzioni AVS/LPP/LAMal, netto. Salari per formazione e settore, contratti collettivi e come leggere',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, formazione',
+    ogTitle: 'Salari e mercato del lavoro in Svizzera: settori e formazione',
+    ogDescription: 'Come variano i salari svizzeri per grado di formazione e settore? Scopri la composizione di uno stipendio lordo/netto, deduzioni AVS/LPP/LAMal, contratti collettivi e come verificare il tuo stipendio con i dati SECO e UST.',
+    canonicalPath: '/articoli-svizzera/salari-svizzera-settori-formazione-contratti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro: formazione, settori e livelli",
+      "description": "Scopri come si compone uno stipendio svizzero: lordo, deduzioni AVS/LPP/LAMal, netto. Salari per formazione e settore, contratti collettivi e come leggere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-svizzera-settori-formazione-contratti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Colloquio professionale in ufficio svizzero: discussione su stipendio e contratto di lavoro tra colleghi."
+      },
+      "datePublished": "2026-09-06T20:02:14+00:00",
+      "dateModified": "2026-09-06T20:02:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-svizzera-settori-formazione-contratti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sciaffusa-lavoro-contratti-collettivi': {
+    title: 'Salari e lavoro in Sciaffusa: settori, formazione, livelli',
+    description: 'Salari in Sciaffusa: livelli per formazione, contratti collettivi e contributi sociali nel sistema svizzero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, sciaffusa, settori',
+    ogTitle: 'Salari e lavoro in Sciaffusa: settori, formazione, livelli',
+    ogDescription: 'Scopri come funzionano i salari in Sciaffusa. Formazione, settori economici, contratti collettivi e struttura dei contributi sociali svizzeri — tutto quello che serve sapere per negoziare una retribuzione equa.',
+    canonicalPath: '/articoli-svizzera/sciaffusa-lavoro-contratti-collettivi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro in Sciaffusa: settori, formazione, livelli",
+      "description": "Salari in Sciaffusa: livelli per formazione, contratti collettivi e contributi sociali nel sistema svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciaffusa-lavoro-contratti-collettivi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del centro economico di Lugano con edifici moderni al tramonto"
+      },
+      "datePublished": "2026-09-06T20:14:37+00:00",
+      "dateModified": "2026-09-06T20:14:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciaffusa-lavoro-contratti-collettivi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-appenzello-esterno-requisiti-procedura': {
+    title: 'Naturalizzazione nel cantone di Appenzello esterno: requisiti e procedura',
+    description: 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Appenzello Esterno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, cantone, appenzello, esterno',
+    ogTitle: 'Naturalizzazione nel Cantone di Appenzello Esterno: Requisiti e Procedura',
+    ogDescription: 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Appenzello Esterno. Richiedi informazioni e avvia la procedura oggi stesso.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-appenzello-esterno-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione nel cantone di Appenzello esterno: requisiti e procedura",
+      "description": "Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Appenzello Esterno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-appenzello-esterno-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di una scena svizzera nazionale/cantonale pertinente al tema della naturalizzazione"
+      },
+      "datePublished": "2026-09-06T21:41:56+00:00",
+      "dateModified": "2026-09-06T21:41:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-appenzello-esterno-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquisto-casa-neuchatel-costi-mutuo': {
+    title: 'Comprare casa a Neuchâtel: prezzi e mutuo ipotecario',
+    description: 'Acquistare casa a Neuchâtel: calcolo dei fondi propri, mutuo ipotecario sostenibile, tasse sui trapassi e spese notarili in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, neuch, prezzi',
+    ogTitle: 'Comprare casa a Neuchâtel: prezzi e mutuo ipotecario',
+    ogDescription: 'Acquistare casa a Neuchâtel: calcolo dei fondi propri, mutuo ipotecario sostenibile, tasse sui trapassi e spese notarili in Svizzera.',
+    canonicalPath: '/articoli-svizzera/acquisto-casa-neuchatel-costi-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Neuchâtel: prezzi e mutuo ipotecario",
+      "description": "Acquistare casa a Neuchâtel: calcolo dei fondi propri, mutuo ipotecario sostenibile, tasse sui trapassi e spese notarili in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisto-casa-neuchatel-costi-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa moderna in pietra nel Cantone Neuchâtel con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-06T22:04:50+00:00",
+      "dateModified": "2026-09-06T22:04:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisto-casa-neuchatel-costi-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-abbonamenti-trasporti-neuchatel-zone': {
+    title: 'Abbonamenti trasporti Neuchâtel: zone e tariffe',
+    description: 'Guida completa agli abbonamenti trasporti pubblici del Cantone di Neuchâtel: zone tariffarie, metà-prezzo, GA e sconti per studenti. Come acquistare e validare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, abbonamenti, trasporti, neuch, zone',
+    ogTitle: 'Abbonamenti trasporti Neuchâtel: zone e tariffe',
+    ogDescription: 'Scopri come funzionano gli abbonamenti per i trasporti pubblici nel Cantone di Neuchâtel: zone tariffarie, metà-prezzo, GA, sconti per studenti e apprendisti. Procedura di acquisto semplificata.',
+    canonicalPath: '/articoli-svizzera/abbonamenti-trasporti-neuchatel-zone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abbonamenti trasporti Neuchâtel: zone e tariffe",
+      "description": "Guida completa agli abbonamenti trasporti pubblici del Cantone di Neuchâtel: zone tariffarie, metà-prezzo, GA e sconti per studenti. Come acquistare e validare.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/abbonamenti-trasporti-neuchatel-zone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di trasporto pubblico svizzera con tabelloni orari e zone tariffarie, passeggeri in transito."
+      },
+      "datePublished": "2026-09-06T22:43:19+00:00",
+      "dateModified": "2026-09-06T22:43:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/abbonamenti-trasporti-neuchatel-zone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-appenzello-esterno': {
+    title: 'Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno',
+    description: 'Scopri come il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale e le implicazioni per i contribuenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gestione, primo, pilastro, cantone',
+    ogTitle: 'Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno',
+    ogDescription: 'Il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale, garantendo le prestazioni ai contribuenti e affrontando le lacune contributive.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gestione del primo pilastro AVS nel Cantone di Appenzello Esterno",
+      "description": "Scopri come il Cantone di Appenzello Esterno gestisce il primo pilastro AVS tramite una cassa di compensazione cantonale e le implicazioni per i contribuenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande in Bellinzona, Svizzera"
+      },
+      "datePublished": "2026-09-06T23:29:51+00:00",
+      "dateModified": "2026-09-06T23:29:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-attivita-appenzello-esterno-registro': {
+    title: 'Aprire un\'attività in Appenzello Esterno: procedure e costi',
+    description: 'Guida completa: forme giuridiche, registro di commercio, capitale minimo, contributi AVS/LPP e obblighi assicurativi per fondare un\'impresa nel cantone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
+    ogTitle: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    ogDescription: 'Scopri come registrare una nuova impresa nel Cantone di Appenzello Esterno: forme giuridiche, documentazione, contributi previdenziali obbligatori e tasse cantonali. Procedura step by step per indipendenti e imprenditori.',
+    canonicalPath: '/articoli-svizzera/attivita-appenzello-esterno-registro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Appenzello Esterno: procedure e costi",
+      "description": "Guida completa: forme giuridiche, registro di commercio, capitale minimo, contributi AVS/LPP e obblighi assicurativi per fondare un'impresa nel cantone.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attivita-appenzello-esterno-registro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania d'ufficio con moduli di registrazione commerciale e documenti in edificio amministrativo svizzero."
+      },
+      "datePublished": "2026-09-06T23:59:35+00:00",
+      "dateModified": "2026-09-06T23:59:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attivita-appenzello-esterno-registro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fondare-impresa-appenzello-esterno': {
+    title: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    description: 'Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un\'attività nel cantone Appenzello Esterno in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
+    ogTitle: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    ogDescription: 'Guida completa per avviare un\'attività nel Canton Appenzello Esterno: scopri le forme giuridiche, come iscriversi al registro di commercio, i requisiti fiscali federali e cantonali, gli obblighi previdenziali per autonomi e tutte le procedure',
+    canonicalPath: '/articoli-svizzera/fondare-impresa-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Appenzello Esterno: guida pratica",
+      "description": "Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un'attività nel cantone Appenzello Esterno in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondare-impresa-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un moderno ufficio commerciale in Svizzera con moduli di registrazione e paesaggio montano sullo sfondo"
+      },
+      "datePublished": "2026-09-07T00:27:17+00:00",
+      "dateModified": "2026-09-07T00:27:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondare-impresa-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-appenzello-esterno-conversione': {
+    title: 'Patente di guida Appenzello Esterno: conversione e esami',
+    description: 'Come convertire la patente estera ad Appenzello Esterno: esame teorico, pratico, corsi e procedura presso l\'Ufficio della circolazione cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, appenzello, esterno, conversione',
+    ogTitle: 'Patente di guida Appenzello Esterno: conversione e esami',
+    ogDescription: 'Scopri come convertire la tua patente di guida estera nel Cantone Appenzello Esterno: guida agli esami teorico e pratico, corsi obbligatori, documentazione richiesta e procedura completa presso l\'Ufficio della circolazione.',
+    canonicalPath: '/articoli-svizzera/patente-guida-appenzello-esterno-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida Appenzello Esterno: conversione e esami",
+      "description": "Come convertire la patente estera ad Appenzello Esterno: esame teorico, pratico, corsi e procedura presso l'Ufficio della circolazione cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-appenzello-esterno-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della circolazione cantonale con insegna ufficiale, luogo dove si convertono le patenti di guida."
+      },
+      "datePublished": "2026-09-07T00:59:19+00:00",
+      "dateModified": "2026-09-07T00:59:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-appenzello-esterno-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -17,7 +17,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
-import { resolveArticleAdDensity, STANDARD_ARTICLE_AD_DENSITY, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
+import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
@@ -2116,7 +2116,10 @@ function BlogArticles({
 
  // Slot config lookup table (positions 1..5 → AD_SLOTS entries). Cycled by the
  // per-paragraph and inter-segment ad renderers — Google AdSense allows the
- // same ad-unit to be rendered multiple times on the same page.
+ // same ad-unit to be rendered multiple times on the same page. The rotation
+ // STARTS at a per-article offset (`inlineSlotIndex`, issue #7747): with the
+ // longform cap at 3 a rotation starting at 0 could only ever reach positions
+ // 0,1,2, leaving `_4`/`_5` at zero impressions corpus-wide.
  const articleInlineSlotByPosition = [
   AD_SLOTS.ARTICLE_INLINE_MOBILE,
   AD_SLOTS.ARTICLE_INLINE_MOBILE_2,
@@ -2131,7 +2134,10 @@ function BlogArticles({
  // 3000w one, under the Better Ads ≈30% guideline. A longform body (≥7 `## `
  // sections) instead gets the reduced profile of
  // `docs/ads-placement-longform.md` §3 — 3 in-content ads spread by a wider
- // gap, plus the ARTICLE_END_MULTIPLEX closing unit rendered below.
+ // gap, plus the ARTICLE_END_MULTIPLEX closing unit rendered below. That gap is
+ // resolved from THIS body (#7746): the word credit restarts on every segment,
+ // so a longform whose segments are shorter than the full gap pays a reduced
+ // one instead of dropping below 2 in-content ads.
  const adDensity: ArticleAdDensityProfile = resolveArticleAdDensity(presentSegments);
  const ARTICLE_INLINE_AD_CAP = adDensity.inlineCap;
  // Mutable counter for the per-paragraph ad renderer; reset on every render
@@ -2140,7 +2146,7 @@ function BlogArticles({
  const makeInlineAd = (keyPrefix: string): ReactElement | null => {
   if (!adEligibleInline) return null;
   if (inlineAdCounter >= ARTICLE_INLINE_AD_CAP) return null;
-  const pos = inlineAdCounter % articleInlineSlotByPosition.length;
+  const pos = inlineSlotIndex(article.id, inlineAdCounter, articleInlineSlotByPosition.length);
   const slotConfig = articleInlineSlotByPosition[pos];
   const n = inlineAdCounter;
   inlineAdCounter += 1;
