@@ -5962,6 +5962,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Santé : 91 mégots de cigarettes dans les aires de jeux suisses',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'Analyse nationale sur les snus, sachets de nicotine et cigarettes électroniques dans les aires de jeux suisses, avec des coûts de nettoyage annuels estimés à plus de 52 millions de francs.',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Parcs de jeux suisses avec des mégots de cigarettes dispersés, risques environnementaux et sanitaires',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Impôt succession Neuchâtel : taux et exonérations',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Découvrez les taux de l\'impôt sur les successions et donations dans le canton de Neuchâtel, les exonérations pour conjoint et descendants et les délais de déclaration.',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Vue panoramique du lac de Lugano avec un accent sur la frontière suisse-française',
 };
 
 export default blogMetaChFr;

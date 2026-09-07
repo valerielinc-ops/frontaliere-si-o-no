@@ -5962,6 +5962,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Gesundheit: 91 Zigarettenstummel auf Schweizer Spielplätzen',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'Nationale Analyse zu Snus, Nikotinbeuteln und E-Zigaretten auf Schweizer Spielplätzen mit geschätzten jährlichen Reinigungskosten von über 52 Millionen Franken.',
     'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Schweizer Spielplätze mit verstreuten Zigarettenstummeln, Umwelt- und Gesundheitsrisiken',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Erbschaftssteuer Neuenburg: Steuersätze und Befreiungen',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Informieren Sie sich über die Erbschafts- und Schenkungssteuersätze im Kanton Neuenburg, die Befreiungen für Ehegatten und Nachkommen und die Fristen für die Deklaration.',
+    'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Panoramablick auf den Luganersee mit Fokus auf der Schweizer-Französischen Grenze',
 };
 
 export default blogMetaChDe;

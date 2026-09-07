@@ -17884,6 +17884,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'imposta-successione-donazione-neuchatel-aliquote',
+    category: 'fiscale',
+    date: '2026-09-07T13:29:25.010Z',
+    image: '/images/blog/imposta-successione-donazione-neuchatel-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
