@@ -5965,6 +5965,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Neuchâtel inheritance tax: rates and exemptions',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Learn about inheritance and gift tax rates in the Canton of Neuchâtel, spouse and descendant exemptions, and filing deadlines.',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Panoramic view of Lake Lugano with focus on the Swiss-French border',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Cantonal taxes in Geneva: rates and deductions',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Check out cantonal tax rates and deductions in Geneva, including delivery deadlines and the tax administration\'s online portal.',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Aerial view of Lake Geneva with the city of Geneva in the background, showing the administrative buildings and financial district.',
 };
 
 export default blogMetaChEn;

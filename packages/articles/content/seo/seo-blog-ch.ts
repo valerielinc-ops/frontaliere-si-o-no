@@ -77435,6 +77435,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-ginevra-aliquote-deduzioni': {
+    title: 'Imposte cantonali a Ginevra: aliquote e deduzioni',
+    description: 'Scopri le aliquote e deduzioni delle imposte cantonali a Ginevra, incluse scadenze di consegna e il portale online dell\'amministrazione fiscale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, ginevra, aliquote',
+    ogTitle: 'Imposte cantonali a Ginevra: aliquote e deduzioni',
+    ogDescription: 'Scopri le aliquote e deduzioni delle imposte cantonali a Ginevra, incluse scadenze di consegna e il portale online dell\'amministrazione fiscale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-ginevra-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali a Ginevra: aliquote e deduzioni",
+      "description": "Scopri le aliquote e deduzioni delle imposte cantonali a Ginevra, incluse scadenze di consegna e il portale online dell'amministrazione fiscale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-ginevra-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Ginevra con la città di Ginevra in secondo piano, mostrando gli edifici amministrativi e il quartiere finanziario."
+      },
+      "datePublished": "2026-09-07T13:39:12+00:00",
+      "dateModified": "2026-09-07T13:39:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-ginevra-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

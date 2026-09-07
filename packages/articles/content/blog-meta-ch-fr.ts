@@ -5965,6 +5965,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Impôt succession Neuchâtel : taux et exonérations',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Découvrez les taux de l\'impôt sur les successions et donations dans le canton de Neuchâtel, les exonérations pour conjoint et descendants et les délais de déclaration.',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Vue panoramique du lac de Lugano avec un accent sur la frontière suisse-française',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Impôts cantonaux à Genève : taux et déductions',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Découvrez les taux et déductions des impôts cantonaux à Genève, y compris les délais de livraison et le portail en ligne de l\'administration fiscale.',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Vue aérienne du lac Léman avec la ville de Genève en arrière-plan, montrant les bâtiments administratifs et le quartier financier.',
 };
 
 export default blogMetaChFr;
