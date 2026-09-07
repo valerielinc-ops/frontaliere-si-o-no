@@ -1971,6 +1971,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-canton-turgovia-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-turgovia-requisiti-rinnovo', en: 'residence-permit-b-canton-turgovia-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-thurgau-voraussetzungen-verlaengerung', fr: 'permis-de-sejour-b-canton-de-thurgovie-exigences-renouvellement' },
  'permesso-l-breve-durata-turgovia': { it: 'permesso-l-breve-durata-turgovia', en: 'permit-l-short-term-thurgau', de: 'arbeitsgenehmigung-l-kurzfristig-thurgau', fr: 'permis-l-courte-duree-thurgovie' },
  'apprendistato-turgovia': { it: 'apprendistato-turgovia', en: 'apprenticeship-thurgau', de: 'lehre-thurgau', fr: 'apprentissage-thurgovie' },
+ 'acquistare-casa-berna-mutuo-tasse-guida': { it: 'acquistare-casa-berna-mutuo-tasse-guida', en: 'buy-house-bern-mortgage-taxes-guide', de: 'haus-kaufen-bern-hypothek-steuern-leitfaden', fr: 'acheter-maison-berne-hypotheque-impots-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

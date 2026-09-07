@@ -5836,6 +5836,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-turgovia.title': 'Apprenticeship and training in Canton Thurgau',
     'blog.article.apprendistato-turgovia.excerpt': 'Practical guide to the apprenticeship system in Switzerland: how to find an apprenticeship, learn about the apprentice\'s rights and the training contract.',
     'blog.article.apprendistato-turgovia.imageAlt': 'Young apprentice undergoing practical training in a Swiss vocational workshop',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Buying a house in Bern: prices, mortgage and taxes',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Practical guide to buying real estate in the Canton of Bern: transfer tax, notary fees, own funds required and mortgage loan sustainability.',
+    'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Aerial view of a modern residential neighborhood in Bern with houses and green gardens',
 };
 
 export default blogMetaChEn;
