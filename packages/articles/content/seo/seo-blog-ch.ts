@@ -76265,6 +76265,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disuguaglianze-salariali-stage-svizzera': {
+    title: 'Da 3\'500 a zero: stage e disuguaglianze in Svizzera',
+    description: 'Le retribuzioni degli stage in Svizzera variano enormemente, da 3’500 franchi a zero, contribuendo a definire il rapporto dei giovani con il lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zero, stage, disuguaglianze, retribuzioni',
+    ogTitle: 'Disuguaglianze salariali negli stage in Svizzera',
+    ogDescription: 'Le retribuzioni degli stage in Svizzera variano enormemente, da 3’500 franchi a zero, contribuendo a definire il rapporto dei giovani con il lavoro. Scopri di più sulle disparità salariali e le condizioni di lavoro per gli stagisti in Svizzera.',
+    canonicalPath: '/articoli-svizzera/disuguaglianze-salariali-stage-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Da 3'500 a zero: stage e disuguaglianze in Svizzera",
+      "description": "Le retribuzioni degli stage in Svizzera variano enormemente, da 3’500 franchi a zero, contribuendo a definire il rapporto dei giovani con il lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disuguaglianze-salariali-stage-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane professionista che lavora in un ufficio moderno a Lugano"
+      },
+      "datePublished": "2026-09-07T08:04:30+00:00",
+      "dateModified": "2026-09-07T08:04:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disuguaglianze-salariali-stage-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

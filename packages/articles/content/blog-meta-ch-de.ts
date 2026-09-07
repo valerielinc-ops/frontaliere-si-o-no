@@ -5875,6 +5875,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.intelligenza-artificiale-cardiologia-2026.title': 'Herz und künstliche Intelligenz: neue Prognosewerkzeuge',
     'blog.article.intelligenza-artificiale-cardiologia-2026.excerpt': 'Zwei Untersuchungen des Inselspitals und der Universität Bern zeigen, dass KI die Prognose von Herzerkrankungen verbessert.',
     'blog.article.intelligenza-artificiale-cardiologia-2026.imageAlt': 'Ein Arzt analysiert Daten auf einem Computer in einem medizinischen Forschungslabor mit der Universität Bern im Hintergrund.',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'Von 3\'500 bis null: Praktika und Ungleichheiten in der Schweiz',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'Die Vergütungen für Praktika in der Schweiz variieren stark, von 3’500 Franken bis null, was dazu beiträgt, das Verhältnis von Jugendlichen zur Arbeit zu definieren.',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'Ein junger Fachmann arbeitet in einem modernen Büro in Lugano',
 };
 
 export default blogMetaChDe;
