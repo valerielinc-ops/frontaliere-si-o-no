@@ -1,20 +1,21 @@
 {
   "key": "spital-schwyz",
   "label": "Spital Schwyz",
-  "generatedAt": "2026-09-06T22:57:05.267Z",
+  "generatedAt": "2026-09-07T15:13:44.808Z",
   "total": 18,
   "discovered": null,
   "parsed": 18,
+  "lastFetchOutcome": null,
   "written": 18,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 18,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18291,
-  "avgDurationMs": 18291,
+  "durationMs": 17639,
+  "avgDurationMs": 17639,
   "durationHistory": [
-    18291
+    17639
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +32,7 @@
       "url": "https://jobs.spital-schwyz.ch/Fachfrau-mann-Gesundheit-80-100--de-j565.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:44.012Z",
+      "crawledAt": "2026-09-07T15:13:26.578Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -48,11 +49,11 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.spital-schwyz.ch/Fachfrau-mann-Gesundheit-80-100--de-j565.html",
       "firstSeenAt": "2026-08-31T17:12:03.965Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -69,7 +70,7 @@
       "url": "https://jobs.spital-schwyz.ch/Leiterin-Spitalapotheke-60-100--de-j564.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:46.395Z",
+      "crawledAt": "2026-09-07T15:13:28.839Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -86,11 +87,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.spital-schwyz.ch/Leiterin-Spitalapotheke-60-100--de-j564.html",
       "firstSeenAt": "2026-08-27T20:05:32.446Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -107,7 +108,7 @@
       "url": "https://jobs.spital-schwyz.ch/Teamleiterin-Zentralsterilisation-AEMP-80-100--de-j563.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:50.465Z",
+      "crawledAt": "2026-09-07T15:13:33.051Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -124,11 +125,11 @@
       "postedDate": "2026-08-27",
       "applyUrl": "https://jobs.spital-schwyz.ch/Teamleiterin-Zentralsterilisation-AEMP-80-100--de-j563.html",
       "firstSeenAt": "2026-08-27T20:05:36.571Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -145,7 +146,7 @@
       "url": "https://jobs.spital-schwyz.ch/Stv-Oberaerztin-Oberarzt-Chirurgie-100-de-j286.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:40.511Z",
+      "crawledAt": "2026-09-07T15:13:22.989Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -162,11 +163,11 @@
       "postedDate": "2026-08-25",
       "applyUrl": "https://jobs.spital-schwyz.ch/Stv-Oberaerztin-Oberarzt-Chirurgie-100-de-j286.html",
       "firstSeenAt": "2026-08-25T21:46:04.560Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -183,7 +184,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Ergotherapeutin-FH-60-80--de-j499.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:41.771Z",
+      "crawledAt": "2026-09-07T15:13:24.295Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -200,11 +201,11 @@
       "postedDate": "2026-08-24",
       "applyUrl": "https://jobs.spital-schwyz.ch/Dipl-Ergotherapeutin-FH-60-80--de-j499.html",
       "firstSeenAt": "2026-08-24T10:36:11.314Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -221,7 +222,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j465.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:47.516Z",
+      "crawledAt": "2026-09-07T15:13:30.117Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -238,11 +239,11 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j465.html",
       "firstSeenAt": "2026-08-20T10:05:15.941Z",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -259,7 +260,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j557.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:48.146Z",
+      "crawledAt": "2026-09-07T15:13:30.742Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -276,11 +277,11 @@
       "postedDate": "2026-08-19",
       "applyUrl": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j557.html",
       "firstSeenAt": "2026-08-19T10:04:58.659Z",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -297,7 +298,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Expertin-Notfallpflege-NDS-HF-Dipl-Pflegefachperson-H-de-j511.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:43.015Z",
+      "crawledAt": "2026-09-07T15:13:25.584Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -314,11 +315,11 @@
       "postedDate": "2026-08-06",
       "applyUrl": "https://jobs.spital-schwyz.ch/Dipl-Expertin-Notfallpflege-NDS-HF-Dipl-Pflegefachperson-H-de-j511.html",
       "firstSeenAt": "2026-08-06T11:58:33.353Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -335,7 +336,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Fachperson-Operationstechnik-HF-oder-Dipl-Pflegefachp-de-j95.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:43.526Z",
+      "crawledAt": "2026-09-07T15:13:26.090Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -352,11 +353,11 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://jobs.spital-schwyz.ch/Dipl-Fachperson-Operationstechnik-HF-oder-Dipl-Pflegefachp-de-j95.html",
       "firstSeenAt": "2026-08-03T12:51:22.865Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -373,7 +374,7 @@
       "url": "https://jobs.spital-schwyz.ch/Diaetkoechin-Diaetkoch-50-100--de-j559.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:41.147Z",
+      "crawledAt": "2026-09-07T15:13:23.636Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -390,11 +391,11 @@
       "postedDate": "2026-07-29",
       "applyUrl": "https://jobs.spital-schwyz.ch/Diaetkoechin-Diaetkoch-50-100--de-j559.html",
       "firstSeenAt": "2026-07-29T22:20:48.625Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -411,7 +412,7 @@
       "url": "https://jobs.spital-schwyz.ch/Koechin-Koch-EFZ-mit-Berufsbildungsfunktion-80-100--de-j549.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:44.640Z",
+      "crawledAt": "2026-09-07T15:13:27.085Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -428,11 +429,11 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spital-schwyz.ch/Koechin-Koch-EFZ-mit-Berufsbildungsfunktion-80-100--de-j549.html",
       "firstSeenAt": "2026-07-02T22:54:51.955Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -449,7 +450,7 @@
       "url": "https://jobs.spital-schwyz.ch/Lehrstelle-Fachperson-Betriebsunterhalt-EFZ-2027-de-j548.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:45.265Z",
+      "crawledAt": "2026-09-07T15:13:27.719Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -466,11 +467,11 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spital-schwyz.ch/Lehrstelle-Fachperson-Betriebsunterhalt-EFZ-2027-de-j548.html",
       "firstSeenAt": "2026-07-02T22:54:52.658Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -487,7 +488,7 @@
       "url": "https://jobs.spital-schwyz.ch/Lehrstelle-Fachperson-Hotellerie-Hauswirtschaft-EFZ-mit-St-de-j547.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:45.912Z",
+      "crawledAt": "2026-09-07T15:13:28.344Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -504,11 +505,11 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spital-schwyz.ch/Lehrstelle-Fachperson-Hotellerie-Hauswirtschaft-EFZ-mit-St-de-j547.html",
       "firstSeenAt": "2026-07-02T22:54:54.080Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -525,7 +526,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j535.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:48.644Z",
+      "crawledAt": "2026-09-07T15:13:31.216Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -542,11 +543,11 @@
       "postedDate": "2026-07-02",
       "applyUrl": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j535.html",
       "firstSeenAt": "2026-07-02T11:56:03.654Z",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -563,7 +564,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Anaesthesiepflege-NDS-HF-Fruehl-de-j497.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:49.313Z",
+      "crawledAt": "2026-09-07T15:13:31.908Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -580,11 +581,11 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Anaesthesiepflege-NDS-HF-Fruehl-de-j497.html",
       "firstSeenAt": "2026-05-19T13:03:33.066Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -601,7 +602,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Expertin-Anaesthesiepflege-NDS-HF-80-100--de-j532.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:42.394Z",
+      "crawledAt": "2026-09-07T15:13:24.950Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -618,11 +619,11 @@
       "postedDate": "2026-04-09",
       "applyUrl": "https://jobs.spital-schwyz.ch/Dipl-Expertin-Anaesthesiepflege-NDS-HF-80-100--de-j532.html",
       "firstSeenAt": "2026-05-19T13:03:23.635Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -639,7 +640,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Intensivpflege-NDS-HF-Fruehling-de-j525.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:49.960Z",
+      "crawledAt": "2026-09-07T15:13:32.557Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -659,11 +660,11 @@
       "localeMismatchSuppressedLen": 80,
       "retranslationAttempts": 40,
       "firstSeenAt": "2026-05-19T13:03:33.571Z",
-      "_qualityScore": 73,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 10,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -680,7 +681,7 @@
       "url": "https://jobs.spital-schwyz.ch/Pflegefachperson-im-Pflegepool-auf-Abruf-de-j242.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:56:46.886Z",
+      "crawledAt": "2026-09-07T15:13:29.496Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -697,11 +698,11 @@
       "postedDate": "2026-01-20",
       "applyUrl": "https://jobs.spital-schwyz.ch/Pflegefachperson-im-Pflegepool-auf-Abruf-de-j242.html",
       "firstSeenAt": "2026-05-19T13:03:31.827Z",
-      "_qualityScore": 78,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 20
       }
     }
