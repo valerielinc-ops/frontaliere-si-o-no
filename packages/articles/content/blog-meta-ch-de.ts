@@ -6025,6 +6025,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Mieten in Genf: Durchschnittsmieten und Mietrecht',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Detaillierte Analyse des Mietmarkts im Kanton Genf mit Schwerpunkt auf den durchschnittlichen Gebühren pro Zone, der Kaution, der Anfechtung und den eidgenössischen Mietregeln.',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Immobilienmarkt und Mieten im Kanton Genf',
+    'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Kaution und Anfechtung der Gebühren in Genf',
+    'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Die Kaution darf drei Mietmonate nicht überschreiten; die Anfechtung der Miete muss innerhalb von 30 Tagen bei der Schlichtungsbehörde erfolgen.',
+    'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Wohngebäude in Genf mit \'Zu vermieten\'-Schild und Alpenblick',
 };
 
 export default blogMetaChDe;

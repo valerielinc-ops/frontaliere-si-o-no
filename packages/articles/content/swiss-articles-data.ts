@@ -18073,6 +18073,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-ginevra-deposito-cauzionale',
+    category: 'pratico',
+    date: '2026-09-07T18:04:40.239Z',
+    image: '/images/blog/affitti-ginevra-deposito-cauzionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

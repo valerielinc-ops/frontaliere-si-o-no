@@ -6025,6 +6025,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Affitti a Ginevra: canoni medi e diritto di locazione',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Analisi dettagliata del mercato degli affitti nel Cantone di Ginevra, con focus sui canoni medi per zona, il deposito di garanzia, la contestazione e le regole federali della locazione.',
     'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Mercato immobiliare e affitti nel Cantone di Ginevra',
+    'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Deposito cauzionale e contestazione canoni a Ginevra',
+    'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Il deposito cauzionale non può superare tre mesi di pigione; la contestazione del canone deve avvenire entro 30 giorni presso l’autorità di conciliazione.',
+    'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Edificio residenziale a Ginevra con cartello \'Affittasi\' e vista alpina',
 };
 
 export default blogMetaChIt;
