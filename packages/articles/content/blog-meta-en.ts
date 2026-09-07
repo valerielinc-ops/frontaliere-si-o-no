@@ -11511,6 +11511,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Living in Villeneuve and working in Valais: border guide',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve is a destination for border workers working in Valais. Discover G permits, taxes at source, LAMal, AVS, LPP, refunds and transfer procedures.',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Valais valley with main road, Valese-Italy border commute scene',
+    'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Without empathy you can\'t do this job',
+    'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'Empathy is described as an essential skill in real estate work, with a real takeover managed without human listening.',
+    'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'A real estate professional empathetically listening to a client in a modern office in Ticino.',
 };
 
 export default blogMetaEn;

@@ -11510,6 +11510,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Wohnen in Villeneuve und Arbeiten im Wallis: Grenzführer',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve ist Ziel von Grenzgängern, die im Wallis arbeiten. Entdecken Sie G-Bewilligungen, Quellensteuern, KVG, AHV, BVG, Rückerstattungen und Verfahren für den Umzug.',
     'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Walliser Tal mit Hauptstrasse, Grenzpendlerverkehr Wallis-Italien',
+    'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Ohne Empathie kannst du diesen Job nicht machen',
+    'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'Empathie wird als unverzichtbare Kompetenz in der Immobilienarbeit beschrieben, mit einer realen Episode der Übernahme, die ohne menschliches Zuhören verwaltet wird.',
+    'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'Ein Immobilienprofessional hört einem Kunden in einem modernen Büro in der Schweiz empathisch zu.',
 };
 
 export default blogMetaDe;
