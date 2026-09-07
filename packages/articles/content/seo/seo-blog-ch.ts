@@ -78137,6 +78137,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-ginevra-mutuo-ipotecario': {
+    title: 'Comprare casa nel Canton Ginevra: prezzi e mutuo ipotecario',
+    description: 'Guida all\'acquisto casa nel Canton Ginevra: prezzi medi, fondi propri richiesti, regola del 33% per il mutuo ipotecario, imposte sui trapassi e spese notarili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, ginevra',
+    ogTitle: 'Comprare casa nel Canton Ginevra: prezzi e mutuo ipotecario',
+    ogDescription: 'Quanto costa davvero comprare casa a Ginevra nel 2026? Fondi propri richiesti, regola del 33% per il mutuo ipotecario, imposte sui trapassi di proprietà, spese notarili e scenari concreti di sostenibilità del finanziamento per acquirenti residenti',
+    canonicalPath: '/articoli-svizzera/comprare-casa-ginevra-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Canton Ginevra: prezzi e mutuo ipotecario",
+      "description": "Guida all'acquisto casa nel Canton Ginevra: prezzi medi, fondi propri richiesti, regola del 33% per il mutuo ipotecario, imposte sui trapassi e spese notarili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-ginevra-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Residenze sul lungolago di Ginevra con vista sulle Alpi svizzere"
+      },
+      "datePublished": "2026-09-07T17:04:50+00:00",
+      "dateModified": "2026-09-07T17:04:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-ginevra-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

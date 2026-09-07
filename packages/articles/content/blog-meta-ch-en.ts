@@ -6019,6 +6019,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Nursery in Geneva: cantonal fees and subsidies',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'In Geneva kindergartens, day families and after-school have modulated rates on taxable income. Cantonal subsidies reduce the share borne by families.',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Entrance of a recognized daycare center in Canton Geneva with arriving parents',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Buying a house in the Canton of Geneva: prices and mortgage',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Average prices in Geneva, own funds required, mortgage loan sustainability, transfer taxes and notary fees.',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Residential buildings along Lake Geneva with Swiss Alps view',
 };
 
 export default blogMetaChEn;

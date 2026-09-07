@@ -6019,6 +6019,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Asilo nido a Ginevra: tariffe e sussidi cantonali',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'A Ginevra asili nido, famiglie diurne e doposcuola hanno tariffe modulate sul reddito imponibile. Sussidi cantonali riducono la quota a carico delle famiglie.',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Ingresso di un asilo nido riconosciuto nel Canton Ginevra con genitori all\'arrivo',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Comprare casa nel Canton Ginevra: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Prezzi medi a Ginevra, fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili.',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Residenze sul lungolago di Ginevra con vista sulle Alpi svizzere',
 };
 
 export default blogMetaChIt;

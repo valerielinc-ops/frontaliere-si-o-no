@@ -18055,6 +18055,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-ginevra-mutuo-ipotecario',
+    category: 'pratico',
+    date: '2026-09-07T17:04:50.448Z',
+    image: '/images/blog/comprare-casa-ginevra-mutuo-ipotecario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
