@@ -6004,6 +6004,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permis L Genève : validité et prolongation',
     'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Guide complet du permis L de courte durée dans le canton de Genève : durée maximale, conditions de prolongation et contraintes professionnelles.',
     'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Permis L de courte durée dans le canton de Genève',
+    'blog.article.assegni-familiari-canton-ginevra.title': 'Allocations familiales Genève : montants et demande',
+    'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Guide complet des allocations familiales et de formation dans le canton de Genève : montants mensuels, conditions et caisses de compensation.',
+    'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Vue du canton de Genève avec des bâtiments historiques et l\'eau',
 };
 
 export default blogMetaChFr;

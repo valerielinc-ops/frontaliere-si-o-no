@@ -77942,6 +77942,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-canton-ginevra': {
+    title: 'Assegni familiari Ginevra: importi e domanda | Frontaliere Ticino',
+    description: 'Guida ufficiale agli assegni familiari e di formazione nel Cantone di Ginevra: importi, condizioni di diritto, casse di compensazione e procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, ginevra, importi',
+    ogTitle: 'Assegni familiari Canton Ginevra: importi e domanda',
+    ogDescription: 'Tutto sugli assegni familiari e di formazione nel Cantone di Ginevra: importi mensili, condizioni di accesso, casse di compensazione e come fare domanda.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-canton-ginevra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Ginevra: importi e domanda",
+      "description": "Guida ufficiale agli assegni familiari e di formazione nel Cantone di Ginevra: importi, condizioni di diritto, casse di compensazione e procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-canton-ginevra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Cantone di Ginevra con edifici storici e vista sull'acqua"
+      },
+      "datePublished": "2026-09-07T16:01:03+00:00",
+      "dateModified": "2026-09-07T16:01:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-canton-ginevra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

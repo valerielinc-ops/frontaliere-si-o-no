@@ -6004,6 +6004,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-ginevra-validita-proroga.title': 'Genehmigung Genf: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Vollständiger Führerschein zur Kurzzeitbewilligung L im Kanton Genf: Höchstdauer, Verlängerungsbedingungen und Arbeitsbedingungen.',
     'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Kurzaufenthaltsbewilligung L im Kanton Genf',
+    'blog.article.assegni-familiari-canton-ginevra.title': 'Familienzulagen Genf: Beträge und Antrag',
+    'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Vollständiger Leitfaden für Familien- und Ausbildungszulagen im Kanton Genf: Monatsbeträge, Konditionen und Ausgleichskassen.',
+    'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Ansicht des Kantons Genf mit historischen Gebäuden und Wasserblick',
 };
 
 export default blogMetaChDe;
