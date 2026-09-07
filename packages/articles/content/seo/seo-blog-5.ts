@@ -87472,6 +87472,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cedrasco-grigioni-frontaliere-guida': {
+    title: 'Vivere a Cedrasco, lavorare in Grigioni: guida',
+    description: 'Trasferirsi a Cedrasco per lavorare nei Grigioni: scopri il Permesso G, tassazione frontaliere, AVS, LAMal e procedura di registrazione completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cedrasco, lavorare, grigioni',
+    ogTitle: 'Vivere a Cedrasco, lavorare in Grigioni: guida',
+    ogDescription: 'Guida pratica al trasferimento a Cedrasco per lavorare nei Grigioni: Permesso G, fiscalità, AVS, LAMal, valichi disponibili e checklist passo dopo passo per nuovi frontalieri.',
+    canonicalPath: '/articoli-frontaliere/cedrasco-grigioni-frontaliere-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cedrasco, lavorare in Grigioni: guida",
+      "description": "Trasferirsi a Cedrasco per lavorare nei Grigioni: scopri il Permesso G, tassazione frontaliere, AVS, LAMal e procedura di registrazione completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cedrasco-grigioni-frontaliere-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano della regione di confine tra Italia e Svizzera, simbolo del territorio frontaliere dei Grigioni"
+      },
+      "datePublished": "2026-09-07T02:08:40+00:00",
+      "dateModified": "2026-09-07T02:08:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cedrasco-grigioni-frontaliere-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

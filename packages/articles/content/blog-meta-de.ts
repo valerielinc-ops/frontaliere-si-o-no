@@ -11495,6 +11495,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-giacomo-lavorare-grigioni.title': 'Leben in St. Jakob Philipp und Arbeiten in Graubünden',
     'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Neue Frontalieri-Vereinbarung 2024, Steuern, KVG und AHV: Der komplette Leitfaden für den Umzug nach San Giacomo Filippo und die Arbeit in Graubünden als Grenzgänger.',
     'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Geparktes Auto auf Bergstraße im Tessin bei Sonnenuntergang, mit Blick auf Graubündner Alpen im Hintergrund',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Leben in Cedrasco, Arbeiten in Graubünden: Leitfaden',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Umzug nach Cedrasco, um in Graubünden zu arbeiten: Entdecken Sie die Bewilligung G, die Grenzbesteuerung, die AHV, das KVG und das vollständige Registrierungsverfahren.',
+    'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Berglandschaft an der Schweizer-italienischen Grenze in der Graubünden-Region, Symbol des Grenzgebiets',
 };
 
 export default blogMetaDe;
