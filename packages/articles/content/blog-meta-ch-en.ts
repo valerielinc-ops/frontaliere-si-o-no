@@ -5887,6 +5887,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.padula-direttore-ire-usi-2026.title': 'Mario Padula new IRE Director of USI from 1 September',
     'blog.article.padula-direttore-ire-usi-2026.excerpt': 'The economist, former COVIP president and EIOPA member, succeeds Mario Jametti at the head of the USI Institute for Economic Research.',
     'blog.article.padula-direttore-ire-usi-2026.imageAlt': 'USI campus in Lugano with new IRE leadership',
+    'blog.article.cannabis-farmacia-vendita.title': 'Cannabis: pharmacy sale reduces risks, study',
+    'blog.article.cannabis-farmacia-vendita.excerpt': 'The sale of cannabis in pharmacies in Bern, Biel and Lucerne favors less risky consumption, according to a study.',
+    'blog.article.cannabis-farmacia-vendita.imageAlt': 'Pharmacy in Switzerland with cannabis sale sign',
 };
 
 export default blogMetaChEn;

@@ -5887,6 +5887,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.padula-direttore-ire-usi-2026.title': 'Mario Padula nuovo direttore IRE dell\'USI dal 1° settembre',
     'blog.article.padula-direttore-ire-usi-2026.excerpt': 'L\'economista, già presidente COVIP e membro EIOPA, succede a Mario Jametti alla guida dell\'Istituto di ricerche economiche dell\'USI.',
     'blog.article.padula-direttore-ire-usi-2026.imageAlt': 'Campus USI a Lugano con la nuova direzione dell\'IRE',
+    'blog.article.cannabis-farmacia-vendita.title': 'Cannabis: vendita in farmacia riduce rischi, studio',
+    'blog.article.cannabis-farmacia-vendita.excerpt': 'La vendita di cannabis nelle farmacie di Berna, Bienne e Lucerna favorisce un consumo meno rischioso, secondo uno studio.',
+    'blog.article.cannabis-farmacia-vendita.imageAlt': 'Farmacia in Svizzera con cartello vendita cannabis',
 };
 
 export default blogMetaChIt;

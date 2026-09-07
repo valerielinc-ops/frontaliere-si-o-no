@@ -5887,6 +5887,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.padula-direttore-ire-usi-2026.title': 'Mario Padula neuer Direktor DER USI seit dem 1. September',
     'blog.article.padula-direttore-ire-usi-2026.excerpt': 'Der Ökonom, ehemaliger Präsident von COVIP und Mitglied der EIOPA, folgt Mario Jametti an der Spitze des Instituts für Wirtschaftsforschung der USI.',
     'blog.article.padula-direttore-ire-usi-2026.imageAlt': 'USI-Campus in Lugano mit neuer IRE-Leitung',
+    'blog.article.cannabis-farmacia-vendita.title': 'Cannabis: Verkauf in der Apotheke reduziert Risiken, Studie',
+    'blog.article.cannabis-farmacia-vendita.excerpt': 'Der Verkauf von Cannabis in Apotheken in Bern, Biel und Luzern begünstigt laut einer Studie einen weniger riskanten Konsum.',
+    'blog.article.cannabis-farmacia-vendita.imageAlt': 'Apotheke in der Schweiz mit Cannabis-Verkaufsschild',
 };
 
 export default blogMetaChDe;
