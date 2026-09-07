@@ -76070,6 +76070,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neuchatel-salari-livelli-formazione': {
+    title: 'Salari e lavoro in Neuchâtel: settori e livelli',
+    description: 'Scopri come funzionano i salari nel Canton Neuchâtel: retribuzione per settore e livello di formazione, contributi sociali, diritti e strumenti di valutazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, lavoro, neuch, settori',
+    ogTitle: 'Salari in Neuchâtel: settori, livelli e diritti del lavoro',
+    ogDescription: 'Analisi completa del mercato del lavoro nel Canton Neuchâtel: retribuzione per settore e formazione, contributi sociali AVS/LPP/LAMal, normativa federale e come valutare il tuo stipendio con strumenti online.',
+    canonicalPath: '/articoli-svizzera/neuchatel-salari-livelli-formazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e lavoro in Neuchâtel: settori e livelli",
+      "description": "Scopri come funzionano i salari nel Canton Neuchâtel: retribuzione per settore e livello di formazione, contributi sociali, diritti e strumenti di valutazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neuchatel-salari-livelli-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti al lavoro in un moderno ufficio svizzero con vista sulle montagne."
+      },
+      "datePublished": "2026-09-07T07:04:14+00:00",
+      "dateModified": "2026-09-07T07:04:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neuchatel-salari-livelli-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
