@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { scanFiles, stripShellComments } from '../scripts/lib/stdin-sharing-loop-scan.mjs';
 
 /**
  * Guardrail for the #7392–#7397 class of bug.
@@ -44,7 +45,7 @@ const actionSource = readFileSync(ACTION_PATH, 'utf8');
  * matching on them would make every check self-fulfilling.
  */
 function codeOnly(file: string): string {
-  return readFileSync(file, 'utf8').replace(/^[ \t]*#.*$/gm, '');
+  return stripShellComments(readFileSync(file, 'utf8'));
 }
 
 /** Every `.github` file that could hold a shell copy of the resolve. */
@@ -69,6 +70,83 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     const offenders = allGithubShellFiles().filter((f) =>
       /select\(\s*\.name\s*==\s*"github-pages"\s*\)/.test(codeOnly(f)),
     );
+    expect(offenders).toEqual([]);
+  });
+
+  it('#7393 — no loop iterates a `gh api` command substitution directly', () => {
+    // `for x in $(gh api …)`: under `set -euo pipefail` the substitution's
+    // exit code is discarded in a for-list, so a network error becomes an
+    // empty list and a silently skipped loop body.
+    const offenders = allGithubShellFiles().filter((f) =>
+      /for\s+[A-Za-z_][A-Za-z0-9_]*\s+in\s+\$\(\s*gh\s+api/.test(codeOnly(f)),
+    );
+    expect(offenders).toEqual([]);
+  });
+
+  it('#7501 — no artifact listing turns a gh failure into a zero count', () => {
+    // `has=$(gh api …/artifacts --jq '…|length' 2>/dev/null || echo 0)` reads
+    // an API/token failure as "this run has no artifact": the candidate is
+    // dropped in silence and the A/B pair slides onto two older deploys, so
+    // the delta is plausible but between the wrong two runs. Every listing
+    // must let the exit code out and treat a non-zero one as fatal.
+    const offenders: string[] = [];
+    for (const f of allGithubShellFiles()) {
+      const src = codeOnly(f);
+      // The listing line plus the three that can still close its command
+      // substitution — a lazy `[\s\S]*?\n` would stop at the first newline
+      // and never see the fallback, which is always on a continuation line.
+      const re = /gh\s+api\s+"[^"]*\/artifacts"[^\n]*(?:\n[^\n]*){0,3}/g;
+      for (const m of src.matchAll(re)) {
+        if (/2>\/dev\/null|\|\|\s*echo\b/.test(m[0])) offenders.push(`${f}: ${m[0].trim()}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+    // …and the two files that list artifacts themselves say so out loud.
+    for (const f of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
+      const src = codeOnly(f);
+      expect(src, f).toMatch(/gh api failed while listing artifacts/);
+      // The branch that reports it must EXIT, not continue onto an older run.
+      const after = src.slice(src.indexOf('gh api failed while listing artifacts'));
+      expect(/\n\s*(continue|exit)\b/.exec(after)?.[1], f).toBe('exit');
+    }
+  });
+
+  it('#7505 — a while-read fed by a file never shares its stdin with the body', () => {
+    // `while read … done < "$CANDS"` makes the candidate FILE the loop's stdin,
+    // and every external command in the body inherits it. Whatever one of them
+    // reads is a line the next `read` never sees: the walk-back stops early and
+    // reports "no successful deploy.yml run … still has a 'github-pages'
+    // artifact" — a wrong diagnosis that reads exactly like the right one. It
+    // does not depend on what `gh`/`unzip`/`node` do today: none of them
+    // contracts that it leaves stdin alone. A dedicated fd removes the question.
+    //   printf 'a\nb\nc\n' > f; while read -r x; do cat >/dev/null; done < f
+    //   → 1 iteration; the same loop on `read -u 9` … `done 9< f` → 3.
+    // Only loops whose body actually runs a command that CAN consume stdin are
+    // offenders: `cat "$log"`, `cp`, `mkdir` take their input from arguments and
+    // are safe by construction.
+    // `m`: without it `^` only matches the start of the whole body, so a
+    // consumer on a line of its own — `gh issue close "$num"`, preceded by
+    // nothing but a newline and its indent, which is the commonest shape of
+    // all — never matched and three of the six sites here were invisible.
+    // Two halves, and BOTH have to hold or the scan measures less than it
+    // says. The token list is the perimeter: `npm run X` spawns node with OUR
+    // stdin and `bash`/`sh` inherit it by definition, so they belong next to
+    // `gh`/`node`. And the command POSITION is not just `^|;|&|||(`: a command
+    // can be preceded by env assignments (and by `env`), which is exactly the
+    // shape that hid the ninth site — `(NODE_OPTIONS="…" npm run "$script")` in
+    // `audit-dist-from-run.yml`, where `npm` sits after an assignment and would
+    // stay invisible even with the token added.
+    // The regexes themselves now live in `scripts/lib/stdin-sharing-loop-scan.mjs`:
+    // `.github/**` is not the only tree that can grow a site of this class, and
+    // a second hand-copied scanner would drift exactly the way the eight copies
+    // of the artifact resolve did. This test keeps its own perimeter —
+    // `allGithubShellFiles()` — and `tests/scripts-shell-stdin-sharing.test.ts`
+    // watches `scripts/**` with the same code.
+    const { loops, offenders } = scanFiles(allGithubShellFiles(), codeOnly);
+    // A scanner that silently stops matching is how three of the six sites here
+    // stayed invisible through a whole review round: assert it still sees them.
+    expect(loops.length).toBeGreaterThan(5);
+    expect(loops.some((l) => l.hasConsumer)).toBe(true);
     expect(offenders).toEqual([]);
   });
 
