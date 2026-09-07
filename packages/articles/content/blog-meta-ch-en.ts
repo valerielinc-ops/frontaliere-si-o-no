@@ -6004,6 +6004,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permit L Geneva: validity and extension',
     'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Complete Guide to Short-Term L Permit in the Canton of Geneva: Maximum Duration, Conditions of Extension, and Work Constraints.',
     'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Short-term L permit in Canton Geneva',
+    'blog.article.assegni-familiari-canton-ginevra.title': 'Family allowances Geneva: amounts and demand',
+    'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Complete guide to family and training allowances in the Canton of Geneva: monthly amounts, conditions and compensation funds.',
+    'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'View of Canton Geneva with historic buildings and waterfront',
 };
 
 export default blogMetaChEn;

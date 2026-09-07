@@ -6004,6 +6004,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permesso L Ginevra: validità e proroga',
     'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Guida completa al permesso L di breve durata nel Cantone di Ginevra: durata massima, condizioni di proroga e vincoli lavorativi.',
     'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Permesso L di breve durata nel Cantone di Ginevra',
+    'blog.article.assegni-familiari-canton-ginevra.title': 'Assegni familiari Ginevra: importi e domanda',
+    'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Guida completa agli assegni familiari e di formazione nel Cantone di Ginevra: importi mensili, condizioni e casse di compensazione.',
+    'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Panorama del Cantone di Ginevra con edifici storici e vista sull\'acqua',
 };
 
 export default blogMetaChIt;
