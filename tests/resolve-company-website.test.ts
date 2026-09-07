@@ -289,10 +289,39 @@ describe('company website resolver', () => {
     }
   });
 
+  // The count assertion here used to be an exact `toHaveLength(592)`. That
+  // literal has no mechanism keeping it in sync with the dataset, and the
+  // Prospector ADDS companies on its designed path: #7726 promoted
+  // `anker-swiss` (592 -> 593) without touching the test, so the gate went red
+  // on `main` and every open PR inherited the failure until the number was
+  // chased by hand. An exact count cannot tell a legitimate promotion from a
+  // regression; it just fires on both, and the one that actually costs us --
+  // companies DISAPPEARING from the ratified source -- is the one a floor
+  // still catches. The per-entry checks below are what the test name has
+  // always promised ("complete and schema-valid") and what the bare length
+  // never verified.
   it('keeps the ratified source and first probe registry complete and schema-valid', () => {
     const companies = JSON.parse(readFileSync(path.resolve('data/crawler-companies-auto.json'), 'utf8'));
     const registry = JSON.parse(readFileSync(path.resolve('data/company-website-resolved.json'), 'utf8'));
-    expect(companies).toHaveLength(592);
+
+    // Monotone floor: ratified at 593 (#7726). Losing entries fails; promoting
+    // new ones does not.
+    expect(companies.length).toBeGreaterThanOrEqual(593);
+
+    // Every entry is addressable: a company without a name or a key cannot be
+    // crawled or attributed, and a duplicate key silently overwrites a slice.
+    for (const company of companies) {
+      expect(typeof company?.name === 'string' && company.name.trim().length > 0).toBe(true);
+      expect(typeof company?.key === 'string' && company.key.trim().length > 0).toBe(true);
+      // A non-null website must be an https origin -- `companyWebsiteFromDomain`
+      // and the resolver both assume it downstream.
+      if (company.website != null) {
+        expect(String(company.website)).toMatch(/^https:\/\//);
+      }
+    }
+    const keys = companies.map((company: { key: string }) => company.key);
+    expect(new Set(keys).size).toBe(keys.length);
+
     expect(registry.schemaVersion).toBe(1);
     expect(Object.keys(registry.domains)).toHaveLength(22);
   });
