@@ -11574,6 +11574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.title': 'A8 chiude tre sere tra Varese e Gallarate: deviazioni',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.excerpt': 'Chiusure notturne A8 dal 9 all\'11 settembre 2026, ore 21-5, per lavori alle barriere antirumore tra Diramazione Gallarate-Gattico e Castronno.',
     'blog.article.a8-chiusure-varese-gallarate-settembre-2026.imageAlt': 'Autostrada A8 con lavori notturni tra Varese e Gallarate',
+    'blog.article.permesso-b-quellensteuer.title': 'Permesso B e Quellensteuer: tariffe e regole fiscali',
+    'blog.article.permesso-b-quellensteuer.excerpt': 'Guida completa al Permesso B e all\'imposta alla fonte in Svizzera: tariffe, deduzioni del Pillar 3a e confronto con i regimi per i frontalieri.',
+    'blog.article.permesso-b-quellensteuer.imageAlt': 'Vista panoramica di Lugano e del lago Ceresio',
 };
 
 export default blogMetaIt;

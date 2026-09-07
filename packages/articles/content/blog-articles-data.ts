@@ -34563,6 +34563,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'permesso-b-quellensteuer',
+ category: 'fiscale',
+ date: '2026-09-07T16:12:28.044Z',
+ image: '/images/blog/permesso-b-quellensteuer.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
