@@ -5917,6 +5917,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tragitto-casa-scuola-rischioso.title': 'Parcours maison-école : pour 41% des parents c\'est risqué, étude',
     'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Quatre parents sur dix considèrent que le trajet domicile-école est dangereux pour leurs enfants, selon une étude commandée par l\'ASSOCIATION TRAFIC ET ENVIRONNEMENT (ATA) et le FONDS DE SÉCURITÉ ROUTIÈRE (FSS).',
     'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Un enfant marchant à l\'école dans une ville suisse avec un chemin piéton sûr',
+    'blog.article.settembre-mese-ambiente-collina-doro.title': 'Septembre ? C\'est le mois de l\'environnement',
+    'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'Septembre 2026 sera consacré à l\'environnement à Collina d\'Oro avec de nombreuses initiatives durables.',
+    'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Vue aérienne de Collina d\'Oro, Suisse, avec un accent sur les initiatives environnementales et les activités communautaires.',
 };
 
 export default blogMetaChFr;

@@ -5917,6 +5917,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tragitto-casa-scuola-rischioso.title': 'Home-school journey: for 41% of parents it is risky, study',
     'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Four out of ten parents consider the home-school journey dangerous for their children, according to a study commissioned by the TRAFFIC and ENVIRONMENT ASSOCIATION (ATA) and the ROAD SAFETY FUND (FSS).',
     'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'A child walking to school in a Swiss city with a safe pedestrian path',
+    'blog.article.settembre-mese-ambiente-collina-doro.title': 'September? It\'s Environment Month',
+    'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'September 2026 will be dedicated to the environment in Collina d \'Oro with numerous sustainable initiatives.',
+    'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Aerial view of Collina d\'Oro, Switzerland, focusing on environmental initiatives and community activities.',
 };
 
 export default blogMetaChEn;

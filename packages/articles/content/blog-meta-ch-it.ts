@@ -5917,6 +5917,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tragitto-casa-scuola-rischioso.title': 'Tragitto casa-scuola: per il 41% dei genitori è rischioso, studio',
     'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Quattro genitori su dieci considerano pericoloso il tragitto casa-scuola per i loro figli, secondo uno studio commissionato dall\'ASSOCIAZIONE TRAFFICO E AMBIENTE (ATA) e dal FONDO DI SICUREZZA STRADALE (FSS).',
     'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Un bambino che cammina verso la scuola in una città svizzera con un percorso pedonale sicuro',
+    'blog.article.settembre-mese-ambiente-collina-doro.title': 'Settembre? È il mese dell\'ambiente',
+    'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'Settembre 2026 sarà dedicato all\'ambiente a Collina d\'Oro con numerose iniziative sostenibili.',
+    'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Vista aerea di Collina d\'Oro, Svizzera, con un focus su iniziative ambientali e attività comunitarie.',
 };
 
 export default blogMetaChIt;
