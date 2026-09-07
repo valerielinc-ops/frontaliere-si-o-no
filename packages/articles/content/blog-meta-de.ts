@@ -11569,6 +11569,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.title': 'Sergio Savoia kehrt mit Avanti mit Ticino&Lavoro in die Politik zurück',
     'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.excerpt': 'Der ehemalige Koordinator der Grünen wählt Avante mit Ticino&Lavoro für die kantonalen 2027',
     'blog.article.sergio-savoia-politica-avanti-ticino-lavoro.imageAlt': 'Sergio Savoia bei einem politischen Treffen in Bellinzona',
+    'blog.article.a8-chiusure-varese-gallarate-settembre-2026.title': 'A8 schließt drei Abende zwischen Varese und Gallarate: Umwege',
+    'blog.article.a8-chiusure-varese-gallarate-settembre-2026.excerpt': 'Nachtschließungen A8 vom 9. bis 11. September 2026, 21-5 Uhr, für Arbeiten an den Lärmschutzwänden zwischen Abzweigung Gallarate-Gattico und Castronno.',
+    'blog.article.a8-chiusure-varese-gallarate-settembre-2026.imageAlt': 'A8 Autobahn Nachtarbeiten zwischen Varese und Gallarate',
 };
 
 export default blogMetaDe;

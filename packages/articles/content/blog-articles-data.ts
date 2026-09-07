@@ -34554,6 +34554,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'a8-chiusure-varese-gallarate-settembre-2026',
+ category: 'pratico',
+ date: '2026-09-07T14:31:31.123Z',
+ image: '/images/blog/a8-chiusure-varese-gallarate-settembre-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
