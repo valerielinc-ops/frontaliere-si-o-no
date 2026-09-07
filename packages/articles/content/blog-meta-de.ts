@@ -11578,6 +11578,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grenzgaenger-schweiz-steuern-2026.title': 'Grenzgänger schweiz steuern 2026: Regeln und Pflichten',
     'blog.article.grenzgaenger-schweiz-steuern-2026.excerpt': 'Analyse der Steuern und steuerlichen Pflichten für Grenzgänger zwischen der Schweiz und Italien auf der Grundlage des neuen Abkommens und der geltenden Vorschriften.',
     'blog.article.grenzgaenger-schweiz-steuern-2026.imageAlt': 'Panoramablick auf Lugano und den Kanton Tessin mit dem See',
+    'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Steuern grenzgänger Schweiz: Verpflichtungen und neues Abkommen',
+    'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Vollständiger Steuerleitfaden für Grenzgänger zwischen der Schweiz und Italien: Steuerpflichten, Unterscheidung zwischen alten und neuen Grenzgängern und Berechnungen.',
+    'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Panoramablick auf Lugano und den See im Tessin',
 };
 
 export default blogMetaDe;

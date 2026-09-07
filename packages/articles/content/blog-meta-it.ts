@@ -11580,6 +11580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grenzgaenger-schweiz-steuern-2026.title': 'Grenzgänger schweiz steuern 2026: regole e obblighi',
     'blog.article.grenzgaenger-schweiz-steuern-2026.excerpt': 'Analisi delle imposte e degli obblighi fiscali per i lavoratori transfrontalieri tra Svizzera e Italia in base al nuovo accordo e alle normative vigenti.',
     'blog.article.grenzgaenger-schweiz-steuern-2026.imageAlt': 'Vista panoramica di Lugano e del Canton Ticino con il lago',
+    'blog.article.regole-fiscali-grenzgaenger-2026.title': 'Tasse grenzgänger svizzera: obblighi e nuovo accordo',
+    'blog.article.regole-fiscali-grenzgaenger-2026.excerpt': 'Guida completa alle imposte per grenzgänger tra Svizzera e Italia: obblighi fiscali, distinzione tra vecchi e nuovi frontalieri e calcoli.',
+    'blog.article.regole-fiscali-grenzgaenger-2026.imageAlt': 'Vista panoramica di Lugano e del lago nel Canton Ticino',
 };
 
 export default blogMetaIt;
