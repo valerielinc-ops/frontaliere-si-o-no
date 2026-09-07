@@ -17,6 +17,7 @@ import {
   detectJobTitleLang,
   detectJobTitleLocaleDetails,
   detectTextLocale,
+  holdSourceLang,
   pinnedTitleSourceLang,
   titleLooksUntranslated,
   titleLooksUntranslatedFromSource,
@@ -1281,7 +1282,16 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     const pinnedLang = pinnedTitleSourceLang(job);
     const detectedSourceLang = pinnedLang || detectLang(baseDesc || baseTitle, 'it');
     let titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle, detectedSourceLang);
-    const sourceLang = pinnedLang || detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+    const sourceLang = pinnedLang || holdSourceLang(job, baseDesc || baseTitle, titleSourceLang);
+    // Derive the title slot from the SAME held value. detectJobTitleLang falls
+    // back to the description detection whenever the title alone is
+    // inconclusive (most short job titles are), so without this the held
+    // sourceLang would still be paired with an oscillating titleSourceLang and
+    // the title would keep hopping between slots in the titleByLocale write
+    // below.
+    if (!pinnedLang && sourceLang !== detectedSourceLang) {
+      titleSourceLang = detectJobTitleLang(baseTitle, sourceLang);
+    }
     if (!pinnedLang && baseTitle && titleSourceLang === 'it' && sourceLang !== 'it' && needsItalianTitleRepair(baseTitle)) {
       titleSourceLang = sourceLang;
     }
@@ -3169,8 +3179,15 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       }
 
       const pinnedJobLang = pinnedTitleSourceLang(job);
-      const titleSourceLang = pinnedJobLang || detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
-      let sourceLang = pinnedJobLang || detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
+      const detectedJobLang = pinnedJobLang || detectLang(baseDesc || baseTitle, 'it');
+      let titleSourceLang = pinnedJobLang || detectJobTitleLang(baseTitle, detectedJobLang);
+      // Same hold as hardenJobLocaleFields: this path writes titleByLocale and
+      // descriptionByLocale from these two values too, so an unheld flip here
+      // damages the record identically.
+      let sourceLang = pinnedJobLang || holdSourceLang(job, baseDesc || baseTitle, titleSourceLang);
+      if (!pinnedJobLang && sourceLang !== detectedJobLang) {
+        titleSourceLang = detectJobTitleLang(baseTitle, sourceLang);
+      }
       let jobTranslated = false;
 
       if (!job.titleByLocale || typeof job.titleByLocale !== 'object') job.titleByLocale = {};
