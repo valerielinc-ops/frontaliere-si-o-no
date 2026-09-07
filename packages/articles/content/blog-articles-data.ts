@@ -34473,6 +34473,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luganese-tram-treno-cantieri-2035',
+ category: 'novita',
+ date: '2026-09-07T09:46:51.139Z',
+ image: '/images/blog/luganese-tram-treno-cantieri-2035.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

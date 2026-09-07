@@ -11540,6 +11540,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-ferroviario-italia-ticino.title': 'Bahnstreik: mögliche Verspätungen im Tessin',
     'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'Ein landesweiter Streik der italienischen Staatsbahnen könnte auch im Tessin zu Unannehmlichkeiten führen.',
     'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Panoramablick auf Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.luganese-tram-treno-cantieri-2035.title': 'Luganer Tram-Zug: Erste Baustellen im Oktober, Netz 2035',
+    'blog.article.luganese-tram-treno-cantieri-2035.excerpt': 'Die Vorarbeiten beginnen Ende Oktober 2026 auf der Strecke zwischen Manno und Bioggio.',
+    'blog.article.luganese-tram-treno-cantieri-2035.imageAlt': 'Luftaufnahme von Lugano mit dem neuen Tram-Zug-Netz im Bau',
 };
 
 export default blogMetaDe;

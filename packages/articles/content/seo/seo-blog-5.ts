@@ -88057,6 +88057,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-luganese-tram-treno-cantieri-2035': {
+    title: 'Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035',
+    description: 'I lavori preliminari prenderanno il via alla fine di ottobre 2026 sulla tratta tra Manno e Bioggio. La rete sarà operativa nel corso del 2035. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, luganese, tram-treno, ottobre, primi',
+    ogTitle: 'Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035',
+    ogDescription: 'Scopri quando inizieranno i lavori preliminari della Rete Tram-Treno del Luganese e quando sarà operativa la nuova rete. Informazioni dettagliate e aggiornate.',
+    canonicalPath: '/articoli-frontaliere/luganese-tram-treno-cantieri-2035',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035",
+      "description": "I lavori preliminari prenderanno il via alla fine di ottobre 2026 sulla tratta tra Manno e Bioggio. La rete sarà operativa nel corso del 2035. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luganese-tram-treno-cantieri-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con la nuova rete Tram-Treno in costruzione"
+      },
+      "datePublished": "2026-09-07T09:46:51+00:00",
+      "dateModified": "2026-09-07T09:46:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luganese-tram-treno-cantieri-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

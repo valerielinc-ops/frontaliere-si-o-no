@@ -11541,6 +11541,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-ferroviario-italia-ticino.title': 'Rail strike: possible delays in Ticino',
     'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'A national strike by the Italian State Railways could also cause disruption in Ticino.',
     'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Panoramic view of Lugano with the lake and surrounding mountains',
+    'blog.article.luganese-tram-treno-cantieri-2035.title': 'Lugano Tram-Train: First sites in October, operational by 2035',
+    'blog.article.luganese-tram-treno-cantieri-2035.excerpt': 'Preliminary work will start at the end of October 2026 on the section between Manno and Bioggio.',
+    'blog.article.luganese-tram-treno-cantieri-2035.imageAlt': 'Aerial view of Lugano with the new Tram-Train network under construction',
 };
 
 export default blogMetaEn;
