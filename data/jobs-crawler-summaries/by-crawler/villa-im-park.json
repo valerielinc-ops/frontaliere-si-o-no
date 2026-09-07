@@ -1,20 +1,21 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-09-06T22:52:12.080Z",
+  "generatedAt": "2026-09-07T15:03:36.076Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
+  "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7232,
-  "avgDurationMs": 7232,
+  "durationMs": 8185,
+  "avgDurationMs": 8185,
   "durationHistory": [
-    7232
+    8185
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:52:00.937Z",
+      "crawledAt": "2026-09-07T15:03:22.970Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist 4852",
@@ -68,7 +69,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:52:01.355Z",
+      "crawledAt": "2026-09-07T15:03:23.385Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
