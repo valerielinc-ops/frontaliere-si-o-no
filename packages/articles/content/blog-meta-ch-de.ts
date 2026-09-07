@@ -5965,6 +5965,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.title': 'Erbschaftssteuer Neuenburg: Steuersätze und Befreiungen',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.excerpt': 'Informieren Sie sich über die Erbschafts- und Schenkungssteuersätze im Kanton Neuenburg, die Befreiungen für Ehegatten und Nachkommen und die Fristen für die Deklaration.',
     'blog.article.imposta-successione-donazione-neuchatel-aliquote.imageAlt': 'Panoramablick auf den Luganersee mit Fokus auf der Schweizer-Französischen Grenze',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Kantonale Steuern in Genf: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Entdecken Sie die kantonalen Steuersätze und -abzüge in Genf inklusive Liefertermine und das Online-Portal der Steuerverwaltung.',
+    'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Luftbild des Genfersees mit der Stadt Genf im Hintergrund, zeigend die Verwaltungsgebäude und das Finanzviertel.',
 };
 
 export default blogMetaChDe;
