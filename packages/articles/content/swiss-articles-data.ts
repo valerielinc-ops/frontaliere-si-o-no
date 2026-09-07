@@ -17623,6 +17623,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'disuguaglianze-salariali-stage-svizzera',
+    category: 'fiscale',
+    date: '2026-09-07T08:04:30.072Z',
+    image: '/images/blog/disuguaglianze-salariali-stage-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

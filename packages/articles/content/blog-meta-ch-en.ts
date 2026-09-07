@@ -5875,6 +5875,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intelligenza-artificiale-cardiologia-2026.title': 'Heart and artificial intelligence: new predictive tools',
     'blog.article.intelligenza-artificiale-cardiologia-2026.excerpt': 'Two studies by Inselspital and the University of Bern indicate that AI improves the prognosis of heart disease.',
     'blog.article.intelligenza-artificiale-cardiologia-2026.imageAlt': 'A doctor analyzes data on a computer in a medical research laboratory with the University of Bern in the background.',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'From 3,500 to zero: internships and inequalities in Switzerland',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'The salaries of internships in Switzerland vary enormously, from 3,500francs to zero, helping to define the relationship of young people with work.',
+    'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'A young professional working in a modern office in Lugano',
 };
 
 export default blogMetaChEn;
