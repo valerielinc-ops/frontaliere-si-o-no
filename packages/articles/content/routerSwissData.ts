@@ -2033,6 +2033,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-canton-ginevra-requisiti-importi': { it: 'borse-studio-canton-ginevra-requisiti-importi', en: 'grants-canton-geneva-requirements-amounts', de: 'stipendien-kanton-genf-voraussetzungen-betraege', fr: 'bourses-etudes-canton-geneve-conditions-montants' },
  'asilo-nido-custodia-bambini-ginevra-costi': { it: 'asilo-nido-custodia-bambini-ginevra-costi', en: 'daycare-childcare-geneva-costs', de: 'kita-kinderbetreuung-genf-kosten', fr: 'creche-garde-enfants-geneve-couts' },
  'comprare-casa-ginevra-mutuo-ipotecario': { it: 'comprare-casa-ginevra-mutuo-ipotecario', en: 'buy-house-geneva-mortgage', de: 'haus-kaufen-genf-hypothek', fr: 'acheter-maison-geneve-hypotheque' },
+ 'ginevra-mercato-affitti-diritto-locazione': { it: 'ginevra-mercato-affitti-diritto-locazione', en: 'geneva-rental-market-housing-law', de: 'genf-mietmarkt-mietrecht', fr: 'geneve-marche-locatif-droit-bail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

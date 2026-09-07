@@ -6022,6 +6022,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Buying a house in the Canton of Geneva: prices and mortgage',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Average prices in Geneva, own funds required, mortgage loan sustainability, transfer taxes and notary fees.',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Residential buildings along Lake Geneva with Swiss Alps view',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Rentals in Geneva: average fees and rental rights',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Detailed analysis of the rental market in the Canton of Geneva, with a focus on average rents by area, security deposit, dispute and federal rental rules.',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Real estate market and rents in the Canton of Geneva',
 };
 
 export default blogMetaChEn;

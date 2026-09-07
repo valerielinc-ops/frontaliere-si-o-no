@@ -6022,6 +6022,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Acheter une maison dans le canton de Genève : prix et hypothèque',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Prix moyens à Genève, fonds propres requis, viabilité du prêt hypothécaire, taxes de passage et frais de notaire.',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Résidences au bord du lac Léman avec vue sur les Alpes suisses',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Loyers à Genève : loyers moyens et droit de location',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Analyse détaillée du marché locatif dans le canton de Genève, en mettant l\'accent sur les loyers moyens par zone, le dépôt de garantie, la contestation et les règles fédérales de location.',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Marché immobilier et loyers dans le canton de Genève',
 };
 
 export default blogMetaChFr;
