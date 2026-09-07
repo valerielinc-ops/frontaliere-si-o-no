@@ -643,8 +643,12 @@ export function renderFormattedContent(
   wordsAtDefer = wordsSinceLastAd;
   onH2Boundary?.('deferred', pendingAdKey);
  } else {
+  // `tryEmitAd` runs OUTSIDE the optional call: `f?.(tryEmitAd(k))` does not
+  // evaluate its arguments when `f` is undefined, which is every production
+  // caller — the ad would only be attempted while a test probe is attached.
   const key = `pre-h2-${idx}`;
-  onH2Boundary?.(tryEmitAd(key) ? 'emitted' : 'skipped', key);
+  const emitted = tryEmitAd(key);
+  onH2Boundary?.(emitted ? 'emitted' : 'skipped', key);
  }
 
  const lines = trimmed.split('\n');
