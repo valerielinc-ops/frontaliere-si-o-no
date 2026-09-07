@@ -5890,6 +5890,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cannabis-farmacia-vendita.title': 'Cannabis: pharmacy sale reduces risks, study',
     'blog.article.cannabis-farmacia-vendita.excerpt': 'The sale of cannabis in pharmacies in Bern, Biel and Lucerne favors less risky consumption, according to a study.',
     'blog.article.cannabis-farmacia-vendita.imageAlt': 'Pharmacy in Switzerland with cannabis sale sign',
+    'blog.article.black-keys-concerto-annullato-berna.title': 'The Black Keys cancel concert in Bern due to illness',
+    'blog.article.black-keys-concerto-annullato-berna.excerpt': 'The American band had to cancel the show at Bern\'s Festhalle due to illness.',
+    'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Cancelled concert at Berna\'s Festhalle',
 };
 
 export default blogMetaChEn;

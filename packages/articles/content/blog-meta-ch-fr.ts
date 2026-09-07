@@ -5890,6 +5890,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cannabis-farmacia-vendita.title': 'Cannabis : la vente en pharmacie réduit les risques, étude',
     'blog.article.cannabis-farmacia-vendita.excerpt': 'La vente de cannabis dans les pharmacies de Berne, Bienne et Lucerne favorise une consommation moins risquée, selon une étude.',
     'blog.article.cannabis-farmacia-vendita.imageAlt': 'Pharmacie en Suisse avec panneau de vente de cannabis',
+    'blog.article.black-keys-concerto-annullato-berna.title': 'Les Black Keys annulent leur concert à Berne pour cause de maladie',
+    'blog.article.black-keys-concerto-annullato-berna.excerpt': 'Le groupe américain a dû annuler le spectacle à la Festhalle de Berne en raison de cas de maladie.',
+    'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Concert annulé à la Festhalle de Berne',
 };
 
 export default blogMetaChFr;
