@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-09-07T15:18:37.353Z",
+  "assembledAt": "2026-09-07T23:42:38.502Z",
   "jobs": [
     {
       "id": "logitech-171aac38ec54",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:18:31.236Z",
+      "crawledAt": "2026-09-07T23:42:32.158Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,8 +66,8 @@
           "senior-hardware-product-user-experience-designer-logitech-ch"
         ]
       },
-      "firstSeenAt": "2026-05-28T13:21:21.034Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-28T13:21:21.034Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -114,7 +114,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:18:30.266Z",
+      "crawledAt": "2026-09-07T23:42:31.194Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,6 +145,7 @@
           "audio-machine-learning-data-engineer-logitech-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T23:27:08.641Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -159,8 +160,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-318c1af909a7",
@@ -239,7 +239,7 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
