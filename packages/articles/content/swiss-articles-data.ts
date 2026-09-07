@@ -17920,6 +17920,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-appenzello-interno-canoni',
+    category: 'pratico',
+    date: '2026-09-07T14:21:05.694Z',
+    image: '/images/blog/affitti-appenzello-interno-canoni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
