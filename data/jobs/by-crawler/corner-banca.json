@@ -1315,7 +1315,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-06T23:09:41.876Z",
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1332,8 +1331,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-e77e18a8741a",
