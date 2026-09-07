@@ -17560,6 +17560,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-neuchatel-costi-commercio',
+    category: 'pratico',
+    date: '2026-09-07T06:17:27.935Z',
+    image: '/images/blog/aprire-attivita-neuchatel-costi-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'neuchatel-salari-settori-formazione',
+    category: 'pratico',
+    date: '2026-09-07T06:38:33.886Z',
+    image: '/images/blog/neuchatel-salari-settori-formazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

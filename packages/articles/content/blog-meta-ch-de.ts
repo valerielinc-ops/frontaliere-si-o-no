@@ -5854,6 +5854,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Geschäft in Bern eröffnen: Handelsregister und Kosten',
     'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Unternehmensregistrierung in Bern: Wahl der Rechtsform, Handelsregistereintragung, Mindestkapital und Versicherungspflichten.',
     'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Schweizer Stadtsicht mit historischen Gebäuden und Alpenlandschaft im Hintergrund',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Geschäft in Neuenburg eröffnen: Kosten und Handelsregister',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Rechtsformen, Handelsregistereintrag, Sozialversicherungsbeiträge und Steuern. Praktischer Leitfaden zur Unternehmensgründung im Kanton.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Schweizer Geschäftsberatungsbüro mit Unternehmensregistrierungsdokumenten auf dem Schreibtisch',
+    'blog.article.neuchatel-salari-settori-formazione.title': 'Löhne und Arbeitsmarkt Neuenburg: Branchen und Ausbildung',
+    'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Löhne, Einstellungsbereiche und Kollektivverträge im Kanton Neuenburg: Wie funktioniert das schweizerische Lohnsystem nach Bildungsgrad und Beiträgen?',
+    'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Schweizer Fachkraft im Büro mit Gehaltsdokumenten und Neuenburger Kantonslandschaft im Hintergrund',
 };
 
 export default blogMetaChDe;

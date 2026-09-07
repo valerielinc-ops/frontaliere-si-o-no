@@ -34365,6 +34365,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-jovencan-lavorare-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-09-07T06:28:11.319Z',
+ image: '/images/blog/vivere-jovencan-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-villeneuve-lavorare-vallese-frontaliere',
+ category: 'pratico',
+ date: '2026-09-07T06:47:51.250Z',
+ image: '/images/blog/vivere-villeneuve-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

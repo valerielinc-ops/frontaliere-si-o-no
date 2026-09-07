@@ -111,6 +111,40 @@ export function detectTextLocale(value = '', fallback = 'it') {
   return detectLanguageWithConfidence(clean, fallback);
 }
 
+// Confidence bar under which a fresh detection may NOT overrule the sourceLang
+// already stored on a job. Same 0.65 bar the cross-locale contamination check
+// uses in scripts/relocalize-pending-jobs.mjs (a literal there, not exported).
+//
+// Why the guard exists: detectTextLocale re-runs on EVERY crawler pass and the
+// callers used to write its verdict back unconditionally, so a job whose text
+// sits near the it/en boundary oscillated between passes. Measured on
+// origin/main over 8 snapshots (2026-09-04 -> 2026-09-07): 68 sourceLang
+// transitions, 62 of them (91%) below 0.65, median confidence 0.436. Each flip
+// stamps the source title into the newly elected locale slot, after which the
+// completeness gate is unsatisfiable by any output and the job is parked in the
+// translation queue forever.
+export const SOURCE_LANG_HOLD_CONFIDENCE = 0.65;
+
+/**
+ * The language to treat as a job's source: the value already stored on the job
+ * when the fresh detection is too weak to justify a flip, the detected one
+ * otherwise. A job with no stored sourceLang has nothing to protect — the
+ * low-confidence detection is then the only information available and wins.
+ * The guard protects against the FLIP, never against the first assignment.
+ */
+export function holdSourceLang(job, text, fallbackLang = 'it') {
+  const detected = detectTextLocale(text, fallbackLang);
+  const stored = String((job && job.sourceLang) || '').trim();
+  if (
+    stored &&
+    DEFAULT_JOB_LOCALES.includes(stored) &&
+    detected.confidence < SOURCE_LANG_HOLD_CONFIDENCE
+  ) {
+    return stored;
+  }
+  return detected.lang;
+}
+
 export function detectJobTitleLocaleDetails(title = '', fallback = 'it') {
   const clean = String(title || '').trim();
   if (!clean) {

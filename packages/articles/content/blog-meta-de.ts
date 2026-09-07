@@ -11504,6 +11504,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Leben in Colorina und Arbeiten in Graubünden',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'G-Bewilligung, Besteuerung in der Schweiz, italienische Steuergutschrift, AHV/BVG, KVG und Verfahren: der umfassende Leitfaden für Grenzgänger zwischen Sondrio und Graubünden.',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina in der Provinz Sondrio: typischer Wohnbereich für Grenzgänger, die im Kanton Graubünden arbeiten',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Wohnen in Jovençan, Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Bewilligung G, Quellensteuer, AHV und Lebenshaltungskosten: Praktischer Leitfaden für Personen, die im Aostatal leben und im Wallis arbeiten',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Alpines Tal im Aostatal mit Verbindungsstraße zum Schweizer Wallis an der Grenze',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.title': 'Wohnen in Villeneuve und Arbeiten im Wallis: Grenzführer',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.excerpt': 'Villeneuve ist Ziel von Grenzgängern, die im Wallis arbeiten. Entdecken Sie G-Bewilligungen, Quellensteuern, KVG, AHV, BVG, Rückerstattungen und Verfahren für den Umzug.',
+    'blog.article.vivere-villeneuve-lavorare-vallese-frontaliere.imageAlt': 'Walliser Tal mit Hauptstrasse, Grenzpendlerverkehr Wallis-Italien',
 };
 
 export default blogMetaDe;
