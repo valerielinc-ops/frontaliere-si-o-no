@@ -11493,6 +11493,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontiere Poggiridenti-Grisioni: taxation and permits',
     'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Living in Poggiridenti and working in Graubünden: G permit, tax at source, New Frontier Agreement 2024 and AVS/LPP contributions. Practical guide and checklist.',
     'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpine landscape at the Italy-Switzerland border with misty valleys and green slopes at sunset.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Living in San Giacomo Filippo and working in Graubünden',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'New Frontier Agreement 2024, taxation, LAMal and AVS: the complete guide to move to San Giacomo Filippo and work in Graubünden as a border worker.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Parked car on a mountain road in Ticino at sunset, with Alpine peaks of Grisons in the background',
 };
 
 export default blogMetaEn;

@@ -11492,6 +11492,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-poggiridenti-grigioni.title': 'Grenzgänger Wohnortstütze-Graubünden: Besteuerung und Bewilligungen',
     'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Wohnen in Poggiridenti und Arbeiten in Graubünden: Bewilligung G, Quellensteuer, Neue Grenzgängervereinbarung 2024 und AHV/BVG-BEITRÄGE. Praktischer Leitfaden und Checkliste.',
     'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Alpines Berglandschaft an der Grenze zwischen Italien und der Schweiz mit nebligen Tälern.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Leben in St. Jakob Philipp und Arbeiten in Graubünden',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Neue Frontalieri-Vereinbarung 2024, Steuern, KVG und AHV: Der komplette Leitfaden für den Umzug nach San Giacomo Filippo und die Arbeit in Graubünden als Grenzgänger.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Geparktes Auto auf Bergstraße im Tessin bei Sonnenuntergang, mit Blick auf Graubündner Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

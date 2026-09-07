@@ -11494,6 +11494,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontaliere Poggiridenti-Grigioni: tassazione e permessi',
     'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivere a Poggiridenti e lavorare nei Grigioni: permesso G, imposta alla fonte, Nuovo Accordo Frontalieri 2024 e contributi AVS/LPP. Guida pratica e checklist.',
     'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paesaggio alpino al confine tra Italia e Svizzera, valli con nebbia e pendii verdi al tramonto.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivere a San Giacomo Filippo e lavorare nei Grigioni',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nuovo Accordo Frontalieri 2024, fiscalità, LAMal e AVS: la guida completa per trasferirsi a San Giacomo Filippo e lavorare nei Grigioni da frontaliere.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Auto parcheggiata su strada di montagna nel Ticino al tramonto, con vista sulle Alpi dei Grigioni sullo sfondo',
 };
 
 export default blogMetaIt;
