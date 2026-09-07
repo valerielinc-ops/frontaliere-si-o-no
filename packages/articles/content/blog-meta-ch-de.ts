@@ -5917,6 +5917,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tragitto-casa-scuola-rischioso.title': 'Schulweg: Für 41% der Eltern ist es riskant, zu studieren',
     'blog.article.tragitto-casa-scuola-rischioso.excerpt': 'Vier von zehn Eltern halten den Schulweg für ihre Kinder für gefährlich, so eine Studie im Auftrag DES VEREINS VERKEHR und UMWELT (ATA) und DES VERKEHRSSICHERHEITSFONDS (FSS).',
     'blog.article.tragitto-casa-scuola-rischioso.imageAlt': 'Ein Kind, das in einer Schweizer Stadt auf einem sicheren Fußweg zur Schule geht',
+    'blog.article.settembre-mese-ambiente-collina-doro.title': 'September? Es ist der Monat der Umwelt',
+    'blog.article.settembre-mese-ambiente-collina-doro.excerpt': 'Der September 2026 wird der Umwelt in Collina d \'Oro mit zahlreichen nachhaltigen Initiativen gewidmet sein.',
+    'blog.article.settembre-mese-ambiente-collina-doro.imageAlt': 'Luftaufnahme von Collina d\'Oro, Schweiz, mit Fokus auf Umweltinitiativen und Gemeinschaftsaktivitäten.',
 };
 
 export default blogMetaChDe;
