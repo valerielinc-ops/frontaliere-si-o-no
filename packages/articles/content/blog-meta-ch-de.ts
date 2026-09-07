@@ -5935,6 +5935,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cibo-per-cani-gatti-errori-comuni.title': 'Hunde- und Katzenfutter: Die fünf häufigsten Fehler',
     'blog.article.cibo-per-cani-gatti-errori-comuni.excerpt': 'Zu große Portionen, schmutzige Schüsseln oder Reste vom Tisch: Das sollten Sie nicht tun, um diese Haustiere gesund zu halten',
     'blog.article.cibo-per-cani-gatti-errori-comuni.imageAlt': 'Hund und Katze essen aus ihren Schüsseln in einem sauberen, gut beleuchteten Küchenbereich',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.title': 'Bund will Thuner Gebiete für Armee und Verteidigung erhalten',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.excerpt': 'Der Bund wird keine Flächen im wirtschaftlichen Entwicklungspol Thun Nord für rein zivile Zwecke abtreten',
+    'blog.article.confederazione-mantiene-aree-thun-difesa.imageAlt': 'Luftaufnahme von Thun mit dem militärischen Ausbildungsgebiet und den umliegenden Industriegebieten',
 };
 
 export default blogMetaChDe;
