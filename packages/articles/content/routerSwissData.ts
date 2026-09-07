@@ -1980,6 +1980,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-neuchatel-costi-commercio': { it: 'aprire-attivita-neuchatel-costi-commercio', en: 'start-business-neuchatel-costs-registration', de: 'unternehmen-neuchatel-kosten-registrierung', fr: 'demarrer-activite-neuchatel-couts-immatriculation' },
  'neuchatel-salari-settori-formazione': { it: 'neuchatel-salari-settori-formazione', en: 'neuchatel-salaries-sectors-education', de: 'neuenburg-loehne-sektoren-bildung', fr: 'neuchatel-salaires-secteurs-formation' },
  'neuchatel-salari-livelli-formazione': { it: 'neuchatel-salari-livelli-formazione', en: 'neuchatel-salary-levels-training', de: 'neuenburg-loehne-niveaus-ausbildung', fr: 'neuchatel-salaires-niveaux-formation' },
+ 'ddps-thun-difesa-innovazione': { it: 'ddps-thun-difesa-innovazione', en: 'ddps-thun-defense-innovation', de: 'ddps-thun-verteidigung-innovation', fr: 'ddps-thun-defense-innovation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

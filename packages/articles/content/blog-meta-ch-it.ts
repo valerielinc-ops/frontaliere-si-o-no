@@ -5863,6 +5863,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neuchatel-salari-livelli-formazione.title': 'Salari e lavoro in Neuchâtel: settori e livelli',
     'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Mercato del lavoro nel Canton Neuchâtel: come funzionano i salari, quali fattori influenzano la retribuzione, diritti e strumenti per valutare lo stipendio.',
     'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Professionisti al lavoro in un moderno ufficio svizzero con vista sulle montagne.',
+    'blog.article.ddps-thun-difesa-innovazione.title': 'Il DDPS rafforza la sede di Thun per la difesa e l’innovazione',
+    'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Il DDPS manterrà le aree di proprietà della Confederazione sulla piazza d’armi di Thun per scopi militari.',
+    'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Vista aerea della piazza d’armi di Thun con strutture moderne per la difesa e l’innovazione.',
 };
 
 export default blogMetaChIt;

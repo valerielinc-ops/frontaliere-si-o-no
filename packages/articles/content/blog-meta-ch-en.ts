@@ -5863,6 +5863,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neuchatel-salari-livelli-formazione.title': 'Wages and work in Neuchâtel: sectors and levels',
     'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Labour market in the Canton of Neuchâtel: how wages work, what factors influence pay, rights and tools for assessing pay.',
     'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Professionals working in a modern Swiss office with mountain views.',
+    'blog.article.ddps-thun-difesa-innovazione.title': 'DDPS Strengthens Thun Headquarters for Defense and Innovation',
+    'blog.article.ddps-thun-difesa-innovazione.excerpt': 'DDPS will maintain Confederation-owned areas on the Thun parade ground for military purposes.',
+    'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Aerial view of Thun military base with modern defense and innovation facilities.',
 };
 
 export default blogMetaChEn;

@@ -17587,6 +17587,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ddps-thun-difesa-innovazione',
+    category: 'novita',
+    date: '2026-09-07T07:16:24.205Z',
+    image: '/images/blog/ddps-thun-difesa-innovazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

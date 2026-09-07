@@ -5863,6 +5863,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neuchatel-salari-livelli-formazione.title': 'Salaires et emploi à Neuchâtel : secteurs et niveaux',
     'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Marché du travail dans le canton de Neuchâtel : comment fonctionnent les salaires, quels facteurs influent sur la rémunération, droits et outils d\'évaluation du salaire.',
     'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Professionnels travaillant dans un bureau suisse moderne avec vue sur les montagnes.',
+    'blog.article.ddps-thun-difesa-innovazione.title': 'Le DDPS renforce le siège de Thoune pour la défense et l’innovation',
+    'blog.article.ddps-thun-difesa-innovazione.excerpt': 'Le DDPS maintiendra les zones appartenant à la Confédération sur la place d’armes de Thoune à des fins militaires.',
+    'blog.article.ddps-thun-difesa-innovazione.imageAlt': 'Vue aérienne de la place d\'armes de Thun avec des installations modernes pour la défense et l\'innovation.',
 };
 
 export default blogMetaChFr;
