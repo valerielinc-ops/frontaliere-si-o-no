@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-09-07T15:04:15.778Z",
+  "assembledAt": "2026-09-07T23:23:28.234Z",
   "jobs": [
     {
       "id": "hermes-72295ebf73a5",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:04:09.399Z",
+      "crawledAt": "2026-09-07T23:23:21.794Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,8 +83,8 @@
           "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -130,7 +130,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:04:08.766Z",
+      "crawledAt": "2026-09-07T23:23:21.011Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -203,7 +203,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23533/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:04:08.107Z",
+      "crawledAt": "2026-09-07T23:23:20.180Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -282,7 +282,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23530/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:04:07.449Z",
+      "crawledAt": "2026-09-07T23:23:19.474Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:04:06.564Z",
+      "crawledAt": "2026-09-07T23:23:18.816Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:04:05.891Z",
+      "crawledAt": "2026-09-07T23:23:18.182Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -464,8 +464,8 @@
           "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -551,7 +551,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -629,7 +629,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
