@@ -5860,6 +5860,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neuchatel-salari-settori-formazione.title': 'Salaires et marché du travail Neuchâtel : secteurs et formation',
     'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Salaires, secteurs qu\'ils embauchent et conventions collectives dans le canton de Neuchâtel : comment fonctionne le système suisse de salaires par niveau de formation et cotisations.',
     'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Professionnel suisse travaillant au bureau avec documents de salaire et paysage du canton de Neuchâtel en arrière-plan',
+    'blog.article.neuchatel-salari-livelli-formazione.title': 'Salaires et emploi à Neuchâtel : secteurs et niveaux',
+    'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Marché du travail dans le canton de Neuchâtel : comment fonctionnent les salaires, quels facteurs influent sur la rémunération, droits et outils d\'évaluation du salaire.',
+    'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Professionnels travaillant dans un bureau suisse moderne avec vue sur les montagnes.',
 };
 
 export default blogMetaChFr;

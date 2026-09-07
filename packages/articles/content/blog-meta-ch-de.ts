@@ -5860,6 +5860,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neuchatel-salari-settori-formazione.title': 'Löhne und Arbeitsmarkt Neuenburg: Branchen und Ausbildung',
     'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Löhne, Einstellungsbereiche und Kollektivverträge im Kanton Neuenburg: Wie funktioniert das schweizerische Lohnsystem nach Bildungsgrad und Beiträgen?',
     'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Schweizer Fachkraft im Büro mit Gehaltsdokumenten und Neuenburger Kantonslandschaft im Hintergrund',
+    'blog.article.neuchatel-salari-livelli-formazione.title': 'Löhne und Arbeit in Neuenburg: Branchen und Ebenen',
+    'blog.article.neuchatel-salari-livelli-formazione.excerpt': 'Arbeitsmarkt im Kanton Neuchâtel: Wie Löhne funktionieren, welche Faktoren die Bezahlung beeinflussen, Rechte und Werkzeuge zur Gehaltsbewertung.',
+    'blog.article.neuchatel-salari-livelli-formazione.imageAlt': 'Fachleute arbeiten in einem modernen Schweizer Büro mit Bergaussicht.',
 };
 
 export default blogMetaChDe;
