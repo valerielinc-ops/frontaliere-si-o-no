@@ -1,20 +1,21 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-09-06T22:55:27.399Z",
+  "generatedAt": "2026-09-07T15:13:13.764Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
+  "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5192,
-  "avgDurationMs": 5192,
+  "durationMs": 4864,
+  "avgDurationMs": 4864,
   "durationHistory": [
-    5192
+    4864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:55:18.414Z",
+      "crawledAt": "2026-09-07T15:13:07.180Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -66,7 +67,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:55:18.409Z",
+      "crawledAt": "2026-09-07T15:13:07.168Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
