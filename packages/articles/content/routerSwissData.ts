@@ -2024,6 +2024,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-lucerna-requisiti-domanda': { it: 'permesso-c-lucerna-requisiti-domanda', en: 'lucerne-c-permit-requirements', de: 'lucerne-c-aufenthaltsbewilligung-voraussetzungen', fr: 'permis-c-lucerne-conditions-demande' },
  'affitti-turgovia-canoni-diritto-locazione': { it: 'affitti-turgovia-canoni-diritto-locazione', en: 'rent-thurgau-canton-average-rent-tenancy-law', de: 'mieten-thurgau-kanton-durchschnittsmiete-mietrecht', fr: 'loyers-thurgovie-cantons-loyers-moyens-droit-bail' },
  'riserve-bns-aumento-agosto': { it: 'riserve-bns-aumento-agosto', en: 'snb-foreign-reserves-rise-august', de: 'snb-devisenreserven-anstieg-august', fr: 'bns-reserves-devises-augmentation-aout' },
+ 'affitti-turgovia-canoni-locazione-conciliazione': { it: 'affitti-turgovia-canoni-locazione-conciliazione', en: 'thurgau-rent-market-tenancy-law-conciliation', de: 'thurgau-miete-mietrecht-schlichtung', fr: 'thurgovie-loyers-droit-bail-conciliation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
