@@ -11536,6 +11536,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-stabile-agosto-2023.title': 'Disoccupazione stabile in Svizzera ad agosto',
     'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3,0% ad agosto, con il Ticino al 2,9%. Aumentano i disoccupati di lunga durata.',
     'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Vista aerea di Lugano con le montagne sullo sfondo',
+    'blog.article.emergenza-terra-trasformazione.title': 'Emergenza Terra racconta la grande trasformazione',
+    'blog.article.emergenza-terra-trasformazione.excerpt': 'Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio.',
+    'blog.article.emergenza-terra-trasformazione.imageAlt': 'Vista aerea del campus SUPSI di Mendrisio, Ticino, con persone che partecipano a un evento.',
 };
 
 export default blogMetaIt;

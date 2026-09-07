@@ -11535,6 +11535,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-stabile-agosto-2023.title': 'Stable unemployment in Switzerland in August',
     'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'The unemployment rate in Switzerland remained stable at 3.0% in August, with Ticino at 2.9%. Long-term unemployed are on the rise.',
     'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Aerial view of Lugano with mountains in the background',
+    'blog.article.emergenza-terra-trasformazione.title': 'Earth Emergency tells the story of the great transformation',
+    'blog.article.emergenza-terra-trasformazione.excerpt': 'Series of meetings on ecological and social transformation from 16 September to 9 December at the SUPSI Campus in Mendrisio.',
+    'blog.article.emergenza-terra-trasformazione.imageAlt': 'Aerial view of the SUPSI campus in Mendrisio, Ticino, with people attending an event.',
 };
 
 export default blogMetaEn;

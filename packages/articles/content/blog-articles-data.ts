@@ -34455,6 +34455,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'emergenza-terra-trasformazione',
+ category: 'novita',
+ date: '2026-09-07T08:52:50.843Z',
+ image: '/images/blog/emergenza-terra-trasformazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
