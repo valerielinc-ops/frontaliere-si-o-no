@@ -78176,6 +78176,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ginevra-mercato-affitti-diritto-locazione': {
+    title: 'Affitti a Ginevra: canoni medi e diritto di locazione',
+    description: 'Scopri i canoni medi, le regole sulla cauzione, la contestazione del canone e le procedure di disdetta nel mercato degli affitti del Cantone di Ginevra.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, ginevra, canoni, medi',
+    ogTitle: 'Mercato Affitti Ginevra: Canoni Medi e Diritto di Locazione',
+    ogDescription: 'Guida completa al mercato degli affitti nel Cantone di Ginevra: analisi dei canoni, deposito cauzionale massimo a tre mesi, contestazione del canone e norme sulla disdetta.',
+    canonicalPath: '/articoli-svizzera/ginevra-mercato-affitti-diritto-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti a Ginevra: canoni medi e diritto di locazione",
+      "description": "Scopri i canoni medi, le regole sulla cauzione, la contestazione del canone e le procedure di disdetta nel mercato degli affitti del Cantone di Ginevra.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ginevra-mercato-affitti-diritto-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato immobiliare e affitti nel Cantone di Ginevra"
+      },
+      "datePublished": "2026-09-07T17:23:51+00:00",
+      "dateModified": "2026-09-07T17:23:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-mercato-affitti-diritto-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

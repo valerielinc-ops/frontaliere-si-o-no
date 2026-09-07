@@ -6022,6 +6022,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Haus kaufen im Kanton Genf: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Durchschnittliche Preise in Genf, geforderte Eigenmittel, Tragbarkeit des Hypothekendarlehens, Abgaben und Notarkosten.',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Wohnhäuser am Genfersee mit Blick auf die Schweizer Alpen',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Mieten in Genf: Durchschnittsmieten und Mietrecht',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Detaillierte Analyse des Mietmarkts im Kanton Genf mit Schwerpunkt auf den durchschnittlichen Gebühren pro Zone, der Kaution, der Anfechtung und den eidgenössischen Mietregeln.',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Immobilienmarkt und Mieten im Kanton Genf',
 };
 
 export default blogMetaChDe;

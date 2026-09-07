@@ -6022,6 +6022,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Comprare casa nel Canton Ginevra: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Prezzi medi a Ginevra, fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili.',
     'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Residenze sul lungolago di Ginevra con vista sulle Alpi svizzere',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.title': 'Affitti a Ginevra: canoni medi e diritto di locazione',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.excerpt': 'Analisi dettagliata del mercato degli affitti nel Cantone di Ginevra, con focus sui canoni medi per zona, il deposito di garanzia, la contestazione e le regole federali della locazione.',
+    'blog.article.ginevra-mercato-affitti-diritto-locazione.imageAlt': 'Mercato immobiliare e affitti nel Cantone di Ginevra',
 };
 
 export default blogMetaChIt;
