@@ -5809,6 +5809,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-cassa-compensazione-canton.title': 'AVS e prestazioni: cassa di compensazione cantonale',
     'blog.article.avs-cassa-compensazione-canton.excerpt': 'Come funziona la cassa di compensazione cantonale per l\'AVS, il calcolo della rendita e le prestazioni complementari per chi ha lacune contributive.',
     'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Consulente finanziario esamina i contributi AVS in un ufficio cantonale svizzero',
+    'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Assegni familiari Berna: condizioni e domanda',
+    'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'Nel Canton Berna gli assegni familiari garantiscono sostegno per ogni figlio. Scopri diritti, procedure di domanda e dove informarsi.',
+    'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Ufficio della cassa di compensazione familiari nel Canton Berna, cittadini che richiedono informazioni sugli assegni.',
 };
 
 export default blogMetaChIt;

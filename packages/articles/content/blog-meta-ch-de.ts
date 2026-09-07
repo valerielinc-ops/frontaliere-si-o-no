@@ -5809,6 +5809,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-cassa-compensazione-canton.title': 'AHV und Leistungen: kantonale Ausgleichskasse',
     'blog.article.avs-cassa-compensazione-canton.excerpt': 'Wie funktioniert die kantonale Ausgleichskasse für die AHV, die Rentenberechnung und die Ergänzungsleistungen für Personen mit Beitragslücken?',
     'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Finanzberater überprüft AHV-Beiträge in einem Schweizer Kantonsamt',
+    'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Familienzulagen Bern: Bedingungen und Antrag',
+    'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'Im Kanton Bern garantieren die Familienzulagen Unterstützung für jedes Kind. Entdecken Sie Rechte, Antragsverfahren und wo Sie sich informieren können.',
+    'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Ausgleichskasse für Familienzulagen im Kanton Bern, Bürger erkundigen sich nach Kinderbeihilfen.',
 };
 
 export default blogMetaChDe;

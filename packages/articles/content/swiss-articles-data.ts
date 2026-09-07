@@ -17425,6 +17425,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'assegni-familiari-berna-diritti-domanda',
+    category: 'pratico',
+    date: '2026-09-07T01:54:09.342Z',
+    image: '/images/blog/assegni-familiari-berna-diritti-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
