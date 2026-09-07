@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-buelach",
-  "assembledAt": "2026-09-06T23:11:23.231Z",
+  "assembledAt": "2026-09-07T14:38:22.092Z",
   "jobs": [
     {
       "id": "spital-buelach-292bab1d5f97",
@@ -1921,85 +1921,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:54.341Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-buelach-e9fd5cd77c4e",
-      "slug": "apprendistato-med-praxisassistentin-med-praxisassistent-cfc-spital-bulach",
-      "slugByLocale": {
-        "it": "apprendistato-med-praxisassistentin-med-praxisassistent-cfc-spital-bulach",
-        "en": "apprenticeship-med-praxisassistentin-med-practical-assistant-efz-spital-bulach-bulach",
-        "de": "lehrstelle-med-praxisassistentin-med-praxisassistent-efz-spital-buelach-bulach",
-        "fr": "apprentissage-med-praxisassistantin-med-assistant-pratique-efz-spital-bulach-bulach"
-      },
-      "company": "Spital Bülach",
-      "companyKey": "spital-buelach",
-      "companyDomain": "spitalbuelach.ch",
-      "title": "Lehrstelle Med. Praxisassistentin/Med. Praxisassistent EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato Med. Praxisassistentin/Med. Praxisassistent CFC",
-        "en": "Apprenticeship Med. Praxisassistentin/Med. Practical assistant EFZ",
-        "de": "Lehrstelle Med. Praxisassistentin/Med. Praxisassistent EFZ",
-        "fr": "Apprentissage Med. Praxisassistantin/Med. Assistant pratique EFZ"
-      },
-      "description": "<b>Das Spital Bülach wächst - wachse mit.</b>\n\nAufgaben:\n• Empfangen und Betreuen von Patientinnen und Patienten\n\n• Koordinieren von Sprechstunden und medizinischen Untersuchungen in verschiedenen Bereichen\n\n• Assistieren in den Sprechstunden\n\n• Durchführen von Laboruntersuchungen\n\n• Erstellen von Röntgen-Aufnahmen\n\n• Schreiben von medizinischen Berichten\n\n• Diverse administrative Tätigkeiten\n\nAnforderungen:\n• Mindestalter 15 Jahre\n\n• Notendurchschnitt in den Fächern Deutsch, Mathematik und Natur & Technik; Sek. A mindestens 4.5, Sek. B mindestens 5\n\n• Gutes bis sehr gutes Arbeits- und Sozialverhalten\n\n• Körperliche und psychische Gesundheit und Belastbarkeit\n\n• Gute Auffassungsgabe und sorgfältige Arbeitsweise\n\n• Organisationstalent und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Kontaktfreude\n\n• Empfehlung eines Arbeitsweges von maximal einer Stunde\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-      "descriptionByLocale": {
-        "it": "<b>Bülach Ospedale cresce - cresce con esso.\n\nCompiti:\n• Ricezione e cura dei pazienti\n\n• Coordinamento ore di consultazione e esami medici in vari settori\n\n• Assistenza nelle ore di consultazione\n\n• Eseguire test di laboratorio\n\n• Preparazione di immagini a raggi X\n\n• Scrivere rapporti medici\n\n• Varie attività amministrative\n\nRequisiti\n• Età minima 15 anni\n\n• Media del grado nei soggetti tedesco, matematico e tecnologico; SEC A almeno 4,5, SEC B almeno 5\n\n• Ottimo lavoro e comportamento sociale\n\n• Salute fisica e mentale e resilienza\n\n• Buona comprensione e metodi di lavoro attenti\n\n• Talenti organizzativi e senso di responsabilità\n\n• Empatia e contatto\n\n• Raccomandazione di un percorso di lavoro di un massimo di un'ora\n\nOffriamo:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-change kit.svg,P5-social benefit.svg,P6-health care.svg,P7 orario di lavoro. #\n\nCon i suoi 170 posti letto e circa 1.200 dipendenti, il Bülach Hospital fornisce assistenza medica per 180.000 persone nella zona di Zurigo e nelle regioni limitrofe. Ogni anno, trattiamo e curiamo circa 10.000 pazienti malati e oltre 78.000 pazienti ambulanti. In totale, circa 1.400 bambini vedono la luce della giornata all'ospedale di Bülach ogni anno.",
-        "en": "<b>Bülach Hospital grows - grows with it.</b>\n\nTasks:\n• Receiving and caring for patients\n\n• Coordinating consultation hours and medical examinations in various areas\n\n• Assistance in consultation hours\n\n• Perform laboratory tests\n\n• Preparation of X-ray images\n\n• Writing medical reports\n\n• Miscellaneous administrative activities\n\nRequirements\n• Minimum age 15 years\n\n• Grade average in the subjects German, Mathematics and Nature & Technology; SEC A at least 4.5, SEC B at least 5\n\n• Good to very good work and social behaviour\n\n• Physical and mental health and resilience\n\n• Good understanding and careful working methods\n\n• Organizational talent and sense of responsibility\n\n• Empathy and contact\n\n• Recommendation of a work route of a maximum of one hour\n\nWe offer:\nP1-oeV.svg,P2-food.svg,P3-benefits.svg,P4-changing kit.svg,P5-social benefits.svg,P6-health care.svg,P7 working time. svg\n\nWith its 170 beds and around 1,200 employees, the Bülach Hospital provides medical care for 180,000 people in the Zurich Underland and neighbouring regions. Every year, we treat and care for around 10,000 inpatient patients and over 78,000 outpatients. In total, around 1,400 babies see the light of day in Bülach Hospital every year.",
-        "de": "<b>Das Spital Bülach wächst - wachse mit.</b>\n\nAufgaben:\n• Empfangen und Betreuen von Patientinnen und Patienten\n\n• Koordinieren von Sprechstunden und medizinischen Untersuchungen in verschiedenen Bereichen\n\n• Assistieren in den Sprechstunden\n\n• Durchführen von Laboruntersuchungen\n\n• Erstellen von Röntgen-Aufnahmen\n\n• Schreiben von medizinischen Berichten\n\n• Diverse administrative Tätigkeiten\n\nAnforderungen:\n• Mindestalter 15 Jahre\n\n• Notendurchschnitt in den Fächern Deutsch, Mathematik und Natur & Technik; Sek. A mindestens 4.5, Sek. B mindestens 5\n\n• Gutes bis sehr gutes Arbeits- und Sozialverhalten\n\n• Körperliche und psychische Gesundheit und Belastbarkeit\n\n• Gute Auffassungsgabe und sorgfältige Arbeitsweise\n\n• Organisationstalent und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Kontaktfreude\n\n• Empfehlung eines Arbeitsweges von maximal einer Stunde\n\nWir bieten:\nP1-oeV.svg,P2-Verpflegung.svg,P3-Verguenstigungen.svg,P4-Umkleidepauschale.svg,P5-Sozialleistungen.svg,P6-Gesundheitsfoerderung.svg,P7-Arbeitszeit.svg\n\nDas Spital Bülach sichert mit seinen 170 Betten und rund 1'200 Mitarbeitenden die medizinische Versorgung von 180'000 Menschen im Zürcher Unterland und den angrenzenden Regionen. Jährlich behandeln und betreuen wir rund 10'000 stationäre und über 78'000 ambulante Patientinnen und Patienten. Insgesamt erblicken im Spital Bülach jährlich rund 1'400 Babys das Licht der Welt.",
-        "fr": "<b>Bülach Hospital pousse - pousse avec elle.</b>\n\nTâches :\n• Soins et accueil des patients\n\n• Coordination des heures de consultation et des examens médicaux dans divers domaines\n\n• Assistance en heures de consultation\n\n• Effectuer des tests de laboratoire\n\n• Préparation d'images à rayons X\n\n• Rédaction de rapports médicaux\n\n• Activités administratives diverses\n\nExigences\n• Âge minimum 15 ans\n\n• Moyenne des classes dans les matières Allemand, Mathématiques et Nature & Technologie; SEC A au moins 4.5, SEC B au moins 5\n\n• Bon à très bon travail et comportement social\n\n• Santé physique et mentale et résilience\n\n• Bonne compréhension et méthodes de travail prudentes\n\n• Compétences organisationnelles et sens des responsabilités\n\n• Empathie et contact\n\n• Recommandation d'un itinéraire de travail d'une heure maximum\n\nNous offrons:\nP1-oeV.svg,P2-food.svg,P3-bénéfices.svg,P4-changement kit.svg,P5-avantages sociaux.svg,P6-soins de santé.svg,P7 temps de travail. svg\n\nAvec ses 170 lits et ses quelque 1 200 employés, l'hôpital Bülach fournit des soins médicaux à 180 000 personnes dans les sous-terres de Zurich et les régions voisines. Chaque année, nous traitons et soigneons environ 10 000 patients hospitalisés et plus de 78 000 patients externes. Au total, environ 1 400 bébés voient chaque année le jour à l'hôpital Bülach."
-      },
-      "needsRetranslation": false,
-      "location": "Bülach",
-      "canton": "ZH",
-      "url": "https://job.spitalbuelach.ch/offene-stellen/lehrstelle-med-praxisassistentin-med-praxisassistent-efz/205e481d-3eef-4aee-9f45-1d2aed9f6be4",
-      "source": "Spital Bülach Dedicated Parser (Prospective medium 1006135)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-06T23:11:15.063Z",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8180",
-      "streetAddress": "Spitalstrasse 24",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "applyUrl": "https://jobs.spitalbuelach.ch/lehrstelle-medizinische-praxisassistentinmedizinischer-pra-de-f77.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-med-praxisassistentin-med-praxisassistent-efz-spital-buelach-bulach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-med-praxisassistentin-med-praxisassistent-efz-spital-buelach-bulach"
-        ],
-        "en": [
-          "lehrstelle-med-praxisassistentin-med-praxisassistent-efz-spital-buelach-bulach"
-        ],
-        "fr": [
-          "lehrstelle-med-praxisassistentin-med-praxisassistent-efz-spital-buelach-bulach"
-        ]
-      },
-      "firstSeenAt": "2026-08-03T12:52:54.339Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
       "salarySource": "estimated",
