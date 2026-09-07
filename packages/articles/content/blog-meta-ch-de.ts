@@ -5986,6 +5986,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.posta-svizzera-taglio-posti.title': 'Die Post streicht Stellen: Bis zu 110 Entlassungen geplant',
     'blog.article.posta-svizzera-taglio-posti.excerpt': 'Die Post plant, bis zu 110 Stellen abzubauen, um die internen Kosten zu senken und den öffentlichen Dienst langfristig ohne öffentliche Gelder zu finanzieren.',
     'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Schweizer Postgebäude in städtischer Umgebung',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Ausweis C in Luzern: Voraussetzungen, Jahre und Verfahren',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'So erhalten Sie die Niederlassungsbewilligung C im Kanton Luzern: Aufenthaltsjahre, Integration, Sprache und Antragsverfahren.',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Blick auf die Luzerner Altstadt mit Kapellbrücke und See',
 };
 
 export default blogMetaChDe;

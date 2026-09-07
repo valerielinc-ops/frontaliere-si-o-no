@@ -5986,6 +5986,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.posta-svizzera-taglio-posti.title': 'The Post Office cuts jobs: up to 110 redundancies are expected',
     'blog.article.posta-svizzera-taglio-posti.excerpt': 'The Post Office plans to cut up to 110 jobs to reduce internal costs and finance the public service in the long term without public money.',
     'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Swiss post office building in an urban setting',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permit C in Lucerne: requirements, years and procedure',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'How to obtain residence permit C in the Canton of Lucerne: years of residence, integration, language and application procedure.',
+    'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'View of Lucerne old town with Chapel Bridge and lake',
 };
 
 export default blogMetaChEn;
