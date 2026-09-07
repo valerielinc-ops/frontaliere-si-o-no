@@ -1,3 +1,54 @@
+import { domainToASCII } from 'node:url';
+
+/**
+ * Canonical ASCII form of a host — the ONE spelling every host comparison in
+ * this repo must be on.
+ *
+ * `new URL()` punycodes the authority: a URL written with an IDN host arrives
+ * downstream as `xn--…`, while every check that consumes it compares against a
+ * host taken from somewhere else — a source constant (`KOMAX_COMPANY_DOMAIN`,
+ * `TRUSTED_HOSTS`), or a host scraped as raw TEXT out of a slice file, which
+ * is still in its unicode spelling. Two spellings of the same front door then
+ * never compare equal and the match goes mute: the row is not claimed by the
+ * crawler that owns it, which is the same silent drop as #7721/#7758, only one
+ * layer up. Putting both sides through this function makes the two spellings
+ * one key.
+ *
+ * `domainToASCII()` returns `''` for an input it cannot map (an empty label, a
+ * host with a `/`): that is a REJECTION of a host identity, not a canonical
+ * form, so the lowercased input is kept instead — a comparison that stays on
+ * the raw spelling is no worse than today, while `''` would make two unrelated
+ * unmappable hosts compare EQUAL to each other.
+ *
+ * @param {string} rawHost
+ * @returns {string} lowercase punycoded host, or the lowercased input.
+ */
+export function canonicalJobHost(rawHost = '') {
+  const host = String(rawHost ?? '')
+    .trim()
+    .toLowerCase()
+    // A fully qualified host may carry a root label; `example.ch.` and
+    // `example.ch` are the same name and must not be two keys.
+    .replace(/\.$/, '');
+  if (!host) return '';
+  return domainToASCII(host) || host;
+}
+
+/**
+ * A dotted registrable name, the authority shape `absoluteJobUrl()` accepts.
+ *
+ * The label class is deliberately NOT `[a-z0-9-]`: an IDN host is written in
+ * its unicode spelling long before `new URL()` gets to punycode it, so an
+ * ASCII-only class left the scheme-less `zürich-spital.ch/stelle/1` looking
+ * like a bare path, returned it untouched, and `jobUrlHost()` answered `''` —
+ * the row dropped for its alphabet, the exact silent drop #7758 closed for its
+ * missing scheme. Non-ASCII is admitted here only as a CANDIDATE: the
+ * `new URL()` round-trip below is what accepts or rejects it, so a name that
+ * is not a mappable IDN still falls back to the untouched input.
+ */
+const AUTHORITY_CHAR = '[\\p{L}\\p{N}\\p{M}-]';
+const AUTHORITY_NAME_SOURCE = `[\\p{L}\\p{N}]${AUTHORITY_CHAR}*(?:\\.${AUTHORITY_CHAR}+)+`;
+
 /**
  * Absolute form of a job URL — the normalization `jobUrlHost()` performs
  * before parsing, exposed on its own so the SAME string can be persisted and
@@ -46,7 +97,7 @@ export function absoluteJobUrl(rawUrl = '') {
   // disarm the guard for real schemes whose OPAQUE part starts with one —
   // `mailto:24h@med-ipersonal.ch` would invent `med-ipersonal.ch` and
   // `tel:0041` would invent `tel`, exactly the host this comment forbids.
-  const portAuthority = /^[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+:\d{1,5}(?:[/?#]|$)/i.test(raw);
+  const portAuthority = new RegExp(`^${AUTHORITY_NAME_SOURCE}:\\d{1,5}(?:[/?#]|$)`, 'iu').test(raw);
   if (!portAuthority && /^[a-z][a-z0-9+.-]*:/i.test(raw)) return raw;
   // A single leading slash is a root-relative PATH, never an authority:
   // `/careers.html` is host-shaped only by accident of the dot. Only the
@@ -56,7 +107,7 @@ export function absoluteJobUrl(rawUrl = '') {
   const authority = protocolRelative ? raw.slice(2) : raw;
   // Same authority shape as `portAuthority` above: a dotted registrable name,
   // an optional port, then end-of-string or a path/query/fragment.
-  if (!/^[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)+(?::\d{1,5})?(?=[/?#]|$)/i.test(authority)) return raw;
+  if (!new RegExp(`^${AUTHORITY_NAME_SOURCE}(?::\\d{1,5})?(?=[/?#]|$)`, 'iu').test(authority)) return raw;
   const candidate = `https://${authority}`;
   try {
     new URL(candidate);
@@ -91,7 +142,7 @@ export function jobUrlHost(rawUrl = '') {
   const candidate = absoluteJobUrl(rawUrl);
   if (!candidate) return '';
   try {
-    return new URL(candidate).hostname.toLowerCase();
+    return canonicalJobHost(new URL(candidate).hostname);
   } catch {
     return '';
   }

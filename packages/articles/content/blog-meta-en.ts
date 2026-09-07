@@ -11502,6 +11502,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.schilpario-frontaliere-grigioni-guida.title': 'From Schilpario to the Graubünden: living as a border worker',
     'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Permit G, taxation, tax at source, AVS and LAMal: find out how the tax regime works for border workers living in Schilpario and working in Graubünden.',
     'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'View from the Grisons towards Lombardy: cross-border Alpine landscape for commuters',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Living in Colorina and working in Graubünden',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'Permit G, taxation in Switzerland, Italian tax credit, AVS/LPP, LAMal and procedures: the complete guide for border workers between Sondrio and Grisons.',
+    'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina, border town in Sondrio province Italy: residential area for cross-border workers in Canton Grisons Switzerland',
 };
 
 export default blogMetaEn;
