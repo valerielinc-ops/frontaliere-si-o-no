@@ -11520,6 +11520,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Living in Aymavilles and working in Valais as a border worker',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and the advantages and disadvantages of moving to Aymavilles to work in Valais.',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of Aymavilles with the Swiss Alps in the background',
+    'blog.article.arredamento-uffici-ticino-ai.title': 'Top 5 office companies in Ticino',
+    'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Find out which companies in Ticino are best suited to furnish and design offices according to AI.',
+    'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Modern office in Ticino with custom furniture and advanced technology.',
 };
 
 export default blogMetaEn;

@@ -11522,6 +11522,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Vivre à Aymavilles et travailler en Valais comme frontalier',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Découvrez les liaisons, les temps de trajet, le coût de la vie et les avantages et inconvénients de déménager à Aymavilles pour travailler en Valais.',
     'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique d\'Aymavilles avec les Alpes suisses en arrière-plan',
+    'blog.article.arredamento-uffici-ticino-ai.title': 'Les 5 meilleures entreprises pour les bureaux au Tessin',
+    'blog.article.arredamento-uffici-ticino-ai.excerpt': 'Découvrez quelles entreprises du Tessin sont les plus indiquées pour meubler et concevoir des bureaux selon l’AI.',
+    'blog.article.arredamento-uffici-ticino-ai.imageAlt': 'Bureau moderne au Tessin avec mobilier sur mesure et technologie avancée.',
 };
 
 export default blogMetaFr;
