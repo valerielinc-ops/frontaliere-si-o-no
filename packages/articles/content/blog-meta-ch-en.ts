@@ -5899,6 +5899,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics raises 4.3 million for international expansion',
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'The Swiss startup based at the Ticino Technopolo in Manno announced the closure of an investment of EUR 4.3 million to accelerate its international expansion.',
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Aerial view of the Tecnopolo Ticino in Manno, Switzerland, with modern buildings and green spaces.',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.title': 'Medical emergency: Swiss flight back over the Atlantic',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.excerpt': 'On Saturday evening, the Swiss LX54 flight from Zurich to Boston had to reverse course over the Atlantic and return to Switzerland.',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.imageAlt': 'Aerial view of a Swiss aircraft over the Atlantic Ocean',
 };
 
 export default blogMetaChEn;

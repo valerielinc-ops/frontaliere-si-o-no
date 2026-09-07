@@ -5899,6 +5899,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.title': 'Jaipur Robotics raccoglie 4,3 milioni per l\'espansione internazionale',
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.excerpt': 'La startup svizzera con sede al Tecnopolo Ticino di Manno ha annunciato la chiusura di un investimento da EUR 4,3 milioni per accelerare la propria espansione internazionale.',
     'blog.article.jaipur-robotics-4-3-milioni-internazionale.imageAlt': 'Vista aerea del Tecnopolo Ticino a Manno, Svizzera, con edifici moderni e spazi verdi.',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.title': 'Emergenza medica: volo Swiss torna indietro sull\'Atlantico',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.excerpt': 'Sabato sera il volo Swiss LX54 partito da Zurigo alla volta di Boston ha dovuto invertire la rotta sopra l’Atlantico e tornare in Svizzera.',
+    'blog.article.volo-swiss-emergenza-medica-zurigo-boston.imageAlt': 'Vista aerea di un aereo svizzero sopra l\'Atlantico',
 };
 
 export default blogMetaChIt;
