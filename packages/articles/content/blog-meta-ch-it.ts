@@ -5971,6 +5971,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: lutto nazionale per le vittime dell\'inondazione',
     'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Il Nepal osserva un giorno di lutto per le vittime dell\'inondazione del 26 agosto, con almeno 1398 morti e 5515 dispersi',
     'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Vista aerea del Nepal con le acque dell\'inondazione e persone in lutto',
+    'blog.article.investito-treno-13-anni-berna.title': 'Investito mortalmente da un treno: aveva 13 anni',
+    'blog.article.investito-treno-13-anni-berna.excerpt': 'Un adolescente russo di 13 anni è morto dopo essere stato investito da un treno alla stazione di Berna Europaplatz',
+    'blog.article.investito-treno-13-anni-berna.imageAlt': 'Stazione di Berna Europaplatz dopo l\'incidente mortale di un adolescente investito da un treno',
 };
 
 export default blogMetaChIt;

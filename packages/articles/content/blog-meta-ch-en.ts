@@ -5971,6 +5971,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: National mourning for flood victims',
     'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Nepal observes a day of mourning for the victims of the August 26 flood, with at least 1,398 dead and 5,515 missing',
     'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Aerial view of Nepal with floodwaters and people mourning',
+    'blog.article.investito-treno-13-anni-berna.title': 'He was 13 years old and fatally hit by a train.',
+    'blog.article.investito-treno-13-anni-berna.excerpt': 'A 13-year-old Russian teenager died after being hit by a train at Bern\'s Europaplatz station',
+    'blog.article.investito-treno-13-anni-berna.imageAlt': 'Berna Europaplatz train station after a teenager was fatally hit by a train',
 };
 
 export default blogMetaChEn;

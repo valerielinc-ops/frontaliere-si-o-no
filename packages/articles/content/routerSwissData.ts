@@ -2016,6 +2016,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-neuchatel-aliquote': { it: 'imposta-successione-donazione-neuchatel-aliquote', en: 'inheritance-and-donation-tax-neuchatel-rates', de: 'erbschaft-und-spendensteuer-neuchatel-satz', fr: 'impot-succession-donation-neuchatel-taux' },
  'imposte-cantonali-ginevra-aliquote-deduzioni': { it: 'imposte-cantonali-ginevra-aliquote-deduzioni', en: 'canton-geneva-tax-rates-deductions', de: 'kanton-genf-steuersaetze-absetzungen', fr: 'canton-geneve-taux-deductions' },
  'nepal-inondazione-lutto-vittime': { it: 'nepal-inondazione-lutto-vittime', en: 'nepal-flood-mourning-victims', de: 'nepal-ueberschwemmung-trauer-opfer', fr: 'nepal-inondation-deuil-victimes' },
+ 'investito-treno-13-anni-berna': { it: 'investito-treno-13-anni-berna', en: 'fatal-train-accident-berna', de: 'todlicher-zugunfall-berna', fr: 'accident-train-mortel-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
