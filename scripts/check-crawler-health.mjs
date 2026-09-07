@@ -64,17 +64,31 @@
  * reports them today; instrumenting the rest of the fleet is incremental,
  * per-crawler follow-up (each has a bespoke discover/filter boundary).
  *
- * Follow-up (not in this script): adding `lastFetchOutcome` to each summary
- * slice — values like "ok" / "anti_bot_block" / "selector_miss" /
- * "filtered_empty" — would let the monitor distinguish a fetch failure from
- * a legitimately empty source on the FIRST observation, rather than waiting
- * 3 days for the empty-streak gate.
+ * Fetch outcome (issue #7897): a summary slice MAY report `lastFetchOutcome`,
+ * the run's own verdict on WHY it ended up empty — `ok`, `anti_bot_block`,
+ * `selector_miss` or `filtered_empty`. It answers on the FIRST observation the
+ * question the empty-streak gate can only guess at after three days, and even
+ * then only as "0 jobs, cause unknown": a source that refused the fetch, a
+ * parser whose selectors stopped matching, and a source that is legitimately
+ * quiet all publish the same `total: 0`. `selector_miss`/`anti_bot_block` are
+ * a proof of breakage, so they flag `broken` immediately and NAME the cause;
+ * `filtered_empty` is the same evidence as the `discovered > 0, written === 0`
+ * signal above and clears the streak. Like `discovered`/`written`, the field is
+ * OPTIONAL: a slice without it — every historical slice included — is read
+ * exactly as before, so no backfill is needed. Only the SMN clinic parsers
+ * report it today (via `runStandardCrawlerPipeline`); instrumenting the rest of
+ * the fleet is incremental, per-crawler work (each has its own fetch/parse
+ * boundary).
  */
 
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import {
+  CRAWLER_FETCH_FAILURE_OUTCOMES,
+  normalizeFetchOutcome,
+} from './lib/crawler-fetch-outcome.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -923,6 +937,16 @@ async function inspectCrawler(slug) {
     summary && typeof summary === 'object' && Number.isFinite(Number(summary.written))
       ? Number(summary.written)
       : null;
+  // Post-parser, pre-pipeline count (issue #7707): how many jobs the parser
+  // actually handed to the pipeline, AFTER its own Swiss/location filter and
+  // BEFORE merge/localization/validation/slice. `discovered` alone cannot tell
+  // "the geo filter dropped everything" (healthy) from "a post-parser gate of
+  // the pipeline dropped everything" (broken) — both read `discovered > 0,
+  // written === 0`. Null for crawlers not yet instrumented: unchanged behaviour.
+  const parsed =
+    summary && typeof summary === 'object' && Number.isFinite(Number(summary.parsed))
+      ? Number(summary.parsed)
+      : null;
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
   // absent for crawlers without an authoritative-snapshot validator.
   const authoritativeEmpty =
@@ -932,6 +956,12 @@ async function inspectCrawler(slug) {
   // pipeline — the run RETURNED BEFORE PUBLISHING and kept the previous slice
   // live. Its `total: 0` is the guard's placeholder, NOT an observation that
   // the source is empty.
+  // The run's own verdict on why it ended up empty (#7897). Optional and
+  // closed-set validated: `null` for every slice that predates the field or is
+  // produced by a crawler that doesn't report it — unchanged behaviour.
+  const lastFetchOutcome = normalizeFetchOutcome(
+    summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
+  );
   const earlyExit = summary && typeof summary === 'object' && summary.earlyExit === true;
   // Separates a deliberate bail-out (0) from a crash (non-zero) — different
   // triage, and the guard already records it. `null` when absent: "unknown" is
@@ -972,7 +1002,9 @@ async function inspectCrawler(slug) {
     activeJobCount,
     discovered,
     written,
+    parsed,
     authoritativeEmpty,
+    lastFetchOutcome,
     earlyExit,
     exitCode,
   };
@@ -1044,7 +1076,25 @@ function corpusObservationFromPayloads(slug, data, summary) {
     summary.written >= 0
       ? summary.written
       : null;
+  // Same post-parser count as `inspectCrawler` (#7707): the corpus republishes
+  // the slice verbatim, so the cross-repo observation must carry it too or the
+  // pipeline-drop signal would be lost exactly for the crawlers whose
+  // observation usually wins `selectNewestCrawlerObservation`.
+  const parsed =
+    typeof summary.parsed === 'number' &&
+    Number.isSafeInteger(summary.parsed) &&
+    summary.parsed >= 0
+      ? summary.parsed
+      : null;
   const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
+  // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
+  // reason the counts above are: the corpus republishes the slice verbatim, and
+  // for cross-repo crawlers this observation is usually the one that wins
+  // `selectNewestCrawlerObservation` — dropping the field here would lose the
+  // named cause exactly where it is the only evidence available.
+  const lastFetchOutcome = normalizeFetchOutcome(
+    summary && typeof summary === 'object' ? summary.lastFetchOutcome : null,
+  );
   // Same guard-slice marker as `inspectCrawler` above: the corpus republishes
   // whatever slice the crawler wrote, exit-guard placeholders included — and
   // for cross-repo crawlers the corpus observation is usually the one that
@@ -1064,7 +1114,9 @@ function corpusObservationFromPayloads(slug, data, summary) {
     activeJobCount,
     discovered,
     written,
+    parsed,
     authoritativeEmpty,
+    lastFetchOutcome,
     earlyExit,
     exitCode,
   };
@@ -1204,6 +1256,14 @@ function selectNewestCrawlerObservation(
  * open positions" marker). The latter two need no allowlist entry: the run's
  * own evidence already distinguishes "legitimately empty" from "broken".
  *
+ * The filtered-empty rule is narrowed by `observation.parsed` when the run
+ * reports it (#7707): `discovered` is counted BEFORE the parser's geographic
+ * filter, `written` AFTER the whole pipeline, so a run whose parser emitted
+ * jobs that the pipeline then dropped (merge, expiry archival, validation,
+ * slice filter) shows the same `discovered > 0, written === 0` shape as a
+ * genuine geographic filter-empty. `parsed > 0` says the jobs existed past the
+ * parser's own filter, so that run is broken and must accrue its streak.
+ *
  * A zero can also mean neither: `observation.earlyExit` marks a slice written
  * by the process-exit guard, i.e. a run that returned BEFORE publishing. That
  * does not make the crawler healthy (it stays broken and keeps its streak) —
@@ -1219,8 +1279,24 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     observation.discovered !== undefined &&
     observation.discovered !== null &&
     Number.isFinite(observation.discovered);
+  // Post-parser count (#7707). `discovered > 0 && written === 0` is only
+  // evidence of a GEOGRAPHIC filter-empty while the parser itself emitted
+  // nothing: the pipeline that runs after it (merge, expiry archival,
+  // localization, validation, slug re-pin, `isCompanyJob` slice filter) can
+  // also zero a run, and that is a break, not a quiet source. When the run
+  // reports `parsed > 0` with nothing written, the jobs survived the parser's
+  // own filter and were dropped downstream — never `emptyOk`.
+  const hasParsedSignal =
+    observation.parsed !== undefined &&
+    observation.parsed !== null &&
+    Number.isFinite(observation.parsed);
+  const pipelineDroppedAll =
+    hasParsedSignal && observation.parsed > 0 && lastObservedJobs === 0;
   const autoFilteredEmpty =
-    hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
+    hasDiscoveredSignal &&
+    observation.discovered > 0 &&
+    lastObservedJobs === 0 &&
+    !pipelineDroppedAll;
   // A source-proven empty state (the run's own `validateAuthoritativeSnapshot`
   // matched the page's explicit "no open positions" marker) is the SAME kind of
   // evidence as the filtered-empty counts above, for the complementary case
@@ -1233,8 +1309,34 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // the crawler throws.
   const authoritativeEmpty = observation.authoritativeEmpty === true && lastObservedJobs === 0;
 
+  // The run's own verdict on WHY it is empty (#7897). Every signal above is
+  // the monitor INFERRING a cause from counts it can compare; this one is the
+  // run reporting what it actually saw at the fetch/parse boundary, which is
+  // the only place the difference is observable at all. Unknown or absent →
+  // `null` → every branch below behaves exactly as it did before the field
+  // existed, which is what keeps historical slices readable without a backfill.
+  const fetchOutcome = normalizeFetchOutcome(observation.lastFetchOutcome);
+  // Same evidence as the #5945 filtered-empty counts, stated directly instead
+  // of derived: the run fetched and parsed fine, its own filter kept nothing.
+  const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
+  // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
+  // adds nothing here: the cause is already known and named.
+  const fetchFailed =
+    CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) && lastObservedJobs === 0;
+
+  // A proven fetch failure cancels every empty-ok signal, including a manual
+  // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
+  // of breakage"; `anti_bot_block`/`selector_miss` are evidence of breakage, on
+  // the run's own report. Letting the allowlist win would mask exactly the case
+  // #6496 is about — a listed source that has actually died — and would also
+  // reset the streak that must keep growing while it stays broken. Same
+  // reasoning as `abortedRun` below, one step earlier in the pipeline.
   const emptyOk =
-    EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty || authoritativeEmpty;
+    (EMPTY_OK_CRAWLERS.has(observation.slug) ||
+      autoFilteredEmpty ||
+      authoritativeEmpty ||
+      filteredEmptyOutcome) &&
+    !fetchFailed;
 
   // The run aborted before publishing (exit-guard slice). This deliberately
   // does NOT feed `emptyOk`: an aborting crawler is broken and must keep its
@@ -1347,6 +1449,19 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   if (freshnessAgeDays > STALE_AFTER_DAYS) {
     status = 'stale';
     reason = `crawler not run in ${Math.round(freshnessAgeDays)} days (freshnessAt=${freshnessAt ?? 'unknown'}, source=${freshnessSource})`;
+  } else if (fetchFailed) {
+    // FIRST observation, no streak. The empty-streak gate needs three runs
+    // because `total: 0` on its own is ambiguous — anti-bot block, dead
+    // selector and a genuinely quiet source are the same number — so it waits
+    // for a pattern it can only ever describe as "N runs returned 0 jobs",
+    // still without a cause. This run already carries the cause, so the wait
+    // buys nothing but three days of a broken crawler serving a stale slice,
+    // and the reason can send triage to the right layer instead of the parser
+    // by default.
+    status = 'broken';
+    reason = fetchOutcome === 'anti_bot_block'
+      ? 'run reported lastFetchOutcome=anti_bot_block with 0 jobs — the source refused the fetch (WAF/anti-bot/IP reputation) and the selectors were never exercised; look at the fetch transport, not at the parser'
+      : 'run reported lastFetchOutcome=selector_miss with 0 jobs — the fetch succeeded and the parser matched nothing it used to match (selector/label drift); look at the parser config, the source is reachable';
   } else if (lastObservedJobs === 0 && emptyOk) {
     status = 'healthy';
     reason = null;
@@ -1357,7 +1472,13 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     // SOURCE and it sends triage to the parser selectors or to retiring the
     // crawler; when the run aborted, both are the wrong place to look and the
     // source is usually still full. Say what actually happened instead.
-    reason = abortedRun
+    reason = pipelineDroppedAll && !abortedRun
+      // The parser worked — it handed `parsed` jobs to the pipeline and the
+      // published slice still came out empty. Naming it "returned 0 jobs"
+      // sends triage to the selectors, which are provably fine; the drop
+      // happened in merge/expiry/validation/slice instead.
+      ? `${consecutiveEmptyRuns} consecutive runs published 0 jobs while the parser emitted ${observation.parsed} (post-parser pipeline drop: merge/expiry/validation/slice) — the selectors are working, look downstream of the parser`
+      : abortedRun
       // `?? 'unknown'` and never `?? 0`: 0 means "deliberate bail-out" and
       // non-zero means "crash", which is different triage. An absent field is
       // neither, and defaulting it to 0 would assert a clean bail-out on a
@@ -1393,8 +1514,11 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       _lastObservedGeneratedAt: observation.generatedAt ?? null,
       _lastObservedDiscoveredCount: hasDiscoveredSignal ? observation.discovered : null,
       _lastObservedWrittenCount: observation.written ?? null,
+      _lastObservedParsedCount: hasParsedSignal ? observation.parsed : null,
       _autoFilteredEmpty: autoFilteredEmpty,
+      _pipelineDroppedAll: pipelineDroppedAll,
       _authoritativeEmptySnapshot: authoritativeEmpty,
+      _lastObservedFetchOutcome: fetchOutcome,
       _abortedRun: abortedRun,
     },
     reason,

@@ -14518,10 +14518,10 @@
         "it": "commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen",
-        "en": "/en/find-jobs-bern/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen",
+        "it": "/cerca-lavoro-zurigo/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen",
+        "en": "/en/find-jobs-zurich/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen",
         "de": "/de/jobs-im-zurich/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen",
-        "fr": "/fr/trouver-emploi-berne/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen"
+        "fr": "/fr/trouver-emploi-zurich/commesso-a-alle-casse-servizi-coop-genossenschaft-zollikofen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25034,10 +25034,10 @@
         "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-lucerne/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "it": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
         "de": "/de/jobs-im-solothurn/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-lucerne/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
+        "fr": "/fr/trouver-emploi-argovie/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25771,6 +25771,11 @@
           "impressions": 1
         },
         {
+          "query": "taxifahrer jobs genf",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "fahrer locarno",
           "clicks": 0,
           "impressions": 1
@@ -25781,7 +25786,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 87,
+      "totalImpressions": 88,
       "totalClicks": 0,
       "topQuery": "fahrer locarno",
       "title": "Fahrer",
@@ -26176,10 +26181,10 @@
         "fr": "field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
-        "en": "/en/find-jobs-ticino/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
-        "de": "/de/jobs-im-tessin/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
-        "fr": "/fr/trouver-emploi-tessin/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi"
+        "it": "/cerca-lavoro-basilea/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
+        "en": "/en/find-jobs-basel/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
+        "de": "/de/jobs-in-basel/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi",
+        "fr": "/fr/trouver-emploi-bale/field-engineering-specialista-los-angeles-ca-roche-basel-thdkbi"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37354,6 +37359,63 @@
       ]
     },
     {
+      "slug": "lignieres",
+      "locale": "de",
+      "path": "/de/jobs-in-neuenburg/lignieres/",
+      "observedPaths": {
+        "de": "/de/jobs-in-neuenburg/lignieres/"
+      },
+      "queries": [
+        {
+          "query": "place d’apprentissage",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "place d’apprentissage",
+      "title": "Lignieres",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "lignieres",
+        "en": "lignieres",
+        "de": "lignieres",
+        "fr": "lignieres"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/lignieres",
+        "en": "/en/find-jobs-neuchatel/lignieres",
+        "de": "/de/jobs-im-neuenburg/lignieres",
+        "fr": "/fr/trouver-emploi-neuchatel/lignieres"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "line-manager-bakery-coop-genossenschaft-schafisheim",
       "locale": "en",
       "path": "/en/find-jobs-aargau/line-manager-bakery-coop-genossenschaft-schafisheim/",
@@ -37734,7 +37796,7 @@
         {
           "query": "jobs locarno",
           "clicks": 0,
-          "impressions": 49
+          "impressions": 50
         },
         {
           "query": "nebenjobs locarno",
@@ -37777,6 +37839,11 @@
           "impressions": 3
         },
         {
+          "query": "praktikum locarno",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "jobs locarno deutsch",
           "clicks": 0,
           "impressions": 2
@@ -37795,14 +37862,9 @@
           "query": "offerte lavoro locarno",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "praktikum locarno",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 129,
+      "totalImpressions": 132,
       "totalClicks": 0,
       "topQuery": "jobs locarno",
       "title": "locarno",
@@ -37851,12 +37913,12 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "locarno jobs",
           "clicks": 0,
-          "impressions": 3
+          "impressions": 4
         },
         {
           "query": "job contact locarno",
@@ -37879,7 +37941,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 21,
+      "totalImpressions": 23,
       "totalClicks": 0,
       "topQuery": "jobs in locarno",
       "title": "locarno",
@@ -37993,14 +38055,14 @@
       },
       "queries": [
         {
+          "query": "lavoro locarno",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
           "query": "locarno",
           "clicks": 0,
           "impressions": 15
-        },
-        {
-          "query": "lavoro locarno",
-          "clicks": 0,
-          "impressions": 14
         },
         {
           "query": "offerte di lavoro locarno negli ultimi 3 giorni",
@@ -38010,10 +38072,25 @@
         {
           "query": "offerte di lavoro locarno",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 7
         },
         {
           "query": "cerco lavoro a locarno",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro a locarno",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "locarno lavoro",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "cerco lavoro locarno",
           "clicks": 0,
           "impressions": 2
         },
@@ -38023,9 +38100,9 @@
           "impressions": 2
         },
         {
-          "query": "cerco lavoro locarno",
+          "query": "offerte lavoro locarno",
           "clicks": 0,
-          "impressions": 1
+          "impressions": 2
         },
         {
           "query": "frontaliere",
@@ -38038,22 +38115,12 @@
           "impressions": 1
         },
         {
-          "query": "lavoro a locarno",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "lavoro locarno svizzera",
           "clicks": 0,
           "impressions": 1
         },
         {
           "query": "lidl offerte di lavoro ticino",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "locarno lavoro",
           "clicks": 0,
           "impressions": 1
         },
@@ -38083,19 +38150,14 @@
           "impressions": 1
         },
         {
-          "query": "offerte lavoro locarno",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "scaglioni irpef 2027",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 65,
+      "totalImpressions": 75,
       "totalClicks": 0,
-      "topQuery": "locarno",
+      "topQuery": "lavoro locarno",
       "title": "locarno",
       "titleByLocale": {
         "it": "",
@@ -38496,7 +38558,7 @@
         {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 92
+          "impressions": 94
         },
         {
           "query": "stellenangebot lugano",
@@ -38506,7 +38568,7 @@
         {
           "query": "stellenvermittlung lugano",
           "clicks": 0,
-          "impressions": 46
+          "impressions": 50
         },
         {
           "query": "taetigkeitsfelder jobs lugano",
@@ -38516,7 +38578,7 @@
         {
           "query": "jobs lugano",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 25
         },
         {
           "query": "handel jobs lugano",
@@ -38531,7 +38593,7 @@
         {
           "query": "lehrstellen lugano",
           "clicks": 0,
-          "impressions": 15
+          "impressions": 17
         },
         {
           "query": "rekrutierung lugano",
@@ -38574,6 +38636,11 @@
           "impressions": 12
         },
         {
+          "query": "statistik jobs lugano",
+          "clicks": 0,
+          "impressions": 12
+        },
+        {
           "query": "stellen tessin",
           "clicks": 0,
           "impressions": 12
@@ -38587,14 +38654,9 @@
           "query": "technische jobs lugano",
           "clicks": 0,
           "impressions": 11
-        },
-        {
-          "query": "lagerist jobs lugano",
-          "clicks": 0,
-          "impressions": 10
         }
       ],
-      "totalImpressions": 834,
+      "totalImpressions": 862,
       "totalClicks": 0,
       "topQuery": "stellen lugano",
       "title": "lugano",
@@ -38638,17 +38700,17 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 133
+          "impressions": 146
         },
         {
           "query": "stellenangebot lugano",
           "clicks": 0,
-          "impressions": 54
+          "impressions": 56
         },
         {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 48
+          "impressions": 51
         },
         {
           "query": "jobs lugano",
@@ -38663,7 +38725,7 @@
         {
           "query": "lugano jobs",
           "clicks": 1,
-          "impressions": 30
+          "impressions": 31
         },
         {
           "query": "emploi lugano",
@@ -38703,7 +38765,7 @@
         {
           "query": "jobs in ticino",
           "clicks": 1,
-          "impressions": 6
+          "impressions": 7
         },
         {
           "query": "bouygues jobs lugano",
@@ -38736,7 +38798,7 @@
           "impressions": 6
         }
       ],
-      "totalImpressions": 681,
+      "totalImpressions": 706,
       "totalClicks": 4,
       "topQuery": "full time jobs near me",
       "title": "lugano",
@@ -38785,7 +38847,7 @@
         {
           "query": "recrutement lugano",
           "clicks": 0,
-          "impressions": 34
+          "impressions": 38
         },
         {
           "query": "offre d'emploi tessin",
@@ -38878,7 +38940,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 188,
+      "totalImpressions": 192,
       "totalClicks": 0,
       "topQuery": "je vise un emploi à lugano",
       "title": "lugano",
@@ -38922,7 +38984,12 @@
         {
           "query": "offerte di lavoro lugano negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 7
+        },
+        {
+          "query": "frontalieri",
+          "clicks": 0,
+          "impressions": 4
         },
         {
           "query": "lavoro lugano",
@@ -38951,11 +39018,6 @@
         },
         {
           "query": "emploi lugano",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "frontalieri",
           "clicks": 0,
           "impressions": 2
         },
@@ -39020,7 +39082,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 64,
+      "totalImpressions": 68,
       "totalClicks": 1,
       "topQuery": "offerte di lavoro lugano negli ultimi 3 giorni",
       "title": "lugano",
@@ -39145,10 +39207,10 @@
         "fr": "macellaio-specialista-della-carne-coop-genossenschaft-birsfelden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
-        "en": "/en/find-jobs-basel/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
-        "de": "/de/jobs-in-basel/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
-        "fr": "/fr/trouver-emploi-bale/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden"
+        "it": "/cerca-lavoro-turgovia/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
+        "en": "/en/find-jobs-thurgau/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
+        "de": "/de/jobs-im-thurgau/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden",
+        "fr": "/fr/trouver-emploi-thurgovie/macellaio-specialista-della-carne-coop-genossenschaft-birsfelden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -45530,10 +45592,10 @@
         "fr": "oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
-        "en": "/en/find-jobs-ticino/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
-        "de": "/de/jobs-im-tessin/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
-        "fr": "/fr/trouver-emploi-tessin/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster"
+        "it": "/cerca-lavoro-zurigo/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
+        "en": "/en/find-jobs-zurich/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
+        "de": "/de/jobs-in-zurich/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster",
+        "fr": "/fr/trouver-emploi-zurich/oberarztin-oberarzt-interdisziplinares-notfallzentrum-arztbereich-diakoniewerk-neumuenster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -51205,10 +51267,10 @@
         "fr": "principali-hirslanden-klinik-search-5cuhqa"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ginevra/principali-hirslanden-klinik-search-5cuhqa",
-        "en": "/en/find-jobs-geneva/principali-hirslanden-klinik-search-5cuhqa",
-        "de": "/de/jobs-in-genf/principali-hirslanden-klinik-search-5cuhqa",
-        "fr": "/fr/trouver-emploi-geneve/principali-hirslanden-klinik-search-5cuhqa"
+        "it": "/cerca-lavoro-friburgo/principali-hirslanden-klinik-search-5cuhqa",
+        "en": "/en/find-jobs-fribourg/principali-hirslanden-klinik-search-5cuhqa",
+        "de": "/de/jobs-in-freiburg/principali-hirslanden-klinik-search-5cuhqa",
+        "fr": "/fr/trouver-emploi-fribourg/principali-hirslanden-klinik-search-5cuhqa"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56495,10 +56557,10 @@
         "fr": "responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz",
-        "en": "/en/find-jobs-aargau/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz",
+        "it": "/cerca-lavoro-zurigo/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz",
+        "en": "/en/find-jobs-zurich/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz",
         "de": "/de/jobs-im-luzern/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz",
-        "fr": "/fr/trouver-emploi-argovie/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz"
+        "fr": "/fr/trouver-emploi-zurich/responsabile-reparto-alimentari-di-base-coop-genossenschaft-koniz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -56870,9 +56932,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "responsable-de-rayon-vins-boissons-coop-genossenschaft-lachen",
-        "en": "responsable-de-rayon-vins-boissons-coop-genossenschaft-lachen",
-        "de": "responsable-de-rayon-vins-boissons-coop-genossenschaft-lachen",
+        "de": "rayonleiter-in-wein-getranke-coop-lachen-schwyz-3wifys",
+        "it": "responsabile-di-settore-vini-bevande-coop-genossenschaft-lachen",
+        "en": "wine-beverage-section-manager-coop-genossenschaft-lachen",
         "fr": "responsable-de-rayon-vins-boissons-coop-genossenschaft-lachen"
       },
       "localePaths": {
@@ -56887,6 +56949,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -63581,10 +63644,10 @@
         "fr": "senior-expert-algo-trading-architecture-m-w-d-coopers-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/senior-expert-algo-trading-architecture-m-w-d-coopers-bern",
-        "en": "/en/find-jobs-st-gallen/senior-expert-algo-trading-architecture-m-w-d-coopers-bern",
+        "it": "/cerca-lavoro-berna/senior-expert-algo-trading-architecture-m-w-d-coopers-bern",
+        "en": "/en/find-jobs-bern/senior-expert-algo-trading-architecture-m-w-d-coopers-bern",
         "de": "/de/jobs-im-st-gallen/senior-expert-algo-trading-architecture-m-w-d-coopers-bern",
-        "fr": "/fr/trouver-emploi-saint-gall/senior-expert-algo-trading-architecture-m-w-d-coopers-bern"
+        "fr": "/fr/trouver-emploi-berne/senior-expert-algo-trading-architecture-m-w-d-coopers-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67640,10 +67703,10 @@
         "fr": "spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
-        "en": "/en/find-jobs-aargau/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
-        "de": "/de/jobs-im-aargau/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
-        "fr": "/fr/trouver-emploi-argovie/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach"
+        "it": "/cerca-lavoro-zurigo/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
+        "en": "/en/find-jobs-zurich/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
+        "de": "/de/jobs-in-zurich/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach",
+        "fr": "/fr/trouver-emploi-zurich/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-70-100-fixe-tage-moglich-spitex-regioseuzach-seuzach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69495,10 +69558,10 @@
         "fr": "stv-filialleiter-in-denner-6"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/stv-filialleiter-in-denner-6",
-        "en": "/en/find-jobs-bern/stv-filialleiter-in-denner-6",
+        "it": "/cerca-lavoro-zurigo/stv-filialleiter-in-denner-6",
+        "en": "/en/find-jobs-zurich/stv-filialleiter-in-denner-6",
         "de": "/de/jobs-im-zug/stv-filialleiter-in-denner-6",
-        "fr": "/fr/trouver-emploi-berne/stv-filialleiter-in-denner-6"
+        "fr": "/fr/trouver-emploi-zurich/stv-filialleiter-in-denner-6"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72518,10 +72581,10 @@
         "fr": "tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
-        "en": "/en/find-jobs-ticino/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
-        "de": "/de/jobs-im-tessin/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
-        "fr": "/fr/trouver-emploi-tessin/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch"
+        "it": "/cerca-lavoro-vallese/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
+        "en": "/en/find-jobs-valais/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
+        "de": "/de/jobs-im-wallis/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch",
+        "fr": "/fr/trouver-emploi-valais/tecnico-di-laboratorio-in-qualita-m-f-d-80-100-lonza-ch"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75248,10 +75311,10 @@
         "fr": "vendeur-euse-food-coop-genossenschaft-zurich-a058jr"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
-        "en": "/en/find-jobs-ticino/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
-        "de": "/de/jobs-im-tessin/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-euse-food-coop-genossenschaft-zurich-a058jr"
+        "it": "/cerca-lavoro-zurigo/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
+        "en": "/en/find-jobs-zurich/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
+        "de": "/de/jobs-in-zurich/vendeur-euse-food-coop-genossenschaft-zurich-a058jr",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-euse-food-coop-genossenschaft-zurich-a058jr"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75991,10 +76054,10 @@
         "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30"
+        "it": "/cerca-lavoro-zurigo/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
+        "en": "/en/find-jobs-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
+        "de": "/de/jobs-in-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30",
+        "fr": "/fr/trouver-emploi-zurich/vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich-7bbd30"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

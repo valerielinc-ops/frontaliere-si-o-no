@@ -1,6 +1,6 @@
 {
   "crawlerKey": "balgrist",
-  "assembledAt": "2026-09-05T22:52:46.750Z",
+  "assembledAt": "2026-09-06T22:56:34.442Z",
   "jobs": [
     {
       "id": "balgrist-967e64deb1df",
@@ -33,7 +33,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/unterassistenzaerztin-unterassistenzarzt-m-w-d/472773d4-49b7-4f96-8c96-01e11f1a23bb",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.803Z",
+      "crawledAt": "2026-09-06T22:56:26.311Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/ausbildung-pflegefachfrau-pflegefachmann-hf/442019ee-c1b3-440a-89ee-ddd947e52dfb",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.802Z",
+      "crawledAt": "2026-09-06T22:56:26.310Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/konservativ-taetige-r-oberaerztin-oberarzt-w-m-d-50/bf3f3cf1-9ad9-49b9-a16e-66a05e1d06f8",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.801Z",
+      "crawledAt": "2026-09-06T22:56:26.309Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/assistenzaerztin-assistenzarzt-fuer-fremdjahr-w-m-d-60/99979dcb-6640-41bd-867d-044d3bc1a98c",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.800Z",
+      "crawledAt": "2026-09-06T22:56:26.308Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/oberaerztin-oberarzt-poliklinik-chiropraktische-medizin-w-m-d-60/34fba0aa-38cd-41d6-9787-b6c0f7e28279",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.799Z",
+      "crawledAt": "2026-09-06T22:56:26.307Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -511,7 +511,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-chiropraktische-medizin-50/64f33a9c-a599-4998-bdb1-6ba8ccc22858",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.798Z",
+      "crawledAt": "2026-09-06T22:56:26.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -602,7 +602,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/assistenzaerztin-assistenzarzt-w-m-d-spitalrotation-chiropraktik-50/485e51a4-e0cb-4e12-bc5a-89249d7615e7",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.797Z",
+      "crawledAt": "2026-09-06T22:56:26.305Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -676,7 +676,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/leitung-poliklinik-chiropraktische-medizin-w-m-d-50/595b0b23-064f-47ff-9b2e-efed9d31164f",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.796Z",
+      "crawledAt": "2026-09-06T22:56:26.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -730,6 +730,93 @@
       }
     },
     {
+      "id": "balgrist-12e7ebc3117e",
+      "slug": "servizio-civile-universitatsklinik-balgrist-zurich",
+      "slugByLocale": {
+        "it": "servizio-civile-universitatsklinik-balgrist-zurich",
+        "en": "civil-service-assignments-universitatsklinik-balgrist-zurich",
+        "de": "zivildiensteinsatze-universitatsklinik-balgrist-zurich",
+        "fr": "assignations-de-service-civil-universitatsklinik-balgrist-zurich"
+      },
+      "company": "Universitätsklinik Balgrist",
+      "companyKey": "balgrist",
+      "companyDomain": "balgrist.ch",
+      "title": "Zivildiensteinsätze",
+      "titleByLocale": {
+        "it": "Servizio Civile",
+        "en": "Civil Service Assignments",
+        "de": "Zivildiensteinsätze",
+        "fr": "Assignations de service civil"
+      },
+      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung. Du möchtest einen wertvollen Beitrag leisten und gleichzeitig neue Erfahrungen sammeln? Wir bieten spannende, sinnhafte und verantwortungsvolle Zivildiensteinsätze.\n\nAufgaben:\nDie Aufgaben variieren je nach Tätigkeitsbereich und Pflichtenheft.\n\nAnforderungen:\nDie Anforderungen entnehmen Sie dem jeweiligen Pflichtenheft.\n\nWir bieten:\nIn folgenden Bereichen bieten wir Einsätze an:\n\n• Begleitung und Betreuung als Unterstützung der Pflege (111605)\n\n• Mitarbeiter im Forschungs- und Lehrzentrum \"OR-X\" und Pflege (111649)\n\n• Mitarbeiter Hausdienst (Transportdienst) (111606\n\n• Patientenbegleitung als Unterstützung der Radiologiepersonals (111607)\n\n• Patientenbegleitung (Empfang) (111604)\n\n• Wissenschaftliche Hilfskraft computergestützte Forschung (111609)\n\n• Wissenschaftlicher Mitarbeiter Biomechanik (111608)",
+      "descriptionByLocale": {
+        "it": "Descrizione della Balgrist University Clinic è una clinica medico-ortopedica con sede in Svizzera, dotata di un centro per la paraplegia annesso e di riconoscimento internazionale. Vuoi contribuire in modo significativo e lento ad acquisire nuove esperienze? Offrire l’opportunità di servire interessi, significato e responsabilità civili. Mansioni Le mansioni variano in una seconda parte dall'area di attività e dalla manuale delle operazioni.\n• Requisiti I requisiti possono non essere trovati nel manuale delle operazioni specifiche. Si tratta di un'opportunità di servizio civile in due diversi contesti: - Accompagnatore e assistente vengono a supporto all'assistenza infermieristica (111605) - Collaboratore nel centro di ricerca e insegnamento \"OR-X\" e assistenza infermieristica (111649) - Collaboratore del servicio di casa (servizio di trasporto) (111606) - Accompagnamento del paziente come supporto del personale di radiologia (111607) - Accompagnamento del paziente (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contatto Per Per ulteriori informazioni rivolgersi alla Clinica Universitaria Balgrist.",
+        "en": "Description of the Balgrist University Clinic is a medical orthopedic clinic in Switzerland, with a center for paraplegia annesso and riconoscimento internazionale. Do you want to contribute significantly and at a slow pace to acquire new experience? Offering the opportunity to serve civil interests, significance and responsibility. Mansioni The mansioni vary in a second part of the area of ​​activity and the manual of the operations.\n• Requisiti I requisiti possono no trovati nel manuale delle operazioni specifico. This is an opportunity for civil service in two different settings: - Accompany and assistant come to support all'assistenza infermieristica (111605) - Collaboratore nel centro di ricerca and insegnamento \"OR-X\" e assistenza infermieristica (111649) - Collaboratore del servicio di casa (servizio di transporto) (111606) - Accompagnamento del paziente come supporto del personale di radiologia (111607) - Accompany of the patient (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contatto Per For further information, contact the Clinica Universitaria Balgrist.",
+        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung. Du möchtest einen wertvollen Beitrag leisten und gleichzeitig neue Erfahrungen sammeln? Wir bieten spannende, sinnhafte und verantwortungsvolle Zivildiensteinsätze.\n\nAufgaben:\nDie Aufgaben variieren je nach Tätigkeitsbereich und Pflichtenheft.\n\nAnforderungen:\nDie Anforderungen entnehmen Sie dem jeweiligen Pflichtenheft.\n\nWir bieten:\nIn folgenden Bereichen bieten wir Einsätze an:\n\n• Begleitung und Betreuung als Unterstützung der Pflege (111605)\n\n• Mitarbeiter im Forschungs- und Lehrzentrum \"OR-X\" und Pflege (111649)\n\n• Mitarbeiter Hausdienst (Transportdienst) (111606\n\n• Patientenbegleitung als Unterstützung der Radiologiepersonals (111607)\n\n• Patientenbegleitung (Empfang) (111604)\n\n• Wissenschaftliche Hilfskraft computergestützte Forschung (111609)\n\n• Wissenschaftlicher Mitarbeiter Biomechanik (111608)",
+        "fr": "Description de la Clinique Universitaire Balgrist est une clinique médicale orthopédique en Suisse, avec un centre pour paraplégie annesso et riconoscimento internazionale. Vous souhaitez contribuer de manière significative et à un rythme lent pour acquérir de nouvelles expériences ? Offrir la possibilité de servir les intérêts civils, l’importance et la responsabilité. Mansioni Les mansioni varient dans une deuxième partie du domaine d'activité et du manuel des opérations. Conditions requises Je n'ai pas besoin de trouver le manuel des opérations spécifiques. Il s'agit d'une opportunité pour la fonction publique dans deux contextes différents : - Accompagnement et assistant venus soutenir l'assistance médicale (111605) - Collaborateur au centre de riz et inscription \"OR-X\" et assistance médicale (111649) - Collaborateur du service de maison (servizio di transporto) (111606) - Accompagnement du patient come supporto del personale di radiologia (111607) - Accompagnement du patient (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contact Pour plus d'informations, contactez la Clinica Universitaria Balgrist."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.balgrist.ch/offene-stellen/zivildiensteinsaetze/b0092019-e664-4e7a-90a8-840944d781fa",
+      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:56:26.303Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-03-17",
+      "applyUrl": "https://apply.refline.ch/245893/0868/index.html?cid=101&lang=de",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Requisiti I requisiti possono non essere trovati nel manuale delle operazioni specifiche."
+        ],
+        "en": [
+          "Do you want to contribute significantly and at a slow pace to acquire new experience?",
+          "Requisiti I requisiti possono no trovati nel manuale delle operazioni specifico."
+        ]
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "zivildiensteinsatze-balgrist-zurich",
+          "zivildiensteinsatze-universitatsklinik-balgrist-zurich"
+        ],
+        "it": [
+          "zivildiensteinsatze-balgrist-zurich",
+          "servizio-civile-universitatsklinik-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "zivildiensteinsatze-balgrist-zurich",
+        "zivildiensteinsatze-universitatsklinik-balgrist-zurich",
+        "servizio-civile-universitatsklinik-balgrist-zurich"
+      ],
+      "firstSeenAt": "2026-05-19T13:47:10.450Z",
+      "salaryMin": 63000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "balgrist-a54d7a9123c9",
       "slug": "rotazione-ospedaliera-di-chiropratica-emergenza-per-chiropratici-e-chiropratiche-in-formazione-uomini-donne",
       "slugByLocale": {
@@ -760,7 +847,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/spitalrotation-chiropraktik-notfall-fuer-chiropraktoren-und-chiropraktorinnen-in-weiterbildung-w-m-d/39d83a26-7285-41a1-a514-56fcf624c592",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.795Z",
+      "crawledAt": "2026-09-06T22:56:26.302Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -830,93 +917,6 @@
       }
     },
     {
-      "id": "balgrist-12e7ebc3117e",
-      "slug": "servizio-civile-universitatsklinik-balgrist-zurich",
-      "slugByLocale": {
-        "it": "servizio-civile-universitatsklinik-balgrist-zurich",
-        "en": "civil-service-assignments-universitatsklinik-balgrist-zurich",
-        "de": "zivildiensteinsatze-universitatsklinik-balgrist-zurich",
-        "fr": "assignations-de-service-civil-universitatsklinik-balgrist-zurich"
-      },
-      "company": "Universitätsklinik Balgrist",
-      "companyKey": "balgrist",
-      "companyDomain": "balgrist.ch",
-      "title": "Zivildiensteinsätze",
-      "titleByLocale": {
-        "it": "Servizio Civile",
-        "en": "Civil Service Assignments",
-        "de": "Zivildiensteinsätze",
-        "fr": "Assignations de service civil"
-      },
-      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung. Du möchtest einen wertvollen Beitrag leisten und gleichzeitig neue Erfahrungen sammeln? Wir bieten spannende, sinnhafte und verantwortungsvolle Zivildiensteinsätze.\n\nAufgaben:\nDie Aufgaben variieren je nach Tätigkeitsbereich und Pflichtenheft.\n\nAnforderungen:\nDie Anforderungen entnehmen Sie dem jeweiligen Pflichtenheft.\n\nWir bieten:\nIn folgenden Bereichen bieten wir Einsätze an:\n\n• Begleitung und Betreuung als Unterstützung der Pflege (111605)\n\n• Mitarbeiter im Forschungs- und Lehrzentrum \"OR-X\" und Pflege (111649)\n\n• Mitarbeiter Hausdienst (Transportdienst) (111606\n\n• Patientenbegleitung als Unterstützung der Radiologiepersonals (111607)\n\n• Patientenbegleitung (Empfang) (111604)\n\n• Wissenschaftliche Hilfskraft computergestützte Forschung (111609)\n\n• Wissenschaftlicher Mitarbeiter Biomechanik (111608)",
-      "descriptionByLocale": {
-        "it": "Descrizione della Balgrist University Clinic è una clinica medico-ortopedica con sede in Svizzera, dotata di un centro per la paraplegia annesso e di riconoscimento internazionale. Vuoi contribuire in modo significativo e lento ad acquisire nuove esperienze? Offrire l’opportunità di servire interessi, significato e responsabilità civili. Mansioni Le mansioni variano in una seconda parte dall'area di attività e dalla manuale delle operazioni.\n• Requisiti I requisiti possono non essere trovati nel manuale delle operazioni specifiche. Si tratta di un'opportunità di servizio civile in due diversi contesti: - Accompagnatore e assistente vengono a supporto all'assistenza infermieristica (111605) - Collaboratore nel centro di ricerca e insegnamento \"OR-X\" e assistenza infermieristica (111649) - Collaboratore del servicio di casa (servizio di trasporto) (111606) - Accompagnamento del paziente come supporto del personale di radiologia (111607) - Accompagnamento del paziente (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contatto Per Per ulteriori informazioni rivolgersi alla Clinica Universitaria Balgrist.",
-        "en": "Description of the Balgrist University Clinic is a medical orthopedic clinic in Switzerland, with a center for paraplegia annesso and riconoscimento internazionale. Do you want to contribute significantly and at a slow pace to acquire new experience? Offering the opportunity to serve civil interests, significance and responsibility. Mansioni The mansioni vary in a second part of the area of ​​activity and the manual of the operations.\n• Requisiti I requisiti possono no trovati nel manuale delle operazioni specifico. This is an opportunity for civil service in two different settings: - Accompany and assistant come to support all'assistenza infermieristica (111605) - Collaboratore nel centro di ricerca and insegnamento \"OR-X\" e assistenza infermieristica (111649) - Collaboratore del servicio di casa (servizio di transporto) (111606) - Accompagnamento del paziente come supporto del personale di radiologia (111607) - Accompany of the patient (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contatto Per For further information, contact the Clinica Universitaria Balgrist.",
-        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie sowie internationaler Anerkennung. Du möchtest einen wertvollen Beitrag leisten und gleichzeitig neue Erfahrungen sammeln? Wir bieten spannende, sinnhafte und verantwortungsvolle Zivildiensteinsätze.\n\nAufgaben:\nDie Aufgaben variieren je nach Tätigkeitsbereich und Pflichtenheft.\n\nAnforderungen:\nDie Anforderungen entnehmen Sie dem jeweiligen Pflichtenheft.\n\nWir bieten:\nIn folgenden Bereichen bieten wir Einsätze an:\n\n• Begleitung und Betreuung als Unterstützung der Pflege (111605)\n\n• Mitarbeiter im Forschungs- und Lehrzentrum \"OR-X\" und Pflege (111649)\n\n• Mitarbeiter Hausdienst (Transportdienst) (111606\n\n• Patientenbegleitung als Unterstützung der Radiologiepersonals (111607)\n\n• Patientenbegleitung (Empfang) (111604)\n\n• Wissenschaftliche Hilfskraft computergestützte Forschung (111609)\n\n• Wissenschaftlicher Mitarbeiter Biomechanik (111608)",
-        "fr": "Description de la Clinique Universitaire Balgrist est une clinique médicale orthopédique en Suisse, avec un centre pour paraplégie annesso et riconoscimento internazionale. Vous souhaitez contribuer de manière significative et à un rythme lent pour acquérir de nouvelles expériences ? Offrir la possibilité de servir les intérêts civils, l’importance et la responsabilité. Mansioni Les mansioni varient dans une deuxième partie du domaine d'activité et du manuel des opérations. Conditions requises Je n'ai pas besoin de trouver le manuel des opérations spécifiques. Il s'agit d'une opportunité pour la fonction publique dans deux contextes différents : - Accompagnement et assistant venus soutenir l'assistance médicale (111605) - Collaborateur au centre de riz et inscription \"OR-X\" et assistance médicale (111649) - Collaborateur du service de maison (servizio di transporto) (111606) - Accompagnement du patient come supporto del personale di radiologia (111607) - Accompagnement du patient (111604) - Assistant di ricerca scientifica con supporto informatico (111609) - Collaboratore scientifico di biomeccanica (111608) Contact Pour plus d'informations, contactez la Clinica Universitaria Balgrist."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.balgrist.ch/offene-stellen/zivildiensteinsaetze/b0092019-e664-4e7a-90a8-840944d781fa",
-      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.795Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-03-17",
-      "applyUrl": "https://apply.refline.ch/245893/0868/index.html?cid=101&lang=de",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Requisiti I requisiti possono non essere trovati nel manuale delle operazioni specifiche."
-        ],
-        "en": [
-          "Do you want to contribute significantly and at a slow pace to acquire new experience?",
-          "Requisiti I requisiti possono no trovati nel manuale delle operazioni specifico."
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "zivildiensteinsatze-balgrist-zurich",
-          "zivildiensteinsatze-universitatsklinik-balgrist-zurich"
-        ],
-        "it": [
-          "zivildiensteinsatze-balgrist-zurich",
-          "servizio-civile-universitatsklinik-balgrist-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "zivildiensteinsatze-balgrist-zurich",
-        "zivildiensteinsatze-universitatsklinik-balgrist-zurich",
-        "servizio-civile-universitatsklinik-balgrist-zurich"
-      ],
-      "firstSeenAt": "2026-05-19T13:47:10.450Z",
-      "salaryMin": 63000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "balgrist-6902fb13f29d",
       "slug": "esperta-di-settore-in-infermieristica-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -947,7 +947,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachexpertin-fachexperten-pflege-m-w-d-50/659c3f17-2db9-4923-bdcf-cdffd6138c76",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.794Z",
+      "crawledAt": "2026-09-06T22:56:26.301Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1041,7 +1041,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachchiropraktor-in-supervisor-in-w-m-d-mittwochnachmittag-donnerstag-oder-freitagvormittag/0de90861-c9b1-44d7-aaf7-e4b94b2d7d57",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.793Z",
+      "crawledAt": "2026-09-06T22:56:26.300Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1150,7 +1150,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachchiropraktor-in-supervisor-in-w-m-d-im-stundenlohn/3aaf8164-ebe3-48aa-b643-6e9cb688d3c6",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.792Z",
+      "crawledAt": "2026-09-06T22:56:26.298Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1255,7 +1255,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/assistenzaerztin-assistenzarzt-in-weiterbildung-neurologie-m-w-d/585d1933-4828-4850-862e-c13de61f1b08",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.791Z",
+      "crawledAt": "2026-09-06T22:56:26.297Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1344,7 +1344,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachfrau-apotheke-fachmann-apotheke-oder-drogistin-drogisten-m-w-d-40/68ae5030-0468-42a7-9359-edaeab7d9438",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.789Z",
+      "crawledAt": "2026-09-06T22:56:26.296Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1436,7 +1436,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachperson-gesundheit-m-w-d-80/0e41025f-c6f6-4582-b9bf-81c35604d6d4",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.788Z",
+      "crawledAt": "2026-09-06T22:56:26.295Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1525,6 +1525,90 @@
       }
     },
     {
+      "id": "balgrist-d79b9afb12fa",
+      "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+      "slugByLocale": {
+        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+        "en": "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+        "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
+      },
+      "company": "Universitätsklinik Balgrist",
+      "companyKey": "balgrist",
+      "companyDomain": "balgrist.ch",
+      "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100 %",
+      "titleByLocale": {
+        "it": "Infermiera HF/FH (m/f/d) 50–100 %",
+        "en": "Dipl. Nurse HF/FH (m/f/d) 50–100 %",
+        "de": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100 %",
+        "fr": "Infirmière diplômée HF/FH (m/f/d) 50–100 %"
+      },
+      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung. Angegliedert ist ein Zentrum für Paraplegie.<br/><br/>Unser orthopädischer Privé-Bereich, mit einer Privat- und einer Halbprivatstation, zeichnet sich durch engagierte, eingespielte Teams aus, die mit Herzblut, Professionalität und Teamgeist für das Wohl unserer Patientinnen und Patienten da sind. Die Pflegequalität steht bei uns an erster Stelle. Exzellenz in der Betreuung und ein respektvoller, wertschätzender Umgang prägen unsere Arbeit.<br/><br/>Nun suchen wir für unsere orthopädischen Privé-Stationen nach Vereinbarung je eine\n\nAufgaben:\n• Professionelle, kundenorientierte und achtsame Pflege entsprechend dem Pflegeleitbild\n\n• Verantwortung und Steuerung des Pflegeprozesses\n\n• Enge Zusammenarbeit im Team, mit den Ärztinnen und Ärzten, wie auch mit Therapeutinnen und Therapeuten, International Office, Guest Relations sowie Hotellerie\n\n• Ausbildung und Förderung von Pflegefachpersonen HF/FH und Fachpersonen Gesundheit als Tagesbezugsperson\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachperson HF/FH\n\n• Selbständige Arbeitsweise sowie hohe Fach- und Sozialkompetenzen\n\n• Freude an der aktiven Mitgestaltung einer positiven Team- und Klinikkultur\n\n• Bereichsübergreifendes Verständnis sowie dienstleistungsorientiertes und wirtschaftliches Denken und Handeln\n\n• Offenheit gegenüber verschiedenen Kulturen\n\n• Gute Englischkenntnisse, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• Eine abwechslungsreiche Aufgabe in einem modernen, innovativen Umfeld mit wertschätzendem Arbeitsklima\n\n• Mitarbeit in einem motivierten Team mit starkem Zusammenhalt, in dem gegenseitige Unterstützung selbstverständlich ist\n\n• Enge Zusammenarbeit mit verschiedenen hochspezialisierten Fachbereichen\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten wissenschaftlichen Erkenntnissen\n\n• Flexible Dienstzeiten dank Gleitzeit und Offenheit für individuelle Arbeitsmodelle\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "descriptionByLocale": {
+        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con riconoscimento internazionale. Un centro affiliato per la paraplegia. <br/> La nostra area privé ortopedica, con un reparto privato e semiprivato, è caratterizzata da team dedicati e consolidati che sono presenti con passione, professionalità e spirito di squadra per il benessere dei nostri pazienti. La qualità della cura è la nostra priorità assoluta. Eccellenza nella cura e un approccio rispettoso e apprezzativo caratterizzano il nostro lavoro. <br/> <br/ > Ora stiamo cercando uno per le nostre stazioni ortopediche Privé su appuntamento\n\nCompiti:\n• Cura professionale, orientata al cliente e consapevole secondo la dichiarazione della missione di cura\n\n• Responsabilità e controllo del processo di cura\n\n• stretta collaborazione nella squadra, con i medici, così come con terapisti, Ufficio Internazionale, Relazioni Ospiti e l'industria alberghiera\n\n• Formazione e promozione di infermieri HF/FH e professionisti sanitari come fornitore di assistenza diurna\n\nRequisiti\n• Laurea come Dipl. Cura professionale HF/FH\n\n• Lavoro autonomo e competenze professionali e sociali elevate\n\n• Delight nella formazione attiva di un team positivo e di una cultura clinica\n\n• comprensione trasversale e pensiero ed azione orientati al servizio e economico\n\n• Apertura a culture diverse\n\n• Buone competenze in inglese, ulteriori competenze linguistiche benefiche\n\nOffriamo:\n• Un compito variegato in un ambiente moderno e innovativo con un ambiente di lavoro apprezzabile\n\n• Lavorare in un team motivato con una forte coesione, in cui il sostegno reciproco è ovviamente una questione\n\n• Una stretta collaborazione con vari settori altamente specializzati\n\n• Sostegno superiore alla media per l'ulteriore istruzione e formazione\n\n• Standard di cura e cura secondo i più recenti risultati scientifici\n\n• Orari di servizio flessibili grazie a tempo flessibile e apertura ai singoli modelli di lavoro\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Regalato giorno libero per compleanno\n\n• 20% di sconto in Balgrist Apotheke AG\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with international recognition. An affiliated center for paraplegia. <br/><br/>Our orthopaedic privé area, with a private and a semi-private ward, is characterised by dedicated, well-established teams that are there with passion, professionalism and team spirit for the well-being of our patients. Quality of care is our top priority. Excellence in care and a respectful, appreciative approach characterize our work. <br/><br/ >Now we are looking for one for our orthopaedic Privé stations by appointment\n\nTasks:\n• Professional, customer-oriented and mindful care according to the nursing mission statement\n\n• Responsibility and control of the care process\n\n• Close cooperation in the team, with the doctors, as well as with therapists, International Office, Guest Relations and the hotel industry\n\n• Training and promotion of nurses HF/FH and health care professionals as day care provider\n\nRequirements\n• Degree as a Dipl. Care professional HF/FH\n\n• Self-employment and high professional and social skills\n\n• Delight in actively shaping a positive team and clinic culture\n\n• Cross-cutting understanding and service-oriented and economic thinking and action\n\n• Openness to different cultures\n\n• Good English skills, further language skills beneficial\n\nWe offer:\n• A varied task in a modern, innovative environment with an appreciative working environment\n\n• Working in a motivated team with strong cohesion, in which mutual support is a matter of course\n\n• Close cooperation with various highly specialized fields\n\n• Above-average support for further education and training\n\n• Care and care standards according to the latest scientific findings\n\n• Flexible service hours thanks to flexible time and openness to individual work models\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Gifted free day for birthday\n\n• 20% discount in Balgrist Apotheke AG\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\nFurther advantages are just one click away: Attractive offers for our employees",
+        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung. Angegliedert ist ein Zentrum für Paraplegie.<br/><br/>Unser orthopädischer Privé-Bereich, mit einer Privat- und einer Halbprivatstation, zeichnet sich durch engagierte, eingespielte Teams aus, die mit Herzblut, Professionalität und Teamgeist für das Wohl unserer Patientinnen und Patienten da sind. Die Pflegequalität steht bei uns an erster Stelle. Exzellenz in der Betreuung und ein respektvoller, wertschätzender Umgang prägen unsere Arbeit.<br/><br/>Nun suchen wir für unsere orthopädischen Privé-Stationen nach Vereinbarung je eine\n\nAufgaben:\n• Professionelle, kundenorientierte und achtsame Pflege entsprechend dem Pflegeleitbild\n\n• Verantwortung und Steuerung des Pflegeprozesses\n\n• Enge Zusammenarbeit im Team, mit den Ärztinnen und Ärzten, wie auch mit Therapeutinnen und Therapeuten, International Office, Guest Relations sowie Hotellerie\n\n• Ausbildung und Förderung von Pflegefachpersonen HF/FH und Fachpersonen Gesundheit als Tagesbezugsperson\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachperson HF/FH\n\n• Selbständige Arbeitsweise sowie hohe Fach- und Sozialkompetenzen\n\n• Freude an der aktiven Mitgestaltung einer positiven Team- und Klinikkultur\n\n• Bereichsübergreifendes Verständnis sowie dienstleistungsorientiertes und wirtschaftliches Denken und Handeln\n\n• Offenheit gegenüber verschiedenen Kulturen\n\n• Gute Englischkenntnisse, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• Eine abwechslungsreiche Aufgabe in einem modernen, innovativen Umfeld mit wertschätzendem Arbeitsklima\n\n• Mitarbeit in einem motivierten Team mit starkem Zusammenhalt, in dem gegenseitige Unterstützung selbstverständlich ist\n\n• Enge Zusammenarbeit mit verschiedenen hochspezialisierten Fachbereichen\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten wissenschaftlichen Erkenntnissen\n\n• Flexible Dienstzeiten dank Gleitzeit und Offenheit für individuelle Arbeitsmodelle\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées en Suisse avec une reconnaissance internationale. Un centre affilié pour la paraplégie. <br/><br/> Notre espace privé orthopédique, avec une salle privée et semi-privée, se caractérise par des équipes dévouées et bien établies qui sont là avec passion, professionnalisme et esprit d'équipe pour le bien-être de nos patients. La qualité des soins est notre priorité absolue. L'excellence en soins et une approche respectueuse et reconnaissante caractérisent notre travail. <br/><br/ >Maintenant nous sommes à la recherche d'un pour nos stations orthopédiques privées sur rendez-vous\n\nTâches :\n• Soins professionnels, axés sur le client et attentifs selon l'énoncé de mission en soins infirmiers\n\n• Responsabilité et contrôle du processus de soins\n\n• Coopération étroite au sein de l'équipe, avec les médecins, ainsi qu'avec les thérapeutes, le Bureau international, les relations avec les clients et l'industrie hôtelière\n\n• Formation et promotion des infirmières HF/FH et des professionnels de la santé en tant que prestataires de soins de jour\n\nExigences\n• Diplôme de diplômé. Soins professionnels HF/FH\n\n• Travail indépendant et compétences professionnelles et sociales élevées\n\n• Délice de façonner activement une équipe positive et une culture clinique\n\n• Compréhension transversale et réflexion et action économiques axées sur les services\n\n• Ouverture aux différentes cultures\n\n• Bonnes compétences en anglais, nouvelles compétences linguistiques bénéfiques\n\nNous offrons:\n• Une tâche variée dans un environnement moderne et innovant avec un environnement de travail apprécié\n\n• Travailler dans une équipe motivée avec une forte cohésion, dans laquelle le soutien mutuel est une question bien sûr\n\n• Coopération étroite avec divers domaines hautement spécialisés\n\n• Soutien supérieur à la moyenne pour la formation continue\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques\n\n• Heures de service flexibles grâce à un temps flexible et une ouverture aux modèles de travail individuels\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Journée offerte pour l'anniversaire\n\n• 20% de réduction dans Balgrist Apotheke AG\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d-50/f3f62090-66dd-403b-8b2f-5edf62725b68",
+      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:56:26.294Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://apply.refline.ch/245893/1081/index.html?cid=101&lang=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
+        "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+          "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+          "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+        ]
+      },
+      "firstSeenAt": "2026-07-09T22:47:35.996Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "balgrist-08929508326c",
       "slug": "direzione-negozio-sanitario-e-vendita-al-dettaglio-m-f-d-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -1555,7 +1639,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/leitung-sanitaetsshop-retail-m-w-d/9878f63c-6e87-42a3-a146-c83e21a45864",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.787Z",
+      "crawledAt": "2026-09-06T22:56:26.293Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1653,90 +1737,6 @@
       }
     },
     {
-      "id": "balgrist-d79b9afb12fa",
-      "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
-      "slugByLocale": {
-        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
-        "en": "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
-        "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
-      },
-      "company": "Universitätsklinik Balgrist",
-      "companyKey": "balgrist",
-      "companyDomain": "balgrist.ch",
-      "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100 %",
-      "titleByLocale": {
-        "it": "Infermiera HF/FH (m/f/d) 50–100 %",
-        "en": "Dipl. Nurse HF/FH (m/f/d) 50–100 %",
-        "de": "Dipl. Pflegefachperson HF/FH (m/w/d) 50–100 %",
-        "fr": "Infirmière diplômée HF/FH (m/f/d) 50–100 %"
-      },
-      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung. Angegliedert ist ein Zentrum für Paraplegie.<br/><br/>Unser orthopädischer Privé-Bereich, mit einer Privat- und einer Halbprivatstation, zeichnet sich durch engagierte, eingespielte Teams aus, die mit Herzblut, Professionalität und Teamgeist für das Wohl unserer Patientinnen und Patienten da sind. Die Pflegequalität steht bei uns an erster Stelle. Exzellenz in der Betreuung und ein respektvoller, wertschätzender Umgang prägen unsere Arbeit.<br/><br/>Nun suchen wir für unsere orthopädischen Privé-Stationen nach Vereinbarung je eine\n\nAufgaben:\n• Professionelle, kundenorientierte und achtsame Pflege entsprechend dem Pflegeleitbild\n\n• Verantwortung und Steuerung des Pflegeprozesses\n\n• Enge Zusammenarbeit im Team, mit den Ärztinnen und Ärzten, wie auch mit Therapeutinnen und Therapeuten, International Office, Guest Relations sowie Hotellerie\n\n• Ausbildung und Förderung von Pflegefachpersonen HF/FH und Fachpersonen Gesundheit als Tagesbezugsperson\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachperson HF/FH\n\n• Selbständige Arbeitsweise sowie hohe Fach- und Sozialkompetenzen\n\n• Freude an der aktiven Mitgestaltung einer positiven Team- und Klinikkultur\n\n• Bereichsübergreifendes Verständnis sowie dienstleistungsorientiertes und wirtschaftliches Denken und Handeln\n\n• Offenheit gegenüber verschiedenen Kulturen\n\n• Gute Englischkenntnisse, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• Eine abwechslungsreiche Aufgabe in einem modernen, innovativen Umfeld mit wertschätzendem Arbeitsklima\n\n• Mitarbeit in einem motivierten Team mit starkem Zusammenhalt, in dem gegenseitige Unterstützung selbstverständlich ist\n\n• Enge Zusammenarbeit mit verschiedenen hochspezialisierten Fachbereichen\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten wissenschaftlichen Erkenntnissen\n\n• Flexible Dienstzeiten dank Gleitzeit und Offenheit für individuelle Arbeitsmodelle\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-      "descriptionByLocale": {
-        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con riconoscimento internazionale. Un centro affiliato per la paraplegia. <br/> La nostra area privé ortopedica, con un reparto privato e semiprivato, è caratterizzata da team dedicati e consolidati che sono presenti con passione, professionalità e spirito di squadra per il benessere dei nostri pazienti. La qualità della cura è la nostra priorità assoluta. Eccellenza nella cura e un approccio rispettoso e apprezzativo caratterizzano il nostro lavoro. <br/> <br/ > Ora stiamo cercando uno per le nostre stazioni ortopediche Privé su appuntamento\n\nCompiti:\n• Cura professionale, orientata al cliente e consapevole secondo la dichiarazione della missione di cura\n\n• Responsabilità e controllo del processo di cura\n\n• stretta collaborazione nella squadra, con i medici, così come con terapisti, Ufficio Internazionale, Relazioni Ospiti e l'industria alberghiera\n\n• Formazione e promozione di infermieri HF/FH e professionisti sanitari come fornitore di assistenza diurna\n\nRequisiti\n• Laurea come Dipl. Cura professionale HF/FH\n\n• Lavoro autonomo e competenze professionali e sociali elevate\n\n• Delight nella formazione attiva di un team positivo e di una cultura clinica\n\n• comprensione trasversale e pensiero ed azione orientati al servizio e economico\n\n• Apertura a culture diverse\n\n• Buone competenze in inglese, ulteriori competenze linguistiche benefiche\n\nOffriamo:\n• Un compito variegato in un ambiente moderno e innovativo con un ambiente di lavoro apprezzabile\n\n• Lavorare in un team motivato con una forte coesione, in cui il sostegno reciproco è ovviamente una questione\n\n• Una stretta collaborazione con vari settori altamente specializzati\n\n• Sostegno superiore alla media per l'ulteriore istruzione e formazione\n\n• Standard di cura e cura secondo i più recenti risultati scientifici\n\n• Orari di servizio flessibili grazie a tempo flessibile e apertura ai singoli modelli di lavoro\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Regalato giorno libero per compleanno\n\n• 20% di sconto in Balgrist Apotheke AG\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
-        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with international recognition. An affiliated center for paraplegia. <br/><br/>Our orthopaedic privé area, with a private and a semi-private ward, is characterised by dedicated, well-established teams that are there with passion, professionalism and team spirit for the well-being of our patients. Quality of care is our top priority. Excellence in care and a respectful, appreciative approach characterize our work. <br/><br/ >Now we are looking for one for our orthopaedic Privé stations by appointment\n\nTasks:\n• Professional, customer-oriented and mindful care according to the nursing mission statement\n\n• Responsibility and control of the care process\n\n• Close cooperation in the team, with the doctors, as well as with therapists, International Office, Guest Relations and the hotel industry\n\n• Training and promotion of nurses HF/FH and health care professionals as day care provider\n\nRequirements\n• Degree as a Dipl. Care professional HF/FH\n\n• Self-employment and high professional and social skills\n\n• Delight in actively shaping a positive team and clinic culture\n\n• Cross-cutting understanding and service-oriented and economic thinking and action\n\n• Openness to different cultures\n\n• Good English skills, further language skills beneficial\n\nWe offer:\n• A varied task in a modern, innovative environment with an appreciative working environment\n\n• Working in a motivated team with strong cohesion, in which mutual support is a matter of course\n\n• Close cooperation with various highly specialized fields\n\n• Above-average support for further education and training\n\n• Care and care standards according to the latest scientific findings\n\n• Flexible service hours thanks to flexible time and openness to individual work models\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Gifted free day for birthday\n\n• 20% discount in Balgrist Apotheke AG\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\nFurther advantages are just one click away: Attractive offers for our employees",
-        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung. Angegliedert ist ein Zentrum für Paraplegie.<br/><br/>Unser orthopädischer Privé-Bereich, mit einer Privat- und einer Halbprivatstation, zeichnet sich durch engagierte, eingespielte Teams aus, die mit Herzblut, Professionalität und Teamgeist für das Wohl unserer Patientinnen und Patienten da sind. Die Pflegequalität steht bei uns an erster Stelle. Exzellenz in der Betreuung und ein respektvoller, wertschätzender Umgang prägen unsere Arbeit.<br/><br/>Nun suchen wir für unsere orthopädischen Privé-Stationen nach Vereinbarung je eine\n\nAufgaben:\n• Professionelle, kundenorientierte und achtsame Pflege entsprechend dem Pflegeleitbild\n\n• Verantwortung und Steuerung des Pflegeprozesses\n\n• Enge Zusammenarbeit im Team, mit den Ärztinnen und Ärzten, wie auch mit Therapeutinnen und Therapeuten, International Office, Guest Relations sowie Hotellerie\n\n• Ausbildung und Förderung von Pflegefachpersonen HF/FH und Fachpersonen Gesundheit als Tagesbezugsperson\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachperson HF/FH\n\n• Selbständige Arbeitsweise sowie hohe Fach- und Sozialkompetenzen\n\n• Freude an der aktiven Mitgestaltung einer positiven Team- und Klinikkultur\n\n• Bereichsübergreifendes Verständnis sowie dienstleistungsorientiertes und wirtschaftliches Denken und Handeln\n\n• Offenheit gegenüber verschiedenen Kulturen\n\n• Gute Englischkenntnisse, weitere Sprachkenntnisse von Vorteil\n\nWir bieten:\n• Eine abwechslungsreiche Aufgabe in einem modernen, innovativen Umfeld mit wertschätzendem Arbeitsklima\n\n• Mitarbeit in einem motivierten Team mit starkem Zusammenhalt, in dem gegenseitige Unterstützung selbstverständlich ist\n\n• Enge Zusammenarbeit mit verschiedenen hochspezialisierten Fachbereichen\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten wissenschaftlichen Erkenntnissen\n\n• Flexible Dienstzeiten dank Gleitzeit und Offenheit für individuelle Arbeitsmodelle\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées en Suisse avec une reconnaissance internationale. Un centre affilié pour la paraplégie. <br/><br/> Notre espace privé orthopédique, avec une salle privée et semi-privée, se caractérise par des équipes dévouées et bien établies qui sont là avec passion, professionnalisme et esprit d'équipe pour le bien-être de nos patients. La qualité des soins est notre priorité absolue. L'excellence en soins et une approche respectueuse et reconnaissante caractérisent notre travail. <br/><br/ >Maintenant nous sommes à la recherche d'un pour nos stations orthopédiques privées sur rendez-vous\n\nTâches :\n• Soins professionnels, axés sur le client et attentifs selon l'énoncé de mission en soins infirmiers\n\n• Responsabilité et contrôle du processus de soins\n\n• Coopération étroite au sein de l'équipe, avec les médecins, ainsi qu'avec les thérapeutes, le Bureau international, les relations avec les clients et l'industrie hôtelière\n\n• Formation et promotion des infirmières HF/FH et des professionnels de la santé en tant que prestataires de soins de jour\n\nExigences\n• Diplôme de diplômé. Soins professionnels HF/FH\n\n• Travail indépendant et compétences professionnelles et sociales élevées\n\n• Délice de façonner activement une équipe positive et une culture clinique\n\n• Compréhension transversale et réflexion et action économiques axées sur les services\n\n• Ouverture aux différentes cultures\n\n• Bonnes compétences en anglais, nouvelles compétences linguistiques bénéfiques\n\nNous offrons:\n• Une tâche variée dans un environnement moderne et innovant avec un environnement de travail apprécié\n\n• Travailler dans une équipe motivée avec une forte cohésion, dans laquelle le soutien mutuel est une question bien sûr\n\n• Coopération étroite avec divers domaines hautement spécialisés\n\n• Soutien supérieur à la moyenne pour la formation continue\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques\n\n• Heures de service flexibles grâce à un temps flexible et une ouverture aux modèles de travail individuels\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Journée offerte pour l'anniversaire\n\n• 20% de réduction dans Balgrist Apotheke AG\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d-50/f3f62090-66dd-403b-8b2f-5edf62725b68",
-      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.787Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://apply.refline.ch/245893/1081/index.html?cid=101&lang=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
-        "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f",
-        "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
-          "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
-          "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich-b0782f"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
-        ]
-      },
-      "firstSeenAt": "2026-07-09T22:47:35.996Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "balgrist-4fbf4988ce54",
       "slug": "dipl-experten-intensivpflege-o-dipl-pflegefachpersonen-hf-ndk-uberwachungspflege-m-w-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -1768,7 +1768,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachpersonen-hf-ndk-ueberwachungspflege-w-m-d-50/b00d8d93-5b66-47df-970f-aeb246725140",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.786Z",
+      "crawledAt": "2026-09-06T22:56:26.292Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1851,7 +1851,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d-50/ae1e460e-385e-4cc0-a512-4406717ec04b",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.785Z",
+      "crawledAt": "2026-09-06T22:56:26.291Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1938,7 +1938,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d-50/4abb9252-98e0-49d3-855c-14837a0eaf29",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.785Z",
+      "crawledAt": "2026-09-06T22:56:26.291Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2021,7 +2021,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/oberaerztin-oberarzt-mev-fachnotfall-orthopaedie-traumatologie/c2fd5b13-baef-4aed-ad41-f240961ee70c",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.784Z",
+      "crawledAt": "2026-09-06T22:56:26.290Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2086,7 +2086,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-50/5ff9077b-1b64-467e-912d-28ed3afc01a2",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.783Z",
+      "crawledAt": "2026-09-06T22:56:26.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2164,7 +2164,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/ergotherapeutin-ergotherapeut-w-m-d/8dbba373-95d7-4566-a544-d7f9f23eedd2",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.782Z",
+      "crawledAt": "2026-09-06T22:56:26.287Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2251,7 +2251,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/academic-fellow-neuro-urology-m-w-d/11886ef1-0c7d-48da-b341-faa720768adb",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.781Z",
+      "crawledAt": "2026-09-06T22:56:26.285Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2270,87 +2270,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-22T12:25:59.060Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "balgrist-e6e27240cb38",
-      "slug": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
-      "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
-        "en": "dipl-nurse-hf-fh-80-100-m-f-d-in-ambulatory-neuro-urology-universitatsklinik-balgrist-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
-        "fr": "c-est-quoi-infirmiere-hf-fh-80-100-m-f-j-en-neuro-urologie-ambulatoire-universitatsklinik-balgrist-zurich"
-      },
-      "company": "Universitätsklinik Balgrist",
-      "companyKey": "balgrist",
-      "companyDomain": "balgrist.ch",
-      "title": "dipl. Pflegefachperson HF/FH 80–100 % (m/w/d) im Ambulatorium Neuro-Urologie",
-      "titleByLocale": {
-        "it": "Dipl. Infermiera HF/FH 80–100 % (m/f/d) in neurourologia ambulatoria",
-        "en": "dipl. Nurse HF/FH 80–100 % (m/f/d) in ambulatory neuro-urology",
-        "de": "dipl. Pflegefachperson HF/FH 80–100 % (m/w/d) im Ambulatorium Neuro-Urologie",
-        "fr": "C'est quoi ? Infirmière HF/FH 80–100 % (m/f/j) en neuro-urologie ambulatoire"
-      },
-      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung und angegliedertem Zentrum für Paraplegie.<br/><br/>Die Neuro-Urologie diagnostiziert und therapiert Schädigungen und Erkrankungen der Nerven von Geschlechtsorganen und ableitenden Harnwegen. Sind Sie unser neues Teammitglied?\n\nAufgaben:\n• Kontinuierliche Weiterentwicklung und Sicherung der Pflegequalität in enger Zusammenarbeit mit der Bereichsleitung\n\n• Betreuung von Patientinnen und Patienten während der Sprechstunde sowie Assistenz für die behandelnden Ärztinnen und Ärzte\n\n• Administrative Tätigkeiten, teilweise auch im Rahmen klinischer Studien, z. B. Führen von Checklisten, Abgabe und erklären von Studienunterlagen, Proben abnehmen\n\n• Materialkontrolle und Überprüfung der Einsatzbereitschaft der Apparate\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH und mehrjähriger Erfahrung, idealerweise in der Urologie (z.B. Urodynamik, Zystoskopie etc.) oder in der Rehabilitation\n\n• Selbständige Arbeitsweise und gute organisatorische Fähigkeiten\n\n• Hohe Sozialkompetenz, Teamfähigkeit und Flexiblität\n\n• Interesse an wissenschaftlichen Fragestellungen und kontinuierlicher Weiterbildung\n\n• Freude an spezialisierter Tätigkeit, interdisziplinärer Zusammenarbeit sowie fachlicher Weiterentwicklung\n\nWir bieten:\n• Mitarbeit in einer angesehenen universitären Klinik mit ausgezeichnetem Ruf\n\n• Vielfältige, anspruchsvolle Aufgaben in einem hochspezialisierten Team mit wertschätzender und respektvoller Arbeitskultur\n\n• Pflege- und Betreuungsstandards nach neusten Erkenntnissen der Wissenschaft und Praxis\n\n• Geregelte Arbeitszeiten und gezielte Einarbeitung\n\n• Regelmässige interne und externe Fortbildungen\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Min. 26 Ferientage pro Jahr und zusätzlicher geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in den Balgrist Apotheken\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Gratis Kaffee/Heissgetränke und diverse Einkaufsvergünstigungen\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-      "descriptionByLocale": {
-        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con riconoscimento internazionale e un centro affiliato per la paraplegia. >Neuro-urologia diagnostica e tratta i danni e le malattie dei nervi degli organi sessuali e delle vie urinarie. Sei il nostro nuovo membro della squadra?\n\nCompiti:\n• Sviluppo continuo e garanzia della qualità della cura in stretta collaborazione con la gestione del dipartimento\n\n• Cura dei pazienti durante le ore di consultazione e assistenza per i medici del trattamento\n\n• Attività amministrative, in parte anche nel contesto di studi clinici, ad esempio mantenendo le liste di controllo, presentando e spiegando documenti di studio, prendendo campioni\n\n• Controllo del materiale e controllo della disponibilità\n\nRequisiti\n• Allenamento completato come dipl. Infermieristica professionale HF/FH e diversi anni di esperienza, idealmente in urologia (ad esempio urodinamica, cistoscopia, ecc.) o in riabilitazione\n\n• Lavoro autonomo e buone capacità organizzative\n\n• Elevate competenze sociali, competenze di lavoro di squadra e flessibilità\n\n• Interessi in materia scientifica e formazione continua\n\n• Sfruttamento del lavoro specializzato, cooperazione interdisciplinare e sviluppo professionale\n\nOffriamo:\n• Lavorare in una prestigiosa clinica universitaria con un'ottima reputazione\n\n• Compiti diversi e impegnativi in un team altamente specializzato con una cultura di lavoro apprezzata e rispettosa\n\n• Standard di cura e cura secondo le ultime scoperte della scienza e della pratica\n\n• Ore lavorative regolamentate e formazione mirata\n\n• Formazione regolare interna ed esterna\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Min. 26 giorni di vacanza all'anno e giorno libero aggiuntivo per il compleanno\n\n• 20% di sconto in farmacie Balgrist\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Caffè / bevande calde e vari sconti per lo shopping\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\n\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
-        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with international recognition and an affiliated centre for paraplegia. >Neuro-urology diagnoses and treats damage and diseases of the nerves of sexual organs and urinary tracts. Are you our new team member?\n\nTasks:\n• Continuous development and assurance of care quality in close cooperation with the department management\n\n• Care of patients during the consultation hours as well as assistance for the treating doctors\n\n• Administrative activities, partly also in the context of clinical studies, e.g. keeping checklists, submitting and explaining study documents, taking samples\n\n• Material control and equipment readiness check\n\nRequirements\n• Completed training as a dipl. Nursing professional HF/FH and several years of experience, ideally in urology (e.g. urodynamics, cystoscopy, etc.) or in rehabilitation\n\n• Self-employment and good organisational skills\n\n• High social skills, teamwork skills and flexibility\n\n• Interest in scientific issues and continuous training\n\n• Enjoyment of specialized work, interdisciplinary cooperation and professional development\n\nWe offer:\n• Working in a prestigious university clinic with an excellent reputation\n\n• Diverse, demanding tasks in a highly specialized team with an appreciative and respectful working culture\n\n• Care and care standards according to the latest findings of science and practice\n\n• Regulated working hours and targeted training\n\n• Regular internal and external training\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Min. 26 days of holiday per year and additional free day for birthday\n\n• 20% discount in Balgrist pharmacies\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Free coffee/hot drinks and various shopping discounts\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\n\nFurther advantages are just one click away: Attractive offers for our employees",
-        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung und angegliedertem Zentrum für Paraplegie.<br/><br/>Die Neuro-Urologie diagnostiziert und therapiert Schädigungen und Erkrankungen der Nerven von Geschlechtsorganen und ableitenden Harnwegen. Sind Sie unser neues Teammitglied?\n\nAufgaben:\n• Kontinuierliche Weiterentwicklung und Sicherung der Pflegequalität in enger Zusammenarbeit mit der Bereichsleitung\n\n• Betreuung von Patientinnen und Patienten während der Sprechstunde sowie Assistenz für die behandelnden Ärztinnen und Ärzte\n\n• Administrative Tätigkeiten, teilweise auch im Rahmen klinischer Studien, z. B. Führen von Checklisten, Abgabe und erklären von Studienunterlagen, Proben abnehmen\n\n• Materialkontrolle und Überprüfung der Einsatzbereitschaft der Apparate\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH und mehrjähriger Erfahrung, idealerweise in der Urologie (z.B. Urodynamik, Zystoskopie etc.) oder in der Rehabilitation\n\n• Selbständige Arbeitsweise und gute organisatorische Fähigkeiten\n\n• Hohe Sozialkompetenz, Teamfähigkeit und Flexiblität\n\n• Interesse an wissenschaftlichen Fragestellungen und kontinuierlicher Weiterbildung\n\n• Freude an spezialisierter Tätigkeit, interdisziplinärer Zusammenarbeit sowie fachlicher Weiterentwicklung\n\nWir bieten:\n• Mitarbeit in einer angesehenen universitären Klinik mit ausgezeichnetem Ruf\n\n• Vielfältige, anspruchsvolle Aufgaben in einem hochspezialisierten Team mit wertschätzender und respektvoller Arbeitskultur\n\n• Pflege- und Betreuungsstandards nach neusten Erkenntnissen der Wissenschaft und Praxis\n\n• Geregelte Arbeitszeiten und gezielte Einarbeitung\n\n• Regelmässige interne und externe Fortbildungen\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Min. 26 Ferientage pro Jahr und zusätzlicher geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in den Balgrist Apotheken\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Gratis Kaffee/Heissgetränke und diverse Einkaufsvergünstigungen\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec une reconnaissance internationale et un centre affilié pour la paraplégie. >Neuro-urologie diagnostique et traite les dommages et les maladies des nerfs des organes sexuels et des voies urinaires. Êtes-vous notre nouveau membre de l'équipe ?\n\nTâches :\n• Développement continu et assurance de la qualité des soins en étroite collaboration avec la direction du département\n\n• Soins aux patients pendant les heures de consultation ainsi qu'aide aux médecins traitants\n\n• Activités administratives, en partie aussi dans le contexte des études cliniques, p. ex. tenue de listes de contrôle, présentation et explication de documents d'étude, prélèvement d'échantillons\n\n• Contrôle du matériel et contrôle de l'état de préparation de l'équipement\n\nExigences\n• Achevé la formation comme dipl. Soins infirmiers professionnels HF/FH et plusieurs années d'expérience, idéalement en urologie (par exemple, urodynamique, cystoscopie, etc.) ou en réadaptation\n\n• Travail indépendant et bonnes compétences organisationnelles\n\n• Hautes compétences sociales, esprit d'équipe et flexibilité\n\n• Intérêt pour les questions scientifiques et la formation continue\n\n• Profitez du travail spécialisé, de la coopération interdisciplinaire et du développement professionnel\n\nNous offrons:\n• Travailler dans une clinique universitaire prestigieuse avec une excellente réputation\n\n• Diverses tâches exigeantes dans une équipe hautement spécialisée avec une culture de travail reconnaissante et respectueuse\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques et pratiques\n\n• Heures de travail réglementées et formation ciblée\n\n• Formation interne et externe régulière\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Min. 26 jours de vacances par an et jour gratuit supplémentaire pour l'anniversaire\n\n• 20% de réduction dans les pharmacies Balgrist\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Café / boissons chaudes gratuits et diverses réductions shopping\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\n\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-80-m-w-d-im-ambulatorium-neuro-urologie/aa4fa954-9cf0-40bb-9d35-51a60dfdaa9b",
-      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.780Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "applyUrl": "https://apply.refline.ch/245893/1157/index.html?cid=101&lang=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
-        "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
-          "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-28T12:03:24.350Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2396,7 +2315,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d-50/65cb049d-6e5e-438a-98c1-4397400b33e1",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.779Z",
+      "crawledAt": "2026-09-06T22:56:26.284Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2448,6 +2367,87 @@
       }
     },
     {
+      "id": "balgrist-e6e27240cb38",
+      "slug": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
+      "slugByLocale": {
+        "it": "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich",
+        "en": "dipl-nurse-hf-fh-80-100-m-f-d-in-ambulatory-neuro-urology-universitatsklinik-balgrist-zurich",
+        "de": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
+        "fr": "c-est-quoi-infirmiere-hf-fh-80-100-m-f-j-en-neuro-urologie-ambulatoire-universitatsklinik-balgrist-zurich"
+      },
+      "company": "Universitätsklinik Balgrist",
+      "companyKey": "balgrist",
+      "companyDomain": "balgrist.ch",
+      "title": "dipl. Pflegefachperson HF/FH 80–100 % (m/w/d) im Ambulatorium Neuro-Urologie",
+      "titleByLocale": {
+        "it": "Dipl. Infermiera HF/FH 80–100 % (m/f/d) in neurourologia ambulatoria",
+        "en": "dipl. Nurse HF/FH 80–100 % (m/f/d) in ambulatory neuro-urology",
+        "de": "dipl. Pflegefachperson HF/FH 80–100 % (m/w/d) im Ambulatorium Neuro-Urologie",
+        "fr": "C'est quoi ? Infirmière HF/FH 80–100 % (m/f/j) en neuro-urologie ambulatoire"
+      },
+      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung und angegliedertem Zentrum für Paraplegie.<br/><br/>Die Neuro-Urologie diagnostiziert und therapiert Schädigungen und Erkrankungen der Nerven von Geschlechtsorganen und ableitenden Harnwegen. Sind Sie unser neues Teammitglied?\n\nAufgaben:\n• Kontinuierliche Weiterentwicklung und Sicherung der Pflegequalität in enger Zusammenarbeit mit der Bereichsleitung\n\n• Betreuung von Patientinnen und Patienten während der Sprechstunde sowie Assistenz für die behandelnden Ärztinnen und Ärzte\n\n• Administrative Tätigkeiten, teilweise auch im Rahmen klinischer Studien, z. B. Führen von Checklisten, Abgabe und erklären von Studienunterlagen, Proben abnehmen\n\n• Materialkontrolle und Überprüfung der Einsatzbereitschaft der Apparate\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH und mehrjähriger Erfahrung, idealerweise in der Urologie (z.B. Urodynamik, Zystoskopie etc.) oder in der Rehabilitation\n\n• Selbständige Arbeitsweise und gute organisatorische Fähigkeiten\n\n• Hohe Sozialkompetenz, Teamfähigkeit und Flexiblität\n\n• Interesse an wissenschaftlichen Fragestellungen und kontinuierlicher Weiterbildung\n\n• Freude an spezialisierter Tätigkeit, interdisziplinärer Zusammenarbeit sowie fachlicher Weiterentwicklung\n\nWir bieten:\n• Mitarbeit in einer angesehenen universitären Klinik mit ausgezeichnetem Ruf\n\n• Vielfältige, anspruchsvolle Aufgaben in einem hochspezialisierten Team mit wertschätzender und respektvoller Arbeitskultur\n\n• Pflege- und Betreuungsstandards nach neusten Erkenntnissen der Wissenschaft und Praxis\n\n• Geregelte Arbeitszeiten und gezielte Einarbeitung\n\n• Regelmässige interne und externe Fortbildungen\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Min. 26 Ferientage pro Jahr und zusätzlicher geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in den Balgrist Apotheken\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Gratis Kaffee/Heissgetränke und diverse Einkaufsvergünstigungen\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "descriptionByLocale": {
+        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate in Svizzera con riconoscimento internazionale e un centro affiliato per la paraplegia. >Neuro-urologia diagnostica e tratta i danni e le malattie dei nervi degli organi sessuali e delle vie urinarie. Sei il nostro nuovo membro della squadra?\n\nCompiti:\n• Sviluppo continuo e garanzia della qualità della cura in stretta collaborazione con la gestione del dipartimento\n\n• Cura dei pazienti durante le ore di consultazione e assistenza per i medici del trattamento\n\n• Attività amministrative, in parte anche nel contesto di studi clinici, ad esempio mantenendo le liste di controllo, presentando e spiegando documenti di studio, prendendo campioni\n\n• Controllo del materiale e controllo della disponibilità\n\nRequisiti\n• Allenamento completato come dipl. Infermieristica professionale HF/FH e diversi anni di esperienza, idealmente in urologia (ad esempio urodinamica, cistoscopia, ecc.) o in riabilitazione\n\n• Lavoro autonomo e buone capacità organizzative\n\n• Elevate competenze sociali, competenze di lavoro di squadra e flessibilità\n\n• Interessi in materia scientifica e formazione continua\n\n• Sfruttamento del lavoro specializzato, cooperazione interdisciplinare e sviluppo professionale\n\nOffriamo:\n• Lavorare in una prestigiosa clinica universitaria con un'ottima reputazione\n\n• Compiti diversi e impegnativi in un team altamente specializzato con una cultura di lavoro apprezzata e rispettosa\n\n• Standard di cura e cura secondo le ultime scoperte della scienza e della pratica\n\n• Ore lavorative regolamentate e formazione mirata\n\n• Formazione regolare interna ed esterna\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Min. 26 giorni di vacanza all'anno e giorno libero aggiuntivo per il compleanno\n\n• 20% di sconto in farmacie Balgrist\n\n• Godetevi un pranzo sano ed equilibrato a prezzi scontati presso il nostro ristorante personale aziendale\n\n• Caffè / bevande calde e vari sconti per lo shopping\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\n\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with international recognition and an affiliated centre for paraplegia. >Neuro-urology diagnoses and treats damage and diseases of the nerves of sexual organs and urinary tracts. Are you our new team member?\n\nTasks:\n• Continuous development and assurance of care quality in close cooperation with the department management\n\n• Care of patients during the consultation hours as well as assistance for the treating doctors\n\n• Administrative activities, partly also in the context of clinical studies, e.g. keeping checklists, submitting and explaining study documents, taking samples\n\n• Material control and equipment readiness check\n\nRequirements\n• Completed training as a dipl. Nursing professional HF/FH and several years of experience, ideally in urology (e.g. urodynamics, cystoscopy, etc.) or in rehabilitation\n\n• Self-employment and good organisational skills\n\n• High social skills, teamwork skills and flexibility\n\n• Interest in scientific issues and continuous training\n\n• Enjoyment of specialized work, interdisciplinary cooperation and professional development\n\nWe offer:\n• Working in a prestigious university clinic with an excellent reputation\n\n• Diverse, demanding tasks in a highly specialized team with an appreciative and respectful working culture\n\n• Care and care standards according to the latest findings of science and practice\n\n• Regulated working hours and targeted training\n\n• Regular internal and external training\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Min. 26 days of holiday per year and additional free day for birthday\n\n• 20% discount in Balgrist pharmacies\n\n• Enjoy a healthy and balanced lunch at discounted prices at our company-owned staff restaurant\n\n• Free coffee/hot drinks and various shopping discounts\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\n\nFurther advantages are just one click away: Attractive offers for our employees",
+        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit internationaler Anerkennung und angegliedertem Zentrum für Paraplegie.<br/><br/>Die Neuro-Urologie diagnostiziert und therapiert Schädigungen und Erkrankungen der Nerven von Geschlechtsorganen und ableitenden Harnwegen. Sind Sie unser neues Teammitglied?\n\nAufgaben:\n• Kontinuierliche Weiterentwicklung und Sicherung der Pflegequalität in enger Zusammenarbeit mit der Bereichsleitung\n\n• Betreuung von Patientinnen und Patienten während der Sprechstunde sowie Assistenz für die behandelnden Ärztinnen und Ärzte\n\n• Administrative Tätigkeiten, teilweise auch im Rahmen klinischer Studien, z. B. Führen von Checklisten, Abgabe und erklären von Studienunterlagen, Proben abnehmen\n\n• Materialkontrolle und Überprüfung der Einsatzbereitschaft der Apparate\n\nAnforderungen:\n• Abgeschlossene Ausbildung als dipl. Pflegefachperson HF/FH und mehrjähriger Erfahrung, idealerweise in der Urologie (z.B. Urodynamik, Zystoskopie etc.) oder in der Rehabilitation\n\n• Selbständige Arbeitsweise und gute organisatorische Fähigkeiten\n\n• Hohe Sozialkompetenz, Teamfähigkeit und Flexiblität\n\n• Interesse an wissenschaftlichen Fragestellungen und kontinuierlicher Weiterbildung\n\n• Freude an spezialisierter Tätigkeit, interdisziplinärer Zusammenarbeit sowie fachlicher Weiterentwicklung\n\nWir bieten:\n• Mitarbeit in einer angesehenen universitären Klinik mit ausgezeichnetem Ruf\n\n• Vielfältige, anspruchsvolle Aufgaben in einem hochspezialisierten Team mit wertschätzender und respektvoller Arbeitskultur\n\n• Pflege- und Betreuungsstandards nach neusten Erkenntnissen der Wissenschaft und Praxis\n\n• Geregelte Arbeitszeiten und gezielte Einarbeitung\n\n• Regelmässige interne und externe Fortbildungen\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Min. 26 Ferientage pro Jahr und zusätzlicher geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in den Balgrist Apotheken\n\n• Geniessen Sie ein gesundes und ausgewogenes Mittagessen zu vergünstigten Preisen in unserem firmeneigenen Mitarbeiterrestaurant\n\n• Gratis Kaffee/Heissgetränke und diverse Einkaufsvergünstigungen\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec une reconnaissance internationale et un centre affilié pour la paraplégie. >Neuro-urologie diagnostique et traite les dommages et les maladies des nerfs des organes sexuels et des voies urinaires. Êtes-vous notre nouveau membre de l'équipe ?\n\nTâches :\n• Développement continu et assurance de la qualité des soins en étroite collaboration avec la direction du département\n\n• Soins aux patients pendant les heures de consultation ainsi qu'aide aux médecins traitants\n\n• Activités administratives, en partie aussi dans le contexte des études cliniques, p. ex. tenue de listes de contrôle, présentation et explication de documents d'étude, prélèvement d'échantillons\n\n• Contrôle du matériel et contrôle de l'état de préparation de l'équipement\n\nExigences\n• Achevé la formation comme dipl. Soins infirmiers professionnels HF/FH et plusieurs années d'expérience, idéalement en urologie (par exemple, urodynamique, cystoscopie, etc.) ou en réadaptation\n\n• Travail indépendant et bonnes compétences organisationnelles\n\n• Hautes compétences sociales, esprit d'équipe et flexibilité\n\n• Intérêt pour les questions scientifiques et la formation continue\n\n• Profitez du travail spécialisé, de la coopération interdisciplinaire et du développement professionnel\n\nNous offrons:\n• Travailler dans une clinique universitaire prestigieuse avec une excellente réputation\n\n• Diverses tâches exigeantes dans une équipe hautement spécialisée avec une culture de travail reconnaissante et respectueuse\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques et pratiques\n\n• Heures de travail réglementées et formation ciblée\n\n• Formation interne et externe régulière\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Min. 26 jours de vacances par an et jour gratuit supplémentaire pour l'anniversaire\n\n• 20% de réduction dans les pharmacies Balgrist\n\n• Profitez d'un déjeuner sain et équilibré à prix réduit dans notre restaurant de l'entreprise\n\n• Café / boissons chaudes gratuits et diverses réductions shopping\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\n\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-80-m-w-d-im-ambulatorium-neuro-urologie/aa4fa954-9cf0-40bb-9d35-51a60dfdaa9b",
+      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:56:26.284Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-27",
+      "applyUrl": "https://apply.refline.ch/245893/1157/index.html?cid=101&lang=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
+        "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich",
+          "dipl-infermiera-hf-fh-80-100-m-f-d-in-neurourologia-ambulatoria-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-im-ambulatorium-neuro-urologie-balgrist-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-28T12:03:24.350Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "balgrist-295a9fa9312b",
       "slug": "testa-di-sviluppo-della-cura-m-f-d-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -2479,7 +2479,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/leitung-pflegeentwicklung-m-w-d/db02633e-8a28-4066-af1d-ceedf73acc1f",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.778Z",
+      "crawledAt": "2026-09-06T22:56:26.283Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2559,7 +2559,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/lehrstellen-als-fachfrau-fachmann-gesundheit-efz-m-w-d/3c494a6b-6453-4e27-ba30-e5219d189a5b",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.777Z",
+      "crawledAt": "2026-09-06T22:56:26.281Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2652,7 +2652,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/b-lehrstelle-als-koechin-koch-efz-m-w-d-b/a94010f0-792d-4b7c-bc23-905ea76e2915",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.776Z",
+      "crawledAt": "2026-09-06T22:56:26.280Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2732,7 +2732,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/medizinische-praxisassistentin-medizinischen-praxisassistenten-mpa-w-m-d/c8e65f4a-1e4c-4aa6-875d-fb2bbb676720",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.775Z",
+      "crawledAt": "2026-09-06T22:56:26.275Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2814,7 +2814,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/lehrstelle-als-informatikerin-informatiker-efz-m-w-d/3c673f5e-1aee-408f-88db-52056b52a822",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.773Z",
+      "crawledAt": "2026-09-06T22:56:26.271Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2912,7 +2912,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachfrau-fachmann-gesundheit-fage-w-m-d/5bd4cb22-a15e-4170-8297-213e82bb7291",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.772Z",
+      "crawledAt": "2026-09-06T22:56:26.270Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2993,7 +2993,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/stv-leitung-bildung-pflege-m-w-d/609127e3-3a23-489a-bc05-d642ce12d524",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.771Z",
+      "crawledAt": "2026-09-06T22:56:26.265Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3070,7 +3070,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/koechin-koch-m-w-d/5c6240aa-8d69-42f5-83ca-73e878074105",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.770Z",
+      "crawledAt": "2026-09-06T22:56:26.263Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3169,7 +3169,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/pflegeexpertin-pflegeexperten-cns-m-w-d-80/25945b26-e956-42bd-96fb-a1ea01e52733",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.769Z",
+      "crawledAt": "2026-09-06T22:56:26.260Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3259,7 +3259,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/expertin-experten-respiratory-care-m-w-d-80/e14bcad5-1470-4593-9a97-e176a27d0f41",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.768Z",
+      "crawledAt": "2026-09-06T22:56:26.259Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3334,7 +3334,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/medizinische-praxisassistenz-efz-w-m-d-80/e1704157-175c-44f5-8d63-60914a370cec",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.767Z",
+      "crawledAt": "2026-09-06T22:56:26.257Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3415,7 +3415,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachperson-gesundheit-m-w-d-80/ec82741c-a093-4252-ac9b-e52c2c60fc72",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.766Z",
+      "crawledAt": "2026-09-06T22:56:26.255Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3465,6 +3465,86 @@
       }
     },
     {
+      "id": "balgrist-cf420c422504",
+      "slug": "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
+      "slugByLocale": {
+        "it": "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
+        "en": "dipl-nurse-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
+        "de": "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
+        "fr": "dipl-infirmiere-hf-fh-h-f-d-60-universitatsklinik-balgrist-zurich"
+      },
+      "company": "Universitätsklinik Balgrist",
+      "companyKey": "balgrist",
+      "companyDomain": "balgrist.ch",
+      "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 60 %",
+      "titleByLocale": {
+        "it": "Dipl. Infermiera HF/FH (m/f/d) 60 %",
+        "en": "Dipl. Nurse HF/FH (m/f/d) 60 %",
+        "de": "Dipl. Pflegefachperson HF/FH (m/w/d) 60 %",
+        "fr": "Dipl. Infirmière HF/FH (h/f/d) 60 %"
+      },
+      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung. Für den bevorstehenden Eingriff findet im Voruntersuchungszentrum ein erster Informationsaustausch mit dem Team der Pflege, der Anästhesie und der Orthopädie statt.<br/><br/>Für unser motiviertes Team des Voruntersuchungszentrums suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine\n\nAufgaben:\n• Empfang und Triage unserer Patientinnen und Patienten zwischen den verschiedenen Fachdisziplinen\n\n• Koordination des Tagesgeschäftes, Disposition der Termine, administrative Aufgaben\n\n• Durchführung von Pflegeinformationsgesprächen inkl. Dokumentation\n\n• Besprechung und Dokumentation des Eintrittsprozesses und erstellen des Austrittsmanagements\n\n• Durchführung medizinischer, technischer Verrichtungen (Blutentnahmen, EKG, Lungenfunktionsprüfung etc.), Erfassung Vitalzeichen\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachfrau/-mann HF/FH mit Erfahrung in der Orthopädie\n\n• Sie bringen eine hohe Kundenorientierung mit, arbeiten gerne in einem kleinen Team mit und schätzen die interdisziplinäre Zusammenarbeit\n\n• Sie sind eine flexible und initiative Persönlichkeit mit der Fähigkeit zur Prioritätensetzung und sind sich eine exakte Arbeitsweise gewohnt\n\n• Sie blühen in hektischen Zeiten auf, behalten den Überblick, kommunizieren ruhig und klar und vermitteln Sicherheit und Ruhe\n\n• Sie bringen gute Deutschkenntnisse in Wort und Schrift mit. Jede weitere Sprache, wie Englisch, Französisch und Italienisch ist von Vorteil\n\nWir bieten:\n• Geregelte Arbeitszeiten: von Montag bis Freitag im Tagdienst\n\n• Eine interessante, vielseitige Aufgabe in einem innovativen Betrieb mit wertschätzendem Arbeitsklima und offener Führungskultur\n\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen hochspezialisierten Teams\n\n• Die Möglichkeit an einer angesehenen universitären Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten Erkenntnissen der Wissenschaft und Praxis\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+      "descriptionByLocale": {
+        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate della Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. Per la prossima procedura, un primo scambio di informazioni con la cura, l'anestesia e il team ortopedico si svolgerà presso il centro di pre-esame. > > Per il nostro team motivato del centro di indagine preliminare, stiamo cercando 1. Dicembre 2026 o accordo\n\nCompiti:\n• Ricevimento e triage dei nostri pazienti tra le diverse discipline\n\n• Coordinamento delle attività quotidiane, pianificazione degli appuntamenti, compiti amministrativi\n\n• Conduzione di interviste di informazioni infermieristiche incl. Documentazione\n\n• Riunione e documentazione del processo di entrata e creazione della gestione delle uscite\n\n• Esecuzione di procedure mediche, tecniche (campione del sangue, ECG, test delle funzioni polmonari, ecc.), registrazione di segni vitali\n\nRequisiti\n• Laurea come Dipl. Specialista infermieristico HF/FH con esperienza in ortopedia\n\n• Essi portano un alto livello di orientamento del cliente, godere di lavorare in un piccolo team e apprezzare la cooperazione interdisciplinare.\n\n• Sei una personalità flessibile e di iniziativa con la capacità di fissare le priorità e sono abituati ad un modo esatto di lavorare\n\n• Essi fioriscono in tempi frenetici, tengono una panoramica, comunicano con calma e chiarezza e trasmettono sicurezza e pace della mente\n\n• Portano buone competenze tedesche in parola e scrittura. Qualsiasi altra lingua come inglese, francese e italiano è benefica\n\nOffriamo:\n• Orario di lavoro regolamentato: dal lunedì al venerdì\n\n• Un compito interessante e versatile in un'azienda innovativa con un'atmosfera di lavoro apprezzata e una cultura di leadership aperta\n\n• stretta collaborazione interprofessionale con vari team altamente specializzati\n\n• L'opportunità di partecipare a una prestigiosa clinica universitaria con un'ottima reputazione\n\n• Sostegno superiore alla media per l'ulteriore istruzione e formazione\n\n• Standard di cura e cura secondo le ultime scoperte della scienza e della pratica\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Regalato giorno libero per compleanno\n\n• 20% di sconto in Balgrist Apotheke AG\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
+        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. For the upcoming procedure, a first exchange of information with the care, anesthesia and orthopaedics team will take place at the pre-examination centre. <br/><br/ >For our motivated team of the preliminary investigation center, we are looking for 1. December 2026 or by agreement\n\nTasks:\n• Reception and triage of our patients between the different disciplines\n\n• Coordination of day-to-day business, scheduling of appointments, administrative tasks\n\n• Conduct of nursing information interviews incl. Documentation\n\n• Meeting and documentation of the entry process and creating exit management\n\n• Performing medical, technical procedures (blood sampling, ECG, pulmonary function testing, etc.), recording vital signs\n\nRequirements\n• Degree as a Dipl. Nursing specialist HF/FH with experience in orthopaedics\n\n• They bring a high level of customer orientation, enjoy working in a small team and appreciate interdisciplinary cooperation.\n\n• You are a flexible and initiative personality with the ability to set priorities and are accustomed to an exact way of working\n\n• They flourish in hectic times, keep an overview, communicate calmly and clearly and convey security and peace of mind\n\n• They bring good German skills in word and writing. Any other language such as English, French and Italian is beneficial\n\nWe offer:\n• Regulated working hours: from Monday to Friday on day duty\n\n• An interesting, versatile task in an innovative company with an appreciative working atmosphere and an open leadership culture\n\n• Close interprofessional cooperation with various highly specialized teams\n\n• The opportunity to participate in a prestigious university clinic with an excellent reputation\n\n• Above-average support for further education and training\n\n• Care and care standards according to the latest findings of science and practice\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Gifted free day for birthday\n\n• 20% discount in Balgrist Apotheke AG\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\nFurther advantages are just one click away: Attractive offers for our employees",
+        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung. Für den bevorstehenden Eingriff findet im Voruntersuchungszentrum ein erster Informationsaustausch mit dem Team der Pflege, der Anästhesie und der Orthopädie statt.<br/><br/>Für unser motiviertes Team des Voruntersuchungszentrums suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine\n\nAufgaben:\n• Empfang und Triage unserer Patientinnen und Patienten zwischen den verschiedenen Fachdisziplinen\n\n• Koordination des Tagesgeschäftes, Disposition der Termine, administrative Aufgaben\n\n• Durchführung von Pflegeinformationsgesprächen inkl. Dokumentation\n\n• Besprechung und Dokumentation des Eintrittsprozesses und erstellen des Austrittsmanagements\n\n• Durchführung medizinischer, technischer Verrichtungen (Blutentnahmen, EKG, Lungenfunktionsprüfung etc.), Erfassung Vitalzeichen\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachfrau/-mann HF/FH mit Erfahrung in der Orthopädie\n\n• Sie bringen eine hohe Kundenorientierung mit, arbeiten gerne in einem kleinen Team mit und schätzen die interdisziplinäre Zusammenarbeit\n\n• Sie sind eine flexible und initiative Persönlichkeit mit der Fähigkeit zur Prioritätensetzung und sind sich eine exakte Arbeitsweise gewohnt\n\n• Sie blühen in hektischen Zeiten auf, behalten den Überblick, kommunizieren ruhig und klar und vermitteln Sicherheit und Ruhe\n\n• Sie bringen gute Deutschkenntnisse in Wort und Schrift mit. Jede weitere Sprache, wie Englisch, Französisch und Italienisch ist von Vorteil\n\nWir bieten:\n• Geregelte Arbeitszeiten: von Montag bis Freitag im Tagdienst\n\n• Eine interessante, vielseitige Aufgabe in einem innovativen Betrieb mit wertschätzendem Arbeitsklima und offener Führungskultur\n\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen hochspezialisierten Teams\n\n• Die Möglichkeit an einer angesehenen universitären Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten Erkenntnissen der Wissenschaft und Praxis\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
+        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. Pour la procédure à venir, un premier échange d'informations avec l'équipe de soins, d'anesthésie et d'orthopédie aura lieu au centre de pré-examen. <br/><br/ > Pour notre équipe motivée du centre d'enquête préliminaire, nous cherchons 1. Décembre 2026 ou par accord\n\nTâches :\n• Réception et triage de nos patients entre les différentes disciplines\n\n• Coordination des activités quotidiennes, calendrier des nominations, tâches administratives\n\n• Entretiens d'information sur les soins infirmiers, y compris : Documentation\n\n• Réunion et documentation du processus d'entrée et création d'une gestion des sorties\n\n• Effectuer des procédures médicales, techniques (échantillonnage sanguin, ECG, tests de fonction pulmonaire, etc.), enregistrer les signes vitaux\n\nExigences\n• Diplôme de diplômé. Spécialiste des soins infirmiers HF/FH avec expérience en orthopédie\n\n• Ils apportent un haut niveau d'orientation client, aiment travailler dans une petite équipe et apprécient la coopération interdisciplinaire.\n\n• Vous êtes une personnalité flexible et d'initiative avec la capacité de fixer des priorités et sont habitués à une façon exacte de travailler\n\n• Ils s'épanouissent dans les périodes agitées, gardent un aperçu, communiquent calmement et clairement et transmettent la sécurité et la paix de l'esprit\n\n• Ils apportent de bonnes compétences allemandes en paroles et en écriture. Toute autre langue comme l'anglais, le français et l'italien est bénéfique\n\nNous offrons:\n• Heures de travail réglementées: du lundi au vendredi en service de jour\n\n• Une tâche intéressante et polyvalente dans une entreprise innovante avec une atmosphère de travail appréciée et une culture de leadership ouverte\n\n• Coopération interprofessionnelle étroite avec diverses équipes hautement spécialisées\n\n• La possibilité de participer à une clinique universitaire prestigieuse avec une excellente réputation\n\n• Soutien supérieur à la moyenne pour la formation continue\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques et pratiques\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Journée offerte pour l'anniversaire\n\n• 20% de réduction dans Balgrist Apotheke AG\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d/e34c9a07-07e8-4820-b6b7-049a6f60855d",
+      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:56:26.254Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://apply.refline.ch/245893/1180/index.html?cid=101&lang=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
+        "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
+          "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-08-20T21:46:54.707Z",
+      "salaryMin": 54900,
+      "salaryMax": 76800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54900,
+          "maxValue": 76800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "balgrist-b78cfefaea67",
       "slug": "mitarbeiterin-collaboratore-trice-empfang-telefonzentrale-60-m-w-d-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -3496,7 +3576,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-empfang-telefonzentrale-m-w-d/a9266251-f99d-46dd-845a-8a5c7ce8e193",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.765Z",
+      "crawledAt": "2026-09-06T22:56:26.253Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3559,86 +3639,6 @@
       }
     },
     {
-      "id": "balgrist-cf420c422504",
-      "slug": "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
-      "slugByLocale": {
-        "it": "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
-        "en": "dipl-nurse-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich",
-        "de": "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
-        "fr": "dipl-infirmiere-hf-fh-h-f-d-60-universitatsklinik-balgrist-zurich"
-      },
-      "company": "Universitätsklinik Balgrist",
-      "companyKey": "balgrist",
-      "companyDomain": "balgrist.ch",
-      "title": "Dipl. Pflegefachperson HF/FH (m/w/d) 60 %",
-      "titleByLocale": {
-        "it": "Dipl. Infermiera HF/FH (m/f/d) 60 %",
-        "en": "Dipl. Nurse HF/FH (m/f/d) 60 %",
-        "de": "Dipl. Pflegefachperson HF/FH (m/w/d) 60 %",
-        "fr": "Dipl. Infirmière HF/FH (h/f/d) 60 %"
-      },
-      "description": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung. Für den bevorstehenden Eingriff findet im Voruntersuchungszentrum ein erster Informationsaustausch mit dem Team der Pflege, der Anästhesie und der Orthopädie statt.<br/><br/>Für unser motiviertes Team des Voruntersuchungszentrums suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine\n\nAufgaben:\n• Empfang und Triage unserer Patientinnen und Patienten zwischen den verschiedenen Fachdisziplinen\n\n• Koordination des Tagesgeschäftes, Disposition der Termine, administrative Aufgaben\n\n• Durchführung von Pflegeinformationsgesprächen inkl. Dokumentation\n\n• Besprechung und Dokumentation des Eintrittsprozesses und erstellen des Austrittsmanagements\n\n• Durchführung medizinischer, technischer Verrichtungen (Blutentnahmen, EKG, Lungenfunktionsprüfung etc.), Erfassung Vitalzeichen\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachfrau/-mann HF/FH mit Erfahrung in der Orthopädie\n\n• Sie bringen eine hohe Kundenorientierung mit, arbeiten gerne in einem kleinen Team mit und schätzen die interdisziplinäre Zusammenarbeit\n\n• Sie sind eine flexible und initiative Persönlichkeit mit der Fähigkeit zur Prioritätensetzung und sind sich eine exakte Arbeitsweise gewohnt\n\n• Sie blühen in hektischen Zeiten auf, behalten den Überblick, kommunizieren ruhig und klar und vermitteln Sicherheit und Ruhe\n\n• Sie bringen gute Deutschkenntnisse in Wort und Schrift mit. Jede weitere Sprache, wie Englisch, Französisch und Italienisch ist von Vorteil\n\nWir bieten:\n• Geregelte Arbeitszeiten: von Montag bis Freitag im Tagdienst\n\n• Eine interessante, vielseitige Aufgabe in einem innovativen Betrieb mit wertschätzendem Arbeitsklima und offener Führungskultur\n\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen hochspezialisierten Teams\n\n• Die Möglichkeit an einer angesehenen universitären Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten Erkenntnissen der Wissenschaft und Praxis\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-      "descriptionByLocale": {
-        "it": "Balgrist University Hospital è una delle cliniche ortopediche più rinomate della Svizzera con un centro affiliato per la paraplegia e il riconoscimento internazionale. Per la prossima procedura, un primo scambio di informazioni con la cura, l'anestesia e il team ortopedico si svolgerà presso il centro di pre-esame. > > Per il nostro team motivato del centro di indagine preliminare, stiamo cercando 1. Dicembre 2026 o accordo\n\nCompiti:\n• Ricevimento e triage dei nostri pazienti tra le diverse discipline\n\n• Coordinamento delle attività quotidiane, pianificazione degli appuntamenti, compiti amministrativi\n\n• Conduzione di interviste di informazioni infermieristiche incl. Documentazione\n\n• Riunione e documentazione del processo di entrata e creazione della gestione delle uscite\n\n• Esecuzione di procedure mediche, tecniche (campione del sangue, ECG, test delle funzioni polmonari, ecc.), registrazione di segni vitali\n\nRequisiti\n• Laurea come Dipl. Specialista infermieristico HF/FH con esperienza in ortopedia\n\n• Essi portano un alto livello di orientamento del cliente, godere di lavorare in un piccolo team e apprezzare la cooperazione interdisciplinare.\n\n• Sei una personalità flessibile e di iniziativa con la capacità di fissare le priorità e sono abituati ad un modo esatto di lavorare\n\n• Essi fioriscono in tempi frenetici, tengono una panoramica, comunicano con calma e chiarezza e trasmettono sicurezza e pace della mente\n\n• Portano buone competenze tedesche in parola e scrittura. Qualsiasi altra lingua come inglese, francese e italiano è benefica\n\nOffriamo:\n• Orario di lavoro regolamentato: dal lunedì al venerdì\n\n• Un compito interessante e versatile in un'azienda innovativa con un'atmosfera di lavoro apprezzata e una cultura di leadership aperta\n\n• stretta collaborazione interprofessionale con vari team altamente specializzati\n\n• L'opportunità di partecipare a una prestigiosa clinica universitaria con un'ottima reputazione\n\n• Sostegno superiore alla media per l'ulteriore istruzione e formazione\n\n• Standard di cura e cura secondo le ultime scoperte della scienza e della pratica\n\n• 50 % di sconto sul bonus pass ZVV o contributo annuale ad un abbonamento generale\n\n• Regalato giorno libero per compleanno\n\n• 20% di sconto in Balgrist Apotheke AG\n\n• Luogo di lavoro in una posizione attraente a Zurigo con ottimi collegamenti con i trasporti pubblici\nUlteriori vantaggi sono solo un clic di distanza: Offerte interessanti per i nostri dipendenti",
-        "en": "Balgrist University Hospital is one of the most renowned orthopaedic clinics in Switzerland with an affiliated centre for paraplegia and international recognition. For the upcoming procedure, a first exchange of information with the care, anesthesia and orthopaedics team will take place at the pre-examination centre. <br/><br/ >For our motivated team of the preliminary investigation center, we are looking for 1. December 2026 or by agreement\n\nTasks:\n• Reception and triage of our patients between the different disciplines\n\n• Coordination of day-to-day business, scheduling of appointments, administrative tasks\n\n• Conduct of nursing information interviews incl. Documentation\n\n• Meeting and documentation of the entry process and creating exit management\n\n• Performing medical, technical procedures (blood sampling, ECG, pulmonary function testing, etc.), recording vital signs\n\nRequirements\n• Degree as a Dipl. Nursing specialist HF/FH with experience in orthopaedics\n\n• They bring a high level of customer orientation, enjoy working in a small team and appreciate interdisciplinary cooperation.\n\n• You are a flexible and initiative personality with the ability to set priorities and are accustomed to an exact way of working\n\n• They flourish in hectic times, keep an overview, communicate calmly and clearly and convey security and peace of mind\n\n• They bring good German skills in word and writing. Any other language such as English, French and Italian is beneficial\n\nWe offer:\n• Regulated working hours: from Monday to Friday on day duty\n\n• An interesting, versatile task in an innovative company with an appreciative working atmosphere and an open leadership culture\n\n• Close interprofessional cooperation with various highly specialized teams\n\n• The opportunity to participate in a prestigious university clinic with an excellent reputation\n\n• Above-average support for further education and training\n\n• Care and care standards according to the latest findings of science and practice\n\n• 50 % discount on the ZVV bonus pass or annual contribution to a general subscription\n\n• Gifted free day for birthday\n\n• 20% discount in Balgrist Apotheke AG\n\n• Place of work in an attractive location in Zurich with very good connections to public transport\nFurther advantages are just one click away: Attractive offers for our employees",
-        "de": "Die Universitätsklinik Balgrist ist eine der renommiertesten orthopädischen Kliniken der Schweiz mit angegliedertem Zentrum für Paraplegie und internationaler Anerkennung. Für den bevorstehenden Eingriff findet im Voruntersuchungszentrum ein erster Informationsaustausch mit dem Team der Pflege, der Anästhesie und der Orthopädie statt.<br/><br/>Für unser motiviertes Team des Voruntersuchungszentrums suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine\n\nAufgaben:\n• Empfang und Triage unserer Patientinnen und Patienten zwischen den verschiedenen Fachdisziplinen\n\n• Koordination des Tagesgeschäftes, Disposition der Termine, administrative Aufgaben\n\n• Durchführung von Pflegeinformationsgesprächen inkl. Dokumentation\n\n• Besprechung und Dokumentation des Eintrittsprozesses und erstellen des Austrittsmanagements\n\n• Durchführung medizinischer, technischer Verrichtungen (Blutentnahmen, EKG, Lungenfunktionsprüfung etc.), Erfassung Vitalzeichen\n\nAnforderungen:\n• Abschluss als Dipl. Pflegefachfrau/-mann HF/FH mit Erfahrung in der Orthopädie\n\n• Sie bringen eine hohe Kundenorientierung mit, arbeiten gerne in einem kleinen Team mit und schätzen die interdisziplinäre Zusammenarbeit\n\n• Sie sind eine flexible und initiative Persönlichkeit mit der Fähigkeit zur Prioritätensetzung und sind sich eine exakte Arbeitsweise gewohnt\n\n• Sie blühen in hektischen Zeiten auf, behalten den Überblick, kommunizieren ruhig und klar und vermitteln Sicherheit und Ruhe\n\n• Sie bringen gute Deutschkenntnisse in Wort und Schrift mit. Jede weitere Sprache, wie Englisch, Französisch und Italienisch ist von Vorteil\n\nWir bieten:\n• Geregelte Arbeitszeiten: von Montag bis Freitag im Tagdienst\n\n• Eine interessante, vielseitige Aufgabe in einem innovativen Betrieb mit wertschätzendem Arbeitsklima und offener Führungskultur\n\n• Enge interprofessionelle Zusammenarbeit mit verschiedenen hochspezialisierten Teams\n\n• Die Möglichkeit an einer angesehenen universitären Klinik mit ausgezeichnetem Ruf mitzuwirken\n\n• Überdurchschnittliche Förderung von Fort- und Weiterbildungen\n\n• Pflege- und Betreuungsstandards nach neuesten Erkenntnissen der Wissenschaft und Praxis\n\n• Fahrvergünstigung von 50 % auf den ZVV-Bonuspass oder jährlichen Beitrag an ein Generalabonnement\n\n• Geschenkter freier Tag zum Geburtstag\n\n• 20 % Rabatt in der Balgrist Apotheke AG\n\n• Arbeitsort an attraktiver Lage in Zürich mit sehr guter Anbindung an den öffentlichen Verkehr\nWeitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitende",
-        "fr": "L'hôpital universitaire Balgrist est l'une des cliniques orthopédiques les plus renommées de Suisse avec un centre affilié pour la paraplégie et la reconnaissance internationale. Pour la procédure à venir, un premier échange d'informations avec l'équipe de soins, d'anesthésie et d'orthopédie aura lieu au centre de pré-examen. <br/><br/ > Pour notre équipe motivée du centre d'enquête préliminaire, nous cherchons 1. Décembre 2026 ou par accord\n\nTâches :\n• Réception et triage de nos patients entre les différentes disciplines\n\n• Coordination des activités quotidiennes, calendrier des nominations, tâches administratives\n\n• Entretiens d'information sur les soins infirmiers, y compris : Documentation\n\n• Réunion et documentation du processus d'entrée et création d'une gestion des sorties\n\n• Effectuer des procédures médicales, techniques (échantillonnage sanguin, ECG, tests de fonction pulmonaire, etc.), enregistrer les signes vitaux\n\nExigences\n• Diplôme de diplômé. Spécialiste des soins infirmiers HF/FH avec expérience en orthopédie\n\n• Ils apportent un haut niveau d'orientation client, aiment travailler dans une petite équipe et apprécient la coopération interdisciplinaire.\n\n• Vous êtes une personnalité flexible et d'initiative avec la capacité de fixer des priorités et sont habitués à une façon exacte de travailler\n\n• Ils s'épanouissent dans les périodes agitées, gardent un aperçu, communiquent calmement et clairement et transmettent la sécurité et la paix de l'esprit\n\n• Ils apportent de bonnes compétences allemandes en paroles et en écriture. Toute autre langue comme l'anglais, le français et l'italien est bénéfique\n\nNous offrons:\n• Heures de travail réglementées: du lundi au vendredi en service de jour\n\n• Une tâche intéressante et polyvalente dans une entreprise innovante avec une atmosphère de travail appréciée et une culture de leadership ouverte\n\n• Coopération interprofessionnelle étroite avec diverses équipes hautement spécialisées\n\n• La possibilité de participer à une clinique universitaire prestigieuse avec une excellente réputation\n\n• Soutien supérieur à la moyenne pour la formation continue\n\n• Normes de soins et de soins selon les dernières découvertes scientifiques et pratiques\n\n• Réduction de 50 % sur la prime ZVV ou contribution annuelle à un abonnement général\n\n• Journée offerte pour l'anniversaire\n\n• 20% de réduction dans Balgrist Apotheke AG\n\n• Lieu de travail dans un endroit attrayant à Zurich avec de très bonnes connexions aux transports en commun\nD'autres avantages ne sont plus qu'à un clic: Des offres attrayantes pour nos employés"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.balgrist.ch/offene-stellen/dipl-pflegefachperson-hf-fh-m-w-d/e34c9a07-07e8-4820-b6b7-049a6f60855d",
-      "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.765Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://apply.refline.ch/245893/1180/index.html?cid=101&lang=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
-        "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich",
-          "dipl-infermiera-hf-fh-m-f-d-60-universitatsklinik-balgrist-zurich"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-60-balgrist-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:46:54.707Z",
-      "salaryMin": 54900,
-      "salaryMax": 76800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54900,
-          "maxValue": 76800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "balgrist-a53e2be3c04f",
       "slug": "specialista-specialista-gestione-delle-prestazioni-m-f-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
@@ -3670,7 +3670,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachspezialistin-fachspezialist-leistungsmanagement-m-w-d/cc0c07e9-7ebb-4ffc-ad3e-203637407f33",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.764Z",
+      "crawledAt": "2026-09-06T22:56:26.252Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3751,7 +3751,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/sport-physiotherapeutin-sport-physiotherapeut-w-m-d/d95bfb67-5147-4585-bdf3-6ee79f691b58",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.763Z",
+      "crawledAt": "2026-09-06T22:56:26.247Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3817,7 +3817,7 @@
       "title": "Leitung Physician Associate (m/w/d) 80–100 %",
       "titleByLocale": {
         "it": "Responsabile del medico associato (m/f/d) 80-100%",
-        "en": "Head of Physician Associate (m/f/d) 80-100%",
+        "en": "Leitung Physician Associate (m/w/d) 80–100 %",
         "de": "Leitung Physician Associate (m/w/d) 80–100 %",
         "fr": "Responsable du Physicien associé (h/f/d) 80-100%"
       },
@@ -3834,7 +3834,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/leitung-physician-associate-m-w-d-80/34e5bb6c-a849-449c-8421-0b489284920f",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.762Z",
+      "crawledAt": "2026-09-06T22:56:26.240Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3882,22 +3882,22 @@
     },
     {
       "id": "balgrist-33c43c2e3c1e",
-      "slug": "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik-balgrist-zurich",
+      "slug": "consulente-specializzato-in-salute-e-continenza-m-f-d-60-100-per-il-nostro-business-specializzato-in-medicina",
       "slugByLocale": {
-        "it": "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik-balgrist-zurich",
-        "en": "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser",
+        "it": "consulente-specializzato-in-salute-e-continenza-m-f-d-60-100-per-il-nostro-business-specializzato-in-medicina",
+        "en": "specialist-consultant-in-health-and-continence-m-f-d-60-100-for-our-medical-specialist-business-universitatsklinik",
         "de": "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser",
-        "fr": "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser"
+        "fr": "consultant-specialise-en-sante-et-continuite-h-f-d-60-100-pour-notre-entreprise-de-specialiste-medical"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
       "companyDomain": "balgrist.ch",
       "title": "Fachberaterin/Fachberater in Gesundheit und Kontinenz (m/w/d) 60-100 % für unser Sanitätsfachgeschäft",
       "titleByLocale": {
-        "it": "Fachberaterin/Fachberater in Gesundheit e Kontinenz (m/w/d) 60-100 % per unser Sanitätsfachgeschäft",
-        "en": "Fachberaterin/Fachberater in Gesundheit und Kontinenz (m/w/d) 60-100 % für unser Sanitätsfachgeschäft",
+        "it": "Consulente specializzato in salute e continenza (m/f/d) 60-100 % per il nostro business specializzato in medicina",
+        "en": "Specialist consultant in health and continence (m/f/d) 60-100 % for our medical specialist business",
         "de": "Fachberaterin/Fachberater in Gesundheit und Kontinenz (m/w/d) 60-100 % für unser Sanitätsfachgeschäft",
-        "fr": "Fachberaterin/Fachberater in Gesundheit und Kontinenz (m/w/d) 60-100 % für unser Sanitätsfachgeschäft"
+        "fr": "Consultant spécialisé en santé et continuité (h/f/d) 60-100 % pour notre entreprise de spécialiste médical"
       },
       "description": "Willkommen bei der Balgrist Tec AG – dem führenden Kompetenzzentrum für orthopädische Hilfsmittel und Sanitätsfachhandel in Zürich. Als Tochtergesellschaft der Universitätsklinik Balgrist verbinden wir handwerkliche Präzision mit modernster Medizin.<br/><br/>Du hast genug von langen Samstagseinsätzen, spätem Abendverkauf und reinem Beauty-Verkauf? Du möchtest dein fundiertes medizinisches Fachwissen dort einsetzen, wo es die Lebensqualität von Menschen nachhaltig verbessert? Wir suchen eine dynamische und empathische Persönlichkeit, mit Beratungskompetenz und Organisationstalent als\n\nAufgaben:\nBei uns stehst du nicht nur stundenlang am Ladentresen. Du steuerst die Kundenzufriedenheit über verschiedene Kanäle hinweg und übernimmst echte Verantwortung:\n• Empathische Omnichannel-Beratung: Du berätst unsere Kundschaft kompetent und diskret – ob persönlich im Laden, via E-Mail oder am Telefon.\n\n• Kontinenzberatung mit Mehrwert: Du nimmst Tabuthemen die Schwere. Mit deinem Fachwissen im Bereich Inkontinenzprodukte schenkst du Betroffenen maximale Alltags- und Bewegungsfreiheit zurück.\n\n• Erweiterte Produktpalette: Du berätst zu ausgewählten Hygiene-, Sanitäts- und Mobilitätsprodukten und hilfst Kundinnen und Kunden, die passende Lösung zu finden.\n\n• Prozess- und Warenwirtschaft: Von der Entgegennahme der Bestellungen über die Sortimentspflege und den bedarfsgerechten Einkauf bis zur Versandkoordination und korrekten Verrechnung hast du die Fäden in der Hand.\n\n• Teamplay im Retail-Umfeld: Gemeinsam mit den Retail-Teams für Orthopädieschuhe und Kompression unterstützt ihr euch gegenseitig und lernt voneinander.\n\nAnforderungen:\n• Ausbildung: Abgeschlossene Grundbildung als Drogist:in EFZ oder Pharma-Assistent:in EFZ, oder mehrjährige Erfahrung in vergleichbarer Funktion.\n\n• Persönlichkeit: Du begegnest Menschen in herausfordernden Lebenssituationen mit Empathie, Geduld und Respekt. Diskretion und Fingerspitzengefühl sind für dich selbstverständlich.\n\n• Lernbereitschaft: Du hast eine schnelle Auffassungsgabe und Freude daran, dir neues Fachwissen – insbesondere im Bereich Kontinenzversorgung – anzueignen.\n\n• Kommunikation: Du kommunizierst stilsicher auf Deutsch und hast eine gepflegte Erscheinung. Von Vorteil sind Französischkenntnisse (B1) und Freude, auch unsere französischsprachige Kundschaft zu betreuen.\n\n• Arbeitsweise: Du arbeitest selbstständig, exakt und strukturiert und schätzt die Kombination aus administrativem Geschick und direktem Kundenkontakt.\n\n• Digitalisierung: Du verfügst über gute PC- und ERP-Anwenderkenntnisse und bewegst dich sicher in digitalen Arbeitsumgebungen.\n\nWir bieten:\n• Work-Life-Balance, die den Namen verdient: Geregelte Arbeitszeiten (Werktage Montag bis Freitag, kein Abendverkauf) für eine verlässliche Freizeitplanung.\n\n• Universitärer Spirit: Ein hochprofessionelles, interdisziplinäres Umfeld in direkter Nähe zu Spitzenmediziner:innen, Pflegefachkräften und Orthopädietechniker:innen.\n\n• Spannender Blick über den Tellerrand: Erweitere dein medizinisches Wissen! Durch den engen Austausch im Retail-Team erhältst du Einblicke in hochspezialisierte Bereiche wie orthopädische Schuhtechnik und die moderne Versorgung von Venen- und Beingesundheit.\n\n• Mobilitäts-Bonus: Wir schenken dir 50 % Rabatt auf den ZVV-Bonuspass oder einen jährlichen Beitrag an ein bereits vorhandenes SBB Generalabonnement (GA).\n\n• Feiern & Geniessen: An deinem Geburtstag hast du bezahlt frei, und das Personalrestaurant der Klinik bietet dir täglich vergünstigte, gesunde Menüs\n\n• Zukunftsvorsorge: Du profitierst von einer überobligatorischen Pensionskassenlösung, die weit über den Standard des klassischen Detailhandels hinausgeht.\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebote für unsere Mitarbeitenden",
       "descriptionByLocale": {
@@ -3912,7 +3912,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-fuer-unser-sanitaetsfachgeschaeft/9ad6dcbb-9148-413c-8b5a-589f88bbe641",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.761Z",
+      "crawledAt": "2026-09-06T22:56:26.238Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3932,12 +3932,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser",
-        "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik"
+        "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik",
+        "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik-balgrist-zurich",
+        "consulente-specializzato-in-salute-e-continenza-m-f-d-60-100-per-il-nostro-business-specializzato-in-medicina"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser",
-          "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik"
+          "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik",
+          "fachberaterin-fachberater-in-gesundheit-e-kontinenz-m-w-d-60-100-per-unser-sanitatsfachgeschaft-universitatsklinik-balgrist-zurich",
+          "consulente-specializzato-in-salute-e-continenza-m-f-d-60-100-per-il-nostro-business-specializzato-in-medicina"
+        ],
+        "en": [
+          "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser"
+        ],
+        "fr": [
+          "fachberaterin-fachberater-in-gesundheit-und-kontinenz-m-w-d-60-100-fur-unser"
         ]
       },
       "firstSeenAt": "2026-09-01T23:14:03.132Z",
@@ -3957,22 +3967,22 @@
     },
     {
       "id": "balgrist-f0022558dd29",
-      "slug": "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich",
+      "slug": "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist",
+        "it": "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich",
+        "en": "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich",
         "de": "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist",
-        "fr": "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist"
+        "fr": "ingenierie-orthopedique-des-employes-ortheses-de-production-de-focus-h-f-d-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
       "companyDomain": "balgrist.ch",
       "title": "Mitarbeiterin/Mitarbeiter Orthopädietechnik – Fokus Produktion Orthetik (m/w/d) 100 %",
       "titleByLocale": {
-        "it": "Mitarbeiterin/Collaboratore/trice Orthopädietechnik – Fokus Produktion Orthetik (m/w/d) 100 %",
-        "en": "Mitarbeiterin/Mitarbeiter Orthopädietechnik – Fokus Produktion Orthetik (m/w/d) 100 %",
+        "it": "Employee Orthopaedic Engineering – Focus Production Orthetics (m/f/d) 100%",
+        "en": "Employee Orthopaedic Engineering – Focus Production Orthetics (m/f/d) 100%",
         "de": "Mitarbeiterin/Mitarbeiter Orthopädietechnik – Fokus Produktion Orthetik (m/w/d) 100 %",
-        "fr": "Mitarbeiterin/Mitarbeiter Orthopädietechnik – Fokus Produktion Orthetik (m/w/d) 100 %"
+        "fr": "Ingénierie orthopédique des employés – Orthèses de production de focus (h/f/d) 100%"
       },
       "description": "\"Wir bieten Raum für Innovationen\" Die Balgrist Tec AG ist führend in der Entwicklung und Herstellung individueller orthopädischer Hilfsmittel. Mit unseren Lösungen verbessern wir täglich die Mobilität und Lebensqualität unserer Patientinnen und Patienten.<br/><br/>Wir suchen per sofort oder nach Vereinbarung eine/n\n\nAufgaben:\n• Herstellung von Orthesen: Selbstständige Produktion von individuellen Orthesen (z. B. Rumpf-, Bein- und Armorthesen)\n\n• Fokus auf Komplexfälle: Fachgerechte und anspruchsvolle Umsetzung von komplexen Versorgungen und Sonderanfertigungen\n\n• Qualitätsprüfung: Eigenverantwortliche Endkontrolle aller gefertigten Hilfsmittel auf Funktion, Stabilität und präzise Verarbeitung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Orthopädietechniker/in - Orthopädiemechaniker/in\n\n• Erfahrung (nicht zwingend) in der reinen Werkstattproduktion (Schwerpunkt Orthetik)\n\n• Begeisterung für die technische Lösung von komplexen orthopädischen Fragestellungen\n\n• Exakte, strukturierte und lösungsorientierte Arbeitsweise ohne direkten Kundenkontakt\n\n• Zuverlässigkeit, Teamgeist und ein hohes Qualitätsbewusstsein\n\n• Gute Deutschkenntnisse für die interne Kommunikation und Dokumentation\n\nWir bieten:\n• Spannendes Arbeitsumfeld mit überdurchschnittlich hohem Standard an anspruchsvollen Komplexfällen, bei denen Sie Ihr breites Fachwissen einbringen können\n\n• Individuell geförderte Entwicklungschancen mit Weiterbildungsmöglichkeiten zur fachlichen Spezialisierung\n\n• Geregelte Arbeitszeiten und eine sorgfältige Einführung in das vielseitige Aufgabengebiet\n\n• 50 % Beitrag an den ZVV-Bonuspass oder Beitrag an das GA\n\n• Geschenkter freier Tag zum Geburtstag\n\n• Mittagessen zu vergünstigten Preisen im Mitarbeiterrestaurant\n\n• Verschiedene Einkaufsvergünstigungen\n Weitere Vorteile sind nur einen Klick entfernt: Attraktive Angebot für unsere Mitarbeitende",
       "descriptionByLocale": {
@@ -3987,7 +3997,7 @@
       "url": "https://jobs.balgrist.ch/offene-stellen/mitarbeiterin-mitarbeiter-orthopaedietechnik-fokus-produktion-orthetik-m-w-d/0264f09c-6856-4066-842d-3dae226fbe32",
       "source": "Universitätsklinik Balgrist Dedicated Parser (Prospective medium 1002177)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:52:40.755Z",
+      "crawledAt": "2026-09-06T22:56:26.224Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4007,12 +4017,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist",
-        "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich"
+        "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich",
+        "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist",
-          "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich"
+          "mitarbeiterin-collaboratore-trice-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-universitatsklinik-balgrist-zurich",
+          "employee-orthopaedic-engineering-focus-production-orthetics-m-f-d-100-universitatsklinik-balgrist-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-orthopadietechnik-fokus-produktion-orthetik-m-w-d-100-balgrist"
         ]
       },
       "firstSeenAt": "2026-09-01T23:14:03.125Z",

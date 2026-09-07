@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-05T23:02:00.865Z",
+  "assembledAt": "2026-09-06T23:03:34.721Z",
   "jobs": [
     {
       "id": "sfs-group-f207510fa814",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:53.595Z",
+      "crawledAt": "2026-09-06T23:03:29.671Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "postalCode": "9435",
@@ -52,6 +52,20 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ],
+        "en": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ],
+        "fr": [
+          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
+        ]
+      },
       "firstSeenAt": "2026-09-01T14:25:28.882Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -65,21 +79,7 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
-        ],
-        "en": [
-          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
-        ],
-        "fr": [
-          "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-im-handwerkercenter-m-f-d-sfs-group-munchenstein"
-      ]
+      }
     },
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -112,7 +112,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:53.427Z",
+      "crawledAt": "2026-09-06T23:03:29.536Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -192,7 +192,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-building-components-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:53.258Z",
+      "crawledAt": "2026-09-06T23:03:29.404Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -285,7 +285,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:53.086Z",
+      "crawledAt": "2026-09-06T23:03:29.276Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -351,7 +351,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.916Z",
+      "crawledAt": "2026-09-06T23:03:29.135Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -462,7 +462,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/pim-data-governance-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.745Z",
+      "crawledAt": "2026-09-06T23:03:29.001Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -557,7 +557,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.570Z",
+      "crawledAt": "2026-09-06T23:03:28.872Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -636,7 +636,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.400Z",
+      "crawledAt": "2026-09-06T23:03:28.741Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -716,7 +716,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.233Z",
+      "crawledAt": "2026-09-06T23:03:28.613Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -828,7 +828,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:52.062Z",
+      "crawledAt": "2026-09-06T23:03:28.481Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -940,7 +940,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:51.892Z",
+      "crawledAt": "2026-09-06T23:03:28.350Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "9435",
@@ -1051,7 +1051,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:51.724Z",
+      "crawledAt": "2026-09-06T23:03:28.215Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1130,7 +1130,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:51.549Z",
+      "crawledAt": "2026-09-06T23:03:28.085Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1210,7 +1210,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:51.375Z",
+      "crawledAt": "2026-09-06T23:03:27.950Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1292,9 +1292,9 @@
     },
     {
       "id": "sfs-group-3c8b7b63ccab",
-      "slug": "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
+      "slug": "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg",
+        "it": "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg",
         "en": "data-content-manager-in-m-f-d-80-sfs-group-heerbrugg",
         "de": "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
         "fr": "gestionnaire-de-donnees-et-de-contenu-dans-h-f-d-80-sfs-group-heerbrugg"
@@ -1304,7 +1304,7 @@
       "companyDomain": "sfs.com",
       "title": "Data- & Contentmanager/in (m/f/d) 80–",
       "titleByLocale": {
-        "it": "Gestione dei dati e dei contenuti in (m/f/d) 80–",
+        "it": "Data- & Contentmanager/in (m/f/d) 80–",
         "en": "Data & Content Manager in (m/f/d) 80–",
         "de": "Data- & Contentmanager/in (m/f/d) 80–",
         "fr": "Gestionnaire de données et de contenu dans (h/f/d) 80–"
@@ -1321,7 +1321,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/data-contentmanager-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:51.203Z",
+      "crawledAt": "2026-09-06T23:03:27.817Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1369,12 +1369,12 @@
       "previousSlugs": [
         "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
         "data-content-manager-m-w-d-80-sfs-group-heerbrugg",
-        "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg"
+        "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg",
-          "data-contentmanager-in-m-w-d-80-sfs-group-heerbrugg"
+          "gestione-dei-dati-e-dei-contenuti-in-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "data-contentmanager-in-m-f-d-80-sfs-group-heerbrugg"
@@ -1385,6 +1385,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:06.926Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -1430,7 +1431,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-conseillère-de-vente-au-service-externe-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:01:51.026Z",
+      "crawledAt": "2026-09-06T23:03:27.683Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "postalCode": "9435",
@@ -1449,6 +1450,20 @@
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ],
+        "en": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ],
+        "de": [
+          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
+        ]
+      },
       "firstSeenAt": "2026-09-01T10:24:07.154Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -1462,21 +1477,7 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
-        ],
-        "en": [
-          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
-        ],
-        "de": [
-          "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-de-vente-au-service-externe-m-f-d-sfs-group-plan-les-ouates"
-      ]
+      }
     },
     {
       "id": "sfs-group-8e63d8a49f76",
@@ -1509,7 +1510,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:01:50.850Z",
+      "crawledAt": "2026-09-06T23:03:27.549Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1588,7 +1589,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:50.681Z",
+      "crawledAt": "2026-09-06T23:03:27.416Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1668,7 +1669,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:01:50.467Z",
+      "crawledAt": "2026-09-06T23:03:27.265Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",

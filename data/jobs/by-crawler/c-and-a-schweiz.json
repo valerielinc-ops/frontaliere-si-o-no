@@ -1,6 +1,6 @@
 {
   "crawlerKey": "c-and-a-schweiz",
-  "assembledAt": "2026-09-05T23:09:42.749Z",
+  "assembledAt": "2026-09-06T23:07:37.219Z",
   "jobs": [
     {
       "id": "c-and-a-schweiz-b54051f8450f",
@@ -33,7 +33,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-bis-80-fur-emmen-64085-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:36.105Z",
+      "crawledAt": "2026-09-06T23:07:31.106Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-50-mit-schwerpunkt-service-in-gaupark-65300-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:35.717Z",
+      "crawledAt": "2026-09-06T23:07:30.781Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-frauenfeld-65278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:35.367Z",
+      "crawledAt": "2026-09-06T23:07:30.458Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressCountry": "CH",
@@ -276,11 +276,11 @@
         "fr": "Le futur te ressemble Vos tâches\n• Contact client proactif\n• Conseils professionnels\n• Assurer une bonne présence dans les magasins\n• Ambassadeurs de notre marque\n• Partager la responsabilité d'ouvrir et de fermer le magasin Ce que vous apportez\n• Passion pour la mode et les gens\n• Flexible en termes de temps d'exploitation\n• Très bonnes compétences en communication\n• L'expérience des ventes dans l'industrie de la mode est bénéfique Ce que nous offrons\n• Environnement de travail passionnant et dynamique\n• 30% de réduction des employés dans tous nos magasins\n• 20% de réduction pour les employés dans notre boutique en ligne\n• Portail d'avantages avec des offres de fournisseurs haut de gamme\n• Prime et rémunération des heures supplémentaires\n• 5 semaines de vacances\n• Rétroaction sur la culture et les possibilités de développement Nous ne faisons pas de discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'origine ethnique, la couleur, la religion ou les convictions, la paternité ou l'état matrimonial ou tout autre bien protégé. Nous accueillons favorablement les candidatures des femmes, des hommes et des non-binaires de toutes origines ethniques et socioéconomiques. Nous encourageons particulièrement les personnes appartenant à des groupes sous-représentés à présenter leur candidature. Même si vous ne répondez pas à toutes les exigences, mais voyez-vous dans le rôle et voulez contribuer, appliquer et nous aider à bâtir une communauté inclusive."
       },
       "location": "Bremgarten (CH)",
-      "canton": "ZH",
+      "canton": "",
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-fmd-30-mit-schlusselfunktion-in-bremgarten-65404-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:35.000Z",
+      "crawledAt": "2026-09-06T23:07:30.142Z",
       "addressLocality": "Bremgarten",
       "postalCode": "5620",
       "addressCountry": "CH",
@@ -311,20 +311,19 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:31:43.446Z",
-      "salaryMin": 24900,
-      "salaryMax": 38300,
+      "salaryMin": 17700,
+      "salaryMax": 27200,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 24900,
-          "maxValue": 38300,
+          "minValue": 17700,
+          "maxValue": 27200,
           "unitText": "YEAR"
         }
-      },
-      "addressRegion": "ZH"
+      }
     },
     {
       "id": "c-and-a-schweiz-c7ba49c568ff",
@@ -357,7 +356,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-olten-salipark-65540-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:34.626Z",
+      "crawledAt": "2026-09-06T23:07:29.816Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "addressCountry": "CH",
@@ -429,7 +428,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-60-in-regensdorf-65298-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:34.265Z",
+      "crawledAt": "2026-09-06T23:07:29.499Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -500,7 +499,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-sihlcity-abend-und-samstags-65702-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:33.692Z",
+      "crawledAt": "2026-09-06T23:07:29.147Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -577,7 +576,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-sihlcity-65701-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:33.339Z",
+      "crawledAt": "2026-09-06T23:07:28.830Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -654,7 +653,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-fmd-100-fur-emmen-65892-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:32.945Z",
+      "crawledAt": "2026-09-06T23:07:28.516Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -730,7 +729,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mit-schlusselfunktion-mwd-30-fur-emmen-65780-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:32.533Z",
+      "crawledAt": "2026-09-06T23:07:28.194Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -812,7 +811,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-verkauf-mwd-60-schwerpunkt-service-in-zurich-city-65987-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:32.114Z",
+      "crawledAt": "2026-09-06T23:07:27.864Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -902,7 +901,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-in-oerlikon-66092-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:31.672Z",
+      "crawledAt": "2026-09-06T23:07:27.525Z",
       "addressLocality": "Zürich",
       "postalCode": "8050",
       "addressCountry": "CH",
@@ -979,7 +978,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-20-fur-bern-66200-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:31.284Z",
+      "crawledAt": "2026-09-06T23:07:27.212Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1056,7 +1055,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-30-fur-bern-66089-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:30.904Z",
+      "crawledAt": "2026-09-06T23:07:26.889Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1133,7 +1132,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-fur-bern-66087-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:30.481Z",
+      "crawledAt": "2026-09-06T23:07:26.567Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1212,7 +1211,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-im-volkiland-66278-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:30.090Z",
+      "crawledAt": "2026-09-06T23:07:26.236Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -1289,7 +1288,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-wmd-100-fur-bern-66275-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:29.681Z",
+      "crawledAt": "2026-09-06T23:07:25.917Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1363,7 +1362,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-50-fur-bern-66271-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:29.323Z",
+      "crawledAt": "2026-09-06T23:07:25.583Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -1440,7 +1439,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-fmd-50-in-egerkingen-66237-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:28.791Z",
+      "crawledAt": "2026-09-06T23:07:25.269Z",
       "addressLocality": "Egerkingen",
       "postalCode": "4622",
       "addressCountry": "CH",
@@ -1519,7 +1518,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-fmd-80-100-chur-66218-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:28.421Z",
+      "crawledAt": "2026-09-06T23:07:24.948Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -1590,7 +1589,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-60-fur-mythencenter-schwyz-65340-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:28.036Z",
+      "crawledAt": "2026-09-06T23:07:24.628Z",
       "addressLocality": "Ibach",
       "postalCode": "6438",
       "addressCountry": "CH",
@@ -1672,7 +1671,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-60-in-liestal-66554-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:27.640Z",
+      "crawledAt": "2026-09-06T23:07:24.312Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "addressCountry": "CH",
@@ -1743,7 +1742,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-st-jakob-park-66586-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:27.288Z",
+      "crawledAt": "2026-09-06T23:07:23.989Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
       "addressCountry": "CH",
@@ -1818,7 +1817,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-in-frauenfeld-befristet-bis-februar-2027-66585-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:26.890Z",
+      "crawledAt": "2026-09-06T23:07:23.634Z",
       "addressLocality": "Frauenfeld",
       "postalCode": "8500",
       "addressCountry": "CH",
@@ -1919,7 +1918,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-st-gallen-arena-66648-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:26.511Z",
+      "crawledAt": "2026-09-06T23:07:23.293Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressCountry": "CH",
@@ -1994,7 +1993,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-100-fur-bern-66760-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:26.133Z",
+      "crawledAt": "2026-09-06T23:07:22.978Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -2084,7 +2083,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-40-mit-schlusselfunktion-in-regensdorf-66756-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:25.764Z",
+      "crawledAt": "2026-09-06T23:07:22.662Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -2196,7 +2195,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-in-tivoli-spreitenbach-66734-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:25.363Z",
+      "crawledAt": "2026-09-06T23:07:22.326Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -2297,7 +2296,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-40-fur-pilatusmarkt-befristet-bis-februar-2027-66800-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:25.000Z",
+      "crawledAt": "2026-09-06T23:07:22.009Z",
       "addressLocality": "Kriens",
       "postalCode": "6010",
       "addressCountry": "CH",
@@ -2398,7 +2397,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiterin-verkauf-mwd-50-schwerpunkt-service-in-luzern-befristet-bis-ende-feb-2027-66805-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:24.593Z",
+      "crawledAt": "2026-09-06T23:07:21.680Z",
       "addressLocality": "Luzern",
       "postalCode": "6004",
       "addressCountry": "CH",
@@ -2488,7 +2487,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-schonbuhl-befristet-66814-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:24.205Z",
+      "crawledAt": "2026-09-06T23:07:21.368Z",
       "addressLocality": "Schönbühl",
       "postalCode": "3321",
       "addressCountry": "CH",
@@ -2570,7 +2569,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-25-im-letzipark-66825-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:23.829Z",
+      "crawledAt": "2026-09-06T23:07:21.029Z",
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "addressCountry": "CH",
@@ -2648,7 +2647,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-wmd-80-fur-sihlcity-66918-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:23.385Z",
+      "crawledAt": "2026-09-06T23:07:20.712Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -2725,7 +2724,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-50-in-regensdorf-66922-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:22.743Z",
+      "crawledAt": "2026-09-06T23:07:20.390Z",
       "addressLocality": "Regensdorf",
       "postalCode": "8105",
       "addressCountry": "CH",
@@ -2786,7 +2785,7 @@
       "title": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
       "titleByLocale": {
         "it": "Negozio Visual Merchandiser (m/f/d) 100% nel Volkiland",
-        "en": "Store Visual Merchandiser (m/f/d) 100% in the Volkiland",
+        "en": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
         "de": "Store Visual Merchandiser (m/w/d) 100% im Volkiland",
         "fr": "Magasiner des marchandises visuelles (m/f/d) 100% dans le Volkiland"
       },
@@ -2802,7 +2801,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-im-volkiland-66912-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:22.348Z",
+      "crawledAt": "2026-09-06T23:07:20.052Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -2874,7 +2873,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-60-im-volkiland-66910-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:21.947Z",
+      "crawledAt": "2026-09-06T23:07:19.718Z",
       "addressLocality": "Volketswil",
       "postalCode": "8604",
       "addressCountry": "CH",
@@ -2951,7 +2950,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-mwd-100-im-raum-zurich-66904-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:21.509Z",
+      "crawledAt": "2026-09-06T23:07:19.395Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "addressCountry": "CH",
@@ -3028,7 +3027,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-emmen-66708-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:21.078Z",
+      "crawledAt": "2026-09-06T23:07:19.073Z",
       "addressLocality": "Emmenbrücke",
       "postalCode": "6020",
       "addressCountry": "CH",
@@ -3106,7 +3105,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-50-neuchatel-66987-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T23:09:20.691Z",
+      "crawledAt": "2026-09-06T23:07:18.730Z",
       "addressLocality": "Neuchatel",
       "postalCode": "2000",
       "addressCountry": "CH",
@@ -3170,7 +3169,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-20-fur-schaffhausen-herblingen-67008-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:20.276Z",
+      "crawledAt": "2026-09-06T23:07:18.409Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -3247,7 +3246,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mit-schlusselfunktion-mwd-30-fur-dietlikon-67007-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:19.897Z",
+      "crawledAt": "2026-09-06T23:07:18.089Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressCountry": "CH",
@@ -3324,7 +3323,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-mfd-focus-service-20-cdd-3-mois-crissier-67027-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:19.486Z",
+      "crawledAt": "2026-09-06T23:07:17.736Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -3426,7 +3425,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-porteuse-de-clefs-80-cdd-3-mois-67028-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:19.036Z",
+      "crawledAt": "2026-09-06T23:07:17.384Z",
       "addressLocality": "Crissier",
       "postalCode": "1023",
       "addressCountry": "CH",
@@ -3503,7 +3502,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/lehrstelle-ebaefz-detailhandel-tivoli-spreitenbach-start-1-august-2027-67070-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:18.595Z",
+      "crawledAt": "2026-09-06T23:07:17.033Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressCountry": "CH",
@@ -3575,7 +3574,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-leader-assistant-wmd-80-fur-schaffhausen-herblingen-67045-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:18.172Z",
+      "crawledAt": "2026-09-06T23:07:16.714Z",
       "addressLocality": "Schaffhausen",
       "postalCode": "8207",
       "addressCountry": "CH",
@@ -3650,7 +3649,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-thun-67136-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:17.769Z",
+      "crawledAt": "2026-09-06T23:07:16.364Z",
       "addressLocality": "Thun",
       "postalCode": "3601",
       "addressCountry": "CH",
@@ -3721,7 +3720,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/ch-sales-assistant-service-67153-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:17.349Z",
+      "crawledAt": "2026-09-06T23:07:16.049Z",
       "addressLocality": "Biel-Bienne",
       "postalCode": "2504",
       "addressCountry": "CH",
@@ -3737,16 +3736,16 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67153&career_ns=job_application&lang=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:28:59.553Z",
+      "previousSlugs": [
+        "ch-sales-assistant-service-c-and-a-schweiz-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ch-sales-assistant-service-c-and-a-schweiz-ch"
         ]
       },
-      "previousSlugs": [
-        "ch-sales-assistant-service-c-and-a-schweiz-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:28:59.553Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3793,7 +3792,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/mitarbeiter-im-verkauf-mwd-50-fur-chur-67179-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:16.948Z",
+      "crawledAt": "2026-09-06T23:07:15.696Z",
       "addressLocality": "Chur",
       "postalCode": "7001",
       "addressCountry": "CH",
@@ -3876,7 +3875,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-100-fur-aarau-67178-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:16.571Z",
+      "crawledAt": "2026-09-06T23:07:15.359Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "addressCountry": "CH",
@@ -3943,7 +3942,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaborateur de vente-CDD 50 %- Lausanne",
       "titleByLocale": {
-        "it": "Vendite Collaboratore-CDD 50%- Losanna",
+        "it": "Collaborateur de vente-CDD 50 %- Lausanne",
         "en": "Sales Collaborator-CDD 50%- Lausanne",
         "de": "Sales Collaborator-CDD 50% - Lausanne",
         "fr": "Collaborateur de vente-CDD 50 %- Lausanne"
@@ -3960,7 +3959,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateur-de-vente-cdd-50-lausanne-67101-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:16.178Z",
+      "crawledAt": "2026-09-06T23:07:15.027Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
@@ -3976,6 +3975,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=CAProduction&career_job_req_id=67101&career_ns=job_application&lang=en_GB",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:24:51.076Z",
       "salaryMin": 30300,
@@ -3991,24 +4001,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
-        ],
-        "en": [
-          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
-        ]
-      },
-      "previousSlugs": [
-        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "c-and-a-schweiz-d6e51c29a054",
-      "slug": "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch",
+      "slug": "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne",
       "slugByLocale": {
-        "it": "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch",
+        "it": "collaborateur-de-vente-cdd-50-lausanne-c-a-schweiz-lausanne",
         "en": "sales-collaborator-csd-50-lausanne-c-a-schweiz-lausanne-ch",
         "de": "vertriebsmitarbeiter-csd-50-lausanne-c-a-schweiz-lausanne-ch",
         "fr": "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-ozgj4o"
@@ -4018,7 +4017,7 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaborateur de vente- CDD 50 %- Lausanne",
       "titleByLocale": {
-        "it": "Collaboratore di vendita - CSD 50% - Losanna",
+        "it": "Collaborateur de vente- CDD 50 %- Lausanne",
         "en": "Sales Collaborator- CSD 50%- Lausanne",
         "de": "Vertriebsmitarbeiter- CSD 50 % Lausanne",
         "fr": "Collaborateur de vente- CDD 50 %- Lausanne"
@@ -4035,7 +4034,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaborateur-de-vente-cdd-50-lausanne-67098-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:15.793Z",
+      "crawledAt": "2026-09-06T23:07:14.700Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressCountry": "CH",
@@ -4053,21 +4052,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
-        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
+        "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
+        "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch",
-          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
-        ],
-        "fr": [
-          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2",
+          "collaboratore-di-vendita-csd-50-losanna-c-a-schweiz-lausanne-ch"
         ],
         "en": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
         ],
         "de": [
           "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch-2"
+        ],
+        "fr": [
+          "collaborateur-de-vente-cdd-50-lausanne-c-and-a-schweiz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -4101,24 +4102,24 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
       "titleByLocale": {
-        "it": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
+        "it": "Collaboratrice de vente avec fonction porteuse de clés - focus services (m/f/d) à 60% - Bienne",
         "en": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
-        "de": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne",
-        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 60% - Bienne"
+        "de": "Collaboratrice de vente avec fonction porteuse de clés - focus services (m/w/d) à 60% - Bienne",
+        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (h/f/d) à 60% - Bienne"
       },
       "description": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
       "descriptionByLocale": {
-        "it": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
+        "it": "Il futuro ti assomiglia\n\nLe tue responsabilità\n\nCosa porti\n\nCosa offriamo\n\nC&A promuove pari opportunità per persone di tutti gli sfondi e identità. Siamo guidati da una tavola equilibrata di genere che si impegna a costruire un'organizzazione diversificata e inclusiva dove tutti possono diventare il loro migliore sé.\nNon discriviamo in base all'età, alla disabilità, all'identità di genere, all'orientamento sessuale, all'etnia, alla razza, alla religione o alla fede, allo stato parentale e familiare, o a qualsiasi altra caratteristica protetta. Accogliamo con favore le domande di donne, uomini e candidati non-binari di tutte le etnie e background socio-economici. Incoraggiamo le persone appartenenti a gruppi sottorappresentati ad applicare.\nAnche se non si controlla ogni casella, ma si veda contribuire, si prega di applicare e aiutarci a costruire una comunità inclusiva.",
         "en": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
-        "de": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community.",
-        "fr": "The future looks like you\n\nYour responsibilities\n\nWhat you bring\n\nWhat we offer\n\nC&A fosters equal opportunity for people of all backgrounds and identities. We are led by a gender-balanced board that is committed to building a diverse and inclusive organization where everyone can become their best self.\nWe do not discriminate based on age, disability, gender identity, sexual orientation, ethnicity, race, religion or belief, parental and family status, or any other protected characteristic. We welcome applications from women, men and non-binary candidates of all ethnicities and socio-economic backgrounds. We encourage people belonging to underrepresented groups to apply.\nEven if you don't check every box, but see yourself contributing, please apply and help us build an inclusive community."
+        "de": "Die Zukunft sieht aus wie du\n\nIhre Verantwortung\n\nWas du mitbringst\n\nWas wir bieten\n\nC&A fördert die Chancengleichheit für Menschen aller Hintergründe und Identitäten. Wir werden von einem ausgewogenen Vorstand geleitet, der sich dem Aufbau einer vielfältigen und integrativen Organisation verschrieben hat, in der jeder sein bestes Selbst werden kann.\nWir diskriminieren nicht aufgrund von alter, behinderung, geschlechtsidentität, sexueller orientierung, ethnischer zugehörigkeit, rasse, religion oder weltanschauung, eltern- und familienstatus oder anderen geschützten merkmalen. Wir begrüßen Bewerbungen von Frauen, Männern und nicht-binären Kandidaten aller Ethnien und sozioökonomischen Hintergründe. Wir ermutigen Menschen, die zu unterrepräsentierten Gruppen gehören, sich zu bewerben.\nAuch wenn Sie nicht jedes Kästchen ankreuzen, aber sehen, dass Sie einen Beitrag leisten, bewerben Sie sich bitte und helfen Sie uns, eine integrative Community aufzubauen.",
+        "fr": "Le futur te ressemble\n\nVos responsabilités\n\nCe que vous apportez\n\nCe que nous offrons\n\nC et A favorise l'égalité des chances pour les personnes de tous les horizons et de toutes les identités. Nous sommes dirigés par un conseil équilibré entre les sexes qui s'engage à bâtir une organisation diversifiée et inclusive où chacun peut devenir son meilleur être.\nNous ne faisons aucune discrimination fondée sur l'âge, le handicap, l'identité de genre, l'orientation sexuelle, l'ethnicité, la race, la religion ou les convictions, la situation de parent et de famille, ou toute autre caractéristique protégée. Nous accueillons favorablement les candidatures des femmes, des hommes et des candidats non binaires de toutes origines ethniques et socioéconomiques. Nous encourageons les personnes appartenant à des groupes sous-représentés à présenter une demande.\nMême si vous ne cochez pas toutes les cases, mais que vous y contribuez, veuillez nous faire une demande et nous aider à bâtir une communauté inclusive."
       },
       "location": "Biel-Bienne (CH)",
       "canton": "BE",
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-avec-fonction-porteuse-de-cles-focus-services-fmd-a-60-bienne-67189-en-gb",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-05T23:09:15.376Z",
+      "crawledAt": "2026-09-06T23:07:14.368Z",
       "addressLocality": "Biel-Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -4153,11 +4154,11 @@
     },
     {
       "id": "c-and-a-schweiz-e2bb41cf68bd",
-      "slug": "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
+      "slug": "operaio-di-vendita-50-csd-4-mesi-c-a-schweiz-avry-sur-matran-ch",
       "slugByLocale": {
-        "it": "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch",
+        "it": "operaio-di-vendita-50-csd-4-mesi-c-a-schweiz-avry-sur-matran-ch",
+        "en": "sales-worker-50-csd-4-months-c-a-schweiz-avry-sur-matran-ch",
+        "de": "verkaufsmitarbeiter-50-csd-4-monate-c-a-schweiz-avry-sur-matran-ch",
         "fr": "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
       },
       "company": "C&A Schweiz",
@@ -4165,9 +4166,9 @@
       "companyDomain": "c-and-a.com",
       "title": "Collaboratrice de vente 50% - CDD 4 mois",
       "titleByLocale": {
-        "it": "Collaboratrice de vente 50% - CDD 4 mois",
-        "en": "Collaboratrice de vente 50% - CDD 4 mois",
-        "de": "Collaboratrice de vente 50% - CDD 4 mois",
+        "it": "Operaio di vendita 50% - CSD 4 mesi",
+        "en": "Sales worker 50% - CSD 4 months",
+        "de": "Verkaufsmitarbeiter 50% - CSD 4 Monate",
         "fr": "Collaboratrice de vente 50% - CDD 4 mois"
       },
       "description": "The future looks like you\n\nC&A est une entreprise familiale fondée en 1841, qui s’est imposée comme l’un des leaders mondiaux de l’industrie de la mode. Présente dans 17 pays à travers l’Europe, l’Amérique latine et l’Asie, C&A est fière de son histoire et de son modèle d’entreprise responsable, axé sur la durabilité et l’inclusion.\nPionnière dans son secteur, l’entreprise a fait de l’accessibilité, de l’éthique et du respect de l’environnement un véritable engagement. À travers ses collections, ses initiatives en matière de développement durable et son engagement en faveur de l’égalité, C&A incarne une vision de la mode qui dépasse la simple tendance, en valorisant l’impact social et environnemental.\nCes valeurs fortes guident chacune de nos actions et sont au cœur de l’évolution de notre culture d’entreprise.\n\nVos responsabilités\n\n• Vous êtes une personne proactive, avec un bon sens du relationnel et une vraie passion pour la mode. Vous êtes motivé(e) par l’idée de contribuer à la réussite de l’équipe et du magasin.\n\n• Vous êtes doté(e) d’un excellent sens du service clients et de l’accueil.\n\n• Fort(e) d’une expérience dans la vente, idéalement dans le secteur de la mode, vous maîtrisez les techniques de vente, l’association de tenues et le conseil personnalisé pour maximiser le chiffre d’affaires.\n\n• Doté(e) d’un esprit curieux et dynamique, vous cherchez à travailler dans un environnement stimulant qui vous offrira des perspectives d’évolution de carrière.\n\n• Vous possédez des connaissances basiques du secteur de la mode et du prêt-à-porter.\n\n• Vous maîtrisez les techniques de merchandising : implantation, pancartage, réassort.\n\n• Vous êtes à l’aise avec les outils digitaux et logiciels internes liés à la fonction.\n\n• Vous savez travailler en équipe, faire preuve d’autonomie et d’initiative.\n\nVotre profil\n\nCe que nous vous offrons\n\nChez C&A, nous vous proposons bien plus qu’un simple emploi. Rejoignez une entreprise qui valorise ses collaborateurs et offre de véritables perspectives d’évolution.\n\n• Carte privilège avec une réduction de 30 % sur nos collections\n\n• Mutuelle et prévoyance\n\n• Intéressement et participation\n\n• Formation continue pour développer vos compétences\n Date de démarrage : Dès que possible\n Rejoignez-nous !\nChez C&A, chaque talent fait la différence. Si vous êtes prêt(e) à rejoindre une entreprise innovante, engagée, et à faire partie de notre succès, n'attendez plus et postulez dès maintenant !\n\nC&A favorise l’égalité des chances pour les personnes de tous horizons et identités. Nous sommes dirigés par un conseil d’administration équilibré en termes de genre, engagé à bâtir une organisation diversifiée et inclusive, où chacun peut s’épanouir pleinement.\nNous ne pratiquons aucune discrimination fondée sur l’âge, le handicap, l’identité de genre, l’orientation sexuelle, l’origine ethnique, la race, la religion ou les convictions, le statut parental ou familial, ou toute autre caractéristique protégée. Nous encourageons les candidatures de femmes, d’hommes et de personnes non binaires de toutes origines ethniques et socio-économiques. Nous incitons particulièrement les personnes issues de groupes sous-représentés à postuler.\nMême si vous ne remplissez pas tous les critères, mais que vous pensez pouvoir apporter votre contribution, n’hésitez pas à postuler et à nous aider à construire une communauté inclusive.",
@@ -4182,7 +4183,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/collaboratrice-de-vente-50-cdd-4-mois-67181-fr-fr",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T23:09:14.990Z",
+      "crawledAt": "2026-09-06T23:07:14.043Z",
       "addressLocality": "Avry-sur-Matran",
       "postalCode": "1754",
       "addressCountry": "CH",
@@ -4213,7 +4214,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-50-cdd-4-mois-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-04f844f7b5c5",
@@ -4246,7 +4261,7 @@
       "url": "https://www.c-and-a.com/ch/de/corporate/company/careers/jobs/store-visual-merchandiser-mwd-80-fur-basel-67188-de-de",
       "source": "C&A Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T23:09:14.591Z",
+      "crawledAt": "2026-09-06T23:07:13.703Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressCountry": "CH",

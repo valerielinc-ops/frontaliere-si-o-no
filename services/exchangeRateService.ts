@@ -363,11 +363,14 @@ function getHistoryDateRange(period: HistoryPeriod): { startStr: string; endStr:
  const end = new Date();
  const start = new Date();
  switch (period) {
- case '1m': start.setMonth(end.getMonth() - 1); break;
- case '3m': start.setMonth(end.getMonth() - 3); break;
- case '6m': start.setMonth(end.getMonth() - 6); break;
- case '1y': start.setFullYear(end.getFullYear() - 1); break;
- case '5y': start.setFullYear(end.getFullYear() - 5); break;
+ // #7694: aritmetica sul calendario UTC, lo stesso in cui `toISOString()`
+ // formatta qui sotto: con `setMonth`/`setFullYear` locali il bordo della
+ // finestra scivola di un giorno su un salto DST o vicino a mezzanotte.
+ case '1m': start.setUTCMonth(end.getUTCMonth() - 1); break;
+ case '3m': start.setUTCMonth(end.getUTCMonth() - 3); break;
+ case '6m': start.setUTCMonth(end.getUTCMonth() - 6); break;
+ case '1y': start.setUTCFullYear(end.getUTCFullYear() - 1); break;
+ case '5y': start.setUTCFullYear(end.getUTCFullYear() - 5); break;
  }
  return {
  startStr: start.toISOString().split('T')[0],

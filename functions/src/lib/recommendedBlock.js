@@ -222,10 +222,10 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
  * the parameter and the sponsor reports on the same key.
  *
  * @param {{ kind: string, goId?: string, url?: string, id: string }} rec
- * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string }} [opts]
+ * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [opts]
  * @returns {string}
  */
-export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement } = {}) {
+export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot } = {}) {
   const params = new URLSearchParams();
   params.set('utm_source', 'newsletter');
   params.set('utm_medium', 'email');
@@ -244,9 +244,14 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
     // an EMPTY pubref without failing, so it must not be spelled out twice.
     // Un `placement` esplicito vince: e' il chiamante che dichiara lo slot.
     // Senza, la forma canonica del blocco, che porta la campagna perche' le
-    // quattro superfici che lo rendono puntano tutte allo stesso /go/{goId}/.
+    // quattro superfici che lo rendono puntano tutte allo stesso /go/{goId}/,
+    // e l'indice di slot (`slot`, 1-based, default 1) perche' dentro UN SINGOLO
+    // invio niente vieta a un chiamante di rendere il blocco due volte: senza
+    // indice quelle due righe hanno campagna e goId identici, tornano con lo
+    // stesso `pos` e restano indistinguibili — l'ambiguita' che le righe
+    // partner evitano da sempre con `nl-partner-<n>-<id>`.
     if (!placement) {
-      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId));
+      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId, slot));
     }
     // goPathFromId already carries the canonical trailing slash before the query.
     return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
@@ -266,15 +271,19 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
  * no partner/sponsor is active. Styling mirrors the newsletter template card
  * language (light card, orange accent). Clear disclosure line above the card.
  *
- * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string }} [args]
+ * `slot` is the 1-based position of THIS block inside the send: a surface that
+ * renders the block once can omit it (defaults to 1), one that renders it twice
+ * must number them, or the two clicks come back under the same `pos`.
+ *
+ * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [args]
  * @returns {string} HTML `<tr>…</tr>` or ''
  */
-export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement } = {}) {
+export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement, slot } = {}) {
   const loc = normLocale(locale);
   const rec = pickNewsletterRecommendation({ locale: loc, interest });
   if (!rec) return '';
 
-  const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement });
+  const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot });
   const eyebrow = chrome(loc, 'eyebrow');
 
   return `

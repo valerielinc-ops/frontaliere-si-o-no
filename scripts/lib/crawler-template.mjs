@@ -146,6 +146,7 @@ import {
   setCrawlerStartTime,
   getCrawlerElapsedMs,
 } from '../jobs-url-helper.mjs';
+import { CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
 import {
   writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
@@ -902,7 +903,22 @@ export async function runStandardCrawlerPipeline(config) {
   // classify "found candidates, filtered to 0" as healthy instead of broken,
   // without a human adding the slug to EMPTY_OK_CRAWLERS. Parsers that don't
   // set `.discoveredCount` leave counts.discovered null — unchanged behaviour.
-  const counts = { discovered: null };
+  // `counts.parsed` (issue #7707) is the complementary post-parser count: how
+  // many jobs the parser emitted AFTER its own geographic filter and BEFORE
+  // this pipeline's merge/expiry/localization/validation/slice stages. Without
+  // it, a run that the pipeline empties for a NON-geographic reason is
+  // indistinguishable from a geographic filter-empty (`discovered > 0`,
+  // `written === 0`) and check-crawler-health calls a broken crawler healthy.
+  // `counts.lastFetchOutcome` (issue #7897) is the run's own verdict on WHY it
+  // ended up empty, when its parser can tell: `ok`, `anti_bot_block`,
+  // `selector_miss`, `filtered_empty`. `discovered`/`parsed` let the monitor
+  // INFER a cause by comparing counts; this reports one observed at the
+  // fetch/parse boundary, which is the only place an anti-bot block and a dead
+  // selector are distinguishable at all. It rides the same `counts` object so
+  // the exit-guard slice carries it too — the zero-match soft exit below is
+  // precisely the run whose cause matters most. Parsers that don't set
+  // `.fetchOutcome` leave it null: unchanged behaviour.
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${companyLabel} — Standard Crawler Pipeline`);
@@ -959,6 +975,12 @@ export async function runStandardCrawlerPipeline(config) {
   if (Number.isFinite(parsedJobs?.discoveredCount)) {
     counts.discovered = parsedJobs.discoveredCount;
   }
+  if (CRAWLER_FETCH_OUTCOMES.has(parsedJobs?.fetchOutcome)) {
+    counts.lastFetchOutcome = parsedJobs.fetchOutcome;
+  }
+  // Set before every early return below, so a soft-exit slice written by the
+  // exit guard carries the same evidence a published one would.
+  counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
 
   // Only source-specific crawlers with an explicit completeness proof may
   // retire every unmatched record immediately. Validation runs before the
@@ -1116,6 +1138,8 @@ export async function runStandardCrawlerPipeline(config) {
     generatedAt: new Date().toISOString(),
     total: sliceJobs.length,
     discovered: counts.discovered,
+    parsed: counts.parsed,
+    lastFetchOutcome: counts.lastFetchOutcome,
     written: sliceJobs.length,
     // Per-run proof, not a per-slug guess: true only when this run's parser
     // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved

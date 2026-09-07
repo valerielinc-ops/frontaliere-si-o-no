@@ -22,6 +22,8 @@ import {
 import {
   resolveComune,
   slugifyComune,
+  slugifyEvent,
+  RESERVED_EVENTS_SEGMENT_RE,
   isoFromCompactDate,
   eventStableId,
   upcomingEvents,
@@ -187,6 +189,31 @@ describe('events-utils helpers', () => {
     expect(slugifyComune('Riva San Vitale')).toBe('riva-san-vitale');
     expect(slugifyComune("Sant'Antonino")).toBe('santantonino');
     expect(slugifyComune('Bosco/Gurin')).toBe('bosco-gurin');
+  });
+
+  /**
+   * The events tree mints its overflow ladder as `<bucket-path>page-N/`, and
+   * the bucket path of a comune-less bucket is the bare canton base — so a
+   * comune (or a dateless event) whose slug normalizes to `page-N` claims the
+   * exact URL of ladder page N. The guard lives in the slugifier, so this
+   * asserts the SHAPE is unreachable, not that today's dataset happens to
+   * avoid it (#7743).
+   */
+  it('slugifyComune never mints the reserved ladder shape page-N', () => {
+    for (const input of ['Page 2', 'Page-3', 'page  10', 'PAGE 07', 'Pàge 2']) {
+      expect(slugifyComune(input)).not.toMatch(RESERVED_EVENTS_SEGMENT_RE);
+    }
+    expect(slugifyComune('Page 2')).toBe('page-2-comune');
+    // Only the exact shape is disambiguated: neighbours keep their slug.
+    expect(slugifyComune('Page 2 Basso')).toBe('page-2-basso');
+    expect(slugifyComune('Pagine')).toBe('pagine');
+  });
+
+  it('slugifyEvent never mints the reserved ladder shape, dateless events included', () => {
+    // Without a startDate the date part is empty, so the slug IS the title part
+    // — the case the old `overflowLadderPath` docblock assumed away.
+    expect(slugifyEvent({ title: 'Page 2', startDate: '' })).toBe('page-2-evento');
+    expect(slugifyEvent({ title: 'Page 2', startDate: '2026-07-04' })).toBe('page-2-2026-07-04');
   });
 
   it('isoFromCompactDate + eventStableId', () => {
@@ -486,6 +513,27 @@ describe('enrichEventsWithTranslations — partial cache re-validation (#3427)',
     expect(out[0].titleByLocale).toMatchObject({ it: 'Concerto sinfonico', en: 'Translated-en', de: 'Translated-de', fr: 'Translated-fr' });
     // Cache entry must be updated with the full set.
     expect(Object.keys(cache['concerto sinfonico'])).toHaveLength(3);
+  });
+
+  // #7771: un titolo gia' identico in una lingua (un festival, un toponimo)
+  // esce '' dalla cascata dal #7750 in poi. Senza memo di quell'esito l'entry
+  // non raggiungeva mai i tre locale, non veniva mai scritta, e questo crawler
+  // — che riscrive la slice da zero ogni giorno — ripagava la cascata ogni run.
+  it('memoizes a rejected passthrough so the entry is cached and never re-paid', async () => {
+    const cache: Record<string, Record<string, string | null>> = {};
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) =>
+      targetLang === 'en' ? { text: '', passthrough: true } : `Translated-${targetLang}`,
+    );
+    const passthroughEvents = [{ title: 'Locarno Film Festival', id: 'tio-agenda:2' }];
+
+    const out = await enrichEventsWithTranslations(passthroughEvents, cache, translateFn);
+    // Il marker non e' una traduzione: `en` resta scoperto, legge l'italiano.
+    expect(out[0].titleByLocale).toEqual({ it: 'Locarno Film Festival', de: 'Translated-de', fr: 'Translated-fr' });
+    expect(cache['locarno film festival']).toEqual({ en: null, de: 'Translated-de', fr: 'Translated-fr' });
+
+    const translateFn2 = vi.fn();
+    await enrichEventsWithTranslations(passthroughEvents, cache, translateFn2);
+    expect(translateFn2).not.toHaveBeenCalled();
   });
 
   it('skips re-translation when cache entry is already complete', async () => {

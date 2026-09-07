@@ -108,8 +108,10 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   registerKeywordLandingPaths,
+  registerRetiredKeywordLandingPaths,
   keywordLandingPlanSize,
   landingPathFromDistRelative,
+  normalizeLandingPath,
 } from './shared/keywordLandingPlan';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
@@ -513,7 +515,7 @@ function cacheDirFor(rootDir: string, cacheKey: string): string {
   return path.join(rootDir, '.cache', 'related-search-clusters', cacheKey);
 }
 
-async function tryRestoreFromCache(
+export async function tryRestoreFromCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
@@ -545,6 +547,7 @@ async function tryRestoreFromCache(
   const files = manifest.files;
   const ensuredDirs = new Set<string>();
   let restored = 0;
+  let missing = 0;
 
   for (let i = 0; i < files.length; i += concurrency) {
     const batch = files.slice(i, i + concurrency);
@@ -560,13 +563,40 @@ async function tryRestoreFromCache(
         await fs.promises.copyFile(src, dst);
         restored++;
       } catch (err) {
-        // Missing src or unwritable dst: skip silently — the missing file
-        // will be detected by post-build audits if it actually mattered.
+        // ANY failure here leaves `dst` absent from dist/, and that is a
+        // CORRUPT restore regardless of errno: `saveToCache` only lists rels
+        // it actually copied, and the plugin source is a `CACHE_KEY_INPUTS`
+        // entry, so no manifest written by an older (pre-#7755) build can
+        // ever match this key. ENOENT means the blob is gone; EMFILE (the
+        // very risk the concurrency note above weighs), EACCES, ENOSPC, EIO
+        // and ENOTDIR mean the copy did not land — downstream the difference
+        // is nil, because the landing plan is registered from
+        // `manifest.files`, not from what reached the disk. Count them all
+        // and let the caller invalidate — a silent skip shipped a dist/ with
+        // missing cluster pages while `restoredKeywordLandingPaths` still
+        // registered them as planned landings.
+        missing++;
         if ((err as NodeJS.ErrnoException).code !== 'ENOENT') {
+          // Different diagnostic: the blob exists but the copy failed, so the
+          // cache dir is fine and the runner (fd limit, perms, disk) is not.
           console.warn(`\x1b[33m[related-search-clusters]\x1b[0m restore failed for ${rel}:`, err);
         }
       }
     }));
+  }
+
+  // Criterion (issue #7755): ONE entry that did not land invalidates the
+  // whole restore — missing blob or failed copy, the outcome on disk is the
+  // same.
+  // A partial restore is indistinguishable from a complete one downstream —
+  // the plan is registered from `manifest.files`, not from what landed on
+  // disk — so the only honest fallback is to re-emit. The already-copied
+  // files are harmless: the emit path rewrites the same set.
+  if (missing > 0) {
+    console.warn(
+      `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): ${missing}/${files.length} manifest entries failed to restore — falling back to a full emit`,
+    );
+    return null;
   }
 
   // Each shard carries a `<lastmod>` per URL; refresh today's date on every
@@ -592,7 +622,7 @@ async function tryRestoreFromCache(
   return { ...manifest, emittedCount: restored };
 }
 
-function saveToCache(
+export function saveToCache(
   rootDir: string,
   distDir: string,
   cacheKey: string,
@@ -608,23 +638,40 @@ function saveToCache(
   fs.rmSync(cacheDir, { recursive: true, force: true });
   fs.mkdirSync(path.join(cacheDir, 'files'), { recursive: true });
 
-  const seen = new Set<string>();
-  let copied = 0;
+  // Two sets on purpose. `visited` dedupes the input list; `stored` is the
+  // subset whose blob actually landed under `cacheDir/files`, and it is the
+  // ONLY one the manifest may advertise. Marking a rel as stored before the
+  // `existsSync` guard produced a manifest that promised files the cache did
+  // not hold: on the next cache HIT `tryRestoreFromCache` swallowed the
+  // ENOENT and `restoredKeywordLandingPaths` registered a landing whose file
+  // was never written to dist/ (issue #7755).
+  const visited = new Set<string>();
+  const stored: string[] = [];
+  let skipped = 0;
   for (const rel of emittedFiles) {
-    if (seen.has(rel)) continue;
-    seen.add(rel);
+    if (visited.has(rel)) continue;
+    visited.add(rel);
     const src = path.join(distDir, rel);
-    if (!fs.existsSync(src)) continue;
+    if (!fs.existsSync(src)) {
+      skipped++;
+      continue;
+    }
     const dst = path.join(cacheDir, 'files', rel);
     fs.mkdirSync(path.dirname(dst), { recursive: true });
     fs.copyFileSync(src, dst);
-    copied++;
+    stored.push(rel);
   }
+  if (skipped > 0) {
+    console.warn(
+      `\x1b[33m[related-search-clusters]\x1b[0m ${skipped} emitted file(s) missing from dist/ at cache-save time: excluded from the manifest`,
+    );
+  }
+  const copied = stored.length;
 
   const manifest: CacheManifest = {
     version: CACHE_VERSION,
     generatedAt: new Date().toISOString(),
-    files: Array.from(seen),
+    files: stored.slice(),
     hubs: hubs.slice(),
     sitemapLocs: sitemapLocs.slice(),
     crossSectionMirrorLocs: crossSectionMirrorLocs.slice(),
@@ -632,7 +679,10 @@ function saveToCache(
     // Only the ones that actually made it into `files`: a retirement whose
     // source was missing at copy time is not restored either, so recording it
     // would exclude a path that is never registered in the first place.
-    retiredFiles: retiredFiles.filter((rel) => seen.has(rel)),
+    retiredFiles: (() => {
+      const storedSet = new Set(stored);
+      return retiredFiles.filter((rel) => storedSet.has(rel));
+    })(),
     emittedCount: copied,
   };
   fs.writeFileSync(
@@ -729,7 +779,11 @@ function loadJobs(rootDir: string): RawJob[] {
  * de/jobs-in-der prefixes in sync because the data file is consumed by this
  * function unmodified.
  */
-const CLUSTER_PATH_PARSE_RX = /^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-(?!svizzera\b|switzerland\b|schweiz\b|suisse\b)[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$/;
+const CLUSTER_PATH_HEAD_RX_SRC = String.raw`^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-`;
+const CLUSTER_PATH_TAIL_RX_SRC = String.raw`[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$`;
+const CLUSTER_PATH_PARSE_RX = new RegExp(
+  `${CLUSTER_PATH_HEAD_RX_SRC}(?!svizzera\\b|switzerland\\b|schweiz\\b|suisse\\b)${CLUSTER_PATH_TAIL_RX_SRC}`,
+);
 
 function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null {
   if (!p) return null;
@@ -737,6 +791,85 @@ function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null
   if (!m) return null;
   const locale = (m[1] || 'it') as Locale;
   return { locale, slug: m[2] };
+}
+
+/**
+ * Same shape, aggregator sections INCLUDED (issue #7753).
+ *
+ * `parseClusterPathKey` excludes them on purpose: it answers "is this a MIRROR
+ * that needs a separate entry", and the Svizzera aggregate is the canonical, so
+ * it is never a mirror. The publication-evidence question is the opposite one —
+ * "was a page for this (locale, slug) ever written" — and there the aggregate
+ * canonical is the FIRST path to count, since it is where every cluster
+ * canonicalizes since #4400. Built from the same two sources so the section
+ * prefixes cannot drift apart between the two readings.
+ */
+const ANY_SECTION_CLUSTER_PATH_RX = new RegExp(
+  `${CLUSTER_PATH_HEAD_RX_SRC}${CLUSTER_PATH_TAIL_RX_SRC}`,
+);
+
+function clusterKeyFromAnyPath(p: string): string | null {
+  if (!p) return null;
+  const m = p.toLowerCase().match(ANY_SECTION_CLUSTER_PATH_RX);
+  if (!m) return null;
+  return `${m[1] || 'it'}::${m[2]}`;
+}
+
+/**
+ * `${locale}::${slug}` of every cluster doorway a PREVIOUS build of this plugin
+ * actually wrote, read from the manifests left under
+ * `.cache/related-search-clusters/<key>/manifest.json` (issue #7753).
+ *
+ * Second source of publication evidence next to `data/indexed-cluster-urls.json`:
+ * that file only knows the URLs GSC/GA4/PostHog still SEE, so a doorway that was
+ * published and never got a click is invisible to it. A manifest, on the other
+ * hand, is this plugin's own record of what it emitted.
+ *
+ * Every key directory is read, not just the current one: `computeCacheKey`
+ * hashes the data inputs, so the build that is asking this question is by
+ * definition on a cache MISS and its own directory does not exist yet. Manifests
+ * of any `version` count — an old cache is still a record of a real emit, and the
+ * question here is history, not restorability.
+ *
+ * Absent/unreadable cache → empty set, i.e. no evidence from this source. That is
+ * the conservative direction: a candidate with no evidence at all gets no
+ * withdrawal, which is exactly the page this issue is about not creating.
+ */
+export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
+  const out = new Set<string>();
+  const cacheRoot = path.join(rootDir, '.cache', 'related-search-clusters');
+  let entries: string[];
+  try {
+    entries = fs.readdirSync(cacheRoot);
+  } catch {
+    return out;
+  }
+  for (const entry of entries) {
+    const manifestPath = path.join(cacheRoot, entry, 'manifest.json');
+    try {
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as Partial<CacheManifest>;
+      // `retiredFiles` is a SUBSET of `files` (see the field docs and
+      // `saveToCache`), so counting `files` raw would make the evidence
+      // self-confirming on exactly the population this gate exists to
+      // exclude: a pre-fix build that synthesised a bogus withdrawal for a
+      // never-published candidate wrote that document into `files`, and
+      // reading it back would prove the candidate "published". A withdrawal
+      // is not evidence of publication — it is evidence of the opposite.
+      // Same idiom as `restoredKeywordLandingPaths`.
+      const retired = new Set(
+        (manifest.retiredFiles ?? []).filter((rel) => typeof rel === 'string'),
+      );
+      for (const rel of manifest.files ?? []) {
+        if (typeof rel !== 'string') continue;
+        if (retired.has(rel)) continue;
+        const key = clusterKeyFromAnyPath(landingPathFromDistRelative(rel));
+        if (key) out.add(key);
+      }
+    } catch {
+      // Missing or malformed manifest: no evidence from this directory.
+    }
+  }
+  return out;
 }
 
 /**
@@ -1654,10 +1787,25 @@ export interface JunkRetirement {
  * reconstructed: deriving it means running the match phase for a page that is
  * being withdrawn, and source 3 already covers the legacy-canton mirrors that
  * were actually indexed.
+ *
+ * Sources 1 and 2 are SYNTHESIZED — they are computed from the candidate, not
+ * observed — so they are gated on evidence that this (locale, slug) was ever
+ * published (issue #7753). Withdrawing a page needs a page: `data/related-
+ * search-candidates.json` is append-only by choice (`MIN_JOB_COUNT = 1`, the
+ * audit keeps adding), so without the gate every junk candidate the audit adds
+ * — including ones no build ever emitted — grew two brand-new thin `noindex`
+ * documents at URLs that never existed, which is the mirror image of the leak
+ * #7316 closes. Evidence is either source 3 (the URL is still seen by
+ * GSC/GA4/PostHog) or `publishedClusterKeys` (a previous build's own manifest
+ * recorded the emit). With evidence the path set is unchanged: a doorway the
+ * emit loop published wrote both the aggregate canonical and the TI mirror, so
+ * neither is a guess once the pair is known to exist. Without evidence the
+ * candidate yields no retirement at all.
  */
 export function enumerateJunkRetirements(
   candidates: ReadonlyArray<CandidateEntry>,
   indexedClusterUrlsByKey: ReadonlyMap<string, string[]> = new Map(),
+  publishedClusterKeys: ReadonlySet<string> = new Set(),
 ): JunkRetirement[] {
   const byKey = new Map<string, JunkRetirement>();
   for (const candidate of candidates) {
@@ -1665,11 +1813,13 @@ export function enumerateJunkRetirements(
     if (!derived || !isJunkSearchKeyword(derived.keyword)) continue;
     const key = `${candidate.locale}::${candidate.slug}`;
     if (byKey.has(key)) continue;
+    const indexedPaths = indexedClusterUrlsByKey.get(key) || [];
+    if (indexedPaths.length === 0 && !publishedClusterKeys.has(key)) continue;
     const paths = new Set<string>([
       buildClusterPath(candidate.locale, candidate.slug, AGGREGATE_KEY),
       buildClusterPath(candidate.locale, candidate.slug, 'TI'),
     ]);
-    for (const indexed of indexedClusterUrlsByKey.get(key) || []) {
+    for (const indexed of indexedPaths) {
       paths.add(indexed.endsWith('/') ? indexed : `${indexed}/`);
     }
     byKey.set(key, {
@@ -1698,8 +1848,115 @@ export function restoredKeywordLandingPaths(
   files: ReadonlyArray<string>,
   retiredFiles: ReadonlyArray<string> = [],
 ): string[] {
+  assertNoRestoredRetirementCollision(files, retiredFiles);
   const retired = new Set(retiredFiles);
   return files.filter((rel) => !retired.has(rel)).map(landingPathFromDistRelative);
+}
+
+/**
+ * The withdrawal paths a cache-HIT build must declare EMITTED-but-unplanned.
+ *
+ * The complement of {@link restoredKeywordLandingPaths} over the same manifest:
+ * that one drops the retirements from the plan, this one hands the very same
+ * rels to the hreflang gate as "written, just not advertised". Both halves are
+ * needed or the two build paths disagree — the emit path knows a withdrawal is
+ * on disk, and a cache HIT that only reproduced the ABSENCE would still make
+ * every live sibling of a retired locale lose its whole block (issue #7756).
+ *
+ * Both halves of the published pair (`<path>/index.html` and the flat
+ * `<path>.html` sibling, issue #7751) map to the SAME landing path, so the Set
+ * in the registry collapses them — no de-duplication is needed here.
+ */
+export function restoredRetiredLandingPaths(
+  retiredFiles: ReadonlyArray<string>,
+): string[] {
+  return retiredFiles.map(landingPathFromDistRelative);
+}
+
+/**
+ * Fail the build when a junk withdrawal would land on a path a LIVE cluster
+ * also emits (issue #7752).
+ *
+ * The two path sets are built by different code from different sources — the
+ * plan from `contexts` (canonical `ctx.cantonGroup` + `ctx.legacyCantonGroup`
+ * + `'TI'` mirrors), the withdrawals from `enumerateJunkRetirements`
+ * (`AGGREGATE_KEY` + `'TI'` + the indexed-URL union) — and both feed
+ * `collector.add`. They SHOULD be disjoint: `buildClusterContext` returns null
+ * for a junk keyword, so no surviving context shares a (locale, slug) with a
+ * retirement. Nothing enforced it, and the two failure modes of an overlap are
+ * silent: on the emit path the retirement loop runs FIRST, so the live cluster
+ * page wins the last write and the withdrawal quietly does nothing; on a cache
+ * HIT the rel is tagged retired, so `restoredKeywordLandingPaths` drops the
+ * LIVE landing from the plan and `transformHreflang` strips its alternates.
+ * Write order is not a guarantee — it is an accident of loop placement — so
+ * the overlap is asserted instead of ranked.
+ *
+ * Throwing is the point: an empty intersection is the invariant, and a
+ * non-empty one means the junk classification and the match filter disagree
+ * about the same URL. Emitting either document would be a guess.
+ */
+export function assertRetirementsDisjointFromPlan(
+  retirements: ReadonlyArray<JunkRetirement>,
+  plannedPaths: ReadonlyArray<string>,
+): void {
+  if (retirements.length === 0 || plannedPaths.length === 0) return;
+  // `normalizeLandingPath` — the plan's own normalizer, not a second one: the
+  // two sides must agree on the path shape or a collision hides behind a
+  // trailing slash (`plannedPaths` takes the indexed-URL entries verbatim from
+  // the data file, `enumerateJunkRetirements` re-slashes them).
+  const planned = new Set(plannedPaths.map(normalizeLandingPath));
+  const collisions: string[] = [];
+  for (const retirement of retirements) {
+    for (const retiredPath of retirement.paths) {
+      const normalized = normalizeLandingPath(retiredPath);
+      if (planned.has(normalized)) {
+        collisions.push(`${normalized} (${retirement.locale}::${retirement.slug})`);
+      }
+    }
+  }
+  if (collisions.length > 0) {
+    throw new Error(
+      `[related-search-clusters] ${collisions.length} junk-doorway retirement path(s) collide with live cluster landings ` +
+      `— the withdrawal would overwrite a page this build also emits (issue #7752):\n  ${collisions.join('\n  ')}`,
+    );
+  }
+}
+
+/**
+ * The cache-HIT half of the same invariant (issue #7752).
+ *
+ * `computeCacheKey` hashes the DATA inputs, not this file, so a manifest
+ * written by a build that predates `assertRetirementsDisjointFromPlan` is
+ * still restorable by a build that has it. The signature it leaves is a
+ * retired rel listed TWICE in `files`: the retirement loop pushes each rel
+ * once and the slug is part of the path, so a second occurrence means a
+ * non-retirement writer produced the same file — and the filter below, which
+ * matches on the exact rel, would then drop a LIVE landing from the plan.
+ *
+ * A non-retired rel that merely SHARES a landing path with a retired one is
+ * deliberately not flagged: that is the half-tagged pair of issue #7751, whose
+ * documented behaviour is to re-plan the landing, not to fail the build.
+ */
+function assertNoRestoredRetirementCollision(
+  files: ReadonlyArray<string>,
+  retiredFiles: ReadonlyArray<string>,
+): void {
+  if (retiredFiles.length === 0) return;
+  const retired = new Set(retiredFiles);
+  const seen = new Set<string>();
+  const collisions = new Set<string>();
+  for (const rel of files) {
+    if (!retired.has(rel)) continue;
+    if (seen.has(rel)) collisions.add(landingPathFromDistRelative(rel));
+    seen.add(rel);
+  }
+  if (collisions.size > 0) {
+    const list = Array.from(collisions).sort();
+    throw new Error(
+      `[related-search-clusters] restored manifest has ${list.length} landing path(s) that are BOTH a junk-doorway ` +
+      `withdrawal and a live cluster page (issue #7752) — rebuild with a cache MISS to re-derive it:\n  ${list.join('\n  ')}`,
+    );
+  }
 }
 
 const JUNK_RETIREMENT_COPY: Record<Locale, { title: string; body: string; cta: string }> = {
@@ -1742,6 +1999,48 @@ export function buildJunkRetirementHtml(locale: Locale): string {
     lang: locale,
     noindex: true,
   });
+}
+
+/**
+ * The dist-relative files ONE retired doorway path must produce.
+ *
+ * The withdrawal used to write only `<path>/index.html`. The doorway had been
+ * published as a PAIR — the per-cluster loop below emits `<path>/index.html`
+ * AND the flat `<path>.html` bridge that GitHub Pages serves for the no-slash
+ * URL — so overwriting half of it left the other half serving the ORIGINAL
+ * doorway bytes on every no-slash URL Google had indexed (issue #7751).
+ *
+ * `transformFlatRedirect` cannot repair that: the post-walk rewrites the flat
+ * files PRESENT in `dist/`, it never creates one, so a build whose cluster
+ * loop no longer emits the doorway leaves it nothing to rewrite.
+ *
+ * The bridge is built from the retirement HTML with the same helper the
+ * post-walk uses, so it is byte-identical to what `transformFlatRedirect`
+ * would produce from the same sibling and the coordinator's
+ * `html === original` guard skips the rewrite — same contract as the
+ * per-cluster and hub emit sites.
+ *
+ * Unlike the legacy per-canton mirrors, which emit `index.html` only on
+ * purpose (a flat bridge per mirror would add hundreds of thousands of files
+ * across ~52k clusters), retirements are bounded by the junk denylist and a
+ * withdrawn doorway may have been indexed in either URL form — so every
+ * retired path gets both halves.
+ *
+ * Returns `[]` for an empty path: `<stem>.html` with an empty stem is a
+ * `.html` dotfile, which GitHub Pages serves for the DIRECTORY URL as
+ * application/octet-stream, masking the real `index.html` (the same hazard
+ * `transformFlatRedirect` guards with its leading-dot check).
+ */
+export function junkRetirementWrites(
+  retiredPath: string,
+  retirementHtml: string,
+): { rel: string; html: string }[] {
+  const stem = retiredPath.replace(/^\/+/, '').replace(/\/+$/, '');
+  if (stem === '') return [];
+  return [
+    { rel: `${stem}/index.html`, html: retirementHtml },
+    { rel: `${stem}.html`, html: buildFlatBridgeFromSibling(retirementHtml, `${BASE_URL}/${stem}/`) },
+  ];
 }
 
 /**
@@ -3362,6 +3661,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
             'related-search-clusters',
             restoredKeywordLandingPaths(restored.files ?? [], restored.retiredFiles ?? []),
           );
+          // The same rels, declared EMITTED-but-unplanned so a live sibling of a
+          // retired locale keeps its own block (issue #7756).
+          registerRetiredKeywordLandingPaths(
+            restoredRetiredLandingPaths(restored.retiredFiles ?? []),
+          );
           await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
@@ -3400,8 +3704,15 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // already-published copy live, orphaned and indexable, because the
       // served corpus is reassembled across deploys. Enumerated here so the
       // withdrawal document below can overwrite those exact paths.
-      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey);
-      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys`);
+      // Only for doorways with evidence of publication (issue #7753): a
+      // candidate the audit added but no build ever emitted has nothing live to
+      // withdraw, and synthesizing one would CREATE the thin page instead of
+      // retiring it.
+      const __tPublished = profileStart();
+      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
+      profileRecord('load-published-cluster-keys', __tPublished);
+      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey, publishedClusterKeys);
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
       // across every candidate. Memory budget is dominated by the haystack
@@ -3584,7 +3895,19 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         const extras = indexedClusterUrlsByKey.get(`${loc}::${ctx.candidate.slug}`);
         if (extras) for (const p of extras) plannedPaths.push(p);
       }
+      // The plan is now complete for every locale, and `junkRetirements` was
+      // enumerated above: assert the two sets are disjoint BEFORE anything is
+      // registered or written, so a collision fails the build with the paths
+      // named instead of resolving itself as "whoever writes last wins"
+      // (issue #7752).
+      assertRetirementsDisjointFromPlan(junkRetirements, plannedPaths);
       registerKeywordLandingPaths('related-search-clusters', plannedPaths);
+      // Withdrawals are EMITTED, just never advertised: declaring them keeps
+      // the hreflang gate from reading "unplanned" as "written nowhere" and
+      // stripping the whole block off every live sibling (issue #7756). All
+      // locales, not just this shard's — the IT shard has to know the FR
+      // withdrawal exists to keep the alternate pointing at it.
+      registerRetiredKeywordLandingPaths(junkRetirements.flatMap((r) => r.paths));
       profileRecord('register-landing-plan', __tPlan);
       console.log(
         `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPaths.length} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
@@ -3677,13 +4000,22 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         }
         retiredSlugCount++;
         for (const retiredPath of retirement.paths) {
-          const outFile = path.join(distDir, retiredPath, 'index.html');
-          collector.add(outFile, html);
-          const rel = path.relative(distDir, outFile);
-          emittedFiles.push(rel);
-          // Tagged so the cache-hit path can restore the file WITHOUT
-          // registering it as a planned keyword landing (issue #7316).
-          retiredFiles.push(rel);
+          // Both halves of the published pair: `<path>/index.html` and the
+          // flat `<path>.html` sibling the no-slash URL is served from
+          // (issue #7751) — see `junkRetirementWrites`.
+          for (const write of junkRetirementWrites(retiredPath, html)) {
+            const outFile = path.join(distDir, write.rel);
+            collector.add(outFile, write.html);
+            const rel = path.relative(distDir, outFile);
+            emittedFiles.push(rel);
+            // Tagged so the cache-hit path can restore the file WITHOUT
+            // registering it as a planned keyword landing (issue #7316).
+            // The flat sibling MUST be tagged too: `landingPathFromDistRelative`
+            // maps `<path>.html` and `<path>/index.html` to the SAME landing
+            // path, so an untagged flat would re-plan the withdrawal as a live
+            // keyword landing on every cache HIT.
+            retiredFiles.push(rel);
+          }
           // Same backpressure cadence as the per-cluster loop: bound the
           // in-flight write closures instead of queueing tens of thousands.
           if (++retiredPathCount % 2000 === 0) await collector.awaitDrainSlot(2);

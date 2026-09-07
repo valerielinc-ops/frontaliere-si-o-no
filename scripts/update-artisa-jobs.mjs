@@ -38,6 +38,7 @@ import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -272,7 +273,7 @@ function updateAdapterConfig(jobs) {
 }
 
 function repairLocalizedDescriptions() {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const jobs = readCurrentRunJobs(DATA_JOBS);
   let repaired = 0;
   const nextJobs = jobs.map((job) => {
     if (!isTargetJob(job)) return job;
@@ -401,4 +402,19 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
+// Only run main() when invoked as a script, not when imported by tests. Same
+// guard as update-fust-jobs.mjs: without it this runner had no unit-test
+// surface at all, which is why the slice resurrection above shipped unseen.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
+}
+
+export { isTargetJob, repairLocalizedDescriptions };

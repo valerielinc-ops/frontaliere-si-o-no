@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
-import { freeTranslateWithRetry, getCascadeStats } from './free-translate.mjs';
+import { freeTranslateWithRetry, freeTranslateWithRetryDetailed, getCascadeStats } from './free-translate.mjs';
 import {
   translateTextWithLocalPipeline,
   localizeJobContentWithPipeline,
@@ -29,6 +29,7 @@ import { isAcceptableTranslation, hasConcatenatedWords, isStructureFlattenedCopy
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
+import { isSystemicRejection } from './source-record-quarantine.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -2178,10 +2179,35 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       return '';
     }
     // DeepL first
-    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
+    const { text: deepl, passthrough: deeplPassthrough } = await freeTranslateWithRetryDetailed({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (deepl && deepl.length >= floor) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
+    }
+    // Passthrough rifiutato: due casi opposti sotto lo stesso ''. Da #7750 la
+    // cascata rende '' sia coi motori giu' sia quando i motori RISPONDONO
+    // rendendo la sorgente verbatim. Ma «i motori hanno reso la sorgente» non
+    // dimostra «il testo e' gia' nella lingua target»: la misura che motiva
+    // #7750 e' il verso opposto, cioe' body che avevano bisogno di traduzione e
+    // che i tier gratuiti hanno echeggiato. Su quegli echi genuini l'LLM
+    // traduce davvero e la sua uscita viene pubblicata, quindi il rung resta.
+    // Si salta il modello SOLO quando il testo e' verificabilmente gia' nel
+    // locale richiesto: li' la chiamata riprodurrebbe cio' che abbiamo gia' e
+    // il controllo `translated !== cleanDesc` la scarterebbe comunque.
+    // Il gate vuole un PAVIMENTO DI CONFIDENZA, non l'argmax nudo: il fallback
+    // a `sourceLang` di `detectLanguageWithConfidence` scatta solo sotto i 50
+    // caratteri, mentre qui `cleanDesc` ha gia' passato il floor (>= 120), quindi
+    // su un body misto (annuncio bilingue de/en) l'argmax puo' coincidere col
+    // locale con una confidenza vicina a zero. Li' saltare l'LLM E memoizzare la
+    // sentinella renderebbe PERMANENTE la sorgente pubblicata sotto /de/ (il ramo
+    // cache-hit ritenta solo la cascata, che ri-passthrough-a). Soglia 0.65, la
+    // stessa di ogni altra decisione locale-mismatch del repo (guard di cache qui
+    // sotto, mark-mistranslated-jobs, flag-wrong-locale-descriptions): sotto
+    // soglia si cade nell'LLM, cioe' il verso sicuro.
+    const descLangDet = detectLanguageWithConfidence(cleanDesc, sourceLang);
+    if (deeplPassthrough && descLangDet.confidence >= 0.65 && descLangDet.lang === locale) {
+      setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
+      return '';
     }
     // LLM fallback
     const prompt = [
@@ -4416,7 +4442,8 @@ export function validateDedicatedLocaleCoverage({
     // still commit. Two escape hatches keep the loud failure where it is the
     // safer outcome:
     //   1. SYSTEMIC (>= JOBS_SYSTEMIC_INVALID_RATIO of the batch invalid, and
-    //      at least 2 invalid): that pattern is a parser break, not a
+    //      at least JOBS_SYSTEMIC_MIN_OBSERVED * that ratio invalid — see
+    //      `isSystemicRejection`): that pattern is a parser break, not a
     //      per-item glitch — hard-fail so the previous dataset stays intact
     //      and the workflow's issue-creation path fires.
     //   2. EVERY job invalid (incl. a 1-job source): quarantining would wipe
@@ -4425,9 +4452,10 @@ export function validateDedicatedLocaleCoverage({
     if (nonTranslationBlocking.length > 0) {
       const invalidSlugs = new Set(nonTranslationBlocking.map((i) => i.slug));
       const invalidJobs = jobs.filter((j) => invalidSlugs.has(j?.slug));
-      const SYSTEMIC_INVALID_RATIO = Number(process.env.JOBS_SYSTEMIC_INVALID_RATIO) || 0.5;
-      const invalidRatio = invalidJobs.length / jobs.length;
-      const systemic = invalidRatio >= SYSTEMIC_INVALID_RATIO && invalidJobs.length >= 2;
+      // Same sample floor as the per-record valve (#7702): on a 3-job source
+      // two invalid records read as 67% and hard-fail the batch, discarding
+      // the one valid job with them, where the ratio has no sample to speak of.
+      const systemic = isSystemicRejection(invalidJobs.length, jobs.length);
       if (!systemic && invalidJobs.length > 0 && invalidJobs.length < jobs.length) {
         const sample = nonTranslationBlocking
           .slice(0, sampleLimit)
@@ -5944,6 +5972,39 @@ export const LOCALES = ['it', 'en', 'de', 'fr'];
 export const DEFAULT_PREV_SLUG_CAP = 20;
 export const LEGACY_PREV_SLUGS_CAP = DEFAULT_PREV_SLUG_CAP * LOCALES.length;
 
+/**
+ * Refusal raised by `promotePreviousSlugToLegacy` when preserving one more
+ * unattributed legacy route would exceed `LEGACY_PREV_SLUGS_CAP`.
+ *
+ * It is an EXPECTED outcome, not a defect: a caller that can proceed without
+ * the promotion (see `collapseDuplicateRouteEntries`) may absorb it. That
+ * caller must recognise it by TYPE — or by `error.code` across a boundary
+ * where `instanceof` cannot hold — never by matching the message. The message
+ * is a log string: rewording it, or adding a second cap that throws its own
+ * text, would silently turn every legitimate refusal into an abort, while a
+ * genuine defect whose message happened to match would be swallowed.
+ */
+export const LEGACY_ROUTE_CAP_ERROR_CODE = 'LEGACY_PREV_SLUGS_CAP';
+
+export class LegacyRouteCapError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'LegacyRouteCapError';
+    this.code = LEGACY_ROUTE_CAP_ERROR_CODE;
+  }
+}
+
+/**
+ * Single place where "is this the cap refusal?" is decided, so no consumer has
+ * to re-derive it — and none can re-derive it from the message. `instanceof`
+ * covers the normal case; `code` covers a realm boundary (worker, second copy
+ * of this module) where the class identity would not hold.
+ */
+export function isLegacyRouteCapRefusal(error) {
+  return error instanceof LegacyRouteCapError
+    || error?.code === LEGACY_ROUTE_CAP_ERROR_CODE;
+}
+
 export function normalizeCompanyKey(input) { return normalizeKey(input).slice(0, 64); }
 
 export function dateOnly(input) {
@@ -7034,7 +7095,7 @@ export function promotePreviousSlugToLegacy(
   const added = !flat.has(norm);
   flat.add(norm);
   if (flat.size > cap) {
-    throw new Error(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
+    throw new LegacyRouteCapError(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
   }
   job.previousSlugs = [...flat];
   if (added) {

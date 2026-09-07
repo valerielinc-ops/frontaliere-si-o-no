@@ -32,6 +32,7 @@ import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
+import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -120,8 +121,7 @@ async function getTopJobPages(accessToken, siteUrl) {
   };
 
   const endDate = new Date();
-  const startDate = new Date();
-  startDate.setDate(startDate.getDate() - 28);
+  const startDate = utcDaysBefore(endDate, 28);
   const fmt = d => d.toISOString().split('T')[0];
 
   try {

@@ -1,19 +1,20 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-09-05T22:53:34.882Z",
+  "generatedAt": "2026-09-06T22:56:01.878Z",
   "total": 2,
   "discovered": null,
+  "parsed": 2,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5921,
-  "avgDurationMs": 5921,
+  "durationMs": 6811,
+  "avgDurationMs": 6811,
   "durationHistory": [
-    5921
+    6811
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:53:25.332Z",
+      "crawledAt": "2026-09-06T22:55:53.175Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -71,7 +72,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:53:24.870Z",
+      "crawledAt": "2026-09-06T22:55:52.729Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",

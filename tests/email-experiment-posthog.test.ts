@@ -1,6 +1,15 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { stubNoPostHogEmailExperiment } from './helpers/ambientEmailEnv';
 
 const MODULE = '@/functions/src/lib/emailExperimentPostHog.js';
+
+// The env wins over Remote Config inside the module, so "unset" has to be
+// stated, not inherited: a run with POSTHOG_* exported resolves the experiment
+// ENABLED and every no-op assertion below fails on the environment instead of
+// on the module. beforeEach pins the baseline; the tests that need the flag on
+// stub it back afterwards.
+beforeEach(() => { stubNoPostHogEmailExperiment(); });
 
 afterEach(() => {
   vi.unstubAllEnvs();

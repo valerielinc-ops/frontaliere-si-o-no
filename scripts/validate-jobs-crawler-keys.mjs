@@ -9,6 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { registrableDomain as registrableDomainOf } from './lib/prospector/registrable.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -41,12 +42,14 @@ function normalizeHost(raw = '') {
   }
 }
 
+// Registrable domain via the shared table (`scripts/lib/prospector/registrable.mjs`):
+// the local "last two labels" fold read `acme.co.uk` as the suffix `co.uk`, so
+// every unrelated employer on a compound TLD collapsed onto one alias and the
+// map called it ambiguous. Same public-suffix knowledge as `domainIdentity()`
+// in the brand↔host pairing guard (#7770), single-sourced.
 function registrableDomain(host = '') {
   const h = normalizeHost(host);
-  if (!h) return '';
-  const parts = h.split('.').filter(Boolean);
-  if (parts.length <= 2) return h;
-  return `${parts.at(-2)}.${parts.at(-1)}`;
+  return h ? registrableDomainOf(h) : '';
 }
 
 function normalizeCompanyKey(input = '') {

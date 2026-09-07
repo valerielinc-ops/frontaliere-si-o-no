@@ -1349,3 +1349,60 @@ export async function freeTranslateWithRetry({ text, sourceLang, targetLang, fie
 
   return '';
 }
+
+/**
+ * Normalizza l'esito di un traduttore in `{ text, passthrough }`.
+ *
+ * I chiamanti che memoizzano su disco hanno bisogno del MOTIVO della stringa
+ * vuota, ma il seam iniettabile dei test rende una stringa. Questo adattatore
+ * accetta entrambe le forme: una stringa vale `{ text, passthrough: false }`,
+ * cioe' esattamente il comportamento pre-esistente (nessun memo negativo
+ * scritto su un motore che potrebbe tornare su).
+ *
+ * @param {string|{text?: string, passthrough?: boolean}} value
+ * @returns {{text: string, passthrough: boolean}}
+ */
+export function asTranslationResult(value) {
+  if (typeof value === 'string') return { text: value, passthrough: false };
+  if (!value || typeof value !== 'object') return { text: '', passthrough: false };
+  return { text: typeof value.text === 'string' ? value.text : '', passthrough: value.passthrough === true };
+}
+
+/** Somma corrente di un bucket per-tier di `_cascadeStats` (popolato pigramente). */
+function _tierTotal(bucket) {
+  let n = 0;
+  for (const v of Object.values(bucket)) n += v;
+  return n;
+}
+
+/**
+ * `freeTranslateWithRetry` piu' il MOTIVO della stringa vuota.
+ *
+ * Da quando la cascata rifiuta il passthrough (#7750), `''` significa due cose
+ * opposte: «i motori erano giu'» (transitorio, va riprovato al prossimo run) e
+ * «i motori hanno risposto rendendo la sorgente», cioe' il testo e' gia'
+ * identico nella lingua target («Locarno Film Festival», i toponimi). Il
+ * secondo caso e' DETERMINISTICO: ripagare l'intera cascata a ogni run su
+ * quelle stringhe brucia il budget dei tier gratuiti senza produrre un byte.
+ * Chi memoizza su disco ha bisogno di distinguerli, e la cascata e' l'unico
+ * posto che lo sa.
+ *
+ * `passthrough: true` richiede DUE condizioni, non una: almeno un tier ha reso
+ * la sorgente (`tierPassthroughs` e' cresciuto) **e** nessun tier ha fallito
+ * durante la chiamata (`tierErrors` fermo). La seconda e' quella che rende il
+ * segnale onesto: se un motore era giu' mentre un altro rendeva l'eco, il testo
+ * potrebbe essere traducibile dal motore caduto e un memo negativo lo
+ * congelerebbe per sempre. In quel caso si dichiara `false` e si ripaga — un
+ * run in piu' costa molto meno di un locale bloccato a vita.
+ *
+ * @returns {Promise<{text: string, passthrough: boolean}>}
+ */
+export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2 }) {
+  const passBefore = _tierTotal(_cascadeStats.tierPassthroughs);
+  const errBefore = _tierTotal(_cascadeStats.tierErrors);
+  const out = await freeTranslateWithRetry({ text, sourceLang, targetLang, fieldType, maxRetries });
+  if (out) return { text: out, passthrough: false };
+  const passthrough =
+    _tierTotal(_cascadeStats.tierPassthroughs) > passBefore && _tierTotal(_cascadeStats.tierErrors) === errBefore;
+  return { text: '', passthrough };
+}

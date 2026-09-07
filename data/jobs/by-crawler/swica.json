@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-09-05T22:55:44.882Z",
+  "assembledAt": "2026-09-06T22:58:43.597Z",
   "jobs": [
     {
       "id": "swica-c77bbc77017c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:39.294Z",
+      "crawledAt": "2026-09-06T22:58:37.486Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -54,12 +54,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-agentur-alle-swica-schaffhausen",
-        "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen"
+        "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen",
+        "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-agentur-alle-swica-schaffhausen",
-          "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen"
+          "leiter-agentur-alle-swica-gesundheitsorganisation-schaffhausen",
+          "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-schaffhausen"
         ],
         "en": [
           "leiter-agentur-alle-swica-schaffhausen"
@@ -115,7 +117,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:38.818Z",
+      "crawledAt": "2026-09-06T22:58:36.996Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -138,7 +140,8 @@
         "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
         "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
         "teamleiter-fallmanagement-alle-swica-winterthur",
-        "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
+        "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur",
+        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -146,7 +149,8 @@
           "team-leader-case-management-tutti-swica-gesundheitsorganisation-winterthur",
           "team-leader-case-management-all-swica-gesundheitsorganisation-winterthur",
           "teamleiter-fallmanagement-alle-swica-winterthur",
-          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur"
+          "chef-d-equipe-gestion-des-cas-tous-swica-gesundheitsorganisation-winterthur",
+          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-winterthur",
@@ -207,7 +211,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:38.297Z",
+      "crawledAt": "2026-09-06T22:58:36.479Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -226,11 +230,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
+        "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen",
+        "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
+          "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen",
+          "indennita-di-malattia-di-gestione-tutti-swica-gesundheitsorganisation-st-gallen"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-alle-swica-st-gallen"
@@ -286,7 +292,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-in-leistungsmanagement-krankentaggeld-alle/61ce51ab-69fd-4be4-9384-29a6f5542be6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:37.810Z",
+      "crawledAt": "2026-09-06T22:58:35.999Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -305,11 +311,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
+        "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel",
+        "team-leader-nella-gestione-delle-prestazioni-malattia-indennita-giornaliera-tutti-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
+          "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel",
+          "team-leader-nella-gestione-delle-prestazioni-malattia-indennita-giornaliera-tutti-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "teamleiter-in-leistungsmanagement-krankentaggeld-alle-swica-basel"
@@ -365,7 +373,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle/54f8d0fa-5f51-43e2-ac48-835cdd912422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:37.231Z",
+      "crawledAt": "2026-09-06T22:58:35.373Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -384,11 +392,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
+        "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern",
+        "indennita-giornaliera-medica-ktg-tutti-swica-gesundheitsorganisation-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
+          "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern",
+          "indennita-giornaliera-medica-ktg-tutti-swica-gesundheitsorganisation-bern"
         ],
         "en": [
           "sachbearbeiter-fallmanagement-krankentaggeld-ktg-alle-swica-bern"
@@ -444,7 +454,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle/f5fc704c-ae39-4afa-8e6c-2dae4ec93423",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:36.803Z",
+      "crawledAt": "2026-09-06T22:58:35.003Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -475,7 +485,8 @@
         "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur",
         "customer-support-sante24-with-very-good-knowledge-of-german-french-and-italian-all-sante24-winterthur",
         "sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzosisch-und",
-        "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24"
+        "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24",
+        "gesundheitsberater-con-sehr-guten-deutsch-e-italienischkenntnissen-alle-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -491,7 +502,8 @@
           "sachbearbeiter-kundensupport-sante24-con-sehr-guten-deutsch-franzosisch-e-italienischkenntnissen-alle-sante24-winterthur",
           "customer-support-sante24-with-very-good-knowledge-of-german-french-and-italian-all-sante24-winterthur",
           "sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzosisch-und",
-          "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24"
+          "assistance-client-sante24-avec-une-tres-bonne-connaissance-de-l-allemand-du-francais-et-de-l-italien-tous-sante24",
+          "gesundheitsberater-con-sehr-guten-deutsch-e-italienischkenntnissen-alle-sante24-winterthur"
         ],
         "en": [
           "gesundheitsberater-mit-sehr-guten-deutsch-und-italienischkenntnissen-alle-swica-winterthur",
@@ -558,7 +570,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle/a181c04c-48de-43d7-b831-d504c04bc2d8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:36.300Z",
+      "crawledAt": "2026-09-06T22:58:34.486Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -577,11 +589,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
+        "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur",
+        "psicoterapeuta-nella-formazione-avanzata-tutti-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
+          "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur",
+          "psicoterapeuta-nella-formazione-avanzata-tutti-sante24-winterthur"
         ],
         "en": [
           "psychotherapeutin-psychotherapeut-in-fortgeschrittener-weiterbildung-alle-swica-winterthur"
@@ -636,7 +650,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/126b47f4-f1c5-43e8-8656-249b202fab69",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:35.717Z",
+      "crawledAt": "2026-09-06T22:58:33.870Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -655,11 +669,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-luzern"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-luzern"
@@ -714,7 +730,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/efd07509-7cff-45b0-bae4-0828f8d56e18",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:35.233Z",
+      "crawledAt": "2026-09-06T22:58:33.509Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -733,11 +749,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-st-gallen"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-st"
@@ -792,7 +810,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/a907bcd5-9060-474f-8660-4ca18d3d63a9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:34.718Z",
+      "crawledAt": "2026-09-06T22:58:33.163Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -811,11 +829,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-zurich"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-zurich"
@@ -870,7 +890,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/25201503-b1ea-4c26-ab8e-1d096e3b305e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:34.232Z",
+      "crawledAt": "2026-09-06T22:58:32.797Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -889,11 +909,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
+        "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
+          "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-basel"
@@ -948,7 +970,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/01c12200-43f3-4044-9a15-2ff1e584af40",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:33.740Z",
+      "crawledAt": "2026-09-06T22:58:32.449Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hirschengraben 8",
@@ -971,7 +993,8 @@
         "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
         "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu",
         "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-2",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -979,7 +1002,8 @@
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
           "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-ls90xu",
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-2",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-bern"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica-bern",
@@ -1038,7 +1062,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/d9b59a00-40b6-4691-b04d-be9202aff934",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:33.243Z",
+      "crawledAt": "2026-09-06T22:58:32.099Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Widnauerstrasse 1",
@@ -1058,12 +1082,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+        "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+        "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica",
-          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur"
+          "apprendistato-come-kauffrau-kaufmann-cfc-kranken-e-sozialversicherungen-2027-swica-gesundheitsorganisation-winterthur",
+          "apprendistato-come-commerciante-mercante-efz-salute-e-assicurazione-sociale-2027-swica-gesundheitsorganisation"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-efz-34-kranken-und-sozialversicherungen-34-2027-swica"
@@ -1118,7 +1144,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-ict-fachfrau-fachmann-efz-2027/d24b501f-dfd4-4755-89c7-5e8b1b9b275d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:32.737Z",
+      "crawledAt": "2026-09-06T22:58:31.701Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1137,11 +1163,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
+        "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur",
+        "apprendistato-come-ict-fachfrau-fachmann-cfc-2027-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
+          "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur",
+          "apprendistato-come-ict-fachfrau-fachmann-cfc-2027-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "lehre-als-ict-fachfrau-fachmann-efz-2027-swica-winterthur"
@@ -1196,7 +1224,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/care-manager-privatkunden/98824056-e64d-4f18-825b-aa901ef30d5f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:32.296Z",
+      "crawledAt": "2026-09-06T22:58:31.341Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -1219,14 +1247,16 @@
         "care-manager-privatkunden-swica-gesundheitsorganisation-luzern",
         "care-manager-enterprise-client-swica-gesundheitsorganisation-luzern",
         "care-manager-in-unternehmenskunden-swica-luzern",
-        "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern"
+        "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern",
+        "care-manager-clienti-privati-swica-gesundheitsorganisation-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "care-manager-privatkunden-swica-luzern",
           "care-manager-enterprise-client-swica-gesundheitsorganisation-luzern",
           "care-manager-in-unternehmenskunden-swica-luzern",
-          "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern"
+          "gestionnaire-de-soins-client-d-entreprise-swica-gesundheitsorganisation-luzern",
+          "care-manager-clienti-privati-swica-gesundheitsorganisation-luzern"
         ],
         "en": [
           "care-manager-privatkunden-swica-luzern",
@@ -1287,7 +1317,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:31.580Z",
+      "crawledAt": "2026-09-06T22:58:30.858Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "Aarbergstrasse 121",
@@ -1306,11 +1336,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "versicherungsberater-quereinstieg-alle-swica-biel"
+        "versicherungsberater-quereinstieg-alle-swica-biel",
+        "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungsberater-quereinstieg-alle-swica-biel"
+          "versicherungsberater-quereinstieg-alle-swica-biel",
+          "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel"
         ],
         "en": [
           "versicherungsberater-quereinstieg-alle-swica-biel"
@@ -1365,7 +1397,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-tous/8e099772-e43d-41f8-a8ee-ec993d7f0976",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T22:55:31.268Z",
+      "crawledAt": "2026-09-06T22:58:30.503Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -1384,11 +1416,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-service-clientele-tous-swica-lausanne"
+        "conseiller-service-clientele-tous-swica-lausanne",
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-service-clientele-tous-swica-lausanne"
+          "conseiller-service-clientele-tous-swica-lausanne",
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne"
         ],
         "en": [
           "conseiller-service-clientele-tous-swica-lausanne"
@@ -1444,7 +1478,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/teamleiter-fallmanagement-alle/a6c7db74-4031-46d6-ae15-c6c6d5dfa44b",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:30.845Z",
+      "crawledAt": "2026-09-06T22:58:29.985Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -1463,11 +1497,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-fallmanagement-alle-swica-zurich"
+        "teamleiter-fallmanagement-alle-swica-zurich",
+        "team-leader-case-management-tutti-swica-gesundheitsorganisation-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-fallmanagement-alle-swica-zurich"
+          "teamleiter-fallmanagement-alle-swica-zurich",
+          "team-leader-case-management-tutti-swica-gesundheitsorganisation-zurich"
         ],
         "en": [
           "teamleiter-fallmanagement-alle-swica-zurich"
@@ -1523,7 +1559,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/4a20b326-701a-4e76-9267-b642ca623147",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:30.436Z",
+      "crawledAt": "2026-09-06T22:58:29.516Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 38",
@@ -1546,7 +1582,8 @@
         "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
         "kundenberater-in-de-fr-alle-swica-winterthur",
         "consultant-client-de-fr-tous-swica-gesundheitsorganisation-winterthur",
-        "kundenberater-alle-swica-winterthur"
+        "kundenberater-alle-swica-winterthur",
+        "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1554,7 +1591,8 @@
           "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
           "kundenberater-in-de-fr-alle-swica-winterthur",
           "consultant-client-de-fr-tous-swica-gesundheitsorganisation-winterthur",
-          "kundenberater-alle-swica-winterthur"
+          "kundenberater-alle-swica-winterthur",
+          "consulente-clienti-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "customer-consultant-de-fr-all-swica-gesundheitsorganisation-winterthur",
@@ -1615,7 +1653,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-workplace-engineer-alle/ed094537-c2e7-44d6-ad07-a117739f6e23",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:30.107Z",
+      "crawledAt": "2026-09-06T22:58:29.155Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1637,14 +1675,16 @@
         "senior-workplace-engineer-alle-swica-winterthur",
         "senior-application-ingegnere-syrius-alle-swica-gesundheitsorganisation-winterthur",
         "senior-application-engineer-syrius-alle-swica-winterthur",
-        "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur"
+        "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur",
+        "senior-workplace-ingegnere-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-workplace-engineer-alle-swica-winterthur",
           "senior-application-ingegnere-syrius-alle-swica-gesundheitsorganisation-winterthur",
           "senior-application-engineer-syrius-alle-swica-winterthur",
-          "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur"
+          "senior-application-ingenieur-syrius-alle-swica-gesundheitsorganisation-winterthur",
+          "senior-workplace-ingegnere-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "de": [
           "senior-application-engineer-syrius-alle-swica-winterthur"
@@ -1701,7 +1741,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle/96a5872e-0819-4463-95cf-9cdb48427046",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:29.720Z",
+      "crawledAt": "2026-09-06T22:58:28.689Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1720,11 +1760,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+        "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+        "senior-cyber-security-ingegnere-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
+          "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle",
+          "senior-cyber-security-ingegnere-schwerpunkt-incident-response-and-threat-intelligence-alle-swica-gesundheitsorganisation"
         ],
         "fr": [
           "senior-cyber-security-engineer-schwerpunkt-incident-response-and-threat-intelligence-alle"
@@ -1777,7 +1819,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/gestionnaire-sante-stationnaire-tous/031d6446-0d71-454b-8fe7-e9a609fb4be8",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T22:55:29.338Z",
+      "crawledAt": "2026-09-06T22:58:28.219Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "Boulevard de Grancy 39",
@@ -1797,12 +1839,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-sante-stationnaire-tous-swica-lausanne",
-        "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne"
+        "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne",
+        "manager-di-health-stationary-tutti-swica-gesundheitsorganisation-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-sante-stationnaire-tous-swica-lausanne",
-          "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne"
+          "gestionnaire-sante-stationnaire-tous-swica-gesundheitsorganisation-lausanne",
+          "manager-di-health-stationary-tutti-swica-gesundheitsorganisation-lausanne"
         ],
         "en": [
           "gestionnaire-sante-stationnaire-tous-swica-lausanne"
@@ -1858,7 +1902,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-spezialist-compensation-benefits-alle/24fe2d2a-2e7d-437c-b63e-eec3a88be807",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:28.931Z",
+      "crawledAt": "2026-09-06T22:58:27.695Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1877,11 +1921,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+        "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
+        "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
+          "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur",
+          "compensazione-e-benefici-degli-specialisti-senior-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "senior-spezialist-compensation-amp-benefits-alle-swica-winterthur"
@@ -1937,7 +1983,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-ausland-alle/0f0ca9a5-8730-47fb-97c8-4ef72ddd5cb1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:28.510Z",
+      "crawledAt": "2026-09-06T22:58:27.236Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -1960,7 +2006,8 @@
         "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
         "senior-sachbearbeiter-leistungen-ausland-alle-swica-basel",
         "services-de-commis-principal-a-l-etranger-tous-swica-gesundheitsorganisation-basel",
-        "sachbearbeiter-leistungen-ausland-alle-swica-basel"
+        "sachbearbeiter-leistungen-ausland-alle-swica-basel",
+        "servizi-del-personale-all-estero-tutti-swica-gesundheitsorganisation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1968,7 +2015,8 @@
           "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
           "senior-sachbearbeiter-leistungen-ausland-alle-swica-basel",
           "services-de-commis-principal-a-l-etranger-tous-swica-gesundheitsorganisation-basel",
-          "sachbearbeiter-leistungen-ausland-alle-swica-basel"
+          "sachbearbeiter-leistungen-ausland-alle-swica-basel",
+          "servizi-del-personale-all-estero-tutti-swica-gesundheitsorganisation-basel"
         ],
         "en": [
           "senior-clerk-services-abroad-all-swica-gesundheitsorganisation-basel",
@@ -2012,7 +2060,7 @@
       "title": "Senior Specialist Leadership Development (alle)",
       "titleByLocale": {
         "it": "Senior Specialista Leadership Development (alle)",
-        "en": "Senior Specialist Leadership Development (all)",
+        "en": "Senior Specialist Leadership Development (alle)",
         "de": "Senior Spezialist Leadership Development (alle)",
         "fr": "Senior Spécialiste Leadership Development (alle)"
       },
@@ -2028,7 +2076,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-specialist-leadership-development-alle/0d308122-71ad-45ee-b65b-1e432f23a302",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:28.192Z",
+      "crawledAt": "2026-09-06T22:58:26.868Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2047,11 +2095,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-specialist-leadership-development-alle-swica-winterthur"
+        "senior-specialist-leadership-development-alle-swica-winterthur",
+        "senior-specialista-leadership-development-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-leadership-development-alle-swica-winterthur"
+          "senior-specialist-leadership-development-alle-swica-winterthur",
+          "senior-specialista-leadership-development-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "fr": [
           "senior-specialist-leadership-development-alle-swica-winterthur"
@@ -2104,7 +2154,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-kundensupport-sante24-mit-sehr-guten-deutsch-franzoesisch-und-italienischkenntnissen-alle/3259240d-a237-4992-b4a9-3962f305e9b9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:27.801Z",
+      "crawledAt": "2026-09-06T22:58:26.386Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2183,7 +2233,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-tous/25c1343f-7369-4f28-be27-083e48f37c83",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-05T22:55:27.410Z",
+      "crawledAt": "2026-09-06T22:58:25.925Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de Lausanne 80",
@@ -2202,11 +2252,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-service-clientele-tous-swica-geneve"
+        "conseiller-service-clientele-tous-swica-geneve",
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-service-clientele-tous-swica-geneve"
+          "conseiller-service-clientele-tous-swica-geneve",
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
         ],
         "en": [
           "conseiller-service-clientele-tous-swica-geneve"
@@ -2262,7 +2314,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/spezialist-vertrauensaerztlicher-dienst-alle/6bfa6aca-0ab1-4c95-b059-34dd124800b9",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:27.066Z",
+      "crawledAt": "2026-09-06T22:58:25.498Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2284,14 +2336,16 @@
         "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
         "responsible-department-of-trusted-medical-service-swica-gesundheitsorganisation-winterthur",
         "verantwortlicher-fachbereich-vertrauensarztlicher-dienst-swica-winterthur",
-        "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur"
+        "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur",
+        "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
           "responsible-department-of-trusted-medical-service-swica-gesundheitsorganisation-winterthur",
           "verantwortlicher-fachbereich-vertrauensarztlicher-dienst-swica-winterthur",
-          "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur"
+          "departement-responsable-des-services-medicaux-fiables-swica-gesundheitsorganisation-winterthur",
+          "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
@@ -2352,7 +2406,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/ea1d7774-446c-4dbc-8b8a-45d805024f45",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:26.746Z",
+      "crawledAt": "2026-09-06T22:58:25.135Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "streetAddress": "Bahnhofstrasse 86",
@@ -2372,12 +2426,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-agentur-alle-swica-frauenfeld",
-        "leiter-agentur-alle-swica-gesundheitsorganisation-frauenfeld"
+        "leiter-agentur-alle-swica-gesundheitsorganisation-frauenfeld",
+        "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-agentur-alle-swica-frauenfeld",
-          "leiter-agentur-alle-swica-gesundheitsorganisation-frauenfeld"
+          "leiter-agentur-alle-swica-gesundheitsorganisation-frauenfeld",
+          "capo-dell-agenzia-tutti-swica-gesundheitsorganisation-frauenfeld"
         ],
         "en": [
           "leiter-agentur-alle-swica-frauenfeld"
@@ -2433,7 +2489,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/praktikum-leistungen-ambulante-pflege-alle/158efa06-a700-46d2-9af5-d0cfd470e4c6",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:26.415Z",
+      "crawledAt": "2026-09-06T22:58:24.775Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -2452,11 +2508,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-leistungen-ambulante-pflege-alle-swica-winterthur"
+        "praktikum-leistungen-ambulante-pflege-alle-swica-winterthur",
+        "servizi-di-stage-assistenza-ambulatoria-tutti-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-leistungen-ambulante-pflege-alle-swica-winterthur"
+          "praktikum-leistungen-ambulante-pflege-alle-swica-winterthur",
+          "servizi-di-stage-assistenza-ambulatoria-tutti-swica-gesundheitsorganisation-winterthur"
         ],
         "en": [
           "praktikum-leistungen-ambulante-pflege-alle-swica-winterthur"
@@ -2495,7 +2553,7 @@
       "title": "Sachbearbeiter Krankentaggeld Service & Support (alle)",
       "titleByLocale": {
         "it": "Indennità giornaliera medica Servizio e supporto (tutti)",
-        "en": "Medical day allowance Service & Support (all)",
+        "en": "Sachbearbeiter Krankentaggeld Service & Support (alle)",
         "de": "Sachbearbeiter Krankentaggeld Service & Support (alle)",
         "fr": "Indemnité journalière médicale Service et soutien (tous)"
       },
@@ -2512,7 +2570,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:26.093Z",
+      "crawledAt": "2026-09-06T22:58:24.411Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Schwarzenburgstrasse 160",
@@ -2530,6 +2588,22 @@
       "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern",
+        "indennita-giornaliera-medica-servizio-e-supporto-tutti-swica-gesundheitsorganisation-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern",
+          "indennita-giornaliera-medica-servizio-e-supporto-tutti-swica-gesundheitsorganisation-bern"
+        ],
+        "en": [
+          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
+        ]
+      },
       "firstSeenAt": "2026-09-01T14:19:11.123Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2543,21 +2617,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ],
-        "en": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ],
-        "fr": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-      ]
+      }
     },
     {
       "id": "swica-daee3eaa0ee5",
@@ -2574,7 +2634,7 @@
       "title": "Senior Integration Engineer, Azure & MuleSoft (alle)",
       "titleByLocale": {
         "it": "Senior Integration Ingegnere, Azure & MuleSoft (alle)",
-        "en": "Senior Integration Engineer, Azure & MuleSoft (alle)",
+        "en": "Senior Integration Engineer, Azure & MuleSoft (all)",
         "de": "Senior Integration Ingenieur, Azure & MuleSoft (alle)",
         "fr": "Senior Integration Ingénieur, Azure & MuleSoft (alle)"
       },
@@ -2591,7 +2651,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-integration-engineer-azure-mulesoft-alle/384943df-f393-414e-bf7a-03fa1c4facce",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:25.708Z",
+      "crawledAt": "2026-09-06T22:58:23.946Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2610,11 +2670,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
+        "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur",
+        "senior-integration-ingegnere-azure-mulesoft-alle-swica-gesundheitsorganisation-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
+          "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur",
+          "senior-integration-ingegnere-azure-mulesoft-alle-swica-gesundheitsorganisation-winterthur"
         ],
         "fr": [
           "senior-integration-engineer-azure-amp-mulesoft-alle-swica-winterthur"
@@ -2667,7 +2729,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/841d2cc0-3ea4-4918-8288-93d443706025",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:55:25.321Z",
+      "crawledAt": "2026-09-06T22:58:23.480Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -2688,13 +2750,15 @@
       "previousSlugs": [
         "doctor-telemedicine-all-sante24-winterthur",
         "docteur-telemedecine-tous-sante24-winterthur",
-        "arzt-arztin-telemedizin-alle-swica-winterthur"
+        "arzt-arztin-telemedizin-alle-swica-winterthur",
+        "dottor-telemedicina-tutti-sante24-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "doctor-telemedicine-all-sante24-winterthur",
           "docteur-telemedecine-tous-sante24-winterthur",
-          "arzt-arztin-telemedizin-alle-swica-winterthur"
+          "arzt-arztin-telemedizin-alle-swica-winterthur",
+          "dottor-telemedicina-tutti-sante24-winterthur"
         ],
         "en": [
           "arzt-arztin-telemedizin-alle-swica-winterthur"
@@ -2717,6 +2781,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "swica-4a103ef200e0",
+      "slug": "senior-system-engineer-alle-swica-winterthur",
+      "slugByLocale": {
+        "de": "senior-system-engineer-alle-swica-winterthur",
+        "it": "senior-system-engineer-alle-swica-winterthur",
+        "en": "senior-system-engineer-alle-swica-winterthur",
+        "fr": "senior-system-engineer-alle-swica-winterthur"
+      },
+      "company": "SWICA Gesundheitsorganisation",
+      "companyKey": "swica",
+      "companyDomain": "swica.ch",
+      "title": "Senior System Engineer (alle)",
+      "titleByLocale": {
+        "de": "Senior System Ingenieur (alle)",
+        "en": "Senior System Engineer (all)",
+        "it": "Senior System Ingegnere (alle)",
+        "fr": "Senior System Ingénieur (alle)"
+      },
+      "description": "Cloud, Hybrid, Automation und Modernisierung sind für dich mehr als Buzzwords? Du möchtest nicht nur Systeme betreiben, sondern die technologische Zukunft aktiv mitgestalten? Dann bist du bei uns genau richtig. In dieser Schlüsselrolle entwickelst du unsere hybride Computing-Landschaft weiter und gestaltest die Transformation unserer Serverplattformen in Richtung Azure Cloud. Dabei verbindest du strategisches Denken mit pragmatischer Umsetzung und bringst Innovationen in eine moderne Enterprise-Umgebung ein.\n So gestaltest du Gesundheit mit\n\n• Du planst, entwickelst und betreibst unsere hybriden Windows-Server-Plattformen in Azure und On-Premises-Umgebungen\n• Du wirkst aktiv bei der Weiterentwicklung unserer Computing- und Cloud-Strategie mit\n• Du begleitest die Migration von Workloads und Services in die Azure Cloud und bringst dein Know-how in Transformationsprojekte ein\n• Du stellst einen stabilen, sicheren und wirtschaftlichen Betrieb unserer Plattformen sicher\n• Du treibst Automatisierung, Standardisierung und die kontinuierliche Optimierung unserer Betriebsprozesse voran\n• Du arbeitest eng mit Architektur-, Security- und Applikationsteams zusammen\n• Du berätst interne Stakeholder bei der Einführung und Nutzung moderner Cloud- und Hybrid-Services\n• Du evaluierst neue Technologien, führst Proof of Concepts durch und leitest daraus innovative Lösungen ab\n Das zeichnet dich aus\n\n• Abgeschlossenes Studium in Informatik/Wirtschaftsinformatik oder Berufsausbildung in Informatik mit entsprechender Weiterbildung\n• Mehrjährige Erfahrung im Engineering und Betrieb von Windows-Server-Plattformen\n• Fundierte Kenntnisse in Microsoft Azure sowie Hybrid-Cloud-Architecture\n• Zertifizierungen im Bereich Windows Server, Virtualisierung und Hybrid Cloud\n• Erfahrung mit Windows-Server-Plattformen, Virtualisierung, Hybrid Cloud sowie Identity-, Netzwerk- und Security-Lösungen\n• Know-how in Infrastructure as Code und Automatisierung, beispielsweise mit Terraform, Bicep, PowerShell, Azure Automation oder ähnlichen Technologien\n• Du begeisterst dich für neue Technologien und übernimmst gerne den Lead für Themen und bringst Dinge voran\n• Du kommunizierst auf Augenhöhe und schätzt die Zusammenarbeit mit unterschiedlichsten Anspruchsgruppen\n• Deutsch auf Muttersprachniveau sowie verhandlungssicheres Englisch\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Vanessa Tobler, HR Recruiting, gibt dir gerne Auskunft.",
+      "descriptionByLocale": {
+        "de": "Cloud, Hybrid, Automation und Modernisierung sind für dich mehr als Buzzwords? Du möchtest nicht nur Systeme betreiben, sondern die technologische Zukunft aktiv mitgestalten? Dann bist du bei uns genau richtig. In dieser Schlüsselrolle entwickelst du unsere hybride Computing-Landschaft weiter und gestaltest die Transformation unserer Serverplattformen in Richtung Azure Cloud. Dabei verbindest du strategisches Denken mit pragmatischer Umsetzung und bringst Innovationen in eine moderne Enterprise-Umgebung ein.\n So gestaltest du Gesundheit mit\n\n• Du planst, entwickelst und betreibst unsere hybriden Windows-Server-Plattformen in Azure und On-Premises-Umgebungen\n• Du wirkst aktiv bei der Weiterentwicklung unserer Computing- und Cloud-Strategie mit\n• Du begleitest die Migration von Workloads und Services in die Azure Cloud und bringst dein Know-how in Transformationsprojekte ein\n• Du stellst einen stabilen, sicheren und wirtschaftlichen Betrieb unserer Plattformen sicher\n• Du treibst Automatisierung, Standardisierung und die kontinuierliche Optimierung unserer Betriebsprozesse voran\n• Du arbeitest eng mit Architektur-, Security- und Applikationsteams zusammen\n• Du berätst interne Stakeholder bei der Einführung und Nutzung moderner Cloud- und Hybrid-Services\n• Du evaluierst neue Technologien, führst Proof of Concepts durch und leitest daraus innovative Lösungen ab\n Das zeichnet dich aus\n\n• Abgeschlossenes Studium in Informatik/Wirtschaftsinformatik oder Berufsausbildung in Informatik mit entsprechender Weiterbildung\n• Mehrjährige Erfahrung im Engineering und Betrieb von Windows-Server-Plattformen\n• Fundierte Kenntnisse in Microsoft Azure sowie Hybrid-Cloud-Architecture\n• Zertifizierungen im Bereich Windows Server, Virtualisierung und Hybrid Cloud\n• Erfahrung mit Windows-Server-Plattformen, Virtualisierung, Hybrid Cloud sowie Identity-, Netzwerk- und Security-Lösungen\n• Know-how in Infrastructure as Code und Automatisierung, beispielsweise mit Terraform, Bicep, PowerShell, Azure Automation oder ähnlichen Technologien\n• Du begeisterst dich für neue Technologien und übernimmst gerne den Lead für Themen und bringst Dinge voran\n• Du kommunizierst auf Augenhöhe und schätzt die Zusammenarbeit mit unterschiedlichsten Anspruchsgruppen\n• Deutsch auf Muttersprachniveau sowie verhandlungssicheres Englisch\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Vanessa Tobler, HR Recruiting, gibt dir gerne Auskunft.",
+        "it": "Cloud, ibrido, automazione e modernizzazione sono più che parole chiave per voi? Non solo vuoi operare sistemi, ma anche plasmare attivamente il futuro tecnologico? Allora hai ragione con noi. In questo ruolo chiave, continuerai a sviluppare il nostro paesaggio di calcolo ibrido e plasmare la trasformazione delle nostre piattaforme server verso il cloud Azure. Combinate il pensiero strategico con l'implementazione pragmatica e portate le innovazioni in un ambiente aziendale moderno.\n Questo è il modo in cui si forma la salute\n\n• Pianifica, sviluppa e gestisce le nostre piattaforme ibride di Windows Server in ambienti Azure e on-premises\n• Sei attivamente coinvolto nell'ulteriore sviluppo della nostra strategia informatica e cloud\n• Accompagnate la migrazione dei carichi di lavoro e dei servizi al cloud Azure e portate il vostro know-how ai progetti di trasformazione\n• Garantisci un funzionamento stabile, sicuro ed economico delle nostre piattaforme\n• L'automazione, la standardizzazione e la continua ottimizzazione dei nostri processi operativi\n• Lavori a stretto contatto con i team di architettura, sicurezza e applicazione\n• Si consiglia agli stakeholder interni l'introduzione e l'uso di servizi cloud e ibridi moderni\n• Valutate le nuove tecnologie, provate i concetti e ricavate soluzioni innovative da loro\n Questo ti distingue\n\n• Laurea completa in informatica/informatica aziendale o formazione professionale in scienze informatiche con corrispondente formazione complementare\n• Diversi anni di esperienza nell'ingegneria e nel funzionamento delle piattaforme server Windows\n• Conoscenza approfondita di Microsoft Azure e architettura cloud ibrida\n• Certificazioni nel campo di Windows Server, Virtualizzazione e cloud ibrido\n• Esperienza con piattaforme server Windows, virtualizzazione, cloud ibrido e soluzioni di identità, rete e sicurezza\n• Know-how nell'infrastruttura come codice e automazione, ad esempio con Terraform, Bicep, PowerShell, Azure Automation o tecnologie simili\n• Sei entusiasta di nuove tecnologie e ti piace prendere il comando su argomenti e spostare le cose in avanti\n• Comunichi a livello degli occhi e apprezzi la cooperazione con una vasta gamma di stakeholder\n• Tedesco a livello di lingua madre e inglese negoziabile\n Perché SWICA\n\n• Costruiamo sull'umanità. Ecco perché ci concentriamo sull'apertura, il rispetto e la fiducia nel nostro lavoro quotidiano. Ci assumiamo la responsabilità e pensiamo in termini di soluzioni – insieme, per i nostri clienti. Questo è anche il motivo per cui siamo stati il numero 1 nella soddisfazione del cliente per molti anni.\n• Ci fidiamo di te e ti diamo spazio. Con orari di lavoro annuali, almeno 5 settimane di vacanza e su richiesta anche l'acquisto di vacanza. Con modelli part-time e generoso ufficio di casa nell'ambito delle possibilità del lavoro, si rendono la vostra vita quotidiana in gran parte flessibile.\n• Valoriamo e premiamo il vostro lavoro – con un salario basato sul mercato, fino a 1.500 franchi quota annuale per i desideri personali e una generosa partecipazione all'assicurazione di base e aggiuntiva per voi e la vostra famiglia.\n• Vi offriamo prospettive. Con un generoso regolamento di formazione, sosteniamo il vostro sviluppo professionale e personale – per il vostro ruolo oggi e per i vostri obiettivi di domani.\n• Perché la salute è tutto. Con la nostra gestione della salute aziendale e le offerte specifiche per la regione, ci occupiamo del vostro benessere. E se si tratta altrimenti: 100% salario netto continuato pagamento.\n• Pensiamo a lungo termine. Con tre piani di risparmio, deduzione di coordinamento pensum-dipendente e benefici ben al di sopra del minimo legale, si garantisce bene per il vostro futuro.\n Vanessa Tobler, HR Recruiting, è felice di fornirvi informazioni.",
+        "en": "Cloud, hybrid, automation and modernization are more than buzzwords for you? Do you not only want to operate systems, but also actively shape the technological future? Then you are exactly right with us. In this key role, you will continue to develop our hybrid computing landscape and shape the transformation of our server platforms towards the Azure cloud. You combine strategic thinking with pragmatic implementation and bring innovations into a modern enterprise environment.\n This is how you shape health\n\n• You plan, develop and operate our hybrid Windows Server platforms in Azure and on-premises environments\n• You are actively involved in the further development of our computing and cloud strategy\n• You accompany the migration of workloads and services to the Azure Cloud and bring your know-how to transformation projects\n• You ensure a stable, secure and economical operation of our platforms\n• You drive automation, standardization and the continuous optimization of our operational processes\n• You work closely with architecture, security and application teams\n• You advise internal stakeholders on the introduction and use of modern cloud and hybrid services\n• You evaluate new technologies, carry out proof of concepts and derive innovative solutions from them\n This sets you apart\n\n• Completed degree in computer science/business informatics or vocational training in computer science with corresponding further education\n• Several years of experience in the engineering and operation of Windows server platforms\n• In-depth knowledge of Microsoft Azure and hybrid cloud architecture\n• Certifications in the field of Windows Server, Virtualization and Hybrid Cloud\n• Experience with Windows server platforms, virtualization, hybrid cloud as well as identity, network and security solutions\n• Know-how in infrastructure as code and automation, for example with Terraform, Bicep, PowerShell, Azure Automation or similar technologies\n• You are enthusiastic about new technologies and like to take the lead on topics and move things forward\n• You communicate at eye level and appreciate cooperation with a wide range of stakeholders\n• German at native language level as well as negotiable English\n Why SWICA\n\n• We build on humanity. That is why we focus on openness, respect and trust in our everyday work. We take on responsibility and think in terms of solutions – together, for our customers. This is also why we have been number 1 in customer satisfaction for many years.\n• We trust you and give you space. With annual working hours, at least 5 weeks holidays and on request also holiday purchase. With part-time models and generous home office within the scope of the possibilities of the job, you make your everyday life largely flexible.\n• We value and reward your work – with a market-based wage, up to 1,500 francs annual fee for personal wishes and a generous participation in the basic and additional insurance for you and your family.\n• We offer you prospects. With a generous training regulations, we support your professional and personal development – for your role today and for your goals of tomorrow.\n• Because health is everything. With our company health management and region-specific offers, we take care of your well-being. And if it comes otherwise: 100% net wage continued payment.\n• We think long term. With three savings plans, pensum-dependent coordination deduction and benefits well above the legal minimum, you ensure good for your future.\n Vanessa Tobler, HR Recruiting, is happy to provide you with information.",
+        "fr": "Cloud, hybride, automatisation et modernisation sont plus que des mots à la mode pour vous ? Voulez-vous non seulement utiliser des systèmes, mais aussi façonner activement l'avenir technologique? Alors vous avez raison avec nous. Dans ce rôle clé, vous continuerez à développer notre paysage informatique hybride et à façonner la transformation de nos plateformes serveurs vers le cloud Azure. Vous combinez réflexion stratégique et mise en œuvre pragmatique et apportez des innovations dans un environnement d'entreprise moderne.\n Voilà comment vous façonnez la santé\n\n• Vous planifiez, développez et exploitez nos plateformes Windows Server hybrides dans les environnements Azure et sur site\n• Vous participez activement au développement de notre stratégie informatique et cloud\n• Vous accompagnez la migration des charges de travail et des services vers Azure Cloud et apportez votre savoir-faire à des projets de transformation\n• Vous assurez un fonctionnement stable, sûr et économique de nos plateformes\n• Vous conduisez l'automatisation, la normalisation et l'optimisation continue de nos processus opérationnels\n• Vous travaillez en étroite collaboration avec les équipes architecture, sécurité et application\n• Vous conseillez les parties prenantes internes sur l'introduction et l'utilisation de services cloud et hybrides modernes\n• Vous évaluez les nouvelles technologies, réalisez des preuves de concepts et en tirez des solutions innovantes\n Cela vous distingue\n\n• Diplômé en informatique/informatique commerciale ou formation professionnelle en informatique avec formation complémentaire correspondante\n• Plusieurs années d'expérience dans l'ingénierie et le fonctionnement des plateformes de serveurs Windows\n• Connaissance approfondie de Microsoft Azure et de l'architecture cloud hybride\n• Certifications dans le domaine de Windows Server, Virtualization et Hybrid Cloud\n• Expérience des plateformes de serveurs Windows, virtualisation, cloud hybride ainsi que des solutions d'identité, de réseau et de sécurité\n• Savoir-faire en infrastructure comme code et automatisation, par exemple avec Terraform, Bicep, PowerShell, Azure Automation ou des technologies similaires\n• Vous êtes enthousiastes à l'égard des nouvelles technologies et aimez prendre la tête sur les sujets et faire avancer les choses\n• Vous communiquez au niveau des yeux et appréciez la coopération avec un large éventail de parties prenantes\n• Allemand au niveau de la langue maternelle ainsi que l'anglais négociable\n Pourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Avec des heures de travail annuelles, au moins 5 semaines de vacances et sur demande achat de vacances. Avec des modèles à temps partiel et un bureau à domicile généreux dans le cadre des possibilités de l'emploi, vous rendez votre vie quotidienne largement flexible.\n• Nous apprécions et récompensons votre travail – avec un salaire basé sur le marché, jusqu'à 1.500 francs frais annuels pour les souhaits personnels et une participation généreuse à l'assurance de base et supplémentaire pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec une réglementation de formation généreuse, nous soutenons votre développement professionnel et personnel – pour votre rôle aujourd'hui et pour vos objectifs de demain.\n• Parce que la santé est tout. Avec notre entreprise de gestion de la santé et des offres spécifiques à la région, nous prenons soin de votre bien-être. Et s'il en est autrement : 100% de salaire net continu.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\n Vanessa Tobler, Recrutement RH, est heureuse de vous fournir des informations."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://jobs.swica.ch/offene-stellen/senior-system-engineer-alle/330fc9fe-b65e-4f67-8af1-1c4becf984d5",
+      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:58:23.004Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürcherstrasse 31",
+      "postalCode": "8401",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://jobs.swica.ch/offene-stellen/senior-system-engineer-alle/330fc9fe-b65e-4f67-8af1-1c4becf984d5",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-06T22:58:23.004Z"
     }
   ]
 }

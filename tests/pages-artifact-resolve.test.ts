@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { scanFiles, stripShellComments } from '../scripts/lib/stdin-sharing-loop-scan.mjs';
 
 /**
  * Guardrail for the #7392–#7397 class of bug.
@@ -44,7 +45,7 @@ const actionSource = readFileSync(ACTION_PATH, 'utf8');
  * matching on them would make every check self-fulfilling.
  */
 function codeOnly(file: string): string {
-  return readFileSync(file, 'utf8').replace(/^[ \t]*#.*$/gm, '');
+  return stripShellComments(readFileSync(file, 'utf8'));
 }
 
 /** Every `.github` file that could hold a shell copy of the resolve. */
@@ -135,41 +136,24 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // shape that hid the ninth site — `(NODE_OPTIONS="…" npm run "$script")` in
     // `audit-dist-from-run.yml`, where `npm` sits after an assignment and would
     // stay invisible even with the token added.
-    const ASSIGN_PREFIX =
-      String.raw`(?:env[ \t]+)?(?:[A-Za-z_]\w*=(?:"[^"\n]*"|'[^'\n]*'|[^ \t\n]*)[ \t]+)*`;
-    const CONSUMERS = new RegExp(
-      String.raw`(^|[;&|(]|\bthen\b|\bdo\b|\belse\b)[ \t]*${ASSIGN_PREFIX}(gh|unzip|node|npx|npm|bash|sh|ssh|curl|xargs|git)\b`,
-      'm',
-    );
-    // `while …` line, body, and a `done` at the SAME indentation whose redirect
-    // is a plain file (`< "$f"`), not a process substitution (`< <(…)`, which is
-    // matched by the negative lookahead and left alone — it has the same defect
-    // but the fix there is the same fd, and none of the current ones qualify).
-    // The lookahead has to sit right after the redirect operator and swallow
-    // the spacing ITSELF: `<[ \t]*(?!\()` lets the engine backtrack `[ \t]*`
-    // to zero and pass the lookahead on the space, so `done < <(…)` matched
-    // anyway. And the character to refuse is the `<` of the substitution, not
-    // the `(` — after the redirect operator of `done < <(…)` comes `<`.
-    const LOOP =
-      /^([ \t]*)while\b[^\n]*\bread\b[^\n]*\n([\s\S]*?)^\1done[ \t]+(\d*)<(?![ \t]*<?\()[^\n]*$/gm;
-    const offenders: string[] = [];
-    for (const f of allGithubShellFiles()) {
-      const src = codeOnly(f);
-      for (const m of src.matchAll(LOOP)) {
-        const [, , body, fd] = m;
-        if (!CONSUMERS.test(body)) continue;
-        const head = m[0].slice(0, m[0].indexOf('\n'));
-        if (!fd || !new RegExp(`read\\b[^\\n]*-u[ \\t]+${fd}\\b`).test(head)) {
-          offenders.push(`${f}: ${head.trim()} … done ${fd}<`);
-        }
-      }
-    }
+    // The regexes themselves now live in `scripts/lib/stdin-sharing-loop-scan.mjs`:
+    // `.github/**` is not the only tree that can grow a site of this class, and
+    // a second hand-copied scanner would drift exactly the way the eight copies
+    // of the artifact resolve did. This test keeps its own perimeter —
+    // `allGithubShellFiles()` — and `tests/scripts-shell-stdin-sharing.test.ts`
+    // watches `scripts/**` with the same code.
+    const { loops, offenders } = scanFiles(allGithubShellFiles(), codeOnly);
+    // A scanner that silently stops matching is how three of the six sites here
+    // stayed invisible through a whole review round: assert it still sees them.
+    expect(loops.length).toBeGreaterThan(5);
+    expect(loops.some((l) => l.hasConsumer)).toBe(true);
     expect(offenders).toEqual([]);
     // And the walk-back itself, positively — the regex above only proves the
     // absence of the shape, not that this loop is still the one being read.
     expect(codeOnly(ACTION_PATH)).toMatch(/while IFS=\$'\\t' read -r -u 9 cand created sha; do/);
     expect(codeOnly(ACTION_PATH)).toMatch(/done 9< "\$CANDS"/);
   });
+
 
   it('#7504 — every deploy-run page is shape-checked before it is counted', () => {
     // A 2xx body is not necessarily a runs collection: the secondary-rate-limit

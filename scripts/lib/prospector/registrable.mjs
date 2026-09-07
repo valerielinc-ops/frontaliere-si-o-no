@@ -14,6 +14,8 @@
  *                    looks like its own platform and nothing ever clusters.
  */
 
+import { canonicalJobHost } from '../job-url-host.mjs';
+
 /** Multi-label public suffixes seen on Swiss/EU employer sites. */
 const MULTI_LABEL_SUFFIXES = new Set([
   'co.uk', 'org.uk', 'ac.uk', 'gov.uk', 'me.uk', 'net.uk',
@@ -24,8 +26,15 @@ const MULTI_LABEL_SUFFIXES = new Set([
 ]);
 
 /**
- * Normalise a host: lowercase, strip a leading `www.`/`www2.`, drop a trailing
- * dot and any port.
+ * Normalise a host: lowercase, punycode, strip a leading `www.`/`www2.`, drop a
+ * trailing dot and any port.
+ *
+ * The punycode step closes an asymmetry inside this very function: the `://`
+ * branch hands the host to `new URL()`, which returns it punycoded, while a
+ * BARE host is kept in whatever alphabet it was written in. The prospector then
+ * compares the two forms of the same IDN domain by equality
+ * (`coverage.domains.has(domain)`) and they never match — a covered employer
+ * reads as uncovered and gets prospected again, the same mute match as #7769.
  *
  * @param {string} raw
  * @returns {string}
@@ -35,7 +44,7 @@ export function normalizeHost(raw = '') {
   if (h.includes('://')) {
     try { h = new URL(h).hostname; } catch { /* not a URL, treat as bare host */ }
   }
-  h = h.split('/')[0].split(':')[0].replace(/\.$/, '');
+  h = canonicalJobHost(h.split('/')[0].split(':')[0]);
   return h.replace(/^www\d?\./, '');
 }
 
@@ -53,6 +62,28 @@ export function registrableDomain(raw = '') {
   const lastTwo = parts.slice(-2).join('.');
   if (MULTI_LABEL_SUFFIXES.has(lastTwo) && parts.length >= 3) return parts.slice(-3).join('.');
   return lastTwo;
+}
+
+/**
+ * The host with its public suffix removed — the part a brand actually owns.
+ *
+ * Splitting off a single trailing label is wrong on every compound suffix in
+ * `MULTI_LABEL_SUFFIXES`: `foo.com.br` keeps `com`, so a fold that compares a
+ * brand to its own host stops matching and the host quietly leaves the compared
+ * population (#7770). `.co.uk` only survived by the coincidence that `co` reads
+ * as a generic word downstream. Same table as `registrableDomain()`, so the two
+ * can never disagree about where the suffix starts.
+ *
+ * @param {string} raw host or URL
+ * @returns {string} `foo` for `foo.com.br`, `jobs.acme` for `jobs.acme.ch`
+ */
+export function stripPublicSuffix(raw = '') {
+  const host = normalizeHost(raw);
+  if (!host || !host.includes('.')) return host;
+  const parts = host.split('.').filter(Boolean);
+  const lastTwo = parts.slice(-2).join('.');
+  if (MULTI_LABEL_SUFFIXES.has(lastTwo) && parts.length >= 3) return parts.slice(0, -2).join('.');
+  return parts.slice(0, -1).join('.');
 }
 
 /**

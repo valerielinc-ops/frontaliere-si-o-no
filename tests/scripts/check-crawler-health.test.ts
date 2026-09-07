@@ -948,6 +948,63 @@ describe('nextCrawlerState — discovered/written auto-classification (#5945)', 
     expect(state._autoFilteredEmpty).toBe(false);
   });
 
+  it('does NOT auto-classify as filtered when the parser emitted jobs and the pipeline dropped them all (#7707)', () => {
+    // `discovered > 0, written === 0` alone is ambiguous: the parser's own
+    // geographic filter may have dropped everything (healthy), or a
+    // post-parser stage of the pipeline (merge, expiry archival, validation,
+    // slice filter) may have (broken). `parsed > 0` settles it — the jobs
+    // survived the parser, so the emptying happened downstream.
+    const prev = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 3 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 9,
+      consecutiveEmptyRuns: 2,
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+    };
+    const { status, reason, state } = nextCrawlerState(
+      prev,
+      { ...obsWithCounts(0, 12, 0), parsed: 9 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._autoFilteredEmpty).toBe(false);
+    expect(state._pipelineDroppedAll).toBe(true);
+    expect(state._lastObservedParsedCount).toBe(9);
+    expect(state.consecutiveEmptyRuns).toBe(3);
+    // Triage must point downstream of the parser, not at dead selectors.
+    expect(reason).toContain('post-parser pipeline drop');
+  });
+
+  it('still auto-classifies as filtered when the parser itself emitted 0 (#7707)', () => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      { ...obsWithCounts(0, 12, 0), parsed: 0 },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state._pipelineDroppedAll).toBe(false);
+    expect(state._lastObservedParsedCount).toBe(0);
+  });
+
+  it('keeps the pre-#7707 behaviour when the run reports no parsed count', () => {
+    const { status, state } = nextCrawlerState(
+      undefined,
+      obsWithCounts(0, 12, 0),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(state._autoFilteredEmpty).toBe(true);
+    expect(state._pipelineDroppedAll).toBe(false);
+    expect(state._lastObservedParsedCount).toBeNull();
+  });
+
   it('does not mark autoFilteredEmpty when the run actually found and kept jobs', () => {
     const { state } = nextCrawlerState(
       undefined,
@@ -1158,5 +1215,152 @@ describe('nextCrawlerState — aborted runs are not "returned 0 jobs" (#7461 & a
     );
     expect(status).toBe('healthy');
     expect(reason).toBeNull();
+  });
+});
+
+describe('nextCrawlerState — self-reported fetch outcome (#7897)', () => {
+  // The three signals above (#5945 counts, #7324 proof, #7461 exit guard) all
+  // have the monitor INFER a cause from what the slice happens to contain.
+  // `lastFetchOutcome` is the run reporting the cause it observed at the
+  // fetch/parse boundary — the only place where an anti-bot block, a dead
+  // selector and a genuinely quiet source are distinguishable at all. Before
+  // it, all three produced `total: 0`, and the monitor answered them with the
+  // same three-day wait and the same causeless "N consecutive runs returned 0
+  // jobs".
+  function obsWithOutcome(jobCount: number, lastFetchOutcome: unknown) {
+    return {
+      slug: 'not-on-any-allowlist',
+      jobCount,
+      freshnessAt: NOW_ISO,
+      freshnessSource: 'summary' as const,
+      generatedAt: NOW_ISO,
+      assembledAt: NOW_ISO,
+      lastFetchOutcome,
+    };
+  }
+
+  it('flags broken on the FIRST anti-bot run instead of waiting for the empty streak', () => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, 'anti_bot_block'),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    // The whole point: the reason has to send triage to the fetch layer. The
+    // streak gate would have said "returned 0 jobs", which reads as a parser
+    // or source problem and is the wrong place to look.
+    expect(reason).toContain('anti_bot_block');
+    expect(reason).toMatch(/refused the fetch/);
+    expect(state._lastObservedFetchOutcome).toBe('anti_bot_block');
+    // Without the outcome this run would have been `warming_up` (first sight,
+    // no history) — three more days before anything was said at all.
+    expect(state.consecutiveEmptyRuns).toBe(1);
+  });
+
+  it('flags broken on the FIRST selector-miss run and names the parser, not the source', () => {
+    const { status, reason, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, 'selector_miss'),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(reason).toContain('selector_miss');
+    expect(reason).toMatch(/parser config/);
+    expect(state._lastObservedFetchOutcome).toBe('selector_miss');
+  });
+
+  it('treats filtered_empty as healthy and clears a broken-eligible streak', () => {
+    // Same claim as the #5945 `discovered > 0, written === 0` pair, made
+    // directly by the run instead of inferred from two counts.
+    const { status, reason, state } = nextCrawlerState(
+      {
+        lastSuccessfulRunAt: null,
+        lastNonZeroJobs: 0,
+        consecutiveEmptyRuns: 2,
+        lastFailureReason: null,
+        status: 'healthy',
+        _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+        _lastObservedJobs: 0,
+        _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      },
+      obsWithOutcome(0, 'filtered_empty'),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(reason).toBeNull();
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state._lastObservedEmptyOk).toBe(true);
+  });
+
+  it('leaves an `ok` run entirely to the existing gates', () => {
+    // `ok` asserts the fetch and the parse worked — nothing about the count.
+    // A zero-job `ok` run is still just an empty run: the streak gate owns it,
+    // exactly as before.
+    const { status, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, 'ok'),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('warming_up');
+    expect(state._lastObservedFetchOutcome).toBe('ok');
+  });
+
+  it('a proven fetch failure overrides an EMPTY_OK_CRAWLERS entry instead of being masked by it', () => {
+    // The allowlist means "a zero here is not evidence of breakage". This run
+    // carries evidence of breakage, so the allowlist must not win — that is the
+    // #6496 failure mode (a listed source that has actually died) with proof
+    // sitting right there in the slice.
+    const { status, state } = nextCrawlerState(
+      undefined,
+      { ...obsWithOutcome(0, 'selector_miss'), slug: 'bancastato' },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('broken');
+    expect(state._lastObservedEmptyOk).toBe(false);
+    // The streak keeps growing while it stays broken, like an aborted run.
+    expect(state.consecutiveEmptyRuns).toBe(1);
+  });
+
+  it('ignores an unrecognised outcome rather than acting on a producer typo', () => {
+    const { status, state } = nextCrawlerState(
+      undefined,
+      obsWithOutcome(0, 'selector-miss'),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('warming_up');
+    expect(state._lastObservedFetchOutcome).toBeNull();
+  });
+
+  it('a slice WITHOUT the field behaves exactly as it did before #7897', () => {
+    // The invariant that makes the field optional and a backfill of historical
+    // slices unnecessary: no `lastFetchOutcome` ⇒ byte-identical verdict.
+    const prev = {
+      lastSuccessfulRunAt: null,
+      lastNonZeroJobs: 0,
+      consecutiveEmptyRuns: 2,
+      lastFailureReason: null,
+      status: 'healthy',
+      _lastObservedAt: new Date(NOW_MS - DAY_MS).toISOString(),
+      _lastObservedJobs: 0,
+      _lastObservedFreshnessAt: new Date(NOW_MS - DAY_MS).toISOString(),
+    };
+    const withoutField = nextCrawlerState(prev, obs(NOW_ISO, 0), NOW_ISO, NOW_MS);
+    const withUndefined = nextCrawlerState(
+      prev,
+      obsWithOutcome(0, undefined),
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(withoutField.status).toBe('broken');
+    expect(withoutField.reason).toBe('3 consecutive runs returned 0 jobs');
+    expect(withUndefined.status).toBe(withoutField.status);
+    expect(withUndefined.reason).toBe(withoutField.reason);
+    expect(withoutField.state._lastObservedFetchOutcome).toBeNull();
   });
 });

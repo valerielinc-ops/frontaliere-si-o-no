@@ -1194,7 +1194,8 @@ export default function AdminPanel() {
  try {
  const end = new Date();
  const start = new Date(end);
- start.setDate(end.getDate() - 120);
+ // #7694: calendario UTC, lo stesso di `toISOString()` qui sotto.
+ start.setUTCDate(end.getUTCDate() - 120);
  const startStr = start.toISOString().slice(0, 10);
  const endStr = end.toISOString().slice(0, 10);
 

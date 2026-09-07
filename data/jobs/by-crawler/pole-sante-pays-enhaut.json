@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pole-sante-pays-enhaut",
-  "assembledAt": "2026-09-01T15:45:28.920Z",
+  "assembledAt": "2026-09-06T22:46:42.335Z",
   "jobs": [
     {
       "id": "pole-sante-pays-enhaut-295c404754f0",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T15:45:25.597Z",
+      "crawledAt": "2026-09-06T22:46:36.371Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,8 @@
         "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -100,7 +101,8 @@
           "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
+          "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -160,7 +162,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ff20cb2d-bc7a-4eb5-a5e6-f952404b51c1/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T15:45:25.325Z",
+      "crawledAt": "2026-09-06T22:46:35.760Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,6 +179,22 @@
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ff20cb2d-bc7a-4eb5-a5e6-f952404b51c1/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
+        "infermiera-della-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
+          "infermiera-della-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
       "firstSeenAt": "2026-08-28T05:13:16.258Z",
       "salaryMin": 60500,
       "salaryMax": 84400,
@@ -190,21 +208,7 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
-        ],
-        "en": [
-          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
-        ],
-        "de": [
-          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
-      ]
+      }
     },
     {
       "id": "pole-sante-pays-enhaut-26517f0bd7ed",
@@ -237,7 +241,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e1ea54f6-4075-4446-a248-fa89d3151ccd/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T15:45:25.040Z",
+      "crawledAt": "2026-09-06T22:46:35.106Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -257,13 +261,15 @@
       "previousSlugs": [
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex",
+          "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
@@ -319,7 +325,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/3ea4d3b3-fc82-4d41-a41e-8e05d6bed749/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T15:45:24.736Z",
+      "crawledAt": "2026-09-06T22:46:34.408Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -336,6 +342,21 @@
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/3ea4d3b3-fc82-4d41-a41e-8e05d6bed749/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+        "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+          "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex",
+          "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
       "firstSeenAt": "2026-08-28T05:13:15.638Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -349,20 +370,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-          "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex"
-        ],
-        "en": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
-        ]
-      },
-      "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-        "community-care-and-health-assistant-assc-pole-sante-pays-d-enhaut-chateau-d-oex"
-      ]
+      }
     }
   ]
 }

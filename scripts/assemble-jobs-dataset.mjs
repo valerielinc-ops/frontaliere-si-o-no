@@ -35,6 +35,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
+import { normalizeFetchOutcome } from './lib/crawler-fetch-outcome.mjs';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -61,7 +62,8 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries } from './lib/expired-jobs-archive.mjs';
+import { absoluteJobUrl } from './lib/job-url-host.mjs';
+import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
@@ -94,12 +96,23 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
     try {
       const discovered =
         counts && Number.isFinite(counts.discovered) ? counts.discovered : null;
+      // Post-parser count (#7707): an aborted run that had already parsed jobs
+      // must not leave a slice that reads as a geographic filter-empty.
+      const parsed = counts && Number.isFinite(counts.parsed) ? counts.parsed : null;
+      // Fetch verdict (#7897). The soft exit on a zero-job run is exactly the
+      // slice whose cause matters most — a `selector_miss` reaches the monitor
+      // only through here, because the pipeline returns before ever writing a
+      // published summary. Dropping it on the guard path would instrument the
+      // one case that never needed instrumenting.
+      const lastFetchOutcome = normalizeFetchOutcome(counts ? counts.lastFetchOutcome : null);
       writeSummaryCrawlerSlice({
         key,
         label: label || key,
         generatedAt: new Date().toISOString(),
         total: 0,
         discovered,
+        parsed,
+        lastFetchOutcome,
         written: 0,
         newCount: 0,
         updatedCount: 0,
@@ -347,6 +360,7 @@ function humanizeCompanyKey(key) {
  *     no-op for slices written after this change).
  *   - `addressLocality` is backfilled from the (sanitized) `location`.
  *   - `addressRegion` defaults to the canton code.
+ *   - `url` is rewritten to its absolute form (`absoluteJobUrl`).
  *
  * Deliberately does NOT invent `postalCode` or `streetAddress`: forging an HQ
  * postal code is exactly what slipped foreign jobs past the whitelist (the
@@ -365,16 +379,36 @@ function humanizeCompanyKey(key) {
  * consumption (`job.addressCountry || 'CH'`), where it is a local, reversible
  * read-time choice, not a persisted assertion.
  *
+ * The `url` rewrite is the one place where the scheme normalization already
+ * used to READ a row's host (`jobUrlHost`, #7721/#7758) is also WRITTEN down.
+ * A scheme-less `url` that survives to disk is a broken apply CTA on the job
+ * page — a bare `med-ipersonal.ch/jobs/1` in an `href` resolves relative to
+ * frontaliereticino.ch — and a liveness probe that fails on the string's
+ * shape instead of on the listing. Write-time is the right choke point for
+ * the same reason `location` is: it is the single funnel every slice passes
+ * through, so the consumers stay free of a per-caller repair. Unlike
+ * `addressCountry` (#5384) this asserts nothing new about the row — the
+ * authority is exactly the one the source wrote, only spelled absolutely.
+ *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
   let companyFixed = 0;
   let localityBackfilled = 0;
   let regionDefaulted = 0;
+  let urlNormalized = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
+
+    if (typeof job.url === 'string' && job.url.trim()) {
+      const absoluteUrl = absoluteJobUrl(job.url);
+      if (absoluteUrl && absoluteUrl !== job.url) {
+        job.url = absoluteUrl;
+        urlNormalized++;
+      }
+    }
 
     const localityFallback = cantonFallbackLocality(job);
 
@@ -418,7 +452,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted };
+  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized };
 }
 
 function assemblerIdentity(job = {}) {
@@ -767,6 +801,16 @@ const SHRINK_GUARD_SMALL_BASELINE_RATIO = 0.2;
  * Below MIN_BASELINE, a near-total (non-zero) drop is caught too, via a much
  * stricter ratio than the one used at/above baseline (#3840).
  */
+/**
+ * Machine-readable marker of the shrink-guard refusal, so a caller that can
+ * handle it (`writeJobsCrawlerSliceVerified`) recognises it by `code` and not
+ * by the `[shrink-guard]` prefix of the message. Same reason as
+ * `LegacyRouteCapError`: the wording is a log string no gate protects, so a
+ * reword would make the refusal unrecognisable and an unrelated defect whose
+ * message happened to start with the prefix would be handled as a refusal.
+ */
+export const SHRINK_GUARD_ERROR_CODE = 'SHRINK_GUARD_REFUSAL';
+
 export function shouldBlockShrink(priorCount, newCount) {
   if (priorCount > 0 && newCount === 0) return true;
   if (priorCount >= SHRINK_GUARD_MIN_BASELINE) {
@@ -964,7 +1008,7 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     writeJobsCrawlerSlice(crawlerKey, jobs, writeOptions);
     return { written: true, shrinkAccepted: false };
   } catch (err) {
-    if (!String(err?.message || '').startsWith('[shrink-guard]')) throw err;
+    if (err?.code !== SHRINK_GUARD_ERROR_CODE) throw err;
 
     // Use the arrays the guard ACTUALLY measured, not this function's `jobs`
     // argument. writeJobsCrawlerSlice reassigns `jobs` internally
@@ -1679,8 +1723,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
@@ -1918,6 +1962,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
       // shrink entirely and see an empty diff — i.e. "nothing disappeared" —
       // which is vacuously true and would wave the write through with zero
       // evidence. Attaching the measured arrays makes that class impossible.
+      shrinkErr.code = SHRINK_GUARD_ERROR_CODE;
       shrinkErr.shrinkGuard = {
         crawlerKey,
         priorCount,
@@ -2695,6 +2740,10 @@ function assembleExpiredJobs() {
       continue;
     }
     totalSliceEntries += entries.length;
+    // Repair before the entries reach the sort + `slice(0, EXPIRED_JOBS_CAP)`
+    // below: `compareExpiredAt` sends an unparseable value to the tail, which
+    // past the cap means the soft landing for a still-indexed URL disappears.
+    normalizeExpiredAtEntries(entries, { source: `assemble/${path.basename(slicePath)}` });
     for (const entry of entries) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
@@ -2716,6 +2765,7 @@ function assembleExpiredJobs() {
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
   const existingAgg = readJson(DATA_EXPIRED, []);
   if (Array.isArray(existingAgg)) {
+    normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);

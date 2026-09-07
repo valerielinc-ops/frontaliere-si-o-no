@@ -25,6 +25,7 @@ import {
   addPreviousSlugForLocale,
   DEFAULT_PREV_SLUG_CAP,
   getPreviousSlugsForLocale,
+  isLegacyRouteCapRefusal,
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
@@ -82,6 +83,57 @@ export function buildExpiredEntry(job) {
   return entry;
 }
 
+/** An `expiredAt` that `Date.parse` can actually order. */
+export function isParsableExpiredAt(value) {
+  return typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
+}
+
+/**
+ * Give every entry read back from disk an `expiredAt` the downstream sort can
+ * order, BEFORE it reaches one of the two `slice(0, EXPIRED_JOBS_CAP)` cuts
+ * (`assemble-jobs-dataset.mjs`, `cleanup-jobs.mjs`).
+ *
+ * `buildExpiredEntry` always stamps a fresh ISO timestamp, so an unparseable
+ * value can only arrive from an archive already on disk (hand-edit, legacy
+ * format, truncated write). `compareExpiredAt` sends such a value to the tail
+ * BY CONSTRUCTION — the safe direction for a comparator, but the archive is
+ * then cut at 5000, so an entry that sat inside the cap in the input gets
+ * pushed out of it and the soft landing for a still-indexed URL 404s. The
+ * comparator is not the defect: the defect is that the value reaches it at
+ * all, so it is repaired at the ingress instead.
+ *
+ * The repair stamps the run timestamp, which is what `buildExpiredEntry`
+ * would have written had the entry been archived now. That errs toward
+ * KEEPING the record (the whole point of the archive is the soft landing)
+ * rather than toward faking an old date that the cap would drop anyway. It is
+ * idempotent: once written the value parses, so a second pass leaves it alone
+ * and the relative order stops moving.
+ *
+ * Mutates in place — every caller hands over entries it just parsed from JSON.
+ *
+ * @param {object[]} entries
+ * @param {object} [opts]
+ * @param {string} [opts.now] - Timestamp to stamp (default: now)
+ * @param {string} [opts.source] - Label for the log line
+ * @returns {number} repaired count
+ */
+export function normalizeExpiredAtEntries(entries, opts = {}) {
+  if (!Array.isArray(entries)) return 0;
+  const now = opts.now || new Date().toISOString();
+  const source = opts.source || 'expired-archive-normalize';
+  let repaired = 0;
+  for (const entry of entries) {
+    if (!entry || typeof entry !== 'object') continue;
+    if (isParsableExpiredAt(entry.expiredAt)) continue;
+    entry.expiredAt = now;
+    repaired += 1;
+  }
+  if (repaired > 0) {
+    console.log(`  🩹 ${source}: ${repaired} expired entries had no parsable expiredAt → stamped ${now}`);
+  }
+  return repaired;
+}
+
 /**
  * Archive removed jobs to a per-crawler expired slice file.
  *
@@ -111,6 +163,9 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   } catch {
     existing = [];
   }
+  const repaired = normalizeExpiredAtEntries(existing, {
+    source: `archive-removed-jobs-to-slice/${crawlerKey}`,
+  });
 
   const bySlug = new Map();
   for (const ej of existing) {
@@ -131,7 +186,9 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     }
   }
 
-  if (added === 0 && bySlug.size === sizeBefore) return 0;
+  // A repair alone changes no slug, so the counters above stay put: write it
+  // out anyway, otherwise the bad value survives on disk until the next add.
+  if (added === 0 && bySlug.size === sizeBefore && repaired === 0) return 0;
 
   const archived = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
@@ -248,6 +305,14 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
  * the same slug (the collision class of issue #3734), and an entry without a
  * companyKey claims no route at all rather than merging across companies.
  *
+ * The collapse is greedy and therefore sensitive to the order the conflicts
+ * arrive in, so the entries are visited in a CANONICAL order and the "is this
+ * route somebody else's?" question is answered from a pre-pass index of the
+ * whole input rather than from the incremental one. Both used to be read off
+ * the caller's array: reversing the input changed the output of 4 of the 547
+ * committed slices (measured 2026-09-06), and a survivor could take a route
+ * owned by an entry further down — a 301 to the wrong vacancy.
+ *
  * A merge is applied only when it provably preserves the component's whole
  * route union. Two histories can be too deep to fit the legacy previousSlugs
  * cap, and `promotePreviousSlugToLegacy` correctly refuses to drop the
@@ -261,8 +326,46 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   const namespaced = (entry) => (entry?.companyKey
     ? [...localeRouteKeys(entry)].map((route) => `${entry.companyKey}::${route}`)
     : []);
+  // Entries are visited in a CANONICAL order, not the caller's. The collapse is
+  // greedy — each entry is merged onto the component it already conflicts with —
+  // so the order the conflicts arrive in decides which merges are attempted and
+  // which are refused. Reading that order off the input made the result depend
+  // on it: reversing the input changed the output of 4 of the 547 committed
+  // slices (measured 2026-09-06), and `archiveRemovedJobsToSlice`,
+  // `cleanup-jobs` and `backfill-*` do not all hand over the same order. Newest
+  // first matches the survivor rule below (the most recently expired payload
+  // wins); the slug/companyKey tie-breaks keep two records expired in the same
+  // millisecond from swapping roles.
+  const input = [...entries].sort((a, b) => compareExpiredAt(b?.expiredAt, a?.expiredAt)
+    || String(a?.slug || '').localeCompare(String(b?.slug || ''))
+    || String(a?.companyKey || '').localeCompare(String(b?.companyKey || '')));
   const out = [];
   const owners = new Map();
+  // The incremental index below answers "which SURVIVING entry holds this
+  // route?" — it only ever knows the entries already processed. That is the
+  // right answer for resolving a component, but the wrong one for the
+  // anti-theft check further down, which asks "is this route somebody else's?"
+  // and must count the entries still ahead in the input too. Answering it from
+  // the incremental index made the result depend on input order: a survivor
+  // that gained, via `promotePreviousSlugToLegacy`, a route belonging to a
+  // later entry saw the route as free and stole it (a 301 to the wrong
+  // vacancy). Measured on 2026-09-06, 4 of the 547 committed slices collapsed
+  // differently when the input was reversed. This pre-pass indexes every
+  // namespaced route of every input entry ONCE — O(n), never rebuilt, so the
+  // complexity contract on `keep()` below still holds.
+  const claimants = new Map();
+  for (const entry of input) {
+    for (const route of namespaced(entry)) {
+      let holders = claimants.get(route);
+      if (!holders) claimants.set(route, (holders = new Set()));
+      holders.add(entry);
+    }
+  }
+  // A survivor is a clone, absent from the pre-pass index, so a component
+  // member cannot be matched against it by identity. Track which INPUT entries
+  // each surviving record represents: that is what "my own component" means
+  // once records start merging.
+  const origins = new Map();
   let collapsed = 0;
   let slugsTransferred = 0;
   let unmergeable = 0;
@@ -271,12 +374,13 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   // ~30k-entry aggregate archive, where a full rebuild per entry would be
   // quadratic. An entry whose merge was refused is kept in `out` but claims no
   // route, so a later entry cannot try (and fail) to collapse onto it again.
-  const keep = (entry, { claimsRoutes = true } = {}) => {
+  const keep = (entry, { claimsRoutes = true, represents = [entry] } = {}) => {
     out.push(entry);
+    origins.set(entry, new Set(represents));
     if (claimsRoutes) for (const route of namespaced(entry)) owners.set(route, entry);
   };
 
-  for (const entry of entries) {
+  for (const entry of input) {
     const claimed = new Set(namespaced(entry).map((route) => owners.get(route)).filter(Boolean));
     if (claimed.size === 0) {
       keep(entry);
@@ -288,6 +392,10 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     const component = [...claimed, entry].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
     const required = new Set(component.flatMap(namespaced));
     const survivor = structuredClone(component[0]);
+    const componentOrigins = new Set();
+    for (const member of component) {
+      for (const origin of origins.get(member) ?? [member]) componentOrigins.add(origin);
+    }
     let transferred = 0;
     let merged = true;
     try {
@@ -299,20 +407,34 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
       // Only the legacy-bucket cap refusal is an expected outcome. Anything
       // else is a defect in the entry or in this code, and swallowing it would
       // make the component silently `unmergeable` — indistinguishable from a
-      // legitimate refusal, and invisible in the cron log.
-      if (!/Cannot preserve \d+ legacy routes/.test(String(error?.message || ''))) throw error;
+      // legitimate refusal, and invisible in the cron log. The refusal is
+      // recognised by TYPE, not by its message: the wording is a log string
+      // that no gate protects, so a reword would abort the whole archival step
+      // and an unrelated defect that happened to match would be swallowed.
+      if (!isLegacyRouteCapRefusal(error)) throw error;
       merged = false;
       capRefused += 1;
     }
     if (merged) {
       const served = new Set(namespaced(survivor));
+      // A gained route is free only if nobody else holds it — neither an
+      // already-surviving record (incremental index) nor an input entry not yet
+      // processed (pre-pass index). Consulting only the first made the verdict
+      // depend on where the other holder happened to sit in the input.
+      const heldByOthers = (route) => {
+        if (owners.has(route)) return true;
+        for (const holder of claimants.get(route) ?? []) {
+          if (!componentOrigins.has(holder)) return true;
+        }
+        return false;
+      };
       // `promotePreviousSlugToLegacy` moves a slug out of its per-locale bucket
       // into flat `previousSlugs`, which the SEO bridge serves under EVERY
       // locale prefix. The survivor can therefore gain routes neither original
       // entry served — and one of those may already belong to a third record.
       // Requiring the union is not enough: the gained routes must be free.
       merged = [...required].every((route) => served.has(route))
-        && [...served].every((route) => required.has(route) || !owners.has(route));
+        && [...served].every((route) => required.has(route) || !heldByOthers(route));
     }
     if (!merged) {
       unmergeable += 1;
@@ -322,6 +444,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     for (let index = out.length - 1; index >= 0; index -= 1) {
       if (!claimed.has(out[index])) continue;
       for (const route of namespaced(out[index])) owners.delete(route);
+      origins.delete(out[index]);
       out.splice(index, 1);
     }
     slugsTransferred += transferred;
@@ -329,7 +452,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     // Safe to re-add wholesale: the survivor was accepted only after proving it
     // serves the component's entire route union, so it re-claims every route
     // just deleted plus its own.
-    keep(survivor);
+    keep(survivor, { represents: componentOrigins });
   }
 
   // A survivor is pushed at the position of the OLDEST member of its component
