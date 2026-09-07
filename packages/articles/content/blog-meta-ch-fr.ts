@@ -5800,6 +5800,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.attivita-appenzello-esterno-registro.title': 'Ouvrir une entreprise à Appenzell Extérieur : procédures et coûts',
     'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Guide complet : formes juridiques, registre du commerce, capital minimum, cotisations AVS/LPP et obligations d\'assurance pour créer une entreprise dans le canton.',
     'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Bureau dans une administration cantonale suisse avec des formulaires d\'enregistrement commercial.',
+    'blog.article.fondare-impresa-appenzello-esterno.title': 'Ouvrir une entreprise à Appenzell Extérieur : guide pratique',
+    'blog.article.fondare-impresa-appenzello-esterno.excerpt': 'Formes juridiques, inscription au registre, capital minimum, impôts fédéraux et cantonaux, sécurité sociale et obligations d\'assurance pour démarrer une activité.',
+    'blog.article.fondare-impresa-appenzello-esterno.imageAlt': 'Bureau commercial suisse moderne avec documents de registre et paysage alpin en arrière-plan',
 };
 
 export default blogMetaChFr;

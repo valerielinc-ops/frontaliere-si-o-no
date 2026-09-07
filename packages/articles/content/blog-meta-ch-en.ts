@@ -5800,6 +5800,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.attivita-appenzello-esterno-registro.title': 'Opening a business in Appenzello Esterno: procedures and costs',
     'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Complete guide: legal forms, trade register, minimum capital, AVS/LPP contributions and insurance obligations to set up a business in the canton.',
     'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Desk in a Swiss cantonal administrative office with business registration forms and official documents.',
+    'blog.article.fondare-impresa-appenzello-esterno.title': 'Opening a business in Appenzello Esterno: a practical guide',
+    'blog.article.fondare-impresa-appenzello-esterno.excerpt': 'Legal forms, registration, minimum capital, federal and cantonal taxes, social security and insurance obligations to start a business.',
+    'blog.article.fondare-impresa-appenzello-esterno.imageAlt': 'Modern Swiss business office with registration documents and Alpine mountains visible through the window',
 };
 
 export default blogMetaChEn;
