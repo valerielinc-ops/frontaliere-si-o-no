@@ -39,6 +39,7 @@ import {
 } from './lib/sunrise-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readCurrentRunJobs } from './lib/crawler-run-jobs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -279,7 +280,10 @@ function updateAdapterConfig(jobs) {
 }
 
 function alignItalianDescriptions() {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  // The run's own working set, not the previous run's published slice:
+  // reading through `readExistingCrawlerJobs()` here handed back the jobs this
+  // run had just merged away and wrote them back over `DATA_JOBS` (#7706).
+  const jobs = readCurrentRunJobs(DATA_JOBS);
   let changed = false;
   for (const job of jobs) {
     if (!isTargetJob(job)) continue;
