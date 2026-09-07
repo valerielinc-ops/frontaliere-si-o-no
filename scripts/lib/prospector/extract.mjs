@@ -514,9 +514,14 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  * wrong ad silences the mismatch exactly where the published seat is really
  * wrong, and the job page stays indexed with the wrong `jobLocation` (#7772).
  *
- * Among the containers that do carry the title, the narrowest wins: when a
- * `<main>` wraps both the vacancy `<article>` and a related-jobs one, both
- * contain the title and only the inner one excludes the neighbours.
+ * Among the containers that do carry the title, only NESTING breaks the tie:
+ * when a `<main>` wraps both the vacancy `<article>` and a related-jobs one,
+ * both contain the title and only the inner one excludes the neighbours. Two
+ * SIBLINGS instead keep document order, because the match is a substring one:
+ * a teaser whose own title is a superset (`Pflegefachfrau` in a card for
+ * `Pflegefachfrau HF 80%`) also `includes()` the title and, being a card, is
+ * shorter than the real vacancy — picking the shortest would hand the
+ * workplace to the neighbouring ad, the very defect this selection closes.
  *
  * @param {string} html
  * @param {string} [title] vacancy title as rendered/structured on the page
@@ -531,14 +536,25 @@ function vacancyContainerContent(html = '', title = '') {
     if (opening.selfClosing) continue;
     const bounds = index.boundsByStart.get(opening.index);
     if (!bounds) continue;
-    regions.push(source.slice(opening.end, bounds.contentEnd));
+    regions.push({
+      start: opening.end,
+      end: bounds.contentEnd,
+      content: source.slice(opening.end, bounds.contentEnd),
+    });
   }
   const wanted = textOf(title).toLowerCase();
   const owning = wanted
-    ? regions.filter((region) => textOf(region).toLowerCase().includes(wanted))
+    ? regions.filter((region) => textOf(region.content).toLowerCase().includes(wanted))
     : [];
-  owning.sort((a, b) => a.length - b.length);
-  return owning[0] ?? regions[0] ?? '';
+  // Document order first (`index.openings` is scan order), then descend the
+  // nesting chain of that first owner: a region that starts after it and ends
+  // within it is an ancestor's child, a region that ends outside it is a
+  // sibling and never displaces it.
+  let chosen = owning[0];
+  for (const region of owning) {
+    if (chosen && region.start > chosen.start && region.end <= chosen.end) chosen = region;
+  }
+  return (chosen ?? regions[0])?.content ?? '';
 }
 
 /**

@@ -256,9 +256,10 @@ describe('vacancy extraction', () => {
   });
 
   // Il <main> avvolge sia la vacancy sia il blocco di annunci correlati: fra i
-  // container che contengono il titolo vince il più stretto, l'unico che esclude
-  // i vicini. Senza titolo riconoscibile si ricade sul primo, come prima.
-  it('prefers the narrowest title-bearing region and falls back to the first', () => {
+  // container ANNIDATI che contengono il titolo vince il più interno, l'unico
+  // che esclude i vicini. Senza titolo riconoscibile si ricade sul primo, come
+  // prima.
+  it('prefers the innermost title-bearing region and falls back to the first', () => {
     const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
       + `<h1 itemprop="title">Comptable</h1>`
       + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
@@ -275,6 +276,24 @@ describe('vacancy extraction', () => {
         expect.objectContaining({ location: '1201 Genève' }),
         expect.objectContaining({ location: '6900 Lugano' }),
       ]);
+  });
+
+  // L'appartenenza è un match di sottostringa: la card di un annuncio correlato
+  // il cui titolo è un SUPERSET (`Comptable` ⊂ `Comptable senior`) contiene il
+  // titolo cercato pure lei, ed essendo una card è più corta dell'article della
+  // vacancy vera. Fra FRATELLI il più corto non vince: l'ordine di documento
+  // tiene, altrimenti la sede la corroborerebbe l'annuncio vicino.
+  it('keeps document order between sibling regions whose teaser title is a superset', () => {
+    const html = `<article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><p>1201 Genève</p></div></article>`
+      + `<article class="related"><h3>Comptable senior</h3>`
+      + `<div class="contact-info"><p>6900 Lugano</p></div></article>`;
+    expect(renderedPostalAddressCandidates(html, 'Comptable'))
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
   });
 
   // L'indirizzo dell'azienda nel chrome del sito è ripetuto identico su ogni
