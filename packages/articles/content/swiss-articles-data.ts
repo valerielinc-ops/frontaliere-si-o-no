@@ -17713,6 +17713,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'action-negozio-20esimo-schattdorf',
+    category: 'novita',
+    date: '2026-09-07T09:43:03.666Z',
+    image: '/images/blog/action-negozio-20esimo-schattdorf.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
