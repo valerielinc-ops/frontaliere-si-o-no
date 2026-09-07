@@ -34500,6 +34500,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'padula-nomina-direttore-ire-usi',
+ category: 'novita',
+ date: '2026-09-07T10:18:12.607Z',
+ image: '/images/blog/padula-nomina-direttore-ire-usi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

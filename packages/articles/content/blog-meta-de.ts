@@ -11551,6 +11551,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-07.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 7. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-07.seoDescription': 'Grenzgänger-Bulletin vom 7. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-07.ogDescription': 'Die Zahlen vom 7. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.padula-nomina-direttore-ire-usi.title': 'Mario Padula ab 2026 zum Direktor DER USI ernannt',
+    'blog.article.padula-nomina-direttore-ire-usi.excerpt': 'Der auf Vorsorge und Familienfinanzierung spezialisierte Ökonom wird ab dem 1. September 2026 das Institut für Wirtschaftsforschung der USI leiten.',
+    'blog.article.padula-nomina-direttore-ire-usi.imageAlt': 'USI-Campus in Lugano mit Seeblick',
 };
 
 export default blogMetaDe;
