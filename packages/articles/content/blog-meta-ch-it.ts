@@ -5821,6 +5821,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Asilo nido Berna: tariffe, costi e sussidi',
     'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Custodia bambini nel canton Berna: asili nido, Tagesfamilien, doposcuola. Tariffe calcolate sul reddito familiare e sussidi cantonali disponibili.',
     'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Asilo nido nel canton Berna con bambini in area giochi esterna',
+    'blog.article.argovia-salari-livelli-formazione.title': 'Argovia: salari, settori e livelli di formazione',
+    'blog.article.argovia-salari-livelli-formazione.excerpt': 'Come sono strutturati i salari in Argovia secondo il grado di formazione, i settori che assumono e i contratti collettivi previsti.',
+    'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Vista panoramica di una città svizzera, simbolo di economia e mercato del lavoro',
 };
 
 export default blogMetaChIt;

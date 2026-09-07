@@ -5821,6 +5821,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Kindergarten Bern: fees, costs and subsidies',
     'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Child care in the canton of Bern: kindergartens, Tagesfamilien, after-school. Rates calculated on family income and available cantonal subsidies.',
     'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Daycare center in Canton Bern with children in outdoor play area',
+    'blog.article.argovia-salari-livelli-formazione.title': 'Aargau: salaries, sectors and levels of training',
+    'blog.article.argovia-salari-livelli-formazione.excerpt': 'How salaries are structured in Aargau according to the degree of training, the sectors they hire and the collective agreements envisaged.',
+    'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Panoramic view of a Swiss city, symbol of economy and labor market',
 };
 
 export default blogMetaChEn;
