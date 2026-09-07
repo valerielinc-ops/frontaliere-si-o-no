@@ -5827,6 +5827,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-argovia.title': 'Salaires et marché du travail en Argovie : secteurs et niveaux',
     'blog.article.salari-mercato-lavoro-argovia.excerpt': 'Dans le canton d\'Argovie, les salaires varient par formation et conventions collectives. Découvrez les écarts de rémunération, les cotisations sociales et les protections fédérales du travail.',
     'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Bureau moderne d\'une entreprise suisse avec salariés: environnement professionnel du marché du travail dans le canton d\'Argovie',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.title': 'Permis de séjour B dans le canton de Thurgovie : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.excerpt': 'Découvrez les conditions et la procédure de renouvellement du permis de séjour B dans le canton de Thurgovie.',
+    'blog.article.permesso-dimora-b-canton-turgovia-requisiti-rinnovo.imageAlt': 'Bureau cantonal de l\'immigration en Turgovie',
 };
 
 export default blogMetaChFr;

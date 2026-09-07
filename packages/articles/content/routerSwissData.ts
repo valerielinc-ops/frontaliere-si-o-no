@@ -1968,6 +1968,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-berna-tariffe-sussidi': { it: 'asilo-nido-berna-tariffe-sussidi', en: 'bern-daycare-fees-subsidies', de: 'kindergarten-bern-gebuehren-subventionen', fr: 'garde-enfants-berne-tarifs-aides' },
  'argovia-salari-livelli-formazione': { it: 'argovia-salari-livelli-formazione', en: 'aargau-salaries-levels-training', de: 'aargau-gehalt-stufen-ausbildung', fr: 'argovie-salaires-niveaux-formation' },
  'salari-mercato-lavoro-argovia': { it: 'salari-mercato-lavoro-argovia', en: 'salaries-job-market-aargau', de: 'loehne-arbeitsmarkt-aargau', fr: 'salaires-marche-travail-argovie' },
+ 'permesso-dimora-b-canton-turgovia-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-turgovia-requisiti-rinnovo', en: 'residence-permit-b-canton-turgovia-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-thurgau-voraussetzungen-verlaengerung', fr: 'permis-de-sejour-b-canton-de-thurgovie-exigences-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
