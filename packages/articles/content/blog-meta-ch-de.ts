@@ -5821,6 +5821,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Kindertagesstätte Bern: Tarife, Kosten und Zuschüsse',
     'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Kinderbetreuung im Kanton Bern: Kindertagesstätten, Tagesfamilien, Kindertagesstätten. Auf das Familieneinkommen berechnete Tarife und verfügbare kantonale Subventionen.',
     'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Kindergarten im Kanton Bern mit Kindern im Außenspielbereich',
+    'blog.article.argovia-salari-livelli-formazione.title': 'Aargau: Löhne, Branchen und Ausbildungsstufen',
+    'blog.article.argovia-salari-livelli-formazione.excerpt': 'Wie die Löhne im Aargau nach Bildungsgrad, eingestellten Branchen und geplanten Kollektivverträgen strukturiert sind.',
+    'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Panoramablick auf eine Schweizer Stadt, Symbol von Wirtschaft und Arbeitsmarkt',
 };
 
 export default blogMetaChDe;

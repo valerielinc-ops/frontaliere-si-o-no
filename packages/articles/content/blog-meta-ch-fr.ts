@@ -5821,6 +5821,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Garderie Berne : tarifs, coûts et allocations',
     'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Garde d\'enfants dans le canton de Berne : crèches, Tagesfamilien, après l\'école. Tarifs calculés sur le revenu familial et allocations cantonales disponibles.',
     'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Crèche dans le canton de Berne avec enfants dans l\'aire de jeux extérieure',
+    'blog.article.argovia-salari-livelli-formazione.title': 'Argovie : salaires, secteurs et niveaux de formation',
+    'blog.article.argovia-salari-livelli-formazione.excerpt': 'Comment sont structurés les salaires en Argovie selon le degré de formation, les secteurs qu\'ils embauchent et les conventions collectives prévues.',
+    'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Vue panoramique d\'une ville suisse, symbole d\'économie et du marché du travail',
 };
 
 export default blogMetaChFr;

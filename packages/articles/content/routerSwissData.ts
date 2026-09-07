@@ -1966,6 +1966,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-eredita-appenzello-esterno': { it: 'imposta-eredita-appenzello-esterno', en: 'inheritance-tax-appenzell-rhodes-outer', de: 'erbschaftsteuer-appenzell-ausserrhoden', fr: 'impot-succession-appenzell-rhodes-externes' },
  'argovia-mercato-lavoro-settori': { it: 'argovia-mercato-lavoro-settori', en: 'aargau-labour-market-sectors', de: 'aargau-arbeitsmarkt-sektoren', fr: 'argovie-marche-travail-secteurs' },
  'asilo-nido-berna-tariffe-sussidi': { it: 'asilo-nido-berna-tariffe-sussidi', en: 'bern-daycare-fees-subsidies', de: 'kindergarten-bern-gebuehren-subventionen', fr: 'garde-enfants-berne-tarifs-aides' },
+ 'argovia-salari-livelli-formazione': { it: 'argovia-salari-livelli-formazione', en: 'aargau-salaries-levels-training', de: 'aargau-gehalt-stufen-ausbildung', fr: 'argovie-salaires-niveaux-formation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

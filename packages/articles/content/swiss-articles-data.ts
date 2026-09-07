@@ -17461,6 +17461,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'argovia-salari-livelli-formazione',
+    category: 'pratico',
+    date: '2026-09-07T03:14:29.249Z',
+    image: '/images/blog/argovia-salari-livelli-formazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
