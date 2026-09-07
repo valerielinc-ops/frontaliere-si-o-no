@@ -11501,6 +11501,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Vivre à Cedrasco, travailler dans les Grisons : guide',
     'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Déménager à Cedrasco pour travailler dans les Grisons : découvrez le permis G, la fiscalité frontalière, l\'AVS, la LAMal et la procédure d\'enregistrement complète.',
     'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Paysage montagneux à la frontière entre la Suisse et l\'Italie dans la région des Grisons, symbole du territoire frontalier',
+    'blog.article.schilpario-frontaliere-grigioni-guida.title': 'De Schilpario aux Grisons : vivre en frontalier',
+    'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Permis G, fiscalité, impôt à la source, AVS et LAMal : découvrez comment fonctionne le régime fiscal pour les frontaliers qui vivent à Schilpario et travaillent dans les Grisons.',
+    'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'Vue des Grisons vers la Lombardie: paysage alpin transfrontalier pour travailleurs frontaliers',
 };
 
 export default blogMetaFr;

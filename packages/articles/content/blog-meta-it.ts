@@ -11500,6 +11500,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Vivere a Cedrasco, lavorare in Grigioni: guida',
     'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Trasferirsi a Cedrasco per lavorare nei Grigioni: scopri Permesso G, tassazione frontaliere, AVS, LAMal e la procedura di registrazione completa.',
     'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Paesaggio montano della regione di confine tra Italia e Svizzera, simbolo del territorio frontaliere dei Grigioni',
+    'blog.article.schilpario-frontaliere-grigioni-guida.title': 'Da Schilpario ai Grigioni: vivere da frontaliere',
+    'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Permesso G, tassazione, imposta alla fonte, AVS e LAMal: scopri come funziona il regime fiscale per frontalieri che vivono a Schilpario e lavorano nei Grigioni.',
+    'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'Veduta dai Grigioni verso la Lombardia: paesaggio alpino transfrontaliero per frontalieri',
 };
 
 export default blogMetaIt;

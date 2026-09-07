@@ -11499,6 +11499,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cedrasco-grigioni-frontaliere-guida.title': 'Living in Cedrasco, working in Graubünden: a guide',
     'blog.article.cedrasco-grigioni-frontaliere-guida.excerpt': 'Moving to Cedrasco to work in Graubünden: discover Permit G, border taxation, AVS, LAMal and the complete registration procedure.',
     'blog.article.cedrasco-grigioni-frontaliere-guida.imageAlt': 'Mountain landscape at the Swiss-Italian border in the Grisons region, symbol of the cross-border frontier territory',
+    'blog.article.schilpario-frontaliere-grigioni-guida.title': 'From Schilpario to the Graubünden: living as a border worker',
+    'blog.article.schilpario-frontaliere-grigioni-guida.excerpt': 'Permit G, taxation, tax at source, AVS and LAMal: find out how the tax regime works for border workers living in Schilpario and working in Graubünden.',
+    'blog.article.schilpario-frontaliere-grigioni-guida.imageAlt': 'View from the Grisons towards Lombardy: cross-border Alpine landscape for commuters',
 };
 
 export default blogMetaEn;
