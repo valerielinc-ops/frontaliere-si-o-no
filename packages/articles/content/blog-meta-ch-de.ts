@@ -5818,6 +5818,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.argovia-mercato-lavoro-settori.title': 'Arbeitsmarkt Aargau: Löhne, Branchen und Ausbildung',
     'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Im Kanton Aargau orientiert sich der Arbeitsmarkt am schweizerischen System: Ausbildung bestimmt die Löhne, Kollektivverträge legen die Mindestlöhne fest, Bundesrechte garantieren Ferien und Arbeitszeiten.',
     'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Schweizer Fachkräfte in modernem Büroumfeld, die die Arbeitssektoren des Kantons Aargau repräsentieren',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Kindertagesstätte Bern: Tarife, Kosten und Zuschüsse',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Kinderbetreuung im Kanton Bern: Kindertagesstätten, Tagesfamilien, Kindertagesstätten. Auf das Familieneinkommen berechnete Tarife und verfügbare kantonale Subventionen.',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Kindergarten im Kanton Bern mit Kindern im Außenspielbereich',
 };
 
 export default blogMetaChDe;

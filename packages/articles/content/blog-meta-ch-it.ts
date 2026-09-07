@@ -5818,6 +5818,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.argovia-mercato-lavoro-settori.title': 'Mercato del lavoro Argovia: salari, settori e formazione',
     'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Nel canton Argovia il mercato del lavoro segue il sistema svizzero: formazione determina i salari, contratti collettivi fissano i minimi, diritti federali garantiscono ferie e orari.',
     'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Professionisti svizzeri in ambiente di lavoro moderno rappresentanti i settori del mercato del lavoro dell\'Argovia',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Asilo nido Berna: tariffe, costi e sussidi',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Custodia bambini nel canton Berna: asili nido, Tagesfamilien, doposcuola. Tariffe calcolate sul reddito familiare e sussidi cantonali disponibili.',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Asilo nido nel canton Berna con bambini in area giochi esterna',
 };
 
 export default blogMetaChIt;

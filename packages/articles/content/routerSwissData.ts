@@ -1965,6 +1965,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-berna-diritti-domanda': { it: 'assegni-familiari-berna-diritti-domanda', en: 'family-allowances-bern-conditions-application', de: 'familienzulagen-bern-bedingungen-antrag', fr: 'allocations-familiales-berne-conditions-demande' },
  'imposta-eredita-appenzello-esterno': { it: 'imposta-eredita-appenzello-esterno', en: 'inheritance-tax-appenzell-rhodes-outer', de: 'erbschaftsteuer-appenzell-ausserrhoden', fr: 'impot-succession-appenzell-rhodes-externes' },
  'argovia-mercato-lavoro-settori': { it: 'argovia-mercato-lavoro-settori', en: 'aargau-labour-market-sectors', de: 'aargau-arbeitsmarkt-sektoren', fr: 'argovie-marche-travail-secteurs' },
+ 'asilo-nido-berna-tariffe-sussidi': { it: 'asilo-nido-berna-tariffe-sussidi', en: 'bern-daycare-fees-subsidies', de: 'kindergarten-bern-gebuehren-subventionen', fr: 'garde-enfants-berne-tarifs-aides' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
