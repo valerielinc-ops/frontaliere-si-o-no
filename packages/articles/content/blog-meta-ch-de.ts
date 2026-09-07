@@ -5806,6 +5806,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-appenzello-esterno-conversione.title': 'Führerschein Appenzell Ausserrhoden: Umbau und Prüfungen',
     'blog.article.patente-guida-appenzello-esterno-conversione.excerpt': 'Wie man den ausländischen Führerschein in Appenzell Ausserrhoden umwandelt: Theorie-, Praxis-, Kurs- und Verfahrensprüfung beim kantonalen Strassenverkehrsamt.',
     'blog.article.patente-guida-appenzello-esterno-conversione.imageAlt': 'Kantonsverkehrsbuero mit Beschilderung, Ort der Fahrererlaubniskonvertierung.',
+    'blog.article.avs-cassa-compensazione-canton.title': 'AHV und Leistungen: kantonale Ausgleichskasse',
+    'blog.article.avs-cassa-compensazione-canton.excerpt': 'Wie funktioniert die kantonale Ausgleichskasse für die AHV, die Rentenberechnung und die Ergänzungsleistungen für Personen mit Beitragslücken?',
+    'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Finanzberater überprüft AHV-Beiträge in einem Schweizer Kantonsamt',
 };
 
 export default blogMetaChDe;

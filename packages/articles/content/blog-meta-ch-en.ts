@@ -5806,6 +5806,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-appenzello-esterno-conversione.title': 'External Appenzello Driving License: Conversion and Exams',
     'blog.article.patente-guida-appenzello-esterno-conversione.excerpt': 'How to convert the foreign license to External Appenzell: theoretical, practical exam, courses and procedure at the Cantonal Traffic Office.',
     'blog.article.patente-guida-appenzello-esterno-conversione.imageAlt': 'Cantonal traffic office with official signage, where driving licenses are converted and registered.',
+    'blog.article.avs-cassa-compensazione-canton.title': 'AVS and benefits: cantonal compensation fund',
+    'blog.article.avs-cassa-compensazione-canton.excerpt': 'How the cantonal compensation fund works for the AVS, the calculation of the pension and supplementary benefits for those who have contribution gaps.',
+    'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Financial advisor reviewing AVS contributions in a Swiss cantonal office',
 };
 
 export default blogMetaChEn;
