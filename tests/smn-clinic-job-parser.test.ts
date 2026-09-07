@@ -4,6 +4,7 @@ import {
   normalizeClinicLabel,
   extractPostingDepartmentLabels,
   classifyZeroMatchRun,
+  fetchOutcomeForZeroMatch,
   suggestDirectoryLabels,
 } from '../scripts/lib/smn-clinic-job-parser.mjs';
 import {
@@ -287,5 +288,33 @@ describe('suggestDirectoryLabels', () => {
   it('returns an empty list on empty input', () => {
     expect(suggestDirectoryLabels([], directory)).toEqual([]);
     expect(suggestDirectoryLabels(['motionlab'])).toEqual([]);
+  });
+});
+
+describe('fetchOutcomeForZeroMatch (slice lastFetchOutcome, issue #7897)', () => {
+  it('reports a label drift as selector_miss', () => {
+    // The verdict the crawler-health monitor could never reach on its own: a
+    // drifted run and an idle board both publish `total: 0`, so the streak gate
+    // waited three days and then still only said "returned 0 jobs".
+    expect(fetchOutcomeForZeroMatch('label-drift')).toBe('selector_miss');
+  });
+
+  it('reports a genuinely empty board as ok', () => {
+    // Fetch and parse both worked — the clinic simply has no openings. `ok`
+    // says nothing about the count, so the existing gates keep owning the run.
+    expect(fetchOutcomeForZeroMatch('empty-board')).toBe('ok');
+    expect(fetchOutcomeForZeroMatch('matched')).toBe('ok');
+  });
+
+  it('omits the field when the directory could not be read', () => {
+    // `unverified` means the run separated nothing. Emitting `ok` here would
+    // assert a healthy parser on no evidence — the #7320 guess-from-absence,
+    // pointing the other way. Absent is a different claim, and the monitor
+    // reads it as "no verdict" and falls back to the pre-#7897 behaviour.
+    expect(fetchOutcomeForZeroMatch('unverified')).toBeNull();
+  });
+
+  it('omits the field for an unknown verdict rather than inventing one', () => {
+    expect(fetchOutcomeForZeroMatch(undefined as unknown as 'matched')).toBeNull();
   });
 });
