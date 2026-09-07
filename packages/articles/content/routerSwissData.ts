@@ -2012,6 +2012,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni': { it: 'impatto-ia-dipendenti-telecom-syndicom-rivendicazioni', en: 'impact-ai-telecom-workers-syndicom-demand', de: 'auswirkung-kuenstliche-intelligenz-telekommitarbeiter-syndicom-forderungen', fr: 'impact-intelligence-artificielle-employes-telecom-syndicom-revendications' },
  'melide-riqualifica-centro': { it: 'melide-riqualifica-centro', en: 'melide-town-center-renovation', de: 'melide-stadtzentrum-renovierung', fr: 'melide-centre-ville-renovation' },
  'luna-wedler-golden-eye-award-zurigo': { it: 'luna-wedler-golden-eye-award-zurigo', en: 'luna-wedler-golden-eye-award-zurich', de: 'luna-wedler-golden-eye-award-zuerich', fr: 'luna-wedler-golden-eye-award-zurich' },
+ 'salute-parchi-giochi-svizzeri-mozziconi-sigarette': { it: 'salute-parchi-giochi-svizzeri-mozziconi-sigarette', en: 'health-swiss-playgrounds-cigarette-butts', de: 'gesundheit-schweizer-spielplaetze-zigarettenstummel', fr: 'sante-parcs-jeux-suisses-megots-cigarettes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
