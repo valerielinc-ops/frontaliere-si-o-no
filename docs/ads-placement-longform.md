@@ -122,6 +122,19 @@ il credito parole riparte a ogni segmento di corpo (mediana 3 segmenti), quindi
 un gap da 500 scenderebbe a una media di 1,57 ad — sotto i 3 della spec, cioè
 un taglio di densità invece del profilo specificato.
 
+Dal 2026-09-07 (issue #7746) quei 300 sono il **tetto** del gap, non una
+costante. Lo stesso credito-parole che riparte a ogni segmento rendeva i 300
+impagabili per un longform corto: sui 401 articoli `it` longform ad-eligible,
+**35 stavano sotto i 2 ad in-content** (4 a zero, 31 a uno) — una coda che la
+media 2,75 nascondeva. `longformWordGap` scala quindi il gap su metà della
+lunghezza media di segmento, con **pavimento 200** (il gap del profilo
+standard): un longform non può mai essere spaziato più *stretto* di quanto lo
+sarebbe lo stesso corpo in formato breve, quindi il pavimento ripara la coda
+senza aumentare la densità di nessun articolo oltre quella pre-#7336. Misura:
+media 2,75 → 2,95, articoli sotto 2 ad 35 → 5 (i 5 residui hanno ≤1 ad anche
+col profilo standard: è la loro struttura, non il profilo), **108 su 401 restano
+sul gap pieno da 300**, zero articoli perdono un ad.
+
 Resta non misurabile finché non esiste un longform *nuovo* pubblicato: le
 metriche di §5 (CLS/LCP/INP, viewability, RPM, scroll depth) vanno confrontate
 contro la media del formato breve sullo stesso periodo.

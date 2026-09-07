@@ -2131,7 +2131,10 @@ function BlogArticles({
  // 3000w one, under the Better Ads ≈30% guideline. A longform body (≥7 `## `
  // sections) instead gets the reduced profile of
  // `docs/ads-placement-longform.md` §3 — 3 in-content ads spread by a wider
- // gap, plus the ARTICLE_END_MULTIPLEX closing unit rendered below.
+ // gap, plus the ARTICLE_END_MULTIPLEX closing unit rendered below. That gap is
+ // resolved from THIS body (#7746): the word credit restarts on every segment,
+ // so a longform whose segments are shorter than the full gap pays a reduced
+ // one instead of dropping below 2 in-content ads.
  const adDensity: ArticleAdDensityProfile = resolveArticleAdDensity(presentSegments);
  const ARTICLE_INLINE_AD_CAP = adDensity.inlineCap;
  // Mutable counter for the per-paragraph ad renderer; reset on every render
