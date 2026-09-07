@@ -6010,6 +6010,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Sistema scolastico nel Canton Ginevra: cicli, iscrizione e calendario',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Come funziona la scuola dell\'obbligo a Ginevra: cicli, età di iscrizione, lingue di insegnamento e passaggio alle medie superiori.',
     'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Scuola primaria a Ginevra: aula con arredi moderni e libri in francese',
+    'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprendistato e formazione professionale nel Canton Ginevra',
+    'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Percorso duale a Ginevra: contratto di tirocinio, salario, maturità professionale e accesso alle SUP. Guida completa.',
+    'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprendista al lavoro in un\'azienda formatrice nel Cantone di Ginevra',
 };
 
 export default blogMetaChIt;
