@@ -5902,6 +5902,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volo-swiss-emergenza-medica-zurigo-boston.title': 'Medizinischer Notfall: Swiss Flug kehrt über den Atlantik zurück',
     'blog.article.volo-swiss-emergenza-medica-zurigo-boston.excerpt': 'Am Samstagabend musste der Swiss Flug LX54 von Zürich nach Boston die Route über den Atlantik umkehren und in die Schweiz zurückkehren.',
     'blog.article.volo-swiss-emergenza-medica-zurigo-boston.imageAlt': 'Luftaufnahme eines Schweizer Flugzeugs über dem Atlantik',
+    'blog.article.zurich-hcl-gold-sponsor-2030.title': 'Zurich verlängert mit HCL: Gold Sponsor bis 2030',
+    'blog.article.zurich-hcl-gold-sponsor-2030.excerpt': 'Zurich Versicherungen hat ihre Partnerschaft mit dem Hockey Club Lugano bis 2030 verlängert und sich als Gold Sponsor bestätigt.',
+    'blog.article.zurich-hcl-gold-sponsor-2030.imageAlt': 'Panoramablick auf den Luganersee mit Hockey Club Lugano und Zurich Versicherung',
 };
 
 export default blogMetaChDe;
