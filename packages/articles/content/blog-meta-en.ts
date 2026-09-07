@@ -11505,6 +11505,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Living in Colorina and working in Graubünden',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'Permit G, taxation in Switzerland, Italian tax credit, AVS/LPP, LAMal and procedures: the complete guide for border workers between Sondrio and Grisons.',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina, border town in Sondrio province Italy: residential area for cross-border workers in Canton Grisons Switzerland',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Living in Jovençan, working in Valais as a border worker',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Permit G, tax at source, AVS and living costs: a practical guide for those who live in Valle d \'Aosta and work in Valais',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Alpine valley landscape in Aosta Valley with road connecting to Swiss Valais at the border',
 };
 
 export default blogMetaEn;
