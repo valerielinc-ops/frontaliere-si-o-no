@@ -5812,6 +5812,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-berna-diritti-domanda.title': 'Allocations familiales Berne : conditions et demande',
     'blog.article.assegni-familiari-berna-diritti-domanda.excerpt': 'Dans le canton de Berne, les allocations familiales garantissent une aide pour chaque enfant. Découvrez les droits, les procédures de demande et où vous renseigner.',
     'blog.article.assegni-familiari-berna-diritti-domanda.imageAlt': 'Bureau de la caisse de compensation des allocations familiales du canton de Berne, citoyens se renseignant.',
+    'blog.article.imposta-eredita-appenzello-esterno.title': 'Droit de succession et donation à Appenzell Extérieur',
+    'blog.article.imposta-eredita-appenzello-esterno.excerpt': 'Taux par degré de parenté, exonérations pour conjoint et descendants directs, déclaration et délais de paiement dans le canton d\'Appenzell Extérieur.',
+    'blog.article.imposta-eredita-appenzello-esterno.imageAlt': 'Bureau avec documents fiscaux d\'héritage suisse, formulaires de déclaration et calculatrice à la lumière naturelle, paysage alpin visible par la fenêtre.',
 };
 
 export default blogMetaChFr;
