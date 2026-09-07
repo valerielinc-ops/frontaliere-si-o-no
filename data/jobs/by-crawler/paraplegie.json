@@ -2363,22 +2363,6 @@
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/pharma-assistent-in/22e35391-e1ca-4323-897c-239a0dc99235",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "pharma-assistent-in-paraplegie-nottwil",
-        "assistente-medico-schweizer-paraplegiker-gruppe-nottwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharma-assistent-in-paraplegie-nottwil",
-          "assistente-medico-schweizer-paraplegiker-gruppe-nottwil"
-        ],
-        "en": [
-          "pharma-assistent-in-paraplegie-nottwil"
-        ],
-        "fr": [
-          "pharma-assistent-in-paraplegie-nottwil"
-        ]
-      },
       "firstSeenAt": "2026-09-02T13:35:27.455Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2392,7 +2376,25 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-in-paraplegie-nottwil",
+          "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
+          "segretario-medico-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "en": [
+          "pharma-assistent-in-paraplegie-nottwil"
+        ],
+        "fr": [
+          "pharma-assistent-in-paraplegie-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-in-paraplegie-nottwil",
+        "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
+        "segretario-medico-schweizer-paraplegiker-gruppe-nottwil"
+      ]
     },
     {
       "id": "paraplegie-d9c925dbd320",

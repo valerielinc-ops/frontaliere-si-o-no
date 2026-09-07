@@ -450,9 +450,9 @@
       "firstSeenAt": "2026-09-05T23:06:07.850Z",
       "titleByLocale": {
         "de": "Koch / Jungkoch*in",
-        "it": "Koch / Jungkoch*in",
-        "en": "Koch / Jungkoch*in",
-        "fr": "Koch / Jungkoch*in"
+        "it": "Cucina / Giovane cuoco*",
+        "en": "Cook / Young cook*",
+        "fr": "Cuire / Jeunes cuisiniers*"
       },
       "descriptionByLocale": {
         "de": "Die Gastronomie der Genossenschaft Migros Ostschweiz ist vielfältig, modern und dynamisch. Ob Migros-Restaurant, Migros Take away, Gemeinschaftsgastronomie oder die Catering Services – wir bieten jedem Kunden und jeder Kundin ein geschmackliches Erlebnis.\n\n## Mansioni\n- Du bereitest mit Leidenschaft abwechslungsreiche warme und kalte Speisen frisch zu und präsentierst diese attraktiv auf unseren Buffets und Tellern.\n- Mit deiner herzlichen und kompetenten Art berätst und bedienst du unsere Gäste an der Essensausgabe\n- Du stellst sicher, dass unsere Hygienevorschriften gemäss Food Safety jederzeit und konsequent eingehalten werden\n\n## Requisiti\n- Berufserfahrung: in der Gastronomie\n- Abgeschlossene Grund- oder Weiterbildung: in der Gastronomie\n- Du bist ein Teamplayer, flexibel und packst überall tatkräftig mit an\n- Du arbeitest selbständig, strukturiert und serviceorientiert mit einem hohen Qualitätsbewusstsein\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- L-GAV: Attraktiver Landes-Gesamtarbeitsvertrag\n- Arbeitszeiten ohne Zimmerstunde: 41h Woche und regelmässige Arbeitszeiten ohne Zimmerstunde\n- Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung\n- Sozialleistungen: Sehr gute Sozialleistungen in den Bereichen Kinderzulagen, Krankentaggeld und Unfallversicherung\n- Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften\n\n## Contatto\n## Bewerbung & Kontakt Senada Kesedzic Leiterin Migros-Restaurant Neuwiesen +41 58 712 5080",
@@ -460,7 +460,6 @@
         "en": "The gastronomy of the cooperative Migros Eastern Switzerland is diverse, modern and dynamic. Whether Migros restaurant, Migros take away, shared gastronomy or catering services – we offer every customer a tasteful experience.\n\n## Mansioni\n- You prepare with passion varied hot and cold food fresh and present them attractively on our buffets and plates.\n- With your cordial and competent nature, you advise and serve our guests at the food outlet\n- You ensure that our hygiene regulations according to food safety are adhered to consistently at all times\n\n## Requirements\n- Professional experience: in gastronomy\n- Completed basic or further training: in gastronomy\n- You are a team player, flexible and active everywhere\n- You work independently, structured and service-oriented with a high quality awareness\n- German (very good knowledge)\n\n## Cosa of Friamo\n- L-GAV: Attractive Land collective employment contract\n- Working hours without room hour: 41h week and regular working hours without room hour\n- Occupational pension provision: Attractive pension fund benefits with high employer participation\n- Social benefits: very good social benefits in the areas of child allowances, sickness allowance and accident insurance\n- Insurance: Benefit Conditions at Various Insurance Companies\n\n## Contatto\n## Application & Contact Senada Kesedzic Director Migros-Restaurant Neuwiesen +41 58 712 5080",
         "fr": "La gastronomie de la coopérative Migros Est Suisse est diversifiée, moderne et dynamique. Restaurant Migros, Migros à emporter, gastronomie partagée ou services de restauration – nous offrons à chaque client une expérience de bon goût.\n\n## Mansioni\n- Vous préparez avec passion des plats chauds et froids variés frais et les présentez de façon attrayante sur nos buffets et assiettes.\n- Avec votre nature cordiale et compétente, vous conseillez et servez nos invités au point de vente de nourriture\n- Vous veillez à ce que nos règles d'hygiène en fonction de la sécurité alimentaire soient respectées en permanence\n\n## Exigences\n- Expérience professionnelle: en gastronomie\n- Formation de base ou de perfectionnement: en gastronomie\n- Vous êtes un joueur d'équipe, flexible et actif partout\n- Vous travaillez de façon indépendante, structurée et orientée vers le service avec une sensibilisation de haute qualité\n- Allemand (très bonne connaissance)\n\n## Cosa de Friamo\n- L-GAV: Contrat de travail collectif attrayant Land\n- Heures de travail sans heure de chambre: 41h semaine et heures de travail normales sans heure de chambre\n- Prestations de retraite professionnelles: Prestations de retraite attrayantes avec une forte participation de l'employeur\n- Prestations sociales: très bonnes prestations sociales en matière d'allocations pour enfants, d'allocations de maladie et d'assurance accidents\n- Assurance: Conditions de prestations dans diverses compagnies d'assurance\n\n## Contatto\n## Application & Contact Senada Kesedzic Directeur Migros-Restaurant Neuwiesen +41 58 712 5080"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
         "it": "koch-jungkoch-in-migros-restaurant-winterthur-hdb9cy",
         "en": "koch-jungkoch-in-migros-restaurant-winterthur-hdb9cy",
@@ -488,6 +487,8 @@
       "previousSlugs": [
         "koch-jungkoch-in-migros-restaurant-winterthur"
       ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -501,9 +502,7 @@
       },
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-w2nl9p",
