@@ -1,18 +1,79 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-09-06T23:00:20.971Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-09-07T15:18:55.310Z",
+  "total": 4,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3291,
-  "avgDurationMs": 3291,
+  "durationMs": 3963,
+  "avgDurationMs": 3963,
   "durationHistory": [
-    3291
+    3963
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Cloud Operations Specialist",
+      "slug": "cloud-operations-specialist-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/PBWVu8B7lS/Cloud-Operations-Specialist",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-07",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-12-06",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Software Engineer",
+      "slug": "software-engineer-board-international-chiasso-ticino-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/0Vdeq1quPP/Software-Engineer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/0Vdeq1quPP/Software-Engineer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Ticino, Switzerland",
+      "addressLocality": "Chiasso, Ticino, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-07",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-12-06",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Solution Developer",
