@@ -77786,6 +77786,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riserve-bns-aumento-agosto': {
+    title: 'BNS: riserve in divise estere salgono a 771 miliardi ad agosto',
+    description: 'Riserve BNS in divise estere a 771 miliardi di franchi a fine agosto (+1,9 mld su luglio); totale riserve, oro escluso, da 780 a 782 miliardi. Euro e dollaro',
+    keywords: 'frontalieri, ticino, svizzera, italia, riserve, divise, estere, salgono',
+    ogTitle: 'BNS: riserve in divise estere salgono ad agosto',
+    ogDescription: 'Le riserve in valuta estera della Banca nazionale svizzera tornano a crescere: 771 miliardi di franchi a fine agosto, +1,9 miliardi su luglio. Il totale riserve (oro escluso) passa da 780 a 782 miliardi. Euro a 0,9378 CHF, dollaro a 0,8089 CHF',
+    canonicalPath: '/articoli-svizzera/riserve-bns-aumento-agosto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: riserve in divise estere salgono a 771 miliardi ad agosto",
+      "description": "Riserve BNS in divise estere a 771 miliardi di franchi a fine agosto (+1,9 mld su luglio); totale riserve, oro escluso, da 780 a 782 miliardi. Euro e dollaro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riserve-bns-aumento-agosto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riserve in divise estere della Banca nazionale svizzera, dati di agosto pubblicati sul sito BNS."
+      },
+      "datePublished": "2026-09-07T15:16:14+00:00",
+      "dateModified": "2026-09-07T15:16:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riserve-bns-aumento-agosto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

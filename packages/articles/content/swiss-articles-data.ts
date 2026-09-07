@@ -17974,6 +17974,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'riserve-bns-aumento-agosto',
+    category: 'novita',
+    date: '2026-09-07T15:16:14.427Z',
+    image: '/images/blog/riserve-bns-aumento-agosto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
