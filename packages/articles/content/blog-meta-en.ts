@@ -11517,6 +11517,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-2024.title': 'Unemployment: rate at 3.0%, stable per month but increasing annually',
     'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'The unemployment rate in Switzerland is stable at 3.0% on a monthly basis, but is up 0.2 points on a yearly basis.',
     'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Living in Aymavilles and working in Valais as a border worker',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and the advantages and disadvantages of moving to Aymavilles to work in Valais.',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of Aymavilles with the Swiss Alps in the background',
 };
 
 export default blogMetaEn;

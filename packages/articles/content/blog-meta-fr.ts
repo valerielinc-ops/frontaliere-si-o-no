@@ -11519,6 +11519,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-2024.title': 'Chômage : taux à 3,0 %, stable sur un mois mais en hausse annuelle',
     'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Le taux de chômage en Suisse est stable à 3,0% sur une base mensuelle, mais en hausse de 0,2 point sur une base annuelle.',
     'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Vivre à Aymavilles et travailler en Valais comme frontalier',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Découvrez les liaisons, les temps de trajet, le coût de la vie et les avantages et inconvénients de déménager à Aymavilles pour travailler en Valais.',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique d\'Aymavilles avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

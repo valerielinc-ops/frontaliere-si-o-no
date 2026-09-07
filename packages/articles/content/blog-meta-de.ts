@@ -11516,6 +11516,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-2024.title': 'Arbeitslosenquote: 3,0%, monatlich stabil, aber jährlich ansteigend',
     'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz liegt monatlich stabil bei 3,0%, steigt aber gegenüber dem Vorjahr um 0,2 Punkte.',
     'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.title': 'Wohnen in Aymavilles und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten sowie die Vor- und Nachteile eines Umzugs nach Aymavilles, um im Wallis zu arbeiten.',
+    'blog.article.vivere-aymavilles-lavorare-vallese-frontaliere.imageAlt': 'Panoramablick auf Aymavilles mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
