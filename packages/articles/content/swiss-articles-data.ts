@@ -17875,6 +17875,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salute-parchi-giochi-svizzeri-mozziconi-sigarette',
+    category: 'fiscale',
+    date: '2026-09-07T13:16:04.170Z',
+    image: '/images/blog/salute-parchi-giochi-svizzeri-mozziconi-sigarette.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

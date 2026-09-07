@@ -5959,6 +5959,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.luna-wedler-golden-eye-award-zurigo.title': 'Festival Zurich: the golden eye award goes to Luna Wedler in Switzerland',
     'blog.article.luna-wedler-golden-eye-award-zurigo.excerpt': 'The Swiss actress receives the award for being the first Swiss actress to win the Golden Eye Award.',
     'blog.article.luna-wedler-golden-eye-award-zurigo.imageAlt': 'Luna Wedler receives the Golden Eye Award at the Zurich Film Festival opening ceremony.',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Health: 91 cigarette butts in Swiss playgrounds',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'National analysis on snus, nicotine sachets and e-cigarettes in Swiss playgrounds, with annual cleaning costs estimated at over CHF 52 million.',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Swiss playgrounds with scattered cigarette butts, environmental and health risks',
 };
 
 export default blogMetaChEn;

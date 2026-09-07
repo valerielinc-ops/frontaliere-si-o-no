@@ -5959,6 +5959,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.luna-wedler-golden-eye-award-zurigo.title': 'Festival Zurigo: alla Svizzera luna wedler il golden eye award',
     'blog.article.luna-wedler-golden-eye-award-zurigo.excerpt': 'L\'attrice svizzera riceve il premio per essere la prima attrice svizzera a vincere il Golden Eye Award.',
     'blog.article.luna-wedler-golden-eye-award-zurigo.imageAlt': 'Luna Wedler riceve il Golden Eye Award durante la cerimonia d\'apertura del festival di Zurigo.',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.title': 'Salute: nei parchi giochi svizzeri 91 mozziconi di sigarette',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.excerpt': 'Analisi nazionale su snus, bustine di nicotina e sigarette elettroniche nei parchi giochi svizzeri, con costi di pulizia annuali stimati a oltre 52 milioni di franchi.',
+    'blog.article.salute-parchi-giochi-svizzeri-mozziconi-sigarette.imageAlt': 'Parchi giochi svizzeri con mozziconi di sigarette sparse, rischi ambientali e sanitari',
 };
 
 export default blogMetaChIt;
