@@ -5977,6 +5977,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-appenzello-interno-canoni.title': 'Apenzello Interno Rentals: fees and lease',
     'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analysis of the average rents in the Canton of Appenzell Interior, security deposit, rent dispute and federal rules on renting.',
     'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Traditional houses and landscape in the Canton of Appenzell Innerrhoden',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Labour market in Switzerland: Seco confirms its solidity',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'The Swiss labour market remains solid despite uncertainties. Unemployment in August stands at 3.0%, with a seasonal increase among young people.',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analysis of Swiss labor market data published by Seco',
 };
 
 export default blogMetaChEn;

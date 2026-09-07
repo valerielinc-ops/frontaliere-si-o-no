@@ -5977,6 +5977,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-appenzello-interno-canoni.title': 'Mieten Appenzell Innerrhoden: Miete und Miete',
     'blog.article.affitti-appenzello-interno-canoni.excerpt': 'Analyse der Durchschnittsmieten im Kanton Appenzell Innerrhoden, Kaution, Gebührenbeanstandung und Bundesmietvorschriften.',
     'blog.article.affitti-appenzello-interno-canoni.imageAlt': 'Traditionelle Häuser und Landschaft im Kanton Appenzell Innerrhoden',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.title': 'Arbeitsmarkt Schweiz: Seco bestätigt Solidität',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.excerpt': 'Der Schweizer Arbeitsmarkt bleibt trotz Unsicherheiten solide. Die Arbeitslosigkeit liegt im August bei 3,0%, mit einem saisonalen Anstieg bei Jugendlichen.',
+    'blog.article.seco-mercato-lavoro-svizzero-solido.imageAlt': 'Analyse der von Seco veröffentlichten Schweizer Arbeitsmarktdaten',
 };
 
 export default blogMetaChDe;
