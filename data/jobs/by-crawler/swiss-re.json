@@ -2709,7 +2709,7 @@
         "it": "investment-contabile-swiss-re-kansas-city-mo-us",
         "en": "investment-accountant-swiss-re-ch",
         "de": "investment-buchhalter-swiss-re-kansas-city-mo-us",
-        "fr": "investment-accountant-swiss-re-kansas-city-mo-us"
+        "fr": "comptable-en-investissement-swiss-re-kansas-city-mo-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2750,8 +2750,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "investment-accountant-swiss-re-ch",
-        "comptable-en-investissement-swiss-re-kansas-city-mo-us",
-        "comptable-en-placements-swiss-re-kansas-city-mo-us"
+        "comptable-en-placements-swiss-re-kansas-city-mo-us",
+        "investment-accountant-swiss-re-kansas-city-mo-us"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2761,8 +2761,8 @@
           "investment-accountant-swiss-re-ch"
         ],
         "fr": [
-          "comptable-en-investissement-swiss-re-kansas-city-mo-us",
-          "comptable-en-placements-swiss-re-kansas-city-mo-us"
+          "comptable-en-placements-swiss-re-kansas-city-mo-us",
+          "investment-accountant-swiss-re-kansas-city-mo-us"
         ]
       },
       "firstSeenAt": "2026-08-07T01:08:50.566Z",
@@ -4377,7 +4377,7 @@
         "it": "contratti-di-assicurazione-swiss-re-bangalore-in",
         "en": "reinsurance-contracts-counsel-swiss-re-ch",
         "de": "ruckversicherungsvertragsberatung-swiss-re-bangalore-in",
-        "fr": "reinsurance-contracts-counsel-swiss-re-bangalore-in"
+        "fr": "contrats-de-reassurance-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4418,7 +4418,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reinsurance-contracts-counsel-swiss-re-ch",
-        "contrats-de-reassurance-swiss-re-bangalore-in"
+        "reinsurance-contracts-counsel-swiss-re-bangalore-in"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4429,7 +4429,7 @@
         ],
         "fr": [
           "reinsurance-contracts-counsel-swiss-re-ch",
-          "contrats-de-reassurance-swiss-re-bangalore-in"
+          "reinsurance-contracts-counsel-swiss-re-bangalore-in"
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:39.757Z",
@@ -5619,7 +5619,7 @@
         "it": "contratti-di-assicurazione-swiss-re-kuala-lumpur-my",
         "en": "reinsurance-contracts-counsel-swiss-re-ch",
         "de": "ruckversicherungsvertragsberatung-swiss-re-kuala-lumpur-my",
-        "fr": "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
+        "fr": "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -5661,7 +5661,7 @@
       "previousSlugs": [
         "reinsurance-contracts-counsel-swiss-re-ch",
         "reinsurance-contracts-counsel-swiss-re-ch-2",
-        "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
+        "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5673,7 +5673,7 @@
         ],
         "fr": [
           "reinsurance-contracts-counsel-swiss-re-ch-2",
-          "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
+          "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
         ]
       },
       "firstSeenAt": "2026-08-11T10:22:19.127Z",
@@ -16366,7 +16366,7 @@
       "slug": "investment-analyst-suitable-for-fresh-graduates-swiss-re-ch",
       "slugByLocale": {
         "it": "investment-analyst-suitable-for-fresh-graduates-swiss-re-ch",
-        "en": "investment-analyst-suitable-for-fresh-graduates-swiss-re-ch",
+        "en": "investment-analyst-swiss-re-bratislava-sk",
         "de": "investment-analyst-geeignet-fur-frische-absolventen-swiss-re-bratislava-sk",
         "fr": "investment-analyste-suitable-for-fresh-graduates-swiss-re-bratislava-sk"
       },
@@ -17476,7 +17476,7 @@
         "it": "assistente-underwriter-swiss-re-zurich",
         "en": "assistant-underwriter-swiss-re-ch",
         "de": "assistent-underwriter-swiss-re-zurich",
-        "fr": "assistant-underwriter-swiss-re-zurich"
+        "fr": "sous-traitant-adjoint-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -17525,7 +17525,7 @@
         "assistant-underwriter-credit-surety-swiss-re-ch",
         "assistent-underwriter-credit-surety-swiss-re-plano-tx-us",
         "assistant-underwriter-swiss-re-ch",
-        "sous-traitant-adjoint-swiss-re-zurich"
+        "assistant-underwriter-swiss-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17549,7 +17549,7 @@
         "fr": [
           "sous-traitant-swiss-re-singapore-sg",
           "assistant-underwriter-credit-surety-swiss-re-ch",
-          "sous-traitant-adjoint-swiss-re-zurich"
+          "assistant-underwriter-swiss-re-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -18604,9 +18604,9 @@
     },
     {
       "id": "swiss-re-a018b1bfdabd",
-      "slug": "technical-architect-swiss-re-bratislava-sk",
+      "slug": "architetto-tecnico-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "technical-architect-swiss-re-bratislava-sk",
+        "it": "architetto-tecnico-swiss-re-bratislava-sk",
         "en": "technical-architect-swiss-re-ch",
         "de": "technischer-architekt-swiss-re-bratislava-sk",
         "fr": "technical-architecte-swiss-re-bratislava-sk"
@@ -18650,12 +18650,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-architect-swiss-re-ch",
-        "architetto-tecnico-swiss-re-bratislava-sk"
+        "technical-architect-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-architect-swiss-re-ch",
-          "architetto-tecnico-swiss-re-bratislava-sk"
+          "technical-architect-swiss-re-bratislava-sk"
         ],
         "de": [
           "technical-architect-swiss-re-ch"

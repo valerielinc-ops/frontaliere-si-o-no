@@ -1030,7 +1030,7 @@
         "it": "supervisore-supervisora-operatore-operatrice-gestione-operativa-cambio-di-carriera-benvenuto-kantonale-verwaltung-zurich",
         "en": "supervisor-officer-operations-coordination-career-changers-welcome-kantonale-verwaltung-zurich-zurich",
         "de": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
-        "fr": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
+        "fr": "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1118,7 +1118,7 @@
         "superviseur-superviseur-en-participants-lateraux-bienvenue-kantonale-verwaltung-zurich-zurich",
         "aufseher-in-betreuer-in-candidato-a-in-riqualificazione-willkommen-kantonale-verwaltung-zurich-zurich",
         "overseer-supervisor-in-lateral-entrants-welcome-kantonale-verwaltung-zurich-zurich",
-        "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
+        "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1142,7 +1142,7 @@
         "fr": [
           "surveillant-accompagnateur-nouveaux-arrivants-bienvenus-kantonale-verwaltung-zurich",
           "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-          "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
+          "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-08-28T05:31:01.828Z",
@@ -9523,9 +9523,9 @@
     },
     {
       "id": "kanton-zuerich-df66f5fc942b",
-      "slug": "rekursjurist-in-befristet-kantonale-verwaltung-zurich",
+      "slug": "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "rekursjurist-in-befristet-kantonale-verwaltung-zurich",
+        "it": "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich",
         "en": "appeal-lawyer-fixed-term-kantonale-verwaltung-zurich-zurich",
         "de": "rekursjurist-in-befristet-kanton-zuerich-zurich",
         "fr": "juriste-en-recours-cdd-kantonale-verwaltung-zurich-zurich"
@@ -9606,12 +9606,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "rekursjurist-in-befristet-kanton-zuerich-zurich",
-        "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich"
+        "rekursjurist-in-befristet-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rekursjurist-in-befristet-kanton-zuerich-zurich",
-          "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich"
+          "rekursjurist-in-befristet-kantonale-verwaltung-zurich"
         ],
         "en": [
           "rekursjurist-in-befristet-kanton-zuerich-zurich"
@@ -16236,7 +16236,7 @@
       "slug": "cuoco-cuoca-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
         "it": "cuoco-cuoca-kantonale-verwaltung-zurich-lindau",
-        "en": "koch-kochin-kantonale-verwaltung-zurich-lindau",
+        "en": "cook-chef-kantonale-verwaltung-zurich-lindau",
         "de": "koch-kochin-kanton-zuerich-lindau",
         "fr": "cuisinier-cuisiniere-kantonale-verwaltung-zurich-lindau"
       },
@@ -16316,7 +16316,7 @@
         "koch-kochin-kanton-zuerich-hinwil",
         "cuire-faire-cuire-kantonale-verwaltung-zurich-hinwil",
         "cuisinier-cuisiniere-kantonale-verwaltung-zurich-hinwil",
-        "cook-chef-kantonale-verwaltung-zurich-lindau"
+        "koch-kochin-kantonale-verwaltung-zurich-lindau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16330,7 +16330,7 @@
         ],
         "en": [
           "koch-kochin-kantonale-verwaltung-zurich-hinwil",
-          "cook-chef-kantonale-verwaltung-zurich-lindau"
+          "koch-kochin-kantonale-verwaltung-zurich-lindau"
         ],
         "de": [
           "koch-kochin-kanton-zuerich-hinwil"

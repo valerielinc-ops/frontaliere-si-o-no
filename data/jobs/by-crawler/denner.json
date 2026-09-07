@@ -965,7 +965,7 @@
         "it": "partner-franchise-partner-denner-denner-charmey",
         "en": "franchise-partner-denner-partner-denner-charmey",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "franchisepartner-in-denner-partner-denner-charmey"
+        "fr": "partenaire-franchise-denner-partenaire-denner-charmey"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1036,7 +1036,8 @@
           "franchisepartner-in-denner-partner-denner-charmey"
         ],
         "fr": [
-          "partenaire-franchise-partenaire-denner-denner-charmey"
+          "partenaire-franchise-partenaire-denner-denner-charmey",
+          "franchisepartner-in-denner-partner-denner-charmey"
         ]
       },
       "firstSeenAt": "2026-09-01T00:36:57.251Z",
@@ -4077,7 +4078,6 @@
         "verkaufer-in-im-stundenlohn-denner-ag-frauenfeld-b51nr4",
         "seller-denner-ag-frauenfeld",
         "vendeur-denner-ag-frauenfeld",
-        "venditore-denner-ag-frauenfeld",
         "verkaufer-in-im-stundenlohn-denner-zofingen",
         "seller-in-in-hourly-wage-denner-zofingen",
         "vendeur-en-salaire-horaire-denner-zofingen",
@@ -15256,7 +15256,6 @@
         "vice-direttore-di-filiale-denner-ag-zurich",
         "deputy-branch-manager-denner-ag-zurich-6527ca",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
-        "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "stv-filialleiter-in-denner-ag-zurich",
         "directeur-de-succursale-stv-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-2",
@@ -15270,7 +15269,6 @@
         "stv-branch-manager-in-denner-ag-zurich-d310b2",
         "directeur-de-succursale-stv-in-denner-ag-zurich-d310b2",
         "stv-filialleiter-in-denner-zurich",
-        "stv-branch-manager-in-denner-ag-zurich-3e601b",
         "stv-filialleiter-in-denner-3",
         "stv-filialleiter-in-denner-brunnen",
         "stv-filialleiter-in-denner-tp6czy",
@@ -21986,7 +21984,7 @@
         "it": "partner-franchise-partner-denner-denner-erstfeld",
         "en": "franchise-partner-denner-partner-denner-erstfeld",
         "de": "franchisepartner-in-denner-partner-denner",
-        "fr": "franchisepartner-in-denner-partner-denner-erstfeld"
+        "fr": "partenaire-franchise-denner-partenaire-denner-erstfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -22059,7 +22057,8 @@
           "franchisepartner-in-denner-partner-denner-erstfeld"
         ],
         "fr": [
-          "partenaire-franchise-partenaire-denner-denner-erstfeld"
+          "partenaire-franchise-partenaire-denner-denner-erstfeld",
+          "franchisepartner-in-denner-partner-denner-erstfeld"
         ]
       },
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
@@ -22344,14 +22343,12 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-ag-burgdorf-hol3hf",
         "verkaufer-in-denner-burgdorf",
-        "venditore-denner-ag-burgdorf",
         "venditore-denner-ag-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-ag-burgdorf-hol3hf",
-          "venditore-denner-ag-burgdorf",
           "venditore-denner-ag-meilen"
         ],
         "en": [
