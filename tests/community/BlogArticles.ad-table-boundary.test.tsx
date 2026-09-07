@@ -240,3 +240,87 @@ describe('inline ads around a citation or an operative list (#7647)', () => {
     expect(html.slice(0, html.indexOf('<h2'))).toContain(AD_MARKER);
   });
 });
+
+/**
+ * Issue #7748 — the boundary invariant itself, not one placement rule.
+ *
+ * The loop that renders a segment has branches that `continue` past a block,
+ * and one (`isToolsHeading`) that consumes `blocks[idx + 1]` with `idx += 1` —
+ * the same block the straddle lookahead had just inspected. Nothing asserted
+ * that a `## ` block always REACHES the ad boundary: a branch that swallowed a
+ * heading would emit one ad fewer on longform (cap 3) and every test above
+ * would stay green, because they all assert placement of ads that WERE offered.
+ *
+ * `onH2Boundary` fires once per `## ` block that reaches the boundary, with the
+ * outcome it got there (emitted / deferred / refused by gap or cap). So the
+ * invariant is a count: `## ` blocks in the source == probe calls.
+ */
+describe('pre-H2 boundary invariant (#7748)', () => {
+  const boundaries = (body: string, renderer: typeof adRenderer | undefined = adRenderer) => {
+    const seen: Array<[string, string]> = [];
+    renderFormattedContent(body, undefined, renderer, undefined, (outcome, key) =>
+      seen.push([outcome, key]),
+    );
+    return seen;
+  };
+
+  /** Same split as the renderer, so the expected count is the source's own. */
+  const h2Blocks = (body: string) =>
+    body.split('\n\n').map(b => b.trim()).filter(b => b.startsWith('## ')).length;
+
+  const TOOLS_HEADING = '## Tool utili per il frontaliere';
+  /** `looksLikeToolBody` accepts this ("cambio"), so the tools branch eats it. */
+  const TOOL_BODY = 'Confronta il cambio EUR/CHF con il comparatore online prima di ogni bonifico.';
+
+  /** One case per branch of the loop that skips or consumes a block. */
+  const bodies: ReadonlyArray<readonly [string, string]> = [
+    ['tools heading that consumes the next block', `${words(250)}\n\n${TOOLS_HEADING}\n\n${TOOL_BODY}\n\n${words(250)}\n\n## Sezione seguente\n\n${words(250)}`],
+    // The following H2 carries a tool keyword ("cambio"), so only the explicit
+    // `## ` guard in `looksLikeToolBody` keeps the tools branch from eating it.
+    ['tools heading followed directly by another H2', `${words(250)}\n\n${TOOLS_HEADING}\n\n## Dove confrontare il cambio EUR/CHF\n\n${words(250)}`],
+    ['tools heading followed by a straddle block', `${words(250)}\n\n${TOOLS_HEADING}\n\n${BULLET_LIST}\n\n${words(250)}\n\n## Sezione seguente\n\n${words(250)}`],
+    ['data callout', `${words(250)}\n\n## Sezione dati\n\n📊 ${words(30)}\n\n${words(250)}\n\n## Altra sezione\n\n${words(250)}`],
+    ['tip callout', `${words(250)}\n\n## Sezione consigli\n\n💡 ${words(30)}\n\n${words(250)}\n\n## Altra sezione\n\n${words(250)}`],
+    ['warning callout', `${words(250)}\n\n## Sezione avvisi\n\n⚠️ ${words(30)}\n\n${words(250)}\n\n## Altra sezione\n\n${words(250)}`],
+    ['horizontal rules', `${words(250)}\n\n---\n\n## Dopo la riga\n\n${words(250)}\n\n***\n\n## Dopo l'asterisco\n\n${words(250)}`],
+    ['sub-headings', `${words(250)}\n\n## Sezione\n\n### Sotto-sezione\n\n${words(250)}\n\n#### Sotto-sotto\n\n## Altra sezione\n\n${words(250)}`],
+    ['table, citation and list', `${words(250)}\n\n## Con tabella\n\n${TABLE}\n\n## Con citazione\n\n${QUOTE}\n\n## Con lista\n\n${BULLET_LIST}\n\n${words(250)}`],
+    ['numbered procedure', `${words(250)}\n\n## Procedura\n\n${NUMBERED_LIST}\n\n${words(250)}\n\n## Chiusura\n\n${words(250)}`],
+    ['H2 as the very last block', `${words(250)}\n\n## Sezione finale`],
+    ['consecutive H2s with no content between them', `${words(250)}\n\n## Prima\n\n## Seconda\n\n## Terza\n\n${words(250)}`],
+  ];
+
+  for (const [label, body] of bodies) {
+    it(`offers a boundary to every \`## \` block — ${label}`, () => {
+      const seen = boundaries(body);
+      expect(h2Blocks(body)).toBeGreaterThan(0);
+      expect(seen).toHaveLength(h2Blocks(body));
+      for (const [outcome] of seen) {
+        expect(['emitted', 'deferred', 'skipped']).toContain(outcome);
+      }
+    });
+  }
+
+  /** All branches in one body, the shape a real longform actually has. */
+  it('holds on a body that exercises every branch at once', () => {
+    const body = bodies.map(([, b]) => b).join('\n\n');
+    expect(boundaries(body)).toHaveLength(h2Blocks(body));
+  });
+
+  /**
+   * The probe reports the DECISION, not the ad: with no renderer every boundary
+   * is still reached and reported as refused. That is what makes a swallowed
+   * heading distinguishable from one the gap turned down.
+   */
+  it('reports a boundary even when no ad can be produced there', () => {
+    const body = `## Subito\n\n${words(10)}\n\n## Troppo presto\n\n${words(10)}`;
+    expect(boundaries(body).map(([outcome]) => outcome)).toEqual(['skipped', 'skipped']);
+    expect(boundaries(body, undefined)).toHaveLength(h2Blocks(body));
+  });
+
+  /** The three outcomes are all reachable, so none of them is dead reporting. */
+  it('distinguishes emitted, deferred and skipped', () => {
+    const body = `## Troppo presto\n\n${words(250)}\n\n## Con prosa\n\n${words(250)}\n\n## Con tabella\n\n${TABLE}\n\n${words(250)}`;
+    expect(boundaries(body).map(([outcome]) => outcome)).toEqual(['skipped', 'emitted', 'deferred']);
+  });
+});

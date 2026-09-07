@@ -474,18 +474,33 @@ function countWordsIn(text: string): number {
 }
 
 /**
+ * What happened to the ad slot a `## ` block opens: the ad was emitted there,
+ * deferred past a block it must not straddle, or refused by the gap/cap check.
+ * Every `## ` block of a segment must produce exactly one of the three — a
+ * fourth, silent outcome ("the branch consumed the heading and never reached
+ * the boundary") is a lost ad on longform, which is why it is observable.
+ */
+export type H2BoundaryOutcome = 'emitted' | 'deferred' | 'skipped';
+
+/**
  * Renders one article body segment, injecting inline ads at section boundaries.
  *
  * Exported for `tests/community/BlogArticles.ad-table-boundary.test.tsx`: the
  * ad-vs-table placement rule of `docs/ads-placement-longform.md` §2 is a
  * property of THIS function, and asserting it through the whole component would
  * drown it in i18n/router/Suspense setup.
+ *
+ * `onH2Boundary` is a test probe (production callers pass four arguments): it
+ * fires once per `## ` block that reaches the ad boundary, so a branch that
+ * consumes a heading block without offering it a slot is detectable by counting
+ * (issue #7748). It never influences placement.
  */
 export function renderFormattedContent(
  text: string,
  navigators?: NavigatorMap,
  adRenderer?: (keyPrefix: string) => ReactElement | null,
  minWordGap: number = AD_MIN_WORD_GAP,
+ onH2Boundary?: (outcome: H2BoundaryOutcome, key: string) => void,
 ): ReactElement {
  // Auto-link keywords if navigators provided
  const processed = navigators ? autoLinkKeywords(text, navigators) : text;
@@ -626,8 +641,14 @@ export function renderFormattedContent(
  if (isAdStraddleBlock(blocks[idx + 1]?.trim() ?? '')) {
   pendingAdKey = `post-block-h2-${idx}`;
   wordsAtDefer = wordsSinceLastAd;
+  onH2Boundary?.('deferred', pendingAdKey);
  } else {
-  tryEmitAd(`pre-h2-${idx}`);
+  // `tryEmitAd` runs OUTSIDE the optional call: `f?.(tryEmitAd(k))` does not
+  // evaluate its arguments when `f` is undefined, which is every production
+  // caller — the ad would only be attempted while a test probe is attached.
+  const key = `pre-h2-${idx}`;
+  const emitted = tryEmitAd(key);
+  onH2Boundary?.(emitted ? 'emitted' : 'skipped', key);
  }
 
  const lines = trimmed.split('\n');
