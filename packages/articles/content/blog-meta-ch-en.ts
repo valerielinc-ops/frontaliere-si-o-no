@@ -5797,6 +5797,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.title': 'Management of the first AVS pillar in the Canton of Appenzello Outer',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.excerpt': 'The Canton of Appenzello Outermost manages the first AVS pillar through a cantonal compensation fund, guaranteeing benefits to taxpayers.',
     'blog.article.avs-prestazioni-complementari-appenzello-esterno.imageAlt': 'Castelgrande in Bellinzona, Switzerland',
+    'blog.article.attivita-appenzello-esterno-registro.title': 'Opening a business in Appenzello Esterno: procedures and costs',
+    'blog.article.attivita-appenzello-esterno-registro.excerpt': 'Complete guide: legal forms, trade register, minimum capital, AVS/LPP contributions and insurance obligations to set up a business in the canton.',
+    'blog.article.attivita-appenzello-esterno-registro.imageAlt': 'Desk in a Swiss cantonal administrative office with business registration forms and official documents.',
 };
 
 export default blogMetaChEn;
