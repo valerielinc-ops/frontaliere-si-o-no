@@ -799,8 +799,20 @@ export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
     const manifestPath = path.join(cacheRoot, entry, 'manifest.json');
     try {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as Partial<CacheManifest>;
+      // `retiredFiles` is a SUBSET of `files` (see the field docs and
+      // `saveToCache`), so counting `files` raw would make the evidence
+      // self-confirming on exactly the population this gate exists to
+      // exclude: a pre-fix build that synthesised a bogus withdrawal for a
+      // never-published candidate wrote that document into `files`, and
+      // reading it back would prove the candidate "published". A withdrawal
+      // is not evidence of publication — it is evidence of the opposite.
+      // Same idiom as `restoredKeywordLandingPaths`.
+      const retired = new Set(
+        (manifest.retiredFiles ?? []).filter((rel) => typeof rel === 'string'),
+      );
       for (const rel of manifest.files ?? []) {
         if (typeof rel !== 'string') continue;
+        if (retired.has(rel)) continue;
         const key = clusterKeyFromAnyPath(landingPathFromDistRelative(rel));
         if (key) out.add(key);
       }

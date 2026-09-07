@@ -365,4 +365,34 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
     fs.writeFileSync(path.join(broken, 'manifest.json'), '{ not json');
     expect(loadPreviouslyEmittedClusterKeys(rootDir).has('it::ricerca-cookie-bern')).toBe(true);
   });
+
+  it('does not count a WITHDRAWAL document as evidence of publication', () => {
+    // `retiredFiles ⊆ files`, so reading `files` raw would make the evidence
+    // self-confirming on the very population the gate excludes: a pre-fix
+    // build that synthesised a bogus withdrawal for a never-published
+    // candidate would prove that candidate "published" on the next build.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-retired-'));
+    const dir = path.join(root, '.cache', 'related-search-clusters', 'k1');
+    fs.mkdirSync(dir, { recursive: true });
+    const retired = [
+      'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html',
+      'cerca-lavoro-ticino/ricerca-cookie-bern/index.html',
+    ];
+    fs.writeFileSync(
+      path.join(dir, 'manifest.json'),
+      JSON.stringify({
+        version: 1,
+        files: [
+          ...retired,
+          'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
+        ],
+        retiredFiles: retired,
+      }),
+    );
+    const keys = loadPreviouslyEmittedClusterKeys(root);
+    expect(keys.has('it::ricerca-cookie-bern')).toBe(false);
+    // A real landing in the same manifest still counts.
+    expect(keys.has('it::ricerca-infermiere-lugano')).toBe(true);
+    fs.rmSync(root, { recursive: true, force: true });
+  });
 });
