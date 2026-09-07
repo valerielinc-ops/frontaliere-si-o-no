@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-09-07T15:13:52.021Z",
+  "assembledAt": "2026-09-07T23:37:44.742Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.682Z",
+      "crawledAt": "2026-09-07T23:37:37.237Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -149,7 +149,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.681Z",
+      "crawledAt": "2026-09-07T23:37:37.236Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -259,7 +259,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.680Z",
+      "crawledAt": "2026-09-07T23:37:37.235Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -337,7 +337,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.679Z",
+      "crawledAt": "2026-09-07T23:37:37.234Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -415,7 +415,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.676Z",
+      "crawledAt": "2026-09-07T23:37:37.232Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -528,7 +528,7 @@
       "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.672Z",
+      "crawledAt": "2026-09-07T23:37:37.230Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -606,7 +606,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.671Z",
+      "crawledAt": "2026-09-07T23:37:37.229Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
@@ -684,7 +684,7 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:13:41.669Z",
+      "crawledAt": "2026-09-07T23:37:37.227Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -809,7 +809,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
