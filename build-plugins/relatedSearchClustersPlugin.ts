@@ -730,7 +730,11 @@ function loadJobs(rootDir: string): RawJob[] {
  * de/jobs-in-der prefixes in sync because the data file is consumed by this
  * function unmodified.
  */
-const CLUSTER_PATH_PARSE_RX = /^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-(?!svizzera\b|switzerland\b|schweiz\b|suisse\b)[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$/;
+const CLUSTER_PATH_HEAD_RX_SRC = String.raw`^\/(?:(en|de|fr)\/)?(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|jobs-in-der|trouver-emploi)-`;
+const CLUSTER_PATH_TAIL_RX_SRC = String.raw`[a-z-]+\/((?:ricerca|search|suche|recherche)-[a-z0-9-]+)\/?$`;
+const CLUSTER_PATH_PARSE_RX = new RegExp(
+  `${CLUSTER_PATH_HEAD_RX_SRC}(?!svizzera\\b|switzerland\\b|schweiz\\b|suisse\\b)${CLUSTER_PATH_TAIL_RX_SRC}`,
+);
 
 function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null {
   if (!p) return null;
@@ -738,6 +742,85 @@ function parseClusterPathKey(p: string): { locale: Locale; slug: string } | null
   if (!m) return null;
   const locale = (m[1] || 'it') as Locale;
   return { locale, slug: m[2] };
+}
+
+/**
+ * Same shape, aggregator sections INCLUDED (issue #7753).
+ *
+ * `parseClusterPathKey` excludes them on purpose: it answers "is this a MIRROR
+ * that needs a separate entry", and the Svizzera aggregate is the canonical, so
+ * it is never a mirror. The publication-evidence question is the opposite one —
+ * "was a page for this (locale, slug) ever written" — and there the aggregate
+ * canonical is the FIRST path to count, since it is where every cluster
+ * canonicalizes since #4400. Built from the same two sources so the section
+ * prefixes cannot drift apart between the two readings.
+ */
+const ANY_SECTION_CLUSTER_PATH_RX = new RegExp(
+  `${CLUSTER_PATH_HEAD_RX_SRC}${CLUSTER_PATH_TAIL_RX_SRC}`,
+);
+
+function clusterKeyFromAnyPath(p: string): string | null {
+  if (!p) return null;
+  const m = p.toLowerCase().match(ANY_SECTION_CLUSTER_PATH_RX);
+  if (!m) return null;
+  return `${m[1] || 'it'}::${m[2]}`;
+}
+
+/**
+ * `${locale}::${slug}` of every cluster doorway a PREVIOUS build of this plugin
+ * actually wrote, read from the manifests left under
+ * `.cache/related-search-clusters/<key>/manifest.json` (issue #7753).
+ *
+ * Second source of publication evidence next to `data/indexed-cluster-urls.json`:
+ * that file only knows the URLs GSC/GA4/PostHog still SEE, so a doorway that was
+ * published and never got a click is invisible to it. A manifest, on the other
+ * hand, is this plugin's own record of what it emitted.
+ *
+ * Every key directory is read, not just the current one: `computeCacheKey`
+ * hashes the data inputs, so the build that is asking this question is by
+ * definition on a cache MISS and its own directory does not exist yet. Manifests
+ * of any `version` count — an old cache is still a record of a real emit, and the
+ * question here is history, not restorability.
+ *
+ * Absent/unreadable cache → empty set, i.e. no evidence from this source. That is
+ * the conservative direction: a candidate with no evidence at all gets no
+ * withdrawal, which is exactly the page this issue is about not creating.
+ */
+export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
+  const out = new Set<string>();
+  const cacheRoot = path.join(rootDir, '.cache', 'related-search-clusters');
+  let entries: string[];
+  try {
+    entries = fs.readdirSync(cacheRoot);
+  } catch {
+    return out;
+  }
+  for (const entry of entries) {
+    const manifestPath = path.join(cacheRoot, entry, 'manifest.json');
+    try {
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as Partial<CacheManifest>;
+      // `retiredFiles` is a SUBSET of `files` (see the field docs and
+      // `saveToCache`), so counting `files` raw would make the evidence
+      // self-confirming on exactly the population this gate exists to
+      // exclude: a pre-fix build that synthesised a bogus withdrawal for a
+      // never-published candidate wrote that document into `files`, and
+      // reading it back would prove the candidate "published". A withdrawal
+      // is not evidence of publication — it is evidence of the opposite.
+      // Same idiom as `restoredKeywordLandingPaths`.
+      const retired = new Set(
+        (manifest.retiredFiles ?? []).filter((rel) => typeof rel === 'string'),
+      );
+      for (const rel of manifest.files ?? []) {
+        if (typeof rel !== 'string') continue;
+        if (retired.has(rel)) continue;
+        const key = clusterKeyFromAnyPath(landingPathFromDistRelative(rel));
+        if (key) out.add(key);
+      }
+    } catch {
+      // Missing or malformed manifest: no evidence from this directory.
+    }
+  }
+  return out;
 }
 
 /**
@@ -1655,10 +1738,25 @@ export interface JunkRetirement {
  * reconstructed: deriving it means running the match phase for a page that is
  * being withdrawn, and source 3 already covers the legacy-canton mirrors that
  * were actually indexed.
+ *
+ * Sources 1 and 2 are SYNTHESIZED — they are computed from the candidate, not
+ * observed — so they are gated on evidence that this (locale, slug) was ever
+ * published (issue #7753). Withdrawing a page needs a page: `data/related-
+ * search-candidates.json` is append-only by choice (`MIN_JOB_COUNT = 1`, the
+ * audit keeps adding), so without the gate every junk candidate the audit adds
+ * — including ones no build ever emitted — grew two brand-new thin `noindex`
+ * documents at URLs that never existed, which is the mirror image of the leak
+ * #7316 closes. Evidence is either source 3 (the URL is still seen by
+ * GSC/GA4/PostHog) or `publishedClusterKeys` (a previous build's own manifest
+ * recorded the emit). With evidence the path set is unchanged: a doorway the
+ * emit loop published wrote both the aggregate canonical and the TI mirror, so
+ * neither is a guess once the pair is known to exist. Without evidence the
+ * candidate yields no retirement at all.
  */
 export function enumerateJunkRetirements(
   candidates: ReadonlyArray<CandidateEntry>,
   indexedClusterUrlsByKey: ReadonlyMap<string, string[]> = new Map(),
+  publishedClusterKeys: ReadonlySet<string> = new Set(),
 ): JunkRetirement[] {
   const byKey = new Map<string, JunkRetirement>();
   for (const candidate of candidates) {
@@ -1666,11 +1764,13 @@ export function enumerateJunkRetirements(
     if (!derived || !isJunkSearchKeyword(derived.keyword)) continue;
     const key = `${candidate.locale}::${candidate.slug}`;
     if (byKey.has(key)) continue;
+    const indexedPaths = indexedClusterUrlsByKey.get(key) || [];
+    if (indexedPaths.length === 0 && !publishedClusterKeys.has(key)) continue;
     const paths = new Set<string>([
       buildClusterPath(candidate.locale, candidate.slug, AGGREGATE_KEY),
       buildClusterPath(candidate.locale, candidate.slug, 'TI'),
     ]);
-    for (const indexed of indexedClusterUrlsByKey.get(key) || []) {
+    for (const indexed of indexedPaths) {
       paths.add(indexed.endsWith('/') ? indexed : `${indexed}/`);
     }
     byKey.set(key, {
@@ -3530,8 +3630,15 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // already-published copy live, orphaned and indexable, because the
       // served corpus is reassembled across deploys. Enumerated here so the
       // withdrawal document below can overwrite those exact paths.
-      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey);
-      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys`);
+      // Only for doorways with evidence of publication (issue #7753): a
+      // candidate the audit added but no build ever emitted has nothing live to
+      // withdraw, and synthesizing one would CREATE the thin page instead of
+      // retiring it.
+      const __tPublished = profileStart();
+      const publishedClusterKeys = loadPreviouslyEmittedClusterKeys(rootDir);
+      profileRecord('load-published-cluster-keys', __tPublished);
+      const junkRetirements = enumerateJunkRetirements(candidates, indexedClusterUrlsByKey, publishedClusterKeys);
+      console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
 
       // Inverted token index: lazy posting lists per (locale, token), shared
       // across every candidate. Memory budget is dominated by the haystack
