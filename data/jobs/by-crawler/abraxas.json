@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "abraxas-ba5e16bc06df",
-      "slug": "werkstudent-in-per-la-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-informatik-ag-st-gallen",
+      "slug": "studente-di-lavoro-per-gli-esami-di-contratto-20-60-fino-a-circa-6-mesi-limitati-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
         "de": "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st",
-        "it": "werkstudent-in-per-la-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-informatik-ag-st-gallen",
-        "en": "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st",
-        "fr": "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st"
+        "it": "studente-di-lavoro-per-gli-esami-di-contratto-20-60-fino-a-circa-6-mesi-limitati-abraxas-informatik-ag-st-gallen",
+        "en": "working-student-in-for-the-contract-exams-20-60-up-to-about-6-months-limited-abraxas-informatik-ag-st-gallen",
+        "fr": "etudiant-en-travail-pour-les-examens-de-contrat-20-60-jusqu-a-environ-6-mois-limites-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
       "companyKey": "abraxas",
@@ -60,11 +60,19 @@
       "pensum": "20 - 60%",
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st",
+          "werkstudent-in-per-la-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st"
+        ],
+        "fr": [
           "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st"
         ]
       },
       "previousSlugs": [
-        "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st"
+        "werkstudent-in-fur-die-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-st",
+        "werkstudent-in-per-la-vertragsprufungen-20-60-bis-zu-ca-6-monate-befristet-abraxas-informatik-ag-st-gallen"
       ],
       "salaryMin": 36000,
       "salaryMax": 61200,
@@ -135,13 +143,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen",
-        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen",
-          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -354,13 +360,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
-          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
         ],
         "en": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
@@ -520,13 +524,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
-          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
@@ -607,8 +609,7 @@
         "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
-        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -618,8 +619,7 @@
           "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
-          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -698,13 +698,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
           "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
@@ -861,13 +859,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -942,13 +938,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-linux-engineer-abraxas-zurich-flughafen",
-        "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
+        "senior-linux-engineer-abraxas-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-linux-engineer-abraxas-zurich-flughafen",
-          "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
+          "senior-linux-engineer-abraxas-zurich-flughafen"
         ],
         "fr": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -1028,8 +1022,7 @@
         "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architekt-80-100-abraxas-st-gallen",
-        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
-        "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
+        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1037,8 +1030,7 @@
           "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architekt-80-100-abraxas-st-gallen",
-          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
-          "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
+          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
@@ -1279,8 +1271,7 @@
         "system-engineer-devops-deutsch-80-100-abraxas-bern",
         "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
         "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1294,8 +1285,7 @@
           "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
           "system-engineer-devops-deutsch-80-100-abraxas-bern",
           "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "de": [
           "ict-system-engineer-betrieb-80-100-abraxas-bern"
@@ -1582,14 +1572,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "datenschutzspezialist-in-50-abraxas-st-gallen",
-        "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen",
-        "specialista-della-protezione-dei-dati-nel-50-abraxas-informatik-ag-st-gallen"
+        "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "datenschutzspezialist-in-50-abraxas-st-gallen",
-          "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen",
-          "specialista-della-protezione-dei-dati-nel-50-abraxas-informatik-ag-st-gallen"
+          "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen"
@@ -1670,14 +1658,12 @@
       "previousSlugs": [
         "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
         "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-        "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
+        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
-          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-          "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
+          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "fr": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
@@ -1775,8 +1761,7 @@
         "senior-software-engineer-c-net-80-100-abraxas-st-gallen",
         "software-engineer-80-100-abraxas-st-gallen",
         "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
-        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
-        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
+        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1798,8 +1783,7 @@
           "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
           "bereichscontroller-in-60-80-abraxas-st-gallen",
           "devops-engineer-80-100-abraxas-st-gallen",
-          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
-          "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
+          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
@@ -1877,15 +1861,13 @@
       "previousSlugs": [
         "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
         "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
-        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
+        "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
       ],
       "previousSlugsByLocale": {
         "it": [
           "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
           "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein",
-          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
-          "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein"
+          "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
         ],
         "en": [
           "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
@@ -1964,13 +1946,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-manager-in-80-100-abraxas-st-gallen",
-        "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
+        "applikations-manager-in-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-80-100-abraxas-st-gallen",
-          "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
+          "applikations-manager-in-80-100-abraxas-st-gallen"
         ],
         "fr": [
           "applikations-manager-in-80-100-abraxas-st-gallen"
@@ -2114,13 +2094,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
-        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
-          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -2201,23 +2179,19 @@
       "previousSlugs": [
         "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
         "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+        "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-          "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
         ],
         "en": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-          "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
         ],
         "fr": [
-          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
-          "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+          "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-01T23:33:50.926Z",
