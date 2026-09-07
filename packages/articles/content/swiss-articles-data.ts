@@ -17794,6 +17794,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cibo-per-cani-gatti-errori-comuni',
+    category: 'pratico',
+    date: '2026-09-07T11:40:59.439Z',
+    image: '/images/blog/cibo-per-cani-gatti-errori-comuni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
