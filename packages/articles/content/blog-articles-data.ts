@@ -34617,6 +34617,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tram-treno-lavori-ottobre',
+ category: 'pratico',
+ date: '2026-09-07T17:30:45.288Z',
+ image: '/images/blog/tram-treno-lavori-ottobre.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

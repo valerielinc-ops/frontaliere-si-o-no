@@ -11590,6 +11590,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Pendlerstudent Tessin: Gebrauchs- UND SUPSI-LEITFADEN',
     'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Leben als Pendler-Student zwischen Italien und dem Kanton Tessin: Einschreibung, Kosten und praktische Unterschiede zur Grenzarbeit.',
     'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Pendelnder Student zwischen Italien und Tessin',
+    'blog.article.tram-treno-lavori-ottobre.title': 'Tram-Zug im Tessin: Abfahrt zu den ersten Baustellen im Oktober',
+    'blog.article.tram-treno-lavori-ottobre.excerpt': 'Rttl Sa vergibt zehn Planungsaufträge für 44,8 Millionen und bereitet die Inbetriebnahme der Hauptarbeiten im Jahr 2027 vor.',
+    'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Lugano Landschaft im Tessin mit Verkehrsinfrastruktur',
 };
 
 export default blogMetaDe;

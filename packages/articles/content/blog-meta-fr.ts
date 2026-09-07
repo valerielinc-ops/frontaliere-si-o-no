@@ -11593,6 +11593,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Étudiant pendulaire Tessin : guide USAGES et SUPSI',
     'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Vivre la vie d\'étudiant en déplacement entre l\'Italie et le canton du Tessin : inscription, coûts et différences pratiques par rapport au travail frontalier.',
     'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Étudiant navetteur entre l\'Italie et le Tessin',
+    'blog.article.tram-treno-lavori-ottobre.title': 'Tram-train au Tessin : départ des premiers chantiers en octobre',
+    'blog.article.tram-treno-lavori-ottobre.excerpt': 'Rttl Sa attribue dix mandats de conception pour 44,8 millions et prépare le démarrage des principaux travaux en 2027.',
+    'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Paysage de Lugano au Tessin avec infrastructure de transport',
 };
 
 export default blogMetaFr;

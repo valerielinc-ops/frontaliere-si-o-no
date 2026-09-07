@@ -11591,6 +11591,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.studente-pendolare-ticino-usi-supsi.title': 'Student commuter Ticino: USI AND SUPSI guide',
     'blog.article.studente-pendolare-ticino-usi-supsi.excerpt': 'Living life as a commuter student between Italy and Canton Ticino: enrolment, costs and practical differences compared to cross-border work.',
     'blog.article.studente-pendolare-ticino-usi-supsi.imageAlt': 'Commuter university student between Italy and Ticino',
+    'blog.article.tram-treno-lavori-ottobre.title': 'Train in Ticino: via to the first construction sites in October',
+    'blog.article.tram-treno-lavori-ottobre.excerpt': 'RTTL Sa assigns ten design mandates for 44.8 million and prepares the start of the main works in 2027.',
+    'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Lugano landscape in Ticino with transport infrastructure',
 };
 
 export default blogMetaEn;
