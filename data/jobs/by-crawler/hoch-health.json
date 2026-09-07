@@ -16996,13 +16996,17 @@
       "previousSlugs": [
         "kliniksekretar-in-80-hoch-health-st-gallen",
         "kliniksekretar-in-40-50-hoch-health-st-gallen",
-        "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen"
+        "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen",
+        "secretaire-de-clinique-80-hoch-health-ostschweiz-st-gallen",
+        "segretario-a-di-clinica-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kliniksekretar-in-80-hoch-health-st-gallen",
           "kliniksekretar-in-40-50-hoch-health-st-gallen",
-          "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen"
+          "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen",
+          "secretaire-de-clinique-80-hoch-health-ostschweiz-st-gallen",
+          "segretario-a-di-clinica-80-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "kliniksekretar-in-40-50-hoch-health-st-gallen"
@@ -17472,22 +17476,6 @@
       "applyUrl": "https://jobs.h-och.ch/talentcommunity/apply/1433054333/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
-        "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
-          "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach"
-        ],
-        "en": [
-          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach"
-        ],
-        "fr": [
-          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach"
-        ]
-      },
       "firstSeenAt": "2026-09-02T23:23:45.620Z",
       "salaryMin": 48500,
       "salaryMax": 89500,
@@ -17501,7 +17489,25 @@
           "maxValue": 89500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
+          "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach",
+          "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach"
+        ],
+        "en": [
+          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach"
+        ],
+        "fr": [
+          "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
+        "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach",
+        "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach"
+      ]
     },
     {
       "id": "hoch-health-439e7206c49c",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "new-yorker",
-  "assembledAt": "2026-09-07T15:18:57.530Z",
+  "assembledAt": "2026-09-07T14:24:45.571Z",
   "jobs": [
     {
       "id": "new-yorker-27748",
@@ -651,20 +651,37 @@
         "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
         "mitarbeiter-m-w-d-im-sales-80-new-yorker-biel",
         "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-biel",
-        "cooperation-m-w-d-in-sale-80-new-yorker-biel"
+        "cooperation-m-w-d-in-sale-80-new-yorker-biel",
+        "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-biel",
+        "mitarbeiter-m-w-d-im-sales-50-new-yorker-biel",
+        "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel",
+        "mitarbeiter-m-w-d-im-vente-50-new-yorker-biel",
+        "cooperation-m-w-d-for-sale-50-new-yorker-biel",
+        "cooperation-m-w-d-a-vendre-50-new-yorker-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
-          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-biel"
+          "collaboratore-trice-m-w-d-im-vendita-80-new-yorker-biel",
+          "collaboratore-trice-m-w-d-im-vendita-50-new-yorker-biel",
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-biel",
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel",
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-biel",
+          "cooperation-m-w-d-for-sale-50-new-yorker-biel",
+          "cooperation-m-w-d-a-vendre-50-new-yorker-biel"
         ],
         "en": [
           "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
           "mitarbeiter-m-w-d-im-sales-80-new-yorker-biel",
-          "cooperation-m-w-d-in-sale-80-new-yorker-biel"
+          "cooperation-m-w-d-in-sale-80-new-yorker-biel",
+          "mitarbeiter-m-w-d-im-sales-50-new-yorker-biel"
         ],
         "fr": [
-          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel"
+          "mitarbeiter-m-w-d-im-verkauf-80-new-yorker-biel",
+          "mitarbeiter-m-w-d-im-vente-50-new-yorker-biel"
+        ],
+        "de": [
+          "mitarbeiter-m-w-d-im-verkauf-50-new-yorker-biel"
         ]
       },
       "firstSeenAt": "2026-07-08T11:40:33.862Z",

@@ -2170,7 +2170,6 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-28T11:54:14.923Z",
-      "retranslationAttempts": 1,
       "salarySource": "reported"
     },
     {
@@ -9271,7 +9270,7 @@
       "titleByLocale": {
         "it": "Telematik-Installateur/in (80 - 100%)",
         "en": "Telematik-Installer / in (80 - 100%)",
-        "de": "Telematik-Installer/in (80 - 100%)",
+        "de": "Telematik-Installateur/in (80 - 100%)",
         "fr": "Télématique-Installateur/trice (80 - 100%)"
       },
       "descriptionByLocale": {
@@ -9327,8 +9326,10 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
-      "retranslationAttempts": 2,
-      "salarySource": "reported"
+      "retranslationAttempts": 3,
+      "salarySource": "reported",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 69
     },
     {
       "title": "Montage-Elektriker/in EFZ (80 - 100%)",
