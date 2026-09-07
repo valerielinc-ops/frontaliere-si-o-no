@@ -13,7 +13,10 @@
  * to the locale search hub, not merely skip the page.
  */
 
-import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { afterAll, describe, expect, it } from 'vitest';
 import {
   assertRetirementsDisjointFromPlan,
   buildClusterContext,
@@ -21,6 +24,7 @@ import {
   clusterKeywordFromCandidate,
   enumerateJunkRetirements,
   junkRetirementWrites,
+  loadPreviouslyEmittedClusterKeys,
   restoredKeywordLandingPaths,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
@@ -43,6 +47,14 @@ const REAL: CandidateEntry = {
   editorialCollision: null,
 };
 
+/**
+ * Publication evidence for the junk slug (issue #7753): the key a previous
+ * build's cache manifest recorded, i.e. "this doorway was really emitted".
+ * Without it — or without a GSC/GA4-observed URL — there is nothing to
+ * withdraw and the enumerator must stay silent.
+ */
+const PUBLISHED = new Set(['it::ricerca-cookie-bern']);
+
 const JOBS: RawJob[] = [
   { id: 'a', title: 'Infermiere', company: 'EOC', location: 'Lugano', canton: 'TI' },
   { id: 'b', title: 'Infermiere diplomato', company: 'Clinica', location: 'Lugano', canton: 'TI' },
@@ -51,13 +63,13 @@ const JOBS: RawJob[] = [
 
 describe('enumerateJunkRetirements — the already-published doorway gets a withdrawal', () => {
   it('lists the junk candidate and skips the real one', () => {
-    const retirements = enumerateJunkRetirements([JUNK, REAL]);
+    const retirements = enumerateJunkRetirements([JUNK, REAL], new Map(), PUBLISHED);
     expect(retirements.map((r) => r.slug)).toEqual(['ricerca-cookie-bern']);
     expect(retirements[0].keyword.toLowerCase()).toBe('cookie');
   });
 
   it('covers the Svizzera aggregate canonical AND the legacy TI mirror', () => {
-    const [retirement] = enumerateJunkRetirements([JUNK]);
+    const [retirement] = enumerateJunkRetirements([JUNK], new Map(), PUBLISHED);
     expect(retirement.paths).toContain('/cerca-lavoro-svizzera/ricerca-cookie-bern/');
     expect(retirement.paths).toContain('/cerca-lavoro-ticino/ricerca-cookie-bern/');
   });
@@ -73,7 +85,9 @@ describe('enumerateJunkRetirements — the already-published doorway gets a with
   });
 
   it('dedupes candidates sharing a (locale, slug)', () => {
-    expect(enumerateJunkRetirements([JUNK, { ...JUNK, jobCount: 3 }])).toHaveLength(1);
+    expect(
+      enumerateJunkRetirements([JUNK, { ...JUNK, jobCount: 3 }], new Map(), PUBLISHED),
+    ).toHaveLength(1);
   });
 
   it('classifies through the same helper the emit guard uses', () => {
@@ -82,8 +96,47 @@ describe('enumerateJunkRetirements — the already-published doorway gets a with
     const index = new TokenIndex(JOBS);
     expect(buildClusterContext(JUNK, index, JOBS)).toBeNull();
     expect(clusterKeywordFromCandidate(JUNK)?.keyword.toLowerCase()).toBe('cookie');
-    expect(enumerateJunkRetirements([REAL])).toEqual([]);
+    expect(enumerateJunkRetirements([REAL], new Map(), new Set(['it::ricerca-infermiere-lugano']))).toEqual([]);
     expect(buildClusterContext(REAL, index, JOBS)).not.toBeNull();
+  });
+});
+
+describe('enumerateJunkRetirements — no withdrawal without evidence of publication (issue #7753)', () => {
+  it('emits NOTHING for a junk candidate no build ever published', () => {
+    // The defect: the two synthetic paths (aggregate canonical + TI mirror)
+    // were added before any source was consulted, so every junk candidate the
+    // append-only audit adds (`MIN_JOB_COUNT = 1`) grew two brand-new thin
+    // `noindex` pages at URLs that never existed — creating the doorway
+    // instead of retiring it.
+    expect(enumerateJunkRetirements([JUNK])).toEqual([]);
+    expect(enumerateJunkRetirements([JUNK], new Map(), new Set())).toEqual([]);
+  });
+
+  it('does not accept another slug’s evidence for this one', () => {
+    expect(enumerateJunkRetirements([JUNK], new Map(), new Set(['it::ricerca-owner-zurich']))).toEqual([]);
+    // Same slug, different locale: the key is the pair, not the slug.
+    expect(enumerateJunkRetirements([JUNK], new Map(), new Set(['de::ricerca-cookie-bern']))).toEqual([]);
+  });
+
+  it('withdraws on manifest evidence alone, canonical AND legacy mirror', () => {
+    // A doorway the emit loop published wrote both paths, so once the pair is
+    // known to exist neither is a guess — the path set stays what it was.
+    const [retirement] = enumerateJunkRetirements([JUNK], new Map(), PUBLISHED);
+    expect(retirement.paths).toEqual([
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern/',
+      '/cerca-lavoro-ticino/ricerca-cookie-bern/',
+    ]);
+  });
+
+  it('withdraws on GSC/GA4 evidence alone, with no manifest', () => {
+    // `data/indexed-cluster-urls.json` only knows the URLs still SEEN; a
+    // manifest is the plugin's own record. Either one answers the question.
+    const indexed = new Map<string, string[]>([
+      ['it::ricerca-cookie-bern', ['/cerca-lavoro-zurigo/ricerca-cookie-bern']],
+    ]);
+    const [retirement] = enumerateJunkRetirements([JUNK], indexed, new Set());
+    expect(retirement.paths).toContain('/cerca-lavoro-zurigo/ricerca-cookie-bern/');
+    expect(retirement.paths).toContain('/cerca-lavoro-svizzera/ricerca-cookie-bern/');
   });
 });
 
@@ -206,7 +259,7 @@ describe('junkRetirementWrites — the flat sibling is withdrawn too (issue #775
 });
 
 describe('assertRetirementsDisjointFromPlan — a withdrawal never lands on a live cluster (issue #7752)', () => {
-  const RETIREMENTS = enumerateJunkRetirements([JUNK]);
+  const RETIREMENTS = enumerateJunkRetirements([JUNK], new Map(), PUBLISHED);
   const LIVE_PLAN = [
     '/cerca-lavoro-svizzera/ricerca-infermiere-lugano/',
     '/cerca-lavoro-ticino/ricerca-infermiere-lugano/',
@@ -269,5 +322,77 @@ describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HI
     expect(restoredKeywordLandingPaths([LIVE, RETIRED, RETIRED_FLAT], [RETIRED, RETIRED_FLAT])).toEqual([
       '/cerca-lavoro-svizzera/ricerca-infermiere-lugano',
     ]);
+  });
+});
+
+describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record (issue #7753)', () => {
+  const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-'));
+  const cacheDir = path.join(rootDir, '.cache', 'related-search-clusters', 'abc123');
+  fs.mkdirSync(cacheDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(cacheDir, 'manifest.json'),
+    JSON.stringify({
+      version: 1,
+      files: [
+        'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html',
+        'cerca-lavoro-svizzera/ricerca-cookie-bern.html',
+        'fr/trouver-emploi-tessin/recherche-infirmier-lugano/index.html',
+        'index.html',
+        'sitemap-search-clusters.xml',
+      ],
+    }),
+  );
+  afterAll(() => fs.rmSync(rootDir, { recursive: true, force: true }));
+
+  it('counts the Svizzera AGGREGATE canonical, which the mirror parser skips', () => {
+    // `parseClusterPathKey` excludes the aggregator on purpose (it is the
+    // canonical, never a mirror). The publication question is the opposite
+    // one, and the aggregate is where every cluster canonicalizes since #4400.
+    expect(loadPreviouslyEmittedClusterKeys(rootDir)).toEqual(
+      new Set(['it::ricerca-cookie-bern', 'fr::recherche-infirmier-lugano']),
+    );
+  });
+
+  it('answers empty — never throws — when there is no cache to read', () => {
+    // No evidence from this source is the conservative direction: the
+    // candidate simply gets no withdrawal.
+    expect(loadPreviouslyEmittedClusterKeys(path.join(rootDir, 'nope'))).toEqual(new Set());
+  });
+
+  it('ignores a manifest it cannot parse', () => {
+    const broken = path.join(rootDir, '.cache', 'related-search-clusters', 'broken');
+    fs.mkdirSync(broken, { recursive: true });
+    fs.writeFileSync(path.join(broken, 'manifest.json'), '{ not json');
+    expect(loadPreviouslyEmittedClusterKeys(rootDir).has('it::ricerca-cookie-bern')).toBe(true);
+  });
+
+  it('does not count a WITHDRAWAL document as evidence of publication', () => {
+    // `retiredFiles ⊆ files`, so reading `files` raw would make the evidence
+    // self-confirming on the very population the gate excludes: a pre-fix
+    // build that synthesised a bogus withdrawal for a never-published
+    // candidate would prove that candidate "published" on the next build.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-retired-'));
+    const dir = path.join(root, '.cache', 'related-search-clusters', 'k1');
+    fs.mkdirSync(dir, { recursive: true });
+    const retired = [
+      'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html',
+      'cerca-lavoro-ticino/ricerca-cookie-bern/index.html',
+    ];
+    fs.writeFileSync(
+      path.join(dir, 'manifest.json'),
+      JSON.stringify({
+        version: 1,
+        files: [
+          ...retired,
+          'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
+        ],
+        retiredFiles: retired,
+      }),
+    );
+    const keys = loadPreviouslyEmittedClusterKeys(root);
+    expect(keys.has('it::ricerca-cookie-bern')).toBe(false);
+    // A real landing in the same manifest still counts.
+    expect(keys.has('it::ricerca-infermiere-lugano')).toBe(true);
+    fs.rmSync(root, { recursive: true, force: true });
   });
 });
