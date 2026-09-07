@@ -17389,6 +17389,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'attivita-appenzello-esterno-registro',
+    category: 'pratico',
+    date: '2026-09-06T23:59:35.479Z',
+    image: '/images/blog/attivita-appenzello-esterno-registro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Sun, 06 Sep 2026 23:29:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 06 Sep 2026 23:59:35 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,63 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Opening a business in Appenzello Esterno: procedures and costs</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/open-business-appenzell-ausserrhoden-registry/</link>
+      <description><![CDATA[Complete guide: legal forms, trade register, minimum capital, AVS/LPP contributions and insurance obligations to set up a business in the canton.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Three legal forms: sole proprietorship, LLC (CHF 20,000), corporation (CHF 100,000)
+- Mandatory registration in the cantonal commercial register
+- Mandatory contributions to AHV/AI/LPP and health insurance
+- Three levels of taxation: federal, cantonal, and municipal
+
+## Key facts
+- **What**: Registering a business in the canton
+- Who: Tax authorities and cantonal registry offices
+- Where: Canton of Appenzell Ausserrhoden
+- Available forms: Sole proprietorship, LLC, corporation
+- Requirements: Mandatory registration, pension contributions, LAMal
+
+Opening a business in the Canton of Appenzell Ausserrhoden involves a series of administrative and tax obligations that vary depending on the chosen legal form. Switzerland does not have a federal minimum wage but imposes strict requirements on pensions, health insurance, and registration in the cantonal commercial register. The choice between a sole proprietorship, limited liability company (LLC), or corporation determines both the administrative complexity and the mandatory pension contributions.
+
+### Legal forms and requirements
+
+In Switzerland, those wishing to start a business have three main options. The sole proprietorship does not require a minimum capital and offers maximum administrative simplicity, but the owner is personally liable with their personal assets. It is the natural choice for self-employed professionals, consultants, and independent traders. It is also ideal for those who want to maintain complete managerial autonomy without involving other partners.
+
+The limited liability company (LLC) protects the personal assets of the partners: liability is limited to the share capital, not less than CHF 20,000. This form offers greater credibility towards clients and suppliers compared to the sole proprietorship, but requires slightly more complex administrative management. Each partner contributes their share of capital, which remains deposited with a bank until the official registration.
+
+The corporation represents the most structured form and is required by larger companies or those with institutional investors. The minimum capital is CHF 100,000 and must be paid before registration. The corporation requires a board of directors, a formal statute, and more rigorous accounting.
+
+### Registration in the commercial register
+
+Registration in the commercial register is mandatory in every Swiss canton. In the Canton of Appenzell Ausserrhoden, the process involves submitting a dossier to the competent cantonal office. There is no uniform federal deadline — each canton regulates the timing, but generally, registration must occur before or immediately after the start of the activity.
+
+For a sole proprietorship, the essential documents include: certificate of nationality or residence permit, copy of a valid identity document, completed and signed registration form, and possibly a copy of the lease agreement if the premises are rented.
+
+For an LLC or corporation, the documentation is more complex: notarized deed of incorporation, statute, bank certificate of deposit of the minimum capital, complete list of partners and administrators, authenticated signatures. Each canton may add specific requirements — it is therefore essential to contact the cantonal commercial register office before proceeding.
+Once the activity is registered, the self-employed person is subject to tax obligations at three levels: federal, cantonal, and municipal. Each canton — including Appenzell Ausserrhoden — has its own multipliers and rates for cantonal and municipal taxes. The federal direct tax is uniform at the national level but is calculated based on the specific situation of each taxpayer.
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Checklist to open a business
+
+Before registering with the commercial register in the Canton of Appenzell Ausserrhoden, it is useful to prepare a detailed checklist. First: choose the legal form (sole proprietorship, LLC, or corporation) based on the size of the investment, the expected management complexity, and the number of partners. Second: deposit the minimum capital with a Swiss bank (if the chosen form requires it) and obtain the bank deposit certificate. Third: gather personal documentation (certificate of nationality, copy of ID card, and possibly residence permit if foreign).
+
+Fourth: contact the commercial register office of the Canton of Appenzell Ausserrhoden and request the complete registration dossier and specific cantonal instructions. Fifth: complete the registration form in all its parts, sign, and attach all required documents. Sixth: submit the dossier to the office (usually by registered mail, certified email, or in person) and obtain the official receipt of submission.
+
+### Deadlines and next steps
+
+After registering with the commercial register, within three months it is mandatory to register with the cantonal tax office and, in parallel, take out a validated health insurance. There is no single federal registration fee — costs vary significantly by canton and legal form. Each canton charges its own administrative fees for registration with the commercial register.
+
+The tax identification number (UID) is automatically assigned by the cantonal tax office and allows you to start the business for all tax purposes. Ensure that this number appears on every official document and invoice.
+
+For a personalized assessment of the specific tax and social security costs in the Canton of Appenzell Ausserrhoden, [consult the tax calculator](nav:calculator) to estimate the federal direct tax, then contact the cantonal tax administration and the local commercial register office directly for details on specific cantonal rates and taxes.]]></content:encoded>
+      <pubDate>Sun, 06 Sep 2026 23:59:35 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/attivita-appenzello-esterno-registro</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/attivita-appenzello-esterno-registro.webp" medium="image"/>
+    </item>
     <item>
       <title>Management of the first AVS pillar in the Canton of Appenzello Outer</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/avs-complementary-benefits-appenzell-outer-rhodes/</link>
@@ -3575,125 +3632,6 @@ To calculate the tax burden (IFD, cantonal and municipal tax), AVS/AI/IPG contri
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-soletta-costi-procedure</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-soletta-costi-procedure.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Opening a business in the Canton of Solothurn: Trade and Costs Register</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/starting-a-business-canton-solothurn-registration-costs/</link>
-      <description><![CDATA[Learn about the bureaucratic and financial steps to start a business in the Canton of Solothurn, including registration fees and insurance obligations.]]></description>
-      <content:encoded><![CDATA[## In a nutshell
-- Starting a business in the Canton of Solothurn requires registration in the commercial register.
-- The choice of legal form is fundamental.
-- There are registration costs and insurance obligations.
-
-## Key facts
-- **What**: Starting a business in the Canton of Solothurn
-- When: Not specified
-- Where: Canton of Solothurn
-- Who: Entrepreneurs
-- Amount: Not specified
-
-Starting a business in the Canton of Solothurn requires a series of bureaucratic and financial steps that every entrepreneur must know. The choice of legal form is the first crucial step. Each legal form has different tax and insurance implications, so it is important to make an informed choice. Registration in the commercial register is mandatory for all commercial activities, regardless of their size. This process involves registration costs that vary depending on the legal form chosen.
-
-### Choice of Legal Form
-The choice of legal form depends on various factors, including the size of the business, the number of shareholders and financial responsibilities. The most common options include sole proprietorship, general partnership, limited partnership and limited liability company. Each shape has its advantages and disadvantages, so it is advisable to consult an expert to make the right choice.
-
-#### Sole Proprietorship
-- Advantages: Ease of establishment, total control
-## Practical Analysis
-Starting a business in the Canton of Solothurn involves a series of practical implications that every entrepreneur must consider. Taxation is one of the most complex aspects, with three levels of tax: federal, cantonal, and municipal. Each canton has its own laws and tax multipliers, so it is important to know the specifics of the Canton of Solothurn.
-
-### Registration Costs
-The costs of registering with the commercial register vary depending on the legal form chosen. For example, a sole proprietorship may have lower costs compared to a limited liability company. It is essential to have accurate financial planning to cover these initial costs. In the Canton of Solothurn, the costs for registering a sole proprietorship can range between CHF 100 and CHF 200, while for a limited liability company (LLC), the costs can go up to CHF 1,000. It is important to note that these costs may also include the expenses for publication in the Swiss Official Gazette of Commerce (SOGC).
-
-### Insurance Obligations
-Insurance obligations are another crucial aspect. Every business must comply with social security regulations, which include contributions to AHV/AIV/IPG, AD/AC, and LPP. These contributions vary depending on the sector and the coordinated salary. For example, for an employee with a coordinated salary of CHF 6,000 per month, the AHV/AIV/IPG contributions amount to approximately CHF 360, while the AD/AC contributions are approximately CHF 120. For professional pension provision (LPP), the contributions can vary but generally amount to around 10% of the coordinated salary, or CHF 600 in this case.
-
-### Operational Checklist
-To facilitate the business startup process, here is an operational checklist:
-- **Market Research**: Analyze demand and supply in the chosen sector.
-- Financial Planning: Calculate initial costs and forecast future revenues.
-- Choice of Legal Form: Decide between sole proprietorship, limited liability company, public limited company, etc.
-- Registration with the Commercial Register: Complete and submit the necessary documents.
-- Opening a Bank Account: Open a business account to manage the company's finances.
-- Tax Obligations: Register with the cantonal and municipal tax administration.
-- Insurance Obligations: Enroll in the various social security funds.
-- Licenses and Permits: Obtain any necessary licenses and permits for the activity.
-
-### Comparisons between Practical Scenarios
-To illustrate better, let's consider two practical scenarios:
-1. Sole Proprietorship: An entrepreneur starting a sole proprietorship in the restaurant sector. The costs of registering with the commercial register will be approximately CHF 150. The insurance contributions for a coordinated salary of CHF 4,000 per month will be approximately CHF 240 for AHV/AIV/IPG and CHF 80 for AD/AC, with an LPP contribution of CHF 400.
-2. Limited Liability Company (LLC): A group of friends starting an LLC in the IT consulting sector. The costs of registering with the commercial register will be approximately CHF 800. The insurance contributions for a coordinated salary of CHF 8,000 per month will be approximately CHF 480 for AHV/AIV/IPG and CHF 160 for AD/AC, with an LPP contribution of CHF 800.
-
-### Conclusion
-Starting a business in the Canton of Solothurn requires careful planning and a thorough understanding of tax and insurance regulations. By following the operational checklist and considering the specific costs and obligations, entrepreneurs can successfully overcome the initial challenges and position their business for long-term success.
-
-> "Planning is essential for the success of any venture. Knowing the costs and legal obligations is the first step towards effective management." - Swiss Business Expert
-
-📊 Statistics: According to the Federal Statistical Office, in 2022, over 40,000 new businesses were started in Switzerland, with the Canton of Solothurn seeing a 5% increase compared to the previous year.
-
-💡 Tip: Consulting a tax advisor and a lawyer specializing in corporate law can help navigate the legal and tax complexities, ensuring a smooth start for the new business.
-
-⚠️ Warning: Tax and insurance regulations can change. It is crucial to stay updated with the latest information and consult official sources such as the Federal Tax Administration (FTA) and the Federal Social Insurance Office (FSIO).
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-## Action
-To start a business in the Canton of Solothurn, you need to follow a series of concrete steps. First, it is important to choose the legal form that best suits your needs. Then, you need to register with the commercial register, paying the relevant registration costs. Finally, it is essential to comply with all insurance obligations provided by law.
-
-### Step-by-Step Procedure
-1. Choose the most suitable legal form.
-   - Sole proprietorship: Ideal for those who want to maintain full control of the business. It does not require a minimum capital, but the owner is personally liable for the company's debts.
-   - **Limited Liability Company (LLC):** Requires a minimum capital of CHF 20,000. Partners have limited liability to their capital contribution.
-   - Joint-stock company (JSC): Requires a minimum capital of CHF 100,000. Partners have limited liability to their capital contribution.
-
-2. Register with the commercial register.
-   - The registration cost varies depending on the canton. In the Canton of Solothurn, the cost is approximately CHF 200 for the initial registration and CHF 100 for each subsequent modification.
-
-3. Pay the registration costs.
-   - In addition to the commercial register registration costs, there are also costs for publishing the constitution announcement in the Swiss Official Gazette of Commerce (SOGC), amounting to approximately CHF 150.
-
-4. Comply with insurance obligations.
-   - It is mandatory to register with the Disability Insurance (DI) and the Maternity Insurance (MI). Contributions vary depending on income, but on average they amount to around 10% of the salary.
-
-### Tools and Resources
-For further information and support, you can consult the [salary calculator](nav:calculator) and the [CHF/EUR comparator](nav:exchange). These tools can help you better plan your expenses and manage your business finances.
-
-### Operational Checklist
-- Required documentation:
-  - Personal identification (passport or ID card)
-  - Draft of articles of association (for LLC and JSC)
-  - Proof of payment of the share capital (for LLC and JSC)
-  - Lease or ownership contract of the commercial property
-
-- Administrative steps:
-  - Opening a business bank account
-  - Registration with the Canton of Solothurn Tax Office
-  - Registration with DI and MI
-
-### Comparison of Practical Scenarios
-- Sole proprietorship vs. LLC:
-  - Sole proprietorship: Low initial cost, but unlimited liability. Suitable for small traders or self-employed professionals.
-  - LLC: Greater legal protection, but higher initial cost. Suitable for activities with higher financial risks.
-
-- LLC vs. JSC:
-  - LLC: Lower minimum capital, simpler incorporation procedure. Suitable for small and medium-sized enterprises.
-  - JSC: Higher minimum capital, greater flexibility in business management. Suitable for large enterprises or those with expansion plans.
-
-### Regulations and Key Dates
-- Federal Law on Stamp Duty (FLSD): Effective from January 1, 2011, it regulates the stamp duty on financial transactions.
-- Federal Law on Maternity Insurance (FLMI): Effective from July 1, 2005, it guarantees a daily allowance to working mothers.
-
-### Concrete Examples
-- Case 1: A craftsman who wants to open a car repair shop in the Canton of Solothurn might opt for a sole proprietorship. The initial costs would be minimal, and he could start with an investment of CHF 5,000 for equipment and materials.
-- Case 2: A group of friends who want to start a tech startup might choose an LLC. With an initial capital of CHF 20,000, they could develop an innovative product and protect their personal assets in case of failure.
-
-### Conclusion
-Starting a business in the Canton of Solothurn requires careful planning and knowledge of local regulations. By following the described steps and using the available resources, you can reduce risks and increase the chances of success.]]></content:encoded>
-      <pubDate>Sun, 06 Sep 2026 02:35:48 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/aprire-attivita-canton-soletta-registro-di-commercio-e-costi</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aprire-attivita-canton-soletta-registro-di-commercio-e-costi.webp" medium="image"/>
     </item>
   </channel>
 </rss>

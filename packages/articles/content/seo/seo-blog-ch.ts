@@ -75251,6 +75251,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-attivita-appenzello-esterno-registro': {
+    title: 'Aprire un\'attività in Appenzello Esterno: procedure e costi',
+    description: 'Guida completa: forme giuridiche, registro di commercio, capitale minimo, contributi AVS/LPP e obblighi assicurativi per fondare un\'impresa nel cantone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
+    ogTitle: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    ogDescription: 'Scopri come registrare una nuova impresa nel Cantone di Appenzello Esterno: forme giuridiche, documentazione, contributi previdenziali obbligatori e tasse cantonali. Procedura step by step per indipendenti e imprenditori.',
+    canonicalPath: '/articoli-svizzera/attivita-appenzello-esterno-registro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Appenzello Esterno: procedure e costi",
+      "description": "Guida completa: forme giuridiche, registro di commercio, capitale minimo, contributi AVS/LPP e obblighi assicurativi per fondare un'impresa nel cantone.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/attivita-appenzello-esterno-registro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania d'ufficio con moduli di registrazione commerciale e documenti in edificio amministrativo svizzero."
+      },
+      "datePublished": "2026-09-06T23:59:35+00:00",
+      "dateModified": "2026-09-06T23:59:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attivita-appenzello-esterno-registro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
