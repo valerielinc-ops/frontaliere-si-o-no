@@ -18,7 +18,7 @@
  * @param {string} rawUrl
  * @returns {string} absolute URL when one can be derived, else the trimmed input.
  */
-export function normalizeJobUrl(rawUrl = '') {
+export function absoluteJobUrl(rawUrl = '') {
   const raw = String(rawUrl ?? '').trim();
   if (!raw) return '';
   // Anything already carrying a scheme is kept as-is: prepending `https://`
@@ -68,7 +68,7 @@ export function normalizeJobUrl(rawUrl = '') {
  * @returns {string} lowercase hostname, or `''` when the URL cannot be parsed.
  */
 export function jobUrlHost(rawUrl = '') {
-  const candidate = normalizeJobUrl(rawUrl);
+  const candidate = absoluteJobUrl(rawUrl);
   if (!candidate) return '';
   try {
     return new URL(candidate).hostname.toLowerCase();

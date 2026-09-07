@@ -12,7 +12,7 @@
  * and ambiguous responses are treated as "valid" to avoid false positives.
  */
 
-import { normalizeJobUrl } from './job-url-host.mjs';
+import { absoluteJobUrl } from './job-url-host.mjs';
 
 // ── Defaults ──────────────────────────────────────────────────────────────────
 
@@ -269,7 +269,7 @@ export async function validateJobUrl(rawUrl, { timeoutMs, userAgent, id } = {}) 
   // verdict about our own string, never about the listing — so an expired job
   // stays published forever and a real 404 is unprovable. Normalizing the
   // scheme first makes the probe answer the question it was asked.
-  const url = normalizeJobUrl(rawUrl);
+  const url = absoluteJobUrl(rawUrl);
   if (!url) return { id, valid: true, reason: 'no-url' };
 
   const timeout = timeoutMs || DEFAULT_TIMEOUT_MS;

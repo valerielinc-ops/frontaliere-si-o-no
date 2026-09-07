@@ -61,7 +61,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { normalizeJobUrl } from './lib/job-url-host.mjs';
+import { absoluteJobUrl } from './lib/job-url-host.mjs';
 import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -352,7 +352,7 @@ function humanizeCompanyKey(key) {
  *     no-op for slices written after this change).
  *   - `addressLocality` is backfilled from the (sanitized) `location`.
  *   - `addressRegion` defaults to the canton code.
- *   - `url` is rewritten to its absolute form (`normalizeJobUrl`).
+ *   - `url` is rewritten to its absolute form (`absoluteJobUrl`).
  *
  * Deliberately does NOT invent `postalCode` or `streetAddress`: forging an HQ
  * postal code is exactly what slipped foreign jobs past the whitelist (the
@@ -395,7 +395,7 @@ export function normalizeParsedJobsForSlice(jobs) {
     if (!job || typeof job !== 'object') continue;
 
     if (typeof job.url === 'string' && job.url.trim()) {
-      const absoluteUrl = normalizeJobUrl(job.url);
+      const absoluteUrl = absoluteJobUrl(job.url);
       if (absoluteUrl && absoluteUrl !== job.url) {
         job.url = absoluteUrl;
         urlNormalized++;
