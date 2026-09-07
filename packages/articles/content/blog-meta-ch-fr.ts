@@ -5851,6 +5851,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondazione-beloved-primi-versamenti.title': 'Fondation Beloved : premiers versements pour les victimes',
     'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Fondation Beloved commence les versements : 24 millions de CHF pour les victimes de l\'incendie de Crans-Montana. Priorité : réinsertion professionnelle et soutien psychologique à long terme.',
     'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Bâtiment institutionnel suisse représentant le travail de la Fondation Beloved pour soutenir les victimes',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Ouvrir des activités à Berne : registre du commerce et des coûts',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Enregistrement d\'entreprise à Berne : choix de la forme juridique, inscription au registre du commerce, capital minimum et obligations d\'assurance.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Vue d\'une ville suisse avec bâtiments historiques et paysage alpin en arrière-plan',
 };
 
 export default blogMetaChFr;
