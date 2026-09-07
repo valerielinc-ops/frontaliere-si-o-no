@@ -1,0 +1,22 @@
+{
+  "companyKey": "solaria",
+  "companyName": "Solaria",
+  "companyHost": "solaria.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.solaria.ch/fr/tous-les-logements/appartements-de-vacances/"
+  ],
+  "detailTemplate": "/fr/tous-les-logements/appartements-de-vacances/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "<div class=\"aspect-w-11 aspect-h-13 shrink-0 grow-0 layout-placeholder isolate before:content-[''] before:absolute before:inset-0 before:bg-gray-700/20 before:z",
+    "<div class=\"aspect-w-11 aspect-h-13 shrink-0 grow-0 layout-placeholder isolate before:content-[''] before:absolute before:inset-0 before:bg-gray-700/20 before:z",
+    "<div class=\"aspect-w-11 aspect-h-13 shrink-0 grow-0 layout-placeholder isolate before:content-[''] before:absolute before:inset-0 before:bg-gray-700/20 before:z"
+  ],
+  "canton": "GR",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-07T09:20:08.802Z"
+}
