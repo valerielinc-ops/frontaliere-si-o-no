@@ -5845,6 +5845,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-integrazioni-canton-berna.title': 'AHV und Ergänzungsleistungen im Kanton Bern',
     'blog.article.avs-integrazioni-canton-berna.excerpt': 'So funktioniert die Berechnung der AHV-Rente im Kanton Bern: Pflichtbeiträge, Beitragslücken, Ergänzungsleistungen und Lebensminimum.',
     'blog.article.avs-integrazioni-canton-berna.imageAlt': 'Schweizer Finanzberater prüft AHV-Rentenberechnungen im Kanton Bern Büro',
+    'blog.article.riassetto-vw-impatti-svizzera.title': 'VW-Sanierung: Für die Schweiz sind die Auswirkungen begrenzt',
+    'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen will bis 2030 100’000 Stellen abbauen. Feintool verliert in Zürich über 3% an der Börse.',
+    'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit Fokus auf die Industriegebiete und die umliegenden Berge.',
 };
 
 export default blogMetaChDe;

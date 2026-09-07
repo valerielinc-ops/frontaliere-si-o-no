@@ -75875,6 +75875,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riassetto-vw-impatti-svizzera': {
+    title: 'Riassetto VW: per la Svizzera l’impatto è limitato',
+    description: 'Volkswagen taglierà 100’000 posti di lavoro entro il 2030. Feintool perde oltre il 3% in borsa a Zurigo, ma altri fornitori elvetici restano poco esposti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, riassetto, impatto, limitato, volkswagen',
+    ogTitle: 'Riassetto VW: per la Svizzera l’impatto è limitato',
+    ogDescription: 'Volkswagen taglierà 100’000 posti di lavoro entro il 2030. Feintool perde oltre il 3% in borsa a Zurigo, ma altri fornitori elvetici restano poco esposti. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/riassetto-vw-impatti-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riassetto VW: per la Svizzera l’impatto è limitato",
+      "description": "Volkswagen taglierà 100’000 posti di lavoro entro il 2030. Feintool perde oltre il 3% in borsa a Zurigo, ma altri fornitori elvetici restano poco esposti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riassetto-vw-impatti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con focus sulle aree industriali e le montagne circostanti."
+      },
+      "datePublished": "2026-09-07T05:25:22+00:00",
+      "dateModified": "2026-09-07T05:25:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riassetto-vw-impatti-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

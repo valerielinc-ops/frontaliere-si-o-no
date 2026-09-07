@@ -17533,6 +17533,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'riassetto-vw-impatti-svizzera',
+    category: 'fiscale',
+    date: '2026-09-07T05:25:22.078Z',
+    image: '/images/blog/riassetto-vw-impatti-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
