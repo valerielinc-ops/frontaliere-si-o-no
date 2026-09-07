@@ -357,7 +357,7 @@ export function extractDetailFields(html = '', pageUrl = '') {
   // recognise the municipality, and the employer address in header/footer/nav
   // is out of scope by construction so an HQ cannot stand in for a workplace.
   if (!locationCandidates.length && !ambiguousStructuredSiblings) {
-    for (const candidate of renderedPostalAddressCandidates(html)) locationCandidates.push(candidate);
+    for (const candidate of renderedPostalAddressCandidates(html, title)) locationCandidates.push(candidate);
   }
   const primaryLocation = /** @type {any} */ (locationCandidates[0] || {});
   const structuredLocationClasses = structuredRecords.map((record) => {
@@ -417,8 +417,8 @@ export function extractDetailFields(html = '', pageUrl = '') {
   // A detail page with no useful class still commonly puts the vacancy body
   // in its main/article container. Use it only when it is materially larger
   // than the page's structured teaser, avoiding a navigation-only shell.
-  const main = /<(main|article)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html);
-  if (!blocks.length && main) blocks.push(textOf(main[2]));
+  const main = vacancyContainerContent(html, title);
+  if (!blocks.length && main) blocks.push(textOf(main));
   const descriptions = [
     ...blocks,
     blocks.length > 1 ? blocks.join(' ') : '',
@@ -432,7 +432,7 @@ export function extractDetailFields(html = '', pageUrl = '') {
     locationCandidates,
     authoritativeLocationConflict,
     description: descriptions[0] || '',
-    workplaceLabels: renderedWorkplaceLabelValues(html),
+    workplaceLabels: renderedWorkplaceLabelValues(html, title),
     postedDate: structuredRecords.find((record) => record.postedDate)?.postedDate || '',
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
   };
@@ -462,10 +462,11 @@ const MAX_WORKPLACE_LABEL_VALUE = 120;
  * followed by another label, yields nothing and the caller keeps its finding.
  *
  * @param {string} html
+ * @param {string} [title] vacancy title, to pick its own content region
  * @returns {string[]}
  */
-export function renderedWorkplaceLabelValues(html = '') {
-  const segments = vacancyContentRegion(html)
+export function renderedWorkplaceLabelValues(html = '', title = '') {
+  const segments = vacancyContentRegion(html, title)
     .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
     .split(/<[^>]*>/)
@@ -504,6 +505,43 @@ const ADDRESS_BLOCK_CLASS_RX = /(?:^|[\s_-])(?:contact|address|adresse|indirizzo
 const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{L}'\u2019.-]*(?:[ -]\p{L}[\p{L}'\u2019.-]*){0,3})/gu;
 
 /**
+ * Content of the main/article container that holds THIS vacancy, or '' when
+ * the page has none. The title is what identifies it: a detail page routinely
+ * carries more than one such container — a related-positions block rendered as
+ * a second `<article>`, or a list of other openings inside the same `<main>` —
+ * and taking the first one in document order reads another vacancy's body.
+ * That is worse than reading nothing: the workplace corroborated from the
+ * wrong ad silences the mismatch exactly where the published seat is really
+ * wrong, and the job page stays indexed with the wrong `jobLocation` (#7772).
+ *
+ * Among the containers that do carry the title, the narrowest wins: when a
+ * `<main>` wraps both the vacancy `<article>` and a related-jobs one, both
+ * contain the title and only the inner one excludes the neighbours.
+ *
+ * @param {string} html
+ * @param {string} [title] vacancy title as rendered/structured on the page
+ * @returns {string}
+ */
+function vacancyContainerContent(html = '', title = '') {
+  const source = String(html);
+  const index = indexHtmlTags(source);
+  const regions = [];
+  for (const opening of index.openings) {
+    if (opening.name !== 'main' && opening.name !== 'article') continue;
+    if (opening.selfClosing) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    regions.push(source.slice(opening.end, bounds.contentEnd));
+  }
+  const wanted = textOf(title).toLowerCase();
+  const owning = wanted
+    ? regions.filter((region) => textOf(region).toLowerCase().includes(wanted))
+    : [];
+  owning.sort((a, b) => a.length - b.length);
+  return owning[0] ?? regions[0] ?? '';
+}
+
+/**
  * The part of a detail page that describes the vacancy. The employer's own
  * address lives in the site chrome (arsante.ch repeats `CH-1213 Petit-Lancy`
  * in every page footer); reading it as the workplace would publish one
@@ -511,11 +549,11 @@ const SWISS_POSTAL_ADDRESS_RX = /(?:^|[\s,;(])(?:CH[\s-]?)?(\d{4})\s+(\p{Lu}[\p{
  * source-backed gate exists to prevent.
  *
  * @param {string} html
+ * @param {string} [title]
  * @returns {string}
  */
-function vacancyContentRegion(html = '') {
-  const main = /<(main|article)\b[^>]*>([\s\S]*?)<\/\1>/i.exec(html);
-  return (main ? main[2] : html)
+function vacancyContentRegion(html = '', title = '') {
+  return (vacancyContainerContent(html, title) || String(html))
     .replace(/<footer\b[\s\S]*?<\/footer>/gi, ' ')
     .replace(/<header\b[\s\S]*?<\/header>/gi, ' ')
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, ' ');
@@ -527,10 +565,11 @@ function vacancyContentRegion(html = '') {
  * result must stay empty so the caller keeps dropping the row.
  *
  * @param {string} html
+ * @param {string} [title] vacancy title, to pick its own content region
  * @returns {Array<{location: string, addressCountry: string, addressLocality: string, postalCode: string}>}
  */
-export function renderedPostalAddressCandidates(html = '') {
-  const scope = vacancyContentRegion(html);
+export function renderedPostalAddressCandidates(html = '', title = '') {
+  const scope = vacancyContentRegion(html, title);
   const index = indexHtmlTags(scope);
   const containers = readAttributeContainers(
     scope,

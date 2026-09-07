@@ -15,7 +15,7 @@ import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
+import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
@@ -237,6 +237,44 @@ describe('vacancy extraction', () => {
     ]);
     expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
       .toMatchObject({ location: '1201 Genève', canton: 'GE' });
+  });
+
+  // Regressione #7772. Una detail page che elenca anche altre posizioni porta
+  // più di un container main/article: prendere il PRIMO in ordine di documento
+  // corrobora la sede leggendo l'annuncio sbagliato, e il mismatch si spegne
+  // proprio dove la sede pubblicata è davvero errata. La regione della vacancy
+  // è quella che contiene il suo titolo.
+  it('reads the workplace from the container that carries this vacancy title', () => {
+    const html = `<article class="related"><h2>Altre posizioni</h2>`
+      + `<label>Arbeitsort:</label><span>3003 Bern</span></article>`
+      + `<article><h1>Wissenschaftliche Mitarbeiterin</h1>`
+      + `<label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span></article>`;
+    expect(renderedWorkplaceLabelValues(html, 'Wissenschaftliche Mitarbeiterin'))
+      .toEqual(['Reckenholzstrasse 191, 8046 Zürich']);
+    expect(extractDetailFields(html, 'https://jobs.admin.ch/x/y').workplaceLabels)
+      .toEqual(['Reckenholzstrasse 191, 8046 Zürich']);
+  });
+
+  // Il <main> avvolge sia la vacancy sia il blocco di annunci correlati: fra i
+  // container che contengono il titolo vince il più stretto, l'unico che esclude
+  // i vicini. Senza titolo riconoscibile si ricade sul primo, come prima.
+  it('prefers the narrowest title-bearing region and falls back to the first', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir.</p></div>`
+      + `<div class="contact-info"><p>1201 Genève</p></div></article>`
+      + `<article class="related"><h2>Autres postes</h2>`
+      + `<div class="contact-info"><p>6900 Lugano</p></div></article></main>`;
+    expect(renderedPostalAddressCandidates(html, 'Comptable'))
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    expect(extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96').locationCandidates)
+      .toEqual([expect.objectContaining({ location: '1201 Genève' })]);
+    // Nessun titolo: comportamento invariato, primo container del documento.
+    expect(renderedPostalAddressCandidates(html))
+      .toEqual([
+        expect.objectContaining({ location: '1201 Genève' }),
+        expect.objectContaining({ location: '6900 Lugano' }),
+      ]);
   });
 
   // L'indirizzo dell'azienda nel chrome del sito è ripetuto identico su ogni
