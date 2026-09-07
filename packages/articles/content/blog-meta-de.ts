@@ -11563,6 +11563,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese: Tagung über erneuerbare Energiegemeinschaften',
     'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'Die Handelskammer von Varese organisiert eine Konferenz über erneuerbare Energiegemeinschaften für Unternehmen, lokale Behörden und private Bürger.',
     'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Luftaufnahme des Luganer Sees mit Solarpaneelen auf den Dächern.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.title': 'Wohnen in Nus und Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.excerpt': 'Entdecken Sie die Vor- und Nachteile des Grenzgängerlebens in NUS und der Arbeit im Wallis, einschließlich Verbindungen, Reisezeiten und Lebenshaltungskosten.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Alpen im Hintergrund, zeigt ein gemütliches Haus mit einem Balkon, der auf das Wasser blickt.',
 };
 
 export default blogMetaDe;

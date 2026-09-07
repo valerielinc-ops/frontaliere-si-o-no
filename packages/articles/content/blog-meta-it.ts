@@ -11565,6 +11565,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-comunita-energetiche-rinnovabili.title': 'Varese: convegno su comunità energetiche rinnovabili',
     'blog.article.varese-comunita-energetiche-rinnovabili.excerpt': 'La Camera di Commercio di Varese organizza un convegno sulle Comunità Energetiche Rinnovabili per imprese, enti locali e privati cittadini.',
     'blog.article.varese-comunita-energetiche-rinnovabili.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.title': 'Vivere a Nus e lavorare in Vallese da frontaliere',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
+    'blog.article.vivere-nus-lavorare-vallese-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando una casa accogliente con un balcone che guarda sull\'acqua.',
 };
 
 export default blogMetaIt;

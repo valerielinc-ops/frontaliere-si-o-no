@@ -34536,6 +34536,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-nus-lavorare-vallese-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-07T11:24:20.119Z',
+ image: '/images/blog/vivere-nus-lavorare-vallese-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
