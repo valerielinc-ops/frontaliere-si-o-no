@@ -6028,6 +6028,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Security deposit and fee dispute in Geneva',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'The security deposit may not exceed three months of rent; the dispute of the fee must take place within 30 days with the conciliation authority.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Apartment building in Geneva with a \'For Rent\' sign and Alpine backdrop',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Meeting of social ministers in Luxembourg: focus on pensions and health',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'On 7 September 2026 in Luxembourg, Switzerland signed a declaration with Austria, Germany, Liechtenstein and Luxembourg on pensions, NCDs and neurodegenerative diseases.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxembourg skyline at sunset, representing a Swiss‑European health and pension meeting',
 };
 
 export default blogMetaChEn;

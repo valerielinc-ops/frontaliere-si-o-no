@@ -6028,6 +6028,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Caution et contestation des redevances à Genève',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Le dépôt de garantie ne peut excéder trois mois de loyer ; la contestation de la redevance doit avoir lieu dans les 30 jours auprès de l’autorité de conciliation.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Immeuble à Genève avec pancarte \'À louer\' et vue sur les Alpes',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Lussembourg: retraites et santé au menu des ministres',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Le 7 septembre 2026 à Luxembourg, la Suisse a signé une déclaration avec l\'Autriche, l\'Allemagne, le Liechtenstein et le Luxembourg sur les pensions, le NCD et les maladies neurodégénératives.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Vue de Luxembourg au coucher du soleil, illustrant une réunion suisse‑européenne sur les retraites et la santé',
 };
 
 export default blogMetaChFr;

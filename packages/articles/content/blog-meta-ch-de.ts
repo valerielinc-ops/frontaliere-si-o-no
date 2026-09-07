@@ -6028,6 +6028,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Kaution und Anfechtung der Gebühren in Genf',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Die Kaution darf drei Mietmonate nicht überschreiten; die Anfechtung der Miete muss innerhalb von 30 Tagen bei der Schlichtungsbehörde erfolgen.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Wohngebäude in Genf mit \'Zu vermieten\'-Schild und Alpenblick',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Sozialministertreffen in Luxemburg: Fokus auf Renten und Gesundheit',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Am 7. September 2026 unterzeichnete die Schweiz in Luxemburg eine Erklärung mit Österreich, Deutschland, Liechtenstein und Luxemburg zu Renten, NCDs und neurodegenerativen Erkrankungen.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxemburg Skyline bei Sonnenuntergang, Symbol für ein schweizerisch‑europäisches Treffen zu Pensionen und Gesundheit',
 };
 
 export default blogMetaChDe;
