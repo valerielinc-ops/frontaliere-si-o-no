@@ -1967,6 +1967,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'argovia-mercato-lavoro-settori': { it: 'argovia-mercato-lavoro-settori', en: 'aargau-labour-market-sectors', de: 'aargau-arbeitsmarkt-sektoren', fr: 'argovie-marche-travail-secteurs' },
  'asilo-nido-berna-tariffe-sussidi': { it: 'asilo-nido-berna-tariffe-sussidi', en: 'bern-daycare-fees-subsidies', de: 'kindergarten-bern-gebuehren-subventionen', fr: 'garde-enfants-berne-tarifs-aides' },
  'argovia-salari-livelli-formazione': { it: 'argovia-salari-livelli-formazione', en: 'aargau-salaries-levels-training', de: 'aargau-gehalt-stufen-ausbildung', fr: 'argovie-salaires-niveaux-formation' },
+ 'salari-mercato-lavoro-argovia': { it: 'salari-mercato-lavoro-argovia', en: 'salaries-job-market-aargau', de: 'loehne-arbeitsmarkt-aargau', fr: 'salaires-marche-travail-argovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

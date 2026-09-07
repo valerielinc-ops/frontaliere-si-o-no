@@ -5824,6 +5824,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.argovia-salari-livelli-formazione.title': 'Aargau: Löhne, Branchen und Ausbildungsstufen',
     'blog.article.argovia-salari-livelli-formazione.excerpt': 'Wie die Löhne im Aargau nach Bildungsgrad, eingestellten Branchen und geplanten Kollektivverträgen strukturiert sind.',
     'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Panoramablick auf eine Schweizer Stadt, Symbol von Wirtschaft und Arbeitsmarkt',
+    'blog.article.salari-mercato-lavoro-argovia.title': 'Löhne und Arbeitsmarkt im Aargau: Branchen und Niveaus',
+    'blog.article.salari-mercato-lavoro-argovia.excerpt': 'Im Kanton Aargau variieren die Löhne je nach Ausbildung und Kollektivverträgen. Entdecken Sie Lohnunterschiede, Sozialbeiträge und Bundesarbeitsschutz.',
+    'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Modernes Büro eines Schweizer Unternehmens mit Mitarbeitern: typische Arbeitsumgebung im Kanton Aargau',
 };
 
 export default blogMetaChDe;

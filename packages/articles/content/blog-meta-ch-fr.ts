@@ -5824,6 +5824,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.argovia-salari-livelli-formazione.title': 'Argovie : salaires, secteurs et niveaux de formation',
     'blog.article.argovia-salari-livelli-formazione.excerpt': 'Comment sont structurés les salaires en Argovie selon le degré de formation, les secteurs qu\'ils embauchent et les conventions collectives prévues.',
     'blog.article.argovia-salari-livelli-formazione.imageAlt': 'Vue panoramique d\'une ville suisse, symbole d\'économie et du marché du travail',
+    'blog.article.salari-mercato-lavoro-argovia.title': 'Salaires et marché du travail en Argovie : secteurs et niveaux',
+    'blog.article.salari-mercato-lavoro-argovia.excerpt': 'Dans le canton d\'Argovie, les salaires varient par formation et conventions collectives. Découvrez les écarts de rémunération, les cotisations sociales et les protections fédérales du travail.',
+    'blog.article.salari-mercato-lavoro-argovia.imageAlt': 'Bureau moderne d\'une entreprise suisse avec salariés: environnement professionnel du marché du travail dans le canton d\'Argovie',
 };
 
 export default blogMetaChFr;
