@@ -26,6 +26,7 @@
  * corrente — promozione, poi marker, poi merge.
  */
 
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   isDeliveredThisRun,
@@ -186,5 +187,41 @@ describe('crawlerFixDecision — stesso ramo nel gemello crawler (AGENTS.md #6, 
       ageMin: old, attempt: 0, hasPR: false,
     });
     expect(d.action).toBe('park-verdict');
+  });
+});
+
+/**
+ * Guardie STRUTTURALI, gemelle di quelle del corpus. I casi sopra provano che i
+ * predicati sono giusti; queste provano che il ramo resta CABLATO dove serve.
+ * Un ramo `DELIVERED` scollegato dal gate, o la vecchia premessa rimessa in un
+ * commento, riaprirebbero il buco senza rompere un solo test di comportamento.
+ */
+describe('il cablaggio del ramo DELIVERED non si scollega in silenzio', () => {
+  const src = readFileSync(new URL('../scripts/ci/followup-drainer.mjs', import.meta.url), 'utf8');
+
+  it('la premessa falsificata non sopravvive alla sua falsificazione', () => {
+    // «`pr-created` non arriva qui: `hasFixPR` lo intercetta prima» è falsa
+    // appena la PR viene mergiata: chi la riscrive riapre il difetto.
+    expect(src).not.toMatch(/`pr-created` non arriva qui/);
+  });
+
+  it('il rescue queue-managed ha il ramo, ed è qualificato da isDeliveredThisRun', () => {
+    const stuck = src.slice(src.indexOf('for (const iss of stuckFix) {'));
+    const branch = /if \(outcome && DELIVERED\.has\(outcome\)\) \{([\s\S]*?)\n {4}\}/.exec(stuck);
+    expect(branch, 'il rescue queue-managed deve avere il ramo DELIVERED').toBeTruthy();
+    // Il re-queue gratuito deve passare dal gate sulla run corrente, e le due
+    // letture devono venire dal merge REALE e dalla promozione — non
+    // dall'assenza di PR aperte, che è ciò che sbagliava.
+    expect(branch![1]).toMatch(/isDeliveredThisRun\(\{/);
+    expect(branch![1]).toMatch(/mergedAt = mergedFixPrAt\(/);
+    expect(branch![1]).toMatch(/promotion = fixPromotion\(/);
+    expect(branch![1]).toMatch(/promotedAt: promotion\.at/);
+  });
+
+  it('il gemello crawler riceve le stesse tre letture, o il buco si riapre da quel lato', () => {
+    const crawler = src.slice(src.indexOf('for (const iss of crawlerFix) {'));
+    expect(crawler).toMatch(/outcomeAt: entry\.at/);
+    expect(crawler).toMatch(/mergedAt = delivered \? mergedFixPrAt\(/);
+    expect(crawler).toMatch(/promotedAt: promotion\.at/);
   });
 });
