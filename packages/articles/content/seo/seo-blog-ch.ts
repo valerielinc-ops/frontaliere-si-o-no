@@ -76928,6 +76928,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralita-svizzera-27-settembre': {
+    title: 'Neutralità: il 27 settembre scegliamo la Svizzera',
+    description: 'Il voto del 27 settembre sulla neutralità svizzera: cosa significa e quali sono le implicazioni per il futuro del Paese. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, settembre, scegliamo, voto',
+    ogTitle: 'Neutralità: il 27 settembre scegliamo la Svizzera',
+    ogDescription: 'Il voto del 27 settembre sulla neutralità svizzera: cosa significa e quali sono le implicazioni per il futuro del Paese. Informati sulle implicazioni pratiche e prendi una decisione consapevole.',
+    canonicalPath: '/articoli-svizzera/neutralita-svizzera-27-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità: il 27 settembre scegliamo la Svizzera",
+      "description": "Il voto del 27 settembre sulla neutralità svizzera: cosa significa e quali sono le implicazioni per il futuro del Paese. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralita-svizzera-27-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, Svizzera"
+      },
+      "datePublished": "2026-09-07T11:10:20+00:00",
+      "dateModified": "2026-09-07T11:10:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-svizzera-27-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

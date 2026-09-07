@@ -2001,6 +2001,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settembre-mese-ambiente-collina-doro': { it: 'settembre-mese-ambiente-collina-doro', en: 'september-environment-month-collina-doro', de: 'september-umweltmonat-collina-doro', fr: 'septembre-mois-environnement-collina-doro' },
  'rana-caff-scoperta-costa-rica': { it: 'rana-caff-scoperta-costa-rica', en: 'coffee-frog-discovered-in-costa-rica', de: 'kaffeefrosch-in-kosta-rica-entdeckt', fr: 'grenouille-cafe-decouverte-au-costa-rica' },
  'patente-guida-neuchatel-conversione-ed-esami': { it: 'patente-guida-neuchatel-conversione-ed-esami', en: 'driving-license-neuchatel-conversion-and-exams', de: 'fuhrerschein-neuchatel-umwandlung-und-pruefungen', fr: 'permis-de-conduire-neuchatel-conversion-et-examens' },
+ 'neutralita-svizzera-27-settembre': { it: 'neutralita-svizzera-27-settembre', en: 'swiss-neutrality-september-27', de: 'schweizer-neutralitat-27-september', fr: 'neutralite-suisse-27-septembre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
