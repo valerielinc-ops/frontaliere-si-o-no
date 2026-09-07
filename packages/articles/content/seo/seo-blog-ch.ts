@@ -78098,6 +78098,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-nido-custodia-bambini-ginevra-costi': {
+    title: 'Asilo nido a Ginevra: tariffe e sussidi cantonali',
+    description: 'Custodia bambini a Ginevra: tariffe progressive sul reddito imponibile e sussidi cantonali per asili nido, famiglie diurne e doposcuola riconosciuti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, ginevra, tariffe',
+    ogTitle: 'Asilo nido a Ginevra: tariffe e sussidi cantonali',
+    ogDescription: 'Nel Canton Ginevra asili nido, famiglie diurne e doposcuola applicano tariffe progressive legate al reddito imponibile familiare. Sussidi cantonali riducono la quota a carico delle famiglie con redditi medio-bassi. Ecco come funziona la procedura.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-ginevra-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido a Ginevra: tariffe e sussidi cantonali",
+      "description": "Custodia bambini a Ginevra: tariffe progressive sul reddito imponibile e sussidi cantonali per asili nido, famiglie diurne e doposcuola riconosciuti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-bambini-ginevra-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso di un asilo nido riconosciuto nel Canton Ginevra con genitori all'arrivo"
+      },
+      "datePublished": "2026-09-07T16:51:08+00:00",
+      "dateModified": "2026-09-07T16:51:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-bambini-ginevra-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

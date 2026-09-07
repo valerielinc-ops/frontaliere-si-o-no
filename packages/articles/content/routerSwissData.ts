@@ -2031,6 +2031,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sistema-scolastico-canton-ginevra-iscrizione-cicli': { it: 'sistema-scolastico-canton-ginevra-iscrizione-cicli', en: 'canton-geneva-school-system-enrollment-cycles', de: 'kanton-genf-schulsystem-einschreibung-zyklen', fr: 'canton-geneve-systeme-scolaire-inscription-cycles' },
  'apprendistato-formazione-professionale-ginevra': { it: 'apprendistato-formazione-professionale-ginevra', en: 'apprenticeship-vocational-training-geneva', de: 'lehre-berufsbildung-kanton-genf', fr: 'apprentissage-formation-professionnelle-geneve' },
  'borse-studio-canton-ginevra-requisiti-importi': { it: 'borse-studio-canton-ginevra-requisiti-importi', en: 'grants-canton-geneva-requirements-amounts', de: 'stipendien-kanton-genf-voraussetzungen-betraege', fr: 'bourses-etudes-canton-geneve-conditions-montants' },
+ 'asilo-nido-custodia-bambini-ginevra-costi': { it: 'asilo-nido-custodia-bambini-ginevra-costi', en: 'daycare-childcare-geneva-costs', de: 'kita-kinderbetreuung-genf-kosten', fr: 'creche-garde-enfants-geneve-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -6016,6 +6016,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Borse di studio nel Canton Ginevra: requisiti e importi',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Borse e prestiti allo studio nel Canton Ginevra: requisiti di merito e reddito, importi massimi, termini e ufficio cantonale competente.',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Campus universitario sul lago Lemano a Ginevra con il Jet d\'Eau sullo sfondo',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Asilo nido a Ginevra: tariffe e sussidi cantonali',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'A Ginevra asili nido, famiglie diurne e doposcuola hanno tariffe modulate sul reddito imponibile. Sussidi cantonali riducono la quota a carico delle famiglie.',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Ingresso di un asilo nido riconosciuto nel Canton Ginevra con genitori all\'arrivo',
 };
 
 export default blogMetaChIt;

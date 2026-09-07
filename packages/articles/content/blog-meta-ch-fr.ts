@@ -6016,6 +6016,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Bourses d\'études dans le canton de Genève : exigences et montants',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Bourses et prêts à l\'étude dans le canton de Genève : exigences de mérite et de revenu, montants maximaux, délais et bureau cantonal compétent.',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Campus universitaire sur le lac Léman avec le Jet d\'Eau en arrière-plan',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Garderie à Genève : tarifs et subsides cantonaux',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'À Genève, les crèches, les familles de jour et après l\'école ont des tarifs modulés sur le revenu imposable. Les allocations cantonales réduisent la part à la charge des familles.',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Entrée d\'une crèche reconnue dans le canton de Genève avec parents arrivants',
 };
 
 export default blogMetaChFr;

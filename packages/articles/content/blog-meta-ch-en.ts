@@ -6016,6 +6016,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Scholarships in the Canton of Geneva: requirements and amounts',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Scholarships and study loans in the Canton of Geneva: merit and income requirements, maximum amounts, terms and competent cantonal office.',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'University campus on Lake Geneva with the Jet d\'Eau in the background',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Nursery in Geneva: cantonal fees and subsidies',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'In Geneva kindergartens, day families and after-school have modulated rates on taxable income. Cantonal subsidies reduce the share borne by families.',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Entrance of a recognized daycare center in Canton Geneva with arriving parents',
 };
 
 export default blogMetaChEn;

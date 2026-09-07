@@ -6016,6 +6016,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Stipendien im Kanton Genf: Voraussetzungen und Beträge',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Stipendien und Studiendarlehen im Kanton Genf: Leistungs- und Einkommensanforderungen, Höchstbeträge, Fristen und zuständige kantonale Stelle.',
     'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Universitätscampus am Genfersee mit dem Jet d\'Eau im Hintergrund',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Kindergarten in Genf: Tarife und kantonale Zuschüsse',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'In Genf haben Kindergärten, Tages- und Nachschulfamilien modulierte Tarife für das zu versteuernde Einkommen. Kantonale Subventionen senken den Anteil der Familien.',
+    'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Eingang einer anerkannten Kita im Kanton Genf mit ankommenden Eltern',
 };
 
 export default blogMetaChDe;
