@@ -5818,6 +5818,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.argovia-mercato-lavoro-settori.title': 'Marché du travail Argovie : salaires, secteurs et formation',
     'blog.article.argovia-mercato-lavoro-settori.excerpt': 'Dans le canton d\'Argovie, le marché du travail suit le système suisse : la formation détermine les salaires, les conventions collectives fixent les minima, les droits fédéraux garantissent les congés et les horaires.',
     'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Professionnels suisses en environnement de travail moderne représentant les secteurs du marché du travail d\'Argovie',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Garderie Berne : tarifs, coûts et allocations',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Garde d\'enfants dans le canton de Berne : crèches, Tagesfamilien, après l\'école. Tarifs calculés sur le revenu familial et allocations cantonales disponibles.',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Crèche dans le canton de Berne avec enfants dans l\'aire de jeux extérieure',
 };
 
 export default blogMetaChFr;

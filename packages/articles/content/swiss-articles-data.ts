@@ -17452,6 +17452,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'asilo-nido-berna-tariffe-sussidi',
+    category: 'pratico',
+    date: '2026-09-07T03:01:36.014Z',
+    image: '/images/blog/asilo-nido-berna-tariffe-sussidi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

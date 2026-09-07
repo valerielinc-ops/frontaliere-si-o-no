@@ -5818,6 +5818,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.argovia-mercato-lavoro-settori.title': 'Aargau Labour Market: Wages, Sectors and Training',
     'blog.article.argovia-mercato-lavoro-settori.excerpt': 'In the canton of Aargau, the labour market follows the Swiss system: training determines wages, collective agreements set minimums, federal rights guarantee holidays and hours.',
     'blog.article.argovia-mercato-lavoro-settori.imageAlt': 'Swiss professionals in modern office environment representing Aargau canton\'s labor market sectors',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.title': 'Kindergarten Bern: fees, costs and subsidies',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.excerpt': 'Child care in the canton of Bern: kindergartens, Tagesfamilien, after-school. Rates calculated on family income and available cantonal subsidies.',
+    'blog.article.asilo-nido-berna-tariffe-sussidi.imageAlt': 'Daycare center in Canton Bern with children in outdoor play area',
 };
 
 export default blogMetaChEn;
