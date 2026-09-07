@@ -743,13 +743,16 @@ const INTRA_FIELD_SEP = '(?:[^\\S\\n]|[-–—/_.]){1,3}';
  * `Italia Security Guard` vetato dalla sua landing fisica per un `it` che
  * non e' una parola.
  *
- * Terza dimensione, stesso argomento: il SEPARATORE. I due lati girano
- * entrambi su `INTRA_FIELD_SEP`. Col positivo su `SEC_SEP` (che matcha per
- * intero il joiner ` \n ` di `jobMatchesSectorCanonical`) e il veto su
- * `INTRA_FIELD_SEP` (che il joiner non lo attraversa), un qualificatore a fine
- * campo e `Security Guard/Officer` nel campo dopo — `{title: 'Junior IT',
- * category: 'Security Officer'}` — matchavano il lessico cyber senza far
- * scattare il veto fisico: ancora il doppio-landing di #7553.
+ * Terza dimensione, stesso argomento: il SEPARATORE. Col positivo su `SEC_SEP`
+ * (che matcha per intero il joiner ` \n ` di `jobMatchesSectorCanonical`) e il
+ * veto su `INTRA_FIELD_SEP` (che il joiner non lo attraversa), un qualificatore
+ * a fine campo e `Security Guard/Officer` nel campo dopo — `{title: 'Junior
+ * IT', category: 'Security Officer'}` — matchavano il lessico cyber senza far
+ * scattare il veto fisico: ancora il doppio-landing di #7553. I due lati
+ * coincidono su `INTRA_FIELD_SEP` LI', cioe' sulla forma `security
+ * (guard|officer)` che il veto presidia; il positivo tiene un secondo ramo
+ * cross-campo su `SEC_SEP` per tutto il resto (`Security Manager/Lead/...`),
+ * che senza il salto di campo non cadrebbe su NESSUNA landing.
  */
 const CYBER_QUALIFIER_SRC = '(?:\\binformation|\\bit\\b|\\bcloud|\\bnetwork|\\bcyber)';
 
@@ -802,14 +805,21 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     'cybersecurity'
     + '|sicurezza' + SEC_SEP + 'informatic'
     + '|security' + SEC_SEP + '(?:engineer|analyst|architect|specialist|consultant)'
-    // `INTRA_FIELD_SEP` e non `SEC_SEP`: il qualificatore deve essere adiacente
-    // DENTRO il campo, come nel veto di `sicurezza` che usa la stessa costante.
-    // Con `SEC_SEP` qui il positivo scavalcava il joiner ` \n ` di
-    // `jobMatchesSectorCanonical` e il veto no, quindi `{title: 'Junior IT',
-    // category: 'Security Officer'}` cadeva di nuovo su ENTRAMBE le landing.
-    // Il salto di campo resta dove serve: `security SEC_SEP (?:engineer|...)`
-    // sopra e il matcher `sicurezza` continuano ad attraversarlo.
+    // Due rami, non uno. Il primo e' intra-campo (`INTRA_FIELD_SEP`, la stessa
+    // costante del veto di `sicurezza`): li' il veto scatta, quindi il positivo
+    // deve fermarsi allo stesso confine, altrimenti `{title: 'Junior IT',
+    // category: 'Security Officer'}` scavalcherebbe il joiner ` \n ` di
+    // `jobMatchesSectorCanonical` col positivo mentre il veto no — di nuovo
+    // ENTRAMBE le landing (#7553).
+    // Il secondo ramo riattraversa il campo (`SEC_SEP`), perche' togliere il
+    // salto a TUTTO il cross-field cyber e' piu' largo della collisione da
+    // chiudere: `{title: 'IT', category: 'Security Manager'}` non e' un
+    // guardiano fisico (`sicurezza` vuole `guard|officer`), quindi senza questo
+    // ramo cadrebbe su ZERO landing invece che su una. Il negative lookahead
+    // esclude la SOLA forma che il veto di `sicurezza` presidia, cosi' il
+    // cross-field vale ovunque tranne dove genererebbe il doppio-landing.
     + `|${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP}security`
+    + `|${CYBER_QUALIFIER_SRC}${SEC_SEP}security(?!${SEC_SEP}(?:guard|officer))`
     + '|informationssicherheit|sicherheitsarchitekt'
     + '|s[eé]curit[eé]' + SEC_SEP + 'informatique'
     + '|penetration' + SEC_SEP + 'test|\\bpentester\\b|\\bsoc' + SEC_SEP + 'analyst',
@@ -864,8 +874,10 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   // lessico positivo di `cybersecurity`: le due liste, scritte a mano, erano
   // gia' divergite su `cyber` (#7553). Il `\b` iniziale NON e' qui ma dentro
   // la costante, cosi' i due lati non divergono nemmeno sull'ancoraggio; e
-  // l'alternativa positiva di `cybersecurity` usa lo stesso `INTRA_FIELD_SEP`
-  // di questo veto, cosi' non divergono nemmeno sul separatore.
+  // il ramo positivo che copre questa stessa forma usa lo stesso
+  // `INTRA_FIELD_SEP` di questo veto, cosi' non divergono nemmeno sul
+  // separatore (il ramo cross-campo di `cybersecurity` esclude `security
+  // (guard|officer)` con un lookahead, quindi non rientra qui).
   sicurezza: new RegExp(
     '\\bsicurezza' + SEC_SEP + '(?:privata|fisica)'
     + `|(?<!${CYBER_QUALIFIER_SRC}${INTRA_FIELD_SEP})\\bsecurity${SEC_SEP}(?:guard|officer)`

@@ -359,6 +359,42 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Security', category: 'Engineer' }, 'cybersecurity')).toBe(true);
   });
 
+  // ── Cross-campo cyber FUORI dalla forma vetata: una landing, non zero ──────
+  //
+  // Restringere il positivo a `INTRA_FIELD_SEP` chiudeva il doppio-landing ma
+  // toglieva il salto di campo a TUTTO il cyber cross-campo, anche dove nessun
+  // doppio-landing era possibile: `sicurezza` vuole `security (guard|officer)`,
+  // quindi un `Security Manager` in category dopo un `IT` nel titolo non e'
+  // fisico — e senza ramo cross-campo non era piu' nemmeno cyber, cioe' ZERO
+  // landing indicizzate. Il ramo cross-campo esclude col lookahead la sola
+  // forma che il veto presidia.
+  it('tiene su cybersecurity il cyber cross-campo che nessun veto reclama (#7553)', () => {
+    for (const job of [
+      { title: 'IT', category: 'Security Manager' },
+      { title: 'IT', category: 'Security Lead' },
+      { title: 'Cloud', category: 'Security Responsabile' },
+      // Il qualificatore deve PRECEDERE il sostantivo, e i campi si
+      // concatenano nell'ordine title → category → tags: `cyber` in un tag
+      // dopo `Security Manager` nel titolo non e' mai stato un match.
+      { title: 'IT', tags: ['Security Manager'] },
+      { title: 'Information', category: 'Security Specialist' },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `cyber: ${label}`).toBe(true);
+      expect(jobMatchesSector(job, 'sicurezza'), `NON doppio landing: ${label}`).toBe(false);
+    }
+    // Il ramo cross-campo non riapre la collisione: la forma vetata resta
+    // fuori dal positivo e su una sola landing, quella fisica.
+    for (const job of [
+      { title: 'Junior IT', category: 'Security Officer' },
+      { title: 'Cloud', category: 'Security Guard' },
+    ]) {
+      const label = JSON.stringify(job);
+      expect(jobMatchesSector(job, 'cybersecurity'), `non cyber: ${label}`).toBe(false);
+      expect(jobMatchesSector(job, 'sicurezza'), `resta fisica: ${label}`).toBe(true);
+    }
+  });
+
   it('nessun annuncio puo\' matchare cybersecurity E sicurezza insieme', () => {
     // L'invariante che i due casi sopra servono: qualunque titolo, se cade in
     // entrambi i settori finisce su due landing. Qui si esercita sull'unione
