@@ -33,6 +33,21 @@
  * Un nome si scrive, un comando si esegue: `OSSERVATORE` dice CHI guarda,
  * `COMANDO` e' la meta' falsificabile. Non e' questo modulo a eseguirli —
  * l'esecuzione e' una decisione aperta del proprietario (scheda D8).
+ *
+ * ─── Il limite, dichiarato perche' e' costato tre difetti veri ────────────
+ *
+ * Questo throw valida la FORMA della stringa — presente, una riga sola — non i
+ * FLAG che contiene. Un comando ben formato e non eseguibile passa. Misurato
+ * sulla review di questa stessa PR: `--days 7` dove il parser vuole `--days=7`
+ * (exit 2), e `--json` senza `--dry-run` su un opener che senza dry-run CONIA
+ * la issue invece di misurarla. Tre findings, tutti comandi che questo modulo
+ * ha accettato senza obiezioni.
+ *
+ * E' esattamente la distanza fra «il campo c'e'» e «il comando gira», ed e' la
+ * ragione per cui la D8 — far eseguire i comandi a un gate — resta una domanda
+ * aperta invece di una funzione qui dentro. Finche' non e' decisa, la rete che
+ * copre questa classe non e' un throw ma il fatto di eseguire il comando a
+ * mano una volta, prima di pubblicarlo.
  */
 
 /** L'intestazione del blocco. Cercata alla lettera da chi consuma la scheda. */
