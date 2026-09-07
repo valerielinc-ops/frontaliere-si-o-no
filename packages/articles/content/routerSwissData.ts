@@ -2030,6 +2030,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assegni-familiari-canton-ginevra': { it: 'assegni-familiari-canton-ginevra', en: 'geneva-family-allowances', de: 'familienzulagen-kanton-genf', fr: 'allocations-familiales-canton-geneve' },
  'sistema-scolastico-canton-ginevra-iscrizione-cicli': { it: 'sistema-scolastico-canton-ginevra-iscrizione-cicli', en: 'canton-geneva-school-system-enrollment-cycles', de: 'kanton-genf-schulsystem-einschreibung-zyklen', fr: 'canton-geneve-systeme-scolaire-inscription-cycles' },
  'apprendistato-formazione-professionale-ginevra': { it: 'apprendistato-formazione-professionale-ginevra', en: 'apprenticeship-vocational-training-geneva', de: 'lehre-berufsbildung-kanton-genf', fr: 'apprentissage-formation-professionnelle-geneve' },
+ 'borse-studio-canton-ginevra-requisiti-importi': { it: 'borse-studio-canton-ginevra-requisiti-importi', en: 'grants-canton-geneva-requirements-amounts', de: 'stipendien-kanton-genf-voraussetzungen-betraege', fr: 'bourses-etudes-canton-geneve-conditions-montants' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

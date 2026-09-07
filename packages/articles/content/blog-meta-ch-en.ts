@@ -6013,6 +6013,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Apprenticeship and vocational training in the Canton of Geneva',
     'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Dual path in Geneva: internship contract, salary, professional maturity and access to the SUP. Complete guide.',
     'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Apprentice at work in a training company in Canton Geneva',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Scholarships in the Canton of Geneva: requirements and amounts',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Scholarships and study loans in the Canton of Geneva: merit and income requirements, maximum amounts, terms and competent cantonal office.',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'University campus on Lake Geneva with the Jet d\'Eau in the background',
 };
 
 export default blogMetaChEn;

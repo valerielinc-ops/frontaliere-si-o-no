@@ -78059,6 +78059,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-borse-studio-canton-ginevra-requisiti-importi': {
+    title: 'Borse di studio nel Canton Ginevra: requisiti e importi',
+    description: 'Borse di studio nel Canton Ginevra: requisiti, calcolo importi, borsa vs prestito, termini e ufficio cantonale competente. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, ginevra',
+    ogTitle: 'Borse di studio Canton Ginevra: requisiti e importi',
+    ogDescription: 'Borse e prestiti allo studio a Ginevra: chi può fare domanda, come si calcola l\'importo, termini annuali e ufficio cantonale competente. Guida operativa con link utili.',
+    canonicalPath: '/articoli-svizzera/borse-studio-canton-ginevra-requisiti-importi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio nel Canton Ginevra: requisiti e importi",
+      "description": "Borse di studio nel Canton Ginevra: requisiti, calcolo importi, borsa vs prestito, termini e ufficio cantonale competente. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/borse-studio-canton-ginevra-requisiti-importi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus universitario sul lago Lemano a Ginevra con il Jet d'Eau sullo sfondo"
+      },
+      "datePublished": "2026-09-07T16:39:52+00:00",
+      "dateModified": "2026-09-07T16:39:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/borse-studio-canton-ginevra-requisiti-importi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

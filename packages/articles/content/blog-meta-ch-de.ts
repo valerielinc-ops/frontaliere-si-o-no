@@ -6013,6 +6013,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-ginevra.title': 'Lehre und Berufsausbildung im Kanton Genf',
     'blog.article.apprendistato-formazione-professionale-ginevra.excerpt': 'Dualer Weg in Genf: Lehrvertrag, Gehalt, Berufsmaturität und Zugang zu den SUP. Komplette Anleitung.',
     'blog.article.apprendistato-formazione-professionale-ginevra.imageAlt': 'Lehrling bei der Arbeit in einem Ausbildungsbetrieb im Kanton Genf',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.title': 'Stipendien im Kanton Genf: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.excerpt': 'Stipendien und Studiendarlehen im Kanton Genf: Leistungs- und Einkommensanforderungen, Höchstbeträge, Fristen und zuständige kantonale Stelle.',
+    'blog.article.borse-studio-canton-ginevra-requisiti-importi.imageAlt': 'Universitätscampus am Genfersee mit dem Jet d\'Eau im Hintergrund',
 };
 
 export default blogMetaChDe;
