@@ -5848,6 +5848,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riassetto-vw-impatti-svizzera.title': 'Riassetto VW: per la Svizzera l’impatto è limitato',
     'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen taglierà 100’000 posti di lavoro entro il 2030. Feintool perde oltre il 3% in borsa a Zurigo.',
     'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Vista aerea di Lugano, Svizzera, con focus sulle aree industriali e le montagne circostanti.',
+    'blog.article.fondazione-beloved-primi-versamenti.title': 'Fondazione Beloved: primi versamenti per le vittime',
+    'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Fondazione Beloved inizia i versamenti: 24 milioni CHF per vittime dell\'incendio di Crans-Montana. Priorità: reinserimento lavorativo e supporto psicologico a lungo termine.',
+    'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Edificio istituzionale svizzero che rappresenta la Fondazione Beloved e il suo lavoro di supporto alle vittime',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Aprire attività a Berna: registro di commercio e costi',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Registrazione impresa a Berna: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo e obblighi assicurativi.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Vista di una città svizzera con edifici storici e paesaggio alpino di sfondo',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Aprire un\'attività a Neuchâtel: costi e registro commercio',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un\'impresa nel cantone.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Ufficio di consulenza aziendale in Svizzera con documenti di registrazione e moduli commerciali su una scrivania',
+    'blog.article.neuchatel-salari-settori-formazione.title': 'Salari e mercato del lavoro Neuchâtel: settori e formazione',
+    'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Stipendi, settori che assumono e contratti collettivi nel Cantone di Neuchâtel: come funziona il sistema svizzero di salari per grado di formazione e contributi.',
+    'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Professionista svizzero al lavoro in ufficio con documenti di salario, paesaggio del Cantone di Neuchâtel sullo sfondo',
 };
 
 export default blogMetaChIt;

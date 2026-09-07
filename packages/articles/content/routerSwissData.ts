@@ -1975,6 +1975,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'startup-crypto-difficolta-bancarie': { it: 'startup-crypto-difficolta-bancarie', en: 'crypto-startup-banking-difficulties', de: 'krypto-startup-banken-probleme', fr: 'startup-crypto-difficultes-bancaires' },
  'avs-integrazioni-canton-berna': { it: 'avs-integrazioni-canton-berna', en: 'avs-integrations-canton-berna', de: 'ahv-zulagen-kanton-bern', fr: 'ava-allocations-canton-berne' },
  'riassetto-vw-impatti-svizzera': { it: 'riassetto-vw-impatti-svizzera', en: 'vw-reorganization-impact-switzerland', de: 'vw-umbau-auswirkungen-schweiz', fr: 'reorganisation-vw-impact-suisse' },
+ 'fondazione-beloved-primi-versamenti': { it: 'fondazione-beloved-primi-versamenti', en: 'beloved-foundation-first-payments', de: 'beloved-stiftung-erste-auszahlungen', fr: 'fondation-beloved-premiers-versements' },
+ 'registrazione-impresa-berna-registro-commercio': { it: 'registrazione-impresa-berna-registro-commercio', en: 'business-registration-bern-commerce-register', de: 'betriebsregistrierung-bern-handelsregister', fr: 'enregistrement-entreprise-berne-registre-commerce' },
+ 'aprire-attivita-neuchatel-costi-commercio': { it: 'aprire-attivita-neuchatel-costi-commercio', en: 'start-business-neuchatel-costs-registration', de: 'unternehmen-neuchatel-kosten-registrierung', fr: 'demarrer-activite-neuchatel-couts-immatriculation' },
+ 'neuchatel-salari-settori-formazione': { it: 'neuchatel-salari-settori-formazione', en: 'neuchatel-salaries-sectors-education', de: 'neuenburg-loehne-sektoren-bildung', fr: 'neuchatel-salaires-secteurs-formation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

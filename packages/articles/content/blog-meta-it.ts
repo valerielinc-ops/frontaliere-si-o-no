@@ -11506,6 +11506,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Vivere a Colorina e lavorare in Grigioni',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'Permesso G, tassazione in Svizzera, credito d\'imposta italiano, AVS/LPP, LAMal e procedure: la guida completa per frontalieri tra Sondrio e Grigioni.',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina, comune di confine in provincia di Sondrio: scenario residenziale per frontalieri che lavorano in Grigioni',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Vivere a Jovençan, lavorare in Vallese da frontaliere',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Permesso G, imposta alla fonte, AVS e costi di vita: guida pratica per chi vive in Valle d\'Aosta e lavora in Vallese',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Paesaggio alpino della Valle d\'Aosta con strada di collegamento verso il Vallese svizzero al confine',
 };
 
 export default blogMetaIt;

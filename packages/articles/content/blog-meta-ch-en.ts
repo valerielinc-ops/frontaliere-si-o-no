@@ -5848,6 +5848,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riassetto-vw-impatti-svizzera.title': 'VW rearrangement: limited impact for Switzerland',
     'blog.article.riassetto-vw-impatti-svizzera.excerpt': 'Volkswagen will cut 100,000 jobs by 2030. Feintool loses more than 3% on the stock exchange in Zurich.',
     'blog.article.riassetto-vw-impatti-svizzera.imageAlt': 'Aerial view of Lugano, Switzerland, focusing on the industrial areas and surrounding mountains.',
+    'blog.article.fondazione-beloved-primi-versamenti.title': 'Beloved Foundation: first payments for victims',
+    'blog.article.fondazione-beloved-primi-versamenti.excerpt': 'Beloved Foundation begins payments: CHF 24 million for victims of the Crans-Montana fire. Priority: reintegration into work and long-term psychological support.',
+    'blog.article.fondazione-beloved-primi-versamenti.imageAlt': 'Swiss institutional building representing the Beloved Foundation\'s work supporting disaster victims',
+    'blog.article.registrazione-impresa-berna-registro-commercio.title': 'Business opening in Bern: trade register and costs',
+    'blog.article.registrazione-impresa-berna-registro-commercio.excerpt': 'Business registration in Bern: choice of legal form, registration in the commercial register, minimum capital and insurance obligations.',
+    'blog.article.registrazione-impresa-berna-registro-commercio.imageAlt': 'Swiss city skyline with historic buildings and alpine landscape backdrop',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.title': 'Opening a business in Neuchâtel: costs and trade register',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.excerpt': 'Legal forms, registration in the trade register, social security contributions and taxes. Practical guide to starting a business in the canton.',
+    'blog.article.aprire-attivita-neuchatel-costi-commercio.imageAlt': 'Swiss business consultation office with company registration documents and commercial forms on desk',
+    'blog.article.neuchatel-salari-settori-formazione.title': 'Wages and the labour market Neuchâtel: sectors and training',
+    'blog.article.neuchatel-salari-settori-formazione.excerpt': 'Salaries, hiring sectors and collective agreements in the Canton of Neuchâtel: how the Swiss system of salaries by level of training and contributions works.',
+    'blog.article.neuchatel-salari-settori-formazione.imageAlt': 'Swiss professional working at office desk with salary documents and Neuchâtel landscape in background',
 };
 
 export default blogMetaChEn;

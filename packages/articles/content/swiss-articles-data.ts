@@ -17542,6 +17542,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'fondazione-beloved-primi-versamenti',
+    category: 'novita',
+    date: '2026-09-07T05:34:07.963Z',
+    image: '/images/blog/fondazione-beloved-primi-versamenti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'registrazione-impresa-berna-registro-commercio',
+    category: 'pratico',
+    date: '2026-09-07T05:51:31.974Z',
+    image: '/images/blog/registrazione-impresa-berna-registro-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'aprire-attivita-neuchatel-costi-commercio',
+    category: 'pratico',
+    date: '2026-09-07T06:17:27.935Z',
+    image: '/images/blog/aprire-attivita-neuchatel-costi-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'neuchatel-salari-settori-formazione',
+    category: 'pratico',
+    date: '2026-09-07T06:38:33.886Z',
+    image: '/images/blog/neuchatel-salari-settori-formazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

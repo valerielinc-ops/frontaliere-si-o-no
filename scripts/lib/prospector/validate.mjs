@@ -97,13 +97,11 @@ export function tokenOverlap(needle, haystack) {
 }
 
 /**
- * Le sole forme di coda che cambiano a ogni richiesta sullo stesso annuncio,
- * riconosciute sul testo GREZZO: hanno ancora la punteggiatura che le rende
- * identificabili («05.09.2026», «15:04», «visite 1234», «annuncio n. 1234»).
- * Dopo `norm()` quella punteggiatura non c'e' piu' e restano token di sole
- * cifre indistinguibili dall'NPA, dal numero di riferimento e dal pensum.
+ * Le date, tenute a parte dal resto del rumore di coda perche' sono le sole
+ * forme che possono essere ANCHE contenuto dell'annuncio: si applicano dietro
+ * la guardia di `CONTENT_DATE_MARKERS` (vedi `bodySignature()`).
  */
-const REQUEST_NOISE_PATTERNS = [
+const DATE_NOISE_PATTERNS = [
   // 2026-09-05T11:01:22, 2026-09-05T11:01:22.417Z, 2026-09-05T11:01+02:00.
   // Va PRIMA delle due regex qui sotto e in una passata sola: nella forma ISO
   // non c'e' confine di parola fra la data e la `T`, quindi ne' `\b...\d{1,2}\b`
@@ -115,6 +113,61 @@ const REQUEST_NOISE_PATTERNS = [
   /\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b/g,
   // 2026-09-05
   /\b\d{4}[./-]\d{1,2}[./-]\d{1,2}\b/g,
+];
+
+/**
+ * I marcatori che qualificano la data che SEGUE come CONTENUTO dell'annuncio —
+ * data di entrata in servizio, inizio del contratto, termine di candidatura —
+ * e non come data di generazione stampata in coda dal layout.
+ *
+ * Senza questa guardia le regex di `DATE_NOISE_PATTERNS` cancellano OGNI data,
+ * quindi due annunci template dello stesso datore che differiscono solo per
+ * «Eintritt per 01.11.2026» / «Eintritt per 01.03.2027» firmano UGUALE:
+ * `detailDistinctRate` crolla e il promotion gate boccia un datore valido —
+ * lo stesso modo di fallire gia' chiuso per NPA, pensum e numero di
+ * riferimento, rimasto aperto sulla dimensione data.
+ *
+ * Solo marcatori espliciti: una preposizione nuda (`ab`, `dal`, `from`) e'
+ * troppo comune e riaprirebbe il buco sul rumore di coda che questa lista
+ * esiste per togliere («Stand: 05.09.2026» resta senza marcatore, e denoisato).
+ */
+const CONTENT_DATE_MARKERS = new RegExp(
+  '(?:' +
+    // DE
+    'eintritt(?:sdatum|stermin)?|stellenantritt|arbeits(?:beginn|antritt)|' +
+    'vertragsbeginn|(?:datum|termin)\\s+des\\s+eintritts|befristet\\s+bis|' +
+    'bewerbungsfrist|beginn\\s+(?:der|des|am)|' +
+    // IT
+    'dat[ae]\\s+d(?:i|\')\\s*inizio|entrata\\s+in\\s+(?:servizio|funzione)|' +
+    'inizio\\s+(?:attivita|del\\s+rapporto|contratto|dell)|a\\s+partire\\s+dal|' +
+    'entro\\s+il|termine\\s+di\\s+candidatura|scadenza|' +
+    // FR
+    'd[eè]s\\s+le|[àa]\\s+partir\\s+d[ue]|date\\s+d[\'’]entr[ée]e|' +
+    'entr[ée]e\\s+en\\s+fonction|d[ée]but\\s+d[ue]|jusqu[\'’]au|d[ée]lai\\s+de|' +
+    // EN
+    'start(?:ing)?\\s+date|starts?\\s+(?:on|from)|as\\s+of|deadline' +
+  ')' +
+  // Fra il marcatore e la data solo il connettivo della coppia
+  // etichetta/valore («Eintritt per », «data di inizio: »): nessun terminatore
+  // di frase, o un marcatore di un periodo precedente coprirebbe una data che
+  // non e' la sua. E nessuna CIFRA: nella forma trattino/ISO la data intermedia
+  // («Eintritt per 2026-11-01 Stand: 05.09.2026») non porta nessun `.!?;`, e
+  // senza `\d` nella classe il marcatore scavalcherebbe la data sua e coprirebbe
+  // quella di generazione che segue — N copie della stessa pagina tornerebbero a
+  // firmare diverso, il danno inverso a quello che la guardia chiude.
+  '[^.!?;\\d]{0,24}$',
+  'i',
+);
+
+/**
+ * Le sole forme di coda che cambiano a ogni richiesta sullo stesso annuncio,
+ * riconosciute sul testo GREZZO: hanno ancora la punteggiatura che le rende
+ * identificabili («05.09.2026», «15:04», «visite 1234», «annuncio n. 1234»).
+ * Dopo `norm()` quella punteggiatura non c'e' piu' e restano token di sole
+ * cifre indistinguibili dall'NPA, dal numero di riferimento e dal pensum.
+ */
+const REQUEST_NOISE_PATTERNS = [
+  ...DATE_NOISE_PATTERNS,
   // 15:04, 15:04:22
   /\b\d{1,2}:\d{2}(?::\d{2})?\b/g,
   // contatore visite, nelle lingue dei layout che incontriamo
@@ -125,6 +178,23 @@ const REQUEST_NOISE_PATTERNS = [
   // annunci template altrimenti identici.
   /\b(?:annuncio|inserzione|inserat|stellenangebot|annonce)\b\.?\s*(?:n[or]?\.?|°|nr\.?|#)\s*\d[\d'’.,-]*/gi,
 ];
+
+/** Quanto testo prima della data si guarda per cercare il marcatore. */
+const CONTENT_DATE_WINDOW = 48;
+
+/**
+ * Replacer delle regex di `DATE_NOISE_PATTERNS`: cancella la data solo quando
+ * NON e' preceduta da un marcatore di contenuto.
+ *
+ * @param {string} match
+ * @param {number} offset
+ * @param {string} full
+ * @returns {string}
+ */
+function keepContentDates(match, offset, full) {
+  const before = full.slice(Math.max(0, offset - CONTENT_DATE_WINDOW), offset);
+  return CONTENT_DATE_MARKERS.test(before) ? match : ' ';
+}
 
 /**
  * Firma stabile del testo di una pagina, per distinguere «N pagine diverse»
@@ -153,7 +223,17 @@ export function bodySignature(text = '') {
   // stesso datore che differiscono solo li' firmerebbero UGUALE e il promotion
   // gate boccerebbe un datore valido. Il resto dell'output di `norm()` resta
   // intatto: le cifre sono contenuto quando non sono rumore di coda.
-  const denoised = REQUEST_NOISE_PATTERNS.reduce((acc, re) => acc.replace(re, ' '), String(text));
+  //
+  // Le date fanno eccezione fra le forme di coda: la stessa `01.11.2026` e'
+  // rumore nel footer («Stand: 01.11.2026») e CONTENUTO nel corpo dell'annuncio
+  // («Eintritt per 01.11.2026»). Denoisate senza distinguere, due annunci
+  // template dello stesso datore che differiscono solo per la data di entrata
+  // firmano UGUALE — il falso negativo del gate, cioe' il danno inverso. Quindi
+  // una data preceduta da un marcatore di contenuto resta dentro l'hash.
+  const denoised = REQUEST_NOISE_PATTERNS.reduce(
+    (acc, re) => acc.replace(re, DATE_NOISE_PATTERNS.includes(re) ? keepContentDates : ' '),
+    String(text),
+  );
   const body = norm(denoised);
   let h = 5381;
   for (let i = 0; i < body.length; i += 1) h = (((h << 5) + h) ^ body.charCodeAt(i)) >>> 0;

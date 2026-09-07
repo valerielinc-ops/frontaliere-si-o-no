@@ -75914,6 +75914,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondazione-beloved-primi-versamenti': {
+    title: 'Fondazione Beloved: primi versamenti per le vittime',
+    description: 'Fondazione Beloved inizia i versamenti: 24 milioni CHF per vittime dell\'incendio di Crans-Montana. Priorità: reinserimento lavorativo e supporto psicologico',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondazione, beloved, primi, versamenti',
+    ogTitle: 'Fondazione Beloved: primi versamenti per le vittime',
+    ogDescription: 'La Fondazione Beloved avvia i versamenti: 24 milioni CHF per le vittime dell\'incendio di Capodanno a Crans-Montana. Doris Leuthard guida il fondo verso reinserimento lavorativo, supporto scolastico e terapia psicologica a lungo termine.',
+    canonicalPath: '/articoli-svizzera/fondazione-beloved-primi-versamenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fondazione Beloved: primi versamenti per le vittime",
+      "description": "Fondazione Beloved inizia i versamenti: 24 milioni CHF per vittime dell'incendio di Crans-Montana. Priorità: reinserimento lavorativo e supporto psicologico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondazione-beloved-primi-versamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio istituzionale svizzero che rappresenta la Fondazione Beloved e il suo lavoro di supporto alle vittime"
+      },
+      "datePublished": "2026-09-07T05:34:07+00:00",
+      "dateModified": "2026-09-07T05:34:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondazione-beloved-primi-versamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-registrazione-impresa-berna-registro-commercio': {
+    title: 'Aprire attività a Berna: registro di commercio e costi',
+    description: 'Guida completa per registrare un\'attività nel canton Berna: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, berna, registro',
+    ogTitle: 'Aprire attività a Berna: registro di commercio e costi',
+    ogDescription: 'Scopri come registrare un\'attività a Berna: dalle forme giuridiche ai costi di iscrizione, dagli obblighi assicurativi alle procedure passo per passo. Guida completa per imprenditori.',
+    canonicalPath: '/articoli-svizzera/registrazione-impresa-berna-registro-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a Berna: registro di commercio e costi",
+      "description": "Guida completa per registrare un'attività nel canton Berna: forme giuridiche, iscrizione al registro di commercio, capitale minimo, tasse e obblighi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/registrazione-impresa-berna-registro-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una città svizzera con edifici storici e paesaggio alpino di sfondo"
+      },
+      "datePublished": "2026-09-07T05:51:32+00:00",
+      "dateModified": "2026-09-07T05:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/registrazione-impresa-berna-registro-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-neuchatel-costi-commercio': {
+    title: 'Aprire un\'attività a Neuchâtel: costi e registro commercio',
+    description: 'Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un\'impresa nel cantone. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, neuch, costi',
+    ogTitle: 'Aprire un\'attività a Neuchâtel: costi e registro',
+    ogDescription: 'Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un\'impresa nel cantone.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-neuchatel-costi-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività a Neuchâtel: costi e registro commercio",
+      "description": "Forme giuridiche, iscrizione al registro di commercio, contributi previdenziali e tasse. Guida pratica per avviare un'impresa nel cantone. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-neuchatel-costi-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di consulenza aziendale in Svizzera con documenti di registrazione e moduli commerciali su una scrivania"
+      },
+      "datePublished": "2026-09-07T06:17:27+00:00",
+      "dateModified": "2026-09-07T06:17:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-neuchatel-costi-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neuchatel-salari-settori-formazione': {
+    title: 'Salari e mercato del lavoro Neuchâtel: settori e formazione',
+    description: 'Stipendi, settori che assumono e contratti collettivi nel Cantone di Neuchâtel: come funziona il sistema svizzero di salari per grado di formazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, neuch',
+    ogTitle: 'Salari e mercato del lavoro Neuchâtel: settori',
+    ogDescription: 'Stipendi, settori che assumono e contratti collettivi nel Cantone di Neuchâtel: come funziona il sistema svizzero di salari per grado di formazione e contributi.',
+    canonicalPath: '/articoli-svizzera/neuchatel-salari-settori-formazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro Neuchâtel: settori e formazione",
+      "description": "Stipendi, settori che assumono e contratti collettivi nel Cantone di Neuchâtel: come funziona il sistema svizzero di salari per grado di formazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neuchatel-salari-settori-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionista svizzero al lavoro in ufficio con documenti di salario, paesaggio del Cantone di Neuchâtel sullo sfondo"
+      },
+      "datePublished": "2026-09-07T06:38:33+00:00",
+      "dateModified": "2026-09-07T06:38:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neuchatel-salari-settori-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
