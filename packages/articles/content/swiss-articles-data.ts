@@ -17524,6 +17524,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-integrazioni-canton-berna',
+    category: 'pensione',
+    date: '2026-09-07T05:07:41.223Z',
+    image: '/images/blog/avs-integrazioni-canton-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

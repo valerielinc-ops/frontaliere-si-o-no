@@ -1973,6 +1973,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-turgovia': { it: 'apprendistato-turgovia', en: 'apprenticeship-thurgau', de: 'lehre-thurgau', fr: 'apprentissage-thurgovie' },
  'acquistare-casa-berna-mutuo-tasse-guida': { it: 'acquistare-casa-berna-mutuo-tasse-guida', en: 'buy-house-bern-mortgage-taxes-guide', de: 'haus-kaufen-bern-hypothek-steuern-leitfaden', fr: 'acheter-maison-berne-hypotheque-impots-guide' },
  'startup-crypto-difficolta-bancarie': { it: 'startup-crypto-difficolta-bancarie', en: 'crypto-startup-banking-difficulties', de: 'krypto-startup-banken-probleme', fr: 'startup-crypto-difficultes-bancaires' },
+ 'avs-integrazioni-canton-berna': { it: 'avs-integrazioni-canton-berna', en: 'avs-integrations-canton-berna', de: 'ahv-zulagen-kanton-bern', fr: 'ava-allocations-canton-berne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
