@@ -3701,12 +3701,12 @@
     },
     {
       "id": "css-versicherung-2065d8829d79",
-      "slug": "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid",
+      "slug": "acquirente-operativo-in-80-100-css-versicherung-luzern-hybrid",
       "slugByLocale": {
-        "it": "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid",
-        "en": "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid",
+        "it": "acquirente-operativo-in-80-100-css-versicherung-luzern-hybrid",
+        "en": "operational-purchaser-in-80-100-css-versicherung-luzern-hybrid",
         "de": "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid",
-        "fr": "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid"
+        "fr": "acheteur-operationnel-en-80-100-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3762,7 +3762,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "operative-r-einkaufer-in-80-100-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-d684817d1fea",

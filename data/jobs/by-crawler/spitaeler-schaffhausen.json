@@ -3820,12 +3820,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-5dbdcb6d06b7",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3880,16 +3880,27 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-06c7fd501494",
-      "slug": "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+      "slug": "responsabile-clinica-medicina-interna-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "en": "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen",
+        "it": "responsabile-clinica-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "en": "clinic-manager-internal-medicine-spitaler-schaffhausen-schaffhausen",
         "de": "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen",
-        "fr": "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        "fr": "directeur-de-clinique-medecine-interne-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3932,11 +3943,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "klinikmanager-in-innere-medizin-spitaler-schaffhausen-schaffhausen"
+        "klinikmanager-in-innere-medizin-spitaler-schaffhausen-schaffhausen",
+        "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "de": [
           "klinikmanager-in-innere-medizin-spitaler-schaffhausen-schaffhausen"
+        ],
+        "it": [
+          "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "klinikmanager-in-innere-medizin-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-02T13:48:04.114Z",

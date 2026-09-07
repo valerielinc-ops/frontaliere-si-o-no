@@ -2101,9 +2101,9 @@
       "slug": "kauffrau-kaufmann-kinder-e-jugendschutz-80-stadt-luzern",
       "slugByLocale": {
         "it": "kauffrau-kaufmann-kinder-e-jugendschutz-80-stadt-luzern",
-        "en": "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern",
+        "en": "kauffrau-kaufmann-child-and-youth-protection-80-stadt-luzern-luzern",
         "de": "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern",
-        "fr": "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern"
+        "fr": "kauffrau-kaufmann-protection-des-enfants-et-des-jeunes-80-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2152,6 +2152,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern"
+        ],
+        "en": [
+          "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "kauffrau-kaufmann-kinder-und-jugendschutz-80-stadt-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-09-02T13:53:34.590Z",
@@ -2171,12 +2177,12 @@
     },
     {
       "id": "stadt-luzern-c3217ca7fd38",
-      "slug": "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern",
+      "slug": "stage-nell-assistenza-scolastica-complementare-circa-il-75-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern",
-        "en": "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern",
+        "it": "stage-nell-assistenza-scolastica-complementare-circa-il-75-stadt-luzern-luzern",
+        "en": "internship-in-supplementary-school-care-about-75-stadt-luzern-luzern",
         "de": "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern",
-        "fr": "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern"
+        "fr": "stages-dans-des-etablissements-de-soins-complementaires-environ-75-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2231,16 +2237,30 @@
           "maxValue": 66800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern"
+        ],
+        "en": [
+          "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-schulerganzende-betreuung-zirka-75-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-d8c759247127",
-      "slug": "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern",
+      "slug": "ingegnere-macchine-agricole-macchinari-per-la-costruzione-meccanica-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern",
-        "en": "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern",
+        "it": "ingegnere-macchine-agricole-macchinari-per-la-costruzione-meccanica-stadt-luzern-luzern",
+        "en": "engineer-agricultural-machinery-construction-machinery-mechanic-stadt-luzern-luzern",
         "de": "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern",
-        "fr": "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern"
+        "fr": "ingenieur-machines-agricoles-mecanicien-de-machines-de-construction-stadt-luzern-luzern"
       },
       "company": "Stadt Luzern",
       "companyKey": "stadt-luzern",
@@ -2295,7 +2315,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern"
+        ],
+        "en": [
+          "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern"
+        ],
+        "fr": [
+          "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "motorgerate-landmaschinen-baumaschinenmechaniker-in-stadt-luzern-luzern"
+      ]
     },
     {
       "id": "stadt-luzern-fecd3255582f",

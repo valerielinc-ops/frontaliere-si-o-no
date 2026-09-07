@@ -6333,12 +6333,12 @@
     },
     {
       "id": "lups-274e87082957",
-      "slug": "pflegefachperson-w-m-d-60-100-lups-luzern",
+      "slug": "professionista-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
-        "it": "pflegefachperson-w-m-d-60-100-lups-luzern",
-        "en": "pflegefachperson-w-m-d-60-100-lups-luzern",
+        "it": "professionista-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
+        "en": "care-professional-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
         "de": "pflegefachperson-w-m-d-60-100-lups-luzern",
-        "fr": "pflegefachperson-w-m-d-60-100-lups-luzern"
+        "fr": "professionnel-de-soins-h-f-d-60-100-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6393,7 +6393,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-w-m-d-60-100-lups-luzern"
+        ],
+        "en": [
+          "pflegefachperson-w-m-d-60-100-lups-luzern"
+        ],
+        "fr": [
+          "pflegefachperson-w-m-d-60-100-lups-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-w-m-d-60-100-lups-luzern"
+      ]
     },
     {
       "id": "lups-2b7976f21bf1",
@@ -6663,12 +6677,12 @@
     },
     {
       "id": "lups-35dbf98f38fb",
-      "slug": "assistenzarztin-80-100-m-w-d-lups-kriens",
+      "slug": "assistente-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
-        "it": "assistenzarztin-80-100-m-w-d-lups-kriens",
-        "en": "assistenzarztin-80-100-m-w-d-lups-kriens",
+        "it": "assistente-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
+        "en": "assistant-doctor-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "assistenzarztin-80-100-m-w-d-lups-kriens",
-        "fr": "assistenzarztin-80-100-m-w-d-lups-kriens"
+        "fr": "assistant-medecin-80-100-h-f-d-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6723,7 +6737,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-80-100-m-w-d-lups-kriens"
+        ],
+        "en": [
+          "assistenzarztin-80-100-m-w-d-lups-kriens"
+        ],
+        "fr": [
+          "assistenzarztin-80-100-m-w-d-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-80-100-m-w-d-lups-kriens"
+      ]
     }
   ]
 }
