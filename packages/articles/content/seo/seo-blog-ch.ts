@@ -76694,6 +76694,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vicere-caracas-indagine-lugano': {
+    title: 'Il \'viceré di Caracas\' indagato a Zurigo: il passaggio da Lugano',
+    description: 'Alejandro Betancourt, \'uomo di Trump per il greggio venezuelano\', è indagato a Zurigo ed è stato azionista di una banca ticinese: i dettagli non specificati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, viceré, caracas, indagato, zurigo',
+    ogTitle: 'Betancourt, il \'viceré di Caracas\' indagato a Zurigo e il passaggio da Lugano',
+    ogDescription: 'La fonte definisce Alejandro Betancourt \'l\'uomo di Trump per il greggio venezuelano\' e \'il viceré di Caracas\'. È indagato a Zurigo ed è stato azionista di una banca ticinese: il caso riaperto dalla stampa svizzera e i punti ancora non specificati.',
+    canonicalPath: '/articoli-svizzera/vicere-caracas-indagine-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il 'viceré di Caracas' indagato a Zurigo: il passaggio da Lugano",
+      "description": "Alejandro Betancourt, 'uomo di Trump per il greggio venezuelano', è indagato a Zurigo ed è stato azionista di una banca ticinese: i dettagli non specificati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vicere-caracas-indagine-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del distretto finanziario di Lugano sul lago al tramonto"
+      },
+      "datePublished": "2026-09-07T09:55:33+00:00",
+      "dateModified": "2026-09-07T09:55:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vicere-caracas-indagine-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

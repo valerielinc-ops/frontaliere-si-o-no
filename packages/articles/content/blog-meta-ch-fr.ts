@@ -5908,6 +5908,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.action-negozio-20esimo-schattdorf.title': 'Action accélère et ouvre le 20ème magasin',
     'blog.article.action-negozio-20esimo-schattdorf.excerpt': 'Action inaugure son 20ème magasin en Suisse à Schattdorf, Uri, le 17 septembre, avec 14 nouveaux recrutements locaux.',
     'blog.article.action-negozio-20esimo-schattdorf.imageAlt': 'Vue aérienne du nouveau magasin Action à Schattdorf, Uri, Suisse',
+    'blog.article.vicere-caracas-indagine-lugano.title': 'Le \'vice-roi de Caracas\' enquêté à Zurich : le passage de Lugano',
+    'blog.article.vicere-caracas-indagine-lugano.excerpt': 'Alejandro Betancourt, décrit comme « l\'homme de Trump pour le pétrole brut vénézuélien », fait l\'objet d\'une enquête à Zurich et était actionnaire d\'une banque tessinoise.',
+    'blog.article.vicere-caracas-indagine-lugano.imageAlt': 'Vue aérienne du quartier financier de Lugano au bord du lac au crépuscule',
 };
 
 export default blogMetaChFr;

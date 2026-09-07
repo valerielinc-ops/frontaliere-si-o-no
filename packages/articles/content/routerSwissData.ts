@@ -1995,6 +1995,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'volo-swiss-emergenza-medica-zurigo-boston': { it: 'volo-swiss-emergenza-medica-zurigo-boston', en: 'swiss-flight-medical-emergency-zurich-boston', de: 'swiss-flug-medizinischer-notfall-zurich-boston', fr: 'vol-swiss-urgence-medicale-zurich-boston' },
  'zurich-hcl-gold-sponsor-2030': { it: 'zurich-hcl-gold-sponsor-2030', en: 'zurich-renews-with-hcl-gold-sponsor-until-2030', de: 'zurich-verlangert-mit-hcl-gold-sponsor-bis-2030', fr: 'zurich-renouvelle-avec-hcl-gold-sponsor-jusqu-en-2030' },
  'action-negozio-20esimo-schattdorf': { it: 'action-negozio-20esimo-schattdorf', en: 'action-20th-store-schattdorf', de: 'action-20-laden-schattdorf', fr: 'action-magasin-20eme-schattdorf' },
+ 'vicere-caracas-indagine-lugano': { it: 'vicere-caracas-indagine-lugano', en: 'caracas-viceroy-zurich-probe-lugano', de: 'vikar-von-caracas-untersuchung-lugano', fr: 'vice-roi-caracas-enquete-zurich-lugano' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
