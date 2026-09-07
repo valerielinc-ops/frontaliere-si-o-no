@@ -5872,6 +5872,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-svizzera-agosto-2026.title': 'Unemployment increase August 2026: +1.6% per month, +7.1% per year',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.excerpt': 'SECO published data on the labour market in Switzerland for the month of August 2026, showing an increase in the number of unemployed.',
     'blog.article.mercato-lavoro-svizzera-agosto-2026.imageAlt': 'Aerial view of Lugano city center with Lake Lugano in the background, showcasing the economic activity in the region.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.title': 'Heart and artificial intelligence: new predictive tools',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.excerpt': 'Two studies by Inselspital and the University of Bern indicate that AI improves the prognosis of heart disease.',
+    'blog.article.intelligenza-artificiale-cardiologia-2026.imageAlt': 'A doctor analyzes data on a computer in a medical research laboratory with the University of Bern in the background.',
 };
 
 export default blogMetaChEn;

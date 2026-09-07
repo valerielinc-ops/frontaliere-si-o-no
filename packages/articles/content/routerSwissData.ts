@@ -1983,6 +1983,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ddps-thun-difesa-innovazione': { it: 'ddps-thun-difesa-innovazione', en: 'ddps-thun-defense-innovation', de: 'ddps-thun-verteidigung-innovation', fr: 'ddps-thun-defense-innovation' },
  'cybersecurity-casa-data-center': { it: 'cybersecurity-casa-data-center', en: 'cybersecurity-home-data-center', de: 'cybersecurity-zuhause-datenzentrum', fr: 'cybersecurite-maison-centre-de-donnees' },
  'mercato-lavoro-svizzera-agosto-2026': { it: 'mercato-lavoro-svizzera-agosto-2026', en: 'swiss-labor-market-august-2026', de: 'schweizer-arbeitsmarkt-august-2026', fr: 'marche-du-travail-suisse-aout-2026' },
+ 'intelligenza-artificiale-cardiologia-2026': { it: 'intelligenza-artificiale-cardiologia-2026', en: 'artificial-intelligence-cardiology-2026', de: 'kuenstliche-intelligenz-kardiologie-2026', fr: 'intelligence-artificielle-cardiologie-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
