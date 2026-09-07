@@ -5992,6 +5992,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Mieten im Thurgau: Durchschnittsmieten und Mietrecht',
     'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Mietmarkt im Kanton Thurgau: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsstelle gemäss Obligationenrecht.',
     'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Wohnstrasse in einer Thurgauer Gemeinde mit traditionellen Häusern',
+    'blog.article.riserve-bns-aumento-agosto.title': 'SNB: Devisenreserven steigen im August auf 771 Milliarden',
+    'blog.article.riserve-bns-aumento-agosto.excerpt': 'Fremdwährungsaktiva in Höhe von 771 Milliarden Franken (+1,9 im Juli); Gesamtreserven ohne Gold von 780 bis 782 Milliarden. Euro und Dollar decken 80% des Portfolios ab.',
+    'blog.article.riserve-bns-aumento-agosto.imageAlt': 'Devisenreserven der Schweizerischen Nationalbank, August-Daten auf der SNB-Website.',
 };
 
 export default blogMetaChDe;

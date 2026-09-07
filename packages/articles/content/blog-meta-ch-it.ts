@@ -5992,6 +5992,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Affitti in Turgovia: canoni medi e diritto di locazione',
     'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Mercato locativo nel Canton Turgovia: deposito cauzionale, disdetta, contestazione del canone e autorità di conciliazione secondo il Codice delle obbligazioni.',
     'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Strada residenziale in un comune del Canton Turgovia con case tradizionali',
+    'blog.article.riserve-bns-aumento-agosto.title': 'BNS: riserve in divise estere salgono a 771 miliardi ad agosto',
+    'blog.article.riserve-bns-aumento-agosto.excerpt': 'Attivi in valuta estera a 771 miliardi di franchi (+1,9 su luglio); totale riserve, oro escluso, da 780 a 782 miliardi. Euro e dollaro coprono l\'80% del portafoglio.',
+    'blog.article.riserve-bns-aumento-agosto.imageAlt': 'Riserve in divise estere della Banca nazionale svizzera, dati di agosto pubblicati sul sito BNS.',
 };
 
 export default blogMetaChIt;
