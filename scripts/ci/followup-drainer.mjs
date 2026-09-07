@@ -634,7 +634,7 @@ export const DELIVERED = new Set(['pr-created']);
  * e l'ordine fra i due non è garantito: 120s è largo abbastanza da non perdere
  * mai una promozione del drainer, e stretto abbastanza da non catturare un
  * re-queue precedente (il giro minimo del drainer è il suo cron). */
-export const PROMOTION_PAIR_WINDOW_SEC = Number(process.env.FOLLOWUP_PROMOTION_PAIR_WINDOW_SEC || 120);
+export const PROMOTION_PAIR_WINDOW_SEC = intFromEnv('FOLLOWUP_PROMOTION_PAIR_WINDOW_SEC', 120);
 
 /** Timestamp (epoch ms) dell'ULTIMA aggiunta di `label` nella timeline eventi
  * di una issue, o null se non compare. Pura → testabile.
