@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zkb",
-  "assembledAt": "2026-09-07T15:03:41.318Z",
+  "assembledAt": "2026-09-07T23:24:05.627Z",
   "jobs": [
     {
       "id": "zkb-3bc52404605c",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/792841/11241/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:29.993Z",
+      "crawledAt": "2026-09-07T23:23:53.263Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,21 +55,21 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "fullstack-devops-engineer-m-w-d-zkb-zurich"
-        ],
-        "it": [
-          "fullstack-devops-engineer-m-w-d-zkb-zurich",
-          "lead-devops-engineer-m-w-d-ebanking-zkb-zurich",
-          "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich"
-        ]
-      },
       "previousSlugs": [
         "fullstack-devops-engineer-m-w-d-zkb-zurich",
         "lead-devops-engineer-m-w-d-ebanking-zkb-zurich",
         "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fullstack-devops-engineer-m-w-d-zkb-zurich",
+          "lead-devops-engineer-m-w-d-ebanking-zkb-zurich",
+          "fullstack-devops-ingegnere-m-w-d-zurcher-kantonalbank-zurich"
+        ],
+        "de": [
+          "fullstack-devops-engineer-m-w-d-zkb-zurich"
+        ]
+      },
       "firstSeenAt": "2026-07-06T22:14:36.678Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -117,7 +117,7 @@
       "url": "https://apply.refline.ch/792841/11111/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:28.650Z",
+      "crawledAt": "2026-09-07T23:23:52.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://apply.refline.ch/792841/11349/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:28.171Z",
+      "crawledAt": "2026-09-07T23:23:52.324Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "url": "https://apply.refline.ch/792841/11285/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:27.693Z",
+      "crawledAt": "2026-09-07T23:23:51.857Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://apply.refline.ch/792841/11220/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:27.216Z",
+      "crawledAt": "2026-09-07T23:23:51.389Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://apply.refline.ch/792841/11347/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:26.738Z",
+      "crawledAt": "2026-09-07T23:23:50.921Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -458,25 +458,25 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich",
-          "senior-produktmanager-vorsorgelosungen-m-w-d-zkb-zurich"
-        ],
-        "it": [
-          "senior-produktmanager-vorsorgelosungen-m-w-d-zkb-zurich",
-          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich",
-          "senior-product-manager-pension-solutions-m-f-d-zurcher-kantonalbank-zurich"
-        ],
-        "fr": [
-          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich"
-        ]
-      },
       "previousSlugs": [
         "senior-produktmanager-vorsorgelosungen-m-w-d-zkb-zurich",
         "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich",
         "senior-product-manager-pension-solutions-m-f-d-zurcher-kantonalbank-zurich"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-produktmanager-vorsorgelosungen-m-w-d-zkb-zurich",
+          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich",
+          "senior-product-manager-pension-solutions-m-f-d-zurcher-kantonalbank-zurich"
+        ],
+        "de": [
+          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich",
+          "senior-produktmanager-vorsorgelosungen-m-w-d-zkb-zurich"
+        ],
+        "fr": [
+          "senior-produktmanager-vorsorgelosungen-m-w-d-zurcher-kantonalbank-zurich"
+        ]
+      },
       "firstSeenAt": "2026-09-02T23:07:33.337Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -524,7 +524,7 @@
       "url": "https://apply.refline.ch/792841/11270/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:26.261Z",
+      "crawledAt": "2026-09-07T23:23:50.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -605,7 +605,7 @@
       "url": "https://apply.refline.ch/792841/11344/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:25.783Z",
+      "crawledAt": "2026-09-07T23:23:49.984Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -626,11 +626,13 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "sachbearbeiter-in-steuern-zkb-zurich",
+        "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich",
+        "personale-in-imposte-zurcher-kantonalbank-zurich",
+        "personale-tasse-zurcher-kantonalbank-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich",
-          "sachbearbeiter-in-steuern-zkb-zurich"
-        ],
         "it": [
           "sachbearbeiter-in-steuern-zkb-zurich",
           "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich",
@@ -640,16 +642,14 @@
         "en": [
           "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich"
         ],
+        "de": [
+          "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich",
+          "sachbearbeiter-in-steuern-zkb-zurich"
+        ],
         "fr": [
           "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-steuern-zkb-zurich",
-        "sachbearbeiter-in-steuern-zurcher-kantonalbank-zurich",
-        "personale-in-imposte-zurcher-kantonalbank-zurich",
-        "personale-tasse-zurcher-kantonalbank-zurich"
-      ],
       "firstSeenAt": "2026-09-02T13:33:10.868Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -697,7 +697,7 @@
       "url": "https://apply.refline.ch/792841/11346/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:25.308Z",
+      "crawledAt": "2026-09-07T23:23:48.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -718,11 +718,12 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zkb-zurich",
+        "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich",
+        "personale-nel-finanziamento-individuale-dei-clienti-aziendali-zurcher-kantonalbank-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich",
-          "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zkb-zurich"
-        ],
         "it": [
           "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zkb-zurich",
           "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich",
@@ -731,15 +732,14 @@
         "en": [
           "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich"
         ],
+        "de": [
+          "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich",
+          "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zkb-zurich"
+        ],
         "fr": [
           "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zkb-zurich",
-        "sachbearbeiter-in-individualfinanzierungen-firmenkunden-zurcher-kantonalbank-zurich",
-        "personale-nel-finanziamento-individuale-dei-clienti-aziendali-zurcher-kantonalbank-zurich"
-      ],
       "firstSeenAt": "2026-09-02T13:33:10.432Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -787,7 +787,7 @@
       "url": "https://apply.refline.ch/792841/11343/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:24.828Z",
+      "crawledAt": "2026-09-07T23:23:48.379Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -868,7 +868,7 @@
       "url": "https://apply.refline.ch/792841/11185/pub/4",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:24.348Z",
+      "crawledAt": "2026-09-07T23:23:47.915Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -946,7 +946,7 @@
       "url": "https://apply.refline.ch/792841/11339/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:23.869Z",
+      "crawledAt": "2026-09-07T23:23:47.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -967,11 +967,12 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zkb-zurich",
+        "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich",
+        "kundenberater-in-versicherungsbrokerage-berufliche-previdenza-zurcher-kantonalbank-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich",
-          "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zkb-zurich"
-        ],
         "it": [
           "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zkb-zurich",
           "kundenberater-in-versicherungsbrokerage-berufliche-previdenza-zurcher-kantonalbank-zurich"
@@ -979,15 +980,14 @@
         "en": [
           "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich"
         ],
+        "de": [
+          "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich",
+          "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zkb-zurich"
+        ],
         "fr": [
           "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zkb-zurich",
-        "kundenberater-in-versicherungsbrokerage-berufliche-vorsorge-zurcher-kantonalbank-zurich",
-        "kundenberater-in-versicherungsbrokerage-berufliche-previdenza-zurcher-kantonalbank-zurich"
-      ],
       "firstSeenAt": "2026-08-31T17:01:24.602Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1035,7 +1035,7 @@
       "url": "https://apply.refline.ch/792841/11342/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:23.389Z",
+      "crawledAt": "2026-09-07T23:23:46.975Z",
       "addressLocality": "Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1056,11 +1056,13 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "kundenberater-in-privatkunden-affluent-zkb-oerlikon",
+        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten",
+        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-oerlikon"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
-          "kundenberater-in-privatkunden-affluent-zkb-oerlikon"
-        ],
         "it": [
           "kundenberater-in-privatkunden-affluent-zkb-oerlikon",
           "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
@@ -1070,16 +1072,14 @@
         "en": [
           "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon"
         ],
+        "de": [
+          "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
+          "kundenberater-in-privatkunden-affluent-zkb-oerlikon"
+        ],
         "fr": [
           "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon"
         ]
       },
-      "previousSlugs": [
-        "kundenberater-in-privatkunden-affluent-zkb-oerlikon",
-        "kundenberater-in-privatkunden-affluent-zurcher-kantonalbank-oerlikon",
-        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-altstetten",
-        "consulente-clienti-in-clienti-privati-affluente-zurcher-kantonalbank-oerlikon"
-      ],
       "firstSeenAt": "2026-08-31T17:01:24.184Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -1127,7 +1127,7 @@
       "url": "https://apply.refline.ch/792841/11338/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:22.912Z",
+      "crawledAt": "2026-09-07T23:23:46.505Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1208,7 +1208,7 @@
       "url": "https://apply.refline.ch/792841/11337/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:22.435Z",
+      "crawledAt": "2026-09-07T23:23:46.038Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1229,11 +1229,13 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "leiter-in-produktmanagement-anlagen-zkb-zurich",
+        "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
+        "responsabile-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
+        "testa-nei-sistemi-di-gestione-del-prodotto-zurcher-kantonalbank-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
-          "leiter-in-produktmanagement-anlagen-zkb-zurich"
-        ],
         "it": [
           "leiter-in-produktmanagement-anlagen-zkb-zurich",
           "responsabile-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
@@ -1242,16 +1244,14 @@
         "en": [
           "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich"
         ],
+        "de": [
+          "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
+          "leiter-in-produktmanagement-anlagen-zkb-zurich"
+        ],
         "fr": [
           "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-produktmanagement-anlagen-zkb-zurich",
-        "leiter-in-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
-        "responsabile-produktmanagement-anlagen-zurcher-kantonalbank-zurich",
-        "testa-nei-sistemi-di-gestione-del-prodotto-zurcher-kantonalbank-zurich"
-      ],
       "firstSeenAt": "2026-08-31T17:01:23.336Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -1299,7 +1299,7 @@
       "url": "https://apply.refline.ch/792841/11336/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:21.956Z",
+      "crawledAt": "2026-09-07T23:23:45.572Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1382,7 +1382,7 @@
       "url": "https://apply.refline.ch/792841/11335/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:21.476Z",
+      "crawledAt": "2026-09-07T23:23:45.103Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1474,7 +1474,7 @@
       "url": "https://apply.refline.ch/792841/11287/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:20.998Z",
+      "crawledAt": "2026-09-07T23:23:44.635Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1555,7 +1555,7 @@
       "url": "https://apply.refline.ch/792841/11332/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:20.488Z",
+      "crawledAt": "2026-09-07T23:23:44.167Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1639,7 +1639,7 @@
       "url": "https://apply.refline.ch/792841/11333/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:19.995Z",
+      "crawledAt": "2026-09-07T23:23:43.701Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1720,7 +1720,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:18.681Z",
+      "crawledAt": "2026-09-07T23:23:43.234Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1804,7 +1804,7 @@
       "url": "https://apply.refline.ch/792841/11321/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:18.202Z",
+      "crawledAt": "2026-09-07T23:23:42.767Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1890,7 +1890,7 @@
       "url": "https://apply.refline.ch/792841/11320/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:17.723Z",
+      "crawledAt": "2026-09-07T23:23:42.297Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1971,7 +1971,7 @@
       "url": "https://apply.refline.ch/792841/11319/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:17.245Z",
+      "crawledAt": "2026-09-07T23:23:41.829Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2055,7 +2055,7 @@
       "url": "https://apply.refline.ch/792841/11329/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:16.768Z",
+      "crawledAt": "2026-09-07T23:23:41.362Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2141,7 +2141,7 @@
       "url": "https://apply.refline.ch/792841/11113/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:16.284Z",
+      "crawledAt": "2026-09-07T23:23:40.895Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2219,7 +2219,7 @@
       "url": "https://apply.refline.ch/792841/11322/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:15.807Z",
+      "crawledAt": "2026-09-07T23:23:40.428Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2315,7 +2315,7 @@
       "url": "https://apply.refline.ch/792841/10813/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:15.325Z",
+      "crawledAt": "2026-09-07T23:23:39.076Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2396,7 +2396,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:14.845Z",
+      "crawledAt": "2026-09-07T23:23:38.604Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2474,7 +2474,7 @@
       "url": "https://apply.refline.ch/792841/11309/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:14.359Z",
+      "crawledAt": "2026-09-07T23:23:38.123Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2554,7 +2554,7 @@
       "url": "https://apply.refline.ch/792841/11315/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:13.878Z",
+      "crawledAt": "2026-09-07T23:23:37.656Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2632,7 +2632,7 @@
       "url": "https://apply.refline.ch/792841/11310/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:13.387Z",
+      "crawledAt": "2026-09-07T23:23:37.182Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2720,7 +2720,7 @@
       "url": "https://apply.refline.ch/792841/11313/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:12.908Z",
+      "crawledAt": "2026-09-07T23:23:36.702Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2798,7 +2798,7 @@
       "url": "https://apply.refline.ch/792841/11222/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:12.417Z",
+      "crawledAt": "2026-09-07T23:23:36.220Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2908,7 +2908,7 @@
       "url": "https://apply.refline.ch/792841/11308/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:11.933Z",
+      "crawledAt": "2026-09-07T23:23:35.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2989,7 +2989,7 @@
       "url": "https://apply.refline.ch/792841/11311/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:11.454Z",
+      "crawledAt": "2026-09-07T23:23:35.276Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3067,7 +3067,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:10.960Z",
+      "crawledAt": "2026-09-07T23:23:34.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3147,7 +3147,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:10.478Z",
+      "crawledAt": "2026-09-07T23:23:34.328Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3227,7 +3227,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:09.993Z",
+      "crawledAt": "2026-09-07T23:23:33.855Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3305,7 +3305,7 @@
       "url": "https://apply.refline.ch/792841/11162/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:08.941Z",
+      "crawledAt": "2026-09-07T23:23:33.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3401,7 +3401,7 @@
       "url": "https://apply.refline.ch/792841/11068/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:08.461Z",
+      "crawledAt": "2026-09-07T23:23:32.913Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3485,7 +3485,7 @@
       "url": "https://apply.refline.ch/792841/11069/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:07.983Z",
+      "crawledAt": "2026-09-07T23:23:32.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3575,7 +3575,7 @@
       "url": "https://apply.refline.ch/792841/11273/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:07.495Z",
+      "crawledAt": "2026-09-07T23:23:31.967Z",
       "addressLocality": "Wetzikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3653,7 +3653,7 @@
       "url": "https://apply.refline.ch/792841/11254/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:06.921Z",
+      "crawledAt": "2026-09-07T23:23:31.490Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3731,7 +3731,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:06.434Z",
+      "crawledAt": "2026-09-07T23:23:31.007Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3809,7 +3809,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:05.886Z",
+      "crawledAt": "2026-09-07T23:23:30.524Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3897,7 +3897,7 @@
       "url": "https://apply.refline.ch/792841/11227/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:05.369Z",
+      "crawledAt": "2026-09-07T23:23:30.002Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3975,7 +3975,7 @@
       "url": "https://apply.refline.ch/792841/11205/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:04.887Z",
+      "crawledAt": "2026-09-07T23:23:28.989Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4053,7 +4053,7 @@
       "url": "https://apply.refline.ch/792841/11184/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:04.401Z",
+      "crawledAt": "2026-09-07T23:23:28.520Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4131,7 +4131,7 @@
       "url": "https://apply.refline.ch/792841/11170/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:03.918Z",
+      "crawledAt": "2026-09-07T23:23:28.045Z",
       "addressLocality": "Altstetten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4209,7 +4209,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:03.398Z",
+      "crawledAt": "2026-09-07T23:23:27.457Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4287,7 +4287,7 @@
       "url": "https://apply.refline.ch/792841/11149/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:02.918Z",
+      "crawledAt": "2026-09-07T23:23:26.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4382,7 +4382,7 @@
       "url": "https://apply.refline.ch/792841/10830/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:02.440Z",
+      "crawledAt": "2026-09-07T23:23:26.498Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4478,7 +4478,7 @@
       "url": "https://apply.refline.ch/792841/11001/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:03:01.957Z",
+      "crawledAt": "2026-09-07T23:23:26.027Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4610,7 +4610,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
