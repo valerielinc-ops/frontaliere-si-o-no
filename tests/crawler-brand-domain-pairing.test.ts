@@ -8,6 +8,7 @@ import {
   IPERSONAL_COMPANY_DOMAIN,
   isIpersonalJob,
 } from '../scripts/lib/ipersonal-job-parser.mjs';
+import { stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import {
   MED_IPERSONAL_KEY,
   MED_IPERSONAL_COMPANY_NAME,
@@ -64,12 +65,19 @@ function brandIdentity(name: string) {
   return identityTokens(name.replace(/\s*\([^)]*\)\s*/g, ' ')).join('');
 }
 
-/** The host reduced to its identity: no crawler subdomain, no TLD. */
+/**
+ * The host reduced to its identity: no crawler subdomain, no public suffix.
+ *
+ * The suffix comes off via `stripPublicSuffix()`, which knows the compound ones.
+ * Peeling a single trailing label left `com` behind on `foo.com.br`, so the
+ * identity read `foocom` and no longer equalled the `foo` of its own brand: that
+ * host dropped out of the compared population without a word (#7770). `.co.uk`
+ * only escaped because `co` happens to sit in `GENERIC_TOKENS`. The old regex
+ * also capped the label at four letters, which left `.swiss` in the identity.
+ */
 function domainIdentity(domain: string) {
   return identityTokens(
-    domain
-      .replace(/^(?:www|jobs|karriere|careers|recruitingapp-\d+)\./, '')
-      .replace(/\.[a-z]{2,4}$/, ''),
+    stripPublicSuffix(domain.replace(/^(?:www|jobs|karriere|careers|recruitingapp-\d+)\./, '')),
   ).join('');
 }
 
@@ -204,6 +212,34 @@ describe('dedicated crawler parsers, as a class', () => {
         { file: 'delta-job-parser.mjs', name: 'Delta S.A.', domain: 'sirio.ch' },
       ]),
     ).toHaveLength(1);
+  });
+
+  it('still sees a swap when the host carries a compound TLD', () => {
+    // `foo.com.br` used to keep the `com` label — identity `foocom`, which
+    // equals no brand — so a host on a compound suffix left the compared
+    // population silently (#7770). `.co.uk` only passed because `co` is a
+    // generic token; `com` is not, and neither is the `swiss` the old
+    // four-letter cap left behind.
+    expect(
+      findSwappedPairs([
+        { file: 'sirio-job-parser.mjs', name: 'Sirio', domain: 'delta.com.br' },
+        { file: 'delta-job-parser.mjs', name: 'Delta', domain: 'sirio.com.br' },
+      ]),
+    ).toHaveLength(1);
+    expect(
+      findSwappedPairs([
+        { file: 'sirio-job-parser.mjs', name: 'Sirio', domain: 'delta.swiss' },
+        { file: 'delta-job-parser.mjs', name: 'Delta', domain: 'sirio.swiss' },
+      ]),
+    ).toHaveLength(1);
+    // A host that pairs straight with its own brand stays out of the report,
+    // which is the coverage the single-label peel was losing.
+    expect(
+      findSwappedPairs([
+        { file: 'sirio-job-parser.mjs', name: 'Sirio', domain: 'sirio.com.br' },
+        { file: 'delta-job-parser.mjs', name: 'Delta', domain: 'delta.co.uk' },
+      ]),
+    ).toEqual([]);
   });
 
   it('does not flag two brands that merely share a generic token with the other host', () => {

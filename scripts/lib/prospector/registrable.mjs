@@ -56,6 +56,28 @@ export function registrableDomain(raw = '') {
 }
 
 /**
+ * The host with its public suffix removed — the part a brand actually owns.
+ *
+ * Splitting off a single trailing label is wrong on every compound suffix in
+ * `MULTI_LABEL_SUFFIXES`: `foo.com.br` keeps `com`, so a fold that compares a
+ * brand to its own host stops matching and the host quietly leaves the compared
+ * population (#7770). `.co.uk` only survived by the coincidence that `co` reads
+ * as a generic word downstream. Same table as `registrableDomain()`, so the two
+ * can never disagree about where the suffix starts.
+ *
+ * @param {string} raw host or URL
+ * @returns {string} `foo` for `foo.com.br`, `jobs.acme` for `jobs.acme.ch`
+ */
+export function stripPublicSuffix(raw = '') {
+  const host = normalizeHost(raw);
+  if (!host || !host.includes('.')) return host;
+  const parts = host.split('.').filter(Boolean);
+  const lastTwo = parts.slice(-2).join('.');
+  if (MULTI_LABEL_SUFFIXES.has(lastTwo) && parts.length >= 3) return parts.slice(0, -2).join('.');
+  return parts.slice(0, -1).join('.');
+}
+
+/**
  * The subdomain label in front of a registrable domain — the tenant id on a
  * hosted ATS.
  *
