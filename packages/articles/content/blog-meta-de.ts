@@ -11584,6 +11584,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'G-Genehmigung im Tessin: Antrag, Kosten und Schritte',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Vollständiger Leitfaden zur Beantragung der G-Genehmigung für Grenzgänger im Tessin: notwendige Unterlagen, Kosten und Gültigkeit.',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'G-Bewilligung für Grenzgänger im Tessin',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026: Dokumente und Verfahren für Grenzgänger',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'G-Genehmigung im Kanton Tessin: Dokumente, Verfahren beim Migrationsamt, Gültigkeit für fünf Jahre und Verlängerung nach der Neuen Grenzgängervereinbarung 2024.',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Grenzgänger am Brogeda-Zoll mit G-Bewilligung-Unterlagen im Tessin',
 };
 
 export default blogMetaDe;

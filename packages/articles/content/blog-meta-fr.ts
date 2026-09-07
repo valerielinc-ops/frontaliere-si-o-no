@@ -11587,6 +11587,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.title': 'Permis G au Tessin : demande, coûts et passages',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.excerpt': 'Guide complet pour la demande du permis G pour les frontaliers au Tessin : documents nécessaires, coûts et validité.',
     'blog.article.g-bewilligung-antrag-schritt-fuer-schritt.imageAlt': 'Permis G pour frontaliers au Tessin',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.title': 'G Bewilligung Antrag 2026 : documents et procédure pour les frontaliers',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.excerpt': 'Permis G dans le canton du Tessin : documents, procédure au Migrationsamt, validité de cinq ans et renouvellement après le nouvel accord frontalier 2024.',
+    'blog.article.g-bewilligung-antrag-guida-completa-2026.imageAlt': 'Travailleur frontalier au poste de Brogeda avec documents pour le permis G au Tessin',
 };
 
 export default blogMetaFr;
