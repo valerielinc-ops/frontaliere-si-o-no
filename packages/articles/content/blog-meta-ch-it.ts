@@ -5968,6 +5968,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Imposte cantonali a Ginevra: aliquote e deduzioni',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Scopri le aliquote e deduzioni delle imposte cantonali a Ginevra, incluse scadenze di consegna e il portale online dell\'amministrazione fiscale.',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Vista aerea del Lago di Ginevra con la città di Ginevra in secondo piano, mostrando gli edifici amministrativi e il quartiere finanziario.',
+    'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: lutto nazionale per le vittime dell\'inondazione',
+    'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Il Nepal osserva un giorno di lutto per le vittime dell\'inondazione del 26 agosto, con almeno 1398 morti e 5515 dispersi',
+    'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Vista aerea del Nepal con le acque dell\'inondazione e persone in lutto',
 };
 
 export default blogMetaChIt;

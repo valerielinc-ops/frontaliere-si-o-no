@@ -5968,6 +5968,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Impôts cantonaux à Genève : taux et déductions',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Découvrez les taux et déductions des impôts cantonaux à Genève, y compris les délais de livraison et le portail en ligne de l\'administration fiscale.',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Vue aérienne du lac Léman avec la ville de Genève en arrière-plan, montrant les bâtiments administratifs et le quartier financier.',
+    'blog.article.nepal-inondazione-lutto-vittime.title': 'Népal : deuil national pour les victimes des inondations',
+    'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Le Népal observe une journée de deuil pour les victimes de l\'inondation du 26 août, avec au moins 1398 morts et 5515 disparus',
+    'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Vue aérienne du Népal avec les eaux de l\'inondation et des personnes en deuil',
 };
 
 export default blogMetaChFr;

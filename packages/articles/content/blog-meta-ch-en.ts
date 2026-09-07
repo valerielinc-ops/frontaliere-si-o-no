@@ -5968,6 +5968,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Cantonal taxes in Geneva: rates and deductions',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Check out cantonal tax rates and deductions in Geneva, including delivery deadlines and the tax administration\'s online portal.',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Aerial view of Lake Geneva with the city of Geneva in the background, showing the administrative buildings and financial district.',
+    'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: National mourning for flood victims',
+    'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Nepal observes a day of mourning for the victims of the August 26 flood, with at least 1,398 dead and 5,515 missing',
+    'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Aerial view of Nepal with floodwaters and people mourning',
 };
 
 export default blogMetaChEn;

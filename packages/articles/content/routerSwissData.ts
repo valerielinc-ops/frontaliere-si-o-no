@@ -2015,6 +2015,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salute-parchi-giochi-svizzeri-mozziconi-sigarette': { it: 'salute-parchi-giochi-svizzeri-mozziconi-sigarette', en: 'health-swiss-playgrounds-cigarette-butts', de: 'gesundheit-schweizer-spielplaetze-zigarettenstummel', fr: 'sante-parcs-jeux-suisses-megots-cigarettes' },
  'imposta-successione-donazione-neuchatel-aliquote': { it: 'imposta-successione-donazione-neuchatel-aliquote', en: 'inheritance-and-donation-tax-neuchatel-rates', de: 'erbschaft-und-spendensteuer-neuchatel-satz', fr: 'impot-succession-donation-neuchatel-taux' },
  'imposte-cantonali-ginevra-aliquote-deduzioni': { it: 'imposte-cantonali-ginevra-aliquote-deduzioni', en: 'canton-geneva-tax-rates-deductions', de: 'kanton-genf-steuersaetze-absetzungen', fr: 'canton-geneve-taux-deductions' },
+ 'nepal-inondazione-lutto-vittime': { it: 'nepal-inondazione-lutto-vittime', en: 'nepal-flood-mourning-victims', de: 'nepal-ueberschwemmung-trauer-opfer', fr: 'nepal-inondation-deuil-victimes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

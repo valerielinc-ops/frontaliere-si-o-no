@@ -5968,6 +5968,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.title': 'Kantonale Steuern in Genf: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.excerpt': 'Entdecken Sie die kantonalen Steuersätze und -abzüge in Genf inklusive Liefertermine und das Online-Portal der Steuerverwaltung.',
     'blog.article.imposte-cantonali-ginevra-aliquote-deduzioni.imageAlt': 'Luftbild des Genfersees mit der Stadt Genf im Hintergrund, zeigend die Verwaltungsgebäude und das Finanzviertel.',
+    'blog.article.nepal-inondazione-lutto-vittime.title': 'Nepal: Nationale Trauer für die Opfer der Überschwemmung',
+    'blog.article.nepal-inondazione-lutto-vittime.excerpt': 'Nepal erlebt einen Tag der Trauer für die Opfer der Überschwemmung vom 26. August mit mindestens 1398 Toten und 5515 Vermissten',
+    'blog.article.nepal-inondazione-lutto-vittime.imageAlt': 'Luftaufnahme von Nepal mit Überschwemmungswasser und trauernden Menschen',
 };
 
 export default blogMetaChDe;
