@@ -2026,6 +2026,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'riserve-bns-aumento-agosto': { it: 'riserve-bns-aumento-agosto', en: 'snb-foreign-reserves-rise-august', de: 'snb-devisenreserven-anstieg-august', fr: 'bns-reserves-devises-augmentation-aout' },
  'affitti-turgovia-canoni-locazione-conciliazione': { it: 'affitti-turgovia-canoni-locazione-conciliazione', en: 'thurgau-rent-market-tenancy-law-conciliation', de: 'thurgau-miete-mietrecht-schlichtung', fr: 'thurgovie-loyers-droit-bail-conciliation' },
  'naturalizzazione-turgovia-requisiti-procedura': { it: 'naturalizzazione-turgovia-requisiti-procedura', en: 'thurgau-naturalisation-requirements-procedure', de: 'thurgau-einbuergerung-voraussetzungen-verfahren', fr: 'naturalisation-thurgovie-conditions-procedure' },
+ 'permesso-l-ginevra-validita-proroga': { it: 'permesso-l-ginevra-validita-proroga', en: 'geneva-short-term-l-permit-validity', de: 'genf-kurzaufenthalt-l-bewilligung', fr: 'permis-l-courte-duree-geneve' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

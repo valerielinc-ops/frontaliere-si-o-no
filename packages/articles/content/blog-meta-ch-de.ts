@@ -6001,6 +6001,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Einbürgerung im Thurgau: Anforderungen, Tests und Verfahren',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'So erhalten Sie die Staatsbürgerschaft im Kanton Thurgau: Jahre des Wohnsitzes, Sprache, Tests und Kosten.',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Fassade eines Thurgauer Rathauses mit Schweizer Flagge',
+    'blog.article.permesso-l-ginevra-validita-proroga.title': 'Genehmigung Genf: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Vollständiger Führerschein zur Kurzzeitbewilligung L im Kanton Genf: Höchstdauer, Verlängerungsbedingungen und Arbeitsbedingungen.',
+    'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Kurzaufenthaltsbewilligung L im Kanton Genf',
 };
 
 export default blogMetaChDe;

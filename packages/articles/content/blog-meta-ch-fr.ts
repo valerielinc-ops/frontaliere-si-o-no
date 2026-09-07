@@ -6001,6 +6001,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalisation en Thurgovie : exigences, tests et procédure',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'Comment obtenir la citoyenneté dans le canton de Thourgovie : années de résidence, langue, tests et coûts.',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Façade d\'une mairie de Thurgovie avec drapeau suisse',
+    'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permis L Genève : validité et prolongation',
+    'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Guide complet du permis L de courte durée dans le canton de Genève : durée maximale, conditions de prolongation et contraintes professionnelles.',
+    'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Permis L de courte durée dans le canton de Genève',
 };
 
 export default blogMetaChFr;

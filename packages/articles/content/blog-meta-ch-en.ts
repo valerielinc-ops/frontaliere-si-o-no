@@ -6001,6 +6001,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalization in Thurgau: requirements, tests and procedure',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'How to obtain citizenship in the Canton of Thurgau: years of residence, language, tests and costs.',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Facade of a Thurgau town hall with Swiss flag',
+    'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permit L Geneva: validity and extension',
+    'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Complete Guide to Short-Term L Permit in the Canton of Geneva: Maximum Duration, Conditions of Extension, and Work Constraints.',
+    'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Short-term L permit in Canton Geneva',
 };
 
 export default blogMetaChEn;

@@ -77903,6 +77903,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-ginevra-validita-proroga': {
+    title: 'Permesso L Ginevra: validità e proroga | Frontaliere Ticino',
+    description: 'Scopri le regole sul permesso L di breve durata nel Cantone di Ginevra: validità massima, condizioni di proroga, vincoli sul lavoro e procedure. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, ginevra, validità, proroga',
+    ogTitle: 'Permesso L Ginevra: Validità, Proroga e Vincoli Lavorativi',
+    ogDescription: 'Tutto quello che c\'è da sapere sul permesso L di breve durata nel Cantone di Ginevra: scadenze, condizioni di rinnovo e obblighi lavorativi.',
+    canonicalPath: '/articoli-svizzera/permesso-l-ginevra-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Ginevra: validità e proroga",
+      "description": "Scopri le regole sul permesso L di breve durata nel Cantone di Ginevra: validità massima, condizioni di proroga, vincoli sul lavoro e procedure. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-ginevra-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Permesso L di breve durata nel Cantone di Ginevra"
+      },
+      "datePublished": "2026-09-07T15:45:42+00:00",
+      "dateModified": "2026-09-07T15:45:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-ginevra-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
