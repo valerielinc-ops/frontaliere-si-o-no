@@ -1,42 +1,197 @@
 [
   {
-    "slug": "un-infermiera-d-emergenza-gmo-lugano",
-    "title": "Un-e infirmier-ière responsable du service d’urgences",
+    "slug": "contabilita-gmo-lugano",
+    "title": "Comptable",
     "titleByLocale": {
-      "fr": "Un-e infirmier-ière responsable du service d’urgences",
-      "it": "Un'infermiera d'emergenza",
-      "en": "An emergency nurse",
-      "de": "Eine Notfallkrankenschwester"
+      "it": "Contabilità",
+      "en": "Accountant",
+      "de": "Buchhalter",
+      "fr": "Comptable"
     },
     "company": "gmo",
     "companyKey": "gmo",
     "location": "Lugano",
     "addressLocality": "Lugano",
     "descriptionByLocale": {
-      "fr": "Description du poste Le service des urgences de la Clinique et Permanence d’Onex SA recherche un-e infirmier-ière responsable à 100%. A ce poste stratégique, vous assurez l’organisation, la continuité et la... Plus d’informations",
-      "it": "Descrizione del post Il Dipartimento di Emergenza della Clinica e Permanenza di Onex SA sta cercando un'infermiera responsabile al 100%. In questa posizione strategica, si garantisce l'organizzazione, la continuità e... Maggiori informazioni",
-      "en": "Description of post The Emergency Department of the Clinic and Permanence of Onex SA is looking for a 100% responsible nurse. In this strategic position, you ensure organization, continuity and... More information",
-      "de": "Die Notaufnahme der Klinik und Dauerhaftigkeit von Onex SA sucht eine 100% verantwortliche Krankenschwester. In dieser strategischen Position sichern Sie Organisation, Kontinuität und... Weitere Informationen"
+      "it": "Nell'ambito del rafforzamento della sua organizzazione amministrativa e finanziaria, un partner dello SME cerca un contabile all'80%.\n• La tua missione Si assicura, autonomamente e rigorosamente, che si indossa... Maggiori informazioni",
+      "en": "As part of the strengthening of its administrative and financial organisation, an EMS partner seeks an accounting officer at 80%.\n• Your Mission You ensure, autonomously and rigorously, that you wear... More information",
+      "de": "Im Rahmen der Stärkung der administrativen und finanziellen Organisation sucht ein EMS-Partner einen Rechnungsführer zu 80%.\n• Deine Mission Sie stellen sicher, autonom und streng, dass Sie tragen... Weitere Informationen",
+      "fr": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations"
     },
     "slugByLocale": {
-      "fr": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-      "it": "un-infermiera-d-emergenza-gmo-lugano",
-      "en": "an-emergency-nurse-gmo-lugano",
-      "de": "eine-notfallkrankenschwester-gmo-lugano"
+      "it": "contabilita-gmo-lugano",
+      "en": "accountant-gmo-lugano",
+      "de": "buchhalter-gmo-lugano",
+      "fr": "comptable-gmo-ch"
     },
     "sector": "Altro",
-    "expiredAt": "2026-09-06T22:48:33.275Z",
+    "expiredAt": "2026-09-07T15:03:43.330Z",
     "previousSlugs": [
-      "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+      "comptable-gmo-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+        "comptable-gmo-ch"
       ],
       "en": [
+        "comptable-gmo-ch"
+      ],
+      "de": [
+        "comptable-gmo-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "psicologia-psicoterapeuta-fsp-gmo-lugano",
+    "title": "Psychologue psychothérapeute FSP",
+    "titleByLocale": {
+      "it": "Psicologia psicoterapeuta FSP",
+      "en": "Psychologist psychotherapist FSP",
+      "de": "Psychologe Psychotherapeut FSP",
+      "fr": "Psychologue psychothérapeute FSP"
+    },
+    "company": "gmo",
+    "companyKey": "gmo",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "it": "Per il Centro Medico di Lignon e i nostri centri medici e case sanitarie nel cantone di Ginevra, stiamo cercando psicologi psicoterapeuti che si sono diplomati per unirsi ai nostri team multidisciplinari. La nostra missione attraverso la sua... Maggiori informazioni",
+      "en": "For the Medical Centre of Lignon and our medical centres and health homes in the canton of Geneva, we are looking for psychotherapist psychologists who have graduated to join our multidisciplinary teams. Our mission Through his... More information",
+      "de": "Für das Medizinische Zentrum von Lignon und unsere medizinischen Zentren und Gesundheitsheime im Kanton Genf suchen wir Psychotherapeuten, die unseren multidisziplinären Teams beitreten. Unsere Mission durch seine... Weitere Informationen",
+      "fr": "Pour le Centre Médical du Lignon et nos centres médicaux et maisons de santé du canton de Genève, nous recherchons des psychologues psychothérapeute diplômé·e pour rejoindre nos équipes pluridisciplinaires. Notre mission À travers son... Plus d’informations"
+    },
+    "slugByLocale": {
+      "it": "psicologia-psicoterapeuta-fsp-gmo-lugano",
+      "en": "psychologist-psychotherapist-fsp-gmo-lugano",
+      "de": "psychologe-psychotherapeut-fsp-gmo-lugano",
+      "fr": "psychologue-psychotherapeute-fsp-gmo-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-07T15:03:43.330Z",
+    "previousSlugs": [
+      "psychologue-psychotherapeute-fsp-gmo-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "psychologue-psychotherapeute-fsp-gmo-ch"
+      ],
+      "en": [
+        "psychologue-psychotherapeute-fsp-gmo-ch"
+      ],
+      "de": [
+        "psychologue-psychotherapeute-fsp-gmo-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
+    "title": "Médecin spécialiste FMH en gynécologie et obstétrique",
+    "titleByLocale": {
+      "it": "specialista medico FMH in ginecologia e ostetricia",
+      "en": "FMH medical specialist in gynaecology and obstetrics",
+      "de": "FMH Facharzt für Gynäkologie und Geburtshilfe",
+      "fr": "Médecin spécialiste FMH en gynécologie et obstétrique"
+    },
+    "company": "gmo",
+    "companyKey": "gmo",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "it": "Unisciti al Centre Médical des Crêts-de-Champel – www.cmchampel.ch – e integra la nostra unità dedicata alla salute delle donne in un ambiente medico dinamico, riconosciuto e in via di sviluppo. Il nostro... Maggiori informazioni",
+      "en": "Join the Centre Médical des Crêts-de-Champel – www.cmchampel.ch – and integrate our unit dedicated to women's health into a dynamic, recognized and developing medical environment. Our... More information",
+      "de": "Treten Sie dem Centre Médical des Crêts-de-Champel – www.cmchampel.ch – bei und integrieren Sie unsere Abteilung für die Gesundheit von Frauen in ein dynamisches, anerkanntes und sich entwickelndes medizinisches Umfeld. Unsere... Weitere Informationen",
+      "fr": "Rejoignez le Centre Médical des Crêts-de-Champel – www.cmchampel.ch – et intégrez notre unité dédiée à la santé de la femme, dans un environnement médical dynamique, reconnu et en plein développement. Notre... Plus d’informations"
+    },
+    "slugByLocale": {
+      "it": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
+      "en": "fmh-medical-specialist-in-gynaecology-and-obstetrics-gmo-lugano",
+      "de": "fmh-facharzt-fur-gynakologie-und-geburtshilfe-gmo-lugano",
+      "fr": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-07T15:03:43.330Z",
+    "previousSlugs": [
+      "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+      ],
+      "en": [
+        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+      ],
+      "de": [
+        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "capo-gmo-lugano",
+    "title": "Infirmier·ère chef·fe",
+    "titleByLocale": {
+      "it": "Capo",
+      "en": "Chief Nurse",
+      "de": "Hauptkrankenschwester",
+      "fr": "Infirmier·ère chef·fe"
+    },
+    "company": "gmo",
+    "companyKey": "gmo",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "it": "Come parte dello sviluppo delle sue attività, la nostra istituzione medico-sociale sta cercando un'infermiera capo. A seconda della direzione, l'infermiera capo dirige il dipartimento di cura. Partecipa al suo campo di... Maggiori informazioni",
+      "en": "As part of the development of its activities, our medical-social institution is looking for a head nurse. Depending on management, the Chief Nurse heads the care department. He participates in his field of... More information",
+      "de": "Im Rahmen der Entwicklung ihrer Aktivitäten sucht unsere medizinisch-soziale Einrichtung eine Oberschwester. Je nach Management leitet die Chief Nurse die Pflegeabteilung. Er beteiligt sich an seinem Bereich der... Weitere Informationen",
+      "fr": "Dans le cadre du développement de ses activités, notre établissement médico-social recherche un-e infirmier-ère chef-fe. Dépendant de la direction, l'infirmier-chef dirige le service des soins. Il participe, dans son domaine de... Plus d’informations"
+    },
+    "slugByLocale": {
+      "it": "capo-gmo-lugano",
+      "en": "chief-nurse-gmo-lugano",
+      "de": "hauptkrankenschwester-gmo-lugano",
+      "fr": "infirmier-ere-chef-fe-gmo-ch"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-07T15:03:43.330Z",
+    "previousSlugs": [
+      "infirmier-ere-chef-fe-gmo-ch",
+      "infirmier-ere-chef-fe-gmo-lugano",
+      "un-infermiera-d-emergenza-gmo-lugano",
+      "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
+      "an-emergency-nurse-gmo-lugano",
+      "eine-notfallkrankenschwester-gmo-lugano"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "infirmier-ere-chef-fe-gmo-ch",
+        "un-infermiera-d-emergenza-gmo-lugano",
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
+        "an-emergency-nurse-gmo-lugano",
+        "eine-notfallkrankenschwester-gmo-lugano"
+      ],
+      "en": [
+        "infirmier-ere-chef-fe-gmo-ch",
+        "an-emergency-nurse-gmo-lugano",
         "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
       ],
       "de": [
+        "infirmier-ere-chef-fe-gmo-ch",
+        "infirmier-ere-chef-fe-gmo-lugano",
+        "eine-notfallkrankenschwester-gmo-lugano",
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+      ],
+      "fr": [
         "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
       ]
     },

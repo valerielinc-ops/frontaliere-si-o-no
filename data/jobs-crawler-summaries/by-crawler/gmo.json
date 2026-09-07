@@ -1,20 +1,21 @@
 {
   "key": "gmo",
   "label": "gmo",
-  "generatedAt": "2026-09-06T22:48:43.533Z",
-  "total": 12,
+  "generatedAt": "2026-09-07T15:03:52.362Z",
+  "total": 8,
   "discovered": 8,
   "parsed": 8,
-  "written": 12,
+  "lastFetchOutcome": null,
+  "written": 8,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
-  "unchangedCount": 4,
-  "durationMs": 19941,
-  "avgDurationMs": 19941,
+  "removedCount": 4,
+  "unchangedCount": 0,
+  "durationMs": 20607,
+  "avgDurationMs": 20607,
   "durationHistory": [
-    19941
+    20607
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:30.770Z",
+      "crawledAt": "2026-09-07T15:03:40.819Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,7 +67,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.074Z",
+      "crawledAt": "2026-09-07T15:03:41.123Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -102,7 +103,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.377Z",
+      "crawledAt": "2026-09-07T15:03:41.426Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -139,7 +140,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.682Z",
+      "crawledAt": "2026-09-07T15:03:41.730Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -176,7 +177,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.983Z",
+      "crawledAt": "2026-09-07T15:03:42.034Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -213,7 +214,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.288Z",
+      "crawledAt": "2026-09-07T15:03:42.335Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -250,7 +251,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.589Z",
+      "crawledAt": "2026-09-07T15:03:42.637Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -287,7 +288,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.890Z",
+      "crawledAt": "2026-09-07T15:03:42.943Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -314,47 +315,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "gmo-45ad69cc39fe",
-      "slug": "un-infermiera-d-emergenza-gmo-lugano",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Un-e infirmier-ière responsable du service d’urgences",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:26.557Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-28T05:19:26.557Z",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "gmo-fdf6239fe3ec",
       "slug": "capo-gmo-lugano",
@@ -511,5 +471,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
