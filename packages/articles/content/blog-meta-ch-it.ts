@@ -5983,6 +5983,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-domicilio-c-ginevra.title': 'Permesso C Ginevra: requisiti e domanda',
     'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Guida completa al permesso di domicilio C nel Cantone di Ginevra: anni di residenza richiesti, criteri di integrazione, procedure e verifiche.',
     'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'Permesso di domicilio C nel Cantone di Ginevra requisiti e procedura',
+    'blog.article.posta-svizzera-taglio-posti.title': 'La Posta taglia posti di lavoro: previsti fino a 110 licenziamenti',
+    'blog.article.posta-svizzera-taglio-posti.excerpt': 'La Posta prevede di tagliare fino a 110 posti di lavoro per ridurre i costi interni e finanziare a lungo termine il servizio pubblico senza denaro pubblico.',
+    'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Edificio della Posta svizzera in un contesto urbano',
 };
 
 export default blogMetaChIt;

@@ -5983,6 +5983,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-domicilio-c-ginevra.title': 'Permit C Geneva: Requirements and Application',
     'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Complete guide to residence permit C in the Canton of Geneva: years of residence required, integration criteria, procedures and verifications.',
     'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'C permit residence in Geneva canton requirements and procedure',
+    'blog.article.posta-svizzera-taglio-posti.title': 'The Post Office cuts jobs: up to 110 redundancies are expected',
+    'blog.article.posta-svizzera-taglio-posti.excerpt': 'The Post Office plans to cut up to 110 jobs to reduce internal costs and finance the public service in the long term without public money.',
+    'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Swiss post office building in an urban setting',
 };
 
 export default blogMetaChEn;

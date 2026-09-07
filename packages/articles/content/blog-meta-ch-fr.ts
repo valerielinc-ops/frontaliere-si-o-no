@@ -5983,6 +5983,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-domicilio-c-ginevra.title': 'Permis C Genève : exigences et demande',
     'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Guide complet du permis de résidence C dans le canton de Genève : années de résidence requises, critères d\'intégration, procédures et vérifications.',
     'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'Permis d\'établissement C dans le canton de Genève conditions et procédure',
+    'blog.article.posta-svizzera-taglio-posti.title': 'La Poste supprime des emplois : jusqu\'à 110 licenciements prévus',
+    'blog.article.posta-svizzera-taglio-posti.excerpt': 'La Poste prévoit de supprimer jusqu\'à 110 emplois pour réduire les coûts internes et financer à long terme le service public sans argent public.',
+    'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Bâtiment de la Poste suisse en milieu urbain',
 };
 
 export default blogMetaChFr;

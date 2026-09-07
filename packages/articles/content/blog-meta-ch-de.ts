@@ -5983,6 +5983,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-domicilio-c-ginevra.title': 'Ausweis C Genf: Voraussetzungen und Antrag',
     'blog.article.permesso-domicilio-c-ginevra.excerpt': 'Vollständiger Leitfaden zur Niederlassungsbewilligung C im Kanton Genf: erforderliche Aufenthaltsjahre, Integrationskriterien, Verfahren und Prüfungen.',
     'blog.article.permesso-domicilio-c-ginevra.imageAlt': 'C-Bewilligung Wohnsitz im Kanton Genf Voraussetzungen und Verfahren',
+    'blog.article.posta-svizzera-taglio-posti.title': 'Die Post streicht Stellen: Bis zu 110 Entlassungen geplant',
+    'blog.article.posta-svizzera-taglio-posti.excerpt': 'Die Post plant, bis zu 110 Stellen abzubauen, um die internen Kosten zu senken und den öffentlichen Dienst langfristig ohne öffentliche Gelder zu finanzieren.',
+    'blog.article.posta-svizzera-taglio-posti.imageAlt': 'Schweizer Postgebäude in städtischer Umgebung',
 };
 
 export default blogMetaChDe;
