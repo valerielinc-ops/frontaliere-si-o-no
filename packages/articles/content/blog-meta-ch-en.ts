@@ -5989,6 +5989,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Permit C in Lucerne: requirements, years and procedure',
     'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'How to obtain residence permit C in the Canton of Lucerne: years of residence, integration, language and application procedure.',
     'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'View of Lucerne old town with Chapel Bridge and lake',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Rentals in Thurgau: average fees and rental rights',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Rental market in the canton of Thurgau: security deposit, cancellation, fee dispute and conciliation authority according to the Code of Obligations.',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Residential street in a Thurgau municipality with traditional Swiss houses',
 };
 
 export default blogMetaChEn;

@@ -5989,6 +5989,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-lucerna-requisiti-domanda.title': 'Ausweis C in Luzern: Voraussetzungen, Jahre und Verfahren',
     'blog.article.permesso-c-lucerna-requisiti-domanda.excerpt': 'So erhalten Sie die Niederlassungsbewilligung C im Kanton Luzern: Aufenthaltsjahre, Integration, Sprache und Antragsverfahren.',
     'blog.article.permesso-c-lucerna-requisiti-domanda.imageAlt': 'Blick auf die Luzerner Altstadt mit Kapellbrücke und See',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.title': 'Mieten im Thurgau: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.excerpt': 'Mietmarkt im Kanton Thurgau: Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsstelle gemäss Obligationenrecht.',
+    'blog.article.affitti-turgovia-canoni-diritto-locazione.imageAlt': 'Wohnstrasse in einer Thurgauer Gemeinde mit traditionellen Häusern',
 };
 
 export default blogMetaChDe;
