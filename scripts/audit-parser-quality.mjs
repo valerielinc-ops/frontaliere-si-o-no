@@ -317,9 +317,20 @@ const SOURCE_LOCATION_PLACEHOLDERS = new Set([
   'labellocation locale',
 ]);
 
+/**
+ * Alias-resolved place tokens with the DIGITS kept. `canonicalLocationTokens`
+ * drops them because a house number is not a locality, but a postal code is
+ * exactly the per-vacancy evidence `namesPostalAddressedLocality` reads, so the
+ * postal comparison needs the same spelling normalisation on a text that still
+ * carries `8046`.
+ */
+function aliasedPlaceTokens(value) {
+  return normalizePlace(value).split(' ').filter(Boolean)
+    .map((token) => LOCATION_TOKEN_ALIASES.get(token) || token);
+}
+
 function canonicalLocationTokens(value) {
-  const tokens = normalizePlace(value).split(' ').filter(Boolean)
-    .map((token) => LOCATION_TOKEN_ALIASES.get(token) || token)
+  const tokens = aliasedPlaceTokens(value)
     .filter((token) => !LOCATION_NOISE_TOKENS.has(token))
     .filter((token) => !/^\d+$/.test(token) && !/^(?:[a-z]\d+|\d+[a-z])$/.test(token));
   return tokens.filter((token, index) => index === 0 || token !== tokens[index - 1]);
@@ -538,9 +549,18 @@ function wordSet(value) {
  * geography, not a generic fallback: `8046 Zürich` is an address this vacancy
  * states, while `Zürich` alone is also the canton. Normalisation leaves only
  * `[a-z0-9 ]`, so the locality is safe to inline in the pattern.
+ *
+ * Both sides are compared as ALIAS-RESOLVED tokens, not as the raw normalised
+ * strings: the published value is the Italian exonym on the Italian site
+ * (`Zurigo`, `Ginevra`, `Berna`) while the page that carries the address is
+ * written in German or French, so `8046 Zürich` never spells the published
+ * name and the corroboration never fired on a whole language region — a false
+ * mismatch that hid the real ones (#7772).
  */
-function namesPostalAddressedLocality(value, normalizedLocation) {
-  return new RegExp(`(?:^| )\\d{4} ${normalizedLocation}(?: |$)`).test(normalizePlace(value));
+function namesPostalAddressedLocality(value, publishedTokens) {
+  if (!publishedTokens.length) return false;
+  const haystack = aliasedPlaceTokens(value).join(' ');
+  return new RegExp(`(?:^| )\\d{4} ${publishedTokens.join(' ')}(?: |$)`).test(haystack);
 }
 
 /**
@@ -613,18 +633,23 @@ export function sourceCorroboratesPublishedLocation(detail, publishedLocation) {
   // labelled workplace field — `3011 Bern` in the vacancy's own title or body
   // is the same statement, and restricting it to the label left the homonym
   // cities red on every ATS that has no such field (#7713).
+  const publishedTokens = canonicalLocationTokens(publishedLocation);
   const postalAddressed = [detail?.title || '', detail?.description || '', ...workplaceLabels]
-    .some((value) => namesPostalAddressedLocality(value, normalizedLocation));
+    .some((value) => namesPostalAddressedLocality(value, publishedTokens));
   if (postalAddressed) return true;
   if (structuredAddressNamesLocality(detail, publishedLocation)) return true;
   // Canonical tokens, not the raw string: `Argovia` and `Aargau` are the same
   // canton, and only one of the two spellings is in the region set.
-  if (SWISS_REGION_NAMES.has(canonicalLocationTokens(publishedLocation).join(' '))) return false;
-  const haystack = normalizePlace(
+  if (SWISS_REGION_NAMES.has(publishedTokens.join(' '))) return false;
+  if (!publishedTokens.length) return false;
+  // Same alias resolution as the postal branch: the prose of a German or
+  // French page names `Freiburg`/`Bienne` for a value published as `Fribourg`
+  // or `Biel`, and comparing the raw normalised strings missed it.
+  const haystack = aliasedPlaceTokens(
     [detail?.title || '', detail?.description || '', ...workplaceLabels].join(' '),
-  );
+  ).join(' ');
   if (!haystack) return false;
-  return ` ${haystack} `.includes(` ${normalizedLocation} `);
+  return ` ${haystack} `.includes(` ${publishedTokens.join(' ')} `);
 }
 
 export function compareSourceDetail(job, detail, {
