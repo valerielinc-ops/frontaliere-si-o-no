@@ -25,6 +25,9 @@ import { buildIssueBody as buildCf5xxBody } from '../scripts/cf-5xx-issue-sync.m
 import { buildIssueBody as buildAppErrorBody } from '../scripts/app-error-issue-sync.mjs';
 import { buildIssueBody as buildPostHogBody } from '../scripts/posthog-error-issue-sync.mjs';
 import { buildIssueBody as buildCwvBody } from '../scripts/cwv-monitor-check.mjs';
+import { buildIssueBody as buildTelegramBody } from '../scripts/monitor-telegram-member-count.mjs';
+import { buildIssueBody as buildCampaignGoalBody } from '../scripts/campaign-goal-check.mjs';
+import { buildIndexationIssueBody, buildStructuredDataIssueBody } from '../scripts/monitor-gsc-job-indexation.mjs';
 
 /** Il corpo di ogni opener, con l'input minimo che lo fa rendere. */
 const OPENERS: Array<[string, () => string]> = [
@@ -68,6 +71,21 @@ const OPENERS: Array<[string, () => string]> = [
     current: { date: '2026-09-07', cls_p75: 0.24 },
     fmt: (v: number) => String(v),
   })],
+  ['telegram-member-count', () => buildTelegramBody({
+    chatId: '@canale', count: 1234, daysUnchanged: 21, reason: 'invariato da 21 giorni',
+  })],
+  ['campaign-goal', () => buildCampaignGoalBody({
+    goal: { id: 'g1', title: 'Traffico organico', source: 'gsc', matureAfterDays: 30, issueRef: '#1' },
+    outcome: { targetDescription: '>= 1000 click/settimana', detail: '640 click/settimana' },
+    matureAt: '2026-08-01',
+  })],
+  ['gsc-indexation', () => buildIndexationIssueBody(
+    [{ url: 'https://frontaliereticino.ch/it/x/', googleCanonical: '', crawlTime: '' }],
+    { PASS: 9, FAIL: 1, WARN: 0, STALE: 0 }, 1, [],
+  )],
+  ['gsc-structured-data', () => buildStructuredDataIssueBody(
+    [{ url: 'https://frontaliereticino.ch/it/x/', richResults: 'FAIL', richResultsIssues: ['manca baseSalary'] }],
+  )],
 ];
 
 describe('opener dei monitor — il blocco `## Scheda`', () => {

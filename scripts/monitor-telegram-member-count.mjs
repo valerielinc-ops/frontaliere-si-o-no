@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 import { resolveTelegramCredentials, getChatMemberCount } from './lib/telegram-client.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -132,7 +133,7 @@ async function defaultCreateIssue({ title, description }) {
   });
 }
 
-function buildIssueBody({ chatId, count, daysUnchanged, reason }) {
+export function buildIssueBody({ chatId, count, daysUnchanged, reason }) {
   return [
     '## Telegram channel member count invariato',
     '',
@@ -142,6 +143,32 @@ function buildIssueBody({ chatId, count, daysUnchanged, reason }) {
     `**Dettaglio:** ${reason}`,
     '',
     '_Fonte: scripts/monitor-telegram-member-count.mjs, cron .github/workflows/monitor-telegram-member-count.yml. Rivalutato ogni run — resta aperta finché il count non si muove._',
+    '',
+    buildScheda({
+      causa: [
+        "(ipotesi, da confermare.) Il canale non cresce da " + daysUnchanged + " giorni: " + reason + '.',
+        "Un contatore fermo puo' voler dire che nessuno arriva sul canale, oppure che",
+        "arrivano e non restano: i due casi hanno rimedi opposti e la distinzione non sta in",
+        'questo dato, che conta solo il saldo.',
+      ],
+      fix: [
+        'Dipende da quale dei due casi sia; non preassegnata qui. **Il rimedio e\' quasi',
+        'sempre editoriale o di distribuzione, non un commit.** | **REPO**: sito.',
+      ],
+      metrica: `prima=${count} iscritti fermi da ${daysUnchanged} giorni atteso=un valore diverso da ${count}`,
+      comando: 'node scripts/monitor-telegram-member-count.mjs --dry-run',
+      note: [
+        'Il comando rilegge il contatore e stampa la valutazione senza scrivere la storia e',
+        "senza coniare: la issue si chiude quando il conteggio si muove. Vuole le credenziali",
+        'del bot — dalla root del workspace, `source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        '`.github/workflows/monitor-telegram-member-count.yml`, che rivaluta ogni run e tiene',
+        "aperta questa issue finche' il contatore resta fermo. Non esiste un closer",
+        "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+      ],
+      fallimento: `\`${STABLE_ISSUE_TITLE}\``,
+    }),
   ].join('\n');
 }
 
