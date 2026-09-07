@@ -2006,6 +2006,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cibo-per-cani-gatti-errori-comuni': { it: 'cibo-per-cani-gatti-errori-comuni', en: 'common-mistakes-pet-food', de: 'fehler-bei-hundefutter', fr: 'erreurs-alimentation-animaux-domestiques' },
  'confederazione-mantiene-aree-thun-difesa': { it: 'confederazione-mantiene-aree-thun-difesa', en: 'confederation-retains-thun-areas-for-defense', de: 'bund-bewahrt-thun-gebiete-fuer-die-verteidigung', fr: 'confederation-conserve-les-territoires-de-thun-pour-la-defense' },
  'disoccupazione-giovani-svizzera-agosto-2023': { it: 'disoccupazione-giovani-svizzera-agosto-2023', en: 'youth-unemployment-switzerland-august-2023', de: 'jugendarbeitslosigkeit-schweiz-august-2023', fr: 'chomage-jeunes-suisse-aout-2023' },
+ 'svizzera-sanzioni-stati-uniti-ignazio-cassis': { it: 'svizzera-sanzioni-stati-uniti-ignazio-cassis', en: 'switzerland-sanctions-usa-ignazio-cassis', de: 'schweiz-sanktionen-usa-ignazio-cassis', fr: 'suisse-sanctions-usa-ignazio-cassis' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
