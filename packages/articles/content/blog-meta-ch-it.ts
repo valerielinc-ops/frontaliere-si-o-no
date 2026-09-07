@@ -6001,6 +6001,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.title': 'Naturalizzazione in Turgovia: requisiti, test e procedura',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.excerpt': 'Come ottenere la cittadinanza nel Canton Turgovia: anni di residenza, lingua, test e costi.',
     'blog.article.naturalizzazione-turgovia-requisiti-procedura.imageAlt': 'Facciata di un municipio del Canton Turgovia con bandiera svizzera',
+    'blog.article.permesso-l-ginevra-validita-proroga.title': 'Permesso L Ginevra: validità e proroga',
+    'blog.article.permesso-l-ginevra-validita-proroga.excerpt': 'Guida completa al permesso L di breve durata nel Cantone di Ginevra: durata massima, condizioni di proroga e vincoli lavorativi.',
+    'blog.article.permesso-l-ginevra-validita-proroga.imageAlt': 'Permesso L di breve durata nel Cantone di Ginevra',
 };
 
 export default blogMetaChIt;
