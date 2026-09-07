@@ -5869,6 +5869,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cybersecurity-casa-data-center.title': 'Tout le monde devrait être un hacker : notre maison est un centre de données',
     'blog.article.cybersecurity-casa-data-center.excerpt': 'Keren Elazari, experte en cybersécurité, explique comment l\'intelligence artificielle est en train de changer le monde des cyberattaques et comment nous pouvons protéger notre vie privée.',
     'blog.article.cybersecurity-casa-data-center.imageAlt': 'Un salon moderne avec des appareils connectés, y compris une smart TV, un ordinateur portable et des appareils électroménagers intelligents, tous connectés à un routeur Wi-Fi sécurisé.',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.title': 'Augmentation des chômeurs août 2026 : +1,6% par mois, +7,1% par an',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.excerpt': 'Le SECO a publié les données du marché du travail en Suisse pour le mois d\'août 2026, montrant une augmentation du nombre de chômeurs.',
+    'blog.article.mercato-lavoro-svizzera-agosto-2026.imageAlt': 'Vue aérienne du centre-ville de Lugano avec le lac de Lugano en arrière-plan, mettant en évidence l\'activité économique dans la région.',
 };
 
 export default blogMetaChFr;
