@@ -29,7 +29,7 @@ import { assertJsonListShape, assertJsonListShapeMultiKey } from './assert-json-
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH } from '../jobs-url-helper.mjs';
-import { detectJobTitleLang, detectJobTitleLocaleDetails, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
+import { detectJobTitleLang, detectJobTitleLocaleDetails, holdSourceLang, pinnedTitleSourceLang, titleLooksUntranslated } from './job-locale-utils.mjs';
 import {
   heuristicTranslateJobTitle, detectLang, normalizeKey, guessCategory, normalizeContract, qualityScore, evaluateJobQuality, isLikelyGenericCareerTitle, isLikelyJobDetailUrl,
   // FRO-231: slug utilities extracted from this file
@@ -1954,7 +1954,11 @@ export function ensureLocaleFields(job) {
   // detection must never reclassify (and then "repair") the slot the employer
   // wrote (see pinnedTitleSourceLang in job-locale-utils.mjs).
   const pinnedLang = pinnedTitleSourceLang(out);
-  const sourceLang = pinnedLang || detectLang(`${bestTitle} ${bestDescription}`, 'en');
+  // Same hold as dedicated-crawler-common: this runs on every crawl and stamps
+  // the source title into titleByLocale[titleSourceLang] below, so a
+  // low-confidence re-detection that disagrees with the stored sourceLang must
+  // not be allowed to move the slot (see holdSourceLang in job-locale-utils).
+  const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
 
