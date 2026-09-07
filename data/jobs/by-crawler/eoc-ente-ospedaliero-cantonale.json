@@ -1616,9 +1616,9 @@
       },
       "slugByLocale": {
         "it": "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr",
-        "de": "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr",
-        "fr": "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr"
+        "en": "medical-assistant-internal-medicine-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "medizinische-assistentin-innere-medizin-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistant-medical-medecine-interne-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -1637,6 +1637,15 @@
           "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr",
           "assistant-medical-en-medecine-interne-eoc-ente-ospedaliero-cantonale-lugano",
           "assistant-medical-medecine-interne-eoc-ente-ospedaliero-cantonale-mendrisio"
+        ],
+        "en": [
+          "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr"
+        ],
+        "de": [
+          "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr"
+        ],
+        "fr": [
+          "medico-assistente-medicina-interna-100-eoc-ente-ospedaliero-cantonale-bellinzona-fefpqr"
         ]
       },
       "previousSlugs": [

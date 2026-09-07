@@ -3851,12 +3851,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-9832e71bfab2",
-      "slug": "demenz-beratung-spitaeler-schaffhausen-schaffhausen",
+      "slug": "consigli-sulla-demenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "demenz-beratung-spitaeler-schaffhausen-schaffhausen",
-        "en": "demenz-beratung-spitaeler-schaffhausen-schaffhausen",
+        "it": "consigli-sulla-demenza-spitaler-schaffhausen-schaffhausen",
+        "en": "dementia-advice-spitaler-schaffhausen-schaffhausen",
         "de": "demenz-beratung-spitaeler-schaffhausen-schaffhausen",
-        "fr": "demenz-beratung-spitaeler-schaffhausen-schaffhausen"
+        "fr": "conseils-en-demence-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3899,11 +3899,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "demenz-beratung-spitaler-schaffhausen-schaffhausen"
+        "demenz-beratung-spitaler-schaffhausen-schaffhausen",
+        "demenz-beratung-spitaeler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "de": [
           "demenz-beratung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "it": [
+          "demenz-beratung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "demenz-beratung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "demenz-beratung-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-02T23:23:13.836Z",
