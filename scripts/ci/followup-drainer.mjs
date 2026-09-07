@@ -418,7 +418,9 @@ const SCAN_ROTATION_PERIOD_MS = intFromEnv('FOLLOWUP_SCAN_ROTATION_MS', 20 * 60_
 // di consumare i tentativi residui (3 run identiche → 1). Esclusi di proposito:
 // `overlap-skip`/`pr-already-open` (transienti: la PR bloccante può mergiare →
 // ri-tentabile) e l'ASSENZA di marker (run crashata/max_turns davvero orfana →
-// rescue normale). `pr-created` non arriva qui: `hasFixPR` lo intercetta prima.
+// rescue normale). `pr-created` ha una strada sua (`DELIVERED`, sotto): non e'
+// un verdetto fermo, e la premessa che lo teneva fuori da qui («`hasFixPR` lo
+// intercetta prima») e' falsa appena la PR esce dallo stato `open`.
 // `skip-duplicate-diagnosis` (#5288): stesso verdetto fermo di
 // `blocked-workflows-scope`, da cui è stato separato solo per non far salire il
 // bucket dell'harvester quando il guard FUNZIONA (vedi check-workflows-scope.mjs,
@@ -587,6 +589,176 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
 // recupero PR fixato in #5099: un verdetto che nessun predicato copriva.
 export const ZERO_WORK = new Set(['rate-limited']);
 
+// Esiti DELIVERED: la run è arrivata IN FONDO e ha consegnato una PR. È il
+// percorso di SUCCESSO del fixer, e fino a qui nessun predicato lo copriva.
+//
+// L'assunzione che lo escludeva è scritta due blocchi più su — «`pr-created`
+// non arriva qui: `hasFixPR` lo intercetta prima» — ed è falsa appena la PR
+// esce dallo stato `open`: `hasFixPR` interroga `gh pr list --state open`
+// (riga ~1643), quindi al merge torna `false`. Se la issue è ancora aperta —
+// ed è il caso NORMALE, non l'eccezione: ISSUES.md impone `Refs #<n>` e non
+// `Closes` sia per le issue aggregate sia per i fix provabili solo da una run
+// su `main` (`awaiting-production-proof`) — il rescue la vede come
+// «`agent:fix` vecchio, nessuna PR, nessun verdetto utile» e cade nel ramo
+// finale, che il commento accanto descrive come «run davvero morta, nessun
+// verdetto»: ri-accodata **consumando un tentativo**.
+//
+// Misurato su #733 (corpus, 2026-09-05): due cicli consecutivi conclusi con
+// `pr-created` e PR MERGIATA (#772 il 09-04T09:56, #906 il 09-05T12:54), e
+// dopo ciascuno un RE-QUEUE con `fu-attempt`++ — 09-04T10:32 → `fu-attempt:1`,
+// 09-05T13:13 → `fu-attempt:2`. Al terzo ciclo riuscito la issue tocca
+// `MAX_ATTEMPTS` e viene parcheggiata `fu-parked`, cioè esce dalla coda per
+// aver funzionato tre volte. Il contatore dei tentativi misura i FALLIMENTI:
+// spenderlo su una consegna riuscita è la stessa confusione già corretta per
+// ZERO_WORK («un tentativo si consuma quando l'agent PROVA»), un passo più in
+// là — qui l'agent ha provato E consegnato.
+//
+// Ri-accodare senza consumare tentativi non è un loop aperto: il ciclo
+// successivo o trova l'item seguente (altra PR, altro `pr-created`) o non
+// trova più niente da fare ed emette `already-fixed`/`no-root-cause`, che sono
+// `NON_RETRYABLE` → park. Il bound è il verdetto del fixer, non il contatore.
+//
+// ATTENZIONE: questo insieme NON basta da solo a riconoscere la consegna. Sia
+// il marker sia «nessuna PR aperta» sono stati PERSISTENTI della issue —
+// il primo sopravvive a ogni run successiva, il secondo non distingue il merge
+// dalla chiusura senza merge. Il ramo va sempre qualificato con
+// `isDeliveredThisRun`, che lo scopa alla run corrente (promozione → marker →
+// merge) e restituisce il caso alla strada a tentativo consumato quando una
+// delle tre condizioni manca.
+export const DELIVERED = new Set(['pr-created']);
+
+/** Finestra entro cui `labeled agent:fix` e `unlabeled agent:fix-queued` si
+ * leggono come UNA sola `gh issue edit` — quella con cui il DRAIN promuove
+ * (`edit(cand, { add: [LBL_FIX], remove: [LBL_QUEUED] })`). GitHub scrive i due
+ * eventi con lo stesso secondo, ma i `created_at` hanno granularità al secondo
+ * e l'ordine fra i due non è garantito: 120s è largo abbastanza da non perdere
+ * mai una promozione del drainer, e stretto abbastanza da non catturare un
+ * re-queue precedente (il giro minimo del drainer è il suo cron). */
+export const PROMOTION_PAIR_WINDOW_SEC = Number(process.env.FOLLOWUP_PROMOTION_PAIR_WINDOW_SEC || 120);
+
+/** Timestamp (epoch ms) dell'ULTIMA aggiunta di `label` nella timeline eventi
+ * di una issue, o null se non compare. Pura → testabile.
+ * `event === 'labeled'` (REST `issues/N/events`); i `created_at` illeggibili
+ * vengono ignorati, non azzerati.
+ * @param {Array<{event?: string, label?: {name?: string}, created_at?: string, createdAt?: string}>} events
+ */
+export function lastLabelEventAt(events, label) {
+  let latest = null;
+  for (const e of events || []) {
+    if (e?.event !== 'labeled') continue;
+    if (String(e?.label?.name || '') !== label) continue;
+    const at = Date.parse(e?.created_at ?? e?.createdAt);
+    if (Number.isNaN(at)) continue;
+    if (latest === null || at >= latest) latest = at;
+  }
+  return latest;
+}
+
+/**
+ * ULTIMA promozione `agent:fix` di una issue, CON l'attribuzione del writer:
+ * `{ at, byDrainer }`. Pura → testabile.
+ *
+ * `agent:fix` non ha un solo writer. Oltre al DRAIN la scrivono
+ * `scripts/ci/triage-sweep.mjs` (route diretta dei crawler) e
+ * `.github/workflows/recycle-stale-prs.yml` (remove + add per riciclare una PR
+ * ferma). Una loro scrittura sposta `promotedAt` DOPO il marker e il merge
+ * della consegna appena avvenuta, quindi `isDeliveredThisRun` legge falso e la
+ * consegna riuscita consuma un tentativo: è il sintomo di #733 che si riapre.
+ * Il comportamento è fail-closed — bounded, mai un loop gratuito — ma è anche
+ * SILENZIOSO, e un bug già pagato una volta non deve poter tornare senza
+ * lasciare traccia nei log.
+ *
+ * L'attribuzione non può passare dall'attore (tutti e tre scrivono col PAT del
+ * progetto, quindi il login è lo stesso): passa dalla FORMA della scrittura. Il
+ * DRAIN promuove con una sola `gh issue edit` che aggiunge `agent:fix` e toglie
+ * `agent:fix-queued`; gli altri due writer non hanno mai `agent:fix-queued` da
+ * togliere. La coppia di eventi ravvicinati è quindi la firma del drainer, e
+ * la sua assenza dice «questa promozione l'ha scritta qualcun altro».
+ *
+ * Solo osservabilità: `at` resta l'ultimo evento `labeled`, identico a prima,
+ * perché una promozione concorrente FA partire una run vera e quel fail-closed
+ * è il comportamento corretto. Ciò che cambia è che ora si vede.
+ *
+ * @param {Array<{event?: string, label?: {name?: string}, created_at?: string, createdAt?: string}>} events
+ * @param {{windowSec?: number}} [opts]
+ * @returns {{at: number|null, byDrainer: boolean}}
+ */
+export function lastFixPromotion(events, { windowSec = PROMOTION_PAIR_WINDOW_SEC } = {}) {
+  const at = lastLabelEventAt(events, LBL_FIX);
+  if (at === null) return { at: null, byDrainer: false };
+  for (const e of events || []) {
+    if (e?.event !== 'unlabeled') continue;
+    if (String(e?.label?.name || '') !== LBL_QUEUED) continue;
+    const t = Date.parse(e?.created_at ?? e?.createdAt);
+    if (Number.isNaN(t)) continue;
+    if (Math.abs(t - at) <= windowSec * 1000) return { at, byDrainer: true };
+  }
+  return { at, byDrainer: false };
+}
+
+/**
+ * Una consegna reale sta per essere letta come run morta a causa di una
+ * ri-etichettatura CONCORRENTE di `agent:fix`? Pura → testabile.
+ *
+ * Vera solo quando tutte e quattro valgono: c'è un marker DELIVERED, c'è un
+ * merge, entrambi PRECEDONO la promozione (quindi `isDeliveredThisRun` è
+ * falso), e la promozione NON porta la firma del drainer. Le prime tre da sole
+ * descrivono anche il caso NORMALE — ciclo precedente consegnato, drainer
+ * ri-accodato, run successiva morta senza verdetto — che un tentativo lo deve
+ * consumare davvero e non va segnalato come anomalia: è `byDrainer` a
+ * separarli.
+ *
+ * @param {{outcome: string|null, outcomeAt: number|null, mergedAt: number|null, promotion: {at: number|null, byDrainer: boolean}}} args
+ */
+export function isConcurrentRepromotion({ outcome, outcomeAt, mergedAt, promotion } = {}) {
+  const at = promotion?.at ?? null;
+  if (!outcome || !DELIVERED.has(outcome)) return false;
+  if (!Number.isFinite(at)) return false;
+  if (promotion?.byDrainer) return false;
+  if (!Number.isFinite(outcomeAt) || outcomeAt >= at) return false;
+  if (!Number.isFinite(mergedAt) || mergedAt >= at) return false;
+  return true;
+}
+
+/**
+ * Il ramo DELIVERED vale per la run CORRENTE? Pura → testabile.
+ *
+ * `DELIVERED` non può leggersi su `outcome` + «nessuna PR aperta» soli: sono
+ * entrambi stati PERSISTENTI della issue. Il marker sopravvive a ogni run
+ * successiva, e `hasFixPR` interroga `--state open`, quindi «nessuna PR aperta»
+ * copre allo stesso modo il MERGE e la chiusura SENZA merge. Presi così,
+ * dopo la prima consegna ogni run morta su quella issue diventerebbe gratuita:
+ * `fu-attempt` non salirebbe mai più e `park-attempts` — l'UNICA uscita dei
+ * crawler, che non passano né dal parked-retry né dall'age-out — non si
+ * raggiungerebbe mai. Tre condizioni, tutte necessarie:
+ *
+ *  1. `promotedAt` leggibile — è l'evento label `agent:fix` che apre la run
+ *     corrente. Illeggibile (glitch gh) → NIENTE gratuità: si ricade sul ramo
+ *     a tentativo consumato, che è il comportamento bounded pre-esistente.
+ *  2. marker DELIVERED emesso DOPO quella promozione — un `pr-created` del
+ *     ciclo precedente non è un verdetto di questa run. È esattamente la
+ *     classe di run (crashata / cancellata in coda / mai partita) che un
+ *     verdetto non lo emette per definizione: deve restare a tentativo
+ *     consumato, o non ha più nessun bound di terminazione.
+ *  3. una PR fix MERGIATA dopo la promozione — «nessuna PR aperta» da sola
+ *     include la PR chiusa senza merge (rifiutata, superata, chiusa a mano),
+ *     dove non è atterrato NIENTE: la premessa del ramo («la run ha
+ *     consegnato, quindi il ciclo successivo è progresso») lì è falsa.
+ *
+ * Con le tre condizioni il bound dichiarato è vero: ogni re-queue gratuito
+ * costa al ciclo successivo una NUOVA promozione, un NUOVO marker e un NUOVO
+ * merge. Il bound è il verdetto del fixer, non il contatore.
+ *
+ * @param {{outcome: string|null, outcomeAt: number|null, mergedAt: number|null, promotedAt: number|null}} args
+ */
+export function isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt } = {}) {
+  if (!outcome || !DELIVERED.has(outcome)) return false;
+  if (!Number.isFinite(promotedAt)) return false;
+  if (!Number.isFinite(outcomeAt) || outcomeAt < promotedAt) return false;
+  if (!Number.isFinite(mergedAt) || mergedAt < promotedAt) return false;
+  return true;
+}
+
 // I fallback deterministici del backstop (issue-fix.yml "post-step
 // deterministico") taggano run crashate/max_turns con un marker generico: NON
 // sono il verdetto diagnostico del fixer → vanno ignorati, così una run morta
@@ -599,7 +771,20 @@ const BACKSTOP_MARKER = 'post-step deterministico';
  * backstop così solo i verdetti autentici del fixer contano.
  * @param {Array<{body?: string, createdAt?: string}>} comments
  */
-export function latestFixOutcomeFromComments(comments) {
+/**
+ * ULTIMO marker FIX_OUTCOME (commento più recente) di una lista di commenti,
+ * con il suo timestamp: `{ outcome, at }`, entrambi `null` se non c'è.
+ * Pura (niente gh) → testabile. Ignora i fallback del backstop così solo i
+ * verdetti autentici del fixer contano.
+ *
+ * Il timestamp serve a scopare il verdetto alla RUN CORRENTE: il marker è uno
+ * stato PERSISTENTE della issue e sopravvive a tutte le run successive, quindi
+ * senza `at` un `pr-created` vecchio resta «l'ultimo verdetto» anche dopo una
+ * run crashata che un verdetto non l'ha mai emesso (vedi `isDeliveredThisRun`).
+ * @param {Array<{body?: string, createdAt?: string}>} comments
+ * @returns {{outcome: string|null, at: number|null}}
+ */
+export function latestFixOutcomeEntryFromComments(comments) {
   let latest = null;
   let latestAt = -Infinity;
   for (const c of comments || []) {
@@ -620,7 +805,14 @@ export function latestFixOutcomeFromComments(comments) {
     // in ordine di lista (i commenti gh sono cronologici).
     if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
   }
-  return latest;
+  return { outcome: latest, at: latest === null ? null : latestAt };
+}
+
+/** Proiezione di `latestFixOutcomeEntryFromComments` sul solo codice: i
+ * chiamanti che non devono scopare il verdetto a una run continuano a leggere
+ * questa. Pura → testabile. */
+export function latestFixOutcomeFromComments(comments) {
+  return latestFixOutcomeEntryFromComments(comments).outcome;
 }
 
 // --- WORKFLOW-SCOPE PRE-FLIGHT (escalation #1724) ---------------------------
@@ -1873,6 +2065,74 @@ function hasFixPREver(num) {
   } catch { return true; }
 }
 
+/** Ultimo verdetto FIX_OUTCOME della issue CON il suo timestamp
+ * (`{outcome, at}`). Stessa sorgente di `latestFixOutcome`, forma che serve a
+ * `isDeliveredThisRun` per scopare il marker alla run corrente. */
+function latestFixOutcomeEntry(num) {
+  return latestFixOutcomeEntryFromComments(issueComments(num) || []);
+}
+
+/** ULTIMA promozione (`agent:fix` aggiunta) di questa issue con la sua
+ * attribuzione (`{at, byDrainer}`), `{at: null}` su errore gh / evento assente.
+ * `at` null è fail-CLOSED per il ramo DELIVERED: senza sapere quando è iniziata
+ * la run corrente non si può dichiarare che il marker appartiene a lei, e
+ * regalare il re-queue su un glitch API toglierebbe l'unico bound di
+ * terminazione. `byDrainer` è solo osservabilità (vedi `lastFixPromotion`).
+ * `--paginate` perché la timeline eventi di una issue lavorata dal ciclo supera
+ * facilmente le 30 voci di default e la promozione più recente è in fondo. */
+function fixPromotion(num) {
+  try {
+    const events = gh(['api', `repos/${REPO}/issues/${num}/events?per_page=100`, '--paginate']);
+    return lastFixPromotion(Array.isArray(events) ? events : []);
+  } catch {
+    return { at: null, byDrainer: false };
+  }
+}
+
+/** Epoch ms del merge più recente di una PR fix (`fix/issue-N`), o null se
+ * nessuna è mai stata MERGIATA (o su errore gh). `--state merged` e non
+ * l'assenza di PR aperte: una PR chiusa SENZA merge non ha fatto atterrare
+ * niente, e `hasFixPR` (`--state open`) non le distingue. Fail-safe a null =
+ * nessuna gratuità, cioè il ramo bounded pre-esistente. */
+function mergedFixPrAt(num) {
+  return mergedFixPr(num)?.mergedAt ?? null;
+}
+
+// `gh pr list --json files` risolve `files(first: 100)`: oltre quella soglia la
+// lista e` troncata SENZA segnalarlo. Una vista troncata non e` "nessun
+// workflow", ed e` la differenza fra un verdetto e una falsa affermazione.
+const PR_FILES_PAGE = 100;
+
+/** Ultima PR fix MERGIATA di questa issue: `{mergedAt, mergeSha, files,
+ * filesKnown}` (epoch ms, SHA del commit di merge, path modificati), o null se
+ * non ne esiste nessuna / errore gh. Sorgente unica del merge di una fix —
+ * `mergedFixPrAt` ne è la proiezione — così il ramo DELIVERED e il pass
+ * PRODUCTION-PROOF non possono divergere su "quale merge conta". `files`,
+ * `mergeSha` e `filesKnown` servono solo al secondo, e costano zero in più:
+ * `gh pr list` li restituisce nella stessa chiamata. */
+function mergedFixPr(num) {
+  try {
+    const prs = gh(['pr', 'list', '--repo', REPO, '--head', `fix/issue-${num}`, '--state', 'merged', '--json', 'mergedAt,files,mergeCommit', '--limit', '20']);
+    let best = null;
+    for (const pr of Array.isArray(prs) ? prs : []) {
+      const at = Date.parse(pr?.mergedAt);
+      if (Number.isNaN(at)) continue;
+      if (best === null || at > best.mergedAt) {
+        const files = (pr?.files || []).map((f) => String(f?.path || ''));
+        best = {
+          mergedAt: at,
+          mergeSha: String(pr?.mergeCommit?.oid || ''),
+          files,
+          filesKnown: files.length > 0 && files.length < PR_FILES_PAGE,
+        };
+      }
+    }
+    return best;
+  } catch {
+    return null;
+  }
+}
+
 function minutesSince(iso) {
   const then = Date.parse(iso);
   if (Number.isNaN(then)) return Number.POSITIVE_INFINITY;
@@ -1969,6 +2229,9 @@ export function crawlerFixDecision({
   ageMin,
   attempt = 0,
   hasPR = false,
+  outcomeAt = null,
+  mergedAt = null,
+  promotedAt = null,
   quotaBackoffActive = false,
   settleMin = SETTLE_MIN,
   orphanMinAgeMin = ORPHAN_MIN_AGE_MIN,
@@ -2000,6 +2263,17 @@ export function crawlerFixDecision({
       : keep('requeue-zero-work', `${outcome}, finestra quota chiusa (tentativo NON consumato)`);
   }
   if (outcome && NON_RETRYABLE.has(outcome)) return keep('park-verdict', `verdetto non-ri-tentabile: ${outcome}`);
+  // Gemello del ramo DELIVERED del rescue queue-managed: `hasPR` sopra guarda
+  // solo le PR APERTE, quindi al merge una run riuscita ricadeva nel ramo
+  // finale «nessun verdetto (run cancellata-in-coda / crashata / mai partita)»
+  // e consumava un tentativo. Ri-arma senza consumarlo — ma SOLO se marker e
+  // merge appartengono alla run corrente (`isDeliveredThisRun`). Qui è
+  // critico: i crawler non passano né dal parked-retry né dall'age-out, quindi
+  // `park-attempts` sotto è la loro UNICA uscita, e un `pr-created` stantio che
+  // rendesse gratuita ogni run morta successiva gliela toglierebbe del tutto.
+  if (isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt })) {
+    return keep('requeue-delivered', `${outcome}, PR fix mergiata in questo ciclo (tentativo NON consumato)`);
+  }
   if (isSettlingPromotion({ outcome: outcome ?? null, ageMin, settleMin })) return keep('settling', 'promozione fresca, run non ancora visibile');
   if (ageMin < orphanMinAgeMin) return keep('skip', `senza verdetto ma giovane (${Math.round(ageMin)}min < ${orphanMinAgeMin}min)`);
   const nextAttempt = attempt + 1;
@@ -2808,7 +3082,11 @@ export function runDrain() {
     // rinviava l'intero drain di un tick a vuoto (bug osservato 2026-07-05:
     // #3578 max-turns con commento a 16:35:59 → il drain di 16:36 lo conta come
     // settling e rinvia la promozione del prossimo candidato in coda).
-    const outcome = latestFixOutcome(iss.number);
+    // Entry e non solo il codice: il ramo DELIVERED ha bisogno del TIMESTAMP del
+    // marker per scoparlo alla run corrente — il marker e' uno stato PERSISTENTE
+    // della issue e sopravvive a ogni run successiva.
+    const outcomeEntry = latestFixOutcomeEntry(iss.number);
+    const outcome = outcomeEntry.outcome;
     if (isSettlingPromotion({ outcome, ageMin, settleMin: SETTLE_MIN })) { settlingPromotions++; continue; } // registrazione run
     if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // fix finito senza PR ma non ancora orfano → non bloccare il drain
     // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
@@ -2843,6 +3121,44 @@ export function runDrain() {
       console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
       edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
       continue;
+    }
+    if (outcome && DELIVERED.has(outcome)) {
+      // Run conclusa CON una PR, e quella PR è stata MERGIATA in questo ciclo.
+      // La issue è ancora aperta perché la PR ha usato `Refs` e non `Closes`:
+      // aggregata (un item per ciclo) o `awaiting-production-proof`. Il ciclo
+      // successivo è legittimo — è il modo in cui un'aggregata converge — ma
+      // NON deve costare un tentativo: `fu-attempt` conta i fallimenti, e tre
+      // consegne riuscite parcheggiavano la issue (#733, due merge e
+      // `fu-attempt:2`).
+      //
+      // Le tre condizioni di `isDeliveredThisRun` sono ciò che tiene il ramo
+      // legato alla run corrente invece che allo stato persistente della
+      // issue: senza, un `pr-created` del ciclo precedente renderebbe gratuita
+      // ogni run morta successiva (il contatore non salirebbe mai più) e una
+      // PR chiusa SENZA merge otterrebbe il re-queue di una consegna che non
+      // c'è stata. Se manca anche solo una, si prosegue verso i rami sotto,
+      // che il tentativo lo consumano — cioè il comportamento bounded di prima.
+      const mergedAt = mergedFixPrAt(iss.number);
+      const promotion = fixPromotion(iss.number);
+      if (isDeliveredThisRun({
+        outcome,
+        outcomeAt: outcomeEntry.at,
+        mergedAt,
+        promotedAt: promotion.at,
+      })) {
+        console.log(`RE-QUEUE #${iss.number} (${outcome}, PR fix mergiata in questo ciclo) → tentativo NON consumato (la run ha consegnato)`);
+        edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
+        continue;
+      }
+      // Il fail-closed qui sotto è corretto, ma quando a spostare `promotedAt`
+      // dopo la consegna è stato un writer CONCORRENTE di `agent:fix`
+      // (triage-sweep, recycle-stale-prs) il sintomo di #733 rientra senza che
+      // nessuno se ne accorga: un warning è ciò che lo rende misurabile invece
+      // che silenzioso.
+      if (isConcurrentRepromotion({ outcome, outcomeAt: outcomeEntry.at, mergedAt, promotion })) {
+        console.log(`::warning::#${iss.number}: consegna reale (${outcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed, #973)`);
+      }
+      console.log(`#${iss.number}: marker ${outcome} NON scopato alla run corrente (marker stantio o nessun merge di questo ciclo) → rescue normale, tentativo consumato`);
     }
     // error_max_turns = turn-budget esaurito in modo DETERMINISTICO: ri-tentare
     // lo stesso item lo riproduce a parità di turni. Con il circuit-breaker
@@ -2904,11 +3220,27 @@ export function runDrain() {
   //    dove la sesta run cancellata alle 09:02 NON era un crawler.
   for (const iss of crawlerFix) {
     const hasPR = hasFixPR(iss.number);
-    const outcome = hasPR ? null : latestFixOutcome(iss.number);
+    const entry = hasPR ? { outcome: null, at: null } : latestFixOutcomeEntry(iss.number);
+    const outcome = entry.outcome;
     const attempt = attemptOf(iss);
     const prevAttemptLabel = attempt ? `fu-attempt:${attempt}` : null;
+    // Le due letture extra servono SOLO a qualificare il ramo DELIVERED, che e'
+    // raro: calcolarle solo li' tiene il costo gh del pass invariato su tutti
+    // gli altri esiti.
+    const delivered = outcome !== null && DELIVERED.has(outcome);
+    const mergedAt = delivered ? mergedFixPrAt(iss.number) : null;
+    const promotion = delivered ? fixPromotion(iss.number) : { at: null, byDrainer: false };
+    // Gemello del warning del rescue queue-managed: stessa causa (writer
+    // concorrente di `agent:fix`), stesso fail-closed, stesso bisogno di non
+    // essere silenzioso.
+    if (isConcurrentRepromotion({ outcome, outcomeAt: entry.at, mergedAt, promotion })) {
+      console.log(`::warning::#${iss.number}: consegna reale (${outcome} + merge) letta come run morta — \`${LBL_FIX}\` ri-applicata da un writer concorrente (triage-sweep / recycle-stale-prs) DOPO il merge → tentativo consumato (fail-closed)`);
+    }
     const d = crawlerFixDecision({
       outcome,
+      outcomeAt: entry.at,
+      mergedAt,
+      promotedAt: promotion.at,
       ageMin: minutesSince(iss.updatedAt),
       attempt,
       hasPR,
@@ -2920,6 +3252,11 @@ export function runDrain() {
     if (d.action === 'settling') { settlingPromotions++; continue; }
     if (d.action === 'hold-quota') {
       console.log(`HOLD CRAWLER ${tag} (${d.reason}) → resta agent:fix come beacon, nessun tentativo consumato`);
+      continue;
+    }
+    if (d.action === 'requeue-delivered') {
+      console.log(`RE-QUEUE CRAWLER ${tag} (${d.reason}) → agent:fix-queued, tentativo NON consumato`);
+      edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
       continue;
     }
     if (d.action === 'requeue-zero-work') {
