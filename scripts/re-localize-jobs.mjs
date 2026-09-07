@@ -16,6 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { isSourcePassthrough } from './lib/free-translate.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -70,16 +71,28 @@ function cleanDescription(desc) {
 }
 
 /**
- * Translate text via DeepL free API. Returns '' on failure.
+ * Translate text via DeepL free API.
+ *
+ * Rende `{ text, passthrough }` e non una stringa: sul vuoto il chiamante deve
+ * sapere il MOTIVO. «DeepL ha risposto rendendo la sorgente verbatim» significa
+ * che il testo e' gia' quello della lingua target ed e' DETERMINISTICO — il
+ * fallback LLM non ha niente da tradurre e si vedrebbe scartare l'uscita dal
+ * proprio controllo `translated !== clean`. «DeepL e' giu' / senza chiave» e'
+ * transitorio e il fallback LLM li' serve davvero. La formula del passthrough e'
+ * quella condivisa della cascata (`isSourcePassthrough`), non una uguaglianza
+ * riscritta a mano che derivi in silenzio.
+ *
+ * @returns {Promise<{text: string, passthrough: boolean}>}
  */
 async function translateWithDeepL(text, sourceLang, targetLang) {
-  if (!DEEPL_API_KEY) return '';
+  const DOWN = { text: '', passthrough: false };
+  if (!DEEPL_API_KEY) return DOWN;
   const clean = normalizeSpace(text || '');
-  if (!clean || sourceLang === targetLang) return '';
+  if (!clean || sourceLang === targetLang) return DOWN;
 
   const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
   const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
-  if (!tgtCode) return '';
+  if (!tgtCode) return DOWN;
 
   const body = new URLSearchParams();
   body.append('text', clean);
@@ -96,13 +109,14 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
       body: body.toString(),
       signal: AbortSignal.timeout(20000),
     });
-    if (!res.ok) return '';
+    if (!res.ok) return DOWN;
     const data = await res.json();
     const translated = data?.translations?.[0]?.text || '';
-    if (!translated || translated.toLowerCase() === clean.toLowerCase()) return '';
-    return cleanDescription(translated);
+    if (!translated) return DOWN;
+    if (isSourcePassthrough(clean, translated)) return { text: '', passthrough: true };
+    return { text: cleanDescription(translated), passthrough: false };
   } catch {
-    return '';
+    return DOWN;
   }
 }
 
@@ -112,8 +126,16 @@ async function translateDescription(description, locale, sourceLang) {
   if (locale === sourceLang) return clean;
 
   // Try DeepL first (fast, high quality, saves LLM tokens)
-  const deepl = await translateWithDeepL(clean, sourceLang, locale);
+  const { text: deepl, passthrough } = await translateWithDeepL(clean, sourceLang, locale);
   if (deepl && deepl.length >= 120) return deepl;
+
+  // Passthrough rifiutato != motore giu'. Se DeepL ha reso la sorgente, il
+  // testo e' gia' nella lingua target: chiamare il modello qui sotto costa la
+  // risorsa scarsa della pipeline per riprodurre quello che abbiamo gia', e il
+  // controllo `translated !== clean` lo scarterebbe comunque. Si rende '', cioe'
+  // il contratto «nessuna traduzione»: il chiamante tiene la sorgente, lo stesso
+  // testo che il passthrough avrebbe scritto.
+  if (passthrough) return '';
 
   // Fallback to LLM
   const prompt = [
