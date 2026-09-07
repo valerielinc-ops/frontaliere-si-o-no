@@ -11495,6 +11495,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-poggiridenti-grigioni.title': 'Frontière Poggiridenti-Grisons : fiscalité et permis',
     'blog.article.frontaliere-poggiridenti-grigioni.excerpt': 'Vivre à Poggiridenti et travailler dans les Grisons : permis G, impôt à la source, nouvel accord frontalier 2024 et cotisations AVS/LPP. Guide pratique et checklist.',
     'blog.article.frontaliere-poggiridenti-grigioni.imageAlt': 'Paysage alpin à la frontière Italie-Suisse avec vallées brumeuses et pentes vertes.',
+    'blog.article.san-giacomo-lavorare-grigioni.title': 'Vivre à San Giacomo Filippo et travailler dans les Grisons',
+    'blog.article.san-giacomo-lavorare-grigioni.excerpt': 'Nouvel accord frontalier 2024, fiscalité, LAMal et AVS : le guide complet pour déménager à San Giacomo Filippo et travailler dans les Grisons en tant que frontalier.',
+    'blog.article.san-giacomo-lavorare-grigioni.imageAlt': 'Voiture garée sur route de montagne du Tessin au coucher du soleil, avec vue sur les Alpes des Grisons en arrière-plan',
 };
 
 export default blogMetaFr;

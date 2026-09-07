@@ -34329,6 +34329,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'san-giacomo-lavorare-grigioni',
+ category: 'pratico',
+ date: '2026-09-07T00:44:45.898Z',
+ image: '/images/blog/san-giacomo-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
