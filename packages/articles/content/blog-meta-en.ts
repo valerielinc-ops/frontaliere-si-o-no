@@ -11529,6 +11529,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Living in Saint-Christophe and working in Valais as a border worker',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of living in Saint-Christophe and working in Valais.',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Stable unemployment in Switzerland and Ticino in August 2024',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'The unemployment rate in Switzerland remained stable at 3% in August, with an increase of 0.2 points on an annual basis. In Ticino, the rate is 2.9%, with an increase of 0.1 points on a monthly basis and 0.3 points on a yearly basis.',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Aerial view of Lugano with mountains and lake',
 };
 
 export default blogMetaEn;

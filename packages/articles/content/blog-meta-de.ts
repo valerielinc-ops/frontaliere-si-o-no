@@ -11528,6 +11528,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Wohnen in Saint-Christophe und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Saint-Christophe zu leben und im Wallis zu arbeiten.',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Stabile Arbeitslosigkeit in der Schweiz und im Tessin im August 2024',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August mit einem Plus von 0,2 Punkten gegenüber dem Vorjahr stabil bei 3%. Im Tessin beträgt die Rate 2,9%, was einem Anstieg von 0,1 Punkten auf Monatsbasis und 0,3 Punkten auf Jahresbasis entspricht.',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Luftaufnahme von Lugano mit Bergen und See',
 };
 
 export default blogMetaDe;

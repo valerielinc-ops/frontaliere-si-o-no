@@ -11531,6 +11531,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.title': 'Vivre à Saint-Christophe et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages de vivre à Saint-Christophe et de travailler en Valais.',
     'blog.article.vivere-saint-christophe-lavorare-vallese-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes environnantes',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Chômage stable en Suisse et au Tessin en août 2024',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'Le taux de chômage en Suisse est resté stable à 3 % en août, en hausse de 0,2 point sur un an. Au Tessin, le taux est de 2,9 %, avec une augmentation de 0,1 point sur une base mensuelle et de 0,3 point sur une base annuelle.',
+    'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Vue aérienne de Lugano avec montagnes et lac',
 };
 
 export default blogMetaFr;
