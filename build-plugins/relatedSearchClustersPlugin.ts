@@ -786,7 +786,7 @@ function clusterKeyFromAnyPath(p: string): string | null {
  * the conservative direction: a candidate with no evidence at all gets no
  * withdrawal, which is exactly the page this issue is about not creating.
  */
-function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
+export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
   const out = new Set<string>();
   const cacheRoot = path.join(rootDir, '.cache', 'related-search-clusters');
   let entries: string[];
