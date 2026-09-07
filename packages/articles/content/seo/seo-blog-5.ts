@@ -87979,6 +87979,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emergenza-terra-trasformazione': {
+    title: 'Emergenza Terra racconta la grande trasformazione',
+    description: 'Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, emergenza, terra, racconta, grande',
+    ogTitle: 'Emergenza Terra racconta la grande trasformazione',
+    ogDescription: 'Partecipa al ciclo di incontri Emergenza Terra dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio per discutere la trasformazione ecologica e sociale.',
+    canonicalPath: '/articoli-frontaliere/emergenza-terra-trasformazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emergenza Terra racconta la grande trasformazione",
+      "description": "Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emergenza-terra-trasformazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del campus SUPSI di Mendrisio, Ticino, con persone che partecipano a un evento."
+      },
+      "datePublished": "2026-09-07T08:52:50+00:00",
+      "dateModified": "2026-09-07T08:52:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/emergenza-terra-trasformazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

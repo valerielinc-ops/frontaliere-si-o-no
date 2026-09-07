@@ -11537,6 +11537,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-stabile-agosto-2023.title': 'Chômage stable en Suisse en août',
     'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Le taux de chômage en Suisse est resté stable à 3,0% en août, avec le Tessin à 2,9%. Les chômeurs de longue durée augmentent.',
     'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Vue aérienne de Lugano avec les montagnes en arrière-plan',
+    'blog.article.emergenza-terra-trasformazione.title': 'Urgence Terre raconte la grande transformation',
+    'blog.article.emergenza-terra-trasformazione.excerpt': 'Cycle de rencontres sur la transformation écologique et sociale du 16 septembre au 9 décembre au Campus SUPSI de Mendrisio.',
+    'blog.article.emergenza-terra-trasformazione.imageAlt': 'Vue aérienne du campus SUPSI de Mendrisio, Tessin, avec des personnes assistant à un événement.',
 };
 
 export default blogMetaFr;

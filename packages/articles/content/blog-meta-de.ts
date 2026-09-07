@@ -11534,6 +11534,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-stabile-agosto-2023.title': 'Stabile Arbeitslosigkeit in der Schweiz im August',
     'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August stabil bei 3,0%, im Tessin bei 2,9%. Die Zahl der Langzeitarbeitslosen nimmt zu.',
     'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Luftaufnahme von Lugano mit Bergen im Hintergrund',
+    'blog.article.emergenza-terra-trasformazione.title': 'Emergenza Terra erzählt von der großen Transformation',
+    'blog.article.emergenza-terra-trasformazione.excerpt': 'Veranstaltungsreihe zum ökologischen und sozialen Wandel vom 16. September bis 9. Dezember auf dem SUPSI-Campus in Mendrisio.',
+    'blog.article.emergenza-terra-trasformazione.imageAlt': 'Luftaufnahme des SUPSI-Campus in Mendrisio, Tessin, mit Menschen, die an einer Veranstaltung teilnehmen.',
 };
 
 export default blogMetaDe;
