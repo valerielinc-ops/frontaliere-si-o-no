@@ -5878,6 +5878,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disuguaglianze-salariali-stage-svizzera.title': 'De 3\'500 à zéro : stages et inégalités en Suisse',
     'blog.article.disuguaglianze-salariali-stage-svizzera.excerpt': 'Les rémunérations des stages en Suisse varient énormément, de 3’500 francs à zéro, contribuant à définir le rapport des jeunes au travail.',
     'blog.article.disuguaglianze-salariali-stage-svizzera.imageAlt': 'Un jeune professionnel travaillant dans un bureau moderne à Lugano',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.title': 'Taux de chômage stable en Suisse en août',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.excerpt': 'Le taux de chômage en Suisse est resté stable à 3 % en août, avec une légère hausse de 0,2 % sur un an.',
+    'blog.article.disoccupazione-stabile-svizzera-agosto-2024.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan, montrant la stabilité économique de la région.',
 };
 
 export default blogMetaChFr;
