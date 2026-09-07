@@ -34518,6 +34518,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rete-tram-treno-cantieri-inizio',
+ category: 'novita',
+ date: '2026-09-07T10:49:29.489Z',
+ image: '/images/blog/rete-tram-treno-cantieri-inizio.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

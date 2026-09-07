@@ -11559,6 +11559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - torna “tante care cose” a casa macchi',
     'blog.article.morazzone-tante-care-cose-2026.excerpt': 'Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato.',
     'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Mercato di rigatterie e anticaglie a Casa Macchi, Morazzone',
+    'blog.article.rete-tram-treno-cantieri-inizio.title': 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
+    'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno.',
+    'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Vista aerea del centro di Lugano con cantieri visibili',
 };
 
 export default blogMetaIt;

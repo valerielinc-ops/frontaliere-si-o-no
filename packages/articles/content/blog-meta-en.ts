@@ -11558,6 +11558,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.morazzone-tante-care-cose-2026.title': 'Morazzone - "many dear things" return home macchi',
     'blog.article.morazzone-tante-care-cose-2026.excerpt': 'On Saturday 12 and Sunday 13 September, Casa Macchi hosts a new edition of the market dedicated to garbage, antiques and modernity.',
     'blog.article.morazzone-tante-care-cose-2026.imageAlt': 'Market of vintage items and antiques at Casa Macchi, Morazzone',
+    'blog.article.rete-tram-treno-cantieri-inizio.title': 'Tram-Train Network, bulldozer at work since mid-October',
+    'blog.article.rete-tram-treno-cantieri-inizio.excerpt': 'Work on the Tram-Train Network will begin in mid-October with the retaining walls on the Bioggio-Manno section.',
+    'blog.article.rete-tram-treno-cantieri-inizio.imageAlt': 'Aerial view of Lugano city center with construction sites visible',
 };
 
 export default blogMetaEn;

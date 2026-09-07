@@ -88252,6 +88252,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rete-tram-treno-cantieri-inizio': {
+    title: 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
+    description: 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rete, tram-treno, ruspe, lavoro',
+    ogTitle: 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
+    ogDescription: 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.',
+    canonicalPath: '/articoli-frontaliere/rete-tram-treno-cantieri-inizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rete Tram-Treno, ruspe al lavoro da metà ottobre",
+      "description": "I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rete-tram-treno-cantieri-inizio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Lugano con cantieri visibili"
+      },
+      "datePublished": "2026-09-07T10:49:29+00:00",
+      "dateModified": "2026-09-07T10:49:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rete-tram-treno-cantieri-inizio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
