@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-09-07T15:22:37.016Z",
+  "assembledAt": "2026-09-07T23:43:51.870Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.995Z",
+      "crawledAt": "2026-09-07T23:43:42.535Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
@@ -74,8 +74,8 @@
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -154,7 +154,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.994Z",
+      "crawledAt": "2026-09-07T23:43:42.534Z",
       "previousSlugsByLocale": {
         "it": [
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
@@ -276,7 +276,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.993Z",
+      "crawledAt": "2026-09-07T23:43:42.531Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
@@ -293,8 +293,8 @@
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -377,8 +377,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.992Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-07T23:43:42.530Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -406,6 +405,7 @@
           "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -489,7 +489,7 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.991Z",
+      "crawledAt": "2026-09-07T23:43:42.529Z",
       "previousSlugs": [
         "information-security-specialist-ref-1108-corner-banca-lugano"
       ],
@@ -498,8 +498,8 @@
           "information-security-specialist-ref-1108-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.230Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.230Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -587,7 +587,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.990Z",
+      "crawledAt": "2026-09-07T23:43:42.525Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -598,8 +598,8 @@
           "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -682,7 +682,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.989Z",
+      "crawledAt": "2026-09-07T23:43:42.524Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -691,8 +691,8 @@
           "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -774,7 +774,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.986Z",
+      "crawledAt": "2026-09-07T23:43:42.523Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -783,8 +783,8 @@
           "employee-backoffice-ref-1110-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -868,7 +868,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-ref-1113",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.985Z",
+      "crawledAt": "2026-09-07T23:43:42.522Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
       ],
@@ -877,8 +877,8 @@
           "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.201Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.201Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -975,9 +975,9 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T15:22:25.984Z",
-      "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "crawledAt": "2026-09-07T23:43:42.521Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -988,104 +988,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79500,
           "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-9edf9a711b5c",
-      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Compliance Officer  - ref. 1111",
-      "titleByLocale": {
-        "it": "Senior Compliance Officer - ref. 1111",
-        "en": "Senior Compliance Officer - ref. 1111",
-        "de": "Senior Compliance Officer - ref. 1111",
-        "fr": "Senior Compliance Officer  - ref. 1111"
-      },
-      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-        "en": "Description We are looking for an expert in the field of banking, which is the Senior Expert in the region of 140,000. The ideal candidate has extensive experience in banking and a comprehensive understanding of compliance processes in addition to Anti-Corruption (AML), including cross-border processes, sanctions, regulatory reporting, risk assessment of compliance and supervision of compliance-related projects.\n\n- To work effectively with colleagues from different departments, including IT; - To adopt a proactive and critical approach in identifying and implementing new solutions; - To work independently and manage priorities independently; - To manage efficiently and accurately a high volume of complex cases.\n\nRequirements - Minimum 3-5 years of experience in the banking sector in a role similar to that of,7723. - Recovered experience not only in AML compliance, but also in: - Cross-border processes, sanctions and consolidated supervision of affiliates; - Reporting compliance, training and regulatory monitoring; - Assessment of compliance risk; - Coordination and supervision of compliance related projects. - Degree in Law, Economics or Related Discipline.\n\n- CAS in Conformity (Certificate of Advanced Studies) or an equivalent professional qualification. - Advanced competence in Microsoft Office, especially Microsoft Excel. - Mentality strongly oriented to teamwork and excellent problem solving skills. -Long live in Ticino or available to move.",
-        "de": "Beschreibung Wir suchen einen Experten im Bereich des Bankwesens, der Senior Expert in der Region 140.000 ist. Der ideale Kandidat verfügt über umfangreiche Erfahrung im Bankwesen und ein umfassendes Verständnis von Compliance-Prozessen neben Anti-Korruption (AML), einschließlich grenzübergreifender Prozesse, Sanktionen, regulatorische Berichterstattung, Risikobewertung der Compliance und Überwachung von Compliance-bezogenen Projekten.\n\n- Mit Kollegen aus verschiedenen Abteilungen, einschließlich IT, effektiv zusammenzuarbeiten; - einen proaktiven und kritischen Ansatz bei der Identifizierung und Umsetzung neuer Lösungen zu verfolgen; - unabhängig zu arbeiten und Prioritäten unabhängig zu verwalten; - effizient und präzise ein hohes Volumen komplexer Fälle zu verwalten.\n\nAnforderungen - Mindestens 3-5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle wie die,7723. - Recovered Erfahrung nicht nur in der AML-Compliance, sondern auch in: - Grenzüberschreitende Prozesse, Sanktionen und konsolidierte Aufsicht von Tochtergesellschaften; - Berichterstattung Compliance, Ausbildung und regulatorische Überwachung; - Bewertung der Compliance-Risiko; - Koordinierung und Überwachung der Compliance-bezogenen Projekte. - Abschluss in Recht, Wirtschaft oder verwandten Discipline.\n\n- CAS in Conformity (Zertifikat für fortgeschrittene Studien) oder eine gleichwertige berufliche Qualifikation. - Erweiterte Kompetenz in Microsoft Office, insbesondere Microsoft Excel. - Mentalität stark auf Teamarbeit und ausgezeichnete Problemlösung Fähigkeiten ausgerichtet. - Lang leben im Tessin oder zur Verfügung zu bewegen.",
-        "fr": "Description Nous recherchons un expert dans le domaine bancaire, qui est l'expert principal dans la région de 140 000. Le candidat idéal a une vaste expérience dans le secteur bancaire et une compréhension complète des processus de conformité en plus de Anti-Corruption (AML), y compris les processus transfrontaliers, les sanctions, les rapports réglementaires, l'évaluation des risques de conformité et la supervision des projets liés à la conformité.\n\n- Travailler efficacement avec des collègues de différents départements, y compris les services informatiques; - adopter une approche proactive et critique pour identifier et mettre en oeuvre de nouvelles solutions; - travailler de façon indépendante et gérer les priorités de façon indépendante; - gérer de façon efficace et précise un grand nombre de cas complexes.\n\nExigences - Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui de 7723. - Expérience acquise non seulement en ce qui concerne la conformité aux LAM, mais aussi dans : - les processus transfrontaliers, les sanctions et la supervision consolidée des filiales; - la déclaration de conformité, la formation et la surveillance réglementaire; - l'évaluation du risque de conformité; - la coordination et la supervision des projets liés à la conformité. - Degré en droit, en économie ou en discipline connexe.\n\n- Certificat d'études supérieures (C.A.S.) ou une qualification professionnelle équivalente. - Compétences avancées dans Microsoft Office, en particulier Microsoft Excel. - Mentality fortement orienté vers le travail d'équipe et d'excellentes compétences de résolution de problèmes. -Long vivre à Ticino ou disponible pour se déplacer."
-      },
-      "requirements": [
-        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
-        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
-        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
-        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
-        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
-        "Residente in Ticino o disponibile a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate",
-          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
-        ],
-        "en": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.983Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-10T21:46:42.895Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1161,7 +1063,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.981Z",
+      "crawledAt": "2026-09-07T23:43:42.516Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -1170,8 +1072,8 @@
           "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1182,6 +1084,104 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-9edf9a711b5c",
+      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Compliance Officer  - ref. 1111",
+      "titleByLocale": {
+        "it": "Senior Compliance Officer - ref. 1111",
+        "en": "Senior Compliance Officer - ref. 1111",
+        "de": "Senior Compliance Officer - ref. 1111",
+        "fr": "Senior Compliance Officer  - ref. 1111"
+      },
+      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+        "en": "Description We are looking for an expert in the field of banking, which is the Senior Expert in the region of 140,000. The ideal candidate has extensive experience in banking and a comprehensive understanding of compliance processes in addition to Anti-Corruption (AML), including cross-border processes, sanctions, regulatory reporting, risk assessment of compliance and supervision of compliance-related projects.\n\n- To work effectively with colleagues from different departments, including IT; - To adopt a proactive and critical approach in identifying and implementing new solutions; - To work independently and manage priorities independently; - To manage efficiently and accurately a high volume of complex cases.\n\nRequirements - Minimum 3-5 years of experience in the banking sector in a role similar to that of,7723. - Recovered experience not only in AML compliance, but also in: - Cross-border processes, sanctions and consolidated supervision of affiliates; - Reporting compliance, training and regulatory monitoring; - Assessment of compliance risk; - Coordination and supervision of compliance related projects. - Degree in Law, Economics or Related Discipline.\n\n- CAS in Conformity (Certificate of Advanced Studies) or an equivalent professional qualification. - Advanced competence in Microsoft Office, especially Microsoft Excel. - Mentality strongly oriented to teamwork and excellent problem solving skills. -Long live in Ticino or available to move.",
+        "de": "Beschreibung Wir suchen einen Experten im Bereich des Bankwesens, der Senior Expert in der Region 140.000 ist. Der ideale Kandidat verfügt über umfangreiche Erfahrung im Bankwesen und ein umfassendes Verständnis von Compliance-Prozessen neben Anti-Korruption (AML), einschließlich grenzübergreifender Prozesse, Sanktionen, regulatorische Berichterstattung, Risikobewertung der Compliance und Überwachung von Compliance-bezogenen Projekten.\n\n- Mit Kollegen aus verschiedenen Abteilungen, einschließlich IT, effektiv zusammenzuarbeiten; - einen proaktiven und kritischen Ansatz bei der Identifizierung und Umsetzung neuer Lösungen zu verfolgen; - unabhängig zu arbeiten und Prioritäten unabhängig zu verwalten; - effizient und präzise ein hohes Volumen komplexer Fälle zu verwalten.\n\nAnforderungen - Mindestens 3-5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle wie die,7723. - Recovered Erfahrung nicht nur in der AML-Compliance, sondern auch in: - Grenzüberschreitende Prozesse, Sanktionen und konsolidierte Aufsicht von Tochtergesellschaften; - Berichterstattung Compliance, Ausbildung und regulatorische Überwachung; - Bewertung der Compliance-Risiko; - Koordinierung und Überwachung der Compliance-bezogenen Projekte. - Abschluss in Recht, Wirtschaft oder verwandten Discipline.\n\n- CAS in Conformity (Zertifikat für fortgeschrittene Studien) oder eine gleichwertige berufliche Qualifikation. - Erweiterte Kompetenz in Microsoft Office, insbesondere Microsoft Excel. - Mentalität stark auf Teamarbeit und ausgezeichnete Problemlösung Fähigkeiten ausgerichtet. - Lang leben im Tessin oder zur Verfügung zu bewegen.",
+        "fr": "Description Nous recherchons un expert dans le domaine bancaire, qui est l'expert principal dans la région de 140 000. Le candidat idéal a une vaste expérience dans le secteur bancaire et une compréhension complète des processus de conformité en plus de Anti-Corruption (AML), y compris les processus transfrontaliers, les sanctions, les rapports réglementaires, l'évaluation des risques de conformité et la supervision des projets liés à la conformité.\n\n- Travailler efficacement avec des collègues de différents départements, y compris les services informatiques; - adopter une approche proactive et critique pour identifier et mettre en oeuvre de nouvelles solutions; - travailler de façon indépendante et gérer les priorités de façon indépendante; - gérer de façon efficace et précise un grand nombre de cas complexes.\n\nExigences - Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui de 7723. - Expérience acquise non seulement en ce qui concerne la conformité aux LAM, mais aussi dans : - les processus transfrontaliers, les sanctions et la supervision consolidée des filiales; - la déclaration de conformité, la formation et la surveillance réglementaire; - l'évaluation du risque de conformité; - la coordination et la supervision des projets liés à la conformité. - Degré en droit, en économie ou en discipline connexe.\n\n- Certificat d'études supérieures (C.A.S.) ou une qualification professionnelle équivalente. - Compétences avancées dans Microsoft Office, en particulier Microsoft Excel. - Mentality fortement orienté vers le travail d'équipe et d'excellentes compétences de résolution de problèmes. -Long vivre à Ticino ou disponible pour se déplacer."
+      },
+      "requirements": [
+        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
+        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
+        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
+        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
+        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
+        "Residente in Ticino o disponibile a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate",
+          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
+        ],
+        "en": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-07T23:43:42.516Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T21:46:42.895Z",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1243,9 +1243,9 @@
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.979Z",
-      "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "crawledAt": "2026-09-07T23:43:42.514Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1330,9 +1330,9 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.978Z",
-      "firstSeenAt": "2026-08-25T21:51:32.218Z",
+      "crawledAt": "2026-09-07T23:43:42.512Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1404,9 +1404,9 @@
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.977Z",
-      "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "crawledAt": "2026-09-07T23:43:42.510Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:26.508Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1497,9 +1497,9 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T15:22:25.975Z",
-      "firstSeenAt": "2026-09-03T13:49:26.507Z",
+      "crawledAt": "2026-09-07T23:43:42.507Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:26.507Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
