@@ -5941,6 +5941,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-giovani-svizzera-agosto-2023.title': 'Disoccupazione giovani Svizzera: 3,4% in agosto 2023',
     'blog.article.disoccupazione-giovani-svizzera-agosto-2023.excerpt': 'Il mercato del lavoro svizzero mostra solidità, con un aumento stagionale di 3,4% tra i giovani in agosto 2023.',
     'blog.article.disoccupazione-giovani-svizzera-agosto-2023.imageAlt': 'Vista aerea di Locarno, Svizzera, con il paesaggio del Ticino sullo sfondo, che mostra una piazza del mercato vivace e edifici moderni.',
+    'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.title': 'Perché la Svizzera non sanziona gli Stati Uniti per l\'attacco all\'Iran',
+    'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.excerpt': 'Ignazio Cassis spiega che ogni guerra è diversa e che la Svizzera non può condannare le azioni degli Stati Uniti senza dimostrare fatti concreti.',
+    'blog.article.svizzera-sanzioni-stati-uniti-ignazio-cassis.imageAlt': 'Vista aerea di Berna dalle Alpi svizzere in autunno, con il Palazzo Federale in primo piano e la montagna dell\'Eiger in secondo piano.',
 };
 
 export default blogMetaChIt;
