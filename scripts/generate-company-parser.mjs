@@ -18,6 +18,7 @@ import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { decodeHtmlEntities } from './lib/dedicated-crawler-common.mjs';
+import { registrableDomain } from './lib/prospector/registrable.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -98,12 +99,9 @@ function sameRegistrableDomain(hostA, hostB) {
   const a = normalizeHost(hostA);
   const b = normalizeHost(hostB);
   if (!a || !b) return false;
-  const reg = (h) => {
-    const parts = h.split('.').filter(Boolean);
-    if (parts.length <= 2) return h;
-    return parts.slice(-2).join('.');
-  };
-  return reg(a) === reg(b);
+  // Shared public-suffix table: the inline "last two labels" fold made every
+  // pair of `*.co.uk` hosts look like the same registrable domain (#7770).
+  return registrableDomain(a) === registrableDomain(b);
 }
 
 function tryUrl(raw, base = null) {

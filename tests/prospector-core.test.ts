@@ -9,7 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath } from '../scripts/lib/prospector/registrable.mjs';
+import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
@@ -60,6 +60,20 @@ describe('registrable domains', () => {
 
   it('handles multi-label suffixes', () => {
     expect(registrableDomain('jobs.acme.co.uk')).toBe('acme.co.uk');
+  });
+
+  it('strips a compound public suffix, not just its last label', () => {
+    // A single-label peel left `com` on `foo.com.br`, which is what pushed a
+    // host off its own brand in the pairing guard (#7770).
+    expect(stripPublicSuffix('foo.com.br')).toBe('foo');
+    expect(stripPublicSuffix('www.acme.co.uk')).toBe('acme');
+    expect(stripPublicSuffix('jobs.acme.ch')).toBe('jobs.acme');
+    // `.swiss` is five letters: a `[a-z]{2,4}` cap would have kept it.
+    expect(stripPublicSuffix('arosalenzerheide.swiss')).toBe('arosalenzerheide');
+    // Nothing to strip below eTLD+1, and no crash on junk input.
+    expect(stripPublicSuffix('co.uk')).toBe('co');
+    expect(stripPublicSuffix('localhost')).toBe('localhost');
+    expect(stripPublicSuffix('')).toBe('');
   });
 
   it('normalises www and ports', () => {
