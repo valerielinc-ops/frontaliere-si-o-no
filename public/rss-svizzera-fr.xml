@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 07 Sep 2026 04:34:41 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 04:46:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,81 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Startups crypto et banques : il devient de plus en plus difficile d&apos;opérer</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/startup-crypto-difficultes-bancaires/</link>
+      <description><![CDATA[Une société minière Bitcoin à Lugano voit ses comptes bancaires fermés. Les banques suisses mettent en crise l'innovation numérique.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Une start-up suisse de minage de Bitcoin fait face au blocage opérationnel causé par le dé-risquage bancaire.
+- L'incohérence entre la stratégie Crypto Nation et la réalité bancaire quotidienne paralyse l'innovation.
+- Lugano, malgré l'ambition de pôle blockchain, peine à servir de médiateur entre les établissements et les opérateurs.
+
+## Faits clés
+- Quoi : Fermeture forcée des comptes de l'entreprise pour des activités minières.
+- Quand : Q3 2024.
+- Où : Lugano et Canton du Tessin.
+- Qui : Startup avec double licence (immobilier et exploitation minière).
+- Impact : Arrêt total des flux de trésorerie.
+
+L'histoire de S. reflète une fracture profonde dans le paysage financier helvétique. Sa société, active dans l'immobilier et le minage de Bitcoin, se heurte au protocole strict de conformité des banques cantonales et nationales. L'exploitation minière, conçue comme une réserve de liquidité stratégique, est devenue le talon d'Achille de son activité bancaire.
+
+Techniquement, l'exploitation minière est basée sur du matériel ASIC. Avec un investissement de 130 000 francs, S. génère environ 0,1 BTC par mois (valeur actuelle d'environ 6 500 USD), contre des dépenses énergétiques de 5 000 USD. La marge, bien que volatile, est traçable. Cependant, les banques appliquent des politiques de dé-risquage qui ne font pas de distinction entre les activités illicites et le minage industriel transparent.
+
+> "J'ai toujours tout géré de manière transparente, mais les banques ont clôturé les comptes sans appel, rendant impossible le paiement des fournisseurs et des salaires."
+
+Le paradoxe est aiguisé par la loi
+## Analyse pratique
+
+Les difficultés rencontrées par S. ne sont pas un cas isolé, mais reflètent une criticité systémique qui afflige l'ensemble de l'écosystème helvétique. Lars Schlichting, avocat expert en blockchain, confirme que le blocage bancaire ne touche pas seulement le mining, mais étouffe l'ensemble de l'entrepreneuriat innovant. Souvent, les banques ouvrent le compte de constitution, nécessaire pour le dépôt du capital social minimum de 100'000 francs pour une SA, mais refusent la transformation en compte opérationnel. Cet arrêt contraint les startups à migrer vers des néobanques étrangères, comme Revolut ou Wise, affaiblissant le contrôle financier domestique.
+
+> "Les banques ont peur de ce qui est non traditionnel, favorisant involontairement la fuite des capitaux vers l'étranger."
+
+### Implications pour les startups
+
+Lorenzo Ambrosini, directeur de la Fondation Agire, souligne que le manque d'un historique financier rend les jeunes entreprises à haut risque pour les institutions traditionnelles. La situation est particulièrement tendue dans les pôles d'innovation comme le Tessin ou le Canton de Zoug, où la concentration de sociétés cryptographiques est élevée.
+
+📊 Scénario pratique : le coût de l'exclusion
+
+Une startup qui n'obtient pas de compte bancaire en Suisse dans les 30 jours suivant sa constitution subit des retards opérationnels qui peuvent coûter entre 5'000 et 15'000 francs en consultations juridiques supplémentaires. En comparaison, une startup qui accède au crédit bancaire traditionnel supporte des coûts de gestion annuels d'environ 1'200 francs.
+
+💡 **Checklist opérationnelle pour les startups**
+
+- Préparer un business plan détaillé avec des projections de trésorerie sur 24 mois.
+- Certifier la conformité AML (Anti-Money Laundering) selon la Loi sur le blanchiment d'argent (LRD) en vigueur depuis le 1er janvier 2023.
+- Présenter une structure de gouvernance claire avec des bénéficiaires économiques identifiables.
+- Évaluer les banques cantonales avec des mandats de service public, souvent plus enclines au dialogue par rapport aux institutions privées.
+
+⚠️ Comparaison normative
+
+Alors que la FINMA a mis à jour les lignes directrices sur l'identification numérique des clients, de nombreuses banques appliquent des politiques de *de-risking* encore plus restrictives, refusant a priori les secteurs à haut risque réputationnel pour éviter les sanctions liées à la conformité internationale.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+## Action
+Si votre startup se heurte au refus d'ouverture de comptes de la part des établissements traditionnels, ne vous limitez pas à l'attente. Analysez les raisons techniques : le problème réside souvent dans un profil de risque non conforme aux normes FINMA mises à jour en 2021 sur la lutte contre le recyclage. Consultez un avocat expert en droit bancaire suisse pour émettre un avis sur la conformité de vos transactions. Explorez des alternatives locales telles que les banques cantonales axées sur l'innovation (par ex. Zoug ou Genève) ou des institutions spécialisées comme Sygnum ou SEBA, qui proposent des comptes dédiés avec des seuils de dépôt initial souvent supérieurs à 50'000 CHF.
+
+> La transparence documentaire est la meilleure défense contre la clôture unilatérale des comptes.
+
+Il documente chaque opération avec une précision suisse. Si vous opérez dans la Crypto Valley de Zoug, assurez-vous que votre audit est certifié par des auditeurs locaux. Tenez un registre à jour des transactions pour éviter les blocages préventifs.
+
+### Outils et checklist opérationnelle
+Pour gérer la complexité, suivez cette procédure :
+- Vérifier la conformité AML/KYC selon les directives FINMA 2016/7.
+- Comparez les taux de change sur des portails spécialisés pour optimiser la liquidité en CHF/EUR.
+- Utilisez des calculateurs fiscaux pour estimer l'impact de l'impôt anticipé (35%) sur les rendements éventuels.
+
+📊 Liste de contrôle pour les startups :
+1. Analyse du risque de conformité (audit externe).
+2. Rapport périodique pour les établissements de crédit.
+3. Diversification sur
+
+*Source: [tio.ch](https://www.tio.ch/ticino/attualita/1946997/fabbrica-bitcoin-gli-chiudono-il-conto-e-nessuna-banca-lo-vuole)*]]></content:encoded>
+      <pubDate>Mon, 07 Sep 2026 04:46:39 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/startup-crypto-difficolta-bancarie</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/startup-crypto-difficolta-bancarie.webp" medium="image"/>
+    </item>
     <item>
       <title>Acheter une maison à Berne : prix, hypothèque et taxes</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/acheter-maison-berne-hypotheque-impots-guide/</link>
@@ -3635,76 +3710,6 @@ Pour plus d'informations et de soutien sur la gestion des cotisations AVS, les c
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/avs-prestazioni-complementari-basilea-campagna</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-basilea-campagna.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Neutralité rime avec prospérité</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/neutralite-suisse-prosperite/</link>
-      <description><![CDATA[Lorenzo Quadri discute de l'importance de la neutralité suisse et de ses implications économiques et politiques.]]></description>
-      <content:encoded><![CDATA[## En bref
-- La neutralité suisse est au centre d'un vote
-- Les opposants voient la neutralité comme un obstacle à l'intégration à l'UE
-- La neutralité permet la diversification économique et le dialogue international
-
-## Faits clés
-- **Quoi** : Vote sur l'initiative sur la neutralité
-- Quand : Non encore spécifié
-- Où : Suisse
-- Qui : Lorenzo Quadri, Conseiller national de la Lega dei Ticinesi
-- Montant : Non applicable
-
-Lorenzo Quadri, conseiller national de la Lega dei Ticinesi, a récemment discuté de l'importance de la neutralité suisse. Selon Quadri, la neutralité n'est pas une question de droite ou de gauche, mais un pilier fondamental du modèle suisse. La neutralité a contribué à rendre la Suisse prospère, sûre et ouverte au monde. Le 27 septembre prochain, les citoyens suisses seront appelés à décider s'ils continuent avec la neutralité permanente et armée, qui a permis au pays de diversifier les relations économiques et de se rendre moins ricattabile.
-
-Les opposants à l'initiative sur la neutralité sont souvent ceux qui souhaiteraient voir la Suisse intégrée à l'Union européenne. La neutralité, en effet, représente un obstacle à la soumission à l'UE. Quadri souligne que la neutralité est l'un des piliers du modèle suisse, aux côtés de la démocratie directe, du fédéralisme, de l'indépendance et du principe de milice. Grâce à la neutralité, la Suisse est devenue une plateforme privilégiée pour le dialogue et la médiation internationale.
-
-### La neutralité et l'économie
-
-La neutralité permet à la Suisse de diversifier les relations économiques, rendant le pays moins dépendant de l'UE. Cela est particulièrement important dans un contexte de mondialisation, où la diversification est une priorité. La neutralité, cependant, doit être cohérente et non appliquée seulement quand elle est commode. Ce n'est pas une voie facile : elle nécessite une colonne vertébrale solide et une capacité de résistance.
-
-C'est pourquoi l'accusation selon laquelle la neutralité signifierait l'isolement est absurde. Au contraire, la Suisse est l'un des pays les plus ouverts au monde. La neutralité nous permet de parler et de nous relier économiquement avec tous, de médier et de jouer un rôle qu'une Suisse alignée perdrait inévitablement.
-
-Le 27 septembre, les citoyens suisses décideront s'ils continuent à déterminer en autonomie leur politique de sécurité ou s'ils délèguent tout à Bruxelles et à l'OTAN. Neutralité, souveraineté et indépendance vont de pair. Renoncer à la neutralité signifie remettre en question les deux autres.
-
-C'est pourquoi, le 27 septembre, il faut un Oui à l'initiative sur la neutralité.
-### Implications pratiques de la neutralité
-
-La neutralité suisse a des implications pratiques significatives pour l'économie et la politique du pays. La diversification des relations économiques permet à la Suisse d'être moins dépendante de l'UE, réduisant ainsi le risque de chantage économique. Cela est particulièrement important dans un contexte de mondialisation, où la diversification est une priorité.
-
-La neutralité permet à la Suisse de jouer un rôle de médiation internationale, rendant le pays une plateforme privilégiée pour le dialogue. Ce rôle est fondamental pour maintenir la paix et la stabilité dans un contexte de tensions internationales.
-
-### La neutralité et l'intégration européenne
-
-Les opposants à l'initiative sur la neutralité voient la neutralité comme un obstacle à l'intégration dans l'Union européenne. Cependant, la neutralité est l'un des piliers du modèle suisse, aux côtés de la démocratie directe, du fédéralisme, de l'indépendance et du principe de milice. La neutralité permet à la Suisse de maintenir son autonomie et de déterminer de manière indépendante sa politique de sécurité.
-
-### La neutralité et la politique de sécurité
-
-Le 27 septembre, les citoyens suisses décideront s'ils continuent à déterminer de manière autonome leur politique de sécurité ou s'ils délèguent tout à Bruxelles et à l'OTAN. La neutralité, la souveraineté et l'indépendance vont de pair. Renoncer à la neutralité signifie remettre en question les deux autres également.
-
-Pour cela, le 27 septembre, il faut un Oui à l'initiative sur la neutralité.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Que faire le 27 septembre
-
-Le 27 septembre, les citoyens suisses seront appelés à voter sur l'initiative sur la neutralité. Il est important de s'informer sur les implications pratiques de la neutralité et de prendre une décision consciente. La neutralité est l'un des piliers du modèle suisse et a des implications importantes pour l'économie et la politique du pays.
-
-### Procédure de vote
-
-Pour voter, il faut être inscrit sur les listes électorales. Vous pouvez vous renseigner auprès de votre commune pour connaître les modalités d'inscription et de vote. Il est important de participer au vote et de prendre une décision en connaissance de cause.
-
-### Outils utiles
-
-Pour approfondir les implications pratiques de la neutralité, il est possible de consulter le [calcolatore stipendio](nav:calculator) et le [comparatore CHF/EUR](nav:exchange). Ces outils permettent de mieux comprendre les implications économiques de la neutralité et de prendre une décision en connaissance de cause.
-
-### Conclusion
-
-La neutralité suisse est un pilier fondamental du modèle suisse et a des implications significatives pour l'économie et la politique du pays. Le 27 septembre, les citoyens suisses seront appelés à décider de poursuivre ou non la neutralité permanente et armée. Il est important de s'informer sur les implications pratiques de la neutralité et de prendre une décision consciente.
-
-*Source: [tio.ch](https://www.tio.ch/rubriche/ospite/1948272/neutralita-lorenzo-quadri-fa-svizzera)*]]></content:encoded>
-      <pubDate>Sun, 06 Sep 2026 07:05:05 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/neutralita-svizzera-prospeta</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/neutralita-svizzera-prospeta.webp" medium="image"/>
     </item>
   </channel>
 </rss>

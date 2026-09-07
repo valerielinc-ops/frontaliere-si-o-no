@@ -5839,6 +5839,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Comprare casa a Berna: prezzi, mutuo e tasse',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Guida pratica all\'acquisto immobiliare nel Canton Berna: imposta sui trapassi, spese notarili, fondi propri richiesti e sostenibilità del mutuo ipotecario.',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Vista aerea di un quartiere residenziale moderno a Berna con case e giardini verdi',
+    'blog.article.startup-crypto-difficolta-bancarie.title': 'Startup crypto e banche: sempre più difficile operare',
+    'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'Una società di mining Bitcoin a Lugano si vede chiudere i conti bancari. Le banche svizzere mettono in crisi l\'innovazione digitale.',
+    'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Palazzo moderno a Lugano, contesto economico ticinese.',
 };
 
 export default blogMetaChIt;

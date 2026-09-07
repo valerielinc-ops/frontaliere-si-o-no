@@ -5839,6 +5839,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.title': 'Buying a house in Bern: prices, mortgage and taxes',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.excerpt': 'Practical guide to buying real estate in the Canton of Bern: transfer tax, notary fees, own funds required and mortgage loan sustainability.',
     'blog.article.acquistare-casa-berna-mutuo-tasse-guida.imageAlt': 'Aerial view of a modern residential neighborhood in Bern with houses and green gardens',
+    'blog.article.startup-crypto-difficolta-bancarie.title': 'Crypto startups and banks: increasingly difficult to operate',
+    'blog.article.startup-crypto-difficolta-bancarie.excerpt': 'A Bitcoin mining company in Lugano is seen closing bank accounts. Swiss banks are undermining digital innovation.',
+    'blog.article.startup-crypto-difficolta-bancarie.imageAlt': 'Modern building in Lugano, Ticino economic context.',
 };
 
 export default blogMetaChEn;
