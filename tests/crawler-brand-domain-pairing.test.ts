@@ -41,13 +41,22 @@ const GENERIC_TOKENS = new Set([
   'the', 'und', 'and', 'di', 'de', 'der', 'das',
 ]);
 
+/**
+ * A single letter left over by the split is punctuation debris, not identity:
+ * a punctuated legal form ("Foo S.p.A.", "Foo S.A.") splits into `foo`, `s`,
+ * `p`, `a`, and since none of those letters is in `GENERIC_TOKENS` the identity
+ * became `foospa`, which no longer equals the `foo` of its own host. The parser
+ * would then drop out of the population the guard compares, silently. Dropping
+ * one-character tokens puts it back. `healthFacilitiesMatch.ts` folds names with
+ * the same idiom (`t.length >= 3`), so this is the house rule, not a new one.
+ */
 function identityTokens(value: string) {
   return value
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .split(/[^a-z0-9]+/)
-    .filter((token) => token && !GENERIC_TOKENS.has(token));
+    .filter((token) => token.length > 1 && !GENERIC_TOKENS.has(token));
 }
 
 /** The brand reduced to its identity: a trailing qualifier in parentheses is noise. */
@@ -181,6 +190,20 @@ describe('dedicated crawler parsers, as a class', () => {
       { file: 'med-ipersonal-job-parser.mjs', name: 'MediPersonal', domain: 'ipersonal.ch' },
     ]);
     expect(swapped).toHaveLength(1);
+  });
+
+  it('still sees a swap when the legal form is punctuated', () => {
+    // `Foo S.p.A.` splits into foo/s/p/a, and the single letters are not in
+    // GENERIC_TOKENS: before the length filter the identity was `foospa`, which
+    // matched no host at all, so a punctuated brand left the compared
+    // population without a word (#7770). Both sides here are crossed, so the
+    // guard has to say so.
+    expect(
+      findSwappedPairs([
+        { file: 'sirio-job-parser.mjs', name: 'Sirio S.p.A.', domain: 'delta.ch' },
+        { file: 'delta-job-parser.mjs', name: 'Delta S.A.', domain: 'sirio.ch' },
+      ]),
+    ).toHaveLength(1);
   });
 
   it('does not flag two brands that merely share a generic token with the other host', () => {
