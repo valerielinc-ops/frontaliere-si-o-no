@@ -5806,6 +5806,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-appenzello-esterno-conversione.title': 'Patente di guida Appenzello Esterno: conversione e esami',
     'blog.article.patente-guida-appenzello-esterno-conversione.excerpt': 'Come convertire la patente estera ad Appenzello Esterno: esame teorico, pratico, corsi e procedura presso l\'Ufficio della circolazione cantonale.',
     'blog.article.patente-guida-appenzello-esterno-conversione.imageAlt': 'Ufficio della circolazione cantonale con insegna ufficiale, luogo dove si convertono le patenti di guida.',
+    'blog.article.avs-cassa-compensazione-canton.title': 'AVS e prestazioni: cassa di compensazione cantonale',
+    'blog.article.avs-cassa-compensazione-canton.excerpt': 'Come funziona la cassa di compensazione cantonale per l\'AVS, il calcolo della rendita e le prestazioni complementari per chi ha lacune contributive.',
+    'blog.article.avs-cassa-compensazione-canton.imageAlt': 'Consulente finanziario esamina i contributi AVS in un ufficio cantonale svizzero',
 };
 
 export default blogMetaChIt;
