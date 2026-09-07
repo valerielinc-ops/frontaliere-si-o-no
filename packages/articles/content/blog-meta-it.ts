@@ -11539,6 +11539,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.emergenza-terra-trasformazione.title': 'Emergenza Terra racconta la grande trasformazione',
     'blog.article.emergenza-terra-trasformazione.excerpt': 'Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio.',
     'blog.article.emergenza-terra-trasformazione.imageAlt': 'Vista aerea del campus SUPSI di Mendrisio, Ticino, con persone che partecipano a un evento.',
+    'blog.article.sciopero-ferroviario-italia-ticino.title': 'Sciopero ferroviario: possibili ritardi in Ticino',
+    'blog.article.sciopero-ferroviario-italia-ticino.excerpt': 'Uno sciopero nazionale delle Ferrovie dello Stato Italiane potrebbe causare disagi anche in Ticino.',
+    'blog.article.sciopero-ferroviario-italia-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;

@@ -5893,6 +5893,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.black-keys-concerto-annullato-berna.title': 'The Black Keys stornieren Konzert in Bern wegen Krankheit',
     'blog.article.black-keys-concerto-annullato-berna.excerpt': 'Die amerikanische Band musste die Aufführung in der Festhalle Bern wegen Krankheit absagen.',
     'blog.article.black-keys-concerto-annullato-berna.imageAlt': 'Abgesagtes Konzert in der Festhalle Bern',
+    'blog.article.mondo-auto-grigio-impressione-colore.title': 'Die Autowelt wird immer grauer und es ist nicht nur ein Eindruck',
+    'blog.article.mondo-auto-grigio-impressione-colore.excerpt': 'Laut einer Analyse des Bundesamtes für Strassen war Rot 1985 mit fast 23 Prozent die beliebteste Farbe für Neuzulassungen. Heute ist dieser Anteil auf 4% gesunken.',
+    'blog.article.mondo-auto-grigio-impressione-colore.imageAlt': 'Eine Schweizer Straße mit Autos in verschiedenen Farben, mit einem Fokus auf graue, schwarze und weiße Autos.',
 };
 
 export default blogMetaChDe;
