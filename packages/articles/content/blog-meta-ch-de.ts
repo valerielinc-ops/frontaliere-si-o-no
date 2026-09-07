@@ -5905,6 +5905,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zurich-hcl-gold-sponsor-2030.title': 'Zurich verlängert mit HCL: Gold Sponsor bis 2030',
     'blog.article.zurich-hcl-gold-sponsor-2030.excerpt': 'Zurich Versicherungen hat ihre Partnerschaft mit dem Hockey Club Lugano bis 2030 verlängert und sich als Gold Sponsor bestätigt.',
     'blog.article.zurich-hcl-gold-sponsor-2030.imageAlt': 'Panoramablick auf den Luganersee mit Hockey Club Lugano und Zurich Versicherung',
+    'blog.article.action-negozio-20esimo-schattdorf.title': 'Action beschleunigt und eröffnet den 20. Shop',
+    'blog.article.action-negozio-20esimo-schattdorf.excerpt': 'Action eröffnet am 17. September sein 20. Geschäft in der Schweiz in Schattdorf, Uri, mit 14 Neueinstellungen vor Ort.',
+    'blog.article.action-negozio-20esimo-schattdorf.imageAlt': 'Luftaufnahme des neuen Action-Ladens in Schattdorf, Uri, Schweiz',
 };
 
 export default blogMetaChDe;
