@@ -11513,6 +11513,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Ohne Empathie kannst du diesen Job nicht machen',
     'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'Empathie wird als unverzichtbare Kompetenz in der Immobilienarbeit beschrieben, mit einer realen Episode der Übernahme, die ohne menschliches Zuhören verwaltet wird.',
     'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'Ein Immobilienprofessional hört einem Kunden in einem modernen Büro in der Schweiz empathisch zu.',
+    'blog.article.disoccupazione-stabile-ticino-2024.title': 'Arbeitslosenquote: 3,0%, monatlich stabil, aber jährlich ansteigend',
+    'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz liegt monatlich stabil bei 3,0%, steigt aber gegenüber dem Vorjahr um 0,2 Punkte.',
+    'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

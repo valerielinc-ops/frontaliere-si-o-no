@@ -87706,6 +87706,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-stabile-ticino-2024': {
+    title: 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
+    description: 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, tasso, stabile, mese',
+    ogTitle: 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
+    ogDescription: 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo",
+      "description": "Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-stabile-ticino-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-07T07:20:24+00:00",
+      "dateModified": "2026-09-07T07:20:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-ticino-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

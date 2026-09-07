@@ -11515,6 +11515,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Senza empatia non sai fare questo lavoro',
     'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'L\'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano.',
     'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'Un professionista del settore immobiliare ascolta empaticamente un cliente in un ufficio moderno in Ticino.',
+    'blog.article.disoccupazione-stabile-ticino-2024.title': 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
+    'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua.',
+    'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

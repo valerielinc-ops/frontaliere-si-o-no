@@ -11516,6 +11516,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Sans empathie, vous ne pouvez pas faire ce travail',
     'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'L\'empathie est décrite comme une compétence indispensable dans le travail immobilier, avec un épisode réel de prise en charge gérée sans écoute humaine.',
     'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'Un professionnel de l\'immobilier écoute empathiquement un client dans un bureau moderne en Suisse.',
+    'blog.article.disoccupazione-stabile-ticino-2024.title': 'Chômage : taux à 3,0 %, stable sur un mois mais en hausse annuelle',
+    'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'Le taux de chômage en Suisse est stable à 3,0% sur une base mensuelle, mais en hausse de 0,2 point sur une base annuelle.',
+    'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

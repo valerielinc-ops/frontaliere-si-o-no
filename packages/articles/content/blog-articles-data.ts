@@ -34392,6 +34392,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-stabile-ticino-2024',
+ category: 'novita',
+ date: '2026-09-07T07:20:24.493Z',
+ image: '/images/blog/disoccupazione-stabile-ticino-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11514,6 +11514,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.empatia-lavoro-immobiliare-ticino.title': 'Without empathy you can\'t do this job',
     'blog.article.empatia-lavoro-immobiliare-ticino.excerpt': 'Empathy is described as an essential skill in real estate work, with a real takeover managed without human listening.',
     'blog.article.empatia-lavoro-immobiliare-ticino.imageAlt': 'A real estate professional empathetically listening to a client in a modern office in Ticino.',
+    'blog.article.disoccupazione-stabile-ticino-2024.title': 'Unemployment: rate at 3.0%, stable per month but increasing annually',
+    'blog.article.disoccupazione-stabile-ticino-2024.excerpt': 'The unemployment rate in Switzerland is stable at 3.0% on a monthly basis, but is up 0.2 points on a yearly basis.',
+    'blog.article.disoccupazione-stabile-ticino-2024.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
 };
 
 export default blogMetaEn;
