@@ -11504,6 +11504,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Leben in Colorina und Arbeiten in Graubünden',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'G-Bewilligung, Besteuerung in der Schweiz, italienische Steuergutschrift, AHV/BVG, KVG und Verfahren: der umfassende Leitfaden für Grenzgänger zwischen Sondrio und Graubünden.',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina in der Provinz Sondrio: typischer Wohnbereich für Grenzgänger, die im Kanton Graubünden arbeiten',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Wohnen in Jovençan, Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Bewilligung G, Quellensteuer, AHV und Lebenshaltungskosten: Praktischer Leitfaden für Personen, die im Aostatal leben und im Wallis arbeiten',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Alpines Tal im Aostatal mit Verbindungsstraße zum Schweizer Wallis an der Grenze',
 };
 
 export default blogMetaDe;

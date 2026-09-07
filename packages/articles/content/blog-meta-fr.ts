@@ -11507,6 +11507,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.title': 'Vivre à Colorina et travailler dans les Grisons',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.excerpt': 'Permis G, fiscalité en Suisse, crédit d\'impôt italien, AVS/LPP, LAMal et procédures : le guide complet pour les frontaliers entre Sondrio et les Grisons.',
     'blog.article.vivere-colorina-lavorare-grigioni-da-frontaliere.imageAlt': 'Colorina dans la province de Sondrio: zone résidentielle pour travailleurs transfrontaliers au canton des Grisons',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.title': 'Vivre à Jovençan, travailler en Valais comme frontalier',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.excerpt': 'Permis G, impôt à la source, AVS et coût de la vie : guide pratique pour ceux qui vivent en Vallée d\'Aoste et travaillent en Valais',
+    'blog.article.vivere-jovencan-lavorare-vallese-frontaliere.imageAlt': 'Paysage de vallée alpine en Vallée d\'Aoste avec route reliant le Valais suisse à la frontière',
 };
 
 export default blogMetaFr;

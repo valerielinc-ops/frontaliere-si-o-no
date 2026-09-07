@@ -87589,6 +87589,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-jovencan-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Jovençan, lavorare in Vallese da frontaliere',
+    description: 'Guida completa per vivere a Jovençan (Italia) e lavorare in Vallese (Svizzera): permesso G, tasse, AVS, costi e cosa sapere prima di trasferirsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, jovençan, lavorare, vallese',
+    ogTitle: 'Vivere a Jovençan e lavorare in Vallese: guida frontaliere',
+    ogDescription: 'Scopri come vivere a Jovençan (Valle d\'Aosta) e lavorare in Vallese (Svizzera) da frontaliere: permesso G, calcolo tasse, contributi AVS, LAMal, costi di vita e vantaggi della scelta. Guida pratica completa con checklist.',
+    canonicalPath: '/articoli-frontaliere/vivere-jovencan-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Jovençan, lavorare in Vallese da frontaliere",
+      "description": "Guida completa per vivere a Jovençan (Italia) e lavorare in Vallese (Svizzera): permesso G, tasse, AVS, costi e cosa sapere prima di trasferirsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-jovencan-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino della Valle d'Aosta con strada di collegamento verso il Vallese svizzero al confine"
+      },
+      "datePublished": "2026-09-07T06:28:11+00:00",
+      "dateModified": "2026-09-07T06:28:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-jovencan-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
