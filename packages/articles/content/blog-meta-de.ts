@@ -11531,6 +11531,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.title': 'Stabile Arbeitslosigkeit in der Schweiz und im Tessin im August 2024',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August mit einem Plus von 0,2 Punkten gegenüber dem Vorjahr stabil bei 3%. Im Tessin beträgt die Rate 2,9%, was einem Anstieg von 0,1 Punkten auf Monatsbasis und 0,3 Punkten auf Jahresbasis entspricht.',
     'blog.article.disoccupazione-stabile-ticino-agosto-2024.imageAlt': 'Luftaufnahme von Lugano mit Bergen und See',
+    'blog.article.disoccupazione-stabile-agosto-2023.title': 'Stabile Arbeitslosigkeit in der Schweiz im August',
+    'blog.article.disoccupazione-stabile-agosto-2023.excerpt': 'Die Arbeitslosenquote in der Schweiz blieb im August stabil bei 3,0%, im Tessin bei 2,9%. Die Zahl der Langzeitarbeitslosen nimmt zu.',
+    'blog.article.disoccupazione-stabile-agosto-2023.imageAlt': 'Luftaufnahme von Lugano mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
