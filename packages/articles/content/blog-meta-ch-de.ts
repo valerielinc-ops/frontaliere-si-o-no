@@ -6019,6 +6019,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Kindergarten in Genf: Tarife und kantonale Zuschüsse',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'In Genf haben Kindergärten, Tages- und Nachschulfamilien modulierte Tarife für das zu versteuernde Einkommen. Kantonale Subventionen senken den Anteil der Familien.',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Eingang einer anerkannten Kita im Kanton Genf mit ankommenden Eltern',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Haus kaufen im Kanton Genf: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Durchschnittliche Preise in Genf, geforderte Eigenmittel, Tragbarkeit des Hypothekendarlehens, Abgaben und Notarkosten.',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Wohnhäuser am Genfersee mit Blick auf die Schweizer Alpen',
 };
 
 export default blogMetaChDe;

@@ -6019,6 +6019,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.title': 'Garderie à Genève : tarifs et subsides cantonaux',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.excerpt': 'À Genève, les crèches, les familles de jour et après l\'école ont des tarifs modulés sur le revenu imposable. Les allocations cantonales réduisent la part à la charge des familles.',
     'blog.article.asilo-nido-custodia-bambini-ginevra-costi.imageAlt': 'Entrée d\'une crèche reconnue dans le canton de Genève avec parents arrivants',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.title': 'Acheter une maison dans le canton de Genève : prix et hypothèque',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.excerpt': 'Prix moyens à Genève, fonds propres requis, viabilité du prêt hypothécaire, taxes de passage et frais de notaire.',
+    'blog.article.comprare-casa-ginevra-mutuo-ipotecario.imageAlt': 'Résidences au bord du lac Léman avec vue sur les Alpes suisses',
 };
 
 export default blogMetaChFr;
