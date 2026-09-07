@@ -2184,22 +2184,19 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
-    // Passthrough rifiutato ≠ motori giu'. Da #7750 la cascata rende '' anche
-    // quando i motori RISPONDONO rendendo la sorgente verbatim, cioe' quando il
-    // testo e' gia' quello della lingua target. Su quel ramo il fallback LLM
-    // qui sotto non ha niente da tradurre: pagherebbe una chiamata per
-    // riprodurre il testo che abbiamo gia', e la scarterebbe subito dopo col
-    // controllo `translated.toLowerCase() !== cleanDesc.toLowerCase()`. Il
-    // segnale e' quello di `freeTranslateWithRetryDetailed`, che dichiara
-    // `passthrough` solo se un tier ha reso la sorgente E nessun tier ha
-    // fallito nella stessa chiamata: coi motori giu' resta `false` e si passa
-    // di qui come prima, perche' li' il testo e' davvero da tradurre.
-    // Si tiene la sorgente (il '' del contratto: il chiamante ricade sul testo
-    // sorgente, come documentato in `isSourcePassthrough`) e si memoizza la
-    // sentinella, cioe' esattamente lo stato in cui la funzione finiva comunque
-    // dopo aver speso la chiamata — zero byte pubblicati cambiano, cambia solo
-    // che il budget LLM non viene bruciato su una stringa che non ne ha bisogno.
-    if (deeplPassthrough) {
+    // Passthrough rifiutato: due casi opposti sotto lo stesso ''. Da #7750 la
+    // cascata rende '' sia coi motori giu' sia quando i motori RISPONDONO
+    // rendendo la sorgente verbatim. Ma «i motori hanno reso la sorgente» non
+    // dimostra «il testo e' gia' nella lingua target»: la misura che motiva
+    // #7750 e' il verso opposto, cioe' body che avevano bisogno di traduzione e
+    // che i tier gratuiti hanno echeggiato. Su quegli echi genuini l'LLM
+    // traduce davvero e la sua uscita viene pubblicata, quindi il rung resta.
+    // Si salta il modello SOLO quando il testo e' verificabilmente gia' nel
+    // locale richiesto: li' la chiamata riprodurrebbe cio' che abbiamo gia' e
+    // il controllo `translated !== cleanDesc` la scarterebbe comunque.
+    // `detectLanguage` ricade su `sourceLang` (!== locale) quando il segnale e'
+    // ambiguo, cioe' nel dubbio si traduce.
+    if (deeplPassthrough && detectLanguage(cleanDesc, sourceLang) === locale) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
       return '';
     }

@@ -129,13 +129,16 @@ async function translateDescription(description, locale, sourceLang) {
   const { text: deepl, passthrough } = await translateWithDeepL(clean, sourceLang, locale);
   if (deepl && deepl.length >= 120) return deepl;
 
-  // Passthrough rifiutato != motore giu'. Se DeepL ha reso la sorgente, il
-  // testo e' gia' nella lingua target: chiamare il modello qui sotto costa la
-  // risorsa scarsa della pipeline per riprodurre quello che abbiamo gia', e il
-  // controllo `translated !== clean` lo scarterebbe comunque. Si rende '', cioe'
-  // il contratto «nessuna traduzione»: il chiamante tiene la sorgente, lo stesso
-  // testo che il passthrough avrebbe scritto.
-  if (passthrough) return '';
+  // Passthrough rifiutato != motore giu', ma «DeepL ha reso la sorgente» non
+  // dimostra «il testo e' gia' nella lingua target»: un tier che echeggia un
+  // body traducibile produce lo stesso segnale, e li' l'LLM qui sotto traduce
+  // davvero. Si salta il modello SOLO se il testo e' verificabilmente gia' nel
+  // locale richiesto — allora la chiamata riprodurrebbe quello che abbiamo gia'
+  // e il controllo `translated !== clean` la scarterebbe comunque — e si rende
+  // '', cioe' il contratto «nessuna traduzione»: il chiamante tiene la sorgente.
+  // `detectLanguage` ricade su `sourceLang` (!== locale) sul segnale ambiguo:
+  // nel dubbio si traduce.
+  if (passthrough && detectLanguage(clean, sourceLang) === locale) return '';
 
   // Fallback to LLM
   const prompt = [
