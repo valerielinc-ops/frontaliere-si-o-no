@@ -6007,6 +6007,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-canton-ginevra.title': 'Allocations familiales Genève : montants et demande',
     'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Guide complet des allocations familiales et de formation dans le canton de Genève : montants mensuels, conditions et caisses de compensation.',
     'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Vue du canton de Genève avec des bâtiments historiques et l\'eau',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Système scolaire dans le canton de Genève : cycles, inscription et calendrier',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Comment fonctionne l\'école obligatoire à Genève : cycles, âge d\'inscription, langues d\'enseignement et passage au lycée.',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Salle de classe primaire dans le canton de Genève avec manuels en français',
 };
 
 export default blogMetaChFr;

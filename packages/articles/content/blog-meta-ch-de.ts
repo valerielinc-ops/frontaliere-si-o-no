@@ -6007,6 +6007,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-canton-ginevra.title': 'Familienzulagen Genf: Beträge und Antrag',
     'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Vollständiger Leitfaden für Familien- und Ausbildungszulagen im Kanton Genf: Monatsbeträge, Konditionen und Ausgleichskassen.',
     'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Ansicht des Kantons Genf mit historischen Gebäuden und Wasserblick',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Schulsystem im Kanton Genf: Zyklen, Einschreibung und Kalender',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Wie funktioniert die obligatorische Schule in Genf: Zyklen, Einschreibungsalter, Unterrichtssprachen und Übergang in die Sekundarstufe II?',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Primarschulzimmer im Kanton Genf mit französischen Lehrmitteln',
 };
 
 export default blogMetaChDe;

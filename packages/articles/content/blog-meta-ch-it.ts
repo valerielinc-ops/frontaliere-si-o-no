@@ -6007,6 +6007,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-canton-ginevra.title': 'Assegni familiari Ginevra: importi e domanda',
     'blog.article.assegni-familiari-canton-ginevra.excerpt': 'Guida completa agli assegni familiari e di formazione nel Cantone di Ginevra: importi mensili, condizioni e casse di compensazione.',
     'blog.article.assegni-familiari-canton-ginevra.imageAlt': 'Panorama del Cantone di Ginevra con edifici storici e vista sull\'acqua',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.title': 'Sistema scolastico nel Canton Ginevra: cicli, iscrizione e calendario',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.excerpt': 'Come funziona la scuola dell\'obbligo a Ginevra: cicli, età di iscrizione, lingue di insegnamento e passaggio alle medie superiori.',
+    'blog.article.sistema-scolastico-canton-ginevra-iscrizione-cicli.imageAlt': 'Scuola primaria a Ginevra: aula con arredi moderni e libri in francese',
 };
 
 export default blogMetaChIt;

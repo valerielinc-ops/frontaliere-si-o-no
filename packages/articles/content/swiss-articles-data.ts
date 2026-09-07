@@ -18019,6 +18019,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sistema-scolastico-canton-ginevra-iscrizione-cicli',
+    category: 'pratico',
+    date: '2026-09-07T16:16:52.427Z',
+    image: '/images/blog/sistema-scolastico-canton-ginevra-iscrizione-cicli.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
