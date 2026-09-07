@@ -141,6 +141,32 @@ export function ownerEmitLocale(locale: string): string {
 const planned = new Set<string>();
 
 /**
+ * Landing pathnames this build EMITS as junk-doorway withdrawals (#7316):
+ * a real 200 document carrying `noindex,follow` and a canonical to the hub.
+ *
+ * Deliberately a SECOND set rather than an entry in `planned`: a withdrawal is
+ * still not a landing this build advertises, so it must keep answering `true`
+ * to {@link isStaleKeywordLanding} and keep losing its own hreflang block.
+ * What it is NOT is a MISSING target — and that is the distinction `planned`
+ * alone cannot draw (issue #7756).
+ *
+ * The plan gate exists for the one judgement a `BUILD_LOCALE` shard cannot
+ * make from disk: "does the page behind this alternate exist ANYWHERE?". Before
+ * #7316 "unplanned" and "never written" were the same set, so answering the
+ * first question answered the second. Retirement broke that identity: the FR
+ * withdrawal of a keyword still live in IT/EN/DE is emitted, on disk, and
+ * resolvable — yet unplanned. Treating it as missing made the live IT, EN and
+ * DE siblings each drop their ENTIRE five-entry block, so one junk locale cost
+ * three healthy pages their whole cross-locale cluster.
+ *
+ * Fail-closed without needing an owner seal: a target absent from BOTH sets is
+ * treated as missing exactly as before, so an incomplete retirement registry
+ * degrades to the pre-#7756 behaviour (strip) rather than to keeping a broken
+ * alternate. Only a path a producer positively declares withdrawn is exempt.
+ */
+const retired = new Set<string>();
+
+/**
  * Owners that have reported in. BOTH emitters of this URL family must
  * register before the plan may be treated as authoritative.
  *
@@ -180,15 +206,42 @@ export function registerKeywordLandingPaths(
   owners.add(owner);
 }
 
+/**
+ * Register the junk-doorway withdrawals this build writes (issue #7316).
+ *
+ * Called by the SAME producer that registers the plan, on BOTH of its build
+ * paths (emit and cache HIT), with the paths of every locale — not just the
+ * shard's own. A shard must be able to answer "is the FR target withdrawn?"
+ * while emitting IT, which is the whole reason this is a registry and not a
+ * filesystem check.
+ *
+ * No owner seal: see the note on {@link retired}. Missing registrations
+ * degrade to the strip-everything behaviour that predates #7756.
+ */
+export function registerRetiredKeywordLandingPaths(paths: readonly string[]): void {
+  for (const p of paths) retired.add(normalizeLandingPath(p));
+}
+
+/** Is this URL a withdrawal this build emits — present on disk, but unplanned? */
+export function isRetiredKeywordLanding(urlOrPath: string): boolean {
+  return retired.has(normalizeLandingPath(urlOrPath));
+}
+
 /** How many distinct paths the plan holds. Test/diagnostic surface. */
 export function keywordLandingPlanSize(): number {
   return planned.size;
+}
+
+/** How many withdrawals are registered. Test/diagnostic surface. */
+export function retiredKeywordLandingCount(): number {
+  return retired.size;
 }
 
 /** Drop all plan state. Tests only — a build registers once and never resets. */
 export function __resetKeywordLandingPlanForTests(): void {
   planned.clear();
   owners.clear();
+  retired.clear();
 }
 
 /** Normalise a URL or pathname to the registry's key form. */
@@ -416,8 +469,21 @@ export function transformHreflang(
   if (hasKeywordLandingPlan()) {
     const pageIsStale =
       pagePath !== undefined && isStaleKeywordLanding(landingPathFromDistRelative(pagePath));
+    // `!isRetiredKeywordLanding`: a registered junk-doorway withdrawal (#7316)
+    // is unplanned but EMITTED — a 200 `noindex,follow` document at that exact
+    // path. The judgement this gate makes is "the target is written nowhere",
+    // which a withdrawal contradicts, so it must not count as one (#7756).
+    // Without the exemption a keyword retired in ONE locale cost each of its
+    // live siblings their entire block: 4 locales + x-default is all-or-nothing
+    // (audit-hreflang invariant 1), so a thinned set is not the alternative —
+    // keeping the resolvable block whole is. The withdrawal's own page is
+    // unaffected: it is still absent from `planned`, so `pageIsStale` still
+    // strips its hreflang, which is the point of withdrawing it.
     const hasUnplannedTarget = alternates.some(
-      (a) => isKeywordLandingPath(a.url) && !isPlannedKeywordLanding(a.url),
+      (a) =>
+        isKeywordLandingPath(a.url) &&
+        !isPlannedKeywordLanding(a.url) &&
+        !isRetiredKeywordLanding(a.url),
     );
     if (pageIsStale || hasUnplannedTarget) {
       let stripped = html;
