@@ -61,6 +61,7 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
+import { normalizeJobUrl } from './lib/job-url-host.mjs';
 import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -351,6 +352,7 @@ function humanizeCompanyKey(key) {
  *     no-op for slices written after this change).
  *   - `addressLocality` is backfilled from the (sanitized) `location`.
  *   - `addressRegion` defaults to the canton code.
+ *   - `url` is rewritten to its absolute form (`normalizeJobUrl`).
  *
  * Deliberately does NOT invent `postalCode` or `streetAddress`: forging an HQ
  * postal code is exactly what slipped foreign jobs past the whitelist (the
@@ -369,16 +371,36 @@ function humanizeCompanyKey(key) {
  * consumption (`job.addressCountry || 'CH'`), where it is a local, reversible
  * read-time choice, not a persisted assertion.
  *
+ * The `url` rewrite is the one place where the scheme normalization already
+ * used to READ a row's host (`jobUrlHost`, #7721/#7758) is also WRITTEN down.
+ * A scheme-less `url` that survives to disk is a broken apply CTA on the job
+ * page — a bare `med-ipersonal.ch/jobs/1` in an `href` resolves relative to
+ * frontaliereticino.ch — and a liveness probe that fails on the string's
+ * shape instead of on the listing. Write-time is the right choke point for
+ * the same reason `location` is: it is the single funnel every slice passes
+ * through, so the consumers stay free of a per-caller repair. Unlike
+ * `addressCountry` (#5384) this asserts nothing new about the row — the
+ * authority is exactly the one the source wrote, only spelled absolutely.
+ *
  * @param {object[]} jobs jobs about to be persisted in a slice (mutated in place)
- * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number }}
+ * @returns {{ locationFixed: number, localityBackfilled: number, regionDefaulted: number, urlNormalized: number }}
  */
 export function normalizeParsedJobsForSlice(jobs) {
   let locationFixed = 0;
   let companyFixed = 0;
   let localityBackfilled = 0;
   let regionDefaulted = 0;
+  let urlNormalized = 0;
   for (const job of jobs) {
     if (!job || typeof job !== 'object') continue;
+
+    if (typeof job.url === 'string' && job.url.trim()) {
+      const absoluteUrl = normalizeJobUrl(job.url);
+      if (absoluteUrl && absoluteUrl !== job.url) {
+        job.url = absoluteUrl;
+        urlNormalized++;
+      }
+    }
 
     const localityFallback = cantonFallbackLocality(job);
 
@@ -422,7 +444,7 @@ export function normalizeParsedJobsForSlice(jobs) {
       regionDefaulted++;
     }
   }
-  return { locationFixed, localityBackfilled, regionDefaulted };
+  return { locationFixed, localityBackfilled, regionDefaulted, urlNormalized };
 }
 
 function assemblerIdentity(job = {}) {
@@ -1693,8 +1715,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // gate so corrupted location strings never reach the assemble-time Swiss
   // whitelist (the biggest dropper). Idempotent with the assemble-time net.
   const norm = normalizeParsedJobsForSlice(jobs);
-  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0) {
-    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}`);
+  if (norm.locationFixed > 0 || norm.localityBackfilled > 0 || norm.regionDefaulted > 0 || norm.urlNormalized > 0) {
+    console.log(`  🧭 Upstream normalize: location cleaned ${norm.locationFixed}, addressLocality backfilled ${norm.localityBackfilled}, addressRegion defaulted ${norm.regionDefaulted}, url absolutized ${norm.urlNormalized}`);
   }
 
   // Quality gate: flag jobs where any locale has content in the wrong language.
