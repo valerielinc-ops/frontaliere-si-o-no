@@ -10000,7 +10000,7 @@
       "slugByLocale": {
         "it": "manager-di-boutique-buccellati-geneva",
         "en": "boutique-manager-buccellati-geneva",
-        "de": "boutique-manager-richemont-geneva",
+        "de": "shopmanager-buccellati-geneva",
         "fr": "boutique-manager-richemont-geneva"
       },
       "company": "Buccellati",
@@ -10081,7 +10081,8 @@
           "boutique-director-richemont-geneva"
         ],
         "de": [
-          "boutique-direktor-vacheron-constantin-geneva"
+          "boutique-direktor-vacheron-constantin-geneva",
+          "boutique-manager-richemont-geneva"
         ],
         "fr": [
           "boutique-director-vacheron-constantin-geneva",
@@ -12438,7 +12439,7 @@
       "slugByLocale": {
         "it": "technicien-de-maintenance-richemont-le-cret-du-locle",
         "en": "maintenance-technician-cartier-manufacture-le-cret-du-locle",
-        "de": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle",
+        "de": "technik-fur-instandhaltung-cartier-manufacture-le-cret-du-locle",
         "fr": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -12487,13 +12488,15 @@
         ],
         "de": [
           "wartungstechniker-cartier-manufacture-le-cret-du-locle",
-          "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle"
+          "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle",
+          "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
         ]
       },
       "previousSlugs": [
         "wartungstechniker-cartier-manufacture-le-cret-du-locle",
         "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
-        "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle"
+        "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle",
+        "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-08-25T10:01:33.214Z",
       "salaryMin": 60500,
@@ -12654,7 +12657,7 @@
       "slugByLocale": {
         "it": "supply-planner-richemont-neuchatel",
         "en": "supply-planner-richemont-neuchatel",
-        "de": "supply-planner-panerai-neuchatel",
+        "de": "versorgungsplaner-panerai-neuchatel",
         "fr": "supply-planner-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -12702,12 +12705,12 @@
           "piano-di-alimentazione-panerai-neuchatel"
         ],
         "de": [
-          "versorgungsplaner-panerai-neuchatel"
+          "supply-planner-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "piano-di-alimentazione-panerai-neuchatel",
-        "versorgungsplaner-panerai-neuchatel"
+        "supply-planner-panerai-neuchatel"
       ],
       "firstSeenAt": "2026-08-27T00:54:17.636Z",
       "salaryMin": 60500,
@@ -13031,7 +13034,7 @@
         "it": "manager-di-boutique-iwc-zurich",
         "en": "boutique-manager-iwc-zurich",
         "de": "boutique-manager-richemont-zurich",
-        "fr": "boutique-manager-richemont-zurich"
+        "fr": "directeur-de-la-boutique-iwc-zurich"
       },
       "company": "IWC",
       "companyKey": "richemont",
@@ -13075,8 +13078,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
-          "directeur-de-la-boutique-iwc-zurich",
-          "gestionnaire-de-boutiques-iwc-zurich"
+          "gestionnaire-de-boutiques-iwc-zurich",
+          "boutique-manager-richemont-zurich"
         ],
         "it": [
           "boutique-manager-richemont-zurich"
@@ -13084,7 +13087,6 @@
       },
       "previousSlugs": [
         "boutique-manager-richemont-zurich",
-        "directeur-de-la-boutique-iwc-zurich",
         "gestionnaire-de-boutiques-iwc-zurich"
       ],
       "firstSeenAt": "2026-08-31T17:15:49.486Z",

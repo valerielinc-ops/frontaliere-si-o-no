@@ -1203,7 +1203,7 @@
         "de": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
         "it": "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich",
         "en": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
-        "fr": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        "fr": "personnel-de-l-evenement-en-production-aide-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1249,6 +1249,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
           "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
@@ -2032,7 +2035,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -2076,15 +2079,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
-        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
+          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"

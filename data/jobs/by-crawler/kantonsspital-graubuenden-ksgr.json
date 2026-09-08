@@ -23,12 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-07T23:36:54.925Z",
-      "slug": "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur",
+      "slug": "medico-principale-medico-principale-cura-intensiva-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur",
-        "it": "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur",
-        "en": "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur",
-        "fr": "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur"
+        "it": "medico-principale-medico-principale-cura-intensiva-kantonsspital-graubunden-chur",
+        "en": "chief-physician-chief-physician-intensive-care-kantonsspital-graubunden-chur",
+        "fr": "medecin-en-chef-medecin-en-chef-soins-intensifs-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Chefarzt / Chefärztin Intensivmedizin",
@@ -58,7 +58,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-07T23:36:54.925Z"
+      "firstSeenAt": "2026-09-07T23:36:54.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "chefarzt-chefarztin-intensivmedizin-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10176857",

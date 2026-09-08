@@ -992,13 +992,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "global-managing-director-lefay-marriott-root-d4",
-          "global-managing-direttore-lefay-marriott-international-root-d4"
+          "global-managing-director-lefay-marriott-root-d4"
         ]
       },
       "previousSlugs": [
-        "global-managing-director-lefay-marriott-root-d4",
-        "global-managing-direttore-lefay-marriott-international-root-d4"
+        "global-managing-director-lefay-marriott-root-d4"
       ],
       "salaryMin": 108500,
       "salaryMax": 192000,
@@ -1385,12 +1383,12 @@
     },
     {
       "id": "marriott-28c48241ca61",
-      "slug": "coordinator-human-resources-cdd-1-mois-marriott-geneva",
+      "slug": "coordinatore-risorse-umane-cdd-1-mois-marriott-international-geneva",
       "slugByLocale": {
         "en": "coordinator-human-resources-cdd-1-mois-marriott-geneva",
-        "it": "coordinator-human-resources-cdd-1-mois-marriott-geneva",
-        "de": "coordinator-human-resources-cdd-1-mois-marriott-geneva",
-        "fr": "coordinator-human-resources-cdd-1-mois-marriott-geneva"
+        "it": "coordinatore-risorse-umane-cdd-1-mois-marriott-international-geneva",
+        "de": "koordinator-personalwesen-cdd-1-mois-marriott-international-geneva",
+        "fr": "coordinateur-ressources-humaines-cdd-1-mois-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1456,7 +1454,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-09-07T23:42:10.806Z"
+      "firstSeenAt": "2026-09-07T23:42:10.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinator-human-resources-cdd-1-mois-marriott-geneva"
+        ],
+        "de": [
+          "coordinator-human-resources-cdd-1-mois-marriott-geneva"
+        ],
+        "fr": [
+          "coordinator-human-resources-cdd-1-mois-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "coordinator-human-resources-cdd-1-mois-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-ae2a2cc7c199",

@@ -8099,11 +8099,11 @@
     },
     {
       "id": "ksb-48e185104441",
-      "slug": "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
+      "slug": "mpa-segretario-medico-in-rheumatology-baden-brugg-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
-        "it": "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
-        "en": "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch",
+        "it": "mpa-segretario-medico-in-rheumatology-baden-brugg-100-kantonsspital-baden-ksb-baden",
+        "en": "mpa-medical-secretary-in-rheumatology-baden-brugg-100-kantonsspital-baden-ksb-baden",
         "fr": "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -8160,7 +8160,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T23:41:22.888Z"
+      "firstSeenAt": "2026-09-07T23:41:22.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
+        ],
+        "en": [
+          "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-arztsekretar-in-rheumatologie-baden-brugg-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-e447332a22cf",

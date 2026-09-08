@@ -1371,7 +1371,7 @@
         "it": "financial-contabile-swissquote-gland",
         "en": "financial-accountant-swissquote-gland",
         "de": "financial-buchhalter-swissquote-gland",
-        "fr": "financial-accountant-swissquote-gland"
+        "fr": "comptable-financier-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1415,8 +1415,7 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "financial-accountant-swissquote-gland",
-        "comptable-financier-swissquote-gland"
+        "financial-accountant-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1426,7 +1425,7 @@
           "financial-accountant-swissquote-gland"
         ],
         "fr": [
-          "comptable-financier-swissquote-gland"
+          "financial-accountant-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-21T21:37:48.952Z",
@@ -2268,7 +2267,7 @@
         "it": "ufficiale-di-compliance-sanzioni-swissquote-gland-c308c2",
         "en": "compliance-officer-sanctions-swissquote-gland",
         "de": "compliance-officer-sanctions-swissquote-gland",
-        "fr": "compliance-officer-sanctions-swissquote-gland"
+        "fr": "agent-de-conformite-sanctions-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2331,8 +2330,8 @@
           "compliance-officer-sanktionen-swissquote-gland"
         ],
         "fr": [
-          "agent-de-conformite-sanctions-swissquote-gland",
-          "agent-de-conformite-sanctions-swissquote-gland-c308c2"
+          "agent-de-conformite-sanctions-swissquote-gland-c308c2",
+          "compliance-officer-sanctions-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-09-04T13:45:29.723Z",

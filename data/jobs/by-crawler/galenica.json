@@ -435,7 +435,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "fr": "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
       },
@@ -453,8 +453,7 @@
           "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern"
         ],
         "en": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9"
         ],
         "de": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -905,7 +904,7 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-bern",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
+        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
       },
@@ -934,8 +933,7 @@
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
@@ -3076,7 +3074,7 @@
       "slug": "galenica-amavita-assistente-di-farmacia-afc-zurich",
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-zurich",
-        "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+        "en": "afc-pharmacy-assistant-amavita-galenica-zurich",
         "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
       },
@@ -3115,6 +3113,9 @@
           "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
           "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
           "pharmaassistent-in-afc-amavita-galenica-zurich"
+        ],
+        "en": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
         ]
       },
       "previousSlugs": [
@@ -3125,7 +3126,8 @@
         "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
         "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc1rd",
         "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-        "pharmaassistent-in-afc-amavita-galenica-zurich"
+        "pharmaassistent-in-afc-amavita-galenica-zurich",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
       ]
     },
     {
@@ -8475,7 +8477,7 @@
       "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-zurich",
       "slugByLocale": {
         "it": "galenica-coop-vitality-assistente-di-farmacia-afc-zurich",
-        "en": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
+        "en": "afc-pharmacy-assistant-coop-vitality-galenica-zurich",
         "de": "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich",
         "fr": "galenica-coop-vitality-assistant-e-en-pharmacie-cfc-zurich"
       },
@@ -8503,7 +8505,15 @@
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",

@@ -4980,12 +4980,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-e8351ee55aec",
-      "slug": "collaboratore-trice-wascheversorgung-spitaler-schaffhausen",
+      "slug": "fornitura-dei-dipendenti-laundry-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "mitarbeiter-in-wascheversorgung-spitaeler-schaffhausen-schaffhausen",
-        "it": "collaboratore-trice-wascheversorgung-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-wascheversorgung-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-wascheversorgung-spitaler-schaffhausen-schaffhausen"
+        "it": "fornitura-dei-dipendenti-laundry-spitaler-schaffhausen-schaffhausen",
+        "en": "employee-laundry-supply-spitaler-schaffhausen-schaffhausen",
+        "fr": "employes-approvisionnement-en-blanchisserie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -5031,11 +5031,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-wascheversorgung-spitaeler-schaffhausen-schaffhausen"
+          "mitarbeiter-in-wascheversorgung-spitaeler-schaffhausen-schaffhausen",
+          "collaboratore-trice-wascheversorgung-spitaler-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-wascheversorgung-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-wascheversorgung-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-wascheversorgung-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-wascheversorgung-spitaeler-schaffhausen-schaffhausen",
+        "collaboratore-trice-wascheversorgung-spitaler-schaffhausen",
+        "mitarbeiter-in-wascheversorgung-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

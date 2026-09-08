@@ -3846,8 +3846,7 @@
         "administrative-secretary-in-universitat-zurich-schlieren",
         "verwaltungssekretar-in-uzh-schlieren",
         "secretaire-administratif-universitat-zurich-schlieren",
-        "verwaltungssekretar-in-universitat-zurich-schlieren",
-        "medico-senior-in-universitat-zurich-zurich"
+        "verwaltungssekretar-in-universitat-zurich-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3865,8 +3864,7 @@
           "administrative-secretary-in-universitat-zurich-schlieren",
           "verwaltungssekretar-in-uzh-schlieren",
           "secretaire-administratif-universitat-zurich-schlieren",
-          "verwaltungssekretar-in-universitat-zurich-schlieren",
-          "medico-senior-in-universitat-zurich-zurich"
+          "verwaltungssekretar-in-universitat-zurich-schlieren"
         ],
         "en": [
           "medical-secretary-in-universitat-zurich-zurich"
@@ -9240,13 +9238,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "msca-doctoral-position-on-balancing-individual-ai-augmentation-with-organisational",
-        "msca-doctoral-position-on-balancing-individual-ai-augmentation-con-la-stabilita-organizzativa-universitat-zurich-zurich"
+        "msca-doctoral-position-on-balancing-individual-ai-augmentation-with-organisational"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "msca-doctoral-position-on-balancing-individual-ai-augmentation-with-organisational",
-          "msca-doctoral-position-on-balancing-individual-ai-augmentation-con-la-stabilita-organizzativa-universitat-zurich-zurich"
+          "msca-doctoral-position-on-balancing-individual-ai-augmentation-with-organisational"
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:08.384Z",
@@ -9739,12 +9735,12 @@
     },
     {
       "id": "uzh-039073398f58",
-      "slug": "gastprofessur-in-soziologie-universitat-zurich-zuirch",
+      "slug": "professoressa-ospite-in-sociologia-universitat-zurich-zuirch",
       "slugByLocale": {
         "de": "gastprofessur-in-soziologie-uzh-zuirch",
-        "it": "gastprofessur-in-soziologie-universitat-zurich-zuirch",
-        "en": "gastprofessur-in-soziologie-uzh-zuirch",
-        "fr": "gastprofessur-in-soziologie-uzh-zuirch"
+        "it": "professoressa-ospite-in-sociologia-universitat-zurich-zuirch",
+        "en": "guest-professorship-in-sociology-universitat-zurich-zuirch",
+        "fr": "professeur-invite-en-sociologie-universitat-zurich-zuirch"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9790,11 +9786,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gastprofessur-in-soziologie-uzh-zuirch",
+          "gastprofessur-in-soziologie-universitat-zurich-zuirch"
+        ],
+        "en": [
+          "gastprofessur-in-soziologie-uzh-zuirch"
+        ],
+        "fr": [
           "gastprofessur-in-soziologie-uzh-zuirch"
         ]
       },
       "previousSlugs": [
-        "gastprofessur-in-soziologie-uzh-zuirch"
+        "gastprofessur-in-soziologie-uzh-zuirch",
+        "gastprofessur-in-soziologie-universitat-zurich-zuirch"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

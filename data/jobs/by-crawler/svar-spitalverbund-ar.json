@@ -563,12 +563,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-9ee3e9094b15",
-      "slug": "hilfskochin-hilfskoch-befristet-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "assistente-cuoco-chef-temporaneo-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau",
-        "it": "hilfskochin-hilfskoch-befristet-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau",
-        "fr": "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau"
+        "it": "assistente-cuoco-chef-temporaneo-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "assistant-cook-chef-temporary-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "chef-adjoint-cuisinier-temporaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -614,11 +614,19 @@
       "externalId": "4066473",
       "previousSlugsByLocale": {
         "it": [
+          "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau",
+          "hilfskochin-hilfskoch-befristet-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau"
+        "hilfskochin-hilfskoch-befristet-svar-spitalverbund-ar-herisau",
+        "hilfskochin-hilfskoch-befristet-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 64500,
       "salaryMax": 81000,
@@ -637,12 +645,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-91a33d221980",
-      "slug": "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
+      "slug": "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
-        "it": "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
-        "en": "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau",
-        "fr": "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau"
+        "it": "cuoco-ausiliario-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "auxiliary-cook-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "cuisiniere-auxiliaire-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -699,7 +707,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T23:27:16.186Z"
+      "firstSeenAt": "2026-09-07T23:27:16.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-ebc210a4268a",
