@@ -6106,6 +6106,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Einbürgerung Luzern: Genehmigungen, Kosten und Verfahren',
     'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Vollständiger Leitfaden zur ordentlichen Einbürgerung im Kanton Luzern: 10 Jahre Aufenthalt mit Ausweis C, Integrationsvoraussetzungen und deutscher Sprache B1, 12-24 Monate, Kantons- und Gemeindesteuern.',
     'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Luzerner Gemeindeamt mit Schweizer Naturalisierungsformularen und Bürgerschaftsdokumenten auf Verwaltungstisch',
+    'blog.article.traffico-aereo-svizzero-cresce.title': 'Schweizer Luftverkehr wächst, aber die Emissionen steigen',
+    'blog.article.traffico-aereo-svizzero-cresce.excerpt': 'Im Jahr 2025 übertraf die Zivilluftfahrt die Vor-Covid-Zahlen: 1,4 Millionen Flugbewegungen (+5%), 60,5 Millionen Passagiere (+4%). Die CO2-Emissionen steigen jedoch um 3 %.',
+    'blog.article.traffico-aereo-svizzero-cresce.imageAlt': 'Luftaufnahme der Schweizer Alpenlandschaft mit Flugzeug bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;

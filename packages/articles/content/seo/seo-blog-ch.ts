@@ -79268,6 +79268,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-aereo-svizzero-cresce': {
+    title: 'Traffico aereo svizzero cresce, ma le emissioni salgono',
+    description: 'Nel 2025 aviazione civile svizzera ha superato numeri pre-Covid con 1,4 milioni di movimenti e 60,5 milioni di passeggeri. Ma emissioni CO2 salgono del 3%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, aereo, svizzero, cresce',
+    ogTitle: 'Aviazione svizzera cresce, emissioni CO2 in rialzo nel 2025',
+    ogDescription: 'Nel 2025 l\'aviazione civile svizzera ha superato i numeri pre-Covid con 1,4 milioni di movimenti e 60,5 milioni di passeggeri. Tuttavia, le emissioni CO2 sono salite del 3%. I dati UST indicano una ripresa economica ma anche una sfida ambientale',
+    canonicalPath: '/articoli-svizzera/traffico-aereo-svizzero-cresce/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico aereo svizzero cresce, ma le emissioni salgono",
+      "description": "Nel 2025 aviazione civile svizzera ha superato numeri pre-Covid con 1,4 milioni di movimenti e 60,5 milioni di passeggeri. Ma emissioni CO2 salgono del 3%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-aereo-svizzero-cresce.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del paesaggio alpino svizzero con aereo in volo al tramonto"
+      },
+      "datePublished": "2026-09-08T20:34:24+00:00",
+      "dateModified": "2026-09-08T20:34:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/traffico-aereo-svizzero-cresce/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
