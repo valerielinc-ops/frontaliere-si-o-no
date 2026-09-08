@@ -1,6 +1,6 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-09-08T13:33:51.665Z",
+  "assembledAt": "2026-09-08T23:22:31.490Z",
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
@@ -34,7 +34,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:35.478Z",
+      "crawledAt": "2026-09-08T23:22:15.782Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -116,7 +116,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:34.701Z",
+      "crawledAt": "2026-09-08T23:22:15.069Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:33.629Z",
+      "crawledAt": "2026-09-08T23:22:14.306Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "slug": "quantitative-analista-trafigura-geneva",
       "slugByLocale": {
         "it": "quantitative-analista-trafigura-geneva",
-        "en": "quantitative-analyst-trafigura-geneva",
+        "en": "quantitative-analyst-trafigura-ch",
         "de": "risikoquantenanalytiker-trafigura-geneva",
         "fr": "risk-quant-analyste-trafigura-geneva"
       },
@@ -276,7 +276,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:32.764Z",
+      "crawledAt": "2026-09-08T23:22:13.556Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -296,8 +296,8 @@
       "previousSlugsByLocale": {
         "en": [
           "risk-quant-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-geneva"
+          "quantitative-analyst-trafigura-geneva",
+          "quantitative-analyst-trafigura-ch"
         ],
         "it": [
           "risk-quant-analyst-trafigura-ch",
@@ -363,7 +363,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:31.837Z",
+      "crawledAt": "2026-09-08T23:22:12.821Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:31.057Z",
+      "crawledAt": "2026-09-08T23:22:12.116Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -474,27 +474,27 @@
     },
     {
       "id": "trafigura-e40b9fce0948",
-      "slug": "head-of-treasury-payments-technology-trafigura-ch",
+      "slug": "responsabile-treasury-payments-technology-trafigura-geneva",
       "slugByLocale": {
+        "it": "responsabile-treasury-payments-technology-trafigura-geneva",
         "en": "head-of-treasury-payments-technology-trafigura-ch",
-        "it": "head-of-treasury-payments-technology-trafigura-ch",
-        "de": "head-of-treasury-payments-technology-trafigura-ch",
-        "fr": "head-of-treasury-payments-technology-trafigura-ch"
+        "de": "leiter-treasury-payments-technology-trafigura-geneva",
+        "fr": "responsable-treasury-payments-technology-trafigura-geneva"
       },
       "company": "Trafigura",
       "companyKey": "trafigura",
       "companyDomain": "trafigura.com",
       "title": "Head of Treasury & Payments Technology",
       "titleByLocale": {
-        "en": "Head of Treasury & Payments Technology",
         "it": "Responsabile Treasury & Payments Technology",
+        "en": "Head of Treasury & Payments Technology",
         "de": "Leiter Treasury & Payments Technology",
         "fr": "Responsable Treasury & Payments Technology"
       },
       "description": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•",
       "descriptionByLocale": {
-        "en": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•",
         "it": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•",
+        "en": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•",
         "de": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•",
         "fr": "Main Purpose\nTrafigura is recruiting the IT counterpart to the Global Head of Treasury Technology: the technology delivery owner for the Group Treasury transformation, sitting in Finance & Corporate Technology. The two roles operate as a two-in-a-box — the business-side Head owns the roadmap, requirements, adoption and value; this role owns technical delivery, integration and platform health.\nScope spans Kyriba as the group treasury management and payment hub platform, the integration layer feeding it from the ERP, trading and back-office estate, the reconciliation around it, emerging settlement rails including digital assets, and the AI-assisted automation being built across all of it. The programme is partner-led: the vendor owns the engine and bank connectivity and the implementation partner configures, while IT owns the upstream integration, the data flows, security enablement and testing.\n\nKey Responsibilities:\n\nStrategic Leadership\n\n• Own the IT delivery plan — priorities, sequencing, budget and resourcing — defend ring-fenced capacity where competing programmes hold priority, and build the delivery, business analysis and architecture capability behind it\n\n• Close the integration design: one baselined target design across the upstream estate before go-live, delivered incrementally, with decisions recorded and held\n\nTreasury Technology Infrastructure\n\n• Own the upstream integration layer and middleware as a product — build, observability and dual-routing while legacy and target run in parallel — and lead system integration testing, keeping QA distinct from business UAT with regression against ERP patch cycles\n\n• Own reference and static data integration into Kyriba — sync model, mastering and stale copies; in practice the gate on payment testing\n\n• Deliver AI-assisted automation across the estate — receipt matching and same-day cash application, intraday reconciliation, decision support — sourced from core systems, not report extracts\n\nGlobal Payments Technology\n\n• Deliver Kyriba payment hub integration end to end — payment initiation, status returns and bank statements — on ISO 20022 (pain and camt) with MT-to-MX migration, managing bank onboarding as a delivery dependency: corporate BIC, bank specifications, test environments and format variance\n\n• Integrate emerging settlement rails, including a digital-asset custody platform: address and network validation in static data, holdings statements into reconciliation, non-ISO asset representation\n\n• Carry the reconciliation estate through the statement-format migration, and decommission the legacy payment platforms\n\nGovernance & Compliance\n\n• Own payment signing and key architecture with the CISO, including digital-asset custody controls, and the network perimeter\n\n• Own the post-go-live run and support model: monitoring, incident ownership and remediation across platforms IT does not host\n\n• Set and enforce the path to production for AI-assisted and business-built treasury applications — functional specification, test coverage, security remediation, observability and a named support model\n\nStakeholder Management\n\n• Operate as the IT half of the two-in-a-box, with the standing to hold a position with senior sponsors and manage dependencies outside your line\n\n• Manage vendors and partners on technical assurance and commercial control — proof in a working configuration, and renewal or exit decisions ahead of notice dates\n\nRequired qualifications:\n\nEducation & Experience\n\n• Degree in Finance, Computer Science or Information Technology, with 10+ years in treasury, payments and financial technology leading multi-workstream transformation in a multi-vendor environment\n\n• Delivery of a TMS or payment hub through vendor and implementation partners, and experience managing global teams and banking relationships\n\nTechnical Knowledge\n\n• Treasury and payments depth — payment lifecycles, cash and liquidity, bank connectivity, reconciliation and matching, FX and interest-rate risk\n\n•"
       },
@@ -504,7 +504,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Head-of-Treasury---Payments-Technology_R-018663",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:33:30.185Z",
+      "crawledAt": "2026-09-08T23:22:11.384Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -519,10 +519,23 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Head-of-Treasury---Payments-Technology_R-018663",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R-018663",
+      "firstSeenAt": "2026-09-08T13:33:30.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-treasury-payments-technology-trafigura-ch"
+        ],
+        "de": [
+          "head-of-treasury-payments-technology-trafigura-ch"
+        ],
+        "fr": [
+          "head-of-treasury-payments-technology-trafigura-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-treasury-payments-technology-trafigura-ch"
+      ],
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -535,8 +548,7 @@
           "maxValue": 306000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:33:30.185Z"
+      }
     }
   ]
 }
