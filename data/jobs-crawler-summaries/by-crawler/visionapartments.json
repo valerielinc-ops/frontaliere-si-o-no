@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-09-07T23:41:13.476Z",
+  "generatedAt": "2026-09-08T13:47:47.166Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,27 +12,27 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4580,
-  "avgDurationMs": 4580,
+  "durationMs": 5745,
+  "avgDurationMs": 5745,
   "durationHistory": [
-    4580
+    5745
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "visionapartments-13b3c39f629e",
-      "slug": "inkasso-spezialist-in-60-80-visionapartments-zurich",
+      "slug": "debt-collection-specialist-60-80-visionapartments-zurich",
       "company": "Vision Management Services GmbH",
       "companyKey": "visionapartments",
       "companyDomain": "visionapartments.com",
-      "title": "Inkasso Spezialist:in (60-80%)",
+      "title": "Debt Collection Specialist (60-80%)",
       "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:05.235Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-08T13:47:37.480Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -49,11 +49,11 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "firstSeenAt": "2026-09-01T14:26:59.054Z",
-      "_qualityScore": 84,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 15,
         "completeness": 20
       }
     }

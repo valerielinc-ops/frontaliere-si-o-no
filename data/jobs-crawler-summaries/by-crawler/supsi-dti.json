@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-09-07T23:42:15.386Z",
-  "total": 9,
-  "newCount": 9,
+  "generatedAt": "2026-09-08T13:49:18.817Z",
+  "total": 8,
+  "newCount": 8,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 82712,
-  "avgDurationMs": 82712,
+  "durationMs": 114994,
+  "avgDurationMs": 114994,
   "durationHistory": [
-    82712
+    114994
   ],
   "newJobs": [
     {
@@ -34,9 +34,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-07T15:22:00.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 59500,
@@ -47,11 +46,12 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -76,7 +76,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-04T13:40:19.667Z",
       "country": "CH",
       "sourceLang": "it",
@@ -89,11 +89,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -118,7 +118,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-04T23:12:08.169Z",
       "country": "CH",
       "sourceLang": "it",
@@ -131,11 +131,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -160,7 +160,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -171,11 +171,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 19
       }
     },
@@ -200,7 +200,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -213,11 +213,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 96,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -242,7 +242,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -255,11 +255,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -284,7 +284,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -297,11 +297,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -326,7 +326,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-07T23:41:46.292Z",
+      "crawledAt": "2026-09-08T13:48:29.461Z",
       "firstSeenAt": "2026-08-31T17:20:37.623Z",
       "country": "CH",
       "sourceLang": "it",
@@ -339,53 +339,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 96,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u559",
-      "slug": "dottoranda-dottorando-in-robotica-supsi-dti-lugano",
-      "company": "SUPSI / DTI",
-      "title": "Dottoranda / Dottorando in Robotica",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "url": "https://www.supsi.ch/bando26_5037",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-06T23:03:17.918Z",
-      "firstSeenAt": "2026-08-31T17:20:37.623Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 18,
-        "completeness": 19
       }
     }
   ],
