@@ -45,7 +45,7 @@ const itemValido = ` la soglia va letta da env
 - Source: PR body Non implementato
 - Stato dichiarato nella PR: \`blocked: manca il dato\`
 - Original text: > la soglia e' hardcoded
-- Suggested action: sostituisci il letterale con \`intFromEnv('MAX_ITEMS', 10)\` in \`scripts/ci/foo.mjs\`
+- Suggested action: sostituisci il letterale con \`intFromEnv('MAX_ITEMS', 10)\` in \`scripts/lib/foo.mjs\`
 `;
 
 // La classe dominante: un rischio in prosa sollevato in `## Adversarial check`. Non cita
@@ -155,7 +155,7 @@ describe('gate sul conio — la demozione non perde il testo', () => {
     // comincia a colonna zero e resta innocua — il caso sotto lo mostra.)
     const conCitazione = HEAD +
       '### 1. item che cita il body di una PR\n- Original text:\n```\n### 2. la PR citata numerava cosi\n```\n' +
-      '- Suggested action: chiama `normalizza()` in `scripts/ci/x.mjs`\n\n' +
+      '- Suggested action: chiama `normalizza()` in `scripts/lib/x.mjs`\n\n' +
       `### 2.${itemProsa}`;
     expect(isLosslessSplit(conCitazione)).toBe(false);
     const d = decideMintGate({ body: conCitazione, createdAt: new Date().toISOString() });
@@ -178,6 +178,8 @@ describe('gate sul conio — pin sul sorgente', () => {
     // uno dei due non cambia), e i due lati tornerebbero a divergere — #7587.
     expect(src).toMatch(/import\s*\{[^}]*hasFalsifiableAcceptance[^}]*\}\s*from\s*'\.\/followup-resolution-match\.mjs'/s);
     expect(src).toMatch(/import\s*\{[^}]*splitFollowupItems[^}]*\}\s*from\s*'\.\/followup-resolution-match\.mjs'/s);
+    expect(src).toMatch(/import\s*\{[^}]*machineAdmission[^}]*\}\s*from\s*'\.\/lib\/machine-broken\.mjs'/s);
+    expect(src).toContain('machineAdmission(it');
     // Nessuna copia locale dell'oracolo: ne' una funzione omonima, ne' la regione
     // `Suggested action` riconosciuta a mano, ne' una soglia di token propria.
     expect(src).not.toMatch(/function\s+hasFalsifiableAcceptance/);
