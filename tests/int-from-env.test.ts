@@ -8,7 +8,11 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import { intFromEnv, positiveIntFromEnv } from '../scripts/lib/int-from-env.mjs';
-import { findViolations, lineHasNumberEnvFallback } from '../scripts/ci/check-number-env-fallback.mjs';
+import {
+  findRawNumberEnvBoundViolations,
+  findViolations,
+  lineHasNumberEnvFallback,
+} from '../scripts/ci/check-number-env-fallback.mjs';
 
 describe('intFromEnv — comportamento', () => {
   it('un valore non numerico NON diventa NaN: cade sul default e lo dice', () => {
@@ -84,9 +88,38 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
     expect(lineHasNumberEnvFallback('const a = 1; // Number(process.env.X || 8000)')).toBe(false);
   });
 
+  it('riconosce il Number(process.env.X) grezzo solo quando governa un bound locale', () => {
+    const cases = [
+      `const limit = Number(process.env["LIMIT"]);\nitems.slice(0, limit);`,
+      `const step = Number( process.env . STEP );\nfor (let i = 0; i < step; i += 1) {}`,
+      `const workers = Number(process.env['WORKERS']);\nrun({ concurrency: workers });`,
+    ];
+    for (const source of cases) {
+      expect(findRawNumberEnvBoundViolations(source, 'fixture.mjs')).toHaveLength(1);
+    }
+  });
+
+  it('non segnala il campione frazionario di audit-dist-multi né un fallback esplicito', () => {
+    expect(findRawNumberEnvBoundViolations(
+      'const v = Number(process.env.AUDIT_SAMPLE_RATE);\nreturn v > 0 && v <= 1 ? v : 1;',
+      'scripts/audit-dist-multi.mjs',
+    )).toEqual([]);
+    expect(findRawNumberEnvBoundViolations(
+      'const limit = Number(process.env.LIMIT) || 100;\nitems.slice(0, limit);',
+      'fixture.mjs',
+    )).toEqual([]);
+  });
+
+  it('ignora assegnamenti raw dentro commenti', () => {
+    expect(findRawNumberEnvBoundViolations(
+      '// const limit = Number(process.env.LIMIT);\n/* items.slice(0, limit); */',
+      'fixture.mjs',
+    )).toEqual([]);
+  });
+
   it('l albero corrente non contiene piu il costrutto', () => {
     expect(findViolations()).toEqual([]);
-  });
+  }, 30_000);
 });
 
 /**
@@ -167,7 +200,17 @@ describe('i call site dove un conteggio non positivo SPEGNE la regola', () => {
   it.each(SLICE_BOUND)('%s legge %s con positiveIntFromEnv', (file, env) => {
     const src = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
     expect(src).toContain(`positiveIntFromEnv('${env}'`);
-    expect(src).not.toContain(`Number(process.env.${env})`);
+    const rawRead = new RegExp(
+      `Number\\(\\s*process\\s*\\.\\s*env\\s*(?:\\.\\s*${env}|\\[\\s*(?:['"])${env}(?:['"])\\s*\\])\\s*\\)`,
+    );
+    const forms = [
+      `Number(process.env.${env})`,
+      `Number(process.env["${env}"])`,
+      `Number( process.env['${env}'] )`,
+      `Number( process . env . ${env} )`,
+    ];
+    for (const form of forms) expect(rawRead.test(form), form).toBe(true);
+    expect(src).not.toMatch(rawRead);
     expect(src).toMatch(/import \{[^}]*positiveIntFromEnv[^}]*\} from '\.\/lib\/int-from-env\.mjs';/);
   });
 });
