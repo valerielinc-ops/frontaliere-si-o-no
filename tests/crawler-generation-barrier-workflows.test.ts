@@ -306,6 +306,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       ]));
       expect(generated.translateContent)
         .toBe(fs.readFileSync(path.join(PORTABLE, 'translate-pending.yml'), 'utf8'));
+      expect(generated.translateContent).toContain('name: Record translation rollout context');
+      expect(generated.translateContent).toContain('ROLLOUT_REPOSITORY: ${{ github.repository }}');
+      expect(generated.translateContent).toContain(
+        'echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"',
+      );
       expect(generated.translateContent).not.toContain('crawler-generation');
       const orchestrator = fs.readFileSync(path.join(WORKFLOWS, 'orchestrate-crawlers.yml'), 'utf8');
       expect(orchestrator).not.toContain('crawler_generation_barrier_shadow');
