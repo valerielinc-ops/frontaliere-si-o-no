@@ -11603,6 +11603,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-premi-cassa-malati-2027.title': 'Aumento premi cassa malati: +5% nel 2027',
     'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prevede rincaro medio di quasi il 5% per 2027, superiore al 4,4% del 2026. Alcuni assicurati affrontano picchi fino al 20%. Ticino praticamente stabile.',
     'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Studio medico nel Canton Ticino con assicurazione malattia e calcolatore per verificare i premi',
+    'blog.article.cassa-malati-rincari-2027.title': 'Premi cassa malati: +5% nel 2027',
+    'blog.article.cassa-malati-rincari-2027.excerpt': 'Secondo bonus.ch, premi LAMal aumenteranno quasi il 5% nel 2027, con picchi fino al 20%. Impatto diretto sulla busta paga dei frontalieri.',
+    'blog.article.cassa-malati-rincari-2027.imageAlt': 'Documenti di assicurazione malattia e calcolatore digitale di premi LAMal',
 };
 
 export default blogMetaIt;

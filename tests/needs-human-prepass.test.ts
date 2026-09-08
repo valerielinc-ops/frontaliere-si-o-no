@@ -397,6 +397,10 @@ describe('registryRowState — il criterio, non i suoi esempi', () => {
     expect(registryRowState('Le issue della famiglia job-alert si lasciano stare').state).toBe('conditional');
   });
 
+  it('«SI» maiuscolo senza accento non è un sì del registro', () => {
+    expect(registryRowState('SI PROCEDE con il lavoro, senza qualificatori').state).toBe('conditional');
+  });
+
   it('«non solo per questa issue» resta un sì pieno (#5928)', () => {
     // Un qualificatore su `\bnon\b` spegnerebbe il riconoscimento proprio sulle
     // righe più larghe, che sono quelle che vale di più riconoscere.
@@ -529,6 +533,26 @@ describe('blocchi scaduti — la forma reale di nanako#471', () => {
     expect(d.note).toContain('MERGED');
     expect(d.note).toContain('2026-08-18');
     expect(noteMarker({ refs: [] }, stale)).toBe('<!-- PREPASS_NOTE: b=a#1 -->');
+  });
+
+  it('una PR chiusa senza merge non viene presentata come blocco scaduto', () => {
+    const closed = [{ key: 'a#2', link: 'valerielinc-ops/frontaliere-si-o-no#6024', state: 'CLOSED', at: '2026-08-19' }];
+    const note = prepassNote({ unconditional: [], conditional: [], refs: [] }, closed)!;
+    expect(note).toContain('chiuso senza merge');
+    expect(note).toContain('CLOSED');
+    expect(note).not.toContain('Blocco scaduto');
+  });
+
+  it('ignora intestazioni Markdown dentro un fence quando delimita le sezioni', () => {
+    const body = [
+      '## Sezione bloccata',
+      'blocked: attende un riferimento',
+      '```bash',
+      '# commento #999',
+      '```',
+      '## Sezione senza blocco',
+    ].join('\n');
+    expect(blockedRefs(body, { homeScope: 'site' }).map((r) => r.number)).toEqual([999]);
   });
 
   it('senza righe e senza blocchi non si scrive niente (nessun commento a vuoto)', () => {

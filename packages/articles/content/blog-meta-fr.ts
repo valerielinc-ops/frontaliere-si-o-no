@@ -11604,6 +11604,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-premi-cassa-malati-2027.title': 'Augmentation des primes de la caisse-maladie : +5% en 2027',
     'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prévoit un renchérissement moyen de près de 5 % pour 2027, supérieur à 4,4 % en 2026. Certains assurés font face à des pics allant jusqu\'à 20 %. Tessin pratiquement stable.',
     'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Cabinet médical au Tessin avec assurance-maladie et calculatrice de primes',
+    'blog.article.cassa-malati-rincari-2027.title': 'Primes caisse-maladie : +5% en 2027',
+    'blog.article.cassa-malati-rincari-2027.excerpt': 'Selon bonus.ch, les primes LAMal augmenteront de près de 5% en 2027, avec des pics allant jusqu\'à 20%. Impact direct sur la paie des frontaliers.',
+    'blog.article.cassa-malati-rincari-2027.imageAlt': 'Documents d\'assurance maladie et interface de calcul numérique des primes',
 };
 
 export default blogMetaFr;

@@ -49,8 +49,8 @@ const ROOT = path.resolve(__dirname, '..');
 const WORKFLOW = '.github/workflows/needs-human-sweep.yml';
 const ENTRY = 'scripts/ci/needs-human-prepass.mjs';
 
-/** Ogni specificatore relativo `from '...'`, import ed export riesportante. */
-const REL_IMPORT_RE = /(?:^|\n)\s*(?:import|export)[^'";]*from\s*['"](\.[^'"]+)['"]/g;
+/** Ogni specificatore relativo `from '...'`, side-effect o dinamico. */
+const REL_IMPORT_RE = /(?:^|\n)\s*(?:import|export)[^'";]*from\s*['"](\.[^'"]+)['"]|\bimport\s*\(?\s*['"](\.[^'"]+)['"]/g;
 
 /**
  * La chiusura transitiva degli import RELATIVI a partire da `entry`, in path
@@ -73,7 +73,8 @@ function importClosure(entry: string): { files: string[]; missing: string[] } {
       continue;
     }
     for (const m of src.matchAll(REL_IMPORT_RE)) {
-      stack.push(path.normalize(path.join(path.dirname(rel), m[1])));
+      const specifier = m[1] ?? m[2];
+      stack.push(path.normalize(path.join(path.dirname(rel), specifier)));
     }
   }
   return { files: [...seen].sort(), missing };
@@ -103,6 +104,15 @@ function sparsePatternsFor(workflowText: string, jobName: string): string[] {
 }
 
 describe('needs-human-sweep.yml — chiusura sparse del job prepass', () => {
+  it('la regex vede gli import side-effect e dinamici oltre agli import da modulo', () => {
+    const source = [
+      "import './side-effect.mjs';",
+      "const loaded = await import('./dynamic.mjs');",
+    ].join('\n');
+    expect([...source.matchAll(REL_IMPORT_RE)].map((m) => m[1] ?? m[2]))
+      .toEqual(['./side-effect.mjs', './dynamic.mjs']);
+  });
+
   it('il job `prepass` checkouta tutto cio' + "'" + ' che il pre-pass importa', () => {
     const wf = fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf-8');
     const patterns = sparsePatternsFor(wf, 'prepass');
