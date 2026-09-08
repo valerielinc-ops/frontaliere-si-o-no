@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-07T23:27:25.427Z",
-  "total": 67,
+  "generatedAt": "2026-09-08T13:37:05.236Z",
+  "total": 65,
   "newCount": 1,
-  "updatedCount": 64,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 58992,
-  "avgDurationMs": 58992,
+  "updatedCount": 63,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 45671,
+  "avgDurationMs": 45671,
   "durationHistory": [
-    58992
+    45671
   ],
   "newJobs": [
     {
@@ -112,11 +112,12 @@
         "location": "Zurich"
       },
       "firstSeenAt": "2026-09-07T15:04:01.668Z",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -1102,8 +1103,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Privat-Banking---Nordics-Zurich-100-_r-19325-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Privat-Banking---Nordics-Zurich-100-_r-19325-2",
@@ -1179,6 +1179,48 @@
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/GPS-Strategy---Business-Development-Project-Leader---Zurich-100---f-m-d-_r-18138",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/GPS-Strategy---Business-Development-Project-Leader---Zurich-100---f-m-d-_r-18138",
+      "title": "GPS Strategy & Business Development Project Leader – Zurich 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "gps-strategy-business-development-project-leader-zurich-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-07-08",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-08T22:08:05.429Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 14
