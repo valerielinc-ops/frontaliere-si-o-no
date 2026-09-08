@@ -2,10 +2,12 @@ import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { directRules, matchBlock } from './helpers/firestoreRulesBlock';
+
 /**
  * Drift-net fra la lista hardcoded di `consentFieldsTouched()` in
  * `firestore.rules` e i campi `consent_*` che i writer browser scrivono
- * davvero su `newsletter_subscribers` (#6681, follow-up di #6670).
+ * davvero sulle due collezioni di iscritti (#6681, follow-up di #6670).
  *
  * Le due liste non possono condividere una fonte: un file `.rules` non è
  * importabile da TypeScript e Firestore non valuta espressioni sui prefissi
@@ -40,15 +42,16 @@ const CONSENT_KEY_RE = /\bconsent_[a-z0-9]+[a-z0-9_]*\b/g;
 const HAS_CONSENT_KEY_RE = /\bconsent_[a-z0-9]+[a-z0-9_]*\b/;
 
 /**
- * I moduli client che scrivono campi `consent_*` sul documento
- * `newsletter_subscribers/{email}` — gli unici il cui payload passa da
- * `firestore.rules`.
+ * I moduli client che scrivono campi `consent_*` sui documenti keyati per
+ * indirizzo — gli unici il cui payload passa da `firestore.rules`.
  */
 const WRITERS = [
   // captureNewsletterSubscriber + i path di re-consenso/IP.
   'newsletterSubscribers.ts',
   // recordCommunicationsConsent: updateDoc field-level con la prova del banner.
   'newsletterConsentUpgrade.ts',
+  // upgradeBackfilledAlertConsent: updateDoc field-level sugli alert travasati.
+  'jobAlertConsentUpgrade.ts',
 ];
 
 /**
@@ -61,8 +64,6 @@ const NON_WRITERS: Readonly<Record<string, string>> = Object.freeze({
   'consentTexts.ts': 'catalogo di testi, nessuna scrittura Firestore',
   // Registry dei canali: cita `consent_text` nella prosa sulla prova art. 25.
   'communicationChannels.ts': 'registry dei canali, nessuna scrittura Firestore',
-  // Scrive su job_alert_subscribers e lo dichiara esplicitamente (L57).
-  'jobAlertConsentUpgrade.ts': 'scrive su job_alert_subscribers, mai su newsletter_subscribers',
 });
 
 /**
@@ -85,8 +86,9 @@ function guardedConsentKeys(): string[] {
 }
 
 /**
- * I file `services/*.ts` che nominano la collection e almeno una chiave
- * `consent_*`.
+ * I file `services/*.ts` che nominano una delle collezioni e almeno una chiave
+ * `consent_*`. Un writer che costruisce il payload in un modulo separato può
+ * essere elencato esplicitamente in WRITERS, come `jobAlertConsentUpgrade.ts`.
  *
  * Solo `.ts`, cioè il codice client: i moduli `.mjs` sotto `services/` girano
  * server-side con l'Admin SDK, che bypassa `firestore.rules` per definizione —
@@ -98,8 +100,20 @@ function candidateFiles(): string[] {
   return readdirSync(SERVICES_DIR)
     .filter((name) => name.endsWith('.ts') && !name.endsWith('.test.ts'))
     .filter((name) => {
-      const src = readFileSync(resolve(SERVICES_DIR, name), 'utf8');
-      return src.includes('newsletter_subscribers') && HAS_CONSENT_KEY_RE.test(src);
+      let src: string;
+      try {
+        src = readFileSync(resolve(SERVICES_DIR, name), 'utf8');
+      } catch (error) {
+        // Sparse worktrees intentionally omit packages/articles/content, which
+        // leaves generated-data symlinks in services/ dangling. They cannot be
+        // Firestore writers and are skipped by the source scan.
+        if ((error as NodeJS.ErrnoException).code === 'ENOENT') return false;
+        throw error;
+      }
+      return (
+        (src.includes('newsletter_subscribers') || src.includes('job_alert_subscribers'))
+        && HAS_CONSENT_KEY_RE.test(src)
+      );
     });
 }
 
@@ -115,18 +129,27 @@ describe('firestore.rules — consentFieldsTouched() copre i campi scritti', () 
     expect(new Set(guarded).size, 'chiavi duplicate nella lista').toBe(guarded.length);
   });
 
-  it.each(WRITERS)('ogni chiave consent_* di %s è nel guard', (file) => {
+  it.each(WRITERS)('ogni chiave consent_* di %s è nel guard comune', (file) => {
     const guarded = new Set(guardedConsentKeys());
     const missing = consentKeysIn(file).filter((key) => !guarded.has(key));
     expect(
       missing,
-      `${file} nomina chiavi consent_* assenti da consentFieldsTouched() in firestore.rules: `
-        + `se sono NOMI DI CAMPO scritti sul documento, un write anonimo su un documento `
-        + `esistente potrebbe toccarle senza sessione → aggiungile alla lista in firestore.rules. `
+        `${file} nomina chiavi consent_* assenti da consentFieldsTouched() in firestore.rules: `
+        + `se sono NOMI DI CAMPO scritti su un documento di iscritti, un write anonimo `
+        + `su un documento esistente potrebbe toccarle senza sessione → aggiungile alla `
+        + `fonte del guard comune, non a una lista parallela. `
         + `Se invece sono valori costanti o token di prosa (non nomi di campo), vanno esclusi `
         + `qui, non aggiunti alle rules.`,
     ).toEqual([]);
   });
+
+  it.each(['newsletter_subscribers', 'job_alert_subscribers'])
+    ('applica il guard comune alla root %s', (collection) => {
+      const rules = readFileSync(resolve(ROOT, 'firestore.rules'), 'utf8');
+      const own = directRules(matchBlock(rules, `match /${collection}/{email}`));
+      expect(own).toContain('allow update: if !consentFieldsTouched(request.resource.data, resource.data)');
+      expect(own).toContain('request.auth.token.email.lower() == email.lower()');
+    });
 
   it('nessun writer nuovo sfugge alla lista sorvegliata', () => {
     const known = new Set([...WRITERS, ...Object.keys(NON_WRITERS)]);

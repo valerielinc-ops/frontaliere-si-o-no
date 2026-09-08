@@ -156,14 +156,24 @@ export function dailyEngagementConsistency(days = []) {
  * @param {(body: object) => Promise<{ok: boolean, status: number, json: () => Promise<any>}>} input.runReport
  * @param {Array<{startDate: string, endDate: string}>} input.dateRanges
  * @param {object} [input.dimensionFilter] lo STESSO del report giudicato
+ * @param {number} [input.windowDays=30] numero di giorni richiesti dal report
  * @returns {Promise<{reliable: boolean, reason: string|null, unreliableDates: string[]}>}
  */
-export async function fetchDailyEngagementVerdict({ runReport, dateRanges, dimensionFilter } = {}) {
+export async function fetchDailyEngagementVerdict({
+  runReport,
+  dateRanges,
+  dimensionFilter,
+  windowDays = 30,
+} = {}) {
   const notComputed = (cause) => ({
     reliable: false,
     reason: `verdetto non calcolato: ${cause}`,
     unreliableDates: [],
   });
+  const requestedDays = Number(windowDays);
+  const limit = Number.isFinite(requestedDays) && requestedDays > 0
+    ? Math.ceil(requestedDays) + 5
+    : 35;
   try {
     const res = await runReport({
       dateRanges,
@@ -173,6 +183,7 @@ export async function fetchDailyEngagementVerdict({ runReport, dateRanges, dimen
         { name: 'engagedSessions' },
         { name: 'averageSessionDuration' },
       ],
+      limit,
       ...(dimensionFilter ? { dimensionFilter } : {}),
     });
     if (!res.ok) return notComputed(`HTTP ${res.status}`);
