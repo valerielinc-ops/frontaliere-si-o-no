@@ -6100,6 +6100,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.casse-pensioni-rendimenti-2025.title': 'Casse pensioni: boom di rendimenti nel 2025',
     'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Le casse pensioni svizzere archiviano il 2025 con rendimento medio del 6,3%, trainato dalle azioni. Tasso conversione stabile al 5,20% per le rendite future.',
     'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investitore che rivede prospettive di rendita della propria cassa pensione con documenti finanziari e proiezioni.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Ospedali svizzeri: 1.700 infermieri in fuga ogni anno',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'L\'Obsan rivela che il 75% dei diplomati in infermieristica inizia in ospedale, ma a 40 anni scende al 47%. Il VPOD chiede subito condizioni migliori.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Vista alpina della Svizzera, simbolo del sistema sanitario nazionale in crisi per carenza di infermieri qualificati',
 };
 
 export default blogMetaChIt;

@@ -79190,6 +79190,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ospedali-svizzeri-infermieri-fuga-anno': {
+    title: 'Ospedali svizzeri: 1.700 infermieri in fuga ogni anno',
+    description: 'Crisi sanitaria svizzera: 1.700 infermieri diplomati abbandonano ogni anno. Il 75% inizia in ospedale, il 47% resta a 40 anni. Richieste VPOD per miglioramenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, svizzeri, infermieri, fuga',
+    ogTitle: 'Ospedali svizzeri: 1.700 infermieri in fuga ogni anno',
+    ogDescription: 'In Svizzera il sistema sanitario perde competenze: 1.700 infermieri diplomati abbandonano ogni anno la professione. Scopri i dati dell\'Obsan e le richieste del sindacato VPOD per migliorare le condizioni di lavoro nei reparti ospedalieri.',
+    canonicalPath: '/articoli-svizzera/ospedali-svizzeri-infermieri-fuga-anno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali svizzeri: 1.700 infermieri in fuga ogni anno",
+      "description": "Crisi sanitaria svizzera: 1.700 infermieri diplomati abbandonano ogni anno. Il 75% inizia in ospedale, il 47% resta a 40 anni. Richieste VPOD per miglioramenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ospedali-svizzeri-infermieri-fuga-anno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista alpina della Svizzera, simbolo del sistema sanitario nazionale in crisi per carenza di infermieri qualificati"
+      },
+      "datePublished": "2026-09-08T19:39:29+00:00",
+      "dateModified": "2026-09-08T19:39:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ospedali-svizzeri-infermieri-fuga-anno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6100,6 +6100,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.casse-pensioni-rendimenti-2025.title': 'Pensionskassen: Rendite-Boom im Jahr 2025',
     'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Die Schweizer Pensionskassen archivieren das aktiengetriebene Jahr 2025 mit einer durchschnittlichen Rendite von 6,3%. Konstanter Umwandlungssatz von 5,20% für zukünftige Renten.',
     'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investor überprüft Pensionsfonds-Renditen und Renteneinkünfte mit Finanzdokumenten.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Schweizer Spitäler: 1.700 Pflegekräfte pro Jahr auf der Flucht',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'Der Obsan zeigt, dass 75% der Absolventen der Krankenpflege im Krankenhaus beginnen, aber mit 40 Jahren auf 47% sinken. Der VPOD fordert sofort bessere Konditionen.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Schweizer Alpenlandschaft als Symbol des nationalen Gesundheitssystems mit Engpässen bei Krankenpflegepersonal',
 };
 
 export default blogMetaChDe;

@@ -2059,6 +2059,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'novartis-fondo-pensione-crollo': { it: 'novartis-fondo-pensione-crollo', en: 'novartis-pension-fund-crash', de: 'novartis-pensionskasse-crash', fr: 'novartis-fonds-pension-effondrement' },
  'salario-minimo-ticino-mozione-ettlin': { it: 'salario-minimo-ticino-mozione-ettlin', en: 'minimum-wage-ticino-ettlin-motion', de: 'mindestlohn-tessin-ettlin-motion', fr: 'salaire-minimum-tessin-motion-ettlin' },
  'casse-pensioni-rendimenti-2025': { it: 'casse-pensioni-rendimenti-2025', en: 'pension-funds-returns-2025', de: 'pensionskassen-rendite-2025', fr: 'caisses-pension-rendements-2025' },
+ 'ospedali-svizzeri-infermieri-fuga-anno': { it: 'ospedali-svizzeri-infermieri-fuga-anno', en: 'swiss-hospitals-nurses-exodus-year', de: 'schweizer-krankenhaeuser-pfleger-flucht-jahr', fr: 'hopitaux-suisses-infirmieres-fuite-annee' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
