@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/constants.mjs';
 
@@ -22,6 +23,92 @@ const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().star
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
 const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
+
+function assembleDecision(input: Record<string, unknown>): { required: boolean; reason: string } {
+  const probe = [
+    "import { shouldAssembleForRelatedTests } from './scripts/ci/dataset-dependent-tests.mjs';",
+    'const input = JSON.parse(process.argv[process.argv.length - 1]);',
+    'process.stdout.write(JSON.stringify(shouldAssembleForRelatedTests(input)));',
+  ].join('\n');
+  return JSON.parse(execFileSync(
+    process.execPath,
+    ['--input-type=module', '-e', probe, JSON.stringify(input)],
+    { cwd: ROOT, encoding: 'utf8' },
+  ));
+}
+
+describe('tests.yml dataset assembly predicate (#B4)', () => {
+  it('falls back to executing the assembly when classification is unresolved', () => {
+    for (const input of [
+      {
+        eventName: 'pull_request',
+        changedPaths: ['README.md'],
+        changedStatus: 'complete',
+        selectedTests: ['tests/not-classifiable.test.ts'],
+        // Omitted on purpose: an unresolvable classifier result is not safe to
+        // interpret as "independent".
+      },
+      {
+        eventName: 'pull_request',
+        changedPaths: ['README.md'],
+        changedStatus: 'partial',
+        selectedTests: [],
+        unreadableCount: 0,
+      },
+      {
+        eventName: 'push',
+        changedPaths: ['README.md'],
+        changedStatus: 'complete',
+        selectedTests: [],
+        unreadableCount: 0,
+      },
+      {
+        eventName: 'pull_request',
+        changedPaths: ['scripts/assemble-jobs-dataset.mjs'],
+        changedStatus: 'complete',
+        selectedTests: [],
+        unreadableCount: 0,
+      },
+    ]) {
+      expect(assembleDecision(input).required).toBe(true);
+    }
+  });
+
+  it('uses the existing dataset partition for known related tests', () => {
+    expect(assembleDecision({
+      eventName: 'pull_request',
+      changedPaths: ['README.md'],
+      changedStatus: 'complete',
+      selectedTests: ['tests/dataset-test-partition.test.ts'],
+      unreadableCount: 0,
+    }).required).toBe(true);
+
+    expect(assembleDecision({
+      eventName: 'pull_request',
+      changedPaths: ['README.md'],
+      changedStatus: 'complete',
+      selectedTests: ['tests/ci-vitest-check-name.test.ts'],
+      unreadableCount: 0,
+    }).required).toBe(false);
+  });
+
+  it('keeps the full history with blob filtering and gates both assemble steps', () => {
+    const checkoutStart = TESTS_YML.indexOf('- uses: actions/checkout@v5');
+    const setupStart = TESTS_YML.indexOf('- name: Setup Node.js', checkoutStart);
+    const checkout = TESTS_YML.slice(checkoutStart, setupStart);
+    const cacheStart = TESTS_YML.indexOf('- name: Cache assemble-jobs output');
+    const assembleStart = TESTS_YML.indexOf('- name: Assemble + migrate');
+    const relatedStart = TESTS_YML.indexOf('- name: vitest related (PR diff)', assembleStart);
+    const cache = TESTS_YML.slice(cacheStart, assembleStart);
+    const assemble = TESTS_YML.slice(assembleStart, relatedStart);
+
+    expect(checkout).toContain('fetch-depth: 0');
+    expect(checkout).toContain('filter: blob:none');
+    expect(cache).toContain("if: steps.assemble.outputs.required == 'true'");
+    expect(assemble).toContain("if: steps.assemble.outputs.required == 'true'");
+    expect(TESTS_YML).toContain('node scripts/ci/run-related-tests.mjs --select-only');
+  });
+});
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
   it('matcha byte-per-byte il name: del job vitest in tests.yml', () => {
