@@ -255,12 +255,12 @@
     },
     {
       "id": "klinik-schoenberg-b3a83db1382f",
-      "slug": "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten",
+      "slug": "divisione-head-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
       "slugByLocale": {
-        "it": "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten",
-        "en": "area-manager-in-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
+        "it": "divisione-head-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
+        "en": "division-head-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
         "de": "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
-        "fr": "gestionnaire-de-secteur-dans-les-soins-educatifs-h-f-d-50-60-klinik-schonberg-ag-gunten"
+        "fr": "chef-de-division-education-soins-h-f-d-50-60-klinik-schonberg-ag-gunten"
       },
       "company": "Klinik Schönberg AG",
       "companyKey": "klinik-schoenberg",
@@ -304,17 +304,23 @@
       "externalId": "d04c92d8d180de8b487c70e692c4199a",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten"
+        "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
+        "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten",
+        "area-manager-in-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten",
+        "gestionnaire-de-secteur-dans-les-soins-educatifs-h-f-d-50-60-klinik-schonberg-ag-gunten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten"
+          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
+          "area-manager-in-educazione-m-f-d-50-60-klinik-schonberg-ag-gunten"
         ],
         "en": [
-          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten"
+          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
+          "area-manager-in-education-care-m-f-d-50-60-klinik-schonberg-ag-gunten"
         ],
         "fr": [
-          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten"
+          "bereichsleiter-in-bildung-pflege-w-m-d-50-60-klinik-schoenberg-gunten",
+          "gestionnaire-de-secteur-dans-les-soins-educatifs-h-f-d-50-60-klinik-schonberg-ag-gunten"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:34.248Z",

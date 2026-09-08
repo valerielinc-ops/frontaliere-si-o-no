@@ -8177,9 +8177,9 @@
     },
     {
       "id": "kliniken-valens-6cbfd0537caf",
-      "slug": "controller-in-m-w-a-100-kliniken-valens-sargans",
+      "slug": "regolatore-m-w-a-100-kliniken-valens-sargans",
       "slugByLocale": {
-        "it": "controller-in-m-w-a-100-kliniken-valens-sargans",
+        "it": "regolatore-m-w-a-100-kliniken-valens-sargans",
         "en": "controller-in-m-w-a-100-kliniken-valens-sargans",
         "de": "controller-in-m-w-a-100-kliniken-valens-sargans",
         "fr": "controleur-en-m-w-a-100-kliniken-valens-sargans"
@@ -8238,7 +8238,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controller-in-m-w-a-100-kliniken-valens-sargans"
+        ]
+      },
+      "previousSlugs": [
+        "controller-in-m-w-a-100-kliniken-valens-sargans"
+      ]
     },
     {
       "id": "kliniken-valens-a0af7a0099fa",

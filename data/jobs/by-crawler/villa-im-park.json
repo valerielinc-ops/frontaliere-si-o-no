@@ -77,12 +77,12 @@
     },
     {
       "id": "villa-im-park-46eee8e83558",
-      "slug": "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
+      "slug": "dipendenti-bistro-privatklinik-villa-im-park-rothrist",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
-        "en": "employee-in-bistro-privatklinik-villa-im-park-rothrist",
+        "it": "dipendenti-bistro-privatklinik-villa-im-park-rothrist",
+        "en": "employees-bistro-privatklinik-villa-im-park-rothrist",
         "de": "mitarbeiter-in-bistro-villa-im-park-rothrist",
-        "fr": "employe-in-bistro-privatklinik-villa-im-park-rothrist"
+        "fr": "employes-bistro-privatklinik-villa-im-park-rothrist"
       },
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
@@ -126,18 +126,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-bistro-villa-im-park-rothrist",
-        "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b"
+        "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b",
+        "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
+        "employee-in-bistro-privatklinik-villa-im-park-rothrist",
+        "employe-in-bistro-privatklinik-villa-im-park-rothrist"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-bistro-villa-im-park-rothrist",
-          "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b"
+          "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b",
+          "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist"
         ],
         "en": [
-          "mitarbeiter-in-bistro-villa-im-park-rothrist"
+          "mitarbeiter-in-bistro-villa-im-park-rothrist",
+          "employee-in-bistro-privatklinik-villa-im-park-rothrist"
         ],
         "fr": [
-          "mitarbeiter-in-bistro-villa-im-park-rothrist"
+          "mitarbeiter-in-bistro-villa-im-park-rothrist",
+          "employe-in-bistro-privatklinik-villa-im-park-rothrist"
         ]
       },
       "firstSeenAt": "2026-09-02T13:36:12.223Z",

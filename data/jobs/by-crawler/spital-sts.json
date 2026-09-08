@@ -171,7 +171,7 @@
       "slug": "maestro-nella-cura-spital-sts-thun",
       "slugByLocale": {
         "it": "maestro-nella-cura-spital-sts-thun",
-        "en": "teacher-in-care-spital-sts-thun",
+        "en": "training-courses-spital-sts-thun",
         "de": "ausbildner-in-pflege-spital-sts-thun",
         "fr": "enseignant-en-soins-spital-sts-thun"
       },
@@ -215,14 +215,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildner-in-pflege-spital-sts-thun"
+        "ausbildner-in-pflege-spital-sts-thun",
+        "teacher-in-care-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildner-in-pflege-spital-sts-thun"
         ],
         "en": [
-          "ausbildner-in-pflege-spital-sts-thun"
+          "ausbildner-in-pflege-spital-sts-thun",
+          "teacher-in-care-spital-sts-thun"
         ],
         "fr": [
           "ausbildner-in-pflege-spital-sts-thun"
@@ -442,7 +444,7 @@
         "it": "ict-application-manager-in-informaticista-medico-in-spital-sts-thun",
         "en": "ict-application-manager-in-medical-informatician-in-spital-sts-thun",
         "de": "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
-        "fr": "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun"
+        "fr": "gestionnaire-d-applications-tic-specialiste-en-informatique-medicale-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -484,7 +486,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+        "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
+        "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -494,7 +497,8 @@
           "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
         ],
         "fr": [
-          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
+          "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-09-02T13:35:24.646Z",

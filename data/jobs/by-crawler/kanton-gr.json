@@ -1219,9 +1219,9 @@
     },
     {
       "id": "kanton-gr-da2461c18cd3",
-      "slug": "tecnico-r-case-handler-in-silvicoltura-gis-dati-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-tecnico-forestale-gis-dati-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "tecnico-r-case-handler-in-silvicoltura-gis-dati-kantonale-verwaltung-graubunden-chur",
+        "it": "responsabile-tecnico-forestale-gis-dati-kantonale-verwaltung-graubunden-chur",
         "en": "technical-r-case-handler-in-forestry-gis-data-kantonale-verwaltung-graubunden-chur",
         "de": "technische-r-sachbearbeiter-in-forstliche-gis-daten-kanton-gr-ch",
         "fr": "gestionnaire-de-cas-technique-r-en-foresterie-gis-donnees-kantonale-verwaltung-graubunden-chur"
@@ -1271,12 +1271,14 @@
       "pensum": "70-100%",
       "previousSlugs": [
         "technische-r-sachbearbeiter-in-forstliche-gis-daten-kanton-gr-ch",
-        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur"
+        "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur",
+        "tecnico-r-case-handler-in-silvicoltura-gis-dati-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technische-r-sachbearbeiter-in-forstliche-gis-daten-kanton-gr-ch",
-          "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur"
+          "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur",
+          "tecnico-r-case-handler-in-silvicoltura-gis-dati-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "technische-r-sachbearbeiter-in-forstliche-gis-daten-kantonale-verwaltung-graubunden-chur"
@@ -1470,10 +1472,10 @@
     },
     {
       "id": "kanton-gr-66fd4a6a0be5",
-      "slug": "case-handler-in-ricerca-kantonale-verwaltung-graubunden-chur",
+      "slug": "responsabile-delle-ricerche-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "case-handler-in-ricerca-kantonale-verwaltung-graubunden-chur",
-        "en": "case-handler-in-search-kantonale-verwaltung-graubunden-chur",
+        "it": "responsabile-delle-ricerche-kantonale-verwaltung-graubunden-chur",
+        "en": "person-in-charge-of-searches-kantonale-verwaltung-graubunden-chur",
         "de": "sachbearbeiter-in-fahndung-kanton-gr-ch",
         "fr": "gestionnaire-de-cas-recherche-kantonale-verwaltung-graubunden-chur"
       },
@@ -1522,15 +1524,19 @@
       "pensum": "100%",
       "previousSlugs": [
         "sachbearbeiter-in-fahndung-kanton-gr-ch",
-        "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur"
+        "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur",
+        "case-handler-in-ricerca-kantonale-verwaltung-graubunden-chur",
+        "case-handler-in-search-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-fahndung-kanton-gr-ch",
-          "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur"
+          "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur",
+          "case-handler-in-ricerca-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur"
+          "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur",
+          "case-handler-in-search-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
           "sachbearbeiter-in-fahndung-kantonale-verwaltung-graubunden-chur"
@@ -1649,12 +1655,12 @@
     },
     {
       "id": "kanton-gr-68086cd4c914",
-      "slug": "ripristino-volontario-in-kantonale-verwaltung-graubunden-chur",
+      "slug": "restauratore-di-volontariat-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "ripristino-volontario-in-kantonale-verwaltung-graubunden-chur",
+        "it": "restauratore-di-volontariat-kantonale-verwaltung-graubunden-chur",
         "en": "volunteer-restorer-in-kantonale-verwaltung-graubunden-chur",
         "de": "volontariat-restaurator-in-kanton-gr-ch",
-        "fr": "restauration-volontaire-in-kantonale-verwaltung-graubunden-chur"
+        "fr": "restaurateur-de-volontariat-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1700,17 +1706,21 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "volontariat-restaurator-in-kanton-gr-ch"
+        "volontariat-restaurator-in-kanton-gr-ch",
+        "ripristino-volontario-in-kantonale-verwaltung-graubunden-chur",
+        "restauration-volontaire-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "volontariat-restaurator-in-kanton-gr-ch"
+          "volontariat-restaurator-in-kanton-gr-ch",
+          "ripristino-volontario-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
           "volontariat-restaurator-in-kanton-gr-ch"
         ],
         "fr": [
-          "volontariat-restaurator-in-kanton-gr-ch"
+          "volontariat-restaurator-in-kanton-gr-ch",
+          "restauration-volontaire-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "needsRetranslation": true,
@@ -1735,7 +1745,7 @@
       "slug": "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
         "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis",
-        "en": "social-worker-in-kantonale-verwaltung-graubunden-cazis",
+        "en": "social-workers-kantonale-verwaltung-graubunden-cazis",
         "de": "sozialarbeiter-in-kanton-gr-ch",
         "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis"
       },
@@ -1790,7 +1800,8 @@
         "sozialarbeiter-in-kanton-gr-ch-7x67hd",
         "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis-14f1aa",
         "sozialarbeiter-in-kanton-gr-ch-ajci6f",
-        "sozialarbeiter-in-kanton-gr-ch"
+        "sozialarbeiter-in-kanton-gr-ch",
+        "social-worker-in-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1803,7 +1814,8 @@
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2",
           "social-worker-in-kantonale-verwaltung-graubunden-cazis-14f1aa",
-          "sozialarbeiter-in-kanton-gr-ch"
+          "sozialarbeiter-in-kanton-gr-ch",
+          "social-worker-in-kantonale-verwaltung-graubunden-cazis"
         ],
         "de": [
           "sozialarbeiter-in-kanton-gr-ch-7x67hd",

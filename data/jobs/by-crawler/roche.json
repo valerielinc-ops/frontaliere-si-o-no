@@ -8971,7 +8971,7 @@
         "it": "formazione-2027-meccatronico-a-sede-di-penzberg-roche-penzberg",
         "en": "training-2027-mechatronics-engineer-in-penzberg-location-roche-penzberg",
         "de": "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch",
-        "fr": "formation-2027-mecatronique-ingenieur-in-penzberg-emplacement-roche-penzberg"
+        "fr": "formation-2027-mecatronics-ingenieur-site-de-penzberg-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9011,7 +9011,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch"
+        "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch",
+        "formation-2027-mecatronique-ingenieur-in-penzberg-emplacement-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9021,7 +9022,8 @@
           "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch"
         ],
         "fr": [
-          "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch"
+          "ausbildung-2027-mechatroniker-in-standort-penzberg-roche-ch",
+          "formation-2027-mecatronique-ingenieur-in-penzberg-emplacement-roche-penzberg"
         ]
       },
       "needsRetranslation": true,
@@ -9582,9 +9584,9 @@
     },
     {
       "id": "roche-42664a2ee8e3",
-      "slug": "istruzione-2027-laboratorio-di-chimica-in-posizione-penzberg-roche-penzberg",
+      "slug": "formazione-2027-laboratorio-chimico-sito-penzberg-roche-penzberg",
       "slugByLocale": {
-        "it": "istruzione-2027-laboratorio-di-chimica-in-posizione-penzberg-roche-penzberg",
+        "it": "formazione-2027-laboratorio-chimico-sito-penzberg-roche-penzberg",
         "en": "training-2027-chemical-laboratory-in-penzberg-site-roche-penzberg",
         "de": "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch",
         "fr": "formation-2027-laboratoire-chimique-in-site-de-penzberg-roche-penzberg"
@@ -9627,11 +9629,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch"
+        "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch",
+        "istruzione-2027-laboratorio-di-chimica-in-posizione-penzberg-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch"
+          "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch",
+          "istruzione-2027-laboratorio-di-chimica-in-posizione-penzberg-roche-penzberg"
         ],
         "en": [
           "ausbildung-2027-chemielaborant-in-standort-penzberg-roche-ch"
@@ -9659,9 +9663,9 @@
     },
     {
       "id": "roche-13d58bd8e1a9",
-      "slug": "istruzione-2027-laboratorio-di-chimica-in-mannheim-posizione-roche-mannheim",
+      "slug": "formazione-2027-laboratorio-chimico-sito-di-mannheim-roche-mannheim",
       "slugByLocale": {
-        "it": "istruzione-2027-laboratorio-di-chimica-in-mannheim-posizione-roche-mannheim",
+        "it": "formazione-2027-laboratorio-chimico-sito-di-mannheim-roche-mannheim",
         "en": "training-2027-chemical-laboratory-in-mannheim-location-roche-mannheim",
         "de": "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch",
         "fr": "formation-2027-laboratoire-chimique-in-mannheim-emplacement-roche-mannheim"
@@ -9704,11 +9708,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch"
+        "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch",
+        "istruzione-2027-laboratorio-di-chimica-in-mannheim-posizione-roche-mannheim"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch"
+          "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch",
+          "istruzione-2027-laboratorio-di-chimica-in-mannheim-posizione-roche-mannheim"
         ],
         "en": [
           "ausbildung-2027-chemielaborant-in-standort-mannheim-roche-ch"
@@ -9736,9 +9742,9 @@
     },
     {
       "id": "roche-513881563ca3",
-      "slug": "istruzione-2027-biologia-laboratorio-in-posizione-penzberg-roche-penzberg",
+      "slug": "formazione-2027-laboratorio-di-biologia-sito-penzberg-roche-penzberg",
       "slugByLocale": {
-        "it": "istruzione-2027-biologia-laboratorio-in-posizione-penzberg-roche-penzberg",
+        "it": "formazione-2027-laboratorio-di-biologia-sito-penzberg-roche-penzberg",
         "en": "training-2027-biology-laboratory-in-penzberg-site-roche-penzberg",
         "de": "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch",
         "fr": "formation-2027-laboratoire-de-biologie-in-site-de-penzberg-roche-penzberg"
@@ -9781,11 +9787,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch"
+        "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch",
+        "istruzione-2027-biologia-laboratorio-in-posizione-penzberg-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch"
+          "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch",
+          "istruzione-2027-biologia-laboratorio-in-posizione-penzberg-roche-penzberg"
         ],
         "en": [
           "ausbildung-2027-biologielaborant-in-standort-penzberg-roche-ch"
@@ -27620,7 +27628,7 @@
         "it": "trainer-in-uk-responsabile-business-digital-technology-60-100-kaiseraugst-unbefristet-roche-kaiseraugst",
         "en": "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche",
         "de": "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche",
-        "fr": "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche"
+        "fr": "formateur-et-responsable-des-affaires-et-de-la-technologie-numerique-60-a-100-kaiseraugst-permanent-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27664,6 +27672,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche"
+        ],
+        "fr": [
           "trainer-in-uk-leiter-in-business-digital-technology-60-100-kaiseraugst-unbefristet-roche"
         ]
       },
@@ -76278,7 +76289,7 @@
         "it": "dipendente-di-produzione-lavoratore-chimico-in-limited-on-2-anni-roche-penzberg",
         "en": "production-employee-chemical-worker-in-limited-on-2-years-roche-penzberg",
         "de": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
-        "fr": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg"
+        "fr": "employe-de-production-travailleur-de-la-chimie-in-limitee-pour-2-ans-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76332,7 +76343,8 @@
         ],
         "fr": [
           "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
-          "employe-de-production-travailleur-chimique-en-limitee-sur-2-ans-roche-penzberg"
+          "employe-de-production-travailleur-chimique-en-limitee-sur-2-ans-roche-penzberg",
+          "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg"
         ]
       },
       "firstSeenAt": "2026-09-03T13:34:22.460Z",
@@ -76596,7 +76608,7 @@
         "it": "partner-di-sviluppo-aziendale-roche-thailand",
         "en": "business-development-partner-roche-ch",
         "de": "business-development-partner-roche-ch",
-        "fr": "business-development-partner-roche-thailand"
+        "fr": "partenaire-de-developpement-des-entreprises-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76637,7 +76649,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-development-partner-roche-ch",
-        "partenaire-de-developpement-des-entreprises-roche-thailand"
+        "business-development-partner-roche-thailand"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76645,7 +76657,7 @@
         ],
         "fr": [
           "business-development-partner-roche-ch",
-          "partenaire-de-developpement-des-entreprises-roche-thailand"
+          "business-development-partner-roche-thailand"
         ]
       },
       "needsRetranslation": true,
@@ -78249,7 +78261,7 @@
         "it": "ematologia-partner-del-viaggio-paziente-roche-sweden",
         "en": "patient-journey-partner-hematology-roche-ch",
         "de": "patient-journey-partner-hamatologie-roche-sweden",
-        "fr": "patient-journey-partner-hematology-roche-ch"
+        "fr": "hematologie-du-partenaire-voyage-patient-roche-sweden"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -78296,6 +78308,9 @@
           "patient-journey-partner-hematology-roche-ch"
         ],
         "de": [
+          "patient-journey-partner-hematology-roche-ch"
+        ],
+        "fr": [
           "patient-journey-partner-hematology-roche-ch"
         ]
       },
@@ -80654,7 +80669,7 @@
       "slugByLocale": {
         "it": "leader-dello-sviluppo-tecnico-roche-basel",
         "en": "technical-development-leader-roche-ch",
-        "de": "technical-development-leader-roche-basel",
+        "de": "leiter-der-technischen-entwicklung-roche-basel",
         "fr": "responsable-du-developpement-technique-roche-basel"
       },
       "company": "Roche",
@@ -80696,7 +80711,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-development-leader-roche-ch",
-        "leiter-der-technischen-entwicklung-roche-basel"
+        "technical-development-leader-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -80704,7 +80719,7 @@
         ],
         "de": [
           "technical-development-leader-roche-ch",
-          "leiter-der-technischen-entwicklung-roche-basel"
+          "technical-development-leader-roche-basel"
         ],
         "fr": [
           "technical-development-leader-roche-ch"
@@ -83101,7 +83116,7 @@
         "it": "partner-della-sicurezza-paziente-roche-buenos-aires",
         "en": "patient-safety-partner-roche-ch",
         "de": "patientensicherheitspartner-roche-buenos-aires",
-        "fr": "patient-safety-partner-roche-buenos-aires"
+        "fr": "partenaire-securite-des-patients-roche-buenos-aires"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83142,8 +83157,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "patient-safety-partner-roche-ch",
-        "partenaire-securite-des-patients-roche-buenos-aires",
-        "partenaire-de-la-securite-des-patients-roche-buenos-aires"
+        "partenaire-de-la-securite-des-patients-roche-buenos-aires",
+        "patient-safety-partner-roche-buenos-aires"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -83154,8 +83169,8 @@
         ],
         "fr": [
           "patient-safety-partner-roche-ch",
-          "partenaire-securite-des-patients-roche-buenos-aires",
-          "partenaire-de-la-securite-des-patients-roche-buenos-aires"
+          "partenaire-de-la-securite-des-patients-roche-buenos-aires",
+          "patient-safety-partner-roche-buenos-aires"
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:36.754Z",
@@ -84722,7 +84737,7 @@
         "it": "finanza-enterprise-partner-fep-roche-rm",
         "en": "finance-enterprise-partner-fep-roche-ch",
         "de": "finanzen-enterprise-partner-fep-roche-rm",
-        "fr": "finance-enterprise-partner-fep-roche-rm"
+        "fr": "partenaire-d-entreprise-financier-pef-roche-rm"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84763,7 +84778,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-enterprise-partner-fep-roche-ch",
-        "partenaire-d-entreprise-financier-pef-roche-rm"
+        "finance-enterprise-partner-fep-roche-rm"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -84773,7 +84788,7 @@
           "finance-enterprise-partner-fep-roche-ch"
         ],
         "fr": [
-          "partenaire-d-entreprise-financier-pef-roche-rm"
+          "finance-enterprise-partner-fep-roche-rm"
         ]
       },
       "firstSeenAt": "2026-09-04T22:55:38.715Z",

@@ -101,9 +101,9 @@
         "en": "Delivery letters and packages",
         "fr": "Lettres de livraison et colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+      "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen",
       "slugByLocale": {
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen",
+        "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-sarnen",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-sarnen",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-sarnen"
@@ -143,7 +143,8 @@
       "firstSeenAt": "2026-09-07T15:15:33.101Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post"
@@ -153,7 +154,8 @@
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sarnen"
       ]
     },
     {
@@ -178,9 +180,9 @@
         "en": "Delivery letters and packages",
         "fr": "Lettres de livraison et colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-brunnen",
+      "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-brunnen",
       "slugByLocale": {
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-brunnen",
+        "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-brunnen",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-brunnen",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-brunnen"
@@ -203,7 +205,8 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-brunnen"
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post"
@@ -214,7 +217,8 @@
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-brunnen"
       ],
       "id": "posta-svizzera-centro-regionale-03008a126a97",
       "salaryMin": 69500,
@@ -1533,7 +1537,7 @@
         "it": "stv-teamleader-nelle-lettere-di-consegna-die-schweizerische-post-zurich-neumunster",
         "en": "stv-teamleader-in-delivery-letters-die-schweizerische-post-zurich-neumunster",
         "de": "stv-teamleader-in-zustellung-briefe-post",
-        "fr": "stv-teamleader-dans-les-lettres-de-livraison-die-schweizerische-post-zurich-neumunster"
+        "fr": "c-est-pas-vrai-lettres-de-livraison-du-chef-d-equipe-die-schweizerische-post-zurich-neumunster"
       },
       "sourceLang": "de",
       "department": "",
@@ -1577,11 +1581,13 @@
           "stv-teamleader-in-zustellung-briefe-post"
         ],
         "fr": [
-          "stv-teamleader-in-zustellung-briefe-post"
+          "stv-teamleader-in-zustellung-briefe-post",
+          "stv-teamleader-dans-les-lettres-de-livraison-die-schweizerische-post-zurich-neumunster"
         ]
       },
       "previousSlugs": [
-        "stv-teamleader-in-zustellung-briefe-post"
+        "stv-teamleader-in-zustellung-briefe-post",
+        "stv-teamleader-dans-les-lettres-de-livraison-die-schweizerische-post-zurich-neumunster"
       ]
     },
     {
@@ -1764,9 +1770,9 @@
         "de": "Zusteller:in Zeitung Die Botschaft im Stundenlohn",
         "fr": "Livraison: dans les journaux Le message dans le salaire horaire"
       },
-      "slug": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
+      "slug": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
+        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -1803,7 +1809,15 @@
       },
       "addressLocality": "Döttingen",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-09-01T14:21:32.831Z"
+      "firstSeenAt": "2026-09-01T14:21:32.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Teamleaderin-Sortierlogistik/74630-de_DE",
@@ -4061,9 +4075,9 @@
         "de": "Zusteller:in Briefe und Pakete",
         "fr": "Lettres de livraison et colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wohlen-b",
+      "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-wohlen-b",
       "slugByLocale": {
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wohlen-b",
+        "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-wohlen-b",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-wohlen-b",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-wohlen-b"
@@ -4086,7 +4100,8 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wohlen-b"
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-post"
@@ -4097,7 +4112,8 @@
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-wohlen-b"
       ],
       "id": "posta-svizzera-centro-regionale-ffb796e0dca4",
       "salaryMin": 68500,
@@ -5672,7 +5688,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-on143p",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },

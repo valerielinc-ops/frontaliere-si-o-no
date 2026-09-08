@@ -163,9 +163,9 @@
     },
     {
       "id": "suva-788f6d4b886f",
-      "slug": "specialista-in-prestazioni-a-breve-termine-80-100-suva-basel-luzern",
+      "slug": "vantaggi-specialistici-a-breve-termine-80-100-suva-basel-luzern",
       "slugByLocale": {
-        "it": "specialista-in-prestazioni-a-breve-termine-80-100-suva-basel-luzern",
+        "it": "vantaggi-specialistici-a-breve-termine-80-100-suva-basel-luzern",
         "en": "specialist-in-short-term-benefits-80-100-suva-basel-luzern",
         "de": "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel",
         "fr": "specialiste-dans-les-avantages-a-court-terme-80-100-suva-basel-luzern"
@@ -210,11 +210,13 @@
       "pensum": "80-100%",
       "sfJobId": "1432420333",
       "previousSlugs": [
-        "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel"
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel",
+        "specialista-in-prestazioni-a-breve-termine-80-100-suva-basel-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel"
+          "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel",
+          "specialista-in-prestazioni-a-breve-termine-80-100-suva-basel-luzern"
         ],
         "en": [
           "spezialist-in-kurzfristgeldleistungen-80-100-suva-basel"
@@ -553,9 +555,9 @@
     },
     {
       "id": "suva-31a3cc76fdbb",
-      "slug": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
+      "slug": "internship-wms-hr-junior-sviluppo-100-suva-luzern",
       "slugByLocale": {
-        "it": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
+        "it": "internship-wms-hr-junior-sviluppo-100-suva-luzern",
         "en": "internship-in-wms-hr-junior-development-100-suva-luzern",
         "de": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
         "fr": "stage-en-developpement-junior-rh-du-sgm-100-suva-luzern"
@@ -613,7 +615,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern"
+      ]
     },
     {
       "id": "suva-bd970a26367d",
@@ -1391,9 +1401,9 @@
     },
     {
       "id": "suva-60ce7417f546",
-      "slug": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern",
+      "slug": "specialista-sicurezza-e-protezione-della-salute-60-100-suva-luzern",
       "slugByLocale": {
-        "it": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern",
+        "it": "specialista-sicurezza-e-protezione-della-salute-60-100-suva-luzern",
         "en": "specialist-in-occupational-safety-and-health-protection-60-100-suva-luzern",
         "de": "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
         "fr": "specialiste-en-securite-et-protection-de-la-sante-au-travail-60-100-suva-luzern"
@@ -1438,11 +1448,13 @@
       "pensum": "60-100%",
       "sfJobId": "1430437233",
       "previousSlugs": [
-        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
+        "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern",
+          "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-60-100-suva-luzern"
         ],
         "en": [
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-60-100-suva-luzern"
@@ -1762,12 +1774,12 @@
     },
     {
       "id": "suva-a9e329c4e5b8",
-      "slug": "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern",
+      "slug": "responsabile-prodotto-prevenzione-di-project-manager-80-100-suva-luzern",
       "slugByLocale": {
-        "it": "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern",
-        "en": "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
+        "it": "responsabile-prodotto-prevenzione-di-project-manager-80-100-suva-luzern",
+        "en": "product-manager-project-manager-prevention-80-100-suva-luzern",
         "de": "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
-        "fr": "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
+        "fr": "gestionnaire-de-produits-gestionnaire-de-projets-prevention-80-100-suva-luzern"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -1809,10 +1821,18 @@
       "pensum": "80-100%",
       "sfJobId": "1407285633",
       "previousSlugs": [
-        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
+        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
+        "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
+          "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern"
+        ],
+        "en": [
+          "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
+        ],
+        "fr": [
           "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
         ]
       },
@@ -2072,7 +2092,7 @@
       "slug": "responsabile-centermanagement-d4-business-village-80-100-suva-root",
       "slugByLocale": {
         "it": "responsabile-centermanagement-d4-business-village-80-100-suva-root",
-        "en": "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
+        "en": "head-of-center-management-d4-business-village-80-100-suva-root",
         "de": "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
         "fr": "chef-dans-la-gestion-centrale-d4-village-d-affaires-80-100-suva-root"
       },
@@ -2122,6 +2142,9 @@
           "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
         ],
         "fr": [
+          "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
+        ],
+        "en": [
           "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
         ]
       },

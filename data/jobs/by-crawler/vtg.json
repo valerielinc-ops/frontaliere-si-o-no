@@ -41,9 +41,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistician-in-swiss-armed-forces-vtg-bern",
+        "en": "logistics-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-u1mi81",
-        "fr": "logisticien-in-swiss-armed-forces-vtg-bern"
+        "fr": "logistique-swiss-armed-forces-vtg-bern"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -71,13 +71,15 @@
           "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern-go5lac"
         ],
         "en": [
-          "logistiker-in-swiss-armed-forces-vtg-bern-u1mi81"
+          "logistiker-in-swiss-armed-forces-vtg-bern-u1mi81",
+          "logistician-in-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v"
         ],
         "fr": [
-          "logistiker-in-swiss-armed-forces-vtg-bern-u1mi81"
+          "logistiker-in-swiss-armed-forces-vtg-bern-u1mi81",
+          "logisticien-in-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -154,7 +156,9 @@
         "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern",
         "gruppenfuhrer-in-waffenmechaniker-in-hornet-swiss-armed-forces-vtg-bern-go5lac",
         "group-leader-weapons-mechanic-hornet-swiss-armed-forces-vtg-bern-go5lac",
-        "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern-go5lac"
+        "chef-de-groupe-mecanicien-des-armes-cornet-swiss-armed-forces-vtg-bern-go5lac",
+        "logistician-in-swiss-armed-forces-vtg-bern",
+        "logisticien-in-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -275,7 +279,7 @@
     },
     {
       "id": "company-wrx4qx",
-      "slug": "tecnologia-del-trasportatore-specializzato-in-swiss-armed-forces-vtg-bern",
+      "slug": "tecnologia-di-trasporto-specializzata-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in Fördertechnik",
       "location": "Bern",
@@ -311,7 +315,7 @@
         "fr": "Vous pouvez faire cette contribution\n\n- Assurer un fonctionnement sûr, fiable et conforme à la loi de toutes les installations de téléphériques du Centre de logistique de l'Armée (ALC) et ainsi contribuer de manière significative à la sécurité des personnes et des matériaux\n\n- Conseil professionnel et soutien des machinistes en chef de téléphérique et des machinistes de téléphérique\n\n- Services autopropulsés d'entretien, de réparation, d'extension et de modification d'installations câblées, de palans, de convoyeurs et de matériel d'automatisation\n\n- Analyser les perturbations, créer des diagnostics et réaliser des rénovations techniques et des optimisations\n\n- Gérer les opérations de démontage et de démantèlement des installations à câbles et des équipements de transport dans le cadre de projets et d'équipes de direction\n\n- Participation à l'élaboration de concepts de maintenance et à la formation des gestionnaires de réseau, des exploitants d'installations et des utilisateurs\n\nCela les rend uniques.\n\n- Formation professionnelle complétée en tant que technicien en mécatronique à câbles/EFZ\n\n- Formation en tant que responsable technique selon les directives IKSS (Intercantonal Control Office for Cable Cars Suisse) ou volonté de les compléter\n\n- Plusieurs années d'expérience professionnelle dans l'entretien et le fonctionnement des équipements techniques\n\n- Méthodes de travail indépendantes, axées sur le client et coopératives ainsi que bonnes compétences en communication\n\n- Bonne performance physique et vertiges\n\n- Connaissance orale et écrite d'une deuxième langue officielle\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
       },
       "slugByLocale": {
-        "it": "tecnologia-del-trasportatore-specializzato-in-swiss-armed-forces-vtg-bern",
+        "it": "tecnologia-di-trasporto-specializzata-swiss-armed-forces-vtg-bern",
         "en": "specialist-in-conveyor-technology-swiss-armed-forces-vtg-bern",
         "de": "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx",
         "fr": "specialiste-technologie-des-convoyeurs-swiss-armed-forces-vtg-bern"
@@ -329,7 +333,8 @@
           "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
           "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
           "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-          "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx"
+          "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx",
+          "tecnologia-del-trasportatore-specializzato-in-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx"
@@ -351,7 +356,8 @@
         "tecnologia-del-trasportatore-specializzato-in-confederazione-svizzera-andermatt",
         "specialist-in-conveyor-technology-confederazione-svizzera-andermatt",
         "specialiste-technologie-des-convoyeurs-confederazione-svizzera-andermatt",
-        "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx"
+        "spezialist-in-fordertechnik-swiss-armed-forces-vtg-bern-wrx4qx",
+        "tecnologia-del-trasportatore-specializzato-in-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -372,7 +378,7 @@
     },
     {
       "id": "company-g574g1",
-      "slug": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
+      "slug": "ingegnere-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
       "location": "Bern",
@@ -408,7 +414,7 @@
         "fr": "Vous pouvez faire cette contribution\n\n- En tant qu'examinateur autorisé (certification), certifier les réparations effectuées et la disponibilité à voler, surveiller les commandes et diriger le transfert de l'aéronef aux pilotes (chef de groupe)\n\n- Entretien, réparation et entretien complets de l'aéronef et des systèmes terrestres liés au vol\n\n- Changements de configuration, réglage et travail d'étalonnage incl. Mettre en place des charges utiles et des capteurs\n\n- Créer la préparation au vol et le rétablissement des systèmes (y compris le dépannage) ainsi que planifier et gérer administrativement la logistique au sol\n\n- Enseignement en tant qu'enseignant spécialisé et gestion des documents techniques (anglais)\n\nCela les rend uniques.\n\n- Formation professionnelle en tant qu'ingénieur mécatronique automobile, ingénieur automatique, polymécanique ou formation technique de base équivalente, spécialisée dans l'entretien des aéronefs\n\n- Responsabilité personnelle et fiabilité absolue\n\n- Personnalité ouverte avec plaisir en travail d'équipe\n\n- Connaissance verbale et écrite d'une deuxième langue officielle et très bonne connaissance de l'anglais\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLes opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend la Luftwaffe, l'armée, les quatre divisions territoriales, le Centre de compétence SWISSINT, le Commandement des forces spéciales et la police militaire. Environ 40 % des quelque 2 500 employés sont des employés civils – des ingénieurs aux mécaniciens d'aéronefs aux analystes.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
       },
       "slugByLocale": {
-        "it": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
+        "it": "ingegnere-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
         "en": "technician-in-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
         "de": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
         "fr": "technicien-en-systeme-de-drone-de-reconnaissance-sad-swiss-armed-forces-vtg-bern"
@@ -419,7 +425,8 @@
         "it": [
           "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
           "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
+          "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
@@ -436,7 +443,8 @@
       "previousSlugs": [
         "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
         "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
+        "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

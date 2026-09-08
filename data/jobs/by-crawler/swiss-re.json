@@ -20203,9 +20203,9 @@
     },
     {
       "id": "swiss-re-151eb7a335b8",
-      "slug": "apprendistato-entwickler-in-digitales-business-cfc-2027-swiss-re-zurich-ch",
+      "slug": "sviluppatore-di-apprendistato-digital-business-efz-2027-swiss-re-zurich-ch",
       "slugByLocale": {
-        "it": "apprendistato-entwickler-in-digitales-business-cfc-2027-swiss-re-zurich-ch",
+        "it": "sviluppatore-di-apprendistato-digital-business-efz-2027-swiss-re-zurich-ch",
         "en": "apprenticeship-developer-in-digital-business-efz-2027-swiss-re-zurich-ch",
         "de": "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch",
         "fr": "developpeur-d-apprentissage-dans-les-affaires-numeriques-efz-2027-swiss-re-zurich-ch"
@@ -20248,11 +20248,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
+        "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch",
+        "apprendistato-entwickler-in-digitales-business-cfc-2027-swiss-re-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
+          "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch",
+          "apprendistato-entwickler-in-digitales-business-cfc-2027-swiss-re-zurich-ch"
         ],
         "en": [
           "lehrstelle-entwickler-in-digitales-business-efz-2027-swiss-re-ch"
@@ -22763,7 +22765,7 @@
         "it": "contabile-swiss-re-seoul-kr",
         "en": "accountant-swiss-re-ch",
         "de": "buchhalter-swiss-re-seoul-kr",
-        "fr": "accountant-swiss-re-seoul-kr"
+        "fr": "comptable-swiss-re-seoul-kr"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22804,7 +22806,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "accountant-swiss-re-ch",
-        "comptable-swiss-re-seoul-kr"
+        "accountant-swiss-re-seoul-kr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22814,7 +22816,7 @@
           "accountant-swiss-re-ch"
         ],
         "fr": [
-          "comptable-swiss-re-seoul-kr"
+          "accountant-swiss-re-seoul-kr"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:54.994Z",
@@ -22917,7 +22919,7 @@
         "it": "partner-senior-talent-acquisizione-swiss-re-bratislava-sk",
         "en": "senior-talent-acquisition-partner-swiss-re-ch",
         "de": "senior-talent-acquisition-partner-swiss-re-ch",
-        "fr": "senior-talent-acquisition-partner-swiss-re-ch"
+        "fr": "partenaire-principal-d-acquisition-de-talents-swiss-re-bratislava-sk"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -22961,6 +22963,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-talent-acquisition-partner-swiss-re-ch"
+        ],
+        "fr": [
           "senior-talent-acquisition-partner-swiss-re-ch"
         ]
       },

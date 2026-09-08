@@ -342,7 +342,7 @@
     },
     {
       "id": "company-iwzu3s",
-      "slug": "venditore-in-food-coop-genossenschaft-ilanz-glion",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-ilanz-glion",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Ilanz/Glion",
@@ -388,10 +388,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-ilanz-glion",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-ilanz-glion",
         "en": "seller-in-food-coop-genossenschaft-ilanz-glion",
         "de": "verkaufer-in-food-coop-ilanz-glion-graubunden-iwzu3s",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-ilanz-glion"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-ilanz-glion"
       },
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
@@ -425,7 +425,6 @@
           "venditore-trice-food-coop-genossenschaft-ilanz-glion"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-ilanz-glion",
           "verkaufer-in-food-coop-ilanz-glion-graubunden-iwzu3s"
         ],
         "de": [
@@ -454,7 +453,7 @@
     },
     {
       "id": "company-yec57n",
-      "slug": "venditore-in-food-coop-genossenschaft-davos",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Davos",
@@ -500,10 +499,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-davos",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-davos",
         "en": "seller-in-food-coop-genossenschaft-davos",
         "de": "verkaufer-in-food-coop-davos-platz-yec57n",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-davos"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-davos"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -524,18 +523,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-davos-platz-yec57n",
-          "verkaufer-in-food-coop-davos-platz"
+          "verkaufer-in-food-coop-davos-platz",
+          "venditore-in-food-coop-genossenschaft-davos"
         ],
         "en": [
           "verkaufer-in-food-coop-davos-platz-yec57n"
         ],
         "fr": [
-          "verkaufer-in-food-coop-davos-platz-yec57n"
+          "verkaufer-in-food-coop-davos-platz-yec57n",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-davos"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-davos-platz-yec57n",
-        "verkaufer-in-food-coop-davos-platz"
+        "verkaufer-in-food-coop-davos-platz",
+        "venditore-in-food-coop-genossenschaft-davos",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-davos"
       ]
     },
     {
@@ -754,7 +757,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-oberdiessbach",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-oberdiessbach",
         "de": "verkaufer-in-kassen-services-coop-oberdiessbach-bern-u6xfkh",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-oberdiessbach"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-oberdiessbach"
       },
       "addressLocality": "Oberdiessbach",
       "sourceLang": "de",
@@ -781,12 +784,14 @@
           "verkaufer-in-kassen-services-coop-oberdiessbach-bern-u6xfkh"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-oberdiessbach-bern-u6xfkh"
+          "verkaufer-in-kassen-services-coop-oberdiessbach-bern-u6xfkh",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-oberdiessbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-oberdiessbach-bern-u6xfkh",
-        "verkaufer-in-kassen-services-coop-oberdiessbach-bern"
+        "verkaufer-in-kassen-services-coop-oberdiessbach-bern",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-oberdiessbach"
       ]
     },
     {
@@ -863,7 +868,7 @@
     },
     {
       "id": "company-fn6cfh",
-      "slug": "venditore-in-food-coop-genossenschaft-frutigen",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-frutigen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Frutigen",
@@ -909,10 +914,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-frutigen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-frutigen",
         "en": "seller-in-food-coop-genossenschaft-frutigen",
         "de": "verkaufer-in-food-coop-frutigen-bern-fn6cfh",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-frutigen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-frutigen"
       },
       "addressLocality": "Frutigen",
       "sourceLang": "de",
@@ -933,23 +938,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-frutigen-bern-fn6cfh",
-          "verkaufer-in-food-coop-frutigen-bern"
+          "verkaufer-in-food-coop-frutigen-bern",
+          "venditore-in-food-coop-genossenschaft-frutigen"
         ],
         "en": [
           "verkaufer-in-food-coop-frutigen-bern-fn6cfh"
         ],
         "fr": [
-          "verkaufer-in-food-coop-frutigen-bern-fn6cfh"
+          "verkaufer-in-food-coop-frutigen-bern-fn6cfh",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-frutigen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-frutigen-bern-fn6cfh",
-        "verkaufer-in-food-coop-frutigen-bern"
+        "verkaufer-in-food-coop-frutigen-bern",
+        "venditore-in-food-coop-genossenschaft-frutigen",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-frutigen"
       ]
     },
     {
       "id": "company-fiicpx",
-      "slug": "venditore-in-food-coop-genossenschaft-bettmeralp",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-bettmeralp",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bettmeralp",
@@ -995,10 +1004,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-bettmeralp",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-bettmeralp",
         "en": "seller-in-food-coop-genossenschaft-bettmeralp",
         "de": "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bettmeralp"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bettmeralp"
       },
       "addressLocality": "Bettmeralp",
       "sourceLang": "de",
@@ -1019,18 +1028,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx",
-          "verkaufer-in-food-coop-bettmeralp-wallis"
+          "verkaufer-in-food-coop-bettmeralp-wallis",
+          "venditore-in-food-coop-genossenschaft-bettmeralp"
         ],
         "en": [
           "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx"
         ],
         "fr": [
-          "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx"
+          "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bettmeralp"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bettmeralp-wallis-fiicpx",
-        "verkaufer-in-food-coop-bettmeralp-wallis"
+        "verkaufer-in-food-coop-bettmeralp-wallis",
+        "venditore-in-food-coop-genossenschaft-bettmeralp",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bettmeralp"
       ]
     },
     {
@@ -1096,7 +1109,7 @@
     },
     {
       "id": "company-p5ygk8",
-      "slug": "venditore-in-food-prodotti-da-forno-coop-genossenschaft-burgdorf",
+      "slug": "vendita-prodotti-alimentari-panetteria-coop-genossenschaft-burgdorf",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food / Backwaren",
       "location": "Burgdorf",
@@ -1142,8 +1155,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-prodotti-da-forno-coop-genossenschaft-burgdorf",
-        "en": "seller-in-food-baked-goods-coop-genossenschaft-burgdorf",
+        "it": "vendita-prodotti-alimentari-panetteria-coop-genossenschaft-burgdorf",
+        "en": "seller-food-bakery-products-coop-genossenschaft-burgdorf",
         "de": "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8",
         "fr": "vendeur-dans-la-nourriture-produits-de-boulangerie-coop-genossenschaft-burgdorf"
       },
@@ -1166,10 +1179,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8",
-          "verkaufer-in-food-backwaren-coop-burgdorf-bern"
+          "verkaufer-in-food-backwaren-coop-burgdorf-bern",
+          "venditore-in-food-prodotti-da-forno-coop-genossenschaft-burgdorf"
         ],
         "en": [
-          "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8"
+          "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8",
+          "seller-in-food-baked-goods-coop-genossenschaft-burgdorf"
         ],
         "fr": [
           "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8"
@@ -1177,12 +1192,14 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-backwaren-coop-burgdorf-bern-p5ygk8",
-        "verkaufer-in-food-backwaren-coop-burgdorf-bern"
+        "verkaufer-in-food-backwaren-coop-burgdorf-bern",
+        "venditore-in-food-prodotti-da-forno-coop-genossenschaft-burgdorf",
+        "seller-in-food-baked-goods-coop-genossenschaft-burgdorf"
       ]
     },
     {
       "id": "company-3i8p1e",
-      "slug": "venditore-in-food-coop-genossenschaft-muri-bei-bern",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-muri-bei-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Muri bei Bern",
@@ -1228,10 +1245,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-muri-bei-bern",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-muri-bei-bern",
         "en": "seller-in-food-coop-genossenschaft-muri-bei-bern",
         "de": "verkaufer-in-food-coop-muri-bei-bern-3i8p1e",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-muri-bei-bern"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-muri-bei-bern"
       },
       "addressLocality": "Muri bei Bern",
       "sourceLang": "de",
@@ -1252,23 +1269,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-muri-bei-bern-3i8p1e",
-          "verkaufer-in-food-coop-muri-bei-bern"
+          "verkaufer-in-food-coop-muri-bei-bern",
+          "venditore-in-food-coop-genossenschaft-muri-bei-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-muri-bei-bern-3i8p1e"
         ],
         "fr": [
-          "verkaufer-in-food-coop-muri-bei-bern-3i8p1e"
+          "verkaufer-in-food-coop-muri-bei-bern-3i8p1e",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-muri-bei-bern"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-muri-bei-bern-3i8p1e",
-        "verkaufer-in-food-coop-muri-bei-bern"
+        "verkaufer-in-food-coop-muri-bei-bern",
+        "venditore-in-food-coop-genossenschaft-muri-bei-bern",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-muri-bei-bern"
       ]
     },
     {
       "id": "company-q0seni",
-      "slug": "consulente-di-vendita-in-famiglia-coop-genossenschaft-aarau",
+      "slug": "consulente-commerciale-per-famiglie-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Haushalt",
       "location": "Aarau",
@@ -1305,10 +1326,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-famiglia-coop-genossenschaft-aarau",
+        "it": "consulente-commerciale-per-famiglie-coop-genossenschaft-aarau",
         "en": "sales-consultant-in-household-coop-genossenschaft-aarau",
         "de": "verkaufsberater-in-haushalt-coop-city-aarau-aargau-q0seni",
-        "fr": "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau"
+        "fr": "menage-de-consultants-en-ventes-coop-genossenschaft-aarau"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -1333,7 +1354,8 @@
           "consulente-di-vendita-famiglia-coop-genossenschaft-zug",
           "verkaufsberater-in-haushalt-coop-city-zug-8to5jh",
           "sales-consultant-household-coop-genossenschaft-zug-8to5jh",
-          "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh"
+          "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh",
+          "consulente-di-vendita-in-famiglia-coop-genossenschaft-aarau"
         ],
         "en": [
           "verkaufsberater-in-haushalt-coop-city-aarau-aargau-q0seni",
@@ -1341,7 +1363,8 @@
         ],
         "fr": [
           "verkaufsberater-in-haushalt-coop-city-aarau-aargau-q0seni",
-          "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh"
+          "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh",
+          "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau"
         ],
         "de": [
           "verkaufsberater-in-haushalt-coop-city-zug-8to5jh"
@@ -1353,7 +1376,9 @@
         "consulente-di-vendita-famiglia-coop-genossenschaft-zug",
         "verkaufsberater-in-haushalt-coop-city-zug-8to5jh",
         "sales-consultant-household-coop-genossenschaft-zug-8to5jh",
-        "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh"
+        "cabinet-de-consultant-en-vente-coop-genossenschaft-zug-8to5jh",
+        "consulente-di-vendita-in-famiglia-coop-genossenschaft-aarau",
+        "consultant-en-ventes-dans-les-menages-coop-genossenschaft-aarau"
       ]
     },
     {
@@ -1819,7 +1844,7 @@
     },
     {
       "id": "company-ekurkh",
-      "slug": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-kriens",
+      "slug": "consulenti-di-vendita-hardware-coop-genossenschaft-kriens",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Hartwaren",
       "location": "Kriens",
@@ -1856,10 +1881,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-kriens",
-        "en": "sales-consultant-in-hard-goods-coop-genossenschaft-kriens",
+        "it": "consulenti-di-vendita-hardware-coop-genossenschaft-kriens",
+        "en": "sales-consultants-hardware-coop-genossenschaft-kriens",
         "de": "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh",
-        "fr": "consultant-en-ventes-en-marchandises-dures-coop-genossenschaft-kriens"
+        "fr": "services-de-conseillers-en-ventes-coop-genossenschaft-kriens"
       },
       "addressLocality": "Kriens",
       "sourceLang": "de",
@@ -1883,14 +1908,17 @@
           "verkaufsberater-in-heimtextilien-coop-genossenschaft-kriens-luzern-s8cbvy",
           "verkaufsberater-in-heimtextilien-coop-city-kriens-luzern",
           "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh",
-          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern"
+          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern",
+          "consulente-di-vendita-in-beni-duri-coop-genossenschaft-kriens"
         ],
         "fr": [
           "verkaufsberater-in-heimtextilien-coop-genossenschaft-kriens-luzern-s8cbvy",
-          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh"
+          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh",
+          "consultant-en-ventes-en-marchandises-dures-coop-genossenschaft-kriens"
         ],
         "en": [
-          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh"
+          "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh",
+          "sales-consultant-in-hard-goods-coop-genossenschaft-kriens"
         ]
       },
       "previousSlugs": [
@@ -1898,12 +1926,15 @@
         "verkaufsberater-in-heimtextilien-coop-genossenschaft-kriens-luzern-s8cbvy",
         "verkaufsberater-in-heimtextilien-coop-city-kriens-luzern",
         "verkaufsberater-in-hartwaren-coop-city-kriens-luzern-ekurkh",
-        "verkaufsberater-in-hartwaren-coop-city-kriens-luzern"
+        "verkaufsberater-in-hartwaren-coop-city-kriens-luzern",
+        "consulente-di-vendita-in-beni-duri-coop-genossenschaft-kriens",
+        "sales-consultant-in-hard-goods-coop-genossenschaft-kriens",
+        "consultant-en-ventes-en-marchandises-dures-coop-genossenschaft-kriens"
       ]
     },
     {
       "id": "company-ejdg8c",
-      "slug": "mediamatiker-in-efz-coop-muttenz",
+      "slug": "materassi-efz-media-coop-muttenz",
       "company": "Coop",
       "title": "Mediamatiker:in EFZ",
       "location": "Muttenz",
@@ -1940,7 +1971,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "mediamatiker-in-cfc-coop-muttenz-ejdg8c",
+        "it": "materassi-efz-media-coop-muttenz",
         "en": "media-specialist-in-efz-coop-muttenz",
         "de": "mediamatiker-in-efz-coop-muttenz-ejdg8c",
         "fr": "specialiste-des-medias-en-efz-coop-muttenz"
@@ -1967,15 +1998,21 @@
         ],
         "fr": [
           "mediamatiker-in-efz-coop-muttenz-ejdg8c"
+        ],
+        "it": [
+          "mediamatiker-in-cfc-coop-muttenz-ejdg8c",
+          "mediamatiker-in-efz-coop-muttenz"
         ]
       },
       "previousSlugs": [
-        "mediamatiker-in-efz-coop-muttenz-ejdg8c"
+        "mediamatiker-in-efz-coop-muttenz-ejdg8c",
+        "mediamatiker-in-cfc-coop-muttenz-ejdg8c",
+        "mediamatiker-in-efz-coop-muttenz"
       ]
     },
     {
       "id": "company-cswyv7",
-      "slug": "magaziner-in-verkauf-coop-zurzach-aargau",
+      "slug": "vendite-magazine-coop-genossenschaft-zurzach",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Zurzach",
@@ -2021,8 +2058,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-zurzach-aargau-cswyv7",
-        "en": "magaziner-in-sales-coop-zurzach-aargau-cswyv7",
+        "it": "vendite-magazine-coop-genossenschaft-zurzach",
+        "en": "warehouse-sales-coop-genossenschaft-zurzach",
         "de": "magaziner-in-verkauf-coop-zurzach-aargau-cswyv7",
         "fr": "magasin-en-vente-coop-genossenschaft-zurzach"
       },
@@ -2048,10 +2085,13 @@
           "magaziner-in-sales-coop-genossenschaft-zurzach-aargau-kmhsz6",
           "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau-kmhsz6",
           "magaziner-in-vente-coop-genossenschaft-zurzach-aargau-kmhsz6",
-          "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau"
+          "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau",
+          "magaziner-in-vendita-coop-zurzach-aargau-cswyv7",
+          "magaziner-in-verkauf-coop-zurzach-aargau"
         ],
         "en": [
-          "magaziner-in-sales-coop-genossenschaft-zurzach-aargau-kmhsz6"
+          "magaziner-in-sales-coop-genossenschaft-zurzach-aargau-kmhsz6",
+          "magaziner-in-sales-coop-zurzach-aargau-cswyv7"
         ],
         "de": [
           "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau-kmhsz6"
@@ -2067,12 +2107,15 @@
         "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau-kmhsz6",
         "magaziner-in-vente-coop-genossenschaft-zurzach-aargau-kmhsz6",
         "magaziner-in-verkauf-coop-genossenschaft-zurzach-aargau",
-        "magaziner-in-vente-coop-zurzach-aargau-cswyv7"
+        "magaziner-in-vente-coop-zurzach-aargau-cswyv7",
+        "magaziner-in-vendita-coop-zurzach-aargau-cswyv7",
+        "magaziner-in-verkauf-coop-zurzach-aargau",
+        "magaziner-in-sales-coop-zurzach-aargau-cswyv7"
       ]
     },
     {
       "id": "company-y3mtqf",
-      "slug": "picker-d-ordine-in-coop-genossenschaft-bern-3fd836",
+      "slug": "pickers-ordine-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in",
       "location": "Bern",
@@ -2118,10 +2161,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-coop-genossenschaft-bern-3fd836",
-        "en": "order-picker-in-coop-genossenschaft-bern-3fd836",
+        "it": "pickers-ordine-coop-genossenschaft-bern",
+        "en": "order-pickers-coop-genossenschaft-bern",
         "de": "kommissionierer-in-coop-bern-y3mtqf",
-        "fr": "commandeur-in-coop-genossenschaft-bern-3fd836"
+        "fr": "commandeurs-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -2142,23 +2185,29 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-coop-bern-y3mtqf",
-          "kommissionierer-in-coop-bern"
+          "kommissionierer-in-coop-bern",
+          "picker-d-ordine-in-coop-genossenschaft-bern-3fd836"
         ],
         "en": [
-          "kommissionierer-in-coop-bern-y3mtqf"
+          "kommissionierer-in-coop-bern-y3mtqf",
+          "order-picker-in-coop-genossenschaft-bern-3fd836"
         ],
         "fr": [
-          "kommissionierer-in-coop-bern-y3mtqf"
+          "kommissionierer-in-coop-bern-y3mtqf",
+          "commandeur-in-coop-genossenschaft-bern-3fd836"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-bern-y3mtqf",
-        "kommissionierer-in-coop-bern"
+        "kommissionierer-in-coop-bern",
+        "picker-d-ordine-in-coop-genossenschaft-bern-3fd836",
+        "order-picker-in-coop-genossenschaft-bern-3fd836",
+        "commandeur-in-coop-genossenschaft-bern-3fd836"
       ]
     },
     {
       "id": "company-g2n31r",
-      "slug": "venditore-in-food-coop-genossenschaft-grindelwald",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Grindelwald",
@@ -2204,10 +2253,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-grindelwald",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald",
         "en": "seller-in-food-coop-genossenschaft-grindelwald",
         "de": "verkaufer-in-food-coop-grindelwald-bern-g2n31r",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-grindelwald"
       },
       "addressLocality": "Grindelwald",
       "sourceLang": "de",
@@ -2228,23 +2277,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-grindelwald-bern-g2n31r",
-          "verkaufer-in-food-coop-grindelwald-bern"
+          "verkaufer-in-food-coop-grindelwald-bern",
+          "venditore-in-food-coop-genossenschaft-grindelwald"
         ],
         "en": [
           "verkaufer-in-food-coop-grindelwald-bern-g2n31r"
         ],
         "fr": [
-          "verkaufer-in-food-coop-grindelwald-bern-g2n31r"
+          "verkaufer-in-food-coop-grindelwald-bern-g2n31r",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-grindelwald-bern-g2n31r",
-        "verkaufer-in-food-coop-grindelwald-bern"
+        "verkaufer-in-food-coop-grindelwald-bern",
+        "venditore-in-food-coop-genossenschaft-grindelwald",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald"
       ]
     },
     {
       "id": "company-duy6aq",
-      "slug": "magaziner-in-verkauf-coop-munsingen-bern",
+      "slug": "vendite-magazine-coop-genossenschaft-munsingen",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Münsingen",
@@ -2290,8 +2343,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-munsingen-bern-duy6aq",
-        "en": "magaziner-in-sales-coop-munsingen-bern-duy6aq",
+        "it": "vendite-magazine-coop-genossenschaft-munsingen",
+        "en": "warehouse-sales-coop-genossenschaft-munsingen",
         "de": "magaziner-in-verkauf-coop-munsingen-bern-duy6aq",
         "fr": "magasin-en-vente-coop-genossenschaft-munsingen"
       },
@@ -2317,10 +2370,13 @@
           "magaziner-in-sales-coop-genossenschaft-munsingen-bern-1xdfkj",
           "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern-1xdfkj",
           "magaziner-in-vente-coop-genossenschaft-munsingen-bern-1xdfkj",
-          "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern"
+          "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern",
+          "magaziner-in-vendita-coop-munsingen-bern-duy6aq",
+          "magaziner-in-verkauf-coop-munsingen-bern"
         ],
         "en": [
-          "magaziner-in-sales-coop-genossenschaft-munsingen-bern-1xdfkj"
+          "magaziner-in-sales-coop-genossenschaft-munsingen-bern-1xdfkj",
+          "magaziner-in-sales-coop-munsingen-bern-duy6aq"
         ],
         "de": [
           "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern-1xdfkj"
@@ -2336,12 +2392,15 @@
         "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern-1xdfkj",
         "magaziner-in-vente-coop-genossenschaft-munsingen-bern-1xdfkj",
         "magaziner-in-verkauf-coop-genossenschaft-munsingen-bern",
-        "magaziner-in-vente-coop-munsingen-bern-duy6aq"
+        "magaziner-in-vente-coop-munsingen-bern-duy6aq",
+        "magaziner-in-vendita-coop-munsingen-bern-duy6aq",
+        "magaziner-in-verkauf-coop-munsingen-bern",
+        "magaziner-in-sales-coop-munsingen-bern-duy6aq"
       ]
     },
     {
       "id": "company-hhdndx",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern",
+      "slug": "macellaio-specialista-di-carne-specialista-di-carne-e-cuoco-cuoco-m-f-d-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann) und Koch/Köchin (w/m/d)",
       "location": "Bern",
@@ -2378,7 +2437,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-m-w-d-coop-bern-hhdndx",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-e-cuoco-cuoco-m-f-d-coop-genossenschaft-bern",
         "en": "metzger-in-meat-specialist-meat-specialist-and-cook-cook-m-f-d-coop-genossenschaft-bern",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx",
         "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-et-cuisiner-cuisiner-h-f-d-coop-genossenschaft-bern"
@@ -2411,17 +2470,16 @@
           "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-m-w-d-coop-bern-cpr2hd",
           "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern",
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-w-m-d-coop-genossenschaft-bern",
-          "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern",
+          "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-m-w-d-coop-bern-hhdndx"
         ],
         "en": [
-          "metzger-in-meat-specialist-meat-specialist-and-cook-cook-m-f-d-coop-genossenschaft-bern",
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-yf5fm0"
         ],
         "fr": [
-          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-et-cuisiner-cuisiner-h-f-d-coop-genossenschaft-bern",
           "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx"
         ]
       },
@@ -2437,12 +2495,13 @@
         "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-w-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-w-m-d-coop-genossenschaft-bern",
         "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern",
-        "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx"
+        "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx",
+        "metzger-in-fleischfachfrau-fleischfachmann-e-koch-kochin-m-w-d-coop-bern-hhdndx"
       ]
     },
     {
       "id": "company-z1lg4x",
-      "slug": "venditore-in-food-coop-genossenschaft-grindelwald-588082",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald-588082",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Grindelwald",
@@ -2488,10 +2547,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-grindelwald-588082",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-grindelwald-588082",
         "en": "seller-in-food-coop-genossenschaft-grindelwald-588082",
         "de": "verkaufer-in-food-coop-grindelwald-bern-z1lg4x",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald-588082"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-grindelwald-588082"
       },
       "addressLocality": "Grindelwald",
       "sourceLang": "de",
@@ -2512,23 +2571,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-grindelwald-bern-z1lg4x",
-          "verkaufer-in-food-coop-grindelwald-bern-2"
+          "verkaufer-in-food-coop-grindelwald-bern-2",
+          "venditore-in-food-coop-genossenschaft-grindelwald-588082"
         ],
         "en": [
           "verkaufer-in-food-coop-grindelwald-bern-z1lg4x"
         ],
         "fr": [
-          "verkaufer-in-food-coop-grindelwald-bern-z1lg4x"
+          "verkaufer-in-food-coop-grindelwald-bern-z1lg4x",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald-588082"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-grindelwald-bern-z1lg4x",
-        "verkaufer-in-food-coop-grindelwald-bern-2"
+        "verkaufer-in-food-coop-grindelwald-bern-2",
+        "venditore-in-food-coop-genossenschaft-grindelwald-588082",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-grindelwald-588082"
       ]
     },
     {
       "id": "company-xrhlwr",
-      "slug": "picker-d-ordine-in-coop-genossenschaft-bern-061ecd",
+      "slug": "pickers-ordine-coop-genossenschaft-bern-061ecd",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in",
       "location": "Bern",
@@ -2574,10 +2637,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-coop-genossenschaft-bern-061ecd",
-        "en": "order-picker-in-coop-genossenschaft-bern-061ecd",
+        "it": "pickers-ordine-coop-genossenschaft-bern-061ecd",
+        "en": "order-pickers-coop-genossenschaft-bern-061ecd",
         "de": "kommissionierer-in-coop-bern-xrhlwr",
-        "fr": "commandeur-in-coop-genossenschaft-bern-061ecd"
+        "fr": "commandeurs-coop-genossenschaft-bern-061ecd"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -2598,23 +2661,29 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-coop-bern-xrhlwr",
-          "kommissionierer-in-coop-bern-2"
+          "kommissionierer-in-coop-bern-2",
+          "picker-d-ordine-in-coop-genossenschaft-bern-061ecd"
         ],
         "en": [
-          "kommissionierer-in-coop-bern-xrhlwr"
+          "kommissionierer-in-coop-bern-xrhlwr",
+          "order-picker-in-coop-genossenschaft-bern-061ecd"
         ],
         "fr": [
-          "kommissionierer-in-coop-bern-xrhlwr"
+          "kommissionierer-in-coop-bern-xrhlwr",
+          "commandeur-in-coop-genossenschaft-bern-061ecd"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-bern-xrhlwr",
-        "kommissionierer-in-coop-bern-2"
+        "kommissionierer-in-coop-bern-2",
+        "picker-d-ordine-in-coop-genossenschaft-bern-061ecd",
+        "order-picker-in-coop-genossenschaft-bern-061ecd",
+        "commandeur-in-coop-genossenschaft-bern-061ecd"
       ]
     },
     {
       "id": "company-1kt57t",
-      "slug": "magaziner-in-verkauf-coop-spiez-bern",
+      "slug": "vendite-magazine-coop-genossenschaft-spiez",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Spiez",
@@ -2660,8 +2729,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-spiez-bern-1kt57t",
-        "en": "magaziner-in-sales-coop-spiez-bern-1kt57t",
+        "it": "vendite-magazine-coop-genossenschaft-spiez",
+        "en": "warehouse-sales-coop-genossenschaft-spiez",
         "de": "magaziner-in-verkauf-coop-spiez-bern-1kt57t",
         "fr": "magasin-en-vente-coop-genossenschaft-spiez"
       },
@@ -2684,15 +2753,25 @@
       "previousSlugsByLocale": {
         "fr": [
           "magaziner-in-vente-coop-spiez-bern-1kt57t"
+        ],
+        "it": [
+          "magaziner-in-vendita-coop-spiez-bern-1kt57t",
+          "magaziner-in-verkauf-coop-spiez-bern"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-spiez-bern-1kt57t"
         ]
       },
       "previousSlugs": [
-        "magaziner-in-vente-coop-spiez-bern-1kt57t"
+        "magaziner-in-vente-coop-spiez-bern-1kt57t",
+        "magaziner-in-vendita-coop-spiez-bern-1kt57t",
+        "magaziner-in-verkauf-coop-spiez-bern",
+        "magaziner-in-sales-coop-spiez-bern-1kt57t"
       ]
     },
     {
       "id": "company-b5eyi5",
-      "slug": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern",
+      "slug": "vendita-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-spiez",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Früchte und Gemüse)",
       "location": "Spiez",
@@ -2738,7 +2817,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-fruchte-e-gemuse-coop-spiez-bern-b5eyi5",
+        "it": "vendita-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-spiez",
         "en": "seller-in-fresh-products-fruit-and-vegetables-coop-genossenschaft-spiez",
         "de": "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern-b5eyi5",
         "fr": "vendeur-en-produits-frais-fruits-et-legumes-coop-genossenschaft-spiez"
@@ -2765,10 +2844,16 @@
         ],
         "fr": [
           "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern-b5eyi5"
+        ],
+        "it": [
+          "verkaufer-in-frischprodukte-fruchte-e-gemuse-coop-spiez-bern-b5eyi5",
+          "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern-b5eyi5"
+        "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern-b5eyi5",
+        "verkaufer-in-frischprodukte-fruchte-e-gemuse-coop-spiez-bern-b5eyi5",
+        "verkaufer-in-frischprodukte-fruchte-und-gemuse-coop-spiez-bern"
       ]
     },
     {
@@ -2849,7 +2934,6 @@
           "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-genossenschaft-spiez-bern",
           "seller-in-fresh-products-production-butcher-coop-genossenschaft-spiez",
           "vendeur-en-produits-frais-production-boucher-coop-genossenschaft-spiez",
-          "venditore-in-prodotti-freschi-macellaio-di-produzione-coop-genossenschaft-spiez",
           "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-spiez-bern-nfurhc",
           "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-spiez-bern"
         ],
@@ -2873,14 +2957,13 @@
         "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-genossenschaft-spiez-bern",
         "seller-in-fresh-products-production-butcher-coop-genossenschaft-spiez",
         "vendeur-en-produits-frais-production-boucher-coop-genossenschaft-spiez",
-        "venditore-in-prodotti-freschi-macellaio-di-produzione-coop-genossenschaft-spiez",
         "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-spiez-bern-nfurhc",
         "verkaufer-in-frischeprodukte-produktion-metzgerei-coop-spiez-bern"
       ]
     },
     {
       "id": "company-dbbev9",
-      "slug": "magaziner-in-verkauf-coop-laupen-bern",
+      "slug": "vendite-magazine-coop-genossenschaft-laupen",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Laupen",
@@ -2926,8 +3009,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-laupen-bern-dbbev9",
-        "en": "magaziner-in-sales-coop-laupen-bern-dbbev9",
+        "it": "vendite-magazine-coop-genossenschaft-laupen",
+        "en": "warehouse-sales-coop-genossenschaft-laupen",
         "de": "magaziner-in-verkauf-coop-laupen-bern-dbbev9",
         "fr": "magasin-en-vente-coop-genossenschaft-laupen"
       },
@@ -2950,15 +3033,25 @@
       "previousSlugsByLocale": {
         "fr": [
           "magaziner-in-vente-coop-laupen-bern-dbbev9"
+        ],
+        "it": [
+          "magaziner-in-vendita-coop-laupen-bern-dbbev9",
+          "magaziner-in-verkauf-coop-laupen-bern"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-laupen-bern-dbbev9"
         ]
       },
       "previousSlugs": [
-        "magaziner-in-vente-coop-laupen-bern-dbbev9"
+        "magaziner-in-vente-coop-laupen-bern-dbbev9",
+        "magaziner-in-vendita-coop-laupen-bern-dbbev9",
+        "magaziner-in-verkauf-coop-laupen-bern",
+        "magaziner-in-sales-coop-laupen-bern-dbbev9"
       ]
     },
     {
       "id": "company-4z03fb",
-      "slug": "magaziner-in-verkauf-coop-lyss-bern",
+      "slug": "vendite-magazine-coop-genossenschaft-lyss",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Lyss",
@@ -3004,8 +3097,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-lyss-bern-4z03fb",
-        "en": "magaziner-in-sales-coop-lyss-bern-4z03fb",
+        "it": "vendite-magazine-coop-genossenschaft-lyss",
+        "en": "warehouse-sales-coop-genossenschaft-lyss",
         "de": "magaziner-in-verkauf-coop-lyss-bern-4z03fb",
         "fr": "magasin-en-vente-coop-genossenschaft-lyss"
       },
@@ -3028,15 +3121,25 @@
       "previousSlugsByLocale": {
         "fr": [
           "magaziner-in-vente-coop-lyss-bern-4z03fb"
+        ],
+        "it": [
+          "magaziner-in-vendita-coop-lyss-bern-4z03fb",
+          "magaziner-in-verkauf-coop-lyss-bern"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-lyss-bern-4z03fb"
         ]
       },
       "previousSlugs": [
-        "magaziner-in-vente-coop-lyss-bern-4z03fb"
+        "magaziner-in-vente-coop-lyss-bern-4z03fb",
+        "magaziner-in-vendita-coop-lyss-bern-4z03fb",
+        "magaziner-in-verkauf-coop-lyss-bern",
+        "magaziner-in-sales-coop-lyss-bern-4z03fb"
       ]
     },
     {
       "id": "company-ksfu7c",
-      "slug": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern",
+      "slug": "vendita-prodotti-freschi-pane-e-prodotti-da-forno-coop-genossenschaft-lyss",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Brot und Backwaren)",
       "location": "Lyss",
@@ -3082,7 +3185,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-lyss-bern-ksfu7c",
+        "it": "vendita-prodotti-freschi-pane-e-prodotti-da-forno-coop-genossenschaft-lyss",
         "en": "seller-in-fresh-products-bread-and-bakery-products-coop-genossenschaft-lyss",
         "de": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern-ksfu7c",
         "fr": "vendeur-en-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss"
@@ -3114,7 +3217,9 @@
           "assistant-commercial-de-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
           "nom-de-l-agent-dans-les-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
           "vendeur-de-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
-          "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-lyss"
+          "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-lyss",
+          "verkaufer-in-frischprodukte-brot-e-backwaren-coop-lyss-bern-ksfu7c",
+          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern"
         ],
         "en": [
           "fresh-produce-sales-associate-bread-and-pastries-coop-genossenschaft-lyss",
@@ -3139,12 +3244,14 @@
         "assistant-commercial-de-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
         "nom-de-l-agent-dans-les-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
         "vendeur-de-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-lyss",
-        "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-lyss"
+        "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-lyss",
+        "verkaufer-in-frischprodukte-brot-e-backwaren-coop-lyss-bern-ksfu7c",
+        "verkaufer-in-frischprodukte-brot-und-backwaren-coop-lyss-bern"
       ]
     },
     {
       "id": "company-rq9cxc",
-      "slug": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-56c0d4",
+      "slug": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Biel",
@@ -3181,10 +3288,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-56c0d4",
-        "en": "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-biel-56c0d4",
+        "it": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel",
+        "en": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-biel",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc",
-        "fr": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-biel-56c0d4"
+        "fr": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-biel"
       },
       "addressLocality": "Biel",
       "sourceLang": "de",
@@ -3207,20 +3314,26 @@
           "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-fnlftn",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-56c0d4"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-biel-56c0d4"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-biel-56c0d4"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-fnlftn",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-biel",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern-rq9cxc",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-biel-bern",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-biel-56c0d4",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-biel-56c0d4",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-biel-56c0d4"
       ]
     },
     {
@@ -3470,7 +3583,7 @@
     },
     {
       "id": "company-7s7cmv",
-      "slug": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-murten",
+      "slug": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-murten",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Brot / Backwaren",
       "location": "Murten",
@@ -3516,8 +3629,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-murten",
-        "en": "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-murten",
+        "it": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-murten",
+        "en": "rayon-conductor-bread-bakery-products-coop-genossenschaft-murten",
         "de": "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv",
         "fr": "chef-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-murten"
       },
@@ -3540,10 +3653,12 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv",
-          "rayonleiter-in-brot-backwaren-coop-murten-freiburg"
+          "rayonleiter-in-brot-backwaren-coop-murten-freiburg",
+          "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-murten"
         ],
         "en": [
-          "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv"
+          "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv",
+          "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-murten"
         ],
         "fr": [
           "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv"
@@ -3551,12 +3666,14 @@
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-murten-freiburg-7s7cmv",
-        "rayonleiter-in-brot-backwaren-coop-murten-freiburg"
+        "rayonleiter-in-brot-backwaren-coop-murten-freiburg",
+        "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-murten",
+        "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-murten"
       ]
     },
     {
       "id": "company-92dop9",
-      "slug": "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich",
+      "slug": "vendite-amministrazione-dei-dipendenti-servizio-cliente-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Verkauf/Administration/Kundendienst",
       "location": "Zürich",
@@ -3602,8 +3719,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-administration-kundendienst-coop-zurich-92dop9",
-        "en": "associate-sales-administration-kundendienst-coop-zurich-92dop9",
+        "it": "vendite-amministrazione-dei-dipendenti-servizio-cliente-coop-genossenschaft-zurich",
+        "en": "employee-sales-administration-customer-service-coop-genossenschaft-zurich",
         "de": "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich-92dop9",
         "fr": "employe-en-vente-administration-service-a-la-clientele-coop-genossenschaft-zurich"
       },
@@ -3626,10 +3743,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "collaborateur-trice-vente-administration-kundendienst-coop-zurich-92dop9"
+        ],
+        "it": [
+          "addetto-a-alle-vendite-administration-kundendienst-coop-zurich-92dop9",
+          "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich"
+        ],
+        "en": [
+          "associate-sales-administration-kundendienst-coop-zurich-92dop9"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-vente-administration-kundendienst-coop-zurich-92dop9"
+        "collaborateur-trice-vente-administration-kundendienst-coop-zurich-92dop9",
+        "addetto-a-alle-vendite-administration-kundendienst-coop-zurich-92dop9",
+        "mitarbeiter-in-verkauf-administration-kundendienst-coop-zurich",
+        "associate-sales-administration-kundendienst-coop-zurich-92dop9"
       ]
     },
     {
@@ -3711,7 +3838,7 @@
     },
     {
       "id": "company-qatzym",
-      "slug": "venditore-in-food-fresh-island-coop-genossenschaft-aarau",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Aarau",
@@ -3757,7 +3884,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-fresh-island-coop-genossenschaft-aarau",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-aarau",
         "en": "seller-in-food-fresh-island-coop-genossenschaft-aarau",
         "de": "verkaufer-in-food-frische-insel-coop-aarau-aargau-qatzym",
         "fr": "vendeur-dans-food-fresh-island-coop-genossenschaft-aarau"
@@ -3789,14 +3916,12 @@
           "verkaufer-in-food-frische-insel-coop-aarau-aargau"
         ],
         "en": [
-          "seller-in-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-qatzym"
         ],
         "de": [
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-iza991"
         ],
         "fr": [
-          "vendeur-dans-food-fresh-island-coop-genossenschaft-aarau",
           "verkaufer-in-food-frische-insel-coop-aarau-aargau-qatzym"
         ]
       },
@@ -3898,7 +4023,7 @@
     },
     {
       "id": "company-run4by",
-      "slug": "venditore-in-food-coop-genossenschaft-adliswil",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-adliswil",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Adliswil",
@@ -3944,10 +4069,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-adliswil",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-adliswil",
         "en": "seller-in-food-coop-genossenschaft-adliswil",
         "de": "verkaufer-in-food-coop-adliswil-zurich-run4by",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-adliswil"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-adliswil"
       },
       "addressLocality": "Adliswil",
       "sourceLang": "de",
@@ -3968,18 +4093,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-adliswil-zurich-run4by",
-          "verkaufer-in-food-coop-adliswil-zurich"
+          "verkaufer-in-food-coop-adliswil-zurich",
+          "venditore-in-food-coop-genossenschaft-adliswil"
         ],
         "en": [
           "verkaufer-in-food-coop-adliswil-zurich-run4by"
         ],
         "fr": [
-          "verkaufer-in-food-coop-adliswil-zurich-run4by"
+          "verkaufer-in-food-coop-adliswil-zurich-run4by",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-adliswil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-adliswil-zurich-run4by",
-        "verkaufer-in-food-coop-adliswil-zurich"
+        "verkaufer-in-food-coop-adliswil-zurich",
+        "venditore-in-food-coop-genossenschaft-adliswil",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-adliswil"
       ]
     },
     {
@@ -4070,7 +4199,7 @@
     },
     {
       "id": "company-hdac8j",
-      "slug": "venditore-in-food-coop-genossenschaft-felsberg",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-felsberg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Felsberg",
@@ -4116,10 +4245,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-felsberg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-felsberg",
         "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-hdac8j",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-felsberg"
       },
       "addressLocality": "Felsberg",
       "sourceLang": "de",
@@ -4149,7 +4278,8 @@
           "seller-in-food-coop-genossenschaft-felsberg-e76443",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410",
           "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-e76443",
-          "venditore-in-food-coop-genossenschaft-felsberg-6dde92"
+          "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
+          "venditore-in-food-coop-genossenschaft-felsberg"
         ],
         "en": [
           "food-sales-assistant-coop-genossenschaft-felsberg-iu3jey",
@@ -4160,7 +4290,8 @@
         ],
         "fr": [
           "assistant-commercial-alimentaire-coop-genossenschaft-felsberg-iu3jey",
-          "verkaufer-in-food-coop-felsberg-graubunden-hdac8j"
+          "verkaufer-in-food-coop-felsberg-graubunden-hdac8j",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
         ]
       },
       "previousSlugs": [
@@ -4174,12 +4305,14 @@
         "seller-in-food-coop-genossenschaft-felsberg-e76443",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-e76443",
-        "venditore-in-food-coop-genossenschaft-felsberg-6dde92"
+        "venditore-in-food-coop-genossenschaft-felsberg-6dde92",
+        "venditore-in-food-coop-genossenschaft-felsberg",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       ]
     },
     {
       "id": "company-8do4e2",
-      "slug": "venditore-in-fiori-kiosk-coop-genossenschaft-oftringen",
+      "slug": "fiori-del-fornitore-chioschi-coop-genossenschaft-oftringen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Oftringen",
@@ -4225,10 +4358,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-fiori-kiosk-coop-genossenschaft-oftringen",
-        "en": "seller-in-flowers-kiosk-coop-genossenschaft-oftringen",
+        "it": "fiori-del-fornitore-chioschi-coop-genossenschaft-oftringen",
+        "en": "vendor-flowers-kiosks-coop-genossenschaft-oftringen",
         "de": "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2",
-        "fr": "vendeur-en-fleurs-kiosque-coop-genossenschaft-oftringen"
+        "fr": "fleurs-kiosques-du-fournisseur-coop-genossenschaft-oftringen"
       },
       "addressLocality": "Oftringen",
       "sourceLang": "de",
@@ -4250,19 +4383,25 @@
         "it": [
           "verkaufer-in-blumen-kiosk-coop-genossenschaft-oftringen",
           "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2",
-          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau"
+          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau",
+          "venditore-in-fiori-kiosk-coop-genossenschaft-oftringen"
         ],
         "en": [
-          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2"
+          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2",
+          "seller-in-flowers-kiosk-coop-genossenschaft-oftringen"
         ],
         "fr": [
-          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2"
+          "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2",
+          "vendeur-en-fleurs-kiosque-coop-genossenschaft-oftringen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-blumen-kiosk-coop-genossenschaft-oftringen",
         "verkaufer-in-blumen-kiosk-coop-oftringen-aargau-8do4e2",
-        "verkaufer-in-blumen-kiosk-coop-oftringen-aargau"
+        "verkaufer-in-blumen-kiosk-coop-oftringen-aargau",
+        "venditore-in-fiori-kiosk-coop-genossenschaft-oftringen",
+        "seller-in-flowers-kiosk-coop-genossenschaft-oftringen",
+        "vendeur-en-fleurs-kiosque-coop-genossenschaft-oftringen"
       ]
     },
     {
@@ -4599,7 +4738,7 @@
     },
     {
       "id": "company-8q60zr",
-      "slug": "rayon-leader-in-nonfood-coop-genossenschaft-klosters-serneus",
+      "slug": "rayon-conduttore-non-alimentare-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Nonfood",
       "location": "Klosters-Serneus",
@@ -4645,8 +4784,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayon-leader-in-nonfood-coop-genossenschaft-klosters-serneus",
-        "en": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr",
+        "it": "rayon-conduttore-non-alimentare-coop-genossenschaft-klosters-serneus",
+        "en": "rayon-conductor-non-food-coop-genossenschaft-klosters-serneus",
         "de": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr",
         "fr": "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-klosters-serneus"
       },
@@ -4669,15 +4808,20 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr",
-          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden"
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
+          "rayon-leader-in-nonfood-coop-genossenschaft-klosters-serneus"
         ],
         "fr": [
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr"
+        ],
+        "en": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-8q60zr",
-        "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden"
+        "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
+        "rayon-leader-in-nonfood-coop-genossenschaft-klosters-serneus"
       ]
     },
     {
@@ -4839,7 +4983,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "chef-chef-m-f-d-coop-genossenschaft-oftringen",
           "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
           "chef-chef-h-f-d-coop-genossenschaft-oftringen",
@@ -4857,12 +5000,10 @@
           "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416"
         ],
         "fr": [
-          "chef-chef-h-f-d-coop-genossenschaft-oftringen",
           "kochin-koch-m-w-d-coop-ristorante-oftringen-aargau-0uhkwi"
         ]
       },
       "previousSlugs": [
-        "chef-chef-m-f-d-coop-genossenschaft-oftringen",
         "chef-chef-m-f-d-coop-genossenschaft-oftringen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-oftringen-aargau-0pl416",
         "chef-chef-h-f-d-coop-genossenschaft-oftringen",
@@ -4964,7 +5105,7 @@
     },
     {
       "id": "company-c4qsr4",
-      "slug": "venditore-in-food-coop-genossenschaft-zurich-9eb23d",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -5010,10 +5151,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-zurich-9eb23d",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich",
         "en": "seller-in-food-coop-genossenschaft-zurich-9eb23d",
         "de": "verkaufer-in-food-coop-zurich-c4qsr4",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-9eb23d"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -5034,18 +5175,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-zurich-c4qsr4",
-          "verkaufer-in-food-coop-zurich"
+          "verkaufer-in-food-coop-zurich",
+          "venditore-in-food-coop-genossenschaft-zurich-9eb23d"
         ],
         "en": [
           "verkaufer-in-food-coop-zurich-c4qsr4"
         ],
         "fr": [
-          "verkaufer-in-food-coop-zurich-c4qsr4"
+          "verkaufer-in-food-coop-zurich-c4qsr4",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-9eb23d"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-zurich-c4qsr4",
-        "verkaufer-in-food-coop-zurich"
+        "verkaufer-in-food-coop-zurich",
+        "venditore-in-food-coop-genossenschaft-zurich-9eb23d",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-9eb23d"
       ]
     },
     {
@@ -5101,7 +5246,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-baden",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-baden",
         "de": "verkaufer-in-kassen-services-coop-baden-aargau-rz660s",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-baden"
       },
       "addressLocality": "Baden",
       "sourceLang": "de",
@@ -5130,19 +5275,21 @@
           "verkaufer-in-kassen-services-coop-baden-aargau-rz660s"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-baden-aargau-rz660s"
+          "verkaufer-in-kassen-services-coop-baden-aargau-rz660s",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-baden-aargau-rz660s",
         "verkaufer-in-kassen-services-coop-baden-aargau",
         "venditore-kasse-servizi-coop-genossenschaft-baden",
-        "venditore-venditore-cassa-servizi-coop-genossenschaft-baden"
+        "venditore-venditore-cassa-servizi-coop-genossenschaft-baden",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden"
       ]
     },
     {
       "id": "company-11rcvo",
-      "slug": "venditore-in-food-coop-genossenschaft-baden",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-baden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Baden",
@@ -5188,10 +5335,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-baden",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-baden",
         "en": "seller-in-food-coop-genossenschaft-baden",
         "de": "verkaufer-in-food-coop-baden-aargau-11rcvo",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-baden"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-baden"
       },
       "addressLocality": "Baden",
       "sourceLang": "de",
@@ -5212,23 +5359,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-baden-aargau-11rcvo",
-          "verkaufer-in-food-coop-baden-aargau"
+          "verkaufer-in-food-coop-baden-aargau",
+          "venditore-in-food-coop-genossenschaft-baden"
         ],
         "en": [
           "verkaufer-in-food-coop-baden-aargau-11rcvo"
         ],
         "fr": [
-          "verkaufer-in-food-coop-baden-aargau-11rcvo"
+          "verkaufer-in-food-coop-baden-aargau-11rcvo",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-baden-aargau-11rcvo",
-        "verkaufer-in-food-coop-baden-aargau"
+        "verkaufer-in-food-coop-baden-aargau",
+        "venditore-in-food-coop-genossenschaft-baden",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden"
       ]
     },
     {
       "id": "company-xsyfng",
-      "slug": "venditore-in-food-coop-genossenschaft-bad-ragaz",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-bad-ragaz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bad Ragaz",
@@ -5274,10 +5425,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-bad-ragaz",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-bad-ragaz",
         "en": "seller-in-food-coop-genossenschaft-bad-ragaz",
         "de": "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bad-ragaz"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-bad-ragaz"
       },
       "addressLocality": "Bad Ragaz",
       "sourceLang": "de",
@@ -5298,18 +5449,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng",
-          "verkaufer-in-food-coop-bad-ragaz-sankt-gallen"
+          "verkaufer-in-food-coop-bad-ragaz-sankt-gallen",
+          "venditore-in-food-coop-genossenschaft-bad-ragaz"
         ],
         "en": [
           "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng"
         ],
         "fr": [
-          "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng"
+          "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bad-ragaz"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bad-ragaz-sankt-gallen-xsyfng",
-        "verkaufer-in-food-coop-bad-ragaz-sankt-gallen"
+        "verkaufer-in-food-coop-bad-ragaz-sankt-gallen",
+        "venditore-in-food-coop-genossenschaft-bad-ragaz",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bad-ragaz"
       ]
     },
     {
@@ -5390,7 +5545,6 @@
           "verkaufer-in-frischprodukte-coop-genossenschaft-pontresina-grigioni",
           "seller-fresh-products-coop-genossenschaft-pontresina",
           "vendeur-produits-frais-coop-genossenschaft-pontresina",
-          "vendita-prodotti-freschi-coop-genossenschaft-pontresina",
           "verkaufer-in-frischprodukte-coop-pontresina-grigioni-5aijh4",
           "verkaufer-in-frischprodukte-coop-pontresina-grigioni"
         ],
@@ -5414,14 +5568,13 @@
         "verkaufer-in-frischprodukte-coop-genossenschaft-pontresina-grigioni",
         "seller-fresh-products-coop-genossenschaft-pontresina",
         "vendeur-produits-frais-coop-genossenschaft-pontresina",
-        "vendita-prodotti-freschi-coop-genossenschaft-pontresina",
         "verkaufer-in-frischprodukte-coop-pontresina-grigioni-5aijh4",
         "verkaufer-in-frischprodukte-coop-pontresina-grigioni"
       ]
     },
     {
       "id": "company-bom167",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-28104b",
+      "slug": "vendita-cassa-servizi-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Zürich",
@@ -5469,10 +5622,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-28104b",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-zurich",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-zurich-28104b",
         "de": "verkaufer-in-kassen-services-coop-zurich-bom167",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-28104b"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -5493,23 +5646,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-zurich-bom167",
-          "verkaufer-in-kassen-services-coop-zurich"
+          "verkaufer-in-kassen-services-coop-zurich",
+          "venditore-in-cassa-servizi-coop-genossenschaft-zurich-28104b"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-zurich-bom167"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-zurich-bom167"
+          "verkaufer-in-kassen-services-coop-zurich-bom167",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-28104b"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-bom167",
-        "verkaufer-in-kassen-services-coop-zurich"
+        "verkaufer-in-kassen-services-coop-zurich",
+        "venditore-in-cassa-servizi-coop-genossenschaft-zurich-28104b",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-28104b"
       ]
     },
     {
       "id": "company-w6ygh7",
-      "slug": "venditore-in-prodotti-food-fresh-coop-genossenschaft-lupfig",
+      "slug": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-lupfig",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food/Frischprodukte",
       "location": "Lupfig",
@@ -5555,7 +5712,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-prodotti-food-fresh-coop-genossenschaft-lupfig",
+        "it": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-lupfig",
         "en": "seller-in-food-fresh-products-coop-genossenschaft-lupfig",
         "de": "verkaufer-in-food-frischprodukte-coop-lupfig-aargau-w6ygh7",
         "fr": "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-lupfig"
@@ -5585,7 +5742,8 @@
           "verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
           "verkaufer-in-food-frischprodukte-coop-lupfig-aargau-w6ygh7",
           "verkaufer-in-food-frischprodukte-coop-lupfig-aargau",
-          "vendeur-en-food-fresh-produits-coop-genossenschaft-lupfig"
+          "vendeur-en-food-fresh-produits-coop-genossenschaft-lupfig",
+          "venditore-in-prodotti-food-fresh-coop-genossenschaft-lupfig"
         ],
         "en": [
           "food-fresh-produce-sales-associate-coop-genossenschaft-lupfig-7s3fhv",
@@ -5607,7 +5765,8 @@
         "verkaufer-in-food-frischprodukte-coop-genossenschaft-lupfig",
         "verkaufer-in-food-frischprodukte-coop-lupfig-aargau-w6ygh7",
         "verkaufer-in-food-frischprodukte-coop-lupfig-aargau",
-        "vendeur-en-food-fresh-produits-coop-genossenschaft-lupfig"
+        "vendeur-en-food-fresh-produits-coop-genossenschaft-lupfig",
+        "venditore-in-prodotti-food-fresh-coop-genossenschaft-lupfig"
       ]
     },
     {
@@ -5795,7 +5954,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-hinwil",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-hinwil",
         "de": "verkaufer-in-kassen-services-coop-hinwil-zurich-mvye5f",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-hinwil"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-hinwil"
       },
       "addressLocality": "Hinwil",
       "sourceLang": "de",
@@ -5823,18 +5982,20 @@
           "verkaufer-in-kassen-services-coop-hinwil-zurich-mvye5f"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-hinwil-zurich-mvye5f"
+          "verkaufer-in-kassen-services-coop-hinwil-zurich-mvye5f",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-hinwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-hinwil",
         "verkaufer-in-kassen-services-coop-hinwil-zurich-mvye5f",
-        "verkaufer-in-kassen-services-coop-hinwil-zurich"
+        "verkaufer-in-kassen-services-coop-hinwil-zurich",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-hinwil"
       ]
     },
     {
       "id": "company-lavl1c",
-      "slug": "venditore-in-food-fresh-island-coop-genossenschaft-hinwil",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-hinwil",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Hinwil",
@@ -5880,7 +6041,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-fresh-island-coop-genossenschaft-hinwil",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-hinwil",
         "en": "seller-in-food-fresh-island-coop-genossenschaft-hinwil",
         "de": "verkaufer-in-food-frische-insel-coop-hinwil-zurich-lavl1c",
         "fr": "vendeur-dans-food-fresh-island-coop-genossenschaft-hinwil"
@@ -5909,7 +6070,8 @@
           "venditore-food-coop-genossenschaft-hinwil",
           "verkaufer-in-food-coop-hinwil-zurich-7wcqy0",
           "food-salesperson-coop-genossenschaft-hinwil-7wcqy0",
-          "vendeur-food-coop-genossenschaft-hinwil-7wcqy0"
+          "vendeur-food-coop-genossenschaft-hinwil-7wcqy0",
+          "venditore-in-food-fresh-island-coop-genossenschaft-hinwil"
         ],
         "en": [
           "verkaufer-in-food-frische-insel-coop-hinwil-zurich-lavl1c",
@@ -5930,7 +6092,8 @@
         "venditore-food-coop-genossenschaft-hinwil",
         "verkaufer-in-food-coop-hinwil-zurich-7wcqy0",
         "food-salesperson-coop-genossenschaft-hinwil-7wcqy0",
-        "vendeur-food-coop-genossenschaft-hinwil-7wcqy0"
+        "vendeur-food-coop-genossenschaft-hinwil-7wcqy0",
+        "venditore-in-food-fresh-island-coop-genossenschaft-hinwil"
       ]
     },
     {
@@ -6028,7 +6191,7 @@
     },
     {
       "id": "company-w1ci72",
-      "slug": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-wadenswil",
+      "slug": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-wadenswil",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Brot / Backwaren",
       "location": "Wädenswil",
@@ -6074,8 +6237,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-wadenswil",
-        "en": "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-wadenswil",
+        "it": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-wadenswil",
+        "en": "rayon-conductor-bread-bakery-products-coop-genossenschaft-wadenswil",
         "de": "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72",
         "fr": "chef-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-wadenswil"
       },
@@ -6098,10 +6261,12 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72",
-          "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich"
+          "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich",
+          "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-wadenswil"
         ],
         "en": [
-          "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72"
+          "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72",
+          "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-wadenswil"
         ],
         "fr": [
           "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72"
@@ -6109,7 +6274,9 @@
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich-w1ci72",
-        "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich"
+        "rayonleiter-in-brot-backwaren-coop-wadenswil-zurich",
+        "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-wadenswil",
+        "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-wadenswil"
       ]
     },
     {
@@ -6200,7 +6367,7 @@
     },
     {
       "id": "company-f93k10",
-      "slug": "venditore-in-cibo-bevande-vino-coop-genossenschaft-schlieren",
+      "slug": "seller-food-bevande-vino-coop-genossenschaft-schlieren",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Getränke / Wein)",
       "location": "Schlieren",
@@ -6246,7 +6413,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cibo-bevande-vino-coop-genossenschaft-schlieren",
+        "it": "seller-food-bevande-vino-coop-genossenschaft-schlieren",
         "en": "seller-in-food-drinks-wine-coop-genossenschaft-schlieren",
         "de": "verkaufer-in-food-getranke-wein-coop-schlieren-zurich-f93k10",
         "fr": "vendeur-dans-la-nourriture-boissons-vin-coop-genossenschaft-schlieren"
@@ -6270,7 +6437,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-getranke-wein-coop-schlieren-zurich-f93k10",
-          "verkaufer-in-food-getranke-wein-coop-schlieren-zurich"
+          "verkaufer-in-food-getranke-wein-coop-schlieren-zurich",
+          "venditore-in-cibo-bevande-vino-coop-genossenschaft-schlieren"
         ],
         "en": [
           "verkaufer-in-food-getranke-wein-coop-schlieren-zurich-f93k10"
@@ -6281,12 +6449,13 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-getranke-wein-coop-schlieren-zurich-f93k10",
-        "verkaufer-in-food-getranke-wein-coop-schlieren-zurich"
+        "verkaufer-in-food-getranke-wein-coop-schlieren-zurich",
+        "venditore-in-cibo-bevande-vino-coop-genossenschaft-schlieren"
       ]
     },
     {
       "id": "company-3xrdp8",
-      "slug": "venditore-in-prodotti-food-fresh-coop-genossenschaft-winterthur",
+      "slug": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food/Frischprodukte",
       "location": "Winterthur",
@@ -6332,7 +6501,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-prodotti-food-fresh-coop-genossenschaft-winterthur",
+        "it": "vendita-prodotti-alimentari-fresh-coop-genossenschaft-winterthur",
         "en": "seller-in-food-fresh-products-coop-genossenschaft-winterthur",
         "de": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-3xrdp8",
         "fr": "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur"
@@ -6358,7 +6527,8 @@
           "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-3xrdp8",
           "verkaufer-in-food-frischprodukte-coop-winterthur-zurich",
           "seller-in-food-fresh-products-coop-genossenschaft-winterthur-brfcwn",
-          "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn"
+          "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
+          "venditore-in-prodotti-food-fresh-coop-genossenschaft-winterthur"
         ],
         "en": [
           "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-3xrdp8"
@@ -6371,12 +6541,13 @@
         "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-3xrdp8",
         "verkaufer-in-food-frischprodukte-coop-winterthur-zurich",
         "seller-in-food-fresh-products-coop-genossenschaft-winterthur-brfcwn",
-        "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn"
+        "vendeur-dans-les-produits-food-fresh-coop-genossenschaft-winterthur-brfcwn",
+        "venditore-in-prodotti-food-fresh-coop-genossenschaft-winterthur"
       ]
     },
     {
       "id": "company-jr104o",
-      "slug": "venditore-in-food-coop-genossenschaft-obfelden",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-obfelden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Obfelden",
@@ -6422,10 +6593,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-obfelden",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-obfelden",
         "en": "seller-in-food-coop-genossenschaft-obfelden",
         "de": "verkaufer-in-food-coop-obfelden-zurich-jr104o",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-obfelden"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-obfelden"
       },
       "addressLocality": "Obfelden",
       "sourceLang": "de",
@@ -6446,18 +6617,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-obfelden-zurich-jr104o",
-          "verkaufer-in-food-coop-obfelden-zurich"
+          "verkaufer-in-food-coop-obfelden-zurich",
+          "venditore-in-food-coop-genossenschaft-obfelden"
         ],
         "en": [
           "verkaufer-in-food-coop-obfelden-zurich-jr104o"
         ],
         "fr": [
-          "verkaufer-in-food-coop-obfelden-zurich-jr104o"
+          "verkaufer-in-food-coop-obfelden-zurich-jr104o",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-obfelden"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-obfelden-zurich-jr104o",
-        "verkaufer-in-food-coop-obfelden-zurich"
+        "verkaufer-in-food-coop-obfelden-zurich",
+        "venditore-in-food-coop-genossenschaft-obfelden",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-obfelden"
       ]
     },
     {
@@ -6569,7 +6744,7 @@
     },
     {
       "id": "company-irqmt7",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-c57ff0",
+      "slug": "vendita-cassa-servizi-coop-genossenschaft-zurich-c57ff0",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Zürich",
@@ -6617,10 +6792,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-zurich-c57ff0",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-zurich-c57ff0",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-zurich-c57ff0",
         "de": "verkaufer-in-kassen-services-coop-zurich-irqmt7",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-c57ff0"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich-c57ff0"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -6641,23 +6816,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-zurich-irqmt7",
-          "verkaufer-in-kassen-services-coop-zurich-2"
+          "verkaufer-in-kassen-services-coop-zurich-2",
+          "venditore-in-cassa-servizi-coop-genossenschaft-zurich-c57ff0"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-zurich-irqmt7"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-zurich-irqmt7"
+          "verkaufer-in-kassen-services-coop-zurich-irqmt7",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-c57ff0"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zurich-irqmt7",
-        "verkaufer-in-kassen-services-coop-zurich-2"
+        "verkaufer-in-kassen-services-coop-zurich-2",
+        "venditore-in-cassa-servizi-coop-genossenschaft-zurich-c57ff0",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-zurich-c57ff0"
       ]
     },
     {
       "id": "company-nyghsy",
-      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-baden-48fec1",
+      "slug": "vendita-cassa-servizi-coop-genossenschaft-baden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Baden",
@@ -6705,10 +6884,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-cassa-servizi-coop-genossenschaft-baden-48fec1",
+        "it": "vendita-cassa-servizi-coop-genossenschaft-baden",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-baden-48fec1",
         "de": "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden-48fec1"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-baden-48fec1"
       },
       "addressLocality": "Baden",
       "sourceLang": "de",
@@ -6729,18 +6908,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy",
-          "verkaufer-in-kassen-services-coop-baden-aargau-2"
+          "verkaufer-in-kassen-services-coop-baden-aargau-2",
+          "venditore-in-cassa-servizi-coop-genossenschaft-baden-48fec1"
         ],
         "en": [
           "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy"
+          "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden-48fec1"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-baden-aargau-nyghsy",
-        "verkaufer-in-kassen-services-coop-baden-aargau-2"
+        "verkaufer-in-kassen-services-coop-baden-aargau-2",
+        "venditore-in-cassa-servizi-coop-genossenschaft-baden-48fec1",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-baden-48fec1"
       ]
     },
     {
@@ -6796,7 +6979,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-winterthur",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-winterthur",
         "de": "verkaufer-in-kassen-services-coop-winterthur-zurich-3vqxr9",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-winterthur"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -6816,7 +6999,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "venditore-in-cassa-servizi-coop-genossenschaft-winterthur",
           "verkaufer-in-kassen-services-coop-winterthur-zurich-7zcj2u",
           "seller-in-cash-registers-services-coop-genossenschaft-winterthur",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-winterthur",
@@ -6826,7 +7008,6 @@
           "venditore-kasse-servizi-coop-genossenschaft-winterthur"
         ],
         "en": [
-          "seller-in-cash-registers-services-coop-genossenschaft-winterthur",
           "verkaufer-in-kassen-services-coop-winterthur-zurich-3vqxr9"
         ],
         "de": [
@@ -6838,7 +7019,6 @@
         ]
       },
       "previousSlugs": [
-        "venditore-in-cassa-servizi-coop-genossenschaft-winterthur",
         "verkaufer-in-kassen-services-coop-winterthur-zurich-7zcj2u",
         "seller-in-cash-registers-services-coop-genossenschaft-winterthur",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-winterthur",
@@ -6850,7 +7030,7 @@
     },
     {
       "id": "company-agjmu5",
-      "slug": "venditore-in-food-fresh-island-coop-genossenschaft-dietikon",
+      "slug": "vendita-prodotti-freschi-coop-genossenschaft-dietikon",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Dietikon",
@@ -6896,7 +7076,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-fresh-island-coop-genossenschaft-dietikon",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-dietikon",
         "en": "seller-in-food-fresh-island-coop-genossenschaft-dietikon",
         "de": "verkaufer-in-food-frische-insel-coop-dietikon-zurich-agjmu5",
         "fr": "vendeur-dans-food-fresh-island-coop-genossenschaft-dietikon"
@@ -6924,7 +7104,8 @@
           "venditore-in-food-coop-genossenschaft-dietikon",
           "verkaufer-in-food-coop-dietikon-zurich-zfp01e",
           "seller-in-food-coop-genossenschaft-dietikon",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-dietikon"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-dietikon",
+          "venditore-in-food-fresh-island-coop-genossenschaft-dietikon"
         ],
         "en": [
           "verkaufer-in-food-frische-insel-coop-dietikon-zurich-agjmu5",
@@ -6944,7 +7125,8 @@
         "venditore-in-food-coop-genossenschaft-dietikon",
         "verkaufer-in-food-coop-dietikon-zurich-zfp01e",
         "seller-in-food-coop-genossenschaft-dietikon",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-dietikon"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-dietikon",
+        "venditore-in-food-fresh-island-coop-genossenschaft-dietikon"
       ]
     },
     {
@@ -7112,7 +7294,7 @@
     },
     {
       "id": "company-nrvk3g",
-      "slug": "venditore-in-food-drink-coop-genossenschaft-bulach",
+      "slug": "bevande-alimentari-del-venditore-coop-genossenschaft-bulach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Getränke",
       "location": "Bülach",
@@ -7158,7 +7340,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-drink-coop-genossenschaft-bulach",
+        "it": "bevande-alimentari-del-venditore-coop-genossenschaft-bulach",
         "en": "seller-in-food-drinks-coop-genossenschaft-bulach",
         "de": "verkaufer-in-food-getranke-coop-bulach-zurich-nrvk3g",
         "fr": "vendeur-dans-les-boissons-alimentaires-coop-genossenschaft-bulach"
@@ -7187,7 +7369,8 @@
           "vendeur-vendeuse-food-boissons-coop-genossenschaft-bulach-0wwn6r",
           "verkaufer-in-food-getranke-coop-genossenschaft-bulach",
           "verkaufer-in-food-getranke-coop-bulach-zurich-nrvk3g",
-          "verkaufer-in-food-getranke-coop-bulach-zurich"
+          "verkaufer-in-food-getranke-coop-bulach-zurich",
+          "venditore-in-food-drink-coop-genossenschaft-bulach"
         ],
         "en": [
           "sales-assistant-food-beverages-coop-genossenschaft-bulach-0wwn6r",
@@ -7208,7 +7391,8 @@
         "vendeur-vendeuse-food-boissons-coop-genossenschaft-bulach-0wwn6r",
         "verkaufer-in-food-getranke-coop-genossenschaft-bulach",
         "verkaufer-in-food-getranke-coop-bulach-zurich-nrvk3g",
-        "verkaufer-in-food-getranke-coop-bulach-zurich"
+        "verkaufer-in-food-getranke-coop-bulach-zurich",
+        "venditore-in-food-drink-coop-genossenschaft-bulach"
       ]
     },
     {
@@ -7397,7 +7581,7 @@
     },
     {
       "id": "company-xhpvrg",
-      "slug": "confectioner-in-coop-genossenschaft-zurich",
+      "slug": "confessore-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Konditor:in",
       "location": "Zürich",
@@ -7443,10 +7627,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "confectioner-in-coop-genossenschaft-zurich",
-        "en": "konditor-in-coop-zurich-xhpvrg",
+        "it": "confessore-coop-genossenschaft-zurich",
+        "en": "confectioner-coop-genossenschaft-zurich",
         "de": "konditor-in-coop-zurich-xhpvrg",
-        "fr": "configeur-in-coop-genossenschaft-zurich"
+        "fr": "configurateur-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -7469,9 +7653,14 @@
           "konditor-in-coop-zurich-xhpvrg",
           "konditor-in-coop-zurich",
           "configeur-conservateur-coop-genossenschaft-zurich",
-          "configeur-in-coop-genossenschaft-zurich-76jn1l"
+          "configeur-in-coop-genossenschaft-zurich-76jn1l",
+          "confectioner-in-coop-genossenschaft-zurich"
         ],
         "fr": [
+          "konditor-in-coop-zurich-xhpvrg",
+          "configeur-in-coop-genossenschaft-zurich"
+        ],
+        "en": [
           "konditor-in-coop-zurich-xhpvrg"
         ]
       },
@@ -7479,7 +7668,9 @@
         "konditor-in-coop-zurich-xhpvrg",
         "konditor-in-coop-zurich",
         "configeur-conservateur-coop-genossenschaft-zurich",
-        "configeur-in-coop-genossenschaft-zurich-76jn1l"
+        "configeur-in-coop-genossenschaft-zurich-76jn1l",
+        "confectioner-in-coop-genossenschaft-zurich",
+        "configeur-in-coop-genossenschaft-zurich"
       ]
     },
     {
@@ -7765,7 +7956,7 @@
     },
     {
       "id": "company-ihq0va",
-      "slug": "venditore-in-food-coop-genossenschaft-berg",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-berg",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Berg",
@@ -7811,10 +8002,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-berg",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-berg",
         "en": "seller-in-food-coop-genossenschaft-berg",
         "de": "verkaufer-in-food-coop-berg-thurgau-ihq0va",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-berg"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-berg"
       },
       "addressLocality": "Berg",
       "sourceLang": "de",
@@ -7835,23 +8026,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-berg-thurgau-ihq0va",
-          "verkaufer-in-food-coop-berg-thurgau"
+          "verkaufer-in-food-coop-berg-thurgau",
+          "venditore-in-food-coop-genossenschaft-berg"
         ],
         "en": [
           "verkaufer-in-food-coop-berg-thurgau-ihq0va"
         ],
         "fr": [
-          "verkaufer-in-food-coop-berg-thurgau-ihq0va"
+          "verkaufer-in-food-coop-berg-thurgau-ihq0va",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-berg"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-berg-thurgau-ihq0va",
-        "verkaufer-in-food-coop-berg-thurgau"
+        "verkaufer-in-food-coop-berg-thurgau",
+        "venditore-in-food-coop-genossenschaft-berg",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-berg"
       ]
     },
     {
       "id": "company-913okg",
-      "slug": "magaziner-in-verkauf-coop-wohlen-aargau",
+      "slug": "vendite-magazine-coop-genossenschaft-wohlen",
       "company": "Coop Genossenschaft",
       "title": "Magaziner:in Verkauf",
       "location": "Wohlen",
@@ -7897,8 +8092,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "magaziner-in-vendita-coop-wohlen-aargau-913okg",
-        "en": "magaziner-in-sales-coop-wohlen-aargau-913okg",
+        "it": "vendite-magazine-coop-genossenschaft-wohlen",
+        "en": "warehouse-sales-coop-genossenschaft-wohlen",
         "de": "magaziner-in-verkauf-coop-wohlen-aargau-913okg",
         "fr": "magasin-en-vente-coop-genossenschaft-wohlen"
       },
@@ -7921,15 +8116,25 @@
       "previousSlugsByLocale": {
         "fr": [
           "magaziner-in-vente-coop-wohlen-aargau-913okg"
+        ],
+        "it": [
+          "magaziner-in-vendita-coop-wohlen-aargau-913okg",
+          "magaziner-in-verkauf-coop-wohlen-aargau"
+        ],
+        "en": [
+          "magaziner-in-sales-coop-wohlen-aargau-913okg"
         ]
       },
       "previousSlugs": [
-        "magaziner-in-vente-coop-wohlen-aargau-913okg"
+        "magaziner-in-vente-coop-wohlen-aargau-913okg",
+        "magaziner-in-vendita-coop-wohlen-aargau-913okg",
+        "magaziner-in-verkauf-coop-wohlen-aargau",
+        "magaziner-in-sales-coop-wohlen-aargau-913okg"
       ]
     },
     {
       "id": "company-cd1imp",
-      "slug": "rayon-leader-in-to-go-coop-genossenschaft-winterthur",
+      "slug": "rayon-direttore-d-orchestra-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in to go",
       "location": "Winterthur",
@@ -7975,8 +8180,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayon-leader-in-to-go-coop-genossenschaft-winterthur",
-        "en": "rayonleiter-in-to-go-coop-city-winterthur-zurich-cd1imp",
+        "it": "rayon-direttore-d-orchestra-coop-genossenschaft-winterthur",
+        "en": "rayon-conductor-to-go-coop-genossenschaft-winterthur",
         "de": "rayonleiter-in-to-go-coop-city-winterthur-zurich-cd1imp",
         "fr": "le-leader-du-rayon-c-est-parti-coop-genossenschaft-winterthur"
       },
@@ -8012,13 +8217,13 @@
           "rayonleiter-in-to-go-coop-city-winterthur-zurich"
         ],
         "en": [
-          "rayon-leader-in-to-go-coop-genossenschaft-winterthur-zurich"
+          "rayon-leader-in-to-go-coop-genossenschaft-winterthur-zurich",
+          "rayonleiter-in-to-go-coop-city-winterthur-zurich-cd1imp"
         ],
         "de": [
           "rayonleiter-in-to-go-coop-genossenschaft-winterthur-zurich-27fgvk"
         ],
         "fr": [
-          "le-leader-du-rayon-c-est-parti-coop-genossenschaft-winterthur",
           "rayonleiter-in-to-go-coop-city-winterthur-zurich-cd1imp"
         ]
       },
@@ -8039,7 +8244,7 @@
     },
     {
       "id": "company-mxbhy4",
-      "slug": "venditore-in-food-coop-genossenschaft-ehrendingen",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-ehrendingen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Ehrendingen",
@@ -8085,10 +8290,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-ehrendingen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-ehrendingen",
         "en": "seller-in-food-coop-genossenschaft-ehrendingen",
         "de": "verkaufer-in-food-coop-ehrendingen-aargau-mxbhy4",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-ehrendingen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-ehrendingen"
       },
       "addressLocality": "Ehrendingen",
       "sourceLang": "de",
@@ -8113,7 +8318,8 @@
           "food-retail-sales-associate-coop-genossenschaft-ehrendingen-8o4ooe",
           "vendeur-vendeuse-en-alimentation-coop-genossenschaft-ehrendingen-8o4ooe",
           "verkaufer-in-food-coop-ehrendingen-aargau-mxbhy4",
-          "verkaufer-in-food-coop-ehrendingen-aargau"
+          "verkaufer-in-food-coop-ehrendingen-aargau",
+          "venditore-in-food-coop-genossenschaft-ehrendingen"
         ],
         "en": [
           "food-retail-sales-associate-coop-genossenschaft-ehrendingen-8o4ooe",
@@ -8124,7 +8330,8 @@
         ],
         "fr": [
           "vendeur-vendeuse-en-alimentation-coop-genossenschaft-ehrendingen-8o4ooe",
-          "verkaufer-in-food-coop-ehrendingen-aargau-mxbhy4"
+          "verkaufer-in-food-coop-ehrendingen-aargau-mxbhy4",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-ehrendingen"
         ]
       },
       "previousSlugs": [
@@ -8133,7 +8340,9 @@
         "food-retail-sales-associate-coop-genossenschaft-ehrendingen-8o4ooe",
         "vendeur-vendeuse-en-alimentation-coop-genossenschaft-ehrendingen-8o4ooe",
         "verkaufer-in-food-coop-ehrendingen-aargau-mxbhy4",
-        "verkaufer-in-food-coop-ehrendingen-aargau"
+        "verkaufer-in-food-coop-ehrendingen-aargau",
+        "venditore-in-food-coop-genossenschaft-ehrendingen",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-ehrendingen"
       ]
     },
     {
@@ -8187,7 +8396,7 @@
         "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-wadenswil",
         "en": "rayon-conductor-in-staple-food-coop-genossenschaft-wadenswil",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-oglfkl",
-        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wadenswil"
+        "fr": "produits-de-base-du-conducteur-de-rayonne-coop-genossenschaft-wadenswil"
       },
       "addressLocality": "Wädenswil",
       "sourceLang": "de",
@@ -8214,12 +8423,14 @@
           "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-oglfkl"
         ],
         "fr": [
-          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-oglfkl"
+          "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-oglfkl",
+          "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wadenswil"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich-oglfkl",
-        "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich"
+        "rayonleiter-in-grundnahrungsmittel-coop-wadenswil-zurich",
+        "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wadenswil"
       ]
     },
     {
@@ -8310,7 +8521,7 @@
     },
     {
       "id": "company-tbk7xb",
-      "slug": "venditore-in-food-coop-genossenschaft-baden-dattwil",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-baden-dattwil",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Baden-Dättwil",
@@ -8356,10 +8567,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-baden-dattwil",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-baden-dattwil",
         "en": "seller-in-food-coop-genossenschaft-baden-dattwil",
         "de": "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dattwil"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-baden-dattwil"
       },
       "addressLocality": "Baden-Dättwil",
       "sourceLang": "de",
@@ -8380,23 +8591,27 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb",
-          "verkaufer-in-food-coop-baden-dattwil-aargau"
+          "verkaufer-in-food-coop-baden-dattwil-aargau",
+          "venditore-in-food-coop-genossenschaft-baden-dattwil"
         ],
         "en": [
           "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb"
         ],
         "fr": [
-          "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb"
+          "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dattwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-baden-dattwil-aargau-tbk7xb",
-        "verkaufer-in-food-coop-baden-dattwil-aargau"
+        "verkaufer-in-food-coop-baden-dattwil-aargau",
+        "venditore-in-food-coop-genossenschaft-baden-dattwil",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-baden-dattwil"
       ]
     },
     {
       "id": "company-mmuler",
-      "slug": "venditore-in-food-coop-genossenschaft-zurich-082c52",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-082c52",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -8442,10 +8657,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-zurich-082c52",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-082c52",
         "en": "seller-in-food-coop-genossenschaft-zurich-082c52",
         "de": "verkaufer-in-food-coop-zurich-mmuler",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-082c52"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-zurich-082c52"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -8466,18 +8681,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-zurich-mmuler",
-          "verkaufer-in-food-coop-zurich-2"
+          "verkaufer-in-food-coop-zurich-2",
+          "venditore-in-food-coop-genossenschaft-zurich-082c52"
         ],
         "en": [
           "verkaufer-in-food-coop-zurich-mmuler"
         ],
         "fr": [
-          "verkaufer-in-food-coop-zurich-mmuler"
+          "verkaufer-in-food-coop-zurich-mmuler",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-082c52"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-zurich-mmuler",
-        "verkaufer-in-food-coop-zurich-2"
+        "verkaufer-in-food-coop-zurich-2",
+        "venditore-in-food-coop-genossenschaft-zurich-082c52",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-082c52"
       ]
     },
     {
@@ -8531,7 +8750,7 @@
         "it": "conduttore-rayon-in-cibo-di-base-coop-genossenschaft-wettingen",
         "en": "rayon-conductor-in-staple-food-coop-genossenschaft-wettingen",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-moafay",
-        "fr": "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen"
+        "fr": "produits-de-base-du-conducteur-de-rayonne-coop-genossenschaft-wettingen"
       },
       "addressLocality": "Wettingen",
       "sourceLang": "de",
@@ -8558,12 +8777,14 @@
           "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-moafay"
         ],
         "fr": [
-          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-moafay"
+          "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-moafay",
+          "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau-moafay",
-        "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau"
+        "rayonleiter-in-grundnahrungsmittel-coop-wettingen-aargau",
+        "rayon-conducteur-dans-les-aliments-de-base-coop-genossenschaft-wettingen"
       ]
     },
     {
@@ -14185,7 +14406,7 @@
     },
     {
       "id": "company-v5w00i",
-      "slug": "responsabile-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i",
+      "slug": "capo-della-sicurezza-coop-svizzera-orientale-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Leiter:in Sicherheit Coop Ostschweiz",
       "location": "Gossau, Sankt Gallen",
@@ -14222,7 +14443,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "responsabile-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i",
+        "it": "capo-della-sicurezza-coop-svizzera-orientale-coop-genossenschaft-gossau-sankt-gallen",
         "en": "head-in-security-coop-eastern-switzerland-coop-genossenschaft-gossau",
         "de": "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i",
         "fr": "chef-a-la-securite-coop-suisse-orientale-coop-genossenschaft-gossau"
@@ -14243,7 +14464,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen"
+          "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen",
+          "responsabile-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i"
         ],
         "en": [
           "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i"
@@ -14254,7 +14476,8 @@
       },
       "previousSlugs": [
         "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i",
-        "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen"
+        "leiter-in-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen",
+        "responsabile-sicherheit-coop-ostschweiz-coop-gossau-sankt-gallen-v5w00i"
       ],
       "salaryMin": 92000,
       "salaryMax": 156500
@@ -14935,7 +15158,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-turgovia",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-turgovia",
         "de": "verkaufer-in-kassen-services-coop-wil-sankt-gallen-8l9y2k",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-turgovia"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-turgovia"
       },
       "addressLocality": "Turgovia",
       "sourceLang": "de",
@@ -14960,12 +15183,14 @@
           "verkaufer-in-kassen-services-coop-wil-sankt-gallen-8l9y2k"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-wil-sankt-gallen-8l9y2k"
+          "verkaufer-in-kassen-services-coop-wil-sankt-gallen-8l9y2k",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-turgovia"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-wil-sankt-gallen-8l9y2k",
-        "verkaufer-in-kassen-services-coop-wil-sankt-gallen"
+        "verkaufer-in-kassen-services-coop-wil-sankt-gallen",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-turgovia"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -17022,7 +17247,7 @@
     },
     {
       "id": "company-b9edvg",
-      "slug": "picker-d-ordine-in-coop-genossenschaft-gossau",
+      "slug": "pickers-ordine-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in",
       "location": "Gossau, Sankt Gallen",
@@ -17068,10 +17293,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-coop-genossenschaft-gossau",
-        "en": "order-picker-in-coop-genossenschaft-gossau",
+        "it": "pickers-ordine-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "order-pickers-coop-genossenschaft-gossau-sankt-gallen",
         "de": "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg",
-        "fr": "commandeur-in-coop-genossenschaft-gossau"
+        "fr": "commandeurs-coop-genossenschaft-gossau-sankt-gallen"
       },
       "addressLocality": "Gossau",
       "sourceLang": "de",
@@ -17090,18 +17315,24 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg",
-          "kommissionierer-in-coop-gossau-sankt-gallen"
+          "kommissionierer-in-coop-gossau-sankt-gallen",
+          "picker-d-ordine-in-coop-genossenschaft-gossau"
         ],
         "en": [
-          "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg"
+          "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg",
+          "order-picker-in-coop-genossenschaft-gossau"
         ],
         "fr": [
-          "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg"
+          "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg",
+          "commandeur-in-coop-genossenschaft-gossau"
         ]
       },
       "previousSlugs": [
         "kommissionierer-in-coop-gossau-sankt-gallen-b9edvg",
-        "kommissionierer-in-coop-gossau-sankt-gallen"
+        "kommissionierer-in-coop-gossau-sankt-gallen",
+        "picker-d-ordine-in-coop-genossenschaft-gossau",
+        "order-picker-in-coop-genossenschaft-gossau",
+        "commandeur-in-coop-genossenschaft-gossau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -18452,7 +18683,7 @@
     },
     {
       "id": "company-27cx0m",
-      "slug": "venditore-in-food-coop-genossenschaft-altdorf",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-altdorf-uri",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Altdorf, Uri",
@@ -18498,10 +18729,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-altdorf",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-altdorf-uri",
         "en": "seller-in-food-coop-genossenschaft-altdorf",
         "de": "verkaufer-in-food-coop-altdorf-uri-27cx0m",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-altdorf"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-altdorf-uri"
       },
       "addressLocality": "Altdorf",
       "sourceLang": "de",
@@ -18520,18 +18751,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-altdorf-uri-27cx0m",
-          "verkaufer-in-food-coop-altdorf-uri"
+          "verkaufer-in-food-coop-altdorf-uri",
+          "venditore-in-food-coop-genossenschaft-altdorf"
         ],
         "en": [
           "verkaufer-in-food-coop-altdorf-uri-27cx0m"
         ],
         "fr": [
-          "verkaufer-in-food-coop-altdorf-uri-27cx0m"
+          "verkaufer-in-food-coop-altdorf-uri-27cx0m",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-altdorf"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-altdorf-uri-27cx0m",
-        "verkaufer-in-food-coop-altdorf-uri"
+        "verkaufer-in-food-coop-altdorf-uri",
+        "venditore-in-food-coop-genossenschaft-altdorf",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-altdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -19535,7 +19770,7 @@
     },
     {
       "id": "company-g17m3i",
-      "slug": "venditore-in-food-coop-genossenschaft-wil",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-wil-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Wil, Sankt Gallen",
@@ -19581,10 +19816,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-wil",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-wil-sankt-gallen",
         "en": "seller-in-food-coop-genossenschaft-wil",
         "de": "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-wil"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-wil-sankt-gallen"
       },
       "addressLocality": "Wil",
       "sourceLang": "de",
@@ -19603,18 +19838,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i",
-          "verkaufer-in-food-coop-wil-sankt-gallen"
+          "verkaufer-in-food-coop-wil-sankt-gallen",
+          "venditore-in-food-coop-genossenschaft-wil"
         ],
         "en": [
           "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i"
         ],
         "fr": [
-          "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i"
+          "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-wil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-wil-sankt-gallen-g17m3i",
-        "verkaufer-in-food-coop-wil-sankt-gallen"
+        "verkaufer-in-food-coop-wil-sankt-gallen",
+        "venditore-in-food-coop-genossenschaft-wil",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-wil"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -19767,7 +20006,7 @@
         "it": "aspirant-nella-gestione-regione-fricktal-wurenlingen-coop-genossenschaft-region-fricktal-wurenlingen",
         "en": "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau-krhzhz",
         "de": "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau-krhzhz",
-        "fr": "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau-krhzhz"
+        "fr": "gestion-des-aspirants-region-de-fricktal-wurenlingen-coop-genossenschaft-region-fricktal-wurenlingen-aargau"
       },
       "addressLocality": "Region Fricktal/Würenlingen",
       "sourceLang": "de",
@@ -19787,6 +20026,9 @@
         "it": [
           "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau-krhzhz",
           "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau"
+        ],
+        "fr": [
+          "aspirant-in-geschaftsfuhrung-region-fricktal-wurenlingen-coop-region-fricktal-wurenlingen-aargau-krhzhz"
         ]
       },
       "previousSlugs": [
@@ -20477,7 +20719,7 @@
     },
     {
       "id": "company-ifrsb5",
-      "slug": "detailhandelsassistent-in-afp-coop-gossau-ifrsb5",
+      "slug": "assistente-al-dettaglio-eba-coop-turgovia",
       "company": "Coop",
       "title": "Detailhandelsassistent:in EBA",
       "location": "Turgovia",
@@ -20514,7 +20756,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "detailhandelsassistent-in-afp-coop-gossau-ifrsb5",
+        "it": "assistente-al-dettaglio-eba-coop-turgovia",
         "en": "retail-assistant-in-eba-coop-turgovia",
         "de": "detailhandelsassistent-in-eba-coop-gossau-ifrsb5",
         "fr": "assistant-de-detail-dans-eba-coop-turgovia"
@@ -20535,11 +20777,13 @@
       },
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-gossau",
-        "detailhandelsassistent-in-eba-coop-gossau-ifrsb5"
+        "detailhandelsassistent-in-eba-coop-gossau-ifrsb5",
+        "detailhandelsassistent-in-afp-coop-gossau-ifrsb5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsassistent-in-eba-coop-gossau"
+          "detailhandelsassistent-in-eba-coop-gossau",
+          "detailhandelsassistent-in-afp-coop-gossau-ifrsb5"
         ],
         "en": [
           "detailhandelsassistent-in-eba-coop-gossau-ifrsb5"
@@ -20718,7 +20962,7 @@
     },
     {
       "id": "company-p19e0v",
-      "slug": "detailhandelsassistent-in-afp-coop-gossau-p19e0v",
+      "slug": "assistente-al-dettaglio-eba-coop-turgovia-40e73d",
       "company": "Coop",
       "title": "Detailhandelsassistent:in EBA",
       "location": "Turgovia",
@@ -20755,7 +20999,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "detailhandelsassistent-in-afp-coop-gossau-p19e0v",
+        "it": "assistente-al-dettaglio-eba-coop-turgovia-40e73d",
         "en": "retail-assistant-in-eba-coop-turgovia-40e73d",
         "de": "detailhandelsassistent-in-eba-coop-gossau-p19e0v",
         "fr": "assistant-de-detail-dans-eba-coop-turgovia-40e73d"
@@ -20776,11 +21020,13 @@
       },
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-gossau-2",
-        "detailhandelsassistent-in-eba-coop-gossau-p19e0v"
+        "detailhandelsassistent-in-eba-coop-gossau-p19e0v",
+        "detailhandelsassistent-in-afp-coop-gossau-p19e0v"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsassistent-in-eba-coop-gossau-2"
+          "detailhandelsassistent-in-eba-coop-gossau-2",
+          "detailhandelsassistent-in-afp-coop-gossau-p19e0v"
         ],
         "en": [
           "detailhandelsassistent-in-eba-coop-gossau-p19e0v"
@@ -27584,7 +27830,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-gossau-sankt-gallen",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-gossau-sankt-gallen",
         "de": "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-gossau-sankt-gallen"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-gossau-sankt-gallen"
       },
       "addressLocality": "Gossau",
       "sourceLang": "de",
@@ -27604,7 +27850,8 @@
         "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen",
         "verkaufer-in-kassen-services-coop-gossau-sankt-gallen",
         "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1",
-        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
+        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-gossau-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27616,7 +27863,8 @@
           "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1"
+          "verkaufer-in-kassen-services-coop-gossau-sankt-gallen-59hjh1",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-gossau-sankt-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -31427,7 +31675,7 @@
     },
     {
       "id": "company-x4qzgp",
-      "slug": "venditore-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-sankt-margrethen-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Sankt Margrethen, Sankt Gallen",
@@ -31468,10 +31716,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-sankt-margrethen-sankt-gallen",
         "en": "seller-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
         "de": "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-sankt-margrethen-sankt-gallen"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-sankt-margrethen-sankt-gallen"
       },
       "addressLocality": "Sankt Margrethen",
       "sourceLang": "de",
@@ -31495,19 +31743,23 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
         "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp",
-        "verkaufer-in-food-coop-sankt-margrethen-sankt-gallen"
+        "verkaufer-in-food-coop-sankt-margrethen-sankt-gallen",
+        "venditore-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-sankt-margrethen-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen",
           "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp",
-          "verkaufer-in-food-coop-sankt-margrethen-sankt-gallen"
+          "verkaufer-in-food-coop-sankt-margrethen-sankt-gallen",
+          "venditore-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen"
         ],
         "en": [
           "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp"
         ],
         "fr": [
-          "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp"
+          "verkaufer-in-food-coop-genossenschaft-sankt-margrethen-sankt-gallen-x4qzgp",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-sankt-margrethen-sankt-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -32757,7 +33009,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-nonfood-coop-genossenschaft-zurich",
-        "en": "rayonleiter-in-nonfood-coop-zurich-k6fae9",
+        "en": "rayon-conductor-non-food-coop-genossenschaft-zurich",
         "de": "rayonleiter-in-nonfood-coop-zurich-k6fae9",
         "fr": "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich"
       },
@@ -32784,7 +33036,8 @@
           "rayonleiter-in-nonfood-coop-zurich-k6fae9"
         ],
         "en": [
-          "rayon-leader-in-nonfood-coop-zurich"
+          "rayon-leader-in-nonfood-coop-zurich",
+          "rayonleiter-in-nonfood-coop-zurich-k6fae9"
         ],
         "de": [
           "rayonleiter-in-nonfood-coop-zurich-tazn6o"
@@ -34655,7 +34908,7 @@
       },
       "slugByLocale": {
         "it": "rayon-leader-in-nonfood-coop-genossenschaft-sins-aargau",
-        "en": "rayonleiter-in-nonfood-coop-sins-aargau-tciebq",
+        "en": "rayon-conductor-non-food-coop-genossenschaft-sins-aargau",
         "de": "rayonleiter-in-nonfood-coop-sins-aargau-tciebq",
         "fr": "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins-aargau"
       },
@@ -34686,6 +34939,9 @@
         ],
         "fr": [
           "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins",
+          "rayonleiter-in-nonfood-coop-sins-aargau-tciebq"
+        ],
+        "en": [
           "rayonleiter-in-nonfood-coop-sins-aargau-tciebq"
         ]
       },
@@ -36363,7 +36619,7 @@
     },
     {
       "id": "company-u0nlp4",
-      "slug": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-rickenbach-thurgau",
+      "slug": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-rickenbach-thurgau",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Brot / Backwaren",
       "location": "Rickenbach, Thurgau",
@@ -36409,8 +36665,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-rickenbach-thurgau",
-        "en": "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-rickenbach-thurgau",
+        "it": "rayon-conduttori-di-pane-pacchetti-coop-genossenschaft-rickenbach-thurgau",
+        "en": "rayon-conductor-bread-bakery-products-coop-genossenschaft-rickenbach-thurgau",
         "de": "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4",
         "fr": "chef-de-rayonne-en-pain-produits-de-boulangerie-coop-genossenschaft-rickenbach-thurgau"
       },
@@ -36431,10 +36687,12 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4",
-          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau"
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau",
+          "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-rickenbach-thurgau"
         ],
         "en": [
-          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4"
+          "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4",
+          "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
           "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4"
@@ -36442,7 +36700,9 @@
       },
       "previousSlugs": [
         "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau-u0nlp4",
-        "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau"
+        "rayonleiter-in-brot-backwaren-coop-rickenbach-thurgau",
+        "conduttore-rayon-in-pane-prodotti-da-forno-coop-genossenschaft-rickenbach-thurgau",
+        "rayon-conductor-in-bread-baked-goods-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -57905,7 +58165,7 @@
     },
     {
       "id": "company-t4iqk4",
-      "slug": "picker-d-ordine-in-pane-prodotti-da-forno-coop-genossenschaft-gossau",
+      "slug": "prodotti-per-il-pane-latte-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in Brot/Backwaren",
       "location": "Gossau, Sankt Gallen",
@@ -57951,7 +58211,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-pane-prodotti-da-forno-coop-genossenschaft-gossau",
+        "it": "prodotti-per-il-pane-latte-coop-genossenschaft-gossau-sankt-gallen",
         "en": "order-picker-in-bread-bakery-products-coop-genossenschaft-gossau",
         "de": "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen-t4iqk4",
         "fr": "commandeur-dans-le-pain-produits-de-boulangerie-coop-genossenschaft-gossau"
@@ -57972,7 +58232,8 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen-t4iqk4",
-          "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen"
+          "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen",
+          "picker-d-ordine-in-pane-prodotti-da-forno-coop-genossenschaft-gossau"
         ],
         "en": [
           "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen-t4iqk4"
@@ -57983,7 +58244,8 @@
       },
       "previousSlugs": [
         "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen-t4iqk4",
-        "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen"
+        "kommissionierer-in-brot-backwaren-coop-gossau-sankt-gallen",
+        "picker-d-ordine-in-pane-prodotti-da-forno-coop-genossenschaft-gossau"
       ],
       "salarySource": "estimated",
       "salaryMin": 57500,
@@ -59041,7 +59303,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "trasporti-speditore-in-coop-genossenschaft-gossau",
-        "en": "transport-dispatcher-in-coop-genossenschaft-gossau",
+        "en": "transport-dispatch-coop-genossenschaft-gossau-sankt-gallen",
         "de": "transportdisponent-in-coop-gossau-sankt-gallen-kfvidt",
         "fr": "expediteur-de-transport-en-coop-genossenschaft-gossau"
       },
@@ -59064,7 +59326,8 @@
           "transportdisponent-in-coop-gossau-sankt-gallen"
         ],
         "en": [
-          "transportdisponent-in-coop-gossau-sankt-gallen-kfvidt"
+          "transportdisponent-in-coop-gossau-sankt-gallen-kfvidt",
+          "transport-dispatcher-in-coop-genossenschaft-gossau"
         ],
         "fr": [
           "transportdisponent-in-coop-gossau-sankt-gallen-kfvidt"
@@ -59072,7 +59335,8 @@
       },
       "previousSlugs": [
         "transportdisponent-in-coop-gossau-sankt-gallen-kfvidt",
-        "transportdisponent-in-coop-gossau-sankt-gallen"
+        "transportdisponent-in-coop-gossau-sankt-gallen",
+        "transport-dispatcher-in-coop-genossenschaft-gossau"
       ],
       "salarySource": "estimated",
       "salaryMin": 57500,
@@ -60743,7 +61007,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-wohlen",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-wohlen",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau-dyl0lw",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wohlen"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-wohlen-aargau"
       },
       "addressLocality": "Wohlen",
       "sourceLang": "de",
@@ -60768,13 +61032,15 @@
           "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau-dyl0lw"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau-dyl0lw"
+          "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau-dyl0lw",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wohlen"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau-dyl0lw",
         "verkaufer-in-kassen-services-coop-genossenschaft-wohlen-aargau",
-        "verkaufer-in-kassen-services-coop-wohlen-aargau"
+        "verkaufer-in-kassen-services-coop-wohlen-aargau",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-wohlen"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -72187,7 +72453,7 @@
     },
     {
       "id": "company-th7dv6",
-      "slug": "picker-d-ordine-in-latticini-coop-genossenschaft-gossau-sankt-gallen",
+      "slug": "latticini-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in Molkerei",
       "location": "Gossau, Sankt Gallen",
@@ -72228,10 +72494,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "picker-d-ordine-in-latticini-coop-genossenschaft-gossau-sankt-gallen",
-        "en": "order-picker-in-dairy-coop-genossenschaft-gossau-sankt-gallen",
+        "it": "latticini-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "commissioned-dairy-coop-genossenschaft-gossau-sankt-gallen",
         "de": "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6",
-        "fr": "commandeur-en-laiterie-coop-genossenschaft-gossau-sankt-gallen"
+        "fr": "produits-laitiers-commandes-coop-genossenschaft-gossau-sankt-gallen"
       },
       "addressLocality": "Gossau",
       "sourceLang": "de",
@@ -72254,19 +72520,25 @@
       "previousSlugs": [
         "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen",
         "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6",
-        "kommissionierer-in-molkerei-coop-gossau-sankt-gallen"
+        "kommissionierer-in-molkerei-coop-gossau-sankt-gallen",
+        "picker-d-ordine-in-latticini-coop-genossenschaft-gossau-sankt-gallen",
+        "order-picker-in-dairy-coop-genossenschaft-gossau-sankt-gallen",
+        "commandeur-en-laiterie-coop-genossenschaft-gossau-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen",
           "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6",
-          "kommissionierer-in-molkerei-coop-gossau-sankt-gallen"
+          "kommissionierer-in-molkerei-coop-gossau-sankt-gallen",
+          "picker-d-ordine-in-latticini-coop-genossenschaft-gossau-sankt-gallen"
         ],
         "en": [
-          "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6"
+          "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6",
+          "order-picker-in-dairy-coop-genossenschaft-gossau-sankt-gallen"
         ],
         "fr": [
-          "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6"
+          "kommissionierer-in-molkerei-coop-genossenschaft-gossau-sankt-gallen-th7dv6",
+          "commandeur-en-laiterie-coop-genossenschaft-gossau-sankt-gallen"
         ]
       },
       "salarySource": "estimated",
@@ -79408,7 +79680,7 @@
     },
     {
       "id": "company-wvkcwz",
-      "slug": "operatore-macchina-in-produzione-coop-genossenschaft-gossau",
+      "slug": "produzione-di-macchine-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Maschinenführer:in Produktion",
       "location": "Gossau, Sankt Gallen",
@@ -79449,7 +79721,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "operatore-macchina-in-produzione-coop-genossenschaft-gossau",
+        "it": "produzione-di-macchine-coop-genossenschaft-gossau-sankt-gallen",
         "en": "machine-operator-in-production-coop-genossenschaft-gossau",
         "de": "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen-wvkcwz",
         "fr": "operateur-de-machines-en-production-coop-genossenschaft-gossau"
@@ -79475,13 +79747,15 @@
       "previousSlugs": [
         "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen",
         "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen-wvkcwz",
-        "maschinenfuhrer-in-produktion-coop-gossau-sankt-gallen"
+        "maschinenfuhrer-in-produktion-coop-gossau-sankt-gallen",
+        "operatore-macchina-in-produzione-coop-genossenschaft-gossau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen",
           "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen-wvkcwz",
-          "maschinenfuhrer-in-produktion-coop-gossau-sankt-gallen"
+          "maschinenfuhrer-in-produktion-coop-gossau-sankt-gallen",
+          "operatore-macchina-in-produzione-coop-genossenschaft-gossau"
         ],
         "en": [
           "maschinenfuhrer-in-produktion-coop-genossenschaft-gossau-sankt-gallen-wvkcwz"
@@ -80825,7 +81099,7 @@
         "it": "venditore-in-cassa-servizi-coop-genossenschaft-trubbach",
         "en": "seller-in-cash-registers-services-coop-genossenschaft-trubbach",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-trubbach-9bxhe0",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-trubbach"
+        "fr": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-trubbach-sankt-gallen"
       },
       "addressLocality": "Trübbach",
       "sourceLang": "de",
@@ -80852,12 +81126,14 @@
           "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen-9bxhe0"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen-9bxhe0"
+          "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen-9bxhe0",
+          "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-trubbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen-9bxhe0",
-        "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen"
+        "verkaufer-in-kassen-services-coop-trubbach-sankt-gallen",
+        "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-trubbach"
       ],
       "salarySource": "estimated",
       "salaryMin": 57500,
@@ -87554,7 +87830,7 @@
     },
     {
       "id": "company-jglq3j",
-      "slug": "venditore-in-food-coop-genossenschaft-argovia",
+      "slug": "vendita-prodotti-alimentari-coop-genossenschaft-argovia",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Argovia",
@@ -87600,10 +87876,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-in-food-coop-genossenschaft-argovia",
+        "it": "vendita-prodotti-alimentari-coop-genossenschaft-argovia",
         "en": "seller-in-food-coop-genossenschaft-argovia",
         "de": "verkaufer-in-food-coop-reinach-aargau-jglq3j",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-argovia"
+        "fr": "produits-alimentaires-vendus-coop-genossenschaft-argovia"
       },
       "addressLocality": "Argovia",
       "sourceLang": "de",
@@ -87621,18 +87897,22 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-reinach-aargau-jglq3j",
-          "verkaufer-in-food-coop-reinach-aargau"
+          "verkaufer-in-food-coop-reinach-aargau",
+          "venditore-in-food-coop-genossenschaft-argovia"
         ],
         "en": [
           "verkaufer-in-food-coop-reinach-aargau-jglq3j"
         ],
         "fr": [
-          "verkaufer-in-food-coop-reinach-aargau-jglq3j"
+          "verkaufer-in-food-coop-reinach-aargau-jglq3j",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-argovia"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-reinach-aargau-jglq3j",
-        "verkaufer-in-food-coop-reinach-aargau"
+        "verkaufer-in-food-coop-reinach-aargau",
+        "venditore-in-food-coop-genossenschaft-argovia",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-argovia"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -94235,7 +94515,7 @@
       },
       "slugByLocale": {
         "it": "chauffeur-in-cat-ce-coop-genossenschaft-gossau-sankt-gallen",
-        "en": "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-1bkv8r",
+        "en": "chauffeur-cat-ce-coop-genossenschaft-gossau-sankt-gallen",
         "de": "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-1bkv8r",
         "fr": "chauffeur-en-cat-ce-coop-genossenschaft-gossau-sankt-gallen"
       },
@@ -94274,6 +94554,9 @@
         "fr": [
           "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-1bkv8r",
           "chauffeur-en-cat-ce-coop-genossenschaft-gossau"
+        ],
+        "en": [
+          "chauffeur-in-kat-ce-coop-genossenschaft-gossau-sankt-gallen-1bkv8r"
         ]
       },
       "salarySource": "estimated",
@@ -176296,7 +176579,7 @@
     },
     {
       "id": "company-sm8w0x",
-      "slug": "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen",
+      "slug": "trainee-logistics-gossau-con-una-prospettiva-futura-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Praktikant:in Logistik Gossau mit Zukunftsperspektive",
       "location": "Gossau, Sankt Gallen",
@@ -176342,8 +176625,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "praktikant-in-logistik-gossau-con-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
-        "en": "intern-in-logistik-gossau-with-a-future-perspective-coop-genossenschaft-gossau",
+        "it": "trainee-logistics-gossau-con-una-prospettiva-futura-coop-genossenschaft-gossau-sankt-gallen",
+        "en": "trainee-logistics-gossau-with-a-future-perspective-coop-genossenschaft-gossau-sankt-gallen",
         "de": "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
         "fr": "stagiaire-dans-logistik-gossau-avec-une-perspective-future-coop-genossenschaft-gossau"
       },
@@ -176364,14 +176647,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x"
+          "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
+          "intern-in-logistik-gossau-with-a-future-perspective-coop-genossenschaft-gossau"
         ],
         "fr": [
           "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x"
+        ],
+        "it": [
+          "praktikant-in-logistik-gossau-con-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
+          "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x"
+        "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
+        "praktikant-in-logistik-gossau-con-zukunftsperspektive-coop-gossau-sankt-gallen-sm8w0x",
+        "praktikant-in-logistik-gossau-mit-zukunftsperspektive-coop-gossau-sankt-gallen",
+        "intern-in-logistik-gossau-with-a-future-perspective-coop-genossenschaft-gossau"
       ],
       "salarySource": "reported",
       "salaryMin": 41600,
@@ -180566,7 +180857,7 @@
     },
     {
       "id": "company-kx4wn8",
-      "slug": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-obwalden-nidwalden",
+      "slug": "cross-entry-dipendenti-di-carne-e-pesce-coop-genossenschaft-obwalden-nidwalden",
       "company": "Coop Genossenschaft",
       "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
       "location": "Obwalden/Nidwalden",
@@ -180612,8 +180903,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-obwalden-nidwalden-kx4wn8",
-        "en": "quereinstieg-associate-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8",
+        "it": "cross-entry-dipendenti-di-carne-e-pesce-coop-genossenschaft-obwalden-nidwalden",
+        "en": "cross-entry-meat-and-fish-employees-coop-genossenschaft-obwalden-nidwalden",
         "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8",
         "fr": "entree-croisee-employes-dans-la-viande-et-le-poisson-coop-genossenschaft-obwalden-nidwalden"
       },
@@ -180636,10 +180927,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8"
+        ],
+        "it": [
+          "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-obwalden-nidwalden-kx4wn8",
+          "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-obwalden-nidwalden"
+        ],
+        "en": [
+          "quereinstieg-associate-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8"
         ]
       },
       "previousSlugs": [
-        "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8"
+        "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8",
+        "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-obwalden-nidwalden-kx4wn8",
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-obwalden-nidwalden",
+        "quereinstieg-associate-fleisch-und-fisch-coop-obwalden-nidwalden-kx4wn8"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000

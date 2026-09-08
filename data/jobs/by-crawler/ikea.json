@@ -370,7 +370,7 @@
       "slug": "dipendenti-nelle-vendite-nella-sala-di-mercato-e-self-service-hall-80-100-ikea-lyssach-bern",
       "slugByLocale": {
         "it": "dipendenti-nelle-vendite-nella-sala-di-mercato-e-self-service-hall-80-100-ikea-lyssach-bern",
-        "en": "associate-sales-in-der-markthalle-und-selbstbedienungshalle-80-100-ikea-lyssach-bern",
+        "en": "employee-sales-in-the-market-hall-and-self-service-hall-80-100-ikea-lyssach-bern",
         "de": "mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100-ikea-ch",
         "fr": "employes-dans-les-ventes-dans-le-hall-du-marche-et-en-libre-service-80-100-ikea-lyssach-bern"
       },
@@ -426,7 +426,8 @@
         "venditore-a-in-mercato-e-auto-service-100-ikea-lyssach",
         "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
         "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland",
-        "addetto-a-alle-vendite-in-der-markthalle-e-selbstbedienungshalle-80-100-ikea-lyssach-bern"
+        "addetto-a-alle-vendite-in-der-markthalle-e-selbstbedienungshalle-80-100-ikea-lyssach-bern",
+        "associate-sales-in-der-markthalle-und-selbstbedienungshalle-80-100-ikea-lyssach-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -443,7 +444,8 @@
           "addetto-a-alle-vendite-in-der-markthalle-e-selbstbedienungshalle-80-100-ikea-lyssach-bern"
         ],
         "en": [
-          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach"
+          "sales-associate-in-market-hall-and-self-service-hall-100-ikea-lyssach",
+          "associate-sales-in-der-markthalle-und-selbstbedienungshalle-80-100-ikea-lyssach-bern"
         ],
         "fr": [
           "collaborateur-trice-vente-in-der-markthalle-und-selbstbedienungshalle-100-ikea-lyssach-bern-switzerland"
@@ -1744,10 +1746,10 @@
     },
     {
       "id": "ikea-90ee4982d1bf",
-      "slug": "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1",
+      "slug": "amministrazione-dipendenti-per-l-ingegneria-domestica-e-la-manutenzione-focus-electrics-100-ikea-pratteln-1-basel",
       "slugByLocale": {
-        "it": "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1",
-        "en": "associate-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1",
+        "it": "amministrazione-dipendenti-per-l-ingegneria-domestica-e-la-manutenzione-focus-electrics-100-ikea-pratteln-1-basel",
+        "en": "employee-administration-for-home-engineering-and-maintenance-focus-electrics-100-ikea-pratteln-1-basel-landschaft",
         "de": "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
         "fr": "employe-en-administration-pour-l-ingenierie-domestique-et-la-maintenance-se-concentrer-sur-l-electricite-100-ikea"
       },
@@ -1789,14 +1791,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
-        "collaborateur-trice-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
+        "collaborateur-trice-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1",
+        "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1",
+        "associate-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
+          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
+          "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
         ],
         "en": [
-          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
+          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
+          "associate-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
         ],
         "fr": [
           "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
@@ -2217,7 +2223,7 @@
       "slug": "dipendenti-nel-mercato-delle-vendite-60-ikea-pratteln-1-basel-landschaft-switzerland",
       "slugByLocale": {
         "it": "dipendenti-nel-mercato-delle-vendite-60-ikea-pratteln-1-basel-landschaft-switzerland",
-        "en": "associate-sales-markthalle-60-ikea-pratteln-1-basel-landschaft-switzerland",
+        "en": "employee-sales-market-hall-60-ikea-pratteln-1-basel-landschaft-switzerland",
         "de": "mitarbeiter-in-verkauf-markthalle-60-ikea-ch",
         "fr": "employes-dans-la-salle-des-ventes-60-ikea-pratteln-1-basel-landschaft-switzerland"
       },
@@ -2263,7 +2269,8 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-markthalle-60-ikea-ch",
         "addetto-a-alle-vendite-markthalle-60-ikea-pratteln-1",
-        "collaborateur-trice-vente-markthalle-60-ikea-pratteln-1-basel-landschaft-switzerland"
+        "collaborateur-trice-vente-markthalle-60-ikea-pratteln-1-basel-landschaft-switzerland",
+        "associate-sales-markthalle-60-ikea-pratteln-1-basel-landschaft-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2271,7 +2278,8 @@
           "addetto-a-alle-vendite-markthalle-60-ikea-pratteln-1"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-markthalle-60-ikea-ch"
+          "mitarbeiter-in-verkauf-markthalle-60-ikea-ch",
+          "associate-sales-markthalle-60-ikea-pratteln-1-basel-landschaft-switzerland"
         ],
         "fr": [
           "mitarbeiter-in-verkauf-markthalle-60-ikea-ch",
@@ -2298,7 +2306,7 @@
       "slug": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
-        "en": "associate-sales-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
+        "en": "employee-sales-kitchens-and-dining-area-department-20-temporary-until-28-02-2027-ikea-pratteln-1-basel-landschaft",
         "de": "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
         "fr": "employes-dans-les-cuisines-de-vente-et-la-salle-a-manger-departement-20-temporaire-jusqu-au-28-02-2027-ikea-pratteln-1"
       },
@@ -2343,14 +2351,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
-        "collaborateur-trice-vente-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "collaborateur-trice-vente-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1",
+        "associate-sales-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
+          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
+          "associate-sales-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
         ],
         "fr": [
           "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
@@ -2629,14 +2639,11 @@
       "previousSlugsByLocale": {
         "it": [
           "construction-project-manager-ikea-ch",
-          "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
           "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
         ]
       },
       "previousSlugs": [
         "construction-project-manager-ikea-ch",
-        "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland",
-        "bauprojektmanager-ikea-spreitenbach-aargau-switzerland",
         "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
       ],
       "salaryMin": 85500,

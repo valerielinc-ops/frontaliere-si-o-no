@@ -1725,9 +1725,9 @@
     },
     {
       "id": "csl-behring-79440e4adc01",
-      "slug": "global-supply-planner-csl-behring-bern",
+      "slug": "piano-di-fornitura-globale-csl-behring-bern",
       "slugByLocale": {
-        "it": "global-supply-planner-csl-behring-bern",
+        "it": "piano-di-fornitura-globale-csl-behring-bern",
         "en": "global-supply-planner-csl-behring-ch",
         "de": "global-supply-planner-csl-behring-ch",
         "fr": "planificateur-d-approvisionnement-mondial-csl-behring-bern"
@@ -1774,12 +1774,14 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "global-supply-planner-csl-behring-ch",
-        "piano-di-approvvigionamento-globale-csl-behring-bern"
+        "piano-di-approvvigionamento-globale-csl-behring-bern",
+        "global-supply-planner-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "global-supply-planner-csl-behring-ch",
-          "piano-di-approvvigionamento-globale-csl-behring-bern"
+          "piano-di-approvvigionamento-globale-csl-behring-bern",
+          "global-supply-planner-csl-behring-bern"
         ],
         "fr": [
           "global-supply-planner-csl-behring-ch"

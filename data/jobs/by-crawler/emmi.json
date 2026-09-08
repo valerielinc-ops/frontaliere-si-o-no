@@ -6523,12 +6523,12 @@
     },
     {
       "id": "emmi-8f695443963e",
-      "slug": "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern",
+      "slug": "agente-in-house-servizio-di-vendita-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern",
-        "en": "personnel-in-sales-office-foodservice-emmi-luzern-luzern",
+        "it": "agente-in-house-servizio-di-vendita-emmi-luzern-luzern",
+        "en": "agent-in-house-sales-service-foodservice-emmi-luzern-luzern",
         "de": "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
-        "fr": "personnel-dans-le-bureau-de-vente-foodservice-emmi-luzern-luzern"
+        "fr": "agent-service-de-vente-interne-foodservice-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6598,7 +6598,10 @@
         "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
         "sales-coordinator-foodservice-emmi-luzern-luzern",
         "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
-        "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch"
+        "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
+        "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern",
+        "personnel-in-sales-office-foodservice-emmi-luzern-luzern",
+        "personnel-dans-le-bureau-de-vente-foodservice-emmi-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6615,12 +6618,14 @@
           "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
           "sales-coordinator-foodservice-emmi-luzern-luzern",
           "assistenza-commerciale-foodservcie-emmi-luzern-luzern",
-          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch"
+          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
+          "personale-in-ufficio-vendita-foodservice-emmi-luzern-luzern"
         ],
         "en": [
           "associate-verkaufsinnendienst-foodservice-emmi-luzern",
           "sales-coordinator-foodservice-emmi-luzern-luzern",
-          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch"
+          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
+          "personnel-in-sales-office-foodservice-emmi-luzern-luzern"
         ],
         "de": [
           "mitarbeiter-in-verkaufsinnendienst-foodservice-emmi-ch"
@@ -6628,7 +6633,8 @@
         "fr": [
           "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern",
           "collaborateur-trice-verkaufsinnendienst-foodservice-emmi-luzern-luzern",
-          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch"
+          "sachbearbeiter-in-verkaufsinnendienst-foodservice-emmi-ch",
+          "personnel-dans-le-bureau-de-vente-foodservice-emmi-luzern-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -6856,7 +6862,7 @@
         "it": "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
         "en": "machine-operator-in-bottling-emmi-bischofszell-thurgau",
         "de": "maschinenfuhrer-in-abfullung-emmi-ch",
-        "fr": "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau"
+        "fr": "mise-en-bouteille-des-machines-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -6925,7 +6931,8 @@
         "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
         "operateur-de-machine-en-preparation-100-emmi-bischofszell",
         "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau-vphf8l",
-        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell",
+        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6957,7 +6964,8 @@
         "fr": [
           "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
           "maschinenfuhrer-in-abfullung-emmi-bischofszell",
-          "operateur-de-machine-en-preparation-emmi-bischofszell"
+          "operateur-de-machine-en-preparation-emmi-bischofszell",
+          "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau"
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:24.052Z",
@@ -7084,12 +7092,12 @@
     },
     {
       "id": "emmi-53cefdbcffdf",
-      "slug": "plant-manager-in-impianto-misto-emmi-suhr-aargau",
+      "slug": "operatore-di-impianti-misto-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "plant-manager-in-impianto-misto-emmi-suhr-aargau",
+        "it": "operatore-di-impianti-misto-emmi-suhr-aargau",
         "en": "plant-manager-in-mixed-plant-emmi-suhr-aargau",
         "de": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "fr": "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau"
+        "fr": "operateur-d-installations-mixtes-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7151,7 +7159,9 @@
         "plant-manager-in-mixing-plant-emmi-suhr-aargau",
         "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
         "anlagenfuhrer-in-mischerei-emmi-suhr",
-        "anlagenfuhrer-in-mischerei-emmi-ch"
+        "anlagenfuhrer-in-mischerei-emmi-ch",
+        "plant-manager-in-impianto-misto-emmi-suhr-aargau",
+        "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7162,7 +7172,8 @@
           "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
           "plant-manager-in-mixing-plant-emmi-suhr-aargau",
           "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
-          "anlagenfuhrer-in-mischerei-emmi-ch"
+          "anlagenfuhrer-in-mischerei-emmi-ch",
+          "plant-manager-in-impianto-misto-emmi-suhr-aargau"
         ],
         "en": [
           "plant-manager-mixing-plant-emmi-suhr",
@@ -7174,7 +7185,8 @@
         ],
         "fr": [
           "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
-          "anlagenfuhrer-in-mischerei-emmi-ch"
+          "anlagenfuhrer-in-mischerei-emmi-ch",
+          "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau"
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:24.041Z",
@@ -7194,10 +7206,10 @@
     },
     {
       "id": "emmi-0d316a7ce762",
-      "slug": "coordinatore-del-turno-in-emmi-suhr-aargau",
+      "slug": "coordinatore-del-lavoro-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "coordinatore-del-turno-in-emmi-suhr-aargau",
-        "en": "shift-coordinator-in-emmi-suhr-aargau",
+        "it": "coordinatore-del-lavoro-emmi-suhr-aargau",
+        "en": "layer-coordinator-emmi-suhr-aargau",
         "de": "schichtkoordinator-in-emmi-ch",
         "fr": "coordinateur-de-poste-emmi-suhr-aargau"
       },
@@ -7256,17 +7268,20 @@
         "schichtkoordinator-in-emmi-ch",
         "coordinateur-de-poste-emmi-suhr-aargau",
         "shift-coordinator-in-emmi-suhr-aargau",
-        "schichtkoordinator-in-emmi-suhr"
+        "schichtkoordinator-in-emmi-suhr",
+        "coordinatore-del-turno-in-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtkoordinator-in-emmi-ch",
           "coordinateur-de-poste-emmi-suhr-aargau",
           "shift-coordinator-in-emmi-suhr-aargau",
-          "schichtkoordinator-in-emmi-suhr"
+          "schichtkoordinator-in-emmi-suhr",
+          "coordinatore-del-turno-in-emmi-suhr-aargau"
         ],
         "en": [
-          "schichtkoordinator-in-emmi-suhr"
+          "schichtkoordinator-in-emmi-suhr",
+          "shift-coordinator-in-emmi-suhr-aargau"
         ],
         "fr": [
           "schichtkoordinator-in-emmi-suhr"
@@ -7289,9 +7304,9 @@
     },
     {
       "id": "emmi-1aed5744d501",
-      "slug": "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
+      "slug": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau",
+        "it": "imbottigliamento-dell-operatore-degli-impianti-emmi-suhr-aargau",
         "en": "system-operator-in-bottling-emmi-suhr-aargau",
         "de": "anlagenfuhrer-in-abfullung-emmi-ch",
         "fr": "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau"
@@ -7356,7 +7371,8 @@
         "filling-plant-operator-emmi-suhr",
         "responsabile-impianti-di-riempimento-emmi-suhr",
         "anlagenfuhrer-in-abfullung-emmi-ch",
-        "anlagenfuhrer-in-abfullung-emmi-suhr"
+        "anlagenfuhrer-in-abfullung-emmi-suhr",
+        "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7370,7 +7386,8 @@
           "responsable-d-installation-de-remplissage-emmi-suhr",
           "filling-plant-operator-emmi-suhr",
           "responsabile-impianti-di-riempimento-emmi-suhr",
-          "anlagenfuhrer-in-abfullung-emmi-ch"
+          "anlagenfuhrer-in-abfullung-emmi-ch",
+          "operatore-di-sistema-in-imbottigliamento-emmi-suhr-aargau"
         ],
         "en": [
           "filling-plant-operator-emmi-suhr",
@@ -7495,9 +7512,9 @@
     },
     {
       "id": "emmi-22c587e26511",
-      "slug": "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau",
+      "slug": "gestione-del-sistema-liquid-uht-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau",
+        "it": "gestione-del-sistema-liquid-uht-emmi-suhr-aargau",
         "en": "system-operator-in-liquid-uht-emmi-suhr-aargau",
         "de": "anlagenfuhrer-in-flussig-uht-emmi-ch",
         "fr": "operateur-du-systeme-en-liquide-uht-emmi-suhr-aargau"
@@ -7556,7 +7573,8 @@
         "operateur-du-systeme-en-liquide-uht-emmi-suhr-aargau",
         "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
         "system-operator-in-liquid-uht-emmi-suhr-aargau",
-        "anlagenfuhrer-in-flussig-uht-emmi-ch"
+        "anlagenfuhrer-in-flussig-uht-emmi-ch",
+        "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7564,7 +7582,8 @@
           "operateur-du-systeme-en-liquide-uht-emmi-suhr-aargau",
           "anlagenfuhrer-in-flussig-uht-emmi-ch-xe5e32",
           "system-operator-in-liquid-uht-emmi-suhr-aargau",
-          "anlagenfuhrer-in-flussig-uht-emmi-ch"
+          "anlagenfuhrer-in-flussig-uht-emmi-ch",
+          "operatore-di-sistema-in-liquido-uht-emmi-suhr-aargau"
         ],
         "en": [
           "anlagenfuhrer-in-flussig-uht-emmi-ch"
@@ -7815,9 +7834,9 @@
     },
     {
       "id": "emmi-759030eab461",
-      "slug": "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern",
+      "slug": "team-leader-production-jogurt-emmi-ostermundigen-bern",
       "slugByLocale": {
-        "it": "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern",
+        "it": "team-leader-production-jogurt-emmi-ostermundigen-bern",
         "en": "team-leader-in-production-yogurt-emmi-ostermundigen-bern",
         "de": "teamleiter-in-produktion-jogurt-emmi-ch",
         "fr": "chef-d-equipe-en-production-yaourt-emmi-ostermundigen-bern"
@@ -7876,11 +7895,13 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-produktion-jogurt-emmi-ch"
+        "teamleiter-in-produktion-jogurt-emmi-ch",
+        "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-produktion-jogurt-emmi-ch"
+          "teamleiter-in-produktion-jogurt-emmi-ch",
+          "team-leader-in-produzione-yogurt-emmi-ostermundigen-bern"
         ],
         "en": [
           "teamleiter-in-produktion-jogurt-emmi-ch"
@@ -7993,7 +8014,7 @@
       "slug": "team-leader-in-butterei-emmi-suhr-aargau",
       "slugByLocale": {
         "it": "team-leader-in-butterei-emmi-suhr-aargau",
-        "en": "teamleiter-in-butterei-emmi-ch",
+        "en": "team-leader-butterei-emmi-suhr-aargau",
         "de": "teamleiter-in-butterei-emmi-ch",
         "fr": "chef-d-equipe-a-butterei-emmi-suhr-aargau"
       },
@@ -8063,6 +8084,9 @@
         ],
         "fr": [
           "teamleiter-in-butterei-emmi-ch"
+        ],
+        "en": [
+          "teamleiter-in-butterei-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:35:12.508Z",
@@ -8087,7 +8111,7 @@
         "de": "anlagenfuhrer-in-pulverproduktion-emmi-ch",
         "it": "operatore-vegetale-nella-produzione-di-polvere-emmi-dagmersellen-luzern-05d350",
         "en": "plant-operator-in-powder-production-emmi-dagmersellen-luzern-05d350",
-        "fr": "operateur-en-poudre-emmi-dagmersellen-luzern"
+        "fr": "directeur-de-la-production-de-poudre-emmi-dagmersellen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8151,12 +8175,14 @@
           "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
         ],
         "fr": [
-          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+          "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+          "operateur-en-poudre-emmi-dagmersellen-luzern"
         ]
       },
       "previousSlugs": [
         "anlagenfuhrer-in-pulverproduktion-emmi-ch",
-        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen"
+        "anlagenfuhrer-in-pulverproduktion-emmi-dagmersellen",
+        "operateur-en-poudre-emmi-dagmersellen-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -8358,8 +8384,8 @@
       "slugByLocale": {
         "de": "anlagenfuhrer-in-emmi-ch",
         "it": "operatore-emmi-kirchberg-bern",
-        "en": "operator-in-emmi-kirchberg-bern",
-        "fr": "operateur-in-emmi-kirchberg-bern"
+        "en": "engineers-emmi-kirchberg-bern",
+        "fr": "ingenieurs-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8454,7 +8480,8 @@
         "en": [
           "system-manager-in-mixmatic-emmi-ostermundigen-bern",
           "system-operator-in-cheese-preparation-emmi-emmen-luzern",
-          "anlagenfuhrer-in-emmi-ch"
+          "anlagenfuhrer-in-emmi-ch",
+          "operator-in-emmi-kirchberg-bern"
         ],
         "de": [
           "anlagenfuhrer-in-mixmatic-emmi-ch",
@@ -8463,7 +8490,8 @@
         "fr": [
           "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern",
           "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern",
-          "anlagenfuhrer-in-emmi-ch"
+          "anlagenfuhrer-in-emmi-ch",
+          "operateur-in-emmi-kirchberg-bern"
         ]
       },
       "previousSlugs": [
@@ -8483,7 +8511,9 @@
         "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
         "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
         "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch",
-        "anlagenfuhrer-in-emmi-ch"
+        "anlagenfuhrer-in-emmi-ch",
+        "operator-in-emmi-kirchberg-bern",
+        "operateur-in-emmi-kirchberg-bern"
       ]
     },
     {

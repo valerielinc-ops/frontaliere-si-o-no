@@ -15026,9 +15026,9 @@
     },
     {
       "id": "jumbo-3e289801-0d5",
-      "slug": "consulente-di-vendita-in-do-it-jumbo-widnau",
+      "slug": "consulente-commerciale-do-it-jumbo-widnau",
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-widnau",
+        "it": "consulente-commerciale-do-it-jumbo-widnau",
         "en": "sales-consultant-in-do-it-jumbo-widnau",
         "de": "verkaufsberater-in-do-it-jumbo-widnau",
         "fr": "consultant-en-ventes-a-do-it-jumbo-widnau"
@@ -15090,11 +15090,13 @@
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-widnau"
+        "verkaufsberater-in-do-it-jumbo-widnau",
+        "consulente-di-vendita-in-do-it-jumbo-widnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-widnau"
+          "verkaufsberater-in-do-it-jumbo-widnau",
+          "consulente-di-vendita-in-do-it-jumbo-widnau"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-widnau"
@@ -15400,12 +15402,12 @@
     },
     {
       "id": "jumbo-d84af9a7-0aa",
-      "slug": "lagerist-in-jumbo-wurenlingen",
+      "slug": "operatore-di-magazzino-jumbo-wurenlingen",
       "slugByLocale": {
-        "it": "lagerist-in-jumbo-wurenlingen",
-        "en": "lagerist-in-jumbo-wurenlingen",
+        "it": "operatore-di-magazzino-jumbo-wurenlingen",
+        "en": "warehouse-operator-jumbo-wurenlingen",
         "de": "lagerist-in-jumbo-wurenlingen",
-        "fr": "lageriste-in-jumbo-wurenlingen"
+        "fr": "operateur-d-entrepot-jumbo-wurenlingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15475,7 +15477,22 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerist-in-jumbo-wurenlingen"
+        ],
+        "en": [
+          "lagerist-in-jumbo-wurenlingen"
+        ],
+        "fr": [
+          "lageriste-in-jumbo-wurenlingen"
+        ]
+      },
+      "previousSlugs": [
+        "lagerist-in-jumbo-wurenlingen",
+        "lageriste-in-jumbo-wurenlingen"
+      ]
     },
     {
       "id": "jumbo-89ebe050-ecd",
@@ -15484,7 +15501,7 @@
         "it": "venditore-in-cassa-servizi-jumbo-argovia",
         "en": "seller-in-cash-registers-services-jumbo-argovia",
         "de": "verkaufer-in-kassen-services-jumbo-reinach",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-argovia"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-argovia"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15548,7 +15565,8 @@
         "seller-in-cash-registers-services-jumbo-reinach-11b503",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-reinach-11b503",
         "casse-servizi-per-assistenti-vendite-jumbo-reinach-a7cdac",
-        "verkaufer-in-kassen-services-jumbo-reinach"
+        "verkaufer-in-kassen-services-jumbo-reinach",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-argovia"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15567,7 +15585,8 @@
         ],
         "fr": [
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-reinach",
-          "verkaufer-in-kassen-services-jumbo-reinach"
+          "verkaufer-in-kassen-services-jumbo-reinach",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-argovia"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:21.864Z",
@@ -15587,9 +15606,9 @@
     },
     {
       "id": "jumbo-b497e70f-e2e",
-      "slug": "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+      "slug": "consulente-commerciale-do-it-jumbo-schattdorf",
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-schattdorf",
+        "it": "consulente-commerciale-do-it-jumbo-schattdorf",
         "en": "sales-consultant-in-do-it-jumbo-schattdorf-20000b",
         "de": "verkaufsberater-in-do-it-jumbo-schattdorf",
         "fr": "consultant-en-ventes-a-do-it-jumbo-schattdorf"
@@ -15649,11 +15668,13 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-schattdorf"
+        "verkaufsberater-in-do-it-jumbo-schattdorf",
+        "consulente-di-vendita-in-do-it-jumbo-schattdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-schattdorf"
+          "verkaufsberater-in-do-it-jumbo-schattdorf",
+          "consulente-di-vendita-in-do-it-jumbo-schattdorf"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-schattdorf"
@@ -15679,9 +15700,9 @@
     },
     {
       "id": "jumbo-5c446d20-977",
-      "slug": "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil",
+      "slug": "consulente-vendite-impianti-da-giardino-jumbo-hinwil",
       "slugByLocale": {
-        "it": "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil",
+        "it": "consulente-vendite-impianti-da-giardino-jumbo-hinwil",
         "en": "sales-consultants-in-garden-plants-jumbo-hinwil",
         "de": "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
         "fr": "consultants-en-vente-en-plantes-de-jardin-jumbo-hinwil"
@@ -15742,11 +15763,13 @@
       "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+        "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
+        "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
+          "verkaufsberater-in-gartenpflanzen-jumbo-hinwil",
+          "consulenti-di-vendita-in-piante-da-giardino-jumbo-hinwil"
         ],
         "en": [
           "verkaufsberater-in-gartenpflanzen-jumbo-hinwil"
@@ -15777,7 +15800,7 @@
         "it": "venditore-in-cassa-servizi-jumbo-glarus",
         "en": "seller-in-cash-registers-services-jumbo-glarus",
         "de": "verkaufer-in-kassen-services-jumbo-glarus",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-glarus"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-glarus"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -15834,7 +15857,8 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-glarus"
+        "verkaufer-in-kassen-services-jumbo-glarus",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15844,7 +15868,8 @@
           "verkaufer-in-kassen-services-jumbo-glarus"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-jumbo-glarus"
+          "verkaufer-in-kassen-services-jumbo-glarus",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-glarus"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:21.863Z",
@@ -15958,9 +15983,9 @@
     },
     {
       "id": "jumbo-da58e816-562",
-      "slug": "consulente-di-vendita-in-do-it-jumbo-villmergen",
+      "slug": "consulente-commerciale-do-it-jumbo-villmergen",
       "slugByLocale": {
-        "it": "consulente-di-vendita-in-do-it-jumbo-villmergen",
+        "it": "consulente-commerciale-do-it-jumbo-villmergen",
         "en": "sales-consultant-in-do-it-jumbo-villmergen",
         "de": "verkaufsberater-in-do-it-jumbo-villmergen-c89bp5",
         "fr": "consultant-en-ventes-a-do-it-jumbo-villmergen"
@@ -16022,7 +16047,8 @@
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-villmergen"
+          "verkaufsberater-in-do-it-jumbo-villmergen",
+          "consulente-di-vendita-in-do-it-jumbo-villmergen"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-villmergen"
@@ -16035,7 +16061,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-villmergen"
+        "verkaufsberater-in-do-it-jumbo-villmergen",
+        "consulente-di-vendita-in-do-it-jumbo-villmergen"
       ],
       "firstSeenAt": "2026-08-31T17:07:21.860Z",
       "salaryMin": 74000,
@@ -16059,7 +16086,7 @@
         "it": "venditore-in-cassa-servizi-jumbo-rapperswil-jona",
         "en": "seller-in-cash-registers-services-jumbo-rapperswil-jona",
         "de": "verkaufer-in-kassen-services-jumbo-rapperswil-jona",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rapperswil-jona"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-rapperswil-jona"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16118,7 +16145,8 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-rapperswil-jona"
+        "verkaufer-in-kassen-services-jumbo-rapperswil-jona",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16128,7 +16156,8 @@
           "verkaufer-in-kassen-services-jumbo-rapperswil-jona"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-jumbo-rapperswil-jona"
+          "verkaufer-in-kassen-services-jumbo-rapperswil-jona",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:21.859Z",
@@ -16334,9 +16363,9 @@
     },
     {
       "id": "jumbo-4fd2debf-50c",
-      "slug": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
+      "slug": "consulente-vendite-giardino-e-piante-jumbo-arbon",
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon",
+        "it": "consulente-vendite-giardino-e-piante-jumbo-arbon",
         "en": "sales-advisor-in-garden-and-plants-jumbo-arbon-df3732",
         "de": "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
         "fr": "conseiller-commercial-en-jardin-et-plantes-jumbo-arbon-df3732"
@@ -16397,11 +16426,13 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+        "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+        "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
+          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
+          "verkaufsberater-in-garden-e-pflanzen-jumbo-arbon"
         ],
         "en": [
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
@@ -16427,9 +16458,9 @@
     },
     {
       "id": "jumbo-a45598e7-6c1",
-      "slug": "conduttore-rayon-in-do-it-jumbo-rickenbach",
+      "slug": "rayon-direttore-do-it-jumbo-rickenbach",
       "slugByLocale": {
-        "it": "conduttore-rayon-in-do-it-jumbo-rickenbach",
+        "it": "rayon-direttore-do-it-jumbo-rickenbach",
         "en": "rayon-conductor-in-do-it-jumbo-rickenbach",
         "de": "rayonleiter-in-do-it-jumbo-rickenbach",
         "fr": "conducteur-de-rayon-en-do-it-jumbo-rickenbach"
@@ -16497,7 +16528,8 @@
         "rayonleiter-in-do-it-jumbo-kriens-luzern-b9ntj0",
         "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-kriens",
         "rayonleiter-in-do-it-jumbo-kriens",
-        "rayonleiter-in-do-it-jumbo-kriens-luzern"
+        "rayonleiter-in-do-it-jumbo-kriens-luzern",
+        "conduttore-rayon-in-do-it-jumbo-rickenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16506,7 +16538,8 @@
           "rayonleiter-in-do-it-jumbo-kriens-luzern-b9ntj0",
           "rayonleiter-in-do-it-jumbo-division-der-coop-genossenschaft-kriens",
           "rayonleiter-in-do-it-jumbo-kriens",
-          "rayonleiter-in-do-it-jumbo-kriens-luzern"
+          "rayonleiter-in-do-it-jumbo-kriens-luzern",
+          "conduttore-rayon-in-do-it-jumbo-rickenbach"
         ],
         "en": [
           "rayonleiter-in-do-it-jumbo-rickenbach"
@@ -16627,11 +16660,11 @@
     },
     {
       "id": "jumbo-8a2ae303-c4e",
-      "slug": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
+      "slug": "vendite-amministrazione-e-servizio-clienti-jumbo-hinwil",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
-        "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
-        "en": "associate-sales-administration-und-kundendienst-jumbo-hinwil",
+        "it": "vendite-amministrazione-e-servizio-clienti-jumbo-hinwil",
+        "en": "employee-sales-administration-and-customer-service-jumbo-hinwil",
         "fr": "employe-en-vente-administration-et-service-a-la-clientele-jumbo-hinwil"
       },
       "company": "JUMBO",
@@ -16693,18 +16726,22 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
-        "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil"
+        "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil",
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
+        "associate-sales-administration-und-kundendienst-jumbo-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
-          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil"
         ],
         "de": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
         ],
         "en": [
-          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil"
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
+          "associate-sales-administration-und-kundendienst-jumbo-hinwil"
         ],
         "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
@@ -16843,11 +16880,11 @@
     },
     {
       "id": "jumbo-578d4ea7-4a8",
-      "slug": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich",
+      "slug": "vendite-amministrazione-dei-dipendenti-servizio-cliente-jumbo-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich",
-        "it": "addetto-a-alle-vendite-administration-kundendienst-jumbo-zurich",
-        "en": "associate-sales-administration-kundendienst-jumbo-zurich",
+        "it": "vendite-amministrazione-dei-dipendenti-servizio-cliente-jumbo-zurich",
+        "en": "employee-sales-administration-customer-service-jumbo-zurich",
         "fr": "employe-en-vente-administration-service-a-la-clientele-jumbo-zurich"
       },
       "company": "JUMBO",
@@ -16917,7 +16954,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alle-vendite-administration-kundendienst-jumbo-zurich",
+          "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich"
+        ],
+        "en": [
+          "associate-sales-administration-kundendienst-jumbo-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-a-alle-vendite-administration-kundendienst-jumbo-zurich",
+        "mitarbeiter-in-verkauf-administration-kundendienst-jumbo-zurich",
+        "associate-sales-administration-kundendienst-jumbo-zurich"
+      ]
     },
     {
       "id": "jumbo-930db320-f6a",
@@ -16926,7 +16977,7 @@
         "de": "verkaufer-in-kassen-services-jumbo-arbon-01i5dw",
         "it": "venditore-in-cassa-servizi-jumbo-arbon",
         "en": "seller-in-cash-registers-services-jumbo-arbon",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -16989,7 +17040,8 @@
         "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-arbon",
         "verkaufer-in-kassen-services-jumbo-arbon-thurgau-tx22j0",
         "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon",
-        "verkaufer-in-kassen-services-jumbo-arbon"
+        "verkaufer-in-kassen-services-jumbo-arbon",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17009,7 +17061,8 @@
         ],
         "fr": [
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-arbon",
-          "verkaufer-in-kassen-services-jumbo-arbon"
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon"
         ]
       },
       "firstSeenAt": "2026-09-06T22:52:27.450Z",
@@ -17029,10 +17082,10 @@
     },
     {
       "id": "jumbo-e01f8044-db5",
-      "slug": "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a",
+      "slug": "consulente-commerciale-do-it-jumbo-villmergen-881e6a",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-villmergen-5q14ap",
-        "it": "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a",
+        "it": "consulente-commerciale-do-it-jumbo-villmergen-881e6a",
         "en": "sales-consultant-in-do-it-jumbo-villmergen-881e6a",
         "fr": "consultant-en-ventes-a-do-it-jumbo-villmergen-881e6a"
       },
@@ -17092,11 +17145,13 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-villmergen"
+        "verkaufsberater-in-do-it-jumbo-villmergen",
+        "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-villmergen"
+          "verkaufsberater-in-do-it-jumbo-villmergen",
+          "consulente-di-vendita-in-do-it-jumbo-villmergen-881e6a"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-villmergen"
@@ -17130,7 +17185,7 @@
         "de": "verkaufer-in-kassen-services-jumbo-baden-a5fbbr",
         "it": "venditore-in-cassa-servizi-jumbo-baden",
         "en": "seller-in-cash-registers-services-jumbo-baden",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-baden"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17187,7 +17242,8 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-baden"
+        "verkaufer-in-kassen-services-jumbo-baden",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17197,7 +17253,8 @@
           "verkaufer-in-kassen-services-jumbo-baden"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-jumbo-baden"
+          "verkaufer-in-kassen-services-jumbo-baden",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden"
         ],
         "de": [
           "verkaufer-in-kassen-services-jumbo-baden"
@@ -17300,7 +17357,7 @@
       "slugByLocale": {
         "de": "verkaufer-in-kasse-services-jumbo-chur",
         "it": "venditore-in-cassa-servizi-jumbo-chur",
-        "en": "seller-in-cash-register-services-jumbo-chur",
+        "en": "seller-cashier-services-jumbo-chur",
         "fr": "vendeur-en-caisse-services-jumbo-chur"
       },
       "company": "JUMBO",
@@ -17359,7 +17416,8 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufer-in-kasse-services-jumbo-chur",
-        "venditore-al-cassa-servizi-jumbo-chur-graubunden"
+        "venditore-al-cassa-servizi-jumbo-chur-graubunden",
+        "seller-in-cash-register-services-jumbo-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17367,7 +17425,8 @@
           "venditore-al-cassa-servizi-jumbo-chur-graubunden"
         ],
         "en": [
-          "verkaufer-in-kasse-services-jumbo-chur"
+          "verkaufer-in-kasse-services-jumbo-chur",
+          "seller-in-cash-register-services-jumbo-chur"
         ],
         "fr": [
           "verkaufer-in-kasse-services-jumbo-chur"
@@ -17394,7 +17453,7 @@
       "slugByLocale": {
         "de": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
         "it": "rayon-leader-in-admin-jumbo-arbon-textilstrasse",
-        "en": "rayonleiter-in-admin-jumbo-arbon-textilstrasse",
+        "en": "rayon-leader-admin-jumbo-arbon-textilstrasse",
         "fr": "chef-de-rayon-en-admin-jumbo-arbon-textilstrasse"
       },
       "company": "JUMBO",
@@ -17462,6 +17521,9 @@
         ],
         "fr": [
           "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
+        ],
+        "en": [
+          "rayonleiter-in-admin-jumbo-arbon-textilstrasse"
         ]
       },
       "firstSeenAt": "2026-09-06T22:52:27.446Z",
@@ -17481,12 +17543,12 @@
     },
     {
       "id": "jumbo-8bcf0a19-b04",
-      "slug": "lagerist-in-jumbo-arbon",
+      "slug": "operatore-di-magazzino-jumbo-arbon",
       "slugByLocale": {
         "de": "lagerist-in-jumbo-arbon",
-        "it": "lagerist-in-jumbo-arbon",
-        "en": "lagerist-in-jumbo-arbon",
-        "fr": "lageriste-in-jumbo-arbon"
+        "it": "operatore-di-magazzino-jumbo-arbon",
+        "en": "warehouse-operator-jumbo-arbon",
+        "fr": "operateur-d-entrepot-jumbo-arbon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17555,7 +17617,22 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerist-in-jumbo-arbon"
+        ],
+        "en": [
+          "lagerist-in-jumbo-arbon"
+        ],
+        "fr": [
+          "lageriste-in-jumbo-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "lagerist-in-jumbo-arbon",
+        "lageriste-in-jumbo-arbon"
+      ]
     },
     {
       "id": "jumbo-c9461a5a-8c3",
@@ -17652,12 +17729,12 @@
     },
     {
       "id": "jumbo-a58aff87-b35",
-      "slug": "venditore-in-cassa-servizi-jumbo-arbon-6efd17",
+      "slug": "vendita-cassa-servizi-jumbo-arbon",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-arbon",
-        "it": "venditore-in-cassa-servizi-jumbo-arbon-6efd17",
+        "it": "vendita-cassa-servizi-jumbo-arbon",
         "en": "seller-in-cash-registers-services-jumbo-arbon-6efd17",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon-6efd17"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-arbon-6efd17"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17731,17 +17808,21 @@
       "firstSeenAt": "2026-09-07T15:09:52.653Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "venditore-in-cassa-servizi-jumbo-arbon-6efd17"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-arbon"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-jumbo-arbon"
+          "verkaufer-in-kassen-services-jumbo-arbon",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon-6efd17"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-arbon"
+        "verkaufer-in-kassen-services-jumbo-arbon",
+        "venditore-in-cassa-servizi-jumbo-arbon-6efd17",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-arbon-6efd17"
       ]
     },
     {
@@ -17856,12 +17937,12 @@
     },
     {
       "id": "jumbo-5694756b-dda",
-      "slug": "venditore-in-cassa-servizi-jumbo-baden-f8e14b",
+      "slug": "vendita-cassa-servizi-jumbo-baden",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-baden",
-        "it": "venditore-in-cassa-servizi-jumbo-baden-f8e14b",
+        "it": "vendita-cassa-servizi-jumbo-baden",
         "en": "seller-in-cash-registers-services-jumbo-baden-f8e14b",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden-f8e14b"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-baden-f8e14b"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17933,25 +18014,29 @@
       "firstSeenAt": "2026-09-07T15:09:52.649Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-jumbo-baden"
+          "verkaufer-in-kassen-services-jumbo-baden",
+          "venditore-in-cassa-servizi-jumbo-baden-f8e14b"
         ],
         "en": [
           "verkaufer-in-kassen-services-jumbo-baden"
         ],
         "fr": [
-          "verkaufer-in-kassen-services-jumbo-baden"
+          "verkaufer-in-kassen-services-jumbo-baden",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden-f8e14b"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-jumbo-baden"
+        "verkaufer-in-kassen-services-jumbo-baden",
+        "venditore-in-cassa-servizi-jumbo-baden-f8e14b",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-baden-f8e14b"
       ]
     },
     {
       "id": "jumbo-b7225aac-58f",
-      "slug": "consulente-di-vendita-in-do-it-jumbo-villmergen-a097aa",
+      "slug": "consulente-commerciale-do-it-jumbo-villmergen-a097aa",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-villmergen",
-        "it": "consulente-di-vendita-in-do-it-jumbo-villmergen-a097aa",
+        "it": "consulente-commerciale-do-it-jumbo-villmergen-a097aa",
         "en": "sales-consultant-in-do-it-jumbo-villmergen-a097aa",
         "fr": "consultant-en-ventes-a-do-it-jumbo-villmergen-a097aa"
       },
@@ -18026,7 +18111,8 @@
       "firstSeenAt": "2026-09-07T15:09:52.649Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-do-it-jumbo-villmergen"
+          "verkaufsberater-in-do-it-jumbo-villmergen",
+          "consulente-di-vendita-in-do-it-jumbo-villmergen-a097aa"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-villmergen"
@@ -18036,7 +18122,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-villmergen"
+        "verkaufsberater-in-do-it-jumbo-villmergen",
+        "consulente-di-vendita-in-do-it-jumbo-villmergen-a097aa"
       ]
     },
     {
@@ -18147,11 +18234,11 @@
     },
     {
       "id": "jumbo-25675227-a72",
-      "slug": "rayon-leader-in-garden-jumbo-thalwil",
+      "slug": "giardino-conduttore-rayon-jumbo-thalwil",
       "slugByLocale": {
         "de": "rayonleiter-in-garden-jumbo-thalwil",
-        "it": "rayon-leader-in-garden-jumbo-thalwil",
-        "en": "rayonleiter-in-garden-jumbo-thalwil",
+        "it": "giardino-conduttore-rayon-jumbo-thalwil",
+        "en": "rayon-conductor-garden-jumbo-thalwil",
         "fr": "chef-de-rayon-a-garden-jumbo-thalwil"
       },
       "company": "JUMBO",
@@ -18216,7 +18303,8 @@
         "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua",
         "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich",
         "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil",
-        "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-hjvgmy"
+        "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-hjvgmy",
+        "rayon-leader-in-garden-jumbo-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18225,7 +18313,8 @@
           "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua",
           "chef-de-rayon-a-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich",
           "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil",
-          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-hjvgmy"
+          "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-hjvgmy",
+          "rayon-leader-in-garden-jumbo-thalwil"
         ],
         "fr": [
           "rayonleiter-in-garden-jumbo-thalwil",
@@ -18233,6 +18322,9 @@
         ],
         "de": [
           "rayonleiter-in-garden-jumbo-division-der-coop-genossenschaft-thalwil-zurich-hhm6ua"
+        ],
+        "en": [
+          "rayonleiter-in-garden-jumbo-thalwil"
         ]
       },
       "firstSeenAt": "2026-09-06T22:52:27.427Z",
@@ -18345,7 +18437,7 @@
         "de": "verkaufer-in-kassen-services-jumbo-willisau",
         "it": "venditore-in-cassa-servizi-jumbo-willisau",
         "en": "seller-in-cash-registers-services-jumbo-willisau",
-        "fr": "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-willisau"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18432,7 +18524,8 @@
         ],
         "fr": [
           "vendeur-dans-les-caisses-enregistreuses-services-jumbo-division-der-coop-genossenschaft-willisau",
-          "verkaufer-in-kassen-services-jumbo-willisau"
+          "verkaufer-in-kassen-services-jumbo-willisau",
+          "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
         ]
       },
       "previousSlugs": [
@@ -18440,16 +18533,17 @@
         "verkaufer-in-kassen-services-jumbo-willisau-luzern-snsxpq",
         "venditore-in-cassa-servizi-jumbo-division-der-coop-genossenschaft-willisau",
         "seller-in-cash-registers-services-jumbo-division-der-coop-genossenschaft-willisau",
-        "verkaufer-in-kassen-services-jumbo-willisau"
+        "verkaufer-in-kassen-services-jumbo-willisau",
+        "vendeur-dans-les-caisses-enregistreuses-services-jumbo-willisau"
       ]
     },
     {
       "id": "jumbo-a25ab995-bb0",
-      "slug": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau",
+      "slug": "vendite-amministrazione-e-servizio-clienti-jumbo-willisau",
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau",
-        "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
-        "en": "associate-sales-administration-und-kundendienst-jumbo-willisau",
+        "it": "vendite-amministrazione-e-servizio-clienti-jumbo-willisau",
+        "en": "employee-sales-administration-and-customer-service-jumbo-willisau",
         "fr": "employe-en-vente-administration-et-service-a-la-clientele-jumbo-willisau"
       },
       "company": "JUMBO",
@@ -18523,7 +18617,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:09:52.634Z"
+      "firstSeenAt": "2026-09-07T15:09:52.634Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau"
+        ],
+        "en": [
+          "associate-sales-administration-und-kundendienst-jumbo-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau",
+        "associate-sales-administration-und-kundendienst-jumbo-willisau"
+      ]
     },
     {
       "id": "jumbo-a0f1e72e-340",

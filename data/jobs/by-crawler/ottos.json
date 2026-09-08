@@ -852,10 +852,10 @@
     },
     {
       "id": "ottos-3585e183593d",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-koniz",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-koniz",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-koniz",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-koniz",
         "en": "sales-staff-in-with-all-round-function-otto-s-ag-koniz",
         "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-koniz"
       },
@@ -1069,8 +1069,7 @@
           "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf",
           "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf",
           "sales-staff-in-textile-sport-otto-s-ag-hagendorf",
-          "personnel-commercial-en-textile-sport-otto-s-ag-hagendorf",
-          "personale-commerciale-in-tessile-sport-otto-s-ag-hagendorf"
+          "personnel-commercial-en-textile-sport-otto-s-ag-hagendorf"
         ],
         "en": [
           "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf"
@@ -1083,8 +1082,7 @@
         "verkaufsmitarbeiter-in-textil-sport-ottos-hagendorf",
         "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-hagendorf",
         "sales-staff-in-textile-sport-otto-s-ag-hagendorf",
-        "personnel-commercial-en-textile-sport-otto-s-ag-hagendorf",
-        "personale-commerciale-in-tessile-sport-otto-s-ag-hagendorf"
+        "personnel-commercial-en-textile-sport-otto-s-ag-hagendorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -1719,7 +1717,7 @@
       "slug": "cashier-in-otto-s-ag-wattwil",
       "slugByLocale": {
         "it": "cashier-in-otto-s-ag-wattwil",
-        "en": "kassierer-in-ottos-wattwil",
+        "en": "cashiers-otto-s-ag-wattwil",
         "de": "kassierer-in-ottos-wattwil",
         "fr": "caissier-en-otto-s-ag-wattwil"
       },
@@ -1781,7 +1779,8 @@
           "caissier-otto-s-ag-wil"
         ],
         "en": [
-          "cashier-in-otto-s-ag-wil"
+          "cashier-in-otto-s-ag-wil",
+          "kassierer-in-ottos-wattwil"
         ],
         "de": [
           "kassierer-in-ottos-wil"
@@ -1894,7 +1893,7 @@
       "slug": "cashier-in-otto-s-ag-baldegg",
       "slugByLocale": {
         "it": "cashier-in-otto-s-ag-baldegg",
-        "en": "kassierer-in-ottos-baldegg",
+        "en": "cashiers-otto-s-ag-baldegg",
         "de": "kassierer-in-ottos-baldegg",
         "fr": "caissier-otto-s-ag-baldegg"
       },
@@ -1950,6 +1949,9 @@
           "kassierer-in-ottos-baldegg"
         ],
         "fr": [
+          "kassierer-in-ottos-baldegg"
+        ],
+        "en": [
           "kassierer-in-ottos-baldegg"
         ]
       },
@@ -3261,8 +3263,7 @@
         "perfume-cosmetic-seller-h-f-otto-s-ag-echandens",
         "parfum-kosmetikverkaufer-h-f-otto-s-ag-echandens",
         "vendeur-parfumerie-cosmetique-h-f-ottos-echandens",
-        "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-echandens",
-        "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-la-chaux-de-fonds"
+        "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-echandens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3272,8 +3273,7 @@
           "perfume-cosmetic-seller-h-f-otto-s-ag-echandens",
           "parfum-kosmetikverkaufer-h-f-otto-s-ag-echandens",
           "vendeur-parfumerie-cosmetique-h-f-ottos-echandens",
-          "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-echandens",
-          "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-la-chaux-de-fonds"
+          "vendeur-parfumerie-cosmetique-m-w-d-otto-s-ag-echandens"
         ],
         "en": [
           "vendeur-parfumerie-cosmetique-h-f-ottos-la-chaux-de-fonds",
@@ -3472,10 +3472,10 @@
     },
     {
       "id": "ottos-dab9ed5ee8e1",
-      "slug": "springer-in-meccanico-bici-in-otto-s-ag-sursee",
+      "slug": "meccanica-della-bici-della-primavera-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "springer-in-bikemechaniker-in-ottos-sursee",
-        "it": "springer-in-meccanico-bici-in-otto-s-ag-sursee",
+        "it": "meccanica-della-bici-della-primavera-otto-s-ag-sursee",
         "en": "springer-in-bike-mechanic-in-otto-s-ag-sursee",
         "fr": "springer-in-velo-mecanicien-in-otto-s-ag-sursee"
       },
@@ -3539,7 +3539,8 @@
       "firstSeenAt": "2026-09-07T15:22:31.894Z",
       "previousSlugsByLocale": {
         "it": [
-          "springer-in-bikemechaniker-in-ottos-sursee"
+          "springer-in-bikemechaniker-in-ottos-sursee",
+          "springer-in-meccanico-bici-in-otto-s-ag-sursee"
         ],
         "en": [
           "springer-in-bikemechaniker-in-ottos-sursee"
@@ -3549,7 +3550,8 @@
         ]
       },
       "previousSlugs": [
-        "springer-in-bikemechaniker-in-ottos-sursee"
+        "springer-in-bikemechaniker-in-ottos-sursee",
+        "springer-in-meccanico-bici-in-otto-s-ag-sursee"
       ]
     },
     {
@@ -3900,10 +3902,10 @@
     },
     {
       "id": "ottos-a1db577ca86c",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zollikofen",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-zollikofen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zollikofen",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zollikofen",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-zollikofen",
         "en": "sales-staff-in-with-all-round-function-otto-s-ag-zollikofen",
         "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-zollikofen"
       },
@@ -3953,7 +3955,6 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sales-staff-in-with-all-round-function-otto-s-ag-lyss",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-lyss",
           "personnel-de-vente-avec-fonction-complete-otto-s-ag-lyss",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
@@ -3972,11 +3973,11 @@
           "sales-staff-in-with-all-round-function-otto-s-ag-wettingen",
           "personnel-de-vente-avec-fonction-complete-otto-s-ag-wettingen",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-grenchen",
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-grenchen",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zollikofen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-zollikofen",
         "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-zollikofen",
         "sales-staff-in-with-all-round-function-otto-s-ag-grenchen",
         "personnel-de-vente-avec-fonction-complete-otto-s-ag-grenchen",
@@ -4417,8 +4418,7 @@
         "aiuto-venditore-in-food-non-food-otto-s-ag-oberburg",
         "help-seller-in-food-non-food-otto-s-ag-oberburg",
         "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-oberburg",
-        "aushilfe-verkaufer-in-food-non-food-ottos-oberburg-b4b0wc",
-        "aiuto-venditore-in-food-non-food-otto-s-ag-oberburg-f96f63"
+        "aushilfe-verkaufer-in-food-non-food-ottos-oberburg-b4b0wc"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4426,8 +4426,7 @@
           "aiuto-venditore-in-food-non-food-otto-s-ag-oberburg",
           "help-seller-in-food-non-food-otto-s-ag-oberburg",
           "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-oberburg",
-          "aushilfe-verkaufer-in-food-non-food-ottos-oberburg-b4b0wc",
-          "aiuto-venditore-in-food-non-food-otto-s-ag-oberburg-f96f63"
+          "aushilfe-verkaufer-in-food-non-food-ottos-oberburg-b4b0wc"
         ],
         "en": [
           "aushilfe-verkaufer-in-food-non-food-ottos-oberburg",
@@ -4997,22 +4996,18 @@
       "firstSeenAt": "2026-09-07T15:22:20.142Z",
       "previousSlugsByLocale": {
         "it": [
-          "aiuto-venditore-in-food-non-food-otto-s-ag-frauenkappelen",
           "help-seller-in-food-non-food-otto-s-ag-frauenkappelen",
           "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-frauenkappelen",
           "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen"
         ],
         "en": [
-          "help-seller-in-food-non-food-otto-s-ag-frauenkappelen",
           "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen"
         ],
         "fr": [
-          "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-frauenkappelen",
           "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen"
         ]
       },
       "previousSlugs": [
-        "aiuto-venditore-in-food-non-food-otto-s-ag-frauenkappelen",
         "help-seller-in-food-non-food-otto-s-ag-frauenkappelen",
         "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-frauenkappelen",
         "aushilfe-verkaufer-in-food-non-food-ottos-frauenkappelen"
@@ -6356,8 +6351,7 @@
           "verkaufsmitarbeiter-in-mobel-ottos-hagendorf",
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf",
           "sales-staff-in-furniture-otto-s-ag-hagendorf",
-          "personnel-de-vente-en-mobilier-otto-s-ag-hagendorf",
-          "personale-di-vendita-in-mobili-otto-s-ag-hagendorf"
+          "personnel-de-vente-en-mobilier-otto-s-ag-hagendorf"
         ],
         "en": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf"
@@ -6370,8 +6364,7 @@
         "verkaufsmitarbeiter-in-mobel-ottos-hagendorf",
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-hagendorf",
         "sales-staff-in-furniture-otto-s-ag-hagendorf",
-        "personnel-de-vente-en-mobilier-otto-s-ag-hagendorf",
-        "personale-di-vendita-in-mobili-otto-s-ag-hagendorf"
+        "personnel-de-vente-en-mobilier-otto-s-ag-hagendorf"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -6965,10 +6958,10 @@
     },
     {
       "id": "ottos-f2dc95743978",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-bern",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bern",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bern",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-bern",
         "en": "sales-staff-in-with-all-round-function-otto-s-ag-bern",
         "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-bern"
       },
@@ -7190,12 +7183,10 @@
           "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont"
         ],
         "en": [
-          "auxiliary-textile-sport-seller-m-f-otto-s-ag-echandens",
           "sports-auxiliary-seller-m-f-otto-s-ag-delemont",
           "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
         ],
         "de": [
-          "hilfstextil-sportverkaufer-m-w-otto-s-ag-echandens",
           "sporthilfsverkaufer-m-w-otto-s-ag-delemont",
           "vendeur-auxiliaire-textile-sport-h-f-ottos-echandens"
         ],
@@ -7406,10 +7397,10 @@
     },
     {
       "id": "ottos-2889f2928a16",
-      "slug": "cashier-in-otto-s-ag-zollikofen",
+      "slug": "cassiere-otto-s-ag-zollikofen",
       "slugByLocale": {
-        "it": "cashier-in-otto-s-ag-zollikofen",
-        "en": "kassierer-in-ottos-zollikofen",
+        "it": "cassiere-otto-s-ag-zollikofen",
+        "en": "cashiers-otto-s-ag-zollikofen",
         "de": "kassierer-in-ottos-zollikofen",
         "fr": "caissier-otto-s-ag-zollikofen"
       },
@@ -7458,13 +7449,18 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "kassierer-in-ottos-zollikofen"
+        "kassierer-in-ottos-zollikofen",
+        "cashier-in-otto-s-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kassierer-in-ottos-zollikofen"
+          "kassierer-in-ottos-zollikofen",
+          "cashier-in-otto-s-ag-zollikofen"
         ],
         "fr": [
+          "kassierer-in-ottos-zollikofen"
+        ],
+        "en": [
           "kassierer-in-ottos-zollikofen"
         ]
       },
@@ -7704,8 +7700,7 @@
           "verkaufsmitarbeiter-in-mobel-ottos-koniz",
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
           "sales-staff-in-furniture-otto-s-ag-koniz",
-          "personnel-de-vente-en-mobilier-otto-s-ag-koniz",
-          "personale-di-vendita-in-mobili-otto-s-ag-koniz"
+          "personnel-de-vente-en-mobilier-otto-s-ag-koniz"
         ],
         "en": [
           "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz"
@@ -7718,8 +7713,7 @@
         "verkaufsmitarbeiter-in-mobel-ottos-koniz",
         "verkaufsmitarbeiter-in-mobel-otto-s-ag-koniz",
         "sales-staff-in-furniture-otto-s-ag-koniz",
-        "personnel-de-vente-en-mobilier-otto-s-ag-koniz",
-        "personale-di-vendita-in-mobili-otto-s-ag-koniz"
+        "personnel-de-vente-en-mobilier-otto-s-ag-koniz"
       ],
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -8249,10 +8243,10 @@
     },
     {
       "id": "ottos-08d42cf89a23",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hagendorf",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-hagendorf",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-hagendorf",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-hagendorf",
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-hagendorf",
         "en": "sales-staff-in-with-all-round-function-otto-s-ag-hagendorf",
         "fr": "personnel-de-vente-avec-fonction-complete-otto-s-ag-hagendorf"
       },
@@ -8775,8 +8769,7 @@
           "abteilungsleiter-in-mobel-ottos-grenchen",
           "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
           "head-of-department-in-furniture-otto-s-ag-grenchen",
-          "chef-de-departement-en-mobilier-otto-s-ag-grenchen",
-          "capo-reparto-in-mobili-otto-s-ag-grenchen"
+          "chef-de-departement-en-mobilier-otto-s-ag-grenchen"
         ],
         "en": [
           "abteilungsleiter-in-mobel-otto-s-ag-grenchen"
@@ -8789,8 +8782,7 @@
         "abteilungsleiter-in-mobel-ottos-grenchen",
         "abteilungsleiter-in-mobel-otto-s-ag-grenchen",
         "head-of-department-in-furniture-otto-s-ag-grenchen",
-        "chef-de-departement-en-mobilier-otto-s-ag-grenchen",
-        "capo-reparto-in-mobili-otto-s-ag-grenchen"
+        "chef-de-departement-en-mobilier-otto-s-ag-grenchen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -9036,8 +9028,7 @@
         "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
         "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
         "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
-        "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+        "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9045,8 +9036,7 @@
           "capo-dipartimento-tessile-sport-otto-s-ag-gamsen-brig",
           "head-of-department-textile-sports-otto-s-ag-gamsen-brig",
           "abteilungsleiter-in-textil-sport-ottos-gamsen-brig",
-          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig",
-          "abteilungsleiter-in-textil-sport-otto-s-ag-zurich"
+          "chef-de-departement-textile-sport-otto-s-ag-gamsen-brig"
         ],
         "en": [
           "head-of-department-textile-sports-otto-s-ag-gamsen-brig"
@@ -9321,9 +9311,9 @@
     },
     {
       "id": "ottos-73aa0141aebf",
-      "slug": "direttore-di-filiale-in-otto-s-ag-schonenwerd",
+      "slug": "direttore-di-branch-otto-s-ag-schonenwerd",
       "slugByLocale": {
-        "it": "direttore-di-filiale-in-otto-s-ag-schonenwerd",
+        "it": "direttore-di-branch-otto-s-ag-schonenwerd",
         "en": "branch-manager-in-otto-s-ag-schonenwerd",
         "de": "filialleiter-in-ottos-schonenwerd",
         "fr": "directeur-de-branche-en-otto-s-ag-schonenwerd"
@@ -9374,12 +9364,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "filialleiter-in-ottos-schonenwerd",
-        "filialleiter-in-otto-s-ag-schonenwerd"
+        "filialleiter-in-otto-s-ag-schonenwerd",
+        "direttore-di-filiale-in-otto-s-ag-schonenwerd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-ottos-schonenwerd",
-          "filialleiter-in-otto-s-ag-schonenwerd"
+          "filialleiter-in-otto-s-ag-schonenwerd",
+          "direttore-di-filiale-in-otto-s-ag-schonenwerd"
         ],
         "en": [
           "filialleiter-in-otto-s-ag-schonenwerd"
@@ -9462,8 +9454,7 @@
         "aushilfe-verkaufer-in-food-non-food-ottos-luzern-2",
         "aiuto-venditore-in-food-non-food-otto-s-ag-luzern",
         "help-seller-in-food-non-food-otto-s-ag-luzern-031713",
-        "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern-031713",
-        "assistente-assistente-vendite-food-non-food-otto-s-ag-luzern"
+        "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern-031713"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9471,8 +9462,7 @@
           "aushilfe-verkaufer-in-food-non-food-ottos-luzern-2",
           "aiuto-venditore-in-food-non-food-otto-s-ag-luzern",
           "help-seller-in-food-non-food-otto-s-ag-luzern-031713",
-          "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern-031713",
-          "assistente-assistente-vendite-food-non-food-otto-s-ag-luzern"
+          "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-luzern-031713"
         ],
         "en": [
           "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
@@ -11627,22 +11617,18 @@
       "firstSeenAt": "2026-09-07T15:21:16.380Z",
       "previousSlugsByLocale": {
         "it": [
-          "deputato-nella-gestione-delle-branche-otto-s-ag-zuchwil",
           "deputy-in-branch-management-otto-s-ag-zuchwil",
           "adjoint-dans-la-direction-generale-otto-s-ag-zuchwil",
           "stellvertreter-in-filialleitung-ottos-zuchwil"
         ],
         "en": [
-          "deputy-in-branch-management-otto-s-ag-zuchwil",
           "stellvertreter-in-filialleitung-ottos-zuchwil"
         ],
         "fr": [
-          "adjoint-dans-la-direction-generale-otto-s-ag-zuchwil",
           "stellvertreter-in-filialleitung-ottos-zuchwil"
         ]
       },
       "previousSlugs": [
-        "deputato-nella-gestione-delle-branche-otto-s-ag-zuchwil",
         "deputy-in-branch-management-otto-s-ag-zuchwil",
         "adjoint-dans-la-direction-generale-otto-s-ag-zuchwil",
         "stellvertreter-in-filialleitung-ottos-zuchwil"

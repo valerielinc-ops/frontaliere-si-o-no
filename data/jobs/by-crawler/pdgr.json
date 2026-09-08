@@ -3313,10 +3313,10 @@
     },
     {
       "id": "pdgr-e99eac9c824d",
-      "slug": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "slug": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
-        "it": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "en": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "it": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
         "de": "betreuer-in-pdgr-ch",
         "fr": "superviseur-interne-psychiatrische-dienste-graubunden-rothenbrunnen"
       },
@@ -3364,15 +3364,18 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "betreuer-in-pdgr-ch",
-        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betreuer-in-pdgr-ch",
-          "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
+          "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "en": [
-          "betreuer-in-pdgr-ch"
+          "betreuer-in-pdgr-ch",
+          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "fr": [
           "betreuer-in-pdgr-ch"
@@ -3742,12 +3745,12 @@
     },
     {
       "id": "pdgr-16daeae2e7ac",
-      "slug": "giardino-in-psychiatrische-dienste-graubunden-chur",
+      "slug": "giardinieri-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "giardino-in-psychiatrische-dienste-graubunden-chur",
-        "en": "gardener-in-psychiatrische-dienste-graubunden-chur",
+        "it": "giardinieri-psychiatrische-dienste-graubunden-chur",
+        "en": "gardeners-psychiatrische-dienste-graubunden-chur",
         "de": "gartner-in-pdgr-ch",
-        "fr": "jardinier-in-psychiatrische-dienste-graubunden-chur"
+        "fr": "jardiniers-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3792,17 +3795,23 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "gartner-in-pdgr-ch"
+        "gartner-in-pdgr-ch",
+        "giardino-in-psychiatrische-dienste-graubunden-chur",
+        "gardener-in-psychiatrische-dienste-graubunden-chur",
+        "jardinier-in-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "giardino-in-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "gardener-in-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "jardinier-in-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-09-03T23:23:20.801Z",
@@ -3823,9 +3832,9 @@
     },
     {
       "id": "pdgr-d6e4f98002d7",
-      "slug": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+      "slug": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+        "it": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
         "en": "work-handler-in-psychiatrische-dienste-graubunden-chur",
         "de": "arbeitsagoge-in-pdgr-ch",
         "fr": "gestionnaire-de-travail-in-psychiatrische-dienste-graubunden-chur"
@@ -3873,11 +3882,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "arbeitsagoge-in-pdgr-ch"
+        "arbeitsagoge-in-pdgr-ch",
+        "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arbeitsagoge-in-pdgr-ch"
+          "arbeitsagoge-in-pdgr-ch",
+          "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "arbeitsagoge-in-pdgr-ch"

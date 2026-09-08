@@ -598,12 +598,12 @@
     },
     {
       "id": "omega-32658",
-      "slug": "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne",
+      "slug": "organizzazione-della-produzione-urhmacher-omega-sa-biel-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne",
+        "it": "organizzazione-della-produzione-urhmacher-omega-sa-biel-bienne",
         "en": "urhmacher-in-production-efz-omega-sa-biel-bienne",
         "de": "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
-        "fr": "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        "fr": "organisation-de-la-production-urhmique-omega-sa-biel-bienne"
       },
       "company": "OMEGA SA",
       "companyKey": "omega",
@@ -668,13 +668,18 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+        "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne",
+          "apprendistato-come-urhmacher-in-produktion-cfc-omega-sa-biel-bienne"
         ],
         "en": [
+          "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
+        ],
+        "fr": [
           "lehrstelle-als-urhmacher-in-produktion-efz-omega-biel-bienne"
         ]
       },

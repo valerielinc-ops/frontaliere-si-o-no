@@ -21296,12 +21296,12 @@
     },
     {
       "id": "hirslanden-b39adef89d1e",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100",
+      "slug": "dipl-infermieristica-professionale-dipl-chirurgia-viscerale-specializzata-in-infermieristica-e-formazione-professionale",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100",
+        "it": "dipl-infermieristica-professionale-dipl-chirurgia-viscerale-specializzata-in-infermieristica-e-formazione-professionale",
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-visceral-surgery-vocational-trainer-a-80-100-hirslanden-klinik",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-en-chirurgie-viscerale-et-formateur-professionnel-a-80-100"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -21356,7 +21356,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-viszeralchirurgie-berufsbildner-in-a-100"
+      ]
     },
     {
       "id": "hirslanden-f7792e71b00b",
@@ -26685,12 +26699,12 @@
     },
     {
       "id": "hirslanden-944a77c3be52",
-      "slug": "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+      "slug": "la-piscina-e-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "de": "poolist-krankenschwester-80-flexibel-hirslanden-klinik-hirslanden-clinique-cecil",
-        "it": "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
-        "en": "poolist-nurse-80-flexible-hirslanden-klinik-hirslanden-clinique-cecil",
-        "fr": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        "it": "la-piscina-e-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "the-pool-is-80-flexible-hirslanden-klinik-hirslanden-clinique-cecil",
+        "fr": "la-piscine-est-flexible-a-80-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26733,17 +26747,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+          "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil"
         ],
         "en": [
-          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+          "poolist-nurse-80-flexible-hirslanden-klinik-hirslanden-clinique-cecil"
         ],
         "de": [
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "fr": [
           "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+        "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+        "poolist-nurse-80-flexible-hirslanden-klinik-hirslanden-clinique-cecil"
       ],
       "firstSeenAt": "2026-09-03T13:38:45.354Z",
       "salaryMin": 69200,

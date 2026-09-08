@@ -25787,10 +25787,10 @@
     },
     {
       "id": "interdiscount-c7a3465c-3ba",
-      "slug": "consulente-commerciale-in-interdiscount-mels",
+      "slug": "consulenti-di-vendita-interdiscount-mels",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-interdiscount-mels",
-        "en": "sales-consultant-in-interdiscount-mels",
+        "it": "consulenti-di-vendita-interdiscount-mels",
+        "en": "sales-consultants-interdiscount-mels",
         "de": "verkaufsberater-in-interdiscount-mels",
         "fr": "consultant-en-ventes-interdiscount-mels"
       },
@@ -25858,7 +25858,8 @@
         "consultant-en-ventes-interdiscount-jegenstorf",
         "sales-consultant-in-interdiscount-mels",
         "consultant-en-ventes-interdiscount-mels",
-        "verkaufsberater-in-interdiscount-mels"
+        "verkaufsberater-in-interdiscount-mels",
+        "consulente-commerciale-in-interdiscount-mels"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25868,11 +25869,13 @@
           "consultant-en-ventes-interdiscount-jegenstorf",
           "sales-consultant-in-interdiscount-mels",
           "consultant-en-ventes-interdiscount-mels",
-          "verkaufsberater-in-interdiscount-mels"
+          "verkaufsberater-in-interdiscount-mels",
+          "consulente-commerciale-in-interdiscount-mels"
         ],
         "en": [
           "sales-consultant-in-interdiscount-jegenstorf",
-          "verkaufsberater-in-interdiscount-mels"
+          "verkaufsberater-in-interdiscount-mels",
+          "sales-consultant-in-interdiscount-mels"
         ],
         "de": [
           "verkaufsberater-in-interdiscount-jegenstorf"
@@ -26278,11 +26281,11 @@
     },
     {
       "id": "interdiscount-2558d934-f91",
-      "slug": "consulente-commerciale-in-interdiscount-sursee",
+      "slug": "consulenti-di-vendita-interdiscount-sursee",
       "slugByLocale": {
         "de": "verkaufsberater-in-interdiscount-sursee",
-        "it": "consulente-commerciale-in-interdiscount-sursee",
-        "en": "sales-consultant-in-interdiscount-sursee",
+        "it": "consulenti-di-vendita-interdiscount-sursee",
+        "en": "sales-consultants-interdiscount-sursee",
         "fr": "consultant-en-ventes-interdiscount-sursee"
       },
       "company": "Interdiscount",
@@ -26357,17 +26360,21 @@
       "firstSeenAt": "2026-09-07T15:03:55.396Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-interdiscount-sursee"
+          "verkaufsberater-in-interdiscount-sursee",
+          "consulente-commerciale-in-interdiscount-sursee"
         ],
         "en": [
-          "verkaufsberater-in-interdiscount-sursee"
+          "verkaufsberater-in-interdiscount-sursee",
+          "sales-consultant-in-interdiscount-sursee"
         ],
         "fr": [
           "verkaufsberater-in-interdiscount-sursee"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-interdiscount-sursee"
+        "verkaufsberater-in-interdiscount-sursee",
+        "consulente-commerciale-in-interdiscount-sursee",
+        "sales-consultant-in-interdiscount-sursee"
       ]
     }
   ]

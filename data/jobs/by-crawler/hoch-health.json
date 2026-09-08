@@ -15740,9 +15740,9 @@
     },
     {
       "id": "hoch-health-febb75f406d9",
-      "slug": "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen",
+      "slug": "formazione-dipl-analista-biomedico-r-hf-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen",
+        "it": "formazione-dipl-analista-biomedico-r-hf-hoch-health-ostschweiz-st-gallen",
         "en": "training-dipl-biomedical-analyst-in-hf-hoch-health-ostschweiz-st-gallen",
         "de": "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen",
         "fr": "formation-biomedical-analyste-en-hf-hoch-health-ostschweiz-st-gallen"
@@ -15787,11 +15787,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen"
+        "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen",
+        "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen"
+          "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen",
+          "allenamento-biologico-analista-in-hf-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "ausbildung-dipl-biomedizinische-r-analytiker-in-hf-hoch-health-st-gallen"
@@ -16166,12 +16168,12 @@
     },
     {
       "id": "hoch-health-d4439b69f3a3",
-      "slug": "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs",
+      "slug": "dipl-terapia-occupazionale-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs",
+        "it": "dipl-terapia-occupazionale-80-hoch-health-ostschweiz-grabs",
         "en": "dipl-occupational-therapist-in-80-hoch-health-ostschweiz-grabs",
         "de": "dipl-ergotherapeut-in-80-hoch-health-grabs",
-        "fr": "dipl-ergotherapeute-in-80-hoch-health-ostschweiz-grabs"
+        "fr": "dipl-therapie-professionnelle-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16213,17 +16215,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-ergotherapeut-in-80-hoch-health-grabs"
+        "dipl-ergotherapeut-in-80-hoch-health-grabs",
+        "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs",
+        "dipl-ergotherapeute-in-80-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-ergotherapeut-in-80-hoch-health-grabs"
+          "dipl-ergotherapeut-in-80-hoch-health-grabs",
+          "dipl-terapeuta-professionale-in-80-hoch-health-ostschweiz-grabs"
         ],
         "en": [
           "dipl-ergotherapeut-in-80-hoch-health-grabs"
         ],
         "fr": [
-          "dipl-ergotherapeut-in-80-hoch-health-grabs"
+          "dipl-ergotherapeut-in-80-hoch-health-grabs",
+          "dipl-ergotherapeute-in-80-hoch-health-ostschweiz-grabs"
         ]
       },
       "firstSeenAt": "2026-09-02T13:49:23.493Z",
@@ -16291,13 +16297,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-physiotherapeut-in-80-100-hoch-health-grabs",
-        "dipl-fisioterapista-in-80-100-hoch-health-ostschweiz-grabs"
+        "dipl-physiotherapeut-in-80-100-hoch-health-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-physiotherapeut-in-80-100-hoch-health-grabs",
-          "dipl-fisioterapista-in-80-100-hoch-health-ostschweiz-grabs"
+          "dipl-physiotherapeut-in-80-100-hoch-health-grabs"
         ],
         "fr": [
           "dipl-physiotherapeut-in-80-100-hoch-health-grabs"
@@ -16320,9 +16324,9 @@
     },
     {
       "id": "hoch-health-439e7206c49c",
-      "slug": "disponent-in-collaboratore-trice-zentrales-patientenmanagement-60-80-hoch-health-ostschweiz-st-gallen",
+      "slug": "fornito-dipendenti-gestione-centrale-del-paziente-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "disponent-in-collaboratore-trice-zentrales-patientenmanagement-60-80-hoch-health-ostschweiz-st-gallen",
+        "it": "fornito-dipendenti-gestione-centrale-del-paziente-60-80-hoch-health-ostschweiz-st-gallen",
         "en": "disponent-in-employee-in-central-patient-management-60-80-hoch-health-ostschweiz-st-gallen",
         "de": "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-60-80-hoch-health-st-gallen",
         "fr": "deposant-in-employe-dans-la-gestion-centrale-des-patients-60-80-hoch-health-ostschweiz-st-gallen"
@@ -16372,7 +16376,8 @@
         "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen",
         "disponent-in-employee-in-central-patient-management-80-100-hoch-health-ostschweiz-st-gallen",
         "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-        "deposant-in-employe-dans-la-gestion-centrale-du-patient-80-100-hoch-health-ostschweiz-st-gallen"
+        "deposant-in-employe-dans-la-gestion-centrale-du-patient-80-100-hoch-health-ostschweiz-st-gallen",
+        "disponent-in-collaboratore-trice-zentrales-patientenmanagement-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16380,7 +16385,8 @@
           "disponent-in-collaboratore-trice-zentrales-patientenmanagement-80-100-hoch-health-ostschweiz-st-gallen",
           "disponent-in-employee-in-central-patient-management-80-100-hoch-health-ostschweiz-st-gallen",
           "disponent-in-mitarbeiter-in-zentrales-patientenmanagement-80-100-hoch-health-st-gallen",
-          "deposant-in-employe-dans-la-gestion-centrale-du-patient-80-100-hoch-health-ostschweiz-st-gallen"
+          "deposant-in-employe-dans-la-gestion-centrale-du-patient-80-100-hoch-health-ostschweiz-st-gallen",
+          "disponent-in-collaboratore-trice-zentrales-patientenmanagement-60-80-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "disponent-in-employee-in-central-patient-management-80-100-hoch-health-ostschweiz-st-gallen",
@@ -16411,9 +16417,9 @@
     },
     {
       "id": "hoch-health-ca7211eeedf8",
-      "slug": "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen",
+      "slug": "segretario-clinico-40-50-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "segreteria-clinica-in-40-50-hoch-health-ostschweiz-st-gallen",
+        "it": "segretario-clinico-40-50-hoch-health-ostschweiz-st-gallen",
         "en": "clinical-secretary-in-40-50-hoch-health-ostschweiz-st-gallen",
         "de": "kliniksekretar-in-40-50-hoch-health-st-gallen",
         "fr": "secretaire-clinique-en-40-50-hoch-health-ostschweiz-st-gallen"
@@ -16797,8 +16803,7 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
-          "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach",
-          "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach"
+          "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach"
@@ -16809,8 +16814,7 @@
       },
       "previousSlugs": [
         "ausbildung-dipl-radiologiefachperson-hf-september-2027-hoch-health-uznach",
-        "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach",
-        "allenamento-specialista-di-radiologia-hf-settembre-2027-hoch-health-ostschweiz-uznach"
+        "educazione-radiologia-specialista-hf-settembre-2026-hoch-health-ostschweiz-uznach"
       ]
     },
     {
@@ -18089,9 +18093,9 @@
     },
     {
       "id": "hoch-health-d529b71d9ed5",
-      "slug": "dipl-infermieristica-professionale-50-60-hoch-health-ostschweiz-grabs",
+      "slug": "dipl-professionista-50-60-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-50-60-hoch-health-ostschweiz-grabs",
+        "it": "dipl-professionista-50-60-hoch-health-ostschweiz-grabs",
         "en": "dipl-nursing-professional-50-60-hoch-health-ostschweiz-grabs",
         "de": "dipl-pflegefachfrau-mann-50-60-hoch-health-grabs",
         "fr": "dipl-professionnels-des-soins-infirmiers-50-60-hoch-health-ostschweiz-grabs"
@@ -18137,12 +18141,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-50-60-hoch-health-grabs",
-        "dipl-pflegefachfrau-mann-50-60-hoch-health-ostschweiz-grabs"
+        "dipl-pflegefachfrau-mann-50-60-hoch-health-ostschweiz-grabs",
+        "dipl-infermieristica-professionale-50-60-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-50-60-hoch-health-grabs",
-          "dipl-pflegefachfrau-mann-50-60-hoch-health-ostschweiz-grabs"
+          "dipl-pflegefachfrau-mann-50-60-hoch-health-ostschweiz-grabs",
+          "dipl-infermieristica-professionale-50-60-hoch-health-ostschweiz-grabs"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-50-60-hoch-health-grabs"
@@ -19916,7 +19922,7 @@
       "slugByLocale": {
         "de": "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen",
         "it": "farmacista-in-gestione-dipartimentale-offizin-farmacia-ospedaliera-100-hoch-health-ostschweiz-st-gallen",
-        "en": "pharmacist-in-departmental-management-offizin-hospital-pharmacy-100-hoch-health-ostschweiz-st-gallen",
+        "en": "pharmacist-division-head-office-hospital-pharmacy-100-hoch-health-ostschweiz-st-gallen",
         "fr": "pharmacie-gestion-departementale-offizin-pharmacie-hospitaliere-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
@@ -19977,14 +19983,16 @@
           "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen"
         ],
         "en": [
-          "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen"
+          "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen",
+          "pharmacist-in-departmental-management-offizin-hospital-pharmacy-100-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen"
+        "apotheker-in-bereichsleitung-offizin-spitalpharmazie-100-hoch-health-st-gallen",
+        "pharmacist-in-departmental-management-offizin-hospital-pharmacy-100-hoch-health-ostschweiz-st-gallen"
       ]
     },
     {

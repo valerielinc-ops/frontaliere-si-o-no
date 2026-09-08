@@ -4911,9 +4911,9 @@
     },
     {
       "id": "fmi-470e6c5738c8",
-      "slug": "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen",
+      "slug": "personale-amministrazione-hr-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen",
+        "it": "personale-amministrazione-hr-80-100-spitaler-fmi-ag-unterseen",
         "en": "personnel-in-hr-administration-80-100-spitaler-fmi-ag-unterseen",
         "de": "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen",
         "fr": "personnel-en-administration-des-rh-80-100-spitaler-fmi-ag-unterseen"
@@ -4970,7 +4970,15 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-hr-administration-80-100-fmi-unterseen"
+      ]
     },
     {
       "id": "fmi-41f0aa2bb3e1",
@@ -5131,7 +5139,7 @@
       "slug": "dipendenti-nella-pulizia-dell-edificio-80-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "it": "dipendenti-nella-pulizia-dell-edificio-80-spitaler-fmi-ag-unterseen",
-        "en": "associate-gebaudereinigung-80-spitaler-fmi-ag-unterseen",
+        "en": "employees-building-cleaning-80-spitaler-fmi-ag-unterseen",
         "de": "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
         "fr": "employes-dans-le-nettoyage-des-batiments-80-spitaler-fmi-ag-unterseen"
       },
@@ -5177,7 +5185,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
         "collaboratore-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen",
-        "collaborateur-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen"
+        "collaborateur-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen",
+        "associate-gebaudereinigung-80-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5185,7 +5194,8 @@
           "collaboratore-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen"
         ],
         "en": [
-          "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen"
+          "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
+          "associate-gebaudereinigung-80-spitaler-fmi-ag-unterseen"
         ],
         "fr": [
           "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
@@ -5376,12 +5386,12 @@
     },
     {
       "id": "fmi-3f3f49bb721b",
-      "slug": "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
+      "slug": "personale-hr-time-management-50-60-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
-        "en": "personnel-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
+        "it": "personale-hr-time-management-50-60-spitaler-fmi-ag-unterseen",
+        "en": "personnel-hr-time-management-50-60-spitaler-fmi-ag-unterseen",
         "de": "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen",
-        "fr": "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
+        "fr": "gestion-des-rh-et-du-temps-du-personnel-50-60-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5424,11 +5434,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen"
+        "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen",
+        "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen",
+        "personnel-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen"
+          "sachbearbeiter-in-hr-amp-zeitwirtschaft-50-60-fmi-unterseen",
+          "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "personnel-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-hr-zeitwirtschaft-50-60-spitaler-fmi-ag-unterseen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:04.165Z",
@@ -5448,9 +5467,9 @@
     },
     {
       "id": "fmi-f3b42628786f",
-      "slug": "responsabile-di-progetto-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
+      "slug": "project-manager-sviluppo-aziendale-80-100-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
+        "it": "project-manager-sviluppo-aziendale-80-100-spitaler-fmi-ag-unterseen",
         "en": "project-manager-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen",
         "de": "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
         "fr": "gestionnaire-de-projet-en-developpement-d-entreprise-80-100-spitaler-fmi-ag-unterseen"
@@ -5495,11 +5514,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+        "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+        "responsabile-di-progetto-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
+          "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen",
+          "responsabile-di-progetto-unternehmensentwicklung-80-100-spitaler-fmi-ag-unterseen"
         ],
         "en": [
           "projektleiter-in-unternehmensentwicklung-80-100-fmi-unterseen"
