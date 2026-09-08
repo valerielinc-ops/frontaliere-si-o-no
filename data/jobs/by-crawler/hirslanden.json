@@ -9820,7 +9820,7 @@
       "slug": "auditore-notturno-al-20-flessibile-hirslanden-klinik-lausanne",
       "slugByLocale": {
         "it": "auditore-notturno-al-20-flessibile-hirslanden-klinik-lausanne",
-        "en": "night-auditor-a-20-flexible-hirslanden-lausanne",
+        "en": "night-auditor-with-20-flexibility-hirslanden-klinik-hirslanden-clinique-cecil",
         "de": "night-auditor-bei-20-flexibel-hirslanden-klinik-hirslanden-clinique-cecil",
         "fr": "night-auditor-a-20-flexible-hirslanden-lausanne"
       },
@@ -9868,6 +9868,9 @@
           "night-auditor-a-20-flexible-hirslanden-lausanne"
         ],
         "de": [
+          "night-auditor-a-20-flexible-hirslanden-lausanne"
+        ],
+        "en": [
           "night-auditor-a-20-flexible-hirslanden-lausanne"
         ]
       },
@@ -9965,10 +9968,10 @@
     },
     {
       "id": "hirslanden-531529a12a7b",
-      "slug": "trm-a-60-hirslanden-lausanne",
+      "slug": "60-tecnico-radiologico-medico-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
-        "it": "trm-a-60-hirslanden-lausanne",
-        "en": "trm-a-60-hirslanden-lausanne",
+        "it": "60-tecnico-radiologico-medico-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "60-medical-radiology-technician-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "de": "trm-a-60-hirslanden-lausanne",
         "fr": "trm-a-60-hirslanden-klinik-lausanne"
       },
@@ -10018,12 +10021,17 @@
         ],
         "it": [
           "technicien-en-radiologie-medicale-a-60-hirslanden-lausanne",
-          "technicien-en-radiologie-medicale-a-60-80-hirslanden-lausanne"
+          "technicien-en-radiologie-medicale-a-60-80-hirslanden-lausanne",
+          "trm-a-60-hirslanden-lausanne"
+        ],
+        "en": [
+          "trm-a-60-hirslanden-lausanne"
         ]
       },
       "previousSlugs": [
         "technicien-en-radiologie-medicale-a-60-hirslanden-lausanne",
-        "technicien-en-radiologie-medicale-a-60-80-hirslanden-lausanne"
+        "technicien-en-radiologie-medicale-a-60-80-hirslanden-lausanne",
+        "trm-a-60-hirslanden-lausanne"
       ],
       "firstSeenAt": "2026-08-17T21:30:17.534Z",
       "salaryMin": 69200,
@@ -30410,12 +30418,12 @@
     },
     {
       "id": "hirslanden-fc089b451364",
-      "slug": "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden",
+      "slug": "neurologia-fisioterapista-fisioterapista-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden",
-        "it": "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden",
-        "en": "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden"
+        "it": "neurologia-fisioterapista-fisioterapista-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "physiotherapist-physiotherapist-neurology-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "neurologie-physiotherapeute-physiotherapeute-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -30469,7 +30477,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:09:14.390Z"
+      "firstSeenAt": "2026-09-07T15:09:14.390Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-neurologie-a-80-hirslanden-hirslanden-klinik-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-41acf7f885b6",

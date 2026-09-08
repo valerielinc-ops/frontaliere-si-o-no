@@ -211,6 +211,8 @@
       "addressLocality": "Thun",
       "sourceLang": "de",
       "addressRegion": "BE",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -223,22 +225,17 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "stv-leiter-in-food-coop-city-thun-bern"
-        ],
-        "en": [
+        "fr": [
           "stv-leiter-in-food-coop-city-thun-bern-amzsqe"
         ],
-        "fr": [
+        "en": [
           "stv-leiter-in-food-coop-city-thun-bern-amzsqe"
         ]
       },
       "previousSlugs": [
         "stv-leiter-in-food-coop-city-thun-bern-amzsqe",
         "stv-leiter-in-food-coop-city-thun-bern"
-      ],
-      "salaryMin": 94500,
-      "salaryMax": 143000
+      ]
     },
     {
       "id": "company-38ep9h",
@@ -291,7 +288,7 @@
         "it": "polidesigner-3d-coop-genossenschaft-zurich",
         "en": "3d-poly-designer-coop-genossenschaft-zurich",
         "de": "polydesigner-in-3d-coop-city-zurich-38ep9h",
-        "fr": "polydesigner-in-3d-coop-city-zurich-38ep9h"
+        "fr": "concepteur-conceptrice-3d-polymorphe-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -315,6 +312,9 @@
           "polydesigner-in-3d-coop-city-zurich"
         ],
         "en": [
+          "polydesigner-in-3d-coop-city-zurich-38ep9h"
+        ],
+        "fr": [
           "polydesigner-in-3d-coop-city-zurich-38ep9h"
         ]
       },
@@ -7364,8 +7364,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-chef-de-rayon-vins-boissons-m-w-d-coop-allaman-vaud-jaqiyx",
-          "cheffe-chef-de-rayon-vins-boissons-m-w-d-coop-allaman-vaud"
+          "cheffe-chef-de-rayon-vins-boissons-m-w-d-coop-allaman-vaud-jaqiyx"
         ],
         "en": [
           "cheffe-chef-de-rayon-vins-boissons-m-w-d-coop-allaman-vaud-jaqiyx"
@@ -7709,9 +7708,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "assistente-del-commercio-al-dettaglio-cfp-coop-castione"
-        ],
         "en": [
           "assistente-del-commercio-al-dettaglio-cfp-coop-castione-cfen98"
         ],
@@ -7788,8 +7784,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistente-del-commercio-al-dettaglio-cfp-coop-castione-ticino-switzerland",
-          "assistente-del-commercio-al-dettaglio-cfp-coop-castione-2"
+          "assistente-del-commercio-al-dettaglio-cfp-coop-castione-ticino-switzerland"
         ],
         "en": [
           "assistente-del-commercio-al-dettaglio-cfp-coop-castione-9zr9t5"
@@ -7867,9 +7862,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "assistente-del-commercio-al-dettaglio-cfp-coop-castione-3"
-        ],
         "en": [
           "assistente-del-commercio-al-dettaglio-cfp-coop-castione-9og8fs"
         ],
@@ -7945,9 +7937,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "assistente-del-commercio-al-dettaglio-cfp-coop-castione-4"
-        ],
         "en": [
           "assistente-del-commercio-al-dettaglio-cfp-coop-castione-5gmuxl"
         ],
@@ -8022,16 +8011,11 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione"
-        ]
-      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000
+      ]
     },
     {
       "id": "company-8kedv3",
@@ -8090,16 +8074,11 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-2"
-        ]
-      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-2"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000
+      ]
     },
     {
       "id": "company-f4amlf",
@@ -8158,16 +8137,11 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-3"
-        ]
-      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-3"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000
+      ]
     },
     {
       "id": "company-qgr2k9",
@@ -8226,16 +8200,11 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-4"
-        ]
-      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-castione-4"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000
+      ]
     },
     {
       "id": "company-5jscgq",
@@ -8300,8 +8269,7 @@
           "logistician-in-eba-coop-castione",
           "logistiker-in-eba-coop-castione-anvnm7",
           "logisticien-dans-eba-coop-castione",
-          "logistiker-in-eba-coop-castione",
-          "impiegata-impiegato-in-logistica-afc-coop-castione"
+          "logistiker-in-eba-coop-castione"
         ],
         "en": [
           "logistician-in-eba-coop-castione"
@@ -8382,9 +8350,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione"
-        ],
         "en": [
           "impiegata-employee-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-4saoy3"
         ],
@@ -8590,9 +8555,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-2"
-        ],
         "en": [
           "impiegata-employee-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-cswkbk"
         ],
@@ -8748,9 +8710,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-3"
-        ],
         "en": [
           "impiegata-employee-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-bxqxg6"
         ],
@@ -9363,16 +9322,11 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "lmt-tecnica-tecnico-alimentarista-afc-coop-castione"
-        ]
-      },
+      "salaryMin": 58000,
+      "salaryMax": 88000,
       "previousSlugs": [
         "lmt-tecnica-tecnico-alimentarista-afc-coop-castione"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 88000
+      ]
     },
     {
       "id": "company-3hgkht",
@@ -9540,8 +9494,7 @@
           "associate-gastronomie-coop-genossenschaft-landquart-graubunden-nnvjni",
           "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden-nnvjni",
           "collaborateur-trice-gastronomie-coop-genossenschaft-landquart-graubunden-nnvjni",
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden",
-          "mitarbeiter-in-gastronomie-coop-landquart-graubunden"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden"
         ],
         "en": [
           "associate-gastronomie-coop-genossenschaft-landquart-graubunden-nnvjni"
@@ -9562,9 +9515,9 @@
         "mitarbeiter-in-gastronomie-coop-genossenschaft-landquart-graubunden",
         "mitarbeiter-in-gastronomie-coop-landquart-graubunden"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hw1wfg",
@@ -10250,9 +10203,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-winterthur-zurich"
-        ],
         "en": [
           "associate-gastronomie-coop-ristorante-winterthur-zurich-z67ac1"
         ]
@@ -10261,9 +10211,9 @@
         "associate-gastronomie-coop-ristorante-winterthur-zurich-z67ac1",
         "mitarbeiter-in-gastronomie-coop-ristorante-winterthur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-cpdlrl",
@@ -10517,9 +10467,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
-        ],
         "en": [
           "associate-gastronomie-coop-ristorante-davos-platz-e7pjgk"
         ]
@@ -10528,9 +10475,9 @@
         "associate-gastronomie-coop-ristorante-davos-platz-e7pjgk",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wzx0kt",
@@ -10590,9 +10537,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-4"
-        ],
         "en": [
           "impiegata-employee-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-castione-wzx0kt"
         ],
@@ -12446,9 +12390,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-taverne-ticino"
-        ],
         "en": [
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-taverne-ticino-hfylr5"
         ],
@@ -13674,8 +13615,7 @@
           "risorse-umane-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
           "hr-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
           "personalwesen-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m",
-          "hr-business-partner-m-w-d-coop-gossau-sankt-gallen",
-          "hr-business-partner-m-w-d-coop-bern"
+          "hr-business-partner-m-w-d-coop-gossau-sankt-gallen"
         ],
         "de": [
           "personalwesen-business-partner-m-w-d-coop-gossau-sankt-gallen-oc615m"
@@ -14871,8 +14811,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-villars-sur-glane-fribourg-o4hkky",
-          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-villars-sur-glane-fribourg"
+          "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-villars-sur-glane-fribourg-o4hkky"
         ],
         "en": [
           "collaboratrice-collaborateur-restaurant-poste-pour-etudiant-e-m-w-d-coop-ristorante-villars-sur-glane-fribourg-o4hkky"
@@ -46083,8 +46022,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-conseiller-de-vente-textile-m-w-d-coop-city-bienne-berne-4n4cs5",
-          "conseillere-conseiller-de-vente-textile-m-w-d-coop-city-bienne-berne"
+          "conseillere-conseiller-de-vente-textile-m-w-d-coop-city-bienne-berne-4n4cs5"
         ],
         "en": [
           "conseillere-conseiller-de-vente-textile-m-w-d-coop-city-bienne-berne-4n4cs5"
@@ -77264,8 +77202,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne-lky4er",
-          "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne"
+          "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne-lky4er"
         ],
         "en": [
           "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne-lky4er"
@@ -77278,9 +77215,9 @@
         "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne-lky4er",
         "conseillere-conseiller-de-vente-hartwaren-linge-de-maison-mercerie-electromenager-m-w-d-100-city-bienne-coop-city-bienne-berne"
       ],
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gpl2f7",
