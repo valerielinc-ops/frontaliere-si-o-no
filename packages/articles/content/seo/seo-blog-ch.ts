@@ -78644,6 +78644,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-economia-svizzera-q2-2026': {
+    title: 'Economia svizzera Q2 2026: +5,3% cifre d\'affari, +2% occupazione',
+    description: 'Nel Q2 2026 i rami di mercato svizzeri crescono: cifre d\'affari +5,3%, occupazione +2,0%. Terziario +8,5%, commercio +12,2%. Analisi UST. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, cifre, affari, occupazione',
+    ogTitle: 'Economia svizzera Q2 2026: +5,3% cifre d\'affari, occupazione +2%',
+    ogDescription: 'Nel secondo trimestre 2026 i rami di mercato svizzeri registrano crescita diffusa: cifre d\'affari +5,3%, occupazione +2,0%. Il terziario (servizi) guida con +8,5% ricavi. Analisi completa dei dati UST.',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-q2-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia svizzera Q2 2026: +5,3% cifre d'affari, +2% occupazione",
+      "description": "Nel Q2 2026 i rami di mercato svizzeri crescono: cifre d'affari +5,3%, occupazione +2,0%. Terziario +8,5%, commercio +12,2%. Analisi UST. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-svizzera-q2-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero con dati economici e grafici di mercato visualizzati su schermi moderni"
+      },
+      "datePublished": "2026-09-08T08:15:54+00:00",
+      "dateModified": "2026-09-08T08:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-q2-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

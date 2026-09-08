@@ -2045,6 +2045,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-usa-2026-accordo-libero-scambio': { it: 'dazi-usa-2026-accordo-libero-scambio', en: 'us-tariffs-2026-free-trade-agreement', de: 'us-zoelle-2026-freihandelsabkommen', fr: 'tarifs-usa-2026-accord-libre-echange' },
  'franco-chfd-test-aziende-2026': { it: 'franco-chfd-test-aziende-2026', en: 'chfd-digital-franc-company-testing-2026', de: 'chfd-digitaler-franken-unternehmenstest-2026', fr: 'chfd-franc-numerique-test-entreprises-2026' },
  'infortuni-reinserimento-suva': { it: 'infortuni-reinserimento-suva', en: 'serious-injuries-return-to-work', de: 'schwere-unfalle-ruckkehr-zur-arbeit', fr: 'accidents-graves-retour-au-travail' },
+ 'economia-svizzera-q2-2026': { it: 'economia-svizzera-q2-2026', en: 'swiss-economy-q2-2026', de: 'schweizer-wirtschaft-q2-2026', fr: 'economie-suisse-q2-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

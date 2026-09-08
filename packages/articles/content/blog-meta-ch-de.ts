@@ -6058,6 +6058,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.infortuni-reinserimento-suva.title': 'Schwere Unfälle: Fast 90 % kehren zur Arbeit zurück',
     'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva: Nach schweren Unfällen gehen 90% der Versicherten wieder an die Arbeit. 78% kehren dank medizinischer Versorgung und personalisiertem Case Management innerhalb von 3 Monaten zurück.',
     'blog.article.infortuni-reinserimento-suva.imageAlt': 'Physiotherapiesitzung in einer Schweizer Rehabilitationsklinik zur Unfallrehabilitation',
+    'blog.article.economia-svizzera-q2-2026.title': 'Schweizer Wirtschaft Q2 2026: +5,3% Umsatz, +2% Beschäftigung',
+    'blog.article.economia-svizzera-q2-2026.excerpt': 'Im Q2 2026 wachsen die Schweizer Marktbranchen: Umsatz +5,3%, Beschäftigung +2,0%. Tertiär mit +8,5%, Handel +12,2%.',
+    'blog.article.economia-svizzera-q2-2026.imageAlt': 'Schweizer Büroarbeitsplatz mit Wirtschaftsdaten und Marktdiagrammen auf Bildschirmen',
 };
 
 export default blogMetaChDe;

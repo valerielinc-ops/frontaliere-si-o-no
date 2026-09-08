@@ -6058,6 +6058,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.infortuni-reinserimento-suva.title': 'Infortuni gravi: quasi il 90% torna al lavoro',
     'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva: dopo incidenti gravi, il 90% degli assicurati torna al lavoro. Il 78% rientra entro 3 mesi grazie a cure mediche e case management personalizzato.',
     'blog.article.infortuni-reinserimento-suva.imageAlt': 'Sessione di fisioterapia presso una clinica svizzera specializzata in riabilitazione post-infortunio',
+    'blog.article.economia-svizzera-q2-2026.title': 'Economia svizzera Q2 2026: +5,3% cifre d\'affari, +2% occupazione',
+    'blog.article.economia-svizzera-q2-2026.excerpt': 'Nel Q2 2026, i rami di mercato svizzeri crescono: cifre d\'affari +5,3%, occupazione +2,0%. Terziario guida con +8,5%, commercio +12,2%.',
+    'blog.article.economia-svizzera-q2-2026.imageAlt': 'Ufficio svizzero con dati economici e grafici di mercato visualizzati su schermi moderni',
 };
 
 export default blogMetaChIt;
