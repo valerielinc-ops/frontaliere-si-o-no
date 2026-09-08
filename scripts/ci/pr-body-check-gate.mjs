@@ -95,10 +95,9 @@ export function describePrBodySource(command, cwd = process.cwd()) {
  * command string. Returns `undefined` when no recognizable `--body` /
  * `--body-file` argument is found (caller should fail-safe / allow).
  *
- * `cwd` resolves a RELATIVE `--body-file` path against the directory the
- * gated `gh pr create` is actually running in (see lib/hook-target-cwd.mjs);
- * defaults to `process.cwd()` — this hook subprocess's own ambient
- * directory — matching the previous behaviour when no better signal exists.
+ * `cwd` resolves a RELATIVE `--body-file` path against the directory selected
+ * by `hook-target-cwd.mjs` (a literal command `cd` when available, otherwise
+ * the tracked payload/ambient directory).
  *
  * Quando ritorna `undefined` e ti serve sapere PERCHE', usa
  * `describePrBodySource` qui sopra: questa firma non lo distingue.
@@ -234,9 +233,10 @@ async function main() {
       try {
         const payload = JSON.parse(raw);
         command = payload?.tool_input?.command ?? payload?.command ?? '';
-        targetCwd = resolveHookTargetCwd(payload);
+        targetCwd = resolveHookTargetCwd(payload, command);
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
+        targetCwd = resolveHookTargetCwd(undefined, command);
       }
     }
   } catch {

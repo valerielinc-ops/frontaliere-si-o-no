@@ -203,6 +203,25 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.stderr).toMatch(/Non implementato/);
   });
 
+  it('blocks via a RELATIVE --body-file in the command worktree when payload.cwd points elsewhere', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-tracked-'));
+    const worktree = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-worktree-'));
+    createdDirs.push(tracked, worktree);
+    writeFileSync(join(worktree, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = `cd "${worktree}" && gh pr create --title "x" --body-file body.md`;
+    const res = runGate(cmd, { cwd: tracked });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('fails safe when a --body-file path is absent instead of reporting a header violation', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-tracked-'));
+    createdDirs.push(tracked);
+    const res = runGate('gh pr create --title "x" --body-file missing-body.md', { cwd: tracked });
+    expect(res.status).toBe(0);
+    expect(res.stderr).not.toMatch(/header obbligatori mancanti/);
+  });
+
   it('without payload.cwd, the same relative --body-file fails safe (exit 0) — the pre-fix behaviour', () => {
     const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
     createdDirs.push(dir);

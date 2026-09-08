@@ -14,11 +14,12 @@
  * WHAT THIS GATE ANALYSES (rewritten 2026-09-05). Not "the working tree of
  * some directory" — THE BRANCH the gated command is proposing. The gate reads
  * `--head <branch>` off the `gh pr create` command line, falls back to the
- * tracked directory's `HEAD` when that is a shell substitution it cannot
- * expand, and passes the ref to `check-sibling-patterns.mjs --head`. Reason:
- * `payload.cwd` is the session's TRACKED cwd, updated by `cd`s in PREVIOUS
- * Bash calls, so in a fleet it is routinely the shared main checkout — and
- * that checkout's working tree carries other sessions' uncommitted files.
+ * `HEAD` of the cwd resolved by `hook-target-cwd.mjs` (a literal command `cd`
+ * or the tracked payload cwd), and passes the ref to
+ * `check-sibling-patterns.mjs --head`. Reason: `payload.cwd` is the session's
+ * TRACKED cwd, updated by `cd`s in PREVIOUS Bash calls, so in a fleet it is
+ * routinely the shared main checkout — and that checkout's working tree carries
+ * other sessions' uncommitted files.
  * Measured that day: a branch touching 1 file (22 candidates from its own
  * worktree) was judged against 4 foreign dirty files and 50 candidates, none
  * of them declarable, because they were not the author's. A commit-to-commit
@@ -148,9 +149,10 @@ async function main() {
           payload?.tool_input?.command ??
           payload?.command ??
           '';
-        targetCwd = resolveHookTargetCwd(payload);
+        targetCwd = resolveHookTargetCwd(payload, command);
       } catch {
         command = raw; // raw text fallback — grep for gh pr create
+        targetCwd = resolveHookTargetCwd(undefined, command);
       }
     }
   } catch {
@@ -222,15 +224,16 @@ async function main() {
         `${head.cwd ? ` in ${head.cwd}` : ''}\n` +
         `Quel ref non differisce da ${result.base ?? 'origin/main'}: non puo' essere il branch che stai proponendo.\n` +
         'Cause tipiche, in ordine di frequenza:\n' +
-        '  1. la directory tracciata è il checkout principale, non il tuo worktree.\n' +
-        '     Il `cd <worktree>` deve stare in una chiamata Bash PRECEDENTE: questo hook\n' +
-        '     gira PRIMA del comando, quindi un `cd` nella stessa riga non conta.\n' +
+        '  1. né un `cd <worktree> &&` letterale prima di `gh pr create` né il cwd\n' +
+        '     tracciato identificano il worktree. Un `cd` nella stessa chiamata\n' +
+        '     funziona solo se nomina una directory letterale già esistente; una\n' +
+        '     sostituzione di shell non è espandibile mentre il hook è in esecuzione.\n' +
         '  2. il branch non è ancora committato. Committa (e pusha) prima di aprire la PR.\n' +
         '  3. `--head` porta una sostituzione di shell non espansa: passa il nome\n' +
         '     letterale del branch, che questo hook sa risolvere da qualunque directory.\n' +
-        '     Da un SUB-AGENTE questa è la causa quasi certa: lì `payload.cwd` resta\n' +
-        '     inchiodato alla directory di lancio e nessun `cd` la muove, quindi il nome\n' +
-        '     letterale del branch è l\'unico segnale che ti identifica.\n\n',
+        '     Da un SUB-AGENTE, se manca anche un `cd` letterale, `payload.cwd` resta\n' +
+        '     inchiodato alla directory di lancio; il nome letterale del branch è\n' +
+        '     allora l\'unico segnale che ti identifica.\n\n',
     );
     process.exit(EXIT_BLOCK);
   }

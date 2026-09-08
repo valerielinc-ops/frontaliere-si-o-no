@@ -346,6 +346,25 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       expect(res.stdout).not.toContain('scripts/foreign-twin.mjs');
     });
 
+    it('da Codex il cd nella stessa chiamata porta il gate nel worktree e segue il suo HEAD', () => {
+      const wt = mkdtempSync(join(tmpdir(), 'sibling-gate-command-wt-'));
+      rmSync(wt, { recursive: true, force: true });
+      dirs.push(wt);
+      execFileSync('git', ['worktree', 'add', '-q', '--detach', wt, 'feature-x'], { cwd: repo, stdio: 'ignore' });
+      writeFileSync(
+        join(wt, 'body.md'),
+        '## Implementato\n- x\n\n## Non implementato (ancora)\n' +
+          '- scripts/beta.mjs — falso positivo, per scelta: semanticamente diverso\n' +
+          '- scripts/gamma.mjs — falso positivo, per scelta: solo lessicalmente simile\n',
+        'utf8',
+      );
+      const command = `cd "${wt}" && gh pr create --title x --body-file body.md`;
+      const res = runGate(command, repo);
+      expect(res.status, res.stderr).toBe(0);
+      expect(res.stderr).not.toMatch(/BRANCH NON IDENTIFICATO/);
+      expect(res.stderr).not.toMatch(/BODY DELLA PR NON È STATO LETTO/);
+    });
+
     it('resolveGatedHeadRef: nome letterale risolvibile → si usa quello', () => {
       expect(resolveGatedHeadRef('gh pr create --head feature-x', repo)).toEqual({
         ref: 'feature-x',
@@ -419,11 +438,10 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
         cwd: repo,
       });
 
-      // Quinto difetto (2026-09-05): in un thread di sub-agente `payload.cwd`
-      // resta inchiodato alla directory di lancio e nessun `cd` la muove. Un
-      // `--head` LETTERALE deve comunque risolvere, cercandolo nel repo a cui
-      // il gate appartiene — i worktree condividono `.git`, quindi il nome del
-      // branch e' un segnale indipendente dalla directory.
+      // Anche quando il payload non porta la cwd del worktree, un `--head`
+      // LETTERALE deve risolvere cercandolo nel repo a cui il gate appartiene —
+      // i worktree condividono `.git`, quindi il nome del branch e' un segnale
+      // indipendente dalla directory.
       const elsewhere = mkdtempSync(join(tmpdir(), 'sibling-gate-launchdir-'));
       dirs.push(elsewhere);
       expect(resolveGatedHeadRef('gh pr create --head feature-x', elsewhere, repo)).toEqual({
@@ -457,7 +475,7 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       });
       expect(res.status).toBe(EXIT_BLOCK);
       expect(res.stderr).toMatch(/BRANCH NON IDENTIFICATO/);
-      expect(res.stderr).toMatch(/chiamata Bash PRECEDENTE/);
+      expect(res.stderr).toMatch(/né un `cd <worktree> &&` letterale/);
     });
   });
 
@@ -466,6 +484,7 @@ describe('sibling-check-gate — difetti misurati il 2026-09-05', () => {
       const res = runGate('gh pr create --head feature-x --title x --body-file non-esiste.md');
       expect(res.status).toBe(EXIT_BLOCK);
       expect(res.stderr).toMatch(/IL BODY DELLA PR NON È STATO LETTO/);
+      expect(res.stderr).toMatch(/path non leggibile \(ENOENT\)/);
       expect(res.stderr).toContain('non-esiste.md');
       expect(res.stderr).toContain(repo);
       // e lo dice PRIMA di parlare dei gemelli
