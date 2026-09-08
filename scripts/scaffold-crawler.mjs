@@ -699,7 +699,7 @@ ${locationBlock}
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
-    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    // would give every posting the same \`url\`, \`applyUrl\` and \`id\` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
 
