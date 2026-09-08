@@ -18,7 +18,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { readSlugRegistry } from '../lib/article-slug-registry.mjs';
+import { readSlugRegistryWithRows } from '../lib/article-slug-registry.mjs';
 import { loadSectionCanonicalOverrides, shadowedArticleIds } from '../lib/article-canonical-overrides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -58,7 +58,11 @@ const SWISS_LOC_PATTERNS = {
 // pre-write guard and then redden `main` here — the exact sequence of
 // 2026-08-07 (site commit 10c8c8178, corpus recovery nanako PR #20).
 function parseSlugsConst(file, constName) {
-  return readSlugRegistry(resolve(root, file), constName);
+  const parsed = readSlugRegistryWithRows(resolve(root, file), constName);
+  if (parsed.rows === 0 || Object.keys(parsed.registry).length !== parsed.rows) {
+    throw new Error(`${file}: parsed ${Object.keys(parsed.registry).length} of ${parsed.rows} registry rows`);
+  }
+  return parsed.registry;
 }
 
 function parseBlogSlugs() {

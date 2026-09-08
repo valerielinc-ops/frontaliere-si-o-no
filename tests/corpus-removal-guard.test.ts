@@ -37,6 +37,7 @@ import {
   ARTICLE_PATH_BASE,
   ARTICLE_REGISTRY_FILES,
   articlePathsFor,
+  countRegistryRows,
   parseSlugRegistry,
 } from '@/scripts/lib/article-slug-registry.mjs';
 import {
@@ -251,7 +252,7 @@ describe('evaluateCorpusRemoval', () => {
     expect(v.removals[0].unbridgedLocalePaths).toEqual([]);
   });
 
-  it('allows an IT-only bridge but names the locale URLs left to 404', () => {
+  it('refuses an IT-only bridge and names the locale URLs left to 404', () => {
     const incoming = { frontaliere: base.frontaliere, svizzera: padRegistry({}) };
     const v = evaluateCorpusRemoval({
       local: base,
@@ -259,7 +260,10 @@ describe('evaluateCorpusRemoval', () => {
       retiredPaths: new Set(['/articoli-svizzera/rimborsi-730-sostituti-imposta/']),
     });
 
-    expect(v.ok).toBe(true);
+    expect(v.ok).toBe(false);
+    expect(v.partiallyBridged.map((r) => r.id)).toEqual(['rimborsi-730-sostituti-imposta']);
+    expect(v.removals[0].ledgered).toBe(true);
+    expect(v.removals[0].fullyBridged).toBe(false);
     expect(v.removals[0].unbridgedLocalePaths).toEqual([
       '/en/swiss-articles/tax-refunds-730-substitute-taxes/',
       '/de/schweiz-artikel/steuerrueckerstattungen-730-ersatzsteuern/',
@@ -324,5 +328,28 @@ describe('evaluateCorpusRemoval', () => {
 
     expect(v.ok).toBe(false);
     expect(v.parseFailures).toHaveLength(4);
+  });
+
+  it('fails CLOSED when a registry parses to only part of the rows in its file', () => {
+    const big = (n: number) =>
+      Object.fromEntries(
+        Array.from({ length: n }, (_, i) => [
+          `id-${i}`,
+          { it: `it-${i}`, en: `en-${i}`, de: `de-${i}`, fr: `fr-${i}` },
+        ]),
+      );
+    const trees = { frontaliere: big(200), svizzera: big(200) };
+    const v = evaluateCorpusRemoval({
+      local: trees,
+      incoming: trees,
+      retiredPaths: emptyLedger,
+      rowCounts: { local: { frontaliere: 3789, svizzera: 200 }, incoming: { frontaliere: 3789, svizzera: 200 } },
+    });
+    expect(v.ok).toBe(false);
+    expect(v.parseFailures.map((f) => `${f.side}/${f.section}`)).toEqual([
+      'local/frontaliere',
+      'incoming/frontaliere',
+    ]);
+    expect(v.parseFailures[0]).toMatchObject({ size: 200, rows: 3789 });
   });
 });

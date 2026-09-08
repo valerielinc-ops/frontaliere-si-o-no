@@ -221,7 +221,7 @@ async function main() {
   }
 
   const ready = results.filter((r) => r.transport === 'ready');
-  const blocked = results.filter((r) => r.transport.startsWith('blocked'));
+  const blocked = strictFailureResults(results);
 
   if (AS_JSON) {
     console.log(JSON.stringify({ corpusRepo: CORPUS_REPO, corpusRef: CORPUS_REF, alignedAt: manifest.alignedAt || null, results, ready: ready.length, blocked: blocked.length }, null, 2));

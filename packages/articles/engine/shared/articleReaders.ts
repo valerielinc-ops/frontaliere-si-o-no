@@ -25,6 +25,7 @@
 import type fsT from 'node:fs';
 import type npT from 'node:path';
 import type { ArticleLocale as HubLocale } from '../siteShell';
+import { parseSlugRegistry } from '../../../../scripts/lib/article-slug-registry.mjs';
 
 /**
  * Read article slugs from blog-meta-{lang}.ts. Each line keyed
@@ -165,14 +166,8 @@ export function readBlogUrlSlugs(
   const out: Record<string, Record<HubLocale, string>> = {};
   try {
     if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-    if (!block) return out;
-    const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-    let bm: RegExpExecArray | null;
-    while ((bm = rx.exec(block)) !== null) {
-      out[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
-    }
+    const parsed = parseSlugRegistry(fs.readFileSync(file, 'utf-8'), slugConst) as Record<string, Record<HubLocale, string>>;
+    Object.assign(out, parsed);
   } catch (err) {
     console.warn(`[seo-hubs] failed to read ${slugConst} from ${slugDataFile}`, err);
   }
