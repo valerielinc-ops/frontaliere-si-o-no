@@ -49,8 +49,10 @@ describe('recommendedBlock selection', () => {
       expect(rec).not.toBeNull();
       expect(rec!.goId).toBe('wise');
     } finally {
+      NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
       NEWSLETTER_AFFILIATE_ENTRIES.push(...savedEntries);
     }
+    expect(NEWSLETTER_AFFILIATE_ENTRIES).toEqual(savedEntries);
   });
 
   it('routes an affiliate recommendation through /go/{id}/ with tracking + trailing slash', () => {

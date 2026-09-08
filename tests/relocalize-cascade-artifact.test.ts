@@ -58,14 +58,17 @@ describe('cascade company artifact', () => {
   it('preserves terminal stop reasons when a later step fails', async () => {
     const { markCascadeFailure } = await import('../scripts/relocalize-pending-jobs.mjs');
     const terminal = { stopReason: 'queue exhausted' };
+    const deadline = { stopReason: 'cascade deadline' };
     const active = { stopReason: 'in progress' };
     const initial = { stopReason: 'nothing to relocalize' };
 
     markCascadeFailure(terminal);
+    markCascadeFailure(deadline);
     markCascadeFailure(active);
     markCascadeFailure(initial);
 
     expect(terminal.stopReason).toBe('queue exhausted');
+    expect(deadline.stopReason).toBe('failed');
     expect(active.stopReason).toBe('failed');
     expect(initial.stopReason).toBe('failed');
   });

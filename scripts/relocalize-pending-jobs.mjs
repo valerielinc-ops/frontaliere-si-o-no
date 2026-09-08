@@ -611,7 +611,11 @@ export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
 }
 
 export function markCascadeFailure(phase) {
-  if (phase?.stopReason === 'nothing to relocalize' || phase?.stopReason === 'in progress') {
+  if (
+    phase?.stopReason === 'nothing to relocalize'
+    || phase?.stopReason === 'in progress'
+    || phase?.stopReason === 'cascade deadline'
+  ) {
     phase.stopReason = 'failed';
   }
   return phase;
@@ -1349,7 +1353,7 @@ async function main() {
     throw error;
   } finally {
     phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
-    recordRunPhase(phase, { replaceLast: true });
+    recordRunPhase(phase, { replaceLast: phase.startedAtMs !== null });
   }
 }
 
@@ -1750,14 +1754,16 @@ export async function runRelocalization(phase) {
     // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
     // window where late companies could still run — review #2205 🔴 round 2.)
     const companyNowMs = LEGACY_CLOCK.now();
-    const companyStopReason = cascadeStopReason({
-      nowMs: companyNowMs,
-      runStartMs: RUN_START_MS,
-      cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
-      passStartMs: startTime,
-      timeBudgetMs: TIME_BUDGET_MS,
-      timeBudgetFraction: 1,
-    });
+    const companyStopReason = cascadeStop === 'cascade deadline'
+      ? 'cascade deadline'
+      : cascadeStopReason({
+        nowMs: companyNowMs,
+        runStartMs: RUN_START_MS,
+        cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+        passStartMs: startTime,
+        timeBudgetMs: TIME_BUDGET_MS,
+        timeBudgetFraction: 1,
+      });
     if (companyStopReason) {
       cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
