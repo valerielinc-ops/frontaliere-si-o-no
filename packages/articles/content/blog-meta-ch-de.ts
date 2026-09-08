@@ -6127,6 +6127,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralita-iniziativa-svizzera-freysinger.title': 'Neutralität: Die Schweiz an der Urne für die Initiative',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.excerpt': 'Oscar Freysinger ruft dazu auf, für die Neutralitätsinitiative zu stimmen. Über 300 Teilnehmerinnen und Teilnehmer an der Festa di Pro Svizzera in Lugano.',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.imageAlt': 'Luftaufnahme von Lugano am See mit Schweizer Flagge und Verwaltungsgebäuden',
+    'blog.article.licenza-guida-lucerna-procedura.title': 'Ausländischer Führerschein in Luzern: Umschulung und Prüfungen',
+    'blog.article.licenza-guida-lucerna-procedura.excerpt': 'Vollständiges Verfahren zur Umwandlung eines internationalen Führerscheins im Kanton Luzern: Anforderungen, theoretische und praktische Prüfung, Pflichtkurse und Zeiten.',
+    'blog.article.licenza-guida-lucerna-procedura.imageAlt': 'Strassenverkehrsamt Kanton Luzern, Mitarbeiter unterstützt bei Führerscheinsumwandlung.',
 };
 
 export default blogMetaChDe;
