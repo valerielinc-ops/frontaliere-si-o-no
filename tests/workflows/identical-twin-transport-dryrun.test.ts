@@ -61,6 +61,15 @@ describe('classifyForTransport — controllo 2: dry-run guidato dal manifest, no
     expect(r.transport).toBe('no-op');
   });
 
+  it('`both-moved-converged` viene eseguito e osservato come no-op', () => {
+    const entry = identicalEntry();
+    const converged = { site: 'eeeeeeeeeeeeeeee', corpus: 'eeeeeeeeeeeeeeee' };
+    const r = classifyForTransport(entry, converged, BASE);
+    expect(r.state).toBe('both-moved-converged');
+    expect(r.transport).toBe('no-op');
+    expect(r.detail).toMatch(/Gia' convergente/);
+  });
+
   it('`corpus-ahead` non e\' `ready`: quella direzione la serve corpus-ahead-check.mjs, non questo script', () => {
     const entry = identicalEntry();
     const now = { site: BASE.site, corpus: 'dddddddddddddddd' };

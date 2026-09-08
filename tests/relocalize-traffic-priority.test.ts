@@ -532,7 +532,7 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
     // elenco duplicato qui, e' che il consumatore non abbia piu' un elenco.
     const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/translation-shadow-preflight-v2.mjs'), 'utf-8');
     expect(src).toMatch(/import \{[^}]*QUEUE_AGE_BUCKET_KEYS[^}]*\} from '\.\/job-traffic-priority\.mjs'/s);
-    expect(src).toContain('QUEUE_AGE_DISJOINT_BUCKET_KEYS.reduce');
+    expect(src).toContain('disjointQueueAgeCount(legacy.traffic?.stats?.age?.buckets)');
     // Nessuna fascia ritipata come letterale nel CODICE del consumatore. I
     // commenti possono nominarle: e' proprio li' che si spiega perche' la
     // somma di tutte le fasce sia sbagliata.
@@ -540,6 +540,126 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
     for (const key of QUEUE_AGE_BUCKET_KEYS) expect(code).not.toContain(`'${key}'`);
     // E soprattutto: mai piu' la somma di TUTTE le fasce contro withTimestamp.
     expect(src).not.toMatch(/Object\.values\([^)]*buckets\)\.reduce/);
+    expect(src).toContain('disjointQueueAgeCount(age.buckets)');
+    expect(src).toMatch(/Object\.hasOwn\(buckets, key\)/);
+  });
+
+  it('la guardia anti-ritipatura copre tutti gli script e ignora commenti e template', () => {
+    const scriptExtensions = new Set(['.cjs', '.js', '.mjs', '.ts', '.tsx']);
+    const sourceOfTruth = 'scripts/lib/job-traffic-priority.mjs';
+    const knownDifferentTaxonomy = new Map([
+      // This module measures translation-observability cohorts, not queueAge;
+      // its 2-7d bucket is not the queue's 2-7d bucket contract.
+      ['scripts/lib/translation-observability.mjs', new Set(['0-1d', '2-7d'])],
+      ['scripts/audit-job-description-locale.mjs', new Set(['0-7d'])],
+    ]);
+
+    function maskCode(source, stopAtBrace = false) {
+      let i = 0;
+      let braces = 0;
+      let out = '';
+      while (i < source.length) {
+        const ch = source[i];
+        const next = source[i + 1];
+        if (stopAtBrace && ch === '}') {
+          if (braces === 0) return { text: out, next: i + 1 };
+          braces -= 1;
+          out += ch;
+          i += 1;
+          continue;
+        }
+        if (ch === '/' && next === '/') {
+          out += '  ';
+          i += 2;
+          while (i < source.length && source[i] !== '\n' && source[i] !== '\r') {
+            out += ' ';
+            i += 1;
+          }
+          continue;
+        }
+        if (ch === '/' && next === '*') {
+          out += '  ';
+          i += 2;
+          while (i < source.length && !(source[i] === '*' && source[i + 1] === '/')) {
+            out += source[i] === '\n' || source[i] === '\r' ? source[i] : ' ';
+            i += 1;
+          }
+          if (i < source.length) {
+            out += '  ';
+            i += 2;
+          }
+          continue;
+        }
+        if (ch === '\'' || ch === '"') {
+          const quote = ch;
+          out += ch;
+          i += 1;
+          while (i < source.length) {
+            out += source[i];
+            if (source[i] === '\\' && i + 1 < source.length) {
+              out += source[i + 1];
+              i += 2;
+            } else {
+              const closed = source[i] === quote;
+              i += 1;
+              if (closed) break;
+            }
+          }
+          continue;
+        }
+        if (ch === '`') {
+          out += ' ';
+          i += 1;
+          while (i < source.length) {
+            if (source[i] === '\\') {
+              i += 2;
+            } else if (source[i] === '`') {
+              i += 1;
+              break;
+            } else if (source[i] === '$' && source[i + 1] === '{') {
+              const expression = maskCode(source.slice(i + 2), true);
+              out += expression.text;
+              i += 2 + expression.next;
+            } else {
+              out += source[i] === '\n' || source[i] === '\r' ? source[i] : ' ';
+              i += 1;
+            }
+          }
+          continue;
+        }
+        if (stopAtBrace && ch === '{') braces += 1;
+        out += ch;
+        i += 1;
+      }
+      return { text: out, next: i };
+    }
+
+    function walk(dir, files = []) {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full, files);
+        else if (entry.isFile() && scriptExtensions.has(path.extname(entry.name))) files.push(full);
+      }
+      return files;
+    }
+
+    const offenders = [];
+    for (const file of walk(path.join(ROOT, 'scripts'))) {
+      const relative = path.relative(ROOT, file);
+      if (relative === sourceOfTruth) continue;
+      const code = maskCode(fs.readFileSync(file, 'utf-8')).text;
+      const actual = new Set(QUEUE_AGE_BUCKET_KEYS.filter((key) => {
+        const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return new RegExp(`(['"])${escaped}\\1`).test(code);
+      }));
+      const expected = knownDifferentTaxonomy.get(relative);
+      if (expected) {
+        expect(actual, `${relative} usa una tassonomia diversa e va tenuta esplicita`).toEqual(expected);
+      } else if (actual.size > 0) {
+        offenders.push(`${relative}: ${[...actual].join(', ')}`);
+      }
+    }
+    expect(offenders).toEqual([]);
   });
 
   it('un job oltre la soglia alza l ALLARME, e il report lo dice a parole', () => {

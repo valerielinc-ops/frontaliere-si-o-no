@@ -65,7 +65,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
 import { titleOffence, descriptionOffence } from './mark-mistranslated-jobs.mjs';
-import { summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const CRAWLERS_DIR = 'data/jobs/by-crawler';
@@ -490,7 +490,7 @@ export function formatReport(entry) {
     row('Age at completion (p50):', 'n/a', '(this run completed no job)');
   } else {
     row('Age at completion (p50):', `${ca.p50AgeDays ?? 'n/a'}d`,
-        `(p90 ${ca.p90AgeDays ?? 'n/a'}d · ${ca.count} jobs completed this run · under 24h: ${ca.buckets['0-1d']})`);
+        `(p90 ${ca.p90AgeDays ?? 'n/a'}d · ${ca.count} jobs completed this run · under 24h: ${ca.buckets[QUEUE_AGE_BUCKET_KEYS[0]]})`);
   }
 
   // COMPLETE is reserved for the exact case: nothing missing and nothing

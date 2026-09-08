@@ -94,6 +94,16 @@ function exactKeys(value, keys) {
     && Object.keys(value).sort(compareText).join('\0') === [...keys].sort(compareText).join('\0');
 }
 
+function disjointQueueAgeCount(buckets) {
+  if (!isPlainObject(buckets)) return null;
+  let total = 0;
+  for (const key of QUEUE_AGE_DISJOINT_BUCKET_KEYS) {
+    if (!Object.hasOwn(buckets, key) || !boundedInteger(buckets[key])) return null;
+    total += buckets[key];
+  }
+  return total;
+}
+
 function nullableFiniteNumber(value) {
   return value === null || (typeof value === 'number' && Number.isFinite(value));
 }
@@ -551,7 +561,7 @@ function validTrafficStats(stats, deadlineMs = Number.POSITIVE_INFINITY, now = D
     checkDeadline(deadlineMs, now);
     if (!boundedInteger(value)) return false;
   }
-  return true;
+  return disjointQueueAgeCount(age.buckets) !== null;
 }
 
 function validTrafficInput(traffic, deadlineMs, now) {
@@ -1668,6 +1678,7 @@ function validateTranslationShadowDecisionSemanticsV2(decision) {
       : ['allowNoTraffic', 'digest', 'source', 'stats', 'status'])
         || typeof legacy.traffic.allowNoTraffic !== 'boolean'
         || !nonEmptyString(legacy.traffic.source)) return false;
+    const disjointAgeBucketCount = disjointQueueAgeCount(legacy.traffic?.stats?.age?.buckets);
     if (notAttempted) {
       if (legacy.traffic.status !== 'not_read' || legacy.traffic.digest !== null
           || legacy.traffic.reason !== decision.verdict.primaryReason) return false;
@@ -1684,8 +1695,8 @@ function validateTranslationShadowDecisionSemanticsV2(decision) {
         // e vale `withTimestamp + buckets['0-7d']`. Con un solo job fresco in
         // coda il confronto era falso e invalidava l'osservazione — sul corpus
         // vivo sono 4.360 job, cioè ogni run.
-        || QUEUE_AGE_DISJOINT_BUCKET_KEYS.reduce((sum, key) => sum + legacy.traffic.stats.age.buckets[key], 0)
-          !== legacy.traffic.stats.age.withTimestamp
+        || disjointAgeBucketCount === null
+        || disjointAgeBucketCount !== legacy.traffic.stats.age.withTimestamp
         || snapshot.capWindow.count !== Math.min(legacy.maxJobs, snapshot.orderedPending.count)
         || legacy.companyFilter.after !== snapshot.pending.count
         || legacy.postClear.pending !== snapshot.pending.count) return false;
