@@ -167,6 +167,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/decontaminate-prev-slugs-live-regression.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/dist-hash-manifest-deploy-perimeter.test.ts', roots: ['data/jobs.json'] },
   { file: 'tests/edge-retired-paths.test.ts', roots: ['packages/articles/content/'] },
+  // Corpus genuinely the subject: the archive observer verifies that every
+  // committed expired entry remains sortable before the cap is applied.
+  { file: 'tests/expired-at-parsable.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/git-commit-data-append-only-sets.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/git-commit-data-grouped-isolation.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/git-commit-data-slice-scoping.test.ts', roots: ['data/jobs-crawler-summaries/', 'data/jobs/'] },
@@ -179,6 +182,9 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/job-locale-mark-persistence.test.ts', roots: ['data/jobs/'] },
   { file: 'tests/news-ticker-data.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/packages-articles-confinement.test.ts', roots: ['packages/articles/'] },
+  // Corpus genuinely the subject: the rejection CLI guard asserts that its
+  // terminal transition never mutates the committed candidate registry.
+  { file: 'tests/prospector-reject.test.ts', roots: ['data/prospector/'] },
   // Corpus genuinely the subject: the turnover-safe #7045 observer compares
   // the live iPersonal active and expired slices so every known route keeps one
   // recoverable owner as jobs move between lifecycle states.
@@ -222,6 +228,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     file: 'tests/crawler-generation-receipt.test.ts',
     roots: ['data/jobs/'],
     reason: 'every job slice is created inside a mkdtemp git fixture, never read from the checkout',
+  },
+  {
+    file: 'tests/crawler-generation-token-fallback.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'data/jobs paths are created inside a mkdtemp git fixture; only the source module is read from the checkout',
   },
   {
     file: 'tests/generate-crawler-group-workflows.test.ts',

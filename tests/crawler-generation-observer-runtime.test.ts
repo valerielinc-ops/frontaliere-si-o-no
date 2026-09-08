@@ -68,7 +68,7 @@ function boundRun(group: string, status = 'in_progress', conclusion: string | nu
   };
 }
 
-function terminalManifest(group: string) {
+function terminalManifest(group: string, generationToken = '9001-2') {
   const binding = sentinel().groups[group];
   const crawlerId = `observer-${group}`;
   const slice = `data/jobs/by-crawler/${crawlerId}.json`;
@@ -85,7 +85,7 @@ function terminalManifest(group: string) {
   };
   return createGroupTerminalManifest({
     group,
-    generationToken: '9001-2',
+    generationToken,
     callerRepository: 'nanakokyobashi-rgb/frontaliere-articles',
     callerRunId: binding.runId,
     callerRunAttempt: 1,
@@ -328,6 +328,43 @@ describe('crawler observer GitHub binding', () => {
       evidenceDigest: report.evidenceDigest,
     });
     expect(replay.barrier.digest).toBe(report.barrier.digest);
+  });
+
+  it('fails closed when 23 manual fallback tokens cannot form one generation wave', async () => {
+    const value = sentinel();
+    const report = await observeCrawlerGeneration({
+      sentinels: [value],
+      roster: roster(),
+      evaluatedAt: '2026-08-31T09:00:00.000Z',
+      getRun: async (runId: string) => {
+        const group = GROUP_IDS.find((candidate) => value.groups[candidate].runId === runId)!;
+        return boundRun(group, 'completed', 'success');
+      },
+      listRunArtifacts: async (runId: string) => {
+        const group = GROUP_IDS.find((candidate) => value.groups[candidate].runId === runId)!;
+        return [{
+          id: 50_000 + Number(group),
+          name: value.groups[group].artifactName,
+          expired: false,
+          size_in_bytes: 10_000,
+          workflow_run: { id: Number(runId) },
+        }];
+      },
+      readArtifact: async (_artifact: any, expectedName: string) => {
+        const group = /crawler-group-(\d{2})-terminal\.json/.exec(expectedName)![1];
+        return terminalManifest(group, `${10_000 + Number(group)}-1`);
+      },
+      prepareSource: async () => ({
+        status: 'ready',
+        sourceCommit: 'a'.repeat(40),
+        reason: null,
+        isAncestor: () => true,
+        sourceFileMatches: () => true,
+      }),
+    });
+
+    expect(report.observer).toEqual({ status: 'blocked', reasons: ['blocked_manifest_invalid'] });
+    expect(report.barrier.groups['01'].reasons).toContain('manifest_binding_mismatch');
   });
 
   it('accepts sentinel replay evidence only from the exact pinned manual workflow', () => {

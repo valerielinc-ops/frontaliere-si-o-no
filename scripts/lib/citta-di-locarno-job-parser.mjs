@@ -43,8 +43,17 @@ export function normalizeLocarnoPdfUrl(rawUrl = '') {
 }
 
 export function normalizeLocarnoApplicationUrl(rawUrl = '') {
+  const raw = String(rawUrl || '').trim().replace(/&amp;/gi, '&');
   try {
-    const url = new URL(String(rawUrl || '').trim().replace(/&amp;/gi, '&'), CAREERS_BASE);
+    // An href with an authority (`//host/...` or an absolute URL) must prove
+    // its origin BEFORE the fallback to the careers page can rewrite it. A
+    // root-relative href is intentionally still resolved against the page
+    // that served the listing: a browser would never send it to PI ASP.
+    if (raw.startsWith('//') || /^[a-z][a-z0-9+.-]*:/i.test(raw)) {
+      const originCandidate = new URL(raw, APPLICATION_BASE);
+      if (originCandidate.origin !== APPLICATION_BASE) return null;
+    }
+    const url = new URL(raw, CAREERS_BASE);
     const isApplicationPath = /^\/bewerber-web\/?$/i.test(url.pathname);
     const isMunicipalTenant = url.searchParams.get('company') === '100-FIRMA-ID';
     if (url.protocol !== 'https:' || url.origin !== APPLICATION_BASE || url.username || url.password

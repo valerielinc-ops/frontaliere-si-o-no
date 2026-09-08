@@ -735,14 +735,24 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
   const actualArtifacts = Array.isArray(contract?.artifacts)
     ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
     : [];
-  if (contract?.schemaVersion !== 1
-      || contract?.groupCount !== GROUP_IDS.length
-      || contract?.artifactCount !== expectedArtifacts.length
-      || canonicalJson(actualArtifacts) !== canonicalJson(expectedArtifacts)
-      || contract?.observerCount !== observers.length
-      || contract?.crawlerGeneration?.mode !== 'shadow'
-      || contract?.crawlerGeneration?.dispatchesTranslation !== false
-      || !observer || observer.source !== 'observers/workflows/crawler-generation-observer-shadow.yml') {
+  let contractShapeValid = false;
+  try {
+    contractShapeValid = contract?.schemaVersion === 1
+      && contract?.groupCount === GROUP_IDS.length
+      && contract?.artifactCount === expectedArtifacts.length
+      && canonicalJson(actualArtifacts) === canonicalJson(expectedArtifacts)
+      && contract?.observerCount === observers.length
+      && contract?.crawlerGeneration?.mode === 'shadow'
+      && contract?.crawlerGeneration?.dispatchesTranslation === false
+      && Boolean(observer)
+      && observer.source === 'observers/workflows/crawler-generation-observer-shadow.yml';
+  } catch {
+    // A malformed JSON contract can still contain values canonicalJson cannot
+    // represent (most commonly a missing artifact `file` becomes undefined).
+    // Keep the preflight diagnostic path alive so the caller writes its
+    // blocking output and performs its normal cleanup.
+  }
+  if (!contractShapeValid) {
     reasons.push('contract_invalid');
   }
   if (!Buffer.isBuffer(observerBytes) || observer?.sha256 !== sha256(observerBytes)) {
@@ -822,9 +832,8 @@ export function evaluateCrawlerGenerationPreflight({
     ready,
     dispatchMode: ready ? 'shadow' : 'blocked',
     corpusCodeCommit: ready ? corpusCodeCommit : null,
-    reasons: ready && mirrorSkew
-      ? ['corpus_mirror_lockstep_pending']
-      : [...new Set(reasons)].sort(compareCodePoint),
+    reasons: [...new Set(reasons)].sort(compareCodePoint),
+    warnings: ready && mirrorSkew ? ['corpus_mirror_lockstep_pending'] : [],
   };
 }
 
@@ -991,7 +1000,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}\n`,
       );
     }
-    if (result.ready && result.reasons.includes('corpus_mirror_lockstep_pending')) {
+    if (result.ready && (result.warnings ?? []).includes('corpus_mirror_lockstep_pending')) {
       process.stderr.write(
         `::warning::crawler generation mirror ahead of ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
         + ' — lockstep still propagating, dispatching the corpus generation pinned at that commit\n',
