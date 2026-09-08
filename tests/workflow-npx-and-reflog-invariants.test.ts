@@ -147,6 +147,13 @@ describe('workflow hygiene: --regenerate-cmd (#7389)', () => {
     expect(helper).toContain('run_regenerate_with_retry()');
     expect(helper).toContain('eval "$REGENERATE_CMD"');
     expect(helper).toContain('[ ! -f ".git/index.lock" ]');
-    expect(helper).toContain('run_regenerate_with_retry');
+    expect(helper).toMatch(/^\s*run_regenerate_with_retry\s*$/m);
+  });
+
+  it('propaga il fallimento del merge dello storico SERP nel comando di regenerate', () => {
+    const workflow = readFileSync(join(__dirname, '..', '.github', 'workflows', 'seo-serp-autopilot.yml'), 'utf8');
+    expect(workflow).toContain(
+      '--regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-serp-autopilot-last-run.json && node scripts/lib/merge-seo-serp-experiment-history.mjs $COMMIT_SHA data/seo-serp-experiment-history.json && git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"',
+    );
   });
 });

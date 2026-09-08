@@ -118,7 +118,7 @@ jobs:
           # commit them.
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-serp-autopilot-last-run.json; node scripts/lib/merge-seo-serp-experiment-history.mjs $COMMIT_SHA data/seo-serp-experiment-history.json; git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"
+            --regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-serp-autopilot-last-run.json && node scripts/lib/merge-seo-serp-experiment-history.mjs $COMMIT_SHA data/seo-serp-experiment-history.json && git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

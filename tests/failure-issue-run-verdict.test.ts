@@ -112,7 +112,7 @@ describe('issue di fallimento aperte da un run che resta verde', () => {
 
   it('risolve anche il titolo standard del fallimento del workflow farmacie', () => {
     const text = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pharmacy-data-health-monitor.yml'), 'utf8');
-    expect(text).toContain('--resolve');
-    expect(text).toContain('--title "Workflow Failure: pharmacy-data-health-monitor"');
+    const cleanDashboard = text.split('name: Resolve issue on clean dashboard', 2)[1] ?? '';
+    expect(cleanDashboard).toMatch(/github-issue-creator\.mjs --resolve\s*\\\s*--title "Workflow Failure: pharmacy-data-health-monitor"/);
   });
 });
