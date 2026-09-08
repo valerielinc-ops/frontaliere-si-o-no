@@ -17,10 +17,14 @@ export function isCrawlerGenerationToken(value) {
  */
 export function resolveCrawlerGenerationToken(env = process.env) {
   const explicit = env.CRAWLER_GENERATION_TOKEN;
-  // A non-empty explicit token stays authoritative even when malformed: the
-  // downstream validators must keep rejecting it instead of silently drifting
-  // onto the run coordinates.
-  if (typeof explicit === 'string' && explicit.length > 0) return explicit;
+  // An explicit token stays authoritative only when it obeys the shared
+  // grammar. Returning a truthy malformed value makes callers build a
+  // descriptor that the downstream validator rejects, classifying an entire
+  // crawler group as a shared precondition failure instead of using the valid
+  // run coordinates available in the same environment.
+  if (typeof explicit === 'string' && explicit.length > 0) {
+    return isCrawlerGenerationToken(explicit) ? explicit : null;
+  }
   const derived = `${env.GITHUB_RUN_ID}-${env.GITHUB_RUN_ATTEMPT}`;
   return isCrawlerGenerationToken(derived) ? derived : null;
 }

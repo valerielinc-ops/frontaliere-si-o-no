@@ -899,6 +899,26 @@ export function examplesSinceFix(examples, cutoffMs) {
   });
 }
 
+export function buildEscalationSignals(c) {
+  const examples = (c.examples || [])
+    .map((e) => '#' + (e.pr || e.issue))
+    .filter((s) => s !== '#undefined')
+    .join(', ') || '—';
+  return {
+    cosa: `bucket ${c.source}/${c.key}: pattern documentato che ricorre nonostante la regola`,
+    metrica: {
+      osservato: c.count,
+      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze nella finestra`,
+    },
+    comando: 'node scripts/ci/harvest-agent-lessons.mjs --dry-run',
+    evidenza: [
+      `bucket=${c.source}/${c.key}`,
+      `finestra=${WINDOW_DAYS}gg dal ${sinceDay}`,
+      `esempi=${examples}`,
+    ],
+  };
+}
+
 function escalationBody(c) {
   const examples = (c.examples || [])
     .map((e) => '#' + (e.pr || e.issue))
@@ -1189,6 +1209,7 @@ async function main() {
         const res = await createGithubIssue({
           title: escalationTitle(c),
           description: escalationBody(c),
+          signals: buildEscalationSignals(c),
           priority: 2,
           labels: ['follow-up'],
           workflow: 'Lessons harvester',
