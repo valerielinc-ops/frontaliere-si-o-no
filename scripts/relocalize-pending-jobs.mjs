@@ -592,6 +592,31 @@ export function cascadeStopReason({
   return null;
 }
 
+export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
+  const elapsedMs = nowMs - runStartMs;
+  if (!Number.isFinite(elapsedMs) || !Number.isFinite(deadlineMs) || deadlineMs < 0) {
+    return { startedAtMs: 0, windowMs: 0, stopReason: 'clock incoherent' };
+  }
+  const startedAtMs = Math.max(0, elapsedMs);
+  const windowMs = Math.max(0, deadlineMs - startedAtMs);
+  return {
+    startedAtMs,
+    windowMs,
+    stopReason: elapsedMs < 0
+      ? 'clock incoherent'
+      : windowMs === 0
+        ? 'cascade deadline'
+        : 'in progress',
+  };
+}
+
+export function markCascadeFailure(phase) {
+  if (phase?.stopReason === 'nothing to relocalize' || phase?.stopReason === 'in progress') {
+    phase.stopReason = 'failed';
+  }
+  return phase;
+}
+
 /**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
@@ -1320,11 +1345,11 @@ async function main() {
     // with the defaults of an early return — same signature as a run that simply
     // found nothing to do. That is precisely the confusion this instrumentation
     // exists to remove, so a failure has to sign itself.
-    phase.stopReason = 'failed';
+    markCascadeFailure(phase);
     throw error;
   } finally {
     phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
-    recordRunPhase(phase);
+    recordRunPhase(phase, { replaceLast: true });
   }
 }
 
@@ -1669,13 +1694,23 @@ export async function runRelocalization(phase) {
   const startTime = LEGACY_CLOCK.now();
   // Published here, not at the bottom: from this instant the window is a known
   // fact, and a crash on the next line must not report it as unknown.
-  phase.startedAtMs = startTime - RUN_START_MS;
-  phase.windowMs = CASCADE_LOCALIZATION_DEADLINE_MS - phase.startedAtMs;
-  phase.stopReason = 'in progress';
+  const window = computeCascadeWindow({
+    nowMs: startTime,
+    runStartMs: RUN_START_MS,
+    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+  });
+  phase.startedAtMs = window.startedAtMs;
+  phase.windowMs = window.windowMs;
+  phase.stopReason = window.stopReason;
+  recordRunPhase(phase);
+  if (window.stopReason === 'clock incoherent') {
+    console.log('⚠️  Run clock incoherent — stopping cascade without spending translation budget.');
+    return;
+  }
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
-  let cascadeStop = 'queue exhausted';
+  let cascadeStop = window.stopReason === 'cascade deadline' ? 'cascade deadline' : 'queue exhausted';
   // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
   // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
   // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
@@ -1683,7 +1718,7 @@ export async function runRelocalization(phase) {
   // indistinguibile da uno stallo, con la regola che produce un falso allarme
   // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
   // meccanismo diverso e puo' ancora liberare job.
-  if (cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+  if (cascadeStop !== 'cascade deadline' && cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
     console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
     cascadeStop = 'all companies skipped';
   }

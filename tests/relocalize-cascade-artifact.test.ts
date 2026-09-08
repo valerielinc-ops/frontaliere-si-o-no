@@ -45,6 +45,40 @@ afterEach(() => {
 });
 
 describe('cascade company artifact', () => {
+  it('publishes the in-progress phase before the first crawler call', () => {
+    const runtime = fs.readFileSync(path.join(root, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
+    const active = runtime.indexOf('phase.stopReason = window.stopReason;');
+    const recorded = runtime.indexOf('recordRunPhase(phase);', active);
+    const loop = runtime.indexOf('for (let executionGroupIndex', active);
+    expect(active).toBeGreaterThan(-1);
+    expect(recorded).toBeGreaterThan(active);
+    expect(recorded).toBeLessThan(loop);
+  });
+
+  it('preserves terminal stop reasons when a later step fails', async () => {
+    const { markCascadeFailure } = await import('../scripts/relocalize-pending-jobs.mjs');
+    const terminal = { stopReason: 'queue exhausted' };
+    const active = { stopReason: 'in progress' };
+    const initial = { stopReason: 'nothing to relocalize' };
+
+    markCascadeFailure(terminal);
+    markCascadeFailure(active);
+    markCascadeFailure(initial);
+
+    expect(terminal.stopReason).toBe('queue exhausted');
+    expect(active.stopReason).toBe('failed');
+    expect(initial.stopReason).toBe('failed');
+  });
+
+  it('clamps exhausted windows and labels an incoherent run clock separately', async () => {
+    const { computeCascadeWindow } = await import('../scripts/relocalize-pending-jobs.mjs');
+
+    expect(computeCascadeWindow({ nowMs: 91, runStartMs: 1, deadlineMs: 90 }))
+      .toEqual({ startedAtMs: 90, windowMs: 0, stopReason: 'cascade deadline' });
+    expect(computeCascadeWindow({ nowMs: 1, runStartMs: 91, deadlineMs: 90 }))
+      .toEqual({ startedAtMs: 0, windowMs: 90, stopReason: 'clock incoherent' });
+  });
+
   it('emits empty rows with a stop reason when the first company fails', async () => {
     runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'cascade-artifact-'));
     previousEnv = Object.fromEntries(envKeys.map((key) => [key, process.env[key]]));
