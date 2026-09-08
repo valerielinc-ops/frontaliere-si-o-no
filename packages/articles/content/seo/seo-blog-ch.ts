@@ -79229,6 +79229,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-lucerna-documenti-timeline': {
+    title: 'Naturalizzazione Lucerna: permessi, costi e procedure',
+    description: 'Guida alla naturalizzazione nel Canton Lucerna: requisiti federali, documenti necessari, tempi di procedura e costi amministrativi per ottenere la cittadinanza',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, lucerna, permessi, costi',
+    ogTitle: 'Naturalizzazione Lucerna: guida completa a procedura e costi',
+    ogDescription: 'Come ottenere la cittadinanza svizzera nel Canton Lucerna? Scopri i requisiti federali (10 anni con permesso C), i criteri di integrazione e lingua tedesca richiesti, la documentazione necessaria, i tempi di procedura (12-24 mesi) e i costi',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-lucerna-documenti-timeline/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Lucerna: permessi, costi e procedure",
+      "description": "Guida alla naturalizzazione nel Canton Lucerna: requisiti federali, documenti necessari, tempi di procedura e costi amministrativi per ottenere la cittadinanza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-lucerna-documenti-timeline.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio comunale lucernese con moduli di naturalizzazione e documenti di cittadinanza svizzera su scrivania amministrativa"
+      },
+      "datePublished": "2026-09-08T20:09:40+00:00",
+      "dateModified": "2026-09-08T20:09:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-lucerna-documenti-timeline/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
