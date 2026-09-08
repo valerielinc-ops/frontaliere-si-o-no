@@ -11,8 +11,9 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -95,10 +96,11 @@ export function buildSlugDisambiguator(publicUrl = '') {
  * key/domain made this parser's slugs differ from regenerated slugs.
  */
 export function buildAnkerSwissJobSlug(title, location, publicUrl = '') {
-  const disambiguator = buildSlugDisambiguator(publicUrl);
-  return appendSlugDisambiguator(
-    slugify(`${title} ${ANKER_SWISS_COMPANY_NAME} ${location}`),
-    disambiguator,
+  return buildCanonicalSlug(
+    title,
+    ANKER_SWISS_COMPANY_NAME,
+    location,
+    buildSlugDisambiguator(publicUrl),
   );
 }
 

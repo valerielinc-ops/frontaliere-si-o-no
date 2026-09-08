@@ -103,6 +103,20 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
       expect(slug).toContain('anker-swiss-ticino-ag');
     });
 
+    it('keeps canonical truncation for long title bases', () => {
+      const title = `${'Senior Bauprojektleiter '.repeat(8)}100%`;
+      const location = 'Lugano';
+      const url = 'https://anker-swiss.ch/stellen/long-title/';
+      expect(buildAnkerSwissJobSlug(title, location, url)).toBe(
+        buildCanonicalSlug(
+          title,
+          ANKER_SWISS_COMPANY_NAME,
+          location,
+          buildSlugDisambiguator(url),
+        ),
+      );
+    });
+
     it('keeps two vacancies with identical title and location on distinct slugs', () => {
       const a = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');
       const b = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-2/');

@@ -143,7 +143,7 @@ export function parseCsbSearchResults(html) {
     // A row link's anchor text can be the SF cookie-consent / search widget
     // rather than a posting title on some CSB skins — discard the row.
     if (isSuccessFactorsWidgetText(title)) continue;
-    const titleForLocationGuard = stripSuccessFactorsMoreLocations(title);
+    const titleForLocationGuard = stripSuccessFactorsMoreLocations(title) || title;
 
     // Preferred: dedicated `<td class="colLocation hidden-phone">` cell or
     // `<span class="jobLocation">…</span>` directly. This avoids picking up
