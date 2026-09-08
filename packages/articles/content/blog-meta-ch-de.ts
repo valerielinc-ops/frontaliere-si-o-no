@@ -6085,6 +6085,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bollette-26-centesimi-2027.title': 'Leicht sinkende Strompreise im Jahr 2027',
     'blog.article.bollette-26-centesimi-2027.excerpt': '2027 werden die Schweizer Haushalte 26,5 Rp./kWh Durchschnittspreis bezahlen: 4% weniger und 53 Franken pro Jahr gemäss ElCom.',
     'blog.article.bollette-26-centesimi-2027.imageAlt': 'Schweizer Familie überprüft Energierechnungen nach Tariffsenkung 2027 von ElCom',
+    'blog.article.migros-online-regensdorf-2026.title': 'Migros online: +21.000 Produkte in Regensdorf',
+    'blog.article.migros-online-regensdorf-2026.excerpt': 'Neuer Logistik-Hub in Regensdorf (ZH) mit 60% mehr Produkten, 7.500 Aufträgen/Tag, 200-500 Arbeitsplätzen. Lieferungen am selben Tag nach Zürich bis Februar 2027.',
+    'blog.article.migros-online-regensdorf-2026.imageAlt': 'Automatisiertes Migros-Online-Verteilzentrum in Regensdorf, Zürich, mit Regalen und Förderbändern',
 };
 
 export default blogMetaChDe;

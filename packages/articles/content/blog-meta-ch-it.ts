@@ -6085,6 +6085,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bollette-26-centesimi-2027.title': 'Prezzi dell\'elettricità in leggero calo nel 2027',
     'blog.article.bollette-26-centesimi-2027.excerpt': 'Nel 2027 le economie domestiche svizzere pagheranno 26,5 ct./kWh di tariffa media: calo del 4% e risparmio di 53 franchi annuali secondo ElCom.',
     'blog.article.bollette-26-centesimi-2027.imageAlt': 'Una famiglia svizzera rilegge la bolletta dell\'energia dopo il calo tariffario annunciato da ElCom per il 2027',
+    'blog.article.migros-online-regensdorf-2026.title': 'Migros online: +21.000 prodotti a Regensdorf',
+    'blog.article.migros-online-regensdorf-2026.excerpt': 'Nuovo hub logistico a Regensdorf (ZH) con 60% più prodotti, 7.500 ordini/giorno, 200-500 posti lavoro. Consegne stesso giorno a Zurigo entro febbraio 2027.',
+    'blog.article.migros-online-regensdorf-2026.imageAlt': 'Centro di distribuzione automatizzato di Migros Online a Regensdorf, Zurigo, con scaffalature e nastri trasportatori',
 };
 
 export default blogMetaChIt;
