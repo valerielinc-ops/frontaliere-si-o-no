@@ -22,7 +22,15 @@ function fakeDb() {
       get: async (documentRef: any) => ({ exists: values.has(documentRef.path) }),
       create: (documentRef: any, data: any) => values.set(documentRef.path, data),
       set: (documentRef: any, data: any) => values.set(documentRef.path, data),
-      update: (documentRef: any, data: any) => values.set(documentRef.path, data),
+      // Real Firestore rejects update() with NOT_FOUND on a missing document.
+      // The fake has to do the same, otherwise the deleted-alert regression
+      // below passes even when the transaction writes the mirror blindly.
+      update: (documentRef: any, data: any) => {
+        if (!values.has(documentRef.path)) {
+          throw Object.assign(new Error(`NOT_FOUND: ${documentRef.path}`), { code: 5 });
+        }
+        values.set(documentRef.path, data);
+      },
     }),
   };
   return { db, values };
