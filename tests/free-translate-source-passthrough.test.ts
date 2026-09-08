@@ -115,15 +115,26 @@ function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown
   });
 }
 
-function runExhaustedTierSkipScenario(service: 'deepl' | 'azure') {
+function runExhaustedTierSkipScenario(
+  service: 'deepl' | 'azure',
+  options: { myMemoryResult?: string; detailed?: boolean } = {},
+) {
+  const { myMemoryResult = 'traduzione di prova', detailed = false } = options;
   const modulePath = new URL('../scripts/lib/free-translate.mjs', import.meta.url).pathname;
+  const myMemoryStub = `const translateWithMyMemory = async () => ${JSON.stringify(myMemoryResult)};`;
+  const invoke = detailed
+    ? '({ text, sourceLang, targetLang }) => freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, maxRetries: 0 })'
+    : '({ text, sourceLang, targetLang }, outcome) => freeTranslate({ text, sourceLang, targetLang, _outcome: outcome })';
+  const resultObject = detailed
+    ? '{ out: secondResult, first: firstResult, second: secondResult }'
+    : '{ out: secondResult, first: firstOutcome, second: secondOutcome }';
   const childScript = `
     const { readFileSync } = await import('node:fs');
     const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
     const standalone = source
       .replace(
         "import { translateWithMyMemory } from './mymemory-translate.mjs';",
-        "const translateWithMyMemory = async () => 'traduzione di prova';",
+        ${JSON.stringify(myMemoryStub)},
       )
       .replace(
         "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
@@ -143,15 +154,40 @@ function runExhaustedTierSkipScenario(service: 'deepl' | 'azure') {
       if (${JSON.stringify(service)} === 'azure' && value.includes('api.cognitive.microsofttranslator.com')) {
         return { ok: false, status: 429 };
       }
+      if (${detailed}) {
+        const echo = ${JSON.stringify(myMemoryResult)};
+        if (value.includes('translate.googleapis.com')) {
+          return { ok: true, text: async () => JSON.stringify([[[echo]]]) };
+        }
+        if (value.includes('clients5.google.com')) {
+          return { ok: true, text: async () => JSON.stringify({ sentences: [{ trans: echo }] }) };
+        }
+        if (value.includes('/api/v1/')) {
+          return { ok: true, json: async () => ({ translation: echo }) };
+        }
+        if (value.includes('simplytranslate')) {
+          return { ok: true, json: async () => ({ translated_text: echo }) };
+        }
+        if (value.includes('mozhi.')) {
+          return { ok: true, json: async () => ({ 'translated-text': echo }) };
+        }
+        if (value.includes('translate.fedilab.app')) {
+          return { ok: true, json: async () => ({ translatedText: echo }) };
+        }
+        if (value.includes('router.huggingface.co')) {
+          return { ok: true, json: async () => [{ translation_text: echo }] };
+        }
+      }
       throw new Error('endpoint inatteso: ' + value);
     };
     const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(standalone).toString('base64');
-    const { freeTranslate } = await import(moduleUrl);
-    const first = { passthroughs: 0, errors: 0, incomplete: false };
-    await freeTranslate({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en', _outcome: first });
-    const second = { passthroughs: 0, errors: 0, incomplete: false };
-    const out = await freeTranslate({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en', _outcome: second });
-    process.stdout.write(JSON.stringify({ out, first, second }));
+    const { freeTranslate, freeTranslateWithRetryDetailed } = await import(moduleUrl);
+    const invoke = ${invoke};
+    const firstOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const firstResult = await invoke({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en' }, firstOutcome);
+    const secondOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const secondResult = await invoke({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en' }, secondOutcome);
+    process.stdout.write(JSON.stringify(${resultObject}));
   `;
 
   return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
@@ -339,7 +375,21 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     const child = runExhaustedTierSkipScenario(service);
 
     expect(child.status).toBe(0);
-    expect(JSON.parse(child.stdout).second).toEqual({ passthroughs: 0, errors: 0, incomplete: false });
+    const second = JSON.parse(child.stdout).second;
+    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false });
+    if (service === 'deepl') expect(second.tierUnavailable).toBe(true);
+  });
+
+  it('non memoizza un passthrough quando DeepL ha tutte le chiavi gia esauste', () => {
+    const child = runExhaustedTierSkipScenario('deepl', {
+      myMemoryResult: 'Titolo di prova',
+      detailed: true,
+    });
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.first).toEqual({ text: '', passthrough: false });
+    expect(result.second).toEqual({ text: '', passthrough: false });
   });
 });
 

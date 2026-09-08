@@ -570,7 +570,13 @@ async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) 
       return ''; // network error, don't retry with other keys
     }
   }
-  if (attempted) noteIncompleteIfUntouched(outcome, outcomeBefore);
+  if (attempted) {
+    noteIncompleteIfUntouched(outcome, outcomeBefore);
+  } else if (outcome) {
+    // The configured tier was unavailable for this text; this is distinct from
+    // an attempted translation that returned no result.
+    outcome.tierUnavailable = true;
+  }
   return ''; // all keys exhausted
 }
 
@@ -1508,7 +1514,7 @@ export function asTranslationResult(value) {
 
 /** Return the retry result together with the reason for an empty translation. */
 export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2 }) {
-  const outcome = { passthroughs: 0, errors: 0, incomplete: false };
+  const outcome = { passthroughs: 0, errors: 0, incomplete: false, tierUnavailable: false };
   let out = await freeTranslate({ text, sourceLang, targetLang, fieldType, _outcome: outcome });
   if (out) return { text: out, passthrough: false };
 
@@ -1518,9 +1524,12 @@ export async function freeTranslateWithRetryDetailed({ text, sourceLang, targetL
     if (out) return { text: out, passthrough: false };
   }
 
-  // Aggregate all attempts: an error/incomplete result earlier in the retry
-  // window must not be hidden by a later source echo and turned into a durable
-  // passthrough memo.
-  const passthrough = outcome.passthroughs > 0 && outcome.errors === 0 && !outcome.incomplete;
+  // Aggregate all attempts: an error/incomplete result, or a tier unavailable
+  // for this text, must not be hidden by a later source echo and turned into a
+  // durable passthrough memo.
+  const passthrough = outcome.passthroughs > 0
+    && outcome.errors === 0
+    && !outcome.incomplete
+    && !outcome.tierUnavailable;
   return { text: '', passthrough };
 }
