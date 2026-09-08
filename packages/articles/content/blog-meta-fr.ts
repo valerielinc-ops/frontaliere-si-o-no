@@ -11596,6 +11596,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tram-treno-lavori-ottobre.title': 'Tram-train au Tessin : départ des premiers chantiers en octobre',
     'blog.article.tram-treno-lavori-ottobre.excerpt': 'Rttl Sa attribue dix mandats de conception pour 44,8 millions et prépare le démarrage des principaux travaux en 2027.',
     'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Paysage de Lugano au Tessin avec infrastructure de transport',
+    'blog.article.bollettino-frontaliere-2026-09-08.title': 'Bulletin du frontalier – 8 septembre 2026 : 34 minutes d\'attente à Chiasso-Strada',
+    'blog.article.bollettino-frontaliere-2026-09-08.excerpt': 'Les chiffres du jour, 8 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'Les chiffres du jour pour les frontaliers – 8 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Bulletin du frontalier du 8 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'Les chiffres du 8 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;

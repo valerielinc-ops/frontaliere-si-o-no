@@ -11593,6 +11593,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tram-treno-lavori-ottobre.title': 'Tram-Zug im Tessin: Abfahrt zu den ersten Baustellen im Oktober',
     'blog.article.tram-treno-lavori-ottobre.excerpt': 'Rttl Sa vergibt zehn Planungsaufträge für 44,8 Millionen und bereitet die Inbetriebnahme der Hauptarbeiten im Jahr 2027 vor.',
     'blog.article.tram-treno-lavori-ottobre.imageAlt': 'Lugano Landschaft im Tessin mit Verkehrsinfrastruktur',
+    'blog.article.bollettino-frontaliere-2026-09-08.title': 'Grenzgänger-Tagesbulletin – 8. September 2026: 34 Minuten Wartezeit in Chiasso-Strada',
+    'blog.article.bollettino-frontaliere-2026-09-08.excerpt': 'Die Zahlen von heute, 8. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 8. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Grenzgänger-Bulletin vom 8. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'Die Zahlen vom 8. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
