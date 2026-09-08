@@ -120,6 +120,18 @@ describe('check-number-env-fallback — il gate che impedisce il rientro', () =>
   it('l albero corrente non contiene piu il costrutto', () => {
     expect(findViolations()).toEqual([]);
   }, 30_000);
+
+  it('il gate gira su push main e merge queue, non solo sulle PR', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+    expect(workflow).toMatch(/\n  push:\n    branches: \[main\]/);
+    expect(workflow).toMatch(/\n  merge_group:\n/);
+    const stepStart = workflow.indexOf('- name: Forbid the NaN-producing env fallback inside Number()');
+    expect(stepStart).toBeGreaterThanOrEqual(0);
+    const step = workflow.slice(stepStart, workflow.indexOf('\n\n', stepStart));
+    expect(step).toContain("github.event_name == 'push'");
+    expect(step).toContain("github.ref == 'refs/heads/main'");
+    expect(step).toContain("github.event_name == 'merge_group'");
+  });
 });
 
 /**

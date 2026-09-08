@@ -1418,6 +1418,18 @@ describe('promotion gate', () => {
     expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
   });
 
+  it('denoisa tutte le etichette del contatore, non una sola forma', () => {
+    const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
+    const labels = ['hits', 'klicks', 'letture', 'consultazioni'];
+    const counts = ["1'001", '1.002', '1,003', '1004'];
+    for (const label of labels) {
+      const copies = counts.map((count, index) =>
+        `${shell} ${label}${index % 2 === 0 ? ':' : ''} ${count}`,
+      );
+      expect(new Set(copies.map(bodySignature)).size, `${label} non denoisato`).toBe(1);
+    }
+  });
+
   it('tiene distinti due annunci template che differiscono solo per la data di entrata', () => {
     // La data e' l'unica forma di coda che e' anche CONTENUTO: denoisata senza
     // distinguere, due annunci template dello stesso datore che differiscono
