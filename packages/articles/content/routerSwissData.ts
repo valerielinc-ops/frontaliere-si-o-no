@@ -2041,6 +2041,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanzioni-onu-sesam-aggiornamento': { it: 'sanzioni-onu-sesam-aggiornamento', en: 'onu-sanctions-sesam-update', de: 'uno-sanktionen-sesam-aktualisierung', fr: 'sanctions-onu-sesam-mise-a-jour' },
  'novartis-battuta-arresto-neuromuscolare': { it: 'novartis-battuta-arresto-neuromuscolare', en: 'novartis-clinical-trial-failure-neuromuscular', de: 'novartis-rueckschlag-neuromuskulaer', fr: 'novartis-revers-neuromusculaire' },
  'ricongiungimento-familiare-burocrazia': { it: 'ricongiungimento-familiare-burocrazia', en: 'family-reunification-bureaucratic-delays', de: 'familienwiedervereinigung-buerokratie', fr: 'regroupement-familial-bureaucratie' },
+ 'affitto-scende-chiedi': { it: 'affitto-scende-chiedi', en: 'your-rent-won-t-drop-automatically', de: 'miete-sinkt-nicht-automatisch', fr: 'votre-loyer-ne-baisse-pas-automatiquement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
