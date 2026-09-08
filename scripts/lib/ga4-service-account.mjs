@@ -210,12 +210,17 @@ export async function fetchGa4WebVitals({
       limit,
     },
   });
-  return (data.rows || []).flatMap((row) => {
+  const reportRows = data.rows || [];
+  const totalCount = reportRows.reduce((sum, row) => sum + rowEventCount(row), 0);
+  const otherCount = reportRows
+    .filter((row) => row.dimensionValues?.some((dimension) => dimension?.value === '(other)'))
+    .reduce((sum, row) => sum + rowEventCount(row), 0);
+  const observations = reportRows.flatMap((row) => {
     const path = row.dimensionValues?.[0]?.value || '';
     const metric = row.dimensionValues?.[1]?.value || '';
     const rawValue = Number(row.dimensionValues?.[2]?.value);
     const device = String(row.dimensionValues?.[3]?.value || '').toLowerCase();
-    const count = Number(row.metricValues?.[0]?.value || 0);
+    const count = rowEventCount(row);
     if (!path || !metric || !Number.isFinite(rawValue) || count <= 0) return [];
     return [{
       path,
@@ -225,6 +230,26 @@ export async function fetchGa4WebVitals({
       count,
     }];
   });
+  Object.defineProperty(observations, 'coverage', {
+    value: {
+      totalCount,
+      otherCount,
+      otherFraction: totalCount ? otherCount / totalCount : 0,
+    },
+    enumerable: false,
+  });
+  return observations;
+}
+
+function rowEventCount(row) {
+  const count = Number(row.metricValues?.[0]?.value || 0);
+  return Number.isFinite(count) && count > 0 ? count : 0;
+}
+
+export const GA4_SIGNIFICANT_OTHER_FRACTION = 0.05;
+
+export function hasSignificantOtherBucket(observations) {
+  return (observations?.coverage?.otherFraction || 0) >= GA4_SIGNIFICANT_OTHER_FRACTION;
 }
 
 export function weightedQuantile(observations, quantile) {

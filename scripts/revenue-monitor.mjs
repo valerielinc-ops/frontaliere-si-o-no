@@ -51,6 +51,7 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
   getServiceAccountToken,
+  hasSignificantOtherBucket,
   weightedQuantile,
 } from './lib/ga4-service-account.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
@@ -409,6 +410,7 @@ export async function fetchGa4ClsFallback({
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
   const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
+  if (hasSignificantOtherBucket(rows)) return null;
   const byDevice = new Map([
     ['mobile', []],
     ['desktop', []],
@@ -457,6 +459,13 @@ export function compare(current, baseline, { higherIsBetter = true, warnThreshol
     else if (improved) verdict = '📈 improved';
   }
   return { delta, deltaPct, verdict };
+}
+
+function compareWithSource(current, baseline, currentSource, baselineSource, options) {
+  if ((currentSource ?? null) !== (baselineSource ?? null)) {
+    return { delta: null, deltaPct: null, verdict: '⚪ source mismatch' };
+  }
+  return compare(current, baseline, options);
 }
 
 export function buildComparisonRows(current, baseline = BASELINE) {
@@ -515,8 +524,8 @@ export function buildComparisonRows(current, baseline = BASELINE) {
 
   if (posthog) {
     // Lower is better for CLS.
-    rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compare(posthog.clsP75Mobile, b.posthog.clsP75Mobile, { higherIsBetter: false }) });
-    rows.push({ metric: 'CLS p75 desktop', baseline: b.posthog.clsP75Desktop, current: posthog.clsP75Desktop, ...compare(posthog.clsP75Desktop, b.posthog.clsP75Desktop, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compareWithSource(posthog.clsP75Mobile, b.posthog.clsP75Mobile, posthog.source, b.posthog.source, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: b.posthog.clsP75Desktop, current: posthog.clsP75Desktop, ...compareWithSource(posthog.clsP75Desktop, b.posthog.clsP75Desktop, posthog.source, b.posthog.source, { higherIsBetter: false }) });
   } else {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
@@ -636,6 +645,7 @@ export function buildHistoryEntry(current, rows, dateStr) {
       ? {
           clsP75Mobile: current.posthog.clsP75Mobile ?? null,
           clsP75Desktop: current.posthog.clsP75Desktop ?? null,
+          source: current.posthog.source ?? null,
         }
       : null,
     // Publisher stream (issue #4448) — additive key: older history lines simply

@@ -220,7 +220,7 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     const current = {
       adsense: { revenuePerDayCHF: 0.9, rpmCHF: 1.0, desktopRpmCHF: 1.2, authGateImpressions7d: 600 },
       gsc: { clicksPerDay: 320, avgPosition: 5.5, ctrByBucket: { '/job-board/': 6.0 } },
-      posthog: { clsP75Mobile: 0.5, clsP75Desktop: 0.17 },
+      posthog: { clsP75Mobile: 0.5, clsP75Desktop: 0.17, source: 'ga4-fallback' },
     };
     const rows = buildComparisonRows(current);
     const entry = buildHistoryEntry(current, rows, '2026-07-06');
@@ -232,6 +232,28 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     expect(parsed.adsense.revenuePerDayCHF).toBe(0.9);
     expect(parsed.gsc.clicksPerDay).toBe(320);
     expect(parsed.posthog.clsP75Mobile).toBe(0.5);
+    expect(parsed.posthog.source).toBe('ga4-fallback');
+  });
+
+  it('non confronta CLS quando la sorgente corrente differisce dal baseline', () => {
+    const current = {
+      adsense: null,
+      gsc: null,
+      posthog: { clsP75Mobile: 0.62, clsP75Desktop: 0.2, source: 'ga4-fallback' },
+    };
+    const baseline = {
+      ...BASELINE,
+      posthog: { ...BASELINE.posthog, source: 'posthog' },
+    };
+
+    const rows = buildComparisonRows(current, baseline);
+    const clsMobile = rows.find((r: any) => r.metric === 'CLS p75 mobile');
+
+    expect(clsMobile).toMatchObject({
+      verdict: '⚪ source mismatch',
+      delta: null,
+      deltaPct: null,
+    });
   });
 
   it('nulls out sections whose source data is missing', () => {

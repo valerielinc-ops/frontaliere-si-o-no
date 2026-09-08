@@ -38,6 +38,7 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
   getServiceAccountToken,
+  hasSignificantOtherBucket,
   weightedQuantile,
 } from './lib/ga4-service-account.mjs';
 
@@ -208,7 +209,8 @@ export async function fetchGa4CwvFallback({
     : await getTokenImpl([GA4_READONLY_SCOPE]);
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
-  return fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
+  const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
+  return hasSignificantOtherBucket(rows) ? null : rows;
 }
 
 export async function main({ ga4FallbackImpl = fetchGa4CwvFallback } = {}) {

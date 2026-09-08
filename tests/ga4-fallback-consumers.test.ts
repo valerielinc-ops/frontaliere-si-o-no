@@ -112,4 +112,29 @@ describe('fallback GA4 dei monitor PostHog', () => {
 
     expect(result).toMatchObject({ clsP75Mobile: 0.1, clsP75Desktop: 0.3, source: 'ga4-fallback' });
   });
+
+  it('si astiene quando GA4 aggrega una quota significativa in `(other)`', async () => {
+    const fetchImpl = vi.fn(async () => response({
+      rows: [
+        { dimensionValues: [{ value: '/' }, { value: 'CLS' }, { value: '100' }, { value: 'mobile' }], metricValues: [{ value: '1' }] },
+        { dimensionValues: [{ value: '(other)' }, { value: 'CLS' }, { value: '(other)' }, { value: 'mobile' }], metricValues: [{ value: '10' }] },
+      ],
+    }));
+
+    const result = await fetchGa4ClsFallback({
+      windowDays: 7,
+      getTokenImpl: async () => 'ga4-token',
+      fetchImpl,
+    });
+
+    expect(result).toBeNull();
+
+    const cwvResult = await fetchGa4CwvFallback({
+      windowDays: 7,
+      getTokenImpl: async () => 'ga4-token',
+      fetchImpl,
+    });
+
+    expect(cwvResult).toBeNull();
+  });
 });
