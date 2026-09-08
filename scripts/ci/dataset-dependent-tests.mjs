@@ -245,6 +245,88 @@ export function listDatasetIndependentTests() {
   return listTestFiles().filter((f) => !tainted.has(f)).map(toPosixRel).sort();
 }
 
+// These paths can change the artifacts consumed by the post-assemble related
+// run even when the related graph contains no dataset-dependent test. Keep the
+// direct-input guard here, beside the partition it complements, so tests.yml
+// does not grow a second copy of the dataset decision.
+const DIRECT_ASSEMBLE_INPUT_RE = /^(?:scripts\/(?:assemble-jobs-dataset|migrate-all-known-job-slugs-canton-aware)\.mjs|scripts\/lib\/parse-job-slices-worker\.mjs|scripts\/(?:generate-job-board-stats|reconcile-job-slugs)\.mjs|data\/(?:canton-url-slugs|canton-municipalities|swiss-postal-codes)\.json|data\/orphan-indexed-job-slugs\.json|data\/(?:all-known-job-slugs|orphan-enriched-data)\/|data\/jobs\/(?:by-crawler|expired\/by-crawler)\/|data\/jobs-crawler-summaries\/by-crawler\/)/;
+
+function normalizeDecisionPath(file) {
+  return String(file).replaceAll('\\', '/').replace(/^\.\//, '');
+}
+
+/** True when a changed path can alter the artifacts produced by the step. */
+export function isDirectAssembleInput(file) {
+  return DIRECT_ASSEMBLE_INPUT_RE.test(normalizeDecisionPath(file));
+}
+
+/**
+ * Decide whether `Assemble + migrate` must run before the related Vitest run.
+ *
+ * Every malformed or incomplete input is deliberately an execution decision:
+ * skipping an assembly that was needed breaks the dependent tests, while an
+ * unnecessary assembly only spends time. The selected-test list is produced
+ * by the same related runner that later invokes Vitest; this function only
+ * reuses the existing dataset partition to inspect that list.
+ *
+ * Those fail-safe branches carry `degraded: true`. The distinction is not
+ * cosmetic: a `required: true` that means «this diff needs the dataset» is the
+ * feature working, while one that means «I could not see the repo» is the
+ * optimization silently turned off. The second kind is indistinguishable from
+ * the first in the log, so it can sit there for months as a permanent no-op —
+ * exactly the failure mode `unreadableCount > 0` would produce if the
+ * `vitest:` sparse-checkout ever stopped materializing the files that
+ * `trackedFiles()` selects. The caller turns `degraded` into a CI warning
+ * annotation; `tests/ci-vitest-check-name.test.ts` pins the sparse profile so
+ * the condition cannot arise in the first place.
+ */
+export function shouldAssembleForRelatedTests({
+  eventName,
+  changedPaths,
+  changedStatus,
+  selectedTests,
+  unreadableCount,
+} = {}) {
+  if (eventName !== 'pull_request') {
+    return { required: true, reason: 'event is not pull_request' };
+  }
+  if (changedStatus !== 'complete') {
+    return {
+      required: true,
+      degraded: true,
+      reason: `changed-paths status is ${String(changedStatus || 'unknown')}`,
+    };
+  }
+  if (!Array.isArray(changedPaths) || !Array.isArray(selectedTests)) {
+    return { required: true, degraded: true, reason: 'related selection input is not classifiable' };
+  }
+  if (!Number.isInteger(unreadableCount) || unreadableCount < 0) {
+    return { required: true, degraded: true, reason: 'related graph completeness is unknown' };
+  }
+  if (unreadableCount > 0) {
+    return { required: true, degraded: true, reason: 'related graph contains unreadable tracked files' };
+  }
+
+  let dependentTests;
+  try {
+    dependentTests = new Set(listDatasetDependentTests());
+  } catch (error) {
+    return {
+      required: true,
+      degraded: true,
+      reason: `dataset partition failed: ${error?.message || String(error)}`,
+    };
+  }
+
+  if (selectedTests.some((file) => dependentTests.has(normalizeDecisionPath(file)))) {
+    return { required: true, reason: 'related selection includes a dataset-dependent test' };
+  }
+  if (changedPaths.some(isDirectAssembleInput)) {
+    return { required: true, reason: 'diff touches an assemble/migrate input' };
+  }
+  return { required: false, reason: 'related selection is dataset-independent' };
+}
+
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   const mode = process.argv.includes('--independent') ? 'independent' : 'dependent';
   const list = mode === 'independent' ? listDatasetIndependentTests() : listDatasetDependentTests();

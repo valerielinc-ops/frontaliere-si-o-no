@@ -249,6 +249,7 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          filter: blob:none
           # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
           # che il profilo statico non può chiudere in modo affidabile.
           sparse-checkout: |
@@ -1553,7 +1554,27 @@ jobs:
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
         run: echo "pre-assemble related slot disabled; the single related run executes after assemble+migrate"
 
+      - name: Decide whether dataset assembly is required
+        id: assemble
+        # The selector reuses run-related-tests.mjs's real related graph and
+        # scripts/ci/dataset-dependent-tests.mjs's existing partition. Its
+        # output is only a scheduling decision; the blocking Vitest invocation
+        # remains the step below. Any selector error is execution-safe: an
+        # unknown answer writes required=true and keeps the gate conservative.
+        env:
+          CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
+          VITEST_SKIP_CORPUS_WIDE: 'true'
+        run: |
+          set -euo pipefail
+          if node scripts/ci/run-related-tests.mjs --select-only; then
+            :
+          else
+            echo "::warning::related selection could not classify the diff; running Assemble + migrate conservatively"
+            echo 'required=true' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Cache assemble-jobs output
+        if: steps.assemble.outputs.required == 'true'
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
         # content-addressable cache under .cache/assemble-jobs (keyed on a
         # sha256 of every slice file + an internal output-version) that restores
@@ -1570,12 +1591,14 @@ jobs:
             assemble-jobs-${{ runner.os }}-
 
       - name: Assemble + migrate
-        # FOREGROUND, e ci è tornato dopo una misura — non è la forma «ovvia»
-        # non ancora ottimizzata. Gira DENTRO la finestra di "vitest run (test
-        # che non leggono il dataset)", che è partito molto più sopra ed è
-        # ancora in volo: il suo costo (~326s misurati, run 32959864544) resta
-        # quindi nascosto a ~0 wall, esattamente come lo sarebbe in background,
-        # ma senza aver bisogno di un join per essere raccolto.
+        if: steps.assemble.outputs.required == 'true'
+        # Condizionale, con esecuzione FOREGROUND quando serve. La misura
+        # storica (~326s, run 32959864544) che giustificava la posizione
+        # foreground presupponeva che "Obsolete pre-assemble test slot" fosse
+        # attivo come gruppo background; oggi quello step ha `if: ${{ false }}`.
+        # Non c'è quindi più lavoro indipendente dietro cui nascondere il costo:
+        # per i diff che richiedono il dataset è wall esposta, mentre i diff
+        # classificati indipendenti saltano sia assemble sia migrate.
         #
         # Ed è la differenza che conta: uno step foreground è l'UNICA forma di
         # sincronizzazione SELETTIVA di questo runner. La sua fine gate lo step
@@ -1618,11 +1641,12 @@ jobs:
         #      accanto: i ~326s dell'assemble (run 32959864544) da nascosti
         #      erano diventati esposti, sommati davanti a tutto il resto, e il
         #      totale rischiava di essere PEGGIORE del baseline sequenziale.
-        #   4. Forma attuale: il gruppo indipendente parte per PRIMO e in
-        #      background, l'assemble torna foreground senza join, e il
+        #   4. Forma storica finale: il gruppo indipendente parte per PRIMO e
+        #      in background, l'assemble torna foreground senza join, e il
         #      dipendente lo segue in fila. Un solo `wait-all`, in fondo.
-        #      Così l'assemble torna nascosto gratis (come al punto 1) E i due
-        #      gruppi vitest si sovrappongono lo stesso (come al punto 3).
+        #      Quella forma nascondeva l'assemble perché il gruppo esisteva;
+        #      oggi il gruppo è disattivato e la condizione sopra evita di
+        #      pagare l'assemble sui diff che non selezionano test dipendenti.
         #
         # Il baseline sequenziale contro cui si misura l'overlap è 678s (run
         # 32939112340, verde) per lo span «indipendenti start → dataset end».
