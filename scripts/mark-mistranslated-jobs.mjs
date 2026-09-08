@@ -5,12 +5,14 @@
  * Flags jobs whose localized text is in the WRONG LANGUAGE with
  * `needsRetranslation = true`, so `translate-pending.yml` re-generates them.
  *
- * Two independent detectors:
+ * Three independent detectors:
  *   - DESCRIPTIONS (original behaviour): `descriptionByLocale[locale]` whose
  *     `detectLanguageWithConfidence` verdict differs from the slot at >= 0.65
  *     confidence, minimum 120 characters.
  *   - TITLES (2026-08-10): `titleByLocale[locale]` flagged by
  *     `titleLooksUntranslated()` (scripts/lib/job-locale-utils.mjs).
+ *   - GENDER FORMS (one-shot, opt-in): German source titles changed by
+ *     `masculineGermanTitle()` before Argos sees them.
  *
  * WHY TITLES NEEDED A SEPARATE DETECTOR. This script read `descriptionByLocale`
  * only, and skipped anything under 120 characters — which excludes every title
@@ -81,7 +83,7 @@
  * Usage:
  *   node scripts/mark-mistranslated-jobs.mjs [--dry-run] [--no-titles]
  *                                            [--no-descriptions] [--max-marks N]
- *                                            [--queue-ceiling N]
+ *                                            [--queue-ceiling N] [--gender-forms]
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -90,6 +92,7 @@ import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { applyMarks, persistMarksToSlices } from './lib/job-mark-persistence.mjs';
+import { masculineGermanTitle } from './local-mt-mopup.mjs';
 
 // Re-exported: `applyMarks` moved to lib/ so the descriptions marker shares one
 // write path with this one (see that module's header for why). Kept on this
@@ -163,6 +166,20 @@ export function titleOffence(job) {
 }
 
 /**
+ * One-shot detector for German source titles whose pre-Argos normalization
+ * would change the text. This is deliberately opt-in: retranslation does not
+ * change the German source title, so the predicate stays true forever. The
+ * selector therefore keeps `genderForms` false by default, preventing the
+ * scheduled path from re-flagging the same jobs on every run.
+ */
+export function genderFormOffence(job) {
+  const sourceLang = String(job.sourceLang || '').toLowerCase();
+  const sourceTitle = String(job.title || '');
+  if (!sourceLang.startsWith('de') || masculineGermanTitle(sourceTitle) === sourceTitle) return null;
+  return { locale: sourceLang, detail: `title ${sourceLang} => masculineGermanTitle` };
+}
+
+/**
  * Select which jobs to mark. Pure: takes an array, returns slugs + diagnostics,
  * mutates nothing. Deterministic given the same input order, so a dry-run and
  * the real run agree.
@@ -173,20 +190,28 @@ export function titleOffence(job) {
  * @param {number}  [options.queueCeiling=DEFAULT_QUEUE_CEILING]  backpressure (0 = off)
  * @param {boolean} [options.titles=true]
  * @param {boolean} [options.descriptions=true]
+ * @param {boolean} [options.genderForms=false] one-shot German source-title repair
  * @returns {{slugs: Set<string>, hits: Array<{slug: string, detail: string}>,
- *            titleHits: number, descriptionHits: number, eligible: number,
+ *            titleHits: number, descriptionHits: number, genderFormHits: number, eligible: number,
  *            remaining: number, capped: boolean, throttled: boolean,
  *            queueDepth: number}}
  */
 export function selectMistranslatedJobs(
   jobs,
-  { cap = DEFAULT_MARK_CAP, queueCeiling = DEFAULT_QUEUE_CEILING, titles = true, descriptions = true } = {}
+  {
+    cap = DEFAULT_MARK_CAP,
+    queueCeiling = DEFAULT_QUEUE_CEILING,
+    titles = true,
+    descriptions = true,
+    genderForms = false,
+  } = {}
 ) {
   const list = Array.isArray(jobs) ? jobs : [];
   const slugs = new Set();
   const hits = [];
   let titleHits = 0;
   let descriptionHits = 0;
+  let genderFormHits = 0;
   let eligible = 0;
   let matched = 0;
 
@@ -198,7 +223,7 @@ export function selectMistranslatedJobs(
   const queueDepth = list.filter((job) => job && job.needsRetranslation).length;
   if (queueCeiling > 0 && queueDepth >= queueCeiling) {
     return {
-      slugs, hits, titleHits, descriptionHits,
+      slugs, hits, titleHits, descriptionHits, genderFormHits,
       eligible: 0, remaining: 0, capped: false, throttled: true, queueDepth,
     };
   }
@@ -215,7 +240,10 @@ export function selectMistranslatedJobs(
     // pass over four full descriptions, and it is the detector that actually
     // fires (measured 2026-08-10 on 26,605 jobs: 13,250 title-flagged vs 60
     // description-flagged), so short-circuiting on it skips most of the cost.
-    const offence = (titles ? titleOffence(job) : null) || (descriptions ? descriptionOffence(job) : null);
+    const titleHit = titles ? titleOffence(job) : null;
+    const descriptionHit = !titleHit && descriptions ? descriptionOffence(job) : null;
+    const genderFormHit = !titleHit && !descriptionHit && genderForms ? genderFormOffence(job) : null;
+    const offence = titleHit || descriptionHit || genderFormHit;
     if (!offence) continue;
     matched += 1;
     // Guard 3 — the cap bounds what we MARK, but `matched` keeps counting so the
@@ -224,8 +252,9 @@ export function selectMistranslatedJobs(
     if (slugs.has(slug)) continue;
     slugs.add(slug);
     hits.push({ slug, detail: offence.detail });
-    if (offence.detail.startsWith('title ')) titleHits += 1;
-    else descriptionHits += 1;
+    if (offence === titleHit) titleHits += 1;
+    else if (offence === descriptionHit) descriptionHits += 1;
+    else genderFormHits += 1;
   }
 
   return {
@@ -233,6 +262,7 @@ export function selectMistranslatedJobs(
     hits,
     titleHits,
     descriptionHits,
+    genderFormHits,
     eligible,
     remaining: Math.max(0, matched - slugs.size),
     capped: cap > 0 && matched > slugs.size,
@@ -254,6 +284,7 @@ function parseArgs(argv) {
     dryRun: argv.includes('--dry-run'),
     titles: !argv.includes('--no-titles'),
     descriptions: !argv.includes('--no-descriptions'),
+    genderForms: argv.includes('--gender-forms'),
     cap: num(get('--max-marks') ?? process.env.TITLE_MISTRANSLATION_MARK_CAP, DEFAULT_MARK_CAP),
     queueCeiling: num(
       get('--queue-ceiling') ?? process.env.TITLE_MISTRANSLATION_QUEUE_CEILING,
@@ -281,7 +312,7 @@ function main() {
     return;
   }
   console.log(
-    `Offending jobs: ${selection.slugs.size} (titles ${selection.titleHits}, descriptions ${selection.descriptionHits})`
+    `Offending jobs: ${selection.slugs.size} (titles ${selection.titleHits}, descriptions ${selection.descriptionHits}, gender forms ${selection.genderFormHits})`
       + ` of ${selection.eligible} eligible; queue depth ${selection.queueDepth}`
   );
   if (selection.capped) {

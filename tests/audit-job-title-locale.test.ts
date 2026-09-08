@@ -80,6 +80,12 @@ const cleanJob = {
   },
 };
 
+const germanGenderFormJob = {
+  slug: 'zimmermann-zimmerin',
+  sourceLang: 'de',
+  title: 'Zimmermann/Zimmerin mit vielseitiger Erfahrung',
+};
+
 describe('audit-job-title-locale — pure core', () => {
   it('counts only non-source, non-empty title slots', () => {
     const report = auditJobTitles([
@@ -271,6 +277,71 @@ describe('job-title-locale-audit.yml — issue contract', () => {
 });
 
 describe('mark-mistranslated-jobs — idempotent title marking', () => {
+  it('selects German gender-form titles only when the one-shot detector is enabled', () => {
+    const sel = selectMistranslatedJobs([germanGenderFormJob], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(sel.slugs.has(germanGenderFormJob.slug)).toBe(true);
+    expect(sel.genderFormHits).toBe(1);
+  });
+
+  it('does not select German gender-form titles with the scheduled defaults', () => {
+    const sel = selectMistranslatedJobs([germanGenderFormJob]);
+    expect(sel.slugs.size).toBe(0);
+    expect(sel.genderFormHits).toBe(0);
+  });
+
+  it('does not treat two distinct professions as a German gender form', () => {
+    const job = {
+      slug: 'optometrist-augenoptikermeister',
+      sourceLang: 'de',
+      title: 'Optometrist/Augenoptikermeister (w/m/d)',
+    };
+    const sel = selectMistranslatedJobs([job], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(sel.slugs.size).toBe(0);
+    expect(sel.genderFormHits).toBe(0);
+  });
+
+  it('does not apply the German detector to an Italian source title', () => {
+    const job = {
+      slug: 'operaio-in-produzione',
+      sourceLang: 'it',
+      title: 'Operaio/in di produzione',
+    };
+    const sel = selectMistranslatedJobs([job], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(sel.slugs.size).toBe(0);
+    expect(sel.genderFormHits).toBe(0);
+  });
+
+  it('does not re-select a German gender-form job already queued', () => {
+    const sel = selectMistranslatedJobs([{ ...germanGenderFormJob, needsRetranslation: true }], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(sel.slugs.size).toBe(0);
+    expect(sel.eligible).toBe(0);
+    expect(sel.genderFormHits).toBe(0);
+  });
+
   it('selects a job with a wrong-language title', () => {
     const sel = selectMistranslatedJobs([brokenJob]);
     expect(sel.slugs.has(brokenJob.slug)).toBe(true);
