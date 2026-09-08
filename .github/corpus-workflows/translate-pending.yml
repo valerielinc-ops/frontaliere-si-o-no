@@ -413,6 +413,15 @@ jobs:
           path: ${{ runner.temp }}/translation-thinking-ab.json
           retention-days: 30
           if-no-files-found: warn
+      - name: Upload cascade company rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-cascade-companies-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-cascade-companies.json
+          retention-days: 30
+          if-no-files-found: warn
       - name: Commit translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: |
