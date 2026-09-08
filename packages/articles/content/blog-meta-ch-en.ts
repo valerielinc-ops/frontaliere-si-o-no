@@ -6121,6 +6121,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abb-rolls-royce-smr-reattori.title': 'ABB and Rolls-Royce: Nuclear Reactors Alliance',
     'blog.article.abb-rolls-royce-smr-reattori.excerpt': 'The giant ABB together with Rolls-Royce SMR for automation solutions in small modular reactors. Generative capacity: 470 MW with low carbon emissions.',
     'blog.article.abb-rolls-royce-smr-reattori.imageAlt': 'ABB and Rolls-Royce SMR strategic partnership for low-emission small modular nuclear reactors',
+    'blog.article.aviazione-emissioni-svizzera-2025.title': 'Air traffic and emissions: return to pre-Covid levels',
+    'blog.article.aviazione-emissioni-svizzera-2025.excerpt': 'In 2025, Switzerland recorded 1.4 million air movements and 60.5 million passengers. CO2 emissions are growing (+3%). UST confirms the pre-Covid recovery.',
+    'blog.article.aviazione-emissioni-svizzera-2025.imageAlt': 'Aerial view of Swiss landscape from commercial aircraft window, cities and lakes visible below during cruise flight.',
 };
 
 export default blogMetaChEn;
