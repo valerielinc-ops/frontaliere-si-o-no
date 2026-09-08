@@ -665,6 +665,50 @@ describe('enrichEventsWithLocaleFallbackTranslations', () => {
     expect(out[0].titleByLocale.fr).toBe('it->fr');
   });
 
+  it('riusa il memo positivo quando il feed ricopia la lingua sorgente al giro successivo', async () => {
+    const cache: Record<string, Record<string, string | null>> = {};
+    const firstTranslate = vi.fn(async ({ targetLang }: { targetLang: string }) => `traduzione-${targetLang}`);
+
+    await enrichEventsWithLocaleFallbackTranslations(
+      [{ id: 'myswitzerland:stable', titleByLocale: { it: 'Festival della Musica' } }],
+      cache,
+      { locales: ['it', 'en'], translateFn: firstTranslate, delayMs: 0 },
+    );
+
+    const secondTranslate = vi.fn(async () => 'questa chiamata non deve partire');
+    const second = await enrichEventsWithLocaleFallbackTranslations(
+      [{
+        id: 'myswitzerland:stable',
+        titleByLocale: { it: 'Festival della Musica', en: 'Festival della Musica' },
+      }],
+      cache,
+      { locales: ['it', 'en'], translateFn: secondTranslate, delayMs: 0 },
+    );
+
+    expect(second[0].titleByLocale.en).toBe('traduzione-en');
+    expect(secondTranslate).not.toHaveBeenCalled();
+  });
+
+  it('ritenta un memo vuoto invece di pubblicare la sorgente duplicata', async () => {
+    const cache: Record<string, Record<string, string | null>> = {
+      'title::it::festival della musica': { en: '' },
+    };
+    const translateFn = vi.fn(async ({ targetLang }: { targetLang: string }) => `traduzione-${targetLang}`);
+
+    const translated = await enrichEventsWithLocaleFallbackTranslations(
+      [{
+        id: 'myswitzerland:empty-memo',
+        titleByLocale: { it: 'Festival della Musica', en: 'Festival della Musica' },
+      }],
+      cache,
+      { locales: ['it', 'en'], translateFn, delayMs: 0 },
+    );
+
+    expect(translateFn).toHaveBeenCalledTimes(1);
+    expect(translated[0].titleByLocale.en).toBe('traduzione-en');
+    expect(cache['title::it::festival della musica'].en).toBe('traduzione-en');
+  });
+
   it('enriches descriptionByLocale independently of titleByLocale, and leaves events with neither field untouched', async () => {
     const events = [
       { id: 'guidle:3', descriptionByLocale: { de: 'Ein tolles Konzert.' } },

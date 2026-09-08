@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import {
   freeTranslate,
   getCascadeStats,
@@ -49,6 +50,166 @@ const IT = [
   '',
   'Chi ha iniziato a lavorare in Svizzera dopo il 2023 rientra fra i nuovi frontalieri e paga le imposte in entrambi i Paesi.',
 ].join('\n');
+
+function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown>) {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const echo = ${JSON.stringify(IT)};
+    const selfHostedBody = ${JSON.stringify(selfHostedBody)};
+    globalThis.fetch = async (url) => {
+      const value = String(url);
+      if (value.startsWith('http://self-hosted.test/')) {
+        return { ok: true, json: async () => selfHostedBody };
+      }
+      if (value.includes('api.mymemory.translated.net')) {
+        return { ok: true, json: async () => ({ responseData: { translatedText: echo, match: 1 } }) };
+      }
+      if (value.includes('translate.googleapis.com')) {
+        return { ok: true, text: async () => JSON.stringify([[[echo]]]) };
+      }
+      if (value.includes('clients5.google.com')) {
+        return { ok: true, text: async () => JSON.stringify({ sentences: [{ trans: echo }] }) };
+      }
+      if (value.includes('/api/v1/')) {
+        return { ok: true, json: async () => ({ translation: echo }) };
+      }
+      if (value.includes('mozhi.')) {
+        return { ok: true, json: async () => ({ 'translated-text': echo }) };
+      }
+      if (value.includes('simplytranslate')) {
+        return { ok: true, json: async () => ({ translated_text: echo }) };
+      }
+      if (value.includes('/translate')) {
+        return { ok: true, json: async () => ({ translatedText: echo }) };
+      }
+      throw new Error('endpoint inatteso: ' + value);
+    };
+    const { freeTranslateWithRetryDetailed } = await import(${JSON.stringify(moduleUrl)});
+    const result = await freeTranslateWithRetryDetailed({
+      text: echo,
+      sourceLang: 'it',
+      targetLang: 'en',
+      maxRetries: 0,
+    });
+    process.stdout.write(JSON.stringify(result));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GOOGLE_APPLICATION_CREDENTIALS: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      LIBRETRANSLATE_SELF_HOSTED_URL: 'http://self-hosted.test/translate',
+      MT_LOCAL_OPUSMT: '',
+      VITEST: '1',
+    },
+  });
+}
+
+function runExhaustedTierSkipScenario(
+  service: 'deepl' | 'azure',
+  options: { myMemoryResult?: string; detailed?: boolean } = {},
+) {
+  const { myMemoryResult = 'traduzione di prova', detailed = false } = options;
+  const modulePath = new URL('../scripts/lib/free-translate.mjs', import.meta.url).pathname;
+  const myMemoryStub = `const translateWithMyMemory = async () => ${JSON.stringify(myMemoryResult)};`;
+  const invoke = detailed
+    ? '({ text, sourceLang, targetLang }) => freeTranslateWithRetryDetailed({ text, sourceLang, targetLang, maxRetries: 0 })'
+    : '({ text, sourceLang, targetLang }, outcome) => freeTranslate({ text, sourceLang, targetLang, _outcome: outcome })';
+  const resultObject = detailed
+    ? '{ out: secondResult, first: firstResult, second: secondResult }'
+    : '{ out: secondResult, first: firstOutcome, second: secondOutcome }';
+  const childScript = `
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
+    const standalone = source
+      .replace(
+        "import { translateWithMyMemory } from './mymemory-translate.mjs';",
+        ${JSON.stringify(myMemoryStub)},
+      )
+      .replace(
+        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+      )
+      .replace(
+        "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
+        "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      );
+    globalThis.console.log = () => {};
+    globalThis.console.warn = () => {};
+    globalThis.fetch = async (url) => {
+      const value = String(url);
+      if (${JSON.stringify(service)} === 'deepl' && value.includes('api-free.deepl.com')) {
+        return { ok: false, status: 456 };
+      }
+      if (${JSON.stringify(service)} === 'azure' && value.includes('api.cognitive.microsofttranslator.com')) {
+        return { ok: false, status: 429 };
+      }
+      if (${detailed}) {
+        const echo = ${JSON.stringify(myMemoryResult)};
+        if (value.includes('translate.googleapis.com')) {
+          return { ok: true, text: async () => JSON.stringify([[[echo]]]) };
+        }
+        if (value.includes('clients5.google.com')) {
+          return { ok: true, text: async () => JSON.stringify({ sentences: [{ trans: echo }] }) };
+        }
+        if (value.includes('/api/v1/')) {
+          return { ok: true, json: async () => ({ translation: echo }) };
+        }
+        if (value.includes('simplytranslate')) {
+          return { ok: true, json: async () => ({ translated_text: echo }) };
+        }
+        if (value.includes('mozhi.')) {
+          return { ok: true, json: async () => ({ 'translated-text': echo }) };
+        }
+        if (value.includes('translate.fedilab.app')) {
+          return { ok: true, json: async () => ({ translatedText: echo }) };
+        }
+        if (value.includes('router.huggingface.co')) {
+          return { ok: true, json: async () => [{ translation_text: echo }] };
+        }
+      }
+      throw new Error('endpoint inatteso: ' + value);
+    };
+    const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(standalone).toString('base64');
+    const { freeTranslate, freeTranslateWithRetryDetailed } = await import(moduleUrl);
+    const invoke = ${invoke};
+    const firstOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const firstResult = await invoke({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en' }, firstOutcome);
+    const secondOutcome = { passthroughs: 0, errors: 0, incomplete: false };
+    const secondResult = await invoke({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en' }, secondOutcome);
+    process.stdout.write(JSON.stringify(${resultObject}));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: service === 'azure' ? 'azure-one' : '',
+      AZURE_TRANSLATOR_KEY_2: service === 'azure' ? 'azure-two' : '',
+      DEEPL_API_KEY: service === 'deepl' ? 'deepl-one' : '',
+      DEEPL_API_KEY_2: service === 'deepl' ? 'deepl-two' : '',
+      GOOGLE_APPLICATION_CREDENTIALS: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      LIBRETRANSLATE_SELF_HOSTED_URL: '',
+      MT_LOCAL_OPUSMT: '',
+      VITEST: '1',
+    },
+  });
+}
 
 const EN = [
   '## In brief',
@@ -194,6 +355,53 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(out).toBe('');
     expect(after.passthroughs - before.passthroughs).toBe(0);
     expect(after.hits - before.hits).toBe(0);
+  });
+
+  it('riporta passthrough true dalla cascata reale quando riconosce un echo', () => {
+    const child = runRealCascadeWithSelfHostedBody({ translatedText: IT });
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+  });
+
+  it('non riporta passthrough quando la cascata reale incontra una risposta 200 vuota', () => {
+    const child = runRealCascadeWithSelfHostedBody({});
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
+  });
+
+  it.each(['deepl', 'azure'] as const)('non marca incomplete quando tutte le chiavi %s sono gia esauste e il tier non prova alcuna chiave', (service) => {
+    const child = runExhaustedTierSkipScenario(service);
+
+    expect(child.status).toBe(0);
+    const second = JSON.parse(child.stdout).second;
+    expect(second).toMatchObject({ passthroughs: 0, errors: 0, incomplete: false });
+    if (service === 'deepl') expect(second.tierUnavailable).toBe(true);
+  });
+
+  it('non memoizza un passthrough quando DeepL ha tutte le chiavi gia esauste', () => {
+    const child = runExhaustedTierSkipScenario('deepl', {
+      myMemoryResult: 'Titolo di prova',
+      detailed: true,
+    });
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.first).toEqual({ text: '', passthrough: false });
+    expect(result.second).toEqual({ text: '', passthrough: false });
+  });
+
+  it('non memoizza un passthrough quando Azure ha tutte le chiavi gia esauste', () => {
+    const child = runExhaustedTierSkipScenario('azure', {
+      myMemoryResult: 'Titolo di prova',
+      detailed: true,
+    });
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.first).toEqual({ text: '', passthrough: false });
+    expect(result.second).toEqual({ text: '', passthrough: false });
   });
 });
 
