@@ -197,6 +197,13 @@ jobs:
       - name: Assemble dataset
         if: inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
+      - name: Record translation rollout context
+        env:
+          ROLLOUT_REPOSITORY: ${{ github.repository }}
+          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+        run: |
+          echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
+          echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
       - name: "Phase 2a: Local MT bulk translate (Argos)"
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
