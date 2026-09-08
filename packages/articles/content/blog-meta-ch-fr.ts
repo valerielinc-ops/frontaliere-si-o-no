@@ -6073,6 +6073,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tariffe-elettricita-2027-calo.title': 'Baisse des factures d\'électricité 2027 : -4% en Suisse',
     'blog.article.tariffe-elettricita-2027-calo.excerpt': 'En 2027, les tarifs de l\'électricité baissent de 4 % selon Elcom. Une famille type économise 53 CHF par an, mais les variations régionales restent significatives.',
     'blog.article.tariffe-elettricita-2027-calo.imageAlt': 'Compteur d\'électricité suisse sur immeuble résidentiel avec baisse des tarifs 2027',
+    'blog.article.bollette-energia-calo-2027.title': 'Factures d\'énergie en baisse de 4 % en 2027',
+    'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom annonce une troisième année consécutive de baisse. Une famille moyenne économisera 53 francs par an en payant 1 194 francs pour l\'énergie.',
+    'blog.article.bollette-energia-calo-2027.imageAlt': 'Compteur électrique d\'une maison suisse, symbole de la baisse tarifaire 2027',
 };
 
 export default blogMetaChFr;

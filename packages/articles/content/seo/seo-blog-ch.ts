@@ -78839,6 +78839,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollette-energia-calo-2027': {
+    title: 'Bollette energia giù del 4% nel 2027 | Frontaliere Ticino',
+    description: 'ElCom annuncia il calo dei prezzi dell\'energia nel 2027. Una famiglia media risparmierà 53 CHF all\'anno. Terzo anno consecutivo di riduzione tariffaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, energia, elcom, annuncia',
+    ogTitle: 'Bollette energia giù del 4% nel 2027',
+    ogDescription: 'Buone notizie per il budget familiare. ElCom ha annunciato che le bollette energetiche caleranno del 4% nel 2027. Una famiglia media che consuma 4\'500 kWh risparmierà 53 franchi all\'anno, pagando una bolletta annuale di 1\'194 CHF. È il terzo anno',
+    canonicalPath: '/articoli-svizzera/bollette-energia-calo-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollette energia giù del 4% nel 2027",
+      "description": "ElCom annuncia il calo dei prezzi dell'energia nel 2027. Una famiglia media risparmierà 53 CHF all'anno. Terzo anno consecutivo di riduzione tariffaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollette-energia-calo-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contatore elettrico di una casa svizzera, simbolo del calo dei prezzi nel 2027"
+      },
+      "datePublished": "2026-09-08T10:15:58+00:00",
+      "dateModified": "2026-09-08T10:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bollette-energia-calo-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

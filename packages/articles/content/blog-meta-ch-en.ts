@@ -6073,6 +6073,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tariffe-elettricita-2027-calo.title': '2027 electricity bill drop: -4% in Switzerland',
     'blog.article.tariffe-elettricita-2027-calo.excerpt': 'In 2027 electricity rates fall by 4% according to Elcom. A typical household saves CHF 53 per year, but regional variations remain significant.',
     'blog.article.tariffe-elettricita-2027-calo.imageAlt': 'Swiss residential electricity meter on apartment building facade with 2027 tariff reduction',
+    'blog.article.bollette-energia-calo-2027.title': 'Energy bills down 4% in 2027',
+    'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom announces the third consecutive year of decline. The average household will save CHF 53 per year, paying CHF 1,194 for energy.',
+    'blog.article.bollette-energia-calo-2027.imageAlt': 'Swiss home electricity meter, symbolizing the 4% price drop in 2027',
 };
 
 export default blogMetaChEn;
