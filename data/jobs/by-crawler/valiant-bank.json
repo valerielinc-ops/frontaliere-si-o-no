@@ -1,6 +1,6 @@
 {
   "crawlerKey": "valiant-bank",
-  "assembledAt": "2026-09-07T23:36:06.860Z",
+  "assembledAt": "2026-09-08T13:46:19.570Z",
   "jobs": [
     {
       "id": "valiant-bank-e594269f30be",
@@ -33,7 +33,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/dd63b9f0-f6df-431a-8687-d68cb3c6b1ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:54.863Z",
+      "crawledAt": "2026-09-08T13:46:07.397Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -113,7 +113,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:54.339Z",
+      "crawledAt": "2026-09-08T13:46:06.894Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -130,14 +130,17 @@
       "postedDate": "2025-02-04",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-vermoegensberatungskunden/d9fffdec-3231-4a14-99a4-aea8b98a91dd",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
+        "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen",
+        "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
+          "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen",
+          "consulente-in-consulenza-clienti-80-100-valiant-bank-ag-st-gallen"
         ],
         "en": [
           "berater-in-vermogensberatungskunden-80-100-valiant-st-gallen"
@@ -192,7 +195,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/68530eb6-558c-490d-b597-ff21bf45d3c0",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:53.873Z",
+      "crawledAt": "2026-09-08T13:46:06.403Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -272,7 +275,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-d-equipe-administration-des-credits/ca0ef4aa-ba74-4f45-a918-e75398552416",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:35:53.348Z",
+      "crawledAt": "2026-09-08T13:46:06.001Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -293,11 +296,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+        "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
+        "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
+          "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen",
+          "team-leader-credit-administration-80-100-valiant-bank-ag-gumligen"
         ],
         "en": [
           "responsable-d-equipe-administration-des-credits-80-100-valiant-gumligen"
@@ -352,7 +357,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/de9ea92c-2abd-4606-8efc-2f36e2961609",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:52.868Z",
+      "crawledAt": "2026-09-08T13:46:05.397Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -432,7 +437,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/e6ccb352-bdf5-46ab-8302-060383e05fc3",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:52.386Z",
+      "crawledAt": "2026-09-08T13:46:04.930Z",
       "addressLocality": "Bern Betlehem",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -453,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-bern-betlehem"
+        "berater-in-privatkunden-80-100-valiant-bern-betlehem",
+        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-bern-betlehem"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-privatkunden-80-100-valiant-bern-betlehem"
+          "berater-in-privatkunden-80-100-valiant-bern-betlehem",
+          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-bern-betlehem"
         ],
         "en": [
           "berater-in-privatkunden-80-100-valiant-bern-betlehem"
@@ -512,7 +519,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/diverse-freie-ausbildungsplaetze-ab-1-august-2027/e511f785-7e8d-4da3-9cea-1a8a4992ecd4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:52.179Z",
+      "crawledAt": "2026-09-08T13:46:04.713Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bahnhofplatz 7",
@@ -533,11 +540,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
+        "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern",
+        "vari-apprendisti-liberi-da-1-agosto-2027-valiant-bank-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
+          "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern",
+          "vari-apprendisti-liberi-da-1-agosto-2027-valiant-bank-ag-bern"
         ],
         "en": [
           "diverse-freie-ausbildungsplatze-ab-1-august-2027-valiant-bern"
@@ -592,7 +601,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/6278b239-6167-4ae3-87d6-d0f20b1f79f6",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:51.475Z",
+      "crawledAt": "2026-09-08T13:46:03.981Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -672,7 +681,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/64042003-3db5-4bcf-b663-13eba6d2a448",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:50.986Z",
+      "crawledAt": "2026-09-08T13:46:03.528Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -752,7 +761,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privat-und-geschaeftskunden/fb5388c3-099e-48a1-b95b-eb06a04f069c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:50.487Z",
+      "crawledAt": "2026-09-08T13:46:02.991Z",
       "addressLocality": "Brugg",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -832,7 +841,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-clientele-privee-et-commerciale/918ab9a2-ffbf-4116-82bd-abf85a2575b5",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:35:50.013Z",
+      "crawledAt": "2026-09-08T13:46:01.489Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -853,11 +862,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
+        "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey",
+        "consulenza-clienti-privata-e-commerciale-age-80-100-valiant-bank-ag-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
+          "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey",
+          "consulenza-clienti-privata-e-commerciale-age-80-100-valiant-bank-ag-vevey"
         ],
         "en": [
           "conseiller-ere-clientele-privee-et-commerciale-80-100-valiant-vevey"
@@ -912,7 +923,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaeftskundenberatung/1429c305-7fd9-4962-8273-8d85ddab682c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:48.601Z",
+      "crawledAt": "2026-09-08T13:46:00.496Z",
       "addressLocality": "Seengen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -934,12 +945,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100",
-        "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2"
+        "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2",
+        "berater-in-privatkunden-con-entwicklungspotential-in-la-geschaftskundenberatung-80-100-valiant-bank-ag-seengen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100",
-          "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2"
+          "berater-in-privatkunden-mit-entwicklungspotential-in-die-geschaftskundenberatung-80-100-2",
+          "berater-in-privatkunden-con-entwicklungspotential-in-la-geschaftskundenberatung-80-100-valiant-bank-ag-seengen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:23:01.145Z",
@@ -988,7 +1001,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-clientele-privee-evolution-clientele-commerciale/15aa446e-773b-4f9f-bc30-71724487e841",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:35:48.390Z",
+      "crawledAt": "2026-09-08T13:46:00.334Z",
       "addressLocality": "Moutier",
       "addressRegion": "JU",
       "streetAddress": "",
@@ -1009,11 +1022,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
+        "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier",
+        "consulente-age-del-cliente-privato-sviluppo-del-cliente-commerciale-80-100-valiant-bank-ag-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
+          "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier",
+          "consulente-age-del-cliente-privato-sviluppo-del-cliente-commerciale-80-100-valiant-bank-ag-moutier"
         ],
         "en": [
           "conseiller-ere-clientele-privee-evolution-clientele-commerciale-80-100-valiant-moutier"
@@ -1068,7 +1083,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/leiter-in-mitarbeitergeschaefte-und-internationale-kunden-topsharing-moeglich/f9a9c2c6-374a-4cc6-802b-a108616c0656",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:47.937Z",
+      "crawledAt": "2026-09-08T13:45:59.812Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1090,12 +1105,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-in-mitarbeitergeschafte-und-internationale-kunden-60-100-topsharing-moglich-valiant",
-        "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern"
+        "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern",
+        "testa-di-aziende-dipendenti-e-clienti-internazionali-60-100-condivisione-massima-possibile-valiant-bank-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-mitarbeitergeschafte-und-internationale-kunden-60-100-topsharing-moglich-valiant",
-          "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern"
+          "responsabile-mitarbeitergeschafte-e-internationale-kunden-60-100-topsharing-moglich-valiant-bank-ag-bern",
+          "testa-di-aziende-dipendenti-e-clienti-internazionali-60-100-condivisione-massima-possibile-valiant-bank-ag-bern"
         ],
         "en": [
           "leiter-in-mitarbeitergeschafte-und-internationale-kunden-60-100-topsharing-moglich-valiant"
@@ -1150,7 +1167,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-topsharing-possible/12fd3207-8b45-44bb-8e6d-2579564eb8df",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:35:47.743Z",
+      "crawledAt": "2026-09-08T13:45:59.678Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1167,12 +1184,19 @@
       "postedDate": "2026-08-11",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-topsharing-possible/12fd3207-8b45-44bb-8e6d-2579564eb8df",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": false,
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100",
+        "responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-60-100-topsharing",
+        "responsabile-del-personale-e-partner-internazionali-e-clienti-60-100-topsharing-possibile-valiant-bank-ag-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100",
-          "responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-60-100-topsharing"
+          "responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-60-100-topsharing",
+          "responsabile-del-personale-e-partner-internazionali-e-clienti-60-100-topsharing-possibile-valiant-bank-ag-bern"
         ],
         "en": [
           "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100"
@@ -1184,10 +1208,6 @@
           "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100"
         ]
       },
-      "previousSlugs": [
-        "responsable-affaires-du-personnel-et-des-partenaires-et-clients-internationaux-60-100",
-        "responsable-des-affaires-du-personnel-et-de-la-clientele-internationale-60-100-topsharing"
-      ],
       "firstSeenAt": "2026-08-11T22:01:10.013Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1234,7 +1254,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:47.546Z",
+      "crawledAt": "2026-09-08T13:45:59.539Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1251,16 +1271,19 @@
       "postedDate": "2026-08-12",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/digitale-r-berater-in-kundencenter/d3fdc74e-5c2a-49cb-8dc0-40200848cf3c",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "digitale-r-berater-in-kundencenter-80-100-valiant-gumligen",
-        "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
+        "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-gumligen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digitale-r-berater-in-kundencenter-80-100-valiant-gumligen",
-          "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
+          "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+          "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-gumligen"
         ],
         "en": [
           "digitale-r-berater-in-kundencenter-80-100-valiant-gumligen"
@@ -1315,7 +1338,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:35:47.239Z",
+      "crawledAt": "2026-09-08T13:45:59.377Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1332,14 +1355,17 @@
       "postedDate": "2026-08-12",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/conseiller-ere-numerique-centre-clientele/7ac3ceab-7d2c-4ea5-bf9f-5471ea935e44",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
+        "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen",
+        "consulente-di-eta-digitale-centro-clienti-80-100-valiant-bank-ag-gumligen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
+          "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen",
+          "consulente-di-eta-digitale-centro-clienti-80-100-valiant-bank-ag-gumligen"
         ],
         "en": [
           "conseiller-ere-numerique-centre-clientele-80-100-valiant-gumligen"
@@ -1394,7 +1420,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/fachexperte-in-risk-senior/f5c4e406-75a5-441a-a980-a83a2f8afab1",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:47.041Z",
+      "crawledAt": "2026-09-08T13:45:59.235Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1411,14 +1437,17 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/fachexperte-in-risk-senior/f5c4e406-75a5-441a-a980-a83a2f8afab1",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexperte-in-risk-senior-80-100-valiant-bern"
+        "fachexperte-in-risk-senior-80-100-valiant-bern",
+        "rischio-senior-80-100-valiant-bank-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexperte-in-risk-senior-80-100-valiant-bern"
+          "fachexperte-in-risk-senior-80-100-valiant-bern",
+          "rischio-senior-80-100-valiant-bank-ag-bern"
         ],
         "fr": [
           "fachexperte-in-risk-senior-80-100-valiant-bern"
@@ -1470,7 +1499,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden/618da58d-9337-4a3f-8188-47df8f22e9ba",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:46.817Z",
+      "crawledAt": "2026-09-08T13:45:59.065Z",
       "addressLocality": "Reinach AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1491,11 +1520,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-privatkunden-80-100-valiant-reinach-ag"
+        "berater-in-privatkunden-80-100-valiant-reinach-ag",
+        "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-privatkunden-80-100-valiant-reinach-ag"
+          "berater-in-privatkunden-80-100-valiant-reinach-ag",
+          "consulente-cliente-di-riferimento-80-100-valiant-bank-ag-reinach-ag"
         ],
         "en": [
           "berater-in-privatkunden-80-100-valiant-reinach-ag"
@@ -1550,7 +1581,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/d938832f-15ae-438c-b16a-c7e74b63a6f4",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:46.617Z",
+      "crawledAt": "2026-09-08T13:45:58.923Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1567,16 +1598,19 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/d938832f-15ae-438c-b16a-c7e74b63a6f4",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
         "geschaftsstellenleiter-in-80-100-valiant-koniz",
-        "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz"
+        "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz",
+        "office-manager-80-100-valiant-bank-ag-koniz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsstellenleiter-in-80-100-valiant-koniz",
-          "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz"
+          "responsabile-ufficio-in-80-100-valiant-bank-ag-koniz",
+          "office-manager-80-100-valiant-bank-ag-koniz"
         ],
         "en": [
           "geschaftsstellenleiter-in-80-100-valiant-koniz"
@@ -1631,7 +1665,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:46.409Z",
+      "crawledAt": "2026-09-08T13:45:58.761Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -1648,14 +1682,17 @@
       "postedDate": "2026-08-18",
       "applyUrl": "https://jobs.valiant.ch/offene-stellen/berater-in-unternehmenskunden/4b91d8b9-a7d4-4809-aeda-af411fa89016",
       "hiringOrganizationName": "Valiant Bank AG",
+      "needsRetranslation": true,
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
+        "berater-in-unternehmenskunden-80-100-valiant-st-gallen",
+        "consulente-cliente-aziendale-80-100-valiant-bank-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
+          "berater-in-unternehmenskunden-80-100-valiant-st-gallen",
+          "consulente-cliente-aziendale-80-100-valiant-bank-ag-st-gallen"
         ],
         "en": [
           "berater-in-unternehmenskunden-80-100-valiant-st-gallen"
@@ -1710,7 +1747,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/geschaeftsstellenleiter-in/df7446ef-6bf8-4f75-b83d-c775304f9949",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:46.187Z",
+      "crawledAt": "2026-09-08T13:45:58.617Z",
       "addressLocality": "Langnau i",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1732,12 +1769,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
-        "responsabile-ufficio-in-80-100-valiant-bank-ag-langnau-i"
+        "responsabile-ufficio-in-80-100-valiant-bank-ag-langnau-i",
+        "office-manager-80-100-valiant-bank-ag-langnau-i"
       ],
       "previousSlugsByLocale": {
         "it": [
           "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil",
-          "responsabile-ufficio-in-80-100-valiant-bank-ag-langnau-i"
+          "responsabile-ufficio-in-80-100-valiant-bank-ag-langnau-i",
+          "office-manager-80-100-valiant-bank-ag-langnau-i"
         ],
         "en": [
           "geschaftsstellenleiter-in-80-100-valiant-langnau-i-e-eggiwil"
@@ -1792,7 +1831,7 @@
       "url": "https://jobs.valiant.ch/offene-stellen/berater-in-privatkunden-bankgeschaefte-personal/bb8f1e27-4230-494d-b5d0-499020dd8d8f",
       "source": "Valiant Bank AG Dedicated Parser (Prospective Career Center 1000394, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:35:45.970Z",
+      "crawledAt": "2026-09-08T13:45:58.466Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Bundesplatz 4",
@@ -1814,12 +1853,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
-        "berater-in-privatkunden-bankgeschafte-personal-50-100-valiant-bern"
+        "berater-in-privatkunden-bankgeschafte-personal-50-100-valiant-bern",
+        "personale-bancario-consultivo-residente-50-100-valiant-bank-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern",
-          "berater-in-privatkunden-bankgeschafte-personal-50-100-valiant-bern"
+          "berater-in-privatkunden-bankgeschafte-personal-50-100-valiant-bern",
+          "personale-bancario-consultivo-residente-50-100-valiant-bank-ag-bern"
         ],
         "en": [
           "berater-in-privatkunden-bankgeschafte-personal-50-100-jobsharing-moglich-valiant-bern"
