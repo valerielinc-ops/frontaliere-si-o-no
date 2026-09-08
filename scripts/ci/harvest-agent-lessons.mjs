@@ -300,10 +300,13 @@ const NEGATED_IMPACT_CLAUSE_RE =
 //     delle issue di CI, non `dist/api/`, le sitemap, i feed o gli slug». Qui il
 //     vocabolario del bucket sta nella coda negata, quindi si toglie SOLO quella
 //     (il gruppo catturato conserva cio' che precede la virgola, senza un lookbehind
-//     a lunghezza fissa). La virgola e la contrastivita' sono obbligatorie: sono cio'
-//     che distingue questa coda da un «non» qualsiasi piu' avanti nella frase.
+//     a lunghezza fissa). Se nella stessa clausola compaiono piu' verbi di impatto,
+//     il corpo temperato forza il match sull'ULTIMO: un verbo piu' a sinistra non puo'
+//     mangiare il prefisso legittimo del finding. La virgola e la contrastivita' sono
+//     obbligatorie: sono cio' che distingue questa coda da un «non» qualsiasi piu'
+//     avanti nella frase.
 const CONTRASTIVE_NEGATED_TAIL_RE =
-  new RegExp(String.raw`(\b(?:${IMPACT_VERB})\b${CLAUSE_BODY}*?),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
+  new RegExp(String.raw`(\b(?:${IMPACT_VERB})\b(?:(?!\b(?:${IMPACT_VERB})\b)${CLAUSE_BODY})*?),\s*(?:e\s+|ma\s+)?(?:non|not)\b${CLAUSE_BODY}*`, 'giu');
 export function stripNegatedImpactClauses(text) {
   const s = String(text ?? '');
   if (SWEEP_ASSERTION_RE.test(s)) return s;

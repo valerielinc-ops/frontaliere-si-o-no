@@ -138,6 +138,14 @@ describe('bucketFinding — le tre imprecisioni chiuse dalla review di corpus#90
     expect(bucketFinding(line)).not.toBe('canonical-sitemap');
   });
 
+  it('la coda contrastiva usa l’ultimo verbo di impatto della clausola', () => {
+    const line = '🟡 Nit: il fix tocca il mapping e raggiunge il percorso operativo con il relativo controllo di coerenza e il contesto operativo, non `dist/api/`, le sitemap o i feed.';
+    const stripped = stripNegatedImpactClauses(line);
+    expect(stripped).toMatch(/tocca il mapping e raggiunge il percorso operativo/);
+    expect(stripped).not.toMatch(/sitemap|feed/);
+    expect(bucketFinding(line)).not.toBe('canonical-sitemap');
+  });
+
   it('la coda contrastiva non perde il finding quando la clausola prima della virgola supera 120 caratteri', () => {
     const longLead = ' con il relativo controllo di coerenza e il contesto operativo'.repeat(4);
     const line = `🟡 Nit: il fix tocca il percorso operativo${longLead}, non \`dist/api/\`, le sitemap o i feed.`;

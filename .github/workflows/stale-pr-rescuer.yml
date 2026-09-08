@@ -159,6 +159,19 @@ jobs:
             LAST_BODY=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // ""')
             LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .commit_id // ""')
 
+            # La copia bash deve fallire chiuso se PCRE rifiuta `(*UTF)`: exit 1
+            # significa solo «nessun marker», exit >1 è un errore del guard.
+            IMPORTANT_MARKER_STATUS=1
+            if printf '%s' "$LAST_BODY" | grep -qP '(*UTF)^[^🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'; then
+              IMPORTANT_MARKER_STATUS=0
+            else
+              IMPORTANT_MARKER_STATUS=$?
+            fi
+            if [ "$IMPORTANT_MARKER_STATUS" -gt 1 ]; then
+              echo "::error::grep -P non ha potuto validare il marker 🔴 Important (exit $IMPORTANT_MARKER_STATUS)."
+              continue
+            fi
+
             REASON=""; RESCUE=""
             if [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then
               # Classe A: tests verdi sull'head corrente da >2h ma nessuna review
@@ -166,7 +179,7 @@ jobs:
               # non distinguibili via API, stesso fix per entrambe).
               REASON="tests verdi sull'head corrente da >2h ma nessuna review pr-review-loop l'ha coperto"
               RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file, sana un eventuale app-token 401). Se il merge non serve, attendi ancora — può essere coda congestionata. Vedi AGENTS.md → \"Workflow-validation drift\"."
-            elif echo "$LAST_BODY" | grep -qP '(*UTF)^[^🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]' && [ "$LAST_CID" = "$HEAD" ]; then
+            elif [ "$IMPORTANT_MARKER_STATUS" -eq 0 ] && [ "$LAST_CID" = "$HEAD" ]; then
               # Classe B: 🔴 Important sull'head corrente, non ripreso. Regex
               # allineata a REDFLAG_IMPORTANT_RE (scripts/ci/lib/constants.mjs):
               # un bare `grep -q "🔴"` avrebbe mis-triggerato su prosa di

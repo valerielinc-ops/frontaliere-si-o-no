@@ -167,6 +167,14 @@ describe('the autonomous fixers read declared states before contradicting them (
     );
   });
 
+  it('pr-redflag-fixer does not veto current work merely because it is tracked', () => {
+    const p = prompt('pr-redflag-fixer.yml');
+    expect(p).toMatch(
+      /Regola specifica[\s\S]*in questa PR[\s\S]*PR concatenata #N[\s\S]*NON sono un veto/i,
+    );
+    expect(p).toMatch(/solo per i tre NO motivati[\s\S]*per scelta[\s\S]*by construction/i);
+  });
+
   it.each(FIXERS)('%s guards the veto against the earliest-match false positive', (file) => {
     const p = prompt(file);
     // `bulletState` returns the state whose match starts FIRST. "il floor non è

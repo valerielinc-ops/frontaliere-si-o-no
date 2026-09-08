@@ -108,7 +108,7 @@ export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
  * `stale-pr-rescuer.yml` grepano la STESSA forma in bash — un `if:`/`run:` YAML non
  * puo' importare questa regex. `grep` e' gia' orientato alla riga, quindi il pattern
  * bash e' questa `.source` senza il `\n` nella classe negata:
- * `grep -qP '^[^🟡🟢]*(?<!\`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'`.
+ * `grep -qP '(*UTF)^[^🟡🟢]*(?<!\`)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]'`.
  * Le tre copie non possono piu' divergere in silenzio: il guard `mirror bash` di
  * `tests/redflag-important-marker.test.ts` deriva il pattern atteso da questa
  * `.source` e lo pretende, verbatim, in entrambi i workflow.
