@@ -2014,7 +2014,8 @@ function getSectionExistingIds(slugDataSrc) {
   // Quote-agnostic key match (mirrors getAllArticleIds): a formatter/manual
   // edit could switch an entry key to double quotes; the `\1` backreference
   // rejects mixed quotes. Key is m[2] (group 1 is the quote char).
-  return [...src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)].map((m) => m[2]);
+  // Entry-key-only match: ID discovery must not depend on locale-property order inside the entry.
+  return [...src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)].map((m) => m[2]);
 }
 
 /**
@@ -2044,7 +2045,7 @@ function getAllArticleIds() {
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
     let src = '';
     try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
-    for (const m of src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)) ids.add(m[2]);
+    for (const m of src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)) ids.add(m[2]);
   }
   _allArticleIdsCache = [...ids];
   return _allArticleIdsCache;
