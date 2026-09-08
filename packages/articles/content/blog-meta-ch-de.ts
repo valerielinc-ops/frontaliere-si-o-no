@@ -6040,6 +6040,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Aktualisierte UN-Sanktionen: SESAM am 7. September geändert',
     'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Der UN-Ausschuss hat die Sanktionslisten am 7. September 2026 geändert. Die SESAM-Datenbank aktualisiert automatisch die restriktiven Maßnahmen in der Schweiz.',
     'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Schweizer Compliance-Arbeitsplatz mit UN-Sanktionsdokumenten und SESAM-Datenbank auf dem Bildschirm.',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.title': 'Novartis: Rückschlag im neuromuskulären Bereich',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.excerpt': 'Novartis besteht die Harbor-Studie für das Medikament del-désiran bei myotonischer Dystrophie Typ 1 nicht. Es ist die zweite negative Studie innerhalb weniger Tage, aber das Unternehmen hält ein jährliches Wachstumsziel von 5–6 % für 2025–2030 an.',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.imageAlt': 'Schweizer Pharmaunternehmen mit moderner Forschungsanlage und digitalen Anzeigen von klinischen Versuchsdaten.',
+    'blog.article.ricongiungimento-familiare-burocrazia.title': 'Familienzusammenführung: Bürokratie blockiert Kinder jahrelang',
+    'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'Ein Bericht der Schweizerischen Sternwarte verurteilt: Langsame Verfahren und schwierige Dokumente trennen Familien bis zum Alter von 10 Jahren. Kinder zahlen den höchsten Preis.',
+    'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Schweizer Verwaltungsbüro mit Familiendokumenten zur Darstellung bürokratischer Komplexität bei der Familienzusammenführung',
+    'blog.article.affitto-scende-chiedi.title': 'Deine Miete sinkt nicht von selbst. Du musst darum bitten',
+    'blog.article.affitto-scende-chiedi.excerpt': 'Der Hypothekenzins blieb bei 1,25 %, aber nur 12 % der Mieter haben eine Kürzung verlangt. So prüfen Sie, ob Sie Anspruch auf weniger Zahlungen haben.',
+    'blog.article.affitto-scende-chiedi.imageAlt': 'Ein typisches Schweizer Haus mit Blick auf den Luganersee, Symbol der Mietkosten in der Schweiz',
 };
 
 export default blogMetaChDe;
