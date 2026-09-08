@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-09-07T23:24:16.443Z",
+  "assembledAt": "2026-09-08T13:32:47.617Z",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:08.963Z",
+      "crawledAt": "2026-09-08T13:32:40.110Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -60,7 +60,8 @@
         "senior-projektleiter-in-80-100-gkb-jobservice-ch",
         "senior-projektleiter-in-80-100-graubundner-kantonalbank-chur",
         "senior-chef-de-projet-80-100-graubundner-kantonalbank-chur",
-        "senior-project-manager-in-80-100-graubundner-kantonalbank-chur"
+        "senior-project-manager-in-80-100-graubundner-kantonalbank-chur",
+        "senior-responsabile-di-progetto-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -71,7 +72,8 @@
           "senior-projektleiter-in-80-100-gkb-jobservice-ch",
           "senior-projektleiter-in-80-100-graubundner-kantonalbank-chur",
           "senior-chef-de-projet-80-100-graubundner-kantonalbank-chur",
-          "senior-project-manager-in-80-100-graubundner-kantonalbank-chur"
+          "senior-project-manager-in-80-100-graubundner-kantonalbank-chur",
+          "senior-responsabile-di-progetto-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "senior-project-manager-80-100-gkb-jobservice-lugano",
@@ -129,7 +131,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1917/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:08.120Z",
+      "crawledAt": "2026-09-08T13:32:39.105Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -152,13 +154,15 @@
         "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
         "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
         "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano",
-        "senior-specialiste-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
+        "senior-specialiste-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano",
+        "senior-specialist-management-consulting-foundations-80-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
           "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-          "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano"
+          "senior-specialista-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-lugano",
+          "senior-specialist-management-consulting-foundations-80-graubundner-kantonalbank-chur"
         ],
         "de": [
           "senior-specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
@@ -169,6 +173,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:35:38.760Z",
+      "needsRetranslation": true,
       "salaryMin": 132000,
       "salaryMax": 232000,
       "salarySource": "estimated",
@@ -215,7 +220,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:06.966Z",
+      "crawledAt": "2026-09-08T13:32:38.106Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -233,12 +238,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
-        "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-a-poschiavo-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch",
-          "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-ch"
+          "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-ch",
+          "kauffrau-kaufmann-bank-a-poschiavo-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-poschiavo-lehrbeginn-2027-gkb-jobservice-ch"
@@ -295,7 +302,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:05.954Z",
+      "crawledAt": "2026-09-08T13:32:37.114Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -313,12 +320,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch",
-        "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-in-arosa-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch",
-          "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-ch"
+          "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-ch",
+          "kauffrau-kaufmann-bank-in-arosa-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-arosa-lehrbeginn-2027-gkb-jobservice-ch"
@@ -378,7 +387,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:04.967Z",
+      "crawledAt": "2026-09-08T13:32:36.107Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -396,12 +405,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch",
-        "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-in-scuol-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch",
-          "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-ch"
+          "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-ch",
+          "kauffrau-kaufmann-bank-in-scuol-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-scuol-lehrbeginn-2027-gkb-jobservice-ch"
@@ -461,7 +472,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1922/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:04.102Z",
+      "crawledAt": "2026-09-08T13:32:35.101Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -479,12 +490,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch",
-        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch"
+        "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch",
+        "kauffrau-kaufmann-bank-a-st-moritz-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch",
-          "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch"
+          "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch",
+          "kauffrau-kaufmann-bank-a-st-moritz-inizio-dell-insegnamento-2027-gkb-jobservice-lugano"
         ],
         "en": [
           "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-jobservice-ch"
@@ -544,7 +557,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:02.968Z",
+      "crawledAt": "2026-09-08T13:32:34.112Z",
       "addressLocality": "Arosa",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -564,13 +577,15 @@
         "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch",
         "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch",
         "praktikan-in-bem-banking-arosa-ab-aout-2027-gkb-jobservice-lugano",
-        "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano"
+        "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano",
+        "intern-bem-banking-arosa-dal-agosto-2027-graubundner-kantonalbank-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-ch",
           "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch",
-          "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano"
+          "praktikant-in-bem-banking-arosa-ab-agosto-2027-gkb-jobservice-lugano",
+          "intern-bem-banking-arosa-dal-agosto-2027-graubundner-kantonalbank-arosa"
         ],
         "de": [
           "praktikant-in-bem-banking-arosa-ab-august-2027-gkb-jobservice-ch"
@@ -581,6 +596,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -627,7 +643,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:01.966Z",
+      "crawledAt": "2026-09-08T13:32:33.105Z",
       "addressLocality": "Scuol",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -649,7 +665,8 @@
         "praktikan-in-bem-banking-scuol-ab-aout-2027-gkb-jobservice-lugano",
         "praktikant-in-bem-banking-scuol-ab-agosto-2027-gkb-jobservice-lugano",
         "intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
-        "interno-in-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol"
+        "interno-in-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol",
+        "intern-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -657,7 +674,8 @@
           "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-ch",
           "praktikant-in-bem-banking-scuol-ab-agosto-2027-gkb-jobservice-lugano",
           "intern-in-bem-banking-scuol-from-august-2027-graubundner-kantonalbank-scuol",
-          "interno-in-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol"
+          "interno-in-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol",
+          "intern-bem-banking-scuol-da-agosto-2027-graubundner-kantonalbank-scuol"
         ],
         "de": [
           "praktikant-in-bem-banking-scuol-ab-august-2027-gkb-jobservice-ch"
@@ -668,6 +686,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -714,7 +733,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:00.999Z",
+      "crawledAt": "2026-09-08T13:32:32.112Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -734,13 +753,15 @@
         "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch",
         "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-ch",
         "praktikan-in-bem-banking-st-moritz-ab-aout-2027-gkb-jobservice-lugano",
-        "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano"
+        "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano",
+        "intern-bem-banking-st-moritz-dal-agosto-2027-graubundner-kantonalbank-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch",
           "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-ch",
-          "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano"
+          "praktikant-in-bem-banking-st-moritz-ab-agosto-2027-gkb-jobservice-lugano",
+          "intern-bem-banking-st-moritz-dal-agosto-2027-graubundner-kantonalbank-st-moritz"
         ],
         "de": [
           "praktikant-in-bem-banking-st-moritz-ab-august-2027-gkb-jobservice-ch"
@@ -751,6 +772,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -797,7 +819,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:24:00.138Z",
+      "crawledAt": "2026-09-08T13:32:31.109Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -820,7 +842,8 @@
         "internship-in-bem-banking-chur-from-august-2027-graubundner-kantonalbank-chur",
         "praktikant-in-bem-banking-chur-ab-agosto-2027-gkb-jobservice-lugano",
         "intern-in-bem-banking-chur-from-august-2027-graubundner-kantonalbank-chur",
-        "interno-in-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur"
+        "interno-in-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur",
+        "intern-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,7 +852,8 @@
           "internship-in-bem-banking-chur-from-august-2027-graubundner-kantonalbank-chur",
           "praktikant-in-bem-banking-chur-ab-agosto-2027-gkb-jobservice-lugano",
           "intern-in-bem-banking-chur-from-august-2027-graubundner-kantonalbank-chur",
-          "interno-in-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur"
+          "interno-in-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur",
+          "intern-bem-banking-chur-da-agosto-2027-graubundner-kantonalbank-chur"
         ],
         "de": [
           "praktikant-in-bem-banking-chur-ab-august-2027-gkb-jobservice-ch"
@@ -840,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.012Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -886,7 +911,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:56.128Z",
+      "crawledAt": "2026-09-08T13:32:30.106Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -910,14 +935,16 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch",
         "business-analista-in-payments-fokus-geschaftskunden-60-100-graubundner-kantonalbank-chur",
         "business-analista-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano",
-        "business-analyste-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano"
+        "business-analyste-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano",
+        "pagamenti-business-analyst-focus-business-clienti-60-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch",
           "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch",
           "business-analista-in-payments-fokus-geschaftskunden-60-100-graubundner-kantonalbank-chur",
-          "business-analista-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano"
+          "business-analista-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-lugano",
+          "pagamenti-business-analyst-focus-business-clienti-60-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-jobservice-ch"
@@ -931,6 +958,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.710Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -977,7 +1005,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:49.214Z",
+      "crawledAt": "2026-09-08T13:32:29.085Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -998,12 +1026,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch",
-        "legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "legal-advisor-regulatory-relations-80-100-gkb-ch",
+        "legal-consulente-regulatory-relations-80-100-gkb-jobservice-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch",
-          "legal-advisor-regulatory-relations-80-100-gkb-ch"
+          "legal-advisor-regulatory-relations-80-100-gkb-ch",
+          "legal-consulente-regulatory-relations-80-100-gkb-jobservice-lugano"
         ],
         "de": [
           "legal-advisor-regulatory-relations-80-100-gkb-jobservice-ch"
@@ -1013,6 +1043,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.407Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1059,7 +1090,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:48.358Z",
+      "crawledAt": "2026-09-08T13:32:28.107Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1080,18 +1111,21 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch",
-        "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch"
+        "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch",
+        "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch",
-          "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch"
+          "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-ch",
+          "collaboratore-trice-document-lifecycle-processing-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "mitarbeiter-in-document-lifecycle-processing-80-100-gkb-jobservice-ch"
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.104Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1138,7 +1172,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:47.486Z",
+      "crawledAt": "2026-09-08T13:32:27.106Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1159,18 +1193,21 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "berater-in-digital-business-80-100-gkb-jobservice-ch",
-        "berater-in-digital-business-80-100-gkb-ch"
+        "berater-in-digital-business-80-100-gkb-ch",
+        "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berater-in-digital-business-80-100-gkb-jobservice-ch",
-          "berater-in-digital-business-80-100-gkb-ch"
+          "berater-in-digital-business-80-100-gkb-ch",
+          "consulente-in-digital-business-80-100-graubundner-kantonalbank-chur"
         ],
         "de": [
           "berater-in-digital-business-80-100-gkb-jobservice-ch"
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:48.798Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1217,7 +1254,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:46.613Z",
+      "crawledAt": "2026-09-08T13:32:26.104Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1242,10 +1279,14 @@
         ],
         "en": [
           "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+        ],
+        "de": [
+          "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch"
+        "fachspezialist-in-rechtsdienst-compliance-80-100-gkb-jobservice-ch",
+        "fachspezialist-in-rechtsdienst-compliance-80-100-graubundner-kantonalbank-chur"
       ],
       "firstSeenAt": "2026-08-25T21:41:16.480Z",
       "salaryMin": 65000,
@@ -1294,7 +1335,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1948/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:45.767Z",
+      "crawledAt": "2026-09-08T13:32:25.108Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1316,18 +1357,21 @@
       "pensum": "80%",
       "previousSlugs": [
         "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-        "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+        "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+        "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-ch",
-          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
+          "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch",
+          "specialista-geschaftsfuhrung-beratung-stiftungen-80-graubundner-kantonalbank-chur"
         ],
         "de": [
           "specialist-geschaftsfuhrung-beratung-stiftungen-80-gkb-jobservice-ch"
         ]
       },
       "firstSeenAt": "2026-08-25T09:46:59.503Z",
+      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1374,7 +1418,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1945/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:44.908Z",
+      "crawledAt": "2026-09-08T13:32:24.104Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1397,18 +1441,22 @@
       "previousSlugsByLocale": {
         "de": [
           "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal"
         ],
         "it": [
           "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
           "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
-          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "previousSlugs": [
         "fachleiter-in-client-lifecycle-management-80-100-gkb-ch",
         "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
-        "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch"
+        "fachleiter-in-client-lifecycle-management-80-100-gkb-jobservice-ch",
+        "abteilungsleitung-pflegeheim-seora-laufenburg-w-m-d-gesundheitszentrum-fricktal",
+        "responsabile-del-reparto-casa-di-cura-seora-laufenburg-uomo-donna-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "firstSeenAt": "2026-07-09T22:31:04.939Z",
       "salaryMin": 87500,
@@ -1457,7 +1505,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1946/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:44.066Z",
+      "crawledAt": "2026-09-08T13:32:23.121Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1479,12 +1527,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "senior-specialist-client-lifecycle-management-80-100-gkb-ch",
-        "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch"
+        "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch",
+        "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-specialist-client-lifecycle-management-80-100-gkb-ch",
-          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch"
+          "senior-specialist-client-lifecycle-management-80-100-gkb-jobservice-ch",
+          "senior-specialista-client-lifecycle-management-80-100-graubundner-kantonalbank-chur"
         ],
         "fr": [
           "senior-specialist-client-lifecycle-management-80-100-gkb-ch",
@@ -1492,6 +1542,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:31:04.014Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1538,7 +1589,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1949/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:43.206Z",
+      "crawledAt": "2026-09-08T13:32:22.128Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1560,12 +1611,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "junior-specialist-asset-servicing-80-100-gkb-ch",
-        "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+        "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+        "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-specialist-asset-servicing-80-100-gkb-ch",
-          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
+          "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch",
+          "junior-specialista-asset-servicing-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "junior-specialist-asset-servicing-80-100-gkb-jobservice-ch"
@@ -1575,6 +1628,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:12:16.682Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 85500,
       "salarySource": "estimated",
@@ -1621,7 +1675,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:42.362Z",
+      "crawledAt": "2026-09-08T13:32:21.148Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1644,12 +1698,14 @@
       "previousSlugs": [
         "trainee-finanzieren-80-100-gkb-ch",
         "trainee-finanzieren-80-100-graubundner-kantonalbank-chur",
-        "trainee-finanzieren-80-100-gkb-jobservice-ch"
+        "trainee-finanzieren-80-100-gkb-jobservice-ch",
+        "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "trainee-finanzieren-80-100-gkb-ch",
-          "trainee-finanzieren-80-100-gkb-jobservice-ch"
+          "trainee-finanzieren-80-100-gkb-jobservice-ch",
+          "apprendista-finanzieren-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "trainee-finanzieren-80-100-gkb-ch"
@@ -1693,7 +1749,7 @@
       "title": "Studentenstelle Marketing (60%)",
       "titleByLocale": {
         "it": "Posizione degli studenti di marketing (60%)",
-        "en": "Marketing student position (60%)",
+        "en": "Studentenstelle Marketing (60%)",
         "de": "Studentenstelle Marketing (60%)",
         "fr": "Position étudiante en marketing (60%)"
       },
@@ -1709,7 +1765,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1954/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:41.504Z",
+      "crawledAt": "2026-09-08T13:32:17.313Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1732,13 +1788,15 @@
       "previousSlugs": [
         "studentenstelle-marketing-60-gkb-ch",
         "studentenstelle-marketing-60-graubundner-kantonalbank-chur",
-        "studentenstelle-marketing-60-gkb-jobservice-ch"
+        "studentenstelle-marketing-60-gkb-jobservice-ch",
+        "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studentenstelle-marketing-60-gkb-ch",
           "studentenstelle-marketing-60-graubundner-kantonalbank-chur",
-          "studentenstelle-marketing-60-gkb-jobservice-ch"
+          "studentenstelle-marketing-60-gkb-jobservice-ch",
+          "posizione-degli-studenti-di-marketing-60-graubundner-kantonalbank-chur"
         ],
         "en": [
           "studentenstelle-marketing-60-graubundner-kantonalbank-chur"
@@ -1751,6 +1809,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:05:06.647Z",
+      "needsRetranslation": true,
       "salaryMin": 35100,
       "salaryMax": 62100,
       "salarySource": "estimated",
@@ -1797,7 +1856,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:40.642Z",
+      "crawledAt": "2026-09-08T13:32:16.431Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1820,13 +1879,15 @@
       "previousSlugs": [
         "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
         "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
-        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
+        "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+        "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-berater-in-spezialfinanzierungen-80-100-gkb-ch",
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur",
-          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch"
+          "senior-berater-in-spezialfinanzierungen-80-100-gkb-jobservice-ch",
+          "senior-consulente-in-finanziamento-speciale-80-100-graubundner-kantonalbank-chur"
         ],
         "en": [
           "senior-berater-in-spezialfinanzierungen-80-100-graubundner-kantonalbank-chur"
@@ -1839,6 +1900,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
+      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1885,7 +1947,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:39.786Z",
+      "crawledAt": "2026-09-08T13:32:15.542Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1907,12 +1969,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
-        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
+        "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+        "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-hypotheken-lenzerheide-80-gkb-ch",
-          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch"
+          "assistent-in-hypotheken-lenzerheide-80-gkb-jobservice-ch",
+          "assistente-in-mortgage-lenzerheide-80-graubundner-kantonalbank-lenzerheide"
         ],
         "en": [
           "assistent-in-hypotheken-lenzerheide-80-gkb-ch"
@@ -1925,6 +1989,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
+      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1971,7 +2036,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:38.917Z",
+      "crawledAt": "2026-09-08T13:32:14.652Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1994,12 +2059,14 @@
       "previousSlugs": [
         "assistent-in-hypotheken-thusis-40-gkb-ch",
         "assistante-en-hypotheques-de-sosis-40-graubundner-kantonalbank-thusis",
-        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
+        "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+        "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-hypotheken-thusis-40-gkb-ch",
-          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch"
+          "assistent-in-hypotheken-thusis-40-gkb-jobservice-ch",
+          "assistente-in-mortgage-sois-40-graubundner-kantonalbank-thusis"
         ],
         "en": [
           "assistent-in-hypotheken-thusis-40-gkb-ch"
@@ -2013,6 +2080,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
+      "needsRetranslation": true,
       "salaryMin": 39600,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -2059,7 +2127,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:23:38.038Z",
+      "crawledAt": "2026-09-08T13:32:13.751Z",
       "addressLocality": "Thusis",
       "postalCode": "7000",
       "addressCountry": "CH",
