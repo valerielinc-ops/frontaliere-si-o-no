@@ -14,9 +14,9 @@
  * `fetchRuntimePage`), because a measurement taken on a different program is a
  * statement about a different program.
  *
- * Ground truth is the location the listing itself already carries, graded by
- * the production resolver. Pages without it are reported as unscored rather
- * than folded into the rate.
+ * Ground truth is the source-backed location extracted from the detail page,
+ * without falling back to the listing row. Pages without that independent
+ * reference are reported as unscored rather than folded into the rate.
  *
  * Usage:
  *   node scripts/prospect-measure-postal-variance.mjs
@@ -31,9 +31,10 @@ import {
   createSpecUrlPolicy,
   fetchRuntimePage,
 } from './lib/prospector/spec-crawler.mjs';
-import { resolveDetailOrListingSwissGeography } from './lib/prospector/location-evidence.mjs';
+import { extractRuntimeDetailFields } from './lib/prospector/detail-extract.mjs';
 import {
   aggregatePostalVariance,
+  detailReferenceTruth,
   freeTextPostalMentions,
   summarizeHostPostalVariance,
 } from './lib/prospector/postal-variance.mjs';
@@ -88,20 +89,54 @@ function sampleKeys() {
 }
 
 /**
- * The place the listing itself names, used as ground truth.
+ * The source-backed place the detail page names, used as independent truth.
  *
- * Deliberately the raw listing string, not the resolver's verdict: the resolver
- * drops rows it cannot certify as Swiss, and grading only the rows it kept
- * would measure the criterion on the population where the problem is already
- * solved. `accepted` records the resolver's opinion alongside, so the report
- * can be re-read on the narrower population without re-crawling.
+ * The same detail extractor used by the runtime is intentionally used here,
+ * but the listing row is never supplied to the resolver: the free-text NPA
+ * criterion must be graded against a separate detail-page observation.
  *
- * @param {Record<string, any>} row
- * @returns {{ truth: string, accepted: boolean }}
+ * @param {Record<string, any>} spec
+ * @param {{ body?: string, url?: string }} page
+ * @returns {{ truth: string, accepted: boolean, source: string }}
  */
-function listingTruth(row) {
-  const truth = String(row.addressLocality || row.location || '').replace(/\s+/g, ' ').trim();
-  return { truth, accepted: Boolean(resolveDetailOrListingSwissGeography({}, row).geography) };
+function detailTruth(spec, page) {
+  try {
+    const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '');
+    const reference = detailReferenceTruth(detail);
+    return {
+      ...reference,
+      source: reference.accepted ? 'detail-source-backed' : 'detail-unresolved',
+    };
+  } catch {
+    return { truth: '', accepted: false, source: 'detail-unavailable' };
+  }
+}
+
+/**
+ * The first report stored only the stable mention key. Rehydrate the fields
+ * needed by the scorer while remaining compatible with that committed shape.
+ * New reports keep the fields as well, so a future refresh does not need to
+ * infer them again.
+ *
+ * @param {any[]} mentions
+ * @returns {any[]}
+ */
+function storedPostalMentions(mentions = []) {
+  return mentions.map((mention) => {
+    if (mention?.locality && mention?.postalCode) return { ...mention };
+    const [postalCode, ...locality] = String(mention?.key || '').split(' ');
+    return { ...mention, postalCode, locality: locality.join(' ') };
+  });
+}
+
+function storedPostalMentionFields(mentions = []) {
+  return mentions.map((mention) => ({
+    key: mention.key,
+    postalCode: mention.postalCode,
+    locality: mention.locality,
+    known: mention.known,
+    cantons: mention.cantons,
+  }));
 }
 
 /**
@@ -126,7 +161,7 @@ async function measureHost(key, pagesPerHost) {
       }
       pages.push({
         url: page.url || row.url,
-        ...listingTruth(row),
+        ...detailTruth(spec, page),
         mentions: freeTextPostalMentions(page.body || ''),
       });
     }
@@ -145,13 +180,90 @@ async function measureHost(key, pagesPerHost) {
       perPage: summary.perPage.map((page, index) => ({
         ...page,
         truthAcceptedByResolver: Boolean(fetched[index]?.accepted),
+        truthSource: fetched[index]?.source || 'detail-unavailable',
         allMentions: (fetched[index]?.mentions || [])
-          .map((m) => ({ key: m.key, known: m.known, cantons: m.cantons })),
+          .map((m) => ({
+            key: m.key,
+            postalCode: m.postalCode,
+            locality: m.locality,
+            known: m.known,
+            cantons: m.cantons,
+          })),
       })),
     };
   } finally {
     await urlPolicy.dispatcher.close().catch(() => {});
   }
+}
+
+/**
+ * Re-grade the already committed sample without changing its URLs or page
+ * population. This is the safe way to replace the old listing truth: a fresh
+ * crawl could silently change the sample while pretending to answer the same
+ * question.
+ *
+ * @param {any} host
+ * @returns {Promise<any>}
+ */
+async function refreshHostReference(host) {
+  const spec = JSON.parse(fs.readFileSync(path.join(CRAWLERS_DIR, `${host.companyKey}.json`), 'utf8'));
+  const runtime = { timeoutMs: 20000 };
+  const urlPolicy = createSpecUrlPolicy(spec);
+  const pages = [];
+  const errors = [];
+  let fetched = 0;
+  try {
+    for (const existing of host.perPage || []) {
+      let reference = { truth: '', accepted: false, source: 'detail-unavailable' };
+      try {
+        const page = await fetchRuntimePage(existing.url, urlPolicy, runtime);
+        fetched += 1;
+        reference = detailTruth(spec, page);
+      } catch (error) {
+        errors.push({ url: existing.url, error: String(error?.message || error) });
+      }
+      pages.push({
+        url: existing.url,
+        ...reference,
+        mentions: storedPostalMentions(existing.allMentions || []),
+      });
+    }
+  } finally {
+    await urlPolicy.dispatcher.close().catch(() => {});
+  }
+  const summary = summarizeHostPostalVariance(pages);
+  return {
+    ...host,
+    fetched,
+    errors,
+    ...summary,
+    perPage: summary.perPage.map((page, index) => ({
+      ...page,
+      truthAcceptedByResolver: Boolean(pages[index]?.accepted),
+      truthSource: pages[index]?.source || 'detail-unavailable',
+      allMentions: storedPostalMentionFields(pages[index]?.mentions || []),
+    })),
+  };
+}
+
+/**
+ * @param {any} existing
+ * @returns {Promise<any>}
+ */
+async function refreshReferenceReport(existing) {
+  const hosts = [];
+  for (const host of existing.hosts || []) {
+    process.stderr.write(`[postal-variance] reference ${host.companyKey}…\n`);
+    hosts.push(await refreshHostReference(host));
+  }
+  const byHost = Object.fromEntries(hosts.map((host) => [host.companyKey, host]));
+  return {
+    ...existing,
+    generatedAt: new Date().toISOString(),
+    truthSource: 'localita source-backed del dettaglio, senza fallback al listing',
+    totals: aggregatePostalVariance(byHost),
+    hosts,
+  };
 }
 
 function pct(value) {
@@ -176,11 +288,9 @@ function readingNotes(report) {
     + ` e ${totals.ambiguity.several} restano ambigue con più NPA variabili.`);
   if (totals.criterion.hits + totals.criterion.misses === 0) {
     notes.push(`- Precision e recall restano **non misurabili su questo corpus**: le ${totals.withTruth} pagine`
-      + ' la cui località il listing conosce sono esattamente quelle il cui testo non porta NPA, e le pagine'
-      + ' con NPA in prosa vengono da spec `template` il cui listing non porta località. Le due popolazioni'
-      + ' non si sovrappongono, quindi la verità di riferimento del listing non basta: chi implementa la'
-      + ' regola deve procurarsi un\'altra verità (etichettatura manuale del campione qui sotto, oppure'
-      + ' evidenza strutturata della pagina di dettaglio) prima di decidere.');
+      + ' il cui dettaglio espone una località source-backed indipendente. Le altre pagine non hanno'
+      + ' una verità di dettaglio leggibile e restano non gradate, invece di essere valutate in silenzio'
+      + ' contro il listing.');
   } else {
     notes.push(`- Sulle ${totals.withTruth} pagine con verità nota il criterio ha ragione ${totals.criterion.hits} volte`
       + ` e torto ${totals.criterion.misses}, contro ${totals.baseline.hits}/${totals.baseline.misses} della baseline.`);
@@ -200,8 +310,8 @@ function renderMarkdown(report) {
     `Generato: ${report.generatedAt} · comando: \`node scripts/prospect-measure-postal-variance.mjs\``,
     '',
     'Criterio misurato: **l\'NPA che non compare su tutte le pagine di dettaglio dello',
-    'stesso datore è quello dell\'annuncio**. Verità di riferimento: la località che il',
-    'listing porta già, graduata dal resolver di produzione. Baseline di confronto:',
+    'stesso datore è quello dell\'annuncio**. Verità di riferimento: la località source-backed',
+    'estratta dal dettaglio, senza usare il listing. Baseline di confronto:',
     'primo NPA della pagina, varianza ignorata. Questa misura non modifica nessun gate.',
     '',
     '## Aggregato',
@@ -248,6 +358,17 @@ function renderMarkdown(report) {
 }
 
 async function main() {
+  const refresh = String(arg('refresh-truth', ''));
+  if (refresh) {
+    const existing = JSON.parse(fs.readFileSync(refresh, 'utf8'));
+    const report = await refreshReferenceReport(existing);
+    fs.writeFileSync(REPORT_JSON, `${JSON.stringify(report, null, 2)}\n`);
+    fs.writeFileSync(REPORT_MD, renderMarkdown(report));
+    console.log(`[postal-variance] reference refreshed: ${path.relative(process.cwd(), REPORT_JSON)}`);
+    console.log(`[postal-variance] criterio precision ${pct(report.totals.criterion.precision)} recall ${pct(report.totals.criterion.recall)}`);
+    console.log(`[postal-variance] baseline precision ${pct(report.totals.baseline.precision)} recall ${pct(report.totals.baseline.recall)}`);
+    return;
+  }
   // Re-render the prose of an existing measurement without crawling again.
   // The JSON is the measurement; the markdown is a view of it, and a wording
   // change must not cost 179 requests to 30 employers.
@@ -296,7 +417,7 @@ async function main() {
   const report = {
     generatedAt: new Date().toISOString(),
     criterion: 'NPA non presente su tutte le pagine di dettaglio dello stesso host',
-    truthSource: 'localita del listing graduata da resolveDetailOrListingSwissGeography',
+    truthSource: 'localita source-backed del dettaglio, senza fallback al listing',
     pagesPerHost,
     totals: aggregatePostalVariance(byHost),
     hosts,
