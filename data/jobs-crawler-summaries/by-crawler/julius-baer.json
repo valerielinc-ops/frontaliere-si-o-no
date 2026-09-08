@@ -1,18 +1,120 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-08T13:37:05.236Z",
-  "total": 65,
-  "newCount": 1,
-  "updatedCount": 63,
-  "removedCount": 2,
-  "unchangedCount": 1,
-  "durationMs": 45671,
-  "avgDurationMs": 45671,
+  "generatedAt": "2026-09-08T23:21:13.818Z",
+  "total": 68,
+  "newCount": 4,
+  "updatedCount": 62,
+  "removedCount": 0,
+  "unchangedCount": 2,
+  "durationMs": 45485,
+  "avgDurationMs": 45485,
   "durationHistory": [
-    45671
+    45485
   ],
   "newJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager---Focus-Trading-and-Execution-100---f-m-d-_r-19584-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Assistant-Relationship-Manager---Focus-Trading-and-Execution-100---f-m-d-_r-19584-1",
+      "title": "Assistant Relationship Manager – Focus Trading and Execution 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "assistant-relationship-manager-focus-trading-and-execution-100-f-m-d-julius-baer",
+      "category": "wealth-management",
+      "datePosted": "2026-09-09",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Global-Products---Solutions-Junior-Data-Visualisation-Analyst--100---f-m-d-_r-19563",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Global-Products---Solutions-Junior-Data-Visualisation-Analyst--100---f-m-d-_r-19563",
+      "title": "Global Products & Solutions Junior Data Visualisation Analyst, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "global-products-solutions-junior-data-visualisation-analyst-100-f-m-d-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-09-09",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "ENTRY",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 55,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Leader-of-Enterprise-Collaboration---Voice-Solutions-100---f-m-d-_r-19532-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Team-Leader-of-Enterprise-Collaboration---Voice-Solutions-100---f-m-d-_r-19532-1",
+      "title": "Team Leader of Enterprise Collaboration & Voice Solutions 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "team-leader-of-enterprise-collaboration-voice-solutions-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-09-09",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager---Intermediaries--Geneva--100---f-m-d-_r-19069-3",
@@ -111,8 +213,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-09-07T15:04:01.668Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-07T15:04:01.668Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1103,11 +1205,12 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Privat-Banking---Nordics-Zurich-100-_r-19325-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Account-Manager-Privat-Banking---Nordics-Zurich-100-_r-19325-2",
-      "title": "Account Manager Privat Banking - Nordics Zurich 100%",
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Management-Assistant-100---f-m-d-_r-19231-1",
+      "title": "Senior Management Assistant 100% (f/m/d)",
       "company": "Julius Baer",
       "companyKey": "julius-baer",
       "location": "Zurich",
@@ -1118,9 +1221,9 @@
       "addressCountry": "CH",
       "postalCode": "",
       "streetAddress": "",
-      "slug": "account-manager-privat-banking-nordics-zurich-100-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-08-05",
+      "slug": "senior-management-assistant-100-f-m-d-julius-baer",
+      "category": "management",
+      "datePosted": "2026-07-22",
       "source": "julius-baer-workday-crawler",
       "employmentType": "FULL_TIME",
       "sourceLang": "en",
@@ -1130,12 +1233,12 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-08-05T22:40:48.656Z",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
+      "firstSeenAt": "2026-07-24T22:07:37.211Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1144,48 +1247,6 @@
         "completeness": 14
       }
     },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Mortgage-Officer-100---f-m-d-_r-18607-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Mortgage-Officer-100---f-m-d-_r-18607-1",
-      "title": "Mortgage Officer (French-Speaking) - Romandie Region 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "mortgage-officer-100-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-06-19",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-06-29T22:17:29.935Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/GPS-Strategy---Business-Development-Project-Leader---Zurich-100---f-m-d-_r-18138",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/GPS-Strategy---Business-Development-Project-Leader---Zurich-100---f-m-d-_r-18138",
@@ -1217,7 +1278,7 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
