@@ -12,27 +12,7 @@
 
 import { GA4_MIN_SESSIONS } from './constants.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
-
-const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
-
-async function getToken() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    throw new Error('no service-account credentials');
-  }
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    const fs = await import('node:fs');
-    const path = await import('node:path');
-    const os = await import('node:os');
-    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
-    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
-  }
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({ scopes: SCOPES });
-  const client = await auth.getClient();
-  const { token } = await client.getAccessToken();
-  return token;
-}
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from '../ga4-service-account.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -116,7 +96,7 @@ async function loadPublishedDates() {
  * @param {string} options.startDate - YYYY-MM-DD
  * @param {string} options.endDate - YYYY-MM-DD
  * @param {Function} [options.fetchImpl=fetch]
- * @param {Function} [options.getTokenImpl=getToken]
+ * @param {Function} [options.getTokenImpl=getServiceAccountToken]
  * @returns {Promise<{pages: object, error?: string}>}
  */
 export async function fetchGa4Pages({
@@ -124,7 +104,7 @@ export async function fetchGa4Pages({
   startDate,
   endDate,
   fetchImpl = fetch,
-  getTokenImpl = getToken,
+  getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
 } = {}) {
   try {
     const property = normalizePropertyId(propertyId || process.env.GA4_PROPERTY_ID);

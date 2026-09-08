@@ -117,6 +117,27 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
     expect(results.map((r) => r.state)).toEqual(['present', 'skipped']);
   });
 
+  it('non apre il GET di fallback oltre il budget consumato dalla HEAD', async () => {
+    let clock = -100;
+    const fetchImpl = vi.fn().mockImplementation(async (_url, options) => {
+      expect(options.signal).toBeInstanceOf(AbortSignal);
+      clock = 200; // la HEAD ha superato il budget mentre era in-flight
+      return res(405, 'text/plain');
+    });
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/a.css'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      budgetMs: 150,
+      timeoutMs: 100,
+      now: () => (clock += 100),
+    });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(result).toMatchObject({ state: 'skipped', status: null });
+    expect(result.reason).toMatch(/GET di fallback/);
+  });
+
   it('un offload che non ha riscritto niente non si legge come «niente da riscrivere»', () => {
     // L'offload esce 0 anche quando fallisce, lasciando dist intatto: senza
     // questa discriminante il log del caso rotto e quello del caso sano sono

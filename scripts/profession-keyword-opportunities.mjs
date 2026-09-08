@@ -55,7 +55,13 @@ import {
 } from './lib/keyword-page-paths.mjs';
 import { extractTsStringArray } from './lib/ts-array-extract.mjs';
 import { fetchOnsiteSearchTerms as fetchOnsiteSearchTermsShared } from './lib/posthog-search-terms.mjs';
-import { abstainIfSourceDead } from './lib/source-liveness.mjs';
+import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import {
+  fetchGa4SearchTerms,
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+  getServiceAccountToken,
+} from './lib/ga4-service-account.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data/jobs.json');
@@ -91,6 +97,20 @@ const MARKDOWN_OUT = opt('markdown-out', '');
 // Query + auth handling live in scripts/lib/posthog-search-terms.mjs —
 // shared with scripts/mine-search-location-gaps.mjs (issue #4301).
 
+export async function fetchGa4ProfessionSearchTerms({
+  windowDays = WINDOW_DAYS,
+  now = new Date(),
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  const token = getTokenImpl === getServiceAccountToken
+    ? await getServiceAccountToken([GA4_READONLY_SCOPE])
+    : await getTokenImpl([GA4_READONLY_SCOPE]);
+  if (!token) return null;
+  const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
+  return fetchGa4SearchTerms({ token, startDate, endDate, limit: 1000, fetchImpl });
+}
+
 async function fetchOnsiteSearchTerms() {
   if (SKIP_POSTHOG) {
     console.error('[signal A] --skip-posthog: on-site search signal disabled');
@@ -101,8 +121,21 @@ async function fetchOnsiteSearchTerms() {
   // this profession" — the opposite of the truth, and the workflow then opens
   // a deduped SEO issue built on it. Returning null puts the signal in the
   // same state as --skip-posthog: reported as disabled, never as zero.
-  const notMeasurable = await abstainIfSourceDead('profession-keyword-opportunities', { windowDays: WINDOW_DAYS });
-  if (notMeasurable) return null;
+  const liveness = await checkPostHogLiveness({ windowDays: WINDOW_DAYS });
+  if (!liveness.alive) {
+    try {
+      const ga4Terms = await fetchGa4ProfessionSearchTerms({ windowDays: WINDOW_DAYS });
+      if (ga4Terms?.length) {
+        console.error('[signal A] PostHog non misurabile: uso GA4 `search` come fallback');
+        return ga4Terms;
+      }
+    } catch (error) {
+      declareNotMeasurable('profession-keyword-opportunities', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
+      return null;
+    }
+    declareNotMeasurable('profession-keyword-opportunities', liveness);
+    return null;
+  }
   return fetchOnsiteSearchTermsShared({ windowDays: WINDOW_DAYS, limit: 1000 });
 }
 

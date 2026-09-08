@@ -148,6 +148,7 @@ on:
     types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
   push:
     branches: [main]
+  # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
