@@ -106,7 +106,7 @@ jobs:
 
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout $COMMIT_SHA -- data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json; git add data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json"
+            --regenerate-cmd "bash scripts/lib/restore-generated-files.sh --commit $COMMIT_SHA --checkout data/seo-ctr-monitor-state.json --merge-array scripts/lib/seo-ctr-auto-families.json; git add data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

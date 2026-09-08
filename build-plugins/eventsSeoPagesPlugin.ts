@@ -57,6 +57,7 @@ import {
   groupByComune,
   slugifyComune,
   slugifyEvent,
+  slugifyLegacyEvent,
   disambiguateEventSlug,
   reserveLadderShape,
   EVENT_SOURCES,
@@ -3639,10 +3640,10 @@ function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySe
   const used = new Set<string>(reservedBaseSlugs);
   const slugFor = new Map<string, string>();
   for (const ev of list) {
-    const base = slugifyEvent(ev);
+    const base = slugifyLegacyEvent(ev);
     let slug = base;
     let n = 2;
-    while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
+    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
     used.add(slug);
     slugFor.set(ev.id, slug);
   }
@@ -3655,7 +3656,12 @@ interface EventSlugMigration {
   fromSlug: string;
   toSlug: string;
 }
-function changedEventSlugMigrations(
+
+export function eventSlugRedirectKey(locale: Locale, fromPath: string): string {
+  return `${locale}|${fromPath}`;
+}
+
+export function changedEventSlugMigrations(
   list: readonly SiteEvent[],
   canton: string,
   comune: string,
@@ -3844,11 +3850,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         if (!shouldEmitLocale(locale)) return;
         const fromPath = pathForEventDetail(locale, migration.comune, migration.fromSlug, migration.canton);
         const toPath = pathForEventDetail(locale, migration.comune, migration.toSlug, migration.canton);
-        if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(fromPath)) return;
+        const key = eventSlugRedirectKey(locale, fromPath);
+        if (fromPath === toPath || canonicalDetailPaths.has(fromPath) || emittedSlugRedirects.has(key)) return;
         const html = renderEventSlugRedirectPage(locale, toPath);
         collector.add(path.join(distDir, fromPath, 'index.html'), html);
         collector.add(path.join(distDir, fromPath.replace(/\/+$/, '') + '.html'), html);
-        emittedSlugRedirects.add(fromPath);
+        emittedSlugRedirects.add(key);
       };
 
       const perCantonSitemap: Array<{
@@ -4003,8 +4010,6 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
-      for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);
-
       // Recently-ended events (issue #3646, F4 "indexability": noindex,follow
       // on events that already took place). `upcomingEvents` drops a past
       // event outright — without this pass the URL just 404s on the next
@@ -4070,6 +4075,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           }
         }
       }
+      for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);
 
       // Swiss-wide index hub (issue #3645, F3) — one per locale, always
       // emitted alongside the per-canton hubs above: the `all.length === 0`
