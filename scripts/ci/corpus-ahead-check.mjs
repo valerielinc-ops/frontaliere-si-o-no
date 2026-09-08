@@ -95,6 +95,13 @@
  * Uso:
  *   node scripts/ci/corpus-ahead-check.mjs            # report leggibile, exit 0
  *   node scripts/ci/corpus-ahead-check.mjs --json     # report JSON su stdout
+ *                                                     (`actionable` resta il
+ *                                                      conteggio legacy di
+ *                                                      tutte le righe azionabili;
+ *                                                      usare `decisions` per il
+ *                                                      conteggio operativo di
+ *                                                      quelle che richiedono
+ *                                                      una decisione qui)
  *   node scripts/ci/corpus-ahead-check.mjs --strict   # exit 1 se c'e' da decidere
  *                                                     (i convergenti non contano:
  *                                                      non c'e' nessuna decisione)
@@ -621,6 +628,8 @@ async function main() {
   const decisions = actionable.filter(needsDecisionHere);
 
   if (AS_JSON) {
+    // Contratto compatibile: `actionable` include anche i convergenti per il
+    // report storico; `decisions` e' il campo operativo per i consumer.
     console.log(JSON.stringify({ corpusRepo: CORPUS_REPO, corpusRef: CORPUS_REF, alignedAt: manifest.alignedAt || null, results, actionable: actionable.length, decisions: decisions.length }, null, 2));
   } else {
     const byState = results.reduce((acc, r) => ((acc[r.state] = (acc[r.state] || 0) + 1), acc), {});
