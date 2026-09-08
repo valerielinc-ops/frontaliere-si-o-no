@@ -139,7 +139,8 @@ export function classifyForTransport(entry, now, base) {
 /** Results that make a strict dry-run unsafe to accept. */
 export function strictFailureResults(results) {
   return results.filter(
-    (result) => result.transport === 'check-failed' || result.transport.startsWith('blocked'),
+    (result) => result.transport === 'check-failed'
+      || (typeof result.transport === 'string' && result.transport.startsWith('blocked')),
   );
 }
 

@@ -65,6 +65,11 @@ const REGISTRY_SOURCES: Array<[file: string, constName: string]> = [
   ['packages/articles/content/routerSwissData.ts', 'SWISS_SLUGS'],
 ];
 
+const REGISTRY_ENTRY_FLOORS: Record<string, number> = {
+  'packages/articles/content/routerBlogData.ts': 3000,
+  'packages/articles/content/routerSwissData.ts': 1500,
+};
+
 const PREFIXES: readonly string[] = EXTERNALLY_SERVED_PREFIXES;
 
 const RETIRED_TABLE = EDGE_RETIRED_PATHS as Record<string, string | null>;
@@ -157,14 +162,14 @@ function liveCorpusSlugs(): Set<string> {
   return out;
 }
 
-it('keeps the shared registry parser above the non-vacuous corpus floor', () => {
+it('keeps the shared registry parser above its non-vacuous corpus floor', () => {
   for (const [file, constName] of REGISTRY_SOURCES) {
     const src = fs.readFileSync(path.join(REPO, file), 'utf-8');
     const parsed = parseSlugRegistry(src, constName) as Record<string, unknown>;
     expect(
       Object.keys(parsed).length,
       `${file} parsed to ${Object.keys(parsed).length} entries — the shared parser is blind`,
-    ).toBeGreaterThan(1000);
+    ).toBeGreaterThan(REGISTRY_ENTRY_FLOORS[file]);
   }
 });
 
@@ -209,11 +214,21 @@ const expected = deriveExpected();
 const actualKeys = Object.keys(RETIRED_TABLE).sort();
 const expectedKeys = [...expected.keys()].sort();
 
+it('pins every canonical Italian 410 in the independent retirement population', () => {
+  const pinned = new Set(RETIRED_CANONICAL_IT_410_PATHS);
+  const unpinned = actualKeys.filter(
+    (key) => RETIRED_TABLE[key] === null && isItalianArticlePath(key) && !pinned.has(key),
+  );
+  const not410 = RETIRED_CANONICAL_IT_410_PATHS.filter((key) => RETIRED_TABLE[key] !== null);
+  expect(unpinned, `Canonical Italian 410s missing from the pinned population:\n${unpinned.join('\n')}`).toEqual([]);
+  expect(not410, `Pinned canonical Italian paths are not 410 in EDGE_RETIRED_PATHS:\n${not410.join('\n')}`).toEqual([]);
+});
+
 /**
  * The article rows disappear from the live registries after the corpus sync,
- * but the retirement decision must keep observing all four locale URLs. Keep
- * this population independent from those registries: it is the pinned set of
- * full-locale retirements represented by the build ledger and edge table.
+ * but the retirement decision must keep observing their edge URLs. Keep this
+ * population independent from those registries: it is the pinned set of
+ * retirements represented by the build ledger and edge table.
  */
 const RETIRED_ARTICLE_FAMILIES = [
   {
@@ -298,6 +313,25 @@ const RETIRED_ARTICLE_FAMILIES = [
     ],
   },
 ] as const;
+
+/**
+ * Canonical Italian 410s with no locale siblings in the retirement ledger.
+ * These are kept separate from RETIRED_ARTICLE_FAMILIES because the latter
+ * checks a four-locale bridge, while these legacy aliases only have one URL.
+ */
+const RETIRED_CANONICAL_IT_410_PATHS = [
+  '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/',
+  '/articoli-frontaliere/addiofrontalierelongo/',
+  '/articoli-frontaliere/tassa-salute-frontalieri/',
+  '/articoli-frontaliere/governo-tavolo-frontalieri-2026/',
+  '/articoli-frontaliere/frontalieri-redditi-2026/',
+  '/articoli-frontaliere/calo-frontalieri-ticino-economia/',
+  '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/',
+  '/articoli-frontaliere/accesso-libero-alle-rive/',
+] as const;
+
+const isItalianArticlePath = (p: string): boolean =>
+  /^\/articoli-(?:frontaliere|svizzera)\/[^/]+\/$/.test(p);
 
 function missingRetiredLocaleBridges(
   families: readonly { id: string; paths: readonly string[] }[],
