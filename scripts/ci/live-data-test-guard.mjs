@@ -220,6 +220,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
  */
 export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
   {
+    file: 'tests/ci-vitest-check-name.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'the path is a synthetic assemble-input argument to a pure predicate; the test reads CI/workflow source files only and opens nothing under data/jobs/',
+  },
+  {
     file: 'tests/crawler-generation-barrier-workflows.test.ts',
     roots: ['data/jobs-crawler-summaries/', 'data/jobs/'],
     reason: 'job slice paths are synthetic receipt payload fields; filesystem reads target workflow SSOT files',
