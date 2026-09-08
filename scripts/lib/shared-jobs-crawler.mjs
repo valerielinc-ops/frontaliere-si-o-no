@@ -5572,13 +5572,13 @@ async function main() {
   }
   const scopedCompanyKeysForRun = new Set(
     requestedCompanyKeys
-      .map((k) => normalizeCompanyKey(k))
+      .map((k) => normalizeCompanyKey(k).slice(0, 64))
       .filter(Boolean)
   );
   const hasScopedCompanyKeysForRun = scopedCompanyKeysForRun.size > 0;
   const isInScopedCompaniesForRun = (job) => {
     if (!hasScopedCompanyKeysForRun) return true;
-    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
+    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64);
     return scopedCompanyKeysForRun.has(key);
   };
   const geoScopeFingerprint = (job) =>
@@ -5599,6 +5599,8 @@ async function main() {
   let skippedKnownUrlsTotal = 0;
   let browserFallbackAttemptsTotal = 0;
   let browserFallbackHitsTotal = 0;
+  const localizationAttemptedCompanyKeys = new Set();
+  const localizationCoveredCompanyKeys = new Set();
 
   if (localizeExistingOnly) {
     // Only log on first invocation — message is identical every time
@@ -5805,6 +5807,33 @@ async function main() {
         flaggedForRetranslation
       ) && (sourceDescLength >= 160 || hasTitleWork || flaggedForRetranslation);
     });
+    if (
+      localizeExistingOnly
+      && hasScopedCompanyKeysForRun
+      && crawlerConfig.aiLocalizationEnabled
+      && canUseAi
+    ) {
+      const mergedCompanyKeys = new Set(
+        merged
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .filter(Boolean),
+      );
+      const queuedCompanyKeys = new Set(
+        queue
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
+          .filter(Boolean),
+      );
+      // A requested company present in the assembled dataset but with no
+      // consumable localization candidate was reached by this invocation but
+      // cannot consume the shared AI budget. Count it as a sterile visit;
+      // leave absent companies and queued work outside the selected slice
+      // unmarked so their pending work is retried.
+      for (const companyKey of scopedCompanyKeysForRun) {
+        if (mergedCompanyKeys.has(companyKey) && !queuedCompanyKeys.has(companyKey)) {
+          localizationCoveredCompanyKeys.add(companyKey);
+        }
+      }
+    }
     if (queue.length > 0) {
       // Prioritize: 1) needsRetranslation jobs (translation pipeline targets),
       // 2) recently-scraped jobs, 3) everything else.
@@ -5873,6 +5902,13 @@ async function main() {
             }
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
+            }
+            const localizationCompanyKey = normalizeCompanyKey(
+              String(job?.companyKey || job?.company || ''),
+            ).slice(0, 64);
+            if (localizationCompanyKey) {
+              localizationAttemptedCompanyKeys.add(localizationCompanyKey);
+              localizationCoveredCompanyKeys.add(localizationCompanyKey);
             }
             // FRO-prev-slug-attribution: snapshot pre-AI slugs so post-AI slug
             // changes get captured into previousSlugsByLocale. Without this,
@@ -6210,6 +6246,10 @@ async function main() {
   }
 
   console.log('✅ Jobs crawler completed');
+  return {
+    localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys],
+    localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
+  };
 }
 
 // Export main for in-process invocation (used by dedicated-crawler-common.mjs)
