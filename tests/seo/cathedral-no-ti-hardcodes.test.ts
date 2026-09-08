@@ -214,9 +214,17 @@ function scanSource(pattern: string | string[], fixed = false): string {
   // GitHub's runner has git but not necessarily ripgrep. Use git grep rather
   // than grep -r so the fallback searches the same tracked source surface and
   // does not diverge on ignored files or hidden-directory traversal.
+  const trackedScanDirs = SCAN_DIRS.filter((directory) => {
+    try {
+      return execFileSync('git', ['ls-files', '--', directory], { encoding: 'utf8' }).trim() !== '';
+    } catch {
+      return false;
+    }
+  });
+  if (trackedScanDirs.length === 0) return '';
   try {
     return execFileSync('git', ['grep', '--no-color', '-n', fixed ? '-F' : '-E',
-      ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
+      ...patterns.flatMap((value) => ['-e', value]), ...trackedScanDirs,
     ], { encoding: 'utf8' });
   } catch (error: any) {
     if (error?.status === 1) return '';
@@ -356,6 +364,8 @@ describe('hasInlineAllow — il marker vale solo dentro un commento (#7676)', ()
     expect(hasInlineAllow("const cdn = '//cdn.esempio.dev/cathedral-allow/file.js';")).toBe(false);
     expect(hasInlineAllow('<a href="#cathedral-allow">cerca-lavoro-ticino</a>')).toBe(false);
     expect(hasInlineAllow(`const re = /['"]/; // cathedral-allow: regex`)).toBe(true);
+    expect(hasInlineAllow('const parts = s.split(/=/); // cathedral-allow: regex')).toBe(true);
+    expect(hasInlineAllow('count /= 2; // cathedral-allow: assignment')).toBe(true);
     expect(hasInlineAllow("- name: L'app  # cathedral-allow: yaml")).toBe(true);
     expect(hasInlineAllow("const s = 'x'; // cathedral-allow: ragione")).toBe(true);
   });

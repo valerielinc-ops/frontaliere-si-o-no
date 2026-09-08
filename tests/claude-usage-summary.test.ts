@@ -38,4 +38,24 @@ describe('claude usage summary', () => {
       rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  it('preserva lo zero valido di total_cost_usd invece di usare il fallback', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'claude-usage-summary-zero-'));
+    const executionFile = join(dir, 'execution.json');
+    writeFileSync(executionFile, JSON.stringify({
+      type: 'result',
+      total_cost_usd: 0,
+      cost_usd: 1.25,
+    }));
+
+    try {
+      const output = execFileSync('node', [SCRIPT, executionFile, 'zero'], {
+        cwd: ROOT,
+        encoding: 'utf8',
+      });
+      expect(output).toContain('cost_usd=0.0000');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });

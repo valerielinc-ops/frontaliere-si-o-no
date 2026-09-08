@@ -55,12 +55,11 @@ function hasCommentBefore(line, markerIndex) {
     if (quote) {
       if (escaped) escaped = false;
       else if (ch === '\\') escaped = true;
-      else if (quote === "'" && /[\p{L}\p{N}_]/u.test(ch) && /[\p{L}\p{N}_]/u.test(line[i + 1] || '')) continue;
       else if (ch === quote) quote = '';
       continue;
     }
 
-    if (ch === '/' && line[i + 1] !== '/' && line[i + 1] !== '*' && line[i + 1] !== '=' &&
+    if (ch === '/' && line[i + 1] !== '/' && line[i + 1] !== '*' &&
         isRegexLiteralStart(line, i)) {
       regex = true;
       regexClass = false;

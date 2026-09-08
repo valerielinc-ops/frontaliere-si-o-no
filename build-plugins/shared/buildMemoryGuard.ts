@@ -770,7 +770,8 @@ export function observeSample(
     const hardFloorUnder = sample.hostAvailMb < HOST_AVAIL_HARD_FLOOR_MB;
     const underFloor = headroomUnder || hardFloorUnder;
     state.consecutiveHostUnder = underFloor ? state.consecutiveHostUnder + 1 : 0;
-    if (state.consecutiveHostUnder >= thresholds.consecutiveSamples && state.hostFloorCause === null) {
+    if (!underFloor) state.hostFloorCause = null;
+    else if (state.consecutiveHostUnder >= thresholds.consecutiveSamples && state.hostFloorCause === null) {
       state.hostFloorCause =
         headroomUnder && hardFloorUnder
           ? 'both'
