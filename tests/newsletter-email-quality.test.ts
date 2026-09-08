@@ -333,6 +333,7 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
     for (const encoded of [
       '<p>Keine Geb&uuml;hren bis CHF 600</p>',
       '<span>&#98;onus di benvenuto Wise</span>',
+      '<span>&#x62;onus di benvenuto Wise</span>',
       '<td>Carta gratuita e zero&nbsp;commissioni</td>',
       '<td>zero&#160;commissioni fino a CHF&#160;600</td>',
     ]) {
@@ -394,6 +395,7 @@ describe('Wise: nessuna promessa di bonus (issue #7529)', () => {
       for (const loc of LOCALES) {
         for (const interest of [undefined, 'general', 'utility', 'jobs', 'articles']) {
           const html = renderRecommendedBlock({ locale: loc, interest });
+          // #7818: il fallback senza match di segmento è osservato nel test registry dedicato.
           expect(html, `blocco Wise (${loc}/${interest}) non renderizzato`).toContain('/go/wise/');
           expect(
             WISE_BONUS_PROMISE_RE.test(stripHtmlTags(html)),
