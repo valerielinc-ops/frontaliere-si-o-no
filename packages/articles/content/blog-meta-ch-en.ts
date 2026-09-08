@@ -6058,6 +6058,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.infortuni-reinserimento-suva.title': 'Serious injuries: almost 90% return to work',
     'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva: After serious accidents, 90% of policyholders return to work. 78% return within 3 months thanks to medical care and personalised case management.',
     'blog.article.infortuni-reinserimento-suva.imageAlt': 'Physiotherapy session at a Swiss rehabilitation clinic for post-injury recovery',
+    'blog.article.economia-svizzera-q2-2026.title': 'Swiss economy Q2 2026: +5.3% turnover, +2% employment',
+    'blog.article.economia-svizzera-q2-2026.excerpt': 'In Q2 2026, Swiss market branches grow: turnover +5.3%, employment +2.0%. Tertiary driving with +8.5%, trade +12.2%.',
+    'blog.article.economia-svizzera-q2-2026.imageAlt': 'Swiss office workspace displaying economic data and market charts on computer screens',
 };
 
 export default blogMetaChEn;
