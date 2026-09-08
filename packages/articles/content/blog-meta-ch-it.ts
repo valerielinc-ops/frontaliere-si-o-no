@@ -6061,6 +6061,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.economia-svizzera-q2-2026.title': 'Economia svizzera Q2 2026: +5,3% cifre d\'affari, +2% occupazione',
     'blog.article.economia-svizzera-q2-2026.excerpt': 'Nel Q2 2026, i rami di mercato svizzeri crescono: cifre d\'affari +5,3%, occupazione +2,0%. Terziario guida con +8,5%, commercio +12,2%.',
     'blog.article.economia-svizzera-q2-2026.imageAlt': 'Ufficio svizzero con dati economici e grafici di mercato visualizzati su schermi moderni',
+    'blog.article.ticino-scuola-pisa-2025-calo.title': 'Scuola Ticino: risultati PISA 2025 in calo',
+    'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'Nel 2025 il Ticino resta top 10 OCSE in matematica ma perde punti. Il 27,2% dei quindicenni non raggiunge il livello minimo di lettura.',
+    'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Una classe di studenti ticinesi durante una lezione con libri di matematica e dispositivi digitali moderni',
 };
 
 export default blogMetaChIt;

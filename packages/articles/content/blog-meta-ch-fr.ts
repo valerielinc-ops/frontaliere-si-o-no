@@ -6061,6 +6061,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.economia-svizzera-q2-2026.title': 'Économie suisse Q2 2026 : +5,3% chiffres d\'affaires, +2% emploi',
     'blog.article.economia-svizzera-q2-2026.excerpt': 'Au Q2 2026, les branches de marché suisses croissent : chiffres d\'affaires +5,3%, emploi +2,0%. Tertiaire guide avec +8,5 %, commerce +12,2 %.',
     'blog.article.economia-svizzera-q2-2026.imageAlt': 'Espace de travail suisse affichant les données économiques et graphiques de marché',
+    'blog.article.ticino-scuola-pisa-2025-calo.title': 'École du Tessin : résultats PISA 2025 en baisse',
+    'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'En 2025, le Tessin reste dans le top 10 de l\'OCDE en mathématiques mais perd des points. 27,2 % des quinquagénaires n\'atteignent pas le niveau minimum de lecture.',
+    'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Des étudiants du Tessin dans une classe moderne avec des manuels de mathématiques et appareils numériques',
 };
 
 export default blogMetaChFr;

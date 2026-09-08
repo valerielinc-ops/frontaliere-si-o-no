@@ -78683,6 +78683,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-scuola-pisa-2025-calo': {
+    title: 'Scuola Ticino: risultati PISA 2025 in calo | Frontaliere Ticino',
+    description: 'Nel 2025 il Ticino resta top 10 OCSE in matematica ma perde punti. Il 27,2% dei quindicenni non raggiunge il livello minimo di lettura. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, risultati, pisa, calo',
+    ogTitle: 'Scuola Ticino: PISA 2025 in calo',
+    ogDescription: 'PISA 2025: Ticino top 10 OCSE in matematica (492 vs 463 OCSE) ma calo generalizzato dal 2022. Critico: 27,2% dei quindicenni sotto il livello minimo di lettura. Implicazioni per il sistema educativo ticinese.',
+    canonicalPath: '/articoli-svizzera/ticino-scuola-pisa-2025-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola Ticino: risultati PISA 2025 in calo",
+      "description": "Nel 2025 il Ticino resta top 10 OCSE in matematica ma perde punti. Il 27,2% dei quindicenni non raggiunge il livello minimo di lettura. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-scuola-pisa-2025-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una classe di studenti ticinesi durante una lezione con libri di matematica e dispositivi digitali moderni"
+      },
+      "datePublished": "2026-09-08T08:32:27+00:00",
+      "dateModified": "2026-09-08T08:32:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ticino-scuola-pisa-2025-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

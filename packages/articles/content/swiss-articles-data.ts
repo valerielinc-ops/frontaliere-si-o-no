@@ -18181,6 +18181,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ticino-scuola-pisa-2025-calo',
+    category: 'novita',
+    date: '2026-09-08T08:32:27.445Z',
+    image: '/images/blog/ticino-scuola-pisa-2025-calo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

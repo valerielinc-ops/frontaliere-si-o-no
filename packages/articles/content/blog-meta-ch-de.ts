@@ -6061,6 +6061,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.economia-svizzera-q2-2026.title': 'Schweizer Wirtschaft Q2 2026: +5,3% Umsatz, +2% Beschäftigung',
     'blog.article.economia-svizzera-q2-2026.excerpt': 'Im Q2 2026 wachsen die Schweizer Marktbranchen: Umsatz +5,3%, Beschäftigung +2,0%. Tertiär mit +8,5%, Handel +12,2%.',
     'blog.article.economia-svizzera-q2-2026.imageAlt': 'Schweizer Büroarbeitsplatz mit Wirtschaftsdaten und Marktdiagrammen auf Bildschirmen',
+    'blog.article.ticino-scuola-pisa-2025-calo.title': 'Scuola Ticino: PISA 2025 Ergebnisse rückläufig',
+    'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'Im Jahr 2025 bleibt das Tessin unter den Top 10 der OECD in Mathematik, verliert aber Punkte. 27,2% der 15-Jährigen erreichen nicht die Mindestlektüre.',
+    'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Schüler aus dem Tessin in einem modernen Klassenzimmer mit Mathematikbüchern und digitalen Geräten',
 };
 
 export default blogMetaChDe;

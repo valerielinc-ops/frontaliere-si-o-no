@@ -6061,6 +6061,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-q2-2026.title': 'Swiss economy Q2 2026: +5.3% turnover, +2% employment',
     'blog.article.economia-svizzera-q2-2026.excerpt': 'In Q2 2026, Swiss market branches grow: turnover +5.3%, employment +2.0%. Tertiary driving with +8.5%, trade +12.2%.',
     'blog.article.economia-svizzera-q2-2026.imageAlt': 'Swiss office workspace displaying economic data and market charts on computer screens',
+    'blog.article.ticino-scuola-pisa-2025-calo.title': 'Ticino School: PISA 2025 results down',
+    'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'In 2025 Ticino remained in the top 10 OECD in mathematics but lost points. 27.2% of fifteen-year-olds do not reach the minimum reading level.',
+    'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Ticino students in a modern classroom with math textbooks and digital learning devices during class',
 };
 
 export default blogMetaChEn;
