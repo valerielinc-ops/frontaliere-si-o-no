@@ -24,6 +24,10 @@ on:
         description: Single company key to translate (e.g. a-group). Leave empty for all.
         type: string
         default: ""
+      reflag_gender_forms:
+        description: "One-shot: rimette in coda i job de- con forma di genere nel titolo (vedi workspace#39). Lasciare false sulle run schedulate."
+        type: boolean
+        default: false
       skip_housekeeping:
         description: Skip housekeeping (URL validation, expired pruning)
         type: boolean
@@ -226,6 +230,9 @@ jobs:
           TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
           TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
         run: node scripts/mark-mistranslated-jobs.mjs
+      - name: One-shot reflag of German gender-form titles
+        if: ${{ inputs.reflag_gender_forms }}
+        run: node scripts/mark-mistranslated-jobs.mjs --gender-forms --no-titles --no-descriptions --max-marks 0 --queue-ceiling 0
       - name: Log translation stats (before)
         if: inputs.skip_translate != true
         run: node scripts/log-translation-stats.mjs before
