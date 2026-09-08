@@ -57,6 +57,7 @@ import {
   groupByComune,
   slugifyComune,
   slugifyEvent,
+  slugifyLegacyEvent,
   disambiguateEventSlug,
   reserveLadderShape,
   EVENT_SOURCES,
@@ -3639,7 +3640,7 @@ function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySe
   const used = new Set<string>(reservedBaseSlugs);
   const slugFor = new Map<string, string>();
   for (const ev of list) {
-    const base = slugifyEvent(ev);
+    const base = slugifyLegacyEvent(ev);
     let slug = base;
     let n = 2;
     while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
@@ -3660,7 +3661,7 @@ export function eventSlugRedirectKey(locale: Locale, fromPath: string): string {
   return `${locale}|${fromPath}`;
 }
 
-function changedEventSlugMigrations(
+export function changedEventSlugMigrations(
   list: readonly SiteEvent[],
   canton: string,
   comune: string,

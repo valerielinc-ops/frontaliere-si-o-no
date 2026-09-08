@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { mkdtempSync, readFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   pathForEventDetail,
@@ -19,6 +19,7 @@ import {
   renderOtherEventsPage,
   DIGESTS,
   assignEventSlugs,
+  changedEventSlugMigrations,
   eventSlugRedirectKey,
   reserveLiveSiblingSlugs,
   renderEventSlugRedirectPage,
@@ -975,8 +976,11 @@ describe('events schema data quality (#3508)', () => {
 describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => {
   it('registers past canonical paths before emitting live slug bridges', () => {
     const source = readFileSync(path.join(__dirname, '../build-plugins/eventsSeoPagesPlugin.ts'), 'utf8');
-    expect(source.indexOf('for (const migration of liveSlugMigrations)'))
-      .toBeGreaterThan(source.indexOf('for (const [canton, events] of pastEventsByCanton)'));
+    const liveBridgeIndex = source.indexOf('for (const migration of liveSlugMigrations)');
+    const pastPassIndex = source.indexOf('for (const [canton, events] of pastEventsByCanton)');
+    expect(liveBridgeIndex).toBeGreaterThanOrEqual(0);
+    expect(pastPassIndex).toBeGreaterThanOrEqual(0);
+    expect(liveBridgeIndex).toBeGreaterThan(pastPassIndex);
   });
 
   it('deduplicates bridge writes by locale and source path, not redirect target', () => {
@@ -1024,6 +1028,32 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     };
     const slug = assignEventSlugs([event] as never).get(event.id)!;
     expect(slug.length).toBeLessThanOrEqual(EVENT_SLUG_MAX_LENGTH);
+  });
+
+  it('keeps the pre-budget slug available so long-title migrations emit a bridge', () => {
+    const event = {
+      ...EVENT,
+      id: 'tio-agenda:long-legacy',
+      title: 'Una manifestazione straordinaria con un programma molto ricco e dettagliato',
+      startDate: '2026-08-01',
+    };
+    const current = assignEventSlugs([event] as never).get(event.id)!;
+    expect(slugifyLegacyEvent(event).length).toBeGreaterThan(current.length);
+    expect(slugifyLegacyEvent(event)).toContain('2026-08-01');
+  });
+
+  it('uses the pre-budget slug as the source of a long-title migration', () => {
+    const event = {
+      ...EVENT,
+      id: 'tio-agenda:long-legacy-migration',
+      title: 'Una manifestazione straordinaria con un programma molto ricco e dettagliato',
+      startDate: '2026-08-01',
+    };
+    const assigned = assignEventSlugs([event] as never);
+    const migrations = changedEventSlugMigrations([event] as never, 'TI', 'Lugano', assigned);
+    expect(migrations).toHaveLength(1);
+    expect(migrations[0].fromSlug).toBe(slugifyLegacyEvent(event));
+    expect(migrations[0].toSlug).toBe(assigned.get(event.id));
   });
 
   it('the -N tie-breaker never lands on the reserved page-N ladder shape (issue #7743)', () => {
