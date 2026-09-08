@@ -4,6 +4,7 @@ import {
   citedFiles,
   citedTokens,
   suggestedActionText,
+  hasFalsifiableAcceptance,
   mostSpecificToken,
   detectAlreadyResolved,
   closingMergedPr,
@@ -111,6 +112,30 @@ describe('suggestedActionText scoping', () => {
     const region = suggestedActionText(body);
     expect(region).toContain('newFlag()');
     expect(region).not.toContain('legacyFlag');
+  });
+
+  it('keeps the legacy Funnel impact line outside Suggested action', () => {
+    const body = [
+      '- Suggested action: replace with `newFlag()` call',
+      '- Funnel impact: the old issue cites `legacyFlag()` here',
+    ].join('\n');
+    expect(suggestedActionText(body)).toContain('newFlag()');
+    expect(suggestedActionText(body)).not.toContain('legacyFlag()');
+    expect(citedTokens(body)).toEqual(['newFlag()']);
+  });
+
+  it('evaluates the new format without Funnel impact', () => {
+    const body = [
+      '- Source: reviewer',
+      '- Suggested action: call `newFlag()` in `scripts/ci/parser.mjs`',
+    ].join('\n');
+    const io = {
+      fileExists: (p: string) => p === 'scripts/ci/parser.mjs',
+      readFile: () => 'export function run() { newFlag(); }',
+    };
+    expect(body).not.toContain('Funnel impact');
+    expect(hasFalsifiableAcceptance(body)).toBe(true);
+    expect(detectAlreadyResolved(body, io).resolved).toBe(true);
   });
 
   it('falls back to whole body for free-form issues', () => {

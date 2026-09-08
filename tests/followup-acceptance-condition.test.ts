@@ -128,6 +128,16 @@ describe('pin sul sorgente', () => {
     expect(wf).toContain('no-acceptance-condition');
     expect(wf).toMatch(/condizione di accettazione falsificabile/i);
   });
+
+  it('il contratto non richiede piu\' Funnel impact e documenta la scheda verificabile', () => {
+    const doc = read('../FOLLOWUP.md');
+    const wf = read('../.github/workflows/post-merge-followup.yml');
+    expect(doc).not.toMatch(/^- Funnel impact:/m);
+    expect(doc).not.toContain('Crea un follow-up SOLO quando l\'item è **funnel-critico**');
+    expect(doc).toContain('METRICA: prima=<n> atteso=<n> | COMANDO:');
+    expect(wf).not.toContain('Funnel impact');
+    expect(wf).not.toMatch(/Filtro scopo.*funnel-critico.*E.*azionabile/);
+  });
 });
 
 /**
