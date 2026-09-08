@@ -21,6 +21,7 @@ import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-latest.json';
 const MIN_COUNT = intFromEnv('APP_ERROR_MIN_COUNT', 5);
@@ -29,6 +30,52 @@ const MAX_ISSUES = intFromEnv('APP_ERROR_MAX_ISSUES', 5);
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
+}
+
+/**
+ * Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami:
+ * `errorHealth` e lo stack arrivano dal report, non dall'entry.
+ */
+export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
+    const lines = [
+      `**Type:** ${sanitizeTrackedDiagnosticValue(e.errorType)}`,
+      `**Message:** ${sanitizeTrackedDiagnosticValue(e.errorMessage)}`,
+      `**Page:** ${sanitizeTrackedDiagnosticValue(e.pagePath)}`,
+      `**Hits (report window):** ${e.count} | **Affected users:** ${e.users}`,
+      `**Site-wide error rate:** ${errorRate}% (${healthStatus})`,
+    ];
+    if (stack) {
+      lines.push('', '**Stack:**', '```', truncate(sanitizeTrackedDiagnosticValue(stack), 1500), '```');
+    }
+    lines.push('', '_Source: GA4 `app_error` events — full errorHealth table in the Weekly Analytics Report run summary._');
+    lines.push('', buildScheda({
+      causa: [
+        "(ipotesi, da confermare.) Un errore JS in produzione che colpisce",
+        `${e.users} utenti distinti su \`${sanitizeTrackedDiagnosticValue(e.pagePath)}\`. La firma`,
+        "e' GA4, quindi dice CHE COSA e' successo e non DOVE nel sorgente: lo stack qui sopra,",
+        'se presente, e il feeder PostHog gemello (`PostHog Exception:`, stessa classe) sono i',
+        'due modi di risalire al frame.',
+      ],
+      fix: [
+        'Dipende dal frame; non preassegnata qui. | **REPO**: sito | **MODE**: nessun vincolo',
+        'di mirror.',
+      ],
+      metrica: `prima=${e.count} hit nella finestra del report atteso=<${MIN_COUNT} (sotto la soglia del feeder)`,
+      comando: 'node scripts/app-error-issue-sync.mjs --dry-run',
+      note: [
+        'Il comando rilegge `reports/analytics-latest.json` e stampa le issue che coniera',
+        "senza coniarle: la issue si chiude quando questa firma non compare piu' nell'output.",
+        'Il report va rigenerato prima (`node scripts/analytics-report.mjs --save`, vuole le',
+        'credenziali GA4), altrimenti si rimisura la stessa finestra di prima.',
+      ],
+      osservatore: [
+        '`.github/workflows/analytics.yml`, che ogni settimana rigira questo feeder e',
+        'ricommenta sulla issue canonica finche\' la firma resta sopra soglia. Non esiste un',
+        'closer automatico: il comando qui sopra e\' il criterio con cui chiuderla.',
+      ],
+      fallimento: `\`App Error: ${truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60)}\``,
+    }));
+    return lines.join('\n');
 }
 
 export async function main() {
@@ -101,6 +148,7 @@ export async function main() {
 
   return syncErrorIssues({
     entries: live,
+    dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
     source: 'Weekly Analytics Report — GA4 app_error',
@@ -110,21 +158,11 @@ export async function main() {
       const msg = truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60);
       return `App Error: ${type} — ${msg}`;
     },
-    bodyFor: (e) => {
-      const stack = stackByMessage.get(e.errorMessage);
-      const lines = [
-        `**Type:** ${sanitizeTrackedDiagnosticValue(e.errorType)}`,
-        `**Message:** ${sanitizeTrackedDiagnosticValue(e.errorMessage)}`,
-        `**Page:** ${sanitizeTrackedDiagnosticValue(e.pagePath)}`,
-        `**Hits (report window):** ${e.count} | **Affected users:** ${e.users}`,
-        `**Site-wide error rate:** ${eh.errorRate}% (${eh.healthStatus})`,
-      ];
-      if (stack) {
-        lines.push('', '**Stack:**', '```', truncate(sanitizeTrackedDiagnosticValue(stack), 1500), '```');
-      }
-      lines.push('', '_Source: GA4 `app_error` events — full errorHealth table in the Weekly Analytics Report run summary._');
-      return lines.join('\n');
-    },
+    bodyFor: (e) => buildIssueBody(e, {
+      errorRate: eh.errorRate,
+      healthStatus: eh.healthStatus,
+      stack: stackByMessage.get(e.errorMessage),
+    }),
   });
 }
 

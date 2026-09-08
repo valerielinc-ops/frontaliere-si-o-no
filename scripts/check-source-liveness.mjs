@@ -38,6 +38,7 @@
 import { pathToFileURL } from 'node:url';
 import { checkPostHogLiveness, POSTHOG_MONITORS, DEFAULT_MIN_EVENTS_PER_DAY } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 // Discriminant FIRST: issue dedup truncates the title at 60 chars, so a
 // trailing discriminant is the token that gets dropped and collides.
@@ -65,10 +66,37 @@ export function buildIssueBody(verdict) {
     '**Come rimisurare a mano:**',
     '```',
     'source bin/rc-env.sh   # dalla root del workspace',
-    'node scripts/check-source-liveness.mjs --json',
+    'node scripts/check-source-liveness.mjs --json --dry-run',
     '```',
     '',
     '_Fonte: scripts/check-source-liveness.mjs (guardia di vitalita\', scripts/lib/source-liveness.mjs). Questa issue e\' l\'UNICO canale di allarme per una sorgente morta: i singoli monitor si astengono in silenzio-dichiarato apposta, per non trasformare un guasto in dodici falsi allarmi._',
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) ${verdict.reason}. Una sorgente che non riceve eventi puo'`,
+        "essere rotta a monte (il client non spedisce) o a valle (l'ingestione non accetta):",
+        "il verdetto qui non distingue, e la distinzione decide dove guardare.",
+      ],
+      fix: [
+        'Dipende da quale dei due lati; non preassegnata qui. **Spesso il rimedio non e\' un',
+        'commit** ma una chiave scaduta o una quota. | **REPO**: sito.',
+      ],
+      metrica: `prima=sotto ${verdict.floor} eventi/giorno atteso=>=${verdict.floor} su ogni giorno pieno della finestra di ${verdict.windowDays}gg`,
+      comando: 'node scripts/check-source-liveness.mjs --json --dry-run',
+      note: [
+        '`--dry-run` non e\' decorativo: senza, con la sorgente ancora morta questo stesso',
+        'script conia la issue invece di limitarsi a misurarla. Stampa il verdetto: la issue si',
+        'chiude quando `alive` torna',
+        'vero. Vuole le credenziali della sorgente — dalla root del workspace,',
+        '`source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        'Questa stessa guardia, rigirata dal cron che la porta. Non esiste un closer',
+        "automatico: il comando qui sopra e' il criterio con cui chiuderla — e chiuderla",
+        'senza averlo eseguito e\' esattamente lo sbaglio che questo corpo documenta sopra.',
+      ],
+      fallimento: `\`${ISSUE_TITLE}\``,
+    }),
   ]
     .filter(Boolean)
     .join('\n');

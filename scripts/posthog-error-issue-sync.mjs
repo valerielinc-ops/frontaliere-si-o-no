@@ -18,6 +18,7 @@ import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics
 import { extractStackFrameOrigins, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { abstainIfSourceDead } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -37,6 +38,50 @@ async function hogql(host, pid, key, query) {
   });
   if (!r.ok) throw new Error(`PH ${r.status}: ${(await r.text()).slice(0, 300)}`);
   return r.json();
+}
+
+/** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
+export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', minCount = intFromEnv('POSTHOG_ERROR_MIN_COUNT', 5)) {
+    const origins = extractStackFrameOrigins(e.sampleExceptionList);
+    const originsText = origins.length
+      ? origins.map((o) => sanitizeTrackedDiagnosticValue(o)).join(', ')
+      : 'unresolved (0 frames)';
+    return [
+      `**Type:** ${sanitizeTrackedDiagnosticValue(e.type)}`,
+      `**Message:** ${sanitizeTrackedDiagnosticValue(e.message)}`,
+      `**Occurrences (last ${windowDays}d):** ${e.count} | **Distinct sessions:** ${e.sessions}`,
+      `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
+      `**Resolved stack origins (sample):** ${originsText}`,
+      '',
+      '_Source: PostHog `$exception` autocapture events._',
+      '',
+      buildScheda({
+        causa: [
+          "(ipotesi, da confermare.) Un'eccezione non gestita in produzione, su",
+          `${e.sessions} sessioni distinte. Gli origin dei frame risolti sono ${originsText}:`,
+          "sono il punto da cui partire, non la diagnosi — un frame nostro e' un difetto",
+          "nostro, un frame di terze parti spesso e' rumore che va negato in",
+          '`ISSUE_DENY_PATTERNS` (`scripts/lib/error-issue-sync.mjs`) invece che riparato.',
+        ],
+        fix: [
+          'Dipende dal frame; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
+          'vincolo di mirror.',
+        ],
+        metrica: `prima=${e.count} occorrenze in ${windowDays}d atteso=<${minCount} (sotto la soglia del feeder)`,
+        comando: 'node scripts/posthog-error-issue-sync.mjs --dry-run',
+        note: [
+          'Il comando rigira la stessa query PostHog e stampa le issue che coniera senza',
+          "coniarle: la issue si chiude quando questa firma non compare piu' nell'output.",
+          'Vuole le credenziali PostHog — dalla root del workspace, `source bin/rc-env.sh`.',
+        ],
+        osservatore: [
+          '`.github/workflows/posthog-error-monitor.yml`, che rigira la misura e ricommenta',
+          "sulla issue canonica finche' la firma resta sopra soglia. Non esiste un closer",
+          "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+        ],
+        fallimento: `\`PostHog Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}\``,
+      }),
+    ].join('\n');
 }
 
 export async function main() {
@@ -103,26 +148,13 @@ export async function main() {
 
   return syncErrorIssues({
     entries,
+    dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
     source: `PostHog Error Monitor — last ${WINDOW_DAYS}d`,
     priorityFor: (e) => (e.count >= MIN_COUNT * 10 ? 2 : 3),
     titleFor: (e) => `PostHog Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
-    bodyFor: (e) => {
-      const origins = extractStackFrameOrigins(e.sampleExceptionList);
-      const originsText = origins.length
-        ? origins.map((o) => sanitizeTrackedDiagnosticValue(o)).join(', ')
-        : 'unresolved (0 frames)';
-      return [
-        `**Type:** ${sanitizeTrackedDiagnosticValue(e.type)}`,
-        `**Message:** ${sanitizeTrackedDiagnosticValue(e.message)}`,
-        `**Occurrences (last ${WINDOW_DAYS}d):** ${e.count} | **Distinct sessions:** ${e.sessions}`,
-        `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
-        `**Resolved stack origins (sample):** ${originsText}`,
-        '',
-        '_Source: PostHog `$exception` autocapture events._',
-      ].join('\n');
-    },
+    bodyFor: (e) => buildIssueBody(e, WINDOW_DAYS, MIN_COUNT),
   });
 }
 

@@ -57,6 +57,7 @@ import {
   AUTO_FAMILIES_PATH,
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -151,7 +152,33 @@ ${run} controlli settimanali consecutivi (~${run} settimane).
 Prossimi passi suggeriti: rivedere title/description generator per questa
 famiglia (services/seo/seo-pages.ts per guida/tasse, build-plugins/ogPagesPlugin.ts
 per gli articoli), verificare rich-results (FAQPage/HowTo) e considerare
-l'estensione dell'A/B SERP autopilot esistente.`,
+l'estensione dell'A/B SERP autopilot esistente.
+
+${buildScheda({
+  causa: [
+    `(ipotesi, da confermare.) La CTR di questa famiglia sta sotto il target da ${run}`,
+    'controlli settimanali di fila, quindi non e\' rumore di una settimana. Se il difetto',
+    'sia nel titolo, nella descrizione o nel tipo di risultato mostrato non lo dice questo',
+    'numero: dice solo che chi vede la pagina in ricerca non ci clicca.',
+  ],
+  fix: [
+    'Dipende da cosa mostra la SERP per questa famiglia; non preassegnata qui. | **REPO**:',
+    'sito.',
+  ],
+  metrica: `prima=${pct(ctr)} atteso=>=${pct(target)} (${targetBasis})`,
+  comando: 'node scripts/monitor-seo-ctr-by-template.mjs --dry-run',
+  note: [
+    'Il comando rimisura tutte le famiglie e stampa il verdetto senza coniare: la issue si',
+    'chiude quando questa famiglia torna sopra il target. Vuole le credenziali della Search',
+    'Console — dalla root del workspace, `source bin/rc-env.sh`.',
+  ],
+  osservatore: [
+    'Questo stesso monitor, rigirato ogni settimana, che ricommenta sulla issue canonica',
+    'finche\' la famiglia resta sotto soglia. Non esiste un closer automatico: il comando',
+    'qui sopra e\' il criterio con cui chiuderla.',
+  ],
+  fallimento: `\`SEO CTR sotto soglia: template ${family.label}\``,
+})}`,
       priority: 3,
       labels: ['seo'],
       workflow: 'Monitor SEO CTR by Template',
@@ -189,7 +216,32 @@ entry a \`SEO_CTR_FAMILIES\` con \`monitored: true\` e una \`impressions90d\`
 misurata; se è un prefisso lingua cross-cutting, marcarla \`kind: 'locale'\`
 (pinnato a una radice \`/xx/\`); se è un raggruppamento di pagine editoriali
 eterogenee senza un generator condiviso, marcarla \`kind: 'listing'\` con un
-\`note\` che lo giustifichi (issue #6306).`,
+\`note\` che lo giustifichi (issue #6306).
+
+${buildScheda({
+  causa: [
+    `(ipotesi, da confermare.) Questa famiglia supera la soglia di sorveglianza ma non e'`,
+    'nel registro, quindi nessun controllo di CTR la guarda. E\' un buco di copertura del',
+    'monitor, non un difetto delle pagine: la loro CTR potrebbe essere ottima o pessima, e',
+    'oggi non lo sappiamo.',
+  ],
+  fix: [
+    'Aggiungere una voce al registro delle famiglie, con il tipo giusto fra quelli elencati',
+    'sopra. | **REPO**: sito.',
+  ],
+  metrica: `prima=fuori registro con ${impressions90d} impressioni/90gg atteso=censita nel registro`,
+  comando: 'node scripts/monitor-seo-ctr-by-template.mjs --dry-run',
+  note: [
+    'Il comando rifa la passata di scoperta senza coniare: la issue si chiude quando questa',
+    'famiglia non compare piu\' fra quelle non censite.',
+  ],
+  osservatore: [
+    'Questo stesso monitor, la cui passata di scoperta riconia la issue finche\' la famiglia',
+    'resta fuori dal registro — quindi una issue che ricompare dopo la chiusura significa',
+    'che la voce aggiunta non e\' stata riconosciuta.',
+  ],
+  fallimento: `\`SEO CTR: famiglia ad alto volume non censita nel registro (${pathContains})\``,
+})}`,
       priority: 3,
       labels: ['seo'],
       workflow: 'Monitor SEO CTR by Template',

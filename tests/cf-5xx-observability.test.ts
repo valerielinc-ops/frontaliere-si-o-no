@@ -165,6 +165,16 @@ describe('summarizeSurfaces', () => {
     expect(topPaths[0].url).toBe('cdn.frontaliereticino.ch/assets/a.js');
     expect(topPaths).toHaveLength(3);
   });
+
+  it('conserva tutti i 50 path che il feeder puo\' passare al monitor', () => {
+    const topPaths = summarizeSurfaces(Array.from({ length: 50 }, (_, i) => ({
+      status: 502,
+      host: 'cdn.frontaliereticino.ch',
+      path: `/assets/${String(i).padStart(2, '0')}.js`,
+      count: 50 - i,
+    }))).topPaths;
+    expect(topPaths).toHaveLength(50);
+  });
 });
 
 describe('history file', () => {

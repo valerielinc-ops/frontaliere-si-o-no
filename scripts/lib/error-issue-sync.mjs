@@ -299,6 +299,7 @@ export async function isSelfHealedPage404(entry, { fetchImpl = fetch, origin = P
  * @param {(entry:object)=>number} [opts.priorityFor]  1-4 scale, 3=medium default.
  * @param {string[]} [opts.labels]        Extra labels beyond the priority label.
  * @param {string} [opts.source]          Human label for the "Workflow:" line in the issue body.
+ * @param {boolean} [opts.dryRun]         Stampa titolo e corpo invece di coniare.
  * @returns {Promise<Array<object|null>>}
  */
 export async function syncErrorIssues({
@@ -309,11 +310,21 @@ export async function syncErrorIssues({
   priorityFor,
   labels = [],
   source,
+  dryRun = false,
 }) {
   const results = [];
   for (const entry of entries.slice(0, maxIssues)) {
     const title = titleFor(entry);
     if (!title) continue;
+    // `--dry-run` esiste perche' il COMANDO della scheda dev'essere eseguibile
+    // da chi triagia la issue: senza, l'unico modo di rimisurare il criterio di
+    // chiusura sarebbe rigirare il feeder, che conia. Un criterio che per essere
+    // verificato apre una issue non e' un criterio.
+    if (dryRun) {
+      console.log(`\n── [dry-run] ${title}\n${bodyFor(entry)}\n`);
+      results.push(null);
+      continue;
+    }
     const priority = priorityFor ? priorityFor(entry) : 3;
     // eslint-disable-next-line no-await-in-loop -- sequential to stay under gh API rate limits
     const res = await createGithubIssue({

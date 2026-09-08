@@ -40,6 +40,8 @@
  *   node scripts/check-autologin-refusal-rate.mjs --hours=168  # 7 days
  *   node scripts/check-autologin-refusal-rate.mjs --no-probe   # skip the synthetic probe
  *   node scripts/check-autologin-refusal-rate.mjs --json       # machine output only
+ *   node scripts/check-autologin-refusal-rate.mjs --json --no-probe --dry-run
+ *                                                              # read-only verification
  *
  * Exit 1 when an alerting finding is present (the workflow turns that into an
  * issue); exit 0 otherwise.
@@ -66,6 +68,7 @@ import {
 } from './lib/autologinRefusalMetrics.mjs';
 import { runAutologinProbe } from './lib/autologinProbe.mjs';
 import { recordProbeRun, countProbeRuns } from './lib/autologinProbeLog.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -87,7 +90,8 @@ const HISTORY_DAYS = 60;
 
 const args = process.argv.slice(2);
 const JSON_ONLY = args.includes('--json');
-const RUN_PROBE = !args.includes('--no-probe');
+const DRY_RUN = args.includes('--dry-run');
+const RUN_PROBE = !DRY_RUN && !args.includes('--no-probe');
 const HOURS = (() => {
   const a = args.find((x) => x.startsWith('--hours='));
   const n = a ? Number.parseInt(a.slice('--hours='.length), 10) : 24;
@@ -325,10 +329,43 @@ async function main() {
     },
   ].slice(-HISTORY_DAYS);
 
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  fs.writeFileSync(HISTORY_PATH, `${JSON.stringify({ baseline, days }, null, 2)}\n`, 'utf8');
+  if (!DRY_RUN) {
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+    fs.writeFileSync(HISTORY_PATH, `${JSON.stringify({ baseline, days }, null, 2)}\n`, 'utf8');
+  } else {
+    log('[dry-run] nessuna scrittura su storia o alert.json.');
+  }
 
-  const body = report(agg, verdict, baseline, probe);
+  const body = [
+    report(agg, verdict, baseline, probe),
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) Il rapporto lockout è ${pct(agg.lockoutRate)} su ${agg.graded}`,
+        'scambi graduati, oppure la sorgente non ha prodotto righe. La misura distingue le cause',
+        'di rifiuto ma non da sola quale parametro o deploy abbia introdotto il lockout.',
+      ],
+      fix: [
+        'Verificare il finding e, se è un lockout causato dal flip, svuotare i tre parametri',
+        'Remote Config indicati dal runbook. | **REPO**: configurazione di produzione; non è',
+        'una correzione da preassegnare nel codice.',
+      ],
+      metrica: `prima=${pct(agg.lockoutRate)} su ${agg.graded} scambi graduati atteso=0 pre-flip o <${pct(LOCKOUT_RATE_WARN)} dopo il flip`,
+      comando: 'node scripts/check-autologin-refusal-rate.mjs --json --no-probe --dry-run',
+      note: [
+        'Il comando rilegge Cloud Logging, salta la sonda e stampa il verdetto senza aggiornare',
+        'storia o alert.json: la scheda si chiude quando non c\'è un finding alerting.',
+      ],
+      osservatore: [
+        '`.github/workflows/autologin-refusal-monitor.yml`, che legge ogni giorno Cloud Logging',
+        'e apre/chiude le issue in base ad `alert.json`. La serie è in `docs/autologin-refusal/`;',
+        'il comando qui sopra è la verifica read-only del criterio.',
+      ],
+      fallimento: '`[autologin-rate] <finding>: rifiuti exchange_auth_code`',
+    }),
+    '',
+    runbook(agg, verdict),
+  ].join('\n');
   log(`\n${body}\n`);
 
   if (verdict.alert) {
@@ -340,16 +377,21 @@ async function main() {
     const worst = verdict.findings
       .filter((f) => f.alert)
       .sort((a, b) => a.priority - b.priority)[0];
-    fs.writeFileSync(ALERT_PATH, `${JSON.stringify({
-      priority: verdict.priority,
-      // Discriminant FIRST: `github-issue-creator.mjs` dedups on the first 60
-      // characters of the title, so a suffix would be cut off and every code
-      // would collapse onto one canonical issue.
-      title: `[autologin-rate] ${worst.code}: rifiuti exchange_auth_code`,
-      body: `${body}\n\n${runbook(agg, verdict)}`,
-    }, null, 2)}\n`, 'utf8');
-    log(`🔴 Alert scritto in ${path.relative(ROOT, ALERT_PATH)} (priority ${verdict.priority}).`);
-  } else if (fs.existsSync(ALERT_PATH)) {
+    if (!DRY_RUN) {
+      fs.mkdirSync(OUT_DIR, { recursive: true });
+      fs.writeFileSync(ALERT_PATH, `${JSON.stringify({
+        priority: verdict.priority,
+        // Discriminant FIRST: `github-issue-creator.mjs` dedups on the first 60
+        // characters of the title, so a suffix would be cut off and every code
+        // would collapse onto one canonical issue.
+        title: `[autologin-rate] ${worst.code}: rifiuti exchange_auth_code`,
+        body,
+      }, null, 2)}\n`, 'utf8');
+      log(`🔴 Alert scritto in ${path.relative(ROOT, ALERT_PATH)} (priority ${verdict.priority}).`);
+    } else {
+      log(`[dry-run] scriverei alert.json (priority ${verdict.priority}).`);
+    }
+  } else if (!DRY_RUN && fs.existsSync(ALERT_PATH)) {
     fs.rmSync(ALERT_PATH);
   }
 

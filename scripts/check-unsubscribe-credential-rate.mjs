@@ -108,6 +108,7 @@
  *   node scripts/check-unsubscribe-credential-rate.mjs               # 7-day window
  *   node scripts/check-unsubscribe-credential-rate.mjs --hours=24    # 24h window
  *   node scripts/check-unsubscribe-credential-rate.mjs --json
+ *   node scripts/check-unsubscribe-credential-rate.mjs --json --dry-run # read-only verification
  *
  * Exit 1 when an alerting finding is present (the workflow turns that into
  * an issue); exit 0 otherwise.
@@ -126,6 +127,7 @@ import {
   MIN_SAMPLE,
   CREDENTIAL_LINK_CHANNEL,
 } from './lib/unsubscribeCredentialMetrics.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -142,6 +144,7 @@ const DEFAULT_HOURS = 168; // 7 days — this channel's volume (~20-50 credentia
 
 const args = process.argv.slice(2);
 const JSON_ONLY = args.includes('--json');
+const DRY_RUN = args.includes('--dry-run');
 const HOURS = (() => {
   const a = args.find((x) => x.startsWith('--hours='));
   const n = a ? Number.parseInt(a.slice('--hours='.length), 10) : DEFAULT_HOURS;
@@ -274,7 +277,7 @@ function runbook(agg, verdict) {
    writes, matches the sibling monitor's pattern of keeping the
    network/fs shell separate from the pure arithmetic) ────────────── */
 
-export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT_DIR, now = new Date() } = {}) {
+export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT_DIR, now = new Date(), dryRun = false } = {}) {
   const sinceDate = new Date(now.getTime() - hours * 3600_000);
   const { records, scannedEvents } = await readUnsubscribeLinkEvents(db, sinceDate);
   log(`📥 ${scannedEvents} eventi \`unsubscribe\` letti, ${records.length} del canale \`unsubscribe_link\` nella finestra.`);
@@ -297,11 +300,43 @@ export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT
     },
   ].slice(-HISTORY_DAYS);
 
-  fs.mkdirSync(outDir, { recursive: true });
   const historyPath = path.join(outDir, 'history.json');
-  fs.writeFileSync(historyPath, `${JSON.stringify({ days }, null, 2)}\n`, 'utf8');
+  if (!dryRun) {
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(historyPath, `${JSON.stringify({ days }, null, 2)}\n`, 'utf8');
+  } else {
+    log('[dry-run] nessuna scrittura su storia o alert.json.');
+  }
 
-  const body = report(agg, verdict, hours, scannedEvents, hadFallbackBefore);
+  const body = [
+    report(agg, verdict, hours, scannedEvents, hadFallbackBefore),
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) ${pct(agg.fallbackRate)} degli unsubscribe graduati usa`,
+        'il fallback `autologin_code`, oppure la quota di eventi senza credential è troppo alta.',
+        'La misura segnala il rischio ma non distingue da sola template, token o writer difettoso.',
+      ],
+      fix: [
+        'Verificare il writer o il template newsletter indicato dal runbook e correggere la',
+        'superficie confermata. | **REPO**: sito; non preassegnata qui.',
+      ],
+      metrica: `prima=${pct(agg.fallbackRate)} fallback su ${agg.graded} eventi graduati atteso=<${pct(FALLBACK_RATE_WARN)} e missing sotto soglia`,
+      comando: 'node scripts/check-unsubscribe-credential-rate.mjs --json --dry-run',
+      note: [
+        'Il comando rilegge gli eventi Firestore, valuta il finding e stampa il verdetto senza',
+        'scrivere storia o alert.json: la scheda si chiude quando non c\'è un finding alerting.',
+      ],
+      osservatore: [
+        '`.github/workflows/unsubscribe-credential-monitor.yml`, che legge ogni giorno il gruppo',
+        'di eventi e apre/chiude le issue in base ad `alert.json`. La serie è in',
+        '`docs/unsubscribe-credential-rate/`; il comando qui sopra è la verifica read-only.',
+      ],
+      fallimento: '`[unsub-credential] <finding>: quota fallback ac su unsubscribe`',
+    }),
+    '',
+    runbook(agg, verdict),
+  ].join('\n');
   log(`\n${body}\n`);
 
   const alertPath = path.join(outDir, 'alert.json');
@@ -312,18 +347,23 @@ export async function runCheck({ db, hours = DEFAULT_HOURS, outDir = DEFAULT_OUT
     const worst = verdict.findings
       .filter((f) => f.alert)
       .sort((a, b) => a.priority - b.priority)[0];
-    fs.writeFileSync(alertPath, `${JSON.stringify({
-      priority: verdict.priority,
-      // Discriminant FIRST: github-issue-creator.mjs dedups on the first 60
-      // characters of the title. "[unsub-credential] " (19 chars) plus the
-      // longest finding code, `first_fallback_after_zero_baseline` (34
-      // chars), is 53 chars — still inside the cut with the colon.
-      title: `[unsub-credential] ${worst.code}: quota fallback ac su unsubscribe`,
-      body: `${body}\n\n${runbook(agg, verdict)}`,
-    }, null, 2)}\n`, 'utf8');
-    alertWritten = true;
-    log(`🔴 Alert scritto in ${path.relative(ROOT, alertPath)} (priority ${verdict.priority}).`);
-  } else if (fs.existsSync(alertPath)) {
+    if (!dryRun) {
+      fs.mkdirSync(outDir, { recursive: true });
+      fs.writeFileSync(alertPath, `${JSON.stringify({
+        priority: verdict.priority,
+        // Discriminant FIRST: github-issue-creator.mjs dedups on the first 60
+        // characters of the title. "[unsub-credential] " (19 chars) plus the
+        // longest finding code, `first_fallback_after_zero_baseline` (34
+        // chars), is 53 chars — still inside the cut with the colon.
+        title: `[unsub-credential] ${worst.code}: quota fallback ac su unsubscribe`,
+        body,
+      }, null, 2)}\n`, 'utf8');
+      alertWritten = true;
+      log(`🔴 Alert scritto in ${path.relative(ROOT, alertPath)} (priority ${verdict.priority}).`);
+    } else {
+      log(`[dry-run] scriverei alert.json (priority ${verdict.priority}).`);
+    }
+  } else if (!dryRun && fs.existsSync(alertPath)) {
     fs.rmSync(alertPath);
   }
 
@@ -347,7 +387,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { verdict, alertWritten } = await runCheck({ db, hours: HOURS });
+  const { verdict, alertWritten } = await runCheck({ db, hours: HOURS, dryRun: DRY_RUN });
 
   if (JSON_ONLY) console.log(JSON.stringify({ verdict, alertWritten }, null, 2));
 

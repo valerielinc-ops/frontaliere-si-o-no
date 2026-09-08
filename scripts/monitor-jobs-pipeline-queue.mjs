@@ -36,6 +36,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createGithubIssue } from './lib/github-issue-creator.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -207,6 +208,29 @@ export async function main() {
       ),
       '',
       'Rilevato da `scripts/monitor-jobs-pipeline-queue.mjs` (scan periodico).',
+      '',
+      buildScheda({
+        causa: [
+          "(ipotesi, da confermare.) Una run cancellata da `queued`, senza nessun job mai",
+          "avviato, e' il segnale che il piano di questo repo non applica `queue: max` per",
+          "intero e degrada al vecchio limite di una sola run pendente. E' un'ipotesi sul",
+          'piano, non sul workflow: va confermata prima di riscrivere la concorrenza.',
+        ],
+        fix: [
+          "Dipende da cosa conferma l'esame; non preassegnata qui. | **REPO**: sito.",
+        ],
+        metrica: `prima=${cancelledWhileQueued.length} run cancellate in coda nella finestra atteso=0`,
+        comando: 'node scripts/monitor-jobs-pipeline-queue.mjs --dry-run',
+        note: [
+          'Il comando rifa la stessa scansione e stampa il verdetto senza coniare: la issue si',
+          'chiude quando la finestra non porta piu\' nessuna run cancellata mentre era in coda.',
+        ],
+        osservatore: [
+          'Questo stesso monitor, rigirato dal suo cron, che riconia la issue se il caso',
+          "ricapita. Non esiste un closer automatico: il comando qui sopra e' il criterio.",
+        ],
+        fallimento: `\`${title}\``,
+      }),
     ].join('\n');
     if (DRY_RUN) {
       console.log(`[monitor-jobs-pipeline-queue] (dry-run) would report "${title}"`);
@@ -238,6 +262,28 @@ export async function main() {
       '',
       `Oltre il cap di ${QUEUE_CAP} le run vengono scartate silenziosamente, senza `
         + 'segnale operativo. Rilevato da `scripts/monitor-jobs-pipeline-queue.mjs`.',
+      '',
+      buildScheda({
+        causa: [
+          `(ipotesi, da confermare.) La coda e' a ${depth} su ${QUEUE_CAP}: qualcosa accoda piu'`,
+          'run di quante ne smaltisce. Se sia un aumento della produzione o un rallentamento',
+          'del consumo lo dice la ripartizione per workflow qui sopra, non questo totale.',
+        ],
+        fix: [
+          "Dipende da quale dei due; non preassegnata qui. | **REPO**: sito.",
+        ],
+        metrica: `prima=${depth} run in coda su ${QUEUE_CAP} atteso=<${SATURATION_WARN_THRESHOLD}`,
+        comando: 'node scripts/monitor-jobs-pipeline-queue.mjs --dry-run',
+        note: [
+          'Il comando rilegge la profondita\' corrente senza coniare: la issue si chiude quando',
+          'la coda torna sotto la soglia di preallarme.',
+        ],
+        osservatore: [
+          'Questo stesso monitor, rigirato dal suo cron, che riconia la issue se la coda',
+          "risale. Non esiste un closer automatico: il comando qui sopra e' il criterio.",
+        ],
+        fallimento: `\`${title}\``,
+      }),
     ].join('\n');
     if (DRY_RUN) {
       console.log(`[monitor-jobs-pipeline-queue] (dry-run) would report "${title}"`);

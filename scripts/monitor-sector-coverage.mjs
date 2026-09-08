@@ -51,13 +51,15 @@
  * dir rather than duplicating the matching logic here.
  *
  * Always exits 0 — non-blocking, alerting only.
- * Usage: npx tsx scripts/monitor-sector-coverage.mjs
+ * Usage: npx tsx scripts/monitor-sector-coverage.mjs [--dry-run]
+ *        --dry-run: valuta e stampa, ma non scrive l'artefatto e non apre issue.
  */
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -68,6 +70,7 @@ const EXPIRED_JOBS_PATH = path.join(REPO_ROOT, 'public/data/expired-jobs.json');
 // Mirrors MIN_JOBS in build-plugins/professionCantonLandings.ts — the floor
 // below which a profession-canton page falls back to a noindex bridge.
 const MIN_JOBS = 3;
+const DRY_RUN = process.argv.includes('--dry-run');
 
 function log(emoji, msg) {
   console.log(`${emoji} ${msg}`);
@@ -242,6 +245,10 @@ export function renderDeltaSection(delta, { minJobs, totalPairs, totalZero, pair
 
 /** Scrive l'artefatto. Best-effort: un errore di IO non deve rompere il post-deploy. */
 function writeGapArtifact(artifact) {
+  if (DRY_RUN) {
+    log('🔎', `[dry-run] salterei la scrittura di ${path.relative(REPO_ROOT, GAP_ARTIFACT_PATH)}`);
+    return;
+  }
   try {
     fs.mkdirSync(path.dirname(GAP_ARTIFACT_PATH), { recursive: true });
     fs.writeFileSync(GAP_ARTIFACT_PATH, `${JSON.stringify(artifact, null, 2)}\n`);
@@ -283,6 +290,10 @@ function readPreviousGapState() {
 }
 
 function createIssue({ title, description, labels }) {
+  if (DRY_RUN) {
+    log('🔎', `[dry-run] aprirei/aggiornerei "${title}" (${labels.join(', ')})`);
+    return;
+  }
   const args = [
     path.join(REPO_ROOT, 'scripts/lib/github-issue-creator.mjs'),
     '--title', title,
@@ -322,7 +333,31 @@ ${zeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
 - Domanda di lavoro genuinamente scarsa in Ticino per questo settore (verificare vs. altri cantoni)
 
 **Run:** ${runUrl()}
-**Totale job TI (raw, canton==TI):** ${tiJobs.length}`;
+**Totale job TI (raw, canton==TI):** ${tiJobs.length}
+
+${buildScheda({
+  causa: [
+    `(ipotesi, da confermare.) ${zeroSectors.length} settore/i TI non ha/hanno nessun match`,
+    'reale nel corpus pubblicato. Il conteggio non distingue un crawler mancante da una',
+    'categoria che non attraversa i matcher: questa distinzione va verificata sui titoli reali.',
+  ],
+  fix: [
+    'Dipende dalla causa confermata: onboarding di un crawler o correzione dei matcher del',
+    'settore. | **REPO**: sito; non preassegnata qui.',
+  ],
+  metrica: `prima=${zeroSectors.length} settori TI a 0 match atteso=0 settori TI a 0 match`,
+  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  note: [
+    'Il comando ripete il controllo sul corpus pubblicato senza scrivere l\'artefatto e senza',
+    'coniare issue: la scheda si chiude quando nessun settore TI è più a 0 match reale.',
+  ],
+  osservatore: [
+    '`.github/workflows/post-deploy-publish.yml`, che esegue questo monitor dopo ogni deploy e',
+    'apre/aggiorna la issue quando il gap ricompare. Non esiste un closer automatico: il comando',
+    'qui sopra è il criterio con cui chiuderla.',
+  ],
+  fallimento: '`TI sector coverage: settori a 0 match reali`',
+})}`;
 
   createIssue({
     title: 'TI sector coverage: settori a 0 match reali',
@@ -389,7 +424,31 @@ ${bridgedNoindex.map((id) => `- \`/lavoro-ticino-${id}/\``).join('\n')}
 ` : ''}
 **Causa più probabile:** gap di copertura crawler per il ruolo/vertical in Ticino (vedi #3337) — stessa diagnosi di #4824, non un problema di regex/matching.
 
-**Run:** ${runUrl()}`;
+**Run:** ${runUrl()}
+
+${buildScheda({
+  causa: [
+    `(ipotesi, da confermare.) ${zeroIds.length} ruolo/i TI legacy è/sono a 0 offerte live nel`,
+    'deploy. La grace window separa una pagina ancora indicizzata da una già bridged, ma non',
+    'spiega da sola perché il crawler non abbia portato un annuncio utile.',
+  ],
+  fix: [
+    'Dipende dalla causa confermata: onboarding del crawler o verifica del matching del ruolo.',
+    '| **REPO**: sito; non preassegnata qui.',
+  ],
+  metrica: `prima=${zeroIds.length} ruoli TI legacy a 0 match atteso=0 ruoli TI legacy a 0 match`,
+  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  note: [
+    'Il comando rivaluta anche la grace window e stampa il verdetto senza scrivere l\'artefatto',
+    'e senza coniare issue: la scheda si chiude quando non restano ruoli TI a 0 match.',
+  ],
+  osservatore: [
+    '`.github/workflows/post-deploy-publish.yml`, che rivaluta il corpus dopo ogni deploy e',
+    'apre/aggiorna la issue quando il gap ricompare. Non esiste un closer automatico: il comando',
+    'qui sopra è il criterio con cui chiuderla.',
+  ],
+  fallimento: '`TI profession coverage (legacy): ruoli a 0 match reali`',
+})}`;
 
   createIssue({
     title: 'TI profession coverage (legacy): ruoli a 0 match reali',
@@ -501,7 +560,31 @@ Elenco **completo** (non troncato) e ordinabile: artefatto \`data/profession-can
 
 **Run:** ${runUrl()}
 
-${serializeGapState(state)}`;
+${serializeGapState(state)}
+
+${buildScheda({
+  causa: [
+    `(ipotesi, da confermare.) ${nationalZero.length} professione/i è/sono a zero nazionale o`,
+    `${state.pairs.length} coppie professione×cantone sono sotto il floor ${MIN_JOBS}. Il gap set`,
+    'mostra dove manca la copertura, non se la causa è un crawler oppure una normalizzazione.',
+  ],
+  fix: [
+    'Dipende dalla professione e dal cantone confermati: onboarding crawler o correzione della',
+    'normalizzazione dei titoli. | **REPO**: sito; non preassegnata qui.',
+  ],
+  metrica: `prima=${nationalZero.length} zero nazionali + ${state.pairs.length} coppie sotto floor atteso=nessun gap di copertura aperto`,
+  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  note: [
+    'Il comando ricalcola il gap set e stampa il delta senza scrivere l\'artefatto e senza',
+    'coniare issue: la scheda si chiude quando non restano gap da tracciare.',
+  ],
+  osservatore: [
+    '`.github/workflows/post-deploy-publish.yml`, che ricalcola il gap set dopo ogni deploy e',
+    'aggiorna la issue canonica solo quando il delta cambia. Non esiste un closer automatico:',
+    'il comando qui sopra è il criterio con cui chiuderla.',
+  ],
+  fallimento: '`Copertura professioni per cantone: gap sistemici rilevati`',
+})}`;
 
   createIssue({
     title: 'Copertura professioni per cantone: gap sistemici rilevati',
