@@ -6091,6 +6091,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.infermieri-carenza-svizzera-2034.title': 'Krankenschwestern: Mangel bis 2034 in der Schweiz',
     'blog.article.infermieri-carenza-svizzera-2034.excerpt': 'Der 4. Obsan-Bericht prognostiziert einen ernsthaften Mangel an Krankenschwestern bis 2034. Nur 55% des Bedarfs werden durch in der Schweiz ausgebildetes Personal gedeckt.',
     'blog.article.infermieri-carenza-svizzera-2034.imageAlt': 'Moderner Schweizer Spitalkorridor mit Pflegepersonal in Berufskleidung',
+    'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis kollabiert 10% an der Börse für gescheiterte Studien',
+    'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen und Del-desiran bestehen die klinischen Tests nicht. Abwärtskapitalisierung von CHF 24 Milliarden, der schwerste Einbruch in der Geschichte.',
+    'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Schweizer Panorama, das nationale wirtschaftliche Stabilität in Zeiten von Marktvolatilität darstellt',
 };
 
 export default blogMetaChDe;

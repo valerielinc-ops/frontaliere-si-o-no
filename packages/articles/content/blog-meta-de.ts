@@ -11604,6 +11604,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-malati-rincari-2027.title': 'Krankenkassenprämien: +5% im Jahr 2027',
     'blog.article.cassa-malati-rincari-2027.excerpt': 'Gemäss bonus.ch werden die KVG-Prämien im Jahr 2027 um fast 5% steigen, mit Spitzenwerten von bis zu 20%. Direkte Auswirkungen auf die Gehaltsabrechnung der Grenzgänger.',
     'blog.article.cassa-malati-rincari-2027.imageAlt': 'Krankenkassenversicherungsdokumente und digitaler Prämienkalkulator',
+    'blog.article.frontalieri-libro-analisi-miti.title': 'Schweizer Grenzgänger: 400.000, Mythen und Analysen',
+    'blog.article.frontalieri-libro-analisi-miti.excerpt': 'Die Schweiz beschäftigt 400.000+ Grenzgänger (europäischer Rekord). Neues Buch entlarvt Mythen: Wachstum 1978–2026, Löhne, Steuern, Verkehr. Tessin in der Mitte.',
+    'blog.article.frontalieri-libro-analisi-miti.imageAlt': 'Lugano Skyline mit Luganosee und umliegenden Bergen, Symbol der Tessiner Region und Grenzgängerarbeit',
 };
 
 export default blogMetaDe;

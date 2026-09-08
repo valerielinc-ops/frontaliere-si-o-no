@@ -6091,6 +6091,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.infermieri-carenza-svizzera-2034.title': 'Infermieri: carenza entro il 2034 in Svizzera',
     'blog.article.infermieri-carenza-svizzera-2034.excerpt': 'Il 4° rapporto Obsan prevede una carenza grave di infermieri entro il 2034. Solo il 55% del fabbisogno coperto da personale formato in Svizzera.',
     'blog.article.infermieri-carenza-svizzera-2034.imageAlt': 'Corridoio di ospedale svizzero con operatori sanitari: carenza di infermieri è una sfida per il sistema',
+    'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis crolla 10% in borsa per studi falliti',
+    'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen e Del-desiran non superano i test clinici. Capitalizzazione giù di 24 miliardi CHF, il crollo più grave della storia.',
+    'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Veduta della Svizzera che evoca la stabilità economica nazionale in un momento di volatilità di borsa',
 };
 
 export default blogMetaChIt;

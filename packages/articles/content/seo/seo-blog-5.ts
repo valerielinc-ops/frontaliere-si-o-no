@@ -88837,6 +88837,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-libro-analisi-miti': {
+    title: 'Frontalieri svizzera: 400mila, miti e analisi | Frontaliere Ticino',
+    description: 'La Svizzera impiega 400mila+ frontalieri (record europeo). Nuovo libro sfata miti su dumping salariale, occupazione, fiscalità, trasporti. Ticino protagonista.',
+    keywords: 'frontalieri, ticino, svizzera, italia, 400mila, miti, analisi, impiega',
+    ogTitle: 'Frontalieri: Svizzera record europeo con 400mila lavoratori',
+    ogDescription: 'Un nuovo libro analizza il fenomeno del lavoro frontaliero in Svizzera: 400mila+ lavoratori, crescita dal 1978, miti sul furto di posti, salari, fiscalità, trasporti. Scopri come la regolamentazione europea può proteggere i diritti dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-libro-analisi-miti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri svizzera: 400mila, miti e analisi",
+      "description": "La Svizzera impiega 400mila+ frontalieri (record europeo). Nuovo libro sfata miti su dumping salariale, occupazione, fiscalità, trasporti. Ticino protagonista.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-libro-analisi-miti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne circostanti, simbolo della regione ticinese e del lavoro frontaliero"
+      },
+      "datePublished": "2026-09-08T14:53:29+00:00",
+      "dateModified": "2026-09-08T14:53:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-libro-analisi-miti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
