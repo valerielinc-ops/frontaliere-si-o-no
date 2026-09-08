@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-08T13:41:17.606Z",
+  "generatedAt": "2026-09-08T23:26:20.261Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3984,
-  "avgDurationMs": 3984,
+  "durationMs": 5085,
+  "avgDurationMs": 5085,
   "durationHistory": [
-    3984
+    5085
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -422,49 +422,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mitarbeiter:in Technischer Dienst, 100%",
-      "slug": "collaboratore-trice-technischer-dienst-100-berit-klinik-wattwil",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__87e0faa554.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Wattwil",
-      "addressLocality": "Wattwil",
-      "addressRegion": "SG",
-      "postalCode": "9630",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-23",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "stelleninserat_ma_technischer_dienst_ww__100__87e0faa554.pdf"
-      },
-      "id": "berit-klinik-4f7a7d521c6f",
-      "firstSeenAt": "2026-07-23T12:19:10.075Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Koch, 20-30%",
@@ -498,7 +456,7 @@
       "salaryMax": 33900,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
