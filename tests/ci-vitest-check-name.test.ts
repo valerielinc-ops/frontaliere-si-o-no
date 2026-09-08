@@ -376,9 +376,9 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(collectStep).toContain('github.event.merge_group.base_sha');
     expect(collectStep).toContain('compare_base="$BEFORE_SHA"');
     expect(collectStep).toContain('compare_base="$MERGE_GROUP_BASE_SHA"');
-    const missingMergeGroupBase = collectStep.slice(
-      collectStep.indexOf('elif [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then'),
-    );
+    const branchStart = collectStep.indexOf('elif [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then');
+    const branchEnd = collectStep.indexOf('\n          else', branchStart);
+    const missingMergeGroupBase = collectStep.slice(branchStart, branchEnd < 0 ? undefined : branchEnd);
     expect(missingMergeGroupBase).toContain(': > changed-paths.txt');
     expect(missingMergeGroupBase).toMatch(/printf '%s\\n' error > changed-paths-status\.txt/);
   });
