@@ -5807,6 +5807,20 @@ async function main() {
         flaggedForRetranslation
       ) && (sourceDescLength >= 160 || hasTitleWork || flaggedForRetranslation);
     });
+    if (localizeExistingOnly && hasScopedCompanyKeysForRun) {
+      const queuedCompanyKeys = new Set(
+        queue
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
+          .filter(Boolean),
+      );
+      // A requested company with no consumable localization candidate was
+      // reached by this invocation but cannot consume the shared AI budget.
+      // Count it as a sterile visit; leave companies with queued work outside
+      // the selected slice unmarked so their pending work is retried.
+      for (const companyKey of scopedCompanyKeysForRun) {
+        if (!queuedCompanyKeys.has(companyKey)) localizationCoveredCompanyKeys.add(companyKey);
+      }
+    }
     if (queue.length > 0) {
       // Prioritize: 1) needsRetranslation jobs (translation pipeline targets),
       // 2) recently-scraped jobs, 3) everything else.
@@ -5823,16 +5837,6 @@ async function main() {
       const maxJobs = crawlerConfig?.aiLocalizationMaxJobsPerRun || 0;
       const remainingBudget = Math.max(0, maxJobs - aiLocalizationCalls);
       const selectedQueue = queue.slice(0, remainingBudget || 0);
-      // Report coverage for companies whose jobs reached the crawler's
-      // consumable slice, even if a later guard defers/skips the AI callback.
-      // The cascade uses this to distinguish an actually reached sterile
-      // company from one left outside the shared run budget.
-      for (const job of selectedQueue) {
-        const localizationCompanyKey = normalizeCompanyKey(
-          String(job?.companyKey || job?.company || ''),
-        );
-        if (localizationCompanyKey) localizationCoveredCompanyKeys.add(localizationCompanyKey);
-      }
       if (selectedQueue.length > 0) {
         console.log(`🌐 Backfill localization queue: ${selectedQueue.length}/${queue.length} jobs (concurrency=${localizationConcurrency})`);
       }
@@ -5889,7 +5893,10 @@ async function main() {
             const localizationCompanyKey = normalizeCompanyKey(
               String(job?.companyKey || job?.company || ''),
             );
-            if (localizationCompanyKey) localizationAttemptedCompanyKeys.add(localizationCompanyKey);
+            if (localizationCompanyKey) {
+              localizationAttemptedCompanyKeys.add(localizationCompanyKey);
+              localizationCoveredCompanyKeys.add(localizationCompanyKey);
+            }
             // FRO-prev-slug-attribution: snapshot pre-AI slugs so post-AI slug
             // changes get captured into previousSlugsByLocale. Without this,
             // AI-driven title rewrites (e.g. needsRetranslation → Turner from
