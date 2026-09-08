@@ -6064,6 +6064,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ticino-scuola-pisa-2025-calo.title': 'Scuola Ticino: risultati PISA 2025 in calo',
     'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'Nel 2025 il Ticino resta top 10 OCSE in matematica ma perde punti. Il 27,2% dei quindicenni non raggiunge il livello minimo di lettura.',
     'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Una classe di studenti ticinesi durante una lezione con libri di matematica e dispositivi digitali moderni',
+    'blog.article.carenza-benzina-gasolio-scorte.title': 'Carenza benzina e gasolio: prelevate scorte obbligatorie',
+    'blog.article.carenza-benzina-gasolio-scorte.excerpt': 'Raffineria Cressier ferma per guasto, trasporti Reno limitati. Autorizzati prelievi di 30\'000 m³ benzina e gasolio tra 8-20 settembre dalle scorte obbligatorie.',
+    'blog.article.carenza-benzina-gasolio-scorte.imageAlt': 'Impianto di stoccaggio carburante in Svizzera con serbatoi e infrastrutture petrolifere',
 };
 
 export default blogMetaChIt;

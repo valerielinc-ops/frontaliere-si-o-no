@@ -1,5 +1,5 @@
 {
-  "run": 5,
+  "run": 6,
   "companies": {
     "corner-banca": {
       "sterile": 0,
@@ -14,11 +14,6 @@
     "vf-international-the-north-face-timberland": {
       "sterile": 0,
       "signature": "01516a4337aa60cc",
-      "skipUntilRun": 5
-    },
-    "arxada": {
-      "sterile": 0,
-      "signature": "6d754dc6ee5f3ad6",
       "skipUntilRun": 5
     },
     "postfinance": {
@@ -38,18 +33,17 @@
       "sterile": 1,
       "signature": "1b23396d87184fa6"
     },
-    "rapelli": {
-      "sterile": 0,
-      "signature": "3e4e5bdcb461d4ea",
-      "skipUntilRun": 5
-    },
     "confederazione-ticino": {
       "sterile": 1,
       "signature": "e5b620c63ebb2e2a"
     },
-    "burkhalter-group": {
+    "richemont": {
       "sterile": 1,
-      "signature": "cb3c0289a8b21727"
+      "signature": "b954d8673678f114"
+    },
+    "banca-sempione": {
+      "sterile": 1,
+      "signature": "1134ce9629c4a469"
     }
   }
 }
