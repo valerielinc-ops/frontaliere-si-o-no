@@ -6073,6 +6073,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tariffe-elettricita-2027-calo.title': 'Stromrechnungsrückgang 2027: -4% in der Schweiz',
     'blog.article.tariffe-elettricita-2027-calo.excerpt': 'Im Jahr 2027 sinken die Stromtarife laut Elcom um 4%. Eine typische Familie spart CHF 53 pro Jahr, aber die regionalen Unterschiede bleiben signifikant.',
     'blog.article.tariffe-elettricita-2027-calo.imageAlt': 'Schweizer Stromzähler an Wohngebäude mit sinkenden Stromtarifen 2027',
+    'blog.article.bollette-energia-calo-2027.title': 'Energiekosten bis 2027 um 4 % gesunken',
+    'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom meldet das dritte Jahr in Folge einen Rückgang. Ein durchschnittlicher Haushalt spart 53 Franken pro Jahr und zahlt 1\'194 Franken für Energie.',
+    'blog.article.bollette-energia-calo-2027.imageAlt': 'Stromzähler eines Schweizer Hauses, Symbol für den 4%-Preisrückgang 2027',
 };
 
 export default blogMetaChDe;
