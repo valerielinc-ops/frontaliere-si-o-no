@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-09-07T11:07:19.301Z",
+  "assembledAt": "2026-09-08T10:14:34.850Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -14421,90 +14421,6 @@
       "imageUrl": "/images/events/guidle-AMNj7ay.webp"
     },
     {
-      "id": "guidle:Ar5sZvX",
-      "title": "Summer-Festival: Klassik für alle - 40min 4",
-      "titleByLocale": {
-        "it": "Summer-Festival: Klassik für alle - 40min 4",
-        "en": "Summer-Festival: Classical Music for All - 40min 4",
-        "de": "Summer-Festival: Klassik für alle - 40min 4",
-        "fr": "Summer-Festival: Klassik für alle - 40min 4"
-      },
-      "description": "HSLU Ensemble | «Urknall der Minimal Music: Terry Rileys ‹In C›»",
-      "descriptionByLocale": {
-        "it": "HSLU Ensemble | «Urknall der Minimal Music: Terry Rileys ‹In C›»",
-        "en": "HSLU Ensemble | “Minimalism’s Big Bang: Terry Riley’s ‘In C’”",
-        "de": "HSLU Ensemble | «Urknall der Minimal Music: Terry Rileys ‹In C›»",
-        "fr": "HSLU Ensemble | «Urknall der Minimal Music: Terry Rileys ‹In C›»"
-      },
-      "startDate": "2026-09-07",
-      "endDate": "2026-09-07",
-      "startTime": "18:20",
-      "category": "Musica moderna / seria",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/events/classical/lucerne/summer-festival-classical-music-for-all-40min-4_Ar5sZvX",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Ar5sZvX.webp"
-    },
-    {
-      "id": "guidle:AgSeDs4",
-      "title": "Summer-Festival: «räsonanz» – Stifterkonzert",
-      "titleByLocale": {
-        "it": "Summer-Festival: «räsonanz» – Stifterkonzert",
-        "en": "Summer-Festival: “räsonanz” — Donor Concert",
-        "de": "Summer-Festival: «räsonanz» – Stifterkonzert",
-        "fr": "Summer-Festival: «räsonanz» – Stifterkonzert"
-      },
-      "description": "Konzerthausorchester Berlin | Rundfunkchor Berlin | Joana Mallwitz | Henze",
-      "descriptionByLocale": {
-        "it": "Konzerthausorchester Berlin | Rundfunkchor Berlin | Joana Mallwitz | Henze",
-        "en": "Konzerthausorchester Berlin | Berlin Radio Choir | Joana Mallwitz | Henze",
-        "de": "Konzerthausorchester Berlin | Rundfunkchor Berlin | Joana Mallwitz | Henze",
-        "fr": "Konzerthausorchester Berlin | Rundfunkchor Berlin | Joana Mallwitz | Henze"
-      },
-      "startDate": "2026-09-07",
-      "endDate": "2026-09-07",
-      "startTime": "19:30",
-      "category": "Musica moderna / seria",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/summer-festival-raesonanz-stifterkonzert_AgSeDs4",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AgSeDs4.webp"
-    },
-    {
       "id": "guidle:A52hFqL",
       "title": "Summer-Festival: Debut Mared Pugh Evans",
       "titleByLocale": {
@@ -14881,48 +14797,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AhpF9Jt.webp"
-    },
-    {
-      "id": "guidle:AAEJ7nt",
-      "title": "Chappeli Konzerte Grenchen: Kinimode",
-      "titleByLocale": {
-        "it": "Chappeli Konzerte Grenchen: Kinimode",
-        "en": "Chappeli Konzerte Grenchen: Kinimode",
-        "de": "Chappeli Konzerte Grenchen: Kinimode",
-        "fr": "Chappeli Konzerte Grenchen : Kinimode"
-      },
-      "description": "Das Ensemble Kinimode sprengt Grenzen der Volksmusik und verbindet Schwyzerörgeli mit Bass, Gitarre und Schlagzeug. Am 7. September spielen die Musiker im Rahmen der Chappeli Konzerte in Grenchen.",
-      "descriptionByLocale": {
-        "it": "Das Ensemble Kinimode sprengt Grenzen der Volksmusik und verbindet Schwyzerörgeli mit Bass, Gitarre und Schlagzeug. Am 7. September spielen die Musiker im Rahmen der Chappeli Konzerte in Grenchen.",
-        "en": "The Ensemble Kinimode sprengt Grenzen der Volksmusik und verbindet Schwyzerörgeli mit Bass, Gitarre und Schlagzeug. On 7. September I played the musicians in Rahmen der Chappeli Konzerte in Grenchen.",
-        "de": "Das Ensemble Kinimode sprengt Grenzen der Volksmusik und verbindet Schwyzerörgeli mit Bass, Gitarre und Schlagzeug. Ich bin 7. September spielen die Musiker im Rahmen der Chappeli Konzerte in Grenchen.",
-        "fr": "Das Ensemble Kinimode sprengt Grenzen der Volksmusik und verbindet Schwyzerörgeli mit Bass, Gitarre und Schlagzeug. September spielen die Musiker im Rahmen der Chappeli Konzerte in Grenchen."
-      },
-      "startDate": "2026-09-07",
-      "endDate": "2026-09-07",
-      "startTime": "18:30",
-      "category": "Pop generalmente",
-      "venue": "Kapelle Allerheiligen",
-      "comune": "Grenchen",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/grenchen/chappeli-konzerte-grenchen-kinimode_AAEJ7nt",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Allerheiligenstrasse 198",
-        "postalCode": "2540"
-      },
-      "geo": {
-        "lat": 47.1953874,
-        "lng": 7.3702254
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AAEJ7nt.webp"
     },
     {
       "id": "guidle:AkbPZv3",
@@ -16340,47 +16214,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AYYMHVG.webp"
-    },
-    {
-      "id": "guidle:Ac1N6x2",
-      "title": "«Viaggio Musicale» Erasmus klingt! – Festival Lab",
-      "titleByLocale": {
-        "it": "«Viaggio Musicale» Erasmus klingt! – Festival Lab",
-        "en": "«Viaggio Musicale» Erasmus klingt! – Festival Lab",
-        "de": "«Viaggio Musicale» Erasmus klingt! – Festival Lab",
-        "fr": "«Viaggio Musicale» Erasmus klingt! – Festival Lab"
-      },
-      "description": "Il Giardino Armonico macht eine Reise durch Oberitalien im frühen 17. Jahrhundert: Im Zentrum steht Monteverdi als Inspirator und Innovator. Es öffnet sich ein Kosmos von Expressivität und Vielfalt.",
-      "descriptionByLocale": {
-        "it": "Il Giardino Armonico macht eine Reise durch Oberitalien im frühen 17. Jahrhundert: Im Zentrum steht Monteverdi als Inspirator und Innovator. Es öffnet sich ein Kosmos von Expressivität und Vielfalt.",
-        "en": "Il Giardino Armonico macht eine Reise durch Oberitalien im frühen 17. Jahrhundert: Im Zentrum steht Monteverdi als Inspirator und Innovator. Es öffnet sich ein Kosmos von Expressivität und Vielfalt.",
-        "de": "Il Giardino Armonico macht eine Reise durch Oberitalien im frühen 17. Jahrhundert: Im Zentrum steht Monteverdi als Inspirator und Innovator. Es öffnet sich ein Kosmos von Expressivität und Vielfalt.",
-        "fr": "Il Giardino Armonico macht eine Reise durch Oberitalien im frühen 17. Jahrhundert: Im Zentrum steht Monteverdi als Inspirator und Innovator. Es öffnet sich ein Kosmos von Expressivität und Vielfalt."
-      },
-      "startDate": "2026-09-07",
-      "endDate": "2026-09-07",
-      "startTime": "20:00",
-      "category": "Barocco",
-      "venue": "Evang.-ref. Peterskirche",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/viaggio-musicale-erasmus-klingt-festival-lab_Ac1N6x2",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 1,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Peterskirchplatz 4",
-        "postalCode": "4051"
-      },
-      "geo": {
-        "lat": 47.5590699,
-        "lng": 7.5858628
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Ac1N6x2.webp"
     },
     {
       "id": "guidle:AaQuhq7",
@@ -31680,6 +31513,1049 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-ANupSZq.webp"
+    },
+    {
+      "id": "guidle:AG2HTKd",
+      "title": "Le stagioni di festa! Feste e usanze religiose",
+      "titleByLocale": {
+        "it": "Le stagioni di festa! Feste e usanze religiose",
+        "en": "Festive seasons! Religious festivals and customs",
+        "de": "Vortrag \"Festzeiten!\": Religiöse Feste und Bräuche",
+        "fr": "Les périodes de fêtes ! Fêtes religieuses et coutumes"
+      },
+      "description": "Serie di eventi con oggetti festivi.",
+      "descriptionByLocale": {
+        "it": "Serie di eventi con oggetti festivi.",
+        "en": "Series of events with festive objects.",
+        "de": "Veranstaltungsreihe mit festlichen Objekten.",
+        "fr": "Série de manifestations avec des objets festifs."
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-08",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Klosterhalbinsel Wettingen",
+      "comune": "Wettingen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/evenements/nature-homme-animal/wettingen/festzeiten-fetes-religieuses-et-coutumes_AG2HTKd",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Klosterstrasse 10",
+        "postalCode": "5430"
+      },
+      "geo": {
+        "lat": 47.4574424,
+        "lng": 8.3152757
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AG2HTKd.webp"
+    },
+    {
+      "id": "guidle:AmeQscg",
+      "title": "\"Festzeiten!\": Festeggiamenti civici e comunitari",
+      "titleByLocale": {
+        "it": "\"Festzeiten!\": Festeggiamenti civici e comunitari",
+        "en": "\"Festzeiten!\": Civic and community celebrations",
+        "de": "Vortrag \"Festzeiten!\": Bürgerliche und gemeinschaftliche Feste",
+        "fr": "\"Festzeiten!\": Fêtes civiles et communautaires"
+      },
+      "description": "Serie di eventi con oggetti festivi.",
+      "descriptionByLocale": {
+        "it": "Serie di eventi con oggetti festivi.",
+        "en": "Series of events with festive objects.",
+        "de": "Veranstaltungsreihe mit festlichen Objekten.",
+        "fr": "Série de manifestations avec des objets festifs."
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Schloss Hallwyl",
+      "comune": "Seengen",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/evenements/nature-homme-animal/seengen/festzeiten-fetes-civiles-et-communautaires_AmeQscg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Boniswilerstrasse 38",
+        "postalCode": "5707"
+      },
+      "geo": {
+        "lat": 47.323071734706105,
+        "lng": 8.194263058999626
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmeQscg.webp"
+    },
+    {
+      "id": "guidle:AgfL8Em",
+      "title": "Alp Rusna bei Bargis - geführte Wanderung",
+      "titleByLocale": {
+        "it": "Alp Rusna bei Bargis - geführte Wanderung",
+        "en": "Alp Rusna bei Bargis-gefhr",
+        "de": "Alp Rusna eib-Bargis - geführte Wanderung",
+        "fr": "Alp Rusna près de Bargis - Randonnée pédestre"
+      },
+      "description": "Alp Rusna bei Bargis. Entlang der Aua da Mulins zum Kraftort",
+      "descriptionByLocale": {
+        "it": "Alp Rusna bei Bargis. Entlang der Aua da Mulins zum Kraftort",
+        "en": "Alp Rusna near Bargis. Entlang der Aua da Mulins zum Kraftort",
+        "de": "Alp Rusna bei Bargis. Entlang der Aua von Mulins zum Kraftort",
+        "fr": "Alpe Rusna près de Bargis. Entlang der Aua da Mulins zum Kraftort"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "09:00",
+      "category": "Escursionismo",
+      "venue": "Flims Dorf, Post",
+      "comune": "Flims",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/flims-dorf/alp-rusna-bei-bargis-gefuehrte-wanderung_AgfL8Em",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "7017"
+      },
+      "geo": {
+        "lat": 46.83652,
+        "lng": 9.2845
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AgfL8Em.webp"
+    },
+    {
+      "id": "guidle:A7nvj5s",
+      "title": "Mein erstes Smartphone",
+      "titleByLocale": {
+        "it": "Mein erstes Smartphone",
+        "en": "My first Smartphone",
+        "de": "Mein erstes Smartphone",
+        "fr": "Mon téléphone intelligent"
+      },
+      "description": "Kinder kompetent und altersgerecht auf dem Weg zum eigenen Smartphone begleiten. Für Eltern von Kindern zwischen 6 - 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Kinder kompetent und altersgerecht auf dem Weg zum eigenen Smartphone begleiten. Für Eltern von Kindern zwischen 6 - 12 Jahren.",
+        "en": "Kinder kompetent und altersgerecht auf dem Weg zum eigenen Smartphone begleiten. For children aged 6 - 12 years.",
+        "de": "Kinder kompetent und altersgerecht auf dem Weg zum eigenen Smartphone begleiten. Für Kinder im Alter von 6 – 12 Jahren.",
+        "fr": "Kinder complet et modifié auf dem Weg zum eigenen Smartphone begleiten. Pour les enfants âgés de 6 à 12 ans."
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "startTime": "19:00",
+      "category": "Informatica / Internet",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/mein-erstes-smartphone_A7nvj5s",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7nvj5s.webp"
+    },
+    {
+      "id": "guidle:AyqX6sn",
+      "title": "Tatort Internet – Was Eltern wissen sollten",
+      "titleByLocale": {
+        "it": "Tatort Internet – Was Eltern wissen sollten",
+        "en": "Tatort Internet-El",
+        "de": "Tatort Internet-Enjoyas Eltern enjoyissens sollen",
+        "fr": "Tatort Internet – Eltern wissen sollten"
+      },
+      "description": "Praxisnahe Informationen und wertvolle Tipps rund um den Umgang von Jugendlichen mit digitalen Medien.",
+      "descriptionByLocale": {
+        "it": "Praxisnahe Informationen und wertvolle Tipps rund um den Umgang von Jugendlichen mit digitalen Medien.",
+        "en": "Pra Inform Isnahe Informationen und Tertvolle Tipps rund um den Umgang von von",
+        "de": "Praxisnahe Informationen und wertvolle Tipps rund um den Umgang mit Jugendlichen mit digitalen Medien.",
+        "fr": "Des informations pratiques et des conseils pratiques concernant l'univers des jeunes avec les médias numériques."
+      },
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-09",
+      "startTime": "19:00",
+      "category": "Informatica / Internet",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/tatort-internet-was-eltern-wissen-sollten_AyqX6sn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AyqX6sn.webp"
+    },
+    {
+      "id": "guidle:A74wH5d",
+      "title": "Goldwaschen in der Schweiz",
+      "titleByLocale": {
+        "it": "Goldwaschen in der Schweiz",
+        "en": "Goldwaschen in der Switzerland",
+        "de": "Gold ⑥taschen in der Sch",
+        "fr": "Lavage d'or en Suisse"
+      },
+      "description": "Im Vortrag wird erläutert, wo und wie in der Schweiz selbst Gold gefunden werden kann und was die geologischen und historischen Hintergründe der Schweizer Goldvorkommen sind.",
+      "descriptionByLocale": {
+        "it": "Im Vortrag wird erläutert, wo und wie in der Schweiz selbst Gold gefunden werden kann und was die geologischen und historischen Hintergründe der Schweizer Goldvorkommen sind.",
+        "en": "Im Vortrag wird erläutert, wo und wie in der Schweiz selbst Gold gefunden werden kann und was die geologischen und historischen Hintergründe der Schweizer Goldvorkommen sind.",
+        "de": "Im Vortrag wird erläutert, wo und wie in der Schweiz selbst Gold gefunden werden kann und was die geologischen und historischen Hintergründe der Schweizer Goldvorkommen gefunden sind.",
+        "fr": "Im Vortrag wird erläutert, wo and wie in der Schweiz self Gold gefunden werden kann and was die geologischen and historischen Hintergründe der Schweizer Goldvorkommen sind."
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "19:30",
+      "category": "Diario di viaggio / del avventura",
+      "venue": "Stadtbibliothek Kriens",
+      "comune": "Kriens",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kriens/goldwaschen-in-der-schweiz_A74wH5d",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hofmattweg 4",
+        "postalCode": "6010"
+      },
+      "geo": {
+        "lat": 47.0332179,
+        "lng": 8.282168
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A74wH5d.webp"
+    },
+    {
+      "id": "guidle:AUbh5FU",
+      "title": "Geomorphosites 2026 – Heritage Geomorphology",
+      "titleByLocale": {
+        "it": "Geomorphosites 2026 – Heritage Geomorphology",
+        "en": "Geomorphosites 2026 – Heritage Geomorphology",
+        "de": "Geomorphosites 2026 – Heritage Geomorphology",
+        "fr": "Geomorphosites 2026 – Heritage Geomorphology"
+      },
+      "description": "An international conference celebrating 25 years of research on geomorphological heritage and honouring Prof. Mario Panizza.",
+      "descriptionByLocale": {
+        "it": "An international conference celebrating 25 years of research on geomorphological heritage and honouring Prof. Mario Panizza.",
+        "en": "An international conference celebrating 25 years of research on geomorphological heritage and honoring Prof. Mario Panizza.",
+        "de": "An international conference celebrating 25 years of research on geomorphological heritage and honouring Prof. Mario Panizza.",
+        "fr": "An international conference celebrating 25 years of research on geomorphological heritage and honoring Prof. Mario Panizza."
+      },
+      "startDate": "2026-09-08",
+      "endDate": "2026-09-12",
+      "startTime": "08:30",
+      "category": "Congresso: Scienza / Ricerca / Sviluppo",
+      "venue": "Université de Lausanne - Site de Sion",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/knowledge/bramois/geomorphosites-2026-heritage-geomorphology_AUbh5FU",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 7,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Chemin de l'Institut 18",
+        "postalCode": "1967"
+      },
+      "geo": {
+        "lat": 46.229884,
+        "lng": 7.398509
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AUbh5FU.webp"
+    },
+    {
+      "id": "guidle:A4puuwG",
+      "title": "Repair Café Zurzach",
+      "titleByLocale": {
+        "it": "Repair Café Zurzach",
+        "en": "Repair Café Zurzach",
+        "de": "Repair Café Zurzach",
+        "fr": "Repair Café Zurzach"
+      },
+      "description": "Die Besucher sind herzlich eingeladen zu diesem Treffpunkt und können sich bei Kaffee und Kuchen austauschen und neue Kontakte knüpfen. Mit einer Spende unterstützen sie diese Freiwilligen Arbeit.",
+      "descriptionByLocale": {
+        "it": "Die Besucher sind herzlich eingeladen zu diesem Treffpunkt und können sich bei Kaffee und Kuchen austauschen und neue Kontakte knüpfen. Mit einer Spende unterstützen sie diese Freiwilligen Arbeit.",
+        "en": "Die Besucher sind herzlich eingeladen zu diesem Treffpunkt und können sich bei Kaffee und Kuchen austauschen und neue Kontakte knüpfen. Mit einer Spende unterstützen sie diese Freiwilligen Arbeit.",
+        "de": "Die Besucher sind herzlich eingeladen zu diesem Treffpunkt und können sich bei Kaffee und Kuchen austauschen und neue Kontakte knüpfen. Mit einer Spende unterstützen sie diese Freiwilligen Arbeit.",
+        "fr": "Die Besucher sind herzlich eingeladen zu diesem Treffpunkt und können sich bei Kaffee und Kuchen austauschen und neue Kontakte knüpfen. Mit einer Spende unterstützen sie diese Freiwilligen Arbeit."
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "10:00",
+      "category": "Do It Yourself / Fai da te",
+      "venue": "Schulhaus Neuberg",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bad-zurzach/repair-cafe-zurzach_A4puuwG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Neubergstrasse 5",
+        "postalCode": "5330"
+      },
+      "geo": {
+        "lat": 47.5848396,
+        "lng": 8.2953072
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A4puuwG.webp"
+    },
+    {
+      "id": "guidle:AV9pTKr",
+      "title": "Occultazione di Venere da parte della Luna",
+      "titleByLocale": {
+        "it": "Occultazione di Venere da parte della Luna",
+        "en": "Venus occultation by the moon",
+        "de": "Venusbedeckung durch den Mond",
+        "fr": "Occultation de Vénus par la Lune"
+      },
+      "description": "La stella della sera è eclissata dalla luna a mezzogiorno.",
+      "descriptionByLocale": {
+        "it": "La stella della sera è eclissata dalla luna a mezzogiorno.",
+        "en": "The evening star is eclipsed by the moon around midday.",
+        "de": "Der Abendstern wird um die Mittagszeit vom Mond verdeckt.",
+        "fr": "L'étoile du soir est cachée par la lune à midi."
+      },
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-14",
+      "startTime": "11:00",
+      "category": "Astronomia",
+      "venue": "Sternwarte Rümlang",
+      "comune": "Rümlang",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/evenements/savoir/ruemlang/occultation-de-venus-par-la-lune_AV9pTKr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Chätschstrasse 2a",
+        "postalCode": "8153"
+      },
+      "geo": {
+        "lat": 47.4400981,
+        "lng": 8.5253145
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AV9pTKr.webp"
+    },
+    {
+      "id": "guidle:A7Ty4ss",
+      "title": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»",
+      "titleByLocale": {
+        "it": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»",
+        "en": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»",
+        "de": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»",
+        "fr": "Gesteinsbestimmung «Dr. Stone gibt Auskunft!»"
+      },
+      "description": "Der renommierte Geologe Dr. Jürg Meyer bestimmt ihre Gesteine und erzählt spannendes Fachwissen.",
+      "descriptionByLocale": {
+        "it": "Der renommierte Geologe Dr. Jürg Meyer bestimmt ihre Gesteine und erzählt spannendes Fachwissen.",
+        "en": "Der renommierte Geologe Dr. Jürg Meyer bestimmt ihre Gesteine und erzählt spannendes Fachwissen.",
+        "de": "Der renommierte Geologe Dr. Jürg Meyer bestimmt ihre Gesteine und erzählt spannendes Fachwissen.",
+        "fr": "Der renommierte Geologe Dr. Jürg Meyer bestimmt ihre Gesteine und erzählt spannendes Fachwissen."
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "13:00",
+      "category": "Scienze della terra / Geologia",
+      "venue": "Haus der Museen",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/natur-mensch-tier/olten/gesteinsbestimmung-dr-stone-gibt-auskunft_A7Ty4ss",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Konradstrasse 7",
+        "postalCode": "4600"
+      },
+      "geo": {
+        "lat": 47.3504983,
+        "lng": 7.9010432
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7Ty4ss.webp"
+    },
+    {
+      "id": "guidle:AaMer5e",
+      "title": "ImpulsTage – Kreativität",
+      "titleByLocale": {
+        "it": "ImpulsTage – Kreativität",
+        "en": "ImpulsTage – Kreativität",
+        "de": "ImpulsTage – Kreativität",
+        "fr": "ImpulsTage – Kreativität"
+      },
+      "description": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+      "descriptionByLocale": {
+        "it": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "en": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "de": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "fr": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation."
+      },
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-20",
+      "startTime": "10:00",
+      "category": "Comunione",
+      "venue": "Impulszentrum Holdenweid",
+      "comune": "Hölstein",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/hoelstein/impulstage-kreativitaet_AaMer5e",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 450,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Holdenweidweg 17",
+        "postalCode": "4434"
+      },
+      "geo": {
+        "lat": 47.4359194,
+        "lng": 7.7789817
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AaMer5e.webp"
+    },
+    {
+      "id": "guidle:AnGq7AW",
+      "title": "ImpulsTage – Kreativität",
+      "titleByLocale": {
+        "it": "ImpulsTage – Kreativität",
+        "en": "ImpulsTage – Kreativität",
+        "de": "ImpulsTage – Kreativität",
+        "fr": "ImpulsTage – Kreativität"
+      },
+      "description": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+      "descriptionByLocale": {
+        "it": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "en": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "de": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation.",
+        "fr": "Du machst Erfahrungen, die inspirierend in deinen Alltag hineinwirken und Lust machen auf das Wagnis echter Veränderung und Transformation."
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-29",
+      "startTime": "10:00",
+      "category": "Comunione",
+      "venue": "Impulszentrum Holdenweid",
+      "comune": "Hölstein",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/hoelstein/impulstage-kreativitaet_AnGq7AW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 450,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Holdenweidweg 17",
+        "postalCode": "4434"
+      },
+      "geo": {
+        "lat": 47.4359194,
+        "lng": 7.7789817
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AnGq7AW.webp"
+    },
+    {
+      "id": "guidle:Awnyuq4",
+      "title": "LifeLab – Fix & Flow: Reparatur trifft Kreislaufwirtschaft",
+      "titleByLocale": {
+        "it": "LifeLab – Fix & Flow: Reparatur trifft Kreislaufwirtschaft",
+        "en": "LifeLab – Fix & Flow: Reparatur trifft Kreislaufwirtschaft",
+        "de": "LifeLab – Fix & Flow: Reparatur trifft Kreislaufwirtschaft",
+        "fr": "LifeLab – Fix & Flow: Reparatur trifft Kreislaufwirtschaft"
+      },
+      "description": "Wie lässt sich Kreislaufwirtschaft leben? In Diskussion Ansätze wie RepairCafés & Upcycling, um Ressourcen zu schonen und gemeinsam Zukunft zu bauen.",
+      "descriptionByLocale": {
+        "it": "Wie lässt sich Kreislaufwirtschaft leben? In Diskussion Ansätze wie RepairCafés & Upcycling, um Ressourcen zu schonen und gemeinsam Zukunft zu bauen.",
+        "en": "Wie lässt sich Kreislaufwirtschaft leben? In Diskussion Ansätze wie RepairCafés & Upcycling, um Ressourcen zu schonen und gemeinsam Zukunft zu bauen.",
+        "de": "Wie lässt sich Kreislaufwirtschaft leben? In Diskussion Ansätze wie RepairCafés & Upcycling, um Ressourcen zu schonen und gemeinsam Zukunft zu bauen.",
+        "fr": "Wie lässt sich Kreislaufwirtschaft leben? In Diskussion Ansätze wie RepairCafés & Upcycling, um Ressourcen zu schonen und gemeinsam Zukunft zu bauen."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "14:00",
+      "category": "Energia / Sostenibilità",
+      "venue": "Kulturpark Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/lifelab-fix-und-flow-reparatur-trifft-kreislaufwirtschaft_Awnyuq4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Pfingstweidstrasse 16",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3882502,
+        "lng": 8.5178217
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Awnyuq4.webp"
+    },
+    {
+      "id": "guidle:AnqVfwT",
+      "title": "Geologische Stollenfürhung – Die Geschichte vom Schwarzwaldgneis",
+      "titleByLocale": {
+        "it": "Geologische Stollenfürhung – Die Geschichte vom Schwarzwaldgneis",
+        "en": "Geologische Stollenfürhung – Die Geschichte vom Schwarzwaldgneis",
+        "de": "Geologische Stollenfürhung – Die Geschichte vom Schwarzwaldgneis",
+        "fr": "Geologische Stollenfürhung – Die Geschichte vom Schwarzwaldgneis"
+      },
+      "description": "Stadtführung in Laufenburg",
+      "descriptionByLocale": {
+        "it": "Stadtführung in Laufenburg",
+        "en": "Stadtführung in Laufenburg",
+        "de": "Stadtführung in Laufenburg",
+        "fr": "Stadtführung in Laufenburg"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "14:30",
+      "category": "Scienze della terra / Geologia",
+      "venue": "Laufenburg Tourismus",
+      "comune": "Laufenburg",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/laufenburg/geologische-stollenfuerhung-die-geschichte-vom-schwarzwaldgneis_AnqVfwT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Laufenplatz",
+        "postalCode": "5080"
+      },
+      "geo": {
+        "lat": 47.563134,
+        "lng": 8.0602628
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AnqVfwT.webp"
+    },
+    {
+      "id": "guidle:AHw1JSy",
+      "title": "Führung: Wie wird unser Abwasser gereinigt?",
+      "titleByLocale": {
+        "it": "Führung: Wie wird unser Abwasser gereinigt?",
+        "en": "Guided tour: How is our wastewater treated?",
+        "de": "Führung: Wie wird unser Abwasser gereinigt?",
+        "fr": "Visite guidée : Comment nos eaux usées sont-elles traitées ?"
+      },
+      "description": "spannende Führung durch die Kläranlage",
+      "descriptionByLocale": {
+        "it": "spannende Führung durch die Kläranlage",
+        "en": "Exciting tour of the sewage treatment plant",
+        "de": "spannende Führung durch die Kläranlage",
+        "fr": "visite guidée passionnante de la station d'épuration"
+      },
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-18",
+      "startTime": "16:30",
+      "category": "Escursione",
+      "venue": "Kläranlage Röti",
+      "canton": "SH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/neuhausen/fuehrung-wie-wird-unser-abwasser-gereinigt_AHw1JSy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Badstrasse 40",
+        "postalCode": "8212"
+      },
+      "geo": {
+        "lat": 47.676186,
+        "lng": 8.620367
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AHw1JSy.webp"
+    },
+    {
+      "id": "guidle:AJjNHWR",
+      "title": "Adventshöck des Vereins Sternwarte Rümlang",
+      "titleByLocale": {
+        "it": "Adventshöck des Vereins Sternwarte Rümlang",
+        "en": "Adventshöck des Vereins Sternwarte Rümlang",
+        "de": "Adventshöck des Vereins Sternwarte Rümlang",
+        "fr": "Adventshöck des Vereins Sternwarte Rümlang"
+      },
+      "description": "Adventshöck des Vereins Sternwarte mit Präsentationen und Weihnachtsleckereien.",
+      "descriptionByLocale": {
+        "it": "Adventshöck des Vereins Sternwarte mit Präsentationen und Weihnachtsleckereien.",
+        "en": "Adventshöck des Vereins Sternwarte mit Präsentationen und Weihnachtsleckereien.",
+        "de": "Adventshöck des Vereins Sternwarte mit Präsentationen und Weihnachtsleckereien.",
+        "fr": "Adventshöck des Vereins Sternwarte mit Präsentationen und Weihnachtsleckereien."
+      },
+      "startDate": "2026-12-08",
+      "endDate": "2026-12-08",
+      "startTime": "19:30",
+      "category": "Astronomia",
+      "venue": "Ref. Kirchgemeindehaus",
+      "comune": "Rümlang",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/ruemlang/adventshoeck-des-vereins-sternwarte-ruemlang_AJjNHWR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kirchstrasse 11",
+        "postalCode": "8153"
+      },
+      "geo": {
+        "lat": 47.451233,
+        "lng": 8.532767
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AJjNHWR.webp"
+    },
+    {
+      "id": "guidle:AWYVPBu",
+      "title": "Live-Vortrag: Im Sattel durch Amerika",
+      "titleByLocale": {
+        "it": "Live-Vortrag: Im Sattel durch Amerika",
+        "en": "Live-Vortrag: Im Sattel durch Amerika",
+        "de": "Live-Vortrag: Im Sattel durch Amerika",
+        "fr": "Live-Vortrag: Im Sattel durch Amerika"
+      },
+      "description": "5.000 Kilometer durch den Wilden Westen Amerikas im Pferdesattel. Was nach einer verrückten Idee klingt, ist für Günter Wamser und Sonja Endlweber die Verwirklichung eines Traumes.",
+      "descriptionByLocale": {
+        "it": "5.000 Kilometer durch den Wilden Westen Amerikas im Pferdesattel. Was nach einer verrückten Idee klingt, ist für Günter Wamser und Sonja Endlweber die Verwirklichung eines Traumes.",
+        "en": "5.000 Kilometer durch den Wilden Westen Amerikas im Pferdesattel. Was nach einer verrückten Idee klingt, ist für Günter Wamser und Sonja Endlweber die Verwirklichung eines Traumes.",
+        "de": "5.000 Kilometer durch den Wilden Westen Amerikas im Pferdesattel. Was nach einer verrückten Idee klingt, ist für Günter Wamser und Sonja Endlweber die Verwirklichung eines Traumes.",
+        "fr": "5.000 Kilometer durch den Wilden Westen Amerikas im Pferdesattel. Was nach einer verrückten Idee klingt, ist für Günter Wamser und Sonja Endlweber die Verwirklichung eines Traumes."
+      },
+      "startDate": "2027-01-17",
+      "endDate": "2027-01-17",
+      "startTime": "11:00",
+      "category": "Lezione",
+      "venue": "Liberty Cinema",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/weinfelden/live-vortrag-im-sattel-durch-amerika_AWYVPBu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Amriswilerstrasse 106b",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5626063,
+        "lng": 9.1251111
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWYVPBu.webp"
+    },
+    {
+      "id": "guidle:A2CC5ea",
+      "title": "Live-Vortrag: Botswana und Namibia",
+      "titleByLocale": {
+        "it": "Live-Vortrag: Botswana und Namibia",
+        "en": "Live-Vortrag: Botswana und Namibia",
+        "de": "Live-Vortrag: Botswana und Namibia",
+        "fr": "Live-Vortrag: Botswana und Namibia"
+      },
+      "description": "Namibia und Botswana - Echo der Schöpfung führt auf eine unterhaltsame Entdeckungsreise zu den Wurzeln unserer frühesten Vorfahren.",
+      "descriptionByLocale": {
+        "it": "Namibia und Botswana - Echo der Schöpfung führt auf eine unterhaltsame Entdeckungsreise zu den Wurzeln unserer frühesten Vorfahren.",
+        "en": "Namibia und Botswana - Echo der Schöpfung führt auf eine unterhaltsame Entdeckungsreise zu den Wurzeln unserer frühesten Vorfahren.",
+        "de": "Namibia und Botswana - Echo der Schöpfung führt auf eine unterhaltsame Entdeckungsreise zu den Wurzeln unserer frühesten Vorfahren.",
+        "fr": "Namibia und Botswana - Echo der Schöpfung führt auf eine unterhaltsame Entdeckungsreise zu den Wurzeln unserer frühesten Vorfahren."
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "startTime": "11:00",
+      "category": "Lezione",
+      "venue": "Liberty Cinema",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/weinfelden/live-vortrag-botswana-und-namibia_A2CC5ea",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Amriswilerstrasse 106b",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5626063,
+        "lng": 9.1251111
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2CC5ea.webp"
+    },
+    {
+      "id": "guidle:APCwFL2",
+      "title": "Live-Vortrag: Inseln des Nordens",
+      "titleByLocale": {
+        "it": "Live-Vortrag: Inseln des Nordens",
+        "en": "Live-Vortrag: Inseln des Nordens",
+        "de": "Live-Vortrag: Inseln des Nordens",
+        "fr": "Live-Vortrag: Inseln des Nordens"
+      },
+      "description": "Abenteuer am Polarkreis: Island - Grönland - Spitzbergen - Lofoten - Färöer",
+      "descriptionByLocale": {
+        "it": "Abenteuer am Polarkreis: Island - Grönland - Spitzbergen - Lofoten - Färöer",
+        "en": "Abenteuer am Polarkreis: Island - Grönland - Spitzbergen - Lofoten - Färöer",
+        "de": "Abenteuer am Polarkreis: Island - Grönland - Spitzbergen - Lofoten - Färöer",
+        "fr": "Abenteuer am Polarkreis: Island - Grönland - Spitzbergen - Lofoten - Färöer"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "11:00",
+      "category": "Lezione",
+      "venue": "Liberty Cinema",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/weinfelden/live-vortrag-inseln-des-nordens_APCwFL2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Amriswilerstrasse 106b",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5626063,
+        "lng": 9.1251111
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-APCwFL2.webp"
+    },
+    {
+      "id": "guidle:ACAGhyE",
+      "title": "Live-Vortrag: Schweden",
+      "titleByLocale": {
+        "it": "Live-Vortrag: Schweden",
+        "en": "Live-Vortrag: Schweden",
+        "de": "Live-Vortrag: Schweden",
+        "fr": "Live-Vortrag: Schweden"
+      },
+      "description": "Unendliche Wälder, weite Hochgebirgsebenen und zahllose glasklare Seen; knorrige Birken, Rentiere und Preiselbeeren.",
+      "descriptionByLocale": {
+        "it": "Unendliche Wälder, weite Hochgebirgsebenen und zahllose glasklare Seen; knorrige Birken, Rentiere und Preiselbeeren.",
+        "en": "Unendliche Wälder, weite Hochgebirgsebenen und zahllose glasklare Seen; knorrige Birken, Rentiere und Preiselbeeren.",
+        "de": "Unendliche Wälder, weite Hochgebirgsebenen und zahllose glasklare Seen; knorrige Birken, Rentiere und Preiselbeeren.",
+        "fr": "Unendliche Wälder, weite Hochgebirgsebenen und zahllose glasklare Seen; knorrige Birken, Rentiere und Preiselbeeren."
+      },
+      "startDate": "2027-04-11",
+      "endDate": "2027-04-11",
+      "startTime": "11:00",
+      "category": "Lezione",
+      "venue": "Liberty Cinema",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/weinfelden/live-vortrag-schweden_ACAGhyE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Amriswilerstrasse 106b",
+        "postalCode": "8570"
+      },
+      "geo": {
+        "lat": 47.5626063,
+        "lng": 9.1251111
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ACAGhyE.webp"
+    },
+    {
+      "id": "guidle:AWd5rcy",
+      "title": "Toxin-Belastungen reduzieren – klar, fundiert, alltagstauglich",
+      "titleByLocale": {
+        "it": "Toxin-Belastungen reduzieren – klar, fundiert, alltagstauglich",
+        "en": "Toxin-Belastungen reduzieren – klar, fundiert, alltagstauglich",
+        "de": "Toxin-Belastungen reduzieren – klar, fundiert, alltagstauglich",
+        "fr": "Toxin-Belastungen reduzieren – klar, fundiert, alltagstauglich"
+      },
+      "description": "– Erhalten Sie Antworten auf Ihre Fragen, wie Sie Toxinbelastungen vermeiden können, und wie Toxine von unserem Körper verarbeitet und ausgeschieden werden –",
+      "descriptionByLocale": {
+        "it": "– Erhalten Sie Antworten auf Ihre Fragen, wie Sie Toxinbelastungen vermeiden können, und wie Toxine von unserem Körper verarbeitet und ausgeschieden werden –",
+        "en": "– Erhalten Sie Antworten auf Ihre Fragen, wie Sie Toxinbelastungen vermeiden können, und wie Toxine von unserem Körper verarbeitet und ausgeschieden werden –",
+        "de": "– Erhalten Sie Antworten auf Ihre Fragen, wie Sie Toxinbelastungen vermeiden können, und wie Toxine von unserem Körper verarbeitet und ausgeschieden werden –",
+        "fr": "– Erhalten Sie Antworten auf Ihre Fragen, wie Sie Toxinbelastungen vermeiden können, und wie Toxine von unserem Körper verarbeitet und ausgeschieden werden –"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-16",
+      "startTime": "18:30",
+      "category": "Natura / Ambiente",
+      "venue": "Volkshochschule Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/solothurn/toxin-belastungen-reduzieren-klar-fundiert-alltagstauglich_AWd5rcy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 23.8,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hauptbahnhofstrasse 8",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.2046977,
+        "lng": 7.5412039
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWd5rcy.webp"
+    },
+    {
+      "id": "guidle:A4CKfWa",
+      "title": "Naturspaziergang",
+      "titleByLocale": {
+        "it": "Naturspaziergang",
+        "en": "Naturspaziergang",
+        "de": "Naturspaziergang",
+        "fr": "Naturspaziergang"
+      },
+      "description": "Naturinteressierte beobachten zusammen Flora und Fauna vor unserer Haustüre.",
+      "descriptionByLocale": {
+        "it": "Naturinteressierte beobachten zusammen Flora und Fauna vor unserer Haustüre.",
+        "en": "Naturinteressierte beobachten zusammen Flora und Fauna vor unserer Haustüre.",
+        "de": "Naturinteressierte beobachten zusammen Flora und Fauna vor unserer Haustüre.",
+        "fr": "Naturinteressierte beobachten zusammen Flora und Fauna vor unserer Haustüre."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-10-13",
+      "startTime": "09:00",
+      "category": "Natura / Ambiente",
+      "venue": "Sprützehüsli, Sternenplatz",
+      "comune": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/spreitenbach/naturspaziergang_A4CKfWa",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "postalCode": "8957"
+      },
+      "geo": {
+        "lat": 47.417899,
+        "lng": 8.363962
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A4CKfWa.webp"
+    },
+    {
+      "id": "guidle:AgGNcBs",
+      "title": "NVSK-Träff",
+      "titleByLocale": {
+        "it": "NVSK-Träff",
+        "en": "NVSK-Träff",
+        "de": "NVSK-Träff",
+        "fr": "NVSK-Träff"
+      },
+      "description": "Zu Naturthemen werden Inputs gegeben und die Teilnehmenden tauschen sich über Ideen und Erfahrungen aus.",
+      "descriptionByLocale": {
+        "it": "Zu Naturthemen werden Inputs gegeben und die Teilnehmenden tauschen sich über Ideen und Erfahrungen aus.",
+        "en": "Zu Naturthemen werden Inputs gegeben und die Teilnehmenden tauschen sich über Ideen und Erfahrungen aus.",
+        "de": "Zu Naturthemen werden Inputs gegeben und die Teilnehmenden tauschen sich über Ideen und Erfahrungen aus.",
+        "fr": "Zu Naturthemen werden Inputs gegeben und die Teilnehmenden tauschen sich über Ideen und Erfahrungen aus."
+      },
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-05",
+      "startTime": "19:00",
+      "category": "Natura / Ambiente",
+      "venue": "Restaurant Sternen",
+      "comune": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/spreitenbach/nvsk-traeff_AgGNcBs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorfstrasse 72",
+        "postalCode": "8957"
+      },
+      "geo": {
+        "lat": 47.4181258,
+        "lng": 8.3642624
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AgGNcBs.webp"
+    },
+    {
+      "id": "guidle:AerYRnC",
+      "title": "MUNDOLOGIA: Bretagne",
+      "titleByLocale": {
+        "it": "MUNDOLOGIA: Bretagne",
+        "en": "MUNDOLOGIA: Bretagne",
+        "de": "MUNDOLOGIA: Bretagne",
+        "fr": "MUNDOLOGIA: Bretagne"
+      },
+      "description": "Tief im Westen Europas liegt ein Landstrich, der geprägt wird vom Meer: die Bretagne.",
+      "descriptionByLocale": {
+        "it": "Tief im Westen Europas liegt ein Landstrich, der geprägt wird vom Meer: die Bretagne.",
+        "en": "Tief im Westen Europas liegt ein Landstrich, der geprägt wird vom Meer: die Bretagne.",
+        "de": "Tief im Westen Europas liegt ein Landstrich, der geprägt wird vom Meer: die Bretagne.",
+        "fr": "Tief im Westen Europas liegt ein Landstrich, der geprägt wird vom Meer: die Bretagne."
+      },
+      "startDate": "2027-01-23",
+      "endDate": "2027-01-23",
+      "startTime": "19:30",
+      "category": "Lezione",
+      "venue": "Stadthalle Waldshut",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/waldshut-tiengen/mundologia-bretagne_AerYRnC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 17.45,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Friedrichstrasse 9",
+        "postalCode": "79761"
+      },
+      "geo": {
+        "lat": 47.62588,
+        "lng": 8.21603
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AerYRnC.webp"
+    },
+    {
+      "id": "guidle:AddmyB8",
+      "title": "DR. MARK BENECKE - Hitlers Schädel und Zähne",
+      "titleByLocale": {
+        "it": "DR. MARK BENECKE - Hitlers Schädel und Zähne",
+        "en": "DR. MARK BENECKE - Hitlers Schädel und Zähne",
+        "de": "DR. MARK BENECKE - Hitlers Schädel und Zähne",
+        "fr": "DR. MARK BENECKE - Hitlers Schädel und Zähne"
+      },
+      "description": "Der international bekannte Kriminalbiologe&#160;&#160;Dr. Mark Benecke kommt mit einem seiner spannendsten Vorträge in die Schweiz.",
+      "descriptionByLocale": {
+        "it": "Der international bekannte Kriminalbiologe&#160;&#160;Dr. Mark Benecke kommt mit einem seiner spannendsten Vorträge in die Schweiz.",
+        "en": "Der international bekannte Kriminalbiologe&#160;&#160;Dr. Mark Benecke kommt mit einem seiner spannendsten Vorträge in die Schweiz.",
+        "de": "Der international bekannte Kriminalbiologe&#160;&#160;Dr. Mark Benecke kommt mit einem seiner spannendsten Vorträge in die Schweiz.",
+        "fr": "Der international bekannte Kriminalbiologe&#160;&#160;Dr. Mark Benecke kommt mit einem seiner spannendsten Vorträge in die Schweiz."
+      },
+      "startDate": "2027-10-29",
+      "endDate": "2027-10-29",
+      "startTime": "19:30",
+      "category": "Altra conoscenza / ambiente",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/dr-mark-benecke-hitlers-schaedel-und-zaehne_AddmyB8",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 78,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AddmyB8.webp"
+    },
+    {
+      "id": "guidle:A89yAFN",
+      "title": "«Zwitscherzeit!» Wie Bauernfamilien erfolgreich Vögel schützen",
+      "titleByLocale": {
+        "it": "«Zwitscherzeit!» Wie Bauernfamilien erfolgreich Vögel schützen",
+        "en": "«Zwitscherzeit!» Wie Bauernfamilien erfolgreich Vögel schützen",
+        "de": "«Zwitscherzeit!» Wie Bauernfamilien erfolgreich Vögel schützen",
+        "fr": "« C'est l'heure de gazouiller ! »"
+      },
+      "description": "Die Zukunft der Landwirtschaft liegt auch in den Händen der Konsumentinnen und Konsumenten. Vortrag von Vogelwarte-Expertin Andrea Friedli.",
+      "descriptionByLocale": {
+        "it": "Die Zukunft der Landwirtschaft liegt auch in den Händen der Konsumentinnen und Konsumenten. Vortrag von Vogelwarte-Expertin Andrea Friedli.",
+        "en": "Die Zukunft der Landwirtschaft liegt auch in den Händen der Konsumentinnen und Konsumenten. Vortrag von Vogelwarte-Expertin Andrea Friedli.",
+        "de": "Die Zukunft der Landwirtschaft liegt auch in den Händen der Konsumentinnen und Konsumenten. Vortrag von Vogelwarte-Expertin Andrea Friedli.",
+        "fr": "L'avenir de l'agriculture est également entre les mains des consommateurs. Conférence de l'experte de la Station ornithologique Andrea Friedli."
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Besuchszentrum Schweizerische Vogelwarte",
+      "comune": "Sempach",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/evenements/savoir/sempach/-cest-lheure-de-gazouiller-_A89yAFN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Luzernerstrasse 6",
+        "postalCode": "6204"
+      },
+      "geo": {
+        "lat": 47.12774943551681,
+        "lng": 8.192631822753906
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A89yAFN.webp"
     }
   ]
 }
