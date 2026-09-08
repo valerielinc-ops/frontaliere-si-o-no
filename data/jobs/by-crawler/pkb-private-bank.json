@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pkb-private-bank",
-  "assembledAt": "2026-09-07T23:39:45.603Z",
+  "assembledAt": "2026-09-08T13:50:17.611Z",
   "jobs": [
     {
       "title": "Risk Officer",
@@ -30,7 +30,7 @@
       "slugByLocale": {
         "it": "risk-officer-pkb-private-bank-lugano",
         "en": "risk-officer-pkb-private-bank-lugano",
-        "de": "risikobeauftragter-pkb-private-bank-sa-lugano",
+        "de": "risikosteigerung-pkb-private-bank-sa-lugano",
         "fr": "specialiste-des-risques-pkb-private-bank-sa-lugano"
       },
       "descriptionByLocale": {
@@ -40,7 +40,7 @@
         "fr": "Description du rôle\n\nPour notre siège social à Lugano, nous recevons une\n\nLumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lumières-Lum\n\nLe candidat travaillera avec les différentes fonctions de la Banque et du Groupe, en contrôlant l'identification des risques, la définition des mesures d'atténuation et l'amélioration continue du système de gestion des risques. Nous recherchons un chiffre capable de combiner rigueur réglementaire et vision pragmatique, contribuant à l'établissement d'un équilibre efficace entre le gel des risques et le soutien à d'autres fonctions de la Banque.\n\nTâches et responsabilités\n\n- Pour les activités couvertes par la fonction de l'Office des risques, suivre et évaluer de manière indépendante la gestion des risques générée par les activités opérationnelles de la Banque, en veillant à ce que la gestion des risques potentiels (y compris ceux liés aux risques cybernétiques et de continuité opérationnelle) soit identifiée, analysée, mesurée et évaluée de manière adéquate; - effectuer des activités de contrôle de deuxième niveau pour les domaines de risque relevant de la fonction (y compris ceux liés aux activités de gestion des actifs), vérifier l'efficacité des processus et des opérations de la Banque; - effectuer des activités de deuxième niveau\n\nles activités de contrôle des domaines de risque de la fonction (y compris celles liées aux activités de gestion des actifs);\n\n- contribuer à la préparation de la documentation sur la gestion des risques et à la préparation de rapports périodiques sur le profil de risque de la Banque et du Groupe pour les organes de gouvernance, les comités internes et les directeurs généraux des risques, y compris les indicateurs de risque (RSK Applied Metrics), surveiller l'évolution et le respect des seuils définis dans la politique et les contrôles de risque de la Banque; - surveiller les événements et incidents de perte\n\n- travailler avec les fonctions opérationnelles de la Banque et du Groupe sur les thèmes de la gestion des risques, en favorisant une approche coordonnée de la gestion des risques ainsi que dans l'évaluation des risques associés aux nouveaux produits, procédés, systèmes, projets et activités dans le cadre de la gestion des risques;\n\n- soutenir la gestion et l'évolution des applications informatiques utilisées dans le cadre de la gestion des risques; - promouvoir une culture des risques au sein de la Banque par des activités de sensibilisation et de formation destinées aux fonctions de premier niveau."
       },
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T23:39:38.041Z",
+      "crawledAt": "2026-09-08T13:50:10.672Z",
       "id": "pkb-private-bank-0b868337e255",
       "requirementsByLocale": {
         "en": [
@@ -75,14 +75,17 @@
         ]
       },
       "previousSlugs": [
+        "risikobeauftragter-pkb-private-bank-sa-lugano",
         "risikosteigerung-pkb-private-bank-sa-lugano"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "risikobeauftragter-pkb-private-bank-sa-lugano",
           "risikosteigerung-pkb-private-bank-sa-lugano"
         ]
       },
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
