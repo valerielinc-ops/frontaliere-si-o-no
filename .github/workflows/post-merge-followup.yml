@@ -425,7 +425,7 @@ jobs:
       # sito. Il gate deve quindi leggere/scrivere le issue su Nanako ma commentare la
       # PR sorgente qui: `GATE_PR_REPO` separa i due repository nel gate.
       - name: Gate sul conio — corpus (zero-Claude)
-        if: always() && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}

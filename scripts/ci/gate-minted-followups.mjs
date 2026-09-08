@@ -153,18 +153,23 @@ export function decideMintGate(issue, opts = {}) {
 /** Normalizza solo le intestazioni item fuori dai fenced code block. */
 function normalizeItemNumbering(body) {
   let nextNumber = 0;
-  let inFence = false;
+  let fence = null;
   let hasNestedItemHeading = false;
   const lines = String(body || '').split('\n').map((line) => {
-    if (/^\s*(`{3,}|~{3,})(?:\s|$)/.test(line)) {
-      inFence = !inFence;
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      } else if (/^### \d+\./.test(line)) {
+        hasNestedItemHeading = true;
+      }
+      return line;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
       return line;
     }
     if (!/^### \d+\./.test(line)) return line;
-    if (inFence) {
-      hasNestedItemHeading = true;
-      return line;
-    }
     nextNumber += 1;
     return line.replace(/^### \d+\./, `### ${nextNumber}.`);
   });
@@ -390,7 +395,7 @@ function main() {
   // su un lato solo. Riga a formato fisso, grep-abile sui log di tutte le run (stessa
   // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
   for (const t of tally) {
-    console.log(`MINT_GATE_TALLY pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
   }
   const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
   const summary = `Gate sul conio: ${report.length} issue nel report, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;

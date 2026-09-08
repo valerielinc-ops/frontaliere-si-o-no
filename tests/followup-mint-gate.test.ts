@@ -69,6 +69,14 @@ const unsafeNoValid = HEAD +
   '- Suggested action: valutare se serve un campo esplicito\n\n' +
   `### 3.${itemProsa}`;
 
+const unsafeUnclosedInfoFence = HEAD +
+  '### 1. rischio con fence informata\n```suggestion\n### 2. intestazione ancora nella fence\n- Suggested action: valutare se serve un campo esplicito\n';
+
+const infoFenceLossless = HEAD +
+  '### 1. item con fence informata\n- Source: PR body\n- Stato dichiarato nella PR: `blocked: manca il dato`\n' +
+  '- Suggested action: chiama `normalizza()` in `scripts/lib/x.mjs`\n```ts\nconst x = 1;\n```\n\n' +
+  `### 3.${itemProsa}`;
+
 function runFakeGate({ batchPrs, issue, summaryPath }: { batchPrs: string; issue: object | null; summaryPath: string }) {
   const dir = mkdtempSync(join(tmpdir(), 'mint-gate-test-'));
   const ghPath = join(dir, 'gh');
@@ -135,6 +143,13 @@ describe('gate sul conio — comportamento', () => {
   it('non sopprime un corpo non ricomponibile anche quando nessun item e\' valido', () => {
     expect(isLosslessSplit(unsafeNoValid)).toBe(false);
     const d = decideMintGate({ body: unsafeNoValid, createdAt: new Date().toISOString() });
+    expect(d.action).toBe('skip');
+    expect(d.reason).toBe('unsafe-rewrite');
+  });
+
+  it('non tratta un heading in una fence informata non chiusa come un item vero', () => {
+    expect(isLosslessSplit(unsafeUnclosedInfoFence)).toBe(false);
+    const d = decideMintGate({ body: unsafeUnclosedInfoFence, createdAt: new Date().toISOString() });
     expect(d.action).toBe('skip');
     expect(d.reason).toBe('unsafe-rewrite');
   });
@@ -225,6 +240,12 @@ describe('gate sul conio — la demozione non perde il testo', () => {
     const d = decideMintGate({ body, createdAt: new Date().toISOString() });
     expect(d.action).toBe('demote');
     expect(d.body).toContain('### 1. la soglia va letta da env');
+  });
+
+  it('riconosce le fence con info string e normalizza anche una numerazione duplicata', () => {
+    expect(isLosslessSplit(infoFenceLossless)).toBe(true);
+    const duplicate = HEAD + `### 1.${itemValido}\n### 1.${itemProsa}`;
+    expect(isLosslessSplit(duplicate)).toBe(true);
   });
 
   it('porta unsafe-rewrite nel job summary invece di saltarlo in silenzio', () => {
