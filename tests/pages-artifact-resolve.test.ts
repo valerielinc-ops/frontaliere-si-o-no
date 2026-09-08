@@ -48,6 +48,60 @@ function codeOnly(file: string): string {
   return stripShellComments(readFileSync(file, 'utf8'));
 }
 
+/**
+ * Join shell continuations before looking at a command. A line-count window
+ * is not a shell parser: it missed the `gh api` options split over four lines
+ * in the measure workflow and would miss the same guard after one more option
+ * is added. Expand only simple assignments so the observer also sees a route
+ * assembled as `ROOT=".../runs"; gh api "$ROOT/$id/artifacts"`.
+ */
+function logicalShellLines(source: string): string[] {
+  const joined = stripShellComments(source).replace(/\\[ \t]*\n[ \t]*/g, ' ');
+  const lines = joined.split('\n').map((line) => line.trim()).filter(Boolean);
+  const assignments = new Map<string, string>();
+  for (const match of joined.matchAll(/(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)=(['"])(.*?)\2/g)) {
+    assignments.set(match[1], match[3]);
+  }
+  return lines.map((line) => {
+    let expanded = line;
+    for (let pass = 0; pass < 3; pass += 1) {
+      expanded = expanded.replace(/\$\{?([A-Za-z_][A-Za-z0-9_]*)\}?/g, (whole, name) =>
+        assignments.get(name) ?? whole,
+      );
+    }
+    return expanded;
+  });
+}
+
+function artifactListingCommands(source: string): string[] {
+  return logicalShellLines(source).filter((line) => {
+    if (!/\bgh\s+api\b/.test(line)) return false;
+    if (!/actions\/runs\/[^\s"']+\/artifacts/.test(line)) return false;
+    return !/actions\/artifacts\/[^\s"']+\/zip/.test(line);
+  });
+}
+
+function artifactListingViolations(source: string): string[] {
+  return artifactListingCommands(source).filter(
+    (command) => !command.includes('--paginate') &&
+      (!/[?&]name=github-pages/.test(command) || !/[?&]per_page=\d+/.test(command)),
+  );
+}
+
+function unguardedWorkflowRunCounts(source: string): number[] {
+  const text = logicalShellLines(source).join('\n');
+  const counts = [...text.matchAll(/\.workflow_runs\s*\|\s*length/g)];
+  const offenders: number[] = [];
+  let previousCountEnd = 0;
+  for (const match of counts) {
+    const index = match.index ?? 0;
+    const guard = text.lastIndexOf('has("workflow_runs")', index);
+    if (guard < previousCountEnd) offenders.push(index);
+    previousCountEnd = index + match[0].length;
+  }
+  return offenders;
+}
+
 /** Every `.github` file that could hold a shell copy of the resolve. */
 function allGithubShellFiles(): string[] {
   const out = [...workflowFiles];
@@ -71,6 +125,13 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       /select\(\s*\.name\s*==\s*"github-pages"\s*\)/.test(codeOnly(f)),
     );
     expect(offenders).toEqual([]);
+    // Positive assertion: the negative scan is not vacuous after a refactor.
+    // Both the shared action and manual restore must retain the two-part
+    // filter, because the REST API can list an expired artifact by name.
+    const liveFilters = [ACTION_PATH, join(WORKFLOWS_DIR, 'restore-from-artifact.yml')].filter((f) =>
+      /select\(\s*\.name\s*==\s*["']github-pages["']\s+and\s+\.expired\s*==\s*false\s*\)/.test(codeOnly(f)),
+    );
+    expect(liveFilters).toHaveLength(2);
   });
 
   it('#7393 — no loop iterates a `gh api` command substitution directly', () => {
@@ -91,13 +152,8 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // must let the exit code out and treat a non-zero one as fatal.
     const offenders: string[] = [];
     for (const f of allGithubShellFiles()) {
-      const src = codeOnly(f);
-      // The listing line plus the three that can still close its command
-      // substitution — a lazy `[\s\S]*?\n` would stop at the first newline
-      // and never see the fallback, which is always on a continuation line.
-      const re = /gh\s+api\s+"[^"]*\/artifacts"[^\n]*(?:\n[^\n]*){0,3}/g;
-      for (const m of src.matchAll(re)) {
-        if (/2>\/dev\/null|\|\|\s*echo\b/.test(m[0])) offenders.push(`${f}: ${m[0].trim()}`);
+      for (const command of artifactListingCommands(codeOnly(f))) {
+        if (/2>\/dev\/null|\|\|\s*echo\b/.test(command)) offenders.push(`${f}: ${command}`);
       }
     }
     expect(offenders).toEqual([]);
@@ -165,14 +221,19 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // it. Same class as #7393, through a different door.
     const offenders: string[] = [];
     for (const f of allGithubShellFiles()) {
-      const src = codeOnly(f);
-      if (!/\.workflow_runs\s*\|\s*length/.test(src)) continue;
-      // The shape check has to come BEFORE the count, on the same file.
-      const guard = src.search(/has\("workflow_runs"\)/);
-      const count = src.search(/\.workflow_runs\s*\|\s*length/);
-      if (guard < 0 || guard > count) offenders.push(f);
+      if (unguardedWorkflowRunCounts(codeOnly(f)).length > 0) offenders.push(f);
     }
     expect(offenders).toEqual([]);
+    // The observer itself must inspect EVERY count, not only the first one in
+    // a file. This is the regression the old `.search()` check missed: the
+    // first count is guarded, the second is not.
+    const secondCountFixture = `
+      if ! gh api "repos/o/r/actions/workflows/deploy.yml/runs" > page.json; then exit 1; fi
+      if ! jq -e 'type == "object" and has("workflow_runs") and (.workflow_runs | type == "array")' page.json >/dev/null; then exit 1; fi
+      got=$(jq '.workflow_runs | length' page.json)
+      other=$(jq '.workflow_runs | length' page.json)
+    `;
+    expect(unguardedWorkflowRunCounts(secondCountFixture)).toHaveLength(1);
     // …and both files that page deploy runs say which failure it is.
     for (const f of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
       const src = codeOnly(f);
@@ -239,7 +300,7 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // must survive as the thing that catches a warning that DID lose the file.
     const warnBranch = code.slice(code.indexOf('-eq 1'), code.indexOf('-ge 2'));
     expect(warnBranch).not.toMatch(/\n\s*continue\b/);
-    expect(code).toMatch(/if \[ ! -f "\$OUTDIR\/artifact\.tar" \]/);
+    expect(code).toMatch(/if \[ ! -s "\$OUTDIR\/artifact\.tar" \] \|\| ! tar -tf "\$OUTDIR\/artifact\.tar"/);
   });
 
   it('#7503 — no shell gates an extraction on `unzip` exiting 0', () => {
@@ -296,22 +357,44 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     // `?name=github-pages&per_page=100` makes the response un-truncatable.
     const offenders: string[] = [];
     for (const f of allGithubShellFiles()) {
-      // measure-deploy-delta.yml carries the same listing and is exempt only
-      // because PR #7573 is rewriting those exact lines — see the
-      // `## Non implementato (ancora)` of the #7502 PR. Delete this line with
-      // the fix; the follow-up that lands it is what re-arms this assertion.
-      if (f.endsWith('measure-deploy-delta.yml')) continue;
-      for (const m of codeOnly(f).matchAll(/actions\/runs\/[^\s"']*\/artifacts([^\s"']*)/g)) {
-        const query = m[1];
-        if (!/[?&]per_page=\d+/.test(query) || !/[?&]name=github-pages/.test(query)) {
-          offenders.push(`${f}: ${m[0]}`);
-        }
-      }
+      offenders.push(...artifactListingViolations(codeOnly(f)).map((command) => `${f}: ${command}`));
     }
     expect(offenders).toEqual([]);
     // …and the name filter left the jq, which now only has to drop expired
     // artifacts (#7392) — a filter no query parameter replaces.
-    expect(actionSource).toMatch(/--jq '\.artifacts\[\] \| select\(\.expired==false\)/);
+    expect(actionSource).toMatch(/--jq '\[\.artifacts\[\] \| select\(\.name=="github-pages" and \.expired==false\)/);
+    // A composed, continued API command is still an artifact listing and must
+    // be checked. A full `--paginate` listing is intentionally allowed: it is
+    // not truncated and is used by read-only observers that need all names.
+    const composed = [
+      'API_ROOT="repos/o/r/actions/runs"',
+      'gh api --include \\',
+      '  "$API_ROOT/$run/artifacts?name=github-pages&per_page=100"',
+    ].join('\n');
+    expect(artifactListingViolations(composed)).toEqual([]);
+    const legitimatePaginated = 'gh api --paginate "repos/o/r/actions/runs/$run/artifacts"';
+    expect(artifactListingViolations(legitimatePaginated)).toEqual([]);
+  });
+
+  it('#7622 — matrix fetch is pinned to the build SHA and has disk headroom', () => {
+    const matrixPath = join(WORKFLOWS_DIR, 'matrix-equivalence-check.yml');
+    const matrix = codeOnly(matrixPath);
+    const rootCheckout = matrix.indexOf('Checkout the composite action only');
+    const toolingCheckout = matrix.indexOf('Checkout the equivalence tooling');
+    const freeDisk = matrix.indexOf('Free disk space before build and artifact extraction');
+    const fetch = matrix.indexOf('uses: ./.github/actions/fetch-pages-artifact');
+    expect(rootCheckout).toBeGreaterThan(-1);
+    expect(toolingCheckout).toBeGreaterThan(rootCheckout);
+    expect(matrix.slice(rootCheckout, toolingCheckout)).not.toMatch(/\bgit\s/);
+    expect(freeDisk).toBeGreaterThan(toolingCheckout);
+    expect(freeDisk).toBeLessThan(fetch);
+    expect(matrix.slice(freeDisk, fetch)).toContain('df -h /');
+    expect(matrix.slice(freeDisk, fetch)).toContain('sudo rm -rf');
+    expect(matrix).toMatch(/expected-sha: \$\{\{ github\.event\.inputs\.sha \}\}/);
+    expect(actionSource).toContain('head-sha');
+    expect(actionSource).toContain('INPUT_EXPECTED_SHA');
+    expect(actionSource).toMatch(/\.created_at, \.head_sha/);
+    expect(actionSource).not.toContain('[0:8]');
   });
 
   it('every caller of the action reaches it through a checkout', () => {
@@ -341,9 +424,72 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       const sparse = /^[ \t]*sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/m.exec(src);
       if (sparse && !sparse[1].includes('/*')) {
         expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
-          '.github/actions/fetch-pages-artifact',
+          '.github/actions/fetch-pages-artifact/',
         );
       }
+    }
+  });
+});
+describe('workflow deploy/artifact contracts', () => {
+  it('#7697 — both paginated walk-backs use strict mode and a fresh workspace', () => {
+    for (const file of [ACTION_PATH, join(WORKFLOWS_DIR, 'measure-deploy-delta.yml')]) {
+      const source = codeOnly(file);
+      const strict = source.indexOf('set -euo pipefail');
+      const work = source.indexOf('WORK="$(mktemp -d)"');
+      const pages = source.indexOf('while [ "$page" -le "$MAX_PAGES" ]');
+      expect(strict, `${file}: strict mode missing`).toBeGreaterThan(-1);
+      expect(work, `${file}: WORK is not made temporary`).toBeGreaterThan(strict);
+      expect(pages, `${file}: paginated walk-back missing`).toBeGreaterThan(work);
+    }
+  });
+
+  it('#7697 — the crawler orchestrator propagates jq error() through its pipe', () => {
+    const source = codeOnly(join(WORKFLOWS_DIR, 'orchestrate-crawlers.yml'));
+    expect(source).toContain('set -euo pipefail');
+    const validation = source.indexOf('if ! queued_json=$(');
+    const jqError = source.indexOf('error("reap:', validation);
+    const validationExit = source.indexOf('exit 1', jqError);
+    expect(validation).toBeGreaterThan(-1);
+    expect(jqError).toBeGreaterThan(validation);
+    expect(validationExit).toBeGreaterThan(jqError);
+  });
+
+  it('#7705 — measure walk-back retries only a listing 404 and sees split commands', () => {
+    const measurePath = join(WORKFLOWS_DIR, 'measure-deploy-delta.yml');
+    const measure = codeOnly(measurePath);
+    const listing = artifactListingCommands(measure).find((command) => command.includes('--include')) ?? '';
+    expect(listing).toContain('name=github-pages');
+    expect(listing).toContain('per_page=100');
+    expect(listing).toContain('--include');
+    const status = measure.indexOf("grep -qE '^HTTP/[0-9.]+[[:space:]]+404");
+    const retentionContinue = measure.indexOf('continue', status);
+    const fatalMessage = measure.indexOf('gh api failed while listing artifacts', status);
+    const fatalExit = measure.indexOf('exit 1', fatalMessage);
+    expect(status).toBeGreaterThan(-1);
+    expect(retentionContinue).toBeGreaterThan(status);
+    expect(fatalMessage).toBeGreaterThan(retentionContinue);
+    expect(fatalExit).toBeGreaterThan(fatalMessage);
+    const continuation = String.fromCharCode(92);
+    const splitListing = [
+      `if ! response=$(gh api --include ${continuation}`,
+      `  --header "Accept: application/vnd.github+json" ${continuation}`,
+      '  "repos/o/r/actions/runs/$r/artifacts?name=github-pages&per_page=100"',
+      '); then exit 1; fi',
+    ].join('\n');
+    expect(artifactListingViolations(splitListing)).toEqual([]);
+    const swallowed = [
+      `gh api --include ${continuation}`,
+      `  --header "Accept: application/vnd.github+json" ${continuation}`,
+      '  "repos/o/r/actions/runs/$r/artifacts" 2>/dev/null || echo 0',
+    ].join('\n');
+    expect(artifactListingCommands(swallowed)[0]).toMatch(/2>\/dev\/null\s+\|\|\s*echo/);
+  });
+  it('#7700 — optional rclone accepts only a non-empty executable that answers version', () => {
+    for (const file of ['scripts/lib/upload-cdn-file.sh', 'scripts/lib/deploy-it-pages-prep.sh']) {
+      const source = readFileSync(file, 'utf8');
+      expect(source, file).not.toMatch(/unzip[^\n]*\|\|\s*true/);
+      expect(source, file).toContain('rclone" version');
+      expect(source, file).toMatch(/\[ -s "\$[^\"]*rclone/);
     }
   });
 });

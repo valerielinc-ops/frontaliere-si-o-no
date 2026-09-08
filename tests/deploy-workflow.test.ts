@@ -439,4 +439,19 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
       );
     }
   });
+
+  it('#7546 — il profilo delle fasi post-build arriva nel riepilogo del job', () => {
+    const step = BUILD_LOCALE_STEPS.find((s) => s.name === 'Build profile summary');
+    expect(step, 'deploy.yml: manca lo step Build profile summary').toBeDefined();
+    expect(step!.if).toBe('always()');
+    expect(step!.run).toContain('$GITHUB_STEP_SUMMARY');
+    expect(step!.run).toContain('/tmp/build.log');
+    expect(step!.run).toMatch(/\/\^\\\[phase-timing/);
+  });
+
+  it('#7548 — gli append di build-history non riattivano un deploy completo', () => {
+    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
+    expect(ignored).toContain('data/build-history/**');
+  });
 });

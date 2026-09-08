@@ -2339,7 +2339,7 @@ jobs:
         run: npm ci
 
       - name: Report failure to GitHub Issues
-        if: needs.validate-dist-source.result == 'failure' || needs.validate-dist-postbuild.result == 'failure' || needs.validate-dist-postbuild-bfs.result == 'failure'
+        if: always() && (needs.validate-dist-source.result == 'failure' || needs.validate-dist-postbuild.result == 'failure' || needs.validate-dist-postbuild-bfs.result == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

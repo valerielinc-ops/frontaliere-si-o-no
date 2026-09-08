@@ -99,6 +99,9 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Verify dependency-free import closure
+        run: node scripts/ci/check-dependency-free-import-closure.mjs
+
       # NIENTE `npm ci` — è la causa del timeout #7309, non il Checkout.
       # Misurato sui tre ultimi drain riusciti (run 33858476484/33858363375/
       # 33855949476): Checkout 36-39s, `npm ci --ignore-scripts` **217-292s**

@@ -166,9 +166,16 @@ _publish_cdn_r2() {
     # disk is the contract, not unzip's exit code.
     if curl -fsSL --retry 3 --retry-delay 2 --retry-all-errors \
          https://downloads.rclone.org/rclone-current-linux-amd64.zip -o "$rtmp/rclone.zip"; then
-      unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || true
-      if [ -f "$rtmp/rclone-bin/rclone" ]; then
-        chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null || true
+      unzip_rc=0
+      unzip -q -o -j "$rtmp/rclone.zip" '*/rclone' -d "$rtmp/rclone-bin" || unzip_rc=$?
+      if [ "$unzip_rc" -eq 1 ]; then
+        echo "::warning::[r2] rclone archive extracted with unzip warnings (exit 1)"
+      elif [ "$unzip_rc" -ge 2 ]; then
+        echo "::warning::[r2] rclone archive extraction failed (unzip exit $unzip_rc)"
+      fi
+      if [ "$unzip_rc" -lt 2 ] && [ -s "$rtmp/rclone-bin/rclone" ] \
+         && chmod +x "$rtmp/rclone-bin/rclone" 2>/dev/null \
+         && "$rtmp/rclone-bin/rclone" version >/dev/null 2>&1; then
         export PATH="$rtmp/rclone-bin:$PATH"
       fi
     fi
