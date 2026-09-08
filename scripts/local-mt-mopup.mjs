@@ -225,7 +225,7 @@ export function missingSlots(job) {
  * @param {string} text
  * @returns {string}
  */
-function masculineGermanTitle(text) {
+export function masculineGermanTitle(text) {
   return String(text ?? '')
     .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
     .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
