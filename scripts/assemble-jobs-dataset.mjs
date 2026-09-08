@@ -2712,6 +2712,20 @@ function assembleSummaries() {
 /* ── Expired jobs assembly ─────────────────────────────────────────────── */
 
 /**
+ * Normalize a source slice and persist the repair before aggregation can cap it.
+ * Returns the number of entries repaired, including zero for an already-clean
+ * slice so callers can keep their existing aggregation flow unchanged.
+ */
+export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
+  const repaired = normalizeExpiredAtEntries(entries, options);
+  // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
+  // this helper runs before the aggregate cap and must not leave a truncated
+  // source slice if the process is interrupted during persistence.
+  if (repaired > 0) writeJson(slicePath, entries);
+  return repaired;
+}
+
+/**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
  * Returns the assembled array, or null if no slices exist.
@@ -2733,6 +2747,7 @@ function assembleExpiredJobs() {
   const bySlug = new Map();
   let totalSliceEntries = 0;
   const malformedExpired = [];
+  const parsedSlices = [];
 
   for (const slicePath of sliceFiles) {
     const entries = readJson(slicePath, null);
@@ -2740,11 +2755,24 @@ function assembleExpiredJobs() {
       malformedExpired.push(path.basename(slicePath));
       continue;
     }
+    parsedSlices.push({ slicePath, entries });
+  }
+  if (malformedExpired.length > 0) {
+    throw new Error(
+      `Refusing to assemble expired slices: ${malformedExpired.length} malformed:\n` +
+      malformedExpired.map((m) => `  - ${m}`).join('\n') +
+      `\nResolve before re-running.`,
+    );
+  }
+
+  for (const { slicePath, entries } of parsedSlices) {
     totalSliceEntries += entries.length;
     // Repair before the entries reach the sort + `slice(0, EXPIRED_JOBS_CAP)`
     // below: `compareExpiredAt` sends an unparseable value to the tail, which
     // past the cap means the soft landing for a still-indexed URL disappears.
-    normalizeExpiredAtEntries(entries, { source: `assemble/${path.basename(slicePath)}` });
+    normalizeAndPersistExpiredSlice(slicePath, entries, {
+      source: `assemble/${path.basename(slicePath)}`,
+    });
     for (const entry of entries) {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
@@ -2754,13 +2782,6 @@ function assembleExpiredJobs() {
         bySlug.set(key, entry);
       }
     }
-  }
-  if (malformedExpired.length > 0) {
-    throw new Error(
-      `Refusing to assemble expired slices: ${malformedExpired.length} malformed:\n` +
-      malformedExpired.map((m) => `  - ${m}`).join('\n') +
-      `\nResolve before re-running.`,
-    );
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)

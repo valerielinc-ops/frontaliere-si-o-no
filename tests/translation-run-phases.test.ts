@@ -133,6 +133,19 @@ describe('the phase sidecar', () => {
     expect(readRunPhases().map((phase: { name: string }) => phase.name)).toEqual(['local-mt-bulk', 'cascade']);
   });
 
+  it('updates the in-progress cascade entry when its final snapshot is ready', () => {
+    recordRunPhase({ name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 10 });
+    recordRunPhase({ name: 'cascade', startedAtMs: 10, endedAtMs: null, stopReason: 'in progress' });
+    recordRunPhase(
+      { name: 'cascade', startedAtMs: 10, endedAtMs: 20, stopReason: 'queue exhausted' },
+      { replaceLast: true },
+    );
+    expect(readRunPhases()).toEqual([
+      { name: 'local-mt-bulk', startedAtMs: 0, endedAtMs: 10 },
+      { name: 'cascade', startedAtMs: 10, endedAtMs: 20, stopReason: 'queue exhausted' },
+    ]);
+  });
+
   it('ignores an entry with no name and never throws on a corrupt sidecar', () => {
     recordRunPhase({ startedAtMs: 0 } as { name?: string });
     expect(readRunPhases()).toEqual([]);

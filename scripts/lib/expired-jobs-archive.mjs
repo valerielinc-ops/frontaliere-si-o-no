@@ -217,6 +217,19 @@ export function localeRouteKeys(job = {}) {
 
 /** Preserve every route known by `removed` on `survivor`. */
 export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
+  if (removed?.previousSlugs != null && !Array.isArray(removed.previousSlugs)) {
+    throw new TypeError('transferSlugHistory: removed.previousSlugs must be an array');
+  }
+  if (removed?.previousSlugsByLocale != null) {
+    if (typeof removed.previousSlugsByLocale !== 'object' || Array.isArray(removed.previousSlugsByLocale)) {
+      throw new TypeError('transferSlugHistory: removed.previousSlugsByLocale must be an object');
+    }
+    for (const [locale, slugs] of Object.entries(removed.previousSlugsByLocale)) {
+      if (!Array.isArray(slugs)) {
+        throw new TypeError(`transferSlugHistory: removed.previousSlugsByLocale.${locale} must be an array`);
+      }
+    }
+  }
   let transferred = 0;
   const requiredRoutes = new Map(LOCALES.map((locale) => [
     locale,
