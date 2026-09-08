@@ -430,6 +430,32 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('does not mistake Swiss canton codes for foreign country evidence', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Role',
+      jobLocation: { address: { addressLocality: 'Kantonsspital Graubünden, GR' } },
+    })}</script>`;
+
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: '',
+      evidence: 'generic',
+    });
+  });
+
+  it('keeps a Swiss locality with a street number when no postal code is present', () => {
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Role',
+      jobLocation: { address: { addressLocality: 'Zürichstrasse 12, Zürich' } },
+    })}</script>`;
+
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Zürichstrasse 12, Zürich',
+      evidence: 'jsonld',
+    });
+  });
+
   it('prefers the published workplace when the source page itself names it', () => {
     const result = compareSourceDetail(
       {
