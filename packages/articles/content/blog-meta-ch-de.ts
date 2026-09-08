@@ -6118,6 +6118,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Armeechef: Die Zielschweiz Russlands',
     'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Armeechef Benedikt Roos warnt: Die Schweiz ist im Visier Moskaus. Hybride Bedrohungen kritischer Infrastrukturen, Drohnen an militärischen Standorten und Lücken in der Raketenabwehr.',
     'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'Ansicht der Castelgrande-Festung in Bellinzona, Symbol von Tessins Militärgeschichte',
+    'blog.article.abb-rolls-royce-smr-reattori.title': 'Abb und Rolls-Royce: Allianz für Kernreaktoren',
+    'blog.article.abb-rolls-royce-smr-reattori.excerpt': 'Der Gigant Abb zusammen mit Rolls-Royce SMR für Automatisierungslösungen in kleinen modularen Reaktoren. Erzeugungskapazität: 470 MW mit geringem CO2-Ausstoß.',
+    'blog.article.abb-rolls-royce-smr-reattori.imageAlt': 'Strategische Partnerschaft zwischen ABB und Rolls-Royce SMR für kleine modulare Kernreaktoren',
 };
 
 export default blogMetaChDe;
