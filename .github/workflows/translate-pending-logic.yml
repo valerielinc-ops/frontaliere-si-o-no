@@ -281,8 +281,14 @@ jobs:
           TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
         run: node scripts/mark-mistranslated-jobs.mjs
 
+      # Deliberate unbounded one-shot: --max-marks 0 and --queue-ceiling 0
+      # are intentional because 5,159 jobs already have needsRetranslation,
+      # versus the ordinary Phase 2 pre ceiling of 2,000. A lower ceiling
+      # would not restart that already-throttled detector; it would only split
+      # this reflag across manual dispatches.
       - name: One-shot reflag of German gender-form titles
-        if: ${{ inputs.reflag_gender_forms }}
+        if: inputs.reflag_gender_forms && inputs.skip_translate != true
+        continue-on-error: true
         run: node scripts/mark-mistranslated-jobs.mjs --gender-forms --no-titles --no-descriptions --max-marks 0 --queue-ceiling 0
 
       - name: Log translation stats (before)
