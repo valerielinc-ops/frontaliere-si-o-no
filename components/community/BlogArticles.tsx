@@ -2068,7 +2068,7 @@ function BlogArticles({
  const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
  const bodyCharCount = combinedBody.trim().length;
  // Single quality threshold for all ad formats (FRO-287):
- // 220 words + 1400 chars minimum ensures AdSense policy compliance
+ // The shared word/character floor ensures AdSense policy compliance
  // and avoids thin-content penalties. Articles below this threshold
  // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= AD_ELIGIBLE_MIN_WORDS && bodyCharCount >= AD_ELIGIBLE_MIN_CHARS;

@@ -24,10 +24,10 @@ export const AD_ELIGIBLE_MIN_WORDS = 220;
 export const AD_ELIGIBLE_MIN_CHARS = 1400;
 
 /**
- * Word floor of the longform predicate. Deliberately the SAME floor as
- * `adEligible` in the renderer (220 words): a body under it carries no inline
- * ad at all, so the profile choice is decided by structure (section count),
- * never by shortening the reach of the ad-eligibility gate itself.
+ * Word floor of the longform predicate. Deliberately the SAME floor as the
+ * exported word floor used by `adEligible` in the renderer: a body under it
+ * carries no inline ad at all, so the profile choice is decided by structure
+ * (section count), never by shortening the reach of the ad-eligibility gate.
  */
 export const LONGFORM_MIN_WORDS = AD_ELIGIBLE_MIN_WORDS;
 
