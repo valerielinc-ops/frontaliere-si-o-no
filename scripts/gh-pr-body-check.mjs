@@ -13,22 +13,33 @@ import { accessSync, constants } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { delimiter, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { BODY_FILE_INFRA } from './ci/pr-body-check-gate.mjs';
+import { EXIT_BLOCK } from './ci/lib/hook-exit-codes.mjs';
 
-const EXIT_BLOCK = 2;
-const BODY_FILE_INFRA = 3;
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GATE = join(REPO_ROOT, 'scripts', 'ci', 'pr-body-check-gate.mjs');
 const args = process.argv.slice(2);
 
+const FLAG_ALIASES = {
+  '--body': ['--body', '-b'],
+  '--body-file': ['--body-file', '-F'],
+};
+
 function flagValue(flag) {
-  const equals = args.find((arg) => arg.startsWith(`${flag}=`));
-  if (equals) return equals.slice(flag.length + 1);
-  const index = args.indexOf(flag);
-  return index >= 0 ? args[index + 1] : undefined;
+  for (const name of FLAG_ALIASES[flag] ?? [flag]) {
+    const equals = args.find((arg) => arg.startsWith(`${name}=`));
+    if (equals) return equals.slice(name.length + 1);
+    const index = args.indexOf(name);
+    if (index >= 0) return args[index + 1];
+  }
+  return undefined;
 }
 
 function hasFlag(flag) {
-  return args.some((arg) => arg === flag || arg.startsWith(`${flag}=`));
+  const names = FLAG_ALIASES[flag] ?? [flag];
+  return args.some((arg) => names.some(
+    (name) => arg === name || arg.startsWith(`${name}=`),
+  ));
 }
 
 function findPrMutation() {
@@ -132,4 +143,8 @@ if (!mutation) {
   } else {
     process.exitCode = runRealGh({ bestEffort: true });
   }
+} else {
+  // `gh pr edit` is also used for labels, titles and assignees. The shim must
+  // preserve those non-body mutations instead of reporting a silent success.
+  process.exitCode = runRealGh();
 }

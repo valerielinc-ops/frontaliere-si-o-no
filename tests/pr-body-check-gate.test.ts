@@ -1,6 +1,6 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { chmodSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { resolve } from 'node:path';
@@ -231,11 +231,43 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     for (const args of [
       ['pr', 'create', '--body', 'body'],
       ['pr', 'edit', '123', '--body', 'body'],
+      ['pr', 'create', '-b', 'body'],
+      ['pr', 'edit', '123', '-b', 'body'],
     ]) {
       const res = spawnSync('node', [SHIM, ...args], { encoding: 'utf8' });
       expect(res.status).toBe(EXIT_BLOCK);
       expect(res.stderr).toMatch(/body.*inline/);
     }
+  });
+
+  it('the workflow gh shim recognizes the short body-file alias', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', file], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('passes through non-body `gh pr edit` mutations to the real gh', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, '#!/bin/sh\nprintf \'real-gh-called\\n\'\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'edit', '123', '--add-label', 'needs-human'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stdout).toContain('real-gh-called');
   });
 
   it('the workflow gh shim skips an unreadable body-file without failing the job', () => {
