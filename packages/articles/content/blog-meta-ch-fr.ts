@@ -6064,6 +6064,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-scuola-pisa-2025-calo.title': 'École du Tessin : résultats PISA 2025 en baisse',
     'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'En 2025, le Tessin reste dans le top 10 de l\'OCDE en mathématiques mais perd des points. 27,2 % des quinquagénaires n\'atteignent pas le niveau minimum de lecture.',
     'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Des étudiants du Tessin dans une classe moderne avec des manuels de mathématiques et appareils numériques',
+    'blog.article.carenza-benzina-gasolio-scorte.title': 'Pénurie d\'essence et de gazole : prélevez les stocks obligatoires',
+    'blog.article.carenza-benzina-gasolio-scorte.excerpt': 'Raffinerie Cressier arrêtée pour panne, transports Rhin limités. Retraits autorisés de 30\'000 m³ d\'essence et de diesel entre le 8 et le 20 septembre des stocks obligatoires.',
+    'blog.article.carenza-benzina-gasolio-scorte.imageAlt': 'Installation de stockage de carburant en Suisse avec réservoirs et infrastructure pétrolière',
 };
 
 export default blogMetaChFr;

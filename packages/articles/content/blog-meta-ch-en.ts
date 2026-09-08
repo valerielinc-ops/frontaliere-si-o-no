@@ -6064,6 +6064,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-scuola-pisa-2025-calo.title': 'Ticino School: PISA 2025 results down',
     'blog.article.ticino-scuola-pisa-2025-calo.excerpt': 'In 2025 Ticino remained in the top 10 OECD in mathematics but lost points. 27.2% of fifteen-year-olds do not reach the minimum reading level.',
     'blog.article.ticino-scuola-pisa-2025-calo.imageAlt': 'Ticino students in a modern classroom with math textbooks and digital learning devices during class',
+    'blog.article.carenza-benzina-gasolio-scorte.title': 'Petrol and diesel shortage: compulsory stocks taken',
+    'blog.article.carenza-benzina-gasolio-scorte.excerpt': 'Cressier refinery stopped due to failure, limited Rhine transport. Authorized withdrawals of 30,000 m³ of gasoline and diesel between 8-20 September from mandatory stocks.',
+    'blog.article.carenza-benzina-gasolio-scorte.imageAlt': 'Fuel storage facility in Switzerland with tanks and petroleum infrastructure',
 };
 
 export default blogMetaChEn;
