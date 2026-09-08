@@ -88,27 +88,63 @@ export function citedFiles(body, fileExists) {
   return [...out];
 }
 
+const ITEM_HEADING_START = /^#{2,3}\s/i;
+const ITEM_FIELD_START = /^-\s+(?:Source|Original text|Stato dichiarato nella PR|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const POST_ORIGINAL_FIELD_START = /^-\s+(?:Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const DECORATED_SHEET_START = /^\s*\*{0,2}\d+\s*-\s*(?:METRICA|OSSERVATORE)(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:])/i;
+const METRIC_SHEET_START = /^(?:-\s+METRICA\s*:|\s*\*{0,2}\d+\s*-\s*METRICA(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:]))/i;
+
+function isOriginalTextBoundary(line) {
+  return ITEM_HEADING_START.test(line) || POST_ORIGINAL_FIELD_START.test(line) || DECORATED_SHEET_START.test(line);
+}
+
+function isSuggestedActionSectionBreak(line) {
+  return ITEM_HEADING_START.test(line) || ITEM_FIELD_START.test(line) || DECORATED_SHEET_START.test(line);
+}
+
+/**
+ * Keep only the part of an item that can describe the current acceptance condition.
+ * `Original text` is quoted status quo, so it must be excluded for every acceptance
+ * predicate, including the sheet branch that does not require `Suggested action`.
+ */
+function acceptanceScopeText(body) {
+  const lines = String(body || '').split('\n');
+  const scoped = [];
+  let inOriginalText = false;
+
+  for (const line of lines) {
+    if (/^-\s+Original text\s*:/i.test(line)) {
+      inOriginalText = true;
+      continue;
+    }
+    if (inOriginalText && isOriginalTextBoundary(line)) inOriginalText = false;
+    if (!inOriginalText) scoped.push(line);
+  }
+  return scoped.join('\n');
+}
+
 /**
  * Scope token extraction to the `Suggested action` region(s) when present — that text
  * describes the PRESCRIBED fix, so a token from it appearing in the file is real signal
- * of "done". Falls back to the whole body for free-form issues. Avoids the trap where an
- * issue QUOTES the status-quo code it wants changed (`Original text`) — that token is in
- * the file because the work is NOT done, the opposite of what we want to flag.
+ * of "done". Falls back to the item text outside `Original text` for free-form issues.
+ * Avoids the trap where an issue QUOTES the status-quo code it wants changed — that token
+ * is in the file because the work is NOT done, the opposite of what we want to flag.
  */
 export function suggestedActionText(body) {
-  const lines = body.split('\n');
+  const scoped = acceptanceScopeText(body);
+  const lines = scoped.split('\n');
   const regions = [];
   for (let i = 0; i < lines.length; i++) {
     if (/suggested action/i.test(lines[i])) {
       const buf = [lines[i]];
       for (let j = i + 1; j < lines.length; j++) {
-        if (/^(#{2,3}\s|- Source:|- Original text:|- Funnel impact:)/.test(lines[j])) break;
+        if (isSuggestedActionSectionBreak(lines[j])) break;
         buf.push(lines[j]);
       }
       regions.push(buf.join('\n'));
     }
   }
-  return regions.length ? regions.join('\n') : body;
+  return regions.length ? regions.join('\n') : scoped;
 }
 
 /** Backticked spans inside the suggested-action region → distinctive tokens (capped, deduped). */
@@ -147,24 +183,15 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
   describe: 'almeno un token-codice distintivo citato in `Suggested action`',
   /**
    * La regione `Suggested action` va richiesta ESPLICITAMENTE, non dedotta dai
-   * token: `suggestedActionText()` ricade sull'INTERO testo quando non trova la
-   * regione, e quel fallback qui sarebbe una trappola che apre esattamente il
-   * buco che questo modulo esiste per chiudere.
+   * token. `suggestedActionText()` usa lo stesso `acceptanceScopeText()` degli
+   * altri predicati, quindi il suo fallback non legge mai `Original text`; il
+   * requisito esplicito resta comunque necessario perché un item senza azione
+   * prescritta non è falsificabile per definizione.
    *
-   * Su un corpo intero il fallback non scattava quasi mai — basta un item ben
-   * formato perché la regione esista. Applicato PER-ITEM scatta su ogni item
-   * che non riporta la riga `- Suggested action:` del template, e gli item li
-   * scrive un LLM, non un emettitore deterministico. Per quell'item i token
-   * verrebbero raccolti da `- Original text: > …`, cioè dallo **status quo che
-   * la issue vuole cambiato**: `detectAlreadyResolved()` lo troverebbe verbatim
-   * nel file citato PROPRIO PERCHE' il lavoro non è fatto, e l'aggregata si
-   * auto-chiuderebbe su lavoro pendente. Il ramo `no-valid-item` non la copre:
-   * quell'item risulterebbe valido, non prosa.
-   *
-   * Un item senza `Suggested action` non è falsificabile per definizione — non
-   * prescrive nulla da verificare — quindi cade nel guardrail. Trovato dalla
-   * review su questa stessa PR, non da un incidente: il costo di sbagliarlo
-   * sarebbe stato una chiusura silenziosa di lavoro vero.
+   * Un item senza `Suggested action` può quindi passare solo per la condizione
+   * alternativa della scheda. I suoi eventuali token non entrano nel detector
+   * di chiusura: quello consuma token prescritti soltanto dalla regione
+   * `Suggested action`.
    *
    * @param {string} itemText @returns {boolean}
    */
@@ -175,9 +202,129 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
   },
 });
 
-/** True se l'item porta una condizione di accettazione falsificabile. */
+/**
+ * Il `COMANDO` di una scheda, oppure `null`. Copre le DUE forme già in uso, che
+ * differiscono solo per decorazione: la riga del template di `issue-decompose.yml`
+ * (`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>`) e quella emessa da
+ * `scripts/audit-canton-url-drift.mjs` (`**3-METRICA.** … | **COMANDO**: \`<comando>\``).
+ * Il marker `COMANDO` è l'ancora esplicita e viene cercato solo su una riga
+ * `METRICA`: non si deduce da una riga che «sembra» un comando né da prosa che
+ * contiene la stringa `COMANDO:`, per la stessa ragione per cui
+ * `ACCEPTANCE_CONDITION` pretende la regione `Suggested action` invece di dedurla
+ * dai token. Puro.
+ *
+ * @param {string} itemText @returns {string|null}
+ */
+export function schedaCommand(itemText) {
+  for (const line of acceptanceScopeText(itemText).split('\n')) {
+    if (!METRIC_SHEET_START.test(line)) continue;
+    const m = line.match(/\*{0,2}COMANDO\*{0,2}\s*:\s*(.+)$/);
+    if (!m) continue;
+    const cmd = m[1].trim().replace(/^`+|`+$/g, '').trim();
+    if (cmd) return cmd;
+  }
+  return null;
+}
+
+/**
+ * Il referente nominato da un comando: il primo path di repository che il comando
+ * cita (con almeno una `/` e un'estensione). È la metà VERIFICABILE della scheda —
+ * un nome si scrive, un referente si risolve.
+ *
+ * Il vincolo della `/` è lo stesso di `citedFiles()`, e per la stessa ragione: un
+ * `package.json` nudo non individua un file in questo repo. Un comando che non
+ * nomina nessun referente (`npm test`, `gh run list --branch main`) NON è
+ * risolvibile: non dice su cosa si legge il verdetto. Puro.
+ *
+ * @param {string} command @returns {string|null}
+ */
+export function commandReferent(command) {
+  const m = String(command || '').match(
+    /(?:^|[\s`'":=(])([\w.-]+(?:\/[\w.-]+)+\.[a-z]{2,5})(?=$|[\s`'":,)])/i,
+  );
+  return m ? m[1] : null;
+}
+
+/**
+ * La scheda dichiara una metrica GIA' al bersaglio (`prima=N atteso=N`)?
+ *
+ * È il terzo stato della D2: referente esistente e già verde → l'item non muove
+ * niente, è irrobustimento travestito da lavoro. Si legge dal TESTO, solo dalla
+ * riga `METRICA` della scheda, non eseguendo il comando: questo modulo non
+ * esegue nulla.
+ *
+ * Solo numeri NUDI. `atteso=<6.17%` dichiara una soglia sotto cui scendere, non un
+ * bersaglio raggiunto: leggerlo come «già verde» scarterebbe lavoro vero, e in
+ * questo gate scartare a torto costa più che ammettere a torto (l'item demoto esce
+ * dal tracciamento, l'item ammesso resta comunque da chiudere con una PR). Puro.
+ *
+ * @param {string} itemText @returns {boolean}
+ */
+export function metricAlreadyGreen(itemText) {
+  const metricLine = acceptanceScopeText(itemText).split('\n').find((line) => METRIC_SHEET_START.test(line));
+  const m = metricLine?.match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
+  if (!m) return false;
+  if (/[<>≤≥]/.test(m[1]) || /[<>≤≥]/.test(m[2])) return false;
+  const a = Number.parseFloat(m[1].replace(/%$/, ''));
+  const b = Number.parseFloat(m[2].replace(/%$/, ''));
+  return Number.isFinite(a) && Number.isFinite(b) && a === b;
+}
+
+/**
+ * Seconda condizione di accettazione: la scheda con un `COMANDO` risolvibile.
+ *
+ * Perché SOSTITUISCE e non si somma (decisione del proprietario, D3 del 2026-09-07):
+ * un `COMANDO` che nomina un referente prova più di un token backtickato — il token
+ * è un proxy dell'azionabilità, il comando *è* l'azionabilità. Sommarli in
+ * congiunzione farebbe pagare due volte la stessa prova e alzerebbe un tasso di
+ * demozione già al 55%.
+ *
+ * NON è un allentamento di `isDistinctiveToken()`. Quel tentativo è stato misurato e
+ * ritirato il 2026-09-06 — ammetteva +93 item di cui 32 su 45 portavano un token GIA'
+ * presente nel file citato, cioè `detectAlreadyResolved()` avrebbe letto «fatto» su
+ * lavoro pendente (classe #1647). Qui la soglia del token resta intatta: questo ramo
+ * apre una strada DIVERSA, e non può produrre quella classe di falso positivo perché
+ * non alimenta `citedTokens()` — un item ammesso di qui non ha alcun token prescritto
+ * da confermare, quindi `detectAlreadyResolved()` resta `false` e l'aggregata NON si
+ * auto-chiude su di lui. È la D2 letta al contrario, ed è l'effetto voluto: un item
+ * che si chiude solo quando un referente esiste, per chiudersi ha bisogno di una PR.
+ *
+ * Per la stessa ragione qui non serve il guardrail che `ACCEPTANCE_CONDITION` mette
+ * sulla regione `Suggested action`: la trappola che quel guardrail chiude è
+ * l'AUTO-CHIUSURA su token dello status quo, e un item ammesso da questo ramo non è
+ * auto-chiudibile per costruzione.
+ *
+ * Quello che questo ramo NON fa, deliberatamente: eseguire il comando. Il gate
+ * verifica che il `COMANDO` ci sia e nomini un referente, mai che oggi fallisca —
+ * eseguire una stringa derivata dal body di una PR dentro un job con `GH_TOKEN` in
+ * scrittura è una decisione separata (D8), non una conseguenza di questa.
+ */
+export const COMMAND_CONDITION = Object.freeze({
+  id: 'scheda-comando',
+  describe: 'un `COMANDO` di scheda che nomina un referente (file/script/test)',
+  /** @param {string} itemText @returns {boolean} */
+  holds: (itemText) => {
+    const s = String(itemText || '');
+    const cmd = schedaCommand(s);
+    if (!cmd || !commandReferent(cmd)) return false;
+    return !metricAlreadyGreen(s);
+  },
+});
+
+/**
+ * True se l'item porta una condizione di accettazione falsificabile.
+ *
+ * DISGIUNZIONE, non congiunzione (D3). Le due condizioni sono strade alternative
+ * verso la stessa prova, e questa funzione è l'UNICO punto in cui vivono: la usano
+ * sia il gate in APERTURA (`scripts/ci/gate-minted-followups.mjs`) sia il predicato
+ * in CHIUSURA (`aggregateCloseGate()` in `scripts/ci/reconcile-followups.mjs`).
+ * Allargarla qui le allarga insieme, nello stesso commit e per costruzione — che è
+ * esattamente il vincolo di #7587: un criterio più permissivo in apertura che in
+ * chiusura è ciò che ha prodotto la coda immortale.
+ */
 export function hasFalsifiableAcceptance(itemText) {
-  return ACCEPTANCE_CONDITION.holds(String(itemText || ''));
+  const s = String(itemText || '');
+  return ACCEPTANCE_CONDITION.holds(s) || COMMAND_CONDITION.holds(s);
 }
 
 /**
@@ -315,8 +462,13 @@ export function detectAlreadyResolved(body, io) {
   try {
     const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
     const readFile = io && typeof io.readFile === 'function' ? io.readFile : () => null;
-    const files = citedFiles(body || '', fileExists);
-    const tokens = citedTokens(body || '');
+    const bodyText = typeof body === 'string' ? body : '';
+    const files = citedFiles(bodyText, fileExists);
+    // A sheet-only item is accepted through `COMMAND_CONDITION`, not through a
+    // prescribed token. Keep it out of the token-resolution path entirely, while
+    // preserving the free-form issue fallback for bodies with no sheet at all.
+    const sheetOnly = COMMAND_CONDITION.holds(bodyText) && !ACCEPTANCE_CONDITION.holds(bodyText);
+    const tokens = sheetOnly ? [] : citedTokens(bodyText);
     const evidence = [];
     if (files.length && tokens.length) {
       const cache = new Map();
