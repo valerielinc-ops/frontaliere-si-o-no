@@ -37,8 +37,9 @@
  * way, 16 URLs across 4 locales) — otherwise the next shard deploy turns a live
  * page into a bare 404 with no signal for the crawler. So:
  *
- *   removal WITH a bridge entry  → deliberate retirement, allow.
- *   removal WITHOUT one          → nobody decided this, refuse and write nothing.
+ *   removal WITH a bridge for all four locale URLs → deliberate retirement, allow.
+ *   removal WITHOUT one                           → nobody decided this, refuse.
+ *   removal bridged in SOME locales only          → refuse until the bridge is complete.
  *
  * The ledger cannot be forged by the sync itself: it lives in this repo, in a
  * build plugin the corpus never touches, and only a PR can add to it. That
@@ -95,10 +96,12 @@ export const MIN_PARSED_REGISTRY_ENTRIES = 100;
  * @param {Record<string, Record<string, Record<string,string>>>} args.incoming
  *   Registries in the tree about to be mirrored in.
  * @param {Set<string>} args.retiredPaths  Redirect-table source paths.
+ * @param {{local?: Record<string, number>, incoming?: Record<string, number>} | null} [args.rowCounts]
+ *   Source row counts, when the caller read the registries from text.
  * @param {{articles?: number, swissArticles?: number} | null} [args.manifestCounts]
  *   `counts` from the published manifest, or null when it could not be read.
  */
-export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestCounts = null }) {
+export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestCounts = null, rowCounts = null }) {
   const removals = [];
   const additions = {};
 
@@ -106,7 +109,10 @@ export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestC
   for (const section of ARTICLE_SECTION_KEYS) {
     for (const [side, tree] of [['local', local], ['incoming', incoming]]) {
       const size = Object.keys(tree?.[section] ?? {}).length;
-      if (size < MIN_PARSED_REGISTRY_ENTRIES) parseFailures.push({ section, side, size });
+      const rows = rowCounts?.[side]?.[section];
+      if (size < MIN_PARSED_REGISTRY_ENTRIES || (typeof rows === 'number' && size !== rows)) {
+        parseFailures.push({ section, side, size, ...(typeof rows === 'number' ? { rows } : {}) });
+      }
     }
   }
 
@@ -118,24 +124,24 @@ export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestC
     for (const [id, slugMap] of Object.entries(before)) {
       if (id in after) continue;
       const paths = articlePathsFor(section, slugMap);
-      // The canonical <loc> is the IT path; a bridge on it is the minimum proof
-      // that a human withdrew this article. The other three are reported when
-      // they are missing so the bridge can be completed, but they do not gate:
-      // several pre-existing retirements in the ledger only ever mapped IT.
+      // The canonical <loc> is the IT path, but every locale URL must be
+      // bridged before the registry row is allowed to disappear (#7669).
       const canonical = paths[0] ?? null;
-      const ledgered = canonical !== null && retiredPaths.has(canonical);
+      const unbridgedLocalePaths = paths.filter((p) => !retiredPaths.has(p));
       removals.push({
         section,
         id,
         paths,
         canonical,
-        ledgered,
-        unbridgedLocalePaths: paths.filter((p) => !retiredPaths.has(p)),
+        ledgered: canonical !== null && retiredPaths.has(canonical),
+        fullyBridged: unbridgedLocalePaths.length === 0,
+        unbridgedLocalePaths,
       });
     }
   }
 
   const unledgered = removals.filter((r) => !r.ledgered);
+  const partiallyBridged = removals.filter((r) => r.ledgered && !r.fullyBridged);
 
   const shortfalls = [];
   if (manifestCounts) {
@@ -148,9 +154,14 @@ export function evaluateCorpusRemoval({ local, incoming, retiredPaths, manifestC
   }
 
   return {
-    ok: parseFailures.length === 0 && unledgered.length === 0 && shortfalls.length === 0,
+    ok:
+      parseFailures.length === 0
+      && unledgered.length === 0
+      && partiallyBridged.length === 0
+      && shortfalls.length === 0,
     removals,
     unledgered,
+    partiallyBridged,
     shortfalls,
     parseFailures,
     additions,

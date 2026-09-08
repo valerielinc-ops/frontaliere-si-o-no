@@ -131,6 +131,23 @@ export function parseSlugRegistry(src, constName) {
   return slugs;
 }
 
+/** Count registry rows independently of the locale-key shape. */
+export function countRegistryRows(src, constName) {
+  const block = extractObjectLiteral(src, constName);
+  return (block.match(/["'][^"'\n]+["']\s*:\s*\{/g) ?? []).length;
+}
+
+/** Read + parse a registry and retain its source row count for fail-closed gates. */
+export function readSlugRegistryWithRows(filePath, constName) {
+  let src;
+  try {
+    src = readFileSync(filePath, 'utf-8');
+  } catch {
+    return { registry: {}, rows: 0 };
+  }
+  return { registry: parseSlugRegistry(src, constName), rows: countRegistryRows(src, constName) };
+}
+
 /** Read + parse a registry file. Missing file → empty registry, never a throw. */
 export function readSlugRegistry(filePath, constName) {
   let src;
