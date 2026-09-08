@@ -6100,6 +6100,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.casse-pensioni-rendimenti-2025.title': 'Caisses de retraite : boom des rendements en 2025',
     'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Les caisses de pension suisses classent 2025 avec un rendement moyen de 6,3%, tiré par les actions. Taux de conversion stable à 5,20 % pour les rentes futures.',
     'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investisseur examinant rendements caisses de pension et projections de retraite.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Hôpitaux suisses : 1 700 infirmières en fuite chaque année',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'L\'Obsan révèle que 75 % des diplômés en soins infirmiers commencent à l\'hôpital, mais à 40 ans, ils tombent à 47 %. Le VPOD demande immédiatement de meilleures conditions.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Paysage alpin suisse symbolisant le système sanitaire national confronté à une pénurie d\'infirmières qualifiées',
 };
 
 export default blogMetaChFr;

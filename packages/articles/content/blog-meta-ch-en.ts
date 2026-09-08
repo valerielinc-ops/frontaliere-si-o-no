@@ -6100,6 +6100,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.casse-pensioni-rendimenti-2025.title': 'Pension funds: return boom in 2025',
     'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Swiss pension funds archive 2025 with an average return of 6.3%, driven by equities. Stable conversion rate at 5.20% for future annuities.',
     'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investor reviewing pension fund performance and retirement income projections with financial documents.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Swiss hospitals: 1,700 nurses fleeing every year',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'The Obsan reveals that 75% of nursing graduates start in the hospital, but at 40 years old it drops to 47%. The VPOD immediately asks for better conditions.',
+    'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Swiss alpine landscape symbolizing the national healthcare system facing a critical nursing shortage crisis',
 };
 
 export default blogMetaChEn;
