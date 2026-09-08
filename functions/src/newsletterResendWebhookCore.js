@@ -14,6 +14,7 @@ import {
   MACHINE_INFERRED_SUPPRESSIONS,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
+import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
 
 function sanitizeString(value) {
  const normalized = String(value || '').trim();
@@ -230,6 +231,18 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  const linkLabel = sanitizeString(data.link_label || data.click?.link_label);
  const sectionId = sanitizeString(data.section_id || data.click?.section_id);
  const occurredAt = sanitizeString(data.created_at) || new Date().toISOString();
+
+ // Job ranking links carry their own surface/job attribution. Persisting this
+ // before routing keeps newsletter and job-alert clicks on one idempotent path.
+ if (type === 'click' && linkUrl) {
+ await recordJobEmailRankingClick(db, {
+ provider: 'resend',
+ messageId,
+ email,
+ occurredAt,
+ url: linkUrl,
+ });
+ }
 
  // ── Route job-alert emails to job_alert_subscribers/{email} ──
  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {

@@ -10,6 +10,7 @@ import {
  mergeAccountDeletedSubscriberUpdate,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
+import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
 
 /**
  * Mailgun webhook handler — receives delivery events and stores them in Firestore.
@@ -98,6 +99,16 @@ export async function persistMailgunEvent(db, eventData) {
  const timestamp = eventData.timestamp
  ? new Date(eventData.timestamp * 1000).toISOString()
  : new Date().toISOString();
+
+ if (type === 'click' && eventData.url) {
+ await recordJobEmailRankingClick(db, {
+ provider: 'mailgun',
+ messageId,
+ email,
+ occurredAt: timestamp,
+ url: eventData.url,
+ });
+ }
 
  // Route job-alert events to job_alert_subscribers/{email}
  const mgTags = eventData.tags || [];

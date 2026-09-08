@@ -119,6 +119,18 @@ describe('newsletter content v2', () => {
     expect(matched.length).toBe(2);
   });
 
+  it('keeps a non-constant ranking signal for subscribers without an interest profile', () => {
+    const jobs = Array.from({ length: 4 }, (_, i) => ({
+      title: `Job ${i}`,
+      company: `Co ${i}`,
+      location: 'Lugano',
+      slug: `no-profile-${i}`,
+      postedDate: new Date(Date.now() - i * 86400000).toISOString(),
+    }));
+    const matched = matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4);
+    expect(matched.map((job) => job.relevanceScore)).toEqual([4, 3, 2, 1]);
+  });
+
   // Regression: company logos for the manifest's self-hosted brand/logo images
   // are offloaded out of the origin artifact to the CDN at deploy
   // (scripts/offload-generated-images-cdn.mjs), so the origin

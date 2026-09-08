@@ -276,6 +276,17 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Job-email ranking (#7922). Keep the complete tuning surface in Remote
+  // Config so the experiment can be reduced or disabled without a deploy.
+  JOB_EMAIL_RANKING_ENABLED:      ['JOB_EMAIL_RANKING_ENABLED'],
+  JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
+  JOB_EMAIL_RANKING_ALPHA:        ['JOB_EMAIL_RANKING_ALPHA'],
+  JOB_EMAIL_RANKING_EPSILON:      ['JOB_EMAIL_RANKING_EPSILON'],
+  JOB_EMAIL_RANKING_WINDOW_DAYS:  ['JOB_EMAIL_RANKING_WINDOW_DAYS'],
+  JOB_EMAIL_RANKING_SHRINK_K:     ['JOB_EMAIL_RANKING_SHRINK_K'],
+  JOB_EMAIL_RANKING_MIN_IMPRESSIONS: ['JOB_EMAIL_RANKING_MIN_IMPRESSIONS'],
+  JOB_EMAIL_RANKING_NEW_JOB_BOOST:   ['JOB_EMAIL_RANKING_NEW_JOB_BOOST'],
+  JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES: ['JOB_EMAIL_RANKING_MAX_CONSECUTIVE_EXPOSURES'],
   // Per-user send-time personalization kill switch (issue #3798). Unset in RC
   // by default — send-schedule.mjs treats absent as 'on'. Set to 'off' in RC
   // to roll back to immediate sends without touching code or workflows (env
