@@ -18,7 +18,10 @@
  * non gira piu'. I due pin sotto guardano quelle due direzioni.
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   decideMintGate,
@@ -61,6 +64,54 @@ const itemProsa = ` nessun gate impedisce un drift futuro
 const aggregata = (...items: string[]) =>
   HEAD + items.map((it, i) => `### ${i + 1}.${it}`).join('\n');
 
+const unsafeNoValid = HEAD +
+  '### 1. rischio con heading citato\n- Original text:\n```\n### 2. intestazione dentro citazione\n```\n' +
+  '- Suggested action: valutare se serve un campo esplicito\n\n' +
+  `### 3.${itemProsa}`;
+
+const unsafeUnclosedInfoFence = HEAD +
+  '### 1. rischio con fence informata\n```suggestion\n### 2. intestazione ancora nella fence\n- Suggested action: valutare se serve un campo esplicito\n';
+
+const infoFenceLossless = HEAD +
+  '### 1. item con fence informata\n- Source: PR body\n- Stato dichiarato nella PR: `blocked: manca il dato`\n' +
+  '- Suggested action: chiama `normalizza()` in `scripts/lib/x.mjs`\n```ts\nconst x = 1;\n```\n\n' +
+  `### 3.${itemProsa}`;
+
+function runFakeGate({ batchPrs, issue, summaryPath }: { batchPrs: string; issue: object | null; summaryPath: string }) {
+  const dir = mkdtempSync(join(tmpdir(), 'mint-gate-test-'));
+  const ghPath = join(dir, 'gh');
+  const createdAt = new Date().toISOString();
+  const issueWithMetadata = issue
+    ? { number: 101, title: `follow-up(#${batchPrs}): 3 item deferred - test`, createdAt, ...issue }
+    : null;
+  const fakeGh = `#!/usr/bin/env node
+const args = process.argv.slice(2);
+const issue = ${JSON.stringify(issueWithMetadata)};
+if (args[0] === 'issue' && args[1] === 'list') {
+  process.stdout.write(JSON.stringify(issue ? [{ number: issue.number, title: issue.title, createdAt: issue.createdAt }] : []));
+} else if (args[0] === 'issue' && args[1] === 'view') {
+  process.stdout.write(JSON.stringify(issue));
+}
+`;
+  writeFileSync(ghPath, fakeGh);
+  chmodSync(ghPath, 0o755);
+  const result = spawnSync('node', [GATE_SRC], {
+    encoding: 'utf-8',
+    env: {
+      ...process.env,
+      PATH: `${dir}:${process.env.PATH ?? ''}`,
+      BATCH_PRS: batchPrs,
+      GH_REPO: 'o/r',
+      GITHUB_STEP_SUMMARY: summaryPath,
+      DRY_RUN: '0',
+    },
+  });
+  let summary = '';
+  try { summary = readFileSync(summaryPath, 'utf-8'); } catch { /* path intentionally unwritable */ }
+  rmSync(dir, { recursive: true, force: true });
+  return { ...result, summary };
+}
+
 describe('gate sul conio — comportamento', () => {
   it('sopprime l\'aggregata in cui NESSUN item porta una condizione falsificabile', () => {
     const d = decideMintGate({ body: aggregata(itemProsa, itemProsa), createdAt: new Date().toISOString() });
@@ -87,6 +138,20 @@ describe('gate sul conio — comportamento', () => {
   it('non tocca l\'aggregata in cui ogni item e\' gia\' falsificabile', () => {
     const d = decideMintGate({ body: aggregata(itemValido, itemValido), createdAt: new Date().toISOString() });
     expect(d.action).toBe('keep');
+  });
+
+  it('non sopprime un corpo non ricomponibile anche quando nessun item e\' valido', () => {
+    expect(isLosslessSplit(unsafeNoValid)).toBe(false);
+    const d = decideMintGate({ body: unsafeNoValid, createdAt: new Date().toISOString() });
+    expect(d.action).toBe('skip');
+    expect(d.reason).toBe('unsafe-rewrite');
+  });
+
+  it('non tratta un heading in una fence informata non chiusa come un item vero', () => {
+    expect(isLosslessSplit(unsafeUnclosedInfoFence)).toBe(false);
+    const d = decideMintGate({ body: unsafeUnclosedInfoFence, createdAt: new Date().toISOString() });
+    expect(d.action).toBe('skip');
+    expect(d.reason).toBe('unsafe-rewrite');
   });
 
   it('IL VERSO SICURO: un corpo senza struttura a item non viene MAI soppresso', () => {
@@ -168,9 +233,56 @@ describe('gate sul conio — la demozione non perde il testo', () => {
     expect(isLosslessSplit(aggregata(itemValido, itemProsa))).toBe(true);
     expect(decideMintGate({ body: aggregata(itemValido, itemProsa), createdAt: new Date().toISOString() }).action).toBe('demote');
   });
+
+  it('considera lossless una numerazione non consecutiva e mantiene attivo il ramo demote', () => {
+    const body = HEAD + `### 1.${itemValido}\n### 3.${itemProsa}`;
+    expect(isLosslessSplit(body)).toBe(true);
+    const d = decideMintGate({ body, createdAt: new Date().toISOString() });
+    expect(d.action).toBe('demote');
+    expect(d.body).toContain('### 1. la soglia va letta da env');
+  });
+
+  it('riconosce le fence con info string e normalizza anche una numerazione duplicata', () => {
+    expect(isLosslessSplit(infoFenceLossless)).toBe(true);
+    const duplicate = HEAD + `### 1.${itemValido}\n### 1.${itemProsa}`;
+    expect(isLosslessSplit(duplicate)).toBe(true);
+  });
+
+  it('porta unsafe-rewrite nel job summary invece di saltarlo in silenzio', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'mint-gate-summary-'));
+    const summaryPath = join(dir, 'summary.md');
+    writeFileSync(summaryPath, '');
+    const result = runFakeGate({ batchPrs: '900', issue: { body: unsafeNoValid }, summaryPath });
+    rmSync(dir, { recursive: true, force: true });
+    expect(result.status).toBe(0);
+    expect(result.summary).toContain('unsafe-rewrite');
+    expect(result.stdout).toContain('MINT_GATE_TALLY');
+    expect(result.stdout).toContain('reason=unsafe-rewrite');
+  });
 });
 
 describe('gate sul conio — pin sul sorgente', () => {
+  it('PIN: il gate verifica anche le issue del corpus e commenta la PR sul sito', () => {
+    const src = readFileSync(GATE_SRC, 'utf-8');
+    const wf = readFileSync(WORKFLOW, 'utf-8');
+    expect((wf.match(/node scripts\/ci\/gate-minted-followups\.mjs/g) || [])).toHaveLength(2);
+    expect(wf).toContain('GH_REPO: nanakokyobashi-rgb/frontaliere-articles');
+    expect(wf).toContain('GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
+    expect(wf).toContain('GATE_PR_REPO: ${{ github.repository }}');
+    expect(wf).toMatch(/if \[ -z "\$\{GH_TOKEN:-\}" \]/);
+    expect(src).toContain("const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;");
+    expect(src).toContain("['pr', 'comment', String(pr), ...prRepoArgs");
+  });
+
+  it('PIN: un summary non scrivibile non cambia il verdetto dopo le scritture', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'mint-gate-unwritable-summary-'));
+    const summaryPath = join(dir, 'missing', 'summary.md');
+    const result = runFakeGate({ batchPrs: '999999', issue: null, summaryPath });
+    rmSync(dir, { recursive: true, force: true });
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('summary non scrivibile');
+  });
+
   it('PIN: il criterio di ingresso E\' l\'oracolo di uscita, importato — mai reimplementato', () => {
     const src = readFileSync(GATE_SRC, 'utf-8');
     // Direzione 1 del difetto: il gate si scrive un predicato proprio. I casi

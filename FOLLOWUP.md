@@ -72,8 +72,6 @@ Droppa (reason: `non-actionable-churn`) se l'item è essenzialmente uno di:
 - **Pure style/leggibilità/naming/format** non legati a un bug funnel.
 - **Item che il reviewer stesso marca** `deferred` / `non funnel-critical` / `nit puro` (vedi `AGENTS.md → Post-merge feedback handling`, eccezione "drop senza issue").
 
-Crea un follow-up SOLO quando l'item è **funnel-critico** (monetizzazione/traffico/correttezza) **E azionabile** (esiste un cambiamento di comportamento concreto da fare). Nel dubbio tra "non-actionable-churn" e "azionabile-funnel" pesa sul drop: una doc-nit persa costa zero al funnel, una issue churn-feed costa una run fixer sulla quota condivisa. Questa è la leva anti-burn più alta del workflow.
-
 ### Hard-exclude: missing-test nit (mai aprire follow-up)
 
 Categoria a sé, **droppata sempre** (reason: `missing-test-nit`), prima del filtro funnel, **a prescindere dalla fonte** (reviewer 🟡/❓/adversarial OPPURE PR body `## Non implementato`) e **anche se l'item è funnel-critico**. L'owner non dà valore alla copertura test come deliverable: i test-nit sono alto-volume / basso-valore, auto-routano a `agent:fix` (#922) e bruciano quota condivisa; storicamente done-but-open (#865/#908/#854 già coperti da PR successive). Idealmente il reviewer non li emette più (`REVIEW.md → IGNORA → test coverage`), ma questa resta la cintura per i residui e per gli item dal PR body.
@@ -148,7 +146,6 @@ Body:
 - Stato dichiarato nella PR: <lo stato letterale verbatim, es. `blocked: <causa>` | nessuno>
 - Original text:
   > <verbatim>
-- Funnel impact: <monetizzazione | traffico | funnel | none>
 - Rationale: <perché passa il filtro>
 - Suggested action: <concrete next step se ovvio dal contesto; altrimenti "investigate + decide drop or impl">
 - METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file/script/test>   ← facoltativa; ammette l'item anche senza token distintivo
@@ -158,7 +155,6 @@ Body:
 - Stato dichiarato nella PR: ...
 - Original text:
   > ...
-- Funnel impact: ...
 - Rationale: ...
 - Suggested action: ...
 ```
