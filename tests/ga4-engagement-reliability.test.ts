@@ -538,6 +538,7 @@ describe('fetchGa4ByPage — verdetto engagement per-giorno, non sulla finestra 
     // Stesso filtro newsletter-excluded e stessa finestra della prima.
     expect(calls[1].dimensionFilter).toEqual(calls[0].dimensionFilter);
     expect(calls[1].dateRanges).toEqual(calls[0].dateRanges);
+    expect(calls[1].limit).toBe(35);
     // Nessun prodotto `pagePath × date`: è il blocco che questa forma evita.
     expect(calls[1].dimensions).not.toContainEqual({ name: 'pagePath' });
   });
@@ -600,10 +601,12 @@ describe('fetchDailyEngagementVerdict — richiesta per-giorno condivisa', () =>
       },
       dateRanges,
       dimensionFilter: filter,
+      windowDays: 30,
     });
     expect(seen[0].dimensions).toEqual([{ name: 'date' }]);
     expect(seen[0].dateRanges).toBe(dateRanges);
     expect(seen[0].dimensionFilter).toBe(filter);
+    expect(seen[0].limit).toBe(35);
   });
 
   it('omette `dimensionFilter` quando il report giudicato non ne ha uno', async () => {
@@ -655,6 +658,7 @@ describe("il guardrail A/B AdSense giudica l'engagement per-giorno", () => {
   it('la richiesta per-giorno riusa finestra e filtro della richiesta per-pagina', () => {
     expect(src).toContain('dateRanges: body.dateRanges,');
     expect(src).toContain('dimensionFilter: body.dimensionFilter,');
+    expect(src).toContain('windowDays: 7,');
   });
 
   it('il verdetto per-giorno prevale su quello del singolo lato', () => {

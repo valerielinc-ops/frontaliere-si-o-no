@@ -8,16 +8,16 @@ import {
 import { doc, setDoc } from 'firebase/firestore';
 import { afterAll, beforeAll, beforeEach, describe, it } from 'vitest';
 
-// #6378 (phase 4 of #5928): `newsletter_subscribers/{email}` now splits
-// `create` (unchanged, still anonymous) from `update`, which is gated by
-// `consentFieldsTouched()` — a write may only change `consent_*` on an
-// existing document if it comes from a session whose email matches the
-// document id. These tests exercise that guard against an emulator, not an
-// assumption: the two cases below document that forging consent is now
-// rejected, and the regression-net case proves the still-legitimate
-// non-consent write path (name, preferences, engagement counters) keeps
-// working unauthenticated.
+// #6378 (phase 4 of #5928): both subscriber roots split `create` (unchanged,
+// still anonymous) from `update`, which is gated by `consentFieldsTouched()` —
+// a write may only change `consent_*` on an existing document if it comes from
+// a session whose email matches the document id. These tests exercise that
+// guard against an emulator, not an assumption: forging consent is rejected,
+// the mixed-case owner lookup remains case-insensitive, and the regression-net
+// case proves the still-legitimate non-consent write path keeps working.
 const SUBSCRIBER_EMAIL = 'existing-subscriber@example.com';
+const ALERT_EMAIL = 'existing-alert-subscriber@example.com';
+const MIXED_CASE_EMAIL = 'Legacy.Owner@Example.com';
 const EXISTING_DOC = {
   email: SUBSCRIBER_EMAIL,
   consent_text: 'testo di consenso originale',
@@ -50,6 +50,18 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
       await setDoc(
         doc(context.firestore(), 'newsletter_subscribers', SUBSCRIBER_EMAIL),
         EXISTING_DOC,
+      );
+      await setDoc(
+        doc(context.firestore(), 'job_alert_subscribers', ALERT_EMAIL),
+        { ...EXISTING_DOC, email: ALERT_EMAIL },
+      );
+      await setDoc(
+        doc(context.firestore(), 'newsletter_subscribers', MIXED_CASE_EMAIL),
+        { ...EXISTING_DOC, email: MIXED_CASE_EMAIL },
+      );
+      await setDoc(
+        doc(context.firestore(), 'job_alert_subscribers', MIXED_CASE_EMAIL),
+        { ...EXISTING_DOC, email: MIXED_CASE_EMAIL },
       );
     });
   });
@@ -102,12 +114,49 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
       ),
     );
   });
+
+  it('an unauthenticated client can no longer overwrite consent_text on a job-alert subscriber doc', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertFails(
+      setDoc(
+        doc(unauthed.firestore(), 'job_alert_subscribers', ALERT_EMAIL),
+        { ...EXISTING_DOC, email: ALERT_EMAIL, consent_text: 'forged by anonymous client' },
+        { merge: true },
+      ),
+    );
+  });
+
+  it('an unauthenticated client can still update a non-consent field on a job-alert subscriber doc', async () => {
+    const unauthed = testEnv.unauthenticatedContext();
+    await assertSucceeds(
+      setDoc(
+        doc(unauthed.firestore(), 'job_alert_subscribers', ALERT_EMAIL),
+        { name: 'Updated Name' },
+        { merge: true },
+      ),
+    );
+  });
+
+  it.each(['newsletter_subscribers', 'job_alert_subscribers'])
+    ('an owner can update consent on a mixed-case %s doc-id', async (collection) => {
+      const owner = testEnv.authenticatedContext('owner-uid', {
+        email: MIXED_CASE_EMAIL.toLowerCase(),
+        email_verified: true,
+      });
+      await assertSucceeds(
+        setDoc(
+          doc(owner.firestore(), collection, MIXED_CASE_EMAIL),
+          { consent_text: 'updated by the legacy-id owner' },
+          { merge: true },
+        ),
+      );
+    });
 });
 
 // Sanity check kept alongside the RED cases so this file self-documents that
-// `assertFails` is exercised too, not only the (currently succeeding) forged
-// writes above: a delete from an unauthenticated client on a collection with
-// `allow write: if true` also succeeds today, matching the same gap.
+// `assertFails` is exercised too, not only the forged writes above: a write to
+// an unrelated rules-denied path still fails, proving the emulator wiring is
+// active rather than making every assertion vacuously pass.
 describe('firestore.rules — sanity (assertFails wiring)', () => {
   it('a write to a rules-denied path still fails as expected', async () => {
     const testEnv = await initializeTestEnvironment({

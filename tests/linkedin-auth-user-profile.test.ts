@@ -149,18 +149,19 @@ describe('Firestore rules — newsletter_subscribers collection', () => {
    * The two grants that must NOT have moved, pinned so the next narrowing pass
    * has to argue with a test instead of a silence.
    *
-   * `write` stays public because anonymous subscription is the product (App.tsx's
-   * unsubscribe fall-through also depends on it), and `get` stays public because
+   * `create` and non-consent `update` stay public because anonymous subscription
+   * is the product (App.tsx's unsubscribe fall-through also depends on it), and `get` stays public because
    * the anonymous subscribe path READS before it writes —
    * `captureNewsletterSubscriber` and `isNewsletterOptedOut`, the latter with
    * callers in TaxCalendar, JobBoard and PublisherPublishPage that have no
    * signed-in user. `isNewsletterOptedOut` fails closed, so denying that read
    * would suppress subscriptions without raising anything.
    */
-  it('keeps anonymous subscribe working: get and write stay public', () => {
+  it('keeps anonymous subscribe working: get and non-consent writes stay public', () => {
     const own = directRules(subBlock);
     expect(own).toContain('allow get: if true');
-    expect(own).toContain('allow write: if true');
+    expect(own).toContain('allow create: if true');
+    expect(own).toContain('allow update: if !consentFieldsTouched(request.resource.data, resource.data)');
   });
 
   /**
@@ -249,8 +250,11 @@ describe('Firestore rules — job_alert_subscribers subcollections', () => {
     expect(own).toContain('allow list: if false');
     expect(own).toContain('request.auth != null');
     expect(own).toContain('request.auth.token.email.lower() == email');
-    // Job alerts are still created from the client — the close is about reads.
-    expect(own).toContain('allow write: if true');
+    // Job-alert roots are still created, updated for non-consent state and
+    // deleted from the client; consent fields take the owner-only branch.
+    expect(own).toContain('allow create: if true');
+    expect(own).toContain('allow update: if !consentFieldsTouched(request.resource.data, resource.data)');
+    expect(own).toContain('allow delete: if true');
   });
 
   it('leaves per-alert delivery state to the Admin SDK', () => {

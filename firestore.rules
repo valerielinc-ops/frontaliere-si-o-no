@@ -40,18 +40,18 @@ service cloud.firestore {
     // can never equal a mixed-case id, and the failure looks like a permission
     // error on the person's own data.
     //
-    // Measured before changing anything, 2026-09-05, Admin SDK listDocuments
-    // over production: 0 of 11.038 `newsletter_subscribers` ids and 0 of 9.161
+    // Measured before changing anything, 2026-09-08, Admin SDK listDocuments
+    // over production: 0 of 11.342 `newsletter_subscribers` ids and 0 of 9.436
     // `job_alert_subscribers` ids are non-lowercase. So this is not a repair —
     // there is nothing to migrate — it removes the dependency on that count
-    // staying zero, which no rule in this file enforces. Comparing lowercase to
-    // lowercase grants nothing extra either: `a@x.com` and `A@x.com` are one
-    // person under the normalisation every writer applies.
+    // staying zero, which no rule in this file enforces. The normalized address
+    // sets overlap in 9.426 entries (union 11.352), so those counts are not
+    // disjoint audiences and must not be added together.
     //
     // tests/firestore-rules-email-doc-id-case.test.ts keeps the two sides
     // symmetric from here on.
 
-    // Consent-field guard for newsletter_subscribers (#6378, phase 4 of
+    // Consent-field guard for both subscriber roots (#6378, phase 4 of
     // #5928). True if the incoming write touches any of the fields that
     // together form the art. 25 consent record — a change here is what an
     // unauthenticated forger would need to falsify.
@@ -60,9 +60,9 @@ service cloud.firestore {
     // a source — a rules file is not importable from TypeScript — so the two
     // are kept in lockstep by a test instead: tests/firestore-rules-consent-
     // key-drift.test.ts parses the array below and fails if any `consent_*`
-    // key written by a `newsletter_subscribers` writer under services/ is
-    // missing from it. It found the first drift itself (#6681): the proof
-    // built by services/newsletterConsentUpgrade.ts carries
+    // key written by a `newsletter_subscribers` or `job_alert_subscribers`
+    // writer under services/ is missing from it. It found the first drift
+    // itself (#6681): the proof built by services/newsletterConsentUpgrade.ts carries
     // `consent_upgraded_at` and `consent_proof_verified`, neither of which was
     // guarded, and `consent_proof_verified` is precisely the field that says a
     // proof of possession was checked — writable in isolation by anyone who
@@ -308,7 +308,15 @@ service cloud.firestore {
       allow get: if request.auth != null
         && request.auth.token.email.lower() == email.lower();
       allow list: if false;
-      allow write: if true;
+      // Root state remains writable by the public subscription/alert path, but
+      // a consent mutation on an existing document is owner-only. The
+      // field-level split keeps parent initialization and non-consent state
+      // updates compatible with the existing browser writer.
+      allow create: if true;
+      allow update: if !consentFieldsTouched(request.resource.data, resource.data)
+        || (request.auth != null
+            && request.auth.token.email.lower() == email.lower());
+      allow delete: if true;
 
       // Search configurations — owned by authenticated user (denormalized userId).
       // The path is keyed by the user's email, so request.auth.token.email
