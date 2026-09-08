@@ -6088,6 +6088,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-online-regensdorf-2026.title': 'Migros online: +21,000 products in Regensdorf',
     'blog.article.migros-online-regensdorf-2026.excerpt': 'New logistics hub in Regensdorf (ZH) with 60% more products, 7,500 orders/day, 200-500 jobs. Same-day deliveries to Zurich by February 2027.',
     'blog.article.migros-online-regensdorf-2026.imageAlt': 'Automated Migros Online distribution center in Regensdorf, Zurich, with shelving and conveyor systems',
+    'blog.article.infermieri-carenza-svizzera-2034.title': 'Nurses: shortage by 2034 in Switzerland',
+    'blog.article.infermieri-carenza-svizzera-2034.excerpt': 'The 4th Obsan report predicts a severe shortage of nurses by 2034. Only 55% of the needs are covered by personnel trained in Switzerland.',
+    'blog.article.infermieri-carenza-svizzera-2034.imageAlt': 'Modern Swiss hospital corridor with healthcare professionals discussing patient care',
 };
 
 export default blogMetaChEn;

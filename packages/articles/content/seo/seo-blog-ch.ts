@@ -79034,6 +79034,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-infermieri-carenza-svizzera-2034': {
+    title: 'Infermieri: carenza entro il 2034 in Svizzera | Frontaliere Ticino',
+    description: 'Il 4° rapporto Obsan prevede carenza grave di infermieri entro il 2034. Tasso copertura: massimo 55%. Scopri le cause e le uscite precoci dal settore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, carenza, entro, rapporto',
+    ogTitle: 'Carenza infermieri Svizzera 2034: report Obsan',
+    ogDescription: 'La Svizzera affronterà carenza grave di infermieri entro il 2034. Solo il 55% del fabbisogno coperto da personale svizzero formato. Il 4° rapporto Obsan evidenzia: sostituzione di 1/3 del personale e invecchiamento della popolazione. Il 47%',
+    canonicalPath: '/articoli-svizzera/infermieri-carenza-svizzera-2034/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri: carenza entro il 2034 in Svizzera",
+      "description": "Il 4° rapporto Obsan prevede carenza grave di infermieri entro il 2034. Tasso copertura: massimo 55%. Scopri le cause e le uscite precoci dal settore.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infermieri-carenza-svizzera-2034.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corridoio di ospedale svizzero con operatori sanitari: carenza di infermieri è una sfida per il sistema"
+      },
+      "datePublished": "2026-09-08T12:32:55+00:00",
+      "dateModified": "2026-09-08T12:32:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/infermieri-carenza-svizzera-2034/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
