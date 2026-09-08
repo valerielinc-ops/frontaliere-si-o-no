@@ -2046,6 +2046,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franco-chfd-test-aziende-2026': { it: 'franco-chfd-test-aziende-2026', en: 'chfd-digital-franc-company-testing-2026', de: 'chfd-digitaler-franken-unternehmenstest-2026', fr: 'chfd-franc-numerique-test-entreprises-2026' },
  'infortuni-reinserimento-suva': { it: 'infortuni-reinserimento-suva', en: 'serious-injuries-return-to-work', de: 'schwere-unfalle-ruckkehr-zur-arbeit', fr: 'accidents-graves-retour-au-travail' },
  'economia-svizzera-q2-2026': { it: 'economia-svizzera-q2-2026', en: 'swiss-economy-q2-2026', de: 'schweizer-wirtschaft-q2-2026', fr: 'economie-suisse-q2-2026' },
+ 'ticino-scuola-pisa-2025-calo': { it: 'ticino-scuola-pisa-2025-calo', en: 'ticino-school-pisa-2025-decline', de: 'tessin-schule-pisa-2025-rueckgang', fr: 'tessin-ecole-pisa-2025-baisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
