@@ -78800,6 +78800,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tariffe-elettricita-2027-calo': {
+    title: 'Calo bollette luce 2027: -4% in Svizzera | Frontaliere Ticino',
+    description: 'Tariffe dell\'elettricità in calo del 4% nel 2027 in Svizzera. Una famiglia tipo risparmia CHF 53 l\'anno. Consulta la tariffa del tuo comune su Elcom.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calo, bollette, luce, tariffe',
+    ogTitle: 'Calo bollette luce 2027: -4% in Svizzera',
+    ogDescription: 'Elcom annuncia: nel 2027 le tariffe dell\'elettricità scendono del 4% in media nazionale. Una famiglia risparmia circa CHF 53 l\'anno, ma le variazioni regionali restano significative tra comuni e gestori di rete.',
+    canonicalPath: '/articoli-svizzera/tariffe-elettricita-2027-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calo bollette luce 2027: -4% in Svizzera",
+      "description": "Tariffe dell'elettricità in calo del 4% nel 2027 in Svizzera. Una famiglia tipo risparmia CHF 53 l'anno. Consulta la tariffa del tuo comune su Elcom.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tariffe-elettricita-2027-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contatore elettrico su parete di edificio residenziale svizzero con tariffe in calo per il 2027"
+      },
+      "datePublished": "2026-09-08T09:46:42+00:00",
+      "dateModified": "2026-09-08T09:46:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tariffe-elettricita-2027-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
