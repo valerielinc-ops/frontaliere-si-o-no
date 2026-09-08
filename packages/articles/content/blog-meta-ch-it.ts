@@ -6067,6 +6067,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.carenza-benzina-gasolio-scorte.title': 'Carenza benzina e gasolio: prelevate scorte obbligatorie',
     'blog.article.carenza-benzina-gasolio-scorte.excerpt': 'Raffineria Cressier ferma per guasto, trasporti Reno limitati. Autorizzati prelievi di 30\'000 m³ benzina e gasolio tra 8-20 settembre dalle scorte obbligatorie.',
     'blog.article.carenza-benzina-gasolio-scorte.imageAlt': 'Impianto di stoccaggio carburante in Svizzera con serbatoi e infrastrutture petrolifere',
+    'blog.article.volkswagen-tagli-amag-rassicura.title': 'Volkswagen taglia 50mila, Amag rassicura clienti',
+    'blog.article.volkswagen-tagli-amag-rassicura.excerpt': 'Volkswagen taglia 50mila posti. Amag rassicura: nessun impatto occupazionale, prezzi stabili e leadership nell\'auto elettrica con Skoda.',
+    'blog.article.volkswagen-tagli-amag-rassicura.imageAlt': 'Concessionaria Volkswagen in Svizzera con auto moderne in esposizione e ambiente professionale di vendita.',
 };
 
 export default blogMetaChIt;
