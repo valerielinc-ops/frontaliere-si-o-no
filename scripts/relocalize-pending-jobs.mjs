@@ -1805,7 +1805,12 @@ export async function runRelocalization(phase) {
       let servedCompanyKeys = new Set();
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
-        servedCompanyKeys = new Set(crawlerResult?.localizationAttemptedCompanyKeys || []);
+        servedCompanyKeys = new Set(
+          (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
+            ? crawlerResult.localizationAttemptedCompanyKeys : [])
+            .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+            .filter(Boolean),
+        );
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -1832,21 +1837,9 @@ export async function runRelocalization(phase) {
         if (cleared > 0) console.log(`   ✅ ${executionLabel}: ${cleared} jobs translated, progress saved`);
       }
 
-      const servedExecutionKeys = executionKeys.filter((companyKey) => (
-        executionKeys.length === 1
-          || servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64))
-      ));
-      const servedJobCount = servedExecutionKeys.reduce(
-        (total, companyKey) => total + (companyJobCounts.get(companyKey) || 0),
-        0,
-      );
-      const elapsedShare = (companyKey) => {
-        if (!servedExecutionKeys.includes(companyKey)) return 0;
-        const denominator = servedJobCount || companyJobCount;
-        return denominator > 0
-          ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / denominator
-          : companyElapsedMs;
-      };
+      const elapsedShare = (companyKey) => companyJobCount > 0
+        ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / companyJobCount
+        : companyElapsedMs;
       for (const companyKey of executionKeys) {
         const companyCount = companyJobCounts.get(companyKey) || 0;
         const attemptedSlugs = Array.isArray(currentJobs)
@@ -1918,8 +1911,7 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        const companyWasServed = executionKeys.length === 1
-          || servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
         if (companyWasServed) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
