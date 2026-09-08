@@ -24,11 +24,18 @@
  * DIREZIONE DI SICUREZZA (il vincolo centrale di #7587). Il criterio in ingresso è lo
  * STESSO oracolo che chiude l'item, importato verbatim da `followup-resolution-match.mjs`
  * e mai reimplementato qui: usarne uno più PERMISSIVO in apertura è precisamente ciò che
- * ha prodotto la coda immortale. Non nasce nessun predicato nuovo. E la soglia del token
+ * ha prodotto la coda immortale. E la soglia del token
  * (`isDistinctiveToken()`) NON si tocca: allentarla è stato misurato e ritirato il
  * 2026-09-06 — ammetteva +93 item, ma 32 dei 45 nuovi verificabili (71%) portavano un
  * token GIA' presente nel file citato, cioè `detectAlreadyResolved()` avrebbe letto
  * «fatto» su lavoro pendente (classe #1647, REVIEW.md L92).
+ *
+ * Dal 2026-09-07 l'oracolo condiviso è una DISGIUNZIONE (decisione del proprietario, D3):
+ * passa l'item con `Suggested action` + token distintivo OPPURE l'item con una scheda il
+ * cui `COMANDO` nomina un referente. Il ramo nuovo NON vive qui: vive in
+ * `hasFalsifiableAcceptance()`, che è lo stesso simbolo che il predicato di chiusura
+ * importa — allargarlo allarga i due lati nello stesso commit, per costruzione. Il gate
+ * verifica che il `COMANDO` ci sia e nomini un referente; NON lo esegue.
  *
  * IL PREZZO, dichiarato. Un item demoto che era lavoro vero esce dal tracciamento e
  * sopravvive solo nel commento della PR. Succede: #7646 item 1 cita due path e
@@ -292,7 +299,7 @@ function main() {
         // in modo irreversibile e ~11 volte al giorno. Nel ramo `suppress` il corpo resta
         // perché la issue è solo chiusa, ma il blocco integrale non fa danno neanche lì.
         const verbatim = demotedBlock(d.demoted);
-        const why = `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — nessun token-codice distintivo in una riga \`Suggested action\`, quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
+        const why = `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
         if (DRY_RUN) { console.log(why); continue; }
         // ORDINE, non decorazione: prima si CONSERVA il testo sulla PR, poi si tocca la
         // issue. Il verso opposto — riscrivi il corpo, poi prova a commentare — perde gli
@@ -308,7 +315,7 @@ function main() {
         }
         if (d.action === 'suppress') {
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
-            `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo **nella sua forma di codice**: un identificatore nudo (\`nomeFunzione\`) e un path nudo (\`scripts/ci/foo.mjs\`) non contano, perché compaiono nel file citato a prescindere dal fix — servono \`nomeFunzione()\`, \`oggetto.campo\`, \`COSTANTE >= 1\` o simili (\`isDistinctiveToken()\`, classe #1647).`],
+            `${why}\n\nNessun item valido resta: questa issue non sarebbe mai potuta uscire dalla coda (\`aggregateCloseGate()\` la blocca per costruzione). Chiusa in ingresso; il testo resta qui e nel commento di summary della PR #${pr}. Se un item era lavoro vero, riaprilo come issue autonoma con una riga \`Suggested action\` che citi il simbolo **nella sua forma di codice**: un identificatore nudo (\`nomeFunzione\`) e un path nudo (\`scripts/ci/foo.mjs\`) non contano, perché compaiono nel file citato a prescindere dal fix — servono \`nomeFunzione()\`, \`oggetto.campo\`, \`COSTANTE >= 1\` o simili (\`isDistinctiveToken()\`, classe #1647). In alternativa, e spesso piu' facile, dagli una scheda: una riga \`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando che nomina un file, uno script o un test>\`. Il referente non deve esistere ancora — lo crea la PR di fix — ma una metrica gia' al bersaglio (\`prima=N atteso=N\`) viene rifiutata: non c'e' niente da muovere.`],
             { allowFail: true });
           gh(['issue', 'close', String(iss.number), ...repoArgs, '--reason', 'not planned'], { allowFail: true });
           report.push(`- 🚫 #${iss.number} soppressa in ingresso (${d.demoted.length} item senza condizione di accettazione) — PR #${pr}`);
