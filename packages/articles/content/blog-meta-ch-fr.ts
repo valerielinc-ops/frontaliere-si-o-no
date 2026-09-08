@@ -6031,6 +6031,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.incontro-pensioni-salute-2026.title': 'Lussembourg: retraites et santé au menu des ministres',
     'blog.article.incontro-pensioni-salute-2026.excerpt': 'Le 7 septembre 2026 à Luxembourg, la Suisse a signé une déclaration avec l\'Autriche, l\'Allemagne, le Liechtenstein et le Luxembourg sur les pensions, le NCD et les maladies neurodégénératives.',
     'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Vue de Luxembourg au coucher du soleil, illustrant une réunion suisse‑européenne sur les retraites et la santé',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV en Suisse : les coûts ne sont pas pris en charge',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fécondation in vitro coûte jusqu\'à 8 000 francs et n\'est pas remboursée par la KVG. Un expert qualifie cela d\'« injustice » car l\'OMS reconnaît l\'infertilité comme une maladie.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Consultation médicale dans une clinique de fertilité, environnement médical moderne en Suisse',
 };
 
 export default blogMetaChFr;

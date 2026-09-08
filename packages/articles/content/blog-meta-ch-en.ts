@@ -6031,6 +6031,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.incontro-pensioni-salute-2026.title': 'Meeting of social ministers in Luxembourg: focus on pensions and health',
     'blog.article.incontro-pensioni-salute-2026.excerpt': 'On 7 September 2026 in Luxembourg, Switzerland signed a declaration with Austria, Germany, Liechtenstein and Luxembourg on pensions, NCDs and neurodegenerative diseases.',
     'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxembourg skyline at sunset, representing a Swiss‑European health and pension meeting',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in Switzerland: Costs are not covered',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'In vitro fertilization costs up to 8,000 francs and is not reimbursed by KVG. One expert calls it "an injustice" because the WHO recognizes infertility as a disease.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medical consultation at a fertility clinic, modern clinical healthcare setting in Switzerland',
 };
 
 export default blogMetaChEn;
