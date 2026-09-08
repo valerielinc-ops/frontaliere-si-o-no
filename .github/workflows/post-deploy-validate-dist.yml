@@ -31,7 +31,7 @@ name: Post-deploy Validate (dist)
 # slower of the two (~60 min) instead of their sum. This is a genuine
 # job-level (additional-runner) speedup, unlike same-runner background-step
 # tricks which were measured to be a wash for CPU-bound work on one runner
-# (see docs/GITNEXUS.md history / reference_gha_parallel_steps_syntax memory).
+# (see reference_gha_parallel_steps_syntax memory).
 # `validate-dist-report` centralizes the GitHub Issues bookkeeping so a
 # success in one job can never race-close an issue tracking a real failure
 # in the other.

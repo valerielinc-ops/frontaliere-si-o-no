@@ -118,7 +118,7 @@ Le issue troppo grandi per un run non escono più dal ciclo: il drainer instrada
 
 ## Local fixer (`/fix-issue N`)
 
-Per issue HIGH-risk o intervento manuale su una categoria in coda (es. `revenue`/`tracker`): worktree-first, GitNexus impact, approvazione umana pre-push.
+Per issue HIGH-risk o intervento manuale su una categoria in coda (es. `revenue`/`tracker`): worktree-first, approvazione umana pre-push.
 
 > ⚠️ `.gitignore` ignora `.claude/` (eccetto `settings.json`), quindi il file del comando `/fix-issue` **non è version-controlled**: vive solo localmente in `.claude/commands/fix-issue.md`. Spec completo in Appendice A per ricrearlo su ogni clone.
 

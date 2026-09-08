@@ -2007,21 +2007,10 @@ Expected: type-check passes, vitest passes, FAST_BUILD vite build passes (increm
 
 If anything fails, fix it and re-run. Do not push with red tests.
 
-- [ ] **Step 2: GitNexus impact check**
-
-Run impact analysis on the 4 deleted `renderFeaturedJobCard` and 4 modified `renderEmployerGrid`:
+- [ ] **Step 2: Detect changes scope**
 
 ```
-gitnexus_impact({target: "renderFeaturedJobCard", direction: "upstream"})
-gitnexus_impact({target: "renderEmployerGrid", direction: "upstream"})
-```
-
-Expected: blast radius limited to the 4 plugin files (internal callers only). If any external caller surfaces, address it before pushing.
-
-- [ ] **Step 3: Detect changes scope**
-
-```
-gitnexus_detect_changes({scope: "all"})
+git diff --stat origin/main
 ```
 
 Expected scope:
@@ -2103,13 +2092,7 @@ Repeat the same grep pattern on:
 - A cost-of-living city page
 - A weekly-employers city page (e.g., `/weekly-employers/lugano/`)
 
-- [ ] **Step 4: Re-index GitNexus**
-
-Run: `npx gitnexus analyze --embeddings` (if embeddings were present — check `.gitnexus/meta.json` `stats.embeddings`).
-
-The PostToolUse hook may already handle this for commits/merges — verify with: `cat .gitnexus/meta.json | python3 -c "import json,sys; print(json.load(sys.stdin)['indexed_at'])"` should be recent.
-
-- [ ] **Step 5: Report success to user**
+- [ ] **Step 4: Report success to user**
 
 Summary message:
 - Migrated N plugins to canonical job + employer cards.
@@ -2133,7 +2116,7 @@ Summary message:
 - Spec §"Animazione fade-in" → Task 15 + applied in Tasks 16-19 ✅
 - Spec §"CI wiring" → Task 20 ✅
 - Spec §"Manual verification (post-merge)" → Task 23 ✅
-- Spec §"Risks" → Pre-flight Task 0 verifies clean tree (worktree merge conflict risk); Task 21 runs gitnexus_impact (blast radius risk); Task 23 verifies live (deploy regression risk) ✅
+- Spec §"Risks" → Pre-flight Task 0 verifies clean tree (worktree merge conflict risk); Task 23 verifies live (deploy regression risk) ✅
 
 **Placeholder scan:** I scanned the plan; the only "Same pattern as Task N" references appear in Tasks 17-19 and 12-13. They are accompanied by the explicit Task 16/Task 11 reference plus the test name/id/employer override, so an engineer reading them out of order has the concrete diffs. The "Step 1-8: Mirror Task N" pattern is acceptable because the upstream task contains the full code blocks.
 

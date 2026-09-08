@@ -46,7 +46,7 @@
  * the real job description text is too thin) — both wrong for a transit
  * operator in a French-speaking canton. Done client-side here rather than
  * editing the shared factory (used unmodified by 9 other tenants — see
- * GitNexus impact: MEDIUM risk, 9 direct callers — so this stays
+ * measured impact: MEDIUM risk, 9 direct callers — so this stays
  * behavior-identical for them).
  *
  * Exports the 4 functions the crawler template expects:

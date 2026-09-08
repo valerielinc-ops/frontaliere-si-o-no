@@ -19,7 +19,7 @@ type KnipConfig = {
  *
  * Design rules (per project owner):
  * 1. NO blanket folder exclusions. `project` is a POSITIVE whitelist of
- *    source directories, so external tooling (.gitnexus, .claude, .gstack,
+ *    source directories, so external tooling (.claude, .gstack,
  *    .superpowers, .serena, .playwright-mcp, etc.) is naturally outside scope
  *    without listing each one.
  * 2. GitHub Actions workflows are taught to knip explicitly: every script
@@ -127,7 +127,6 @@ const config: KnipConfig = {
     'gh',
     'firebase',
     'playwright',
-    'gitnexus',
     'tsx',
   ],
 

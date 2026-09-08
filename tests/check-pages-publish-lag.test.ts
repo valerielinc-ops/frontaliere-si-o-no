@@ -76,7 +76,7 @@ describe('globToRegExp / isIgnoredPath', () => {
 describe('filterUnignored', () => {
   it('keeps only dist-affecting files', () => {
     const globs = ['data/weather-snapshot.json', 'docs/**', '*.md'];
-    const changed = ['data/weather-snapshot.json', 'docs/GITNEXUS.md', 'README.md', 'data/blog-articles/foo.json'];
+    const changed = ['data/weather-snapshot.json', 'docs/SEO-RULES.md', 'README.md', 'data/blog-articles/foo.json'];
     expect(filterUnignored(changed, globs)).toEqual(['data/blog-articles/foo.json']);
   });
 

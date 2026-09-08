@@ -191,7 +191,7 @@ describe('lever-client.fetchLeverJobs', () => {
   });
 });
 
-// #4247 sibling found via GitNexus impact analysis on the fetchJson rename:
+// #4247 sibling found via impact analysis on the fetchJson rename:
 // fetchWorkdayJobDetail's `return await res.json();` had no try/catch, so a
 // 200-but-HTML WAF challenge body threw a bare SyntaxError that the shared
 // isTransientFetchError() classifier (used as the default here — no custom

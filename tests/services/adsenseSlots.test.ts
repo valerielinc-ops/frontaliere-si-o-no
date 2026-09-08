@@ -19,7 +19,7 @@ import {
  * render path (SPA JobBoard main list + editorial sections, JobExpiredView
  * related-jobs, and every static build-plugin job list via
  * `renderJobCardListHtml` / `jobCardListBody` / the weeklyEmployersPlugin
- * bespoke loop) — see `gitnexus_impact` upstream (34 impacted symbols across
+ * bespoke loop) — see the upstream impact analysis (34 impacted symbols across
  * Build-plugins + Services, HIGH risk). These tests pin its cadence + cap
  * contract so no caller can silently drift the density policy.
  */

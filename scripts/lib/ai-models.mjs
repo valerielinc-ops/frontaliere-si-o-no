@@ -5348,7 +5348,7 @@ function _callOmniRoute(model, messages, opts) {
  * with no agentic/tool-call capability, regardless of permission mode.
  * `--safe-mode` disables this repo's own CLAUDE.md/AGENTS.md auto-discovery,
  * hooks (incl. the SessionStart worktree-prune script) and MCP servers
- * (GitNexus) for this subprocess — unlike `--bare` it keeps OAuth auth
+ * for this subprocess — unlike `--bare` it keeps OAuth auth
  * working. Confirmed live (2026-07-22): without it, a one-shot completion
  * cold-loads ~34K tokens of project system prompt per call (vs ~600-6.7K
  * with `--safe-mode`, most of it dedupable across concurrent calls via

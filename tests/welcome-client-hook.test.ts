@@ -11,7 +11,7 @@
  * Function, so the requestWelcomeEmail branch added to
  * upsertNewsletterSubscriber is their ONLY welcome touchpoint.
  *
- * upsertNewsletterSubscriber has 17 direct callers (GitNexus impact:
+ * upsertNewsletterSubscriber has 17 direct callers (impact:
  * impactedCount 29, risk CRITICAL) — this suite exists specifically to
  * prove the new branch is purely additive: byte-identical behavior for the
  * pre-existing pending/confirmed-existed cases, plus the one new case
