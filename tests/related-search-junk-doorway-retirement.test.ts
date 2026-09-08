@@ -27,6 +27,7 @@ import {
   loadPreviouslyEmittedClusterKeys,
   restoredKeywordLandingPaths,
   restoredRetiredLandingPaths,
+  tryRestoreFromCache,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
@@ -83,6 +84,13 @@ describe('enumerateJunkRetirements — the already-published doorway gets a with
     expect(retirement.paths).toContain('/cerca-lavoro-zurigo/ricerca-cookie-bern/');
     // No duplicates: the same path from two sources collapses to one write.
     expect(new Set(retirement.paths).size).toBe(retirement.paths.length);
+  });
+
+  it('does not use an invalid indexed path as retirement evidence', () => {
+    const indexed = new Map<string, string[]>([
+      ['it::ricerca-cookie-bern', ['https://evil.example/ricerca-cookie-bern/']],
+    ]);
+    expect(enumerateJunkRetirements([JUNK], indexed)).toEqual([]);
   });
 
   it('dedupes candidates sharing a (locale, slug)', () => {
@@ -264,6 +272,15 @@ describe('junkRetirementWrites — the flat sibling is withdrawn too (issue #775
     expect(junkRetirementWrites('', HTML)).toEqual([]);
   });
 
+  it('rejects dotfiles before deriving the flat sibling', () => {
+    expect(junkRetirementWrites('/cerca-lavoro-ticino/ricerca-cookie-bern/.bar/', HTML)).toEqual([]);
+  });
+
+  it('rejects absolute URLs and traversal paths from external retirement data', () => {
+    expect(junkRetirementWrites('https://evil.example/ricerca-cookie-bern/', HTML)).toEqual([]);
+    expect(junkRetirementWrites('/cerca-lavoro-ticino/../ricerca-cookie-bern/', HTML)).toEqual([]);
+  });
+
   it('tags both halves as retired, so a cache HIT re-plans neither', () => {
     // `landingPathFromDistRelative` maps `<path>.html` and
     // `<path>/index.html` to the SAME landing path: an untagged flat would
@@ -341,6 +358,21 @@ describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HI
       '/cerca-lavoro-svizzera/ricerca-infermiere-lugano',
     ]);
   });
+
+  it('rejects a v10 cache manifest so a pre-flat-retirement cache cannot restore', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-v10-'));
+    const cacheDir = path.join(root, '.cache', 'related-search-clusters', 'old-key');
+    const rel = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+    fs.mkdirSync(path.join(cacheDir, 'files', path.dirname(rel)), { recursive: true });
+    fs.writeFileSync(path.join(cacheDir, 'files', rel), 'old retirement');
+    fs.writeFileSync(
+      path.join(cacheDir, 'manifest.json'),
+      JSON.stringify({ version: 'v10', files: [rel], retiredFiles: [] }),
+    );
+
+    await expect(tryRestoreFromCache(root, path.join(root, 'dist'), 'old-key')).resolves.toBeNull();
+    fs.rmSync(root, { recursive: true, force: true });
+  });
 });
 
 describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record (issue #7753)', () => {
@@ -358,6 +390,7 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
         'index.html',
         'sitemap-search-clusters.xml',
       ],
+      retiredFiles: [],
     }),
   );
   afterAll(() => fs.rmSync(rootDir, { recursive: true, force: true }));
@@ -382,6 +415,44 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
     fs.mkdirSync(broken, { recursive: true });
     fs.writeFileSync(path.join(broken, 'manifest.json'), '{ not json');
     expect(loadPreviouslyEmittedClusterKeys(rootDir).has('it::ricerca-cookie-bern')).toBe(true);
+  });
+
+  it('does not treat a legacy manifest without retiredFiles as publication evidence', () => {
+    const legacyRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-legacy-'));
+    const legacyDir = path.join(legacyRoot, '.cache', 'related-search-clusters', 'legacy');
+    fs.mkdirSync(legacyDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(legacyDir, 'manifest.json'),
+      JSON.stringify({
+        version: 1,
+        files: ['cerca-lavoro-svizzera/ricerca-cookie-bern/index.html'],
+      }),
+    );
+
+    expect(loadPreviouslyEmittedClusterKeys(legacyRoot)).toEqual(new Set());
+    fs.rmSync(legacyRoot, { recursive: true, force: true });
+  });
+
+  it('fails instead of discarding evidence when a manifest rel collides', () => {
+    const collisionRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-collision-'));
+    const collisionDir = path.join(collisionRoot, '.cache', 'related-search-clusters', 'collision');
+    fs.mkdirSync(collisionDir, { recursive: true });
+    const retired = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+    fs.writeFileSync(
+      path.join(collisionDir, 'manifest.json'),
+      JSON.stringify({
+        version: 1,
+        files: [
+          'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
+          retired,
+          retired,
+        ],
+        retiredFiles: [retired],
+      }),
+    );
+
+    expect(() => loadPreviouslyEmittedClusterKeys(collisionRoot)).toThrow(/issue #7752/);
+    fs.rmSync(collisionRoot, { recursive: true, force: true });
   });
 
   it('does not count a WITHDRAWAL document as evidence of publication', () => {

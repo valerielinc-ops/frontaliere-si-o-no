@@ -165,4 +165,16 @@ describe('soft404PopulationError', () => {
 
     expect(call(['sitemap-eventi.xml'], 42)).toBeNull();
   });
+
+  it('does not call an external-only population empty', () => {
+    write('dist', 'sitemap-eventi.xml', urlset('https://frontaliereticino.ch/articoli-frontaliere/guida/'));
+
+    expect(soft404PopulationError({
+      dir: path.join(root, 'dist'),
+      files: ['sitemap-eventi.xml'],
+      rootDir: root,
+      checkedPages: 0,
+      eligiblePages: 0,
+    })).toBeNull();
+  });
 });
