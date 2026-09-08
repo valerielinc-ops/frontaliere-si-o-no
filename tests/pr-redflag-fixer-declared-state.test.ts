@@ -297,7 +297,7 @@ describe('the autonomous fixers read declared states before contradicting them (
   it('AGENTS.md names the owner decision, not generic blocked work, as closing', () => {
     const agents = readFileSync(join(ROOT, 'AGENTS.md'), 'utf8');
     expect(agents).toMatch(/stati letterali[\s\S]*blocked: decisione del proprietario/);
-    expect(agents).toMatch(/blocked: <causa tecnica>[\s\S]*task \*\*non chiuso\*\*/);
+    expect(agents).toMatch(/blocked: <causa tecnica>[\s\S]*task(?: resta)? \*\*non chiuso\*\*/);
     expect(agents).not.toMatch(/stati letterali[^\n]*blocked: <causa>/);
   });
 
