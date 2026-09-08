@@ -11599,6 +11599,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'The day\'s numbers for cross-border commuters – September 8, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Cross-border brief, September 8, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'The numbers for September 8, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.aumento-premi-cassa-malati-2027.title': 'Sick pay premiums increase: +5% in 2027',
+    'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch forecasts an average increase of almost 5% by 2027, up from 4.4% in 2026. Some policyholders face spikes of up to 20%. Ticino practically stable.',
+    'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Medical clinic office in Canton Ticino with health insurance documents and premium calculator',
 };
 
 export default blogMetaEn;
