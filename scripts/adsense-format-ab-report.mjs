@@ -325,6 +325,7 @@ export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT)
     runReport,
     dateRanges: body.dateRanges,
     dimensionFilter: body.dimensionFilter,
+    windowDays: 7,
   });
   const pick = (path) => {
     const row = rows.find((r) => r.dimensionValues?.[0]?.value === path);

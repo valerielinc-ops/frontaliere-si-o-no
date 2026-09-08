@@ -100,6 +100,7 @@ export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTo
     runReport,
     dateRanges: requestBody.dateRanges,
     dimensionFilter: newsletterExcluded,
+    windowDays,
   });
 
   const perPath = new Map();

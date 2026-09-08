@@ -163,12 +163,14 @@ describe('adsense-format-ab-report / computeDeltas() + computeEngagementDeltas()
   });
 
   it('returns all-null engagement deltas when either side is missing', () => {
-    expect(computeEngagementDeltas(null, {})).toEqual({
+    const expected = {
       avgSessionDurationPct: null,
       engagementRatePct: null,
       bounceRatePct: null,
       pageViewsPerSessionPct: null,
-    });
+    };
+    expect(computeEngagementDeltas(null, {})).toEqual(expected);
+    expect(computeEngagementDeltas({}, null)).toEqual(expected);
   });
 });
 
