@@ -24,17 +24,16 @@
  * 1. Sitemap source directory
  *    - audit-sitemap-canonicals + validate-canonical + validate-content-quality
  *      read from `dist/sitemap*.xml` (post-build, includes ~24 child sitemaps).
- *    - validate-soft404 reads from `public/sitemap-*.xml` (source dir, only
- *      the 6 hand-maintained sitemaps shipped via public/). This script keeps
- *      that distinction: the "soft404" check uses the public/ source list,
- *      the other three use dist/. Different URL sets → different counts.
+ *    - validate-soft404 reads the served `dist/sitemap-*.xml` population via
+ *      `soft404-sitemap-discovery.mjs`, shared with the standalone gate. The
+ *      other three also use dist/, with their own skip rules.
  *
  * 2. Sitemap-name skip rules
  *    - audit-sitemap-canonicals: skips `sitemap.xml` (index) and
  *      `sitemap_news.xml` (Google News format). Pattern: /^sitemap-.+\.xml$/i
  *    - validate-canonical: skips only `sitemap.xml`. Pattern:
  *      file.startsWith('sitemap') && file.endsWith('.xml')
- *    - validate-soft404: in public/, skips `sitemap-jobs.xml` only.
+ *    - validate-soft404: in dist/, skips job-shard families and sitemap indexes.
  *    - validate-content-quality: no explicit skip; pattern
  *      file.startsWith('sitemap') && file.endsWith('.xml'). Picks up
  *      `sitemap.xml` and `sitemap_news.xml` too — but extractSitemapUrls
@@ -48,8 +47,8 @@
  *      `\.(pdf|xml|txt|json|rss|xsl|ico)(\?|#|$)/i` BEFORE looking up.
  *    - validate-canonical: tries `<path>/index.html` first, then
  *      `<path>.html`. Root special case present. No asset extension skip.
- *    - validate-soft404: tries only `<path>/index.html`. No flat .html
- *      fallback. No extension skip.
+ *    - validate-soft404: tries `<path>/index.html`, then `<path>.html`.
+ *      No extension skip.
  *    - validate-content-quality: if the URL path has any extension, treats
  *      it as a literal file path; else `<path>/index.html`. Skips entries
  *      whose path ends in `.xml` (sub-sitemap references).
@@ -363,7 +362,8 @@ function urlToDistPath_soft404(url) {
   let rel = url.replace(HOST, '').replace(/\/$/, '') || '/';
   if (rel === '/') return join(DIST, 'index.html');
   rel = rel.startsWith('/') ? rel.slice(1) : rel;
-  return join(DIST, rel, 'index.html');
+  const indexPath = join(DIST, rel, 'index.html');
+  return existsSync(indexPath) ? indexPath : join(DIST, `${rel}.html`);
 }
 
 function isExpiredJobArchive(html) {
@@ -671,10 +671,17 @@ function runValidateSoft404() {
   const issues = [];
   let totalChecked = 0;
   let skippedMissing = 0;
+  let eligiblePages = 0;
+  let externallyServed = 0;
 
   for (const { file, urls } of perSitemap) {
     let fileIssues = 0;
     for (const url of urls) {
+      if (isExternallyServedUrl(url)) {
+        externallyServed++;
+        continue;
+      }
+      eligiblePages++;
       const distPath = urlToDistPath_soft404(url);
       // Match validate-soft404.mjs exactly: existsSync gate, then read.
       if (!existsSync(distPath)) {
@@ -723,11 +730,15 @@ function runValidateSoft404() {
   }
 
   out.push(`\n📊 Checked ${totalChecked} pages across ${sitemapFiles.length} sitemaps (${skippedMissing} missing files skipped)\n`);
+  if (externallyServed > 0) {
+    out.push(`   ℹ️  ${externallyServed} sitemap URL(s) skipped — served from an external shard, not from this build\n`);
+  }
 
   // Same verdict as validate-soft404.mjs: a sub-check that judged nothing is a
   // FAIL, not a PASS — otherwise this runner reports green over zero URLs.
   const populationError = soft404PopulationError({
-    dir: sitemapDir, files: sitemapFiles, rootDir: ROOT, checkedPages: totalChecked,
+    dir: sitemapDir, files: sitemapFiles, rootDir: ROOT,
+    checkedPages: totalChecked, eligiblePages,
   });
   if (populationError) {
     out.push(`\n❌ Empty soft-404 population: ${populationError}\n\n`);

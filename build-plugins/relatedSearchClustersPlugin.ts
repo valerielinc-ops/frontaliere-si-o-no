@@ -409,6 +409,11 @@ const CACHE_KEY_INPUTS = [
 // `sitemapLocs` verbatim without re-running either producer — bump invalidates
 // them so the next build recomputes membership from the unified predicate.
 //
+// v11 (2026-09-08, issues #7868/#7870) makes retirement manifests a strict
+// evidence boundary. A v10 manifest may omit `retiredFiles` or contain a
+// cache-hit collision that the evidence loader cannot safely classify; it must
+// never be restored after the retirement pair/path guards below exist.
+//
 // Issue #4383 item 2 (verified 2026-07-18, no staleness gap found): a stale
 // v7-cached shard can never coexist with a fresh v8 shard. `computeCacheKey`
 // below hashes `version:${CACHE_VERSION}` directly INTO the sha256 digest
@@ -430,7 +435,7 @@ const CACHE_KEY_INPUTS = [
 // until issue #4943: it no longer builds at all — it audits the live site over
 // HTTP — because the monolith build it ran to produce dist/ was OOM-killed by
 // the host on every run since 2026-07-07.)
-const CACHE_VERSION = 'v10';
+const CACHE_VERSION = 'v11';
 
 // `SITEMAP_SHARD_CAP` and `padShardIndex` are imported from
 // scripts/lib/sitemap-limits.mjs — see that module for why 39,000 and not
@@ -828,8 +833,12 @@ function clusterKeyFromAnyPath(p: string): string | null {
  * Every key directory is read, not just the current one: `computeCacheKey`
  * hashes the data inputs, so the build that is asking this question is by
  * definition on a cache MISS and its own directory does not exist yet. Manifests
- * of any `version` count — an old cache is still a record of a real emit, and the
- * question here is history, not restorability.
+ * of any `version` that carry the retirement split count — an old cache is
+ * still a record of a real emit, and the question here is history, not
+ * restorability. A manifest without that split is deliberately ignored. An
+ * old manifest with the collision signature is also ignored: it cannot
+ * poison every future build, while a collision in the current cache format
+ * remains a hard build failure.
  *
  * Absent/unreadable cache → empty set, i.e. no evidence from this source. That is
  * the conservative direction: a candidate with no evidence at all gets no
@@ -846,27 +855,52 @@ export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
   }
   for (const entry of entries) {
     const manifestPath = path.join(cacheRoot, entry, 'manifest.json');
+    let manifest: Partial<CacheManifest>;
     try {
-      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as Partial<CacheManifest>;
-      // `retiredFiles` is a SUBSET of `files` (see the field docs and
-      // `saveToCache`), so counting `files` raw would make the evidence
-      // self-confirming on exactly the population this gate exists to
-      // exclude: a pre-fix build that synthesised a bogus withdrawal for a
-      // never-published candidate wrote that document into `files`, and
-      // reading it back would prove the candidate "published". A withdrawal
-      // is not evidence of publication — it is evidence of the opposite.
-      // Same idiom as `restoredKeywordLandingPaths`.
-      const retired = new Set(
-        (manifest.retiredFiles ?? []).filter((rel) => typeof rel === 'string'),
-      );
-      for (const rel of manifest.files ?? []) {
-        if (typeof rel !== 'string') continue;
-        if (retired.has(rel)) continue;
-        const key = clusterKeyFromAnyPath(landingPathFromDistRelative(rel));
-        if (key) out.add(key);
-      }
+      manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')) as Partial<CacheManifest>;
     } catch {
       // Missing or malformed manifest: no evidence from this directory.
+      continue;
+    }
+    // `retiredFiles` was added after older manifests had already started
+    // recording retirement documents in `files`. Without the field there
+    // is no way to distinguish a live landing from a withdrawal, so the
+    // whole directory is suspicious and cannot provide publication evidence.
+    if (manifest.retiredFiles === undefined) continue;
+    if (!Array.isArray(manifest.files) || !Array.isArray(manifest.retiredFiles)) continue;
+    // The cache-HIT path already rejects a rel written by both the live and
+    // retirement writers. Apply the same assertion to the current cache
+    // format: otherwise the loader would silently skip the colliding rel and
+    // discard the evidence that a real landing existed. Historical manifests
+    // can carry the same pre-#7752 corruption; they are not restorable after
+    // the version bump, so quarantine that directory instead of making an old
+    // cache poison every future build.
+    try {
+      assertNoRestoredRetirementCollision(manifest.files, manifest.retiredFiles);
+    } catch (err) {
+      if (manifest.version === CACHE_VERSION) throw err;
+      console.warn(
+        `[related-search-clusters] ignoring collision in historical retirement manifest ${manifestPath}:`,
+        err instanceof Error ? err.message : err,
+      );
+      continue;
+    }
+    // `retiredFiles` is a SUBSET of `files` (see the field docs and
+    // `saveToCache`), so counting `files` raw would make the evidence
+    // self-confirming on exactly the population this gate exists to
+    // exclude: a pre-fix build that synthesised a bogus withdrawal for a
+    // never-published candidate wrote that document into `files`, and
+    // reading it back would prove the candidate "published". A withdrawal
+    // is not evidence of publication — it is evidence of the opposite.
+    // Same idiom as `restoredKeywordLandingPaths`.
+    const retired = new Set(
+      manifest.retiredFiles.filter((rel) => typeof rel === 'string'),
+    );
+    for (const rel of manifest.files) {
+      if (typeof rel !== 'string') continue;
+      if (retired.has(rel)) continue;
+      const key = clusterKeyFromAnyPath(landingPathFromDistRelative(rel));
+      if (key) out.add(key);
     }
   }
   return out;
@@ -1813,14 +1847,16 @@ export function enumerateJunkRetirements(
     if (!derived || !isJunkSearchKeyword(derived.keyword)) continue;
     const key = `${candidate.locale}::${candidate.slug}`;
     if (byKey.has(key)) continue;
-    const indexedPaths = indexedClusterUrlsByKey.get(key) || [];
+    const indexedPaths = (indexedClusterUrlsByKey.get(key) || [])
+      .map(normalizeJunkRetirementPath)
+      .filter((p): p is string => p !== null);
     if (indexedPaths.length === 0 && !publishedClusterKeys.has(key)) continue;
     const paths = new Set<string>([
       buildClusterPath(candidate.locale, candidate.slug, AGGREGATE_KEY),
       buildClusterPath(candidate.locale, candidate.slug, 'TI'),
     ]);
     for (const indexed of indexedPaths) {
-      paths.add(indexed.endsWith('/') ? indexed : `${indexed}/`);
+      paths.add(indexed);
     }
     byKey.set(key, {
       locale: candidate.locale,
@@ -2031,12 +2067,33 @@ export function buildJunkRetirementHtml(locale: Locale): string {
  * application/octet-stream, masking the real `index.html` (the same hazard
  * `transformFlatRedirect` guards with its leading-dot check).
  */
+function normalizeJunkRetirementPath(retiredPath: string): string | null {
+  if (typeof retiredPath !== 'string') return null;
+  const raw = retiredPath.trim();
+  // Retirement paths are URL paths, never absolute/protocol-relative URLs.
+  if (/^[a-z][a-z\d+.-]*:/i.test(raw) || raw.startsWith('//')) return null;
+
+  const stem = raw.replace(/^\/+/, '').replace(/\/+$/, '');
+  // A leading dot in the final segment creates a dotfile, including the
+  // `foo/.bar.html` case the flat bridge must never manufacture.
+  if (stem === '' || path.basename(stem).startsWith('.')) return null;
+  if (stem.split('/').some((segment) => segment === '.' || segment === '..')) return null;
+
+  const normalized = `/${stem}/`.replace(/\/+/g, '/');
+  // Keep the write inside the cluster URL namespace and use the same path
+  // grammar as the publication-evidence parser. This rejects arbitrary
+  // external data before it can become a second dist write.
+  if (!clusterKeyFromAnyPath(normalized)) return null;
+  return normalized;
+}
+
 export function junkRetirementWrites(
   retiredPath: string,
   retirementHtml: string,
 ): { rel: string; html: string }[] {
-  const stem = retiredPath.replace(/^\/+/, '').replace(/\/+$/, '');
-  if (stem === '') return [];
+  const normalizedPath = normalizeJunkRetirementPath(retiredPath);
+  if (!normalizedPath) return [];
+  const stem = normalizedPath.slice(1, -1);
   return [
     { rel: `${stem}/index.html`, html: retirementHtml },
     { rel: `${stem}.html`, html: buildFlatBridgeFromSibling(retirementHtml, `${BASE_URL}/${stem}/`) },
