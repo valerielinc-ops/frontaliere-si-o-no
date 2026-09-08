@@ -123,7 +123,7 @@ describe('dedup: una gemella CHIUSA di recente viene RIAPERTA, non riaperta ex-n
     expect((res as any)?.reopened).toBe(true);
   });
 
-  it('costa 1 sola chiamata sulle chiuse, e chiede una pagina piu\' larga di 10', async () => {
+  it('riconcilia ricerca e listing sulle chiuse, con una pagina piu\' larga di 10', async () => {
     // A 244 issue/settimana aperte da monitor sui due repo, il costo per
     // tentativo e' load-bearing: la ricerca fra le chiuse non deve paginare.
     // E la pagina dev'essere piu' larga del ramo APERTE: di canonical aperti
@@ -134,7 +134,7 @@ describe('dedup: una gemella CHIUSA di recente viene RIAPERTA, non riaperta ex-n
     await createGithubIssue({ title: TITLE_NOW, description: 'misura', priority: 2 } as any);
 
     const closedLists = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'list' && a[3] === 'closed');
-    expect(closedLists).toHaveLength(1); // l'indice ha risposto → nessun ripiego
+    expect(closedLists).toHaveLength(2); // ricerca + listing sono sempre riconciliati
     expect(closedLists[0]).not.toContain('--paginate');
     const limit = Number(closedLists[0][closedLists[0].indexOf('--limit') + 1]);
     expect(limit).toBeGreaterThan(10);

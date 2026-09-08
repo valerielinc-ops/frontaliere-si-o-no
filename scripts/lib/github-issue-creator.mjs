@@ -29,11 +29,11 @@
  *
  * De-duplication: searches for OPEN issues whose title shares the first
  * 60 chars of the new title; if found, posts a comment with the new context
- * instead of creating a duplicate. The lookup queries the search index FIRST
- * and, when that returns nothing, falls back to a plain repository listing —
- * the index is eventually consistent and does not see an issue opened seconds
- * ago, so search alone lets two near-simultaneous reporters both believe they
- * are the first (how #5305/#5306 were minted 3s apart).
+ * instead of creating a duplicate. The lookup reconciles the search index with
+ * a plain repository listing — the index is eventually consistent and does not
+ * see an issue opened seconds ago, so search alone lets two near-simultaneous
+ * reporters both believe they are the first (how #5305/#5306 were minted 3s
+ * apart).
  *
  * When there is no OPEN duplicate the dedup then looks among the RECENTLY
  * CLOSED issues (default DEFAULT_REOPEN_WITHIN_HOURS) and REOPENS the twin
@@ -238,9 +238,9 @@ export function searchSafePrefix(fullTitle) {
   return p.length >= 8 ? p : full.slice(0, LEN).replace(/"/g, '').trim();
 }
 
-// How many issues the index-lag fallback listing pulls. `gh issue list` WITHOUT
-// `--search` is a plain repository listing (immediately consistent), so it sees
-// an issue the instant it exists; the search index does not.
+// How many issues the immediate-consistency listing pulls. `gh issue list`
+// WITHOUT `--search` is a plain repository listing, so it sees an issue the
+// instant it exists; the search index does not.
 const LISTING_FALLBACK_LIMIT = 100;
 
 /** Run `gh issue list` with the given extra args and parse the JSON array. */
@@ -281,7 +281,6 @@ function searchIssuesByTitlePrefix(
   fullTitle,
   state,
   searchLimit = 10,
-  { alwaysIncludeListing = false } = {},
 ) {
   const safePrefix = searchSafePrefix(fullTitle);
   // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
@@ -298,26 +297,23 @@ function searchIssuesByTitlePrefix(
     '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
     '--limit', String(searchLimit),
   ]));
-  if (viaSearch.length > 0 && !alwaysIncludeListing) return viaSearch;
-
-  // WHY the fallback: `--search` goes through GitHub's SEARCH INDEX, which is
-  // eventually consistent — an issue created seconds ago is routinely NOT in it
-  // yet. Two reporters firing back-to-back for the same stable title (e.g. two
-  // jobs of one run reported by scan-job-timeouts) therefore both saw "no
-  // duplicate" and both opened one: that is exactly how #5305/#5306 were born,
-  // 3 seconds apart, same run, identical title. A listing WITHOUT `--search`
-  // reads the repository directly and is immediately consistent, so it closes
-  // the window — including ACROSS processes, which an in-process memo cannot.
-  // Only paid when the search came back empty (the no-duplicate common path).
+  // WHY the second read is unconditional: `--search` goes through GitHub's
+  // SEARCH INDEX, which is eventually consistent — an issue created seconds
+  // ago is routinely NOT in it yet. Two reporters firing back-to-back for the
+  // same stable title (e.g. two jobs of one run reported by scan-job-timeouts)
+  // therefore both saw "no duplicate" and both opened one: that is exactly how
+  // #5305/#5306 were born, 3 seconds apart, same run, identical title. A
+  // listing WITHOUT `--search` reads the repository directly and is immediately
+  // consistent, so both views must be reconciled — including ACROSS processes,
+  // which an in-process memo cannot.
   const viaListing = matching(ghIssueList(state, ['--limit', String(LISTING_FALLBACK_LIMIT)]));
-  if (!alwaysIncludeListing) return viaListing;
   // Stable family keys can match several legacy OPEN trackers. Even if search
   // returns an older hit, its eventually-consistent page may still omit the
-  // issue created by the latest run. Merge in the plain listing so callers can
-  // deterministically choose the newest issue number.
+  // issue created by the latest run. Merge both views and order by issue number
+  // so every caller deterministically chooses the newest canonical.
   return Array.from(
     new Map([...viaSearch, ...viaListing].map((issue) => [issue.number, issue])).values(),
-  );
+  ).sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
 }
 
 function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false) {
@@ -325,7 +321,6 @@ function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false) {
     fullTitle,
     'open',
     10,
-    { alwaysIncludeListing: preferNewest },
   );
   if (preferNewest) {
     // Legacy count-bearing audit titles produced more than one OPEN tracker.
@@ -450,7 +445,6 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey =
     dedupKey || fullTitle,
     'closed',
     CLOSED_SEARCH_LIMIT,
-    { alwaysIncludeListing: Boolean(dedupKey) },
   )
     .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
@@ -1056,7 +1050,13 @@ export async function createGithubIssue({
             `[github-issue-creator] Recorded transient failure in ledger #${ledgerNumber} `
             + `— no per-crawler issue opened (${thisEventOrdinal}/${gateThreshold}).`,
           );
-          return { number: ledgerNumber, title: TRANSIENT_LEDGER_TITLE, url: null, ledger: true };
+          return {
+            number: ledgerNumber,
+            title: TRANSIENT_LEDGER_TITLE,
+            url: null,
+            ledger: true,
+            persisted: true,
+          };
         }
         console.error('[github-issue-creator] Ledger write failed; falling back to per-crawler issue.');
       }
@@ -1173,14 +1173,20 @@ export async function createGithubIssue({
         }
         if (staleReason) {
           const note = `⏳ Build \`${buildSha}\` ${staleReason} — è latenza del deploy dentro la finestra post-merge, non una ricorrenza. Riapertura saltata; in attesa di una build che contenga la fix.`;
-          gh([
+          const staleCommented = gh([
             'issue', 'comment', String(recentlyClosed.number),
             '--body', `${note}\n\n${body}`,
             ...repoFlag(),
           ], { allowFailure: true });
           appendStepSummary(`⏳ **Riapertura saltata** — la run su \`${buildSha}\` non contiene la fix che ha chiuso #${recentlyClosed.number}. ${staleReason}.`);
           console.log(`[github-issue-creator] Stale build ${buildSha} predates the close of #${recentlyClosed.number} — not reopening (deploy latency).`);
-          return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url, staleBuild: true };
+          return {
+            number: recentlyClosed.number,
+            title: recentlyClosed.title,
+            url: recentlyClosed.url,
+            staleBuild: true,
+            persisted: staleCommented !== null,
+          };
         }
       }
       const reopened = gh(

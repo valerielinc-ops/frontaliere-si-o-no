@@ -108,6 +108,11 @@ scripts/lib/unescape-ts-string.mjs
 # `import` di primo livello: sul corpus diventa ERR_MODULE_NOT_FOUND prima di
 # main(). Il file e' puro e non importa nulla.
 scripts/lib/escape-regexp.mjs
+# Added 2026-09-08: create-article.mjs imports these top-level helpers for the
+# #7291/#7344 safeguards; keeping them in the transport closure prevents the
+# corpus-side generator from failing before main().
+scripts/lib/resolve-output-path.mjs
+scripts/lib/int-from-env.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #

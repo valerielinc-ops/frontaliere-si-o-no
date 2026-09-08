@@ -90,6 +90,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
     expect(comment?.[comment.indexOf('--body') + 1]).toContain('transient-key: Crawler Failure: Update Nestlé');
 
     expect(res?.ledger).toBe(true);
+    expect(res?.persisted).toBe(true);
     // Never escalates the caller's priority on a first blip.
     expect(createCallLabels()).not.toContain('priority:high');
   });
@@ -376,6 +377,33 @@ describe('reopenWithinHours + buildSha deploy-latency guard (#5539)', () => {
     expect(comment?.[comment.indexOf('--body') + 1]).toContain('precede la fix');
     expect(res?.number).toBe(50);
     expect((res as any)?.staleBuild).toBe(true);
+    expect((res as any)?.persisted).toBe(true);
+  });
+
+  it('stale-build comment failure remains non-persisted', async () => {
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        const state = args[args.indexOf('--state') + 1];
+        return state === 'closed' ? JSON.stringify([CLOSED_ISSUE]) : '[]';
+      }
+      if (args[0] === 'api' && String(args[1]).includes('/issues/50/events')) return 'closingSha123';
+      if (args[0] === 'api' && String(args[1]).includes('/compare/')) return 'ahead';
+      if (args[0] === 'issue' && args[1] === 'comment') throw new Error('GitHub comment unavailable');
+      return '';
+    });
+
+    const res = await createGithubIssue({
+      title: 'Validation Failure (dist): validate:internal-links',
+      description: 'broken links',
+      priority: 1,
+      labels: ['Bug'],
+      reopenWithinHours: 6,
+      buildSha: 'staleBuildSha',
+    } as any);
+
+    expect((res as any)?.staleBuild).toBe(true);
+    expect((res as any)?.persisted).toBe(false);
+    expect(ghCalls().some((a) => a[0] === 'issue' && a[1] === 'reopen')).toBe(false);
   });
 
   it('build is at/after the closing commit → reopens as a real recurrence', async () => {
