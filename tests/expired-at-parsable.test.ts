@@ -9,6 +9,7 @@ import {
   normalizeExpiredAtEntries,
   // @ts-expect-error — .mjs module without type declarations
 } from '../scripts/lib/expired-jobs-archive.mjs';
+import { normalizeAndPersistExpiredSlice } from '../scripts/assemble-jobs-dataset.mjs';
 // @ts-expect-error — .mjs module without type declarations
 import { compareExpiredAt } from '../scripts/lib/compare-expired-at.mjs';
 
@@ -104,6 +105,24 @@ describe('archiveRemovedJobsToSlice — repairs the slice it reads back', () => 
   });
 });
 
+describe('assemble ingress repair — persists the repaired source slice', () => {
+  it('writes the normalized value back before the aggregate cap can cut it', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'assemble-expired-repair-'));
+    const slicePath = path.join(dir, 'acme.json');
+    const entries = [{ slug: 'legacy', expiredAt: 'not-a-date' }];
+    try {
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        now: '2026-09-06T12:00:00.000Z',
+        source: 'test/assemble',
+      })).toBe(1);
+      const persisted = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+      expect(persisted[0].expiredAt).toBe('2026-09-06T12:00:00.000Z');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
 describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
   const runGate = (cwd: string) =>
     spawnSync(
@@ -140,6 +159,18 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
       expect(res.status).toBe(0);
       expect(res.stdout).toContain('nothing to audit');
     });
+  });
+
+  it('fails when the cwd has neither the slice directory nor an aggregate', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'expired-audit-missing-'));
+    try {
+      const res = runGate(dir);
+      expect(res.status).toBe(1);
+      expect(res.stderr).toContain('expired archive not found');
+      expect(res.stderr).toContain(`cwd=${fs.realpathSync(dir)}`);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 

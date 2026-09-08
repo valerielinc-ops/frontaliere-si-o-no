@@ -11,6 +11,7 @@
  * Usage:
  *   node scripts/reconcile-crawler-company-ownership.mjs          # dry-run
  *   node scripts/reconcile-crawler-company-ownership.mjs --apply  # write
+ *   node scripts/reconcile-crawler-company-ownership.mjs --expired-sweep --apply
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -25,11 +26,17 @@ import {
 } from './lib/crawler-company-ownership.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 // Route identity and history transfer now live with the archive WRITERS, which
 // need the same two primitives to stop emitting duplicate routes in the first
 // place. Re-exported here because this module is their historical home and the
 // callers (tests included) import them from it.
-import { localeRouteKeys, normalizeExpiredAtEntries, transferSlugHistory } from './lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  localeRouteKeys,
+  normalizeExpiredAtEntries,
+  transferSlugHistory,
+} from './lib/expired-jobs-archive.mjs';
 
 export { localeRouteKeys, transferSlugHistory };
 
@@ -208,6 +215,20 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
   return { jobs: out, collapsed, canonicalCollapsed, rehomed, slugsTransferred, routesBefore };
 }
 
+/** Reconcile one canonical archive, including the no-retired-slice repair path. */
+export function reconcileExpiredArchive(canonicalJobs, retiredJobs, canonicalKey) {
+  const result = mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonicalKey);
+  const repaired = normalizeExpiredAtEntries(
+    result.jobs,
+    { source: `reconcile-expired-slice/${canonicalKey}` },
+  );
+  return {
+    ...result,
+    repaired,
+    needsWrite: Boolean(retiredJobs?.length) || result.canonicalCollapsed > 0 || repaired > 0,
+  };
+}
+
 function ownershipIdentity(job = {}) {
   const url = String(job?.url || '');
   const yid = url.match(/[?&]yid=(\d+)/i)?.[1];
@@ -359,6 +380,122 @@ export function assertNoDuplicateRoutesWithin(jobs, label) {
   }
 }
 
+/**
+ * Observe previous-route claims that cross expired-slice boundaries.
+ *
+ * The normal collapse is intentionally scoped to one company slice. This
+ * observer covers the sibling case: two grouped-commit slices can carry the
+ * same companyKey and claim the same historical route even when neither file
+ * is one of the explicit RETIREMENTS inputs.
+ */
+export function auditExpiredArchiveRouteOverlaps(slices) {
+  const owners = new Map();
+  const crossSliceDuplicateRoutes = [];
+  for (const slice of slices || []) {
+    const file = path.basename(String(slice?.file || slice?.key || '(unknown)'));
+    for (const job of slice?.jobs || []) {
+      if (!job?.companyKey) continue;
+      for (const route of localeRouteKeys(job)) {
+        const key = `${job.companyKey}::${route}`;
+        const previous = owners.get(key);
+        if (!previous) {
+          owners.set(key, { file, slug: job.slug });
+        } else if (previous.file !== file) {
+          crossSliceDuplicateRoutes.push({
+            companyKey: job.companyKey,
+            route,
+            files: [previous.file, file],
+            slugs: [previous.slug, job.slug],
+          });
+        }
+      }
+    }
+  }
+  const retired = new Set(RETIREMENTS.map(({ retired: key }) => `${key}.json`));
+  return {
+    crossSliceDuplicateRoutes,
+    retiredArchiveFiles: [...new Set((slices || [])
+      .map((slice) => path.basename(String(slice?.file || slice?.key || '')))
+      .filter((file) => retired.has(file)))],
+  };
+}
+
+/**
+ * Sweep every committed expired slice with the same route-collapse primitive
+ * used by the crawler writers. Each file is checked for route conservation
+ * before an optional atomic write; the legacy-cap refusal remains reportable
+ * and leaves that component untouched.
+ */
+export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = false } = {}) {
+  const slices = listSliceFileNames(dir).map((file) => {
+    const filePath = path.join(dir, file);
+    let jobs;
+    try {
+      jobs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch (error) {
+      throw new Error(`expired archive ${file} is not valid JSON: ${error.message}`, { cause: error });
+    }
+    if (!Array.isArray(jobs)) throw new Error(`expired archive ${file} is not a JSON array`);
+    return { file, filePath, jobs };
+  });
+  const beforeAudit = auditExpiredArchiveRouteOverlaps(slices);
+  let filesChanged = 0;
+  let collapsed = 0;
+  let repaired = 0;
+  let capRefused = 0;
+  const report = [];
+  const pendingWrites = [];
+
+  for (const slice of slices) {
+    const result = collapseDuplicateRouteEntries(slice.jobs, { source: `expired-sweep/${slice.file}` });
+    assertRoutesPreserved(slice.jobs, result.entries, `expired-sweep/${slice.file}`);
+    const repairedInSlice = normalizeExpiredAtEntries(
+      result.entries,
+      { source: `expired-sweep/${slice.file}` },
+    );
+    const changed = result.collapsed > 0 || repairedInSlice > 0;
+    if (changed) {
+      filesChanged += 1;
+      if (apply) pendingWrites.push(slice);
+    }
+    slice.jobs = result.entries;
+    collapsed += result.collapsed;
+    repaired += repairedInSlice;
+    capRefused += result.capRefused;
+    report.push({
+      file: slice.file,
+      collapsed: result.collapsed,
+      repaired: repairedInSlice,
+      capRefused: result.capRefused,
+      changed,
+    });
+  }
+
+  const afterAudit = auditExpiredArchiveRouteOverlaps(slices);
+  if (afterAudit.crossSliceDuplicateRoutes.length > 0) {
+    throw new Error(
+      `expired archive sweep left ${afterAudit.crossSliceDuplicateRoutes.length} cross-slice route overlap(s)`,
+    );
+  }
+  if (apply) {
+    for (const slice of pendingWrites) {
+      activeRollbackJournal?.capture(slice.filePath);
+      writeJsonAtomic(slice.filePath, slice.jobs);
+    }
+  }
+  return {
+    filesScanned: slices.length,
+    filesChanged,
+    collapsed,
+    repaired,
+    capRefused,
+    crossSliceDuplicatesBefore: beforeAudit.crossSliceDuplicateRoutes.length,
+    crossSliceDuplicatesAfter: afterAudit.crossSliceDuplicateRoutes.length,
+    retiredArchiveFiles: beforeAudit.retiredArchiveFiles,
+    report,
+  };
+}
+
 function reconcile({ apply = false } = {}) {
   const report = [];
 
@@ -392,24 +529,14 @@ function reconcile({ apply = false } = {}) {
       throw new Error(`${item.retired}->${item.canonical}: canonical expired slice absent; refusing to delete retired archive`);
     }
     if (canonicalExpired) {
-      const result = mergeRetiredCrawlerArchive(
+      const result = reconcileExpiredArchive(
         canonicalExpired.jobs,
         retiredExpired?.jobs || [],
         item.canonical,
       );
       canonicalExpired.jobs = result.jobs;
       assertNoDuplicateRoutesWithin(canonicalExpired.jobs, `${item.retired}->${item.canonical} archive merge`);
-      // Same ingress repair as the archive writers (#7736), applied AFTER the
-      // component merge above: `compareExpiredAt` orders an unparseable value
-      // last by construction, so it loses the survivor pick to a payload with
-      // a real date — stamping the run timestamp first would invert that and
-      // let the degraded record win. Repairing here still keeps the value from
-      // reaching the EXPIRED_JOBS_CAP cut downstream, which is the point.
-      const repaired = normalizeExpiredAtEntries(
-        canonicalExpired.jobs,
-        { source: `reconcile-expired-slice/${item.canonical}` },
-      );
-      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0 || repaired > 0;
+      const needsWrite = result.needsWrite;
       if (needsWrite) {
         archiveResult = {
           ...result,
@@ -524,16 +651,24 @@ export function withFileRollback(operation) {
   }
 }
 
-export function run({ apply = false } = {}) {
-  if (!apply) return reconcile({ apply });
-  return withFileRollback(() => reconcile({ apply }));
+export function run({ apply = false, expiredSweep = false } = {}) {
+  const operation = () => {
+    if (!expiredSweep) return reconcile({ apply });
+    return {
+      ownership: reconcile({ apply }),
+      expiredSweep: sweepExpiredArchiveSlices({ apply }),
+    };
+  };
+  return apply ? withFileRollback(operation) : operation();
 }
 
 function main() {
   const apply = process.argv.includes('--apply');
-  const report = run({ apply });
+  const expiredSweep = process.argv.includes('--expired-sweep');
+  const report = run({ apply, expiredSweep });
   console.log(JSON.stringify({
     mode: apply ? 'apply' : 'dry-run',
+    expiredSweep,
     coverage: ISSUE_6759_COVERAGE.length + ISSUE_6797_SHARED_BOARD_TRANSFERS.length,
     report,
   }, null, 2));

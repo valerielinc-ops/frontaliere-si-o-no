@@ -49,6 +49,7 @@ const readEntries = (file) => {
 const offenders = [];
 const malformed = [];
 let total = 0;
+const slicesDirExists = fs.existsSync(SLICES_DIR);
 
 const auditFile = (file, label) => {
   const entries = readEntries(file);
@@ -96,6 +97,13 @@ if (malformed.length > 0) {
   console.error(
     `\x1b[31m[audit-expired-at-parsable]\x1b[0m FAIL — ${malformed.length} archive files are not a JSON array:\n` +
     malformed.map((m) => `  - ${m}`).join('\n'),
+  );
+  process.exit(1);
+}
+
+if (!slicesDirExists && aggregatesSeen === 0) {
+  console.error(
+    `\x1b[31m[audit-expired-at-parsable]\x1b[0m FAIL — expired archive not found (cwd=${ROOT})`,
   );
   process.exit(1);
 }

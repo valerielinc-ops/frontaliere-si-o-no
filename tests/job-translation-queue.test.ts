@@ -111,6 +111,7 @@ describe('measureTranslationQueue', () => {
     expect(matchingWorkflows.sort()).toEqual([
       '.github/workflows/backfill-expired-from-history.yml',
       '.github/workflows/cleanup-stale-jobs.yml',
+      '.github/workflows/reconcile-expired-route-duplicates.yml',
       '.github/workflows/sync-gsc-orphans.yml',
       '.github/workflows/translate-pending.yml',
     ]);
