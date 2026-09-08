@@ -5599,6 +5599,7 @@ async function main() {
   let skippedKnownUrlsTotal = 0;
   let browserFallbackAttemptsTotal = 0;
   let browserFallbackHitsTotal = 0;
+  const localizationAttemptedCompanyKeys = new Set();
 
   if (localizeExistingOnly) {
     // Only log on first invocation — message is identical every time
@@ -5874,6 +5875,10 @@ async function main() {
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
             }
+            const localizationCompanyKey = normalizeCompanyKey(
+              String(job?.companyKey || job?.company || ''),
+            );
+            if (localizationCompanyKey) localizationAttemptedCompanyKeys.add(localizationCompanyKey);
             // FRO-prev-slug-attribution: snapshot pre-AI slugs so post-AI slug
             // changes get captured into previousSlugsByLocale. Without this,
             // AI-driven title rewrites (e.g. needsRetranslation → Turner from
@@ -6210,6 +6215,7 @@ async function main() {
   }
 
   console.log('✅ Jobs crawler completed');
+  return { localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys] };
 }
 
 // Export main for in-process invocation (used by dedicated-crawler-common.mjs)

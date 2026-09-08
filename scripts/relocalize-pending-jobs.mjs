@@ -872,7 +872,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 
   try {
     const { runSharedCrawlerPipeline } = await import('./lib/shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env
     for (const [key, value] of Object.entries(originals)) {
@@ -1802,8 +1802,10 @@ export async function runRelocalization(phase) {
       // piu' corretta: esclude il costo dell'osservatore invece di addebitarlo
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
+      let servedCompanyKeys = new Set();
       try {
-        await runSharedCrawler(executionKeys, companyJobCount);
+        const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
+        servedCompanyKeys = new Set(crawlerResult?.localizationAttemptedCompanyKeys || []);
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -1830,9 +1832,21 @@ export async function runRelocalization(phase) {
         if (cleared > 0) console.log(`   ✅ ${executionLabel}: ${cleared} jobs translated, progress saved`);
       }
 
-      const elapsedShare = (companyKey) => companyJobCount > 0
-        ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / companyJobCount
-        : companyElapsedMs;
+      const servedExecutionKeys = executionKeys.filter((companyKey) => (
+        executionKeys.length === 1
+          || servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64))
+      ));
+      const servedJobCount = servedExecutionKeys.reduce(
+        (total, companyKey) => total + (companyJobCounts.get(companyKey) || 0),
+        0,
+      );
+      const elapsedShare = (companyKey) => {
+        if (!servedExecutionKeys.includes(companyKey)) return 0;
+        const denominator = servedJobCount || companyJobCount;
+        return denominator > 0
+          ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / denominator
+          : companyElapsedMs;
+      };
       for (const companyKey of executionKeys) {
         const companyCount = companyJobCounts.get(companyKey) || 0;
         const attemptedSlugs = Array.isArray(currentJobs)
@@ -1905,8 +1919,7 @@ export async function runRelocalization(phase) {
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
         const companyWasServed = executionKeys.length === 1
-          || attemptedSlugs.size > 0
-          || companyCleared > 0;
+          || servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
         if (companyWasServed) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
