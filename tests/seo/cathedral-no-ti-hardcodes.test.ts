@@ -198,6 +198,30 @@ const SCAN_DIRS = [
   'services/',
 ];
 
+function scanSource(pattern: string, fixed = false): string {
+  const rgArgs = [
+    '--no-heading', '--color', 'never', '-n', ...(fixed ? ['-F'] : []), '-e', pattern, ...SCAN_DIRS,
+  ];
+  try {
+    return execFileSync('rg', rgArgs, { encoding: 'utf8' });
+  } catch (error: any) {
+    if (error?.status === 1) return '';
+    if (error?.code !== 'ENOENT') throw error;
+  }
+
+  // GitHub's runner has grep but not necessarily ripgrep. Keep the search
+  // argument-based so backticks and regex metacharacters never pass through a
+  // shell in either implementation.
+  try {
+    return execFileSync('grep', [
+      '-r', '-n', fixed ? '-F' : '-E', '-e', pattern, ...SCAN_DIRS,
+    ], { encoding: 'utf8' });
+  } catch (error: any) {
+    if (error?.status === 1) return '';
+    throw error;
+  }
+}
+
 // P1-E fix: parse grep output into (path, line, content) tuples and
 // match against allowlist with EXACT boundary, not startsWith — otherwise
 // `:772` matches `:7720`, `:7721`, …
@@ -261,14 +285,7 @@ describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-saf
     // this scans the source surface synchronously; under CI's parallel
     // test-worker contention it can exceed the default without an offender.
     it(`literal ${literal} appears only in allowlisted locations`, () => {
-      let out = '';
-      try {
-        out = execFileSync('rg', ['--no-heading', '--color', 'never', '-n', '-F', '-e', literal, ...SCAN_DIRS], {
-          encoding: 'utf8',
-        });
-      } catch (error: any) {
-        if (error?.status !== 1) throw error;
-      }
+      const out = scanSource(literal, true);
       const offenders = out.split('\n').filter(Boolean)
         .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)
         .filter((entry) => !isAllowlisted(entry))
@@ -407,22 +424,21 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
   it('nessun hardcode con slash oltre l\'inventario congelato', () => {
     const counts: Record<string, number> = {};
     const samples: Record<string, string[]> = {};
-    for (const slug of TI_SECTION_SLUGS) {
-      let out = '';
-      try {
-        out = execFileSync('rg', [
-          '--no-heading', '--color', 'never', '-n', '-e', tiSegmentPattern(slug), ...SCAN_DIRS,
-        ], { encoding: 'utf8' });
-      } catch (error: any) {
-        if (error?.status !== 1) throw error;
-      }
-      for (const entry of out.split('\n').filter(Boolean)
-        .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
-        if (isAllowlisted(entry)) continue;
-        // rg reports one line once even when the line contains the segment
-        // twice. Count occurrences, otherwise a new duplicate on an existing
-        // line is invisible to the ratchet.
-        const occurrences = entry.content.match(new RegExp(tiSegmentPattern(slug), 'g'))?.length ?? 0;
+    // Scan all section slugs at once. The fallback grep path is materially
+    // slower than rg; one traversal keeps the CI-without-rg case bounded while
+    // the per-slug occurrence count below preserves the ratchet semantics.
+    const patterns = new Map(TI_SECTION_SLUGS.map((slug) => [slug, tiSegmentPattern(slug)]));
+    const combinedPattern = [...patterns.values()].map((pattern) => `(?:${pattern})`).join('|');
+    const out = scanSource(combinedPattern);
+    for (const entry of out.split('\n').filter(Boolean)
+      .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
+      if (isAllowlisted(entry)) continue;
+      for (const [slug, pattern] of patterns) {
+        // grep/rg reports one line once even when the line contains the
+        // segment twice. Count occurrences, otherwise a new duplicate on an
+        // existing line is invisible to the ratchet.
+        const occurrences = entry.content.match(new RegExp(pattern, 'g'))?.length ?? 0;
+        if (!occurrences) continue;
         counts[entry.path] = (counts[entry.path] ?? 0) + occurrences;
         (samples[entry.path] ??= []).push(`${entry.path}:${entry.lineNo}: ${entry.content.trim().slice(0, 120)}`);
       }
