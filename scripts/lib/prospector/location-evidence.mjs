@@ -30,6 +30,7 @@ import {
  *   addressRegion: string,
  *   postalCode: string,
  *   streetAddress: string,
+ *   duplicateCandidates?: any[],
  * }} LocationEvidenceCandidate
  */
 
@@ -114,6 +115,11 @@ function normalizeOfficialCantonCode(value) {
     if (names.includes(normalized)) return candidate;
   }
   return '';
+}
+
+function locationRegionKey(value) {
+  const raw = String(value || '').trim();
+  return normalizeOfficialCantonCode(raw) || normalizeSwissTargetLocationText(raw);
 }
 
 function locationCodes(value) {
@@ -272,28 +278,96 @@ export function locationEvidenceKey(candidate) {
     String(candidate?.location || '').trim(),
     String(candidate?.addressCountry || candidate?.country || '').trim(),
     String(candidate?.addressLocality || '').trim(),
-    String(candidate?.addressRegion || '').trim(),
+    locationRegionKey(candidate?.addressRegion),
     String(candidate?.postalCode || '').trim(),
     String(candidate?.streetAddress || '').trim(),
   ].join('\u0000');
 }
 
+const DUPLICATE_CANDIDATES_FIELD = 'duplicateCandidates';
+
+function candidateComparable(candidate) {
+  if (typeof candidate === 'string') return { type: 'string', value: candidate.trim() };
+  if (!candidate || typeof candidate !== 'object') return { type: typeof candidate, value: String(candidate ?? '') };
+  return Object.fromEntries(Object.keys(candidate)
+    .filter((key) => key !== DUPLICATE_CANDIDATES_FIELD)
+    .sort()
+    .map((key) => [key, candidate[key]]));
+}
+
+function candidatesEquivalent(left, right) {
+  return JSON.stringify(candidateComparable(left)) === JSON.stringify(candidateComparable(right));
+}
+
+function candidateQuality(candidate) {
+  if (candidate === null || candidate === undefined) return { object: -1, fields: 0 };
+  if (typeof candidate === 'string') return { object: 0, fields: 0 };
+  if (typeof candidate !== 'object') return { object: -1, fields: 0 };
+  const fields = candidate && typeof candidate === 'object'
+    ? Object.entries(candidate).filter(([key, value]) => key !== DUPLICATE_CANDIDATES_FIELD
+      && value !== undefined && value !== null && String(value).trim() !== '').length
+    : 0;
+  return { object: 1, fields };
+}
+
+function isPreferredCandidate(candidate, current) {
+  const incoming = candidateQuality(candidate);
+  const existing = candidateQuality(current);
+  return incoming.object > existing.object
+    || (incoming.object === existing.object && incoming.fields > existing.fields);
+}
+
+function candidateTrace(candidate) {
+  if (!candidate || typeof candidate !== 'object') return [candidate];
+  return [candidate, ...(Array.isArray(candidate[DUPLICATE_CANDIDATES_FIELD])
+    ? candidate[DUPLICATE_CANDIDATES_FIELD]
+    : [])];
+}
+
+function attachDuplicateTrace(candidate, duplicates) {
+  if (!candidate || typeof candidate !== 'object') return candidate;
+  const existing = Array.isArray(candidate[DUPLICATE_CANDIDATES_FIELD])
+    ? candidate[DUPLICATE_CANDIDATES_FIELD]
+    : [];
+  const trace = [...existing];
+  for (const duplicate of duplicates.flatMap(candidateTrace)) {
+    if (candidatesEquivalent(duplicate, candidate)) continue;
+    if (trace.some((entry) => candidatesEquivalent(entry, duplicate))) continue;
+    trace.push(duplicate);
+  }
+  return trace.length ? { ...candidate, [DUPLICATE_CANDIDATES_FIELD]: trace } : candidate;
+}
+
 /**
- * Drop candidates that repeat a place already present, keeping the first
- * occurrence and the original objects untouched. No filtering, no
- * normalisation: this is deduplication, the grading stays with the voter.
+ * Drop candidates that repeat a place already present, preferring the richer
+ * object over a bare string and retaining every non-identical loser as
+ * `duplicateCandidates`. A string/object collision therefore cannot erase the
+ * source URL or extractor metadata carried by the object, and reapplying the
+ * fold to the same evidence stays idempotent.
  *
  * @param {any[]} candidates
  * @returns {any[]}
  */
 export function dedupeLocationCandidates(candidates = []) {
-  const seen = new Set();
-  return candidates.filter((candidate) => {
+  const groups = new Map();
+  for (const candidate of Array.isArray(candidates) ? candidates : []) {
+    if (candidate === null || candidate === undefined
+      || (typeof candidate !== 'string' && typeof candidate !== 'object')) continue;
     const key = locationEvidenceKey(candidate);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+    const current = groups.get(key);
+    if (!current) {
+      groups.set(key, { winner: candidate, duplicates: [] });
+      continue;
+    }
+    if (candidatesEquivalent(current.winner, candidate)) continue;
+    if (isPreferredCandidate(candidate, current.winner)) {
+      current.duplicates.push(current.winner);
+      current.winner = candidate;
+    } else {
+      current.duplicates.push(candidate);
+    }
+  }
+  return [...groups.values()].map(({ winner, duplicates }) => attachDuplicateTrace(winner, duplicates));
 }
 
 /**
@@ -314,8 +388,7 @@ export function locationEvidenceCandidates(record = {}) {
     streetAddress: String(record?.streetAddress || '').trim(),
   };
   if (fallback.location || fallback.addressCountry || fallback.postalCode || fallback.streetAddress) candidates.push(fallback);
-  const seen = new Set();
-  return candidates
+  const normalized = dedupeLocationCandidates(candidates)
     .map((candidate) => typeof candidate === 'string'
       ? { ...EMPTY_LOCATION_EVIDENCE, location: candidate }
       : {
@@ -327,13 +400,8 @@ export function locationEvidenceCandidates(record = {}) {
           postalCode: String(candidate?.postalCode || '').trim(),
           streetAddress: String(candidate?.streetAddress || '').trim(),
         })
-    .filter((candidate) => {
-      if (!candidate.location && !candidate.addressCountry) return false;
-      const key = locationEvidenceKey(candidate);
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
+    .filter((candidate) => candidate.location || candidate.addressCountry);
+  return dedupeLocationCandidates(normalized);
 }
 
 /**

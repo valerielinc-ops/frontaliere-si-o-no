@@ -13,8 +13,9 @@
  * is the vacancy's, the one that repeats is boilerplate" — is plausible and
  * unmeasured. This module is the measurement, not the rule: it extracts every
  * NPA+municipality pair from a page, splits a host's pairs into constant and
- * variable, and scores the criterion against the location the listing already
- * knows. Nothing here is imported by the publishing path; the child issue
+ * variable, and scores the criterion against an independent source-backed
+ * location extracted from detail pages when available. Nothing here is imported
+ * by the publishing path; the child issue
  * decides whether the numbers justify wiring it into
  * `scripts/lib/prospector/location-evidence.mjs`.
  */
@@ -24,6 +25,7 @@ import {
   swissMunicipalityCantons,
 } from '../target-swiss-locations.mjs';
 import { decodeEntities } from './entities.mjs';
+import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 
 /**
  * NPA followed by a capitalised place name, anywhere in the page text.
@@ -83,14 +85,32 @@ export function postalMentionKey(mention) {
  * @param {string} window
  * @returns {{ locality: string, cantons: string[] }}
  */
-function resolveLocality(window) {
-  const words = window.replace(/[\s.]+$/, '').split(/\s+/).filter(Boolean);
+export function resolveLocality(window = '') {
+  const words = String(window).replace(/[\s.]+$/, '').split(/\s+/).filter(Boolean);
   for (let length = words.length; length > 0; length -= 1) {
     const candidate = words.slice(0, length).join(' ');
     const cantons = swissMunicipalityCantons(candidate);
     if (cantons.length) return { locality: candidate, cantons };
   }
   return { locality: words[0] || '', cantons: [] };
+}
+
+/**
+ * Independent reference for the NPA-variance experiment. The detail page is
+ * graded without a listing fallback, so the truth cannot be the same locality
+ * that supplied the rows whose free text is being measured.
+ *
+ * @param {Record<string, any>} detail
+ * @returns {{ truth: string, accepted: boolean }}
+ */
+export function detailReferenceTruth(detail = {}) {
+  const decision = resolveDetailOrListingSwissGeography(detail, {});
+  if (!decision.geography) return { truth: '', accepted: false };
+  const candidate = decision.candidate || {};
+  const truth = String(candidate.location || candidate.addressLocality || decision.geography.location || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return { truth, accepted: Boolean(truth) };
 }
 
 /**
@@ -130,9 +150,9 @@ function sameLocality(a, b) {
   const right = normalizeSwissTargetLocationText(b);
   if (!left || !right) return false;
   if (left === right) return true;
-  // The listing truth is a display string (`8006 Zürich, ZH`), the mention is a
-  // bare municipality: a whole-token containment is a match, a substring is not
-  // (`Bern` must not match `Berneck`).
+  // The reference truth may be a display string (`8006 Zürich, ZH`), while the
+  // mention is a bare municipality: a whole-token containment is a match, a
+  // substring is not (`Bern` must not match `Berneck`).
   const tokens = (value) => new Set(value.split(/[\s,;/|-]+/).filter(Boolean));
   const [shortSide, longSide] = left.length <= right.length ? [left, right] : [right, left];
   const shortTokens = [...tokens(shortSide)];
@@ -142,13 +162,14 @@ function sameLocality(a, b) {
 
 /**
  * Split one host's sampled pages into boilerplate and vacancy-specific NPAs,
- * and score the "variable NPA" criterion against the listing's own location.
+ * and score the "variable NPA" criterion against an independent detail-page
+ * location.
  *
  * A pair is boilerplate when it appears on *every* sampled page: that is the
  * criterion under test, stated exactly. Scoring only counts pages whose
- * location the listing already knows — everywhere else the criterion has an
- * answer and we have nothing to check it against, which is reported as
- * `withoutTruth` instead of being quietly folded into the rate.
+ * location the detail page independently exposes — everywhere else the
+ * criterion has an answer and we have nothing to check it against, which is
+ * reported as `withoutTruth` instead of being quietly folded into the rate.
  *
  * `baseline` scores the naive rule (take the first NPA on the page, variance
  * ignored). The criterion is only worth wiring in if it beats that.

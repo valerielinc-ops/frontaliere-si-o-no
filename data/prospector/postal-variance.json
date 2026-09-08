@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-06T05:56:45.163Z",
+  "generatedAt": "2026-09-08T10:33:14.510Z",
   "criterion": "NPA non presente su tutte le pagine di dettaglio dello stesso host",
-  "truthSource": "localita del listing graduata da resolveDetailOrListingSwissGeography",
+  "truthSource": "localita source-backed del dettaglio, senza fallback al listing",
   "pagesPerHost": 6,
   "totals": {
     "hosts": 30,
     "pages": 179,
-    "withTruth": 13,
+    "withTruth": 56,
     "ambiguity": {
       "none": 150,
       "one": 29,
       "several": 0
     },
     "criterion": {
-      "hits": 0,
-      "misses": 0,
-      "noPrediction": 13,
-      "precision": null,
-      "recall": 0
+      "hits": 7,
+      "misses": 5,
+      "noPrediction": 44,
+      "precision": 0.5833333333333334,
+      "recall": 0.125
     },
     "baseline": {
-      "hits": 0,
-      "misses": 0,
-      "noPrediction": 13,
-      "precision": null,
-      "recall": 0
+      "hits": 13,
+      "misses": 24,
+      "noPrediction": 19,
+      "precision": 0.35135135135135137,
+      "recall": 0.23214285714285715
     }
   },
   "hosts": [
@@ -40,20 +40,23 @@
       "perPage": [
         {
           "url": "https://physioswiss.ch/stelleninserate/152760/physiotherapeut-in-20-80-temporaer-ab-januar-2027/",
-          "truth": "",
+          "truth": "4528 Zuchwil",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "4528 zuchwil"
           ],
           "predicted": "4528 zuchwil",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "4528 zuchwil",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "4528 zuchwil",
+              "postalCode": "4528",
+              "locality": "zuchwil",
               "known": true,
               "cantons": [
                 "SO"
@@ -63,20 +66,23 @@
         },
         {
           "url": "https://physioswiss.ch/stelleninserate/154334/physiotherapeutin-w-50-100-zuerich-kreis-4/",
-          "truth": "",
+          "truth": "8004 Zürich",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "8004 zurich"
           ],
           "predicted": "8004 zurich",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -86,20 +92,23 @@
         },
         {
           "url": "https://physioswiss.ch/stelleninserate/153851/physiotherapeutin-80-100/",
-          "truth": "",
+          "truth": "2552 Orpund",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "2552 orpund"
           ],
           "predicted": "2552 orpund",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "2552 orpund",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2552 orpund",
+              "postalCode": "2552",
+              "locality": "orpund",
               "known": true,
               "cantons": [
                 "BE"
@@ -109,20 +118,23 @@
         },
         {
           "url": "https://physioswiss.ch/stelleninserate/153960/physiotherapeut-in-gesucht/",
-          "truth": "",
+          "truth": "9472 Grabs",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "9472 grabs"
           ],
           "predicted": "9472 grabs",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "9472 grabs",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "9472 grabs",
+              "postalCode": "9472",
+              "locality": "grabs",
               "known": true,
               "cantons": [
                 "SG"
@@ -132,20 +144,23 @@
         },
         {
           "url": "https://physioswiss.ch/stelleninserate/154121/physiotherapeute-vestibulaire-et-musculo-squelettique/",
-          "truth": "",
+          "truth": "2000 Neuchâtel",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "2000 neuchatel"
           ],
           "predicted": "2000 neuchatel",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "2000 neuchatel",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2000 neuchatel",
+              "postalCode": "2000",
+              "locality": "neuchatel",
               "known": true,
               "cantons": [
                 "NE"
@@ -155,20 +170,23 @@
         },
         {
           "url": "https://physioswiss.ch/stelleninserate/154166/2-physiotherapeuten-gesucht-40-100/",
-          "truth": "",
+          "truth": "8618 Oetwil am See",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "8618 oetwil am see"
           ],
           "predicted": "8618 oetwil am see",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "8618 oetwil am see",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8618 oetwil am see",
+              "postalCode": "8618",
+              "locality": "oetwil am see",
               "known": true,
               "cantons": [
                 "ZH"
@@ -186,26 +204,26 @@
         "8618 oetwil am see",
         "9472 grabs"
       ],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 0,
         "one": 6,
         "several": 0
       },
       "criterion": {
-        "hits": 0,
+        "hits": 6,
         "misses": 0,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 1,
+        "recall": 1
       },
       "baseline": {
-        "hits": 0,
+        "hits": 6,
         "misses": 0,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 1,
+        "recall": 1
       }
     },
     {
@@ -229,6 +247,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -244,9 +263,12 @@
           "baselinePredicted": "5703 seon",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "5703 seon",
+              "postalCode": "5703",
+              "locality": "seon",
               "known": true,
               "cantons": [
                 "AG"
@@ -267,9 +289,12 @@
           "baselinePredicted": "8058 zurich flughafen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8058 zurich flughafen",
+              "postalCode": "8058",
+              "locality": "zurich flughafen",
               "known": true,
               "cantons": [
                 "ZH"
@@ -288,6 +313,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -301,6 +327,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -314,6 +341,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -349,8 +377,17 @@
       "companyHost": "recruitingapp-2649.umantis.com",
       "platform": "umantis.com",
       "listingRows": 5,
-      "fetched": 5,
-      "errors": [],
+      "fetched": 3,
+      "errors": [
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1",
+          "error": "Prospector fetch failed for https://recruitingapp-2649.umantis.com/Vacancies/3953/Description/1: HTTP 403"
+        },
+        {
+          "url": "https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1",
+          "error": "Prospector fetch failed for https://recruitingapp-2649.umantis.com/Vacancies/4006/Description/1: HTTP 403"
+        }
+      ],
       "pages": 5,
       "measurable": true,
       "perPage": [
@@ -365,6 +402,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -378,6 +416,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -391,6 +430,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -404,6 +444,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         },
         {
@@ -417,6 +458,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         }
       ],
@@ -456,20 +498,23 @@
       "perPage": [
         {
           "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-luzern-temporaer-297271/",
-          "truth": "",
+          "truth": "Luzern, Luzern",
           "mentions": 2,
           "knownMentions": 2,
           "variableMentions": [
             "6210 sursee"
           ],
           "predicted": "6210 sursee",
-          "verdict": "no-truth",
+          "verdict": "miss",
           "baselinePredicted": "6210 sursee",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -477,6 +522,8 @@
             },
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -486,20 +533,23 @@
         },
         {
           "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-uster-temporaer-297313/",
-          "truth": "",
+          "truth": "Uster, Zürich",
           "mentions": 2,
           "knownMentions": 2,
           "variableMentions": [
             "8400 winterthur"
           ],
           "predicted": "8400 winterthur",
-          "verdict": "no-truth",
+          "verdict": "miss",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -507,6 +557,8 @@
             },
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -516,18 +568,21 @@
         },
         {
           "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-entlebuch-temporaer-293679/",
-          "truth": "",
+          "truth": "Entlebuch, Luzern",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "6003 luzern",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -537,20 +592,23 @@
         },
         {
           "url": "https://www.fachkraft.ch/stellen/allrounder-in-ausbaugewerbe-luzern-dauerstelle-281907/",
-          "truth": "",
+          "truth": "Luzern, Luzern",
           "mentions": 2,
           "knownMentions": 2,
           "variableMentions": [
             "6210 sursee"
           ],
           "predicted": "6210 sursee",
-          "verdict": "no-truth",
+          "verdict": "miss",
           "baselinePredicted": "6210 sursee",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -558,6 +616,8 @@
             },
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -567,20 +627,23 @@
         },
         {
           "url": "https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-kreuzlingen-tryhire-286446/",
-          "truth": "",
+          "truth": "Kreuzlingen, Thurgau",
           "mentions": 2,
           "knownMentions": 2,
           "variableMentions": [
             "8400 winterthur"
           ],
           "predicted": "8400 winterthur",
-          "verdict": "no-truth",
+          "verdict": "miss",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -588,6 +651,8 @@
             },
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -597,20 +662,23 @@
         },
         {
           "url": "https://www.fachkraft.ch/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-292002/",
-          "truth": "",
+          "truth": "Uster, Zürich",
           "mentions": 2,
           "knownMentions": 2,
           "variableMentions": [
             "8400 winterthur"
           ],
           "predicted": "8400 winterthur",
-          "verdict": "no-truth",
+          "verdict": "miss",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -618,6 +686,8 @@
             },
             {
               "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
               "known": true,
               "cantons": [
                 "LU"
@@ -633,11 +703,130 @@
         "6210 sursee",
         "8400 winterthur"
       ],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 1,
         "one": 5,
+        "several": 0
+      },
+      "criterion": {
+        "hits": 0,
+        "misses": 5,
+        "noPrediction": 1,
+        "precision": 0,
+        "recall": 0
+      },
+      "baseline": {
+        "hits": 1,
+        "misses": 5,
+        "noPrediction": 0,
+        "precision": 0.16666666666666666,
+        "recall": 0.16666666666666666
+      }
+    },
+    {
+      "companyKey": "recruitingapp-2783",
+      "companyHost": "recruitingapp-2783.de.umantis.com",
+      "platform": "umantis.com",
+      "listingRows": 50,
+      "fetched": 6,
+      "errors": [],
+      "pages": 6,
+      "measurable": true,
+      "perPage": [
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5222/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5221/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5220/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5219/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5218/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        },
+        {
+          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5211/Description/1",
+          "truth": "",
+          "mentions": 0,
+          "knownMentions": 0,
+          "variableMentions": [],
+          "predicted": "",
+          "verdict": "no-truth",
+          "baselinePredicted": "",
+          "baselineVerdict": "no-truth",
+          "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
+          "allMentions": []
+        }
+      ],
+      "constant": [],
+      "variable": [],
+      "withTruth": 0,
+      "withoutTruth": 6,
+      "ambiguity": {
+        "none": 6,
+        "one": 0,
         "several": 0
       },
       "criterion": {
@@ -656,95 +845,316 @@
       }
     },
     {
-      "companyKey": "recruitingapp-2783",
-      "companyHost": "recruitingapp-2783.de.umantis.com",
-      "platform": "umantis.com",
-      "listingRows": 50,
+      "companyKey": "sta",
+      "companyHost": "sta.jobs",
+      "platform": "",
+      "listingRows": 1850,
       "fetched": 6,
       "errors": [],
       "pages": 6,
       "measurable": true,
       "perPage": [
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5222/Description/1",
-          "truth": "Givisiez",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/allrounder-in-ausbaugewerbe-entlebuch-temporaer-107047/",
+          "truth": "Entlebuch, Luzern",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselinePredicted": "6003 luzern",
+          "baselineVerdict": "hit",
           "truthAcceptedByResolver": true,
-          "allMentions": []
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5221/Description/1",
-          "truth": "Luzern",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zofingen-dauerstelle-105962/",
+          "truth": "Zofingen, Aargau",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselinePredicted": "4665 oftringen",
+          "baselineVerdict": "miss",
           "truthAcceptedByResolver": true,
-          "allMentions": []
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5220/Description/1",
-          "truth": "Näfels",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-102800/",
+          "truth": "Zürich, Zürich",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
-          "truthAcceptedByResolver": false,
-          "allMentions": []
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5219/Description/1",
-          "truth": "Hürth, Köln",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-langenthal-temporaer-106114/",
+          "truth": "Langenthal, Bern",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
-          "truthAcceptedByResolver": false,
-          "allMentions": []
+          "baselinePredicted": "4665 oftringen",
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5218/Description/1",
-          "truth": "Bönen",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-107584/",
+          "truth": "Uster, Zürich",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
-          "truthAcceptedByResolver": false,
-          "allMentions": []
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         },
         {
-          "url": "https://recruitingapp-2783.de.umantis.com/Vacancies/5211/Description/1",
-          "truth": "Würzburg",
-          "mentions": 0,
-          "knownMentions": 0,
+          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-103321/",
+          "truth": "Zürich, Zürich",
+          "mentions": 4,
+          "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
           "verdict": "no-prediction",
-          "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
-          "truthAcceptedByResolver": false,
-          "allMentions": []
+          "baselinePredicted": "8050 zurich",
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
+          "allMentions": [
+            {
+              "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
+              "known": true,
+              "cantons": [
+                "ZH"
+              ]
+            },
+            {
+              "key": "6003 luzern",
+              "postalCode": "6003",
+              "locality": "luzern",
+              "known": true,
+              "cantons": [
+                "LU"
+              ]
+            },
+            {
+              "key": "4665 oftringen",
+              "postalCode": "4665",
+              "locality": "oftringen",
+              "known": true,
+              "cantons": [
+                "AG"
+              ]
+            },
+            {
+              "key": "2026 sta",
+              "postalCode": "2026",
+              "locality": "sta",
+              "known": false,
+              "cantons": []
+            }
+          ]
         }
       ],
-      "constant": [],
+      "constant": [
+        "2026 sta",
+        "4665 oftringen",
+        "6003 luzern",
+        "8050 zurich"
+      ],
       "variable": [],
       "withTruth": 6,
       "withoutTruth": 0,
@@ -761,291 +1171,11 @@
         "recall": 0
       },
       "baseline": {
-        "hits": 0,
-        "misses": 0,
-        "noPrediction": 6,
-        "precision": null,
-        "recall": 0
-      }
-    },
-    {
-      "companyKey": "sta",
-      "companyHost": "sta.jobs",
-      "platform": "",
-      "listingRows": 1850,
-      "fetched": 6,
-      "errors": [],
-      "pages": 6,
-      "measurable": true,
-      "perPage": [
-        {
-          "url": "https://www.sta.jobs/stellen/allrounder-in-ausbaugewerbe-entlebuch-temporaer-107047/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "6003 luzern",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        },
-        {
-          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zofingen-dauerstelle-105962/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "4665 oftringen",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        },
-        {
-          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-102800/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "8050 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        },
-        {
-          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-langenthal-temporaer-106114/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "4665 oftringen",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        },
-        {
-          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-107584/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "8050 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        },
-        {
-          "url": "https://www.sta.jobs/stellen/anlagen-und-apparatebauer-in-zuerich-dauerstelle-103321/",
-          "truth": "",
-          "mentions": 4,
-          "knownMentions": 3,
-          "variableMentions": [],
-          "predicted": "",
-          "verdict": "no-truth",
-          "baselinePredicted": "8050 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
-          "allMentions": [
-            {
-              "key": "8050 zurich",
-              "known": true,
-              "cantons": [
-                "ZH"
-              ]
-            },
-            {
-              "key": "6003 luzern",
-              "known": true,
-              "cantons": [
-                "LU"
-              ]
-            },
-            {
-              "key": "4665 oftringen",
-              "known": true,
-              "cantons": [
-                "AG"
-              ]
-            },
-            {
-              "key": "2026 sta",
-              "known": false,
-              "cantons": []
-            }
-          ]
-        }
-      ],
-      "constant": [
-        "2026 sta",
-        "4665 oftringen",
-        "6003 luzern",
-        "8050 zurich"
-      ],
-      "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
-      "ambiguity": {
-        "none": 6,
-        "one": 0,
-        "several": 0
-      },
-      "criterion": {
-        "hits": 0,
-        "misses": 0,
+        "hits": 4,
+        "misses": 2,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
-      },
-      "baseline": {
-        "hits": 0,
-        "misses": 0,
-        "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666
       }
     },
     {
@@ -1069,6 +1199,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1082,6 +1213,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1095,6 +1227,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1108,6 +1241,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1121,6 +1255,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1134,6 +1269,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -1173,18 +1309,21 @@
       "perPage": [
         {
           "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-luzern-temporaer-114901/",
-          "truth": "",
+          "truth": "Luzern, Luzern",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "6210 sursee",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1192,6 +1331,8 @@
             },
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1199,6 +1340,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1206,6 +1349,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1213,18 +1358,21 @@
         },
         {
           "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-uster-temporaer-114913/",
-          "truth": "",
+          "truth": "Uster, Zürich",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1232,6 +1380,8 @@
             },
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1239,6 +1389,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1246,6 +1398,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1253,18 +1407,21 @@
         },
         {
           "url": "https://www.stellentreff.ch/stellen/allrounder-in-ausbaugewerbe-luzern-dauerstelle-110132/",
-          "truth": "",
+          "truth": "Luzern, Luzern",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "6210 sursee",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1272,6 +1429,8 @@
             },
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1279,6 +1438,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1286,6 +1447,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1293,18 +1456,21 @@
         },
         {
           "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-kreuzlingen-tryhire-111291/",
-          "truth": "",
+          "truth": "Kreuzlingen, Thurgau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1312,6 +1478,8 @@
             },
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1319,6 +1487,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1326,6 +1496,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1333,18 +1505,21 @@
         },
         {
           "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-uster-dauerstelle-113251/",
-          "truth": "",
+          "truth": "Uster, Zürich",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1352,6 +1527,8 @@
             },
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1359,6 +1536,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1366,6 +1545,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1373,18 +1554,21 @@
         },
         {
           "url": "https://www.stellentreff.ch/stellen/anlagen-und-apparatebauer-in-frauenfeld-temporaer-113792/",
-          "truth": "",
+          "truth": "Frauenfeld, Thurgau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8400 winterthur",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -1392,6 +1576,8 @@
             },
             {
               "key": "6210 sursee",
+              "postalCode": "6210",
+              "locality": "sursee",
               "known": true,
               "cantons": [
                 "LU"
@@ -1399,6 +1585,8 @@
             },
             {
               "key": "9000 st gallen",
+              "postalCode": "9000",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -1406,6 +1594,8 @@
             },
             {
               "key": "2026 stellentreff",
+              "postalCode": "2026",
+              "locality": "stellentreff",
               "known": false,
               "cantons": []
             }
@@ -1419,8 +1609,8 @@
         "9000 st gallen"
       ],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -1429,16 +1619,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 6,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
         "hits": 0,
-        "misses": 0,
+        "misses": 6,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 0,
+        "recall": 0
       }
     },
     {
@@ -1446,8 +1636,13 @@
       "companyHost": "recruitingapp-2677.umantis.com",
       "platform": "umantis.com",
       "listingRows": 20,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 5,
+      "errors": [
+        {
+          "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
+          "error": "Prospector fetch failed for https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1: HTTP 403"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -1462,9 +1657,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9490 vaduz",
+              "postalCode": "9490",
+              "locality": "vaduz",
               "known": false,
               "cantons": []
             }
@@ -1481,9 +1679,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9490 vaduz",
+              "postalCode": "9490",
+              "locality": "vaduz",
               "known": false,
               "cantons": []
             }
@@ -1500,9 +1701,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": [
             {
               "key": "9490 vaduz",
+              "postalCode": "9490",
+              "locality": "vaduz",
               "known": false,
               "cantons": []
             }
@@ -1519,9 +1723,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9490 vaduz",
+              "postalCode": "9490",
+              "locality": "vaduz",
               "known": false,
               "cantons": []
             }
@@ -1538,6 +1745,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1551,9 +1759,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9490 vaduz",
+              "postalCode": "9490",
+              "locality": "vaduz",
               "known": false,
               "cantons": []
             }
@@ -1598,18 +1809,21 @@
       "perPage": [
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-hilfsarbeiter-in-aarau-temporaer-105278/",
-          "truth": "",
+          "truth": "Aarau, Aargau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "5400 baden",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1617,6 +1831,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1624,6 +1840,8 @@
             },
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1631,6 +1849,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1638,18 +1858,21 @@
         },
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-zofingen-temporaer-106138/",
-          "truth": "",
+          "truth": "Zofingen, Aargau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "5400 baden",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1657,6 +1880,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1664,6 +1889,8 @@
             },
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1671,6 +1898,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1678,18 +1907,21 @@
         },
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-bremgarten-temporaer-106926/",
-          "truth": "",
+          "truth": "Bremgarten, Aargau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "5400 baden",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1697,6 +1929,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1704,6 +1938,8 @@
             },
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1711,6 +1947,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1718,18 +1956,21 @@
         },
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-wil-sg-dauerstelle-106907/",
-          "truth": "",
+          "truth": "Wil SG, St. Gallen",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8500 frauenfeld",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1737,6 +1978,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1744,6 +1987,8 @@
             },
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1751,6 +1996,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1758,18 +2005,21 @@
         },
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-wil-sg-dauerstelle-106909/",
-          "truth": "",
+          "truth": "Wil SG, St. Gallen",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8500 frauenfeld",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1777,6 +2027,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1784,6 +2036,8 @@
             },
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1791,6 +2045,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1798,18 +2054,21 @@
         },
         {
           "url": "https://www.stellenpartner.ch/stellen/anlagen-und-apparatebauer-in-baden-dauerstelle-105986/",
-          "truth": "",
+          "truth": "Baden, Aargau",
           "mentions": 4,
           "knownMentions": 3,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "5400 baden",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "5400 baden",
+              "postalCode": "5400",
+              "locality": "baden",
               "known": true,
               "cantons": [
                 "AG"
@@ -1817,6 +2076,8 @@
             },
             {
               "key": "6300 zug",
+              "postalCode": "6300",
+              "locality": "zug",
               "known": true,
               "cantons": [
                 "ZG"
@@ -1824,6 +2085,8 @@
             },
             {
               "key": "8500 frauenfeld",
+              "postalCode": "8500",
+              "locality": "frauenfeld",
               "known": true,
               "cantons": [
                 "TG"
@@ -1831,6 +2094,8 @@
             },
             {
               "key": "2026 stellenpartner",
+              "postalCode": "2026",
+              "locality": "stellenpartner",
               "known": false,
               "cantons": []
             }
@@ -1844,8 +2109,8 @@
         "8500 frauenfeld"
       ],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -1854,16 +2119,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 6,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
-        "hits": 0,
-        "misses": 0,
+        "hits": 1,
+        "misses": 5,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 0.16666666666666666,
+        "recall": 0.16666666666666666
       }
     },
     {
@@ -1887,6 +2152,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1900,6 +2166,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1913,6 +2180,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1926,6 +2194,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1939,6 +2208,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -1952,6 +2222,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -1991,18 +2262,21 @@
       "perPage": [
         {
           "url": "https://anker-swiss.ch/stellen/maler-1250327/",
-          "truth": "",
+          "truth": "Rheinfelden",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2010,6 +2284,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2017,18 +2293,21 @@
         },
         {
           "url": "https://anker-swiss.ch/stellen/maler-1248577/",
-          "truth": "",
+          "truth": "Wettingen",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2036,6 +2315,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2043,18 +2324,21 @@
         },
         {
           "url": "https://anker-swiss.ch/stellen/storenmonteur-1313747/",
-          "truth": "",
+          "truth": "Dietikon",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2062,6 +2346,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2069,18 +2355,21 @@
         },
         {
           "url": "https://anker-swiss.ch/stellen/allrounder-garten-1312549/",
-          "truth": "",
+          "truth": "Malters",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2088,6 +2377,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2095,18 +2386,21 @@
         },
         {
           "url": "https://anker-swiss.ch/stellen/metallbaukonstrukteur-1312512/",
-          "truth": "",
+          "truth": "Lyss",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2114,6 +2408,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2121,18 +2417,21 @@
         },
         {
           "url": "https://anker-swiss.ch/stellen/metallbauer-1312274/",
-          "truth": "",
+          "truth": "Schwarzenburg",
           "mentions": 2,
           "knownMentions": 1,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "8004 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "miss",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8004 zurich",
+              "postalCode": "8004",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2140,6 +2439,8 @@
             },
             {
               "key": "2026 anker",
+              "postalCode": "2026",
+              "locality": "anker",
               "known": false,
               "cantons": []
             }
@@ -2151,8 +2452,8 @@
         "8004 zurich"
       ],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -2161,16 +2462,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 6,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
         "hits": 0,
-        "misses": 0,
+        "misses": 6,
         "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "precision": 0,
+        "recall": 0
       }
     },
     {
@@ -2178,61 +2479,74 @@
       "companyHost": "jsafrasarasin.umantis.com",
       "platform": "umantis.com",
       "listingRows": 9,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 4,
+      "errors": [
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
+          "error": "Prospector fetch failed for https://jsafrasarasin.umantis.com/Vacancies/498/Description/1: HTTP 403"
+        },
+        {
+          "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
+          "error": "Prospector fetch failed for https://jsafrasarasin.umantis.com/Vacancies/455/Description/2: HTTP 403"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
         {
           "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
-          "truth": "",
+          "truth": "Basel, CH",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
-          "truth": "",
+          "truth": "Basel, CH",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
-          "truth": "",
+          "truth": "Zurich, CH",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
-          "truth": "",
+          "truth": "Zurich, CH",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
@@ -2246,6 +2560,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         },
         {
@@ -2259,13 +2574,14 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         }
       ],
       "constant": [],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 4,
+      "withoutTruth": 2,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -2274,16 +2590,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 4,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 4,
         "precision": null,
-        "recall": null
+        "recall": 0
       }
     },
     {
@@ -2307,9 +2623,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2326,9 +2645,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2347,9 +2669,12 @@
           "baselinePredicted": "7505 pontresina",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7505 pontresina",
+              "postalCode": "7505",
+              "locality": "pontresina",
               "known": true,
               "cantons": [
                 "GR"
@@ -2357,6 +2682,8 @@
             },
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2373,9 +2700,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2392,9 +2722,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2413,9 +2746,12 @@
           "baselinePredicted": "7503 samedan",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7503 samedan",
+              "postalCode": "7503",
+              "locality": "samedan",
               "known": true,
               "cantons": [
                 "GR"
@@ -2423,6 +2759,8 @@
             },
             {
               "key": "2026 engadiner",
+              "postalCode": "2026",
+              "locality": "engadiner",
               "known": false,
               "cantons": []
             }
@@ -2479,6 +2817,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -2492,6 +2831,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -2505,6 +2845,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -2518,6 +2859,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -2531,6 +2873,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -2544,6 +2887,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -2594,9 +2938,12 @@
           "baselinePredicted": "8303 bassersdorf",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8303 bassersdorf",
+              "postalCode": "8303",
+              "locality": "bassersdorf",
               "known": true,
               "cantons": [
                 "ZH"
@@ -2604,6 +2951,8 @@
             },
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2622,9 +2971,12 @@
           "baselinePredicted": "9016 st gallen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2645,9 +2997,12 @@
           "baselinePredicted": "4624 harkingen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4624 harkingen",
+              "postalCode": "4624",
+              "locality": "harkingen",
               "known": true,
               "cantons": [
                 "SO"
@@ -2655,6 +3010,8 @@
             },
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2673,9 +3030,12 @@
           "baselinePredicted": "9016 st gallen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2694,9 +3054,12 @@
           "baselinePredicted": "9016 st gallen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2715,9 +3078,12 @@
           "baselinePredicted": "9016 st gallen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9016 st gallen",
+              "postalCode": "9016",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -2760,8 +3126,13 @@
       "companyHost": "karriere.ksbl.ch",
       "platform": "umantis.com",
       "listingRows": 11,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 5,
+      "errors": [
+        {
+          "url": "https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-a/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8/",
+          "error": "Prospector fetch failed for https://karriere.ksbl.ch/de/offene-stellen/jobs/detail/job/fage-a/6d5f5c01-d3ca-4bf7-88ca-8fb19d346af8/: HTTP 404"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -2776,9 +3147,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2786,11 +3160,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -2809,9 +3187,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2819,11 +3200,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -2842,9 +3227,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2852,11 +3240,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -2875,9 +3267,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2885,11 +3280,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -2908,9 +3307,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2918,11 +3320,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -2941,9 +3347,12 @@
           "baselinePredicted": "4410 liestal",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4410 liestal",
+              "postalCode": "4410",
+              "locality": "liestal",
               "known": true,
               "cantons": [
                 "BL"
@@ -2951,11 +3360,15 @@
             },
             {
               "key": "4101 bruderholz",
+              "postalCode": "4101",
+              "locality": "bruderholz",
               "known": false,
               "cantons": []
             },
             {
               "key": "4242 laufen",
+              "postalCode": "4242",
+              "locality": "laufen",
               "known": true,
               "cantons": [
                 "BL"
@@ -3004,28 +3417,30 @@
       "perPage": [
         {
           "url": "https://www.pageexecutive.com/job-detail/head-legal-compliance-switzerland/ref/jn-072026-7069175",
-          "truth": "",
+          "truth": "Zürich, Switzerland",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://www.pageexecutive.com/job-detail/general-manager-luxury-hotel-german-speaking-switzerland/ref/jn-072026-7061253",
-          "truth": "",
+          "truth": "Bern, Switzerland",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
@@ -3039,52 +3454,56 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
           "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
-          "truth": "",
+          "truth": "Zürich, Zürich",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://www.pageexecutive.com/job-detail/head-digital-performance-marketing/ref/jn-082026-7088394",
-          "truth": "",
+          "truth": "Zürich, Switzerland",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
           "url": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682",
-          "truth": "",
+          "truth": "Lausanne, Vaud",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         }
       ],
       "constant": [],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 5,
+      "withoutTruth": 1,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -3093,16 +3512,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 5,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 5,
         "precision": null,
-        "recall": null
+        "recall": 0
       }
     },
     {
@@ -3110,8 +3529,13 @@
       "companyHost": "recruitingapp-2765.umantis.com",
       "platform": "umantis.com",
       "listingRows": 10,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 5,
+      "errors": [
+        {
+          "url": "https://recruitingapp-2765.umantis.com/Vacancies/2557/Description/1",
+          "error": "Prospector fetch failed for https://recruitingapp-2765.umantis.com/Vacancies/2557/Description/1: HTTP 403"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -3126,6 +3550,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         },
         {
@@ -3139,19 +3564,21 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
           "url": "https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1",
-          "truth": "",
+          "truth": "8304 Wallisellen",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": []
         },
         {
@@ -3165,19 +3592,21 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
           "url": "https://recruitingapp-2765.umantis.com/Vacancies/2547/Description/1",
-          "truth": "Festanstellung",
+          "truth": "",
           "mentions": 0,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3191,6 +3620,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -3223,8 +3653,13 @@
       "companyHost": "okjob.ch",
       "platform": "",
       "listingRows": 35,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 5,
+      "errors": [
+        {
+          "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-im-nachtdienst-70-80-basel/?ref=41848",
+          "error": "Prospector fetch failed for https://www.okjob.ch/de/jobangebote/?secteur=692: blocked by robots.txt"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -3239,9 +3674,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": [
             {
               "key": "4051 bale",
+              "postalCode": "4051",
+              "locality": "bale",
               "known": false,
               "cantons": []
             }
@@ -3249,18 +3687,21 @@
         },
         {
           "url": "https://www.okjob.ch/offres-demplois/mecatronicien-automobile-yverdon-les-bains/?ref=41867",
-          "truth": "",
+          "truth": "1400 Yverdon",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "1400 yverdon",
+              "postalCode": "1400",
+              "locality": "yverdon",
               "known": false,
               "cantons": []
             }
@@ -3277,9 +3718,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1347 le",
+              "postalCode": "1347",
+              "locality": "le",
               "known": false,
               "cantons": []
             }
@@ -3287,18 +3731,21 @@
         },
         {
           "url": "https://www.okjob.ch/offres-demplois/grutier-suva-a-b-h-f-yverdon-les-bains/?ref=41874",
-          "truth": "",
+          "truth": "1400 Yverdon",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "1400 yverdon",
+              "postalCode": "1400",
+              "locality": "yverdon",
               "known": false,
               "cantons": []
             }
@@ -3306,18 +3753,21 @@
         },
         {
           "url": "https://www.okjob.ch/offres-demplois/macon-a-h-f-yverdon-les-bains/?ref=41875",
-          "truth": "",
+          "truth": "1400 Yverdon",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "1400 yverdon",
+              "postalCode": "1400",
+              "locality": "yverdon",
               "known": false,
               "cantons": []
             }
@@ -3325,20 +3775,23 @@
         },
         {
           "url": "https://www.okjob.ch/de/jobangebote/dipl-pflegefachperson-hf-pflegen-ausbilden-vereint-80-100-zuerich/?ref=41876",
-          "truth": "",
+          "truth": "8001 Zürich",
           "mentions": 1,
           "knownMentions": 1,
           "variableMentions": [
             "8001 zurich"
           ],
           "predicted": "8001 zurich",
-          "verdict": "no-truth",
+          "verdict": "hit",
           "baselinePredicted": "8001 zurich",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "hit",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "8001 zurich",
+              "postalCode": "8001",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -3354,26 +3807,26 @@
         "4051 bale",
         "8001 zurich"
       ],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 4,
+      "withoutTruth": 2,
       "ambiguity": {
         "none": 5,
         "one": 1,
         "several": 0
       },
       "criterion": {
-        "hits": 0,
+        "hits": 1,
         "misses": 0,
-        "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "noPrediction": 3,
+        "precision": 1,
+        "recall": 0.25
       },
       "baseline": {
-        "hits": 0,
+        "hits": 1,
         "misses": 0,
-        "noPrediction": 0,
-        "precision": null,
-        "recall": null
+        "noPrediction": 3,
+        "precision": 1,
+        "recall": 0.25
       }
     },
     {
@@ -3397,14 +3850,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3421,14 +3879,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3445,14 +3908,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3469,14 +3937,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3493,14 +3966,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3517,14 +3995,19 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "1020 wien",
+              "postalCode": "1020",
+              "locality": "wien",
               "known": false,
               "cantons": []
             },
             {
               "key": "2025 bundesimmobiliengesellschaft",
+              "postalCode": "2025",
+              "locality": "bundesimmobiliengesellschaft",
               "known": false,
               "cantons": []
             }
@@ -3579,6 +4062,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3592,6 +4076,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3605,6 +4090,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3618,6 +4104,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3631,6 +4118,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -3644,6 +4132,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -3694,9 +4183,12 @@
           "baselinePredicted": "7007 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7007 chur",
+              "postalCode": "7007",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -3717,9 +4209,12 @@
           "baselinePredicted": "9001 st gallen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "9001 st gallen",
+              "postalCode": "9001",
+              "locality": "st gallen",
               "known": true,
               "cantons": [
                 "SG"
@@ -3740,9 +4235,12 @@
           "baselinePredicted": "8280 kreuzlingen",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8280 kreuzlingen",
+              "postalCode": "8280",
+              "locality": "kreuzlingen",
               "known": true,
               "cantons": [
                 "TG"
@@ -3763,9 +4261,12 @@
           "baselinePredicted": "8640 rapperswil",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8640 rapperswil",
+              "postalCode": "8640",
+              "locality": "rapperswil",
               "known": true,
               "cantons": [
                 "BE"
@@ -3786,9 +4287,12 @@
           "baselinePredicted": "8050 zurich",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8050 zurich",
+              "postalCode": "8050",
+              "locality": "zurich",
               "known": true,
               "cantons": [
                 "ZH"
@@ -3809,9 +4313,12 @@
           "baselinePredicted": "8400 winterthur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8400 winterthur",
+              "postalCode": "8400",
+              "locality": "winterthur",
               "known": true,
               "cantons": [
                 "ZH"
@@ -3874,9 +4381,12 @@
           "baselinePredicted": "8704 herrliberg",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8704 herrliberg",
+              "postalCode": "8704",
+              "locality": "herrliberg",
               "known": true,
               "cantons": [
                 "ZH"
@@ -3897,9 +4407,12 @@
           "baselinePredicted": "8704 herrliberg",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "8704 herrliberg",
+              "postalCode": "8704",
+              "locality": "herrliberg",
               "known": true,
               "cantons": [
                 "ZH"
@@ -3920,9 +4433,12 @@
           "baselinePredicted": "7414 furstenau",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7414 furstenau",
+              "postalCode": "7414",
+              "locality": "furstenau",
               "known": true,
               "cantons": [
                 "GR"
@@ -3943,9 +4459,12 @@
           "baselinePredicted": "7414 furstenau",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7414 furstenau",
+              "postalCode": "7414",
+              "locality": "furstenau",
               "known": true,
               "cantons": [
                 "GR"
@@ -3966,9 +4485,12 @@
           "baselinePredicted": "7414 furstenau",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7414 furstenau",
+              "postalCode": "7414",
+              "locality": "furstenau",
               "known": true,
               "cantons": [
                 "GR"
@@ -3987,6 +4509,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -4029,18 +4552,21 @@
       "perPage": [
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/23023/Description/1",
-          "truth": "Oberösterreich",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "4190 bad",
+              "postalCode": "4190",
+              "locality": "bad",
               "known": false,
               "cantons": []
             }
@@ -4048,18 +4574,21 @@
         },
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/24573/Description/1",
-          "truth": "Tirol",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "6300 worgl",
+              "postalCode": "6300",
+              "locality": "worgl",
               "known": false,
               "cantons": []
             }
@@ -4067,18 +4596,21 @@
         },
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/24602/Description/1",
-          "truth": "Tirol",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "6380 st",
+              "postalCode": "6380",
+              "locality": "st",
               "known": false,
               "cantons": []
             }
@@ -4086,18 +4618,21 @@
         },
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/24601/Description/1",
-          "truth": "Tirol",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "6380 st",
+              "postalCode": "6380",
+              "locality": "st",
               "known": false,
               "cantons": []
             }
@@ -4105,18 +4640,21 @@
         },
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/24600/Description/1",
-          "truth": "Tirol",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "6380 st",
+              "postalCode": "6380",
+              "locality": "st",
               "known": false,
               "cantons": []
             }
@@ -4124,18 +4662,21 @@
         },
         {
           "url": "https://recruitingapp-2788.umantis.com/Vacancies/19617/Description/1",
-          "truth": "Salzburg",
+          "truth": "",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-prediction",
+          "verdict": "no-truth",
           "baselinePredicted": "",
-          "baselineVerdict": "no-prediction",
+          "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "5201 seekirchen",
+              "postalCode": "5201",
+              "locality": "seekirchen",
               "known": false,
               "cantons": []
             }
@@ -4149,8 +4690,8 @@
         "6300 worgl",
         "6380 st"
       ],
-      "withTruth": 6,
-      "withoutTruth": 0,
+      "withTruth": 0,
+      "withoutTruth": 6,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -4159,16 +4700,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 6,
+        "noPrediction": 0,
         "precision": null,
-        "recall": 0
+        "recall": null
       },
       "baseline": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 6,
+        "noPrediction": 0,
         "precision": null,
-        "recall": 0
+        "recall": null
       }
     },
     {
@@ -4192,9 +4733,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4211,9 +4755,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4230,9 +4777,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4249,9 +4799,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4268,9 +4821,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4287,9 +4843,12 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "2503 biel",
+              "postalCode": "2503",
+              "locality": "biel",
               "known": false,
               "cantons": []
             }
@@ -4343,6 +4902,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4356,6 +4916,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4369,6 +4930,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4382,6 +4944,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4395,6 +4958,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4408,6 +4972,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         }
       ],
@@ -4447,18 +5012,21 @@
       "perPage": [
         {
           "url": "https://careers.accor.com/fr/fr/job/aide-comptable-et-administratif-ve-60-80-in-novotel-geneve-centre-geneva-switzerland-jid-107586",
-          "truth": "",
+          "truth": "Novotel Genève Centre, Geneva, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4466,18 +5034,21 @@
         },
         {
           "url": "https://careers.accor.com/fr/fr/job/service-staff-ribelli-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-24550",
-          "truth": "",
+          "truth": "25hours Hotel Zurich West, Zürich, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4485,18 +5056,21 @@
         },
         {
           "url": "https://careers.accor.com/fr/fr/job/assistant-groups-and-event-manager-f-m-d-in-25hours-hotel-zurich-west-zuerich-switzerland-jid-107850",
-          "truth": "",
+          "truth": "25hours Hotel Zurich West, Zürich, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4504,18 +5078,21 @@
         },
         {
           "url": "https://careers.accor.com/fr/fr/job/assistent-front-office-manager-in-ibis-styles-zurich-city-center-zuerich-switzerland-jid-107635",
-          "truth": "",
+          "truth": "ibis Styles Zurich City Center, Zürich, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4523,18 +5100,21 @@
         },
         {
           "url": "https://careers.accor.com/fr/fr/job/hotesse-montreux-jazz-cafe-funky-claude-s-bar-h-f-x-cdd-in-fairmont-le-montreux-palace-montreux-switzerland-jid-106812",
-          "truth": "",
+          "truth": "Fairmont Le Montreux Palace, Montreux, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4542,18 +5122,21 @@
         },
         {
           "url": "https://careers.accor.com/fr/fr/job/stagiaire-operationnel-100-in-ibis-lausanne-centre-lausanne-switzerland-jid-106701",
-          "truth": "",
+          "truth": "ibis Lausanne Centre, Lausanne, Switzerland",
           "mentions": 1,
           "knownMentions": 0,
           "variableMentions": [],
           "predicted": "",
-          "verdict": "no-truth",
+          "verdict": "no-prediction",
           "baselinePredicted": "",
-          "baselineVerdict": "no-truth",
-          "truthAcceptedByResolver": false,
+          "baselineVerdict": "no-prediction",
+          "truthAcceptedByResolver": true,
+          "truthSource": "detail-source-backed",
           "allMentions": [
             {
               "key": "2026 accor",
+              "postalCode": "2026",
+              "locality": "accor",
               "known": false,
               "cantons": []
             }
@@ -4564,8 +5147,8 @@
         "2026 accor"
       ],
       "variable": [],
-      "withTruth": 0,
-      "withoutTruth": 6,
+      "withTruth": 6,
+      "withoutTruth": 0,
       "ambiguity": {
         "none": 6,
         "one": 0,
@@ -4574,16 +5157,16 @@
       "criterion": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 6,
         "precision": null,
-        "recall": null
+        "recall": 0
       },
       "baseline": {
         "hits": 0,
         "misses": 0,
-        "noPrediction": 0,
+        "noPrediction": 6,
         "precision": null,
-        "recall": null
+        "recall": 0
       }
     },
     {
@@ -4591,8 +5174,13 @@
       "companyHost": "recruitingapp-2814.umantis.com",
       "platform": "umantis.com",
       "listingRows": 8,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 5,
+      "errors": [
+        {
+          "url": "https://recruitingapp-2814.umantis.com/Vacancies/8061/Description/1",
+          "error": "Prospector fetch failed for https://recruitingapp-2814.umantis.com/Vacancies/8061/Description/1: HTTP 403"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -4607,6 +5195,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4620,6 +5209,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4633,6 +5223,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4646,6 +5237,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4659,6 +5251,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": []
         },
         {
@@ -4672,6 +5265,7 @@
           "baselinePredicted": "",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": []
         }
       ],
@@ -4704,8 +5298,17 @@
       "companyHost": "rhb.ch",
       "platform": "rhb.ch",
       "listingRows": 10,
-      "fetched": 6,
-      "errors": [],
+      "fetched": 4,
+      "errors": [
+        {
+          "url": "https://www.rhb.ch/de/job/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart_2026-2250/",
+          "error": "Prospector fetch failed for https://www.rhb.ch/de/job/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart_2026-2250/: HTTP 404"
+        },
+        {
+          "url": "https://www.rhb.ch/de/job/sicherheitsbeauftragte-r-infrastruktur-50-100_2026-2248/",
+          "error": "Prospector fetch failed for https://www.rhb.ch/de/job/sicherheitsbeauftragte-r-infrastruktur-50-100_2026-2248/: HTTP 404"
+        }
+      ],
       "pages": 6,
       "measurable": true,
       "perPage": [
@@ -4720,9 +5323,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4730,6 +5336,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
@@ -4746,9 +5354,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4756,6 +5367,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
@@ -4772,9 +5385,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4782,6 +5398,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
@@ -4798,9 +5416,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unavailable",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4808,6 +5429,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
@@ -4824,9 +5447,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4834,6 +5460,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
@@ -4850,9 +5478,12 @@
           "baselinePredicted": "7001 chur",
           "baselineVerdict": "no-truth",
           "truthAcceptedByResolver": false,
+          "truthSource": "detail-unresolved",
           "allMentions": [
             {
               "key": "7001 chur",
+              "postalCode": "7001",
+              "locality": "chur",
               "known": true,
               "cantons": [
                 "GR"
@@ -4860,6 +5491,8 @@
             },
             {
               "key": "2025 rhatische",
+              "postalCode": "2025",
+              "locality": "rhatische",
               "known": false,
               "cantons": []
             }
