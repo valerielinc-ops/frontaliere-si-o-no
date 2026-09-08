@@ -6034,6 +6034,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV en Suisse : les coûts ne sont pas pris en charge',
     'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fécondation in vitro coûte jusqu\'à 8 000 francs et n\'est pas remboursée par la KVG. Un expert qualifie cela d\'« injustice » car l\'OMS reconnaît l\'infertilité comme une maladie.',
     'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Consultation médicale dans une clinique de fertilité, environnement médical moderne en Suisse',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promet une compensation pour le stockage des déchets',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti présente le projet du dépôt Lägern Nord entre Zurich et Argovie à Fisibach. Compensation promise, décision vers 2030, stockage à partir de 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Site de construction souterrain suisse pour le stockage géologique profond des déchets radioactifs',
 };
 
 export default blogMetaChFr;

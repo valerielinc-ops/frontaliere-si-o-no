@@ -6034,6 +6034,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in Switzerland: Costs are not covered',
     'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'In vitro fertilization costs up to 8,000 francs and is not reimbursed by KVG. One expert calls it "an injustice" because the WHO recognizes infertility as a disease.',
     'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medical consultation at a fertility clinic, modern clinical healthcare setting in Switzerland',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promises compensation for waste storage',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti presents the project for the Lägern Nord depot between Zurich and Aargau in Fisibach. Promised compensations, decision towards 2030, storage from 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Swiss underground construction site showing deep geological storage facility for radioactive waste disposal',
 };
 
 export default blogMetaChEn;

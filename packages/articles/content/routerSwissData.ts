@@ -2037,6 +2037,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-ginevra-deposito-cauzionale': { it: 'affitti-ginevra-deposito-cauzionale', en: 'geneva-rental-deposit', de: 'geneva-mietkaution', fr: 'geneve-depot-location' },
  'incontro-pensioni-salute-2026': { it: 'incontro-pensioni-salute-2026', en: 'pension-health-meeting-2026', de: 'pension-gesundheitsmeeting-2026', fr: 'rencontre-pensions-sante-2026' },
  'fiv-costi-assicurazione-svizzera': { it: 'fiv-costi-assicurazione-svizzera', en: 'fiv-costs-insurance-switzerland', de: 'ivf-kosten-versicherung-schweiz', fr: 'fiv-couts-assurance-suisse' },
+ 'rosti-deposito-scorie-compensazioni': { it: 'rosti-deposito-scorie-compensazioni', en: 'rosti-radioactive-waste-deposit-compensation', de: 'rosti-radioaktive-abfaelle-lagerung-entschaedigung', fr: 'rosti-depot-dechets-radioactifs-compensations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

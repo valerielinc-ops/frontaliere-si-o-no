@@ -6034,6 +6034,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in der Schweiz: Kosten werden nicht übernommen',
     'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'Die In-vitro-Fertilisation kostet bis zu 8.000 Francs und wird von KVG nicht erstattet. Ein Experte bezeichnet dies als "Ungerechtigkeit", weil die WHO Unfruchtbarkeit als Krankheit anerkennt.',
     'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medizinische Untersuchung in einer Fertilitätsklinik, modernes klinisches Umfeld in der Schweiz',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti verspricht Entschädigung für die Abfalllagerung',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti präsentiert das Projekt für das Lagern Nord Depot zwischen Zürich und Aargau in Fisibach. Versprochene Entschädigungen, Entscheidung für 2030, Lagerung ab 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Schweizer Untergrundbaustelle für die tiefe geologische Lagerung von radioaktiven Abfällen',
 };
 
 export default blogMetaChDe;
