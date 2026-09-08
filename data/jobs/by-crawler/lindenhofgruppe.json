@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lindenhofgruppe",
-  "assembledAt": "2026-09-07T15:22:07.205Z",
+  "assembledAt": "2026-09-07T23:43:21.672Z",
   "jobs": [
     {
       "id": "lindenhofgruppe-2d023dadd7eb",
@@ -33,7 +33,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-fachfrau-mann-operationstechnik-hf/bd79ef21-83e1-4b31-8712-c0e047446b6b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.041Z",
+      "crawledAt": "2026-09-07T23:43:11.124Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -65,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.776Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -111,7 +110,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/lagerungspfleger-in/088f1376-4ff4-4ae7-83f4-309eb3178143",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.040Z",
+      "crawledAt": "2026-09-07T23:43:11.120Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -130,13 +129,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lagerungspfleger-in-lindenhofgruppe-ch",
-          "lagerungspfleger-in-lindenhofgruppe-bern"
+          "lagerungspfleger-in-lindenhofgruppe-ch"
         ],
         "it": [
           "lagerungspfleger-in-lindenhofgruppe-ch",
-          "lagerungspfleger-in-lindenhofgruppe-bern",
-          "cure-di-stoccaggio-lindenhofgruppe-bern"
+          "lagerungspfleger-in-lindenhofgruppe-bern"
         ],
         "en": [
           "lagerungspfleger-in-lindenhofgruppe-bern"
@@ -147,11 +144,9 @@
       },
       "previousSlugs": [
         "lagerungspfleger-in-lindenhofgruppe-ch",
-        "lagerungspfleger-in-lindenhofgruppe-bern",
-        "cure-di-stoccaggio-lindenhofgruppe-bern"
+        "lagerungspfleger-in-lindenhofgruppe-bern"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.774Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -197,7 +192,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-anaesthesie-weiterbildungsstelle/2f3965ca-5b14-4328-9d35-930d08d5d916",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.040Z",
+      "crawledAt": "2026-09-07T23:43:11.120Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -225,8 +220,7 @@
         "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
         "nds-intensive-care-training-centre-lindenhofgruppe-bern",
         "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-        "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern"
+        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -234,8 +228,7 @@
           "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
           "nds-intensive-care-training-centre-lindenhofgruppe-bern",
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-          "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern"
+          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
@@ -295,7 +288,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.039Z",
+      "crawledAt": "2026-09-07T23:43:11.119Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -313,13 +306,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
-        "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern"
+        "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch",
-          "collaboratore-trice-patienten-hotellerie-lindenhofgruppe-bern"
+          "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
@@ -375,7 +366,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-mit-weiterbildung-in-ueberwachungspflege/1e931b67-86f5-415c-b2d8-08390c7dde3e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.038Z",
+      "crawledAt": "2026-09-07T23:43:11.118Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,6 +415,87 @@
       }
     },
     {
+      "id": "lindenhofgruppe-117e47d43f00",
+      "slug": "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern",
+      "slugByLocale": {
+        "it": "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern",
+        "en": "techn-sterilization-assistant-in-or-medical-device-technologe-login-efz-lindenhofgruppe-bern",
+        "de": "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
+        "fr": "technique-assistant-de-sterilisation-in-ou-technologe-de-dispositif-medical-login-efz-lindenhofgruppe-bern"
+      },
+      "company": "Lindenhofgruppe",
+      "companyKey": "lindenhofgruppe",
+      "companyDomain": "lindenhofgruppe.ch",
+      "title": "Techn. Sterilisationsassistent/-in oder Medizinproduktetechnologe/-login EFZ",
+      "titleByLocale": {
+        "it": "Techn. Assistente di sterilizzazione o dispositivo medico technologist/login EFZ",
+        "en": "Techn. Sterilisation assistant or medical device technologist/login EFZ",
+        "de": "Techn. Sterilisationsassistent/-in oder Medizinproduktetechnologe/-login EFZ",
+        "fr": "Technique. Assistant à la stérilisation ou technologue des instruments médicaux/login EFZ"
+      },
+      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nHinter jedem erfolgreichen Eingriff steht eine sichere und fachgerechte Aufbereitung der Instrumente - dabei übernehmen Sie eine zentrale Rolle im Prozess.\n• Aufbereitung aller Medizinprodukte inkl. Leihinstrumente aus dem Operationsbetrieb sowie von flexiblen Endoskopen\n\n• Lückenlose Dokumentation der Aufbereitungsschritte mittels Chargendokumentations-software BarCon (Asanus)\n\n• Bedienung aller eingesetzten Geräte inklusive der Anlage zur Aufbereitung flexibler Endoskope\n\n• Verantwortung für die ordnungsgemässe Pflege, Wartung und Kontrolle sämtlicher Geräte\n\n• Übernahme von Schicht- und Wochenenddiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinproduktetechnologe/-login EFZ oder als Technische/r Sterilisationsassistent/in\n\n• Berufserfahrung in allen Aufbereitungsschritten von Medizinprodukten im Spitalumfeld, von Vorteil auch mit flexiblen Endoskopen\n\n• Gutes technisches Verständnis sowie eine zuverlässige, sorgfältige Arbeitsweise\n\n• Flexibilität und Belastbarkeit im Arbeitsalltag\n\n• Teamgeist sowie Freude an der Zusammenarbeit in einem vielfältigen, multikulturellen Umfeld\n\n• Gute Deutschkenntnisse\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
+      "descriptionByLocale": {
+        "it": "Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti: Dietro ogni intervento di successo è una preparazione sicura e professionale degli strumenti - assumendo un ruolo centrale nel processo.\n• Elaborazione di tutti i dispositivi medici, tra cui strumenti di prestito da operazioni endoscopi flessibili\n• Documentazione completa dei passaggi di elaborazione utilizzando software di documentazione batch BarCon (Asanus)\n• Funzionamento di tutti i dispositivi utilizzati compreso il sistema per l'elaborazione di endoscopi flessibili\n• Responsabilità per una corretta cura, manutenzione e controllo di tutti i dispositivi\n• Assumere servizi di turni e weekend Requisiti:\n• Allenamento completo come dispositivo medico technologe/login EFZ o come assistente tecnico / sterilizzazione\n• Esperienza professionale in tutte le fasi di trattamento dei dispositivi medici nell'ambiente ospedaliero, vantaggiosamente anche con endoscopi flessibili\n• Buona comprensione tecnica e lavoro affidabile e attento\n• Flessibilità e resilienza nel lavoro quotidiano\n• Spirito di squadra e gioia nella cooperazione in un ambiente diversificato e multiculturale\n• Buona conoscenza tedesca Offriamo: Nella cura olistica dei nostri pazienti hai un ruolo eccezionale da svolgere. Tengono sempre una panoramica e danno un contributo indispensabile alla migliore terapia possibile e alla cura dei pazienti con le loro capacità funzionali. Grazie al continuo investimento nell'infrastruttura, si lavora sempre con dispositivi all'avanguardia e può mantenere il vostro know-how professionale à jour. Con il vostro lavoro di qualità-cosciente, è possibile garantire il benessere dei pazienti e sperimentare la stretta, la cooperazione interdisciplinare con i nostri medici, così come il nostro personale come un arricchimento.",
+        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: Behind each successful intervention is a safe and professional preparation of the instruments - taking on a central role in the process.\n• Processing of all medical devices including Loan instruments from operations and flexible endoscopes\n• Complete documentation of processing steps using batch documentation software BarCon (Asanus)\n• Operation of all devices used including the system for processing flexible endoscopes\n• Responsibility for proper care, maintenance and control of all devices\n• Takeover of shift and weekend services Requirements:\n• Completed training as medical device technologe/login EFZ or as technical/ sterilization assistant\n• Professional experience in all treatment steps of medical devices in the hospital environment, advantageously also with flexible endoscopes\n• Good technical understanding and reliable, careful working\n• Flexibility and resilience in everyday work\n• Team spirit and joy in cooperation in a diverse, multicultural environment\n• Good German knowledge We offer: In the holistic care of our patients you have an outstanding role to play. They always keep an overview and make an indispensable contribution to the best possible therapy and care of patients with their functional skills. Thanks to ongoing investment in the infrastructure, you always work with state-of-the-art devices and can keep your professional know-how à jour. With your quality-conscious work, you can ensure the well-being of patients and experience the close, interdisciplinary cooperation with our doctors as well as our staff as an enrichment.",
+        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nHinter jedem erfolgreichen Eingriff steht eine sichere und fachgerechte Aufbereitung der Instrumente - dabei übernehmen Sie eine zentrale Rolle im Prozess.\n• Aufbereitung aller Medizinprodukte inkl. Leihinstrumente aus dem Operationsbetrieb sowie von flexiblen Endoskopen\n\n• Lückenlose Dokumentation der Aufbereitungsschritte mittels Chargendokumentations-software BarCon (Asanus)\n\n• Bedienung aller eingesetzten Geräte inklusive der Anlage zur Aufbereitung flexibler Endoskope\n\n• Verantwortung für die ordnungsgemässe Pflege, Wartung und Kontrolle sämtlicher Geräte\n\n• Übernahme von Schicht- und Wochenenddiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinproduktetechnologe/-login EFZ oder als Technische/r Sterilisationsassistent/in\n\n• Berufserfahrung in allen Aufbereitungsschritten von Medizinprodukten im Spitalumfeld, von Vorteil auch mit flexiblen Endoskopen\n\n• Gutes technisches Verständnis sowie eine zuverlässige, sorgfältige Arbeitsweise\n\n• Flexibilität und Belastbarkeit im Arbeitsalltag\n\n• Teamgeist sowie Freude an der Zusammenarbeit in einem vielfältigen, multikulturellen Umfeld\n\n• Gute Deutschkenntnisse\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
+        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Derrière chaque intervention réussie se trouve une préparation sûre et professionnelle des instruments - en assumant un rôle central dans le processus.\n• Traitement de tous les dispositifs médicaux, y compris les instruments de prêt à partir des opérations et les endoscopes flexibles\n• Documentation complète des étapes de traitement au moyen du logiciel de documentation par lots BarCon (Asanus)\n• Fonctionnement de tous les dispositifs utilisés, y compris le système de traitement des endoscopes flexibles\n• Responsabilité pour l'entretien, l'entretien et le contrôle appropriés de tous les dispositifs\n• Prise en charge des services de poste et de fin de semaine Exigences:\n• Formation complète en tant que technologue/logiciel de matériel médical EFZ ou en tant qu'assistant technique/ stérilisation\n• Expérience professionnelle dans toutes les étapes de traitement des dispositifs médicaux dans l'environnement hospitalier, avantageusement également avec les endoscopes flexibles\n• Bonne compréhension technique ainsi qu'une manière fiable et prudente de travailler\n• Flexibilité et résilience dans le travail quotidien\n• Esprit d'équipe et joie de coopération dans un environnement diversifié et multiculturel\n• Bonne connaissance de l'allemand Nous offrons: Dans les soins holistiques de nos patients, vous avez un rôle remarquable. Ils gardent toujours une vue d'ensemble et apportent une contribution indispensable à la meilleure thérapie possible et aux soins des patients avec leurs compétences fonctionnelles. Grâce à l'investissement continu dans l'infrastructure, vous travaillez toujours avec des appareils de pointe et pouvez garder votre savoir-faire professionnel à jour. Grâce à votre travail de qualité, vous pouvez assurer le bien-être des patients et faire l'expérience de la coopération interdisciplinaire étroite avec nos médecins ainsi que notre personnel comme un enrichissement."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
+      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T23:43:11.114Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-29",
+      "applyUrl": "https://bewerben.lindenhofgruppe.ch/technischer-sterilisationsassistentin-1-de-f2661.html?agid=20",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
+        "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
+        "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
+          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
+          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern"
+        ],
+        "en": [
+          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
+        ],
+        "fr": [
+          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:57:57.754Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "lindenhofgruppe-7512d3d70369",
       "slug": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern",
       "slugByLocale": {
@@ -438,7 +510,7 @@
       "title": "Dipl. Expertin/Experte Anästhesie NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin/Experte Anästhesie NDS HF",
+        "en": "Dipl. Expert/Expert Anesthesia NDS HF",
         "de": "Dipl. Expertin/Experte Anästhesie NDS HF",
         "fr": "Dipl. Expert/Dipl. Expert Anesthésie Soins NDS HF"
       },
@@ -454,7 +526,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-nds-hf/ded5d810-044f-4250-96dd-dd60ebfab8cd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.037Z",
+      "crawledAt": "2026-09-07T23:43:11.114Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -474,13 +546,11 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern",
-          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern"
         ],
         "it": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
+          "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
@@ -492,11 +562,9 @@
       "previousSlugs": [
         "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-ch",
         "dipl-expertin-experte-anasthesie-nds-hf-lindenhofgruppe-bern",
-        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-        "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern"
+        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
       ],
       "firstSeenAt": "2026-05-10T21:57:57.762Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -526,7 +594,7 @@
       "title": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
       "titleByLocale": {
         "it": "Dipl. Expertin/Expert terapia intensiva NDS HF o specialista infermieristico dipl. con corso IMC",
-        "en": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
+        "en": "Dipl. Expert/Expert Intensive Care NDS HF or dipl. Nursing professional with IMC course",
         "de": "Dipl. Expertin/Experte Intensivpflege NDS HF oder dipl. Pflegefachfrau/-mann mit IMC-Kurs",
         "fr": "Dipl. Expertin/Expert soins intensifs NDS HF ou dipl. spécialiste des soins infirmiers avec cours IMC"
       },
@@ -542,7 +610,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs/d729996e-84a5-483b-a3d0-e98c11d281f3",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.036Z",
+      "crawledAt": "2026-09-07T23:43:11.113Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -576,90 +644,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:51.847Z",
-      "needsRetranslation": true,
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "lindenhofgruppe-117e47d43f00",
-      "slug": "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern",
-      "slugByLocale": {
-        "it": "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern",
-        "en": "techn-sterilization-assistant-in-or-medical-device-technologe-login-efz-lindenhofgruppe-bern",
-        "de": "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
-        "fr": "technique-assistant-de-sterilisation-in-ou-technologe-de-dispositif-medical-login-efz-lindenhofgruppe-bern"
-      },
-      "company": "Lindenhofgruppe",
-      "companyKey": "lindenhofgruppe",
-      "companyDomain": "lindenhofgruppe.ch",
-      "title": "Techn. Sterilisationsassistent/-in oder Medizinproduktetechnologe/-login EFZ",
-      "titleByLocale": {
-        "it": "Techn. Assistente di sterilizzazione o dispositivo medico technologist/login EFZ",
-        "en": "Techn. Sterilisation assistant or medical device technologist/login EFZ",
-        "de": "Techn. Sterilisationsassistent/-in oder Medizinproduktetechnologe/-login EFZ",
-        "fr": "Technique. Assistant à la stérilisation ou technologue des instruments médicaux/login EFZ"
-      },
-      "description": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nHinter jedem erfolgreichen Eingriff steht eine sichere und fachgerechte Aufbereitung der Instrumente - dabei übernehmen Sie eine zentrale Rolle im Prozess.\n• Aufbereitung aller Medizinprodukte inkl. Leihinstrumente aus dem Operationsbetrieb sowie von flexiblen Endoskopen\n\n• Lückenlose Dokumentation der Aufbereitungsschritte mittels Chargendokumentations-software BarCon (Asanus)\n\n• Bedienung aller eingesetzten Geräte inklusive der Anlage zur Aufbereitung flexibler Endoskope\n\n• Verantwortung für die ordnungsgemässe Pflege, Wartung und Kontrolle sämtlicher Geräte\n\n• Übernahme von Schicht- und Wochenenddiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinproduktetechnologe/-login EFZ oder als Technische/r Sterilisationsassistent/in\n\n• Berufserfahrung in allen Aufbereitungsschritten von Medizinprodukten im Spitalumfeld, von Vorteil auch mit flexiblen Endoskopen\n\n• Gutes technisches Verständnis sowie eine zuverlässige, sorgfältige Arbeitsweise\n\n• Flexibilität und Belastbarkeit im Arbeitsalltag\n\n• Teamgeist sowie Freude an der Zusammenarbeit in einem vielfältigen, multikulturellen Umfeld\n\n• Gute Deutschkenntnisse\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
-      "descriptionByLocale": {
-        "it": "Il vostro senso di responsabilità e di auto-iniziativa sono i vostri punti di forza? Vuoi essere un membro di una squadra leader e di successo? Allora adattaci perfettamente. Come gruppo Lindenhof, siamo solo così riusciti perché più di 800 professionisti infermieri, circa 100 medici ospedalieri, 300 medici del personale e 1300 altri dipendenti lavorano in mano – e possono sempre contare l'uno sull'altro. Il focus della medicina di alta qualità è sempre un team forte. E per rafforzare questa squadra ti stiamo cercando! Compiti: Dietro ogni intervento di successo è una preparazione sicura e professionale degli strumenti - assumendo un ruolo centrale nel processo.\n• Elaborazione di tutti i dispositivi medici, tra cui strumenti di prestito da operazioni endoscopi flessibili\n• Documentazione completa dei passaggi di elaborazione utilizzando software di documentazione batch BarCon (Asanus)\n• Funzionamento di tutti i dispositivi utilizzati compreso il sistema per l'elaborazione di endoscopi flessibili\n• Responsabilità per una corretta cura, manutenzione e controllo di tutti i dispositivi\n• Assumere servizi di turni e weekend Requisiti:\n• Allenamento completo come dispositivo medico technologe/login EFZ o come assistente tecnico / sterilizzazione\n• Esperienza professionale in tutte le fasi di trattamento dei dispositivi medici nell'ambiente ospedaliero, vantaggiosamente anche con endoscopi flessibili\n• Buona comprensione tecnica e lavoro affidabile e attento\n• Flessibilità e resilienza nel lavoro quotidiano\n• Spirito di squadra e gioia nella cooperazione in un ambiente diversificato e multiculturale\n• Buona conoscenza tedesca Offriamo: Nella cura olistica dei nostri pazienti hai un ruolo eccezionale da svolgere. Tengono sempre una panoramica e danno un contributo indispensabile alla migliore terapia possibile e alla cura dei pazienti con le loro capacità funzionali. Grazie al continuo investimento nell'infrastruttura, si lavora sempre con dispositivi all'avanguardia e può mantenere il vostro know-how professionale à jour. Con il vostro lavoro di qualità-cosciente, è possibile garantire il benessere dei pazienti e sperimentare la stretta, la cooperazione interdisciplinare con i nostri medici, così come il nostro personale come un arricchimento.",
-        "en": "Are your sense of responsibility and self-initiative on your strengths? Would you like to be a member of a leading and successful team? Then fit us perfectly. As a Lindenhof group, we are only so successful because more than 800 nursing professionals, about 100 hospital doctors, 300 staff doctors and 1300 other employees work in hand – and can always rely on each other. The focus of high-quality medicine is always a strong team. And to strengthen this team we are looking for you! Tasks: Behind each successful intervention is a safe and professional preparation of the instruments - taking on a central role in the process.\n• Processing of all medical devices including Loan instruments from operations and flexible endoscopes\n• Complete documentation of processing steps using batch documentation software BarCon (Asanus)\n• Operation of all devices used including the system for processing flexible endoscopes\n• Responsibility for proper care, maintenance and control of all devices\n• Takeover of shift and weekend services Requirements:\n• Completed training as medical device technologe/login EFZ or as technical/ sterilization assistant\n• Professional experience in all treatment steps of medical devices in the hospital environment, advantageously also with flexible endoscopes\n• Good technical understanding and reliable, careful working\n• Flexibility and resilience in everyday work\n• Team spirit and joy in cooperation in a diverse, multicultural environment\n• Good German knowledge We offer: In the holistic care of our patients you have an outstanding role to play. They always keep an overview and make an indispensable contribution to the best possible therapy and care of patients with their functional skills. Thanks to ongoing investment in the infrastructure, you always work with state-of-the-art devices and can keep your professional know-how à jour. With your quality-conscious work, you can ensure the well-being of patients and experience the close, interdisciplinary cooperation with our doctors as well as our staff as an enrichment.",
-        "de": "Gehören Verantwortungsbewusstsein und Eigeninitiative zu Ihren Stärken? Möchten Sie Mitglied eines tragenden und erfolgreichen Teams sein? Dann passen Sie perfekt zu uns. Als Lindenhofgruppe sind wir nur deshalb so erfolgreich, weil über 800 Pflegefachpersonen, rund 100 Spitalärztinnen und -ärzte, 300 Belegärzte und -ärztinnen sowie 1300 weitere Mitarbeitende Hand in Hand zusammenarbeiten – und sich jederzeit aufeinander verlassen können. Im Mittelpunkt einer hochwertigen Medizin steht immer auch ein starkes Team. Und zur Verstärkung dieses Teams suchen wir Sie!\n\nAufgaben:\nHinter jedem erfolgreichen Eingriff steht eine sichere und fachgerechte Aufbereitung der Instrumente - dabei übernehmen Sie eine zentrale Rolle im Prozess.\n• Aufbereitung aller Medizinprodukte inkl. Leihinstrumente aus dem Operationsbetrieb sowie von flexiblen Endoskopen\n\n• Lückenlose Dokumentation der Aufbereitungsschritte mittels Chargendokumentations-software BarCon (Asanus)\n\n• Bedienung aller eingesetzten Geräte inklusive der Anlage zur Aufbereitung flexibler Endoskope\n\n• Verantwortung für die ordnungsgemässe Pflege, Wartung und Kontrolle sämtlicher Geräte\n\n• Übernahme von Schicht- und Wochenenddiensten\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Medizinproduktetechnologe/-login EFZ oder als Technische/r Sterilisationsassistent/in\n\n• Berufserfahrung in allen Aufbereitungsschritten von Medizinprodukten im Spitalumfeld, von Vorteil auch mit flexiblen Endoskopen\n\n• Gutes technisches Verständnis sowie eine zuverlässige, sorgfältige Arbeitsweise\n\n• Flexibilität und Belastbarkeit im Arbeitsalltag\n\n• Teamgeist sowie Freude an der Zusammenarbeit in einem vielfältigen, multikulturellen Umfeld\n\n• Gute Deutschkenntnisse\n\nWir bieten:\nIn der ganzheitlichen Versorgung unserer Patientinnen und Patienten kommt Ihnen eine herausragende Rolle zu. Sie behalten stets den Überblick und leisten mit ihren funktionsspezifischen Fähigkeiten einen unverzichtbaren Beitrag für die bestmögliche Therapie und Betreuung von Patientinnen und Patienten. Dank laufenden Investitionen in die Infrastruktur arbeiten Sie stets mit modernsten Geräten und können Ihr berufliches Know-how à jour halten. Mit Ihrer qualitätsbewussten Arbeitsweise sichern Sie das Wohl der Patientinnen und Patienten und erleben die enge, interdisziplinäre Zusammenarbeit auch mit unseren Ärztinnen und Ärzten sowie unserer Belegärzteschaft als Bereicherung.",
-        "fr": "Votre sens de la responsabilité et votre esprit d'initiative sur vos forces? Aimeriez-vous être membre d'une équipe de premier plan et de succès? Alors il nous convient parfaitement. En tant que groupe Lindenhof, nous ne sommes que si réussis parce que plus de 800 professionnels des soins infirmiers, environ 100 médecins hospitaliers, 300 médecins du personnel et 1300 autres employés travaillent en main – et peuvent toujours compter les uns sur les autres. L'objectif de la médecine de haute qualité est toujours une équipe forte. Et pour renforcer cette équipe, nous vous recherchons ! Tâches : Derrière chaque intervention réussie se trouve une préparation sûre et professionnelle des instruments - en assumant un rôle central dans le processus.\n• Traitement de tous les dispositifs médicaux, y compris les instruments de prêt à partir des opérations et les endoscopes flexibles\n• Documentation complète des étapes de traitement au moyen du logiciel de documentation par lots BarCon (Asanus)\n• Fonctionnement de tous les dispositifs utilisés, y compris le système de traitement des endoscopes flexibles\n• Responsabilité pour l'entretien, l'entretien et le contrôle appropriés de tous les dispositifs\n• Prise en charge des services de poste et de fin de semaine Exigences:\n• Formation complète en tant que technologue/logiciel de matériel médical EFZ ou en tant qu'assistant technique/ stérilisation\n• Expérience professionnelle dans toutes les étapes de traitement des dispositifs médicaux dans l'environnement hospitalier, avantageusement également avec les endoscopes flexibles\n• Bonne compréhension technique ainsi qu'une manière fiable et prudente de travailler\n• Flexibilité et résilience dans le travail quotidien\n• Esprit d'équipe et joie de coopération dans un environnement diversifié et multiculturel\n• Bonne connaissance de l'allemand Nous offrons: Dans les soins holistiques de nos patients, vous avez un rôle remarquable. Ils gardent toujours une vue d'ensemble et apportent une contribution indispensable à la meilleure thérapie possible et aux soins des patients avec leurs compétences fonctionnelles. Grâce à l'investissement continu dans l'infrastructure, vous travaillez toujours avec des appareils de pointe et pouvez garder votre savoir-faire professionnel à jour. Grâce à votre travail de qualité, vous pouvez assurer le bien-être des patients et faire l'expérience de la coopération interdisciplinaire étroite avec nos médecins ainsi que notre personnel comme un enrichissement."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz/64b173d5-520a-49f3-885c-ff5f2ba4a7a7",
-      "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.036Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-29",
-      "applyUrl": "https://bewerben.lindenhofgruppe.ch/technischer-sterilisationsassistentin-1-de-f2661.html?agid=20",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
-        "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-        "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
-        "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-",
-          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe",
-          "techn-assistente-di-sterilizzazione-in-o-dispositivo-medico-technologe-login-efz-lindenhofgruppe-bern",
-          "techn-sterilisationsassistent-in-o-medizinproduktetechnologe-login-cfc-lindenhofgruppe-bern"
-        ],
-        "en": [
-          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
-        ],
-        "fr": [
-          "techn-sterilisationsassistent-in-oder-medizinproduktetechnologe-login-efz-lindenhofgruppe-"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T21:57:57.754Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -705,7 +689,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/chefaerztin-chefarzt-allgemeine-innere-medizin/46c96a5c-a4b1-4f78-9ca3-8c19fb1dc1c1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.031Z",
+      "crawledAt": "2026-09-07T23:43:11.106Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -723,13 +707,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
-        "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital"
+        "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
-          "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital"
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
         ],
         "en": [
           "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
@@ -767,7 +749,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmière diplômée FH/HF"
@@ -784,7 +766,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/0f4376e0-3adb-4d5a-a234-70e94913025a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.028Z",
+      "crawledAt": "2026-09-07T23:43:11.096Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -813,8 +795,7 @@
         "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
         "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
         "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
-        "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+        "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -829,8 +810,7 @@
           "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
           "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
           "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital-2c6740",
-          "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+          "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
@@ -843,7 +823,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:30.775Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -889,7 +868,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/koch-koechin-efz-in-ausbildung/502d4904-f78d-4644-ab66-a79f7cd5591b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.025Z",
+      "crawledAt": "2026-09-07T23:43:11.089Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -907,13 +886,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch",
-        "koch-kochin-cfc-in-ausbildung-lindenhofgruppe-engeried"
+        "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch",
-          "koch-kochin-cfc-in-ausbildung-lindenhofgruppe-engeried"
+          "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
         ],
         "en": [
           "koch-kochin-efz-in-ausbildung-lindenhofgruppe-ch"
@@ -923,7 +900,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.996Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -969,7 +945,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie/8727df5a-af23-4ee7-848f-e2ccdbaedb98",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.021Z",
+      "crawledAt": "2026-09-07T23:43:11.083Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -987,13 +963,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital"
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
         ],
         "en": [
           "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
@@ -1003,7 +977,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.992Z",
-      "needsRetranslation": true,
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
@@ -1049,7 +1022,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital/6e207f18-cc31-4a93-b690-c030b4f2b98c",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:56.005Z",
+      "crawledAt": "2026-09-07T23:43:11.070Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1067,13 +1040,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-        "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
+        "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-          "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
+          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
@@ -1083,7 +1054,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:02:32.968Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1112,7 +1082,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Registered Nurse FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/infirmière diplômé(e) FH/HF"
@@ -1129,7 +1099,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/7a607ba4-bbff-491b-9d81-e7ca55e6107b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.995Z",
+      "crawledAt": "2026-09-07T23:43:11.063Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1152,8 +1122,7 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1162,8 +1131,7 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-3",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
@@ -1173,7 +1141,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:31:36.606Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1202,7 +1169,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1219,7 +1186,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/e510ac1f-cdc1-42ac-ae56-d88c48b6f4e8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.980Z",
+      "crawledAt": "2026-09-07T23:43:11.056Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1240,16 +1207,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-sf13sg"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4"
@@ -1259,7 +1224,6 @@
         ]
       },
       "firstSeenAt": "2026-07-18T21:58:23.063Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1288,7 +1252,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1305,7 +1269,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/791ceed8-d154-4785-8cfe-19f032d5baf6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.976Z",
+      "crawledAt": "2026-09-07T23:43:11.045Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1326,16 +1290,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-e93s7d"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
@@ -1345,7 +1307,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T11:09:01.939Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1374,7 +1335,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1391,7 +1352,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/17b5a6a9-54eb-410c-902d-3729d668ac6e",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.966Z",
+      "crawledAt": "2026-09-07T23:43:11.039Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1418,8 +1379,7 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-4ytmdj",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-4ytmdj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1431,8 +1391,7 @@
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-9",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-xyg17k",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-ab776c"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
@@ -1445,7 +1404,6 @@
         ]
       },
       "firstSeenAt": "2026-07-19T22:16:44.389Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1474,7 +1432,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -1491,7 +1449,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/193720a6-297c-46c6-9be6-893c8669c2b6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.956Z",
+      "crawledAt": "2026-09-07T23:43:11.026Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1512,16 +1470,14 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-s54sim"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
@@ -1531,7 +1487,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:59:40.952Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1577,7 +1532,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann-oder-med-praxisassistent-in/b229f97b-ea46-4da1-8d80-727956e674f0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.949Z",
+      "crawledAt": "2026-09-07T23:43:11.019Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1654,7 +1609,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-fuer-unseren-pflegepool/3a285673-ab11-4c1b-9ae4-28fcb7c44d0f",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.942Z",
+      "crawledAt": "2026-09-07T23:43:11.013Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1729,7 +1684,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
+        "it": "Dipl. Infermieristica Focus F - Neonatologia",
         "en": "Dipl. Nursing specialist Focus F - Neonatology",
         "de": "Dipl. Pflegefachfrau/-mann Fokus F - Neonatologie",
         "fr": "Dipl. Spécialiste des soins infirmiers Focus F - Néonatologie"
@@ -1746,7 +1701,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fokus-f-neonatologie/09d72517-c3ce-47d6-b53a-2737e8edf0a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.935Z",
+      "crawledAt": "2026-09-07T23:43:11.007Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1766,15 +1721,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
         "dipl-infermiere-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
-        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch",
           "dipl-infermiere-focus-f-neonatologia-lindenhofgruppe-lindenhofspital",
-          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-focus-f-neonatologia-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fokus-f-neonatologie-lindenhofgruppe-ch"
@@ -1784,7 +1737,6 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:43:35.711Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1813,7 +1765,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Radiologiefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau/-mann",
+        "it": "Dipl. Specialista della radiologia",
         "en": "Dipl. Radiology specialist",
         "de": "Dipl. Radiologiefachfrau/-mann",
         "fr": "Dipl. Spécialiste de radiologie"
@@ -1830,7 +1782,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-radiologiefachfrau-mann/8f89efbb-059a-4b27-9e14-81da0df076d1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.925Z",
+      "crawledAt": "2026-09-07T23:43:11.000Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1850,15 +1802,13 @@
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch",
         "dipl-specialista-di-radiologia-lindenhofgruppe-engeried",
-        "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried",
-        "dipl-specialista-della-radiologia-lindenhofgruppe-engeried"
+        "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch",
           "dipl-specialista-di-radiologia-lindenhofgruppe-engeried",
-          "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried",
-          "dipl-specialista-della-radiologia-lindenhofgruppe-engeried"
+          "dipl-radiologiefachfrau-mann-lindenhofgruppe-engeried"
         ],
         "en": [
           "dipl-radiologiefachfrau-mann-lindenhofgruppe-ch"
@@ -1868,7 +1818,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:09:50.994Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1914,7 +1863,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027/8a34afda-98fe-4d53-b4cf-f8de42c114fd",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.918Z",
+      "crawledAt": "2026-09-07T23:43:10.991Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1933,14 +1882,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch",
-        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital",
-        "infermiera-mann-hf-in-formazione-lavoro-aziendale-autunno-2027-lindenhofgruppe-lindenhofspital"
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital",
-          "infermiera-mann-hf-in-formazione-lavoro-aziendale-autunno-2027-lindenhofgruppe-lindenhofspital"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-herbst-2027-lindenhofgruppe-ch"
@@ -1995,7 +1942,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-medizinische-klinik/b062ead3-8ea2-4aa9-960d-b97f01f4e4df",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.909Z",
+      "crawledAt": "2026-09-07T23:43:10.987Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2016,16 +1963,14 @@
         "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
         "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
         "assistant-physician-doctor-medical-clinic-lindenhofgruppe-bern",
-        "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern",
-        "medico-ambulatorio-medico-medico-lindenhofgruppe-lindenhofspital"
+        "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
           "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
           "assistant-physician-doctor-medical-clinic-lindenhofgruppe-bern",
-          "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern",
-          "medico-ambulatorio-medico-medico-lindenhofgruppe-lindenhofspital"
+          "medecin-adjoint-medecin-clinique-medicale-lindenhofgruppe-bern"
         ],
         "en": [
           "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
@@ -2037,7 +1982,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:41.538Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2083,7 +2027,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/nds-intensivpflege-weiterbildungsstelle/14584d68-0227-4b64-8de2-c908bc7e1c30",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.902Z",
+      "crawledAt": "2026-09-07T23:43:10.981Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2104,16 +2048,14 @@
         "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
         "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
         "nds-intensive-care-training-centre-lindenhofgruppe-bern",
-        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-        "nds-intensive-care-centro-di-formazione-lindenhofgruppe-lindenhofspital"
+        "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
           "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
           "nds-intensive-care-training-centre-lindenhofgruppe-bern",
-          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern",
-          "nds-intensive-care-centro-di-formazione-lindenhofgruppe-lindenhofspital"
+          "soins-intensifs-des-snd-centre-de-formation-lindenhofgruppe-bern"
         ],
         "en": [
           "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
@@ -2170,7 +2112,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-anaesthesie-intensiv-oder-notfallpflege-nds-oder-dipl-pflegefachfrau-mann-mit-ndk-ueberwachungspflege/734b2e6d-af14-4c8d-8873-5c8326968451",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.895Z",
+      "crawledAt": "2026-09-07T23:43:10.971Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2239,7 +2181,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
+        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -2255,7 +2197,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-notfallpflege/278f8287-b7c1-421b-8ba6-4f800dd90365",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.888Z",
+      "crawledAt": "2026-09-07T23:43:10.964Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2275,14 +2217,12 @@
       "previousSlugs": [
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
         "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle",
-        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch-gti28k",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+        "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch-gti28k"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-alle"
         ],
         "en": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
@@ -2295,7 +2235,6 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:31:34.545Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2341,7 +2280,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/teamleiter-in-fuer-fachfrau-mann-apotheke/79795f88-4108-4ee9-9bc8-9c09c5acc25a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.879Z",
+      "crawledAt": "2026-09-07T23:43:10.954Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2375,7 +2314,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:31:17.043Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2421,7 +2359,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-pflege/03ec6256-7d80-4d3b-9cd6-d91104a9d88a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.871Z",
+      "crawledAt": "2026-09-07T23:43:10.947Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2439,13 +2377,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-pflege-lindenhofgruppe-ch",
-        "stage-assistenza-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-pflege-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-lindenhofgruppe-ch",
-          "stage-assistenza-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-pflege-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-pflege-lindenhofgruppe-ch"
@@ -2500,7 +2436,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-cand-med/c1f70a97-5b77-41e2-9f90-ecbb0cbf1afb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.864Z",
+      "crawledAt": "2026-09-07T23:43:10.941Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2518,13 +2454,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-cand-med-lindenhofgruppe-ch",
-        "intern-in-cand-med-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-cand-med-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-cand-med-lindenhofgruppe-ch",
-          "intern-in-cand-med-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-cand-med-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-cand-med-lindenhofgruppe-ch"
@@ -2563,7 +2497,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann",
+        "it": "Dipl. Infermieristica professionale",
         "en": "Dipl. Nursing professional",
         "de": "Dipl. Pflegefachfrau/-mann",
         "fr": "Dipl. Professionnels des soins infirmiers"
@@ -2580,7 +2514,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann/843443ca-b174-4703-b4a1-e4bd5e0a752a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.845Z",
+      "crawledAt": "2026-09-07T23:43:10.921Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2599,14 +2533,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital",
-        "dipl-infermieristica-professionale-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital",
-          "dipl-infermieristica-professionale-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-lindenhofgruppe-ch"
@@ -2616,7 +2548,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:23:40.522Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2662,7 +2593,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-sekretariat-radiologie/04c2a51e-f52f-4c27-b084-47e89f6ed0c8",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.832Z",
+      "crawledAt": "2026-09-07T23:43:10.902Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2680,13 +2611,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch",
-        "collaboratore-trice-sekretariat-radiologie-lindenhofgruppe-lindenhofspital"
+        "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch",
-          "collaboratore-trice-sekretariat-radiologie-lindenhofgruppe-lindenhofspital"
+          "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-sekretariat-radiologie-lindenhofgruppe-ch"
@@ -2741,7 +2670,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/medizinische-r-codierer-in/277af6a5-2668-4f91-ab72-cd3e8f50c7a6",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.821Z",
+      "crawledAt": "2026-09-07T23:43:10.887Z",
       "addressLocality": "Muristalden",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2760,18 +2689,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-r-codierer-in-lindenhofgruppe-ch",
-        "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn",
-        "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-codierer-in-lindenhofgruppe-ch",
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn",
-          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden-r64wgn"
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.294Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2801,7 +2727,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
       "titleByLocale": {
         "it": "Dipl. Esperto/Dipl. Cura dell'anestesia esperto Sonnenhof",
-        "en": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
+        "en": "Dipl. Expert/Dipl. Expert anesthesia care Sonnenhof",
         "de": "Dipl. Expertin/Dipl. Experte Anästhesiepflege Sonnenhof",
         "fr": "Dipl. Expert/Dipl. Soins d'anesthésie expert Sonnenhof"
       },
@@ -2817,7 +2743,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-anaesthesiepflege-sonnenhof/a4ccec17-8b63-4976-bcc4-074ad575719a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.806Z",
+      "crawledAt": "2026-09-07T23:43:10.876Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2835,13 +2761,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch",
-        "dipl-esperto-dipl-cura-dell-anestesia-esperto-sonnenhof-lindenhofgruppe-sonnenhofspital"
+        "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch",
-          "dipl-esperto-dipl-cura-dell-anestesia-esperto-sonnenhof-lindenhofgruppe-sonnenhofspital"
+          "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-anasthesiepflege-sonnenhof-lindenhofgruppe-ch"
@@ -2851,7 +2775,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T21:38:12.274Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2897,7 +2820,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegeassistent-in/29671368-b503-4f8b-9fde-70d7adbae766",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.791Z",
+      "crawledAt": "2026-09-07T23:43:10.846Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2916,13 +2839,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "pflegeassistent-in-lindenhofgruppe-ch",
-          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
+          "pflegeassistent-in-lindenhofgruppe-ch"
         ],
         "it": [
           "pflegeassistent-in-lindenhofgruppe-ch",
-          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital",
-          "assistente-infermieristico-lindenhofgruppe-sonnenhofspital"
+          "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
@@ -2933,11 +2854,9 @@
       },
       "previousSlugs": [
         "pflegeassistent-in-lindenhofgruppe-ch",
-        "pflegeassistent-in-lindenhofgruppe-sonnenhofspital",
-        "assistente-infermieristico-lindenhofgruppe-sonnenhofspital"
+        "pflegeassistent-in-lindenhofgruppe-sonnenhofspital"
       ],
       "firstSeenAt": "2026-08-24T10:19:20.378Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2983,7 +2902,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/hochschulpraktikant-in-bgm/3698d43a-31e0-4d00-bfba-ba52112676f7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.771Z",
+      "crawledAt": "2026-09-07T23:43:10.835Z",
       "addressLocality": "Engeried",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3003,8 +2922,7 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-          "stage-universitario-in-bgm-lindenhofgruppe-engeried"
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
         ],
         "en": [
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
@@ -3013,14 +2931,12 @@
           "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
         ],
         "de": [
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
         "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
-        "stage-universitario-in-bgm-lindenhofgruppe-engeried"
+        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:17:37.236Z",
@@ -3069,7 +2985,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/stv-abteilungsleiter-in-pflege-notfallzentrum/7dbb856f-2b8b-4a93-833c-b498665ee757",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.764Z",
+      "crawledAt": "2026-09-07T23:43:10.818Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3087,13 +3003,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-        "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital"
+        "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-          "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital"
+          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
         ],
         "en": [
           "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
@@ -3149,7 +3063,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/praktikant-in-informatik/f4eba58c-8ca9-43cc-86f2-1a8ea394505b",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.758Z",
+      "crawledAt": "2026-09-07T23:43:10.800Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3167,13 +3081,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-informatik-lindenhofgruppe-ch",
-        "stage-informatica-lindenhofgruppe-lindenhofgruppe"
+        "praktikant-in-informatik-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-informatik-lindenhofgruppe-ch",
-          "stage-informatica-lindenhofgruppe-lindenhofgruppe"
+          "praktikant-in-informatik-lindenhofgruppe-ch"
         ],
         "en": [
           "praktikant-in-informatik-lindenhofgruppe-ch"
@@ -3229,7 +3141,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-disposition-und-empfang/b70ec325-68ca-4d5d-bfef-9ea2ee2d5ede",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.753Z",
+      "crawledAt": "2026-09-07T23:43:10.783Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3247,13 +3159,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
-        "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital"
+        "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch",
-          "collaboratore-trice-disposition-e-empfang-lindenhofgruppe-sonnenhofspital"
+          "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
         ],
         "en": [
           "mitarbeiter-in-disposition-und-empfang-lindenhofgruppe-ch"
@@ -3309,7 +3219,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-mit-fachverantwortung-berufsbildung/2edea35a-c9b7-4e5c-bb20-a2ba89d3642a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.749Z",
+      "crawledAt": "2026-09-07T23:43:10.773Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3371,7 +3281,7 @@
       "title": "Dipl. Expertin/Dipl. Experte Notfallpflege",
       "titleByLocale": {
         "it": "Dipl. Expert/Dipl. Expert Emergency Care",
-        "en": "Dipl. Expertin/Dipl. Experte Notfallpflege",
+        "en": "Dipl. Expert/Dipl. Expert Emergency Care",
         "de": "Dipl. Expertin/Dipl. Experte Notfallpflege",
         "fr": "Dipl. Expert/Dipl. Expert Soins d'urgence"
       },
@@ -3387,7 +3297,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-dipl-experte-notfallpflege/94065847-facb-43fc-8c62-748debe66cd2",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.745Z",
+      "crawledAt": "2026-09-07T23:43:10.764Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3407,20 +3317,16 @@
       "previousSlugs": [
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
         "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-lindenhofspital",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896",
-        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-mbxe62"
+        "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-e25896"
+          "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
         ],
         "en": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch",
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-lindenhofspital",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital",
-          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital-mbxe62"
+          "dipl-expert-dipl-expert-emergency-care-lindenhofgruppe-lindenhofspital"
         ],
         "fr": [
           "dipl-expertin-dipl-experte-notfallpflege-lindenhofgruppe-ch"
@@ -3473,7 +3379,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/unterassistenzarzt-aerztin-notfallzentrum/5667c3e6-6f7a-4a12-9520-76b123eb1ea1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.739Z",
+      "crawledAt": "2026-09-07T23:43:10.735Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3491,13 +3397,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
-        "centro-medico-emergenza-lindenhofgruppe-lindenhofspital"
+        "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch",
-          "centro-medico-emergenza-lindenhofgruppe-lindenhofspital"
+          "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
         ],
         "en": [
           "unterassistenzarzt-arztin-notfallzentrum-lindenhofgruppe-ch"
@@ -3553,7 +3457,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme-notfallzentrum/6b6b36a1-5966-4e1b-87ca-87075a8df2bb",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.733Z",
+      "crawledAt": "2026-09-07T23:43:10.724Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3571,13 +3475,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-        "case-handler-centro-di-emergenza-di-ammissione-paziente-lindenhofgruppe-lindenhofspital"
+        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-          "case-handler-centro-di-emergenza-di-ammissione-paziente-lindenhofgruppe-lindenhofspital"
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
         ],
         "en": [
           "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
@@ -3633,7 +3535,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/arztsekretaer-in-gynaekologie/3dd39290-c9fb-45f6-a11f-3d126fca107a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.727Z",
+      "crawledAt": "2026-09-07T23:43:10.712Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3652,21 +3554,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-        "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
-        "segretario-medico-ginecologia-lindenhofgruppe-lindenhofspital"
+        "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-gynakologie-lindenhofgruppe-ch",
-          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
-          "segretario-medico-ginecologia-lindenhofgruppe-lindenhofspital"
+          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
         ],
         "de": [
-          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital",
-          "arztsekretar-in-gynakologie-lindenhofgruppe-ch"
+          "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
         ],
         "fr": [
           "arztsekretar-in-gynakologie-lindenhofgruppe-lindenhofspital"
@@ -3702,7 +3601,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -3719,7 +3618,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/a26470cd-8f0d-4403-a2fe-cdaf7d3d4d77",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.715Z",
+      "crawledAt": "2026-09-07T23:43:10.699Z",
       "addressLocality": "Sonnenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3738,14 +3637,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-e5a207"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital-e5a207"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
@@ -3755,7 +3652,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:06.836Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3801,7 +3697,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/bachelor-of-science-in-pflege-zusatzmodul-b/0f326b16-2d04-4d60-851e-0e16e8f2b9b1",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.701Z",
+      "crawledAt": "2026-09-07T23:43:10.685Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3823,8 +3719,7 @@
         "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
         "bachelor-of-science-in-care-additional-module-b-lindenhofgruppe-bern",
         "baccalaureat-en-sciences-en-soins-module-supplementaire-b-lindenhofgruppe-bern",
-        "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj",
-        "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe"
+        "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3832,8 +3727,7 @@
           "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
           "bachelor-of-science-in-care-additional-module-b-lindenhofgruppe-bern",
           "baccalaureat-en-sciences-en-soins-module-supplementaire-b-lindenhofgruppe-bern",
-          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj",
-          "bachelor-of-science-in-infermieristica-modulo-aggiuntivo-b-lindenhofgruppe-lindenhofgruppe"
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch-f3xjvj"
         ],
         "en": [
           "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
@@ -3890,7 +3784,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruehling-2027/5525acf6-6a9a-49c4-83bc-5f10bf628b93",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.690Z",
+      "crawledAt": "2026-09-07T23:43:10.673Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3909,14 +3803,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital",
-        "infermiera-mann-hf-in-formazione-lavoro-operativo-primavera-2027-lindenhofgruppe-lindenhofspital"
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital",
-          "infermiera-mann-hf-in-formazione-lavoro-operativo-primavera-2027-lindenhofgruppe-lindenhofspital"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-lindenhofspital"
         ],
         "en": [
           "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
@@ -3942,12 +3834,12 @@
     },
     {
       "id": "lindenhofgruppe-70b9b1c2ae3c",
-      "slug": "assistentin-gesundheit-e-soziales-afp-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
+      "slug": "assistente-salute-e-sociale-eba-in-educazione-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-        "it": "assistentin-gesundheit-e-soziales-afp-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
-        "en": "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-        "fr": "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        "it": "assistente-salute-e-sociale-eba-in-educazione-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
+        "en": "assistant-health-and-social-eba-in-education-lindenhofspital-or-sonnenhofspital-lindenhofgruppe-lindenhofspital",
+        "fr": "assistant-sante-et-social-eba-en-education-lindenhofspital-ou-sonnenhofspital-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3955,23 +3847,23 @@
       "title": "Assistentin Gesundheit und Soziales EBA in Ausbildung, Lindenhofspital oder Sonnenhofspital",
       "titleByLocale": {
         "de": "Assistentin Gesundheit und Soziales EBA in Ausbildung, Lindenhofspital oder Sonnenhofspital",
-        "it": "Assistentin Gesundheit e Soziales AFP in Ausbildung, Lindenhofspital o Sonnenhofspital",
-        "en": "Assistentin Gesundheit und Soziales EBA in Ausbildung, Lindenhofspital oder Sonnenhofspital",
-        "fr": "Assistentin Gesundheit und Soziales EBA in Ausbildung, Lindenhofspital oder Sonnenhofspital"
+        "it": "Assistente Salute e Sociale EBA in Educazione, Lindenhofspital o Sonnenhofspital",
+        "en": "Assistant Health and Social EBA in Education, Lindenhofspital or Sonnenhofspital",
+        "fr": "Assistant Santé et Social EBA en éducation, Lindenhofspital ou Sonnenhofspital"
       },
       "description": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n Arbeit und Familie\n Darauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\n Vorsorge",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n Arbeit und Familie\n Darauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\n Vorsorge",
-        "it": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n Arbeit und Familie\n Darauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\n Vorsorge",
-        "en": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n Arbeit und Familie\n Darauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\n Vorsorge",
-        "fr": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n Arbeit und Familie\n Darauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\n Vorsorge"
+        "de": "Aufgaben:\n• Während deiner Ausbildung lernst du die Grundpflege und das Betreuen von Patientinnen und Patienten.\n\n• Dabei unterstützt du Patientinnen und Patienten bei der Körperpflege, wie auch bei anderen Aktivitäten des täglichen Lebens.\n\n• Du übernimmst Aufgaben im logistischen, administrativen und hauswirtschaftlichen Bereich.\n\nAnforderungen:\n• Die obligatorische Schulzeit hast du erfolgreich abgeschlossen.\n\n• Du bringst gute kommunikative Fähigkeiten mit und arbeitest gerne im Team.\n\n• Du bist kontaktfreudig, bringst Einfühlungsvermögen und Geduld mit.\n\n• Hinsichtlich der täglichen Anforderungen bist du körperlich und psychisch bei guter Gesundheit.\n\nWir bieten:\nFerien und Freizeit\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\nArbeit und Familie\nDarauf kannst du dich freuen\n• Eine abwechslungsreiche und spannende Ausbildung\n\n• Sorgfältige Lernbegleitung durch erfahrene Berufsbildungsverantwortliche\n\n• 6 Wochen Ferien\n\n• Beitrag an Lehrmittel\n\n• 13. Monatslohn\n\n• Mitarbeitershop mit vergünstigten Angeboten (Hotel, Sport, Mode, etc.)\n\n• Jährlicher ÖV-Beitrag\n\n• Vergünstigte Personalverpflegung in den Spitälern\n\n• Jährlicher Lehrlingsausflug mit Lernenden von allen Berufen\n\n• Vielseitige Einblicksmöglichkeiten in unterschiedliche Bereiche\nVorsorge",
+        "it": "Compiti:\n• Durante la vostra formazione, imparerete la cura di base e la cura dei pazienti.\n\n• Sostiene i pazienti nella cura personale, così come in altre attività della vita quotidiana.\n\n• Voi assumete compiti nel settore logistico, amministrativo e domestico.\n\nRequisiti\n• Hai completato con successo il periodo di istruzione obbligatoria.\n\n• Porti buone capacità di comunicazione e goditi il lavoro in una squadra.\n\n• Siete socievoli, portate empatia e pazienza.\n\n• In termini di requisiti quotidiani, si è fisicamente e mentalmente in buona salute.\n\nOffriamo:\nVacanze e tempo libero\n Gestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n Lavoro e famiglia\n Non vedo l'ora.\n• Una formazione varia ed emozionante\n\n• Apprendimento attento dei dirigenti di formazione professionale esperti\n\n• 6 settimane di vacanza\n\n• Contributo ai materiali didattici\n\n• 13. Salari mensili\n\n• Negozio di dipendenti con offerte scontate (hotel, sport, moda, ecc.)\n\n• Contributo pubblico annuale\n\n• Riduzione del personale negli ospedali\n\n• Escursione annuale di apprendistato con studenti di tutte le professioni\n\n• Intuizioni versatili in diverse aree\n Precauzioni",
+        "en": "Tasks:\n• During your training, you will learn basic care and the care of patients.\n\n• You support patients in personal care, as well as in other activities of daily life.\n\n• You take on tasks in the logistical, administrative and domestic sector.\n\nRequirements\n• You have successfully completed the compulsory schooling period.\n\n• You bring good communication skills and enjoy working in a team.\n\n• You are sociable, bring empathy and patience.\n\n• In terms of daily requirements, you are physically and mentally in good health.\n\nWe offer:\nHolidays and leisure\n Occupational Health Management (BGM) – “ZÄME GSUND”\n Work and family\n You can look forward to that.\n• A varied and exciting education\n\n• Careful learning support by experienced vocational training managers\n\n• 6 weeks holiday\n\n• Contribution to teaching materials\n\n• 13. Monthly wages\n\n• Employee shop with discounted offers (hotel, sports, fashion, etc.)\n\n• Annual public transport contribution\n\n• Reduced staff catering in hospitals\n\n• Annual apprentice excursion with learners from all professions\n\n• Versatile insights into different areas\n Precautions",
+        "fr": "Tâches :\n• Pendant votre formation, vous apprendrez les soins de base et les soins aux patients.\n\n• Vous aidez les patients dans les soins personnels, ainsi que dans d'autres activités de la vie quotidienne.\n\n• Vous assumez des tâches dans le secteur logistique, administratif et domestique.\n\nExigences\n• Vous avez réussi la période de scolarité obligatoire.\n\n• Vous apportez de bonnes compétences en communication et aimez travailler en équipe.\n\n• Vous êtes sociable, apportez empathie et patience.\n\n• En termes de besoins quotidiens, vous êtes physiquement et mentalement en bonne santé.\n\nNous offrons:\nVacances et loisirs\n Gestion de la santé au travail (BGM) – -ZÄME\n Travail et famille\n Vous pouvez attendre avec impatience.\n• Une éducation variée et passionnante\n\n• Soutien à l'apprentissage par des gestionnaires expérimentés de la formation professionnelle\n\n• 6 semaines de vacances\n\n• Contribution au matériel pédagogique\n\n• 13. Salaires mensuels\n\n• Boutique pour employés avec des offres à prix réduit (hôtel, sport, mode, etc.)\n\n• Contribution annuelle aux transports publics\n\n• Réduction de l ' effectif de la restauration dans les hôpitaux\n\n• Excursion annuelle des apprentis avec des apprenants de toutes les professions\n\n• Des perspectives polyvalentes dans différents domaines\n Précautions"
       },
       "location": "Lindenhofspital",
       "canton": "BE",
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital/5054f259-24f8-4273-b90d-6973a8cc6185",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.675Z",
+      "crawledAt": "2026-09-07T23:43:10.659Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3987,17 +3879,22 @@
       "postedDate": "2026-09-06",
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/assistentin-gesundheit-und-soziales-eba--de-f2929.html?agid=20",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
+          "assistentin-gesundheit-e-soziales-afp-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        ],
+        "fr": [
           "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
         ]
       },
       "previousSlugs": [
-        "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        "assistentin-gesundheit-und-soziales-eba-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
+        "assistentin-gesundheit-e-soziales-afp-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -4016,12 +3913,12 @@
     },
     {
       "id": "lindenhofgruppe-5ead52d0a179",
-      "slug": "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch",
+      "slug": "assistenza-sanitaria-con-compiti-estesi-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "de": "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch",
-        "it": "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch",
-        "en": "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch",
-        "fr": "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch"
+        "it": "assistenza-sanitaria-con-compiti-estesi-lindenhofgruppe-lindenhofspital",
+        "en": "care-assistance-with-extended-tasks-lindenhofgruppe-lindenhofspital",
+        "fr": "aide-aux-soins-pour-les-taches-etendues-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -4029,23 +3926,23 @@
       "title": "Pflegehilfe mit erweiterten Aufgaben",
       "titleByLocale": {
         "de": "Pflegehilfe mit erweiterten Aufgaben",
-        "it": "Pflegehilfe con erweiterten Aufgaben",
-        "en": "Pflegehilfe mit erweiterten Aufgaben",
-        "fr": "Pflegehilfe mit erweiterten Aufgaben"
+        "it": "Assistenza sanitaria con compiti estesi",
+        "en": "Care Assistance with Extended Tasks",
+        "fr": "Aide aux soins pour les tâches étendues"
       },
       "description": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "it": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "en": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "fr": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+        "de": "Aufgaben:\n• Du unterstützt die Hebammen im Schichtdienst und erledigst hauswirtschaftliche Aufgaben.\n\n• Du bist mitverantwortlich für den Unterhalt des Pflegematerials, der Wäschebestellung sowie der Essensbestellung für unsere Patientinnen und Begleitpersonen.\n\n• Anliegen nimmst du entgegen und leitest diese zuverlässig an die entsprechende Stelle weiter.\n\n• Das Ausführen von diversen Botengängen für unsere Hebammen sowie von Transportdiensten gehört ebenso zu deinen täglichen Aufgaben wie auch die grobe Reinigung des Sterilguts.\n\n• Mit deiner teamfähigen und offenen Art unterstützt du das Hebammenteam bei den Aufgaben des täglichen Bedarfs, um eine optimale Betreuung unserer Patientinnen zu gewährleisten.\n\nAnforderungen:\n• Idealerweise verfügst du über praktische Erfahrung als Pflegehilfe\n\n• Deine Erfahrung im Akutbereich hilft dir, sich rasch auf wechselnde Situationen einzustellen.\n\n• Dank deiner Flexibilität und Belastbarkeit fällt es dir leicht, Neues rasch zu erfassen und in einem hektischen Umfeld einen kühlen Kopf zu bewahren\n\n• Du arbeitest in Schicht- und Wochenenddiensten\n\n• Du sprichst gut Deutsch (Sprachniveau B2), verstehst idealerweise Dialekt und verfügst über einfache PC-Anwenderkenntnisse\n\n• Eine gewissenhafte, eigenverantwortliche und qualitätsbewusste Arbeit zeichnet dich aus.\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "it": "Compiti:\n• Supporti le levatrici nel lavoro a turni e fai compiti di pulizia.\n\n• Voi siete congiuntamente responsabili per la manutenzione del materiale di cura, l'ordine di lavanderia e l'ordine di cibo per i nostri pazienti e le persone che accompagnano.\n\n• Accetti le richieste e li invii in modo affidabile al punto appropriato.\n\n• Effettuare vari messaggeri per le nostre ostetriche e servizi di trasporto è altrettanto una parte dei vostri compiti quotidiani come la pulizia ruvida delle merci sterili.\n\n• Con il vostro team-capable e open nature, supportate il team di ostetriche nei compiti delle necessità quotidiane per garantire una cura ottimale per i nostri pazienti.\n\nRequisiti\n• Idealmente, avete esperienza pratica come un aiuto per la cura\n\n• La vostra esperienza nel campo acuto vi aiuta ad adattarsi rapidamente alle situazioni di cambiamento.\n\n• Grazie alla vostra flessibilità e resistenza, è facile afferrare rapidamente nuove cose e mantenere una testa fresca in un ambiente frenetico.\n\n• Lavori nei servizi turni e week-end\n\n• Si parla buon tedesco (livello di lingua B2), perfettamente capire il dialetto e avere una semplice conoscenza dell'utente del PC\n\n• Un lavoro coscienzioso, auto-responsabile e di qualità-cosciente ti distingue.\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 giorni di vacanza\n\n• 7 giorni gratuiti aggiuntivi, che possono essere pagati su richiesta\n\n• Possibilità di acquistare una vacanza\n\n• Al servizio notturno un tempo di credito del 30%\n Gestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n• Misure per rafforzare la salute\n\n• Laboratorio Cadre e Team con focus sulla salute\n Lavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\n Vantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\n Precauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Prosecuzione salariale generale in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
+        "en": "Tasks:\n• You support the midwives in shift work and do housekeeping tasks.\n\n• You are jointly responsible for the maintenance of the care material, the laundry order and the food order for our patients and accompanying persons.\n\n• You accept requests and forward them reliably to the appropriate point.\n\n• Carrying out various messengers for our midwives as well as transport services is just as much a part of your daily tasks as the rough cleaning of the sterile goods.\n\n• With your team-capable and open nature, you support the midwife team in the tasks of daily needs to ensure optimal care for our patients.\n\nRequirements\n• Ideally, you have practical experience as a nursing aid\n\n• Your experience in the acute field helps you to adapt quickly to changing situations.\n\n• Thanks to your flexibility and resilience, it is easy to quickly grasp new things and keep a cool head in a hectic environment.\n\n• You work in shift and weekend services\n\n• You speak good German (language level B2), ideally understand dialect and have simple PC user knowledge\n\n• A conscientious, self-responsible and quality-conscious work distinguishes you.\n\nWe offer:\nHolidays and leisure\n• Mind. 26 days holiday\n\n• 7 additional free days, which can be paid out on request\n\n• Possibility to buy a holiday\n\n• At night service a time credit of 30%\n Occupational Health Management (BGM) – “ZÄME GSUND”\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\n Work and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\n Advantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\n Precautions\n• Half coordination deduction according to BVG\n\n• Generous wage continuation in the event of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
+        "fr": "Tâches :\n• Vous soutenez les sages-femmes dans le travail posté et faites des tâches de ménage.\n\n• Vous êtes conjointement responsable de l'entretien du matériel de soins, de la commande de blanchisserie et de la commande de nourriture pour nos patients et les personnes qui les accompagnent.\n\n• Vous acceptez les demandes et les transmettez de façon fiable au point approprié.\n\n• L'exécution de divers messagers pour nos sages-femmes ainsi que des services de transport fait tout autant partie de vos tâches quotidiennes que le nettoyage brut des produits stériles.\n\n• Grâce à votre esprit d'équipe et à votre caractère ouvert, vous aidez l'équipe de sage-femme dans les tâches des besoins quotidiens afin d'assurer des soins optimaux à nos patients.\n\nExigences\n• Idéalement, vous avez une expérience pratique en tant qu'aide infirmière\n\n• Votre expérience dans le domaine aigu vous aide à vous adapter rapidement à des situations changeantes.\n\n• Grâce à votre flexibilité et votre résilience, il est facile de saisir rapidement de nouvelles choses et de garder une tête froide dans un environnement trépidant.\n\n• Vous travaillez en équipe et en week-end\n\n• Vous parlez bon allemand (niveau de langue B2), idéalement comprendre le dialecte et avoir une connaissance utilisateur PC simple\n\n• Un travail consciencieux, responsable et soucieux de la qualité vous distingue.\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours de vacances\n\n• 7 jours gratuits supplémentaires, qui peuvent être payés sur demande\n\n• Possibilité d'acheter des vacances\n\n• Au service de nuit un crédit de temps de 30%\n Gestion de la santé au travail (BGM) – -ZÄME\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\n Travail et famille\n• KITA – horaires d'ouverture axés sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\n Avantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\n Précautions\n• Déduction pour demi-coordination selon BVG\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100%, puis indemnités journalières à 90%)"
       },
       "location": "Lindenhofspital",
       "canton": "BE",
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegehilfe-mit-erweiterten-aufgaben/48fef1b0-9e42-46a3-a656-e9105668b75a",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.667Z",
+      "crawledAt": "2026-09-07T23:43:10.646Z",
       "addressLocality": "Lindenhofspital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4061,10 +3958,7 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/pflegehilfe-mit-erweiterten-aufgaben-de-f2937.html?agid=20",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4078,16 +3972,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:21:55.667Z"
+      "firstSeenAt": "2026-09-07T15:21:55.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehilfe-mit-erweiterten-aufgaben-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-a2e58de9a7a9",
-      "slug": "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch",
+      "slug": "esperto-di-cura-esperto-di-cura-cns-palliative-care-lindenhofgruppe-lindenhofgruppe",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch",
-        "it": "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch",
+        "it": "esperto-di-cura-esperto-di-cura-cns-palliative-care-lindenhofgruppe-lindenhofgruppe",
         "en": "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch",
-        "fr": "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch"
+        "fr": "expert-en-soins-expert-en-soins-soins-palliatifs-du-snc-lindenhofgruppe-lindenhofgruppe"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -4095,23 +4003,23 @@
       "title": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
       "titleByLocale": {
         "de": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
-        "en": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
-        "it": "Pflegeexpertin / Pflegeexperte CNS Palliative Care",
-        "fr": "Pflegeexpertin / Pflegeexperte CNS Palliative Care"
+        "en": "Care expert / care expert CNS Palliative Care",
+        "it": "Esperto di cura / esperto di cura CNS Palliative Care",
+        "fr": "Expert en soins / expert en soins Soins palliatifs du SNC"
       },
       "description": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "it": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "en": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
-        "fr": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\n Betriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\n Arbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\n Vergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\n Vorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)"
+        "de": "Aufgaben:\n• Du sicherst und entwickelst die Pflegequalität gemeinsam mit Fachentwicklung, Pflegemanagement und Bildung weiter\n\n• Durch dein evidenzbasiertes Wissen bringst du Richtlinien, Coachings und Praxisbegleitung in den klinischen Alltag\n\n• Als Teil des Shared Leadership Teams und des interprofessionellen Palliative Care Konsiliardienst gestaltest du die Zusammenarbeit aktiv mit\n\n• Du berätst und begleitest Patientinnen und Patienten sowie ihre Nahestehenden personzentriert, insbesondere in komplexen Situationen\n\n• Du unterstützt die betreuenden Teams sowie interne und externe Netzwerkpartner mit deiner fachlichen Expertise und wirkst bei Qualitätssicherung, Evaluation und Audits mit\n\n• Zudem bringst du deine fachliche Expertise auch direkt in die Pflegepraxis ein und arbeitest regelmässig in der direkten Patientenversorgung mit.\n\nAnforderungen:\n• Du bist diplomierte Pflegefachperson mit Abschluss Master of Science in Nursing (MScN) und hast eine Weiterbildung in Palliative Care (DAS, HFPP Palliative Care oder MAS Palliative Care)\n\n• Berufserfahrung im Fachbereich Palliative Care sind erwünscht und du bringst von Vorteil Kenntnisse und Interesse im Fachgebiet Onkologie mit\n\n• Early Palliative Care ist für dich kein Fremdwort\n\n• Du brennst darauf, die spezialisierte Palliativ Care Abteilung aktiv mitzugestalten und in der Palliative Care und Onkologie neue Wege zu gehen\n\nWir bieten:\nFerien und Freizeit\n• Mind. 26 Tage Ferien\n\n• 7 zusätzliche freie Tage, welche auf Wunsch ausbezahlt werden können\n\n• Möglichkeit Ferienkauf\n\n• Beim Nachtdienst eine Zeitgutschrift von 30%\nBetriebliches Gesundheitsmanagement (BGM) – \"ZÄME GSUND\"\n• Massnahmen zur Stärkung der Gesundheit\n\n• Kader- und Teamworkshops mit Fokus Gesundheit\nArbeit und Familie\n• KITA – Bedürfnisorientierte Öffnungszeiten\n\n• 16 Wochen Mutterschaftsurlaub bei 100% Lohnfortzahlung, 15 Tage bezahlter Vaterschaftsurlaub\nVergünstigungen und Angebote\n• REKA-Checks mit 20% Rabatt\n\n• Vergünstigte Verpflegung im Personalrestaurant\n\n• Vergünstigte Parkplätze / PubliBike-Abos\n\n• Vielfältige Mitarbeitendenrabatte\nVorsorge\n• Halber Koordinationsabzug gemäss BVG\n\n• Grosszügige Lohnfortzahlungsregelung bei Krankheit und Unfall (3 Monate Lohnfortzahlung durch Arbeitgeberin zu 100%, danach Taggeldleistungen zu 90%)",
+        "it": "Compiti:\n• Garantisci e sviluppi la qualità della cura insieme allo sviluppo, la gestione e l'istruzione specialistici\n\n• Attraverso la vostra conoscenza basata sulle prove, portate linee guida, coaching e supporto pratica nella vita clinica quotidiana.\n\n• Nell'ambito del team di leadership condiviso e del servizio di consulenza di assistenza palliative interprofessionale, si forma attivamente la cooperazione con\n\n• Si consiglia e accompagna i pazienti e i loro cari concentrati, soprattutto in situazioni complesse\n\n• Supporti i team di supervisione e i partner di rete interni ed esterni con le tue competenze tecniche e contribuisci a garantire la qualità, la valutazione e gli audit\n\n• Inoltre, si porta la vostra esperienza professionale direttamente nella pratica di cura e regolarmente lavorare nella cura del paziente diretta.\n\nRequisiti\n• Sei un'infermiera qualificata con un Master of Science in grado di infermieristica (MScN) e hai una formazione avanzata in cure palliative (DAS, HFPP assistenza palliativa o MAS assistenza palliativa)\n\n• L'esperienza professionale nel campo della cura palliativa è desiderata e si avvantaggia di portare conoscenza e interesse nel campo dell'oncologia\n\n• Early Palliative Care non è una parola straniera per voi\n\n• Siete desiderosi di plasmare attivamente il reparto di assistenza palliativa specializzata e rompere nuovo terreno in cure palliative e oncologia\n\nOffriamo:\nVacanze e tempo libero\n• Mente. 26 giorni di vacanza\n\n• 7 giorni gratuiti aggiuntivi, che possono essere pagati su richiesta\n\n• Possibilità di acquistare una vacanza\n\n• Al servizio notturno un tempo di credito del 30%\n Gestione della salute sul lavoro (BGM) – “ZÄME GSUND”\n• Misure per rafforzare la salute\n\n• Laboratorio Cadre e Team con focus sulla salute\n Lavoro e famiglia\n• KITA – orari di apertura orientati alle esigenze\n\n• 16 settimane di congedo di maternità con 100% paga continua, 15 giorni di congedo di paternità pagato\n Vantaggi e offerte\n• REKA controlli con 20% di sconto\n\n• Cibo scontato nel ristorante del personale\n\n• Parcheggio sconto / Abbonamenti PubliBike\n\n• Vari sconti sui dipendenti\n Precauzioni\n• Deduzione di metà coordinamento secondo BVG\n\n• Prosecuzione salariale generale in caso di malattia e infortunio (3 mesi di prosecuzione salariale da parte del datore di lavoro al 100%, poi indennità giornaliere al 90%)",
+        "en": "Tasks:\n• You ensure and develop the quality of care together with specialist development, care management and education\n\n• Through your evidence-based knowledge, you bring guidelines, coaching and practice support into everyday clinical life.\n\n• As part of the shared leadership team and the interprofessional palliative care consultancy service, you actively shape the cooperation with\n\n• You advise and accompany patients and their loved ones person-centered, especially in complex situations\n\n• You support the supervising teams as well as internal and external network partners with your technical expertise and contribute to quality assurance, evaluation and audits\n\n• In addition, you bring your professional expertise directly into the nursing practice and regularly work in direct patient care.\n\nRequirements\n• You are a qualified nurse with a Master of Science in Nursing degree (MScN) and have advanced training in palliative care (DAS, HFPP palliative care or MAS palliative care)\n\n• Professional experience in the field of palliative care is desired and you advantageously bring knowledge and interest in the field of oncology\n\n• Early Palliative Care is not a foreign word for you\n\n• You are eager to actively shape the specialized palliative care department and to break new ground in palliative care and oncology\n\nWe offer:\nHolidays and leisure\n• Mind. 26 days holiday\n\n• 7 additional free days, which can be paid out on request\n\n• Possibility to buy a holiday\n\n• At night service a time credit of 30%\n Occupational Health Management (BGM) – “ZÄME GSUND”\n• Measures to strengthen health\n\n• Cadre and team workshops with focus on health\n Work and family\n• KITA – needs-oriented opening hours\n\n• 16 weeks of maternity leave with 100% continued pay, 15 days of paid paternity leave\n Advantages and offers\n• REKA checks with 20% discount\n\n• Discounted food in the staff restaurant\n\n• Discount parking / PubliBike subscriptions\n\n• Various employee discounts\n Precautions\n• Half coordination deduction according to BVG\n\n• Generous wage continuation in the event of illness and accident (3 months of wage continuation by employer to 100%, then daily allowances to 90%)",
+        "fr": "Tâches :\n• Vous assurez et développez la qualité des soins avec le développement spécialisé, la gestion des soins et l'éducation\n\n• Grâce à vos connaissances fondées sur des données probantes, vous apportez des lignes directrices, un encadrement et un soutien pratique dans la vie clinique quotidienne.\n\n• Dans le cadre de l'équipe de leadership partagée et du service de conseil interprofessionnel en soins palliatifs, vous façonnez activement la coopération avec\n\n• Vous conseillez et accompagnez les patients et leurs proches centrés sur la personne, en particulier dans des situations complexes\n\n• Vous accompagnez les équipes de supervision ainsi que les partenaires internes et externes du réseau avec votre expertise technique et contribuez à l'assurance de la qualité, à l'évaluation et aux audits\n\n• En outre, vous apportez votre expertise professionnelle directement dans la pratique infirmière et travaillez régulièrement dans les soins directs des patients.\n\nExigences\n• Vous êtes une infirmière qualifiée titulaire d'une maîtrise en sciences infirmières (MScN) et avez une formation avancée en soins palliatifs (DAS, HFPP soins palliatifs ou MAS soins palliatifs)\n\n• Une expérience professionnelle dans le domaine des soins palliatifs est souhaitée et vous apportez avantageusement connaissance et intérêt dans le domaine de l'oncologie\n\n• Les soins palliatifs précoces ne sont pas un mot étranger pour vous\n\n• Vous êtes impatient de façonner activement le département de soins palliatifs spécialisés et de percer de nouveaux horizons en soins palliatifs et en oncologie\n\nNous offrons:\nVacances et loisirs\n• Esprit. 26 jours de vacances\n\n• 7 jours gratuits supplémentaires, qui peuvent être payés sur demande\n\n• Possibilité d'acheter des vacances\n\n• Au service de nuit un crédit de temps de 30%\n Gestion de la santé au travail (BGM) – -ZÄME\n• Mesures visant à renforcer la santé\n\n• Ateliers sur les cadres et les équipes axés sur la santé\n Travail et famille\n• KITA – horaires d'ouverture axés sur les besoins\n\n• 16 semaines de congé de maternité avec 100% de salaire continu, 15 jours de congé de paternité payé\n Avantages et offres\n• Reka vérifie avec 20% de réduction\n\n• Restauration à prix réduit dans le restaurant du personnel\n\n• Parking à rabais / PubliBike abonnements\n\n• Divers rabais aux employés\n Précautions\n• Déduction pour demi-coordination selon BVG\n\n• Maintien d'un salaire généreux en cas de maladie et d'accident (3 mois de maintien d'un salaire par l'employeur à 100%, puis indemnités journalières à 90%)"
       },
       "location": "Lindenhofgruppe",
       "canton": "BE",
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/pflegeexpertin-pflegeexperte-cns-palliative-care/a32584f7-a00f-4bfb-874c-ebf30b60d7f4",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:21:55.570Z",
+      "crawledAt": "2026-09-07T23:43:10.538Z",
       "addressLocality": "Lindenhofgruppe",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4127,10 +4035,7 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://bewerben.lindenhofgruppe.ch/pflegeexperte-expertin-palliative-care-de-f2938.html?agid=20",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -4144,7 +4049,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:21:55.570Z"
+      "firstSeenAt": "2026-09-07T15:21:55.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-cns-palliative-care-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-c4d62952eb5b",
@@ -4160,7 +4076,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing specialist FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Infirmier/ère diplômé/e HES/HF"
@@ -4290,8 +4206,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "lindenhofgruppe-b775c646fc35",
@@ -4307,7 +4222,7 @@
       "companyDomain": "lindenhofgruppe.ch",
       "title": "Dipl. Pflegefachfrau/-mann FH/HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann FH/HF",
+        "it": "Dipl. Infermieristica professionale FH/HF",
         "en": "Dipl. Nursing professional FH/HF",
         "de": "Dipl. Pflegefachfrau/-mann FH/HF",
         "fr": "Dipl. Soins infirmiers FH/HF"
@@ -4352,8 +4267,7 @@
         "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
         "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e801eb"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4367,8 +4281,7 @@
           "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
           "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-52c3e0",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e801eb"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital-in12yg"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-10",
@@ -4394,8 +4307,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "constellium",
-  "assembledAt": "2026-09-07T15:18:01.162Z",
+  "assembledAt": "2026-09-07T23:40:07.656Z",
   "jobs": [
     {
       "id": "constellium-7282c877d445",
@@ -48,12 +48,13 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-in-Tagesarbeit-Vala-3940/1386046533/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:17:55.019Z",
+      "crawledAt": "2026-09-07T23:40:02.045Z",
+      "previousSlugs": [
+        "betriebsschlosser-in-tagesarbeit-constellium-ch",
+        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
+        "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-          "betriebsschlosser-in-tagesarbeit-constellium-ch"
-        ],
         "it": [
           "betriebsschlosser-in-tagesarbeit-constellium-ch",
           "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
@@ -62,15 +63,14 @@
         "en": [
           "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
         ],
+        "de": [
+          "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
+          "betriebsschlosser-in-tagesarbeit-constellium-ch"
+        ],
         "fr": [
           "betriebsschlosser-in-tagesarbeit-constellium-valais-steg"
         ]
       },
-      "previousSlugs": [
-        "betriebsschlosser-in-tagesarbeit-constellium-ch",
-        "betriebsschlosser-in-tagesarbeit-constellium-valais-steg",
-        "fabbriche-operaie-nel-lavoro-quotidiano-constellium-valais-steg"
-      ],
       "firstSeenAt": "2026-07-08T22:07:31.879Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -133,7 +133,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:17:54.233Z",
+      "crawledAt": "2026-09-07T23:40:01.431Z",
       "previousSlugs": [
         "fabbro-di-funzionamento-m-f-d-in-4-turni-1-constellium-valais-steg",
         "operation-locksmith-m-f-d-in-4-shift-operation-1-constellium-valais-steg",

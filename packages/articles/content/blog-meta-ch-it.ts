@@ -6028,6 +6028,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Deposito cauzionale e contestazione canoni a Ginevra',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Il deposito cauzionale non può superare tre mesi di pigione; la contestazione del canone deve avvenire entro 30 giorni presso l’autorità di conciliazione.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Edificio residenziale a Ginevra con cartello \'Affittasi\' e vista alpina',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Il 7 settembre 2026 a Lussemburgo, la Svizzera ha firmato una dichiarazione con Austria, Germania, Liechtenstein e Lussemburgo su pensioni, NCD e malattie neurodegenerative.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Panorama di Lussemburgo al tramonto, simbolo di un incontro svizzero‑europeo su pensioni e salute',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV in Svizzera: i costi non sono coperti',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fecondazione in vitro costa fino a 8\'000 franchi e non è rimborsata da LAMal. Un esperto la definisce «un\'ingiustizia» poiché l\'OMS riconosce l\'infertilità come malattia.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Visita medica presso una clinica specializzata in medicina della riproduzione, ambiente sanitario moderno e clinico in Svizzera',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promette compensazioni per il deposito di scorie',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti presenta a Fisibach il progetto del deposito Lägern Nord tra Zurigo e Argovia. Compensazioni promesse, decisione verso il 2030, stoccaggio dal 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Cantiere sotterraneo svizzero dove è in corso la costruzione di un deposito profondo per lo stoccaggio sicuro di rifiuti radioattivi',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Sanzioni ONU aggiornate: SESAM modificato il 7 settembre',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Il comitato ONU ha modificato le liste di sanzioni il 7 settembre 2026. La banca dati SESAM aggiorna automaticamente i provvedimenti restrittivi in Svizzera.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Banco di conformità amministrativa svizzera con documenti di sanzioni ONU e database SESAM sullo schermo.',
 };
 
 export default blogMetaChIt;

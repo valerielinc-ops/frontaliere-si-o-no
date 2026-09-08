@@ -6028,6 +6028,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Security deposit and fee dispute in Geneva',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'The security deposit may not exceed three months of rent; the dispute of the fee must take place within 30 days with the conciliation authority.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Apartment building in Geneva with a \'For Rent\' sign and Alpine backdrop',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Meeting of social ministers in Luxembourg: focus on pensions and health',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'On 7 September 2026 in Luxembourg, Switzerland signed a declaration with Austria, Germany, Liechtenstein and Luxembourg on pensions, NCDs and neurodegenerative diseases.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxembourg skyline at sunset, representing a Swiss‑European health and pension meeting',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in Switzerland: Costs are not covered',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'In vitro fertilization costs up to 8,000 francs and is not reimbursed by KVG. One expert calls it "an injustice" because the WHO recognizes infertility as a disease.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medical consultation at a fertility clinic, modern clinical healthcare setting in Switzerland',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promises compensation for waste storage',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti presents the project for the Lägern Nord depot between Zurich and Aargau in Fisibach. Promised compensations, decision towards 2030, storage from 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Swiss underground construction site showing deep geological storage facility for radioactive waste disposal',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Updated UN sanctions: SESAM amended on 7 September',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'The UN committee amended the sanctions lists on 7 September 2026. The SESAM database automatically updates the restrictive measures in Switzerland.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Swiss compliance desk with UN sanctions documents and SESAM database displayed on monitor.',
 };
 
 export default blogMetaChEn;

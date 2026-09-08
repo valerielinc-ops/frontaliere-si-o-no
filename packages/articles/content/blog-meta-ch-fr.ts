@@ -6028,6 +6028,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Caution et contestation des redevances à Genève',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Le dépôt de garantie ne peut excéder trois mois de loyer ; la contestation de la redevance doit avoir lieu dans les 30 jours auprès de l’autorité de conciliation.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Immeuble à Genève avec pancarte \'À louer\' et vue sur les Alpes',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Lussembourg: retraites et santé au menu des ministres',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Le 7 septembre 2026 à Luxembourg, la Suisse a signé une déclaration avec l\'Autriche, l\'Allemagne, le Liechtenstein et le Luxembourg sur les pensions, le NCD et les maladies neurodégénératives.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Vue de Luxembourg au coucher du soleil, illustrant une réunion suisse‑européenne sur les retraites et la santé',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV en Suisse : les coûts ne sont pas pris en charge',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fécondation in vitro coûte jusqu\'à 8 000 francs et n\'est pas remboursée par la KVG. Un expert qualifie cela d\'« injustice » car l\'OMS reconnaît l\'infertilité comme une maladie.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Consultation médicale dans une clinique de fertilité, environnement médical moderne en Suisse',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promet une compensation pour le stockage des déchets',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti présente le projet du dépôt Lägern Nord entre Zurich et Argovie à Fisibach. Compensation promise, décision vers 2030, stockage à partir de 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Site de construction souterrain suisse pour le stockage géologique profond des déchets radioactifs',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Sanctions de l\'ONU mises à jour : SESAM modifié le 7 septembre',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Le comité de l\'ONU a modifié les listes de sanctions le 7 septembre 2026. La base de données SESAM met automatiquement à jour les mesures restrictives en Suisse.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Bureau de conformité suisse avec documents de sanctions ONU et base de données SESAM affichée à l\'écran.',
 };
 
 export default blogMetaChFr;

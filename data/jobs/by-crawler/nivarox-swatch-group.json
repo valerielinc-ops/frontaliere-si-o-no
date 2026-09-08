@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-09-07T15:10:48.582Z",
+  "assembledAt": "2026-09-07T23:35:41.218Z",
   "jobs": [
     {
       "id": "company-7ubj4j",
@@ -73,7 +73,8 @@
       },
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage Praticien",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubj4i",
@@ -147,7 +148,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubj4h",
@@ -223,7 +224,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubj4f",
@@ -296,7 +297,8 @@
       },
       "addressLocality": "2026 The Swatch Group Ltd Remonter",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubj4e",
@@ -369,7 +371,8 @@
       },
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage opérateur",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubj4d",
@@ -442,7 +445,8 @@
       },
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage employ",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "crawlerMissStreak": 1
     }
   ]
 }

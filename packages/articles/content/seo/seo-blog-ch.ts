@@ -78254,6 +78254,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incontro-pensioni-salute-2026': {
+    title: 'Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute',
+    description: 'Scopri i risultati dell’incontro del 7 settembre 2026 a Lussemburgo su pensioni, malattie non trasmissibili e neurodegenerative, e le implicazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, incontro, ministri, sociali, lussemburgo',
+    ogTitle: 'Incontro su pensioni e salute a Lussemburgo',
+    ogDescription: 'Il 7 settembre 2026 i ministri svizzeri e dei paesi germanofoni hanno firmato una dichiarazione su pensioni, prevenzione NCD e malattie neurodegenerative. Scopri le implicazioni per la Svizzera.',
+    canonicalPath: '/articoli-svizzera/incontro-pensioni-salute-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute",
+      "description": "Scopri i risultati dell’incontro del 7 settembre 2026 a Lussemburgo su pensioni, malattie non trasmissibili e neurodegenerative, e le implicazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incontro-pensioni-salute-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lussemburgo al tramonto, simbolo di un incontro svizzero‑europeo su pensioni e salute"
+      },
+      "datePublished": "2026-09-07T19:26:55+00:00",
+      "dateModified": "2026-09-07T19:26:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/incontro-pensioni-salute-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fiv-costi-assicurazione-svizzera': {
+    title: 'FIV in Svizzera: i costi non sono coperti | Frontaliere Ticino',
+    description: 'La fecondazione in vitro costa fino a 8\'000 franchi in Svizzera e non è rimborsata da LAMal. Scopri i costi reali, le percentuali di accesso ai trattamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, sono, coperti, fecondazione',
+    ogTitle: 'FIV non rimborsata in Svizzera: costi e disparità di accesso',
+    ogDescription: 'La fecondazione in vitro costa fino a 8\'000 franchi in Svizzera e non è coperta da LAMal. Scopri i costi esatti, le percentuali di successo con altri trattamenti (50%) e come la medicina della riproduzione rimane inaccessibile per molte coppie',
+    canonicalPath: '/articoli-svizzera/fiv-costi-assicurazione-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FIV in Svizzera: i costi non sono coperti",
+      "description": "La fecondazione in vitro costa fino a 8'000 franchi in Svizzera e non è rimborsata da LAMal. Scopri i costi reali, le percentuali di accesso ai trattamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fiv-costi-assicurazione-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visita medica presso una clinica specializzata in medicina della riproduzione, ambiente sanitario moderno e clinico in Svizzera"
+      },
+      "datePublished": "2026-09-08T05:18:16+00:00",
+      "dateModified": "2026-09-08T05:18:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fiv-costi-assicurazione-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rosti-deposito-scorie-compensazioni': {
+    title: 'Rösti promette compensazioni per il deposito di scorie',
+    description: 'Rösti presenta il deposito Lägern Nord tra Argovia e Zurigo. Compensazioni promesse, votazione verso il 2030, stoccaggio dal 2050. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rösti, promette, compensazioni, deposito',
+    ogTitle: 'Rösti promette compensazioni per il deposito di scorie',
+    ogDescription: 'Albert Rösti ha presentato a Fisibach il progetto del deposito profondo Lägern Nord per scorie radioattive, tra Argovia e Zurigo. Compensazioni promesse per la regione; Consiglio federale deciderà verso il 2030 con votazione popolare prevista',
+    canonicalPath: '/articoli-svizzera/rosti-deposito-scorie-compensazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rösti promette compensazioni per il deposito di scorie",
+      "description": "Rösti presenta il deposito Lägern Nord tra Argovia e Zurigo. Compensazioni promesse, votazione verso il 2030, stoccaggio dal 2050. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rosti-deposito-scorie-compensazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere sotterraneo svizzero dove è in corso la costruzione di un deposito profondo per lo stoccaggio sicuro di rifiuti radioattivi"
+      },
+      "datePublished": "2026-09-08T05:29:01+00:00",
+      "dateModified": "2026-09-08T05:29:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rosti-deposito-scorie-compensazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sanzioni-onu-sesam-aggiornamento': {
+    title: 'Sanzioni ONU aggiornate: SESAM modificato il 7 settembre',
+    description: 'Il 7 settembre 2026 il comitato ONU ha modificato le liste di sanzioni. La banca dati SESAM è aggiornata automaticamente. Scopri implicazioni e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, aggiornate, sesam, modificato',
+    ogTitle: 'Sanzioni ONU aggiornate: SESAM modificato il 7 settembre 2026',
+    ogDescription: 'Il comitato di sanzioni ONU ha modificato le liste il 7 settembre 2026. La banca dati SESAM è stata aggiornata automaticamente. Scopri cosa significa per banche e imprese svizzere e come verificare la conformità alle nuove sanzioni internazionali.',
+    canonicalPath: '/articoli-svizzera/sanzioni-onu-sesam-aggiornamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni ONU aggiornate: SESAM modificato il 7 settembre",
+      "description": "Il 7 settembre 2026 il comitato ONU ha modificato le liste di sanzioni. La banca dati SESAM è aggiornata automaticamente. Scopri implicazioni e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-onu-sesam-aggiornamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banco di conformità amministrativa svizzera con documenti di sanzioni ONU e database SESAM sullo schermo."
+      },
+      "datePublished": "2026-09-08T05:41:38+00:00",
+      "dateModified": "2026-09-08T05:41:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-onu-sesam-aggiornamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

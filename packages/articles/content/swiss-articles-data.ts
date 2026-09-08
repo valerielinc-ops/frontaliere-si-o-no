@@ -18082,6 +18082,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'incontro-pensioni-salute-2026',
+    category: 'pensione',
+    date: '2026-09-07T19:26:55.771Z',
+    image: '/images/blog/incontro-pensioni-salute-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'fiv-costi-assicurazione-svizzera',
+    category: 'pratico',
+    date: '2026-09-08T05:18:16.130Z',
+    image: '/images/blog/fiv-costi-assicurazione-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'rosti-deposito-scorie-compensazioni',
+    category: 'novita',
+    date: '2026-09-08T05:29:01.090Z',
+    image: '/images/blog/rosti-deposito-scorie-compensazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'sanzioni-onu-sesam-aggiornamento',
+    category: 'novita',
+    date: '2026-09-08T05:41:37.997Z',
+    image: '/images/blog/sanzioni-onu-sesam-aggiornamento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

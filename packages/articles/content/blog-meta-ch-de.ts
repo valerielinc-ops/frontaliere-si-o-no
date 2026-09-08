@@ -6028,6 +6028,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-ginevra-deposito-cauzionale.title': 'Kaution und Anfechtung der Gebühren in Genf',
     'blog.article.affitti-ginevra-deposito-cauzionale.excerpt': 'Die Kaution darf drei Mietmonate nicht überschreiten; die Anfechtung der Miete muss innerhalb von 30 Tagen bei der Schlichtungsbehörde erfolgen.',
     'blog.article.affitti-ginevra-deposito-cauzionale.imageAlt': 'Wohngebäude in Genf mit \'Zu vermieten\'-Schild und Alpenblick',
+    'blog.article.incontro-pensioni-salute-2026.title': 'Sozialministertreffen in Luxemburg: Fokus auf Renten und Gesundheit',
+    'blog.article.incontro-pensioni-salute-2026.excerpt': 'Am 7. September 2026 unterzeichnete die Schweiz in Luxemburg eine Erklärung mit Österreich, Deutschland, Liechtenstein und Luxemburg zu Renten, NCDs und neurodegenerativen Erkrankungen.',
+    'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxemburg Skyline bei Sonnenuntergang, Symbol für ein schweizerisch‑europäisches Treffen zu Pensionen und Gesundheit',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in der Schweiz: Kosten werden nicht übernommen',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'Die In-vitro-Fertilisation kostet bis zu 8.000 Francs und wird von KVG nicht erstattet. Ein Experte bezeichnet dies als "Ungerechtigkeit", weil die WHO Unfruchtbarkeit als Krankheit anerkennt.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medizinische Untersuchung in einer Fertilitätsklinik, modernes klinisches Umfeld in der Schweiz',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti verspricht Entschädigung für die Abfalllagerung',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti präsentiert das Projekt für das Lagern Nord Depot zwischen Zürich und Aargau in Fisibach. Versprochene Entschädigungen, Entscheidung für 2030, Lagerung ab 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Schweizer Untergrundbaustelle für die tiefe geologische Lagerung von radioaktiven Abfällen',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Aktualisierte UN-Sanktionen: SESAM am 7. September geändert',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Der UN-Ausschuss hat die Sanktionslisten am 7. September 2026 geändert. Die SESAM-Datenbank aktualisiert automatisch die restriktiven Maßnahmen in der Schweiz.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Schweizer Compliance-Arbeitsplatz mit UN-Sanktionsdokumenten und SESAM-Datenbank auf dem Bildschirm.',
 };
 
 export default blogMetaChDe;

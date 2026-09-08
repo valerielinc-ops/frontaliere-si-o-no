@@ -1,91 +1,7 @@
 {
   "crawlerKey": "spital-oberengadin",
-  "assembledAt": "2026-09-07T15:08:50.040Z",
+  "assembledAt": "2026-09-07T23:30:18.823Z",
   "jobs": [
-    {
-      "id": "spital-oberengadin-8a79b735236c",
-      "slug": "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan",
-      "slugByLocale": {
-        "it": "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan",
-        "en": "specialist-doctor-specialist-pediatrician-spital-oberengadin-samedan",
-        "de": "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
-        "fr": "medecin-specialiste-pediatre-specialiste-spital-oberengadin-samedan"
-      },
-      "company": "Spital Oberengadin",
-      "companyKey": "spital-oberengadin",
-      "companyDomain": "spital-oberengadin.ch",
-      "title": "Fachärztin / Facharzt Pädiatrie",
-      "titleByLocale": {
-        "it": "Medico specialista / pediatra specializzato",
-        "en": "Specialist doctor / specialist pediatrician",
-        "de": "Fachärztin / Facharzt Pädiatrie",
-        "fr": "Médecin spécialiste / pédiatre spécialiste"
-      },
-      "description": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. PÄDIATRIE – deine Leidenschaft? Für unser Team Pädiatrie suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nPensum: 60-100%",
-      "descriptionByLocale": {
-        "it": "La Spital Oberengadin AG di Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base per la popolazione e gli ospiti con il più grande Spital Südbünden. Paediatria – la tua passione? Per la nostra squadra Pediatrics stiamo cercando 1. Dicembre 2026 o accordo uno o più\n\nPenso: 60-100 %",
-        "en": "The Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care for the population and guests with the largest Spital Südbünden. Paediatrics – your passion? For our team Pediatrics we are looking for 1. December 2026 or by agreement one or more\n\nPensum: 60-100 %",
-        "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. PÄDIATRIE – deine Leidenschaft? Für unser Team Pädiatrie suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nPensum: 60-100%",
-        "fr": "La Spital Oberengadin AG à Samedan, une société du groupe KSGR, est responsable des soins médicaux de base pour la population et les invités avec le plus grand Spital Südbünden. La pédiatrie – votre passion ? Pour notre équipe Pédiatrie que nous recherchons 1. Décembre 2026 ou par accord un ou plusieurs\n\nPensum: 60-100 %"
-      },
-      "needsRetranslation": false,
-      "location": "Samedan",
-      "canton": "GR",
-      "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4049648",
-      "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:40.786Z",
-      "addressLocality": "Samedan",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7503",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4049648",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4049648",
-      "pensumMin": 60,
-      "pensumMax": 100,
-      "pensum": "60 - 100%",
-      "previousSlugs": [
-        "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
-        "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
-          "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan"
-        ],
-        "en": [
-          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
-        ],
-        "fr": [
-          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
-        ]
-      },
-      "firstSeenAt": "2026-08-05T11:37:35.057Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "spital-oberengadin-9d65ab205672",
       "slug": "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan",
@@ -100,7 +16,7 @@
       "companyDomain": "spital-oberengadin.ch",
       "title": "Dipl. Pflegefachfrau / -mann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / -mann HF/FH",
+        "it": "Dipl. Infermiera / -mann HF/FH",
         "en": "Dipl. Nurse / -mann HF/FH",
         "de": "Dipl. Pflegefachfrau / -mann HF/FH",
         "fr": "Dipl. Infirmière / -mann HF/FH"
@@ -112,13 +28,12 @@
         "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. Für die interdisziplinäre Abteilung mit Schwerpunkt Kind, Wochenbett, Gynäkologie und Chirurgie suchen wir per sofort oder nach Vereinbarung eine/-n motivierte/-n\n\nIhre Aufgaben\n\n• familienzentrierte Pflege und Beratung von Wöchnerinnen und ihren Neugeborenen sowie von Kindern und deren Angehörigen\n• fachgerechte und patientenorientierte Pflege von gynäkologischen und chirurgischen Patient/-innen\n• Sicherstellung einer interprofessionellen und interdisziplinären Zusammenarbeit\n\nIhr Profil\n\n• Dipl. Pflegefachperson HF/FH (oder entsprechendes Diplom mit SRK-Anerkennung)\n• idealerweise Berufserfahrung im pädiatrischen Bereich und/oder mit Wöchnerinnen oder die Bereitschaft, sich in das vielfältige Fachgebiet einzuarbeiten\n• belastbare, flexible, verantwortungsbewusste Persönlichkeit mit hohem Qualitäts-bewusstsein\n• Deutsch in Wort und Schrift, Italienisch und weitere Sprachen von Vorteil\n\nPensum: 60-100%",
         "fr": "La Spital Oberengadin AG à Samedan, une société du groupe KSGR, est responsable des soins médicaux de base pour la population et les invités avec le plus grand Spital Südbünden. Pour le département interdisciplinaire avec un accent sur l'enfant, lit post-partum, gynécologie et chirurgie, nous sommes à la recherche d'un\n\nLeurs tâches\n\n• Soins et conseils axés sur la famille pour les femmes qui ont récemment accouché et leurs nouveau-nés, ainsi que pour les enfants et leurs proches\n• Soins professionnels et axés sur le patient pour les patients gynécologiques et chirurgicaux\n• Assurer la coopération interprofessionnelle et interdisciplinaire\n\nVotre profil\n\n• Dipl. Infirmière HF/FH (ou diplôme équivalent avec reconnaissance SRK)\n• une expérience de travail idéale dans le domaine de la pédiatrie et/ou avec les femmes qui ont accouché récemment ou qui sont disposées à se familiariser avec le domaine diversifié\n• Personnalité résiliente, flexible, responsable et de haute qualité\n• Allemand en paroles et en écriture, italien et autres langues bénéfiques\n\nPensum: 60-100 %"
       },
-      "needsRetranslation": true,
       "location": "Samedan",
       "canton": "GR",
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4049790",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:40.208Z",
+      "crawledAt": "2026-09-07T23:30:11.256Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -186,7 +101,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4050574",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:39.628Z",
+      "crawledAt": "2026-09-07T23:30:10.146Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -281,7 +196,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4050572",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:39.033Z",
+      "crawledAt": "2026-09-07T23:30:09.058Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -357,13 +272,12 @@
         "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Wir suchen wir per sofort oder nach Vereinbarung eine/n\n\nIhre Aufgaben\n\n• personelle und organisatorische Führung der Operationspflege\n• Sicherstellung eines reibungslosen operativen Betriebs sowie aktive Mitarbeit bei Eingriffen\n• Verantwortung für Planung, Koordination und enge interprofessionelle Zusammenarbeit mit allen relevanten Fachbereichen\n• Förderung einer positiven Teamkultur sowie Unterstützung der fachlichen Entwicklung von Mitarbeitenden\n\nIhr Profil\n\n• Ausbildung als Dipl. Fachfrau/-mann Operationstechnik HF oder gleichwertige Ausbildung mit SRK-Anerkennung\n• nachgewiesene mehrjährige Berufserfahrung\n• Führungserfahrung oder Bereitschaft zur Weiterentwicklung im Bereich Leadership und Management\n• hohe Fach-, Organisations- und Kommunikationskompetenz\n• belastbare und verantwortungsbewusste Persönlichkeit mit hohem Qualitäts-bewusstsein\n• Teamfähigkeit und Flexibilität (optimale Dienstleistungsbereitschaft je nach saisonaler Auslastung)\n• Deutsch in Wort und Schrift, Italienisch von Vorteil\n\nPensum: 80-100%",
         "fr": "La Spital Oberengadin AG de Samedan, une société du groupe KSGR, est responsable des soins médicaux de base ainsi que des soins d'urgence pour la population et les clients. Nous cherchons immédiatement ou par accord\n\nLeurs tâches\n\n• Gestion du personnel et de l'organisation de la maintenance des opérations\n• Assurer le bon fonctionnement et la participation active aux interventions\n• Responsabilité en matière de planification, de coordination et de coopération interprofessionnelle étroite avec tous les domaines spécialisés concernés\n• Promouvoir une culture d'équipe positive et soutenir le perfectionnement professionnel des employés\n\nVotre profil\n\n• Entraînement comme dipl. Technique chirurgicale spécialisée HF ou formation équivalente avec reconnaissance SRC\n• expérience professionnelle éprouvée de plusieurs années\n• Expérience en leadership ou volonté de faire progresser le leadership et la gestion\n• haut niveau de compétence technique, organisationnelle et de communication\n• personnalité résiliente et responsable avec une sensibilisation de haute qualité\n• Travail d'équipe et flexibilité (capacité optimale de fournir des services selon la charge saisonnière)\n• Allemand en parole et en écriture, Italien d'avantage\n\nPensum: 80-100 %"
       },
-      "needsRetranslation": true,
       "location": "Samedan",
       "canton": "GR",
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058444",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:38.443Z",
+      "crawledAt": "2026-09-07T23:30:08.097Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -445,7 +359,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058442",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:37.861Z",
+      "crawledAt": "2026-09-07T23:30:07.109Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -527,7 +441,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4056202",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:37.271Z",
+      "crawledAt": "2026-09-07T23:30:06.171Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -549,13 +463,11 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+        "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-          "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+          "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
@@ -611,7 +523,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4062247",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:36.689Z",
+      "crawledAt": "2026-09-07T23:30:05.071Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -679,7 +591,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4063367",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:08:35.973Z",
+      "crawledAt": "2026-09-07T23:30:04.224Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -701,13 +613,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
-        "chief-medical-officer-chief-medical-officer-membro-della-direzione-spital-oberengadin-samedan"
+        "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan",
-          "chief-medical-officer-chief-medical-officer-membro-della-direzione-spital-oberengadin-samedan"
+          "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
         ],
         "en": [
           "chefarztin-chefarzt-medizin-mitglied-der-geschaftsleitung-spital-oberengadin-samedan"
@@ -730,6 +640,172 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spital-oberengadin-59cd7edd12c0",
+      "slug": "mutua-spital-oberengadin-samedan",
+      "slugByLocale": {
+        "de": "hebamme-spital-oberengadin-samedan",
+        "it": "mutua-spital-oberengadin-samedan",
+        "en": "midwife-spital-oberengadin-samedan",
+        "fr": "une-sage-femme-spital-oberengadin-samedan"
+      },
+      "company": "Spital Oberengadin",
+      "companyKey": "spital-oberengadin",
+      "companyDomain": "spital-oberengadin.ch",
+      "title": "Hebamme",
+      "titleByLocale": {
+        "de": "Hebamme",
+        "it": "Mutua",
+        "en": "Midwife",
+        "fr": "Une sage-femme"
+      },
+      "description": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Pro Jahr begleiten wir rund 140 Geburten – individuell, professionell und mit Herz. Zur Verstärkung unseres Hebammenteams suchen wir per 01.10.2026 oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• individuelle und ganzheitliche Beratung, Betreuung und Unterstützung von werdenden Eltern vor, während und nach der Geburt\n• selbständige Leitung von Geburten nach neuesten wissenschaftlichen Erkenntnissen, im interprofessionellen Team\n• Nutzung von komplementärmedizinischen Angeboten\n• Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen\n\nDu bringst mit\n\n• Diplom als Hebamme BSc / HF / FH oder äquivalentes Diplom mit Schweizer Anerkennung\n• Berufserfahrung\n• Zuverlässigkeit, Belastbarkeit und Teamfähigkeit\n• kommunikative und empathische Persönlichkeit mit hoher Sozialkompetenz und Dienstleistungsorientierung\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), mündliche Italienischkenntnisse, weitere Sprachen von Vorteil\n\nPensum: 50-80%",
+      "descriptionByLocale": {
+        "de": "Die Spital Oberengadin AG, ein Betrieb der KSGR-Gruppe, ist in Samedan mit dem grössten Spital Südbündens für die medizinische Grundversorgung sowie für die Notfallversorgung der Bevölkerung und der Gäste verantwortlich. Pro Jahr begleiten wir rund 140 Geburten – individuell, professionell und mit Herz. Zur Verstärkung unseres Hebammenteams suchen wir per 01.10.2026 oder nach Vereinbarung eine\n\nDeine Aufgaben\n\n• individuelle und ganzheitliche Beratung, Betreuung und Unterstützung von werdenden Eltern vor, während und nach der Geburt\n• selbständige Leitung von Geburten nach neuesten wissenschaftlichen Erkenntnissen, im interprofessionellen Team\n• Nutzung von komplementärmedizinischen Angeboten\n• Mitwirkung bei präventiven, diagnostischen und therapeutischen Massnahmen\n\nDu bringst mit\n\n• Diplom als Hebamme BSc / HF / FH oder äquivalentes Diplom mit Schweizer Anerkennung\n• Berufserfahrung\n• Zuverlässigkeit, Belastbarkeit und Teamfähigkeit\n• kommunikative und empathische Persönlichkeit mit hoher Sozialkompetenz und Dienstleistungsorientierung\n• sehr gute Deutschkenntnisse (mündlich und schriftlich), mündliche Italienischkenntnisse, weitere Sprachen von Vorteil\n\nPensum: 50-80%",
+        "it": "Spital Oberengadin AG, società del Gruppo KSGR, è responsabile dell'assistenza medica di base e dell'assistenza di emergenza per la popolazione e gli ospiti di Samedan con il più grande ospedale della Germania meridionale. Ogni anno accompagniamo circa 140 nascite – individualmente, professionalmente e con cuore. Per rafforzare il nostro team di ostetriche, stiamo cercando un\n\nI tuoi compiti\n\n• consulenza individuale e olistica, cura e sostegno dei genitori in attesa prima, durante e dopo la nascita\n• gestione indipendente delle nascite secondo le ultime scoperte scientifiche, nel team interprofessionale\n• Utilizzo dei servizi medici complementari\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\n\nPorta con te\n\n• Diploma come ostetrica BSc / HF / FH o diploma equivalente con riconoscimento svizzero\n• Esperienza professionale\n• Affidabilità, resilienza e lavoro di squadra\n• personalità comunicativa ed empatica con elevata competenza sociale e orientamento di servizio\n• conoscenza molto buona del tedesco (verbale e scritto), conoscenza orale di italiano, altre lingue vantaggiose\n\nPenso: 50-80 %",
+        "en": "Spital Oberengadin AG, a company of the KSGR Group, is responsible for basic medical care and emergency care for the population and guests in Samedan with the largest hospital in southern Germany. Every year we accompany around 140 births – individually, professionally and with heart. In order to strengthen our midwife team, we are looking for a\n\nYour tasks\n\n• individual and holistic advice, care and support of expectant parents before, during and after the birth\n• independent management of births according to the latest scientific findings, in the interprofessional team\n• Use of complementary medical services\n• Participation in preventive, diagnostic and therapeutic measures\n\nYou bring with you\n\n• Diploma as midwife BSc / HF / FH or equivalent diploma with Swiss recognition\n• Professional experience\n• Reliability, resilience and teamwork\n• communicative and empathetic personality with high social competence and service orientation\n• very good knowledge of German (verbal and written), oral knowledge of Italian, other languages advantageous\n\nPensum: 50-80 %",
+        "fr": "Spital Oberengadin AG, une société du groupe KSGR, est responsable des soins médicaux de base et des soins d'urgence pour la population et les invités à Samedan avec le plus grand hôpital du sud de l'Allemagne. Chaque année, nous accompagnons environ 140 naissances – individuellement, professionnellement et avec cœur. Pour renforcer notre équipe de sages-femmes, nous recherchons\n\nVos tâches\n\n• conseils individuels et holistiques, soins et soutien des parents attendus avant, pendant et après la naissance\n• gestion indépendante des naissances selon les dernières découvertes scientifiques, dans l'équipe interprofessionnelle\n• Utilisation de services médicaux complémentaires\n• Participation à des mesures préventives, diagnostiques et thérapeutiques\n\nTu amènes avec toi\n\n• Diplôme de sage-femme BSc / HF / FH ou diplôme équivalent avec reconnaissance suisse\n• Expérience professionnelle\n• Fiabilité, résilience et travail d'équipe\n• personnalité communicative et empathique avec une haute compétence sociale et une orientation de service\n• très bonne connaissance de l'allemand (verbal et écrit), connaissance orale de l'italien, autres langues avantageuses\n\nPensum: 50-80 %"
+      },
+      "location": "Samedan",
+      "canton": "GR",
+      "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4064056",
+      "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T23:30:03.228Z",
+      "addressLocality": "Samedan",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7503",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4064056",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4064056",
+      "pensumMin": 50,
+      "pensumMax": 80,
+      "pensum": "50 - 80%",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-07T23:30:03.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "hebamme-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "hebamme-spital-oberengadin-samedan"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-spital-oberengadin-samedan"
+      ]
+    },
+    {
+      "id": "spital-oberengadin-8a79b735236c",
+      "slug": "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan",
+      "slugByLocale": {
+        "it": "medico-specialista-pediatra-specializzato-spital-oberengadin-samedan",
+        "en": "specialist-doctor-specialist-pediatrician-spital-oberengadin-samedan",
+        "de": "facharztin-facharzt-padiatrie-spital-oberengadin-samedan",
+        "fr": "medecin-specialiste-pediatre-specialiste-spital-oberengadin-samedan"
+      },
+      "company": "Spital Oberengadin",
+      "companyKey": "spital-oberengadin",
+      "companyDomain": "spital-oberengadin.ch",
+      "title": "Fachärztin / Facharzt Pädiatrie",
+      "titleByLocale": {
+        "it": "Medico specialista / pediatra specializzato",
+        "en": "Specialist doctor / specialist pediatrician",
+        "de": "Fachärztin / Facharzt Pädiatrie",
+        "fr": "Médecin spécialiste / pédiatre spécialiste"
+      },
+      "description": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. PÄDIATRIE – deine Leidenschaft? Für unser Team Pädiatrie suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nPensum: 60-100%",
+      "descriptionByLocale": {
+        "it": "La Spital Oberengadin AG di Samedan, società del Gruppo KSGR, è responsabile dell'assistenza medica di base per la popolazione e gli ospiti con il più grande Spital Südbünden. Paediatria – la tua passione? Per la nostra squadra Pediatrics stiamo cercando 1. Dicembre 2026 o accordo uno o più\n\nPenso: 60-100 %",
+        "en": "The Spital Oberengadin AG in Samedan, a company of the KSGR Group, is responsible for basic medical care for the population and guests with the largest Spital Südbünden. Paediatrics – your passion? For our team Pediatrics we are looking for 1. December 2026 or by agreement one or more\n\nPensum: 60-100 %",
+        "de": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. PÄDIATRIE – deine Leidenschaft? Für unser Team Pädiatrie suchen wir per 1. Dezember 2026 oder nach Vereinbarung eine/n\n\nPensum: 60-100%",
+        "fr": "La Spital Oberengadin AG à Samedan, une société du groupe KSGR, est responsable des soins médicaux de base pour la population et les invités avec le plus grand Spital Südbünden. La pédiatrie – votre passion ? Pour notre équipe Pédiatrie que nous recherchons 1. Décembre 2026 ou par accord un ou plusieurs\n\nPensum: 60-100 %"
+      },
+      "needsRetranslation": false,
+      "location": "Samedan",
+      "canton": "GR",
+      "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4049648",
+      "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T15:08:40.786Z",
+      "addressLocality": "Samedan",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7503",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-05",
+      "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4049648",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4049648",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60 - 100%",
+      "previousSlugs": [
+        "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "facharztin-facharzt-padiatrie-spital-oberengadin-samedan"
+        ]
+      },
+      "firstSeenAt": "2026-08-05T11:37:35.057Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
