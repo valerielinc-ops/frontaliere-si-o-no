@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-09-07T23:31:43.033Z",
+  "assembledAt": "2026-09-08T13:40:38.372Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -41,7 +41,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-francese-variante-regionale-svizzera-tsmg-lausanne-dcde88fa",
         "en": "ai-speech-tester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
-        "de": "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
+        "de": "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne",
         "fr": "testeur-vocal-ia-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa"
       },
       "id": "tsmg-275fdfc38cee",
@@ -65,6 +65,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
           "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne"
         ],
         "it": [
@@ -73,7 +74,8 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa",
-        "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne"
+        "tester-conversazioni-vocali-ai-franzosischer-muttersprachler-regionalvariante-schweiz-tsmg-lausanne",
+        "ki-sprachtester-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa"
       ]
     },
     {
@@ -115,7 +117,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-tedesco-variante-regionale-svizzera-tsmg-zurich-2e277a91",
         "en": "ai-speech-tester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
-        "de": "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
+        "de": "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich",
         "fr": "testeur-vocal-ia-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91"
       },
       "id": "tsmg-6a04dffef213",
@@ -139,6 +141,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
           "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich"
         ],
         "it": [
@@ -147,7 +150,8 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91",
-        "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich"
+        "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-zurich",
+        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91"
       ]
     },
     {
@@ -189,7 +193,7 @@
       "slugByLocale": {
         "it": "tester-conversazioni-vocali-ai-oratore-nativo-tedesco-variante-regionale-svizzera-tsmg-basel-929ed5b4",
         "en": "ai-speech-tester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
-        "de": "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
+        "de": "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel",
         "fr": "testeur-vocal-ia-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4"
       },
       "id": "tsmg-e6915a873efe",
@@ -213,6 +217,7 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "de": [
+          "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
           "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel"
         ],
         "it": [
@@ -221,7 +226,8 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4",
-        "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel"
+        "tester-conversazioni-vocali-ai-deutscher-muttersprachler-regionalvariante-schweiz-tsmg-basel",
+        "ki-sprachtester-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4"
       ]
     },
     {
@@ -612,7 +618,7 @@
       "titleByLocale": {
         "it": "Driver Autonomo del veicolo (Bertha Certified)",
         "en": "Autonomous Vehicle Driver (Bertha Certified)",
-        "de": "Autonomer Fahrzeugführer (Bertha zertifiziert)",
+        "de": "Autonomous Vehicle Driver (Bertha Certified)",
         "fr": "Conducteur de véhicule autonome (certifié Bertha)"
       },
       "descriptionByLocale": {
@@ -655,7 +661,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (T1 Certified)",
@@ -1067,7 +1074,7 @@
       "slugByLocale": {
         "it": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-veicoli-autonomi-tsmg-zurich-0a75e5f9",
         "en": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9",
-        "de": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9",
+        "de": "autonomes-fahrzeug-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9",
         "fr": "exploitation-autonome-des-vehicules-plomb-avos-exploitation-plomb-des-vehicules-autonomes-tsmg-zurich-0a75e5f9"
       },
       "id": "tsmg-c175c3aa8bb7",
@@ -1088,6 +1095,9 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9"
+        ],
+        "de": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9"
         ],
         "fr": [
@@ -1138,7 +1148,7 @@
       "slugByLocale": {
         "it": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-veicoli-autonomi-tsmg-bern-b751ffc4",
         "en": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4",
-        "de": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4",
+        "de": "autonomes-fahrzeug-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4",
         "fr": "exploitation-autonome-des-vehicules-plomb-avos-exploitation-plomb-des-vehicules-autonomes-tsmg-bern-b751ffc4"
       },
       "id": "tsmg-13dcbffad2bc",
@@ -1161,13 +1171,17 @@
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
         ],
+        "de": [
+          "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
+        ],
         "fr": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
         ]
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1208,7 +1222,7 @@
       "slugByLocale": {
         "it": "autonoma-veicolo-operazioni-piombo-avos-operazioni-piombo-veicoli-autonomi-tsmg-st-gallen-dbf2a6d0",
         "en": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0",
-        "de": "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0",
+        "de": "autonomes-fahrzeug-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0",
         "fr": "exploitation-autonome-des-vehicules-plomb-avos-exploitation-plomb-des-vehicules-autonomes-tsmg-st-gallen-dbf2a6d0"
       },
       "id": "tsmg-53341a710fd5",
@@ -1231,13 +1245,17 @@
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
         ],
+        "de": [
+          "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
+        ],
         "fr": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
         ]
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1334,7 +1352,7 @@
       "validThrough": "",
       "description": "TSMG cerca Autonomous Vehicle Safety Operator (Safety Driver) per attivita operative sul territorio in Bern. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations.\n- Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions.\n- Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols.\n- Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures.\n- Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation.\n- Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready.\n- Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift.\n- Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams.\n- Support overall fleet readiness by ensuring vehicles remain available for daily operations.\n- Record disengagements, observations, and operational events using company reporting tools.\n- Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations.\n- Assist engineering teams by documenting situations that improve the performance of autonomous driving systems.\n- Maintain accurate operational records and complete all required documentation.\n- Follow all operational procedures, safety protocols, and regulatory requirements.\n- Participate in ongoing training, certification, and safety refreshers.\n- Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations.\n- Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations.\n\n## Requirements\n\n- Valid European driver's license.\n- Minimum 5 years of driving experience.\n- Clean driving record with no major violations.\n- Ability to successfully pass a background verification (BGV).\n- Ability to pass pre-employment and random drug and alcohol screening.\n- Excellent situational awareness and defensive driving skills.\n- Comfortable driving for extended periods in urban and highway environments.\n- Ability to follow detailed operational procedures with high attention to detail.\n- Strong communication and reporting skills.\n- Upper-Intermediate English.\n- Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester.\n- Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations.\n- Familiarity with electric vehicles (EVs).\n- Experience working in shift-based or 24/7 operational environments.\n\n## What We're Looking For\n\nSuccessful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations.\n\nYou do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles.\n\n## What We Offer\n\n- Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs.\n- Comprehensive training on autonomous driving systems and operational procedures.\n- Long-term career opportunities within the rapidly growing autonomous mobility industry.\n- Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies.\n- International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe.\n- A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services.",
       "titleByLocale": {
-        "it": "Autonomo operatore di sicurezza del veicolo (autista di sicurezza)",
+        "it": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "en": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "de": "Sicherheitsbediener für autonome Fahrzeuge (Sicherheitsfahrer)",
         "fr": "Autonomous Vehicle Safety Opérateur (Safety Driver)"
@@ -1346,7 +1364,7 @@
         "fr": "TSMG recrute Autonomous Vehicle Safety Operator (Safety Driver) pour des activites terrain a Bern. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet. About the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities. ## Vue d'ensemble du projet ## Key\n• Responsibilities - Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations. - Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions. - Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols. - Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures. - Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation. - Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready. - Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift. - Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams. - Support overall fleet readiness by ensuring vehicles remain available for daily operations. - Record disengagements, observations, and operational events using company reporting tools. - Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations. - Assist engineering teams by documenting situations that improve the performance of autonomous driving systems. - Maintain accurate operational records and complete all required documentation. - Follow all operational procedures, safety protocols, and regulatory requirements. - Participate in ongoing training, certification, and safety refreshers. - Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations. - Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations. ##\n• Requirements - Valid European driver's license. - Minimum 5 years of driving experience. - Clean driving record with no major violations. - Ability to successfully pass a background verification (BGV). - Ability to pass pre-employment and random drug and alcohol screening. - Excellent situational awareness and defensive driving skills. - Comfortable driving for extended periods in urban and highway environments. - Ability to follow detailed operational procedures with high attention to detail. - Strong communication and reporting skills. - Upper-Intermediate English. - Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester. - Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations. - Familiarity with electric vehicles (EVs). - Experience working in shift-based or 24/7 operational environments. ## What We're Looking For Successful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations. You do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles. ## What We Offer - Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs. - Comprehensive training on autonomous driving systems and operational procedures. - Long-term career opportunities within the rapidly growing autonomous mobility industry. - Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies. - International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe. - A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services."
       },
       "slugByLocale": {
-        "it": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
+        "it": "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern",
         "en": "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
         "de": "sicherheitsbediener-fur-autonome-fahrzeuge-sicherheitsfahrer-tsmg-bern-1af674c1",
         "fr": "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
@@ -1369,17 +1387,18 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
         ]
       },
       "previousSlugs": [
-        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1406,7 +1425,7 @@
       "validThrough": "",
       "description": "TSMG cerca Autonomous Vehicle Safety Operator (Safety Driver) per attivita operative sul territorio in Zurich. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations.\n- Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions.\n- Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols.\n- Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures.\n- Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation.\n- Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready.\n- Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift.\n- Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams.\n- Support overall fleet readiness by ensuring vehicles remain available for daily operations.\n- Record disengagements, observations, and operational events using company reporting tools.\n- Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations.\n- Assist engineering teams by documenting situations that improve the performance of autonomous driving systems.\n- Maintain accurate operational records and complete all required documentation.\n- Follow all operational procedures, safety protocols, and regulatory requirements.\n- Participate in ongoing training, certification, and safety refreshers.\n- Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations.\n- Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations.\n\n## Requirements\n\n- Valid European driver's license.\n- Minimum 5 years of driving experience.\n- Clean driving record with no major violations.\n- Ability to successfully pass a background verification (BGV).\n- Ability to pass pre-employment and random drug and alcohol screening.\n- Excellent situational awareness and defensive driving skills.\n- Comfortable driving for extended periods in urban and highway environments.\n- Ability to follow detailed operational procedures with high attention to detail.\n- Strong communication and reporting skills.\n- Upper-Intermediate English.\n- Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester.\n- Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations.\n- Familiarity with electric vehicles (EVs).\n- Experience working in shift-based or 24/7 operational environments.\n\n## What We're Looking For\n\nSuccessful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations.\n\nYou do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles.\n\n## What We Offer\n\n- Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs.\n- Comprehensive training on autonomous driving systems and operational procedures.\n- Long-term career opportunities within the rapidly growing autonomous mobility industry.\n- Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies.\n- International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe.\n- A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services.",
       "titleByLocale": {
-        "it": "Autonomo operatore di sicurezza del veicolo (autista di sicurezza)",
+        "it": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "en": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "de": "Sicherheitsbediener für autonome Fahrzeuge (Sicherheitsfahrer)",
         "fr": "Autonomous Vehicle Safety Opérateur (Safety Driver)"
@@ -1418,7 +1437,7 @@
         "fr": "TSMG recrute Autonomous Vehicle Safety Operator (Safety Driver) pour des activites terrain a Zurich. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet. About the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities. ## Vue d'ensemble du projet ## Key\n• Responsibilities - Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations. - Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions. - Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols. - Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures. - Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation. - Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready. - Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift. - Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams. - Support overall fleet readiness by ensuring vehicles remain available for daily operations. - Record disengagements, observations, and operational events using company reporting tools. - Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations. - Assist engineering teams by documenting situations that improve the performance of autonomous driving systems. - Maintain accurate operational records and complete all required documentation. - Follow all operational procedures, safety protocols, and regulatory requirements. - Participate in ongoing training, certification, and safety refreshers. - Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations. - Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations. ##\n• Requirements - Valid European driver's license. - Minimum 5 years of driving experience. - Clean driving record with no major violations. - Ability to successfully pass a background verification (BGV). - Ability to pass pre-employment and random drug and alcohol screening. - Excellent situational awareness and defensive driving skills. - Comfortable driving for extended periods in urban and highway environments. - Ability to follow detailed operational procedures with high attention to detail. - Strong communication and reporting skills. - Upper-Intermediate English. - Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester. - Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations. - Familiarity with electric vehicles (EVs). - Experience working in shift-based or 24/7 operational environments. ## What We're Looking For Successful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations. You do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles. ## What We Offer - Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs. - Comprehensive training on autonomous driving systems and operational procedures. - Long-term career opportunities within the rapidly growing autonomous mobility industry. - Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies. - International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe. - A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services."
       },
       "slugByLocale": {
-        "it": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
+        "it": "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich",
         "en": "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
         "de": "sicherheitsbediener-fur-autonome-fahrzeuge-sicherheitsfahrer-tsmg-zurich-b01b92ce",
         "fr": "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce"
@@ -1441,17 +1460,18 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
+          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
         ]
       },
       "previousSlugs": [
-        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
+        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1478,7 +1498,7 @@
       "validThrough": "",
       "description": "TSMG cerca Autonomous Vehicle Safety Operator (Safety Driver) per attivita operative sul territorio in St. Gallen. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations.\n- Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions.\n- Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols.\n- Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures.\n- Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation.\n- Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready.\n- Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift.\n- Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams.\n- Support overall fleet readiness by ensuring vehicles remain available for daily operations.\n- Record disengagements, observations, and operational events using company reporting tools.\n- Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations.\n- Assist engineering teams by documenting situations that improve the performance of autonomous driving systems.\n- Maintain accurate operational records and complete all required documentation.\n- Follow all operational procedures, safety protocols, and regulatory requirements.\n- Participate in ongoing training, certification, and safety refreshers.\n- Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations.\n- Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations.\n\n## Requirements\n\n- Valid European driver's license.\n- Minimum 5 years of driving experience.\n- Clean driving record with no major violations.\n- Ability to successfully pass a background verification (BGV).\n- Ability to pass pre-employment and random drug and alcohol screening.\n- Excellent situational awareness and defensive driving skills.\n- Comfortable driving for extended periods in urban and highway environments.\n- Ability to follow detailed operational procedures with high attention to detail.\n- Strong communication and reporting skills.\n- Upper-Intermediate English.\n- Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester.\n- Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations.\n- Familiarity with electric vehicles (EVs).\n- Experience working in shift-based or 24/7 operational environments.\n\n## What We're Looking For\n\nSuccessful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations.\n\nYou do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles.\n\n## What We Offer\n\n- Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs.\n- Comprehensive training on autonomous driving systems and operational procedures.\n- Long-term career opportunities within the rapidly growing autonomous mobility industry.\n- Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies.\n- International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe.\n- A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services.",
       "titleByLocale": {
-        "it": "Autonomo operatore di sicurezza del veicolo (autista di sicurezza)",
+        "it": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "en": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "de": "Sicherheitsbediener für autonome Fahrzeuge (Sicherheitsfahrer)",
         "fr": "Autonomous Vehicle Safety Opérateur (Safety Driver)"
@@ -1490,7 +1510,7 @@
         "fr": "TSMG recrute Autonomous Vehicle Safety Operator (Safety Driver) pour des activites terrain a St. Gallen. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet. About the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities. ## Vue d'ensemble du projet ## Key\n• Responsibilities - Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations. - Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions. - Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols. - Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures. - Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation. - Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready. - Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift. - Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams. - Support overall fleet readiness by ensuring vehicles remain available for daily operations. - Record disengagements, observations, and operational events using company reporting tools. - Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations. - Assist engineering teams by documenting situations that improve the performance of autonomous driving systems. - Maintain accurate operational records and complete all required documentation. - Follow all operational procedures, safety protocols, and regulatory requirements. - Participate in ongoing training, certification, and safety refreshers. - Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations. - Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations. ##\n• Requirements - Valid European driver's license. - Minimum 5 years of driving experience. - Clean driving record with no major violations. - Ability to successfully pass a background verification (BGV). - Ability to pass pre-employment and random drug and alcohol screening. - Excellent situational awareness and defensive driving skills. - Comfortable driving for extended periods in urban and highway environments. - Ability to follow detailed operational procedures with high attention to detail. - Strong communication and reporting skills. - Upper-Intermediate English. - Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester. - Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations. - Familiarity with electric vehicles (EVs). - Experience working in shift-based or 24/7 operational environments. ## What We're Looking For Successful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations. You do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles. ## What We Offer - Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs. - Comprehensive training on autonomous driving systems and operational procedures. - Long-term career opportunities within the rapidly growing autonomous mobility industry. - Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies. - International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe. - A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services."
       },
       "slugByLocale": {
-        "it": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
+        "it": "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen",
         "en": "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
         "de": "sicherheitsbediener-fur-autonome-fahrzeuge-sicherheitsfahrer-tsmg-st-gallen-d850f303",
         "fr": "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303"
@@ -1513,17 +1533,18 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
+          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
+        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -1550,7 +1571,7 @@
       "validThrough": "",
       "description": "TSMG cerca Autonomous Vehicle Safety Operator (Safety Driver) per attivita operative sul territorio in Geneva. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nAbout the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities.\n\n## Panoramica del progetto\n\n## Key Responsibilities\n\n- Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations.\n- Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions.\n- Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols.\n- Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures.\n- Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation.\n- Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready.\n- Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift.\n- Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams.\n- Support overall fleet readiness by ensuring vehicles remain available for daily operations.\n- Record disengagements, observations, and operational events using company reporting tools.\n- Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations.\n- Assist engineering teams by documenting situations that improve the performance of autonomous driving systems.\n- Maintain accurate operational records and complete all required documentation.\n- Follow all operational procedures, safety protocols, and regulatory requirements.\n- Participate in ongoing training, certification, and safety refreshers.\n- Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations.\n- Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations.\n\n## Requirements\n\n- Valid European driver's license.\n- Minimum 5 years of driving experience.\n- Clean driving record with no major violations.\n- Ability to successfully pass a background verification (BGV).\n- Ability to pass pre-employment and random drug and alcohol screening.\n- Excellent situational awareness and defensive driving skills.\n- Comfortable driving for extended periods in urban and highway environments.\n- Ability to follow detailed operational procedures with high attention to detail.\n- Strong communication and reporting skills.\n- Upper-Intermediate English.\n- Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester.\n- Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations.\n- Familiarity with electric vehicles (EVs).\n- Experience working in shift-based or 24/7 operational environments.\n\n## What We're Looking For\n\nSuccessful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations.\n\nYou do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles.\n\n## What We Offer\n\n- Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs.\n- Comprehensive training on autonomous driving systems and operational procedures.\n- Long-term career opportunities within the rapidly growing autonomous mobility industry.\n- Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies.\n- International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe.\n- A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services.",
       "titleByLocale": {
-        "it": "Autonomo operatore di sicurezza del veicolo (autista di sicurezza)",
+        "it": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "en": "Autonomous Vehicle Safety Operator (Safety Driver)",
         "de": "Sicherheitsbediener für autonome Fahrzeuge (Sicherheitsfahrer)",
         "fr": "Autonomous Vehicle Safety Opérateur (Safety Driver)"
@@ -1562,7 +1583,7 @@
         "fr": "TSMG recrute Autonomous Vehicle Safety Operator (Safety Driver) pour des activites terrain a Geneva. Ci-dessous tu trouves la description complete Lever avec responsabilites, exigences et details pratiques du projet. About the Role We are looking for Autonomous Vehicle Safety Operators (Safety Drivers) to support the testing, validation, commercial deployment, and scaling of autonomous vehicle (AV) and robotaxi fleets across Europe. As an Autonomous Vehicle Safety Operator, you will play a critical role in ensuring the safe operation of self-driving vehicles during testing, pilot programs, and commercial autonomous ride-hailing services. Working closely with engineering, fleet operations, and depot teams, you will monitor vehicle behaviour, ensure compliance with operational procedures, and safely intervene whenever required. No previous autonomous vehicle experience is required. We provide comprehensive training on autonomous driving systems, operational procedures, and safety protocols. We are looking for experienced, responsible drivers with excellent situational awareness who are excited to contribute to the future of mobility. This position offers the opportunity to work with some of the world's most advanced autonomous vehicle technologies, supporting robotaxi launches, fleet expansion, and commercial autonomous transportation across multiple European cities. ## Vue d'ensemble du projet ## Key\n• Responsibilities - Safely operate and monitor autonomous vehicles during testing, validation, and commercial robotaxi fleet operations. - Continuously supervise the performance of the self-driving system while maintaining full awareness of surrounding traffic conditions. - Take immediate manual control of the vehicle whenever required by operational procedures or safety protocols. - Complete assigned routes while ensuring compliance with local traffic regulations and company operating procedures. - Support the successful deployment of autonomous ride-hailing services by maintaining safe and consistent vehicle operation. - Conduct pre-trip and post-trip inspections to ensure each autonomous vehicle is deployment-ready. - Verify vehicle cleanliness and inspect cameras, sensors, mirrors, lighting, and other critical systems before each shift. - Report any damage, abnormal vehicle behaviour, or maintenance concerns to depot and technical teams. - Support overall fleet readiness by ensuring vehicles remain available for daily operations. - Record disengagements, observations, and operational events using company reporting tools. - Provide clear, structured feedback on vehicle behaviour, traffic conditions, and unusual scenarios encountered during testing or commercial operations. - Assist engineering teams by documenting situations that improve the performance of autonomous driving systems. - Maintain accurate operational records and complete all required documentation. - Follow all operational procedures, safety protocols, and regulatory requirements. - Participate in ongoing training, certification, and safety refreshers. - Maintain professionalism when interacting with members of the public during autonomous vehicle testing and robotaxi operations. - Support continuous improvement initiatives aimed at increasing the safety and efficiency of autonomous fleet operations. ##\n• Requirements - Valid European driver's license. - Minimum 5 years of driving experience. - Clean driving record with no major violations. - Ability to successfully pass a background verification (BGV). - Ability to pass pre-employment and random drug and alcohol screening. - Excellent situational awareness and defensive driving skills. - Comfortable driving for extended periods in urban and highway environments. - Ability to follow detailed operational procedures with high attention to detail. - Strong communication and reporting skills. - Upper-Intermediate English. - Experience as a professional driver, fleet driver, chauffeur, ride-hailing driver, or vehicle tester. - Previous experience supporting automotive testing, ADAS validation, mapping, or fleet operations. - Familiarity with electric vehicles (EVs). - Experience working in shift-based or 24/7 operational environments. ## What We're Looking For Successful Autonomous Vehicle Safety Operators are calm under pressure, highly observant, and committed to safety. They enjoy working with emerging technologies and understand the importance of consistency, accuracy, and procedural compliance in supporting autonomous vehicle deployment and robotaxi fleet operations. You do not need previous experience working with autonomous vehicles - our comprehensive training program will prepare you to safely support the testing, deployment, and commercial operation of self-driving vehicles. ## What We Offer - Opportunity to work on some of Europe's most advanced autonomous vehicle and robotaxi programs. - Comprehensive training on autonomous driving systems and operational procedures. - Long-term career opportunities within the rapidly growing autonomous mobility industry. - Exposure to cutting-edge robotics, artificial intelligence, and autonomous transportation technologies. - International projects supporting robotaxi launches, new city deployments, and fleet scaling across Europe. - A collaborative environment working alongside engineering, operations, and technical specialists developing the future of autonomous ride-hailing services."
       },
       "slugByLocale": {
-        "it": "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
+        "it": "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva",
         "en": "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
         "de": "sicherheitsbediener-fur-autonome-fahrzeuge-sicherheitsfahrer-tsmg-geneva-ecf0515c",
         "fr": "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c"
@@ -1585,17 +1606,18 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
+          "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
         ]
       },
       "previousSlugs": [
-        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
+        "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous vehicle Test Operator",
@@ -2049,8 +2071,7 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-zurich-6684934e"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations) / Depotmitarbeiter autonome Fahrzeuge",
@@ -2121,8 +2142,7 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-bern-bcaea0d6"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations) / Depotmitarbeiter autonome Fahrzeuge",
@@ -2182,6 +2202,7 @@
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
+      "retranslationAttempts": 0,
       "previousSlugsByLocale": {
         "it": [
           "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-st-gallen-eb355dab"
@@ -2192,9 +2213,7 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-st-gallen-eb355dab"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      ]
     },
     {
       "title": "Autista / Addetto raccolta dati in Chalais, Switzerland",
@@ -2280,7 +2299,8 @@
       },
       "slugDisambiguator": "c23075ac",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -2390,7 +2410,8 @@
       },
       "slugDisambiguator": "dfa1adf1",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -2459,7 +2480,8 @@
       "streetAddress": "",
       "postalCode": "9200",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -2528,7 +2550,8 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -2597,7 +2620,8 @@
       "streetAddress": "",
       "postalCode": "8500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -2693,7 +2717,8 @@
       },
       "slugDisambiguator": "061cc5b5",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -2789,7 +2814,8 @@
       },
       "slugDisambiguator": "661cb622",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -2858,7 +2884,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -2927,7 +2954,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -2996,7 +3024,8 @@
       "streetAddress": "",
       "postalCode": "9500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -3065,7 +3094,8 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -3138,7 +3168,8 @@
       "streetAddress": "",
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -3240,7 +3271,8 @@
       },
       "slugDisambiguator": "677ef911",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -3331,7 +3363,8 @@
       "streetAddress": "",
       "postalCode": "7000",
       "firstSeenAt": "2026-05-17T11:16:47.206Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -3400,7 +3433,8 @@
       "streetAddress": "",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -3469,7 +3503,8 @@
       "streetAddress": "",
       "postalCode": "6003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -3538,7 +3573,8 @@
       "streetAddress": "",
       "postalCode": "8400",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -3933,7 +3969,7 @@
         "it": "Driver di sicurezza",
         "en": "Safety Driver",
         "de": "Sicherheitsfahrer",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Safety Driver per attivita che opera sul teritorio a St. Gallen. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nStiamo cercando Autonomous Vehicle Safety Operators (Safety Drivers) per supportare i test, la validazione, la distribuzione commerciale e il sollevamento delle flotte di veicoli autonomi (AV) e robotassi in Europa. Come operatore di sicurezza del veicolo stand-alone, si svolgerà un ruolo chiave nel funzionamento sicuro dei veicoli autonomi e veicoli auto-guida durante i programmi di prova, piloti e servizi commerciali di corsa indipendenti. In collaborazione con i team di engineering, Fleet Operations e Depot Operations, monitorare il comportamento del veicolo, applicare le procedure operative e intervenire manualmente quando necessario. Non è richiesta alcuna esperienza preliminare con veicoli autonomi. La formazione completa sarà fornita su sistemi di guida autonomi, procedure operative e protocolli di sicurezza. Cerchiamo piloti esperti, responsabili e attenti con un'ottima percezione dell'ambiente e motivati dal futuro della mobilità autonoma. Questa posizione offre l'opportunità di lavorare sulle tecnologie dei veicoli autonomi avanzati, sostenere i lanci dei robot, l'espansione delle flotte AV e le operazioni di trasporto autonomo commerciale in diverse città europee.\n\n## Panoramica del progetto\n\n## Responsabilità chiave\n\n- Guidare, monitorare e supervisionare veicoli autonomi durante la prova, la convalida e le operazioni commerciali delle flotte robotassi.\n- Monitorare le prestazioni del sistema di auto-gestione continuamente mantenendo la piena attenzione alle condizioni del traffico circostante.\n- Riprendere immediatamente il controllo manuale del veicolo quando le procedure operative o i protocolli di sicurezza richiedono.\n- Per effettuare le rotte assegnate secondo il codice stradale locale e le procedure aziendali.\n- Sostenere l'implementazione di servizi di guida autonomi tramite guida sicura, coerente e conforme.\n- Condurre ispezioni pre e post-trip per garantire che ogni veicolo autonomo è pronto per la distribuzione.\n- Controllare la pulizia e ispezionare telecamere, sensori, specchi, illuminazione e altri sistemi critici prima di ogni turno.\n- Segnala qualsiasi danno, comportamento anormale del veicolo o necessità di manutenzione al deposito e equipaggi tecnici.\n- Sostenere la prontezza della flotta assicurando che i veicoli rimangano pronti per le operazioni quotidiane.\n- Record discommitments, osservazioni ed eventi operativi in strumenti di reporting.\n- Fornisci un feedback chiaro e strutturato sul comportamento del veicolo, le condizioni del traffico e gli scenari insoliti incontrati durante i test o le operazioni commerciali.\n- Assistere i team di ingegneria nel documentare situazioni utili per migliorare i sistemi di guida autonomi.\n- Mantenere registri operativi accurati e completare tutta la documentazione richiesta.\n- Rispetto di tutte le procedure operative locali, protocolli di sicurezza e requisiti normativi.\n- Partecipa a corsi di formazione continua, certificazioni e promemoria di sicurezza.\n- Mantenere un atteggiamento professionale quando interagisce con il pubblico durante i test autonome del veicolo e le operazioni di robotassi.\n- Contribuire a iniziative di miglioramento continuo volte a migliorare la sicurezza e l'efficienza delle operazioni di flotta autonoma.\n\n## Requisiti\n\n- Patente di guida europea valida.\n- Minimo 5 anni di esperienza di guida.\n- Un record di guida vuoto, nessun reato.\n- Capacità di passare una verifica di sfondo.\n- Capacità di testare con successo farmaci e alcol prima di assumere e casualmente.\n- Eccellente percezione ambientale, guida difensiva e rapido processo decisionale.\n- Confortevole con guida estesa in ambienti urbani e autostradali.\n- Capacità di seguire procedure dettagliate con grande rigore.\n- Forte capacità di comunicazione e reporting.\n- Livello intermedio superiore inglese.\n- Esperienza come autista professionale, autista, autista della flotta, autista di corsa o tester del veicolo.\n- Esperienza nel test automobilistico, validazione ADAS, mappatura, raccolta dati o operazioni della flotta.\n- Familiarità con veicoli elettrici (EV).\n- Esperienza in un ambiente a turni, ore estese o 24/7.\n\n## Profilo ricercato\n\nPotenti operatori di sicurezza autonome sono calmi sotto pressione, molto osservanti e impegnati nella sicurezza. Essi apprezzano le tecnologie emergenti e comprendono l'importanza della coerenza, accuratezza e conformità procedurale nell'implementazione di veicoli autonomi e operazioni di flotta robotassi.\n\nNon avete bisogno di esperienza preventiva nei veicoli autonomi: il nostro programma di formazione vi preparerà a sostenere in modo sicuro il test, la distribuzione e il funzionamento commerciale dei veicoli auto-guida.\n\n## Cosa offriamo\n\n- Opportunità di lavorare su alcuni dei più avanzati programmi di autonome e robotica in Europa.\n- Formazione completa sui sistemi di guida autonomi e sulle procedure operative.\n- Prospettive di carriera a lungo termine nel settore dell'automobilità in rapida crescita.\n- Esposizione alla robotica, all'intelligenza artificiale e alle tecnologie di trasporto autonome.\n- Progetti internazionali che supportano i lanci robotassi, le nuove distribuzioni urbane e il Fleet Scaling in Europa.\n- Ambiente collaborativo con team di ingegneria, operazioni e specialisti tecnici che sviluppano il futuro dell'equitazione autonoma.",
@@ -4006,7 +4042,7 @@
         "it": "Driver di sicurezza",
         "en": "Safety Driver",
         "de": "Sicherheitsfahrer",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Safety Driver per attivita che opera sul teritorio a Berna. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nStiamo cercando Autonomous Vehicle Safety Operators (Safety Drivers) per supportare i test, la validazione, la distribuzione commerciale e il sollevamento delle flotte di veicoli autonomi (AV) e robotassi in Europa. Come operatore di sicurezza del veicolo stand-alone, si svolgerà un ruolo chiave nel funzionamento sicuro dei veicoli autonomi e veicoli auto-guida durante i programmi di prova, piloti e servizi commerciali di corsa indipendenti. In collaborazione con i team di engineering, Fleet Operations e Depot Operations, monitorare il comportamento del veicolo, applicare le procedure operative e intervenire manualmente quando necessario. Non è richiesta alcuna esperienza preliminare con veicoli autonomi. La formazione completa sarà fornita su sistemi di guida autonomi, procedure operative e protocolli di sicurezza. Cerchiamo piloti esperti, responsabili e attenti con un'ottima percezione dell'ambiente e motivati dal futuro della mobilità autonoma. Questa posizione offre l'opportunità di lavorare sulle tecnologie dei veicoli autonomi avanzati, sostenere i lanci dei robot, l'espansione delle flotte AV e le operazioni di trasporto autonomo commerciale in diverse città europee.\n\n## Panoramica del progetto\n\n## Responsabilità chiave\n\n- Guidare, monitorare e supervisionare veicoli autonomi durante la prova, la convalida e le operazioni commerciali delle flotte robotassi.\n- Monitorare le prestazioni del sistema di auto-gestione continuamente mantenendo la piena attenzione alle condizioni del traffico circostante.\n- Riprendere immediatamente il controllo manuale del veicolo quando le procedure operative o i protocolli di sicurezza richiedono.\n- Per effettuare le rotte assegnate secondo il codice stradale locale e le procedure aziendali.\n- Sostenere l'implementazione di servizi di guida autonomi tramite guida sicura, coerente e conforme.\n- Condurre ispezioni pre e post-trip per garantire che ogni veicolo autonomo è pronto per la distribuzione.\n- Controllare la pulizia e ispezionare telecamere, sensori, specchi, illuminazione e altri sistemi critici prima di ogni turno.\n- Segnala qualsiasi danno, comportamento anormale del veicolo o necessità di manutenzione al deposito e equipaggi tecnici.\n- Sostenere la prontezza della flotta assicurando che i veicoli rimangano pronti per le operazioni quotidiane.\n- Record discommitments, osservazioni ed eventi operativi in strumenti di reporting.\n- Fornisci un feedback chiaro e strutturato sul comportamento del veicolo, le condizioni del traffico e gli scenari insoliti incontrati durante i test o le operazioni commerciali.\n- Assistere i team di ingegneria nel documentare situazioni utili per migliorare i sistemi di guida autonomi.\n- Mantenere registri operativi accurati e completare tutta la documentazione richiesta.\n- Rispetto di tutte le procedure operative locali, protocolli di sicurezza e requisiti normativi.\n- Partecipa a corsi di formazione continua, certificazioni e promemoria di sicurezza.\n- Mantenere un atteggiamento professionale quando interagisce con il pubblico durante i test autonome del veicolo e le operazioni di robotassi.\n- Contribuire a iniziative di miglioramento continuo volte a migliorare la sicurezza e l'efficienza delle operazioni di flotta autonoma.\n\n## Requisiti\n\n- Patente di guida europea valida.\n- Minimo 5 anni di esperienza di guida.\n- Un record di guida vuoto, nessun reato.\n- Capacità di passare una verifica di sfondo.\n- Capacità di testare con successo farmaci e alcol prima di assumere e casualmente.\n- Eccellente percezione ambientale, guida difensiva e rapido processo decisionale.\n- Confortevole con guida estesa in ambienti urbani e autostradali.\n- Capacità di seguire procedure dettagliate con grande rigore.\n- Forte capacità di comunicazione e reporting.\n- Livello intermedio superiore inglese.\n- Esperienza come autista professionale, autista, autista della flotta, autista di corsa o tester del veicolo.\n- Esperienza nel test automobilistico, validazione ADAS, mappatura, raccolta dati o operazioni della flotta.\n- Familiarità con veicoli elettrici (EV).\n- Esperienza in un ambiente a turni, ore estese o 24/7.\n\n## Profilo ricercato\n\nPotenti operatori di sicurezza autonome sono calmi sotto pressione, molto osservanti e impegnati nella sicurezza. Essi apprezzano le tecnologie emergenti e comprendono l'importanza della coerenza, accuratezza e conformità procedurale nell'implementazione di veicoli autonomi e operazioni di flotta robotassi.\n\nNon avete bisogno di esperienza preventiva nei veicoli autonomi: il nostro programma di formazione vi preparerà a sostenere in modo sicuro il test, la distribuzione e il funzionamento commerciale dei veicoli auto-guida.\n\n## Cosa offriamo\n\n- Opportunità di lavorare su alcuni dei più avanzati programmi di autonome e robotica in Europa.\n- Formazione completa sui sistemi di guida autonomi e sulle procedure operative.\n- Prospettive di carriera a lungo termine nel settore dell'automobilità in rapida crescita.\n- Esposizione alla robotica, all'intelligenza artificiale e alle tecnologie di trasporto autonome.\n- Progetti internazionali che supportano i lanci robotassi, le nuove distribuzioni urbane e il Fleet Scaling in Europa.\n- Ambiente collaborativo con team di ingegneria, operazioni e specialisti tecnici che sviluppano il futuro dell'equitazione autonoma.",
@@ -4079,7 +4115,7 @@
         "it": "Driver di sicurezza",
         "en": "Safety Driver",
         "de": "Sicherheitsfahrer",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Safety Driver per attivita che opera sul teritorio a Ginevra. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nStiamo cercando Autonomous Vehicle Safety Operators (Safety Drivers) per supportare i test, la validazione, la distribuzione commerciale e il sollevamento delle flotte di veicoli autonomi (AV) e robotassi in Europa. Come operatore di sicurezza del veicolo stand-alone, si svolgerà un ruolo chiave nel funzionamento sicuro dei veicoli autonomi e veicoli auto-guida durante i programmi di prova, piloti e servizi commerciali di corsa indipendenti. In collaborazione con i team di engineering, Fleet Operations e Depot Operations, monitorare il comportamento del veicolo, applicare le procedure operative e intervenire manualmente quando necessario. Non è richiesta alcuna esperienza preliminare con veicoli autonomi. La formazione completa sarà fornita su sistemi di guida autonomi, procedure operative e protocolli di sicurezza. Cerchiamo piloti esperti, responsabili e attenti con un'ottima percezione dell'ambiente e motivati dal futuro della mobilità autonoma. Questa posizione offre l'opportunità di lavorare sulle tecnologie dei veicoli autonomi avanzati, sostenere i lanci dei robot, l'espansione delle flotte AV e le operazioni di trasporto autonomo commerciale in diverse città europee.\n\n## Panoramica del progetto\n\n## Responsabilità chiave\n\n- Guidare, monitorare e supervisionare veicoli autonomi durante la prova, la convalida e le operazioni commerciali delle flotte robotassi.\n- Monitorare le prestazioni del sistema di auto-gestione continuamente mantenendo la piena attenzione alle condizioni del traffico circostante.\n- Riprendere immediatamente il controllo manuale del veicolo quando le procedure operative o i protocolli di sicurezza richiedono.\n- Per effettuare le rotte assegnate secondo il codice stradale locale e le procedure aziendali.\n- Sostenere l'implementazione di servizi di guida autonomi tramite guida sicura, coerente e conforme.\n- Condurre ispezioni pre e post-trip per garantire che ogni veicolo autonomo è pronto per la distribuzione.\n- Controllare la pulizia e ispezionare telecamere, sensori, specchi, illuminazione e altri sistemi critici prima di ogni turno.\n- Segnala qualsiasi danno, comportamento anormale del veicolo o necessità di manutenzione al deposito e equipaggi tecnici.\n- Sostenere la prontezza della flotta assicurando che i veicoli rimangano pronti per le operazioni quotidiane.\n- Record discommitments, osservazioni ed eventi operativi in strumenti di reporting.\n- Fornisci un feedback chiaro e strutturato sul comportamento del veicolo, le condizioni del traffico e gli scenari insoliti incontrati durante i test o le operazioni commerciali.\n- Assistere i team di ingegneria nel documentare situazioni utili per migliorare i sistemi di guida autonomi.\n- Mantenere registri operativi accurati e completare tutta la documentazione richiesta.\n- Rispetto di tutte le procedure operative locali, protocolli di sicurezza e requisiti normativi.\n- Partecipa a corsi di formazione continua, certificazioni e promemoria di sicurezza.\n- Mantenere un atteggiamento professionale quando interagisce con il pubblico durante i test autonome del veicolo e le operazioni di robotassi.\n- Contribuire a iniziative di miglioramento continuo volte a migliorare la sicurezza e l'efficienza delle operazioni di flotta autonoma.\n\n## Requisiti\n\n- Patente di guida europea valida.\n- Minimo 5 anni di esperienza di guida.\n- Un record di guida vuoto, nessun reato.\n- Capacità di passare una verifica di sfondo.\n- Capacità di testare con successo farmaci e alcol prima di assumere e casualmente.\n- Eccellente percezione ambientale, guida difensiva e rapido processo decisionale.\n- Confortevole con guida estesa in ambienti urbani e autostradali.\n- Capacità di seguire procedure dettagliate con grande rigore.\n- Forte capacità di comunicazione e reporting.\n- Livello intermedio superiore inglese.\n- Esperienza come autista professionale, autista, autista della flotta, autista di corsa o tester del veicolo.\n- Esperienza nel test automobilistico, validazione ADAS, mappatura, raccolta dati o operazioni della flotta.\n- Familiarità con veicoli elettrici (EV).\n- Esperienza in un ambiente a turni, ore estese o 24/7.\n\n## Profilo ricercato\n\nPotenti operatori di sicurezza autonome sono calmi sotto pressione, molto osservanti e impegnati nella sicurezza. Essi apprezzano le tecnologie emergenti e comprendono l'importanza della coerenza, accuratezza e conformità procedurale nell'implementazione di veicoli autonomi e operazioni di flotta robotassi.\n\nNon avete bisogno di esperienza preventiva nei veicoli autonomi: il nostro programma di formazione vi preparerà a sostenere in modo sicuro il test, la distribuzione e il funzionamento commerciale dei veicoli auto-guida.\n\n## Cosa offriamo\n\n- Opportunità di lavorare su alcuni dei più avanzati programmi di autonome e robotica in Europa.\n- Formazione completa sui sistemi di guida autonomi e sulle procedure operative.\n- Prospettive di carriera a lungo termine nel settore dell'automobilità in rapida crescita.\n- Esposizione alla robotica, all'intelligenza artificiale e alle tecnologie di trasporto autonome.\n- Progetti internazionali che supportano i lanci robotassi, le nuove distribuzioni urbane e il Fleet Scaling in Europa.\n- Ambiente collaborativo con team di ingegneria, operazioni e specialisti tecnici che sviluppano il futuro dell'equitazione autonoma.",
@@ -4091,7 +4127,7 @@
         "it": "driver-di-sicurezza-tsmg-geneva-a46cd81a",
         "en": "safety-driver-tsmg-geneva-a46cd81a",
         "de": "sicherheitsfahrer-tsmg-geneva-a46cd81a",
-        "fr": "operateur-de-securite-routiere-autonome-tsmg-geneva-a46cd81a"
+        "fr": "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
       },
       "id": "tsmg-02a58d95408a",
       "salaryMin": 60500,
@@ -4113,18 +4149,20 @@
         "it": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
         ],
+        "fr": [
+          "operateur-de-securite-routiere-autonome-tsmg-geneva-a46cd81a",
+          "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
+        ],
         "en": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
         ],
         "de": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
-        ],
-        "fr": [
-          "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
         ]
       },
       "previousSlugs": [
-        "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
+        "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a",
+        "operateur-de-securite-routiere-autonome-tsmg-geneva-a46cd81a"
       ]
     },
     {
@@ -4155,7 +4193,7 @@
         "it": "Driver di sicurezza",
         "en": "Safety Driver",
         "de": "Sicherheitsfahrer",
-        "fr": "Opérateur de sécurité routière autonome"
+        "fr": "Opérateur de sécurité véhicule autonome (Safety Driver)"
       },
       "descriptionByLocale": {
         "it": "TSMG cerca Safety Driver per attivita che opera sul teritorio a Zurigo. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nStiamo cercando Autonomous Vehicle Safety Operators (Safety Drivers) per supportare i test, la validazione, la distribuzione commerciale e il sollevamento delle flotte di veicoli autonomi (AV) e robotassi in Europa. Come operatore di sicurezza del veicolo stand-alone, si svolgerà un ruolo chiave nel funzionamento sicuro dei veicoli autonomi e veicoli auto-guida durante i programmi di prova, piloti e servizi commerciali di corsa indipendenti. In collaborazione con i team di engineering, Fleet Operations e Depot Operations, monitorare il comportamento del veicolo, applicare le procedure operative e intervenire manualmente quando necessario. Non è richiesta alcuna esperienza preliminare con veicoli autonomi. La formazione completa sarà fornita su sistemi di guida autonomi, procedure operative e protocolli di sicurezza. Cerchiamo piloti esperti, responsabili e attenti con un'ottima percezione dell'ambiente e motivati dal futuro della mobilità autonoma. Questa posizione offre l'opportunità di lavorare sulle tecnologie dei veicoli autonomi avanzati, sostenere i lanci dei robot, l'espansione delle flotte AV e le operazioni di trasporto autonomo commerciale in diverse città europee.\n\n## Panoramica del progetto\n\n## Responsabilità chiave\n\n- Guidare, monitorare e supervisionare veicoli autonomi durante la prova, la convalida e le operazioni commerciali delle flotte robotassi.\n- Monitorare le prestazioni del sistema di auto-gestione continuamente mantenendo la piena attenzione alle condizioni del traffico circostante.\n- Riprendere immediatamente il controllo manuale del veicolo quando le procedure operative o i protocolli di sicurezza richiedono.\n- Per effettuare le rotte assegnate secondo il codice stradale locale e le procedure aziendali.\n- Sostenere l'implementazione di servizi di guida autonomi tramite guida sicura, coerente e conforme.\n- Condurre ispezioni pre e post-trip per garantire che ogni veicolo autonomo è pronto per la distribuzione.\n- Controllare la pulizia e ispezionare telecamere, sensori, specchi, illuminazione e altri sistemi critici prima di ogni turno.\n- Segnala qualsiasi danno, comportamento anormale del veicolo o necessità di manutenzione al deposito e equipaggi tecnici.\n- Sostenere la prontezza della flotta assicurando che i veicoli rimangano pronti per le operazioni quotidiane.\n- Record discommitments, osservazioni ed eventi operativi in strumenti di reporting.\n- Fornisci un feedback chiaro e strutturato sul comportamento del veicolo, le condizioni del traffico e gli scenari insoliti incontrati durante i test o le operazioni commerciali.\n- Assistere i team di ingegneria nel documentare situazioni utili per migliorare i sistemi di guida autonomi.\n- Mantenere registri operativi accurati e completare tutta la documentazione richiesta.\n- Rispetto di tutte le procedure operative locali, protocolli di sicurezza e requisiti normativi.\n- Partecipa a corsi di formazione continua, certificazioni e promemoria di sicurezza.\n- Mantenere un atteggiamento professionale quando interagisce con il pubblico durante i test autonome del veicolo e le operazioni di robotassi.\n- Contribuire a iniziative di miglioramento continuo volte a migliorare la sicurezza e l'efficienza delle operazioni di flotta autonoma.\n\n## Requisiti\n\n- Patente di guida europea valida.\n- Minimo 5 anni di esperienza di guida.\n- Un record di guida vuoto, nessun reato.\n- Capacità di passare una verifica di sfondo.\n- Capacità di testare con successo farmaci e alcol prima di assumere e casualmente.\n- Eccellente percezione ambientale, guida difensiva e rapido processo decisionale.\n- Confortevole con guida estesa in ambienti urbani e autostradali.\n- Capacità di seguire procedure dettagliate con grande rigore.\n- Forte capacità di comunicazione e reporting.\n- Livello intermedio superiore inglese.\n- Esperienza come autista professionale, autista, autista della flotta, autista di corsa o tester del veicolo.\n- Esperienza nel test automobilistico, validazione ADAS, mappatura, raccolta dati o operazioni della flotta.\n- Familiarità con veicoli elettrici (EV).\n- Esperienza in un ambiente a turni, ore estese o 24/7.\n\n## Profilo ricercato\n\nPotenti operatori di sicurezza autonome sono calmi sotto pressione, molto osservanti e impegnati nella sicurezza. Essi apprezzano le tecnologie emergenti e comprendono l'importanza della coerenza, accuratezza e conformità procedurale nell'implementazione di veicoli autonomi e operazioni di flotta robotassi.\n\nNon avete bisogno di esperienza preventiva nei veicoli autonomi: il nostro programma di formazione vi preparerà a sostenere in modo sicuro il test, la distribuzione e il funzionamento commerciale dei veicoli auto-guida.\n\n## Cosa offriamo\n\n- Opportunità di lavorare su alcuni dei più avanzati programmi di autonome e robotica in Europa.\n- Formazione completa sui sistemi di guida autonomi e sulle procedure operative.\n- Prospettive di carriera a lungo termine nel settore dell'automobilità in rapida crescita.\n- Esposizione alla robotica, all'intelligenza artificiale e alle tecnologie di trasporto autonome.\n- Progetti internazionali che supportano i lanci robotassi, le nuove distribuzioni urbane e il Fleet Scaling in Europa.\n- Ambiente collaborativo con team di ingegneria, operazioni e specialisti tecnici che sviluppano il futuro dell'equitazione autonoma.",
@@ -5093,10 +5131,10 @@
         "it": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-st-gallen-6e22e58e"
         ],
-        "fr": [
+        "de": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-st-gallen-6e22e58e"
         ],
-        "de": [
+        "fr": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-st-gallen-6e22e58e"
         ]
       },
@@ -5237,10 +5275,10 @@
         "it": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-bern-bfba7883"
         ],
-        "fr": [
+        "de": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-bern-bfba7883"
         ],
-        "de": [
+        "fr": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-bern-bfba7883"
         ]
       },
@@ -5311,10 +5349,10 @@
         "it": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-zurich-f384cf8e"
         ],
-        "fr": [
+        "de": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-zurich-f384cf8e"
         ],
-        "de": [
+        "fr": [
           "self-driving-systems-specialist-sds-specialist-autonomous-vehicle-diagnostics-calibration-tsmg-zurich-f384cf8e"
         ]
       },
@@ -5431,7 +5469,7 @@
       "slugByLocale": {
         "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-zurich-1b700b3f",
         "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f",
-        "de": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f",
+        "de": "senior-autonomer-fahrzeugtechniker-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f",
         "fr": "technicien-autonome-principal-de-vehicules-robotaxi-fleet-maintenance-operations-techniques-tsmg-zurich-1b700b3f"
       },
       "id": "tsmg-f60e8c630845",
@@ -5452,6 +5490,9 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f"
+        ],
+        "de": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f"
         ],
         "fr": [
@@ -5501,7 +5542,7 @@
       "slugByLocale": {
         "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-bern-475a37c1",
         "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1",
-        "de": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1",
+        "de": "senior-autonomer-fahrzeugtechniker-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1",
         "fr": "technicien-autonome-principal-de-vehicules-robotaxi-fleet-maintenance-operations-techniques-tsmg-bern-475a37c1"
       },
       "id": "tsmg-26f925c3df9c",
@@ -5523,6 +5564,9 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1"
+        ],
+        "de": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1"
         ],
         "fr": [
@@ -5572,7 +5616,7 @@
       "slugByLocale": {
         "it": "tecnico-veicolo-autonomo-senior-manutenzione-robotaxi-fleet-operazioni-tecniche-tsmg-st-gallen-c20e22cb",
         "en": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb",
-        "de": "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb",
+        "de": "senior-autonomer-fahrzeugtechniker-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb",
         "fr": "technicien-autonome-principal-de-vehicules-robotaxi-fleet-maintenance-operations-techniques-tsmg-st-gallen-c20e22cb"
       },
       "id": "tsmg-b89c801e19cf",
@@ -5593,6 +5637,9 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb"
+        ],
+        "de": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb"
         ],
         "fr": [
@@ -6076,7 +6123,7 @@
       "titleByLocale": {
         "it": "Sicherheitsfahrer / Autonomous Vehicle Safety Operatore (Safety Driver)",
         "en": "Safety driver / Autonomous Vehicle Safety Operator (Safety Driver)",
-        "de": "Sicherheitsfahrer / Autonomer Fahrzeugsicherheitsfahrer (Safety Driver)",
+        "de": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
         "fr": "Sicherheitsfahrer / Autonomous Vehicle Safety Opérateur (Safety Driver)"
       },
       "descriptionByLocale": {
@@ -6136,7 +6183,7 @@
       "titleByLocale": {
         "it": "Sicherheitsfahrer / Autonomous Vehicle Safety Operatore (Safety Driver)",
         "en": "Safety driver / Autonomous Vehicle Safety Operator (Safety Driver)",
-        "de": "Sicherheitsfahrer / Autonomer Fahrzeugsicherheitsfahrer (Safety Driver)",
+        "de": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
         "fr": "Sicherheitsfahrer / Autonomous Vehicle Safety Opérateur (Safety Driver)"
       },
       "descriptionByLocale": {
@@ -6195,7 +6242,7 @@
       "titleByLocale": {
         "it": "Sicherheitsfahrer / Autonomous Vehicle Safety Operatore (Safety Driver)",
         "en": "Safety driver / Autonomous Vehicle Safety Operator (Safety Driver)",
-        "de": "Sicherheitsfahrer / Autonomer Fahrzeugsicherheitsfahrer (Safety Driver)",
+        "de": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
         "fr": "Sicherheitsfahrer / Autonomous Vehicle Safety Opérateur (Safety Driver)"
       },
       "descriptionByLocale": {
@@ -6255,7 +6302,7 @@
       "titleByLocale": {
         "it": "Sicherheitsfahrer / Autonomous Vehicle Safety Operatore (Safety Driver)",
         "en": "Safety driver / Autonomous Vehicle Safety Operator (Safety Driver)",
-        "de": "Sicherheitsfahrer / Autonomer Fahrzeugsicherheitsfahrer (Safety Driver)",
+        "de": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
         "fr": "Sicherheitsfahrer / Autonomous Vehicle Safety Opérateur (Safety Driver)"
       },
       "descriptionByLocale": {
