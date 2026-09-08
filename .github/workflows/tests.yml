@@ -624,7 +624,7 @@ jobs:
               }
               function hasEnumeratedItems(body) {
                 const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*\d+[.)](?=[ \t]|$)/gm) || []).length >= 2) return true;
+                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
                 const lines = clean.split('\n');
                 let ordered = 0;
                 let bullets = 0;
@@ -2599,7 +2599,7 @@ jobs:
               }
               function hasEnumeratedItems(body) {
                 const clean = stripFencedBlocks(body);
-                if ((clean.match(/^#{2,4}[ \t]*\d+[.)](?=[ \t]|$)/gm) || []).length >= 2) return true;
+                if ((clean.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length >= 2) return true;
                 const lines = clean.split('\n');
                 let ordered = 0;
                 let bullets = 0;

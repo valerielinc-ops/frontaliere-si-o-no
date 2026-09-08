@@ -66,6 +66,15 @@ describe('G5 — follow-up detector regressions', () => {
     expect(reconcileHasEnumeratedItems(valid)).toBe(true);
   });
 
+  it('allinea i titoli markdown Item al conteggio del drainer', () => {
+    const headings = '### Item 1 — Primo item\n### 2 — Secondo item';
+
+    expect(preflightHasEnumeratedItems(headings)).toBe(true);
+    expect(harvestHasEnumeratedItems(headings)).toBe(true);
+    expect(reconcileHasEnumeratedItems(headings)).toBe(true);
+    expect(isAggregateTitle('follow-up(#1): cleanup', headings)).toBe(true);
+  });
+
   it('non lascia che un conteggio nel body sopprima gli item enumerati', () => {
     expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
   });
