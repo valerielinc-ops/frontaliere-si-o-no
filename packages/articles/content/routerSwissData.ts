@@ -2042,6 +2042,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'novartis-battuta-arresto-neuromuscolare': { it: 'novartis-battuta-arresto-neuromuscolare', en: 'novartis-clinical-trial-failure-neuromuscular', de: 'novartis-rueckschlag-neuromuskulaer', fr: 'novartis-revers-neuromusculaire' },
  'ricongiungimento-familiare-burocrazia': { it: 'ricongiungimento-familiare-burocrazia', en: 'family-reunification-bureaucratic-delays', de: 'familienwiedervereinigung-buerokratie', fr: 'regroupement-familial-bureaucratie' },
  'affitto-scende-chiedi': { it: 'affitto-scende-chiedi', en: 'your-rent-won-t-drop-automatically', de: 'miete-sinkt-nicht-automatisch', fr: 'votre-loyer-ne-baisse-pas-automatiquement' },
+ 'dazi-usa-2026-accordo-libero-scambio': { it: 'dazi-usa-2026-accordo-libero-scambio', en: 'us-tariffs-2026-free-trade-agreement', de: 'us-zoelle-2026-freihandelsabkommen', fr: 'tarifs-usa-2026-accord-libre-echange' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

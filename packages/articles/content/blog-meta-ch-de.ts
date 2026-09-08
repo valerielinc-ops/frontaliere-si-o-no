@@ -6049,6 +6049,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitto-scende-chiedi.title': 'Deine Miete sinkt nicht von selbst. Du musst darum bitten',
     'blog.article.affitto-scende-chiedi.excerpt': 'Der Hypothekenzins blieb bei 1,25 %, aber nur 12 % der Mieter haben eine Kürzung verlangt. So prüfen Sie, ob Sie Anspruch auf weniger Zahlungen haben.',
     'blog.article.affitto-scende-chiedi.imageAlt': 'Ein typisches Schweizer Haus mit Blick auf den Luganersee, Symbol der Mietkosten in der Schweiz',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'US-Zölle auf die Schweiz: 12,5 % und optimierte Vereinbarung Juli–August 2026',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Am 24. Juli 2026 werden die USA Zölle von bis zu 12,5 % auf Schweizer Importe verhängen. Verhandlungen über das am 20. August abgeschlossene Freihandelsabkommen: Auswirkungen auf Exporte und Wettbewerbsfähigkeit.',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Hauptsitz des Staatssekretariats für Wirtschaft (SECO) in Bern, das Nervenzentrum der Schweizer Wirtschaftspolitik.',
 };
 
 export default blogMetaChDe;
