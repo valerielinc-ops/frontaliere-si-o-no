@@ -46,6 +46,7 @@ on:
       # contract already accepted for data/border-wait-current.json's SSG usage).
       - 'public/data/border-wait-current.json'
       - 'data/border-wait-history/**'
+      - 'data/build-history/**'
       - 'data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
       - '*.md'
@@ -591,6 +592,36 @@ jobs:
             echo "min_host_headroom_mb=$headroom"
             echo "min_swap_free_mb=$swap_free"
           } >> "$GITHUB_OUTPUT"
+
+      - name: Build profile summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Build phase timing'
+            echo
+            echo '| marker | detail |'
+            echo '|---|---|'
+            if [ -f /tmp/build.log ]; then
+              awk '
+                /^\[phase-timing/ {
+                  marker = $1
+                  sub(/^\[/, "", marker)
+                  sub(/\]$/, "", marker)
+                  detail = $0
+                  sub(/^\[[^]]+\][[:space:]]*/, "", detail)
+                  gsub(/\|/, "&#124;", detail)
+                  printf "| `%s` | %s |\n", marker, detail
+                  found = 1
+                }
+                END {
+                  if (!found) print "| _none_ | no phase timing markers emitted |"
+                }
+              ' /tmp/build.log
+            else
+              echo '| _none_ | /tmp/build.log was not produced |'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'

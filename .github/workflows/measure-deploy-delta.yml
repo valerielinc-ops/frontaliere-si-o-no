@@ -70,7 +70,7 @@ jobs:
           # owns artifact resolve+download for every workflow in the repo.
           sparse-checkout: |
             scripts/measure-dist-delta.py
-            .github/actions/fetch-pages-artifact
+            .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
 
       - name: Resolve run ids (auto-pick last two with github-pages artifact)
@@ -153,11 +153,30 @@ jobs:
               # reported a plausible delta between the WRONG two deploys. Same
               # class as #7393, and treated as fatal here exactly like
               # .github/actions/fetch-pages-artifact/action.yml does.
+              response="$WORK/artifacts-$r.http"
+              response_err="$WORK/artifacts-$r.err"
               rc=0
-              has=$(gh api "repos/$GH_REPO/actions/runs/$r/artifacts" \
-                --jq '[.artifacts[]|select(.name=="github-pages" and .expired==false)]|length') || rc=$?
+              gh api --include \
+                "repos/$GH_REPO/actions/runs/$r/artifacts?name=github-pages&per_page=100" \
+                > "$response" 2> "$response_err" || rc=$?
               if [ "$rc" -ne 0 ]; then
+                # A run can remain in the workflow-runs listing after its
+                # artifacts have crossed retention. That 404 is a candidate
+                # miss, not an API/token failure; only that status may walk
+                # back. A 403/5xx/network error remains fatal.
+                if grep -qE '^HTTP/[0-9.]+[[:space:]]+404([[:space:]]|$)' "$response"; then
+                  echo "  run $r ($created): artifact listing is gone (HTTP 404, retention) — trying older"
+                  continue
+                fi
                 echo "::error::gh api failed while listing artifacts of run $r (exit $rc). This is an API/token failure, NOT 'this run has no artifact'."
+                sed 's/^/  /' "$response_err"
+                exit 1
+              fi
+              if ! has=$(
+                awk 'body { sub(/\r$/, ""); print } /^[[:space:]]*$/ { body=1 }' "$response" \
+                  | jq -r '[.artifacts[] | select(.name=="github-pages" and .expired==false)] | length'
+              ); then
+                echo "::error::gh api returned an unreadable artifact-list body for run $r. This is an API failure, NOT 'this run has no artifact'."
                 exit 1
               fi
               if [ "${has:-0}" -gt 0 ]; then
