@@ -166,12 +166,27 @@ cat > "$body" <<'BODY'
 - per scelta: nessun merge diretto o manuale; la PR rimane aperta finché il ciclo autonomo del corpus non la approva.
 BODY
 
+set +e
+node "$site_root/scripts/ci/pr-body-check-gate.mjs" --body-file "$body"
+gate_status=$?
+set -e
+if [ "$gate_status" -eq 2 ]; then
+  echo '::error::crawler transport body PR non conforme; scrittura bloccata'
+  exit 2
+elif [ "$gate_status" -ne 0 ]; then
+  echo "::warning::crawler transport body PR non verificabile (gate exit $gate_status); branch gia' pushato, nessuna PR scritta"
+  exit 0
+fi
+
 head_ref=$(git rev-parse --abbrev-ref HEAD)
 if [ -n "$open_number" ]; then
   # Non riscrivere il body: review finding, Closes e contesto aggiunti dopo la
   # creazione appartengono all'orchestratore e devono sopravvivere agli schedule.
   echo "Crawler workflow transport PR #$open_number already open; branch updated without replacing its body."
 else
-  gh pr create --repo "$target_repo" --base main --head "$head_ref" \
-    --title 'Lockstep crawler workflows with the site' --body-file "$body"
+  if ! gh pr create --repo "$target_repo" --base main --head "$head_ref" \
+    --title 'Lockstep crawler workflows with the site' --body-file "$body"; then
+    echo "::warning::gh pr create non ha risposto; il branch crawler e' gia' pushato, nessun body PR scritto"
+    exit 0
+  fi
 fi

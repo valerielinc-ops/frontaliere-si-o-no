@@ -494,6 +494,16 @@ jobs:
         if: steps.guard.outputs.proceed == 'true'
         uses: ./.github/actions/setup-headroom
 
+      - name: Install deterministic PR body gate
+        if: steps.guard.outputs.proceed == 'true'
+        run: |
+          set -euo pipefail
+          gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
+          mkdir -p "$gate_dir"
+          ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
+          echo "$gate_dir" >> "$GITHUB_PATH"
+          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
       - name: Run Claude ❌-check-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'
@@ -584,7 +594,7 @@ jobs:
             **Chiusura:**
             - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
             - Push sullo stesso branch: `git push origin HEAD:${{ needs.preflight.outputs.head_ref }}`. Il remote `origin` è già autenticato → ri-attiva `tests` e `pr-review-loop`.
-            - Aggiorna il body della PR (`gh pr edit`) mantenendo `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet.
+            - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redcheck-pr-body.md` (imposta `BODY_FILE` a quel path), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai riparato e perché il test falliva) + `## Non implementato (ancora)`, con lo stato letterale su ogni bullet: `in questa PR` / `PR concatenata #N` / `per scelta` / `by construction` / `blocked: <causa esterna reale>`.
 
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".

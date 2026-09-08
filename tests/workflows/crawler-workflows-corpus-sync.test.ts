@@ -129,7 +129,7 @@ fi
         GIT_CONFIG_GLOBAL: '/dev/null',
         GIT_CONFIG_NOSYSTEM: '1',
       };
-      expect(() => execFileSync('bash', [scriptPath], { cwd: ROOT, env, stdio: 'pipe' })).toThrow();
+      expect(() => execFileSync('bash', [scriptPath], { cwd: ROOT, env, stdio: 'pipe' })).not.toThrow();
       expect(execFileSync('git', ['--git-dir', remote, 'branch', '--list', 'crawler-workflows-lockstep-*'], { encoding: 'utf8' }))
         .toContain('crawler-workflows-lockstep-0123456789ab');
 

@@ -102,6 +102,16 @@ jobs:
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
         uses: ./.github/actions/setup-headroom
 
+      - name: Install deterministic PR body gate
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        run: |
+          set -euo pipefail
+          gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
+          mkdir -p "$gate_dir"
+          ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
+          echo "$gate_dir" >> "$GITHUB_PATH"
+          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
       - name: Draft doc-rule proposal (Claude — only if NOVEL patterns)
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (18min) e la run ci moriva `cancelled` — che NON fa scattare
@@ -165,7 +175,7 @@ jobs:
             3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.
             4. Commit conventional (`docs(process): auto-harvested lessons — <temi>`). In fondo: `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`.
             5. `git push -u origin HEAD`.
-            6. `gh pr create` con body OBBLIGATORIO:
+            6. Prepara il body completo nel file assoluto `$RUNNER_TEMP/lessons-harvester-pr-body.md` (imposta `BODY_FILE` a quel path; non usare un body inline), esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr create --body-file "$BODY_FILE"`. Il wrapper deterministico su `gh` blocca comunque ogni create senza body-file o con body non conforme prima della chiamata remota.
                ```
                ## Implementato
                - <regola aggiunta> ← cluster <source/bucket> ×<count> (es. PR/issue #...)

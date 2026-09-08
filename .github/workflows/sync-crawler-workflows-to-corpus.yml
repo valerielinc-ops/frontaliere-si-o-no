@@ -30,6 +30,11 @@ jobs:
           sparse-checkout: |
             /.github/corpus-workflows/
             /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-sections-check.mjs
             /scripts/ci/sync-crawler-workflows-to-corpus.sh
           sparse-checkout-cone-mode: false
 
