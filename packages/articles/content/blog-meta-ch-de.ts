@@ -6094,6 +6094,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis kollabiert 10% an der Börse für gescheiterte Studien',
     'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen und Del-desiran bestehen die klinischen Tests nicht. Abwärtskapitalisierung von CHF 24 Milliarden, der schwerste Einbruch in der Geschichte.',
     'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Schweizer Panorama, das nationale wirtschaftliche Stabilität in Zeiten von Marktvolatilität darstellt',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Mindestlohn gefährdetes Tessin: 4.000 Arbeitnehmer ausgeschlossen',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'Am 7. September 2026 wird die Volksinitiative zurückgezogen, aber die Motion Ettlin droht 67% der Gaststättenarbeiterinnen und Gaststättenarbeiter keine Vorteile zu bringen. Ein monatlicher Anstieg von 316 Franken ist gefährdet.',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Plenarsaal des Schweizer Parlaments während einer Sitzung zur Lohnpolitik',
 };
 
 export default blogMetaChDe;

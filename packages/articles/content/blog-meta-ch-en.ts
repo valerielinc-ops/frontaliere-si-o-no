@@ -6094,6 +6094,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis Plummets 10% in Stock Exchange for Failed Studies',
     'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen and Del-desiran fail clinical trials. Capitalization down CHF 24 billion, the most severe collapse in history.',
     'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Swiss panorama reflecting national economic stability amid market turbulence',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Ticino minimum wage at risk: 4,000 workers excluded',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'On September 7, 2026, it withdraws the popular initiative, but the Ettlin motion risks nullifying the benefits for 67% of catering workers. At risk 316 francs per month increase.',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Swiss Federal Parliament chamber during a plenary session on wage policy',
 };
 
 export default blogMetaChEn;
