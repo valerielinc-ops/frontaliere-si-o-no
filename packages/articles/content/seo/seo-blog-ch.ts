@@ -78878,6 +78878,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bls-tagli-posti-trasporto-svizzera': {
+    title: 'BLS taglia 40 posti, chiude centri e riduce servizi',
+    description: 'BLS riduce 40 posti e chiude 5 centri viaggi per risparmiare 5 milioni CHF nel 2027-2028. Sindacati protestano contro i tagli ai servizi ferroviari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglia, posti, chiude, centri',
+    ogTitle: 'BLS taglia 40 posti, chiude centri e riduce servizi',
+    ogDescription: 'La ferroviaria BLS annuncia riorganizzazione drastica: 40 posti eliminati, 5 centri viaggi chiusi, pulizia treni ridotta a 1 volta/mese. Sindacati critici sulla pressione dai cantoni. Risparmi da 5 milioni CHF 2027-2028.',
+    canonicalPath: '/articoli-svizzera/bls-tagli-posti-trasporto-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BLS taglia 40 posti, chiude centri e riduce servizi",
+      "description": "BLS riduce 40 posti e chiude 5 centri viaggi per risparmiare 5 milioni CHF nel 2027-2028. Sindacati protestano contro i tagli ai servizi ferroviari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bls-tagli-posti-trasporto-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della Svizzera: paesaggio che rappresenta la mobilità nazionale e i trasporti pubblici"
+      },
+      "datePublished": "2026-09-08T10:46:19+00:00",
+      "dateModified": "2026-09-08T10:46:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bls-tagli-posti-trasporto-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

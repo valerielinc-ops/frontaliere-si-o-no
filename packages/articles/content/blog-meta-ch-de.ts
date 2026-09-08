@@ -6076,6 +6076,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bollette-energia-calo-2027.title': 'Energiekosten bis 2027 um 4 % gesunken',
     'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom meldet das dritte Jahr in Folge einen Rückgang. Ein durchschnittlicher Haushalt spart 53 Franken pro Jahr und zahlt 1\'194 Franken für Energie.',
     'blog.article.bollette-energia-calo-2027.imageAlt': 'Stromzähler eines Schweizer Hauses, Symbol für den 4%-Preisrückgang 2027',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS schneidet 40 Stellen ab, schließt Zentren und reduziert Dienstleistungen',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'Die BLS kündigt 40 Stellenstreichungen, die Schließung von 5 Reisezentren und den Abbau von Dienstleistungen an. Zieleinsparungen: 5 Mio. CHF im Zweijahreszeitraum 2027-2028.',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Schweizer Landschaft mit Blick auf nationale Mobilität und öffentliche Verkehrsinfrastruktur',
 };
 
 export default blogMetaChDe;

@@ -6076,6 +6076,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bollette-energia-calo-2027.title': 'Energy bills down 4% in 2027',
     'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom announces the third consecutive year of decline. The average household will save CHF 53 per year, paying CHF 1,194 for energy.',
     'blog.article.bollette-energia-calo-2027.imageAlt': 'Swiss home electricity meter, symbolizing the 4% price drop in 2027',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS cuts 40 seats, closes centres and reduces services',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'BLS announces 40 job cuts, closure of 5 travel centres and reduced services. Target savings: CHF 5 million in the two-year period 2027-2028.',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Swiss landscape representing national mobility and public transport infrastructure',
 };
 
 export default blogMetaChEn;

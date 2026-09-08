@@ -6076,6 +6076,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bollette-energia-calo-2027.title': 'Factures d\'énergie en baisse de 4 % en 2027',
     'blog.article.bollette-energia-calo-2027.excerpt': 'ElCom annonce une troisième année consécutive de baisse. Une famille moyenne économisera 53 francs par an en payant 1 194 francs pour l\'énergie.',
     'blog.article.bollette-energia-calo-2027.imageAlt': 'Compteur électrique d\'une maison suisse, symbole de la baisse tarifaire 2027',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS coupe 40 places, ferme des centres et réduit les services',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'BLS annonce 40 suppressions de postes, la fermeture de 5 centres de voyages et une réduction des services. Économies ciblées : CHF 5 millions sur la période 2027-2028.',
+    'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Paysage suisse représentant la mobilité nationale et les infrastructures de transport public',
 };
 
 export default blogMetaChFr;
