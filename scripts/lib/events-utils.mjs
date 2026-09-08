@@ -1241,13 +1241,22 @@ async function fillLocaleGaps(byLocale, cache, { fieldType, locales, delayMs, tr
   const updated = { ...byLocale };
   for (const target of needing) {
     if (target === sourceLocale) continue;
+    // La traduzione e' pura rispetto a tipo, lingua e testo: mantenere la
+    // chiave condivisa fra eventi deduplica titoli identici senza includere un
+    // id evento o un sourceKey costante del crawler.
     const cacheKey = `${fieldType}::${sourceLocale}::${normalizedSource}`;
     const entry = cache[cacheKey] || {};
     if (Object.prototype.hasOwnProperty.call(entry, target)) {
       // `null` = passthrough memoizzato (vedi sotto): esito noto, nessuna rete.
       const memo = entry[target];
-      if (typeof memo === 'string' && memo) updated[target] = memo;
-      continue;
+      if (memo === null) continue;
+      // Solo testo non vuoto e utilizzabile e' un memo positivo autoritativo.
+      // Un valore vuoto/legacy non deve congelare lo slot duplicato alla
+      // sorgente: si ritenta e si sostituisce il memo corrotto.
+      if (typeof memo === 'string' && memo.trim()) {
+        updated[target] = memo;
+        continue;
+      }
     }
     const { text: translated, passthrough } = asTranslationResult(
       await translateFn({ text: sourceText, sourceLang: sourceLocale, targetLang: target, fieldType, maxRetries: 1 }),
