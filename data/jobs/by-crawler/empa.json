@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-09-08T13:50:56.970Z",
+  "assembledAt": "2026-09-08T23:33:58.289Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.921Z",
+      "crawledAt": "2026-09-08T23:33:50.174Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.918Z",
+      "crawledAt": "2026-09-08T23:33:50.173Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -151,8 +151,8 @@
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -198,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.917Z",
+      "crawledAt": "2026-09-08T23:33:50.167Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -256,8 +256,8 @@
           "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.178Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -303,7 +303,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.916Z",
+      "crawledAt": "2026-09-08T23:33:50.165Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -376,8 +376,8 @@
           "apprenti-e-polymechaniker-in-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.167Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.167Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -423,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.915Z",
+      "crawledAt": "2026-09-08T23:33:50.153Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -443,6 +443,7 @@
       "jobReqId": "2207",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:39:25.164Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -456,8 +457,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-3f0d824112e5",
@@ -490,7 +490,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.914Z",
+      "crawledAt": "2026-09-08T23:33:50.152Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -528,8 +528,8 @@
           "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -575,7 +575,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.912Z",
+      "crawledAt": "2026-09-08T23:33:50.150Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -652,8 +652,8 @@
           "lernende-r-physiklaborant-in-a-empa-thun"
         ]
       },
-      "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-07T22:14:30.867Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -699,7 +699,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.911Z",
+      "crawledAt": "2026-09-08T23:33:50.148Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -781,7 +781,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.909Z",
+      "crawledAt": "2026-09-08T23:33:50.147Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -801,6 +801,7 @@
       "jobReqId": "2218",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:55:02.889Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -814,8 +815,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-d5c944130420",
@@ -848,7 +848,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.908Z",
+      "crawledAt": "2026-09-08T23:33:50.145Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -917,8 +917,8 @@
           "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-08-06T11:49:43.418Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-06T11:49:43.418Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -964,7 +964,7 @@
       "url": "https://apply.refline.ch/673276/2222/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.906Z",
+      "crawledAt": "2026-09-08T23:33:50.142Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1000,8 +1000,8 @@
           "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer"
         ]
       },
-      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1047,7 +1047,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.904Z",
+      "crawledAt": "2026-09-08T23:33:50.140Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1118,8 +1118,8 @@
           "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1165,7 +1165,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.901Z",
+      "crawledAt": "2026-09-08T23:33:50.138Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1279,7 +1279,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:50:50.900Z",
+      "crawledAt": "2026-09-08T23:33:50.134Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1348,8 +1348,8 @@
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
         ]
       },
-      "firstSeenAt": "2026-08-20T21:51:51.012Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-20T21:51:51.012Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1395,7 +1395,7 @@
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.897Z",
+      "crawledAt": "2026-09-08T23:33:50.128Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1456,8 +1456,8 @@
           "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:33:57.028Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:33:57.028Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1503,7 +1503,7 @@
       "url": "https://apply.refline.ch/673276/2225/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.894Z",
+      "crawledAt": "2026-09-08T23:33:50.125Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1585,7 +1585,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.893Z",
+      "crawledAt": "2026-09-08T23:33:50.123Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1667,7 +1667,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.890Z",
+      "crawledAt": "2026-09-08T23:33:50.119Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1703,8 +1703,8 @@
           "postdoc-position-on-redox-targeted-flow-batteries-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:47:24.050Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:47:24.050Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1750,7 +1750,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:50:50.887Z",
+      "crawledAt": "2026-09-08T23:33:50.114Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1794,6 +1794,144 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "empa-ba09f35f5dd0",
+      "slug": "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+      "slugByLocale": {
+        "en": "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+        "it": "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+        "de": "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for",
+        "fr": "phd-position-in-the-development-of-life-like-materials-that-learn-remember-and-forget-for"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "PhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics",
+      "titleByLocale": {
+        "en": "PhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics",
+        "it": "PhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics",
+        "de": "PhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics",
+        "fr": "PhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics"
+      },
+      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics\n\nIn our research group, we design mechanically robust, multi-responsive polyurethane elastomer with backbone-integrated molecular switches. Our aim is to move beyond conventional stimuli-responsive materials, which merely switch between predetermined states, toward life-like materials that genuinely learn: Forming memories, consolidating them over time, selectively forgetting, and adapting their behavior through experience, all while retaining commercial-grade mechanical properties.\n In this PhD project, you will synthesize and characterize semi-crystalline polyurethane elastomers containing backbone-integrated photo-, halo-, and thermochromic molecular switches, and investigate how their interactions can be engineered to produce quantifiable memory and learning behaviors.\n\nYour tasks\n\n• Synthesize libraries of single-, dual-, and triple-switch polyurethanes (Stenhouse salt, DASA, and Spiropyran) via copolymerization and post-polymerization functionalization, and validate backbone integration by NMR, GPC, DSC, DMA, tensile testing, UV-Vis spectroscopy, and pump probe characterization.\n\n• Design and characterize synergistic switching cascades (collaborative, competitive, and interdependent pathways) using time-resolved and spatially resolved spectroscopy, patterned illumination, and pH/thermal stimuli.\n\n• Develop and validate logic maps for memory formation, consolidation, and selective forgetting, and translate these into training-recall-forgetting cycles on physical polymer films and bilayer actuators.\n\n• Contribute to integrating learning materials into soft robotic bilayer actuators and, together with the wider team, demonstrate behavioral adaptation in autonomous soft robots.\n\n• Collaborate with international partners\n\nYour profile\n\nThe candidate should have a strong background in Organic Chemistry, Polymer Chemistry, Materials Science, or a closely related field. We are looking for a highly motivated, curious person who enjoys working at the interface of synthetic chemistry, materials science, and soft robotics, who is comfortable in a multidisciplinary, collaborative environment. The PhD candidate needs to be highly proficient in spoken and written English and hold a Master's degree. S/he will participate in writing scientific publications and presenting data at national and international scientific conferences. Previous experience in one or more of the following areas is required:\n• Polymer/polyurethane synthesis and characterization\n\n• Molecular switches (e.g., photochromic, halochromic, or thermochromic systems)\n\n• Standard analytical methods (NMR, UV-Vis, FTIR, and related techniques)\n\n• Thermomechanical characterization of polymers (DSC, DMA, tensile testing) Experience with soft actuators or soft robotic systems is a plus but not required.\n\nOur offer\n\nThis project is part of an SNSF Ambizione grant led by Dr. Livius F. Muff, hosted in the group of Dr. Luciano Boesel at Empa. The work will primarily be carried out at Empa St.Gallen under the direct supervision of Dr. Livius F. Muff. The PhD student will be affiliated at ETH Zürich (Prof. René Rossi, D-HEST).\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+      "descriptionByLocale": {
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics\n\nIn our research group, we design mechanically robust, multi-responsive polyurethane elastomer with backbone-integrated molecular switches. Our aim is to move beyond conventional stimuli-responsive materials, which merely switch between predetermined states, toward life-like materials that genuinely learn: Forming memories, consolidating them over time, selectively forgetting, and adapting their behavior through experience, all while retaining commercial-grade mechanical properties.\n In this PhD project, you will synthesize and characterize semi-crystalline polyurethane elastomers containing backbone-integrated photo-, halo-, and thermochromic molecular switches, and investigate how their interactions can be engineered to produce quantifiable memory and learning behaviors.\n\nYour tasks\n\n• Synthesize libraries of single-, dual-, and triple-switch polyurethanes (Stenhouse salt, DASA, and Spiropyran) via copolymerization and post-polymerization functionalization, and validate backbone integration by NMR, GPC, DSC, DMA, tensile testing, UV-Vis spectroscopy, and pump probe characterization.\n\n• Design and characterize synergistic switching cascades (collaborative, competitive, and interdependent pathways) using time-resolved and spatially resolved spectroscopy, patterned illumination, and pH/thermal stimuli.\n\n• Develop and validate logic maps for memory formation, consolidation, and selective forgetting, and translate these into training-recall-forgetting cycles on physical polymer films and bilayer actuators.\n\n• Contribute to integrating learning materials into soft robotic bilayer actuators and, together with the wider team, demonstrate behavioral adaptation in autonomous soft robots.\n\n• Collaborate with international partners\n\nYour profile\n\nThe candidate should have a strong background in Organic Chemistry, Polymer Chemistry, Materials Science, or a closely related field. We are looking for a highly motivated, curious person who enjoys working at the interface of synthetic chemistry, materials science, and soft robotics, who is comfortable in a multidisciplinary, collaborative environment. The PhD candidate needs to be highly proficient in spoken and written English and hold a Master's degree. S/he will participate in writing scientific publications and presenting data at national and international scientific conferences. Previous experience in one or more of the following areas is required:\n• Polymer/polyurethane synthesis and characterization\n\n• Molecular switches (e.g., photochromic, halochromic, or thermochromic systems)\n\n• Standard analytical methods (NMR, UV-Vis, FTIR, and related techniques)\n\n• Thermomechanical characterization of polymers (DSC, DMA, tensile testing) Experience with soft actuators or soft robotic systems is a plus but not required.\n\nOur offer\n\nThis project is part of an SNSF Ambizione grant led by Dr. Livius F. Muff, hosted in the group of Dr. Luciano Boesel at Empa. The work will primarily be carried out at Empa St.Gallen under the direct supervision of Dr. Livius F. Muff. The PhD student will be affiliated at ETH Zürich (Prof. René Rossi, D-HEST).\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "it": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics\n\nIn our research group, we design mechanically robust, multi-responsive polyurethane elastomer with backbone-integrated molecular switches. Our aim is to move beyond conventional stimuli-responsive materials, which merely switch between predetermined states, toward life-like materials that genuinely learn: Forming memories, consolidating them over time, selectively forgetting, and adapting their behavior through experience, all while retaining commercial-grade mechanical properties.\n In this PhD project, you will synthesize and characterize semi-crystalline polyurethane elastomers containing backbone-integrated photo-, halo-, and thermochromic molecular switches, and investigate how their interactions can be engineered to produce quantifiable memory and learning behaviors.\n\nYour tasks\n\n• Synthesize libraries of single-, dual-, and triple-switch polyurethanes (Stenhouse salt, DASA, and Spiropyran) via copolymerization and post-polymerization functionalization, and validate backbone integration by NMR, GPC, DSC, DMA, tensile testing, UV-Vis spectroscopy, and pump probe characterization.\n\n• Design and characterize synergistic switching cascades (collaborative, competitive, and interdependent pathways) using time-resolved and spatially resolved spectroscopy, patterned illumination, and pH/thermal stimuli.\n\n• Develop and validate logic maps for memory formation, consolidation, and selective forgetting, and translate these into training-recall-forgetting cycles on physical polymer films and bilayer actuators.\n\n• Contribute to integrating learning materials into soft robotic bilayer actuators and, together with the wider team, demonstrate behavioral adaptation in autonomous soft robots.\n\n• Collaborate with international partners\n\nYour profile\n\nThe candidate should have a strong background in Organic Chemistry, Polymer Chemistry, Materials Science, or a closely related field. We are looking for a highly motivated, curious person who enjoys working at the interface of synthetic chemistry, materials science, and soft robotics, who is comfortable in a multidisciplinary, collaborative environment. The PhD candidate needs to be highly proficient in spoken and written English and hold a Master's degree. S/he will participate in writing scientific publications and presenting data at national and international scientific conferences. Previous experience in one or more of the following areas is required:\n• Polymer/polyurethane synthesis and characterization\n\n• Molecular switches (e.g., photochromic, halochromic, or thermochromic systems)\n\n• Standard analytical methods (NMR, UV-Vis, FTIR, and related techniques)\n\n• Thermomechanical characterization of polymers (DSC, DMA, tensile testing) Experience with soft actuators or soft robotic systems is a plus but not required.\n\nOur offer\n\nThis project is part of an SNSF Ambizione grant led by Dr. Livius F. Muff, hosted in the group of Dr. Luciano Boesel at Empa. The work will primarily be carried out at Empa St.Gallen under the direct supervision of Dr. Livius F. Muff. The PhD student will be affiliated at ETH Zürich (Prof. René Rossi, D-HEST).\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "de": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics\n\nIn our research group, we design mechanically robust, multi-responsive polyurethane elastomer with backbone-integrated molecular switches. Our aim is to move beyond conventional stimuli-responsive materials, which merely switch between predetermined states, toward life-like materials that genuinely learn: Forming memories, consolidating them over time, selectively forgetting, and adapting their behavior through experience, all while retaining commercial-grade mechanical properties.\n In this PhD project, you will synthesize and characterize semi-crystalline polyurethane elastomers containing backbone-integrated photo-, halo-, and thermochromic molecular switches, and investigate how their interactions can be engineered to produce quantifiable memory and learning behaviors.\n\nYour tasks\n\n• Synthesize libraries of single-, dual-, and triple-switch polyurethanes (Stenhouse salt, DASA, and Spiropyran) via copolymerization and post-polymerization functionalization, and validate backbone integration by NMR, GPC, DSC, DMA, tensile testing, UV-Vis spectroscopy, and pump probe characterization.\n\n• Design and characterize synergistic switching cascades (collaborative, competitive, and interdependent pathways) using time-resolved and spatially resolved spectroscopy, patterned illumination, and pH/thermal stimuli.\n\n• Develop and validate logic maps for memory formation, consolidation, and selective forgetting, and translate these into training-recall-forgetting cycles on physical polymer films and bilayer actuators.\n\n• Contribute to integrating learning materials into soft robotic bilayer actuators and, together with the wider team, demonstrate behavioral adaptation in autonomous soft robots.\n\n• Collaborate with international partners\n\nYour profile\n\nThe candidate should have a strong background in Organic Chemistry, Polymer Chemistry, Materials Science, or a closely related field. We are looking for a highly motivated, curious person who enjoys working at the interface of synthetic chemistry, materials science, and soft robotics, who is comfortable in a multidisciplinary, collaborative environment. The PhD candidate needs to be highly proficient in spoken and written English and hold a Master's degree. S/he will participate in writing scientific publications and presenting data at national and international scientific conferences. Previous experience in one or more of the following areas is required:\n• Polymer/polyurethane synthesis and characterization\n\n• Molecular switches (e.g., photochromic, halochromic, or thermochromic systems)\n\n• Standard analytical methods (NMR, UV-Vis, FTIR, and related techniques)\n\n• Thermomechanical characterization of polymers (DSC, DMA, tensile testing) Experience with soft actuators or soft robotic systems is a plus but not required.\n\nOur offer\n\nThis project is part of an SNSF Ambizione grant led by Dr. Livius F. Muff, hosted in the group of Dr. Luciano Boesel at Empa. The work will primarily be carried out at Empa St.Gallen under the direct supervision of Dr. Livius F. Muff. The PhD student will be affiliated at ETH Zürich (Prof. René Rossi, D-HEST).\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "fr": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position in the development of life-like materials that learn, remember, and forget for use in soft robotics\n\nIn our research group, we design mechanically robust, multi-responsive polyurethane elastomer with backbone-integrated molecular switches. Our aim is to move beyond conventional stimuli-responsive materials, which merely switch between predetermined states, toward life-like materials that genuinely learn: Forming memories, consolidating them over time, selectively forgetting, and adapting their behavior through experience, all while retaining commercial-grade mechanical properties.\n In this PhD project, you will synthesize and characterize semi-crystalline polyurethane elastomers containing backbone-integrated photo-, halo-, and thermochromic molecular switches, and investigate how their interactions can be engineered to produce quantifiable memory and learning behaviors.\n\nYour tasks\n\n• Synthesize libraries of single-, dual-, and triple-switch polyurethanes (Stenhouse salt, DASA, and Spiropyran) via copolymerization and post-polymerization functionalization, and validate backbone integration by NMR, GPC, DSC, DMA, tensile testing, UV-Vis spectroscopy, and pump probe characterization.\n\n• Design and characterize synergistic switching cascades (collaborative, competitive, and interdependent pathways) using time-resolved and spatially resolved spectroscopy, patterned illumination, and pH/thermal stimuli.\n\n• Develop and validate logic maps for memory formation, consolidation, and selective forgetting, and translate these into training-recall-forgetting cycles on physical polymer films and bilayer actuators.\n\n• Contribute to integrating learning materials into soft robotic bilayer actuators and, together with the wider team, demonstrate behavioral adaptation in autonomous soft robots.\n\n• Collaborate with international partners\n\nYour profile\n\nThe candidate should have a strong background in Organic Chemistry, Polymer Chemistry, Materials Science, or a closely related field. We are looking for a highly motivated, curious person who enjoys working at the interface of synthetic chemistry, materials science, and soft robotics, who is comfortable in a multidisciplinary, collaborative environment. The PhD candidate needs to be highly proficient in spoken and written English and hold a Master's degree. S/he will participate in writing scientific publications and presenting data at national and international scientific conferences. Previous experience in one or more of the following areas is required:\n• Polymer/polyurethane synthesis and characterization\n\n• Molecular switches (e.g., photochromic, halochromic, or thermochromic systems)\n\n• Standard analytical methods (NMR, UV-Vis, FTIR, and related techniques)\n\n• Thermomechanical characterization of polymers (DSC, DMA, tensile testing) Experience with soft actuators or soft robotic systems is a plus but not required.\n\nOur offer\n\nThis project is part of an SNSF Ambizione grant led by Dr. Livius F. Muff, hosted in the group of Dr. Luciano Boesel at Empa. The work will primarily be carried out at Empa St.Gallen under the direct supervision of Dr. Livius F. Muff. The PhD student will be affiliated at ETH Zürich (Prof. René Rossi, D-HEST).\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-08T23:33:50.112Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Lerchenfeldstrasse 5",
+      "postalCode": "9014",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://apply.refline.ch/673276/2231/pub/1/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2231",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-08T23:33:50.112Z"
+    },
+    {
+      "id": "empa-5f3ee2d4ffd3",
+      "slug": "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+      "slugByLocale": {
+        "en": "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+        "it": "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+        "de": "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen",
+        "fr": "phd-position-titled-human-heat-stress-management-in-various-applications-empa-st-gallen"
+      },
+      "company": "Empa",
+      "companyKey": "empa",
+      "companyDomain": "empa.ch",
+      "title": "PhD position titled: Human heat stress management in various applications",
+      "titleByLocale": {
+        "en": "PhD position titled: Human heat stress management in various applications",
+        "it": "PhD position titled: Human heat stress management in various applications",
+        "de": "PhD position titled: Human heat stress management in various applications",
+        "fr": "PhD position titled: Human heat stress management in various applications"
+      },
+      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position titled: Human heat stress management in various applications\n\nWe are looking for a motivated researcher to join an interdisciplinary project focused on heat stress mitigation across multiple application domains, including buildings, sports, and occupational safety. The project will establish the scientific and methodological foundation for the development and validation of innovative strategies to protect people from heat stress and improve thermal safety, comfort, and performance in challenging environments.\n\nYour tasks\n\nYour task will be\n• Develop, adapt, and validate experimental and computational methods for assessing heat stress and evaluating mitigation strategies\n\n• Plan and perform experiments using thermal manikins, environmental sensors, physiological measurements, and climatic test facilities\n\n• Analyse and interpret experimental and physiological data and contribute to the development of models and predictive approaches for human thermal responses.\n\n• Communicate scientific results through peer-reviewed publications, conference presentations, technical reports, and project meetings\n\n• Contribute to the preparation of future national and international research proposals and collaborations with academic, industrial, and governmental partners\n\nYour profile\n\nWe expect the following competences\n• Completed MSc degree in human physiology, mechanical, environmental, biomedical engineering or similar discipline\n\n• Experience in physics-based and data-driven modeling and data-analysis skills (e.g. Python, MATLAB, or comparable tools) are an advantage\n\n• High interest in interdisciplinary research\n\n• Excellent communication skills and fluency in English (both written and oral) are mandatory\n\nOur offer\n\nA project duration of 3 years is envisaged to carry out the above research tasks in the form of a PhD project. The candidate will perform his/her research at Empa in St. Gallen and will get the PhD degree from ETH Zürich (under Prof. René Rossi, Department of Health Science and Technology). The desired project start is as soon as possible or upon mutual agreement.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+      "descriptionByLocale": {
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position titled: Human heat stress management in various applications\n\nWe are looking for a motivated researcher to join an interdisciplinary project focused on heat stress mitigation across multiple application domains, including buildings, sports, and occupational safety. The project will establish the scientific and methodological foundation for the development and validation of innovative strategies to protect people from heat stress and improve thermal safety, comfort, and performance in challenging environments.\n\nYour tasks\n\nYour task will be\n• Develop, adapt, and validate experimental and computational methods for assessing heat stress and evaluating mitigation strategies\n\n• Plan and perform experiments using thermal manikins, environmental sensors, physiological measurements, and climatic test facilities\n\n• Analyse and interpret experimental and physiological data and contribute to the development of models and predictive approaches for human thermal responses.\n\n• Communicate scientific results through peer-reviewed publications, conference presentations, technical reports, and project meetings\n\n• Contribute to the preparation of future national and international research proposals and collaborations with academic, industrial, and governmental partners\n\nYour profile\n\nWe expect the following competences\n• Completed MSc degree in human physiology, mechanical, environmental, biomedical engineering or similar discipline\n\n• Experience in physics-based and data-driven modeling and data-analysis skills (e.g. Python, MATLAB, or comparable tools) are an advantage\n\n• High interest in interdisciplinary research\n\n• Excellent communication skills and fluency in English (both written and oral) are mandatory\n\nOur offer\n\nA project duration of 3 years is envisaged to carry out the above research tasks in the form of a PhD project. The candidate will perform his/her research at Empa in St. Gallen and will get the PhD degree from ETH Zürich (under Prof. René Rossi, Department of Health Science and Technology). The desired project start is as soon as possible or upon mutual agreement.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "it": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position titled: Human heat stress management in various applications\n\nWe are looking for a motivated researcher to join an interdisciplinary project focused on heat stress mitigation across multiple application domains, including buildings, sports, and occupational safety. The project will establish the scientific and methodological foundation for the development and validation of innovative strategies to protect people from heat stress and improve thermal safety, comfort, and performance in challenging environments.\n\nYour tasks\n\nYour task will be\n• Develop, adapt, and validate experimental and computational methods for assessing heat stress and evaluating mitigation strategies\n\n• Plan and perform experiments using thermal manikins, environmental sensors, physiological measurements, and climatic test facilities\n\n• Analyse and interpret experimental and physiological data and contribute to the development of models and predictive approaches for human thermal responses.\n\n• Communicate scientific results through peer-reviewed publications, conference presentations, technical reports, and project meetings\n\n• Contribute to the preparation of future national and international research proposals and collaborations with academic, industrial, and governmental partners\n\nYour profile\n\nWe expect the following competences\n• Completed MSc degree in human physiology, mechanical, environmental, biomedical engineering or similar discipline\n\n• Experience in physics-based and data-driven modeling and data-analysis skills (e.g. Python, MATLAB, or comparable tools) are an advantage\n\n• High interest in interdisciplinary research\n\n• Excellent communication skills and fluency in English (both written and oral) are mandatory\n\nOur offer\n\nA project duration of 3 years is envisaged to carry out the above research tasks in the form of a PhD project. The candidate will perform his/her research at Empa in St. Gallen and will get the PhD degree from ETH Zürich (under Prof. René Rossi, Department of Health Science and Technology). The desired project start is as soon as possible or upon mutual agreement.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "de": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position titled: Human heat stress management in various applications\n\nWe are looking for a motivated researcher to join an interdisciplinary project focused on heat stress mitigation across multiple application domains, including buildings, sports, and occupational safety. The project will establish the scientific and methodological foundation for the development and validation of innovative strategies to protect people from heat stress and improve thermal safety, comfort, and performance in challenging environments.\n\nYour tasks\n\nYour task will be\n• Develop, adapt, and validate experimental and computational methods for assessing heat stress and evaluating mitigation strategies\n\n• Plan and perform experiments using thermal manikins, environmental sensors, physiological measurements, and climatic test facilities\n\n• Analyse and interpret experimental and physiological data and contribute to the development of models and predictive approaches for human thermal responses.\n\n• Communicate scientific results through peer-reviewed publications, conference presentations, technical reports, and project meetings\n\n• Contribute to the preparation of future national and international research proposals and collaborations with academic, industrial, and governmental partners\n\nYour profile\n\nWe expect the following competences\n• Completed MSc degree in human physiology, mechanical, environmental, biomedical engineering or similar discipline\n\n• Experience in physics-based and data-driven modeling and data-analysis skills (e.g. Python, MATLAB, or comparable tools) are an advantage\n\n• High interest in interdisciplinary research\n\n• Excellent communication skills and fluency in English (both written and oral) are mandatory\n\nOur offer\n\nA project duration of 3 years is envisaged to carry out the above research tasks in the form of a PhD project. The candidate will perform his/her research at Empa in St. Gallen and will get the PhD degree from ETH Zürich (under Prof. René Rossi, Department of Health Science and Technology). The desired project start is as soon as possible or upon mutual agreement.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
+        "fr": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPhD position titled: Human heat stress management in various applications\n\nWe are looking for a motivated researcher to join an interdisciplinary project focused on heat stress mitigation across multiple application domains, including buildings, sports, and occupational safety. The project will establish the scientific and methodological foundation for the development and validation of innovative strategies to protect people from heat stress and improve thermal safety, comfort, and performance in challenging environments.\n\nYour tasks\n\nYour task will be\n• Develop, adapt, and validate experimental and computational methods for assessing heat stress and evaluating mitigation strategies\n\n• Plan and perform experiments using thermal manikins, environmental sensors, physiological measurements, and climatic test facilities\n\n• Analyse and interpret experimental and physiological data and contribute to the development of models and predictive approaches for human thermal responses.\n\n• Communicate scientific results through peer-reviewed publications, conference presentations, technical reports, and project meetings\n\n• Contribute to the preparation of future national and international research proposals and collaborations with academic, industrial, and governmental partners\n\nYour profile\n\nWe expect the following competences\n• Completed MSc degree in human physiology, mechanical, environmental, biomedical engineering or similar discipline\n\n• Experience in physics-based and data-driven modeling and data-analysis skills (e.g. Python, MATLAB, or comparable tools) are an advantage\n\n• High interest in interdisciplinary research\n\n• Excellent communication skills and fluency in English (both written and oral) are mandatory\n\nOur offer\n\nA project duration of 3 years is envisaged to carry out the above research tasks in the form of a PhD project. The candidate will perform his/her research at Empa in St. Gallen and will get the PhD degree from ETH Zürich (under Prof. René Rossi, Department of Health Science and Technology). The desired project start is as soon as possible or upon mutual agreement.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://apply.refline.ch/673276/2230/pub/1/index.html",
+      "source": "Empa Dedicated Parser (Refline 673276)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-08T23:33:50.106Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "streetAddress": "Lerchenfeldstrasse 5",
+      "postalCode": "9014",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Università / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://apply.refline.ch/673276/2230/pub/1/index.html",
+      "hiringOrganizationName": "Empa",
+      "jobReqId": "2230",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-08T23:33:50.106Z"
     }
   ]
 }

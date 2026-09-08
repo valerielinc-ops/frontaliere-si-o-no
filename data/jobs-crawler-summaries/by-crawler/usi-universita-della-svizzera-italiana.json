@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-08T13:51:03.948Z",
+  "generatedAt": "2026-09-08T23:33:56.800Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 20,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 76822,
-  "avgDurationMs": 76822,
+  "durationMs": 55078,
+  "avgDurationMs": 55078,
   "durationHistory": [
-    76822
+    55078
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -658,89 +658,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinatore-trice-2026.pdf",
-      "title": "Coordinatore/Coordinatrice",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "coordinatore-coordinatrice-usi-lugano",
-      "department": "USI Startup Centre",
-      "category": "staff",
-      "datePosted": "2026-08-11",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-1e01fa07c06e",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-08-11T10:17:03.725Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/usistartup/usistartup-coordinator-2026.pdf",
-      "title": "Coordinatore",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "coordinatore-usi-lugano",
-      "department": "USI Startup Centre",
-      "category": "staff",
-      "datePosted": "2026-08-17",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-5132bcaf0603",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-08-17T22:00:33.993Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
