@@ -67,7 +67,8 @@ describe('tests.yml: body edit isolation', () => {
 
   it('routes edited to the contract-only job and synchronize to the heavy job', () => {
     expect(codeJob?.name).toBe(VITEST_CHECK_NAME);
-    expect(bodyJob?.name).toBe(VITEST_CHECK_NAME);
+    expect(bodyJob?.name).toBe('PR body contract');
+    expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
 
     expect(runsForAction(codeJob?.if, 'edited')).toBe(false);
     expect(runsForAction(codeJob?.if, 'synchronize')).toBe(true);
@@ -92,24 +93,30 @@ describe('tests.yml: body edit isolation', () => {
     expect(codeJob?.steps?.some((step) => step.name === 'Rebase near-merge PRs after review or stale rescue')).toBe(true);
   });
 
-  it('does not let the skipped heavy check replace the edited body verdict', () => {
+  it('does not let the edited body check replace a code verdict', () => {
     const completed = latestCompletedRunByName(
       [
+        {
+          name: codeJob?.name,
+          status: 'completed',
+          conclusion: 'failure',
+          completed_at: '2026-09-08T08:20:00Z',
+        },
         {
           name: bodyJob?.name,
           status: 'completed',
           conclusion: 'success',
-          completed_at: '2026-09-08T08:20:00Z',
+          completed_at: '2026-09-08T08:20:05Z',
         },
         {
           name: codeJob?.name,
           status: 'completed',
           conclusion: 'skipped',
-          completed_at: '2026-09-08T08:20:05Z',
+          completed_at: '2026-09-08T08:20:10Z',
         },
       ],
       VITEST_CHECK_NAME,
     );
-    expect(completed?.conclusion).toBe('success');
+    expect(completed?.conclusion).toBe('failure');
   });
 });
