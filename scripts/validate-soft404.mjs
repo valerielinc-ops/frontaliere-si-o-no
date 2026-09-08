@@ -17,6 +17,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { flatString } from './lib/flat-string.mjs';
 import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
+import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -54,7 +55,8 @@ function urlToDistPath(url) {
   let rel = url.replace(BASE_URL, '').replace(/\/$/, '') || '/';
   if (rel === '/') return path.join(DIST, 'index.html');
   rel = rel.startsWith('/') ? rel.slice(1) : rel;
-  return path.join(DIST, rel, 'index.html');
+  const indexPath = path.join(DIST, rel, 'index.html');
+  return existsSync(indexPath) ? indexPath : path.join(DIST, `${rel}.html`);
 }
 
 /** Strip HTML tags and entities, return visible text only. */
@@ -118,6 +120,8 @@ const { dir: sitemapDir, files: sitemapFiles, excluded: excludedSitemaps } =
 const issues = [];
 let totalChecked = 0;
 let skippedMissing = 0;
+let eligiblePages = 0;
+let externallyServed = 0;
 
 for (const file of sitemapFiles) {
   const xml = readFileSync(path.join(sitemapDir, file), 'utf-8');
@@ -127,6 +131,11 @@ for (const file of sitemapFiles) {
   let fileIssues = 0;
 
   for (const url of allUrls) {
+    if (isExternallyServedUrl(url)) {
+      externallyServed++;
+      continue;
+    }
+    eligiblePages++;
     const distPath = urlToDistPath(url);
     if (!existsSync(distPath)) {
       skippedMissing++;
@@ -195,6 +204,9 @@ console.log(
   `\n📊 Checked ${totalChecked} pages across ${sitemapFiles.length} sitemaps ` +
   `in ${path.relative(ROOT, sitemapDir) || '.'}/ (${skippedMissing} missing files skipped)`
 );
+if (externallyServed > 0) {
+  console.log(`   ℹ️  ${externallyServed} sitemap URL(s) skipped — served from an external shard, not from this build`);
+}
 if (excludedSitemaps.length > 0) {
   console.log(`   Excluded by design (job shards / sitemap indexes): ${excludedSitemaps.join(', ')}`);
 }
@@ -212,11 +224,14 @@ if (excludedSitemaps.length > 0) {
 // empty list instead, which would make a blocking gate exit 0 over zero URLs
 // — the same green-tick-on-nothing bug #7744 closes, from the other side.
 const populationError = soft404PopulationError({
-  dir: sitemapDir, files: sitemapFiles, rootDir: ROOT, checkedPages: totalChecked,
+  dir: sitemapDir, files: sitemapFiles, rootDir: ROOT,
+  checkedPages: totalChecked, eligiblePages,
 });
 if (populationError) {
   if (WARN_ONLY) {
     console.warn(`\n⚠️  Empty soft-404 population: ${populationError}\n`);
+    console.warn('⚠️  Soft-404 validation incomplete (--warn-only): no blocking verdict was produced.\n');
+    process.exit(0);
   } else {
     console.error(`\n❌ Empty soft-404 population: ${populationError}\n`);
     process.exit(1);

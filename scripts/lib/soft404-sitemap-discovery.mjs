@@ -94,10 +94,13 @@ export function discoverSoft404Sitemaps(rootDir) {
  * never a pass. Shared by `validate-soft404.mjs` and the `loadSoft404Urls()`
  * re-implementation in `validate-sitemap-pages.mjs`.
  *
- * @param {{ dir: string, files: string[], rootDir: string, checkedPages: number }} args
+ * @param {{ dir: string, files: string[], rootDir: string, checkedPages: number, eligiblePages?: number }} args
+ *   `eligiblePages` counts non-external URLs that this build is expected to
+ *   validate, including URLs whose local file is missing. When it is zero,
+ *   every URL was deliberately excluded because its page is served elsewhere.
  * @returns {string|null} the failure message, or `null` when the run is sound.
  */
-export function soft404PopulationError({ dir, files, rootDir, checkedPages }) {
+export function soft404PopulationError({ dir, files, rootDir, checkedPages, eligiblePages = null }) {
   const distDir = path.join(rootDir, 'dist');
   if (!existsSync(distDir)) {
     return `dist/ not found at ${distDir} — this gate runs after the build; ` +
@@ -107,7 +110,7 @@ export function soft404PopulationError({ dir, files, rootDir, checkedPages }) {
     return `no sitemap to judge in ${dir} — the build emitted none, or every ` +
       'candidate was excluded (job shards / sitemap indexes).';
   }
-  if (checkedPages === 0) {
+  if (checkedPages === 0 && (eligiblePages === null || eligiblePages > 0)) {
     return `${files.length} sitemap(s) in ${dir} but 0 pages resolved under ` +
       `${distDir} — every URL was counted as a missing file, so no page was ` +
       'actually validated.';
