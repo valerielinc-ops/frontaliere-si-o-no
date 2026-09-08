@@ -630,6 +630,16 @@ jobs:
         if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         uses: ./.github/actions/setup-headroom
 
+      - name: Install deterministic PR body gate
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        run: |
+          set -euo pipefail
+          gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
+          mkdir -p "$gate_dir"
+          ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
+          echo "$gate_dir" >> "$GITHUB_PATH"
+          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
       - name: Run Claude fix
         # Tetto sullo step (classe #7310). Il cap del job è 360min e in pratica
         # non lega mai: il vincolo che morde è `--max-turns`, e la morte al cap
@@ -741,7 +751,7 @@ jobs:
             6. **Gate test pre-PR (anti re-review — OBBLIGATORIO):** gira UNA VOLTA i test che coprono l'area toccata: `npx vitest run <path/glob pertinente al code modificato>` (es. fix a un parser → `npx vitest run tests/<area>`). Verde → procedi al passo 7. Rosso → NON ri-lanciare l'intero file/suite da capo: rigira SOLO il test fallito con `-t <pattern che matcha il nome del test>`, fixa la root cause, ri-verifica scoped, ripeti finché verde. NON girare la suite intera col `npm test` cieco: qui manca `data/jobs.json` (lo assembla la CI `tests`) → sarebbe rossa per infra, non per il tuo fix; se il tuo cambiamento tocca l'assembly dati gira prima `node scripts/assemble-jobs-dataset.mjs`. NON lanciare un `npx tsc --noEmit` full-repo a meno che il fix tocchi davvero type definitions condivise ampiamente (`types/`, interfacce esportate cross-modulo) — per un fix scoped il vitest sull'area toccata basta. **Perché la tightening:** #4263 (aggregate già ristretto a 1 item dal circuit-breaker) ha bruciato il budget 50 turni su ~25 di diagnosi + DUE pass completi di `npx vitest run` sull'intero file + un `npx tsc --noEmit` full-repo + ~6 turni finali di un ciclo patch→worktree mai completato (vedi passo 1) — zero PR consegnata. Test scoping disciplinato = turni per il fix vero, non per ripetere verifiche già fatte. La review Claude ora parte SOLO dopo `tests` verde (gate `pr-review-loop` su `workflow_run[tests]==success`): una PR coi test rossi non riceve review e resta ferma — spreco di un ciclo.
             7. Commit (SOLO se ci sono cambi oltre il checkpoint WIP del passo 4, es. fix ai test rossi del passo 6): identity canonica già configurata, messaggio conventional, in fondo nessuna email non-canonica. Se dal passo 4 non è cambiato altro, questo passo è un no-op — non serve squashare: una storia wip+fix sul branch va bene.
             8. Push (aggiorna il branch già pushato al passo 4 col commit più recente, se presente): `git push -u origin fix/issue-$ISSUE_NUMBER`.
-            9. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
+            9. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract). Prepara prima il body completo nel file assoluto `$RUNNER_TEMP/issue-fix-pr-body.md` (imposta `BODY_FILE` a quel path), senza passarlo inline:
                ```
                ## Implementato
                - <cosa fa il fix>
@@ -750,6 +760,7 @@ jobs:
                ## Non implementato (ancora)
                - <scope NON fatto> — <STATO LETTERALE>
                ```
+               Poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e chiama `gh pr create` solo se il comando termina con exit 0, usando `--body-file "$BODY_FILE"`. Lo step ha anche un wrapper deterministico su `gh`: una create senza body-file o con un body non conforme viene bloccata prima della chiamata remota; non usare un body inline.
                **La riga di chiusura qui sopra è già calcolata, copiala VERBATIM.** Non
                sostituirla con `Closes #$ISSUE_NUMBER` di tua iniziativa: se dice
                `Addresses #$ISSUE_NUMBER` è perché questa issue è una follow-up **aggregata

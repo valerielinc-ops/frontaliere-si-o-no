@@ -1,10 +1,14 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { chmodSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { resolve } from 'node:path';
-import { extractPrBody } from '../scripts/ci/pr-body-check-gate.mjs';
+import {
+  BODY_FILE_INFRA,
+  extractPrBody,
+  validatePrBody,
+} from '../scripts/ci/pr-body-check-gate.mjs';
 import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 /**
@@ -16,6 +20,7 @@ import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const GATE = resolve(ROOT, 'scripts/ci/pr-body-check-gate.mjs');
+const SHIM = resolve(ROOT, 'scripts/gh-pr-body-check.mjs');
 
 const BOTH_HEADERS = '## Implementato\n\nfoo\n\n## Non implementato (ancora)\n\nNessuno';
 const MISSING_NON = '## Implementato\n\nfoo bar baz';
@@ -160,8 +165,8 @@ describe('pr-body-check-gate hook (process behavior)', () => {
   });
 
   // #6300 / recidiva #6289: `PR concatenata` senza `#N` deve bloccare
-  // `gh pr create` (EXIT_BLOCK), non solo avvisare. I restanti bullet
-  // senza stato restano advisory.
+  // `gh pr create` (EXIT_BLOCK), non solo avvisare. Il gate remoto applica la
+  // stessa regola tramite la CLI `--body-file`.
   it('blocks (EXIT_BLOCK=2) when a residual bullet says "PR concatenata" without #N', () => {
     const body =
       '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo — PR concatenata, non ancora aperta\n';
@@ -180,12 +185,111 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.status).toBe(0);
   });
 
-  it('does not promote a generic stateless bullet to EXIT_BLOCK', () => {
+  it('blocks a generic stateless residual bullet before the PR is created', () => {
     const body =
       '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
     const cmd = `gh pr create --title "x" --body '${body}'`;
     const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/bullet-without-state/);
+  });
+
+  it('uses the same strict pure validator for the hook and the workflow CLI', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
+    const result = validatePrBody(body);
+    expect(result.ok).toBe(false);
+    expect(result.violations.map((v) => v.type)).toContain('bullet-without-state');
+  });
+
+  it('returns EXIT_BLOCK from the workflow CLI for a contract violation', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-cli-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const res = spawnSync('node', [GATE, '--body-file', file], { encoding: 'utf8' });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR non conforme/);
+  });
+
+  it('returns a distinct infrastructure code when the workflow body file is unreadable', () => {
+    const file = join(tmpdir(), `missing-pr-body-${process.pid}-${Date.now()}.md`);
+    const res = spawnSync('node', [GATE, '--body-file', file], { encoding: 'utf8' });
+    expect(res.status).toBe(BODY_FILE_INFRA);
+    expect(res.stderr).toMatch(/body-file non leggibile/);
+  });
+
+  it('the workflow gh shim blocks a create that omits the body-file', () => {
+    const res = spawnSync('node', [SHIM, 'pr', 'create', '--title', 'x'], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/richiede `--body-file`/);
+  });
+
+  it('the workflow gh shim blocks inline body writes for create and edit', () => {
+    for (const args of [
+      ['pr', 'create', '--body', 'body'],
+      ['pr', 'edit', '123', '--body', 'body'],
+      ['pr', 'create', '-b', 'body'],
+      ['pr', 'edit', '123', '-b', 'body'],
+    ]) {
+      const res = spawnSync('node', [SHIM, ...args], { encoding: 'utf8' });
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/body.*inline/);
+    }
+  });
+
+  it('the workflow gh shim recognizes the short body-file alias', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', file], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('passes through non-body `gh pr edit` mutations to the real gh', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, '#!/bin/sh\nprintf \'real-gh-called\\n\'\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'edit', '123', '--add-label', 'needs-human'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+      },
+    });
     expect(res.status).toBe(0);
+    expect(res.stdout).toContain('real-gh-called');
+  });
+
+  it('the workflow gh shim skips an unreadable body-file without failing the job', () => {
+    const file = join(tmpdir(), `missing-shim-pr-body-${process.pid}-${Date.now()}.md`);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/nessun body PR scritto/);
+  });
+
+  it('the workflow gh shim treats a remote gh failure as infrastructure after validation', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+      env: { ...process.env, PATH: '', PR_BODY_GATE_BIN: join(dir, 'wrapper-bin') },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/gh non avviabile/);
   });
 
   // 2026-08-25: end-to-end proof that payload.cwd reaches extractPrBody, not
