@@ -136,6 +136,18 @@ export function classifyForTransport(entry, now, base) {
   return { ...verdict, transport: 'no-op' };
 }
 
+/** Results that make a strict dry-run unsafe to accept. */
+export function strictFailureResults(results) {
+  return results.filter(
+    (result) => result.transport === 'check-failed'
+      || (typeof result.transport === 'string' && result.transport.startsWith('blocked')),
+  );
+}
+
+export function strictExitCode(results, strict) {
+  return strict && strictFailureResults(results).length ? 1 : 0;
+}
+
 async function main() {
   const ARGS = new Set(process.argv.slice(2));
   const AS_JSON = ARGS.has('--json');
@@ -237,7 +249,7 @@ async function main() {
     }
   }
 
-  return STRICT && blocked.length ? 1 : 0;
+  return strictExitCode(results, STRICT);
 }
 
 const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
