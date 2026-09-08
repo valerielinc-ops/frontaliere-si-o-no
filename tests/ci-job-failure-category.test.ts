@@ -135,15 +135,14 @@ describe('classifyJobFailure — di che cosa è fatto il rosso', () => {
  * la prova dell'esito dei test. Questo blocco è la verifica che morde.
  */
 describe('i nomi di step classificati esistono davvero in tests.yml', () => {
-  // Slice del SOLO job `vitest`, non del file intero: oggi coincidono perché
-  // `tests.yml` ha un job solo, ma il giorno che ne compare un secondo
-  // l'asserzione «lo step del summary è ULTIMO» inizierebbe a parlare in
-  // silenzio dell'ultimo step di un altro job.
+  // Slice del SOLO job pesante `vitest`, non del file intero: il companion
+  // body-only in fondo al file non deve entrare nell'asserzione «lo step del
+  // summary è ULTIMO».
   const jobStart = TESTS_YML.indexOf('\n  vitest:\n');
   const after = TESTS_YML.slice(jobStart + 1);
   const nextJob = after.slice(1).search(/^ {2}[A-Za-z0-9_-]+:$/m);
   const JOB_BODY = nextJob === -1 ? after : after.slice(0, nextJob + 1);
-  const declaredStepNames = [...JOB_BODY.matchAll(/^ {6}- name: (.+)$/gm)].map((m) => m[1].trim());
+  const declaredStepNames = [...JOB_BODY.matchAll(/^ {6}- (?:&[A-Za-z0-9_-]+\s+)?name: (.+)$/gm)].map((m) => m[1].trim());
 
   it('lo slice isola davvero il job `vitest` e ne trova gli step', () => {
     expect(jobStart).toBeGreaterThan(-1);

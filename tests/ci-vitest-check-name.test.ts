@@ -81,15 +81,17 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 });
 
 /**
- * Contratto single-job post de-sharding (#2882): tests.yml esegue UN solo job
- * `vitest (unit + integration)` — non esiste più un job `vitest-shard:` con
- * matrice. `VITEST_SHARD_NAME_RE` e `vitestVerdictIsTransientCancellation`
- * RESTANO in scripts/ci/lib (dormienti): senza check-run shard l'heal ritorna
- * `false`, che è il comportamento CORRETTO nel nuovo mondo — un vitest=failure
- * sull'HEAD è sempre un fail reale, mai un mascheramento da shard `cancelled`
- * collassato dall'aggregatore. Questo guard fissa il contratto single-job: una
- * futura re-introduzione dello sharding DEVE aggiornare consapevolmente sia
- * tests.yml sia l'heal (la unit `vitest-check-selection.test.ts` copre la funzione).
+ * Contratto single-job post de-sharding (#2882): il percorso pesante di
+ * tests.yml esegue UN solo job `vitest (unit + integration)` — non esiste più
+ * un job `vitest-shard:` con matrice. Il companion body-only ha un check
+ * distinto e non contiene la suite. `VITEST_SHARD_NAME_RE` e
+ * `vitestVerdictIsTransientCancellation` RESTANO in scripts/ci/lib (dormienti):
+ * senza check-run shard l'heal ritorna `false`, che è il comportamento CORRETTO
+ * nel nuovo mondo — un vitest=failure sull'HEAD è sempre un fail reale, mai un
+ * mascheramento da shard `cancelled` collassato dall'aggregatore. Questo guard
+ * fissa il contratto single-job del percorso pesante: una futura re-introduzione
+ * dello sharding DEVE aggiornare consapevolmente sia tests.yml sia l'heal (la
+ * unit `vitest-check-selection.test.ts` copre la funzione).
  */
 describe('vitest single-job contract (#2882 de-sharding)', () => {
   it('tests.yml ha il job `vitest:` e NESSUN job `vitest-shard:`', () => {
@@ -108,7 +110,9 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
 });
 
 /**
- * Contratto del JOB FUSO: quattro cancelli, un check-run, un lock.
+ * Contratto del JOB FUSO: quattro cancelli nel job pesante, un check-run
+ * required e un lock. Il companion body-only è escluso dalle asserzioni del
+ * percorso pesante.
  *
  * `collision`, `contract`, `typecheck` e `vitest` erano quattro job. Ora sono
  * quattro famiglie di step in un job solo, e due invarianti nate da incidenti
@@ -129,9 +133,13 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
  *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute di
  *    main che il `concurrency:` top-level protegge (vedi il describe sotto).
  */
-describe('job fuso: un check-run, quattro cancelli, un lock', () => {
+describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   const jobsBody = TESTS_YML.slice(TESTS_YML.indexOf('\njobs:'));
   const jobKeys = [...jobsBody.matchAll(/^ {2}([A-Za-z0-9_-]+):$/gm)].map((m) => m[1]);
+  const vitestStart = jobsBody.indexOf('\n  vitest:\n');
+  const vitestTail = jobsBody.slice(vitestStart + 1);
+  const nextJob = vitestTail.slice(1).search(/^ {2}[A-Za-z0-9_-]+:$/m);
+  const vitestBody = nextJob === -1 ? vitestTail : vitestTail.slice(0, nextJob + 1);
 
   // DUE job, e la seconda meta' e' tornata fuori DELIBERATAMENTE il 2026-08-26.
   // `collision` porta un lock `concurrency` GLOBALE — il detector scrive la
@@ -143,7 +151,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // veniva sfrattata a `cancelled`, nessun `success`, auto-merge fermo. Ora il
   // lock copre solo i sei step di chiamate API che lo richiedono davvero.
   // `contract` e `typecheck` restano nel job che produce il check-run gating.
-  // UN job solo, di nuovo, ma per una ragione DIVERSA da quella di #6555.
+  // UN job pesante, di nuovo, ma per una ragione DIVERSA da quella di #6555;
+  // il companion body-only è escluso da questo percorso.
   // Il detector di collisioni e' uscito del tutto da questo workflow il
   // 2026-08-26: e' uno SWEEPER repo-wide (ricalcola le label di tutte le PR
   // aperte da dati vivi) e uno sweeper va su `schedule`, non su
@@ -151,8 +160,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
   // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
   // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
-  it('tests.yml ha un job solo, e nessun lock di job', () => {
-    expect(jobKeys).toEqual(['vitest']);
+  it('tests.yml ha un solo job pesante, un companion body-only e nessun lock di job', () => {
+    expect(jobKeys).toEqual(['vitest', 'body-contract']);
     expect(
       /^ {4}concurrency:/m.test(jobsBody),
       'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +
@@ -169,7 +178,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       ['typecheck', /npm run typecheck:gate/],
       ['vitest related', /run-related-tests\.mjs/],
     ] as const) {
-      expect(re.test(jobsBody), `famiglia \`${what}\` non trovata nel job fuso`).toBe(true);
+      expect(re.test(vitestBody), `famiglia \`${what}\` non trovata nel job pesante`).toBe(true);
     }
   });
 
@@ -179,7 +188,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
   // (main-red #1454↔#1459). Il posto giusto e' `pr-collision-detector.yml`.
   it('il detector di collisioni NON vive in tests.yml', () => {
     expect(
-      /pr-collision-detector\.mjs/.test(jobsBody),
+      /pr-collision-detector\.mjs/.test(vitestBody),
       'il detector e\' tornato in tests.yml: e\' uno sweeper repo-wide e va su ' +
         'cron in pr-collision-detector.yml, non su un evento per-PR.',
     ).toBe(false);
@@ -299,8 +308,8 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       'tsc --noEmit (baseline + ratchet)',
       'Audit no merge conflict markers',
     ]) {
-      const re = new RegExp(`- name: ${first.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^\\n]*\\n(?:\\s*#[^\\n]*\\n)*\\s*if:\\s*(.+?)\\s*$`, 'm');
-      const m = re.exec(jobsBody);
+      const re = new RegExp(`- (?:&[A-Za-z0-9_-]+\\s+)?name: ${first.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^\\n]*\\n(?:\\s*#[^\\n]*\\n)*\\s*if:\\s*(.+?)\\s*$`, 'm');
+      const m = re.exec(vitestBody);
       expect(m, `step \`${first}\` senza \`if:\``).toBeTruthy();
       expect(m![1], `\`${first}\` non ha \`!cancelled()\`: un cancello rosso a monte lo spegne`)
         .toContain('!cancelled()');

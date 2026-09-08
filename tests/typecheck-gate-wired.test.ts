@@ -86,11 +86,12 @@ describe('typecheck gate wiring (#5540)', () => {
   // #5590 mergiata con `contract` = failure. Il guard resta, ma fissa
   // l'invariante nuova, che è più forte: il gate deve stare DENTRO l'unico
   // check-run che governa il merge.
-  it('tests.yml ha UN SOLO job, ed e\' quello del check-run gating', () => {
+  it('tests.yml ha il job gating e il companion body-only', () => {
     const jobs = topLevelJobKeys(workflow);
     expect(
       jobs,
-      'contratto aggiornato il 2026-08-26. `contract` e `typecheck` DEVONO ' +
+      'il job `vitest` deve restare il check-run gating; il companion body-only ' +
+        'può esistere solo per rivalidare `edited`. `contract` e `typecheck` DEVONO ' +
         "restare nel job che produce il check-run gating (e' la fusione a " +
         'renderli bloccanti, issue #5552). Il detector di collisioni invece e\' ' +
         'uscito del tutto da questo workflow: e\' uno sweeper repo-wide, vive su ' +
@@ -98,7 +99,7 @@ describe('typecheck gate wiring (#5540)', () => {
         'globale che accodava la suite di ogni PR dietro quella di tutte le ' +
         'altre, o una ✗ falsa da run sfrattato. Non aggiungere job qui senza la ' +
         'stessa analisi.',
-    ).toEqual(['vitest']);
+    ).toEqual(['vitest', 'body-contract']);
     expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
   });
 
@@ -132,10 +133,10 @@ describe('typecheck gate wiring (#5540)', () => {
   });
 
   it('il gate typecheck non gira senza checkout condiviso a monte', () => {
-    // Con un job solo, `npm run typecheck:gate` non ha più un checkout+npm ci
-    // propri: dipende da quelli condivisi in testa al job. Se qualcuno togliesse
-    // la fase comune il gate morirebbe con un errore d'ambiente (nessun
-    // node_modules), che è un rosso ma non quello che il gate deve dire.
+    // Nel job pesante, `npm run typecheck:gate` non ha un checkout+npm ci
+    // propri: dipende da quelli condivisi in testa al job. Se qualcuno
+    // togliesse la fase comune il gate morirebbe con un errore d'ambiente
+    // (nessun node_modules), che è un rosso ma non quello che il gate deve dire.
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
     const checkoutAt = vitestBody.indexOf('uses: actions/checkout@v5');
