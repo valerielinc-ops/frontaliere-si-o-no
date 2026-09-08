@@ -50,7 +50,7 @@ import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
 import { dropRetiredSitemapUrlBlocks } from './lib/sitemap-retired-urls.mjs';
-import { parseSlugRegistry } from './lib/article-slug-registry.mjs';
+import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -377,10 +377,11 @@ const SECTION_SITEMAPS = {
 function readSlugRegistry(file, constName) {
   const abs = path.join(ROOT, file);
   if (!fs.existsSync(abs)) return null;
-  const src = fs.readFileSync(abs, 'utf-8');
-  const parsed = parseSlugRegistry(src, constName);
-  if (Object.keys(parsed).length === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
-  return new Map(Object.entries(parsed));
+  const parsed = readSlugRegistryWithRows(abs, constName);
+  if (parsed.rows === 0 || Object.keys(parsed.registry).length !== parsed.rows) {
+    fail(`could not parse ${constName} out of ${file}: ${Object.keys(parsed.registry).length}/${parsed.rows} rows — refusing`);
+  }
+  return new Map(Object.entries(parsed.registry));
 }
 
 function readOverrideKeys(file) {
@@ -785,8 +786,13 @@ for (const name of FEEDS) {
     // is the corrupt case and still refuses — parsing it as empty would de-list
     // the entire sitemap in one run.
     const itSlugsOf = (file, constName) => {
-      const registry = readSlugRegistry(file, constName);
-      return registry ? new Set([...registry.values()].map((slugs) => slugs.it)) : null;
+      const abs = path.join(ROOT, file);
+      if (!fs.existsSync(abs)) return null;
+      const parsed = readSlugRegistryWithRows(abs, constName);
+      if (parsed.rows === 0 || Object.keys(parsed.registry).length !== parsed.rows) {
+        fail(`could not parse ${constName} out of ${file}: ${Object.keys(parsed.registry).length}/${parsed.rows} rows — refusing`);
+      }
+      return new Set(Object.values(parsed.registry).map((slugs) => slugs.it));
     };
 
     const registries = [

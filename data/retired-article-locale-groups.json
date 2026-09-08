@@ -1,0 +1,114 @@
+{
+  "note": "Four locale URLs of every retired article, preserved when the corpus registry row is pruned. See scripts/lib/retired-locale-groups.mjs and issue #7669.",
+  "groups": {
+    "frontaliere/caldo-torrido-lavoro-ticino": [
+      "/articoli-frontaliere/caldo-torrido-lavoro-ticino/",
+      "/en/cross-border-articles/hot-weather-work-ticino/",
+      "/de/grenzgaenger-artikel/heisses-wetter-arbeit-tessin/",
+      "/fr/articles-frontalier/chaleur-torrida-travail-tessin/"
+    ],
+    "frontaliere/courmayeur-lavora-vallese-frontaliere": [
+      "/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/",
+      "/en/cross-border-articles/courmayeur-work-vallese-frontalier/",
+      "/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/",
+      "/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/"
+    ],
+    "frontaliere/frontalieri-ticino-calo-2025": [
+      "/articoli-frontaliere/frontalieri-ticino-calo-dati-2025/",
+      "/en/cross-border-articles/cross-border-workers-ticino-decline-2025-data/",
+      "/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-daten-2025/",
+      "/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-2025/"
+    ],
+    "frontaliere/frontalieri-ticino-calo-q4-2025": [
+      "/articoli-frontaliere/frontalieri-ticino-calo-dati-q4-2025/",
+      "/en/cross-border-articles/cross-border-workers-ticino-decline-q4-2025-data/",
+      "/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-q4-2025-daten/",
+      "/fr/articles-frontalier/frontaliers-tessin-baisse-donnees-q4-2025/"
+    ],
+    "frontaliere/frontalieri-ticino-controtendenza-2026": [
+      "/articoli-frontaliere/frontalieri-ticino-dati-calo-q4-2025/",
+      "/en/cross-border-articles/cross-border-workers-ticino-data-decline-q4-2025/",
+      "/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-q4-2025/",
+      "/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-q4-2025/"
+    ],
+    "frontaliere/prezzi-proprieta-svizzera-aumentano": [
+      "/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/",
+      "/en/cross-border-articles/swiss-property-prices-rise/",
+      "/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/",
+      "/fr/articles-frontalier/prix-immobilier-suisse-augmentent/"
+    ],
+    "frontaliere/tassa-transito-svizzera-2023": [
+      "/articoli-frontaliere/tassa-transito-svizzera-2023/",
+      "/en/cross-border-articles/transit-fee-switzerland-2023/",
+      "/de/grenzgaenger-artikel/transitgebuehr-schweiz-2023/",
+      "/fr/articles-frontalier/frais-de-transit-suisse-2023/"
+    ],
+    "frontaliere/vivere-maslianico-lavorare-ticino-frontaliere": [
+      "/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere/",
+      "/en/cross-border-articles/live-maslianico-work-ticino-cross-border/",
+      "/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/",
+      "/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/"
+    ],
+    "frontaliere/vivere-tovo-lavorare-grigioni": [
+      "/articoli-frontaliere/vivere-tovo-lavorare-grigioni/",
+      "/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/",
+      "/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/",
+      "/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/"
+    ],
+    "svizzera/autostrada-riapertura-ticino": [
+      "/articoli-svizzera/autostrada-riapertura-ticino/",
+      "/en/swiss-articles/a2-highway-riopening-ticino/",
+      "/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/",
+      "/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/"
+    ],
+    "svizzera/effetto-domino-fallite-aziende-svizzera": [
+      "/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/",
+      "/en/swiss-articles/domino-effect-failed-companies-switzerland/",
+      "/de/schweiz-artikel/domino-effekt-gefallene-unternehmen-schweiz/",
+      "/fr/articles-suisse/effet-domino-filiale-dentreprise-suisse/"
+    ],
+    "svizzera/lavoro-forzato-catene-svizzere": [
+      "/articoli-svizzera/lavoro-forzato-catene-svizzere/",
+      "/en/swiss-articles/forced-labour-swiss-supply-chains/",
+      "/de/schweiz-artikel/zwangsarbeit-schweizer-lieferketten/",
+      "/fr/articles-suisse/travail-force-chaines-approvisionnement-suisse/"
+    ],
+    "svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro": [
+      "/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/",
+      "/en/swiss-articles/a-union-of-four-construction-companies-in-vallemaggia/",
+      "/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/",
+      "/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/"
+    ]
+  },
+  "ungroupedPaths": [
+    "/articoli-frontaliere/a9-chiusure-notturne-chiasso-como/",
+    "/articoli-frontaliere/accesso-libero-alle-rive/",
+    "/articoli-frontaliere/addiofrontalierelongo/",
+    "/articoli-frontaliere/calo-frontalieri-ticino-economia/",
+    "/articoli-frontaliere/elezioni-comunali-ticino-2026/",
+    "/articoli-frontaliere/frontalieri-redditi-2026/",
+    "/articoli-frontaliere/governo-tavolo-frontalieri-2026/",
+    "/articoli-frontaliere/naspi-disoccupazione-frontalieri/",
+    "/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/",
+    "/articoli-frontaliere/tassa-salute-frontalieri/",
+    "/de/grenzgaenger-artikel/slug-gaggiolo-verkehr/",
+    "/de/grenzgaenger-artikel/bahnhofsicherheit-tessin-2026/",
+    "/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/",
+    "/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/",
+    "/de/grenzgaenger-artikel/immobilienmarkt-ticino/",
+    "/de/grenzgaenger-artikel/rega-helikopter-locarno/",
+    "/de/grenzgaenger-artikel/tessin-justiz-referendum-2026/",
+    "/en/cross-border-articles/bossi-wanted-good-for-ticino/",
+    "/en/cross-border-articles/malpensa-arrest-cross-border-worker-murder-2026/",
+    "/en/cross-border-articles/naspi-unemployment-frontaliers/",
+    "/en/cross-border-articles/rega-helicopter-locarno/",
+    "/en/cross-border-articles/slug-gaggiolo-traffic/",
+    "/en/cross-border-articles/speed-controls-ticino-2026/",
+    "/en/cross-border-articles/swiss-italy-car-fuel-prices/",
+    "/en/cross-border-articles/swiss-neutrality-initiative/",
+    "/en/cross-border-articles/switzerland-public-service-tv-fee/",
+    "/fr/articles-frontalier/referendum-justice-tessin-2026/",
+    "/fr/articles-frontalier/slug-gaggiolo-traffic/",
+    "/en/cross-border-articles/ticino-elections-2026/"
+  ]
+}

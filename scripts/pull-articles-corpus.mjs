@@ -71,11 +71,17 @@ import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
-  readSlugRegistry,
+  readSlugRegistryWithRows,
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
 import { collectPreserveSnapshots, dropLedgeredRetirements } from './lib/corpus-local-preserve.mjs';
+import {
+  RETIRED_LOCALE_GROUPS_FILE,
+  parseRetiredLocaleGroups,
+  serializeRetiredLocaleGroups,
+  withRemovalGroups,
+} from './lib/retired-locale-groups.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 
 // Opt-in, never the default. See MAX_DELETIONS: removing content this repo
@@ -129,12 +135,37 @@ function countFiles(dir) {
  * `content/<name>.ts`, this repo is `packages/articles/content/<name>.ts`.
  */
 function readRegistries(resolveFile) {
-  const out = {};
+  const registries = {};
+  const rowCounts = {};
   for (const section of ARTICLE_SECTION_KEYS) {
     const { file, constName } = ARTICLE_REGISTRY_FILES[section];
-    out[section] = readSlugRegistry(resolveFile(file), constName);
+    const parsed = readSlugRegistryWithRows(resolveFile(file), constName);
+    registries[section] = parsed.registry;
+    rowCounts[section] = parsed.rows;
   }
-  return out;
+  return { registries, rowCounts };
+}
+
+/** Preserve the four URLs before mirrorTree removes the registry row. */
+function pinRetiredLocaleGroups(removals) {
+  const abs = path.join(ROOT, RETIRED_LOCALE_GROUPS_FILE);
+  let pinned;
+  try {
+    pinned = parseRetiredLocaleGroups(fs.readFileSync(abs, 'utf-8'));
+  } catch (err) {
+    console.error(
+      `::error::[pull-articles-corpus] cannot read ${RETIRED_LOCALE_GROUPS_FILE} (${err.message}) — `
+      + 'refusing to prune retirements whose locale URLs would then be unrecoverable',
+    );
+    process.exit(1);
+  }
+  const next = withRemovalGroups(pinned, removals);
+  if (next.added.length === 0) return;
+  fs.writeFileSync(abs, serializeRetiredLocaleGroups(next));
+  console.log(
+    `[pull-articles-corpus] pinned ${next.added.length} retirement group(s) in `
+    + `${RETIRED_LOCALE_GROUPS_FILE}: ${next.added.join(', ')}`,
+  );
 }
 
 /**
@@ -316,8 +347,10 @@ try {
   // overwritten. `slugDataFile` names the `services/` symlink, which resolves to
   // the same bytes — but DEST is the directory mirrorTree writes, so reading it
   // directly keeps the comparison about the thing being changed.
-  const local = readRegistries((f) => path.join(DEST, path.basename(f)));
-  const incoming = readRegistries((f) => path.join(src, path.basename(f)));
+  const localRead = readRegistries((f) => path.join(DEST, path.basename(f)));
+  const incomingRead = readRegistries((f) => path.join(src, path.basename(f)));
+  const local = localRead.registries;
+  const incoming = incomingRead.registries;
 
   let ledgerSrc = '';
   try {
@@ -339,6 +372,7 @@ try {
     // the one being mirrored.
     manifestCounts:
       manifest?.counts && typeof manifest.counts === 'object' ? manifest.counts : null,
+    rowCounts: { local: localRead.rowCounts, incoming: incomingRead.rowCounts },
   });
 
   for (const section of ARTICLE_SECTION_KEYS) {
@@ -349,18 +383,13 @@ try {
   }
   for (const r of verdict.removals.filter((r) => r.ledgered)) {
     console.log(`[pull-articles-corpus] retired (bridged): ${r.section}/${r.id} → ${r.canonical}`);
-    if (r.unbridgedLocalePaths.length) {
-      console.warn(
-        `[pull-articles-corpus] ⚠️  ${r.id}: ${r.unbridgedLocalePaths.length} locale URL(s) have no ` +
-        `bridge and will 404 after the next shard deploy — ${r.unbridgedLocalePaths.join(' ')}`,
-      );
-    }
   }
 
   if (!verdict.ok) {
     for (const p of verdict.parseFailures) {
       console.error(
-        `::error::[pull-articles-corpus] ${p.side} ${p.section} registry parsed to ${p.size} entries — ` +
+        `::error::[pull-articles-corpus] ${p.side} ${p.section} registry parsed to ${p.size}`
+        + `${typeof p.rows === 'number' ? ` out of ${p.rows} rows in the file` : ''} — ` +
         'that is a parse failure, not a corpus. The generator\'s emit shape most likely changed; ' +
         'fix scripts/lib/article-slug-registry.mjs before syncing, or this guard is blind.',
       );
@@ -369,6 +398,15 @@ try {
       console.error(
         `::error::[pull-articles-corpus] upstream drops ${r.section}/${r.id} but nothing retired it — ` +
         `live URLs: ${r.paths.join(' ')}`,
+      );
+    }
+    for (const r of verdict.partiallyBridged) {
+      console.error(
+        `::error::[pull-articles-corpus] ${r.section}/${r.id} is retired in Italian only — `
+        + `${r.unbridgedLocalePaths.length} locale URL(s) have no bridge and this row is the last `
+        + `place their slugs exist: ${r.unbridgedLocalePaths.join(' ')}. Add them to the `
+        + '`redirects` table in build-plugins/legacyRedirectsPlugin.ts (and to EDGE_RETIRED_PATHS) '
+        + 'before syncing — after the prune they can no longer be derived.',
       );
     }
     for (const s of verdict.shortfalls) {
@@ -429,6 +467,9 @@ try {
     // resurrect a registry row whose module no longer exists — forever, since
     // the id stays local-only on every subsequent sync.
     dropLedgeredRetirements(preserveIds, verdict.removals);
+
+    // This is the last moment the four locale slugs exist together.
+    pinRetiredLocaleGroups(verdict.removals);
 
     const snapshots = [];
     if (preserveIds.size > 0) {

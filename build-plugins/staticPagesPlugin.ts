@@ -56,6 +56,7 @@ const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
  fr: 'Glossaire frontaliers',
 };
 import { translateSchema, type SupportedLocale } from '../services/seo/schema-translators';
+import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
 // FAQ-hub path builder — the ONE source of the four hub slugs (router-safe
 // module, no 340 KB category corpus pulled in). ORPHAN_PILLAR_LINKS below
 // hard-coded them and had drifted on DE: `/de/haeufig-gestellte-fragen/` is a
@@ -1991,13 +1992,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  try {
  const routerBlogDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
- let match: RegExpExecArray | null;
- while ((match = rx.exec(routerBlogDataSrc)) !== null) {
- blogArticleIdByLocale.it[match[2]] = match[1];
- blogArticleIdByLocale.en[match[3]] = match[1];
- blogArticleIdByLocale.de[match[4]] = match[1];
- blogArticleIdByLocale.fr[match[5]] = match[1];
+ const registry = parseSlugRegistry(routerBlogDataSrc, 'BLOG_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
+ for (const [id, slugs] of Object.entries(registry)) {
+ blogArticleIdByLocale.it[slugs.it] = id;
+ blogArticleIdByLocale.en[slugs.en] = id;
+ blogArticleIdByLocale.de[slugs.de] = id;
+ blogArticleIdByLocale.fr[slugs.fr] = id;
  }
  } catch { /* non-fatal */ }
 
@@ -2087,13 +2087,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  try {
  const routerSwissDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerSwissData.ts'), 'utf-8');
- const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
- let match: RegExpExecArray | null;
- while ((match = rx.exec(routerSwissDataSrc)) !== null) {
- swissArticleIdByLocale.it[match[2]] = match[1];
- swissArticleIdByLocale.en[match[3]] = match[1];
- swissArticleIdByLocale.de[match[4]] = match[1];
- swissArticleIdByLocale.fr[match[5]] = match[1];
+ const registry = parseSlugRegistry(routerSwissDataSrc, 'SWISS_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
+ for (const [id, slugs] of Object.entries(registry)) {
+ swissArticleIdByLocale.it[slugs.it] = id;
+ swissArticleIdByLocale.en[slugs.en] = id;
+ swissArticleIdByLocale.de[slugs.de] = id;
+ swissArticleIdByLocale.fr[slugs.fr] = id;
  }
  } catch { /* non-fatal */ }
 

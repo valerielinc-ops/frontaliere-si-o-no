@@ -54,25 +54,43 @@ import { EDGE_RETIRED_PATHS, retiredEdgeResponse } from '../infra/cloudflare-wor
 import { EXTERNALLY_SERVED_PREFIXES } from '../scripts/lib/externally-served-paths.mjs';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain .mjs module, no type declarations.
-import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
+import {
+  ARTICLE_SECTION_KEYS,
+  articlePathsFor,
+  countRegistryRows,
+  parseSlugRegistry,
+} from '../scripts/lib/article-slug-registry.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error — plain .mjs module, no type declarations.
+import {
+  MIN_PINNED_GROUPS,
+  RETIRED_LOCALE_GROUPS_FILE,
+  parseRetiredLocaleGroups,
+} from '../scripts/lib/retired-locale-groups.mjs';
 
 const REPO = path.resolve(__dirname, '..');
 
-const APEX = 'https://frontaliereticino.ch';
-
-const REGISTRY_SOURCES: Array<[file: string, constName: string]> = [
-  ['packages/articles/content/routerBlogData.ts', 'BLOG_SLUGS'],
-  ['packages/articles/content/routerSwissData.ts', 'SWISS_SLUGS'],
-];
-
-const REGISTRY_ENTRY_FLOORS: Record<string, number> = {
-  'packages/articles/content/routerBlogData.ts': 3000,
-  'packages/articles/content/routerSwissData.ts': 1500,
+/**
+ * Where each section's slug registry lives, by the same section keys
+ * scripts/lib/corpus-removal-guard.mjs uses. The literal path, not the
+ * `services/` symlink ARTICLE_REGISTRY_FILES names: in a sparse checkout that
+ * symlink dangles whenever packages/articles/content/ is excluded, and a
+ * dangling read would make the assertion below throw instead of assert.
+ */
+const REGISTRY_BY_SECTION: Record<string, { file: string; constName: string }> = {
+  frontaliere: { file: 'packages/articles/content/routerBlogData.ts', constName: 'BLOG_SLUGS' },
+  svizzera: { file: 'packages/articles/content/routerSwissData.ts', constName: 'SWISS_SLUGS' },
 };
+const APEX = 'https://frontaliereticino.ch';
 
 const PREFIXES: readonly string[] = EXTERNALLY_SERVED_PREFIXES;
 
 const RETIRED_TABLE = EDGE_RETIRED_PATHS as Record<string, string | null>;
+
+type RetiredLocaleGroups = {
+  groups: Map<string, string[]>;
+  individualPaths: string[];
+};
 
 /** Segment-boundary prefix match — the same rule as isExternallyServedPath(). */
 function underSectionPrefix(p: string): boolean {
@@ -144,34 +162,26 @@ function declaredRedirects(): Map<string, string> {
 /** Every slug the corpus still publishes, all locales, both article sections. */
 function liveCorpusSlugs(): Set<string> {
   const out = new Set<string>();
-  const sources: Array<[file: string, marker: string]> = [
-    ['packages/articles/content/routerBlogData.ts', 'export const BLOG_SLUGS'],
-    ['packages/articles/content/routerSwissData.ts', 'export const SWISS_SLUGS'],
-  ];
-  for (const [rel, marker] of sources) {
-    const body = objectLiteralBody(fs.readFileSync(path.join(REPO, rel), 'utf-8'), marker, rel);
-    const rowRx = /^\s*'[^']+':\s*\{([^}]*)\}\s*,?\s*$/gm;
-    let row: RegExpExecArray | null;
-    while ((row = rowRx.exec(body)) !== null) {
-      const slugRx = /\b(?:it|en|de|fr)\s*:\s*'([^']+)'/g;
-      let s: RegExpExecArray | null;
-      while ((s = slugRx.exec(row[1])) !== null) out.add(s[1]);
+  for (const section of ARTICLE_SECTION_KEYS as readonly string[]) {
+    const { file, constName } = REGISTRY_BY_SECTION[section];
+    const source = fs.readFileSync(path.join(REPO, file), 'utf-8');
+    const registry = parseSlugRegistry(source, constName) as Record<string, Record<string, string>>;
+    const rows = countRegistryRows(source, constName) as number;
+    expect(Object.keys(registry).length, `${file}: parser missed registry rows`).toBe(rows);
+    expect(rows, `${file} parsed empty`).toBeGreaterThan(1000);
+    for (const slugMap of Object.values(registry)) {
+      for (const slug of Object.values(slugMap)) out.add(slug);
     }
   }
   expect(out.size, 'corpus slug registries parsed empty').toBeGreaterThan(1000);
   return out;
 }
 
-it('keeps the shared registry parser above its non-vacuous corpus floor', () => {
-  for (const [file, constName] of REGISTRY_SOURCES) {
-    const src = fs.readFileSync(path.join(REPO, file), 'utf-8');
-    const parsed = parseSlugRegistry(src, constName) as Record<string, unknown>;
-    expect(
-      Object.keys(parsed).length,
-      `${file} parsed to ${Object.keys(parsed).length} entries — the shared parser is blind`,
-    ).toBeGreaterThan(REGISTRY_ENTRY_FLOORS[file]);
-  }
-});
+function pinnedRetiredGroups(): RetiredLocaleGroups {
+  return parseRetiredLocaleGroups(
+    fs.readFileSync(path.join(REPO, RETIRED_LOCALE_GROUPS_FILE), 'utf-8'),
+  ) as RetiredLocaleGroups;
+}
 
 /** `data/legacy-aliases.json` orphanPaths under a section prefix. */
 function declaredAliasOrphans(): string[] {
@@ -213,136 +223,6 @@ function deriveExpected(): Map<string, string | null> {
 const expected = deriveExpected();
 const actualKeys = Object.keys(RETIRED_TABLE).sort();
 const expectedKeys = [...expected.keys()].sort();
-
-it('pins every canonical Italian 410 in the independent retirement population', () => {
-  const pinned = new Set(RETIRED_CANONICAL_IT_410_PATHS);
-  const unpinned = actualKeys.filter(
-    (key) => RETIRED_TABLE[key] === null && isItalianArticlePath(key) && !pinned.has(key),
-  );
-  const not410 = RETIRED_CANONICAL_IT_410_PATHS.filter((key) => RETIRED_TABLE[key] !== null);
-  expect(unpinned, `Canonical Italian 410s missing from the pinned population:\n${unpinned.join('\n')}`).toEqual([]);
-  expect(not410, `Pinned canonical Italian paths are not 410 in EDGE_RETIRED_PATHS:\n${not410.join('\n')}`).toEqual([]);
-});
-
-/**
- * The article rows disappear from the live registries after the corpus sync,
- * but the retirement decision must keep observing their edge URLs. Keep this
- * population independent from those registries: it is the pinned set of
- * retirements represented by the build ledger and edge table.
- */
-const RETIRED_ARTICLE_FAMILIES = [
-  {
-    id: 'prezzi-proprieta-svizzera-aumentano',
-    paths: [
-      '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/',
-      '/en/cross-border-articles/swiss-property-prices-rise/',
-      '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/',
-      '/fr/articles-frontalier/prix-immobilier-suisse-augmentent/',
-    ],
-  },
-  {
-    id: 'caldo-torrido-lavoro-ticino',
-    paths: [
-      '/articoli-frontaliere/caldo-torrido-lavoro-ticino/',
-      '/en/cross-border-articles/hot-weather-work-ticino/',
-      '/de/grenzgaenger-artikel/heisses-wetter-arbeit-tessin/',
-      '/fr/articles-frontalier/chaleur-torrida-travail-tessin/',
-    ],
-  },
-  {
-    id: 'lavoro-forzato-catene-svizzere',
-    paths: [
-      '/articoli-svizzera/lavoro-forzato-catene-svizzere/',
-      '/en/swiss-articles/forced-labour-swiss-supply-chains/',
-      '/de/schweiz-artikel/zwangsarbeit-schweizer-lieferketten/',
-      '/fr/articles-suisse/travail-force-chaines-approvisionnement-suisse/',
-    ],
-  },
-  {
-    id: 'vivere-maslianico-lavorare-ticino-frontaliere',
-    paths: [
-      '/articoli-frontaliere/vivere-maslianico-lavorare-ticino-frontaliere/',
-      '/en/cross-border-articles/live-maslianico-work-ticino-cross-border/',
-      '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/',
-      '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/',
-    ],
-  },
-  {
-    id: 'autostrada-riapertura-ticino',
-    paths: [
-      '/articoli-svizzera/autostrada-riapertura-ticino/',
-      '/en/swiss-articles/a2-highway-riopening-ticino/',
-      '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/',
-      '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/',
-    ],
-  },
-  {
-    id: 'effetto-domino-fallite-aziende-svizzera',
-    paths: [
-      '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/',
-      '/en/swiss-articles/domino-effect-failed-companies-switzerland/',
-      '/de/schweiz-artikel/domino-effekt-gefallene-unternehmen-schweiz/',
-      '/fr/articles-suisse/effet-domino-filiale-dentreprise-suisse/',
-    ],
-  },
-  {
-    id: 'un-matrimonio-che-vale-cento-posti-di-lavoro',
-    paths: [
-      '/articoli-svizzera/un-matrimonio-che-vale-cento-posti-di-lavoro/',
-      '/en/swiss-articles/a-union-of-four-construction-companies-in-vallemaggia/',
-      '/de/schweiz-artikel/eine-verbindung-von-vier-bauunternehmen-in-vallemaggia/',
-      '/fr/articles-suisse/un-mariage-entre-quatre-entreprises-de-construction-en-vallemaggia/',
-    ],
-  },
-  {
-    id: 'courmayeur-lavora-vallese-frontaliere',
-    paths: [
-      '/articoli-frontaliere/courmayeur-lavora-vallese-frontaliere/',
-      '/en/cross-border-articles/courmayeur-work-vallese-frontalier/',
-      '/de/grenzgaenger-artikel/courmayeur-arbeitet-vallese-frontalier/',
-      '/fr/articles-frontalier/courmayeur-travaille-vallese-frontalier/',
-    ],
-  },
-  {
-    id: 'vivere-tovo-lavorare-grigioni',
-    paths: [
-      '/articoli-frontaliere/vivere-tovo-lavorare-grigioni/',
-      '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/',
-      '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/',
-      '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/',
-    ],
-  },
-] as const;
-
-/**
- * Canonical Italian 410s with no locale siblings in the retirement ledger.
- * These are kept separate from RETIRED_ARTICLE_FAMILIES because the latter
- * checks a four-locale bridge, while these legacy aliases only have one URL.
- */
-const RETIRED_CANONICAL_IT_410_PATHS = [
-  '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/',
-  '/articoli-frontaliere/addiofrontalierelongo/',
-  '/articoli-frontaliere/tassa-salute-frontalieri/',
-  '/articoli-frontaliere/governo-tavolo-frontalieri-2026/',
-  '/articoli-frontaliere/frontalieri-redditi-2026/',
-  '/articoli-frontaliere/calo-frontalieri-ticino-economia/',
-  '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/',
-  '/articoli-frontaliere/accesso-libero-alle-rive/',
-] as const;
-
-const isItalianArticlePath = (p: string): boolean =>
-  /^\/articoli-(?:frontaliere|svizzera)\/[^/]+\/$/.test(p);
-
-function missingRetiredLocaleBridges(
-  families: readonly { id: string; paths: readonly string[] }[],
-  declaredFrom: ReadonlySet<string>,
-  retiredTable: Record<string, string | null>,
-): string[] {
-  return families.flatMap(({ id, paths }) => {
-    const missing = paths.filter((p) => !declaredFrom.has(p) || !(p in retiredTable));
-    return missing.length ? [`${id}\n    ${missing.join('\n    ')}`] : [];
-  });
-}
 
 describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => {
   it('has no declared retirement missing from the edge table', () => {
@@ -395,12 +275,63 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
   });
 
   it('bridges all four locale URLs of a retirement, not just the canonical IT one', () => {
+    // THE HOLE THIS CLOSES. Everything above derives what to expect FROM
+    // declaredRedirects(), so a retirement declared in only one locale is green
+    // by construction: nothing is expected for the three URLs nobody declared.
+    // And scripts/lib/corpus-removal-guard.mjs lets that through — it gates the
+    // removal on the canonical IT path alone (`ledgered = retiredPaths.has(
+    // canonical)`) and merely console.warns about `unbridgedLocalePaths`. So a
+    // half-declared retirement is APPROVED: pull-articles-corpus.mjs deletes the
+    // bodies and the registry rows, the append-only article shard keeps serving
+    // the EN/DE/FR pages 200 with `robots: index`, and the corpus's decision to
+    // withdraw the article is honoured in Italian only.
+    //
+    // The live registries are pruned, so this population must survive in a
+    // persistent pin. Otherwise the test visits zero retired articles and stays
+    // green while the edge serves the withdrawn shard pages (issue #7669).
     const declaredFrom = new Set(declaredRedirects().keys());
-    const partial = missingRetiredLocaleBridges(
-      RETIRED_ARTICLE_FAMILIES,
-      declaredFrom,
-      RETIRED_TABLE,
-    );
+    const pinned = pinnedRetiredGroups();
+    expect(pinned.groups.size, `${RETIRED_LOCALE_GROUPS_FILE} lost its retirements`)
+      .toBeGreaterThanOrEqual(MIN_PINNED_GROUPS);
+    const pinnedGroupPaths = [...pinned.groups.values()].flat();
+    const pinnedPaths = new Set([...pinnedGroupPaths, ...pinned.individualPaths]);
+    expect(
+      [...pinnedPaths].filter((p) => !(p in RETIRED_TABLE)),
+      `${RETIRED_LOCALE_GROUPS_FILE} contains a path not retired at the edge`,
+    ).toEqual([]);
+
+    const groups = new Map<string, string[]>(pinned.groups);
+    const liveCovered = new Set<string>();
+    for (const section of ARTICLE_SECTION_KEYS as readonly string[]) {
+      const { file, constName } = REGISTRY_BY_SECTION[section];
+      const source = fs.readFileSync(path.join(REPO, file), 'utf-8');
+      const registry = parseSlugRegistry(source, constName) as Record<string, Record<string, string>>;
+      const rows = countRegistryRows(source, constName) as number;
+      expect(Object.keys(registry).length, `${file}: parser missed registry rows`).toBe(rows);
+      expect(rows, `${file} parsed empty`).toBeGreaterThan(1000);
+      for (const [id, slugMap] of Object.entries(registry)) {
+        const paths = articlePathsFor(section, slugMap) as string[];
+        if (!paths.some((p) => declaredFrom.has(p))) continue;
+        groups.set(`${section}/${id}`, paths);
+        for (const p of paths) liveCovered.add(p);
+      }
+    }
+
+    const untracked = actualKeys.filter((p) => !pinnedPaths.has(p) && !liveCovered.has(p));
+    expect(
+      untracked,
+      'These edge retirements are not pinned and no live registry row names them:\n'
+        + untracked.join('\n'),
+    ).toEqual([]);
+
+    const partial: string[] = [];
+    for (const [key, dead] of groups) {
+      if (!dead.some((p) => declaredFrom.has(p))) continue;
+      const unbridged = dead.filter((p) => !declaredFrom.has(p));
+      const unserved = dead.filter((p) => !(p in RETIRED_TABLE));
+      const missing = [...new Set([...unbridged, ...unserved])];
+      if (missing.length) partial.push(`${key}\n    ${missing.join('\n    ')}`);
+    }
     expect(
       partial,
       'These articles are retired in some locales and still served in the others. '
@@ -408,18 +339,6 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
         + 'withdrawn article until it is declared in BOTH legacyRedirectsPlugin.ts and '
         + `EDGE_RETIRED_PATHS:\n${partial.join('\n')}`,
     ).toEqual([]);
-  });
-
-  it('remains non-vacuous after a retirement row is pruned', () => {
-    const family = RETIRED_ARTICLE_FAMILIES[0];
-    const declaredFrom = new Set(family.paths);
-    const retiredTable = Object.fromEntries(family.paths.map((p) => [p, null]));
-    declaredFrom.delete(family.paths[3]);
-    delete retiredTable[family.paths[3]];
-
-    expect(missingRetiredLocaleBridges([family], declaredFrom, retiredTable)).toEqual([
-      `${family.id}\n    ${family.paths[3]}`,
-    ]);
   });
 
   it('pins the measured shape of the 2026-08-14 repair', () => {
