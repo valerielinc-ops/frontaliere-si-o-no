@@ -122,7 +122,7 @@ export const REDFLAG_IMPORTANT_RE = /^[^\n🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Impor
  * allowlistata; i gate devono riconoscere le due forme senza accettare un
  * bot/look-alike qualunque.
  */
-export const REVIEWER_BOT_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i;
+export const REVIEWER_BOT_LOGIN_RE = /^(?:claude|frontaliere-automation)\[bot\]$/i;
 
 export function isReviewerBot(user) {
   return REVIEWER_BOT_LOGIN_RE.test(user?.login || '');

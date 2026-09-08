@@ -19,6 +19,7 @@ describe('claude usage summary', () => {
         cache_creation_input_tokens: '12',
       },
       total_cost_usd: 'not-a-number',
+      cost_usd: '1.25',
       num_turns: 'also-not-a-number',
       duration_ms: -1,
     }));
@@ -31,8 +32,8 @@ describe('claude usage summary', () => {
       });
       expect(output).toContain('CLAUDE_USAGE workflow="test" parsed=true');
       expect(output).toContain('cache_create=12');
-      expect(output).toContain('cost_usd=0.0000');
-      expect(readFileSync(join(dir, 'summary.md'), 'utf8')).toContain('$0.0000');
+      expect(output).toContain('cost_usd=1.2500');
+      expect(readFileSync(join(dir, 'summary.md'), 'utf8')).toContain('$1.2500');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

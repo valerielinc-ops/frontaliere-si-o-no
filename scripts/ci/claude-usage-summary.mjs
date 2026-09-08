@@ -51,7 +51,7 @@ try {
     const result = [...msgs].reverse().find((m) => m && m.type === 'result');
     if (result) {
       addUsage(result.usage);
-      t.cost_usd = finiteNumber(result.total_cost_usd || result.cost_usd);
+      t.cost_usd = finiteNumber(result.total_cost_usd) || finiteNumber(result.cost_usd);
       t.num_turns = finiteNumber(result.num_turns);
       t.duration_ms = finiteNumber(result.duration_ms);
       parsed = true;

@@ -770,7 +770,7 @@ export function observeSample(
     const hardFloorUnder = sample.hostAvailMb < HOST_AVAIL_HARD_FLOOR_MB;
     const underFloor = headroomUnder || hardFloorUnder;
     state.consecutiveHostUnder = underFloor ? state.consecutiveHostUnder + 1 : 0;
-    if (state.consecutiveHostUnder >= thresholds.consecutiveSamples) {
+    if (state.consecutiveHostUnder >= thresholds.consecutiveSamples && state.hostFloorCause === null) {
       state.hostFloorCause =
         headroomUnder && hardFloorUnder
           ? 'both'
@@ -780,6 +780,7 @@ export function observeSample(
     }
   } else {
     state.consecutiveHostUnder = 0;
+    state.hostFloorCause = null;
   }
 
   if (thresholds.swapFreeFloorMb !== null && sample.swapFreeMb !== null) {
