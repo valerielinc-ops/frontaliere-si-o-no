@@ -348,6 +348,19 @@ jobs:
             >> "$body"
           # <<< pr-body <<<
 
+          # Contract violation blocks the write. An unreadable body file is
+          # infrastructure: the engine diff is already pushed, so warn and
+          # leave the PR write for a later run instead of failing the job.
+          set +e
+          node "$GITHUB_WORKSPACE/scripts/ci/pr-body-check-gate.mjs" --body-file "$body"
+          gate_status=$?
+          set -e
+          case "$gate_status" in
+            0) ;;
+            2) echo "::error::PR body non conforme — PR non scritta."; exit 2 ;;
+            *) echo "::warning::PR body non validabile (exit $gate_status) — diff già pushato, PR non scritta."; exit 0 ;;
+          esac
+
           # One PR at a time. If one is already open this push updated it in
           # place, which is the desired behaviour: the open PR IS the drift
           # alarm, and a second one would split the signal. Its body is refreshed
@@ -355,19 +368,24 @@ jobs:
           # nanako's main on every run, so a body describing the previous run
           # describes a diff that no longer exists — and a stale body is how a
           # PR opened before this fix would keep failing `contract` forever.
-          open=$(gh pr list --repo nanakokyobashi-rgb/frontaliere-articles \
+          if ! open=$(gh pr list --repo nanakokyobashi-rgb/frontaliere-articles \
                    --head "${TARGET_BRANCH}" --state open --json number \
-                   --jq '.[0].number // empty')
+                   --jq '.[0].number // empty'); then
+            echo "::warning::gh pr list non ha risposto — diff già pushato, PR non scritta."
+            exit 0
+          fi
           if [ -n "$open" ]; then
             echo "existing PR #$open updated in place"
             gh pr edit "$open" --repo nanakokyobashi-rgb/frontaliere-articles \
               --body-file "$body" \
               || echo "::warning::could not refresh the body of PR #$open — check it against the contract by hand"
           else
-            gh pr create --repo nanakokyobashi-rgb/frontaliere-articles \
-              --head "${TARGET_BRANCH}" --base main \
-              --title "🔗 Lockstep engine/ with the site" \
-              --body-file "$body"
+            if ! gh pr create --repo nanakokyobashi-rgb/frontaliere-articles \
+                --head "${TARGET_BRANCH}" --base main \
+                --title "🔗 Lockstep engine/ with the site" \
+                --body-file "$body"; then
+              echo "::warning::gh pr create non ha risposto — diff già pushato, PR non scritta."
+            fi
           fi
 
       - name: Job summary

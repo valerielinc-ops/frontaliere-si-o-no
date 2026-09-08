@@ -1,16 +1,16 @@
 /**
- * pr-body-check-gate.mjs — PreToolUse hook: blocks `gh pr create` locally when
- * the PR body is missing the mandatory `## Implementato` / `## Non implementato`
- * headers (AGENTS.md § Workflow, Non-Negotiable #8; enforced remotely by
- * `.github/workflows/pr-body-contract.yml`).
+ * pr-body-check-gate.mjs — shared deterministic validator for PR bodies.
+ * The PreToolUse hook uses it locally; CI workflows invoke its `--body-file`
+ * entrypoint before calling `gh pr create`/`gh pr edit`.
  *
  * Today that CI check only runs AFTER the PR is opened, wasting a full review
  * cycle when the headers are missing. This hook catches the same gap locally,
  * before `gh pr create` ever runs — mirrors the interception pattern of
  * `sibling-check-gate.mjs` (#3275).
  *
- * Header regexes are intentionally identical to pr-body-contract.yml's
- * `hasImpl` / `hasNon` checks — keep both in sync if the contract changes.
+ * The section taxonomy is intentionally imported from
+ * `scripts/lib/pr-body-sections-check.mjs`. Keep the pure validation here and
+ * expose it to both callers; do not duplicate the state vocabulary.
  *
  * Fail-safe: any internal error, or body we can't confidently extract from the
  * command string (e.g. unrecognized `--body`/`--body-file` shape) → exit 0
@@ -34,11 +34,12 @@ import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedI
 // `payload.cwd` e' inchiodato altrove (sub-agente — vedi lib/hook-target-cwd.mjs).
 const gateRepo = resolve(fileURLToPath(import.meta.url), '..', '..', '..');
 
-const HEADER_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
-const HEADER_NON_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
 
 const BODY_FILE_RE = /--body-file[= ]+(?:"([^"]+)"|'([^']+)'|(\S+))/;
+
+/** Exit code used by the workflow-facing CLI for an unreadable body file. */
+export const BODY_FILE_INFRA = 3;
 
 /**
  * Perche' `extractPrBody` non ha restituito un body — la stessa analisi, ma
@@ -136,6 +137,103 @@ export function extractPrBody(command, cwd = process.cwd()) {
   }
 
   return undefined;
+}
+
+/**
+ * Validate a body against the shipped section checker, promoting the existing
+ * state-less-bullet warning to a violation at the PR-writing boundary.
+ *
+ * `scripts/lib/pr-body-sections-check.mjs` remains the one source of the state
+ * taxonomy. That module deliberately keeps the warning advisory for consumers
+ * that still inspect historical bodies; this boundary is stricter because a
+ * new remote write must never create or destroy a residual state.
+ *
+ * @param {string} body
+ * @returns {{ok:boolean, violations:Array<object>, warnings:Array<object>}}
+ */
+export function validatePrBody(body) {
+  const result = checkPrBodySections(body);
+  const stateWarnings = (result.warnings ?? []).filter(
+    (warning) => warning.type === 'bullet-without-state',
+  );
+  return {
+    ...result,
+    ok: result.ok && stateWarnings.length === 0,
+    violations: [...result.violations, ...stateWarnings],
+    warnings: (result.warnings ?? []).filter(
+      (warning) => warning.type !== 'bullet-without-state',
+    ),
+  };
+}
+
+/**
+ * Read and validate a body file for a remote workflow.
+ *
+ * An unreadable file is infrastructure, not a contract violation. The caller
+ * gets a distinct result/code and can skip the remote write without turning a
+ * completed fix into a failed job.
+ *
+ * @param {string} bodyPath
+ * @param {string} [cwd]
+ * @returns {{kind:'ok'|'contract-violation'|'infrastructure-error', path?:string, reason?:string, validation?:object}}
+ */
+export function validatePrBodyFile(bodyPath, cwd = process.cwd()) {
+  if (!bodyPath) {
+    return {
+      kind: 'infrastructure-error',
+      reason: 'nessun path passato a --body-file',
+    };
+  }
+
+  const resolved = resolve(cwd, bodyPath);
+  let body;
+  try {
+    body = readFileSync(resolved, 'utf8');
+  } catch (err) {
+    return {
+      kind: 'infrastructure-error',
+      path: resolved,
+      reason: `path non leggibile (${err?.code ?? err?.message ?? 'errore sconosciuto'})`,
+    };
+  }
+
+  const validation = validatePrBody(body);
+  return {
+    kind: validation.ok ? 'ok' : 'contract-violation',
+    path: resolved,
+    validation,
+  };
+}
+
+function printValidationFailure(validation) {
+  for (const violation of validation.violations ?? []) {
+    process.stderr.write(`✗ [${violation.type}] ${violation.message}\n`);
+  }
+}
+
+function runBodyFileCli(bodyPath) {
+  const result = validatePrBodyFile(bodyPath);
+  if (result.kind === 'infrastructure-error') {
+    process.stderr.write(
+      `::warning::pr-body-check-gate: body-file non leggibile; nessun body PR scritto` +
+        `${result.path ? ` (${result.path})` : ''}: ${result.reason}\n`,
+    );
+    return BODY_FILE_INFRA;
+  }
+
+  if (result.kind === 'contract-violation') {
+    process.stderr.write(
+      '\n🚫 pr-body-check-gate: body PR non conforme; scrittura bloccata.\n',
+    );
+    printValidationFailure(result.validation);
+    process.stderr.write('\n');
+    return EXIT_BLOCK;
+  }
+
+  process.stdout.write(
+    '✓ pr-body-check-gate: body PR conforme; scrittura autorizzata.\n',
+  );
+  return 0;
 }
 
 /**
@@ -260,9 +358,6 @@ async function main() {
     process.exit(0);
   }
 
-  const hasImpl = HEADER_IMPL_RE.test(body);
-  const hasNon = HEADER_NON_RE.test(body);
-
   // ADVISORY (mai bloccante): i bullet di `## Non implementato (ancora)` che
   // non dichiarano uno stato letterale. È l'unico momento in cui l'autore vede
   // il difetto PRIMA che diventi una issue di follow-up spuria — a valle
@@ -281,45 +376,38 @@ async function main() {
     warnAboutUncitedFiles(body, head.cwd, head.ref);
   } catch { /* advisory: non blocca mai */ }
 
-  // BLOCKING (issue #6300 / recidiva #6289): un bullet «PR concatenata»
-  // senza `#N` non è uno stato tracciabile. Solo questa classe — non
-  // promuoviamo tutti i `bullet-without-state` a bloccanti. Importa
-  // `checkPrBodySections` dal modulo shipped, non reimplementa il regex.
+  // The same pure validator is used by this hook and by the workflow CLI.
+  // Its failure is a contract violation, so it blocks with EXIT_BLOCK.
+  let validation;
   try {
-    const { violations } = checkPrBodySections(body);
-    const chainedNoNum = violations.filter((v) => v.type === 'chained-pr-no-number');
-    if (chainedNoNum.length > 0) {
-      process.stderr.write(
-        '\n\u{1F6AB} pr-body-check-gate: PR bloccata — `PR concatenata` senza `#N` in ' +
-          '`## Non implementato (ancora)`.\n' +
-          chainedNoNum.map((v) => `  ${v.message}\n`).join('') +
-          'Lo stato letterale è `PR concatenata #N` (AGENTS.md #8): senza numero la voce non è tracciabile (recidiva: PR #6289).\n\n',
-      );
-      process.exit(EXIT_BLOCK);
-    }
-  } catch { /* checkPrBodySections è puro; se lancia, fail-safe sotto */ }
-
-  if (hasImpl && hasNon) {
-    process.exit(0);
+    validation = validatePrBody(body);
+  } catch {
+    process.exit(0); // internal validation error → preserve the hook fail-safe
+  }
+  if (!validation.ok) {
+    process.stderr.write(
+      '\n🚫 pr-body-check-gate: PR bloccata — body non conforme.\n',
+    );
+    printValidationFailure(validation);
+    process.stderr.write('\n');
+    process.exit(EXIT_BLOCK);
   }
 
-  const missing = [];
-  if (!hasImpl) missing.push('`## Implementato`');
-  if (!hasNon) missing.push('`## Non implementato (ancora)`');
-
-  process.stderr.write(
-    '\n\u{1F6AB} pr-body-check-gate: PR bloccata — header obbligatori mancanti nel body: ' +
-      `${missing.join(', ')}.\n` +
-      'AGENTS.md § Workflow richiede ENTRAMBI gli header letterali `## Implementato` e ' +
-      '`## Non implementato (ancora)` nel PR body (Non-Negotiable #8, REVIEW.md).\n' +
-      'Aggiungi le sezioni mancanti al `--body`/`--body-file` prima di rilanciare `gh pr create`.\n\n',
-  );
-  process.exit(EXIT_BLOCK);
+  process.exit(0);
 }
 
 // Only run when executed directly (e.g. `node pr-body-check-gate.mjs` as a
 // hook) — not when imported (e.g. by tests importing `extractPrBody`).
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
 if (isMain) {
-  main();
+  const bodyFileArg = process.argv[2] === '--body-file'
+    ? process.argv[3]
+    : process.argv[2]?.startsWith('--body-file=')
+      ? process.argv[2].slice('--body-file='.length)
+      : undefined;
+  if (process.argv[2]?.startsWith('--body-file')) {
+    process.exitCode = runBodyFileCli(bodyFileArg);
+  } else {
+    main();
+  }
 }
