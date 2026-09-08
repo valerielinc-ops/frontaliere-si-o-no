@@ -458,6 +458,26 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     expect(request.to).toBe('it');
   });
 
+  it('sends only the masculine German job form to Argos', () => {
+    const cases = [
+      ['Hochschulpraktikant/in Recht', 'Hochschulpraktikant Recht'],
+      ['Montage-Elektriker:in EFZ', 'Montage-Elektriker EFZ'],
+      ['Fachfrau/-mann Gesundheit', 'Fachmann Gesundheit'],
+      ['Dipl. Pflegefachfrau_mann Endoskopie', 'Dipl. Pflegefachmann Endoskopie'],
+      ['Zimmermann/Zimmerin fuer Holzbau', 'Zimmermann fuer Holzbau'],
+      // The existing trigraph guard still masks (w/m/d); the distinct jobs
+      // around it must remain byte-identical.
+      ['Optometrist/Augenoptikermeister (w/m/d)', 'Optometrist/Augenoptikermeister ZQX0XQZ'],
+    ];
+
+    for (const [source, expected] of cases) {
+      const { request } = mopup.buildMopupRequest({
+        id: 'r0', text: source, from: 'de', to: 'it',
+      });
+      expect(request.text).toBe(expected);
+    }
+  });
+
   it('emits the locale form instead of weekday names (it target)', () => {
     const { out } = roundTrip('Leiter Umweltlabor (m/w/d)', argos, 'it');
     expect(out).not.toMatch(WEEKDAY_RE);
