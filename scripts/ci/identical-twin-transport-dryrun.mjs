@@ -123,11 +123,16 @@ export function classifyForTransport(entry, now, base) {
       detail: 'Modificato su entrambi i lati dalla baseline: la riconciliazione e\' manuale, mai automatica.',
     };
   }
-  // stable, corpus-ahead, both-moved-converged, no-baseline, absent-here,
+  if (verdict.state === 'both-moved-converged') {
+    return {
+      ...verdict,
+      transport: 'no-op',
+      detail: 'Gia\' convergente: il contenuto e\' identico sui due lati, quindi il trasporto non cambia nulla.',
+    };
+  }
+  // stable, corpus-ahead, no-baseline, absent-here,
   // check-failed, corpus-only: niente da trasportare da questo lato in nessuno
-  // di questi stati. `both-moved-converged` in particolare e' un no-op per
-  // costruzione — trasportare un file che di la' e' gia' byte-identico non
-  // cambia niente.
+  // di questi stati.
   return { ...verdict, transport: 'no-op' };
 }
 
