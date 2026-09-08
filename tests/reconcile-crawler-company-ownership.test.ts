@@ -258,6 +258,37 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
+  it('fails closed when a route overlap remains across expired slices', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'expired-cross-slice-overlap-'));
+    const first = [{
+      slug: 'first',
+      companyKey: 'same-company',
+      expiredAt: '2026-09-01T00:00:00.000Z',
+      slugByLocale: { it: 'first' },
+      previousSlugsByLocale: { de: ['shared-route'] },
+    }];
+    const second = [{
+      slug: 'second',
+      companyKey: 'same-company',
+      expiredAt: '2026-08-01T00:00:00.000Z',
+      slugByLocale: { it: 'second' },
+      previousSlugsByLocale: { de: ['shared-route'] },
+    }];
+    const firstFile = join(dir, 'same-company-a.json');
+    const secondFile = join(dir, 'same-company-b.json');
+    writeFileSync(firstFile, JSON.stringify(first));
+    writeFileSync(secondFile, JSON.stringify(second));
+    try {
+      expect(() => sweepExpiredArchiveSlices({ dir, apply: true })).toThrow(
+        'expired archive sweep left 1 cross-slice route overlap(s)',
+      );
+      expect(JSON.parse(readFileSync(firstFile, 'utf8'))).toEqual(first);
+      expect(JSON.parse(readFileSync(secondFile, 'utf8'))).toEqual(second);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('returns entries in expiredAt-descending order, so the callers that cap keep the most recent', () => {
     // The survivor carries the NEWEST payload but is pushed at the position of
     // the OLDEST member of its component. `assemble-jobs-dataset` and
@@ -371,6 +402,15 @@ describe('issue #6759 reconciliation', () => {
       broken,
       entry('survivor', '2026-09-01T00:00:00.000Z'),
     ])).toThrow('transferSlugHistory: removed.previousSlugs must be an array');
+
+    const brokenLocale = {
+      ...entry('broken-locale', '2026-08-01T00:00:00.000Z'),
+      previousSlugsByLocale: { it: 'shared-history-slug' } as unknown as Record<string, string[]>,
+    };
+    expect(() => collapseDuplicateRouteEntries([
+      brokenLocale,
+      entry('survivor-locale', '2026-09-01T00:00:00.000Z'),
+    ])).toThrow('transferSlugHistory: removed.previousSlugsByLocale.it must be an array');
   });
 
   it('does not let a merge steal a route from an entry further down the input', () => {

@@ -2718,6 +2718,9 @@ function assembleSummaries() {
  */
 export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}) {
   const repaired = normalizeExpiredAtEntries(entries, options);
+  // `writeJson` is the writeJsonAtomic import above. Keep the repair atomic:
+  // this helper runs before the aggregate cap and must not leave a truncated
+  // source slice if the process is interrupted during persistence.
   if (repaired > 0) writeJson(slicePath, entries);
   return repaired;
 }

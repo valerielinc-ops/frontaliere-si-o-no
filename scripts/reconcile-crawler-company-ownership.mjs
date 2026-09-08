@@ -444,6 +444,7 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
   let repaired = 0;
   let capRefused = 0;
   const report = [];
+  const pendingWrites = [];
 
   for (const slice of slices) {
     const result = collapseDuplicateRouteEntries(slice.jobs, { source: `expired-sweep/${slice.file}` });
@@ -455,10 +456,7 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
     const changed = result.collapsed > 0 || repairedInSlice > 0;
     if (changed) {
       filesChanged += 1;
-      if (apply) {
-        activeRollbackJournal?.capture(slice.filePath);
-        writeJsonAtomic(slice.filePath, result.entries);
-      }
+      if (apply) pendingWrites.push(slice);
     }
     slice.jobs = result.entries;
     collapsed += result.collapsed;
@@ -474,6 +472,17 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
   }
 
   const afterAudit = auditExpiredArchiveRouteOverlaps(slices);
+  if (afterAudit.crossSliceDuplicateRoutes.length > 0) {
+    throw new Error(
+      `expired archive sweep left ${afterAudit.crossSliceDuplicateRoutes.length} cross-slice route overlap(s)`,
+    );
+  }
+  if (apply) {
+    for (const slice of pendingWrites) {
+      activeRollbackJournal?.capture(slice.filePath);
+      writeJsonAtomic(slice.filePath, slice.jobs);
+    }
+  }
   return {
     filesScanned: slices.length,
     filesChanged,
