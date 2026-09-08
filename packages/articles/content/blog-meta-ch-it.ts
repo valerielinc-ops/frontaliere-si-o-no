@@ -6046,6 +6046,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ricongiungimento-familiare-burocrazia.title': 'Ricongiungimento familiare: burocrazia blocca bambini per anni',
     'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'Un rapporto dell\'Osservatorio svizzero denuncia: procedure lente e documenti difficili separano le famiglie fino a 10 anni. I bambini pagano il prezzo più alto.',
     'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Ufficio amministrativo svizzero con documenti e pratiche familiari, simbolo della complessità burocratica nel ricongiungimento in Svizzera',
+    'blog.article.affitto-scende-chiedi.title': 'Il tuo affitto non scende da solo. Devi chiederlo',
+    'blog.article.affitto-scende-chiedi.excerpt': 'Tasso ipotecario fermo all\'1,25%, ma solo il 12% degli inquilini ha chiesto la riduzione. Ecco come verificare se hai diritto a pagare meno.',
+    'blog.article.affitto-scende-chiedi.imageAlt': 'Una casa tipica svizzera con vista su Lugano, simbolo del costo della locazione in Svizzera',
 };
 
 export default blogMetaChIt;
