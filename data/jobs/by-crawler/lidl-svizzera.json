@@ -1783,7 +1783,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
+          "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
+          "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
         ],
         "en": [
           "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
@@ -1794,7 +1795,8 @@
       },
       "previousSlugs": [
         "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut",
-        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
+        "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
+        "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900
@@ -4759,7 +4761,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon"
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon",
+          "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
@@ -4771,7 +4774,8 @@
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-dietikon-ygychn",
         "all-rounder-sale-m-f-d-20-40-dietikon-lidl-svizzera-dietikon",
-        "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon"
+        "allrounder-verkauf-m-w-d-20-40-dietikon-lidl-svizzera-dietikon",
+        "allrounder-verkauf-m-w-d-20-40-1-dietikon-lidl-svizzera-dietikon"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -21392,8 +21396,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
           "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
           "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich",
@@ -21411,18 +21413,23 @@
           "sales-assistant-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
           "sales-assistant-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
           "sales-assistant-with-shift-responsibility-m-f-d-60-90-lidl-svizzera-ostermundigen",
-          "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln"
+          "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-54lato",
+          "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2",
-          "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich"
+          "seller-with-shift-responsibility-m-f-d-80-zurich-lidl-svizzera-zurich",
+          "seller-seller-m-f-d-20-80-lidl-svizzera-zurich"
         ],
         "fr": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-zurich-df6hf2",
-          "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich"
+          "vendeur-avec-responsabilite-de-quart-h-f-d-80-zurich-lidl-svizzera-zurich",
+          "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
         ],
         "de": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-zurich-uobk7h",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar"
         ]
       },
       "previousSlugs": [
@@ -21446,7 +21453,12 @@
         "sales-assistant-with-shift-responsibility-m-f-d-60-80-seewen-lidl-svizzera-seewen",
         "sales-assistant-with-shift-responsibility-m-f-d-60-80-stans-lidl-svizzera-stans",
         "sales-assistant-with-shift-responsibility-m-f-d-60-90-lidl-svizzera-ostermundigen",
-        "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln"
+        "sales-assistant-with-shift-responsibility-m-f-d-80-100-pratteln-lidl-svizzera-pratteln",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-zurich-54lato",
+        "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
+        "seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
+        "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -24666,19 +24678,42 @@
         "it": [
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
           "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
-          "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich"
+          "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+          "stv-filialleiter-stv-filialleiter-m-f-d-80-100-zurigo-zurich-lidl-svizzera-zurich",
+          "deputy-store-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3ugw3q",
+          "vice-directeur-vice-directrice-de-succursale-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-2",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx",
+          "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich",
+          "vice-direttore-di-filiale-m-f-d-80-100-zurigo-lidl-svizzera-zurich",
+          "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
         ],
         "en": [
-          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l"
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
+          "deputy-store-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich"
         ],
         "fr": [
-          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l"
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
+          "vice-directeur-vice-directrice-de-succursale-m-f-d-80-100-zurich-lidl-svizzera-zurich"
+        ],
+        "de": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3ugw3q"
         ]
       },
       "previousSlugs": [
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich",
         "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-xwwn8l",
-        "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich"
+        "deputy-branch-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+        "stv-filialleiter-stv-filialleiter-m-f-d-80-100-zurigo-zurich-lidl-svizzera-zurich",
+        "deputy-store-manager-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3ugw3q",
+        "vice-directeur-vice-directrice-de-succursale-m-f-d-80-100-zurich-lidl-svizzera-zurich",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-2",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-zurich-3w8pzx",
+        "stv-filialleiterin-stv-filialleiterin-m-f-d-80-100-zurigo-lidl-svizzera-zurich",
+        "vice-direttore-di-filiale-m-f-d-80-100-zurigo-lidl-svizzera-zurich",
+        "vice-direttore-di-filiale-vice-direttore-di-filiale-m-f-d-80-100-zurigo-lidl-svizzera-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

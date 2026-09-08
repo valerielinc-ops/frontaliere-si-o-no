@@ -4273,22 +4273,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-        "medico-senior-angiologia-universitatsspital-basel-basel"
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "medico-senior-angiologia-universitatsspital-basel-basel-85c655",
+        "senior-physician-angiology-universitatsspital-basel-basel-85c655",
+        "leitende-arztin-leitender-arzt-angiologie-unispital-basel-ch",
+        "medecin-principal-angiologie-universitatsspital-basel-basel-85c655",
+        "leitende-arztin-leitender-arzt-oder-kaderarztin-kaderarzt-angiologie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-          "medico-senior-angiologia-universitatsspital-basel-basel"
+          "medico-senior-angiologia-universitatsspital-basel-basel",
+          "medico-senior-angiologia-universitatsspital-basel-basel-85c655",
+          "senior-physician-angiology-universitatsspital-basel-basel-85c655",
+          "leitende-arztin-leitender-arzt-angiologie-unispital-basel-ch",
+          "medecin-principal-angiologie-universitatsspital-basel-basel-85c655",
+          "leitende-arztin-leitender-arzt-oder-kaderarztin-kaderarzt-angiologie-unispital-basel-ch"
         ],
         "en": [
-          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+          "senior-physician-angiology-universitatsspital-basel-basel-85c655"
         ],
         "fr": [
-          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+          "medecin-principal-angiologie-universitatsspital-basel-basel-85c655"
+        ],
+        "de": [
+          "leitende-arztin-leitender-arzt-angiologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-07-17T11:06:32.994Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -4301,7 +4315,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-be47136b8caa",
@@ -4510,7 +4525,67 @@
         "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel-1ryr09",
         "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2",
         "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel-3dman2",
-        "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel"
+        "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel",
+        "amministrazione-aziendale-universitatsspital-basel-basel-65d8a1",
+        "professional-hr-administration-universitatsspital-basel-basel-65d8a1",
+        "staff-in-administration-universitatsspital-basel-basel",
+        "teamleiter-in-administration-universitatsspital-basel-basel",
+        "teamleiter-in-unispital-basel-ch",
+        "personale-in-amministrazione-universitatsspital-basel-basel",
+        "team-leader-in-universitatsspital-basel-basel",
+        "leader-di-squadra-in-universitatsspital-basel-basel",
+        "chef-d-equipe-universitatsspital-basel-basel",
+        "teamleiter-in-universitatsspital-basel-basel",
+        "teamleiter-in-administration-unispital-basel-ch",
+        "amministrazione-aziendale-universitatsspital-basel-basel",
+        "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel",
+        "personale-amministrativo-in-universitatsspital-basel-basel",
+        "adminstrative-r-collaboratore-trice-in-universitatsspital-basel-basel",
+        "collaboratore-trice-in-elektrotechnik-universitatsspital-basel",
+        "adminstrative-r-collaboratore-trice-in-universitatsspital-basel",
+        "adminstrative-staff-in-universitatsspital-basel-basel",
+        "personnel-administratif-universitatsspital-basel-basel-bdd967",
+        "administrative-r-mitarbeiter-in-unispital-basel-ch",
+        "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel",
+        "mitarbeiter-in-administration-kursadministration-universitatsspital-basel-basel",
+        "mitarbeiter-in-administration-kursadministration-unispital-basel-ch",
+        "mitarbeiter-in-patientenadministration-unispital-basel-ch",
+        "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
+        "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-case-management-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-universitatsspital-basel",
+        "administrative-r-mitarbeiter-in-empfang-universitatsspital-basel-basel",
+        "administrative-r-mitarbeiter-in-empfang-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
+        "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel",
+        "mitarbeiter-in-elektrotechnik-unispital-basel-ch",
+        "adminstrative-r-mitarbeiter-in-universitatsspital-basel-basel",
+        "adminstrative-r-mitarbeiter-in-unispital-basel-ch",
+        "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel",
+        "administrative-r-mitarbeiter-in-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel",
+        "professional-hr-administration-universitatsspital-basel-basel",
+        "gestion-des-ressources-humaines-universitatsspital-basel-basel",
+        "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
+        "intern-intern-patient-administration-universitatsspital-basel-basel",
+        "administration-patiente-stagiaire-stagiaire-universitatsspital-basel-basel",
+        "staff-in-patient-administration-universitatsspital-basel-basel",
+        "personnel-en-administration-de-patients-universitatsspital-basel-basel",
+        "collaboratore-trice-in-patientenadministration-universitatsspital-basel",
+        "fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel",
+        "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm",
+        "fachfrau-fachmann-hr-administration-unispital-basel-ch-2",
+        "personale-nell-amministrazione-dei-pazienti-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel-qe5qcp",
+        "administrative-staff-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-universitatsspital-basel-3s5d5h",
+        "personnel-administratif-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-empfang-universitatsspital-basel",
+        "collaboratore-trice-in-administration-kursadministration-universitatsspital-basel",
+        "fachfrau-fachmann-hr-administration-universitatsspital-basel-basel",
+        "fachfrau-fachmann-hr-administration-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4518,10 +4593,51 @@
           "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel-1ryr09",
           "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2",
           "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel-3dman2",
-          "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel"
+          "administrative-r-collaboratore-trice-in-patienten-services-universitatsspital-basel",
+          "amministrazione-aziendale-universitatsspital-basel-basel-65d8a1",
+          "professional-hr-administration-universitatsspital-basel-basel-65d8a1",
+          "staff-in-administration-universitatsspital-basel-basel",
+          "teamleiter-in-administration-universitatsspital-basel-basel",
+          "teamleiter-in-unispital-basel-ch",
+          "personale-in-amministrazione-universitatsspital-basel-basel",
+          "team-leader-in-universitatsspital-basel-basel",
+          "leader-di-squadra-in-universitatsspital-basel-basel",
+          "chef-d-equipe-universitatsspital-basel-basel",
+          "teamleiter-in-universitatsspital-basel-basel",
+          "teamleiter-in-administration-unispital-basel-ch",
+          "amministrazione-aziendale-universitatsspital-basel-basel",
+          "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel",
+          "administrative-r-collaboratore-trice-in-diagnostische-plattform-universitatsspital-basel",
+          "personale-amministrativo-in-universitatsspital-basel-basel",
+          "adminstrative-r-collaboratore-trice-in-universitatsspital-basel-basel",
+          "collaboratore-trice-in-elektrotechnik-universitatsspital-basel",
+          "adminstrative-r-collaboratore-trice-in-universitatsspital-basel",
+          "adminstrative-staff-in-universitatsspital-basel-basel",
+          "personnel-administratif-universitatsspital-basel-basel-bdd967"
         ],
         "de": [
-          "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2"
+          "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2",
+          "administrative-r-mitarbeiter-in-unispital-basel-ch",
+          "mitarbeiter-in-patientenadministration-universitatsspital-basel-basel",
+          "mitarbeiter-in-administration-kursadministration-universitatsspital-basel-basel",
+          "mitarbeiter-in-administration-kursadministration-unispital-basel-ch",
+          "mitarbeiter-in-patientenadministration-unispital-basel-ch",
+          "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
+          "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
+          "administrative-r-mitarbeiter-in-case-management-unispital-basel-ch",
+          "administrative-r-mitarbeiter-in-universitatsspital-basel",
+          "administrative-r-mitarbeiter-in-empfang-universitatsspital-basel-basel",
+          "administrative-r-mitarbeiter-in-empfang-unispital-basel-ch",
+          "administrative-r-mitarbeiter-in-diagnostische-plattform-unispital-basel-ch",
+          "mitarbeiter-in-diagnostik-support-team-unispital-basel-ch",
+          "administrative-r-mitarbeiter-in-diagnostische-plattform-universitatsspital-basel-basel",
+          "mitarbeiter-in-elektrotechnik-unispital-basel-ch",
+          "adminstrative-r-mitarbeiter-in-universitatsspital-basel-basel",
+          "adminstrative-r-mitarbeiter-in-unispital-basel-ch",
+          "mitarbeiter-in-elektrotechnik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "administrative-r-mitarbeiter-in-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-23T22:20:41.060Z",
@@ -7087,20 +7203,33 @@
       "previousSlugsByLocale": {
         "de": [
           "fachfrau-fachmann-hr-time-management-unispital-basel-ch",
-          "fachfrau-fachmann-hr-time-management-universitatsspital-basel-basel"
+          "fachfrau-fachmann-hr-time-management-universitatsspital-basel-basel",
+          "studentische-hilfskraft-hr-time-management-universitatsspital-basel-basel"
         ],
         "it": [
           "fachfrau-fachmann-hr-time-management-unispital-basel-ch",
-          "fachfrau-fachmann-risorse-umane-time-management-universitatsspital-basel-basel"
+          "fachfrau-fachmann-risorse-umane-time-management-universitatsspital-basel-basel",
+          "studentische-hilfskraft-risorse-umane-time-management-universitatsspital-basel-basel",
+          "studentische-hilfskraft-hr-time-management-unispital-basel-ch",
+          "studentische-hilfskraft-hr-time-management-universitatsspital-basel-basel",
+          "studentische-hilfskraft-ressources-humaines-time-management-universitatsspital-basel-basel"
         ],
         "fr": [
-          "fachfrau-fachmann-hr-time-management-unispital-basel-ch"
+          "fachfrau-fachmann-hr-time-management-unispital-basel-ch",
+          "studentische-hilfskraft-ressources-humaines-time-management-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "studentische-hilfskraft-hr-time-management-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-hr-time-management-unispital-basel-ch",
         "fachfrau-fachmann-hr-time-management-universitatsspital-basel-basel",
-        "fachfrau-fachmann-risorse-umane-time-management-universitatsspital-basel-basel"
+        "fachfrau-fachmann-risorse-umane-time-management-universitatsspital-basel-basel",
+        "studentische-hilfskraft-risorse-umane-time-management-universitatsspital-basel-basel",
+        "studentische-hilfskraft-hr-time-management-unispital-basel-ch",
+        "studentische-hilfskraft-hr-time-management-universitatsspital-basel-basel",
+        "studentische-hilfskraft-ressources-humaines-time-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-08-25T10:02:22.492Z",
       "salaryMin": 62000,
