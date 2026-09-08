@@ -5600,6 +5600,7 @@ async function main() {
   let browserFallbackAttemptsTotal = 0;
   let browserFallbackHitsTotal = 0;
   const localizationAttemptedCompanyKeys = new Set();
+  const localizationCoveredCompanyKeys = new Set();
 
   if (localizeExistingOnly) {
     // Only log on first invocation — message is identical every time
@@ -5822,6 +5823,16 @@ async function main() {
       const maxJobs = crawlerConfig?.aiLocalizationMaxJobsPerRun || 0;
       const remainingBudget = Math.max(0, maxJobs - aiLocalizationCalls);
       const selectedQueue = queue.slice(0, remainingBudget || 0);
+      // Report coverage for companies whose jobs reached the crawler's
+      // consumable slice, even if a later guard defers/skips the AI callback.
+      // The cascade uses this to distinguish an actually reached sterile
+      // company from one left outside the shared run budget.
+      for (const job of selectedQueue) {
+        const localizationCompanyKey = normalizeCompanyKey(
+          String(job?.companyKey || job?.company || ''),
+        );
+        if (localizationCompanyKey) localizationCoveredCompanyKeys.add(localizationCompanyKey);
+      }
       if (selectedQueue.length > 0) {
         console.log(`🌐 Backfill localization queue: ${selectedQueue.length}/${queue.length} jobs (concurrency=${localizationConcurrency})`);
       }
@@ -6215,7 +6226,10 @@ async function main() {
   }
 
   console.log('✅ Jobs crawler completed');
-  return { localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys] };
+  return {
+    localizationAttemptedCompanyKeys: [...localizationAttemptedCompanyKeys],
+    localizationCoveredCompanyKeys: [...localizationCoveredCompanyKeys],
+  };
 }
 
 // Export main for in-process invocation (used by dedicated-crawler-common.mjs)

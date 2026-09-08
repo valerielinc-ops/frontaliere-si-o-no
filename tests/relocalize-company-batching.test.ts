@@ -205,14 +205,13 @@ describe('relocalize company invocation batching', () => {
     expect(ledger.companies['served-company'].sterile).toBe(1);
     expect(ledger.companies['unserved-company']).toEqual({ sterile: 1 });
 
-    // Singleton invocations retain the pre-batching sterile-ledger semantics:
-    // they have their own full budget, so an empty result is a sterile visit.
+    // A singleton with no crawler coverage is also unserved: cardinality alone
+    // must never advance its ledger entry.
     jobs = [jobs[1]];
     await runRelocalization(makePhase());
 
     expect(crawler.runSharedCrawlerPipeline).toHaveBeenCalledTimes(2);
     expect(crawlerCompanyKeys).toBe('unserved-company');
-    expect(ledger.companies['unserved-company'].sterile).toBe(0);
-    expect(ledger.companies['unserved-company'].skipUntilRun).toBeGreaterThan(0);
+    expect(ledger.companies['unserved-company']).toEqual({ sterile: 1 });
   });
 });
