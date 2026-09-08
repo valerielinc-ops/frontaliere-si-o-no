@@ -6070,6 +6070,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.volkswagen-tagli-amag-rassicura.title': 'Volkswagen taglia 50mila, Amag rassicura clienti',
     'blog.article.volkswagen-tagli-amag-rassicura.excerpt': 'Volkswagen taglia 50mila posti. Amag rassicura: nessun impatto occupazionale, prezzi stabili e leadership nell\'auto elettrica con Skoda.',
     'blog.article.volkswagen-tagli-amag-rassicura.imageAlt': 'Concessionaria Volkswagen in Svizzera con auto moderne in esposizione e ambiente professionale di vendita.',
+    'blog.article.tariffe-elettricita-2027-calo.title': 'Calo bollette luce 2027: -4% in Svizzera',
+    'blog.article.tariffe-elettricita-2027-calo.excerpt': 'Nel 2027 le tariffe dell\'elettricità scendono del 4% secondo Elcom. Una famiglia tipo risparmia CHF 53 l\'anno, ma le variazioni regionali restano significative.',
+    'blog.article.tariffe-elettricita-2027-calo.imageAlt': 'Contatore elettrico su parete di edificio residenziale svizzero con tariffe in calo per il 2027',
 };
 
 export default blogMetaChIt;

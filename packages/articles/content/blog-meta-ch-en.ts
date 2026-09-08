@@ -6070,6 +6070,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volkswagen-tagli-amag-rassicura.title': 'Volkswagen cuts 50,000, AMAG reassures customers',
     'blog.article.volkswagen-tagli-amag-rassicura.excerpt': 'Volkswagen cuts 50,000 seats. Amag reassures: no employment impact, stable prices and leadership in the electric car with Skoda.',
     'blog.article.volkswagen-tagli-amag-rassicura.imageAlt': 'Volkswagen dealership in Switzerland with modern cars on display and professional sales environment.',
+    'blog.article.tariffe-elettricita-2027-calo.title': '2027 electricity bill drop: -4% in Switzerland',
+    'blog.article.tariffe-elettricita-2027-calo.excerpt': 'In 2027 electricity rates fall by 4% according to Elcom. A typical household saves CHF 53 per year, but regional variations remain significant.',
+    'blog.article.tariffe-elettricita-2027-calo.imageAlt': 'Swiss residential electricity meter on apartment building facade with 2027 tariff reduction',
 };
 
 export default blogMetaChEn;
