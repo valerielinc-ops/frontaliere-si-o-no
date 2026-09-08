@@ -147,7 +147,10 @@ export async function fetchAllStellenpartnerJobs() {
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${location} stellenpartner ch`);
