@@ -231,7 +231,8 @@ jobs:
           TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
         run: node scripts/mark-mistranslated-jobs.mjs
       - name: One-shot reflag of German gender-form titles
-        if: ${{ inputs.reflag_gender_forms }}
+        if: inputs.reflag_gender_forms && inputs.skip_translate != true
+        continue-on-error: true
         run: node scripts/mark-mistranslated-jobs.mjs --gender-forms --no-titles --no-descriptions --max-marks 0 --queue-ceiling 0
       - name: Log translation stats (before)
         if: inputs.skip_translate != true
