@@ -217,6 +217,9 @@ export function localeRouteKeys(job = {}) {
 
 /** Preserve every route known by `removed` on `survivor`. */
 export function transferSlugHistory(survivor, removed, source = 'reconcile-crawler-company-ownership') {
+  if (removed?.previousSlugs != null && !Array.isArray(removed.previousSlugs)) {
+    throw new TypeError('transferSlugHistory: removed.previousSlugs must be an array');
+  }
   let transferred = 0;
   const requiredRoutes = new Map(LOCALES.map((locale) => [
     locale,

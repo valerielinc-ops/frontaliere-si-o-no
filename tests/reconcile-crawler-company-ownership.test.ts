@@ -13,13 +13,16 @@ import { join } from 'node:path';
 import {
   assertNoDuplicateRoutesWithin,
   assertNoOverlappingJobs,
+  auditExpiredArchiveRouteOverlaps,
   ISSUE_6759_COVERAGE,
   ISSUE_6797_SHARED_BOARD_TRANSFERS,
   localeRouteKeys,
   mergeRetiredCrawlerJobs,
   mergeRetiredCrawlerArchive,
+  reconcileExpiredArchive,
   RETIREMENTS,
   SHARED_BOARD_TRANSFERS,
+  sweepExpiredArchiveSlices,
   transferSlugHistory,
   transferOwnedJobs,
   transferOverlappingJobs,
@@ -180,6 +183,81 @@ describe('issue #6759 reconciliation', () => {
     expect(untouched.collapsed).toBe(0);
   });
 
+  it('audits previous-route overlap across distinct slices, without cross-company false positives', () => {
+    const make = (companyKey: string, slug: string, file: string) => ({
+      file,
+      jobs: [{
+        slug,
+        companyKey,
+        expiredAt: '2026-09-01T00:00:00.000Z',
+        slugByLocale: { it: slug },
+        previousSlugsByLocale: { de: ['shared-previous-route'] },
+      }],
+    });
+
+    const report = auditExpiredArchiveRouteOverlaps([
+      make('grouped-company', 'first', 'group-a.json'),
+      make('grouped-company', 'second', 'group-b.json'),
+      make('other-company', 'second', 'group-c.json'),
+    ]);
+
+    expect(report.crossSliceDuplicateRoutes).toHaveLength(1);
+    expect(report.crossSliceDuplicateRoutes[0]).toMatchObject({
+      route: 'de:shared-previous-route',
+      files: ['group-a.json', 'group-b.json'],
+    });
+  });
+
+  it('normalizes a canonical archive even when no retired archive is merged', () => {
+    const result = reconcileExpiredArchive(
+      [{
+        slug: 'canonical',
+        companyKey: 'canonical',
+        expiredAt: 'not-a-date',
+        slugByLocale: { it: 'canonical' },
+      }],
+      [],
+      'canonical',
+    );
+
+    expect(result).toMatchObject({ canonicalCollapsed: 0, repaired: 1, needsWrite: true });
+    expect(Number.isFinite(Date.parse(result.jobs[0].expiredAt))).toBe(true);
+  });
+
+  it('sweeps every expired slice with route preservation and persists only repairs', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'expired-route-sweep-'));
+    const first = {
+      slug: 'older',
+      companyKey: 'sweep-company',
+      expiredAt: '2026-08-01T00:00:00.000Z',
+      slugByLocale: { it: 'older' },
+      previousSlugsByLocale: { de: ['shared-route'] },
+    };
+    const second = {
+      slug: 'newer',
+      companyKey: 'sweep-company',
+      expiredAt: '2026-09-01T00:00:00.000Z',
+      slugByLocale: { it: 'newer' },
+      previousSlugsByLocale: { de: ['shared-route'] },
+    };
+    const file = join(dir, 'sweep-company.json');
+    writeFileSync(file, JSON.stringify([first, second]));
+    try {
+      const report = sweepExpiredArchiveSlices({ dir, apply: true });
+      const written = JSON.parse(readFileSync(file, 'utf8'));
+      expect(report).toMatchObject({ filesScanned: 1, filesChanged: 1, collapsed: 1 });
+      expect(written).toHaveLength(1);
+      expect(written[0].slug).toBe('newer');
+      expect([...localeRouteKeys(written[0])]).toEqual(expect.arrayContaining([
+        'it:older',
+        'it:newer',
+        'de:shared-route',
+      ]));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('returns entries in expiredAt-descending order, so the callers that cap keep the most recent', () => {
     // The survivor carries the NEWEST payload but is pushed at the position of
     // the OLDEST member of its component. `assemble-jobs-dataset` and
@@ -292,7 +370,7 @@ describe('issue #6759 reconciliation', () => {
     expect(() => collapseDuplicateRouteEntries([
       broken,
       entry('survivor', '2026-09-01T00:00:00.000Z'),
-    ])).toThrow(TypeError);
+    ])).toThrow('transferSlugHistory: removed.previousSlugs must be an array');
   });
 
   it('does not let a merge steal a route from an entry further down the input', () => {

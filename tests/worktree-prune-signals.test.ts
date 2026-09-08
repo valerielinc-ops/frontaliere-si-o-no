@@ -27,6 +27,7 @@ describe('percorsi gestiti dai cron', () => {
     expect(isCronManagedPath('data/gsc-orphan-queries-clusters.json')).toBe(true);
     expect(isCronManagedPath('data/parser-quality-report.json')).toBe(true);
     expect(isCronManagedPath('data/jobs/by-crawler/coop.json')).toBe(true);
+    expect(isCronManagedPath('data/jobs/expired/by-crawler/coop.json')).toBe(true);
     expect(isCronManagedPath('data/prospector/crawlers/accor.json')).toBe(true);
   });
 
