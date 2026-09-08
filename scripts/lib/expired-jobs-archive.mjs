@@ -291,6 +291,33 @@ export function transferSlugHistory(survivor, removed, source = 'reconcile-crawl
   return transferred;
 }
 
+const compareCodeUnits = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
+/** Serialize route-bearing payloads independently of object insertion order. */
+function stableSerialize(value) {
+  if (Array.isArray(value)) return `[${value.map(stableSerialize).join(',')}]`;
+  if (value && typeof value === 'object') {
+    return `{${Object.keys(value)
+      .sort(compareCodeUnits)
+      .map((key) => `${JSON.stringify(key)}:${stableSerialize(value[key])}`)
+      .join(',')}}`;
+  }
+  return JSON.stringify(value) ?? '';
+}
+
+/** Canonical newest-first order, including the route payload as final tie-break. */
+function compareArchiveEntries(a, b) {
+  return compareExpiredAt(b?.expiredAt, a?.expiredAt)
+    || compareCodeUnits(String(a?.slug || ''), String(b?.slug || ''))
+    || compareCodeUnits(String(a?.companyKey || ''), String(b?.companyKey || ''))
+    || compareCodeUnits(stableSerialize(a?.slugByLocale), stableSerialize(b?.slugByLocale))
+    || compareCodeUnits(
+      stableSerialize(a?.previousSlugsByLocale),
+      stableSerialize(b?.previousSlugsByLocale),
+    )
+    || compareCodeUnits(stableSerialize(a?.previousSlugs), stableSerialize(b?.previousSlugs));
+}
+
 /**
  * Collapse archive entries that already share a locale route.
  *
@@ -334,11 +361,9 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   // slices (measured 2026-09-06), and `archiveRemovedJobsToSlice`,
   // `cleanup-jobs` and `backfill-*` do not all hand over the same order. Newest
   // first matches the survivor rule below (the most recently expired payload
-  // wins); the slug/companyKey tie-breaks keep two records expired in the same
-  // millisecond from swapping roles.
-  const input = [...entries].sort((a, b) => compareExpiredAt(b?.expiredAt, a?.expiredAt)
-    || String(a?.slug || '').localeCompare(String(b?.slug || ''))
-    || String(a?.companyKey || '').localeCompare(String(b?.companyKey || '')));
+  // wins); the slug/companyKey/payload tie-breaks keep two records expired in
+  // the same millisecond from swapping roles.
+  const input = [...entries].sort(compareArchiveEntries);
   const out = [];
   const owners = new Map();
   // The incremental index below answers "which SURVIVING entry holds this
@@ -389,7 +414,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     // One entry can bridge several previously separate records through
     // different locale/history routes: collapse the whole connected component
     // onto the most recently expired payload.
-    const component = [...claimed, entry].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
+    const component = [...claimed, entry].sort(compareArchiveEntries);
     const required = new Set(component.flatMap(namespaced));
     const survivor = structuredClone(component[0]);
     const componentOrigins = new Set();
@@ -463,7 +488,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
   // window fall past index 5000 and are dropped — the soft landings of the
   // jobs that expired last, i.e. the URLs Google indexed most recently.
   return {
-    entries: out.sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
+    entries: out.sort(compareArchiveEntries),
     collapsed,
     slugsTransferred,
     unmergeable,
