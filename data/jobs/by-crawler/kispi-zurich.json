@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-09-08T13:33:01.762Z",
+  "assembledAt": "2026-09-08T23:18:00.671Z",
   "jobs": [
     {
       "id": "kispi-zurich-9a4dece2b049",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:48.379Z",
+      "crawledAt": "2026-09-08T23:17:48.874Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:46.554Z",
+      "crawledAt": "2026-09-08T23:17:47.055Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:44.819Z",
+      "crawledAt": "2026-09-08T23:17:43.036Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3714/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:43.824Z",
+      "crawledAt": "2026-09-08T23:17:41.373Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -362,7 +362,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3734/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:42.981Z",
+      "crawledAt": "2026-09-08T23:17:40.534Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -442,7 +442,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:42.096Z",
+      "crawledAt": "2026-09-08T23:17:39.664Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -516,7 +516,7 @@
         "it": "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
         "en": "application-responsible-polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
         "de": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
-        "fr": "application-responsable-polypoint-pep-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "applikationsverantwortliche-polypoint-pep-m-w-70-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -541,7 +541,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:41.268Z",
+      "crawledAt": "2026-09-08T23:17:38.849Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,12 +560,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+        "application-responsable-polypoint-pep-h-f-70-universitats-kinderspital-zurich-kispi-zurich",
         "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
           "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
+          "application-responsable-polypoint-pep-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T14:09:41.793Z",
@@ -588,7 +592,7 @@
       "slug": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data",
       "slugByLocale": {
         "it": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data",
-        "en": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data",
+        "en": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-universitats-kinderspital-zurich-kispi",
         "de": "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich",
         "fr": "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data"
       },
@@ -615,7 +619,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3737/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:40.449Z",
+      "crawledAt": "2026-09-08T23:17:38.013Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -689,7 +693,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:39.617Z",
+      "crawledAt": "2026-09-08T23:17:37.145Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -763,7 +767,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3718/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:32:38.627Z",
+      "crawledAt": "2026-09-08T23:17:36.135Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
