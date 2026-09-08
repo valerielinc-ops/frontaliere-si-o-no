@@ -11610,6 +11610,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-libro-analisi-miti.title': 'Frontières suisses : 400 000, mythes et analyses',
     'blog.article.frontalieri-libro-analisi-miti.excerpt': 'La Suisse emploie 400 000+ frontaliers (record européen). Nouveau livre démystifie les mythes : croissance 1978–2026, salaires, fiscalité, transports. Tessin au centre.',
     'blog.article.frontalieri-libro-analisi-miti.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes, symbole de la région tessinoise',
+    'blog.article.s30-guasto-tecnico-cadenazzo-luino.title': 'S30 bloquée entre Cadenazzo et Luino en raison d\'une défaillance technique',
+    'blog.article.s30-guasto-tecnico-cadenazzo-luino.excerpt': 'Ligne de chemin de fer interrompue jusqu\'au mercredi 9 septembre 2026 à 4h00. Bus de remplacement disponibles mais avec des retards garantis et aucune correspondance.',
+    'blog.article.s30-guasto-tecnico-cadenazzo-luino.imageAlt': 'Gare de Bellinzona avec trains SBB sur les voies pendant la journée',
+    'blog.article.libro-boom-frontalieri-svizzera.title': 'Le livre sur le boom des frontaliers en Suisse',
+    'blog.article.libro-boom-frontalieri-svizzera.excerpt': 'Un nouveau livre académique explique comment la Suisse compte 400 000 frontaliers. De 84 000 en 1978 au boom après 2000. Focus sur les salaires, la fiscalité, les transports.',
+    'blog.article.libro-boom-frontalieri-svizzera.imageAlt': 'Paysage frontalier du Tessin, symbole du marché du travail transfrontalier suisse-italien.',
 };
 
 export default blogMetaFr;
