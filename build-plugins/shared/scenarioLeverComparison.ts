@@ -859,9 +859,12 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     .filter((s) => s.salary === scenario.salary)
     .map((s) => ({ key: scenarioKey(s), net: netItalianResident(s) }))
     .sort((a, b) => b.net - a.net || (a.key < b.key ? -1 : 1));
-  const position = sameSalary.findIndex((s) => s.key === scenarioKey(scenario));
-  if (position >= 0) {
-    sentences.push(copy.rank(ordinalAt(copy, position), String(sameSalary.length)));
+  const sameSalaryKeys = new Set(sameSalary.map((s) => s.key));
+  if (sameSalaryKeys.size === sameSalary.length) {
+    const position = sameSalary.findIndex((s) => s.key === scenarioKey(scenario));
+    if (position >= 0) {
+      sentences.push(copy.rank(ordinalAt(copy, position), String(sameSalary.length)));
+    }
   }
 
   if (input.chResidentNetAnnual > 0) {

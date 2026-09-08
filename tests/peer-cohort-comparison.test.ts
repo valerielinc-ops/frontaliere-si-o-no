@@ -29,6 +29,9 @@ const rows: PeerRow[] = [
 
 const labels = { heading: 'Confronto', metricLabel: 'offerte attive', peerNoun: 'cantoni' };
 const fmt = (value: number) => String(value);
+const labelsForLocale = (locale: PeerLocale) => locale === 'de'
+  ? { ...labels, peerNoun: 'Kantonen' }
+  : labels;
 
 describe('rankPeerRows', () => {
   it('drops rows without a figure and ranks from the largest when higherIsBetter', () => {
@@ -111,7 +114,7 @@ describe('buildPeerProse', () => {
     // that made it the subject of a verb would emit "offerte attive va da …".
     const ranked = rankPeerRows(rows, true);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      const prose = buildPeerProse({ locale, ranked, currentKey: 'c', labels, formatValue: fmt }).join(' ');
+      const prose = buildPeerProse({ locale, ranked, currentKey: 'c', labels: labelsForLocale(locale), formatValue: fmt }).join(' ');
       for (const bad of ['offerte attive va', 'offerte attive runs', 'reicht offerte attive', 'bei offerte attive']) {
         expect(prose).not.toContain(bad);
       }
@@ -121,7 +124,7 @@ describe('buildPeerProse', () => {
   it('renders in all four locales', () => {
     const ranked = rankPeerRows(rows, true);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      const prose = buildPeerProse({ locale, ranked, currentKey: 'c', labels, formatValue: fmt });
+      const prose = buildPeerProse({ locale, ranked, currentKey: 'c', labels: labelsForLocale(locale), formatValue: fmt });
       expect(prose.length).toBeGreaterThanOrEqual(2);
       expect(prose.every((s) => s.trim().length > 0)).toBe(true);
     }
@@ -129,6 +132,16 @@ describe('buildPeerProse', () => {
 });
 
 describe('renderPeerComparison', () => {
+  it('rifiuta un nominativo tedesco dove il template richiede il dativo plurale', () => {
+    expect(() => renderPeerComparison({
+      locale: 'de',
+      currentKey: 'c',
+      rows,
+      labels: { ...labels, peerNoun: 'Berufe' },
+      formatValue: fmt,
+    })).toThrow(/dativo plurale/i);
+  });
+
   it('emits the block with links to the peers', () => {
     const html = renderPeerComparison({ locale: 'it', currentKey: 'c', rows, labels, formatValue: fmt });
     expect(html).toContain('data-peer-comparison="1"');

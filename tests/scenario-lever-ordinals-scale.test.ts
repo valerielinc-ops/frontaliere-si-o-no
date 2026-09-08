@@ -50,6 +50,13 @@ const RANK_MARKER: Record<LeverLocale, string> = {
   fr: 'combinaisons calculées au même brut',
 };
 
+const RANK_ORDINAL: Record<LeverLocale, RegExp> = {
+  it: /questa è (.+?) per netto/,
+  en: /this one ranks (.+?) by net pay/,
+  de: /steht diese an (.+?) Stelle/,
+  fr: /celle-ci arrive (.+?) pour le net/,
+};
+
 const LOCALES = Object.keys(RANK_MARKER) as LeverLocale[];
 
 const ALL = generateAllScenarios();
@@ -70,6 +77,10 @@ function sentencesFor(scenario: SalaryHubScenario, all: SalaryHubScenario[], loc
     itResidentNetAnnual: r.itResident.netIncomeAnnual,
     locale,
   });
+}
+
+function ordinalFromRank(sentence: string, locale: LeverLocale): string {
+  return RANK_ORDINAL[locale].exec(sentence)?.[1] ?? '';
 }
 
 describe('scenarioLeverComparison — ordinali contro la scala', () => {
@@ -124,9 +135,23 @@ describe('scenarioLeverComparison — ordinali contro la scala', () => {
           s.includes(RANK_MARKER[locale]),
         );
         expect(rank, `[${locale}] frase rank mancante su ${JSON.stringify(scenario)}`).toBeDefined();
-        ordinals.add(rank as string);
+        const ordinal = ordinalFromRank(rank as string, locale);
+        expect(ordinal, `[${locale}] ordinale non estratto da "${rank}"`).not.toBe('');
+        ordinals.add(ordinal);
       }
       expect(ordinals.size, `[${locale}] due pagine con lo stesso ordinale`).toBe(sameSalary.length);
+    }
+  });
+
+  it('tace il rank quando la popolazione contiene uno scenarioKey duplicato', () => {
+    const scenario = ALL.find((candidate) => candidate.salary === 60_000)!;
+    const duplicated = [scenario, { ...scenario }];
+
+    for (const locale of LOCALES) {
+      const rank = sentencesFor(scenario, duplicated, locale).find((sentence) =>
+        sentence.includes(RANK_MARKER[locale]),
+      );
+      expect(rank, `[${locale}] rank ambiguo su uno scenarioKey duplicato`).toBeUndefined();
     }
   });
 });
