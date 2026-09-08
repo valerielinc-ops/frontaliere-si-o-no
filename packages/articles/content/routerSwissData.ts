@@ -2069,6 +2069,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aviazione-emissioni-svizzera-2025': { it: 'aviazione-emissioni-svizzera-2025', en: 'aviation-emissions-switzerland-2025', de: 'luftfahrt-emissionen-schweiz-2025', fr: 'aviation-emissions-suisse-2025' },
  'neutralita-iniziativa-svizzera-freysinger': { it: 'neutralita-iniziativa-svizzera-freysinger', en: 'neutrality-initiative-switzerland-freysinger', de: 'neutralitaet-initiative-schweiz-freysinger', fr: 'neutralite-initiative-suisse-freysinger' },
  'licenza-guida-lucerna-procedura': { it: 'licenza-guida-lucerna-procedura', en: 'driver-license-lucerne-procedure', de: 'fuehrerschein-luzern-verfahren', fr: 'permis-lucerne-procedure' },
+ 'aprire-attivita-appenzello-interno-costi': { it: 'aprire-attivita-appenzello-interno-costi', en: 'open-business-appenzell-internal-register', de: 'geschaft-offnen-appenzell-intern-handelsregister', fr: 'creer-entreprise-appenzell-interne-registre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
