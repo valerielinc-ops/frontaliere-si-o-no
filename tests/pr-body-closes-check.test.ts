@@ -21,6 +21,7 @@ describe('checkClosesLines', () => {
       { name: 'Fixes two', body: 'Fixes #7 #8', refs: ['7', '8'] },
       { name: 'Resolves with and', body: 'Resolves #100 and #101', refs: ['100', '101'] },
       { name: 'lowercase closes', body: 'closes #5 #6', refs: ['5', '6'] },
+      { name: 'Closes line-wrapped', body: 'Closes #12\n#34', refs: ['12', '34'] },
       { name: 'in body among other text', body: '## Implementato\n- foo\n\nCloses #200 #201 #202\n', refs: ['200', '201', '202'] },
     ];
     for (const c of bad) {
@@ -116,6 +117,13 @@ describe('checkClosesLines — ineffective closing keyword', () => {
       // guard must not swallow it — otherwise widening the guard would turn a
       // false positive into a missed closure, the worse direction.
       { body: 'Non solo chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non soltanto chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non solamente chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non unicamente chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non esclusivamente chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non semplicemente chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non meramente chiude #12, ma anche altro', ref: '#12' },
+      { body: 'Non puramente chiude #12, ma anche altro', ref: '#12' },
     ];
     for (const c of bad) {
       it(JSON.stringify(c.body.slice(0, 40)), () => {

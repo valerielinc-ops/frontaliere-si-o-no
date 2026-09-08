@@ -70,16 +70,28 @@ const CHAIN = new RegExp(
 );
 const ALL_REFS = new RegExp(REF, 'g');
 
+const REF_START_RE = new RegExp(`^\\s*${REF}\\b`);
+
 /**
  * Detect a closing keyword followed by a chain of ≥2 refs (`kw #a #b ...`). Returns
  * the list of issue numbers in the chain, or null if the line is clean.
  */
-function lineHasMultiCloseViolation(line) {
+function lineHasMultiCloseViolation(line, previousLine = '') {
+  const current = String(line || '');
+  const previous = String(previousLine || '');
+  // A soft-wrapped `Closes #12\n#34` is still one GitHub closing chain. Carry
+  // only a line that starts with a bare/qualified ref, and only when the
+  // previous line was not already a complete multi-ref violation: otherwise
+  // the same chain would be reported again on its continuation line.
+  const continuation = previous
+    && REF_START_RE.test(current)
+    && !lineHasMultiCloseViolation(previous);
+  const source = continuation ? `${previous}\n${current}` : current;
   // Guard: if the "extra" segment actually starts a NEW closing keyword for each
   // ref (e.g. `closes #1, closes #2`), the CHAIN regex won't match because a
   // keyword sits between the separator and the ref — SEP forbids word chars.
   CHAIN.lastIndex = 0;
-  const m = CHAIN.exec(line);
+  const m = CHAIN.exec(source);
   if (!m) return null;
   const chunk = m[0];
   const nums = [];
@@ -119,8 +131,14 @@ const PAST_REPORT_RE = /\b(?:gi[àa]'?|already|was|were|sono\s+stat[ei]|[èe]'?\
 // the commonest negated form in Italian — broke the chain at the accent and the
 // guard never reached `\s*$`. The lookahead keeps `Non solo chiude #12`
 // reportable: "non solo" concedes the closure, it does not deny it.
-const NEG_REPORT_RE =
-  /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
+const CONCESSIVE =
+  '(?:solo|soltanto|solamente|unicamente|esclusivamente|semplicemente|meramente|puramente|' +
+  'only|just|merely|simply)';
+const NEG_REPORT_RE = new RegExp(
+  `\\b(?:non|n[éè]|not|never|mai|senza|without)(?!\\s+${CONCESSIVE}\\b)` +
+  `(?:\\s+[\\p{L}\\p{N}_'’]+){0,2}\\s*$`,
+  'iu',
+);
 // Filler tolerated between the verb and the ref: `Chiusa da #12`, `Risolve
 // definitivamente #12`, `Closing the #12`. Bounded to a known word list so a
 // sentence boundary or real prose can never bridge verb and ref.
@@ -193,12 +211,19 @@ export function checkClosesLines(body = '') {
   for (let i = 0; i < lines.length; i++) {
     // Scan the masked line, but REPORT the original: the author has to find the
     // line in their own body, and a row of blanks is not a landmark.
-    const text = (rawLines[i] ?? lines[i]).trim();
-    const refs = lineHasMultiCloseViolation(lines[i]);
+    const rawCurrent = (rawLines[i] ?? lines[i]).trim();
+    const previousLine = i > 0 ? lines[i - 1] : '';
+    const continuesChain = previousLine
+      && REF_START_RE.test(lines[i])
+      && !lineHasMultiCloseViolation(previousLine);
+    const text = continuesChain
+      ? `${(rawLines[i - 1] ?? lines[i - 1]).trim()} ${rawCurrent}`.trim()
+      : rawCurrent;
+    const refs = lineHasMultiCloseViolation(lines[i], previousLine);
     if (refs) {
       violations.push({
         type: 'multi-ref-close',
-        line: i + 1,
+        line: continuesChain ? i : i + 1,
         text,
         refs,
         message:

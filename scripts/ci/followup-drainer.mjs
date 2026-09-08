@@ -849,14 +849,14 @@ export function latestFixOutcomeFromComments(comments) {
 
 /**
  * Conteggio di item dichiarato nel TITOLO di una follow-up aggregata
- * («N items deferred», template FOLLOWUP.md). È la stessa forma che
+ * («N items deferred» / «N item deferito/i», template FOLLOWUP.md). È la stessa forma che
  * `issue-fix.yml` legge per accendere il circuit-breaker one-item
  * (`N=$(... grep -oiE '[0-9]+ items? deferred' ...)`, soglia N>=2): una sola
  * definizione qui, usata da `detectMalformedBody` e da
  * `detectWideScopeAggregate`, così le due letture non possono divergere.
  * `items?` opzionale: il titolo è LLM-generated e per N=1 dice «1 item».
  */
-export const AGGREGATE_ITEMS_RE = /\b(\d+)\s+items?\s+deferred\b/i;
+export const AGGREGATE_ITEMS_RE = /\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i;
 
 /**
  * Vero se il body dell'issue è troppo corto/malformato per consentire al fixer
@@ -867,7 +867,7 @@ export const AGGREGATE_ITEMS_RE = /\b(\d+)\s+items?\s+deferred\b/i;
 export function detectMalformedBody(title, body) {
   const b = String(body || '').trim();
   if (b.length < 50) return true; // empty or stub (e.g. "test")
-  // Issue aggregata (N items deferred) senza struttura FOLLOWUP.md:
+  // Issue aggregata (N items deferred / N item deferito/i) senza struttura FOLLOWUP.md:
   // ## Origine / ## Item / ### N. assenti → post-merge-followup malformato.
   if (AGGREGATE_ITEMS_RE.test(String(title || ''))) {
     const hasStructure = /^##\s+(Origine|Item)\b/mi.test(b) || /^###\s+\d+\.\s/m.test(b);
@@ -1243,7 +1243,7 @@ const DATA_PENDING_RE = new RegExp([
  * data-pending non giustifica il park di tutti gli altri. Quindi il marker vale
  * solo se copre l'issue INTERA — cioè se sta nel TITOLO (che descrive lo scope
  * complessivo: «(blocked, in attesa di dati…)»), oppure se l'issue non è
- * aggregata (`N items deferred` assente o N<=1).
+ * aggregata (`N items deferred` / `N item deferito/i` assente o N<=1).
  * @param {string} title @param {string} body
  * @returns {string|null} la frase che ha fatto scattare il rilevamento
  */
@@ -1266,7 +1266,7 @@ export function detectDataPending(title, body) {
 // TOO-LARGE è quindi una diagnosi post-mortem pagata a run pieni.
 //
 // Su una follow-up aggregata la larghezza è però DICHIARATA all'apertura: il
-// titolo porta «N items deferred» e il body enumera N sezioni. Non serve
+// titolo porta «N items deferred» / «N item deferito/i» e il body enumera N sezioni. Non serve
 // scoprirla, basta leggerla.
 //
 // SOGLIA = 4, e non è arbitraria. Misurato sulle 481 follow-up del sito che

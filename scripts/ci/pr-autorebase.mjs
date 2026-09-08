@@ -69,6 +69,8 @@ import {
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
   vitestFailureIsReviewGate,
+  reviewSkippedByGuard,
+  reviewAbortedWithoutVerdict,
   reviewStepIsInFlight,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
@@ -420,13 +422,21 @@ function guardedReopen(num, head, { stuckRedReason = '' } = {}) {
   // speso, altrimenti il commento tornerebbe a dire «far passare i test» a una
   // PR i cui test sono verdi), ma esenzione dalla precondizione una volta sola.
   const reviewGateRed = vitestConclusion === 'failure' && vitestRedIsReviewGate(head);
-  const reviewGateReason = reviewGateRed && !(prior && prior.reviewGateUsed)
+  // Il Jobs API viene letto di nuovo solo nel caso raro in cui il gate sia già
+  // stato riconosciuto come unico rosso: qui servono i discriminanti più fini
+  // (guard skip vs abort esplicito) per scegliere la causa del commento.
+  const reviewSteps = reviewGateRed ? vitestJobSteps(head) : [];
+  const reviewSkipped = reviewGateRed && reviewSkippedByGuard(reviewSteps);
+  const reviewAborted = reviewGateRed && reviewAbortedWithoutVerdict(reviewSteps);
+  const reviewGateReason = reviewGateRed && !reviewSkipped && !(prior && prior.reviewGateUsed)
     ? 'review-gate' : '';
   const reviewGateUsed = Boolean((prior && prior.reviewGateUsed) || reviewGateReason);
   const d = decideReopen({
     vitestConclusion, fingerprint, prior, max: MAX_REOPENS,
     failureNotAttributable: stuckRedReason || reviewGateReason,
     reviewGateFailure: reviewGateRed,
+    reviewSkippedByGuard: reviewSkipped,
+    reviewAborted,
   });
 
   if (d.action !== 'reopen') {
@@ -569,13 +579,20 @@ function mainTestsRuns() {
  * check-runs API dà al job di Actions. `[]` se il link non è parsabile o la
  * chiamata fallisce → `vitestFailureIsReviewGate` risponde `false` e vale la
  * precondizione normale (fail-CLOSED: nel dubbio non si ricicla). */
+const _vitestJobSteps = new Map();
 function vitestJobSteps(head) {
+  if (_vitestJobSteps.has(head)) return _vitestJobSteps.get(head);
   const last = latestCompletedVitestRun(checkRunsOf(head));
   const m = /\/job\/(\d+)/.exec((last && last.details_url) || '');
-  if (!m) return [];
+  if (!m) {
+    _vitestJobSteps.set(head, []);
+    return [];
+  }
   const out = gh(['api', `repos/${REPO}/actions/jobs/${m[1]}`, '--jq', '.steps'],
     { json: true, allowFail: true });
-  return Array.isArray(out) ? out : [];
+  const steps = Array.isArray(out) ? out : [];
+  _vitestJobSteps.set(head, steps);
+  return steps;
 }
 
 /** Il rosso del check vitest sull'head è lo step del REVIEW GATE (LGTM mancante

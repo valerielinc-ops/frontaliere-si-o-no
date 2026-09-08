@@ -16,9 +16,11 @@ describe('isAggregateTitle — multi-item follow-ups never auto-close', () => {
   it('flags N≥2 "item(s)" titles as aggregate', () => {
     expect(isAggregateTitle('follow-up(#1674): 3 item deferred — fix(seo): ...')).toBe(true);
     expect(isAggregateTitle('follow-up(#1651): 2 items deferred — fix(data): ...')).toBe(true);
+    expect(isAggregateTitle('follow-up(#1651): 2 item deferiti — fix(data): ...')).toBe(true);
   });
   it('treats single-item / count-less titles as non-aggregate (eligible)', () => {
     expect(isAggregateTitle('follow-up(#1685): 1 item deferred — perf(...): ...')).toBe(false);
+    expect(isAggregateTitle('follow-up(#1685): 1 item deferito — perf(...): ...')).toBe(false);
     expect(isAggregateTitle('fix(crawlers): extract shared assertJsonListShape guard')).toBe(false);
     expect(isAggregateTitle('')).toBe(false);
   });
