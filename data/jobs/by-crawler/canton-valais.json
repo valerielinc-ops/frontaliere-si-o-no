@@ -199,7 +199,6 @@
           "un-collaborateur-ou-une-collaboratrice-scientifique-50-canton-valais-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:35:50.241Z",
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -310,7 +309,6 @@
           "un-ou-une-responsable-d-arrondissement-en-constructions-rurales-et-financement-des"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:35:49.012Z",
       "salaryMin": 104700,
       "salaryMax": 183600,
@@ -520,7 +518,6 @@
           "un-controleur-ou-une-controleuse-interne-100-canton-valais-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:35:47.732Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -631,7 +628,6 @@
           "un-ouvrier-professionnel-ou-une-ouvriere-professionnelle-80-100-canton-valais-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:35:47.134Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -661,7 +657,7 @@
       "companyDomain": "vs.ch",
       "title": "Jurist/in (80%)",
       "titleByLocale": {
-        "it": "Jurist/in (80%)",
+        "it": "Avvocato (80%)",
         "en": "Lawyer (80%)",
         "de": "Jurist/in (80%)",
         "fr": "Juriste (80%)"
@@ -711,7 +707,6 @@
           "jurist-in-80-canton-valais-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:35:46.518Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -806,7 +801,11 @@
           "Führerschein C und CE (Vorteil)"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch",
+        "ein-schlosser-oder-mechaniker-eine-schlosserin-oder-mechanikerin-100-canton-du-valais-sierre",
+        "un-serragliere-o-meccanico-una-serragliera-o-meccanica-100-canton-du-valais-sierre"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "ein-schlosser-oder-mechaniker-eine-schlosserin-oder-mechanikerin-100-canton-du-valais-sierre",
@@ -820,11 +819,6 @@
           "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch"
         ]
       },
-      "previousSlugs": [
-        "un-serrurier-ou-mecanicien-une-serruriere-ou-mecanicienne-100-canton-valais-ch",
-        "ein-schlosser-oder-mechaniker-eine-schlosserin-oder-mechanikerin-100-canton-du-valais-sierre",
-        "un-serragliere-o-meccanico-una-serragliera-o-meccanica-100-canton-du-valais-sierre"
-      ],
       "firstSeenAt": "2026-08-28T05:35:45.869Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -919,7 +913,10 @@
           "Französisch oder Deutsch als Muttersprache mit ausgezeichneten Kenntnissen der zweiten Amtssprache"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "capo-sezione-infrastrutture-e-gestione-100-canton-du-valais-sierre",
+        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "capo-sezione-infrastrutture-e-gestione-100-canton-du-valais-sierre",
@@ -932,10 +929,6 @@
           "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
         ]
       },
-      "previousSlugs": [
-        "capo-sezione-infrastrutture-e-gestione-100-canton-du-valais-sierre",
-        "un-chef-ou-une-cheffe-de-section-infrastructure-et-exploitation-100-canton-valais-ch"
-      ],
       "firstSeenAt": "2026-08-28T05:35:45.231Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1043,7 +1036,6 @@
           "un-ou-une-specialiste-sap-hr-80-100-canton-valais-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:35:44.470Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1139,7 +1131,6 @@
           "des-places-de-stage-de-maturite-professionnelle-economie-mp-e-canton-valais-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:35:43.212Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -1242,7 +1233,6 @@
           "un-apprenti-assistent-socio-educatif-ou-une-apprentie-socio-educative-cfc-canton-du-valais-sion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:35:43.821Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -1319,7 +1309,6 @@
           "des-apprentis-employes-de-commerce-ou-apprenties-employees-de-commerce-cfc-canton-valais"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:35:37.922Z",
       "salaryMin": 57000,
       "salaryMax": 87500,
@@ -1661,7 +1650,6 @@
           "un-collaborateur-ou-une-collaboratrice-agro-scientifique-80-canton-valais-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:26:04.041Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1856,10 +1844,10 @@
       },
       "description": "auprès de l'Office cantonal AI du Valais",
       "descriptionByLocale": {
-        "it": "L’Office AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Dans le cadre d’un futur départ à la retraite, nous recherchons - pour une entrée en fonction à convenir - un/e Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Vos activités Vous pilotez la stratégie de sécurité de l’information de l’Office et assurez sa déclinaison opérationnelle à travers un encadrement des projets associés. Vous définissez les orientations stratégiques en matière de cybersécurité et veillez à leur cohérence avec les priorités de l’Office, les besoins des métiers ainsi que les obligations réglementaires. Vous développez une vision consolidée du portefeuille des projets liés à la cybersécurité et à la digitalisation, en assurant leur pilotage global : priorisation, coordination des parties prenantes, suivi des échéances, indicateurs de performance et reporting auprès de la Direction. Vous accompagnez la mise en œuvre du cadre de gouvernance de la sécurité de l’information, supervisez les démarches d’audit, de conformité et d’évaluation des risques et pilotez les actions d’amélioration continue visant à renforcer durablement le niveau de protection et de résilience de l’Office. Vous collaborez étroitement avec la DPO interne et contribuez à aligner cybersécurité, protection des données et digitalisation. Vous pouvez également être amené/e à piloter des projets Vous contribuez activement à la transformation numérique de l’Office en garantissant une approche sécurisée, durable et adaptée aux enjeux. Vous assurez également la coordination avec les acteurs internes, les partenaires externes et les parties prenantes institutionnelles.\n\nVotre profil:\nVous êtes titulaire d’une formation supérieure en informatique, cybersécurité ou systèmes d’information, et maîtrisez les référentiels ISO27001, NIST, etc. Une certification en gestion de projet est attendue pour ce poste. Vous disposez d’une expérience significative en sécurité de l’information, gestion des risques et gouvernance SI, avec une capacité à évoluer entre les dimensions stratégiques, organisationnelles et techniques. Vous disposez d’une bonne compréhension des environnements IT modernes. Vous possédez une expérience avérée dans le pilotage et la gestion du portefeuille de projets, ainsi que dans la coordination de parties prenantes multiples. De langue maternelle française, vous disposez de bonnes connaissances de la langue allemande. Par ailleurs, vous avez également la capacité de prendre – à terme – la responsabilité d’une petite équipe. Votre personnalité Doté/e d’un fort sens des responsabilités, vous savez prendre des décisions dans des contextes sensibles et complexes. Votre esprit d’analyse, votre rigueur et votre capacité d’anticipation vous permettent d’évaluer les risques, de définir les priorités et de proposer des orientations adaptées. Vous disposez d’excellentes capacités de communication vous permettant de traduire des enjeux techniques en messages clairs et pertinents pour la Direction et les métiers. Vous êtes à l’aise dans la gestion de situations complexes, la gestion des priorités et le pilotage transversal de projets impliquant de multiples parties prenantes. Reconnu pour votre leadership, votre sens de la collaboration et votre capacité à accompagner le changement, vous contribuez à développer une culture durable de la sécurité au sein de l’Office.\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Un taux d’activité à convenir\n•  Des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes\n•  Lieu de travail : au centre-ville de Sion (Valais), à proximité immédiate des commerces et des transports publics Mme Sophie Chevrolet, Responsable RH, répondra volontiers à vos questions (tél. 027 324 96 45). Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au vendredi 24 septembre 2026.",
-        "en": "L’Office AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Dans le cadre d’un futur départ à la retraite, nous recherchons - pour une entrée en fonction à convenir - un/e Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Vos activités Vous pilotez la stratégie de sécurité de l’information de l’Office et assurez sa déclinaison opérationnelle à travers un encadrement des projets associés. Vous définissez les orientations stratégiques en matière de cybersécurité et veillez à leur cohérence avec les priorités de l’Office, les besoins des métiers ainsi que les obligations réglementaires. Vous développez une vision consolidée du portefeuille des projets liés à la cybersécurité et à la digitalisation, en assurant leur pilotage global : priorisation, coordination des parties prenantes, suivi des échéances, indicateurs de performance et reporting auprès de la Direction. Vous accompagnez la mise en œuvre du cadre de gouvernance de la sécurité de l’information, supervisez les démarches d’audit, de conformité et d’évaluation des risques et pilotez les actions d’amélioration continue visant à renforcer durablement le niveau de protection et de résilience de l’Office. Vous collaborez étroitement avec la DPO interne et contribuez à aligner cybersécurité, protection des données et digitalisation. Vous pouvez également être amené/e à piloter des projets Vous contribuez activement à la transformation numérique de l’Office en garantissant une approche sécurisée, durable et adaptée aux enjeux. Vous assurez également la coordination avec les acteurs internes, les partenaires externes et les parties prenantes institutionnelles.\n\nVotre profil:\nVous êtes titulaire d’une formation supérieure en informatique, cybersécurité ou systèmes d’information, et maîtrisez les référentiels ISO27001, NIST, etc. Une certification en gestion de projet est attendue pour ce poste. Vous disposez d’une expérience significative en sécurité de l’information, gestion des risques et gouvernance SI, avec une capacité à évoluer entre les dimensions stratégiques, organisationnelles et techniques. Vous disposez d’une bonne compréhension des environnements IT modernes. Vous possédez une expérience avérée dans le pilotage et la gestion du portefeuille de projets, ainsi que dans la coordination de parties prenantes multiples. De langue maternelle française, vous disposez de bonnes connaissances de la langue allemande. Par ailleurs, vous avez également la capacité de prendre – à terme – la responsabilité d’une petite équipe. Votre personnalité Doté/e d’un fort sens des responsabilités, vous savez prendre des décisions dans des contextes sensibles et complexes. Votre esprit d’analyse, votre rigueur et votre capacité d’anticipation vous permettent d’évaluer les risques, de définir les priorités et de proposer des orientations adaptées. Vous disposez d’excellentes capacités de communication vous permettant de traduire des enjeux techniques en messages clairs et pertinents pour la Direction et les métiers. Vous êtes à l’aise dans la gestion de situations complexes, la gestion des priorités et le pilotage transversal de projets impliquant de multiples parties prenantes. Reconnu pour votre leadership, votre sens de la collaboration et votre capacité à accompagner le changement, vous contribuez à développer une culture durable de la sécurité au sein de l’Office.\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Un taux d’activité à convenir\n•  Des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes\n•  Lieu de travail : au centre-ville de Sion (Valais), à proximité immédiate des commerces et des transports publics Mme Sophie Chevrolet, Responsable RH, répondra volontiers à vos questions (tél. 027 324 96 45). Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au vendredi 24 septembre 2026.",
-        "de": "L’Office AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Dans le cadre d’un futur départ à la retraite, nous recherchons - pour une entrée en fonction à convenir - un/e Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Vos activités Vous pilotez la stratégie de sécurité de l’information de l’Office et assurez sa déclinaison opérationnelle à travers un encadrement des projets associés. Vous définissez les orientations stratégiques en matière de cybersécurité et veillez à leur cohérence avec les priorités de l’Office, les besoins des métiers ainsi que les obligations réglementaires. Vous développez une vision consolidée du portefeuille des projets liés à la cybersécurité et à la digitalisation, en assurant leur pilotage global : priorisation, coordination des parties prenantes, suivi des échéances, indicateurs de performance et reporting auprès de la Direction. Vous accompagnez la mise en œuvre du cadre de gouvernance de la sécurité de l’information, supervisez les démarches d’audit, de conformité et d’évaluation des risques et pilotez les actions d’amélioration continue visant à renforcer durablement le niveau de protection et de résilience de l’Office. Vous collaborez étroitement avec la DPO interne et contribuez à aligner cybersécurité, protection des données et digitalisation. Vous pouvez également être amené/e à piloter des projets Vous contribuez activement à la transformation numérique de l’Office en garantissant une approche sécurisée, durable et adaptée aux enjeux. Vous assurez également la coordination avec les acteurs internes, les partenaires externes et les parties prenantes institutionnelles.\n\nVotre profil:\nVous êtes titulaire d’une formation supérieure en informatique, cybersécurité ou systèmes d’information, et maîtrisez les référentiels ISO27001, NIST, etc. Une certification en gestion de projet est attendue pour ce poste. Vous disposez d’une expérience significative en sécurité de l’information, gestion des risques et gouvernance SI, avec une capacité à évoluer entre les dimensions stratégiques, organisationnelles et techniques. Vous disposez d’une bonne compréhension des environnements IT modernes. Vous possédez une expérience avérée dans le pilotage et la gestion du portefeuille de projets, ainsi que dans la coordination de parties prenantes multiples. De langue maternelle française, vous disposez de bonnes connaissances de la langue allemande. Par ailleurs, vous avez également la capacité de prendre – à terme – la responsabilité d’une petite équipe. Votre personnalité Doté/e d’un fort sens des responsabilités, vous savez prendre des décisions dans des contextes sensibles et complexes. Votre esprit d’analyse, votre rigueur et votre capacité d’anticipation vous permettent d’évaluer les risques, de définir les priorités et de proposer des orientations adaptées. Vous disposez d’excellentes capacités de communication vous permettant de traduire des enjeux techniques en messages clairs et pertinents pour la Direction et les métiers. Vous êtes à l’aise dans la gestion de situations complexes, la gestion des priorités et le pilotage transversal de projets impliquant de multiples parties prenantes. Reconnu pour votre leadership, votre sens de la collaboration et votre capacité à accompagner le changement, vous contribuez à développer une culture durable de la sécurité au sein de l’Office.\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Un taux d’activité à convenir\n•  Des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes\n•  Lieu de travail : au centre-ville de Sion (Valais), à proximité immédiate des commerces et des transports publics Mme Sophie Chevrolet, Responsable RH, répondra volontiers à vos questions (tél. 027 324 96 45). Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au vendredi 24 septembre 2026.",
-        "fr": "auprès de l'Office cantonal AI du Valais"
+        "fr": "auprès de l'Office cantonal AI du Valais",
+        "it": "L'Ufficio AI du Valais è il centro di competenza cantonale per l'assicurazione Invalidità svizzera con oltre 190 dipendenti in vari settori. Egli è responsabile in Vallese per le prestazioni individuali di assicurazione per le persone colpite dalla loro salute. Come parte di un futuro pensionamento, stiamo cercando - per un ingresso in ufficio da concordare - a/e Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Le tue attività Stai pilotando la strategia di sicurezza dell'Agenzia e assicurando il suo sviluppo operativo attraverso un quadro di progetti associati. Definisci le indicazioni strategiche per la sicurezza informatica e assicurati che siano conformi alle priorità dell'Agenzia, alle esigenze aziendali e agli obblighi normativi. Sviluppi una visione consolidata del portafoglio di progetti relativi alla sicurezza informatica e alla digitalizzazione, garantendo la loro direzione generale: priorità, coordinamento delle parti interessate, monitoraggio delle scadenze, indicatori di performance e reporting alla Direzione. L'utente sostiene l'attuazione del quadro di governance della sicurezza delle informazioni, supervisiona i processi di audit, compliance e valutazione dei rischi, e conduce azioni di miglioramento continuo volte a migliorare il livello di protezione e resilienza dell'Agenzia. Lavorate a stretto contatto con il DPO interno e aiutate ad allineare la sicurezza informatica, la protezione dei dati e la digitalizzazione. Potrebbe anche essere necessario pilotare progetti Contribuisci attivamente alla trasformazione digitale dell'Ufficio garantendo un approccio sicuro, sostenibile e reattivo. Assicura anche il coordinamento con attori interni, partner esterni e stakeholder istituzionali.\n\nIl tuo profilo:\nHai una formazione avanzata in informatica, sicurezza informatica o sistemi informativi, e master ISO27001, NIST, ecc. La certificazione di gestione del progetto è prevista per questa posizione. Hai una significativa esperienza nella sicurezza dell'informazione, nella gestione dei rischi e nella governance dell'IS, con la capacità di evolversi tra dimensioni strategiche, organizzative e tecniche. Hai una buona comprensione degli ambienti IT moderni. Hai dimostrato esperienza nella gestione e nella gestione del portafoglio di progetti, oltre a coordinare più stakeholder. In francese, hai una buona conoscenza della lingua tedesca. Inoltre, avete anche la capacità di assumere – a lungo termine – la responsabilità di una piccola squadra. La tua personalità Con un forte senso di responsabilità, si sa come prendere decisioni in contesti sensibili e complessi. Il tuo spirito analitico, il rigore e la capacità di anticipazione ti permettono di valutare i rischi, definire le priorità e proporre linee guida appropriate. Hai eccellenti capacità di comunicazione per tradurre questioni tecniche in messaggi chiari e pertinenti per la Direzione e gli scambi. Sei comodo gestire situazioni complesse, gestire le priorità e gestire i progetti in più stakeholder. Riconosciuto per la vostra leadership, il vostro senso di collaborazione e la vostra capacità di sostenere il cambiamento, contribuite allo sviluppo di una cultura di sicurezza sostenibile all'interno dell'Ufficio.\n\nLa nostra offerta:\n• Un lavoro interessante e impegnativo\n• Un tasso di attività da concordare\n• Opportunità di formazione continua\n• Condizioni di lavoro moderne e attraenti\n• Posizione: nel centro di Sion, Vallese, vicino ai negozi e ai trasporti pubblici La signora Sophie Chevrolet, HR Manager, risponderà volentieri alle tue domande (tel. 027 324 96 45). Non vediamo l'ora di ricevere la tua applicazione completa in formato PDF via e-mail: candidatures@vs.oai.ch fino a venerdì 24 settembre 2026.",
+        "en": "The Office AI du Valais is the cantonal centre of competence for the Swiss Invalidity Insurance with more than 190 employees in various fields. He is responsible in Valais for individual insurance benefits for people affected by their health. As part of a future retirement, we are seeking - for an entry into office to be agreed - a/e Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Your activities You are piloting the Agency's information security strategy and ensuring its operational development through a framework of associated projects. You define the strategic directions for cybersecurity and ensure that they are consistent with the Agency's priorities, business needs and regulatory obligations. You develop a consolidated vision of the portfolio of projects related to cybersecurity and digitalisation, ensuring their overall direction: prioritization, stakeholder coordination, monitoring of deadlines, performance indicators and reporting to the Directorate. You support the implementation of the information security governance framework, oversee the audit, compliance and risk assessment processes, and lead continuous improvement actions aimed at enhancing the Agency's level of protection and resilience. You work closely with the internal DPO and help align cybersecurity, data protection and digitalization. You may also have to pilot projects You are actively contributing to the Office's digital transformation by ensuring a secure, sustainable and responsive approach. You also ensure coordination with internal actors, external partners and institutional stakeholders.\n\nYour profile:\nYou have advanced training in computer science, cybersecurity or information systems, and master ISO27001, NIST, etc. Project management certification is expected for this position. You have significant experience in information security, risk management and IS governance, with the ability to evolve between strategic, organizational and technical dimensions. You have a good understanding of modern IT environments. You have proven experience in managing and managing the project portfolio, as well as coordinating multiple stakeholders. In French, you have a good knowledge of the German language. In addition, you also have the ability to take over – in the long run – the responsibility of a small team. Your personality With a strong sense of responsibility, you know how to make decisions in sensitive and complex contexts. Your analytical spirit, rigor and anticipation capacity allow you to assess risks, define priorities and propose appropriate guidelines. You have excellent communication capabilities to translate technical issues into clear and relevant messages for the Directorate and trades. You're comfortable managing complex situations, managing priorities and managing projects across multiple stakeholders. Recognized for your leadership, your sense of collaboration and your ability to support change, you contribute to the development of a sustainable safety culture within the Office.\n\nOur offer:\n• An interesting and demanding job\n• An activity rate to be agreed\n• Opportunities for continuing training\n• Modern and attractive working conditions\n• Location: in downtown Sion, Valais, close to shops and public transport Ms Sophie Chevrolet, HR Manager, will gladly answer your questions (tel. 027 324 96 45). We look forward to receiving your complete application in PDF format by e-mail: candidatures@vs.oai.ch until Friday 24 September 2026.",
+        "de": "Das Büro AI du Wallis ist das kantonale Kompetenzzentrum für die Schweizer Invaliditätsversicherung mit mehr als 190 Mitarbeitern in verschiedenen Bereichen. Er ist im Wallis für individuelle Versicherungsleistungen für Menschen verantwortlich, die von ihrer Gesundheit betroffen sind. Im Rahmen einer zukünftigen Pensionierung suchen wir - um einen Amtsantritt zu vereinbaren - einen Chief Information Security Officer (CISO) & Project Management (PMO) 80%-100% Ihre Aktivitäten Sie pilotieren die Strategie der Agentur für Informationssicherheit und gewährleisten ihre operative Entwicklung durch einen Rahmen verbundener Projekte. Sie definieren die strategischen Richtungen für die Cybersicherheit und stellen sicher, dass sie mit den Prioritäten, Geschäftsanforderungen und regulatorischen Verpflichtungen der Agentur übereinstimmen. Sie entwickeln eine konsolidierte Vision des Portfolios von Projekten im Zusammenhang mit Cybersicherheit und Digitalisierung und stellen deren Gesamtrichtung sicher: Priorisierung, Stakeholderkoordination, Überwachung von Fristen, Leistungsindikatoren und Berichterstattung an die Direktion. Sie unterstützen die Umsetzung des Governance-Rahmens für die Informationssicherheit, beaufsichtigen die Audit-, Compliance- und Risikobewertungsprozesse und leiten kontinuierliche Verbesserungsmaßnahmen zur Verbesserung des Schutz- und Widerstandsniveaus der Agentur. Sie arbeiten eng mit dem internen DSB zusammen und tragen dazu bei, Cybersicherheit, Datenschutz und Digitalisierung auszurichten. Möglicherweise müssen Sie auch Pilotprojekte durchführen Sie tragen aktiv zur digitalen Transformation des Büros bei, indem Sie einen sicheren, nachhaltigen und reaktionsschnellen Ansatz gewährleisten. Sie sorgen auch für die Koordination mit internen Akteuren, externen Partnern und institutionellen Stakeholdern.\n\nIhr Profil:\nSie haben eine Weiterbildung in Informatik, Cybersicherheit oder Informationssystemen und beherrschen ISO27001, NIST usw. Projektmanagement-Zertifizierung wird für diese Position erwartet. Sie verfügen über umfangreiche Erfahrung in den Bereichen Informationssicherheit, Risikomanagement und IS-Governance mit der Fähigkeit, sich zwischen strategischen, organisatorischen und technischen Dimensionen zu entwickeln. Sie haben ein gutes Verständnis für moderne IT-Umgebungen. Sie haben nachweislich Erfahrung in der Verwaltung und Verwaltung des Projektportfolios sowie in der Koordination mehrerer Stakeholder. Auf Französisch haben Sie gute Kenntnisse der deutschen Sprache. Darüber hinaus haben Sie auch die Möglichkeit, langfristig die Verantwortung eines kleinen Teams zu übernehmen. Deine Persönlichkeit Mit einem starken Verantwortungsbewusstsein wissen Sie, wie Sie Entscheidungen in sensiblen und komplexen Kontexten treffen. Ihr analytischer Geist, Ihre Strenge und Ihre Antizipationsfähigkeit ermöglichen es Ihnen, Risiken zu bewerten, Prioritäten zu definieren und geeignete Richtlinien vorzuschlagen. Sie verfügen über ausgezeichnete Kommunikationsfähigkeiten, um technische Probleme in klare und relevante Nachrichten für die Direktion und den Handel zu übersetzen. Sie sind zufrieden mit der Verwaltung komplexer Situationen, der Verwaltung von Prioritäten und der Verwaltung von Projekten über mehrere Stakeholder hinweg. Anerkannt für Ihre Führungsqualität, Ihren Sinn für Zusammenarbeit und Ihre Fähigkeit, Veränderungen zu unterstützen, tragen Sie zur Entwicklung einer nachhaltigen Sicherheitskultur im Büro bei.\n\nUnser Angebot:\n• Ein interessanter und anspruchsvoller Job\n• Eine zu vereinbarende Aktivitätsrate\n• Weiterbildungsmöglichkeiten\n• Moderne und attraktive Arbeitsbedingungen\n• Lage: in der Innenstadt von Sion, Wallis, in der Nähe von Geschäften und öffentlichen Verkehrsmitteln Frau Sophie Chevrolet, HR Managerin, beantwortet gerne Ihre Fragen (Tel. 027 324 96 45). Wir freuen uns auf Ihre vollständige Bewerbung im PDF-Format per E-Mail: candidatures@vs.oai.ch bis Freitag, den 24. September 2026."
       },
       "location": "Sion",
       "canton": "VS",
@@ -1884,7 +1872,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-07T15:17:39.748Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1897,7 +1884,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-07T15:17:39.748Z"
     }
   ]
 }
