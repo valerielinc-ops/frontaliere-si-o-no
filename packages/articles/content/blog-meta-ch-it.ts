@@ -6130,6 +6130,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.licenza-guida-lucerna-procedura.title': 'Patente estero a Lucerna: conversione e esami',
     'blog.article.licenza-guida-lucerna-procedura.excerpt': 'Procedura completa per convertire patente internazionale nel Canton Lucerna: requisiti, esame teorico e pratico, corsi obbligatori e tempi.',
     'blog.article.licenza-guida-lucerna-procedura.imageAlt': 'Ufficio della circolazione del Canton Lucerna con personale che assiste nel processo di conversione della patente.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Aprire attività Appenzello Interno: costi e registrazione',
+    'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Guida completa ad aprire un\'attività in Appenzello Interno: registrazione, capitale minimo e obblighi AVS, LPP, LAMal.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Ufficio amministrativo svizzero con documenti di registrazione al registro di commercio',
 };
 
 export default blogMetaChIt;

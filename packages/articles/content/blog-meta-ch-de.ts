@@ -6130,6 +6130,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.licenza-guida-lucerna-procedura.title': 'Ausländischer Führerschein in Luzern: Umschulung und Prüfungen',
     'blog.article.licenza-guida-lucerna-procedura.excerpt': 'Vollständiges Verfahren zur Umwandlung eines internationalen Führerscheins im Kanton Luzern: Anforderungen, theoretische und praktische Prüfung, Pflichtkurse und Zeiten.',
     'blog.article.licenza-guida-lucerna-procedura.imageAlt': 'Strassenverkehrsamt Kanton Luzern, Mitarbeiter unterstützt bei Führerscheinsumwandlung.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Geschäft öffnen Appenzell Innerrhoden: Kosten und Anmeldung',
+    'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Vollständiger Leitfaden zur Gründung eines Unternehmens in Appenzell Innerrhoden: Registrierung, Mindestkapital und Pflichten AHV, BVG, KVG.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Schweizer Verwaltungsbüro mit Handelsregisterformularen und Registrierungsdokumenten',
 };
 
 export default blogMetaChDe;
