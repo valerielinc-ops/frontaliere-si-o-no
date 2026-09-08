@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
+import { scanImportClosure } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = 'scripts/ci/check-dependency-free-import-closure.mjs';
@@ -13,6 +14,12 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
     const output = execFileSync(process.execPath, [SCRIPT], { cwd: ROOT, encoding: 'utf8' });
     expect(output).toMatch(/dependency-free import closure OK: \d+ files/);
     expect(output).toContain('guarded package exception: scripts/load-rc-env.mjs -> firebase-admin');
+
+    const { files } = scanImportClosure();
+    expect(files).toEqual(expect.arrayContaining([
+      'scripts/lib/secrets-scope-detect.mjs',
+      'scripts/lib/workflow-scope-detect.mjs',
+    ]));
   });
 
   it('runs the closure check before the zero-dependency drain entrypoint', () => {

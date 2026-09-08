@@ -43,8 +43,8 @@ function importSpecifiers(source) {
   };
 
   for (const re of [
-    /^\s*import\s+(?:[^'";\n]*?\s+from\s+)?['"]([^'"]+)['"]/gm,
-    /^\s*export\s+[^'";\n]*?\s+from\s+['"]([^'"]+)['"]/gm,
+    /^\s*import\s+(?:[^'";]*?\s+from\s+)?['"]([^'"]+)['"]/gm,
+    /^\s*export\s+[^'";]*?\s+from\s+['"]([^'"]+)['"]/gm,
     /\bimport\s*\(\s*['"]([^'"]+)['"]\s*\)/g,
     /\brequire\s*\(\s*['"]([^'"]+)['"]\s*\)/g,
   ]) {
