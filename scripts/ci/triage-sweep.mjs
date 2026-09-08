@@ -67,7 +67,7 @@
  *       GITHUB_PAT (routing), GH_REPO/GITHUB_REPOSITORY.
  */
 import { execFileSync } from 'node:child_process';
-import { classifyIssue } from '../lib/classify-issue.mjs';
+import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
@@ -140,6 +140,11 @@ const has = (iss, n) => names(iss).includes(n);
 // viene mai rimossa — la issue resta bloccata sul contatore precedente,
 // ritentata a ogni giro senza mai raggiungere `fu-parked`.
 export const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu-attempt:1', 'fu-attempt:2', 'fu-attempt:3'];
+
+/** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
+export function isTriagedButNotRouted(iss) {
+  return !isFixerExempt(names(iss)) && !ROUTING_LABELS.some((r) => has(iss, r));
+}
 
 function main() {
   if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }
@@ -271,7 +276,7 @@ function main() {
       '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,labels']);
   } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
-  const unrouted = allTriaged.filter((i) => !ROUTING_LABELS.some((r) => has(i, r)));
+  const unrouted = allTriaged.filter(isTriagedButNotRouted);
   if (!unrouted.length) {
     console.log('Nessuna issue triaged-but-not-routed. ✅');
   } else {
