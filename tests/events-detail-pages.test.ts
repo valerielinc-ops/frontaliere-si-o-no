@@ -19,6 +19,7 @@ import {
   renderOtherEventsPage,
   DIGESTS,
   assignEventSlugs,
+  eventSlugRedirectKey,
   reserveLiveSiblingSlugs,
   categoryLabel,
   normalizeCategoryKey,
@@ -971,6 +972,15 @@ describe('events schema data quality (#3508)', () => {
 });
 
 describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => {
+  it('deduplicates bridge writes by locale and source path, not redirect target', () => {
+    const fromPath = '/eventi/ticino/lugano/old-slug/';
+    const keys = ['/eventi/ticino/lugano/live-slug/', '/eventi/ticino/lugano/past-slug/']
+      .map(() => eventSlugRedirectKey('it', fromPath));
+
+    expect(new Set(keys)).toHaveLength(1);
+    expect(eventSlugRedirectKey('en', fromPath)).not.toBe(keys[0]);
+  });
+
   it('assigns the bare slugifyEvent() base when there is no collision', () => {
     const list = [{ ...EVENT, id: 'a', title: 'Sagra', startDate: '2026-08-01' }];
     const slugs = assignEventSlugs(list as never);

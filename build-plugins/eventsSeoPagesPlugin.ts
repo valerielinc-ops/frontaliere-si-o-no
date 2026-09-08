@@ -3681,6 +3681,10 @@ interface EventSlugRedirect {
   to: string;
 }
 
+export function eventSlugRedirectKey(locale: Locale, fromPath: string): string {
+  return `${locale}|${fromPath}`;
+}
+
 function eventSlugRedirectHtml(locale: Locale, toPath: string, distDir: string): string {
   const targetUrl = `${BASE_URL}${toPath}`;
   const bodyHtml = `<section class="ev-wrap3"><h1 class="ev-h1">Pagina spostata</h1><p class="ev-lede">Questa pagina evento ha un indirizzo aggiornato.</p><p><a class="ev-btn" href="${esc(toPath)}">Apri la pagina aggiornata →</a></p></section>`;
@@ -4086,7 +4090,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           if (!shouldEmitLocale(locale)) continue;
           const fromPath = pathForEventDetail(locale, redirect.comune, redirect.from, redirect.canton);
           const toPath = pathForEventDetail(locale, redirect.comune, redirect.to, redirect.canton);
-          const key = `${locale}|${fromPath}|${toPath}`;
+          const key = eventSlugRedirectKey(locale, fromPath);
           if (
             fromPath === toPath ||
             emittedRedirects.has(key) ||

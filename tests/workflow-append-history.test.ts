@@ -35,6 +35,15 @@ describe('generated-state rebase recovery (#7448)', () => {
     ]);
   });
 
+  it('keeps the latest record when concurrent writers update one family', () => {
+    expect(mergeUniqueArrays(
+      [{ id: 'cerca-lavoro-berna', pathContains: 'berna', targetCtr: 0.12 }],
+      [{ id: 'cerca-lavoro-berna', pathContains: 'berna', targetCtr: 0.18, monitored: true }],
+    )).toEqual([
+      { id: 'cerca-lavoro-berna', pathContains: 'berna', targetCtr: 0.18, monitored: true },
+    ]);
+  });
+
   it('retries a transient checkout lock and fails closed for other errors', () => {
     const helper = readFileSync(join(ROOT, 'scripts', 'lib', 'restore-generated-files.sh'), 'utf8');
     expect(helper).toContain('for attempt in 1 2 3 4');

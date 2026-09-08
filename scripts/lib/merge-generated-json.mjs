@@ -15,13 +15,21 @@ function canonical(value) {
 }
 
 export function mergeUniqueArrays(current, incoming) {
-  const seen = new Set();
-  return [...current, ...incoming].filter((value) => {
-    const key = canonical(value);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
+  const merged = [];
+  const positions = new Map();
+  for (const value of [...current, ...incoming]) {
+    const key = value && typeof value === 'object' && !Array.isArray(value) && value.id != null
+      ? `id:${String(value.id)}`
+      : `canonical:${canonical(value)}`;
+    const position = positions.get(key);
+    if (position === undefined) {
+      positions.set(key, merged.length);
+      merged.push(value);
+    } else {
+      merged[position] = value;
+    }
+  }
+  return merged;
 }
 
 export function mergeAppendOnlyDocument(current, incoming, arrayField) {
