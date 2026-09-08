@@ -118,13 +118,24 @@ describe('crawler generation contracts', () => {
   });
 
   it('allows token-null persistence evidence but never central readiness', () => {
-    expect(validManifest('01', '1001', null).valid).toBe(true);
+    expect(validManifest('01', '1001', null).valid).toBe(false);
+    expect(validateGroupTerminalManifest(validManifest('01', '1001', null)).valid).toBe(false);
     const fixture = readyFixture();
     fixture.runRegistry.generationToken = null;
     fixture.manifests['01'] = validManifest('01', '10000', null);
     const report = evaluate(fixture);
     expect(report.barrier.status).toBe('blocked_dispatch_missing');
     expect(report.groups['01'].reasons).toContain('missing_or_invalid_generation_token');
+  });
+  it('rejects every per-run fallback token instead of accepting an unbound group manifest', () => {
+    const fixture = readyFixture();
+    for (const group of GROUP_IDS) {
+      const runId = fixture.runRegistry.groups[group].runId;
+      fixture.manifests[group] = validManifest(group, runId, `${runId}-1`);
+    }
+    const report = evaluate(fixture);
+    expect(report.barrier.status).toBe('blocked_manifest_invalid');
+    for (const group of GROUP_IDS) expect(report.groups[group].reasons).toContain('manifest_binding_mismatch');
   });
 
   it.each([
