@@ -2048,6 +2048,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economia-svizzera-q2-2026': { it: 'economia-svizzera-q2-2026', en: 'swiss-economy-q2-2026', de: 'schweizer-wirtschaft-q2-2026', fr: 'economie-suisse-q2-2026' },
  'ticino-scuola-pisa-2025-calo': { it: 'ticino-scuola-pisa-2025-calo', en: 'ticino-school-pisa-2025-decline', de: 'tessin-schule-pisa-2025-rueckgang', fr: 'tessin-ecole-pisa-2025-baisse' },
  'carenza-benzina-gasolio-scorte': { it: 'carenza-benzina-gasolio-scorte', en: 'fuel-shortage-strategic-reserves', de: 'benzin-mangel-strategische-reserven', fr: 'manque-carburant-reserves-obligatoires' },
+ 'volkswagen-tagli-amag-rassicura': { it: 'volkswagen-tagli-amag-rassicura', en: 'volkswagen-cuts-amag-reassures', de: 'volkswagen-kuerzzungen-amag-beruhigt', fr: 'volkswagen-reductions-amag-rassure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
