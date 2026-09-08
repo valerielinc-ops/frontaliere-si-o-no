@@ -396,6 +396,40 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('treats non-toponym source labels as inconclusive without dropping foreign places', () => {
+    const jsonLd = (location: string, addressCountry = '') => `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Role',
+      jobLocation: { address: { addressLocality: location, addressCountry } },
+    })}</script>`;
+
+    for (const location of [
+      'Any available EOR location',
+      'LPN BO',
+      'TOI L 112',
+      'Zür-Pfi51',
+      'Kantonsspital Uri, Uri',
+      'hôpital fribourgeois / freiburger spital',
+      'Südostschweiz',
+    ]) {
+      expect(extractSourceLocationObservation(jsonLd(location)), location).toEqual({
+        location: '',
+        evidence: 'generic',
+      });
+    }
+
+    for (const [location, country] of [
+      ['Cary', 'US'],
+      ['King of Prussia', 'US'],
+      ['Germany, Berlin', 'DE'],
+    ]) {
+      expect(extractSourceLocationObservation(jsonLd(location, country)), location).toEqual({
+        location,
+        evidence: 'jsonld',
+      });
+    }
+  });
+
   it('prefers the published workplace when the source page itself names it', () => {
     const result = compareSourceDetail(
       {
@@ -1407,6 +1441,7 @@ describe('source-detail observation counters (#7714)', () => {
   it('reports the share over the authoritative checks, not over the fetched pages', () => {
     const lines = formatSourceDetailObservationLines({
       requested: 40, fetched: 30,
+      processed: 2,
       authoritativeLocationChecks: 8,
       locationMatches: 7,
       locationMismatches: 1,
@@ -1421,8 +1456,31 @@ describe('source-detail observation counters (#7714)', () => {
       '  corroborated by other page evidence: 2/8 (25.0 % of authoritative checks)',
       '  inconclusive: 5 (3 tenant-constant)',
       'Source detail description mismatches: 4',
-      'Source detail processing failures: 2/40',
+      'Source detail processing failures: 2/2',
     ]);
+  });
+
+  it('does not count an inconsistent corroboration as a corroborated pass', () => {
+    const report = { fixture: { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [{
+      crawlerKey: 'fixture',
+      url: 'https://example.test/fixture',
+      sourceLocation: 'Bern',
+      publishedLocation: 'Lugano',
+      locationChecked: true,
+      locationMismatch: true,
+      locationAuthority: 'source-corroborated',
+      locationEvidence: 'jsonld',
+      sourceDescriptionLength: 400,
+      publishedDescriptionLength: 400,
+      descriptionMismatch: false,
+    }], 1);
+
+    expect(summary).toMatchObject({
+      authoritativeLocationChecks: 1,
+      locationMismatches: 1,
+      sourceCorroboratedLocationObservations: 0,
+    });
   });
 
   it('says nothing when no location observation was made', () => {

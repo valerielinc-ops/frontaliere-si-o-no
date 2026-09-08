@@ -26,6 +26,11 @@ import {
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
 } from './lib/target-swiss-locations.mjs';
+import {
+  FOREIGN_COUNTRY_NAME_LABELS,
+  ISO_ALPHA2_COUNTRY_CODES,
+  SWISS_COUNTRY_LABELS,
+} from './lib/prospector/country-inventory.mjs';
 import { isRobotsDeniedError, mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { isPublicFetchPolicyError } from './lib/prospector/public-fetch-policy.mjs';
 import { transportErrorKind } from './lib/transient-fetch.mjs';
@@ -301,7 +306,7 @@ const LOCATION_NOISE_TOKENS = new Set([
   'ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'ju', 'lu',
   'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs',
   'zg', 'zh', 'gva', 'gt', 'country', 'region', 'canton', 'sede',
-  'headquarter', 'headquarters', 'office', 'plant', 'site',
+  'headquarter', 'headquarters', 'office', 'plant', 'site', 'standort',
 ]);
 const SWISS_REGION_NAMES = new Set([
   'aargau', 'appenzell', 'basel', 'bern', 'fribourg', 'geneve', 'glarus',
@@ -315,6 +320,19 @@ const SOURCE_LOCATION_PLACEHOLDERS = new Set([
   'rechercher par lieu pays', 'nach ort bezirk suchen', 'country region',
   'where', 'lieu de travail', 'arbeitsort', 'dein kontakt',
   'labellocation locale',
+]);
+const SOURCE_LOCATION_NON_TOPONYM_TOKENS = new Set([
+  'any', 'available', 'eor', 'campus', 'location', 'locations', 'region',
+  'regions', 'headquarter', 'headquarters', 'office', 'plant', 'site',
+  'lpn', 'toi', 'pfi', 'wor', 'ati', 'hfr', 'hopital', 'hospital',
+  'hospitals', 'spital', 'kantonsspital', 'fribourgeois', 'freiburger',
+  'clinic', 'klinik', 'clinique', 'centre', 'center', 'zentrum',
+  'university', 'universitat', 'universitaet',
+]);
+const SOURCE_LOCATION_REGION_LABELS = new Set([
+  'sudostschweiz', 'southeast switzerland', 'suisse orientale',
+  'svizzera orientale', 'ostschweiz', 'westschweiz', 'zentralschweiz',
+  'nordwestschweiz',
 ]);
 
 /**
@@ -351,10 +369,44 @@ function hasCoherentCantonSuffix(value, locality) {
   return SWISS_REGION_NAMES.has(value.slice(locality.length).join(' '));
 }
 
-function isUsableSourceLocation(value) {
+function isExplicitForeignCountry(value) {
+  const normalized = normalizePlace(value);
+  if (!normalized) return false;
+  if (SWISS_COUNTRY_LABELS.has(normalized)) return false;
+  if (ISO_ALPHA2_COUNTRY_CODES.has(normalized.toUpperCase())) return normalized !== 'ch';
+  return FOREIGN_COUNTRY_NAME_LABELS.has(normalized);
+}
+
+function hasExplicitForeignCountry(value, addressCountry = '') {
+  if (isExplicitForeignCountry(addressCountry)) return true;
+  return String(value || '').split(/[,;/|()]+/)
+    .map((segment) => segment.trim())
+    .some((segment) => isExplicitForeignCountry(segment));
+}
+
+/**
+ * Reject labels that are not a workplace while retaining real foreign places.
+ * The audit must not require every valid place to be in the Swiss gazetteer:
+ * `Cary`, `King of Prussia` and `Germany, Berlin` are valid contradictions.
+ * Instead, clear ATS codes, generic region/organisation labels and values with
+ * no geographic evidence become inconclusive; a known Swiss commune or an
+ * explicitly foreign country keeps the observation authoritative.
+ */
+function isUsableSourceLocation(value, context = {}) {
   const normalized = normalizePlace(value);
   if (!normalized || SOURCE_LOCATION_PLACEHOLDERS.has(normalized)) return false;
-  return canonicalLocationTokens(value).some((token) => token.length >= 3);
+  const tokens = canonicalLocationTokens(value);
+  if (!tokens.some((token) => token.length >= 3)) return false;
+  const swissPlace = Boolean(swissMunicipalityKey(value));
+  const foreignPlace = hasExplicitForeignCountry(value, context.addressCountry);
+  if (SOURCE_LOCATION_REGION_LABELS.has(normalized)) return false;
+  if (tokens.some((token) => SOURCE_LOCATION_NON_TOPONYM_TOKENS.has(token))
+    && !swissPlace && !foreignPlace) return false;
+  // A postal code is geographic evidence. Other digits in an ATS site code
+  // (`TOI L 112`, `Cri-Mon25`, `Zür-Pfi51`) are not.
+  if (/\d/.test(normalized) && !/\b\d{4,5}\b/.test(normalized)) return false;
+  if (tokens.every((token) => token.length <= 3) && !swissPlace && !foreignPlace) return false;
+  return true;
 }
 
 /**
@@ -497,7 +549,14 @@ function elementValue(html, openTagEnd, tagName, attrs) {
  * promoted merely because a different job-scoped location exists later.
  */
 export function extractSourceLocationObservation(html = '', pageUrl = '') {
-  const structured = extractJsonLd(html, pageUrl).find((item) => isUsableSourceLocation(item.location));
+  const structured = extractJsonLd(html, pageUrl)
+    .map((item) => {
+      const candidates = Array.isArray(item.locationCandidates) && item.locationCandidates.length > 0
+        ? item.locationCandidates
+        : [{ location: item.location, addressCountry: item.addressCountry }];
+      return candidates.find((candidate) => isUsableSourceLocation(candidate.location, candidate));
+    })
+    .find(Boolean);
   if (structured) return { location: structured.location, evidence: 'jsonld' };
 
   const stack = [];
@@ -998,6 +1057,7 @@ export function classifySourceLevelFailures(byKey) {
 export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
   const sourceDetailSummary = {
     requested,
+    processed: sourceResults.length,
     fetched: 0,
     fetchFailed: 0,
     fetchFailureCauses: {},
@@ -1068,7 +1128,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       // Kept visible: a pass earned because the page names the published place
       // elsewhere is a different fact from a pass earned by the two location
       // fields agreeing, and only the count makes the first one auditable.
-      if (result.locationAuthority === 'source-corroborated') {
+      if (result.locationAuthority === 'source-corroborated' && !result.locationMismatch) {
         sourceDetailSummary.sourceCorroboratedLocationObservations++;
       }
     } else if (result.locationInconclusive) {
@@ -1153,6 +1213,10 @@ export function formatSourceDetailObservationLines(summary = {}) {
   const inconclusive = count(summary.inconclusiveLocationObservations);
   const descriptionMismatches = count(summary.descriptionMismatches);
   const processingFailed = count(summary.processingFailed);
+  // New summaries carry the exact result count. Keep old hand-built/serialized
+  // summaries readable while ensuring every live applySourceDetailResults call
+  // reports over the result set, not over a truncated requested count.
+  const processed = count(Number.isFinite(summary.processed) ? summary.processed : summary.requested);
   const lines = [];
   if (authoritative > 0 || inconclusive > 0) {
     const matches = count(summary.locationMatches);
@@ -1170,7 +1234,7 @@ export function formatSourceDetailObservationLines(summary = {}) {
     lines.push(`Source detail description mismatches: ${descriptionMismatches}`);
   }
   if (processingFailed > 0) {
-    lines.push(`Source detail processing failures: ${processingFailed}/${count(summary.requested)}`);
+    lines.push(`Source detail processing failures: ${processingFailed}/${processed}`);
   }
   return lines;
 }
