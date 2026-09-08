@@ -168,6 +168,17 @@ export interface PeerComparisonLabels {
   peerNoun: string;
 }
 
+const GERMAN_DATIVE_PLURAL_PEER_NOUNS = new Set(['Berufen', 'Kantonen']);
+
+function assertPeerNounContract(locale: PeerLocale, peerNoun: string): void {
+  if (locale !== 'de' || GERMAN_DATIVE_PLURAL_PEER_NOUNS.has(peerNoun)) return;
+  throw new Error(
+    `peerNoun in de must be a German dative plural (dativo plurale): ${[
+      ...GERMAN_DATIVE_PLURAL_PEER_NOUNS,
+    ].join(', ')}`,
+  );
+}
+
 /**
  * The page-specific sentences.
  *
@@ -192,6 +203,7 @@ export function buildPeerProse(params: {
   windowSize?: number;
 }): string[] {
   const { locale, ranked, currentKey, labels, formatValue, windowSize = 2 } = params;
+  assertPeerNounContract(locale, labels.peerNoun);
   const index = ranked.findIndex((row) => row.key === currentKey);
   if (index < 0 || ranked.length < 3) return [];
 
