@@ -205,7 +205,7 @@ function generate() {
       const text = field === 'title' ? sourceTitle : sourceDesc;
       if (!text) continue;
       const id = `r${nextId++}`;
-      const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale });
+      const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
       targets.set(id, { file, job, locale, field, protectedTokens, sourceText: text });
     }

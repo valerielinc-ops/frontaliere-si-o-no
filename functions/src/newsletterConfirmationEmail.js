@@ -22,6 +22,7 @@ import {
   resolveNewsletterTokenPolicy,
   TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
+import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import {
   CONFIRMATION_FRAMES,
   CONFIRMATION_FROM_EMAIL,
@@ -111,6 +112,10 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  }
 
  const data = subscriberDoc.data();
+
+ if (isAccountDeletedTombstone(data)) {
+ return { success: false, error: 'account_deleted' };
+ }
 
  // NARROW hard-block guard: only a provably dead mailbox (hard bounce) or a
  // filed spam complaint. A double-opt-in confirmation is transactional — the

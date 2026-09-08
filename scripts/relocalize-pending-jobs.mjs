@@ -1801,20 +1801,20 @@ async function runRelocalization(phase) {
         incrementRetryCounterOnCrawlerFile(key, syncResult.handledSlugs, attemptedSlugs);
       }
 
+      // `cleared` e' il delta di totalFixed: le traduzioni che hanno superato
+      // il gate. `attempted` e' quante il crawler ne ha toccate. Il rapporto
+      // fra i due e' la meta' che conta dell'esperimento — un braccio piu'
+      // veloce che produce piu' scarti non e' piu' veloce.
+      const row = {
+        arm: thinkingArm ?? null,
+        companyKey: key,
+        jobCount: companyJobCount,
+        elapsedMs: companyElapsedMs,
+        attempted: attemptedSlugs.size,
+        cleared: totalFixed - fixedBeforeCompany,
+      };
+      thinkingRows.push(row);
       if (thinkingArm) {
-        // `cleared` e' il delta di totalFixed: le traduzioni che hanno superato
-        // il gate. `attempted` e' quante il crawler ne ha toccate. Il rapporto
-        // fra i due e' la meta' che conta dell'esperimento — un braccio piu'
-        // veloce che produce piu' scarti non e' piu' veloce.
-        const row = {
-          arm: thinkingArm,
-          companyKey: key,
-          jobCount: companyJobCount,
-          elapsedMs: companyElapsedMs,
-          attempted: attemptedSlugs.size,
-          cleared: totalFixed - fixedBeforeCompany,
-        };
-        thinkingRows.push(row);
         console.log(`   🧪 ${key}: braccio ${row.arm}, ${Math.round(row.elapsedMs / 1000)}s per ${row.jobCount} job, ${row.cleared}/${row.attempted} accettate`);
       }
 
@@ -2030,8 +2030,9 @@ async function runRelocalization(phase) {
   phase.companiesQueued = companyKeys.length;
   phase.stopReason = cascadeStop;
 
-  if (thinkingAb && thinkingRows.length > 0) {
+  if (thinkingAb) {
     const summary = summarizeThinkingAb(thinkingRows);
+    const companiesProcessed = new Set(thinkingRows.map((row) => row.companyKey)).size;
     console.log(`\n🧪 A/B thinking — ${summary.rows} aziende, sale ${thinkingSalt}`);
     for (const [arm, a] of Object.entries(summary.arms)) {
       const ms = a.msPerJob === null ? 'n/d' : `${Math.round(a.msPerJob / 1000)}s/job`;
@@ -2042,9 +2043,20 @@ async function runRelocalization(phase) {
     // committarlo, sarebbe un file di dati riscritto a ogni run.
     const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
     const outPath = path.join(outDir, 'translation-thinking-ab.json');
+    const cascadeOutPath = path.join(outDir, 'translation-cascade-companies.json');
     try {
-      writeJsonAtomic(outPath, { salt: thinkingSalt, generatedAt: new Date().toISOString(), summary, rows: thinkingRows });
-      console.log(`   📄 righe scritte in ${outPath}`);
+      const artifact = {
+        salt: thinkingSalt,
+        generatedAt: new Date().toISOString(),
+        cascadeStop,
+        companiesQueued: companyKeys.length,
+        companiesProcessed,
+        summary,
+        rows: thinkingRows,
+      };
+      writeJsonAtomic(outPath, artifact);
+      writeJsonAtomic(cascadeOutPath, artifact);
+      console.log(`   📄 righe scritte in ${outPath} e ${cascadeOutPath}`);
     } catch (err) {
       console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
     }

@@ -81,7 +81,7 @@ import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
 import { syncAuthAccountForSubscriber } from './src/newsletterSubscriberAuthSync.js';
-import { cleanupSavedJobsForDeletedUser } from './src/authAccountCleanup.js';
+import { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } from './src/authAccountCleanup.js';
 import { handleNewsletterSubscriberCreated } from './src/jobAlertBackfillTrigger.js';
 import { signalTierChanged, getSignalTier } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
@@ -1749,17 +1749,32 @@ export const forwardPublisherApplication = onDocumentCreated(
 
 // Closes the 522-orphan gap (lead-capture gates write Firestore directly, no
 // Auth account): silently create a shadow Auth user, single site-wide
-// mechanism instead of patching all ~16 capture call sites.
-export const syncNewsletterSubscriberAuth = onDocumentCreated(
+// mechanism instead of patching all ~16 capture call sites. It is a write
+// trigger rather than a create-only trigger because a re-registration updates
+// the existing account-deletion tombstone instead of creating a new document;
+// only the write that clears that tombstone is eligible for the new Auth user.
+export const syncNewsletterSubscriberAuth = onDocumentWritten(
  { region: 'europe-west6', memory: '256MiB', document: 'newsletter_subscribers/{email}' },
  async (event) => {
  const emailId = event.params.email;
  if (emailId === '_meta_') return;
+ const before = event.data?.before;
+ const after = event.data?.after;
+ if (!after?.exists) return;
+ const isNewDocument = !before?.exists;
+ const wasAccountDeleted = before?.exists && isAccountDeletedTombstone(before.data());
+ const clearedAccountDeletion = wasAccountDeleted && !isAccountDeletedTombstone(after.data());
+ if (isNewDocument && isAccountDeletedTombstone(after.data())) return;
+ if (!isNewDocument && !clearedAccountDeletion) return;
  try {
  const result = await syncAuthAccountForSubscriber(emailId);
  if (result.created) console.log(`[syncNewsletterSubscriberAuth] created Auth user for ${emailId}`);
+ if (result.reason === 'tombstone_check_failed') {
+ throw new Error(result.error || 'subscriber state unavailable');
+ }
  } catch (error) {
  console.error('[syncNewsletterSubscriberAuth]', error instanceof Error ? error.message : String(error));
+ throw error;
  }
  },
 );
@@ -1769,13 +1784,16 @@ export const syncNewsletterSubscriberAuth = onDocumentCreated(
 // confirmed. functions.auth.user().onDelete() is a plain non-blocking gen1
 // trigger that works on any stock Firebase Auth project — fires AFTER
 // deleteCurrentUser() (services/authService.ts) removes the Auth user, and
-// cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs.
+// cascade-deletes the now-permanently-unreachable users/{uid} + savedJobs,
+// plus tombstones email-keyed newsletter / job-alert subscriber docs (client
+// rules deny delete on newsletter_subscribers, so the profile wipe cannot).
 export const cleanupUserDataOnAccountDelete = functionsV1.auth.user().onDelete(async (user) => {
  try {
- const { deletedSavedJobs } = await cleanupSavedJobsForDeletedUser(user.uid);
- console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${deletedSavedJobs}`);
+ const result = await cleanupUserDataForDeletedAccount({ uid: user.uid, email: user.email });
+ console.log(`[cleanupUserDataOnAccountDelete] uid=${user.uid} deletedSavedJobs=${result.deletedSavedJobs} tombstonedNewsletter=${result.tombstonedNewsletter} tombstonedJobAlert=${result.tombstonedJobAlert}`);
  } catch (error) {
  console.error('[cleanupUserDataOnAccountDelete]', error instanceof Error ? error.message : String(error));
+ throw error;
  }
 });
 
@@ -1803,7 +1821,13 @@ export const backfillJobAlertOnNewsletterSignup = onDocumentWritten(
  if (!after?.exists) return; // ignore deletes
  const afterData = after.data();
  const beforeData = event.data?.before?.exists ? event.data.before.data() : null;
- if (!signalTierChanged(beforeData, afterData)) return;
+ const clearedAccountDeletion = beforeData
+  && isAccountDeletedTombstone(beforeData)
+  && !isAccountDeletedTombstone(afterData);
+ // A fresh registration can reuse the old signal fields, so the tier itself
+ // may not change. The cleared lifecycle marker is the second legitimate
+ // eligibility edge; ordinary profile/engagement writes still remain no-ops.
+ if (!signalTierChanged(beforeData, afterData) && !clearedAccountDeletion) return;
  try {
  const result = await handleNewsletterSubscriberCreated(emailId, afterData);
  if (result.created) {

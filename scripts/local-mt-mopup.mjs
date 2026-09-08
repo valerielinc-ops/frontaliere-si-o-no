@@ -219,11 +219,34 @@ export function missingSlots(job) {
  * to protect, so the JSONL payload handed to Python is unchanged for the
  * overwhelming majority of requests.
  *
+ * Keep this deliberately conservative: only explicit German gender forms are
+ * collapsed, never an arbitrary slash-separated pair of professions.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+function masculineGermanTitle(text) {
+  return String(text ?? '')
+    .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)\*r\b/giu, '$1r');
+}
+
+function normalizeArgosText(text, from, field) {
+  return field === 'title' && String(from).toLowerCase().startsWith('de')
+    ? masculineGermanTitle(text)
+    : text;
+}
+
+/**
  * @returns {{ request: {id: string, text: string, from: string, to: string},
  *             protectedTokens: Array }}
  */
-export function buildMopupRequest({ id, text, from, to }) {
-  const { text: masked, tokens: protectedTokens } = maskProtectedTokens(text);
+export function buildMopupRequest({ id, text, from, to, field = 'title' }) {
+  const sourceText = normalizeArgosText(text, from, field);
+  const { text: masked, tokens: protectedTokens } = maskProtectedTokens(sourceText);
   return { request: { id, text: masked, from, to }, protectedTokens };
 }
 
@@ -390,9 +413,10 @@ export function classifyMopupWrite({
 }) {
   const srcLang = job.sourceLang || 'it';
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
-  const sourceText = field === 'title'
+  const rawSourceText = field === 'title'
     ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
     : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
+  const sourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
   const base = { incoming: '', sourceText, existing };
 
@@ -600,7 +624,7 @@ async function main() {
       // Mask gender trigraphs so Argos never sees the raw code (see
       // buildMopupRequest). The sentinels are carried on the target entry and
       // restored — in the target locale's display form — by the write loop.
-      const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale });
+      const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
       targets.set(id, { file, jobIdx, locale, field, protectedTokens });
       queued++;

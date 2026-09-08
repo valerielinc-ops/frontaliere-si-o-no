@@ -339,7 +339,6 @@ ExitWorktree(action: remove, discard_changes: true)
 
 1. `gh run watch <deploy-id>` — attendi conclusion success.
 2. Live curl + grep su 6+ pagine (vedi sopra).
-3. `npx gitnexus analyze` per ri-indicizzare (hook PostToolUse dovrebbe gestire — verifica).
 
 ## Risks
 
@@ -355,7 +354,6 @@ ExitWorktree(action: remove, discard_changes: true)
 | Title length regression | Zero | `<title>` non toccato. |
 | BFS depth regression | Zero | Nessun nuovo link, link interni preservati. |
 | Worktree merge conflict con altri agent paralleli | Medium | Worktree isolato dall'inizio; check `git status` plugin landing pre-start; se conflict, `rebase.autoStash true` (non `git stash -u` blanket). |
-| GitNexus stale dopo rimozione `renderFeaturedJobCard` × 4 | Low | Pre-merge `gitnexus_impact` per ognuno; post-merge `npx gitnexus analyze` (hook). |
 | Logo broken-image per aziende sconosciute | Mitigated | Catena fallback `jobCardHtml.ts` replicata in `employerCardHtml.ts` via `companyLogoResolver.ts` condiviso. |
 
 ## Success criteria

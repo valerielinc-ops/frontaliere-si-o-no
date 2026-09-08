@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lhm-luzerner-hohenklinik-montana",
-  "assembledAt": "2026-09-06T22:57:24.712Z",
+  "assembledAt": "2026-09-07T23:35:59.996Z",
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-93cfc81b59b2",
@@ -33,7 +33,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/koch--koechin-efz",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:11.852Z",
+      "crawledAt": "2026-09-07T23:35:45.933Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -50,6 +50,20 @@
       "applyUrl": "https://www.lhm.ch/de/allgemein/jobs/koch--koechin-efz",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "en": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ],
+        "fr": [
+          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
+        ]
+      },
       "firstSeenAt": "2026-09-02T13:44:53.636Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -63,21 +77,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
-        ],
-        "en": [
-          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
-        ],
-        "fr": [
-          "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
-        ]
-      },
-      "previousSlugs": [
-        "koch-kochin-efz-100-lhm-luzerner-hohenklinik-montana-crans-montana"
-      ]
+      }
     },
     {
       "id": "lhm-luzerner-hohenklinik-montana-e5dc0f811a97",
@@ -110,7 +110,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:11.444Z",
+      "crawledAt": "2026-09-07T23:35:45.500Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/leitender-arzt--leitende-aerztin-psychosomatik",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:11.038Z",
+      "crawledAt": "2026-09-07T23:35:45.072Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:10.619Z",
+      "crawledAt": "2026-09-07T23:35:44.645Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:10.209Z",
+      "crawledAt": "2026-09-07T23:35:44.223Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:09.802Z",
+      "crawledAt": "2026-09-07T23:35:43.794Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -546,7 +546,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:57:09.393Z",
+      "crawledAt": "2026-09-07T23:35:43.351Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",

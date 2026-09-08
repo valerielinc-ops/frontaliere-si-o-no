@@ -7,7 +7,6 @@ import { CRON_MANAGED_GLOBS, isCronManagedPath } from '../scripts/lib/cron-manag
 import {
   classifyDirtyPaths,
   parsePorcelainPaths,
-  stripGitnexusBlocks,
 } from '../scripts/lib/worktree-dirty.mjs';
 import {
   headQueryCommand,
@@ -20,8 +19,8 @@ import {
 //   • la finestra `gh pr list --limit 400` copre nove giorni su questo repo, e
 //     lo squash-merge rende `ahead > 0` permanente → il branch di una PR
 //     mergiata più vecchia della finestra restava report-only per sempre;
-//   • lo sporco del worktree era output di cron o il blocco gitnexus, non
-//     lavoro, ma bastava a bloccare la rimozione.
+//   • lo sporco del worktree era output di cron, non lavoro, ma bastava a
+//     bloccare la rimozione.
 
 describe('percorsi gestiti dai cron', () => {
   it('riconosce i file scritti dai workflow, non dalle persone', () => {
@@ -74,32 +73,23 @@ describe('classificazione dello sporco', () => {
   it('separa il lavoro dal rumore di macchina', () => {
     const { significant, ignored } = classifyDirtyPaths([
       'data/gsc-orphan-queries-clusters.json',
+      'data/jobs/by-crawler/coop.json',
       'scripts/lib/accor-job-parser.mjs',
       'AGENTS.md',
-    ], { isGitnexusOnly: (p) => p === 'AGENTS.md' });
+    ]);
 
-    expect(significant).toEqual(['scripts/lib/accor-job-parser.mjs']);
-    expect(ignored).toEqual(['data/gsc-orphan-queries-clusters.json', 'AGENTS.md']);
+    // Un .md tracciato e' lavoro: nessuna euristica sul nome lo declassa.
+    expect(significant).toEqual(['scripts/lib/accor-job-parser.mjs', 'AGENTS.md']);
+    expect(ignored).toEqual([
+      'data/gsc-orphan-queries-clusters.json',
+      'data/jobs/by-crawler/coop.json',
+    ]);
   });
 
   it('non scarta niente in silenzio: ogni path esce da una delle due liste', () => {
     const paths = ['data/fuel-prices.json', 'services/x.ts', 'README.md'];
     const { significant, ignored } = classifyDirtyPaths(paths);
     expect([...significant, ...ignored].sort()).toEqual([...paths].sort());
-  });
-});
-
-describe('blocco gitnexus', () => {
-  it('lo strip lascia identico un file il cui unico scarto e il blocco', () => {
-    const head = '# Titolo\n\nCorpo.\n';
-    const conGitnexus = '# Titolo\n\n<!-- gitnexus:start -->\ngenerato\n<!-- gitnexus:end -->\n\nCorpo.\n';
-    expect(stripGitnexusBlocks(conGitnexus)).toBe(stripGitnexusBlocks(head));
-  });
-
-  it('una modifica vera sopravvive allo strip e resta significativa', () => {
-    const head = '# Titolo\n\nCorpo.\n';
-    const modificato = '# Titolo\n\n<!-- gitnexus:start -->\ngenerato\n<!-- gitnexus:end -->\n\nCorpo RISCRITTO.\n';
-    expect(stripGitnexusBlocks(modificato)).not.toBe(stripGitnexusBlocks(head));
   });
 });
 
