@@ -285,13 +285,13 @@ export async function loadNewsletterRankingStats(db, { sinceDay = null } = {}) {
   const result = new Map();
   if (!db) return result;
   try {
-    const snapshot = await db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION)
+    let query = db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION)
       .where('surface', '==', 'newsletter')
-      .get();
+      .where('surface_id', '==', 'newsletter_weekly');
+    if (sinceDay) query = query.where('date', '>=', String(sinceDay));
+    const snapshot = await query.get();
     for (const doc of snapshot.docs) {
       const row = doc.data() || {};
-      if (row.surface_id !== 'newsletter_weekly') continue;
-      if (sinceDay && String(row.date || '') < sinceDay) continue;
       const jobId = String(row.job_id || '');
       if (!jobId) continue;
       const entry = result.get(jobId) || { days: {} };

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { appendJobRankingParams } from '../functions/src/lib/jobEmailRanking.js';
 import {
+  loadNewsletterRankingStats,
   recordJobEmailImpressions,
   recordJobEmailRankingClick,
 } from '../functions/src/lib/jobEmailRankingStore.js';
@@ -96,5 +97,46 @@ describe('job email ranking Firestore store', () => {
     });
     expect(impression.user_id).toHaveLength(32);
     expect(impression).not.toHaveProperty('email');
+  });
+
+  it('bounds newsletter stats reads to the ranking surface and rolling window', async () => {
+    const whereCalls: Array<[string, string, string]> = [];
+    const query: any = {
+      where: (field: string, operator: string, value: string) => {
+        whereCalls.push([field, operator, value]);
+        return query;
+      },
+      get: async () => ({
+        docs: [{
+          data: () => ({
+            surface: 'newsletter',
+            surface_id: 'newsletter_weekly',
+            job_id: 'job-one',
+            date: '2026-09-08',
+            impressions: 10,
+            clicks: 2,
+            position_sum: 12,
+          }),
+        }],
+      }),
+    };
+    const db: any = {
+      collection: (name: string) => {
+        expect(name).toBe('job_email_ranking_stats');
+        return query;
+      },
+    };
+
+    const stats = await loadNewsletterRankingStats(db, { sinceDay: '2026-07-10' });
+    expect(whereCalls).toEqual([
+      ['surface', '==', 'newsletter'],
+      ['surface_id', '==', 'newsletter_weekly'],
+      ['date', '>=', '2026-07-10'],
+    ]);
+    expect(stats.get('job-one')?.days['2026-09-08']).toEqual({
+      impressions: 10,
+      clicks: 2,
+      position_sum: 12,
+    });
   });
 });
