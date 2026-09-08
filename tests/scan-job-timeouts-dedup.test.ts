@@ -119,7 +119,7 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
   });
 });
 
-describe('searchIssuesByTitlePrefix — listing fallback beats search-index lag', () => {
+describe('searchIssuesByTitlePrefix — search and listing are reconciled', () => {
   const EXISTING = {
     number: 5305,
     title: 'CI Failure: Lighthouse CI',
@@ -179,11 +179,16 @@ describe('searchIssuesByTitlePrefix — listing fallback beats search-index lag'
     expect(callsFor('comment')).toHaveLength(0);
   });
 
-  it('does not pay for the fallback listing when the search already hit', async () => {
+  it('elects the newest candidate when search and listing disagree', async () => {
+    const NEWEST = {
+      ...EXISTING,
+      number: 5306,
+      url: 'https://github.com/o/r/issues/5306',
+    };
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'issue' && args[1] === 'list') {
         if (args.includes('--search')) return JSON.stringify([EXISTING]);
-        throw new Error('fallback listing must not run when the search resolved');
+        return JSON.stringify([NEWEST]);
       }
       return '';
     });
@@ -196,10 +201,13 @@ describe('searchIssuesByTitlePrefix — listing fallback beats search-index lag'
       labels: ['Bug', 'ci-timeout'],
     } as any);
 
-    expect(res?.number).toBe(5305);
+    expect(res?.number).toBe(5306);
+    expect(callsFor('create')).toHaveLength(0);
+    expect(callsFor('comment')[0]?.[2]).toBe('5306');
     const listCalls = callsFor('list');
-    expect(listCalls).toHaveLength(1);
-    expect(listCalls[0]).toContain('--search');
+    expect(listCalls).toHaveLength(2);
+    expect(listCalls.some((call) => call.includes('--search'))).toBe(true);
+    expect(listCalls.some((call) => !call.includes('--search'))).toBe(true);
   });
 });
 
