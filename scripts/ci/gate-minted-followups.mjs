@@ -52,6 +52,8 @@
  * Env:
  *   BATCH_PRS       csv dei numeri di PR triagiati (output di collect-followup-batch).
  *   GH_REPO         `owner/repo` (default: inferito da gh).
+ *   GATE_PR_REPO    repo delle PR da commentare quando differisce da GH_REPO
+ *                   (default: GH_REPO).
  *   GH_TOKEN        richiesto per le scritture.
  *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
  *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
@@ -127,9 +129,15 @@ export function decideMintGate(issue, opts = {}) {
   const { head, valid, demoted, unparsed } = partitionMintedItems(issue?.body || '', opts);
   // «Non so leggerlo» non è «è vuoto»: un corpo senza struttura a item resta intatto.
   if (unparsed) return { action: 'skip', reason: 'aggregate-unparsed', valid: [], demoted: [], body: null };
-  // La soppressione NON riscrive il corpo (chiude e basta), quindi non ha bisogno della
-  // garanzia sotto: un over-split lascia comunque ogni riga `Suggested action` dentro
-  // QUALCHE frammento, che risulta valido — non può fabbricare un falso `no-valid-item`.
+  // Anche la soppressione è distruttiva: chiudere una issue non ricomponibile rende
+  // irreversibile un'interpretazione che il gate non sa verificare. La guardia precede
+  // quindi sia il close (`suppress`) sia la riscrittura (`demote`); `keep` è l'unico
+  // verdetto che non tocca nulla e non ne ha bisogno.
+  if (!valid.length || demoted.length) {
+    if (!isLosslessSplit(issue?.body || '')) {
+      return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, body: null };
+    }
+  }
   if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid, demoted, body: null };
   if (!demoted.length) return { action: 'keep', reason: 'all-items-falsifiable', valid, demoted, body: null };
   // Riscrivere il corpo è l'unica azione distruttiva del gate, e `splitFollowupItems()`
@@ -139,16 +147,40 @@ export function decideMintGate(issue, opts = {}) {
   // gate leggeva soltanto era innocuo; adesso scrive. Quindi la riscrittura parte solo se
   // ricomporre TUTTI gli item riproduce il corpo originale: se il round-trip non torna,
   // non ho capito il corpo e non lo tocco.
-  if (!isLosslessSplit(issue?.body || '')) {
-    return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, body: null };
-  }
   return { action: 'demote', reason: 'some-items-not-falsifiable', valid, demoted, body: rebuildBody(head, valid) };
+}
+
+/** Normalizza solo le intestazioni item fuori dai fenced code block. */
+function normalizeItemNumbering(body) {
+  let nextNumber = 0;
+  let fence = null;
+  let hasNestedItemHeading = false;
+  const lines = String(body || '').split('\n').map((line) => {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      } else if (/^### \d+\./.test(line)) {
+        hasNestedItemHeading = true;
+      }
+      return line;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      return line;
+    }
+    if (!/^### \d+\./.test(line)) return line;
+    nextNumber += 1;
+    return line.replace(/^### \d+\./, `### ${nextNumber}.`);
+  });
+  return { body: lines.join('\n'), hasNestedItemHeading };
 }
 
 /**
  * Il corpo si ricompone identico dai suoi item? Confronto con gli spazi normalizzati (la
- * ricomposizione uniforma le righe vuote fra un item e l'altro): la rinumerazione e ogni
- * frammento spurio restano visibili, perché sono cifre e testo, non spaziatura. Puro.
+ * ricomposizione uniforma le righe vuote fra un item e l'altro) e con numerazione uniforme
+ * su entrambi i lati. Un'intestazione item dentro un fenced code block resta unsafe: è il
+ * frammento spurio che la guardia deve continuare a intercettare.
  *
  * @param {string} body @returns {boolean}
  */
@@ -156,8 +188,11 @@ export function isLosslessSplit(body) {
   const src = String(body || '');
   const items = splitFollowupItems(src);
   if (!items.length) return false;
+  const normalizedSrc = normalizeItemNumbering(src);
+  if (normalizedSrc.hasNestedItemHeading) return false;
   const flat = (s) => s.replace(/\s+/g, ' ').trim();
-  return flat(rebuildBody(src.split(/^### \d+\./m)[0], items)) === flat(src);
+  const rebuilt = rebuildBody(src.split(/^### \d+\./m)[0], items);
+  return flat(normalizeItemNumbering(rebuilt).body) === flat(normalizedSrc.body);
 }
 
 /** Ricompone il corpo con i soli item validi, rinumerati (formato uniforme per il fixer). */
@@ -247,6 +282,7 @@ function writeBodyFile(text) {
 
 function main() {
   const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
+  const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;
   const prs = String(process.env.BATCH_PRS || '')
     .split(',')
     .map((s) => s.trim())
@@ -288,8 +324,13 @@ function main() {
       for (const iss of issues) {
         const d = decideMintGate(iss, { machineOptions: { cache: machineCache } });
         console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
-        tally.push({ pr, issue: iss.number, action: d.action, demoted: d.demoted.length, kept: d.valid.length });
-        if (d.action === 'skip' || d.action === 'keep') continue;
+        tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length });
+        if (d.action === 'skip' || d.action === 'keep') {
+          if (d.action === 'skip') {
+            report.push(`- ⏭️ #${iss.number} skip (${d.reason}) — PR #${pr}`);
+          }
+          continue;
+        }
         const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
         // Il TESTO INTEGRALE, non il titolo. Nel ramo `demote` il corpo della issue viene
         // riscritto senza gli item demoti: se qui sopravvivesse solo la prima riga,
@@ -305,7 +346,7 @@ function main() {
         // issue. Il verso opposto — riscrivi il corpo, poi prova a commentare — perde gli
         // item per sempre se la seconda chiamata fallisce, ed e' proprio la finestra in
         // cui `gh` fallisce piu' spesso (rate limit dopo N scritture in un batch).
-        const posted = gh(['pr', 'comment', String(pr), ...repoArgs, '--body',
+        const posted = gh(['pr', 'comment', String(pr), ...prRepoArgs, '--body',
           `${MINT_GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui integralmente**, come i \`Live-verification\`. ${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}; questi sono stati tolti dal suo corpo e vivono solo qui.`}\n\n${verbatim}`],
           { allowFail: true });
         if (d.action === 'demote' && posted === null) {
@@ -354,17 +395,21 @@ function main() {
   // su un lato solo. Riga a formato fisso, grep-abile sui log di tutte le run (stessa
   // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
   for (const t of tally) {
-    console.log(`MINT_GATE_TALLY pr=${t.pr} issue=${t.issue} action=${t.action} demoted=${t.demoted} kept=${t.kept}`);
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
   }
   const demotedTotal = tally.reduce((a, t) => a + t.demoted, 0);
-  const summary = `Gate sul conio: ${report.length} issue toccate, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
+  const summary = `Gate sul conio: ${report.length} issue nel report, ${demotedTotal} item demoti${DRY_RUN ? ' (dry-run)' : ''}.`;
   console.log(summary);
   // Un dry-run non scrive da NESSUNA parte, nemmeno nel job summary: `GITHUB_STEP_SUMMARY`
   // si eredita dall'ambiente, quindi qualunque invocazione dry-run dentro un job (il test
   // di lotto ne fa una) appenderebbe la sua riga al summary reale di quel job — rumore
   // permanente in CI, e in un posto dove si va a leggere cosa ha fatto il gate davvero.
   if (process.env.GITHUB_STEP_SUMMARY && !DRY_RUN) {
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${report.join('\n')}\n`);
+    try {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${report.join('\n')}\n`);
+    } catch (e) {
+      console.log(`gate-minted-followups: job summary non scrivibile (${e?.message?.split('\n')[0]}) — scritture già applicate, procedo.`);
+    }
   }
 }
 

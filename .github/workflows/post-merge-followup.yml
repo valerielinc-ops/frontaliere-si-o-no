@@ -421,6 +421,24 @@ jobs:
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
         run: node scripts/ci/gate-minted-followups.mjs
 
+      # Le follow-up che riguardano il producer vengono coniate sul corpus, non sul
+      # sito. Il gate deve quindi leggere/scrivere le issue su Nanako ma commentare la
+      # PR sorgente qui: `GATE_PR_REPO` separa i due repository nel gate.
+      - name: Gate sul conio — corpus (zero-Claude)
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
+          GH_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GATE_PR_REPO: ${{ github.repository }}
+          BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::Gate sul conio corpus saltato: GITHUB_PAT_NANAKO/GITHUB_PAT assente; issue lasciate intatte."
+            exit 0
+          fi
+          node scripts/ci/gate-minted-followups.mjs
+
       - name: Claude usage metrics
         if: always()
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
