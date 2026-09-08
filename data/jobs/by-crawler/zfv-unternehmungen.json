@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "cucina-aiuto-50-zfv-unternehmungen-epalinges",
         "en": "kitchen-help-50-zfv-unternehmungen-epalinges",
-        "de": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
+        "de": "kuchenhilfe-50-zfv-unternehmungen-epalinges",
         "fr": "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       },
       "company": "ZFV-Unternehmungen",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Cucina Aiuto 50%",
         "en": "Kitchen Help 50%",
-        "de": "Aide de cuisine 50%",
+        "de": "Küchenhilfe 50%",
         "fr": "Aide de cuisine 50%"
       },
       "description": "La coopérative ZFV-Unternehmungen (ZFV) crée, en collaboration avec ses partenaires, des lieux de rencontre inspirants, qui enthousiasment par leur hospitalité et leurs expériences authentiques. Fondée en 1894 par des bourgeoises zurichoises visionnaires, la ZFV accorde aujourd'hui encore une importance particulière à l'innovation et à la durabilité. Dans plus de 200 établissements en Suisse, les collaborateurs de ZFV répondent aux besoins des clients et des hôtes. Les domaines d'activité comprennent les restaurants, les réfectoires, les restaurants du personnel, les hôtels, les solutions de restauration mobiles, les caterings, les boulangeries et les crèches. La coopérative contribue activement à façonner la société et prend position pour l'environnement, l'égalité des chances et l'inclusion. Elle vit l'hospitalité pour une société dans laquelle nous voulons tous vivre. Unisanté à Epalinges, géré par ZFV depuis octobre 2025, est ouvert cinq jours sur sept, de 08h00 à 17h00. Cet établissement dispose de 160 places assises au restaurant, sert environ 180 repas par jour et est composé d’une équipe de 4 personnes. Vous y trouvez chaque jour deux menus différents et variés, ainsi qu’un buffet de salades, des desserts et des snacks. Un service de catering pour les événements est également proposé sur demande. Es-tu notre nouveau membre d'équipe en Suisse romande, qui va nous aider en tant qu'aide de cuisine ? Horaire de travaille entre 7h00 à 16h00 de lundi au vendredi. Salaire horaire Notre menu de tâches\n• Production et mise en place du buffet froid, buffet de salades, sandwich, dessert\n• Dressage et service des menus devant les clients\n• Tenue de la caisse et encaissement des plats\n• Soutien dans la production et réalisation de cocktail\n• Mise en place pour le service\n• Nettoyages et rangement divers\n• Respect et application des normes HACCP, COVID 19, sécurité au travail et environnement La recette de ton succès\n• Expérience confirmée dans une fonction similaire\n• Maîtrise du français, à l’oral comme à l’écrit\n• Bonne connaissance des normes HACCP\n• Engagement constant dans l’amélioration continue de la qualité des produits et des services\n• Travail rigoureux, précis et soigné\n• Application stricte des normes de qualité établies\n• Curiosité professionnelle et volonté de développer de nouvelles compétences Tu trouveraz chez nous:\n• Un super job\n• Un environnement de travail dynamique\n• De la liberté de mettre en œuvre vos propres idées\n• Un espace pour le développement personnel\n• Culture d'entreprise caractérisée par un sens des responsabilités et de la confiance Contact Si tu souhaites partager ta passion pour la gastronomie avec nous, nous nous réjouissons de recevoir ta candidature complète en ligne (avec photo). Nous prenons également en compte les candidatures qui nous sont envoyées par courrier. Nous ne les renverrons toutefois pas.",
@@ -34,7 +34,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-07T23:34:32.592Z",
-      "needsRetranslation": true,
       "addressLocality": "Epalinges",
       "postalCode": "1066",
       "streetAddress": "Rte de la Corniche 21",
@@ -52,8 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
-        "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+        "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63,7 +61,7 @@
           "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "de": [
-          "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ]
       },
       "firstSeenAt": "2026-09-04T13:40:05.712Z",
@@ -95,7 +93,7 @@
       "companyDomain": "zfv.ch",
       "title": "Application Manager:in ERP (80-100%)",
       "titleByLocale": {
-        "it": "Gestione delle applicazioni: in ERP (80-100%)",
+        "it": "Gestione applicazioni ERP (80-100%)",
         "en": "Application Manager: in ERP (80-100%)",
         "de": "Application Manager:in ERP (80-100%)",
         "fr": "Gestionnaire d'applications: dans le PGI (80-100%)"
@@ -249,8 +247,8 @@
       "companyDomain": "zfv.ch",
       "title": "Bankett- und Seminarassistent:in (80-100%)",
       "titleByLocale": {
-        "it": "Bankett- e Seminarassistent:in (80-100%)",
-        "en": "Banquet and seminar assistant:in (80-100%)",
+        "it": "Assistente per banchetti e seminari (80-100%)",
+        "en": "Banquet and seminar assistant (80-100%)",
         "de": "Bankett- und Seminarassistent:in (80-100%)",
         "fr": "Banquet et assistant séminaire: en (80-100%)"
       },
@@ -267,7 +265,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:31.141Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3012",
       "streetAddress": "Fabrikstrasse 8",
@@ -1124,7 +1121,7 @@
       "slug": "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern",
       "slugByLocale": {
         "it": "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern",
-        "en": "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
+        "en": "event-staff-assistant-zfv-unternehmungen-luzern",
         "de": "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
         "fr": "event-collaborateur-trice-aushilfe-zfv-unternehmungen-luzern"
       },
@@ -1133,8 +1130,8 @@
       "companyDomain": "zfv.ch",
       "title": "Event-Mitarbeiter:in (Aushilfe)",
       "titleByLocale": {
-        "it": "Event-Collaboratore/trice (Aushilfe)",
-        "en": "Event-Associate (Aushilfe)",
+        "it": "Personale di eventi (assistante)",
+        "en": "Event staff (assistant)",
         "de": "Event-Mitarbeiter:in (Aushilfe)",
         "fr": "Personnel chargé de l'événement:"
       },
@@ -1151,7 +1148,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:26.001Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6006",
       "streetAddress": "Lidostrasse 5",
@@ -1177,6 +1173,9 @@
         ],
         "fr": [
           "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
+        ],
+        "en": [
+          "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-18T10:35:28.375Z",
@@ -1196,11 +1195,11 @@
     },
     {
       "id": "zfv-unternehmungen-7e618cc439f1",
-      "slug": "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich",
+      "slug": "produzione-dei-dipendenti-dell-evento-aiuto-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
-        "it": "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich",
-        "en": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+        "it": "produzione-dei-dipendenti-dell-evento-aiuto-zfv-unternehmungen-zurich",
+        "en": "event-employee-production-aid-zfv-unternehmungen-zurich",
         "fr": "personnel-de-l-evenement-en-production-aide-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
@@ -1209,8 +1208,8 @@
       "title": "Event-Mitarbeiter:in Produktion (Aushilfe)",
       "titleByLocale": {
         "de": "Event-Mitarbeiter:in Produktion (Aushilfe)",
-        "it": "Event-Addetto/a alla produzione (Aushilfe)",
-        "en": "Event-Associate Produktion (Aushilfe)",
+        "it": "Produzione dei dipendenti dell'evento (aiuto)",
+        "en": "Event employee production (aid)",
         "fr": "Personnel de l'événement: en production (aide)"
       },
       "description": "Das Stadion Letzigrund ist eines der modernsten Stadien der Schweiz. Die Gastronomie umfasst mehrere Bereiche, darunter die Aussenstände und das Restaurant Oval. Zum VIP-Bereich bei Grossveranstaltungen zählen 11 Logen, 3 Business-Lounges und die Athletik Lounge für knapp 800 Gäste. Es beherbergt die Heimspiele des FC Zürich und des Grasshopper Club Zürich, das Meeting Weltklasse Zürich sowie die Open-Air-Konzerte wie die von Robbie Williams, Rolling Stones, Metallica oder Pink. Zudem finden verschiedenste Corporate und Privat Events statt. Mit einem Fassungsvermögen von über 50'000 Zuschauern bei Konzerten ist das Stadion Letzigrund die grösste Veranstaltungsstätte der Schweiz. Wir suchen Dich für verschiedene coole Events in der Gastronomie im Stadion Letzigrund in Zürich als Event Mitarbeiter:in Produktion (Aushilfe) per sofort oder nach Vereinbarung. Dein Wirkungsbereich:\n• Bedienung des Grills zur Zubereitung von Würsten, Burger etc. sowie das Frittieren von knusprigen Pommes-Frites, Chicken Nuggets etc. im Stand\n• Erstellung der Mise en Place im Produktionsstand\n• Einhaltung und Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Teilnahme an Schulungen und Meetings\n• Erledigung von Aufräum- und Reinigungsarbeiten während und nach des Anlasses\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards Deine Stärken:\n• Köchin / Koch: EBA oder EFZ oder Erfahrung als Hilfsköch:in / Küchen-Mitarbeiter:in\n• 1 Jahr Berufserfahrung in der Küche\n• Gute mündliche Deutschkenntnisse, jede weitere Sprache ist ein Plus\n• Belastbarkeit und Teamfähigkeit Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf dich und deine komplette Online-Bewerbung.",
@@ -1226,7 +1225,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:25.537Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "streetAddress": "Badenerstrasse 500",
@@ -1247,14 +1245,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+          "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich"
         ],
         "fr": [
+          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        ],
+        "en": [
           "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
-        "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+        "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1273,9 +1276,9 @@
     },
     {
       "id": "zfv-unternehmungen-852148900a20",
-      "slug": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
+      "slug": "chef-esecutivo-80-100-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
+        "it": "chef-esecutivo-80-100-zfv-unternehmungen-bern",
         "en": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
         "de": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
         "fr": "chef-executif-en-80-100-zfv-unternehmungen-bern"
@@ -1285,8 +1288,8 @@
       "companyDomain": "zfv.ch",
       "title": "Executive Küchenchef:in (80-100%)",
       "titleByLocale": {
-        "it": "Executive Chef:in (80-100%)",
-        "en": "Executive Chef:in (80-100%)",
+        "it": "Chef esecutivo (80-100%)",
+        "en": "Executive Chef (80-100%)",
         "de": "Executive Küchenchef:in (80-100%)",
         "fr": "Chef exécutif: en (80-100%)"
       },
@@ -1303,7 +1306,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:24.980Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3000",
       "streetAddress": "Hilfikerstrasse 1",
@@ -1333,7 +1335,15 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-b4bcc0b52655",
@@ -1749,10 +1759,10 @@
       "companyDomain": "zfv.ch",
       "title": "Front Office Praktikant:in",
       "titleByLocale": {
-        "it": "Interno ufficio anteriore:in",
-        "en": "Front Office intern:in",
+        "it": "Addestramento dell'ufficio anteriore",
+        "en": "Front Office trainee",
         "de": "Front Office Praktikant:in",
-        "fr": "Stagiaire du Front Office:in"
+        "fr": "Stage de Front Office"
       },
       "description": "Willkommen in der Rosenstadt am malerischen Ufer des Zürichsees. Im Herzen von Rapperswil befindet sich das neu renovierte Hotel Speer. Das moderne Boutique Hotel bietet einen zentralen Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende aus aller Welt übernachten hier in den 56 Zimmern und entdecken von hier aus die schönsten Orte der Nachbarschaft. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Front Office Praktikant:in per 01. Dezember 2026 unterstützt? Diese Position ist befristet bis zum 31. Mai 2027 in einem 100% Pensum. Dein Wirkungsbereich:\n• Herzlicher Empfang sowie die individuelle Betreuung unserer internationalen Hotelgäste\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Bearbeitung der Gästebuchhaltung mittels «Protel»\n• Verarbeitung der eingehenden Reservationen\n• Verwaltung und Betreuung der Kontingente sowie Buchungskanäle\n• Vorbereitung der Tagesabschlüsse\n• Erledigung diverser administrativer Aufgaben\n• Umsetzung und Einhaltung der vorgegebenen Arbeitssicherheits- und Hygienerichtlinien sowie des Umweltmanagement Deine Stärken:\n• Ehrgeiz zur Weiterentwicklung\n• Freude am Dienstleistungsgedanke\n• Vernetztes Denken und gute Organisationsfähigkeit\n• Sprachtalent in Deutsch, Englisch und Französisch\n• Souverän, kommunikativ und offen\n• Studierend an einer Hotelfach- oder Hotelhandelsschule Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
@@ -1767,7 +1777,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:21.198Z",
-      "needsRetranslation": true,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -1821,10 +1830,10 @@
       "companyDomain": "zfv.ch",
       "title": "Front Office Praktikant:in",
       "titleByLocale": {
-        "it": "Interno ufficio anteriore:in",
-        "en": "Front Office intern:in",
+        "it": "Addestramento dell'ufficio anteriore",
+        "en": "Front Office trainee",
         "de": "Front Office Praktikant:in",
-        "fr": "Stagiaire du Front Office:in"
+        "fr": "Stage de Front Office"
       },
       "description": "Willkommen in der Textilstadt der Schweiz. In unmittelbarer Nähe der geschichtsträchtigen Altstadt ist das 4*Boutique-Hotel City Weissenstein ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende aus aller Welt übernachten hier in den 32 Zimmern, verweilen in der bunten Lobby-Lounge der Stadt oder entwickeln im Kreativraum neue Ideen. Mit modernem Interieur, inspiriert von der lebendigen Textilstadt, begeistert das Hotel Gäste genauso wie Mitarbeitende. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Front Office Praktikant:in per 01. September 2026 unterstützt? Diese Position ist befristet bis zum 28. Februar 2027 in einem 100% Pensum. Dein Wirkungsbereich:\n• Herzlicher Empfang sowie die individuelle Betreuung unserer internationalen Hotelgäste\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Bearbeitung der Gästebuchhaltung mittels «Protel»\n• Verarbeitung der eingehenden Reservationen\n• Verwaltung und Betreuung der Kontingente sowie Buchungskanäle\n• Vorbereitung der Tagesabschlüsse\n• Erledigung diverser administrativer Aufgaben\n• Umsetzung und Einhaltung der vorgegebenen Arbeitssicherheits- und Hygienerichtlinien sowie des Umweltmanagement Deine Stärken:\n• Ehrgeiz zur Weiterentwicklung\n• Freude am Dienstleistungsgedanke\n• Vernetztes Denken und gute Organisationsfähigkeit\n• Sprachtalent in Deutsch, Englisch und Französisch\n• Souverän, kommunikativ und offen\n• Studierend an einer Hotelfach- oder Hotelhandelsschule Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Interessiert, gemeinsam mit uns aktiv die Zukunft zu gestalten? Sende uns Deine komplette Online-Bewerbung mit Foto und teile uns mit, in welchem Zeitraum du ein Praktikum absolvieren kannst. Du studierst an der SHL? Profitiere von unserer Kooperation mit der Hotelfachschule Luzern und den Partizipationsboni. Die Details dazu findest du oben in der Sparte Praktikum.",
       "descriptionByLocale": {
@@ -1839,7 +1848,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:20.635Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Davidstrasse 21",
@@ -2120,7 +2128,7 @@
       "title": "Hilfsköchin / Hilfskoch: (80-100%)",
       "titleByLocale": {
         "it": "Assistente cuoco / assistente cuoco: (80-100%)",
-        "en": "Hilfsköchin / Hilfskoch: (80-100%)",
+        "en": "Assistant cook / assistant cook: (80-100%)",
         "de": "Hilfsköchin / Hilfskoch: (80-100%)",
         "fr": "Cuisinier adjoint / Cuisinier adjoint: (80-100%)"
       },
@@ -2137,7 +2145,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:18.540Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 130",
@@ -3106,7 +3113,7 @@
       "slug": "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
       "slugByLocale": {
         "it": "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
-        "en": "kochin-koch-80-zfv-unternehmungen-dubendorf",
+        "en": "cook-cook-80-zfv-unternehmungen-dubendorf",
         "de": "kochin-koch-80-zfv-unternehmungen-dubendorf",
         "fr": "cuire-cuire-80-zfv-unternehmungen-dubendorf"
       },
@@ -3116,7 +3123,7 @@
       "title": "Köchin / Koch: (80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80%)",
-        "en": "Köchin / Koch: (80%)",
+        "en": "Cook / cook: (80%)",
         "de": "Köchin / Koch: (80%)",
         "fr": "Cuire / cuire: (80 %)"
       },
@@ -3133,7 +3140,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:34:10.770Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 130",
@@ -3151,15 +3157,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-dubendorf",
-        "cook-cook-80-zfv-unternehmungen-dubendorf"
+        "kochin-koch-80-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-zfv-unternehmungen-dubendorf"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-dubendorf"
+          "kochin-koch-80-zfv-unternehmungen-dubendorf"
         ],
         "fr": [
           "kochin-koch-80-zfv-unternehmungen-dubendorf"
@@ -4990,8 +4995,8 @@
       "companyDomain": "zfv.ch",
       "title": "Küchenchef:in",
       "titleByLocale": {
-        "it": "Chef:in",
-        "en": "Chef:in",
+        "it": "Chef",
+        "en": "Chef",
         "de": "Küchenchef:in",
         "fr": "Chef"
       },
@@ -5008,7 +5013,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:52.961Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8048",
       "streetAddress": "Badenerstrasse 500",
@@ -5069,7 +5073,7 @@
       "title": "Leiter:in Gastronomie",
       "titleByLocale": {
         "it": "Responsabile Gastronomie",
-        "en": "Head:in Gastronomy",
+        "en": "Head of Gastronomy",
         "de": "Leiter:in Gastronomie",
         "fr": "En Gastronomie"
       },
@@ -5086,7 +5090,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:52.495Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3097",
       "streetAddress": "Waldeggstrasse 51",
@@ -5134,7 +5137,7 @@
       "slug": "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
-        "en": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
+        "en": "employees-housekeeping-aid-zfv-unternehmungen-rapperswil",
         "de": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
         "fr": "collaborateur-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
       },
@@ -5144,9 +5147,9 @@
       "title": "Mitarbeiter:in Hauswirtschaft (Aushilfe)",
       "titleByLocale": {
         "it": "Dipendenti: nelle pulizie (aiuto)",
-        "en": "Associate Hauswirtschaft (Aushilfe)",
+        "en": "Employees Housekeeping (aid)",
         "de": "Mitarbeiter:in Hauswirtschaft (Aushilfe)",
-        "fr": "Collaborateur/trice Hauswirtschaft (Aushilfe)"
+        "fr": "Employés Ménage (aide)"
       },
       "description": "Die Sorell Hotels sind die grösste Schweizer Hotelgruppe in Eigenbesitz mit 15 individuellen Stadt- und Ferienhotels im 3- und 4-Sterne Bereich in Zürich, Dübendorf, Winterthur, Bern, Rapperswil, St. Gallen, Schaffhausen und Bad Ragaz. Das 4-Sterne-Superior Sorell Hotel Speer mit seinen 56 Zimmern, der Sushi Bar, Terrasse und Lobby-Bar ist ein ideales Hotel für Feriengäste und Geschäftsleute. Es liegt mitten in der Altstadt von Rapperswil-Jona und ist nur 2 Gehminuten vom Hauptbahnhof entfernt. Bist du unser neues Teammitglied, welches uns als Mitarbeiter:in Hauswirtschaft (Aushilfe) per sofort oder nach Vereinbarung unterstützt? Die Einsätze als Aushilfe erfolgen nach Bedarf (ca. 30-50%) auf Stundenlohnbasis. Dein Wirkungsbereich:\n• Reinigung und Instandhaltung der Restant- und Départzimmer\n• Erstellung der Mise en place und Instandhaltung des Etagenoffices\n• Durchführung des Couverturedienstes\n• Mitarbeit bei der Grundreinigung aller Bereiche\n• Reinigung und Pflege aller Bereiche im Hotel\n• Erledigung von Portieraufgaben\n• Einhaltung und Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien Deine Stärken:\n• Erfahrung in der Reinigungsbranche\n• Mündliche und schriftliche Grundkenntnisse der deutschen Sprache\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Leidenschaft für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung mit Foto. Wir berücksichtigen auch Bewerbungen auf dem Postweg, senden diese jedoch nicht zurück.",
       "descriptionByLocale": {
@@ -5161,7 +5164,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:52.029Z",
-      "needsRetranslation": true,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -5186,6 +5188,9 @@
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ],
         "fr": [
+          "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+        ],
+        "en": [
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ]
       },
@@ -5724,9 +5729,9 @@
     },
     {
       "id": "zfv-unternehmungen-89b469c6640e",
-      "slug": "stage-in-persone-cultura-zfv-unternehmungen-zurich",
+      "slug": "internship-people-culture-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "stage-in-persone-cultura-zfv-unternehmungen-zurich",
+        "it": "internship-people-culture-zfv-unternehmungen-zurich",
         "en": "internship-in-people-culture-zfv-unternehmungen-zurich",
         "de": "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
         "fr": "stage-dans-les-gens-et-la-culture-zfv-unternehmungen-zurich"
@@ -5736,8 +5741,8 @@
       "companyDomain": "zfv.ch",
       "title": "Praktikant:in Menschen & Kultur",
       "titleByLocale": {
-        "it": "Stage: in Persone & Cultura",
-        "en": "Internship: in People & Culture",
+        "it": "Internship People & Culture",
+        "en": "Internship People & Culture",
         "de": "Praktikant:in Menschen & Kultur",
         "fr": "Stage: dans les gens et la culture"
       },
@@ -5754,7 +5759,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:48.398Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8047",
       "streetAddress": "Flüelastrasse 51",
@@ -5772,11 +5776,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
+        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
+        "stage-in-persone-cultura-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
+          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
+          "stage-in-persone-cultura-zfv-unternehmungen-zurich"
         ],
         "en": [
           "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
@@ -5815,7 +5821,7 @@
       "title": "Projektleiter:in Bauherrschaft (80-100 %)",
       "titleByLocale": {
         "it": "Project manager: a Bauherr (80-100%)",
-        "en": "Project Manager Bauherrschaft (80-100 %)",
+        "en": "Project manager Bauherr (80-100%)",
         "de": "Projektleiter:in Bauherrschaft (80-100 %)",
         "fr": "Directeur de projet: à Bauherr (80-100%)"
       },
@@ -5832,7 +5838,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:47.905Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8047",
       "streetAddress": "Flüelastrasse 51",
@@ -5894,10 +5899,10 @@
       "companyDomain": "zfv.ch",
       "title": "Réceptionist:in",
       "titleByLocale": {
-        "it": "Ricevitore:in",
-        "en": "Receptionist:in",
+        "it": "Ricevitore",
+        "en": "Receptionist",
         "de": "Réceptionist:in",
-        "fr": "Réceptionniste:in"
+        "fr": "Réceptionniste"
       },
       "description": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
@@ -5912,7 +5917,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:47.437Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8008",
       "streetAddress": "Seefeldstrasse 63",
@@ -6622,7 +6626,7 @@
       "slug": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
+        "en": "service-staff-assistant-zfv-unternehmungen-zurich",
         "de": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
         "fr": "service-collaborateur-trice-aushilfe-zfv-unternehmungen-zurich"
       },
@@ -6631,8 +6635,8 @@
       "companyDomain": "zfv.ch",
       "title": "Service-Mitarbeiter:in (Aushilfe)",
       "titleByLocale": {
-        "it": "Service-Collaboratore/trice (Aushilfe)",
-        "en": "Service-Associate (Aushilfe)",
+        "it": "Personale di servizio (assistante)",
+        "en": "Service staff (assistant)",
         "de": "Service-Mitarbeiter:in (Aushilfe)",
         "fr": "Personnel militaire: en (aide)"
       },
@@ -6649,7 +6653,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:42.284Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Nüschelerstrasse 9",
@@ -6701,6 +6704,9 @@
           "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
           "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
           "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:02.368Z",
@@ -8050,7 +8056,7 @@
       "title": "Systemgastronomiepraktiker:in EBA Lehrstelle 2027",
       "titleByLocale": {
         "it": "Professionista della gastronomia di sistema: nell'apprendistato EBA 2027",
-        "en": "System gastronomy practitioner:in EBA apprenticeship 2027",
+        "en": "System Gastronomy Practitioner EBA Apprenticeship 2027",
         "de": "Systemgastronomiepraktiker:in EBA Lehrstelle 2027",
         "fr": "Spécialiste de la gastronomie du système: en apprentissage EBA 2027"
       },
@@ -8067,7 +8073,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-07T23:33:29.327Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3000",
       "streetAddress": "Trüsselstrasse 2",

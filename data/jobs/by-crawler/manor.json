@@ -660,7 +660,7 @@
       "titleByLocale": {
         "it": "Detailhandelsfachmann/frau CFC 100%",
         "en": "Detailshandelsfachmann/frau EFZ 100%",
-        "de": "Detailhandelsfachmann/frau EFZ 100%",
+        "de": "Detailshandelsfachmann/Frau EFZ 100%",
         "fr": "Détailshandelsfachmann/frau EFZ 100%"
       },
       "sourceLang": "it",
@@ -760,15 +760,15 @@
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
-      "slug": "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+      "slug": "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
-        "it": "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+        "it": "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "en": "supermarket-collaborator-fruit-vegetables-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "supermarkt-mitarbeiter-obst-gemuse-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice"
       },
       "titleByLocale": {
-        "it": "Collaborateur/trice supermarché (Fruits & Légumes) 50%",
+        "it": "Collaboratore del supermercato (Fruit & Verduras) 50%",
         "en": "Supermarket Collaborator (Fruit & Vegetables) 50%",
         "de": "Supermarkt Mitarbeiter (Obst & Gemüse) 50%",
         "fr": "Collaborateur/trice supermarché (Fruits & Légumes) 50%"
@@ -777,12 +777,12 @@
       "id": "manor-f4da3cadfcb7",
       "previousSlugs": [
         "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice",
-        "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+        "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice",
-          "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+          "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
         ],
         "en": [
           "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice"
@@ -791,7 +791,6 @@
           "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 36000,
@@ -1135,25 +1134,24 @@
         "it": "manor-boucher-ere-100-sierre-boucherere-100",
         "en": "boucher-rear-100-manor-ag-sierre-boucherere-100",
         "de": "boucher-hinterer-100-manor-ag-sierre-boucherere-100",
-        "fr": "boucher-arriere-100-manor-ag-sierre-boucherere-100"
+        "fr": "boucher-relever-100-manor-ag-sierre-boucherere-100"
       },
       "titleByLocale": {
         "it": "Boucher/ère 100%",
         "en": "Boucher/rear 100%",
         "de": "Boucher/Hinterer 100 %",
-        "fr": "Boucher/ère 100%"
+        "fr": "Boucher/relever 100%"
       },
       "sourceLang": "it",
       "id": "manor-2c543bdc23af",
       "previousSlugs": [
-        "boucher-relever-100-manor-ag-sierre-boucherere-100"
+        "boucher-arriere-100-manor-ag-sierre-boucherere-100"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "boucher-relever-100-manor-ag-sierre-boucherere-100"
+          "boucher-arriere-100-manor-ag-sierre-boucherere-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
       "crawledAt": "",
       "salaryMin": 72000,
@@ -1314,7 +1312,7 @@
         "it": "Collaborateur/trice caisse (Home & Ménage) 70%",
         "en": "Collaborateur/trice caisse (Home & Ménage) 70%",
         "de": "Collaborateur/trice caisse (Home & Ménage) 70%",
-        "fr": "Collaborateur/trice caisse (Home & Ménage) 70%"
+        "fr": "Collaborateur/couche caisse (Home & Ménage) 70%"
       },
       "sourceLang": "it",
       "id": "manor-39cb2577816a",
@@ -1890,33 +1888,37 @@
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
+      "slug": "vendita-dipendenti-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
-        "en": "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+        "it": "vendita-dipendenti-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
+        "en": "employee-sale-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
         "de": "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
         "fr": "employe-en-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Bijouterie",
-        "en": "Mitarbeiter*in Sales Bijouterie",
+        "it": "Vendita dipendenti Bijoutery",
+        "en": "Employee Sale Bijoutery",
         "de": "Mitarbeiter*in Verkauf Bijouterie",
         "fr": "Employé* en Bijouterie"
       },
       "sourceLang": "de",
       "id": "manor-6334790e083e",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+        "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+        "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+          "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:28:49.819Z",
       "crawledAt": "",
       "salaryMin": 74000,
@@ -5446,13 +5448,13 @@
       "slug": "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Parfümerie 50%",
-        "en": "Mitarbeiter*in Sales Parfümerie 50%",
+        "it": "Profumeria di vendita dei dipendenti 50%",
+        "en": "Employee sales perfumery 50%",
         "de": "Mitarbeiter*in Verkauf Parfümerie 50%",
         "fr": "Employé* en parfumerie de vente 50%"
       },
@@ -5467,9 +5469,11 @@
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T22:18:55.568Z",
       "crawledAt": "",
       "salaryMin": 37000,
@@ -6003,8 +6007,8 @@
         "fr": "employe-en-marchandisation-40-manor-ag-zurich-mitarbeiterin-merchandising-40"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Merchandising 40%",
-        "en": "Employee* in Merchandising 40 %",
+        "it": "Merchandising dei dipendenti 40%",
+        "en": "Employee Merchandising 40%",
         "de": "Mitarbeiter*in Merchandising 40%",
         "fr": "Employé* en marchandisation 40 %"
       },
@@ -6024,7 +6028,6 @@
           "manor-mitarbeiter-in-merchandising-40-zurich-mitarbeiterin-merchandising-40"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
       "salaryMin": 29400,
@@ -6365,13 +6368,13 @@
       "slug": "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
-        "en": "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
+        "en": "employee-sales-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
         "fr": "employe-en-mode-vente-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Fashion 100%",
-        "en": "Mitarbeiter*in Sales Fashion 100%",
+        "it": "Vendita di dipendenti moda 100%",
+        "en": "Employee Sales Fashion 100%",
         "de": "Mitarbeiter*in Verkauf Fashion 100%",
         "fr": "Employé* en mode vente 100%"
       },
@@ -6386,9 +6389,11 @@
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:19.718Z",
       "crawledAt": "",
       "salaryMin": 83000,
@@ -7017,13 +7022,13 @@
       "slug": "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
-        "en": "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
+        "en": "employee-sales-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
         "fr": "employes-en-mode-de-vente-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Fashion 40%",
-        "en": "Mitarbeiter*in Sales Fashion 40%",
+        "it": "Moda dei dipendenti 40 %",
+        "en": "Employee Sales Fashion 40 %",
         "de": "Mitarbeiter*in Verkauf Fashion 40%",
         "fr": "Employés* en mode de vente 40 %"
       },
@@ -7037,6 +7042,9 @@
           "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
         ]
       },
@@ -7378,33 +7386,37 @@
       },
       "postedDate": "2026-08-11",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
+      "slug": "profumeria-di-vendita-dei-dipendenti-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+        "it": "profumeria-di-vendita-dei-dipendenti-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in vendita Parfümerie 20%",
-        "en": "Mitarbeiter*in Sales Parfümerie 20%",
+        "it": "Profumeria di vendita dei dipendenti 20%",
+        "en": "Employee sales perfumery 20%",
         "de": "Mitarbeiter*in Verkauf Parfümerie 20%",
         "fr": "Employé* en parfumerie de vente 20%"
       },
       "sourceLang": "de",
       "id": "manor-64b9c774c0d7",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+        "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+          "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:49:27.135Z",
       "crawledAt": "",
       "salaryMin": 15800,
@@ -7756,8 +7768,8 @@
         "fr": "employe-en-kasse-40-manor-ag-basel-mitarbeiterin-kasse-40"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Kasse 40%",
-        "en": "Employee* in Kasse 40 %",
+        "it": "Fondo dei lavoratori 40 %",
+        "en": "Employee Fund 40 %",
         "de": "Mitarbeiter*in Kasse 40%",
         "fr": "Employé* en kasse 40 %"
       },
@@ -7777,7 +7789,6 @@
           "manor-mitarbeiter-in-kasse-40-basel-mitarbeiterin-kasse-40"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:49:27.135Z",
       "crawledAt": "",
       "salaryMin": 29600,
@@ -7820,13 +7831,13 @@
       "slug": "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30",
-        "en": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
+        "en": "employee-sales-30-manor-ag-basel-mitarbeiterin-verkauf-30",
         "de": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
         "fr": "salaries-en-ventes-30-manor-ag-basel-mitarbeiterin-verkauf-30"
       },
       "titleByLocale": {
         "it": "Dipendenti* nelle vendite 30 %",
-        "en": "Mitarbeiter*in Sales 30%",
+        "en": "employee sales 30%",
         "de": "Mitarbeiter*in Verkauf 30%",
         "fr": "Salariés* en ventes 30 %"
       },
@@ -7841,9 +7852,11 @@
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:49:27.135Z",
       "crawledAt": "",
       "salaryMin": 22200,
@@ -8060,13 +8073,13 @@
       "slug": "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
-        "en": "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
+        "en": "employee-sales-household-curtains-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
         "de": "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
         "fr": "employe-dans-les-ventes-menages-courbes-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt"
       },
       "titleByLocale": {
         "it": "Dipendenti* nelle vendite",
-        "en": "Mitarbeiter*in Sales Haushalt (Vorhänge) 60%",
+        "en": "Employee Sales Household (Curtains) 60%",
         "de": "Mitarbeiter*in Verkauf Haushalt (Vorhänge) 60%",
         "fr": "Employé* dans les ventes Ménages (courbes) 60%"
       },
@@ -8081,9 +8094,11 @@
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T22:30:20.337Z",
       "crawledAt": "",
       "salaryMin": 41100,
@@ -8126,13 +8141,13 @@
       "slug": "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
         "it": "Dipendenti* nella profumeria di vendita 80%",
-        "en": "Mitarbeiter*in Sales Parfümerie 80%",
+        "en": "Employee sales perfumery 80%",
         "de": "Mitarbeiter*in Verkauf Parfümerie 80%",
         "fr": "Employé* en parfumerie de vente 80%"
       },
@@ -8147,9 +8162,11 @@
         ],
         "fr": [
           "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:44:36.777Z",
       "crawledAt": "",
       "salaryMin": 63200,
@@ -8509,8 +8526,8 @@
         "fr": "employes-au-supermarche-30-manor-ag-chur-mitarbeiterin-supermarkt-30"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt 30%",
-        "en": "Employees* in supermarket 30%",
+        "it": "Supermercato dei dipendenti 30%",
+        "en": "Employees Supermarket 30%",
         "de": "Mitarbeiter*in Supermarkt 30%",
         "fr": "Employés* au supermarché 30%"
       },
@@ -8530,7 +8547,6 @@
           "manor-mitarbeiter-in-supermarkt-30-chur-mitarbeiterin-supermarkt-30"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T22:38:29.813Z",
       "crawledAt": "",
       "salaryMin": 20600,
@@ -10259,7 +10275,7 @@
       },
       "titleByLocale": {
         "it": "Dipendenti* nella logistica delle merci 100%",
-        "en": "Employees*in Logistics out of goods 100%",
+        "en": "Employee Logistics Goods output 100%",
         "de": "Mitarbeiter*in Logistik Warenausgang 100%",
         "fr": "Employés*en Logistique hors marchandises 100%"
       },
@@ -10278,7 +10294,6 @@
           "manor-mitarbeiter-in-warenausgang-100-hochdorf-mitarbeiterin-warenausgang-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 69500,
@@ -10327,7 +10342,7 @@
       },
       "titleByLocale": {
         "it": "Dipendenti* nella logistica delle merci 100%",
-        "en": "Employees*in Logistics out of goods 100%",
+        "en": "Employee Logistics Goods output 100%",
         "de": "Mitarbeiter*in Logistik Warenausgang 100%",
         "fr": "Employés*en Logistique hors marchandises 100%"
       },
@@ -10351,7 +10366,6 @@
           "manor-mitarbeiter-in-logistik-warenausgang-100-hochdorf-mitarbeiterin-logistik-warenausgang"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:24:11.926Z",
       "crawledAt": "",
       "salaryMin": 69500,
@@ -11646,8 +11660,8 @@
         "fr": "employe-en-service-50-manor-ag-thun-mitarbeiterin-service-50"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Service 50%",
-        "en": "Employee* in service 50%",
+        "it": "Servizio dipendente 50%",
+        "en": "Employee Service 50%",
         "de": "Mitarbeiter*in Service 50%",
         "fr": "Employé* en service 50%"
       },
@@ -11668,7 +11682,6 @@
           "manor-mitarbeiter-in-service-100-thun-mitarbeiterin-service-100"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 33800,
@@ -11716,8 +11729,8 @@
         "fr": "employe-en-supermarche-fruits-et-legumes-50-manor-ag-chur-mitarbeiterin-supermarkt-fruchte"
       },
       "titleByLocale": {
-        "it": "Collaboratore/trice*in Supermarkt Früchte & Gemüse 50%",
-        "en": "Employee* in supermarket fruits & vegetables 50%",
+        "it": "Dipendenti Supermercato Frutta e Verdura 50%",
+        "en": "Employees Supermarket Fruits & Vegetables 50%",
         "de": "Mitarbeiter*in Supermarkt Früchte & Gemüse 50%",
         "fr": "Employé* en supermarché fruits et légumes 50%"
       },
@@ -11731,7 +11744,6 @@
           "manor-mitarbeiter-in-supermarkt-fruchte-gemuse-50-chur-mitarbeiterin-supermarkt-fruchte"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 34300,
@@ -11780,7 +11792,7 @@
       },
       "titleByLocale": {
         "it": "Dipendenti* nella profumeria di vendita 60%",
-        "en": "Mitarbeiter*in Sales Parfümerie 60%",
+        "en": "Employee sales perfumery 60%",
         "de": "Mitarbeiter*in Verkauf Parfümerie 60%",
         "fr": "Employés* en parfumerie de vente 60%"
       },
@@ -11794,7 +11806,6 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-60-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 47400,
@@ -11834,22 +11845,21 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
+      "slug": "team-leader-facility-sicurezza-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
       "slugByLocale": {
-        "it": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
+        "it": "team-leader-facility-sicurezza-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
         "en": "team-leader-in-facility-security-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
         "de": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
         "fr": "chef-d-equipe-en-installations-et-securite-non-alimentaire-100-manor-ag-hochdorf-teamleiterin-facility"
       },
       "titleByLocale": {
-        "it": "Team Leader* in Facility & Security Non Food 100%",
-        "en": "Team Leader* in Facility & Security Non Food 100%",
+        "it": "Team Leader Facility & Sicurezza Non Food 100%",
+        "en": "Team Leader Facility & Security Non Food 100%",
         "de": "Teamleiter*in Facility & Security Non Food 100%",
         "fr": "Chef d'équipe* en installations et sécurité Non alimentaire 100%"
       },
       "sourceLang": "de",
       "id": "manor-f19e6ecceba9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 79000,
@@ -11868,7 +11878,15 @@
       },
       "addressLocality": "Hochdorf Teamleiterin Facility &",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility"
+        ]
+      },
+      "previousSlugs": [
+        "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility"
+      ]
     },
     {
       "title": "Drogist*in EFZ (Dermacenter) 50-80%",

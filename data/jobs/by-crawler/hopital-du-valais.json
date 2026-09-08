@@ -258,8 +258,8 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Ergotherapeut/in 80-100%",
       "titleByLocale": {
-        "it": "Terapista/in 80-100 %",
-        "en": "Occupational therapist/in 80-100 %",
+        "it": "Terapista occupazionale 80-100 %",
+        "en": "Occupational therapist 80-100 %",
         "de": "Ergotherapeut/in 80-100%",
         "fr": "Ergothérapie/en 80-100 %"
       },
@@ -319,7 +319,6 @@
           "responsable-60-80-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:39:37.121Z",
       "salaryMin": 81000,
       "salaryMax": 135000,
@@ -1069,9 +1068,9 @@
     },
     {
       "id": "hopital-du-valais-966b0e6540e9",
-      "slug": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
+      "slug": "assistente-medico-efz-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
+        "it": "assistente-medico-efz-hopital-du-valais-brig",
         "en": "medical-practice-assistant-in-efz-hopital-du-valais-brig",
         "de": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
         "fr": "assistant-medical-praticien-en-efz-hopital-du-valais-brig"
@@ -1081,8 +1080,8 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Medizinische/-r Praxisassistent/-in EFZ",
       "titleByLocale": {
-        "it": "Medizinische/-r Praxisassistent/-in CFC",
-        "en": "Medical/practice assistant/in EFZ",
+        "it": "Assistente medico EFZ",
+        "en": "Medical assistant EFZ",
         "de": "Medizinische/-r Praxisassistent/-in EFZ",
         "fr": "Assistant médical/praticien/en EFZ"
       },
@@ -1117,7 +1116,6 @@
         "famille": "Formation",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T11:43:35.789Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -1133,7 +1131,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-cae1102e724b",
@@ -2431,8 +2437,8 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Assistenzpsychologe/-in 80-100%, Stationäre Psychiatrie",
       "titleByLocale": {
-        "it": "Assistente psicologo/-in 80-100%, Psichiatria stazionaria",
-        "en": "Assistant psychologist/-in 80-100%, Stationary Psychiatry",
+        "it": "Assistente psicologo 80-100%, Psichiatria stazionaria",
+        "en": "Assistant psychologist 80-100%, Stationary Psychiatry",
         "de": "Assistenzpsychologe/-in 80-100%, Stationäre Psychiatrie",
         "fr": "Psychologue adjoint/-dans 80-100%, Psychiatrie stationnaire"
       },
@@ -2481,7 +2487,6 @@
           "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:20.193Z",
       "salaryMin": 86500,
       "salaryMax": 120500,

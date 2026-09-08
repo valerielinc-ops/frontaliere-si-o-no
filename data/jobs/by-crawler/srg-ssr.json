@@ -1040,7 +1040,7 @@
       "slug": "risorse-umane-partner-in-srg-ssr-zurich",
       "slugByLocale": {
         "it": "risorse-umane-partner-in-srg-ssr-zurich",
-        "en": "hr-partner-in-srg-ssr-zurich",
+        "en": "hr-partners-srg-ssr-zurich",
         "de": "hr-partner-in-srg-ssr-zurich",
         "fr": "partenaire-rh-en-srg-ssr-zurich"
       },
@@ -1049,8 +1049,8 @@
       "companyDomain": "srgssr.ch",
       "title": "HR Partner:in",
       "titleByLocale": {
-        "it": "Risorse Umane Partner:in",
-        "en": "HR Partner:in",
+        "it": "Partner HR",
+        "en": "HR Partners",
         "de": "HR Partner:in",
         "fr": "Partenaire RH:en"
       },
@@ -1118,9 +1118,11 @@
         "fr": [
           "hr-partner-in-srg-ssr-zurich",
           "ressources-humaines-partner-in-srg-ssr-zurich"
+        ],
+        "en": [
+          "hr-partner-in-srg-ssr-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
       "salaryMin": 83000,
       "salaryMax": 126000,

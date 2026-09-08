@@ -16,7 +16,7 @@
 # - scripts/lib/slug-preservation-guard.mjs
 
 name: Crawler Group 20 (sparse cross-repo execution)
-run-name: crawler-generation-${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-20
+run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-20
 on:
   workflow_dispatch:
     inputs:
@@ -27,8 +27,7 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: false
-        default: ""
+        required: true
         type: string
       site_code_commit:
         description: Full immutable site commit used by this generation (empty keeps legacy main)
@@ -59,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
+      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
     steps:
@@ -1814,18 +1813,27 @@ jobs:
           fi
           exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
+        id: crawler-generation-finalizer
         if: always()
         continue-on-error: true
         env:
           CRAWLER_GENERATION_GROUP: "20"
-          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
+          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"accor","primarySlice":"data/jobs/by-crawler/accor.json"},{"crawlerId":"adus-klinik","primarySlice":"data/jobs/by-crawler/adus-klinik.json"},{"crawlerId":"arxada","primarySlice":"data/jobs/by-crawler/arxada.json"},{"crawlerId":"bcvs","primarySlice":"data/jobs/by-crawler/bcvs.json"},{"crawlerId":"buergenstock-hotels","primarySlice":"data/jobs/by-crawler/buergenstock-hotels.json"},{"crawlerId":"capri-holdings","primarySlice":"data/jobs/by-crawler/capri-holdings.json"},{"crawlerId":"clinique-de-la-plaine","primarySlice":"data/jobs/by-crawler/clinique-de-la-plaine.json"},{"crawlerId":"georg-fischer","primarySlice":"data/jobs/by-crawler/georg-fischer.json"},{"crawlerId":"givaudan","primarySlice":"data/jobs/by-crawler/givaudan.json"},{"crawlerId":"hrc","primarySlice":"data/jobs/by-crawler/hrc.json"},{"crawlerId":"igroove","primarySlice":"data/jobs/by-crawler/igroove.json"},{"crawlerId":"impresa-pizzarotti","primarySlice":"data/jobs/by-crawler/impresa-pizzarotti.json"},{"crawlerId":"institution-lavigny","primarySlice":"data/jobs/by-crawler/institution-lavigny.json"},{"crawlerId":"klinik-lengg","primarySlice":"data/jobs/by-crawler/klinik-lengg.json"},{"crawlerId":"klinik-wyssholzli","primarySlice":"data/jobs/by-crawler/klinik-wyssholzli.json"},{"crawlerId":"kliniken-valens","primarySlice":"data/jobs/by-crawler/kliniken-valens.json"},{"crawlerId":"ksb","primarySlice":"data/jobs/by-crawler/ksb.json"},{"crawlerId":"medics-labor","primarySlice":"data/jobs/by-crawler/medics-labor.json"},{"crawlerId":"ocst","primarySlice":"data/jobs/by-crawler/ocst.json"},{"crawlerId":"ottos","primarySlice":"data/jobs/by-crawler/ottos.json"},{"crawlerId":"privatklinik-meiringen","primarySlice":"data/jobs/by-crawler/privatklinik-meiringen.json"},{"crawlerId":"rfsm-fribourg","primarySlice":"data/jobs/by-crawler/rfsm-fribourg.json"},{"crawlerId":"strabag","primarySlice":"data/jobs/by-crawler/strabag.json"},{"crawlerId":"stryker","primarySlice":"data/jobs/by-crawler/stryker.json"},{"crawlerId":"supsi-dti","primarySlice":"data/jobs/by-crawler/supsi-dti.json"},{"crawlerId":"visionapartments","primarySlice":"data/jobs/by-crawler/visionapartments.json"},{"crawlerId":"vontobel","primarySlice":"data/jobs/by-crawler/vontobel.json"},{"crawlerId":"zambon","primarySlice":"data/jobs/by-crawler/zambon.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-20-terminal.json
+          CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Persist crawler generation ledger
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_RECEIPT_DIR: ""
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

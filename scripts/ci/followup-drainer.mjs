@@ -974,6 +974,41 @@ const BACKLOG_TITLE_RE = /^backlog\b|\bil residuo\b/i;
 const BACKLOG_MIN_ITEMS = 3;
 
 /**
+ * Rimuove i blocchi markdown recintati prima dei conteggi strutturali.
+ * Un fence può essere indentato quando è annidato sotto un bullet; se resta
+ * aperto, il segmento viene ripristinato come fallback conservativo.
+ * @param {string} text
+ * @returns {string}
+ */
+function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+/**
  * Numero di voci di lavoro DISTINTE enumerate nel body: task-list `- [ ]`/`- [x]`
  * e sezioni numerate `## N.` (le due forme usate dagli handoff di sessione in
  * questo repo). Pura → testabile.
@@ -981,7 +1016,7 @@ const BACKLOG_MIN_ITEMS = 3;
  * @returns {number}
  */
 export function countBacklogItems(body) {
-  const b = String(body || '');
+  const b = stripFencedBlocks(body);
   const checkboxes = (b.match(/^[ \t]*[-*][ \t]+\[[ xX]\]/gm) || []).length;
   const numberedSections = (b.match(/^##[ \t]*\d+\.[ \t]/gm) || []).length;
   return checkboxes + numberedSections;
@@ -1258,7 +1293,7 @@ export const WIDE_SCOPE_MIN_ITEMS = intFromEnv('FOLLOWUP_WIDE_SCOPE_MIN_ITEMS', 
  * @param {string} body @returns {number}
  */
 export function countAggregateItems(body) {
-  const b = String(body || '');
+  const b = stripFencedBlocks(body);
   // Delimitatore: `.`, `)`, em/en dash — NON il trattino nudo, che
   // trasformerebbe un heading-data (`### 2026-08-25 …`) in una voce di lavoro.
   const h3 = (b.match(/^###[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–]/gim) || []).length;

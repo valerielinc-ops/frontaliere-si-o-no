@@ -2026,8 +2026,8 @@
       "companyDomain": "migrolino.ch",
       "title": "Schichtleiter*in Spätdienst",
       "titleByLocale": {
-        "it": "Capo turno*in Spätdienst",
-        "en": "Shift Leader*in Spätdienst",
+        "it": "Shift manager servizio in ritardo",
+        "en": "Shift manager late service",
         "de": "Schichtleiter*in Spätdienst",
         "fr": "Gestionnaire de poste* en service tardif"
       },
@@ -2085,7 +2085,6 @@
           "chef-d-equipe-in-spatdienst-migrolino-allschwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:53:16.234Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2116,8 +2115,8 @@
       "companyDomain": "migrolino.ch",
       "title": "Schichtleiter*in Frühdienst",
       "titleByLocale": {
-        "it": "Capo turno*in Frühdienst",
-        "en": "Shift Leader*in Frühdienst",
+        "it": "Responsabile dei turni",
+        "en": "Early shift manager",
         "de": "Schichtleiter*in Frühdienst",
         "fr": "Gestionnaire de poste* en début de service"
       },
@@ -2175,7 +2174,6 @@
           "chef-d-equipe-in-fruhdienst-migrolino-allschwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:53:15.592Z",
       "salaryMin": 62000,
       "salaryMax": 94000,

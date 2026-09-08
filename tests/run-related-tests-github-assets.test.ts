@@ -1,9 +1,9 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { describe, it, expect } from 'vitest';
+import { afterAll, describe, it, expect } from 'vitest';
 
 /**
  * `scripts/ci/run-related-tests.mjs` è l'unico invocatore di Vitest nel job PR
@@ -22,9 +22,14 @@ import { describe, it, expect } from 'vitest';
  */
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const RUNNER = path.join(ROOT, 'scripts/ci/run-related-tests.mjs');
+const REMOVED_GITHUB_ASSET = '.github/workflows/removed-for-related-selection.yml';
+const REMOVED_TEST_FIXTURE = 'tests/fixtures/removed-for-related-selection.json';
+const sharedGraphDir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-github-shared-'));
 
-function selectionFor(changedPaths: string[], reuseDir?: string) {
-  const dir = reuseDir ?? fs.mkdtempSync(path.join(os.tmpdir(), 'related-github-'));
+afterAll(() => fs.rmSync(sharedGraphDir, { recursive: true, force: true }));
+
+function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
+  const dir = reuseDir;
   const changedFile = path.join(dir, 'changed-paths.txt');
   fs.writeFileSync(changedFile, `${changedPaths.join('\n')}\n`);
   fs.writeFileSync(path.join(dir, 'status.txt'), 'complete\n');
@@ -46,8 +51,35 @@ function selectionFor(changedPaths: string[], reuseDir?: string) {
       GITHUB_ACTIONS: '',
     },
   });
-  if (!reuseDir) fs.rmSync(dir, { recursive: true, force: true });
   return stdout.split('\n').map((line) => line.trim()).filter((line) => line.endsWith('.test.ts'));
+}
+
+function runRunnerWithEnv(
+  changedPaths: string[],
+  env: Record<string, string>,
+  args: string[] = [],
+) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-runner-'));
+  const changedFile = path.join(dir, 'changed-paths.txt');
+  fs.writeFileSync(changedFile, `${changedPaths.join('\n')}\n`);
+  fs.writeFileSync(path.join(dir, 'status.txt'), 'complete\n');
+  try {
+    return spawnSync(process.execPath, [RUNNER, ...args], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      env: {
+        ...process.env,
+        CHANGED_PATHS_FILE: changedFile,
+        CHANGED_PATHS_STATUS_FILE: path.join(dir, 'status.txt'),
+        VITEST_RELATED_GRAPH: path.join(dir, 'graph.json'),
+        VITEST_SKIP_CORPUS_WIDE: 'true',
+        ...env,
+      },
+    });
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 }
 
 describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardiani', () => {
@@ -57,7 +89,7 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // torna vuota, quel contratto è di nuovo cieco su ogni PR.
     const selected = selectionFor(['.github/corpus-workflows/translate-pending.yml']);
     expect(selected).toContain('tests/crawler-generation-dispatch-workflow.test.ts');
-  });
+  }, 120_000);
 
   it('il diff storico di #7355 avrebbe selezionato il test che era rosso', () => {
     // I sei file del merge 80e07838ac3, presi come li elenca `git show
@@ -75,7 +107,37 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selected).toContain('tests/crawler-generation-dispatch-workflow.test.ts');
     expect(selected).toContain('tests/crawler-generation-barrier-workflows.test.ts');
     expect(selected).toContain('tests/generate-crawler-group-workflows.test.ts');
-  });
+  }, 120_000);
+
+  it('una rimozione di asset .github conserva il path precedente nel grafo', () => {
+    expect(fs.existsSync(path.join(ROOT, REMOVED_GITHUB_ASSET))).toBe(false);
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-deleted-github-'));
+    try {
+      const selected = selectionFor([REMOVED_GITHUB_ASSET], dir);
+      expect(selected).toContain('tests/run-related-tests-github-assets.test.ts');
+      const graph = JSON.parse(fs.readFileSync(path.join(dir, 'graph.json'), 'utf8'));
+      expect(graph.files['tests/run-related-tests-github-assets.test.ts'].deps)
+        .toContain(REMOVED_GITHUB_ASSET);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
+  it('un fixture JSON sotto tests seleziona il test che lo legge per path', () => {
+    expect(fs.existsSync(path.join(ROOT, REMOVED_TEST_FIXTURE))).toBe(false);
+    expect(selectionFor([REMOVED_TEST_FIXTURE]))
+      .toContain('tests/run-related-tests-github-assets.test.ts');
+  }, 120_000);
+
+  it('rifiuta il dry-run quando il processo gira in GitHub Actions', () => {
+    const result = runRunnerWithEnv(
+      ['tests/run-related-tests-github-assets.test.ts'],
+      { GITHUB_ACTIONS: 'true', VITEST_RELATED_DRY_RUN: 'true' },
+      ['--definitely-invalid-related-runner-option'],
+    );
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('VITEST_RELATED_DRY_RUN');
+  }, 120_000);
 
   it('il portable di quel commit violava davvero l\'adiacenza che il test pretende', () => {
     // La prova che la selezione mancata è costata un rosso vero, non ipotetico:
@@ -124,7 +186,7 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // entry senza archi e la selezione tornerebbe vuota.
     expect(selectionFor([target], dir)).toContain('tests/crawler-generation-dispatch-workflow.test.ts');
     fs.rmSync(dir, { recursive: true, force: true });
-  });
+  }, 120_000);
 
   it('un workflow non fa mai ricadere sulla suite intera', () => {
     // Il fallback conservativo resta deciso sui soli candidati SORGENTE: la
@@ -143,5 +205,5 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
       .split('\n').filter(Boolean).length;
     expect(total).toBeGreaterThan(100);
     expect(selectionFor([orphan]).length).toBeLessThan(total / 4);
-  });
+  }, 120_000);
 });

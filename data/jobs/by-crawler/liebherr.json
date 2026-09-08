@@ -108,7 +108,7 @@
       "title": "Business Development Manager (m/w)",
       "titleByLocale": {
         "it": "Business Development Manager (m/f)",
-        "en": "Business Development Manager (m/w)",
+        "en": "Business Development Manager (m/f)",
         "de": "Business Development Manager (m/w)",
         "fr": "Directeur du développement des affaires (h/f)"
       },
@@ -141,7 +141,6 @@
       "jobReqId": "1433550133",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:36:48.505Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -688,9 +687,9 @@
     },
     {
       "id": "liebherr-5006b8cc15c6",
-      "slug": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+      "slug": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-15530f",
       "slugByLocale": {
-        "it": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "it": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-15530f",
         "en": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "de": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "fr": "groupe-auditeur-interne-h-f-d-liebherr-nussbaumen"
@@ -700,7 +699,7 @@
       "companyDomain": "liebherr.com",
       "title": "Group Internal Auditor (m/w/d)",
       "titleByLocale": {
-        "it": "Group Internal Auditor (m/w/d)",
+        "it": "Auditore interno Gruppo (m/f/d)",
         "en": "Group Internal Auditor (m/f/d)",
         "de": "Group Internal Auditor (m/w/d)",
         "fr": "Groupe Auditeur interne (h/f/d)"
@@ -735,14 +734,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen"
+        "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
+        "group-internal-auditor-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen"
+          "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
+          "group-internal-auditor-m-w-d-liebherr-nussbaumen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:49:36.119Z",
       "salaryMin": 68500,
       "salaryMax": 104000,

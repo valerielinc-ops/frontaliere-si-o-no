@@ -28,11 +28,18 @@ describe('pr-autorebase: la PR non resta chiusa in silenzio', () => {
     // sulla forma sintattica: fissare solo `Number(` rendeva il test rosso per un
     // refactor che non tocca il comportamento difeso.
     expect(script).toMatch(
-      /REOPEN_ATTEMPTS\s*=\s*(?:Number\([^)]*\|\|\s*(?:[4-9]|\d{2,})\s*\)|intFromEnv\(\s*[^,]+,\s*(?:[4-9]|\d{2,})\s*[,)])/,
+      /REOPEN_ATTEMPTS\s*=\s*(?:Math\.max\(\s*4\s*,\s*)?(?:Number\(\s*process\.env\.AUTOREBASE_REOPEN_ATTEMPTS\s*\|\|\s*(?:[4-9]|\d{2,})\s*\)|intFromEnv\(\s*['"]AUTOREBASE_REOPEN_ATTEMPTS['"]\s*,\s*(?:[4-9]|\d{2,})\s*[,)])/,
     );
+    expect(script).toMatch(/REOPEN_COST_MS[\s\S]{0,120}intFromEnv\(\s*['"]AUTOREBASE_REOPEN_COST_MS['"]/);
     const fn = script.slice(script.indexOf('function reopenToRetrigger'), script.indexOf('function reopenToRetrigger') + 2600);
     expect(fn).toContain('REOPEN_RETRY_SLEEP_S');
     expect(fn).toContain('REOPEN_ATTEMPTS');
+  });
+
+  it('mantiene almeno quattro tentativi anche con un env valido ma troppo basso', () => {
+    expect(script).toMatch(
+      /const REOPEN_ATTEMPTS\s*=\s*Math\.max\(\s*4\s*,\s*intFromEnv\(\s*['"]AUTOREBASE_REOPEN_ATTEMPTS['"]\s*,/,
+    );
   });
 
   it('etichetta la PR quando la riapertura fallisce davvero', () => {
