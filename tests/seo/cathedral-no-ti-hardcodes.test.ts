@@ -214,13 +214,18 @@ function scanSource(pattern: string | string[], fixed = false): string {
   // GitHub's runner has git but not necessarily ripgrep. Use git grep rather
   // than grep -r so the fallback searches the same tracked source surface and
   // does not diverge on ignored files or hidden-directory traversal.
-  const trackedScanDirs = SCAN_DIRS.filter((directory) => {
+  const trackedScanDirs = [];
+  for (const directory of SCAN_DIRS) {
     try {
-      return execFileSync('git', ['ls-files', '--', directory], { encoding: 'utf8' }).trim() !== '';
-    } catch {
-      return false;
+      if (execFileSync('git', ['ls-files', '--', directory], { encoding: 'utf8' }).trim() !== '') {
+        trackedScanDirs.push(directory);
+      }
+    } catch (error) {
+      // A missing path is an empty successful result; a git/repository error
+      // must remain loud, or the ratchet would pass on an empty scan.
+      throw error;
     }
-  });
+  }
   if (trackedScanDirs.length === 0) return '';
   try {
     return execFileSync('git', ['grep', '--no-color', '-n', fixed ? '-F' : '-E',
@@ -366,6 +371,8 @@ describe('hasInlineAllow — il marker vale solo dentro un commento (#7676)', ()
     expect(hasInlineAllow(`const re = /['"]/; // cathedral-allow: regex`)).toBe(true);
     expect(hasInlineAllow('const parts = s.split(/=/); // cathedral-allow: regex')).toBe(true);
     expect(hasInlineAllow('count /= 2; // cathedral-allow: assignment')).toBe(true);
+    expect(hasInlineAllow('count++ / 2 // cathedral-allow: division')).toBe(true);
+    expect(hasInlineAllow('</div> <!-- cathedral-allow: html -->')).toBe(true);
     expect(hasInlineAllow("- name: L'app  # cathedral-allow: yaml")).toBe(true);
     expect(hasInlineAllow("const s = 'x'; // cathedral-allow: ragione")).toBe(true);
   });
