@@ -1607,17 +1607,30 @@
       "pensumMax": 100,
       "pensum": "50-100%",
       "previousSlugs": [
-        "praktikant-in-kanton-gr-ch"
+        "praktikant-in-kanton-gr-ch",
+        "it-traine-in-kantonale-verwaltung-graubunden-chur",
+        "it-trainee-in-kantonale-verwaltung-graubunden-chur",
+        "it-praktikant-in-kanton-gr-ch",
+        "stage-in-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-kanton-gr-ch"
+          "praktikant-in-kanton-gr-ch",
+          "it-traine-in-kantonale-verwaltung-graubunden-chur",
+          "it-trainee-in-kantonale-verwaltung-graubunden-chur",
+          "it-praktikant-in-kanton-gr-ch",
+          "stage-in-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "praktikant-in-kanton-gr-ch"
+          "praktikant-in-kanton-gr-ch",
+          "it-trainee-in-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "praktikant-in-kanton-gr-ch"
+          "praktikant-in-kanton-gr-ch",
+          "stage-in-kantonale-verwaltung-graubunden-chur"
+        ],
+        "de": [
+          "it-praktikant-in-kanton-gr-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:29.938Z",
@@ -2167,7 +2180,7 @@
       "title": "GIS-/Informatikspezialist/-in",
       "titleByLocale": {
         "it": "Specialista GIS/Informatics",
-        "en": "GIS-/Informatikspezialist/-in",
+        "en": "GIS/Informatics specialist",
         "de": "GIS-/Informatikspezialist/-in",
         "fr": "Spécialiste SIG/informatique"
       },
@@ -2217,7 +2230,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:16:56.316Z",
-      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
