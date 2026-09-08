@@ -80,6 +80,13 @@ export function createCrawlerGenerationLedgerEntry(manifest) {
   return { ...payload, digest: digestDocument(payload) };
 }
 
+function markManifestInvalid(manifest, reason) {
+  const { digest: _digest, ...payload } = manifest;
+  payload.reasons = [...new Set([...payload.reasons, reason])].sort();
+  payload.valid = false;
+  return { ...payload, digest: digestDocument(payload) };
+}
+
 export function validateCrawlerGenerationLedgerEntry(entry) {
   const keys = [
     'schemaVersion', 'group', 'generationToken', 'callerRepository', 'callerRunId', 'callerRunAttempt',
@@ -296,7 +303,14 @@ export function finalizeCrawlerGroup(input) {
       additionalReasons: ['manifest_internal_error'],
     });
   }
-  appendCrawlerGenerationLedger(input.cwd, manifest, input.ledgerPath ?? CRAWLER_GENERATION_LEDGER_PATH);
+  try {
+    appendCrawlerGenerationLedger(input.cwd, manifest, input.ledgerPath ?? CRAWLER_GENERATION_LEDGER_PATH);
+  } catch (error) {
+    // A corrupt durable history must block readiness, but it must not prevent
+    // the terminal manifest from being written and uploaded for diagnosis.
+    manifest = markManifestInvalid(manifest, 'ledger_persistence_failed');
+    process.stderr.write(`Crawler generation ledger persistence failed: ${error instanceof Error ? error.message : String(error)}\n`);
+  }
   return manifest;
 }
 

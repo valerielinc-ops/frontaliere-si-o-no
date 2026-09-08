@@ -1254,9 +1254,18 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
   if (!job?.steps) throw new Error(`crawler-group-${nn}: generated job missing`);
   const members = job.steps.filter((step) => step?.background === true).length;
 
+  const logicInputs = structuredClone(workflow.on.workflow_dispatch.inputs);
+  // The cross-repo minimal caller predates this input. Keep the reusable
+  // contract callable during the rollout; the fallback is still rejected by
+  // the central barrier unless the caller's registry binds the same token.
+  logicInputs.generation_token = {
+    ...logicInputs.generation_token,
+    required: false,
+    default: '',
+  };
   workflow.on = {
     workflow_call: {
-      inputs: workflow.on.workflow_dispatch.inputs,
+      inputs: logicInputs,
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
@@ -1424,11 +1433,17 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
   };
+  const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);
+  expectedLogicInputs.generation_token = {
+    ...expectedLogicInputs.generation_token,
+    required: false,
+    default: '',
+  };
   if (JSON.stringify(Object.keys(generatedTrigger ?? {})) !== JSON.stringify(['workflow_dispatch']) ||
       JSON.stringify(Object.keys(generatedTrigger?.workflow_dispatch ?? {})) !== JSON.stringify(['inputs']) ||
       JSON.stringify(Object.keys(logicTrigger ?? {})) !== JSON.stringify(['workflow_call']) ||
       JSON.stringify(Object.keys(logicTrigger?.workflow_call ?? {}).sort()) !== JSON.stringify(['inputs', 'secrets']) ||
-      JSON.stringify(generatedTrigger.workflow_dispatch.inputs) !== JSON.stringify(logicTrigger.workflow_call.inputs) ||
+      JSON.stringify(expectedLogicInputs) !== JSON.stringify(logicTrigger.workflow_call.inputs) ||
       JSON.stringify(logicTrigger.workflow_call.secrets) !== JSON.stringify(expectedSecrets)) {
     throw new Error(`${fileName}: workflow_call inputs/secrets drifted from the generated contract`);
   }
@@ -1628,10 +1643,18 @@ export function buildStandaloneCrossRepoWorkflow({
 }
 
 function groupTrigger(logic) {
+  const inputs = structuredClone(logic.on.workflow_call.inputs);
+  // Standalone corpus callers are generated from the token-aware dispatch
+  // contract and must not inherit the reusable workflow's rollout shim.
+  inputs.generation_token = {
+    ...inputs.generation_token,
+    required: true,
+  };
+  delete inputs.generation_token.default;
   return {
     workflow_dispatch: {
       inputs: {
-        ...logic.on.workflow_call.inputs,
+        ...inputs,
         site_code_commit: {
           description: 'Full immutable site commit used by this generation (empty keeps legacy main)',
           required: false,

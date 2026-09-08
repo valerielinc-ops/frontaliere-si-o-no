@@ -1469,7 +1469,8 @@ for (const entry of [...readLedger(remotePath), ...readLedger(localPath)]) {
   if (existing && JSON.stringify(existing) !== JSON.stringify(entry)) throw new Error(`conflicting crawler generation ledger records for ${entry.digest}`);
   merged.set(entry.digest, entry);
 }
-fs.writeFileSync(outputPath, `${[...merged.values()].map((entry) => JSON.stringify(entry)).join('\n')}\n`, 'utf8');
+const lines = [...merged.values()].map((entry) => JSON.stringify(entry));
+fs.writeFileSync(outputPath, lines.length > 0 ? `${lines.join('\n')}\n` : '', 'utf8');
 NODE
 }
 

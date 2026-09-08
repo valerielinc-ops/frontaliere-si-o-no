@@ -13,6 +13,7 @@ export const GROUP_MANIFEST_REASON_CODES = Object.freeze([
   'receipt_missing',
   'receipt_invalid',
   'generation_token_missing',
+  'ledger_persistence_failed',
   'receipt_primary_slice_missing',
   'receipt_failed',
   'receipt_commit_not_ancestor',

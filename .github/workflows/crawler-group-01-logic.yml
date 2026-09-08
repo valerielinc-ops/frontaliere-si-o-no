@@ -44,8 +44,9 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: true
+        required: false
         type: string
+        default: ""
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
