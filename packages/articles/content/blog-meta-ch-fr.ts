@@ -6115,6 +6115,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A : pas de prix fixe convenu',
     'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'Enquête de la CdG : pas de prix fixe dans le contrat. Viola Amherd en informa le gouvernement avec 7 à 8 mois de retard. De graves lacunes dans la transparence fédérale.',
     'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Palais fédéral suisse à Berne, représentant la transparence et le contrôle parlementaire',
+    'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Chef de l\'armée : la Suisse cible de la Russie',
+    'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Le chef de l\'armée Benedikt Roos prévient : la Suisse est dans le viseur de Moscou. Menaces hybrides sur les infrastructures critiques, drones sur les sites militaires et lacunes dans la défense antimissile.',
+    'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'Vue de la forteresse du Castelgrande à Bellinzone, symbole de l\'héritage militaire du Tessin',
 };
 
 export default blogMetaChFr;

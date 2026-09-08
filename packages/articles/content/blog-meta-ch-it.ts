@@ -6115,6 +6115,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: nessun prezzo fisso concordato',
     'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'Indagine della CdG: nessun prezzo fisso nel contratto. Viola Amherd informò il governo con 7-8 mesi di ritardo. Gravi lacune nella trasparenza federale.',
     'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Palazzo federale svizzero di Berna, simbolo della trasparenza e del controllo parlamentare federale',
+    'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Capo dell\'esercito: Svizzera obiettivo della Russia',
+    'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Il capo dell\'esercito Benedikt Roos avverte: la Svizzera è nel mirino di Mosca. Minacce ibride a infrastrutture critiche, droni sui siti militari e lacune nella difesa antimissile.',
+    'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'Veduta del Castelgrande a Bellinzona, simbolo della storia militare ticinese',
 };
 
 export default blogMetaChIt;

@@ -6115,6 +6115,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: no fixed price agreed',
     'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'CoG investigation: no fixed price in the contract. Viola Amherd informed the government 7-8 months late. Serious gaps in federal transparency.',
     'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Swiss Federal Palace in Bern, representing national transparency and parliamentary oversight',
+    'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Chief of the Army: Switzerland Russia\'s target',
+    'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Army chief Benedikt Roos warns: Switzerland is in Moscow\'s crosshairs. Hybrid threats to critical infrastructure, drones on military sites, and gaps in missile defense.',
+    'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'View of Castelgrande fortress in Bellinzona, symbol of Ticino\'s military heritage',
 };
 
 export default blogMetaChEn;

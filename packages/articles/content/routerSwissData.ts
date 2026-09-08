@@ -2064,6 +2064,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'traffico-aereo-svizzero-cresce': { it: 'traffico-aereo-svizzero-cresce', en: 'swiss-air-traffic-grows', de: 'schweizer-luftverkehr-waechst', fr: 'trafic-aerien-suisse-augmente' },
  'novartis-giornata-nera': { it: 'novartis-giornata-nera', en: 'novartis-black-day', de: 'novartis-schwarzer-tag', fr: 'novartis-jour-noir' },
  'f35a-prezzo-fisso-non-concordato': { it: 'f35a-prezzo-fisso-non-concordato', en: 'f35a-fixed-price-not-agreed', de: 'f35a-kein-festpreis-vereinbart', fr: 'f35a-aucun-prix-fixe-convenu' },
+ 'svizzera-obiettivo-mosca-esercito': { it: 'svizzera-obiettivo-mosca-esercito', en: 'switzerland-moscow-target-military', de: 'schweiz-moskau-ziel-militaer', fr: 'suisse-cible-moscou-defence' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
