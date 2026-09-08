@@ -25,7 +25,7 @@ const VITEST_NAME = 'vitest (unit + integration)';
 // Byte-for-byte the filter in .github/workflows/pr-review-loop.yml's
 // "Resolve PR from tests run" step — keep both in sync if either changes.
 const JQ_FILTER = `
-  [.check_runs[] | select(.name == "${VITEST_NAME}" and .status == "completed" and .completed_at != null)]
+  [.check_runs[] | select(.name == "${VITEST_NAME}" and .status == "completed" and .completed_at != null and .conclusion != "skipped")]
   | sort_by(.completed_at) | last | .conclusion // ""
 `;
 
@@ -50,6 +50,13 @@ describe('pr-review-loop.yml resolve step — jq filter mirrors vitestCheck.mjs'
       checkRuns: [
         { name: VITEST_NAME, status: 'completed', completed_at: '2026-08-25T12:00:00Z', conclusion: 'success' },
         { name: VITEST_NAME, status: 'completed', completed_at: '2026-08-25T10:00:00Z', conclusion: 'failure' },
+      ],
+    },
+    {
+      label: 'a newer skipped job does not replace a real verdict',
+      checkRuns: [
+        { name: VITEST_NAME, status: 'completed', completed_at: '2026-08-25T10:00:00Z', conclusion: 'success' },
+        { name: VITEST_NAME, status: 'completed', completed_at: '2026-08-25T11:00:00Z', conclusion: 'skipped' },
       ],
     },
     {

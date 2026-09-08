@@ -14,9 +14,10 @@
  * lascia un check-run `failure` su quello SHA; `[0]` ne pescava uno ARBITRARIO,
  * così un `failure` stantio mascherava il `success` reale → auto-merge bloccato
  * a oltranza pur con i test verdi (l'auto-merge è event-driven e non ri-valuta
- * da solo). La selezione "ultimo COMPLETATO per completed_at" è invariante
- * all'ordine API e ai duplicati: vince il verdetto finito più fresco per il
- * codice all'HEAD.
+ * da solo). La selezione "ultimo COMPLETATO con verdetto per completed_at" è
+ * invariante all'ordine API e ai duplicati: vince il verdetto finito più fresco
+ * per il codice all'HEAD. Un job `skipped` è completato ma non è un verdetto e
+ * viene escluso.
  *
  * I run in-progress/queued (senza `completed_at`) sono ignorati di proposito:
  * un dispatch manuale appeso non deve bloccare il merge per sempre. Se NESSUN
@@ -28,8 +29,8 @@ import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from './constants.mjs';
 /**
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  *   L'array `.check_runs` della GitHub check-runs API.
- * @returns {string} La conclusion del check-run vitest COMPLETATO più recente
- *   (per `completed_at`), o '' se nessuno è ancora concluso/presente.
+ * @returns {string} La conclusion del check-run vitest COMPLETATO con verdetto
+ *   più recente (per `completed_at`), o '' se nessuno è ancora concluso/presente.
  */
 export function latestCompletedVitestConclusion(checkRuns) {
   const last = latestCompletedVitestRun(checkRuns);
@@ -41,7 +42,8 @@ export function latestCompletedVitestConclusion(checkRuns) {
  * la sua conclusion: serve a chi ha bisogno anche del `completed_at` (quando la
  * PR è stata testata) per correlarlo con lo stato di `main` a quell'istante —
  * vedi `vitestFailureIsNotAttributableToPr`. Stessa identica selezione (ultimo
- * COMPLETATO per `completed_at`), estratta per non duplicare il filtro fragile.
+ * COMPLETATO con verdetto per `completed_at`), estratta per non duplicare il
+ * filtro fragile.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
@@ -52,7 +54,8 @@ export function latestCompletedVitestRun(checkRuns) {
 
 /**
  * Generalizzazione di `latestCompletedVitestRun` a un check-run name
- * arbitrario — stessa selezione ("ultimo COMPLETATO per `completed_at`", non
+ * arbitrario — stessa selezione ("ultimo COMPLETATO con verdetto per
+ * `completed_at`", non
  * un `[0]` arbitrario), stessa ragione (un SHA immutabile può portare più
  * check-run con lo stesso nome, es. un `workflow_dispatch` manuale sullo
  * stesso branch). Usata anche per `GENERATOR_CI_JOB_NAME` (#242: il gate
@@ -71,6 +74,7 @@ export function latestCompletedRunByName(checkRuns, name) {
         c &&
         c.name === name &&
         c.status === 'completed' &&
+        c.conclusion !== 'skipped' &&
         typeof c.completed_at === 'string' &&
         c.completed_at,
     )
@@ -79,7 +83,7 @@ export function latestCompletedRunByName(checkRuns, name) {
 }
 
 /**
- * Conclusion del check-run COMPLETATO più recente per un nome arbitrario, o
+ * Conclusion del check-run COMPLETATO con verdetto più recente per un nome arbitrario, o
  * `''` se nessuno è ancora concluso/presente. Sibling di
  * `latestCompletedVitestConclusion` per check-run diversi da vitest (#242).
  *
@@ -138,7 +142,7 @@ export function latestCompletedConclusionByName(checkRuns, name) {
  *    un run fresco già in coda risolverà da sé → non ri-dispatchare. Questo
  *    gestisce anche i duplicati su SHA immutabile (un `workflow_dispatch` manuale
  *    sullo stesso SHA): se esiste un set più nuovo ancora in corso, attendiamo.
- *  - Il verdetto COMPLETATO più recente (`latestCompletedVitestConclusion`, non
+ *  - Il verdetto COMPLETATO con conclusion non-`skipped` più recente (`latestCompletedVitestConclusion`, non
  *    un `[0]` arbitrario) dev'essere `cancelled` o `failure`: se l'ultimo run è
  *    già `success` non c'è nulla da sanare.
  *

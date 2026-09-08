@@ -7,7 +7,8 @@
  * manuali di tests.yml). Il vecchio `[...][0].conclusion` ne pescava uno per
  * ordine API: un dispatch cancellato (→ `failure`) poteva mascherare il
  * `success` reale → auto-merge bloccato pur coi test verdi. Qui fissiamo che
- * vince l'ultimo COMPLETATO per `completed_at`, ignorando i run in-progress.
+ * vince l'ultimo COMPLETATO con verdetto per `completed_at`, ignorando i run
+ * in-progress e i job `skipped`.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -57,6 +58,18 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
       vitest(null, null, 'in_progress'), // dispatch manuale appeso
     ];
     expect(latestCompletedVitestConclusion(runs)).toBe('success');
+  });
+
+  it('un job skipped più recente non sostituisce un verdetto reale', () => {
+    const runs = [
+      vitest('success', '2026-06-17T08:00:00Z'),
+      vitest('skipped', '2026-06-17T08:30:00Z'),
+    ];
+    expect(latestCompletedVitestConclusion(runs)).toBe('success');
+  });
+
+  it('un job skipped da solo non produce un verdetto', () => {
+    expect(latestCompletedVitestConclusion([vitest('skipped', '2026-06-17T08:30:00Z')])).toBe('');
   });
 
   it('nessun vitest concluso (solo pending) → "" (gate attende, invariante #1454)', () => {
