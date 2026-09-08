@@ -5641,7 +5641,7 @@
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
         "en": "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln",
-        "de": "zusteller-in-briefe-und-pakete-post-on143p",
+        "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
       },
       "sourceLang": "de",
@@ -5688,12 +5688,14 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-on143p"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-3",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-on143p"
       ],
       "salarySource": "estimated"
     },

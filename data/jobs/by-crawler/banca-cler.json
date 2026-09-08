@@ -207,7 +207,7 @@
       "crawledAt": "2026-09-07T23:25:04.763Z",
       "firstSeenAt": "2026-09-07T23:25:04.763Z",
       "slugByLocale": {
-        "de": "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag-ohxkpp",
+        "de": "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag",
         "it": "clienti-privati-individuale-basilea-m-f-80-100-bank-cler-8440-mwst-che",
         "en": "private-clients-individual-basel-m-f-80-100-bank-cler-8440-mwst-che",
         "fr": "clients-prives-basel-h-f-80-100-bank-cler-8440-mwst-che"
@@ -251,14 +251,16 @@
           "private-clients-individual-basel-m-f-80-100-bank-cler-8440-mwst-che-801200"
         ],
         "de": [
-          "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag"
+          "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag",
+          "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag-ohxkpp"
         ]
       },
       "previousSlugs": [
         "private-clients-individual-basel-m-f-80-100-bank-cler-8440-mwst-che-801200",
         "clienti-privati-individuale-basilea-m-f-80-100-bank-cler-8440-mwst-che-801200",
         "kundenberaterin-privatkunden-individual-basel-w-m-banca-cler",
-        "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag"
+        "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag",
+        "kundenberaterin-privatkunden-individual-basel-m-w-d-80-100-bank-cler-8440-mwst-che-kadqag-ohxkpp"
       ]
     },
     {
@@ -694,7 +696,7 @@
       "crawledAt": "2026-09-07T23:25:04.763Z",
       "firstSeenAt": "2026-09-01T10:43:21.886Z",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che-sbman6",
+        "it": "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-1u7ff1",
         "en": "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che",
         "de": "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che",
         "fr": "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che"
@@ -740,7 +742,8 @@
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-6jtlpa",
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che",
           "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che",
-          "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler"
+          "consulente-alla-clientela-privata-individuale-lugano-f-m-banca-cler",
+          "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-banca-cler-8440-iva-che-sbman6"
         ],
         "en": [
           "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
@@ -888,7 +891,9 @@
       "department": "Private Banking und Privatkunden",
       "validThrough": "",
       "contractType": "permanent",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-vi1wcp",

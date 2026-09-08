@@ -4356,7 +4356,9 @@
       "addressRegion": "BE",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-50j6nj",

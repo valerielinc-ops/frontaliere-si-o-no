@@ -647,7 +647,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
-        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i",
+        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2"
       },
       "company": "Spital Emmental",
@@ -696,14 +696,16 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "de": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4ss5i"
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:31.452Z",
@@ -1750,7 +1752,7 @@
       "slugByLocale": {
         "it": "infermiera-a-spital-emmental-burgdorf-742fa7",
         "en": "dipl-nurse-a-spital-emmental-burgdorf-742fa7",
-        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4utni",
+        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "fr": "infirmiere-a-spital-emmental-burgdorf-742fa7"
       },
       "company": "Spital Emmental",
@@ -1807,7 +1809,8 @@
         "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
         "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
         "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo",
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4utni"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1830,7 +1833,8 @@
           "infirmiere-a-spital-emmental-burgdorf"
         ],
         "de": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4utni"
         ]
       },
       "firstSeenAt": "2026-08-24T10:02:22.342Z",
@@ -5207,7 +5211,7 @@
       "slugByLocale": {
         "it": "infermiera-a-spital-emmental-burgdorf",
         "en": "dipl-nurse-a-spital-emmental-burgdorf-faf3cd",
-        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4r1xs",
+        "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "fr": "infirmiere-a-spital-emmental-burgdorf-faf3cd"
       },
       "company": "Spital Emmental",
@@ -5256,7 +5260,8 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4r1xs"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5266,7 +5271,8 @@
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "de": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4r1xs"
         ],
         "fr": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"

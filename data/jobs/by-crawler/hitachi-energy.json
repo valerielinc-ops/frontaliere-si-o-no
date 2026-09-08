@@ -853,7 +853,9 @@
         "responsabile-del-progetto-tecnico-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
         "produktionsbetrieb-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
         "technical-project-manager-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "GPG Insulation & Components APQP Leader",
@@ -1594,7 +1596,9 @@
       },
       "previousSlugs": [
         "secondary-design-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Troubleshooting Process Quality Technician 80 - 100% (f/m/d)",
@@ -2838,7 +2842,7 @@
       "slugByLocale": {
         "it": "responsabile-vendite-di-servizi-senior-hitachi-energy-zurich-switzerland",
         "en": "senior-service-sales-manager-hitachi-energy-zurich-switzerland",
-        "de": "service-sales-manager-w-m-d-hitachi-energy-zurich-switzerland",
+        "de": "senior-service-sales-manager-hitachi-energy-zurich-switzerland",
         "fr": "directeur-principal-des-ventes-de-services-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-42886a14f8e1",
@@ -2852,6 +2856,9 @@
           "service-sales-manager-w-m-d-hitachi-energy-zurich-switzerland"
         ],
         "en": [
+          "service-sales-manager-w-m-d-hitachi-energy-zurich-switzerland"
+        ],
+        "de": [
           "service-sales-manager-w-m-d-hitachi-energy-zurich-switzerland"
         ]
       },
