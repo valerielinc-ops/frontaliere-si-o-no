@@ -145,20 +145,26 @@ describe('retention: la guardia omette la frase se la monotonia si rompe', () =>
 
   it('retention negativa: nessuna frase, e nessun ripiego su retentionTop', async () => {
     // Netto che SCENDE salendo di RAL.
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const sentences = await sentencesWithNet((gross) => 200_000 - gross, midScenario);
 
     expect(sentences.some((s) => s.startsWith(RETENTION_PREFIX))).toBe(false);
     expect(sentences.some((s) => s.startsWith(RETENTION_TOP_PREFIX))).toBe(false);
     // Il resto del blocco resta: la guardia toglie una frase, non l'intero <ul>.
     expect(sentences.length).toBeGreaterThan(0);
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('retention fuori range'));
+    warning.mockRestore();
   });
 
   it('retention > 1: nessuna frase, e nessun ripiego su retentionTop', async () => {
     // Netto che cresce PIÙ del lordo.
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const sentences = await sentencesWithNet((gross) => gross * 3, midScenario);
 
     expect(sentences.some((s) => s.startsWith(RETENTION_PREFIX))).toBe(false);
     expect(sentences.some((s) => s.startsWith(RETENTION_TOP_PREFIX))).toBe(false);
     expect(sentences.length).toBeGreaterThan(0);
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('retention fuori range'));
+    warning.mockRestore();
   });
 });

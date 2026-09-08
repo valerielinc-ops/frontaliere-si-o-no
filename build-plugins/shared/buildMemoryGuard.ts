@@ -410,6 +410,7 @@ export interface MemorySample {
 }
 
 export type BreachKind = 'rss-ceiling' | 'host-floor' | 'swap-floor';
+type HostFloorCause = 'headroom' | 'hard-floor' | 'both';
 
 export interface GuardState {
   peakRssMb: number;
@@ -430,6 +431,8 @@ export interface GuardState {
   consecutiveRssOver: number;
   consecutiveHostUnder: number;
   consecutiveSwapUnder: number;
+  /** Quale ramo ha prodotto il breach host-floor, per una diagnosi causale. */
+  hostFloorCause: HostFloorCause | null;
   breach: BreachKind | null;
 }
 
@@ -444,6 +447,7 @@ export function createGuardState(): GuardState {
     consecutiveRssOver: 0,
     consecutiveHostUnder: 0,
     consecutiveSwapUnder: 0,
+    hostFloorCause: null,
     breach: null,
   };
 }
@@ -762,9 +766,18 @@ export function observeSample(
     // Il pavimento RAM-only resta armato a un livello molto piu' basso: sotto
     // HOST_AVAIL_HARD_FLOOR_MB non e' piu' il kill dell'host il rischio, e'
     // non avere la RAM per scrivere la diagnosi — e quello lo swap non lo copre.
-    const underFloor =
-      headroomMb < thresholds.hostAvailFloorMb || sample.hostAvailMb < HOST_AVAIL_HARD_FLOOR_MB;
+    const headroomUnder = headroomMb < thresholds.hostAvailFloorMb;
+    const hardFloorUnder = sample.hostAvailMb < HOST_AVAIL_HARD_FLOOR_MB;
+    const underFloor = headroomUnder || hardFloorUnder;
     state.consecutiveHostUnder = underFloor ? state.consecutiveHostUnder + 1 : 0;
+    if (state.consecutiveHostUnder >= thresholds.consecutiveSamples) {
+      state.hostFloorCause =
+        headroomUnder && hardFloorUnder
+          ? 'both'
+          : headroomUnder
+            ? 'headroom'
+            : 'hard-floor';
+    }
   } else {
     state.consecutiveHostUnder = 0;
   }
@@ -813,9 +826,18 @@ export function formatBreachDiagnosis(
   state: GuardState,
   thresholds: GuardThresholds,
 ): string {
+  const hostCause = state.hostFloorCause;
+  const hostFloorCauseText =
+    hostCause === 'headroom'
+      ? `Causa: l'headroom anonimo dell'host (MemAvailable + spazio di evizione accreditato, cap ${SWAP_AVAIL_CREDIT_CAP_MB} MB) e' sceso a ${state.minHostHeadroomMb ?? state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi.`
+      : hostCause === 'hard-floor'
+        ? `Causa: MemAvailable dell'host e' scesa a ${state.minHostAvailMb} MB, sotto il pavimento RAM-only duro di ${HOST_AVAIL_HARD_FLOOR_MB} MB per ${thresholds.consecutiveSamples} campioni consecutivi.`
+        : hostCause === 'both'
+          ? `Causa: nel periodo di ${thresholds.consecutiveSamples} campioni consecutivi sono state superate entrambe le soglie host: headroom anonimo minimo ${state.minHostHeadroomMb ?? 'n/d'} MB sotto ${thresholds.hostAvailFloorMb} MB e MemAvailable minimo ${state.minHostAvailMb ?? 'n/d'} MB sotto il pavimento RAM-only duro di ${HOST_AVAIL_HARD_FLOOR_MB} MB.`
+          : `Causa: il pavimento host e' stato raggiunto, ma il ramo della soglia non e' disponibile nel campione di diagnosi.`;
   const cause =
     kind === 'host-floor'
-      ? `Causa: l'headroom anonimo dell'host (MemAvailable + spazio di evizione accreditato, cap ${SWAP_AVAIL_CREDIT_CAP_MB} MB) e' sceso a ${state.minHostHeadroomMb ?? state.minHostAvailMb} MB, sotto il pavimento di ${thresholds.hostAvailFloorMb} MB — oppure MemAvailable da solo e' sceso sotto ${HOST_AVAIL_HARD_FLOOR_MB} MB (minimo misurato ${state.minHostAvailMb} MB) — per ${thresholds.consecutiveSamples} campioni consecutivi.`
+      ? hostFloorCauseText
       : kind === 'swap-floor'
         ? `Causa: SwapFree dell'host e' sceso a ${state.minSwapFreeMb} MB, sotto il pavimento di ${thresholds.swapFreeFloorMb} MB, per ${thresholds.consecutiveSamples} campioni consecutivi — il kernel sta finendo lo spazio di evizione.`
         : `Causa: il footprint anonimo del processo di build (RSS + VmSwap) ha superato il tetto di ${thresholds.rssCeilingMb} MB per ${thresholds.consecutiveSamples} campioni consecutivi (picco ${state.peakAnonMb} MB, di cui ${state.peakRssMb} MB residenti).`;

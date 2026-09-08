@@ -294,6 +294,35 @@ export function vitestFailureIsNotAttributableToPr({
  */
 export const REVIEW_GATE_STEP_NAME = 'Require approving Claude review';
 
+/** Nome dello step che esegue davvero la review dentro il job vitest. */
+export const CLAUDE_REVIEW_STEP_NAME = 'Run Claude review';
+
+const REVIEW_STEP_IN_FLIGHT = new Set(['queued', 'in_progress']);
+const NON_GATING_REVIEW_STEPS = new Set([
+  'Mint GitHub App token for Claude review',
+  'Claude usage metrics',
+  'Explain the job verdict in the run summary',
+]);
+
+/**
+ * La review è in volo secondo la Jobs API?
+ *
+ * Il check-run non si chiama più `review`: dal 2026-08-26 la review è uno
+ * step del check `vitest (unit + integration)`. Il chiamante deve quindi
+ * leggere `.steps` del job corrente e non cercare un check-run ormai morto.
+ */
+export function reviewStepIsInFlight(steps) {
+  if (!Array.isArray(steps)) return false;
+  return steps.some(
+    (step) => step?.name === CLAUDE_REVIEW_STEP_NAME && REVIEW_STEP_IN_FLIGHT.has(String(step.status || '')),
+  );
+}
+
+/** Uno step advisory non è un test né il review gate. */
+export function isNonGatingReviewStep(name) {
+  return NON_GATING_REVIEW_STEPS.has(String(name || ''));
+}
+
 /**
  * Il rosso del check `vitest (unit + integration)` è il REVIEW GATE e non i
  * test?
@@ -327,6 +356,10 @@ export function vitestFailureIsReviewGate(steps) {
   let gateFailed = false;
   for (const s of steps) {
     if (!s || s.conclusion !== 'failure') continue;
+    // Jobs API può esporre `failure` anche per `continue-on-error: true`.
+    // Questi step sono advisory: il solo fallimento del review gate resta il
+    // discriminante, non il rumore di token/metriche dopo il gate.
+    if (isNonGatingReviewStep(s.name)) continue;
     if (s.name === REVIEW_GATE_STEP_NAME) gateFailed = true;
     else return false; // un altro step rosso: non è (solo) il gate.
   }

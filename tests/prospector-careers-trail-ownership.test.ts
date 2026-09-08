@@ -7,7 +7,7 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
   politeFetch: mocks.politeFetch,
 }));
 
-import { traceCareers } from '../scripts/lib/prospector/careers-trail.mjs';
+import { extractLinks, traceCareers } from '../scripts/lib/prospector/careers-trail.mjs';
 
 const response = (url: string, body: string) => ({ ok: true, status: 200, url, body, host: url ? new URL(url).hostname : '' });
 const filler = '<p>Informazioni autorevoli sulla struttura alberghiera, i servizi e il territorio.</p>'.repeat(6);
@@ -60,10 +60,10 @@ describe('prospector careers ownership trail', () => {
 
   it('keeps the ownership check aligned with a cross-origin homepage redirect', async () => {
     const requestedDomain = 'acme.ch';
-    const redirectedHomeUrl = 'https://acme-official.example/';
-    const careersUrl = 'https://acme-official.example/lavora-con-noi';
+    const redirectedHomeUrl = 'https://acme-official.example/company/about/index.html';
+    const careersUrl = 'https://acme-official.example/company/jobs.html';
     const atsUrl = 'https://tenant.real-ats.example/openings';
-    const homepage = `<html><title>Acme</title><body><a href="/lavora-con-noi">Lavora con noi</a><main>Benvenuti in Acme${filler}</main></body></html>`;
+    const homepage = `<html><title>Acme</title><body><a href="../jobs.html">Lavora con noi</a><a href="https://unrelated.example/lavora-con-noi">Lavora con noi altrove</a><main>Benvenuti in Acme${filler}</main></body></html>`;
     const careers = `<html><title>Acme carriere</title><body><h1>Lavora con noi</h1><main>${filler}</main><a href="${atsUrl}">Posizioni aperte</a></body></html>`;
     const ats = `<html><title>Acme jobs</title><body><script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',
@@ -86,12 +86,17 @@ describe('prospector careers ownership trail', () => {
 
     const result = await traceCareers(requestedDomain);
 
-    // A stale ownership check keyed on the pre-redirect `requestedDomain`
-    // would read the homepage's own relative careers link as pointing to an
-    // unrelated third party (its resolved host never matches `acme.ch`),
-    // dropping it as a candidate and never reaching the careers page at all.
+    const links = extractLinks(homepage, redirectedHomeUrl);
+    expect(links.find((link) => link.text === 'Lavora con noi')?.url).toBe(careersUrl);
+    expect(links.some((link) => link.url === 'https://unrelated.example/lavora-con-noi')).toBe(true);
+    // `extractLinks` must retain external links because the next hop uses them
+    // to discover an ATS. The career-candidate boundary, however, must reject
+    // that cross-origin link and use the redirected homepage origin for the
+    // deep `../jobs.html` link. A stale check keyed on `acme.ch` would drop the
+    // real candidate before reaching the careers page at all.
     expect(result.via).toContain('homepage-link');
     expect(result.careersUrls).toEqual([careersUrl]);
+    expect(result.careersUrls).not.toContain('https://unrelated.example/lavora-con-noi');
     expect(result.externalHosts).toHaveLength(1);
     expect(result.externalHosts[0]).toMatchObject({ host: 'tenant.real-ats.example', verified: true });
   });

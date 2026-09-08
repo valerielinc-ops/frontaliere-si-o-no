@@ -773,5 +773,17 @@ describe("il pavimento host misura l'headroom anonimo, non la sola RAM (#5899)",
     expect(text).toContain('headroom anonimo');
     expect(text).toContain('minHostHeadroomMb=700');
     expect(text).toContain('minHostAvailMb=600');
+    expect(text).not.toContain('oppure MemAvailable');
+  });
+
+  it("la diagnosi host-floor nomina il pavimento RAM-only quando e' quello superato", () => {
+    const state = createGuardState();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 200, swapFreeMb: 8000 }, withSwap);
+    }
+    const text = formatBreachDiagnosis('host-floor', state, withSwap);
+    expect(text).toContain('MemAvailable dell\'host e\' scesa a 200 MB');
+    expect(text).toContain(`pavimento RAM-only duro di ${HOST_AVAIL_HARD_FLOOR_MB} MB`);
+    expect(text).not.toContain('headroom anonimo dell\'host');
   });
 });

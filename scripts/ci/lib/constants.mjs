@@ -117,14 +117,15 @@ export const REDFLAG_IMPORTANT_RE = /^[^\n🟡🟢]*(?<!`)🔴\s*\*{0,2}\s*Impor
 
 /**
  * Identità che possono pubblicare la review Claude. Con il token GitHub App
- * la review non arriva come `claude[bot]`, ma come
- * `frontaliere-automation[bot]`; i gate devono riconoscere entrambe senza
- * accettare qualunque bot.
+ * la review non arriva sempre con `type: Bot`: le review REST storiche e
+ * quelle dell'App hanno metadati diversi. Il login, invece, resta l'identità
+ * allowlistata; i gate devono riconoscere le due forme senza accettare un
+ * bot/look-alike qualunque.
  */
 export const REVIEWER_BOT_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i;
 
 export function isReviewerBot(user) {
-  return user?.type === 'Bot' && REVIEWER_BOT_LOGIN_RE.test(user.login || '');
+  return REVIEWER_BOT_LOGIN_RE.test(user?.login || '');
 }
 
 /**
