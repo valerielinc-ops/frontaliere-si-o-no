@@ -68,12 +68,14 @@ function deferGroupCommit(
   crawlerId: string,
   extraPaths: string[] = [],
   generationToken = GENERATION_TOKEN,
+  envOverrides: Record<string, string> = {},
 ) {
   return spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', `update ${crawlerId}`, ...extraPaths], {
     cwd: repoDir,
     encoding: 'utf8',
     env: {
       ...groupEnv(repoDir, runnerTemp, crawlerId, generationToken),
+      ...envOverrides,
       CRAWLER_GROUP_DEFER_COMMIT: '1',
       JOBS_SLICE_FILE: `data/jobs/by-crawler/${crawlerId}.json`,
     },
@@ -145,6 +147,64 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
         { cwd: repoDir, encoding: 'utf8' },
       ).trim()).toBe(remoteHead);
     } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('normalizes a signal-killed receipt to GROUP_SHARED_PRECONDITION exit 43', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-signal-'));
+    const shimDir = mkdtempSync(join(tmpdir(), 'gcd-node-shim-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"old"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"new"}]\n');
+      // The receipt process is a child of the defer script. Killing only that
+      // invocation reproduces Node's conventional 128+signal status without
+      // importing the receipt module or touching any production data.
+      writeFileSync(
+        join(shimDir, 'node'),
+        `#!/bin/bash
+for arg in "$@"; do
+  case "$arg" in
+    */scripts/lib/crawler-generation-receipt.mjs)
+      for receiptArg in "$@"; do
+        if [ "$receiptArg" = "--defer-group-commit" ]; then
+          kill -TERM "$$"
+        fi
+      done
+      ;;
+  esac
+done
+exec ${JSON.stringify(process.execPath)} "$@"
+`,
+      );
+      chmodSync(join(shimDir, 'node'), 0o755);
+
+      const deferred = deferGroupCommit(
+        repoDir,
+        runnerTemp,
+        'a',
+        [],
+        GENERATION_TOKEN,
+        { PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}` },
+      );
+      expect(deferred.status, `${deferred.stdout}${deferred.stderr}`).toBe(43);
+      expect(`${deferred.stdout}${deferred.stderr}`).toContain('terminated by a signal');
+      expect(existsSync(join(
+        runnerTemp,
+        'crawler-generation',
+        'commit-batch',
+        'a.json',
+      ))).toBe(false);
+    } finally {
+      rmSync(shimDir, { recursive: true, force: true });
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
       rmSync(runnerTemp, { recursive: true, force: true });

@@ -43,6 +43,9 @@
 #        opens ONE `Workflow Failure: <group>` issue — but must NOT file a
 #        per-crawler issue: the crawler is not what broke. Distinct from 1
 #        so a real per-crawler commit failure keeps its own report.
+#        A receipt process killed by a signal reports the conventional shell
+#        status 128+signal; defer mode normalizes that status to 43 for the
+#        same shared-precondition carve-out while keeping the outer step red.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -568,6 +571,10 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}" \
     || descriptor_exit=$?
+  if [ "$descriptor_exit" -ge 128 ]; then
+    echo "⚠️ crawler group defer receipt was terminated by a signal (exit ${descriptor_exit}) — classifying as shared precondition (exit 43)"
+    descriptor_exit=43
+  fi
   if [ "$descriptor_exit" -ne 0 ]; then
     echo "❌ crawler group defer mode could not persist its commit descriptor"
     exit "$descriptor_exit"

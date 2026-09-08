@@ -238,7 +238,7 @@ export function classifyFindings(pairs, opts = {}) {
 
 /**
  * @param {{ keys: [string, string], shared: string[] }[]} duplicates
- * @returns {{ title: string, description: string, dedupKey: string }}
+ * @returns {{ title: string, description: string, dedupKey: string, signals: object }}
  */
 export function duplicateIssue(duplicates) {
   const title = `${DUPLICATE_ISSUE_KEY} crawler diversi pubblicano le stesse vacancy sotto companyKey diverse`;
@@ -260,12 +260,22 @@ export function duplicateIssue(duplicates) {
         `- **${p.keys[0]}** + **${p.keys[1]}** — ${p.shared.length} vacancy in comune\n${bulletList(p.shared.slice(0, 3))}`,
     ),
   ].join('\n');
-  return { title, description: body, dedupKey: DUPLICATE_ISSUE_KEY };
+  return {
+    title,
+    description: body,
+    dedupKey: DUPLICATE_ISSUE_KEY,
+    signals: {
+      cosa: 'l\'audit ha trovato coppie di crawler diverse che pubblicano la stessa URL di vacancy',
+      metrica: { osservato: duplicates.length, atteso: 0 },
+      comando: 'node scripts/audit-duplicate-crawler-companies.mjs',
+      evidenza: duplicates.slice(0, 3).map((p) => `${p.keys[0]} + ${p.keys[1]} (${p.shared.length} URL in comune)`),
+    },
+  };
 }
 
 /**
  * @param {ReturnType<typeof classifyFindings>['gaps']} gaps
- * @returns {{ title: string, description: string, dedupKey: string }}
+ * @returns {{ title: string, description: string, dedupKey: string, signals: object }}
  */
 export function gapIssue(gaps) {
   const total = gaps.reduce((n, g) => n + g.missing.length, 0);
@@ -287,12 +297,22 @@ export function gapIssue(gaps) {
         `- **${g.key}** — ${g.missing.length} vacancy che \`${g.twin}\` vede e lui no:\n${bulletList(g.missing)}`,
     ),
   ].join('\n');
-  return { title, description: body, dedupKey: COVERAGE_GAP_ISSUE_KEY };
+  return {
+    title,
+    description: body,
+    dedupKey: COVERAGE_GAP_ISSUE_KEY,
+    signals: {
+      cosa: 'l\'audit ha trovato vacancy viste dal crawler gemello ma assenti dal crawler principale',
+      metrica: { osservato: total, atteso: 0 },
+      comando: 'node scripts/audit-duplicate-crawler-companies.mjs',
+      evidenza: gaps.slice(0, 3).map((g) => `${g.key}: ${g.missing.length} URL mancanti rispetto a ${g.twin}`),
+    },
+  };
 }
 
 /**
  * @param {ReturnType<typeof classifyFindings>['staleSnapshots']} staleSnapshots
- * @returns {{ title: string, description: string, dedupKey: string }}
+ * @returns {{ title: string, description: string, dedupKey: string, signals: object }}
  */
 export function staleSnapshotIssue(staleSnapshots) {
   const title = `${STALE_SNAPSHOT_ISSUE_KEY} crawler witness senza snapshot aggiornato oltre due cicli`;
@@ -313,7 +333,17 @@ export function staleSnapshotIssue(staleSnapshots) {
         + `\`${new Date(finding.assembledAtMs).toISOString()}\``;
     }),
   ].join('\n');
-  return { title, description: body, dedupKey: STALE_SNAPSHOT_ISSUE_KEY };
+  return {
+    title,
+    description: body,
+    dedupKey: STALE_SNAPSHOT_ISSUE_KEY,
+    signals: {
+      cosa: 'l\'audit ha trovato witness crawler senza snapshot aggiornato da oltre due cicli',
+      metrica: { osservato: staleSnapshots.length, atteso: 0 },
+      comando: 'node scripts/audit-duplicate-crawler-companies.mjs',
+      evidenza: staleSnapshots.slice(0, 3).map((finding) => `${finding.key}: snapshot di ${Math.floor(finding.ageMs / (60 * 60 * 1000))}h`),
+    },
+  };
 }
 
 async function main() {
@@ -361,18 +391,18 @@ async function main() {
 
   const { createGithubIssue } = await import('./lib/github-issue-creator.mjs');
   if (duplicates.length) {
-    const { title, description, dedupKey } = duplicateIssue(duplicates);
-    await createGithubIssue({ title, description, dedupKey, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
+    const { title, description, dedupKey, signals } = duplicateIssue(duplicates);
+    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
     console.log(`\n→ issue duplicate-identity: ${title}`);
   }
   if (gaps.length) {
-    const { title, description, dedupKey } = gapIssue(gaps);
-    await createGithubIssue({ title, description, dedupKey, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
+    const { title, description, dedupKey, signals } = gapIssue(gaps);
+    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
     console.log(`→ issue coverage-gap: ${title}`);
   }
   if (staleSnapshots.length) {
-    const { title, description, dedupKey } = staleSnapshotIssue(staleSnapshots);
-    await createGithubIssue({ title, description, dedupKey, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
+    const { title, description, dedupKey, signals } = staleSnapshotIssue(staleSnapshots);
+    await createGithubIssue({ title, description, dedupKey, signals, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
     console.log(`→ issue snapshot-stale: ${title}`);
   }
 }

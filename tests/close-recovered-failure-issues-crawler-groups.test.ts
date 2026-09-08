@@ -26,8 +26,11 @@ import {
   CRAWLER_STEP_RE,
   crawlerRunToken,
   crawlerWorkflowReference,
+  buildRunListArgs,
+  filterCrawlerRecoveryRuns,
   findCrawlerGroupWorkflow,
   findCrawlerGroupWorkflowName,
+  isCrawlerRecoveryBranch,
 } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
 describe('TITLE_RE — parses the three auto-generated failure-title prefixes', () => {
@@ -76,6 +79,39 @@ describe('CRAWLER_STEP_RE — extracts the crawler slug from the "Run <slug>" id
     // Sanity: a Workflow/CI Failure's group-2 value should NOT accidentally
     // look like "Run <slug>" and get misrouted into the crawler-step path.
     expect(CRAWLER_STEP_RE.exec('Orchestrate Job Crawlers')).toBeNull();
+  });
+});
+
+describe('crawler recovery run population', () => {
+  it('accepts main and valid generation-shadow branches only', () => {
+    expect(isCrawlerRecoveryBranch('main')).toBe(true);
+    expect(isCrawlerRecoveryBranch('crawler-generation-shadow-9001-2')).toBe(true);
+    expect(isCrawlerRecoveryBranch('crawler-generation-shadow-9001-0')).toBe(false);
+    expect(isCrawlerRecoveryBranch('crawler-generation-shadow-9001-2-extra')).toBe(false);
+    expect(isCrawlerRecoveryBranch('feature/retry-crawler')).toBe(false);
+  });
+
+  it('filters pull-request and unrelated branches from the shadow listing', () => {
+    const runs = [
+      { databaseId: 1, headBranch: 'crawler-generation-shadow-9001-2' },
+      { databaseId: 2, headBranch: 'main' },
+      { databaseId: 3, headBranch: 'feature/crawler-debug' },
+      { databaseId: 4, headBranch: 'crawler-generation-shadow-9001-0' },
+    ];
+    expect(filterCrawlerRecoveryRuns(runs).map((run) => run.databaseId)).toEqual([1, 2]);
+  });
+
+  it('drops -b main only for crawler recovery and requests headBranch for filtering', () => {
+    const crawlerArgs = buildRunListArgs('Crawler Group 02 (26 crawlers)', {
+      includeCrawlerShadowBranches: true,
+    });
+    expect(crawlerArgs).not.toContain('-b');
+    expect(crawlerArgs).not.toContain('main');
+    expect(crawlerArgs).toContain('databaseId,conclusion,status,createdAt,headBranch');
+
+    const ordinaryArgs = buildRunListArgs('tests');
+    expect(ordinaryArgs).toContain('-b');
+    expect(ordinaryArgs).toContain('main');
   });
 });
 
