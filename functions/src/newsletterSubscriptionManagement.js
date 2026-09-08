@@ -59,7 +59,6 @@ import {
  scopeForAction,
  TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
-import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -495,18 +494,23 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // `autologin_revoked_before` watermark — so revocation costs no extra read.
  let optedOut = false;
  let revokedBefore = null;
+ let accountDeleted = false;
  try {
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  if (subDoc.exists) {
  const data = subDoc.data() || {};
- if (isAccountDeletedTombstone(data)) {
- refuseAutologin('account_deleted', verdict.scheme);
- return { status: 403, json: { success: false, error: 'account_deleted' } };
- }
+ accountDeleted = Boolean(
+ data.account_deleted_at
+ || String(data.status || '').trim().toLowerCase() === 'account_deleted',
+ );
  optedOut = data.autologin_enabled === false;
  revokedBefore = revokedBeforeMs(data.autologin_revoked_before);
  }
- } catch { /* read failure: signature verdict alone, exactly as before */ }
+ } catch (readErr) {
+ console.error('[exchange_auth_code] subscriber state read failed:', readErr?.message || readErr);
+ refuseAutologin('account_state_unavailable', verdict.scheme);
+ return { status: 503, json: { success: false, error: 'account_state_unavailable' } };
+ }
 
  // Same rule the module applies, from the same function — this branch grades
  // the signature BEFORE the Firestore read, so the watermark has to be applied
@@ -553,6 +557,26 @@ export async function handleSubscriptionManagement({ action, email, token, local
  uid = newUser.uid;
  }
  if (uid) {
+ // Account deletion leaves an address-level tombstone so ordinary delivery
+ // paths cannot accidentally recreate the old cycle. A successful, authenticated
+ // autologin is itself a new registration method: restore the subscriber before
+ // handing the session to the browser. Historical opt-out stamps remain as
+ // evidence; only the deletion marker is removed.
+ if (accountDeleted) {
+ await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ status: 'confirmed',
+ isActive: true,
+ active: true,
+ account_deleted_at: admin.firestore.FieldValue.delete(),
+ confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+ confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+ resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ }
  const authToken = await admin.auth().createCustomToken(uid);
  // AFTER the token is actually minted, not before: the metric counts sessions
  // that were really handed out, so a `createCustomToken` failure lands in the
@@ -647,37 +671,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  mintNewsletterActionToken(normalizedEmail, TOKEN_SCOPES.RESUBSCRIBE, { secret, policy: tokenPol }) || token
  );
 
- // A leftover confirmation / resubscribe / preferences-on click after
- // Auth-delete must not resurrect the subscriber (or mint a new Auth user).
- // Unsubscribe stays reachable: ending mail is never harder after deletion.
- const desiredOn = subscribed === true || subscribed === 'true' || subscribed === '1';
- const wouldResubscribe = action === 'confirm'
-  || action === 'resubscribe'
-  || (action === 'toggle_newsletter_subscription' && desiredOn);
- if (wouldResubscribe) {
-  try {
-   const deletedSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
-   if (deletedSnap.exists && isAccountDeletedTombstone(deletedSnap.data())) {
-    if (action === 'toggle_newsletter_subscription') {
-     return { status: 403, json: { success: false, error: 'account_deleted' } };
-    }
-    return {
-     status: 403,
-     accountDeleted: true,
-     html: buildResponseHtml({
-      title: t(lang, 'manageErrorTitle'),
-      message: t(lang, 'manageErrorInvalidAction'),
-      showResubscribe: false,
-      email: '',
-      token: '',
-      locale: lang,
-     }),
-    };
-   }
-  } catch (tombstoneErr) {
-   console.warn('[newsletterManage] tombstone read failed:', tombstoneErr?.message || tombstoneErr);
-  }
- }
+ // A confirmed link, a deliberate resubscribe POST, and the preferences
+ // centre's explicit "on" action are all valid re-registration methods after
+ // account deletion. Their writes clear the lifecycle marker below.
 
  if (action === 'get_autologin_status') {
  try {
@@ -881,6 +877,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'subscribed',
  isActive: true,
  active: true,
+ account_deleted_at: admin.firestore.FieldValue.delete(),
  // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
  // re-opt-in stamp is what lifts the opt-out for every sender now —
  // `isNewsletterOptOutBinding` compares the two — so the lift is no
@@ -1177,6 +1174,20 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'alert_limit_reached' } };
  }
 
+ // Creating an alert is an explicit new job-alert registration. Lift only the
+ // account-deletion lifecycle marker on the parent; historical delivery and
+ // opt-out evidence remains untouched. The sender checks this parent before it
+ // delivers any child alert.
+ await db.collection('job_alert_subscribers').doc(normalizedEmail).set({
+ email: normalizedEmail,
+ status: 'active',
+ isActive: true,
+ active: true,
+ account_deleted_at: admin.firestore.FieldValue.delete(),
+ updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+
  const docData = {
  keywords: kw,
  locations: loc,
@@ -1286,6 +1297,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  active: true,
  confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
  confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+ account_deleted_at: admin.firestore.FieldValue.delete(),
  // A double opt-in confirmation click IS the explicit act that lifts an
  // earlier opt-out — without something recording that, the confirmation
  // said "sei iscritto" while scripts/send-newsletter.mjs kept dropping
@@ -1485,6 +1497,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 'confirmed',
  isActive: true,
  active: true,
+ account_deleted_at: admin.firestore.FieldValue.delete(),
  resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
  // The proof of consent, written HERE too and not only in the `confirm`
  // branch (#5677). This branch wrote `confirmed` with no stamp, and the

@@ -8,6 +8,8 @@ import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, m
 import {
   positiveEventRecoveryFields,
   positiveEventStatusFields,
+  protectAccountDeletedSubscriberUpdate,
+  mergeAccountDeletedSubscriberUpdate,
   HUMAN_DECLARED_SUPPRESSIONS,
   MACHINE_INFERRED_SUPPRESSIONS,
 } from './lib/subscriberReactivation.js';
@@ -269,15 +271,11 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  let currentData = null;
  let currentStatus = null;
  let currentBounceSeverity = null;
- try {
  const subscriberDoc = await tx.get(subscriberRef);
  if (subscriberDoc.exists) {
  currentData = subscriberDoc.data() || null;
  currentStatus = currentData?.status || null;
  currentBounceSeverity = currentData?.bounce_severity || null;
- }
- } catch {
- // If read fails, proceed without status — safe default
  }
 
  const subscriberUpdate = buildSubscriberUpdate(type, {
@@ -318,7 +316,11 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  }
  }
 
- tx.set(subscriberRef, subscriberUpdate, { merge: true });
+ tx.set(
+ subscriberRef,
+ protectAccountDeletedSubscriberUpdate(subscriberUpdate, currentData),
+ { merge: true },
+ );
  });
 
  if (bounceSeverity === 'soft') {
@@ -458,17 +460,19 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- if (type === 'delivered' || type === 'open' || type === 'click') {
- const current = (await subscriberRef.get()).data() || {};
- Object.assign(topUpdate, positiveEventStatusFields({
+ await mergeAccountDeletedSubscriberUpdate(
+ subscriberRef,
+ topUpdate,
+ type === 'delivered' || type === 'open' || type === 'click'
+ ? (current) => positiveEventStatusFields({
  subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
- }));
- }
-
- await subscriberRef.set(topUpdate, { merge: true });
+ })
+ : null,
+ db,
+ );
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

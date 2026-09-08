@@ -144,6 +144,19 @@ describe('bounceClassification', () => {
       expect(ref.__data().status).toBe('confirmed');
     });
 
+    it('does not escalate a late soft bounce while account deletion is tombstoned', async () => {
+      const ref = fakeSubscriberRef({
+        soft_bounce_count: SOFT_ESCALATION_THRESHOLD,
+        status: 'unsubscribed',
+        account_deleted_at: '2026-08-02T09:00:00.000Z',
+      });
+      const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');
+      expect(escalated).toBe(false);
+      expect(ref.__data().status).toBe('unsubscribed');
+      expect(ref.__data().bounce_severity).toBeUndefined();
+      expect(ref.__writes).toHaveLength(0);
+    });
+
     it('escalates to a permanent bounced status once the threshold is reached', async () => {
       const ref = fakeSubscriberRef({ soft_bounce_count: SOFT_ESCALATION_THRESHOLD, status: 'confirmed' });
       const escalated = await maybeEscalateSoftBounce(ref as any, 'greylisted');

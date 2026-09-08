@@ -18,8 +18,9 @@
  * client `deleteDoc` is denied and was being swallowed. Auth disappears, the
  * `pending` row stays, and `sendNewsletterConfirmationEmail` still mails.
  * Client rules cannot fix that; this Admin-SDK path tombstones those rows
- * (kept, not deleted) so a later merge-write cannot mint a fresh Auth user
- * via `onDocumentCreated` / `syncAuthAccountForSubscriber`.
+ * (kept, not deleted) so a later derived merge-write cannot mint a fresh Auth
+ * user; only a registration that explicitly clears the marker reopens Auth
+ * synchronization.
  *
  * Deletes in pages of 450 (under Firestore's 500-writes-per-batch limit)
  * because the client-side SAVED_JOBS_CAP (100) is a soft, client-enforced
@@ -110,9 +111,12 @@ export async function tombstoneEmailKeyedSubscribers(rawEmail, db) {
  * @returns {Promise<{deletedSavedJobs: number, tombstonedNewsletter: boolean, tombstonedJobAlert: boolean}>}
  */
 export async function cleanupUserDataForDeletedAccount(user, injectedDb) {
-  const db = injectedDb || admin.firestore();
-  const { uid, email } = user || {};
-  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
-  const subscribers = await tombstoneEmailKeyedSubscribers(email, db);
-  return { ...saved, ...subscribers };
+ const db = injectedDb || admin.firestore();
+ const { uid, email } = user || {};
+ const subscribers = await tombstoneEmailKeyedSubscribers(email, db);
+ // The tombstone is the safety boundary: finish it before best-effort data
+ // deletion so a savedJobs failure can never leave the old email lifecycle
+ // without an address-level cleanup marker.
+ const saved = await cleanupSavedJobsForDeletedUser(uid, db);
+ return { ...saved, ...subscribers };
 }

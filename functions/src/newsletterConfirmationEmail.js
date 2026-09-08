@@ -22,6 +22,7 @@ import {
   resolveNewsletterTokenPolicy,
   TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
+import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 import {
   CONFIRMATION_FRAMES,
   CONFIRMATION_FROM_EMAIL,
@@ -39,7 +40,6 @@ import {
   buildConfirmationSentFields,
   buildConfirmationSentEvent,
 } from './lib/confirmationFollowup.js';
-import { isAccountDeletedTombstone } from './authAccountCleanup.js';
 
 // The template, the sender address and the confirm URL now live in
 // lib/confirmationEmailContent.js: scripts/newsletter-confirmation-followups.mjs

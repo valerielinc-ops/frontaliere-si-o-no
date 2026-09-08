@@ -6,9 +6,10 @@
  * calculator_paywall, offerwall, chatbot, ...) write straight to Firestore via
  * `upsertNewsletterSubscriber` and never touch `firebase/auth`. Rather than
  * patch each of the ~16 call sites, this module is invoked by a single
- * `onDocumentCreated` trigger (see functions/index.js) on every new
- * `newsletter_subscribers/{email}` doc, and silently creates a matching Auth
- * account (no password, `emailVerified:false`, no email sent) when one doesn't
+ * `onDocumentWritten` trigger (see functions/index.js) on every new
+ * `newsletter_subscribers/{email}` doc and on a tombstone re-registration,
+ * then silently creates a matching Auth account (no password,
+ * `emailVerified:false`, no email sent) when one doesn't
  * already exist. Subscribers coming from auth_google/auth_facebook/auth_linkedin
  * already have an Auth account created before the Firestore doc, so this is a
  * no-op for the common case.
@@ -33,15 +34,25 @@ export async function syncAuthAccountForSubscriber(rawEmail, deps = {}) {
     return { created: false, reason: 'invalid_email' };
   }
 
-  const db = deps.db || admin.firestore();
-  try {
-    const snap = await db.collection('newsletter_subscribers').doc(email).get();
-    if (snap.exists && isAccountDeletedTombstone(snap.data())) {
+ const db = deps.db || admin.firestore();
+ try {
+    // A tombstone marks the end of the previous Auth lifecycle, not a ban on
+    // the address. Reading it still matters: a transient Firestore failure must
+    // not make this trigger create an account without knowing whether the
+    // subscriber write is valid.
+    const subscriberSnapshot = await db.collection('newsletter_subscribers').doc(email).get();
+    if (subscriberSnapshot.exists && isAccountDeletedTombstone(subscriberSnapshot.data())) {
       return { created: false, reason: 'account_deleted' };
     }
   } catch (error) {
-    // Fail open: a lookup hiccup must not block the 522-orphan Auth create.
+    // Fail closed: retry the trigger later instead of creating an Auth account
+    // while the subscriber state is unavailable.
     console.error('[syncAuthAccountForSubscriber] tombstone read', error instanceof Error ? error.message : String(error));
+    return {
+      created: false,
+      reason: 'tombstone_check_failed',
+      error: error instanceof Error ? error.message : String(error),
+    };
   }
 
   const auth = deps.auth || admin.auth();

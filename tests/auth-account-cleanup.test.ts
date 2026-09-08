@@ -1,7 +1,7 @@
 /**
  * Account-delete cleanup: Auth onDelete must tombstone email-keyed subscriber
- * docs (client rules deny newsletter delete), confirmation send must refuse,
- * and newsletter→Auth sync must not mint a new user that restarts the cycle.
+ * docs (client rules deny newsletter delete), then allow every supported
+ * registration path to start a new lifecycle on the same email.
  */
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -217,6 +217,24 @@ describe('cleanupUserDataForDeletedAccount', () => {
     expect(result.tombstonedNewsletter).toBe(false);
     expect(db.store[`newsletter_subscribers/${EMAIL}`].status).toBe('pending');
   });
+
+  it('keeps the tombstones when saved-job cleanup fails, so retries remain safe', async () => {
+    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+      '../functions/src/authAccountCleanup.js'
+    );
+    const db = seedDeletedUser();
+    const originalBatch = db.batch;
+    db.batch = (() => ({
+      delete: () => {},
+      commit: async () => { throw new Error('savedJobs unavailable'); },
+    })) as unknown as typeof originalBatch;
+
+    await expect(
+      cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never),
+    ).rejects.toThrow('savedJobs unavailable');
+    expect(isAccountDeletedTombstone(db.store[`newsletter_subscribers/${EMAIL}`])).toBe(true);
+    expect(isAccountDeletedTombstone(db.store[`job_alert_subscribers/${EMAIL}`])).toBe(true);
+  });
 });
 
 describe('sendNewsletterConfirmationEmail after account-delete cleanup', () => {
@@ -234,7 +252,7 @@ describe('sendNewsletterConfirmationEmail after account-delete cleanup', () => {
     });
   }
 
-  it('refuses the send path after cleanup of a pending subscriber', async () => {
+  it('refuses a confirmation resend while the subscriber is tombstoned', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -248,7 +266,7 @@ describe('sendNewsletterConfirmationEmail after account-delete cleanup', () => {
     expect(vi.mocked((await cascade()).sendEmailCascade)).not.toHaveBeenCalled();
   });
 
-  it('refuses a login-purpose confirm for the same tombstoned address', async () => {
+  it('refuses a login-purpose confirmation while the address is tombstoned', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -279,7 +297,7 @@ describe('syncAuthAccountForSubscriber after account-delete cleanup', () => {
     return { createUser, getUserByEmail };
   }
 
-  it('does not createUser for a tombstoned address even when Auth has no user', async () => {
+  it('does not create an Auth user while the address is still tombstoned', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -316,11 +334,11 @@ describe('syncAuthAccountForSubscriber after account-delete cleanup', () => {
   });
 });
 
-describe('click/open after account-delete must not resubscribe', () => {
+describe('all supported registration methods after account-delete', () => {
   const SECRET = 'test-secret';
 
-  it('a leftover confirmation-link click does not confirm or mint authToken', async () => {
-    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+  it('a confirmation-link click starts a new confirmed lifecycle', async () => {
+    const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
     const { handleSubscriptionManagement } = await import(
@@ -331,7 +349,6 @@ describe('click/open after account-delete must not resubscribe', () => {
     );
     const db = seedDeletedUser();
     await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
-    const before = { ...db.store[`newsletter_subscribers/${EMAIL}`] };
 
     const result = await handleSubscriptionManagement({
       action: 'confirm',
@@ -342,17 +359,17 @@ describe('click/open after account-delete must not resubscribe', () => {
       db: db as never,
     });
 
-    expect(result.status).toBe(403);
-    expect(result.accountDeleted).toBe(true);
-    expect(result.authToken).toBeUndefined();
+    expect(result.status).toBe(200);
+    expect(result.accountDeleted).toBeUndefined();
     const after = db.store[`newsletter_subscribers/${EMAIL}`];
-    expect(isAccountDeletedTombstone(after)).toBe(true);
-    expect(after.status).toBe(before.status);
-    expect(after.isActive).toBe(false);
+    expect(after.status).toBe('confirmed');
+    expect(after.isActive).toBe(true);
+    expect(after.account_deleted_at).toBe('__delete__');
+    expect(after.resubscribed_at).toBe('__server_ts__');
   });
 
-  it('a leftover resubscribe POST does not lift the tombstone', async () => {
-    const { cleanupUserDataForDeletedAccount, isAccountDeletedTombstone } = await import(
+  it('a resubscribe POST lifts the tombstone and confirms the new cycle', async () => {
+    const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
     const { handleSubscriptionManagement } = await import(
@@ -375,11 +392,13 @@ describe('click/open after account-delete must not resubscribe', () => {
       db: db as never,
     });
 
-    expect(result.status).toBe(403);
-    expect(result.resubscribeApplied).not.toBe(true);
+    expect(result.status).toBe(200);
+    expect(result.resubscribeApplied).toBe(true);
     const after = db.store[`newsletter_subscribers/${EMAIL}`];
-    expect(isAccountDeletedTombstone(after)).toBe(true);
-    expect(after.status).toBe('unsubscribed');
+    expect(after.status).toBe('confirmed');
+    expect(after.isActive).toBe(true);
+    expect(after.account_deleted_at).toBe('__delete__');
+    expect(after.resubscribed_at).toBe('__server_ts__');
   });
 
   it('ESP open and click do not recover status on a tombstoned subscriber', async () => {
@@ -398,7 +417,7 @@ describe('click/open after account-delete must not resubscribe', () => {
 
     expect(
       positiveEventRecoveryFields({
-        currentStatus: tombstone.status,
+        currentStatus: String(tombstone.status || ''),
         event: 'open',
         subscriber: tombstone,
       }),
@@ -432,7 +451,7 @@ describe('click/open after account-delete must not resubscribe', () => {
     expect(after.reactivated_at).toBeUndefined();
   });
 
-  it('an autologin code in a leftover email does not mint a session', async () => {
+  it('an autologin code in a leftover email starts a new Auth session', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -446,20 +465,36 @@ describe('click/open after account-delete must not resubscribe', () => {
     await cleanupUserDataForDeletedAccount({ uid: UID, email: EMAIL }, db as never);
     const env = { NEWSLETTER_AC_SCHEME: 'v1', NEWSLETTER_AC_TTL_DAYS: '30' };
     const token = mintAutologinCode(EMAIL, { secret: SECRET, env, now: Date.now() });
-
-    const result = await handleSubscriptionManagement({
-      action: 'exchange_auth_code',
-      email: EMAIL,
-      token,
-      secret: SECRET,
-      locale: 'it',
-      autologinPolicy: resolveAutologinPolicy(env),
-      db: db as never,
+    const admin = (await import('firebase-admin')).default as any;
+    const originalAuth = admin.auth;
+    admin.auth = () => ({
+      getUserByEmail: vi.fn(async () => {
+        throw Object.assign(new Error('not found'), { code: 'auth/user-not-found' });
+      }),
+      createUser: vi.fn(async () => ({ uid: 'new-autologin-user' })),
+      createCustomToken: vi.fn(async () => 'custom-auth-token'),
     });
 
-    expect(result.status).toBe(403);
-    expect(result.json).toEqual({ success: false, error: 'account_deleted' });
-    expect(result.json?.authToken).toBeUndefined();
+    try {
+      const result = await handleSubscriptionManagement({
+        action: 'exchange_auth_code',
+        email: EMAIL,
+        token,
+        secret: SECRET,
+        locale: 'it',
+        autologinPolicy: resolveAutologinPolicy(env),
+        db: db as never,
+      });
+
+      expect(result.status).toBe(200);
+      expect(result.json).toEqual({ success: true, authToken: 'custom-auth-token' });
+      const after = db.store[`newsletter_subscribers/${EMAIL}`];
+      expect(after.status).toBe('confirmed');
+      expect(after.isActive).toBe(true);
+      expect(after.account_deleted_at).toBe('__delete__');
+    } finally {
+      admin.auth = originalAuth;
+    }
   });
 });
 
@@ -486,5 +521,26 @@ describe('profile delete path no longer pretends client newsletter delete is the
 
   it('onDelete passes the Auth user email into the shared cleanup', () => {
     expect(indexSrc).toMatch(/cleanupUserDataForDeletedAccount\(\{\s*uid:\s*user\.uid,\s*email:\s*user\.email\s*\}\)/);
+  });
+
+  it('only runs the write trigger for a tombstone when the marker is actually cleared', () => {
+    expect(indexSrc).toMatch(/const clearedAccountDeletion = wasAccountDeleted && !isAccountDeletedTombstone\(after\.data\(\)\)/);
+    expect(indexSrc).toMatch(/if \(isNewDocument && isAccountDeletedTombstone\(after\.data\(\)\)\) return/);
+    expect(indexSrc).toMatch(/if \(!isNewDocument && !clearedAccountDeletion\) return/);
+  });
+
+  it('rechecks job-alert backfill when a re-registration clears the tombstone', () => {
+    expect(indexSrc).toMatch(/const clearedAccountDeletion = beforeData\s+&& isAccountDeletedTombstone\(beforeData\)\s+&& !isAccountDeletedTombstone\(afterData\)/);
+    expect(indexSrc).toMatch(/if \(!signalTierChanged\(beforeData, afterData\) && !clearedAccountDeletion\) return/);
+  });
+
+  it('clears local newsletter lifecycle flags after a successful account deletion', () => {
+    const fn = profileSrc.slice(
+      profileSrc.indexOf('const handleDeleteAccount'),
+      profileSrc.indexOf('const handleExportData'),
+    );
+    expect(fn).toMatch(/localStorage\.removeItem\(['"]newsletter_subscribed['"]\)/);
+    expect(fn).toMatch(/localStorage\.removeItem\(['"]newsletter_pending_email['"]\)/);
+    expect(fn).toMatch(/localStorage\.removeItem\(['"]newsletter_pending_since['"]\)/);
   });
 });

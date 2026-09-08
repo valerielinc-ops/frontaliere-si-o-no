@@ -5,10 +5,11 @@
  * lead_magnet, analysis_gate, calculator_paywall, offerwall, chatbot write
  * straight to Firestore via upsertNewsletterSubscriber and never touch Auth).
  *
- * Going forward the `syncNewsletterSubscriberAuth` onDocumentCreated trigger
+ * Going forward the `syncNewsletterSubscriberAuth` onDocumentWritten trigger
  * (functions/index.js, functions/src/newsletterSubscriberAuthSync.js) closes
- * this gap for every NEW subscriber doc. This script is a one-time catch-up
- * for the docs that already existed before that trigger was deployed.
+ * this gap for every NEW subscriber doc and for a subscriber reactivated after
+ * account deletion. This script is a one-time catch-up for the docs that
+ * already existed before that trigger was deployed.
  *
  * Usage:
  *   GOOGLE_APPLICATION_CREDENTIALS=… node scripts/dev/backfill-newsletter-subscriber-auth.mjs
@@ -56,8 +57,15 @@ const existingAuthEmails = new Set(
 );
 
 const subSnap = await db.collection('newsletter_subscribers').get();
+const isAccountDeletedTombstone = (data) => Boolean(
+  data
+  && typeof data === 'object'
+  && (data.account_deleted_at
+    || String(data.status || '').trim().toLowerCase() === 'account_deleted'),
+);
+const tombstonedSubscriberCount = subSnap.docs.filter((d) => isAccountDeletedTombstone(d.data())).length;
 const subscriberEmails = subSnap.docs
-  .filter((d) => d.id !== '_meta_')
+  .filter((d) => d.id !== '_meta_' && !isAccountDeletedTombstone(d.data()))
   .map((d) => (d.data().email || d.id || '').toLowerCase().trim())
   .filter(Boolean);
 
@@ -67,7 +75,8 @@ const uniqueSubscriberEmails = [...new Set(subscriberEmails)];
 // ─── Identify orphans (subscriber doc, no Auth user) ───
 const orphans = uniqueSubscriberEmails.filter((email) => !existingAuthEmails.has(email));
 
-console.log(`\n${uniqueSubscriberEmails.length} newsletter_subscribers docs, ${orphans.length} with no matching Auth user\n`);
+console.log(`\n${uniqueSubscriberEmails.length} active newsletter_subscribers docs, ${orphans.length} with no matching Auth user`);
+console.log(`Skipped ${tombstonedSubscriberCount} account-deleted tombstone(s) — they must not recreate Auth users.\n`);
 
 if (orphans.length === 0) {
   console.log('Nothing to backfill.');

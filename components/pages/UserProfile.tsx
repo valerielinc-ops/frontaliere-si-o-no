@@ -760,6 +760,9 @@ const UserProfile: React.FC = () => {
  // 4. Delete Firebase Auth account
  const deleted = await deleteCurrentUser();
  if (deleted) {
+ localStorage.removeItem('newsletter_subscribed');
+ localStorage.removeItem('newsletter_pending_email');
+ localStorage.removeItem('newsletter_pending_since');
  setShowDeleteConfirm(false);
  // Reset profile to default
  setProfile(DEFAULT_PROFILE);
