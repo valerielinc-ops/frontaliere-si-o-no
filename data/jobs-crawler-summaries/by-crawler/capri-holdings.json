@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-07T23:41:55.660Z",
-  "total": 8,
+  "generatedAt": "2026-09-08T13:48:24.827Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 17314,
-  "avgDurationMs": 17314,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 21368,
+  "avgDurationMs": 21368,
   "durationHistory": [
-    17314
+    21368
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "general-services-coordinator-capri-holdings",
+      "slug": "general-services-coordinatore-capri-holdings-michael-kors-versace-manno",
       "category": "general",
       "datePosted": "2026-09-07",
       "source": "capri-holdings-workday-crawler",
@@ -45,11 +45,11 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:21:58.179Z",
       "crawledAt": "",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 15
       }
     },
@@ -81,9 +81,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -196,9 +196,9 @@
         "location": "Geneva"
       },
       "id": "capri-holdings-7593aa4af27d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -208,8 +208,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Supervisor--30h-Michael-Kors-Landquart_R_785916",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Supervisor--30h-Michael-Kors-Landquart_R_785916",
@@ -245,7 +244,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -289,7 +287,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -334,13 +331,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -1,21 +1,21 @@
 {
   "key": "arxada",
   "label": "Arxada",
-  "generatedAt": "2026-09-07T23:41:57.814Z",
-  "total": 7,
+  "generatedAt": "2026-09-08T13:48:25.209Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11456,
-  "avgDurationMs": 11456,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11067,
+  "avgDurationMs": 11067,
   "durationHistory": [
-    11456
+    11067
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,7 +43,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53897-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:48.756Z",
+      "crawledAt": "2026-09-08T13:48:17.441Z",
       "jobReqId": "R53897",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T10:26:04.099Z",
@@ -79,9 +79,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:50.376Z",
+      "crawledAt": "2026-09-08T13:48:19.033Z",
       "jobReqId": "R50117",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-02T10:34:06.281Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Manufacturing-Manager---Production-Engineering_R53702",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:48.143Z",
+      "crawledAt": "2026-09-08T13:48:16.745Z",
       "jobReqId": "R53702",
       "firstSeenAt": "2026-07-01T11:10:50.624Z",
       "_qualityScore": 84,
@@ -150,9 +150,8 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R53576",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:47.041Z",
+      "crawledAt": "2026-09-08T13:48:16.044Z",
       "jobReqId": "R53576",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -186,9 +185,8 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:46.423Z",
+      "crawledAt": "2026-09-08T13:48:15.234Z",
       "jobReqId": "R53358",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -222,9 +220,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:41:49.378Z",
+      "crawledAt": "2026-09-08T13:48:18.151Z",
       "jobReqId": "R52966",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -235,8 +233,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "arxada-b5337e86f671",
       "slug": "installatore-trice-elettrico-a-automatiker-in-ab-august-2026-arxada-visp",
@@ -269,7 +266,7 @@
       "salaryMax": 107500,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -279,5 +276,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
