@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { Agent } from 'undici';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const { fetchHtml, fetchGreenhouseJobs, politeFetch } = vi.hoisted(() => ({
@@ -29,6 +30,11 @@ import { runSpec, synthesizeSpec } from '../scripts/lib/prospector/synthesize.mj
 import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
 import { dedupeByIdentityPreservingMarks } from '../scripts/lib/job-mark-persistence.mjs';
 import { assembleUrlKey } from '../scripts/lib/job-url-key.mjs';
+import {
+  dedupeLocationCandidates,
+  locationEvidenceCandidates,
+  locationEvidenceKey,
+} from '../scripts/lib/prospector/location-evidence.mjs';
 
 const SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
 const SECOND_SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=2';
@@ -74,6 +80,84 @@ describe('prospector location and identity contract', () => {
         host: new URL(url).hostname,
       };
     });
+  });
+
+  describe('location evidence identity and provenance', () => {
+    it('prefers an object over a colliding string in either arrival order and traces the string', () => {
+      const objectCandidate = {
+        location: 'Bellinzona',
+        sourceUrl: 'https://source.example/job/1',
+        extractor: 'structured-detail',
+      };
+
+      for (const candidates of [
+        ['Bellinzona', objectCandidate],
+        [objectCandidate, 'Bellinzona'],
+      ] as any[][]) {
+        const [candidate] = dedupeLocationCandidates(candidates);
+        expect(candidate).toMatchObject(objectCandidate);
+        expect(candidate.duplicateCandidates).toContain('Bellinzona');
+      }
+    });
+
+    it('preserves the collision trace when the resolver normalises candidates', () => {
+      const [candidate] = locationEvidenceCandidates({
+        locationCandidates: [
+          'Bellinzona',
+          { location: 'Bellinzona', extractor: 'structured-detail' },
+        ],
+      });
+      expect(candidate).toMatchObject({ location: 'Bellinzona', extractor: 'structured-detail' });
+      expect(candidate.duplicateCandidates).toContain('Bellinzona');
+    });
+
+    it('keeps provenance from an object candidate that loses to a richer collision', () => {
+      const first = { location: 'Bellinzona', sourceUrl: 'https://source.example/first' };
+      const second = {
+        location: 'Bellinzona',
+        sourceUrl: 'https://source.example/second',
+        extractor: 'structured-detail',
+      };
+      const [candidate] = dedupeLocationCandidates([first, second]);
+      expect(candidate).toMatchObject(second);
+      expect(candidate.duplicateCandidates).toContainEqual(first);
+    });
+
+    it('normalises canton casing and names without collapsing different cantons', () => {
+      const base = { location: 'Bellinzona', addressLocality: 'Bellinzona', addressCountry: 'CH' };
+      expect(locationEvidenceKey({ ...base, addressRegion: 'TI' }))
+        .toBe(locationEvidenceKey({ ...base, addressRegion: 'ti' }));
+      expect(locationEvidenceKey({ ...base, addressRegion: 'Ticino' }))
+        .toBe(locationEvidenceKey({ ...base, addressRegion: 'CH-TI' }));
+      expect(dedupeLocationCandidates([
+        { ...base, addressRegion: 'TI' },
+        { ...base, addressRegion: 'Ticino' },
+      ])).toHaveLength(1);
+      expect(dedupeLocationCandidates([
+        { ...base, addressRegion: 'TI' },
+        { ...base, addressRegion: 'VD' },
+      ])).toHaveLength(2);
+    });
+  });
+
+  it('closes the spec dispatcher when collection fails after an earlier seed', async () => {
+    const close = vi.spyOn(Agent.prototype, 'close').mockResolvedValue(undefined);
+    const brokenBody = { toString: () => { throw new Error('listing parsing failed'); } };
+    politeFetch
+      .mockResolvedValueOnce({ ok: true, status: 200, body: '<html></html>', url: SEED_URL, host: 'careers.accor.com' })
+      .mockResolvedValueOnce({ ok: true, status: 200, body: brokenBody, url: SECOND_SEED_URL, host: 'careers.accor.com' });
+
+    try {
+      await expect(runSpecInProduction({
+        companyKey: 'example',
+        companyName: 'Example',
+        mode: 'jsonld',
+        seedUrls: [SEED_URL, SECOND_SEED_URL],
+      } as any)).rejects.toThrow('listing parsing failed');
+      expect(close).toHaveBeenCalledTimes(1);
+    } finally {
+      close.mockRestore();
+    }
   });
 
   it('keeps stable URL identity and slug while using source-backed geography', async () => {
@@ -240,6 +324,32 @@ describe('prospector location and identity contract', () => {
 
     const [row] = await runSpecInProduction(spec as any);
     expect(row).toMatchObject({ location: 'Chiasso', canton: 'TI' });
+  });
+
+  it('does not publish a prose-only NPA as indexed job geography', async () => {
+    const spec = {
+      companyKey: 'example',
+      companyName: 'Example',
+      mode: 'template',
+      detailEnrichment: true,
+      detailTemplate: '/fr/fr/job/*',
+      seedUrls: [SEED_URL],
+    };
+    const listing = '<a href="/fr/fr/job/sales-executive">Sales Executive</a>';
+    const detail = `<h1>Sales Executive</h1><div class="job-description">${DESCRIPTION}`
+      + '</div><p>Apply online for this role in 4528 Zuchwil and join our team.</p>';
+    politeFetch.mockImplementation(async (url: string) => ({
+      ok: true,
+      status: 200,
+      body: url === SEED_URL ? listing : detail,
+      url,
+      host: new URL(url).hostname,
+    }));
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    await expect(runSpecInProduction(spec as any)).resolves.toEqual([]);
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('source-backed'));
+    warning.mockRestore();
   });
 
   it('runs the detail enrichment that synthesis required for a location-free structured listing', async () => {

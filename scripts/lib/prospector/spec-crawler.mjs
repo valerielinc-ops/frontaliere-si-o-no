@@ -21,16 +21,12 @@ import { lookup as dnsLookup } from 'node:dns/promises';
 import {
   extractVacancies,
   isSufficientVacancyDescription,
-  textOf,
 } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { politeFetch } from './polite-fetch.mjs';
 import { normalizeHost } from './registrable.mjs';
 import {
-  constantPostalLocations,
-  freeTextPostalCandidates,
   resolveDetailOrListingSwissGeography,
-  variablePostalGeography,
 } from './location-evidence.mjs';
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
@@ -199,7 +195,6 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     } catch (err) {
       // Let the standard pipeline classify it: a connection-level failure is
       // infra and must soft-exit, an HTTP status is a real break.
-      await validateUrl.dispatcher.close();
       throw err;
     }
     const html = page.body;
@@ -279,96 +274,79 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  */
 export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
-  const rows = await collectSpecListingRows(spec, runtime, validateUrl);
-  if (!needsDetailEnrichment(spec, rows)) {
-    const safeRows = rows.flatMap((row) => {
-      const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
-      return fields ? [{ ...row, ...fields }] : [];
-    });
-    reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
-      'localita svizzera source-backed assente o non verificabile');
-    await validateUrl.dispatcher.close();
-    return safeRows;
-  }
-
-  // Template extraction has no per-row semantics. Visit the detail pages with
-  // a bounded pool so location and full descriptions are source-backed.
-  // Workers complete out of order; index-addressed writes keep the listing
-  // order deterministic so stable downstream sorts do not churn job slices.
-  const enriched = new Array(rows.length);
-  // L'NPA scritto nella prosa e' evidenza solo confrontato con le ALTRE pagine
-  // del datore: la sede che compare su tutte non e' il posto di lavoro. Le
-  // pagine si visitano una volta sola, quindi le candidate si accumulano qui e
-  // le righe senza geografia strutturata aspettano il campione completo.
-  const pageCandidates = new Array(rows.length).fill(null);
-  /** @type {{ index: number, publishable: any, postalTextCandidates: any[] }[]} */
-  const pendingGeography = [];
-  let geographyDrops = 0;
-  let descriptionDrops = 0;
-  let next = 0;
-  const worker = async () => {
-    while (next < rows.length) {
-      const index = next++;
-      const row = rows[index];
-      try {
-        let page;
-        try {
-          page = await fetchRuntimePage(row.url, validateUrl, runtime);
-        } catch (error) {
-          // Stessa regola di retry del validatore — see detail-extract.mjs.
-          const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, row.url);
-          if (!fallbackUrl) throw error;
-          page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
-        }
-        // Same extractor the validator grades with — see detail-extract.mjs.
-        const detail = extractRuntimeDetailFields(spec, page.body, page.url || row.url, {
-          detailExtractor: runtime.detailExtractor,
-        });
-        const decision = resolveDetailOrListingSwissGeography(detail, row);
-        const geography = geographyFieldsForDecision(decision);
-        const description = isSufficientVacancyDescription(detail.description)
-          ? detail.description
-          : row.description;
-        const postalTextCandidates = freeTextPostalCandidates(textOf(page.body));
-        pageCandidates[index] = postalTextCandidates;
-        const publishable = { ...row, title: detail.title || row.title, description,
-          postedAt: detail.postedDate || row.postedAt,
-          employmentType: detail.employmentType || row.employmentType };
-        if (!geography) { pendingGeography.push({ index, publishable, postalTextCandidates }); continue; }
-        if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
-        enriched[index] = { ...publishable, ...geography };
-      } catch (err) {
-        // A row without both source-backed fields must not be published with a
-        // fabricated employer default. Keep already complete index rows only.
-        const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
-        if (!geography) geographyDrops++;
-        else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
-        else enriched[index] = { ...row, ...geography };
-      }
+  try {
+    const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    if (!needsDetailEnrichment(spec, rows)) {
+      const safeRows = rows.flatMap((row) => {
+        const fields = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
+        return fields ? [{ ...row, ...fields }] : [];
+      });
+      reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
+        'localita svizzera source-backed assente o non verificabile');
+      return safeRows;
     }
-  };
-  const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
-  await Promise.all(Array.from({ length: concurrency }, worker));
-  // Stesso criterio del validatore — vedi `constantPostalLocations()`: cio' che
-  // il datore ripete sulla maggioranza delle sue pagine e' la sua sede, cio'
-  // che varia e' il posto di lavoro dell'annuncio. Il quorum e' una frazione
-  // proprio perche' qui le pagine sono il listing intero e la' un campione. Il resto della decisione resta la guardia
-  // source-backed di sempre.
-  const boilerplatePostalLocations = constantPostalLocations(pageCandidates.filter(Boolean));
-  for (const { index, publishable, postalTextCandidates } of pendingGeography) {
-    const geography = geographyFieldsForDecision(
-      variablePostalGeography(postalTextCandidates, boilerplatePostalLocations),
-    );
-    if (!geography) { geographyDrops++; continue; }
-    if (!isSufficientVacancyDescription(publishable.description)) { descriptionDrops++; continue; }
-    enriched[index] = { ...publishable, ...geography };
+
+    // Template extraction has no per-row semantics. Visit the detail pages with
+    // a bounded pool so location and full descriptions are source-backed.
+    // Workers complete out of order; index-addressed writes keep the listing
+    // order deterministic so stable downstream sorts do not churn job slices.
+    const enriched = new Array(rows.length);
+    let geographyDrops = 0;
+    let descriptionDrops = 0;
+    let next = 0;
+    const worker = async () => {
+      while (next < rows.length) {
+        const index = next++;
+        const row = rows[index];
+        try {
+          let page;
+          try {
+            page = await fetchRuntimePage(row.url, validateUrl, runtime);
+          } catch (error) {
+            // Stessa regola di retry del validatore — see detail-extract.mjs.
+            const fallbackUrl = runtimeDetailFallbackUrl(spec, error?.status, row.url);
+            if (!fallbackUrl) throw error;
+            page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
+          }
+          // Same extractor the validator grades with — see detail-extract.mjs.
+          const detail = extractRuntimeDetailFields(spec, page.body, page.url || row.url, {
+            detailExtractor: runtime.detailExtractor,
+          });
+          const decision = resolveDetailOrListingSwissGeography(detail, row);
+          const geography = geographyFieldsForDecision(decision);
+          const description = isSufficientVacancyDescription(detail.description)
+            ? detail.description
+            : row.description;
+          const publishable = { ...row, title: detail.title || row.title, description,
+            postedAt: detail.postedDate || row.postedAt,
+            employmentType: detail.employmentType || row.employmentType };
+          // Free-text NPA variance is measured for diagnostics, but its current
+          // precision/recall is not an authority for indexed job geography.
+          // Keep the source-backed contract fail-closed until the experiment
+          // proves it is safe to wire into publication.
+          if (!geography) { geographyDrops++; continue; }
+          if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
+          enriched[index] = { ...publishable, ...geography };
+        } catch (err) {
+          // A row without both source-backed fields must not be published with a
+          // fabricated employer default. Keep already complete index rows only.
+          const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, row));
+          if (!geography) geographyDrops++;
+          else if (!isSufficientVacancyDescription(row.description)) descriptionDrops++;
+          else enriched[index] = { ...row, ...geography };
+        }
+      }
+    };
+    const concurrency = Math.max(1, Math.min(8, Number(spec.detailFetchWorkers) || 4));
+    await Promise.all(Array.from({ length: concurrency }, worker));
+    reportDroppedRows(spec, geographyDrops, rows.length,
+      'localita svizzera source-backed assente o non verificabile');
+    reportDroppedRows(spec, descriptionDrops, rows.length,
+      'descrizione source-backed assente o non verificabile');
+    return enriched.filter(Boolean);
+  } finally {
+    await validateUrl.dispatcher.close().catch(() => {});
   }
-  reportDroppedRows(spec, geographyDrops, rows.length,
-    'localita svizzera source-backed assente o non verificabile');
-  reportDroppedRows(spec, descriptionDrops, rows.length,
-    'descrizione source-backed assente o non verificabile');
-  await validateUrl.dispatcher.close();
-  return enriched.filter(Boolean);
 }
 
 /**

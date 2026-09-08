@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import {
   aggregatePostalVariance,
+  detailReferenceTruth,
   freeTextPostalMentions,
   htmlToText,
+  resolveLocality,
   summarizeHostPostalVariance,
 } from '../scripts/lib/prospector/postal-variance.mjs';
 
@@ -53,6 +55,39 @@ describe('htmlToText', () => {
   it('decodes entities and drops markup without joining blocks', () => {
     expect(htmlToText('<p>Z&uuml;rich</p><p>Bern</p>').split('\n').filter(Boolean))
       .toEqual(['Zürich', 'Bern']);
+  });
+});
+
+describe('detail reference truth and locality resolution', () => {
+  it('uses an independent source-backed detail candidate instead of listing truth', () => {
+    expect(detailReferenceTruth({
+      locationCandidates: [{
+        location: '4528 Zuchwil',
+        addressLocality: 'Zuchwil',
+        addressCountry: 'CH',
+      }],
+    })).toEqual({ truth: '4528 Zuchwil', accepted: true });
+    expect(detailReferenceTruth({
+      locationCandidates: [{
+        location: 'Linz',
+        addressLocality: 'Linz',
+        addressCountry: 'AT',
+      }],
+    })).toEqual({ truth: '', accepted: false });
+  });
+
+  it('stops at the shorter exact municipality when the window continues with prose', () => {
+    expect(resolveLocality('Bad Ragaz eine Stelle')).toEqual({
+      locality: 'Bad Ragaz',
+      cantons: ['SG'],
+    });
+  });
+
+  it('keeps the longest exact multi-word municipality when it is the real prefix', () => {
+    expect(resolveLocality('La Chaux-de-Fonds eine Stelle')).toEqual({
+      locality: 'La Chaux-de-Fonds',
+      cantons: ['NE'],
+    });
   });
 });
 
