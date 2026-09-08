@@ -17,17 +17,18 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toBeGreaterThanOrEqual(0);
     expect(autorebase).toBeGreaterThan(reviewGate);
     expect(pullRequestTypes).toContain('labeled');
+    expect(workflow).toContain(
+      "if: ${{ github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review') }}",
+    );
 
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));
     const mint = workflow.indexOf('name: Mint autorebase App token');
     const mintBlock = workflow.slice(mint, workflow.indexOf('\n      - name:', mint + 1));
+    const expectedIf = "(success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && contains(github.event.pull_request.labels.*.name, 'stale-review'))";
     for (const block of [mintBlock, autorebaseBlock]) {
       const ifLine = block.split('\n').find((line) => /^\s+if:/.test(line));
       expect(ifLine).toBeTruthy();
-      expect(ifLine).toContain('success()');
-      expect(ifLine).toContain('always()');
-      expect(ifLine).toContain("steps.review_gate.outputs.approved == 'true'");
-      expect(ifLine).toContain("contains(github.event.pull_request.labels.*.name, 'stale-review')");
+      expect(ifLine).toContain(expectedIf);
     }
 
     // Verifica il ponte completo: il rescuer produce proprio la label che

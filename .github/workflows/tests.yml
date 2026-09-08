@@ -184,6 +184,9 @@ jobs:
   # `VITEST_CHECK_NAME`. Non infilare altre chiavi fra le due righe.
   vitest:
     name: vitest (unit + integration)
+    # `labeled` è stato aggiunto solo per il rescue: non pagare l'intero job per
+    # label estranee (`agent:fix`, `needs-human`, recycle, redflag-fixer).
+    if: ${{ github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review') }}
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -2249,13 +2252,13 @@ jobs:
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
       # job. Parte dopo il verdetto approvante oppure quando stale-pr-rescuer ha
       # marcato la PR come stallo: pr-autorebase.mjs applica poi le sue guardie
-      # near-merge, conflitto, test-in-flight e breaker. `always()` è necessaria
+      # near-merge, conflitto, test-in-flight e breaker. `!cancelled()` è necessaria
       # solo per il ramo stale-review, perché il review gate è rosso proprio lì;
       # `success()` conserva invece il comportamento del ramo LGTM esistente.
       # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
       # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (always() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2264,7 +2267,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: (success() && steps.review_gate.outputs.approved == 'true') || (always() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
