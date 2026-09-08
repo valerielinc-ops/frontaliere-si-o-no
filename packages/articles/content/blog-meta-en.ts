@@ -11602,6 +11602,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-premi-cassa-malati-2027.title': 'Sick pay premiums increase: +5% in 2027',
     'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch forecasts an average increase of almost 5% by 2027, up from 4.4% in 2026. Some policyholders face spikes of up to 20%. Ticino practically stable.',
     'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Medical clinic office in Canton Ticino with health insurance documents and premium calculator',
+    'blog.article.cassa-malati-rincari-2027.title': 'Sick pay premiums: +5% in 2027',
+    'blog.article.cassa-malati-rincari-2027.excerpt': 'According to bonus.ch, LAMal premiums will increase by almost 5% in 2027, with peaks of up to 20%. Direct impact on border workers\' paychecks.',
+    'blog.article.cassa-malati-rincari-2027.imageAlt': 'Health insurance documents and digital premium calculator interface',
 };
 
 export default blogMetaEn;
