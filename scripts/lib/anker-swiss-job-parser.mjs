@@ -11,8 +11,9 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { appendSlugDisambiguator, detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -87,6 +88,22 @@ export function buildSlugDisambiguator(publicUrl = '') {
   if (!url) return '';
   return createHash('sha1').update(url).digest('hex').slice(0, 8);
 }
+
+/**
+ * Build the canonical slug base used by the generic slug validators.
+ *
+ * The company name is part of the identity contract: using only the source
+ * key/domain made this parser's slugs differ from regenerated slugs.
+ */
+export function buildAnkerSwissJobSlug(title, location, publicUrl = '') {
+  return buildCanonicalSlug(
+    title,
+    ANKER_SWISS_COMPANY_NAME,
+    location,
+    buildSlugDisambiguator(publicUrl),
+  );
+}
+
 
 /* ── Category Detection ────────────────────────────────────── */
 
@@ -173,7 +190,7 @@ export async function fetchAllAnkerSwissJobs() {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const disambiguator = buildSlugDisambiguator(publicUrl);
-    const jobSlug = appendSlugDisambiguator(slugify(`${title} ${location} anker-swiss ch`), disambiguator);
+    const jobSlug = buildAnkerSwissJobSlug(title, location, publicUrl);
 
     const job = {
       // ── Required fields ──

@@ -1756,7 +1756,10 @@ export function buildThinCantonHubHtml(args: {
       for (const p of [...windowPages].filter((p) => p >= 1 && p <= totalPages).sort((a, b) => a - b)) {
         const href = p === 1 ? basePath : paginatedPath(basePath, p);
         if (p === page) anchors.push(`<strong>${p}</strong>`);
-        else anchors.push(`<a href="${href}">${p}</a>`);
+        else {
+          const rel = p === page - 1 ? ' rel="prev"' : p === page + 1 ? ' rel="next"' : '';
+          anchors.push(`<a href="${href}"${rel}>${p}</a>`);
+        }
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
