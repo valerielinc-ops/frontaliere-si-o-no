@@ -3643,7 +3643,7 @@ function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySe
     const base = slugifyLegacyEvent(ev);
     let slug = base;
     let n = 2;
-    while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
+    while (used.has(slug)) slug = disambiguateEventSlug(base, n++);
     used.add(slug);
     slugFor.set(ev.id, slug);
   }
