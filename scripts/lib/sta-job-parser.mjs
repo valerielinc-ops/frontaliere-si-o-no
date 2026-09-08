@@ -52,7 +52,7 @@ export function isStaJob(job) {
 
   return (
     key === STA_KEY ||
-    key.startsWith('sta') ||
+    key.startsWith('sta-') ||
     company.includes('sta personal ag') ||
     url.includes('sta.jobs')
   );
@@ -195,7 +195,6 @@ export async function fetchAllStaJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total STA Personal AG jobs discovered: ${jobs.length}`);

@@ -215,7 +215,6 @@ export async function fetchAllAnkerSwissJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Anker Swiss Ticino AG jobs discovered: ${jobs.length}`);

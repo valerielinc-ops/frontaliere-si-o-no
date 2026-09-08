@@ -194,7 +194,6 @@ export async function fetchAllMichaelpageJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Michael Page jobs discovered: ${jobs.length}`);

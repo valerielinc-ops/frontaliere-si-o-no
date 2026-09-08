@@ -252,7 +252,6 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total OK Job SA, succursale di Mendrisio jobs discovered: ${jobs.length}`);

@@ -195,7 +195,6 @@ export async function fetchAllStellentreffJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Stellentreff AG jobs discovered: ${jobs.length}`);

@@ -375,7 +375,6 @@ export async function fetchAllAccorJobs(runtime = {}) {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Ibis Budget jobs discovered: ${jobs.length}`);

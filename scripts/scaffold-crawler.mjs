@@ -523,7 +523,7 @@ export function is${pascalKey}Job(job) {
 
   return (
     key === ${CONST_PREFIX}_KEY ||
-    key.startsWith('${companyKey}') ||
+    key.startsWith('${companyKey}-') ||
     company.includes('${companyName.toLowerCase()}') ||
     url.includes('${companyDomain}')
   );
@@ -746,7 +746,6 @@ ${locationBlock}
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(\`\\n📋 Total ${companyName} jobs discovered: \${jobs.length}\`);
