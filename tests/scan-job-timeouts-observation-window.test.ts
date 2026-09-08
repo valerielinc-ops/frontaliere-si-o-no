@@ -58,7 +58,7 @@ describe('observation window — completion time, not start time', () => {
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
@@ -210,7 +210,7 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') {
@@ -255,7 +255,7 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [currentRun] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${currentRun.id}/jobs`)) return JSON.stringify({ jobs });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify(issueExists ? [existing] : []);
@@ -309,7 +309,7 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
         }
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes('/jobs')) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') {
@@ -350,7 +350,7 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') {
@@ -395,7 +395,7 @@ describe('write failures — loud, retryable, never memoized as persisted', () =
         }
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes('/jobs')) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
@@ -438,7 +438,7 @@ describe('write failures — loud, retryable, never memoized as persisted', () =
         }
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes('/jobs')) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') {
@@ -487,7 +487,7 @@ describe('write failures — loud, retryable, never memoized as persisted', () =
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify([existing]);
@@ -535,7 +535,7 @@ describe('write failures — loud, retryable, never memoized as persisted', () =
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
         if (args[1].includes('status=failure')) return JSON.stringify({ workflow_runs: [] });
         if (args[1].includes(`/runs/${run.id}/jobs`)) return JSON.stringify({ jobs: [timeoutJob] });
-        if (args[1].endsWith('/annotations')) return JSON.stringify(timeoutAnnotations);
+        if (args[1].endsWith('/annotations')) return JSON.stringify([timeoutAnnotations]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') {

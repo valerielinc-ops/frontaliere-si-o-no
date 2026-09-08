@@ -164,6 +164,14 @@ export function formatDurationMs(ms) {
   return `${s}s`;
 }
 
+/** Delimitatore variable-length per un inline code span che può contenere backtick. */
+export function markdownCodeSpan(value) {
+  const text = String(value ?? '');
+  const longestRun = Math.max(0, ...(text.match(/`+/g) || []).map((run) => run.length));
+  const delimiter = '`'.repeat(longestRun + 1);
+  return `${delimiter}${text}${delimiter}`;
+}
+
 /**
  * DOVE è finito il tempo, non solo CHE il tempo è finito.
  *
@@ -213,6 +221,14 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
   }
   if (timed.length === 0) return [];
 
+  const firstStepStartMs = timed.reduce((min, step) => Math.min(min, step.startedAt), Infinity);
+  const jobStartMs = Number.isFinite(Date.parse(job?.started_at || ''))
+    ? Date.parse(job.started_at)
+    : firstStepStartMs;
+  const jobWindowMs = Number.isFinite(jobStartMs) && jobEndMs >= jobStartMs
+    ? jobEndMs - jobStartMs
+    : 0;
+
   // Lo step tagliato dal cap. GitHub non è coerente: sulla run 33919268604 lo
   // step troncato ha `completed_at` valorizzato e `conclusion: cancelled`,
   // altrove resta senza `completed_at`. Ultimo fallback: l'ultimo iniziato.
@@ -221,19 +237,22 @@ export function stepTimingLines(job, { maxSteps = MAX_TIMED_STEPS, nowMs = Date.
     || timed.reduce((a, b) => (b.startedAt >= a.startedAt ? b : a));
 
   const totalMs = timed.reduce((acc, s) => acc + s.durationMs, 0);
+  const unattributedMs = Math.max(0, jobWindowMs - totalMs);
   const ranked = [...timed].sort((a, b) => b.durationMs - a.durationMs);
   const shown = ranked.slice(0, maxSteps);
   const omitted = ranked.slice(maxSteps);
 
   const lines = [
     '',
-    `**Dove è finito il tempo** (${formatDurationMs(totalMs)} misurati sugli step, `
+    `**Dove è finito il tempo** (${formatDurationMs(jobWindowMs)} di vita del job; `
+      + `${formatDurationMs(totalMs)} attribuiti agli step; `
+      + `${formatDurationMs(unattributedMs)} non attribuiti, `
       + 'ordinati per durata; ✂️ = lo step in corso quando il cap ha tagliato):',
   ];
   for (const step of shown) {
-    const share = totalMs > 0 ? Math.round((step.durationMs / totalMs) * 100) : 0;
+    const share = jobWindowMs > 0 ? ` (${Math.round((step.durationMs / jobWindowMs) * 100)}%)` : '';
     lines.push(
-      `- ${step === cut ? '✂️ ' : ''}\`${step.name}\` — **${formatDurationMs(step.durationMs)}** (${share}%)`,
+      `- ${step === cut ? '✂️ ' : ''}${markdownCodeSpan(step.name)} — **${formatDurationMs(step.durationMs)}**${share}`,
     );
   }
   if (omitted.length > 0) {
@@ -270,6 +289,35 @@ function ghJson(path, { allowFailure = true } = {}) {
   } catch {
     return null;
   }
+}
+
+function readPaginatedAnnotations(job) {
+  const out = gh([
+    'api',
+    `${job.check_run_url}/annotations`,
+    '--paginate',
+    '--slurp',
+  ], { allowFailure: true });
+  if (!out) return null;
+
+  let pages;
+  try {
+    pages = JSON.parse(out);
+  } catch {
+    return null;
+  }
+
+  if (!Array.isArray(pages) || pages.some((page) => !Array.isArray(page))) {
+    const shape = Array.isArray(pages)
+      ? `array con ${pages.length} pagina/e non-array`
+      : typeof pages;
+    console.warn(
+      `::warning::[scan-job-timeouts] annotazioni non leggibili per il job "${job.name || '?'}" `
+        + `(shape=${shape}); timeout non confermato.`,
+    );
+    return null;
+  }
+  return pages.flat();
 }
 
 function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
@@ -364,16 +412,13 @@ export function scopedTitle(run) {
 
 function findTimeoutAnnotation(job) {
   if (job.conclusion !== 'cancelled' || !job.check_run_url) return null;
-  const annotations = ghJson(`${job.check_run_url}/annotations`);
-  // `ghJson` torna `null` su errore gh E su JSON malformato, ma l'endpoint puo' anche
-  // rispondere con un OGGETTO (`{ message: 'Not Found' }`), su cui `.find` non esiste: il
-  // vecchio `|| []` copriva solo il primo caso e sull'altro lo scanner moriva in mezzo
-  // alla passata. Qui una lettura non-array vale come "nessuna prova": il bias e' opposto
-  // a quello di `close-recovered-failure-issues.mjs` (li' il silenzio TIENE la issue
-  // aperta, qui al massimo rimanda l'apertura al cron successivo, 30 minuti dopo) ma la
-  // regola e' la stessa — non dedurre un contenuto da una lettura che non c'e' stata.
+  const annotations = readPaginatedAnnotations(job);
   if (!Array.isArray(annotations)) return null;
-  return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(a?.message || '')) || null;
+  return annotations.find((a) => TIMEOUT_ANNOTATION_RE.test(
+    [a?.message, a?.title, a?.raw_details]
+      .filter((value) => typeof value === 'string')
+      .join('\n'),
+  )) || null;
 }
 
 /**

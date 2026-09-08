@@ -38,6 +38,47 @@ import { execFileSync } from 'node:child_process';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 import { classifyJobFailure, formatJobFailureSummary } from './lib/jobFailureCategory.mjs';
 
+function jobRecencyMs(job) {
+  const startedAt = Date.parse(job?.started_at || '');
+  if (Number.isFinite(startedAt)) return startedAt;
+  const completedAt = Date.parse(job?.completed_at || '');
+  return Number.isFinite(completedAt) ? completedAt : -Infinity;
+}
+
+/**
+ * Se un re-run lascia due job omonimi nell'attempt, preferisce quello del runner
+ * corrente e altrimenti quello partito più di recente.
+ */
+export function selectCurrentJob(
+  jobs,
+  {
+    jobName = VITEST_CHECK_NAME,
+    runnerId = process.env.RUNNER_ID || '',
+    runnerName = process.env.RUNNER_NAME || '',
+  } = {},
+) {
+  const matches = (Array.isArray(jobs) ? jobs : []).filter((job) => job?.name === jobName);
+  if (matches.length <= 1) return matches[0] || null;
+
+  const runnerMatches = matches.filter((job) => (
+    (runnerId && String(job?.runner_id) === String(runnerId))
+      || (runnerName && job?.runner_name === runnerName)
+  ));
+  const candidates = runnerMatches.length > 0 ? runnerMatches : matches;
+  const selected = candidates.reduce((latest, job) => (
+    jobRecencyMs(job) > jobRecencyMs(latest)
+      || (jobRecencyMs(job) === jobRecencyMs(latest) && Number(job?.id || 0) > Number(latest?.id || 0))
+      ? job
+      : latest
+  ));
+  console.warn(
+    `::warning::[explain-job-verdict] ${matches.length} job omonimi "${jobName}" `
+      + `nell'attempt: selezionato id=${selected.id ?? '?'} `
+      + (runnerMatches.length > 0 ? 'sul runner corrente.' : 'più recente.'),
+  );
+  return selected;
+}
+
 /**
  * Gli step del job corrente, dalla jobs API dell'attempt in corso.
  * Il job in esecuzione è già presente nella risposta: gli step conclusi
@@ -60,20 +101,28 @@ function currentJobSteps() {
     ],
     { encoding: 'utf8', timeout: 60_000, stdio: ['ignore', 'pipe', 'inherit'] },
   );
-  const jobs = JSON.parse(raw).flatMap((page) => page.jobs || []);
-  const job = jobs.find((j) => j && j.name === VITEST_CHECK_NAME);
+  const payload = JSON.parse(raw);
+  const jobs = (Array.isArray(payload) ? payload : [payload])
+    .flatMap((page) => Array.isArray(page?.jobs) ? page.jobs : []);
+  const job = selectCurrentJob(jobs);
   if (!job) throw new Error(`job "${VITEST_CHECK_NAME}" non trovato nell'attempt ${attempt}`);
   return Array.isArray(job.steps) ? job.steps : [];
 }
 
-function main() {
+export function main() {
   // `job.status` del job in corso, passato dal workflow. Sette step di questo
   // job sono `continue-on-error: true`: il loro rosso non tinge il job, e
   // scrivere un ❌ in cima alla pagina di una run verde sarebbe la stessa
   // bugia che questo step esiste per chiudere. Su una run cancellata non c'è
   // niente da spiegare e nemmeno un verde da dichiarare: si tace.
   const jobStatus = process.env.JOB_STATUS || '';
-  if (jobStatus && jobStatus !== 'failure' && jobStatus !== 'success') {
+  if (jobStatus === 'success') {
+    console.log('JOB_VERDICT category=none job_status=success');
+    const summary = process.env.GITHUB_STEP_SUMMARY;
+    if (summary) fs.appendFileSync(summary, `${formatJobFailureSummary(null, VITEST_CHECK_NAME)}\n`);
+    return;
+  }
+  if (jobStatus && jobStatus !== 'failure') {
     console.log(`JOB_VERDICT category=none job_status=${jobStatus} (nessun summary)`);
     return;
   }
@@ -87,9 +136,11 @@ function main() {
   if (summary) fs.appendFileSync(summary, `${formatJobFailureSummary(verdict, VITEST_CHECK_NAME)}\n`);
 }
 
-try {
-  main();
-} catch (error) {
-  // Mai un secondo rosso: la diagnosi mancata si logga e basta.
-  console.log(`::notice::Step Summary del verdetto non prodotto: ${error?.message || error}`);
+if (process.argv[1]?.endsWith('explain-job-verdict.mjs')) {
+  try {
+    main();
+  } catch (error) {
+    // Mai un secondo rosso: la diagnosi mancata si logga e basta.
+    console.log(`::notice::Step Summary del verdetto non prodotto: ${error?.message || error}`);
+  }
 }
