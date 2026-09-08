@@ -2,10 +2,12 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+const reviewGate = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
 const staleRescuer = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
 const autorebase = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
 const autoMergeEval = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
 const nativeAutoMerge = readFileSync(new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url), 'utf8');
+const redflagFixer = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
   it('consuma stale-review dopo un re-trigger riuscito, senza perdere il rescue se fallisce', () => {
@@ -61,7 +63,11 @@ describe('review → autorebase ordering', () => {
   it('keeps Claude Important findings inside the required native-merge check', () => {
     expect(workflow).toContain('name: vitest (unit + integration)');
     expect(workflow).toContain('id: review_gate');
-    expect(workflow).toContain('!REDFLAG_IMPORTANT_RE.test(body)');
+    expect(workflow).toContain('node scripts/ci/review-gate.mjs');
+    expect(reviewGate).toContain("import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';");
+    expect(reviewGate).toContain('classification.blocking');
+    expect(reviewGate).toContain('reviewCommit === headSha');
+    expect(reviewGate).toContain('scripts/ci/pr-contribution-fingerprint.mjs');
     expect(nativeAutoMerge).toContain('gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto');
     expect(nativeAutoMerge).not.toContain('auto-merge-eval.mjs');
   });
@@ -75,5 +81,18 @@ describe('review → autorebase ordering', () => {
     expect(ifLine).toContain('always()');
     expect(ifLine).toContain("steps.resolve.outputs.should_review == 'true'");
     expect(ifLine).not.toMatch(/steps\.claude_review\.outcome\s*!=\s*'failure'/);
+  });
+
+  it('lets the red-flag fixer act only when scope is blocking or unverifiable', () => {
+    expect(redflagFixer).toContain('scope:');
+    expect(redflagFixer).toContain('node scripts/ci/review-gate.mjs --scope');
+    expect(redflagFixer).toContain('blocking: ${{ steps.scope.outputs.blocking }}');
+    expect(redflagFixer).toContain('error: ${{ steps.scope.outputs.error }}');
+    expect(redflagFixer).toContain('needs: [preflight, scope]');
+    expect(redflagFixer).toContain("always() && needs.preflight.outputs.actionable == 'true'");
+    expect(redflagFixer).toContain("needs.scope.result != 'success' || needs.scope.outputs.blocking == 'true' || needs.scope.outputs.error == 'true'");
+    expect(redflagFixer).toContain('REVIEW_SCOPE_MUTATE: \'true\'');
+    expect(reviewGate).toContain('const title = `follow-up(#${pr}): finding fuori dal diff`');
+    expect(reviewGate).toContain('reopenWithinHours: 0');
   });
 });
