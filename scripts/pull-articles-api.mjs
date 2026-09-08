@@ -50,6 +50,7 @@ import { ARTICLES_API_BASE as API_BASE } from './lib/articles-api-base.mjs';
 import { emitSkip, pinVerdict, publishPin, readPin } from './lib/articles-sync-pin.mjs';
 import { dropShadowedSitemapUrlBlocks, loadAllShadowedSlugs } from './lib/article-canonical-overrides.mjs';
 import { dropRetiredSitemapUrlBlocks } from './lib/sitemap-retired-urls.mjs';
+import { parseSlugRegistry } from './lib/article-slug-registry.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -365,8 +366,8 @@ const SECTION_SITEMAPS = {
 
 /**
  * `{ id: {it,en,de,fr} }` out of a registry .ts, or null when the file is not
- * in this checkout. Same regex as scripts/ci/check-blog-slugs-sitemap-sync.mjs
- * — these are TypeScript and this is a plain .mjs script with no TS pipeline.
+ * in this checkout. The shared parser is used because these are TypeScript
+ * and this is a plain .mjs script with no TS pipeline.
  *
  * Absent ≠ empty: a tree without the corpus (the script's own tests, a fixture
  * run) simply cannot judge and reinstates nothing. A file that EXISTS but
@@ -377,15 +378,9 @@ function readSlugRegistry(file, constName) {
   const abs = path.join(ROOT, file);
   if (!fs.existsSync(abs)) return null;
   const src = fs.readFileSync(abs, 'utf-8');
-  const declared = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-  const out = new Map();
-  let m;
-  while ((m = rx.exec(declared)) !== null) {
-    out.set(m[1], { it: m[2], en: m[3], de: m[4], fr: m[5] });
-  }
-  if (out.size === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
-  return out;
+  const parsed = parseSlugRegistry(src, constName);
+  if (Object.keys(parsed).length === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
+  return new Map(Object.entries(parsed));
 }
 
 function readOverrideKeys(file) {
@@ -780,9 +775,8 @@ for (const name of FEEDS) {
     // tests/blog-slugs-sitemap-sync.test.ts red on every open PR until it
     // expires on its own. `rimborsi-730-sostituti-imposta` did exactly this.
     //
-    // The registries are parsed with the same regex as
-    // scripts/ci/check-blog-slugs-sitemap-sync.mjs rather than imported: they
-    // are TypeScript and this is a plain .mjs script with no TS pipeline. Only
+    // The registries use the shared textual parser rather than being imported:
+    // they are TypeScript and this is a plain .mjs script with no TS pipeline. Only
     // the IT slug is needed — <loc> in this sitemap is always the IT canonical.
     // Absent registry ≠ empty registry. A checkout without the corpus (the
     // script's own tests run against a throwaway tree, and so does anyone
@@ -791,16 +785,8 @@ for (const name of FEEDS) {
     // is the corrupt case and still refuses — parsing it as empty would de-list
     // the entire sitemap in one run.
     const itSlugsOf = (file, constName) => {
-      const abs = path.join(ROOT, file);
-      if (!fs.existsSync(abs)) return null;
-      const src = fs.readFileSync(abs, 'utf-8');
-      const declared = src.match(new RegExp(`const ${constName}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-      const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["']/g;
-      const out = new Set();
-      let m;
-      while ((m = rx.exec(declared)) !== null) out.add(m[2]);
-      if (out.size === 0) fail(`could not parse ${constName} out of ${file} — refusing`);
-      return out;
+      const registry = readSlugRegistry(file, constName);
+      return registry ? new Set([...registry.values()].map((slugs) => slugs.it)) : null;
     };
 
     const registries = [

@@ -50,7 +50,7 @@ jobs:
       - name: Checkout the composite action only (workspace root)
         uses: actions/checkout@v5
         with:
-          sparse-checkout: .github/actions/fetch-pages-artifact
+          sparse-checkout: .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
       - name: Checkout the equivalence tooling (this branch)
         uses: actions/checkout@v5
@@ -61,6 +61,27 @@ jobs:
         with:
           ref: ${{ github.event.inputs.sha }}
           path: build
+      - name: Free disk space before build and artifact extraction
+        shell: bash
+        run: |
+          set -euo pipefail
+          df -h /
+          for path in \
+            /usr/share/dotnet \
+            /usr/local/lib/android \
+            /opt/ghc \
+            /opt/hostedtoolcache/CodeQL \
+            /usr/local/share/powershell \
+            /usr/local/share/chromium \
+            /usr/local/lib/node_modules \
+            /usr/local/share/boost \
+            /usr/share/swift; do
+            if [ -e "$path" ]; then sudo rm -rf "$path"; fi
+          done
+          if command -v docker >/dev/null 2>&1; then
+            sudo docker image prune -af
+          fi
+          df -h /
       # Review di #6150: questo job lancia `npm run build:ci` (tetto V8
       # 14336 MB) e senza lo swapfile il runtime NON e' quello del deploy che
       # deve byte-matchare — e il preflight di buildMemoryGuard lo fermerebbe
@@ -126,6 +147,7 @@ jobs:
           # all'indietro, perché un artifact di un altro commit renderebbe il
           # confronto byte-for-byte una domanda diversa.
           run-id: ${{ github.event.inputs.deploy_run_id }}
+          expected-sha: ${{ github.event.inputs.sha }}
           output-dir: /tmp/live
           github-token: ${{ github.token }}
       - name: Extract the live artifact into the tooling checkout as ./dist

@@ -431,7 +431,7 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    expect(Object.keys(HARDCODED).length).toBe(168);
+    expect(Object.keys(HARDCODED).length).toBe(176);
   });
 });
 

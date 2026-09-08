@@ -100,6 +100,7 @@ describe('Locarno crawler — URL boundary', () => {
     const valid = 'https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&lang=I#position,id=101,popup=y';
     expect(normalizeLocarnoApplicationUrl(valid)).toBe(valid);
     expect(normalizeLocarnoApplicationUrl(valid.replace('locarno.pi-asp.de', 'attacker.example'))).toBeNull();
+    expect(normalizeLocarnoApplicationUrl('//attacker.example/bewerber-web/?company=100-FIRMA-ID')).toBeNull();
     expect(normalizeLocarnoApplicationUrl(valid.replace('https:', 'http:'))).toBeNull();
     expect(normalizeLocarnoApplicationUrl(valid.replace('100-FIRMA-ID', 'OTHER'))).toBeNull();
     expect(normalizeLocarnoApplicationUrl('/bewerber-web/?company=100-FIRMA-ID')).toBeNull();

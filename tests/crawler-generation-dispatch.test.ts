@@ -1363,7 +1363,7 @@ describe('generation checkpoint and preflight', () => {
       remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
     };
     expect(evaluateCrawlerGenerationPreflight(input)).toEqual({
-      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [],
+      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [], warnings: [],
     });
     const missingGroup = structuredClone(contract);
     missingGroup.artifacts.splice(3, 1);
@@ -1410,7 +1410,7 @@ describe('generation checkpoint and preflight', () => {
     });
 
     await expect(runPreflight({ request, contractPath, observerPath })).resolves.toEqual({
-      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [],
+      ready: true, dispatchMode: 'shadow', corpusCodeCommit, reasons: [], warnings: [],
     });
     expect(requests[0]).toMatchObject({
       method: 'GET', path: `/repos/${repository}/commits/main`,
@@ -1512,6 +1512,7 @@ describe('generation checkpoint and preflight', () => {
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['group_artifact_hash_mismatch'],
+      warnings: [],
     });
   });
 
@@ -1541,7 +1542,8 @@ describe('generation checkpoint and preflight', () => {
       ready: true,
       dispatchMode: 'shadow',
       corpusCodeCommit,
-      reasons: ['corpus_mirror_lockstep_pending'],
+      reasons: [],
+      warnings: ['corpus_mirror_lockstep_pending'],
     });
   });
 
@@ -1571,6 +1573,7 @@ describe('generation checkpoint and preflight', () => {
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['contract_mismatch'],
+      warnings: [],
     });
     expect(evaluateCrawlerGenerationPreflight({
       ...input,
@@ -1600,6 +1603,7 @@ describe('generation checkpoint and preflight', () => {
       dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['group_artifact_hash_mismatch'],
+      warnings: [],
     });
   });
 
@@ -1740,6 +1744,27 @@ describe('generation checkpoint and preflight', () => {
       remoteArtifacts,
       remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
     })).toMatchObject({ ready: false, dispatchMode: 'blocked' });
+  });
+
+  it('keeps canonical contract failures on the blocking diagnostic path', () => {
+    const observer = Buffer.from('observer-workflow\n');
+    const remoteArtifacts = groupArtifactFixture();
+    const contract = preflightFixture(observer, remoteArtifacts);
+    const malformed = structuredClone(contract);
+    delete malformed.artifacts[0].file;
+
+    const result = evaluateCrawlerGenerationPreflight({
+      corpusCodeCommit,
+      localContract: malformed,
+      remoteContract: structuredClone(malformed),
+      localObserver: observer,
+      remoteObserver: observer,
+      remoteArtifacts,
+      remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
+    });
+
+    expect(result).toMatchObject({ ready: false, dispatchMode: 'blocked', warnings: [] });
+    expect(result.reasons).toContain('contract_invalid');
   });
 
   it('reports missing preflight API configuration as a blocking infrastructure failure', async () => {

@@ -105,7 +105,10 @@ function commitGroup(repoDir: string, runnerTemp: string) {
 describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', () => {
   it.each([
     ['missing', '', /Missing CRAWLER_GENERATION_TOKEN/],
-    ['malformed', 'not-a-generation-token', /Invalid crawler commit descriptor generation token/],
+    // resolveCrawlerGenerationToken rejects malformed explicit input before the
+    // receipt can build a descriptor, so both cases are the same shared
+    // precondition failure at the CLI boundary.
+    ['malformed', 'not-a-generation-token', /Missing CRAWLER_GENERATION_TOKEN/],
   ])('fails closed on a %s generation token before persisting a descriptor', (_label, token, error) => {
     const { originDir, repoDir } = initClonePair();
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-token-'));

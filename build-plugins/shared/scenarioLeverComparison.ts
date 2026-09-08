@@ -675,6 +675,26 @@ class NamedPairs {
   }
 }
 
+function stepComparisonVariation(
+  scenario: SalaryHubScenario,
+  candidateKey: LeverKey,
+  copy: LeverCopy,
+  allScenarios: readonly SalaryHubScenario[],
+): number | null {
+  const siblings = allScenarios.filter(
+    (s) => s.frontierType === scenario.frontierType && s.maritalStatus === scenario.maritalStatus && s.children === scenario.children && s.distanceZone === scenario.distanceZone,
+  );
+  const ratios: number[] = [];
+  for (const sibling of siblings) {
+    const levers = buildLevers(sibling, copy);
+    const step = referenceStepLever(levers);
+    const candidate = levers.find((lever) => lever.key === candidateKey);
+    if (!step || !candidate || Math.abs(step.deltaCHF) === 0 || Math.abs(candidate.deltaCHF) === 0) continue;
+    ratios.push(Math.abs(step.deltaCHF) / Math.abs(candidate.deltaCHF));
+  }
+  return ratios.length > 1 ? Math.max(...ratios) - Math.min(...ratios) : null;
+}
+
 /** Enumerazione localizzata: "a, b e c". */
 function joinList(items: string[], and: string): string {
   if (items.length <= 1) return items[0] ?? '';
@@ -709,57 +729,38 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
 
   sentences.push(copy.ranking(joinList(levers.map((x) => x.label), copy.and)));
 
-  if (levers.length >= 2) {
-    const [top, second] = levers;
-    const secondMagnitude = Math.abs(second.deltaCHF);
-    // Un secondo Δ nullo renderebbe il rapporto infinito: in quel caso la
-    // frase del rapporto non ha nulla da dire e si tace, invece di stampare
-    // una fascia inventata.
-    if (secondMagnitude > 0) {
-      const ratio = Math.abs(top.deltaCHF) / secondMagnitude;
-      sentences.push(
-        copy.ratio(
-          top.label,
-          second.label,
-          copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)],
-        ),
-      );
-      named.claim(top, second);
-    }
-  }
-
-  // Il gradino di RAL cresce con la RAL, le leve familiari e di regime no: il
-  // loro rapporto è la grandezza che cambia più in fretta lungo i 18 gradini,
-  // cioè l'asse su cui le sorelle di una stessa combinazione si distinguevano
-  // finora solo in cifre.
+  // Il superlativo viene assegnato solo al candidato con la variazione più
+  // rapida lungo tutta la scala salariale.
   const step = referenceStepLever(levers);
-  // The superlative below is about the fastest-changing comparison, so the
-  // candidate is the NON-salary lever with the smallest non-zero magnitude —
-  // not the first one in `levers`, which is sorted from heaviest to lightest.
-  // Choosing the heaviest candidate could make “moves fastest” false when a
-  // lighter lever changes less than the step. If that true fastest pair was
-  // already named by `ratio`, suppress this sentence rather than silently
-  // changing the pair and keeping a false superlative.
-  const fastestOther = levers.reduce<Lever | undefined>((best, candidate) => {
-    if (
-      candidate.key === 'salaryUp' ||
-      candidate.key === 'salaryDown' ||
-      Math.abs(candidate.deltaCHF) === 0
-    ) {
-      return best;
+  const otherCandidates = step === null ? [] : levers
+    .filter((x) => x.key !== 'salaryUp' && x.key !== 'salaryDown')
+    .map((x) => ({ lever: x, variation: stepComparisonVariation(scenario, x.key, copy, input.allScenarios) }))
+    .filter((x): x is { lever: Lever; variation: number } => x.variation !== null)
+    .sort((a, b) => b.variation - a.variation || (a.lever.key < b.lever.key ? -1 : 1));
+  const fastestOther = otherCandidates[0]?.lever;
+  const stepPair: { first: Lever; second: Lever } | null =
+    step && fastestOther && Math.abs(fastestOther.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0
+      ? Math.abs(step.deltaCHF) >= Math.abs(fastestOther.deltaCHF) ? { first: step, second: fastestOther } : { first: fastestOther, second: step }
+      : null;
+  const ratioPair = levers.length >= 2 && Math.abs(levers[1].deltaCHF) > 0 ? { first: levers[0], second: levers[1] } : null;
+  let closestPair: { first: Lever; second: Lever } | null = null;
+  if (levers.length >= 2) {
+    let closestIndex = 0;
+    let closestGap = Infinity;
+    for (let i = 0; i + 1 < levers.length; i += 1) {
+      const gap = Math.abs(Math.abs(levers[i].deltaCHF) - Math.abs(levers[i + 1].deltaCHF));
+      if (gap < closestGap) { closestGap = gap; closestIndex = i; }
     }
-    return best === undefined || Math.abs(candidate.deltaCHF) < Math.abs(best.deltaCHF) ? candidate : best;
-  }, undefined);
-  const other =
-    step === null || fastestOther === undefined
-      ? undefined
-      : named.has(
-            Math.abs(step.deltaCHF) >= Math.abs(fastestOther.deltaCHF) ? step : fastestOther,
-            Math.abs(step.deltaCHF) >= Math.abs(fastestOther.deltaCHF) ? fastestOther : step,
-          )
-        ? undefined
-        : fastestOther;
-  if (step && other && Math.abs(other.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0) {
+    closestPair = { first: levers[closestIndex], second: levers[closestIndex + 1] };
+  }
+  const ratioRepeatsStep = ratioPair !== null && stepPair !== null && ratioPair.first.key === stepPair.first.key && ratioPair.second.key === stepPair.second.key;
+  const ratioRepeatsClosest = ratioPair !== null && closestPair !== null && ratioPair.first.key === closestPair.first.key && ratioPair.second.key === closestPair.second.key;
+  if (ratioPair && !ratioRepeatsStep && !(stepPair === null && ratioRepeatsClosest)) {
+    const ratio = Math.abs(ratioPair.first.deltaCHF) / Math.abs(ratioPair.second.deltaCHF);
+    sentences.push(copy.ratio(ratioPair.first.label, ratioPair.second.label, copy.ratioBuckets[bucketIndex(ratio, RATIO_EDGES)]));
+    named.claim(ratioPair.first, ratioPair.second);
+  }
+  if (stepPair) {
     // `ratioBuckets` descrive un rapporto >= 1 ("pesa il doppio di"), e la
     // frase attribuisce il peso maggiore alla leva nominata per prima. Sotto
     // una certa RAL è la leva non salariale a battere il gradino (a 40 000 CHF
@@ -768,9 +769,8 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     // pesa» proprio sulle pagine dove la frase successiva elenca quella leva
     // fra quelle che pesano PIÙ di un gradino. Si nomina prima la più pesante,
     // così il rapporto resta >= 1 e le due frasi non si contraddicono.
-    const stepIsHeavier = Math.abs(step.deltaCHF) >= Math.abs(other.deltaCHF);
-    const heavierLever = stepIsHeavier ? step : other;
-    const lighterLever = stepIsHeavier ? other : step;
+    const heavierLever = stepPair.first;
+    const lighterLever = stepPair.second;
     const ratio = Math.abs(heavierLever.deltaCHF) / Math.abs(lighterLever.deltaCHF);
     sentences.push(
       copy.stepVsOther(
@@ -797,24 +797,15 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
 
   // La coppia adiacente più vicina in peso: con l'ordine che cambia lungo la
   // scala, cambia anche quale coppia si equivale, e con essa le parole.
-  if (levers.length >= 2) {
-    let closest = 0;
-    let closestGap = Infinity;
-    for (let i = 0; i + 1 < levers.length; i += 1) {
-      const gap = Math.abs(Math.abs(levers[i].deltaCHF) - Math.abs(levers[i + 1].deltaCHF));
-      if (gap < closestGap) {
-        closestGap = gap;
-        closest = i;
-      }
-    }
+  if (closestPair) {
     // Qui non si può ripiegare sulla seconda coppia più vicina come fa
     // `stepVsOther` con la sua leva: la frase afferma che QUELLE due sono le
     // leve che si equivalgono di più, e nominarne altre la renderebbe falsa.
     // Se la coppia più vicina è già stata nominata sopra, la pagina perde una
     // frase invece di ripeterne una o di dirne una sbagliata.
-    if (!named.has(levers[closest], levers[closest + 1])) {
-      sentences.push(copy.closestPair(levers[closest].label, levers[closest + 1].label));
-      named.claim(levers[closest], levers[closest + 1]);
+    if (!named.has(closestPair.first, closestPair.second)) {
+      sentences.push(copy.closestPair(closestPair.first.label, closestPair.second.label));
+      named.claim(closestPair.first, closestPair.second);
     }
   }
 
@@ -843,6 +834,14 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     // gradino con cui confrontarsi, e qui il gradino c'è.
     if (retention > 0 && retention <= 1) {
       sentences.push(copy.retention(copy.retentionBuckets[bucketIndex(retention, RETENTION_EDGES)]));
+    } else {
+      // Tacere evita una frase falsa, ma il silenzio non deve nascondere una
+      // deriva del motore: fuori dal dominio promesso la pagina perde
+      // informazione e il build deve renderlo osservabile.
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[scenario-levers] retention fuori range per ${scenarioKey(scenario)}: ${retention}; frase omessa`,
+      );
     }
   } else {
     sentences.push(copy.retentionTop);

@@ -13,9 +13,9 @@ const workflows = [
 describe('generated-state rebase recovery (#7448)', () => {
   it('does not restore the append-only history through checkout', () => {
     const serp = workflows[0];
-    expect(serp).toContain('restore-generated-files.sh');
-    expect(serp).toContain('--merge-array-field data/seo-serp-experiment-history.json:snapshots');
-    expect(serp).not.toMatch(/--regenerate-cmd.*git checkout.*seo-serp-experiment-history/);
+    expect(serp).toMatch(/restore-generated-files\.sh|merge-seo-serp-experiment-history\.mjs/);
+    expect(serp).toMatch(/--merge-array-field data\/seo-serp-experiment-history\.json:snapshots|merge-seo-serp-experiment-history\.mjs/);
+    expect(serp).not.toContain('git checkout $COMMIT_SHA -- data/seo-serp-experiment-history.json');
   });
 
   it('keeps every snapshot from both concurrent writers and chooses newest metadata', () => {

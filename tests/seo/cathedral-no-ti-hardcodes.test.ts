@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { markerInComment } from '../../scripts/lib/inline-comment-marker.mjs';
 
 const FORBIDDEN = [
@@ -12,7 +12,7 @@ const FORBIDDEN = [
 
 // ── Forme derivate del literal TI (#7674) ───────────────────────────────────
 // FORBIDDEN sopra e' una lista di stringhe fisse **con gli apici gia' dentro**,
-// passate a `grep -F`: intercetta `'cerca-lavoro-ticino'` e `"..."` e nient'altro.
+// passate a `rg -F`: intercetta `'cerca-lavoro-ticino'` e `"..."` e nient'altro.
 // Ma la tabella che il codice copia a mano non e' solo SECTION_LEGACY_TI: e'
 // anche SECTION_LEGACY_TI_PATH, che emette `/cerca-lavoro-ticino/` — con gli
 // slash. Una copia scritta in quella forma non produceva nessun match e restava
@@ -40,7 +40,7 @@ const TI_SECTION_SLUGS = [
 ];
 
 /**
- * ERE (valida sia per `grep -E` sia per `new RegExp`) che riconosce lo slug come
+ * ERE (valida sia per `rg` sia per `new RegExp`) che riconosce lo slug come
  * segmento intero dentro un literal di codice, con o senza slash delimitanti.
  *
  * L'alternativa 1 chiude su quote **o** slash: chiudere sulla sola quote
@@ -54,23 +54,20 @@ const TI_SECTION_SLUGS = [
  * Senza la 4, ogni template interpolato con prefisso restava invisibile.
  * Un template SENZA interpolazione (`` `/x/` ``) non matcha nessuna delle due.
  *
- * Le alternative 1/3/4 accettano un prefisso locale opzionale `(/[a-z]{2})?`
- * prima dello slug: senza, `'/en/find-jobs-ticino/'` (href/redirect EN/DE/FR)
+ * Le alternative 1/3/4 accettano un prefisso locale opzionale limitato ai
+ * quattro locali pubblicati, seguito da piu' segmenti di sottopath: senza,
+ * `'/en/aziende/find-jobs-ticino/'` (href/redirect con sezione intermedia)
  * restava invisibile — il delimitatore immediato vedeva `/en/` e basta.
  */
 export function tiSegmentPattern(slug: string): string {
-  return `['"](/[a-z]{2})?/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`(/[a-z]{2})?/?${slug}/[^\`]*\\$\\{|\`[^\`]*\\$\\{[^\`]*\\}(/[a-z]{2})?/?${slug}/`;
-}
-
-/** JSON.stringify wraps in double quotes; bash still treats ` as command substitution inside them. */
-function grepEreArg(pattern: string): string {
-  return JSON.stringify(pattern).replace(/`/g, '\\`');
+  const localePath = `(?:/(?:it|en|de|fr)(?:/[a-z0-9][a-z0-9-]*)*)?`;
+  return `['"]${localePath}/?${slug}(['"]|/)|\\\\/${slug}\\\\/|\`${localePath}/?${slug}/[^\`]*\\$\\{|\`[^\`]*\\$\\{[^\`]*\\}${localePath}/?${slug}/`;
 }
 
 // ── Inventario congelato (ratchet, NON un esonero) ──────────────────────────
 // Le forme con slash/sub-path/template interpolato/prefisso locale
 // non erano vigilate: al momento in cui lo diventano il codice ne contiene
-// 235 in 54 file, dai href IT alle tabelle per-locale EN/DE/FR
+// 253 occorrenze in 54 file, dai href IT alle tabelle per-locale EN/DE/FR
 // (`'/en/find-jobs-ticino/'` in `staticPagesPlugin`, `legacyRedirectsPlugin`,
 // `blogContextualLinksData`) e ai `${BASE_URL}/x/` di canonical/hreflang.
 // Ripararle tutte non sta in una PR chirurgica; lasciarle non vigilate era
@@ -89,8 +86,8 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'build-plugins/exchangeRatePagesPlugin.ts': 4,
   'build-plugins/frontalierePillarCopy.ts': 8,
   'build-plugins/jobSectorLanding.ts': 1,
-  'build-plugins/jobsSeoPagesPlugin.ts': 16,
-  'build-plugins/legacyRedirectsPlugin.ts': 11,
+  'build-plugins/jobsSeoPagesPlugin.ts': 19,
+  'build-plugins/legacyRedirectsPlugin.ts': 19,
   'build-plugins/nursingLandingsPlugin.ts': 4,
   'build-plugins/pdfWhitepapersPlugin.ts': 1,
   'build-plugins/professionLandingsPlugin.ts': 4,
@@ -98,12 +95,12 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'build-plugins/searchConsoleCompat.ts': 6,
   'build-plugins/selfCertificationFormsPlugin.ts': 1,
   'build-plugins/seoHubsData.ts': 9,
-  'build-plugins/seoHubsPlugin.ts': 3,
+  'build-plugins/seoHubsPlugin.ts': 5,
   'build-plugins/shared/companyHubFrontalierContext.ts': 1,
   'build-plugins/shared/employerLinks.ts': 1,
   'build-plugins/shared/relatedLinks.ts': 8,
   'build-plugins/shared/trafficEvidenceFilter.ts': 1,
-  'build-plugins/staticPagesPlugin.ts': 32,
+  'build-plugins/staticPagesPlugin.ts': 36,
   'build-plugins/weeklyEmployersPlugin.ts': 1,
   'components/shared/RelatedTools.tsx': 1,
   'components/tabs/CalcolatoreTabContent.tsx': 2,
@@ -131,7 +128,7 @@ const SEGMENT_BASELINE: Record<string, number> = {
   'scripts/send-saved-jobs-digest.mjs': 3,
   'scripts/seo-audit-employer-slugs.mjs': 8,
   'scripts/seo-audit-visual.mjs': 5,
-  'scripts/validate-spa-render.mjs': 4,
+  'scripts/validate-spa-render.mjs': 5,
   'scripts/verify-post-deploy-seo.mjs': 4,
   'services/analyticsPageContext.ts': 4,
   'services/seo/seo-pages.ts': 9,
@@ -201,6 +198,33 @@ const SCAN_DIRS = [
   'services/',
 ];
 
+function scanSource(pattern: string | string[], fixed = false): string {
+  const patterns = Array.isArray(pattern) ? pattern : [pattern];
+  const rgArgs = [
+    '--no-heading', '--color', 'never', '-n', ...(fixed ? ['-F'] : []),
+    ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
+  ];
+  try {
+    return execFileSync('rg', rgArgs, { encoding: 'utf8' });
+  } catch (error: any) {
+    if (error?.status === 1) return '';
+    if (error?.code !== 'ENOENT') throw error;
+  }
+
+  // GitHub's runner has grep but not necessarily ripgrep. Keep the search
+  // argument-based so backticks and regex metacharacters never pass through a
+  // shell in either implementation.
+  try {
+    return execFileSync('grep', [
+      '-r', '-n', fixed ? '-F' : '-E',
+      ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
+    ], { encoding: 'utf8' });
+  } catch (error: any) {
+    if (error?.status === 1) return '';
+    throw error;
+  }
+}
+
 // P1-E fix: parse grep output into (path, line, content) tuples and
 // match against allowlist with EXACT boundary, not startsWith — otherwise
 // `:772` matches `:7720`, `:7721`, …
@@ -260,15 +284,11 @@ export function isAllowlisted(entry: { path: string; lineNo: number; content: st
 
 describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-safe)', () => {
   for (const literal of FORBIDDEN) {
-    // Explicit timeout (vs the 15000ms project default, vitest.config.ts) —
-    // this shells out to `grep -rn` synchronously over SCAN_DIRS; under CI's
-    // parallel test-worker contention that occasionally exceeds 15s even
-    // though the command itself runs in well under 1s in isolation (run
-    // 29904198494/job 88871620100 timed out here with no real hardcode
-    // offender — a CI-load timeout, not a genuine failure).
+    // Explicit timeout (vs the 15000ms project default, vitest.config.ts):
+    // this scans the source surface synchronously; under CI's parallel
+    // test-worker contention it can exceed the default without an offender.
     it(`literal ${literal} appears only in allowlisted locations`, () => {
-      const cmd = `grep -rn -F ${JSON.stringify(literal)} ${SCAN_DIRS.join(' ')} || true`;
-      const out = execSync(cmd, { encoding: 'utf8' });
+      const out = scanSource(literal, true);
       const offenders = out.split('\n').filter(Boolean)
         .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)
         .filter((entry) => !isAllowlisted(entry))
@@ -333,7 +353,10 @@ describe('hasInlineAllow — il marker vale solo dentro un commento (#7676)', ()
 
   it('un apri-commento solo apparente in una stringa non esonera', () => {
     expect(hasInlineAllow("const u = 'https://esempio.dev/cathedral-allow/cerca-lavoro-ticino';")).toBe(false);
+    expect(hasInlineAllow("const css = 'border: 1px solid #ccc — vedi cathedral-allow';")).toBe(false);
+    expect(hasInlineAllow("const cdn = '//cdn.esempio.dev/cathedral-allow/file.js';")).toBe(false);
     expect(hasInlineAllow('<a href="#cathedral-allow">cerca-lavoro-ticino</a>')).toBe(false);
+    expect(hasInlineAllow("const s = 'x'; // cathedral-allow: ragione")).toBe(true);
   });
 
   it('isAllowlisted rifiuta la prosa auto-esonerante su un path non allowlistato', () => {
@@ -395,19 +418,34 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
     const rxEn = new RegExp(tiSegmentPattern('find-jobs-ticino'));
     expect(rxEn.test("'/en/find-jobs-ticino/'")).toBe(true);
     expect(rxEn.test("'/en/job-search-ticino/': '/en/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/aziende/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/en/aziende/hr/find-jobs-ticino/'")).toBe(true);
+    expect(rxEn.test("'/zz/find-jobs-ticino/'")).toBe(false);
     expect(rxEn.test("'/en/find-jobs-ticino-nord/'")).toBe(false);
   });
 
   it('nessun hardcode con slash oltre l\'inventario congelato', () => {
     const counts: Record<string, number> = {};
     const samples: Record<string, string[]> = {};
-    for (const slug of TI_SECTION_SLUGS) {
-      const cmd = `grep -rnE ${grepEreArg(tiSegmentPattern(slug))} ${SCAN_DIRS.join(' ')} || true`;
-      const out = execSync(cmd, { encoding: 'utf8' });
-      for (const entry of out.split('\n').filter(Boolean)
-        .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
-        if (isAllowlisted(entry)) continue;
-        counts[entry.path] = (counts[entry.path] ?? 0) + 1;
+    // Scan all section slugs at once. The fallback grep path is materially
+    // slower than rg; one traversal keeps the CI-without-rg case bounded while
+    // the per-slug occurrence count below preserves the ratchet semantics.
+    const patterns = new Map(TI_SECTION_SLUGS.map((slug) => [slug, tiSegmentPattern(slug)]));
+    // Search by plain slug, then apply the JavaScript matcher below. ERE
+    // dialects differ on the non-capturing groups used by tiSegmentPattern;
+    // passing that JS regexp to grep made the no-rg fallback silently return
+    // no candidates on some runners.
+    const out = scanSource(TI_SECTION_SLUGS, true);
+    for (const entry of out.split('\n').filter(Boolean)
+      .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
+      if (isAllowlisted(entry)) continue;
+      for (const [slug, pattern] of patterns) {
+        // grep/rg reports one line once even when the line contains the
+        // segment twice. Count occurrences, otherwise a new duplicate on an
+        // existing line is invisible to the ratchet.
+        const occurrences = entry.content.match(new RegExp(pattern, 'g'))?.length ?? 0;
+        if (!occurrences) continue;
+        counts[entry.path] = (counts[entry.path] ?? 0) + occurrences;
         (samples[entry.path] ??= []).push(`${entry.path}:${entry.lineNo}: ${entry.content.trim().slice(0, 120)}`);
       }
     }
@@ -421,6 +459,5 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
       .filter((path) => (counts[path] ?? 0) < SEGMENT_BASELINE[path])
       .map((path) => `${path}: ${counts[path] ?? 0} < ${SEGMENT_BASELINE[path]}`);
     expect(stale, `Inventario stantio: questi file hanno meno hardcode del baseline. Abbassa i numeri in SEGMENT_BASELINE (o togli la voce a 0) — il ratchet esiste per convergere a zero:\n${stale.join('\n')}`).toEqual([]);
-  }, 30000);
+  }, 60000);
 });
-

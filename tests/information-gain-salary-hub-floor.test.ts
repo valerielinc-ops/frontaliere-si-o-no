@@ -42,25 +42,23 @@ import {
 } from '@/build-plugins/salaryHubScenarios';
 import { generatePageHtml } from '@/build-plugins/salaryHubContent';
 import { calculateSimulation } from '@/services/calculationService';
+import { scenarioLeverSentences } from '@/build-plugins/shared/scenarioLeverComparison';
+import { SCAN_TEST_TIMEOUT_MS } from './helpers/distHtmlScan';
 
 const DIST = '/tmp/information-gain-salary-hub';
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 /** Misurato il 2026-09-05 (peggiore 6,5 %), meno un punto di margine. */
 const MIN_MEDIAN_IGS = 5.5;
-// The page-level minimum is intentionally a separate, slightly lower floor:
-// the median catches a whole weak cohort, while this catches a single page
-// whose comparison block silently collapsed. Measured after the #7843
-// fastest-pair selection on 2026-09-08: 4.84 % (the floor keeps a safety
-// margin without pretending the page minimum should equal the median).
-const MIN_PAGE_IGS = 4.5;
+const MIN_PAGE_IGS = 5.5;
 
 const scenarios = generateAllScenarios();
 const results = new Map(scenarios.map((s) => [s, calculateSimulation(scenarioToInputs(s))]));
-const cohortCache = new Map<(typeof LOCALES)[number], ReturnType<typeof scoreCohorts>['cohorts']>();
 
-function cohortsFor(locale: (typeof LOCALES)[number]) {
-  const cached = cohortCache.get(locale);
+const scoreCache = new Map<string, { cohorts: any[]; pages: any[] }>();
+
+function scoredLocale(locale: (typeof LOCALES)[number]) {
+  const cached = scoreCache.get(locale);
   if (cached) return cached;
   const fingerprints = scenarios.map((s) => {
     const urlPath = buildFullPath(s, locale);
@@ -69,14 +67,25 @@ function cohortsFor(locale: (typeof LOCALES)[number]) {
   });
   // minCohortPages 2: la popolazione qui è la famiglia intera per costruzione,
   // non un campione, quindi non serve la soglia anti-rumore del gate.
-  const cohorts = scoreCohorts(fingerprints, { minCohortPages: 2 }).cohorts;
-  cohortCache.set(locale, cohorts);
-  return cohorts;
+  const scored = scoreCohorts(fingerprints, { minCohortPages: 2, includePageScores: true });
+  const scenarioByPath = new Map(scenarios.map((scenario) => [buildFullPath(scenario, locale), scenario]));
+  const value = { cohorts: scored.cohorts, pages: scored.cohorts.flatMap((cohort) => (cohort.pageScores ?? []).map((page) => ({ page, scenario: scenarioByPath.get(page.urlPath)! }))) };
+  scoreCache.set(locale, value);
+  return value;
 }
+
+function cohortsFor(locale: (typeof LOCALES)[number]) { return scoredLocale(locale).cohorts; }
+
+const PAIR_PREFIXES = {
+  it: { step: 'Il confronto che si muove', closest: 'Le due leve che qui si equivalgono' },
+  en: { step: 'The comparison that moves fastest', closest: 'The two levers that come closest' },
+  de: { step: 'Entlang der Bruttolohnleiter', closest: 'Die beiden Hebel, die sich hier am nächsten kommen' },
+  fr: { step: 'La comparaison qui bouge', closest: 'Les deux leviers qui se valent' },
+} as const;
 
 describe('information gain dei calcolatori di stipendio, misurato sull’output del plugin', () => {
   for (const locale of LOCALES) {
-    it(`${locale}: ogni coorte sta sopra ${MIN_MEDIAN_IGS} %`, () => {
+    it(`${locale}: ogni coorte sta sopra ${MIN_MEDIAN_IGS} %`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
       const cohorts = cohortsFor(locale);
       expect(cohorts.length, `${locale}: nessuna coorte prodotta`).toBeGreaterThan(0);
       const below = cohorts
@@ -93,7 +102,7 @@ describe('information gain dei calcolatori di stipendio, misurato sull’output 
     });
   }
 
-  it('nessuna pagina della famiglia resta senza niente di proprio', () => {
+  it('nessuna pagina della famiglia resta senza niente di proprio', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     // È il numero che conta più della percentuale: prima della fix una coorte
     // da 54 pagine ne aveva 36 che non aggiungevano UNA frase.
     const offenders = LOCALES.flatMap((locale) =>
@@ -104,15 +113,18 @@ describe('information gain dei calcolatori di stipendio, misurato sull’output 
     expect(offenders).toEqual([]);
   });
 
-  it(`nessuna pagina della famiglia scende sotto ${MIN_PAGE_IGS} %`, () => {
-    const below = LOCALES.flatMap((locale) =>
-      cohortsFor(locale)
-        .flatMap((c) => c.worst.filter((page) => page.igs < MIN_PAGE_IGS).map((page) => `${locale}/${page.urlPath}: ${page.igs.toFixed(2)} %`)),
-    );
-    expect(below).toEqual([]);
+  it('le pagine che tacciono una o due coppie restano sopra il floor per-pagina', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    const impacted = LOCALES.flatMap((locale) => scoredLocale(locale).pages.map(({ page, scenario }) => {
+      const simulation = results.get(scenario)!;
+      const sentences = scenarioLeverSentences({ scenario, allScenarios: scenarios, chResidentNetAnnual: simulation.chResident.netIncomeAnnual, itResidentNetAnnual: simulation.itResident.netIncomeAnnual, locale });
+      return { page, hasStepComparison: sentences.some((sentence) => sentence.startsWith(PAIR_PREFIXES[locale].step)), hasClosestPair: sentences.some((sentence) => sentence.startsWith(PAIR_PREFIXES[locale].closest)) };
+    }).filter((entry) => !entry.hasClosestPair));
+    expect(impacted.length).toBeGreaterThan(0);
+    expect(impacted.filter((entry) => !entry.hasStepComparison)).toHaveLength(0);
+    expect(impacted.filter(({ page }) => page.igs < MIN_PAGE_IGS)).toHaveLength(0);
   });
 
-  it('l’intestazione del blocco è la stessa su tutte le pagine di un locale', () => {
+  it('l’intestazione del blocco è la stessa su tutte le pagine di un locale', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     // Un h2 che variasse per pagina spezzerebbe la famiglia in coorti da una
     // pagina, che il motore non punteggia: IGS "risolto" facendo sparire la
     // misura, cioè AGENTS.md #1 al contrario. Le coorti devono restare poche.

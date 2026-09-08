@@ -114,6 +114,16 @@ describe('fixQueueDepth: la profondità dichiarata dal workflow', () => {
     }
   });
 
+  it('pinna il caso di tre eventi: una pending puo\' essere sfrattata e va ri-armata dal rescue', () => {
+    for (const wf of ISSUE_EVENT_WORKFLOWS) {
+      const yaml = readFileSync(fileURLToPath(new URL(`../.github/workflows/${wf}`, import.meta.url)), 'utf8');
+      expect(yaml, wf).toContain('cancel-in-progress: false');
+      expect(yaml, wf).toMatch(/terzo evento[\s\S]*pending|terzo evento[\s\S]*pending consentita/i);
+      expect(yaml, wf).toMatch(/one-shot|one-\s*\n\s*#\s*shot/i);
+      expect(yaml, wf).toMatch(/rescue del drainer[\s\S]*(ri-arma|ri-armare)/i);
+    }
+  });
+
   it('il fallback `|| github.run_id` conta come espressione: nessuna chiave costante di rimbalzo', () => {
     // Il fallback esiste per un trigger futuro senza issue nel payload. Se
     // `fixQueueDepth` lo leggesse come costante, il cap verrebbe clampato a 1

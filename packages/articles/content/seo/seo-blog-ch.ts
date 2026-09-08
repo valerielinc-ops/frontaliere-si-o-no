@@ -78956,6 +78956,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollette-26-centesimi-2027': {
+    title: 'Prezzi dell\'elettricità in leggero calo nel 2027',
+    description: 'Nel 2027 le economie domestiche svizzere pagheranno meno per l\'energia. Tariffa media a 26,5 ct/kWh: calo del 4%, risparmio di 53 franchi annui secondo ElCom.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, dell, elettricità, leggero',
+    ogTitle: 'Prezzi dell\'elettricità in leggero calo nel 2027',
+    ogDescription: 'Nel 2027 le bollette dell\'energia calano del 4% in media. Economie domestiche svizzere a 26,5 ct/kWh: risparmio di 53 franchi annuali. Nuove tariffe comunicate da ElCom, valide dal 1° gennaio 2027.',
+    canonicalPath: '/articoli-svizzera/bollette-26-centesimi-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi dell'elettricità in leggero calo nel 2027",
+      "description": "Nel 2027 le economie domestiche svizzere pagheranno meno per l'energia. Tariffa media a 26,5 ct/kWh: calo del 4%, risparmio di 53 franchi annui secondo ElCom.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollette-26-centesimi-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia svizzera rilegge la bolletta dell'energia dopo il calo tariffario annunciato da ElCom per il 2027"
+      },
+      "datePublished": "2026-09-08T11:56:17+00:00",
+      "dateModified": "2026-09-08T11:56:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bollette-26-centesimi-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-online-regensdorf-2026': {
+    title: 'Migros online: +21.000 prodotti a Regensdorf | Frontaliere Ticino',
+    description: 'Migros apre il nuovo hub logistico a Regensdorf: online da 12.500 a 21.000 prodotti (+60%), 7.500 ordini/giorno, 200-500 posti di lavoro, consegne veloci',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, online, prodotti, regensdorf',
+    ogTitle: 'Migros online: +21.000 prodotti e nuovo hub a Regensdorf',
+    ogDescription: 'Nuovo centro di distribuzione Migros Online a Regensdorf (ZH): +60% prodotti (21.000), 7.500 ordini/giorno, 200-500 posti di lavoro. Fatturato 362 milioni CHF, 47% mercato. Consegne stesso giorno a Zurigo entro febbraio 2027.',
+    canonicalPath: '/articoli-svizzera/migros-online-regensdorf-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros online: +21.000 prodotti a Regensdorf",
+      "description": "Migros apre il nuovo hub logistico a Regensdorf: online da 12.500 a 21.000 prodotti (+60%), 7.500 ordini/giorno, 200-500 posti di lavoro, consegne veloci",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-online-regensdorf-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di distribuzione automatizzato di Migros Online a Regensdorf, Zurigo, con scaffalature e nastri trasportatori"
+      },
+      "datePublished": "2026-09-08T12:11:42+00:00",
+      "dateModified": "2026-09-08T12:11:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-online-regensdorf-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-infermieri-carenza-svizzera-2034': {
+    title: 'Infermieri: carenza entro il 2034 in Svizzera | Frontaliere Ticino',
+    description: 'Il 4° rapporto Obsan prevede carenza grave di infermieri entro il 2034. Tasso copertura: massimo 55%. Scopri le cause e le uscite precoci dal settore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infermieri, carenza, entro, rapporto',
+    ogTitle: 'Carenza infermieri Svizzera 2034: report Obsan',
+    ogDescription: 'La Svizzera affronterà carenza grave di infermieri entro il 2034. Solo il 55% del fabbisogno coperto da personale svizzero formato. Il 4° rapporto Obsan evidenzia: sostituzione di 1/3 del personale e invecchiamento della popolazione. Il 47%',
+    canonicalPath: '/articoli-svizzera/infermieri-carenza-svizzera-2034/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infermieri: carenza entro il 2034 in Svizzera",
+      "description": "Il 4° rapporto Obsan prevede carenza grave di infermieri entro il 2034. Tasso copertura: massimo 55%. Scopri le cause e le uscite precoci dal settore.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/infermieri-carenza-svizzera-2034.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corridoio di ospedale svizzero con operatori sanitari: carenza di infermieri è una sfida per il sistema"
+      },
+      "datePublished": "2026-09-08T12:32:55+00:00",
+      "dateModified": "2026-09-08T12:32:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/infermieri-carenza-svizzera-2034/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

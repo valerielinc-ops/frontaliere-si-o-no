@@ -26,13 +26,15 @@
 import { describe, it, expect } from 'vitest';
 import {
   generateAllScenarios,
+  SALARY_LEVELS,
   scenarioToInputs,
   type SalaryHubScenario,
 } from '@/build-plugins/salaryHubScenarios';
 import { calculateSimulation } from '@/services/calculationService';
+import { SCAN_TEST_TIMEOUT_MS } from './helpers/distHtmlScan';
 import {
   scenarioLeverSentences,
-  type LeverLocale,
+type LeverLocale,
 } from '@/build-plugins/shared/scenarioLeverComparison';
 
 /**
@@ -43,16 +45,18 @@ import {
  */
 const LOCALES: Record<
   LeverLocale,
-  { ranking: string; listSeparator: RegExp; pairs: readonly string[] }
+  { ranking: string; listSeparator: RegExp; separatorTokens: readonly string[]; pairs: readonly string[] }
 > = {
   it: {
     ranking: 'in ordine di peso: ',
     listSeparator: /, | e /,
+    separatorTokens: [', ', ' e '],
     pairs: ['In cifre proprie', 'Il confronto che si muove', 'Le due leve che qui si equivalgono'],
   },
   en: {
     ranking: 'by weight: ',
     listSeparator: /, | and /,
+    separatorTokens: [', ', ' and '],
     pairs: [
       'In figures specific to',
       'The comparison that moves fastest',
@@ -62,6 +66,7 @@ const LOCALES: Record<
   de: {
     ranking: 'nach Gewicht geordnet: ',
     listSeparator: /, | und /,
+    separatorTokens: [', ', ' und '],
     pairs: [
       'In den Zahlen dieses Bruttolohns',
       'Entlang der Bruttolohnleiter',
@@ -71,6 +76,7 @@ const LOCALES: Record<
   fr: {
     ranking: 'par ordre de poids : ',
     listSeparator: /, | et /,
+    separatorTokens: [', ', ' et '],
     pairs: [
       'En chiffres propres',
       'La comparaison qui bouge',
@@ -97,15 +103,46 @@ const idOf = (scenario: SalaryHubScenario): string =>
 
 /** Le etichette nominate da una frase, nell'ordine in cui compaiono. */
 function labelsIn(sentence: string, labels: readonly string[]): string[] {
-  const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return labels
-    .map((label) => ({
-      label,
-      at: sentence.search(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(label)}(?![\\p{L}\\p{N}])`, 'u')),
-    }))
-    .filter((x) => x.at >= 0)
-    .sort((a, b) => a.at - b.at)
-    .map((x) => x.label);
+  const alternatives = [...labels].map((label) => label.trim()).sort((a, b) => b.length - a.length).map((label) => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  if (!alternatives) return [];
+  const exactLabel = new RegExp(`(?<![\\p{L}\\p{N}])(${alternatives})(?![\\p{L}\\p{N}])`, 'gu');
+  return [...sentence.matchAll(exactLabel)].map((match) => match[1]);
+}
+
+type LeverKey = 'salaryUp' | 'salaryDown' | 'childMore' | 'childLess' | 'marital' | 'regime' | 'zone';
+type MeasuredLever = { key: LeverKey; label: string; delta: number };
+const IT_LABELS: Record<LeverKey, string> = { salaryUp: 'il gradino di RAL successivo', salaryDown: 'il gradino di RAL precedente', childMore: 'un figlio a carico in più', childLess: 'un figlio a carico in meno', marital: '', regime: '', zone: '' };
+const measuredNetCache = new Map<string, number>();
+function measuredNet(scenario: SalaryHubScenario): number {
+  const key = `${scenario.salary}|${scenario.frontierType}|${scenario.maritalStatus}|${scenario.children}|${scenario.distanceZone}`;
+  const cached = measuredNetCache.get(key); if (cached !== undefined) return cached;
+  const net = calculateSimulation(scenarioToInputs(scenario)).itResident.netIncomeAnnual; measuredNetCache.set(key, net); return net;
+}
+function salaryStep(salary: number, direction: 1 | -1): number | null {
+  const index = SALARY_LEVELS.indexOf(salary as (typeof SALARY_LEVELS)[number]); return index < 0 ? null : SALARY_LEVELS[index + direction] ?? null;
+}
+function measuredLevers(scenario: SalaryHubScenario): MeasuredLever[] {
+  const base = measuredNet(scenario); const out: MeasuredLever[] = [];
+  const add = (key: LeverKey, label: string, variant: SalaryHubScenario) => out.push({ key, label, delta: measuredNet(variant) - base });
+  const up = salaryStep(scenario.salary, 1); if (up !== null) add('salaryUp', IT_LABELS.salaryUp, { ...scenario, salary: up });
+  const down = salaryStep(scenario.salary, -1); if (down !== null) add('salaryDown', IT_LABELS.salaryDown, { ...scenario, salary: down });
+  if (scenario.children < 3) add('childMore', IT_LABELS.childMore, { ...scenario, children: scenario.children + 1 });
+  if (scenario.children > 0) add('childLess', IT_LABELS.childLess, { ...scenario, children: scenario.children - 1 });
+  add('marital', scenario.maritalStatus === 'MARRIED' ? 'il ritorno alla posizione di single' : 'il matrimonio con coniuge non lavoratore', { ...scenario, maritalStatus: scenario.maritalStatus === 'MARRIED' ? 'SINGLE' : 'MARRIED' });
+  if (scenario.distanceZone === 'WITHIN_20KM') add('regime', scenario.frontierType === 'OLD' ? 'il passaggio al regime di nuovo frontaliere' : 'il passaggio al regime di vecchio frontaliere', { ...scenario, frontierType: scenario.frontierType === 'OLD' ? 'NEW' : 'OLD' });
+  if (scenario.frontierType === 'NEW') add('zone', scenario.distanceZone === 'OVER_20KM' ? 'lo spostamento della residenza entro i 20 km dal confine' : 'lo spostamento della residenza oltre i 20 km dal confine', { ...scenario, distanceZone: scenario.distanceZone === 'OVER_20KM' ? 'WITHIN_20KM' : 'OVER_20KM' });
+  return out.sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta) || (a.key < b.key ? -1 : 1));
+}
+function ratioVariation(scenario: SalaryHubScenario, otherKey: LeverKey): number | null {
+  const ratios: number[] = [];
+  for (const salary of SALARY_LEVELS) {
+    const levers = measuredLevers({ ...scenario, salary });
+    const step = levers.filter((lever) => lever.key === 'salaryUp' || lever.key === 'salaryDown').sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))[0];
+    const other = levers.find((lever) => lever.key === otherKey);
+    if (!step || !other || Math.abs(step.delta) === 0 || Math.abs(other.delta) === 0) continue;
+    ratios.push(Math.abs(step.delta) / Math.abs(other.delta));
+  }
+  return ratios.length > 1 ? Math.max(...ratios) - Math.min(...ratios) : null;
 }
 
 describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', () => {
@@ -124,11 +161,12 @@ describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', ()
         const labels = ranking!
           .slice(ranking!.indexOf(spec.ranking) + spec.ranking.length)
           .replace(/\.$/, '')
-          .split(spec.listSeparator)
-          .map((label) => label.trim());
-
+          .split(spec.listSeparator);
         for (const label of labels) {
-          expect(label, `${idOf(scenario)}: separatore finito dentro l'etichetta «${label}»`).not.toMatch(spec.listSeparator);
+          expect(
+            spec.separatorTokens.some((token) => label.includes(token)),
+            `${idOf(scenario)}: l'etichetta «${label}» contiene un separatore della lista`,
+          ).toBe(false);
         }
 
         const seen = new Set<string>();
@@ -179,20 +217,27 @@ describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', ()
     expect(suppressed.length).toBeGreaterThan(0);
   });
 
-  it('misura le soppressioni sovrapposte senza nascondere un doppio vuoto', () => {
-    let stepVsOtherSuppressed = 0;
-    let closestPairSuppressed = 0;
-    let bothSuppressed = 0;
+  it('il superlativo di stepVsOther resta vero lungo tutta la scala salariale', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    const offenders: string[] = [];
+    let measured = 0;
     for (const scenario of scenarios) {
       const sentences = sentencesFor(scenario, 'it');
-      const stepPresent = sentences.some((s) => s.startsWith('Il confronto che si muove'));
-      const closestPresent = sentences.some((s) => s.startsWith('Le due leve che qui si equivalgono'));
-      if (!stepPresent) stepVsOtherSuppressed += 1;
-      if (!closestPresent) closestPairSuppressed += 1;
-      if (!stepPresent && !closestPresent) bothSuppressed += 1;
+      const stepSentence = sentences.find((sentence) => sentence.startsWith('Il confronto che si muove'));
+      if (!stepSentence) continue;
+      const ranking = sentences.find((sentence) => sentence.includes(LOCALES.it.ranking));
+      expect(ranking).toBeDefined();
+      const labels = ranking!.slice(ranking!.indexOf(LOCALES.it.ranking) + LOCALES.it.ranking.length).replace(/\.$/, '').split(LOCALES.it.listSeparator).map((label) => label.trim());
+      const named = labelsIn(stepSentence, labels);
+      const other = measuredLevers(scenario).find((lever) => lever.key !== 'salaryUp' && lever.key !== 'salaryDown' && named.includes(lever.label));
+      if (!other) continue;
+      const selected = ratioVariation(scenario, other.key);
+      const candidates = measuredLevers(scenario).filter((lever) => lever.key !== 'salaryUp' && lever.key !== 'salaryDown').map((lever) => ratioVariation(scenario, lever.key)).filter((value): value is number => value !== null);
+      if (selected === null || candidates.length === 0) continue;
+      measured += 1;
+      const fastest = Math.max(...candidates);
+      if (selected + 1e-9 < fastest) offenders.push(`${idOf(scenario)}: ${other.key} variation ${selected} < ${fastest}`);
     }
-    expect(stepVsOtherSuppressed).toBe(0);
-    expect(closestPairSuppressed).toBeGreaterThan(0);
-    expect(bothSuppressed).toBe(0);
+    expect(measured).toBeGreaterThan(0);
+    expect(offenders).toEqual([]);
   });
 });
