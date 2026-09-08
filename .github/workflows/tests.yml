@@ -1,7 +1,8 @@
 name: tests
 
 # Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
-# CI gate. Direct crawler pushes to main intentionally do not run this workflow.
+# CI gate. Direct crawler pushes to main run the same blocking check, so the
+# post-merge tree cannot bypass the source gate.
 # Before this workflow existed, vitest tests were never run in CI —
 # regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
 # (added in PR #294) landed already-failing without anyone noticing, and the
@@ -145,6 +146,9 @@ on:
     # that workflow uses the App identity because GITHUB_TOKEN labels do not
     # start another workflow run.
     types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
+  push:
+    branches: [main]
+  merge_group:
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
@@ -172,9 +176,8 @@ permissions:
 #   older head irrelevant, so cancelling it is free — the answer for the head
 #   that matters is still produced. `cancel-in-progress: true` is correct.
 #
-#   Direct pushes to main are intentionally outside this workflow: crawler
-#   automation keeps its direct-push path without paying for or depending on
-#   the PR test job.
+#   Direct pushes to main and merge queues ask the same question as a PR:
+#   does the tree pass the source gate before it becomes the next main head?
 concurrency:
   # Body edits have their own newest-wins lane: an edit can cancel only an
   # earlier edit on the same ref, never a run testing a new commit.
@@ -1081,7 +1084,7 @@ jobs:
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
       - name: Forbid the NaN-producing env fallback inside Number()
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && ((github.event_name == 'pull_request' && github.event.action != 'edited') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
         background: true
         run: node scripts/ci/check-number-env-fallback.mjs
 

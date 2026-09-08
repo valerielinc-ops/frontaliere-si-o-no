@@ -320,18 +320,18 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
 /**
  * Il verdetto su main deve poter ARRIVARE IN FONDO.
  *
- * I push diretti su main sono intenzionalmente esclusi da tests.yml: i writer
- * automatici mantengono il loro percorso diretto senza lanciare questa suite.
- * Le PR usano invece newest-wins perché l'head precedente diventa irrilevante
- * quando arriva un nuovo commit.
+ * I push diretti su main e le merge queue devono attraversare lo stesso gate
+ * blocking della PR: il verde deve restare una prova anche fuori dal percorso
+ * pull request. Le PR usano invece newest-wins perché l'head precedente
+ * diventa irrilevante quando arriva un nuovo commit.
  *
  * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
  * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
  * la regola non è applicabile e una regressione su main resta invisibile finché
  * non la eredita per caso una PR.
  *
- * Il contratto fissato qui: tests.yml valida le PR, non i push diretti su main.
- * Questo test fallisce se qualcuno reintroduce il trigger push senza aggiornare
+ * Il contratto fissato qui: tests.yml valida PR, push diretti su main e merge
+ * queue. Questo test fallisce se uno dei trigger viene rimosso senza aggiornare
  * esplicitamente il comportamento atteso.
  */
 describe('main health-signal contract (verdetto non cancellabile)', () => {
@@ -354,12 +354,13 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(value).toBe('true');
   });
 
-  it('non lancia la suite sui push diretti a main', () => {
+  it('lancia la suite sui push diretti a main', () => {
     const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
-    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml non deve avere un trigger push su main').toBe(false);
+    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml deve avere un trigger push su main').toBe(true);
   });
 
-  it('mantiene il trigger PR come unico trigger automatico di verifica', () => {
+  it('mantiene i trigger PR, push main e merge queue', () => {
     expect(TESTS_YML).toMatch(/^\s+pull_request:\s*$/m);
+    expect(TESTS_YML).toMatch(/^\s+merge_group:\s*$/m);
   });
 });
