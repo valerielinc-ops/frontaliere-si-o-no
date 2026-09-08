@@ -6088,6 +6088,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-online-regensdorf-2026.title': 'Migros Online : +21 000 produits à Regensdorf',
     'blog.article.migros-online-regensdorf-2026.excerpt': 'Nouveau hub logistique à Regensdorf (ZH) avec 60 % plus de produits, 7 500 commandes/jour, 200-500 emplois. Livraisons le même jour à Zurich avant février 2027.',
     'blog.article.migros-online-regensdorf-2026.imageAlt': 'Centre de distribution automatisé Migros Online à Regensdorf, Zurich, avec rayonnages et systèmes de transport',
+    'blog.article.infermieri-carenza-svizzera-2034.title': 'Infirmières : pénurie d\'ici 2034 en Suisse',
+    'blog.article.infermieri-carenza-svizzera-2034.excerpt': 'Le 4ème rapport Obsan prévoit une pénurie sévère d\'infirmières d\'ici 2034. Seulement 55% des besoins couverts par du personnel formé en Suisse.',
+    'blog.article.infermieri-carenza-svizzera-2034.imageAlt': 'Couloir d\'hôpital suisse moderne avec personnel de santé en costume médical',
 };
 
 export default blogMetaChFr;
