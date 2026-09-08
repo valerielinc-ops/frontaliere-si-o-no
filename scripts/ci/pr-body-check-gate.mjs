@@ -149,10 +149,11 @@ export function extractPrBody(command, cwd = process.cwd()) {
  * new remote write must never create or destroy a residual state.
  *
  * @param {string} body
+ * @param {{ diffPaths?: string[] }} [options]
  * @returns {{ok:boolean, violations:Array<object>, warnings:Array<object>}}
  */
-export function validatePrBody(body) {
-  const result = checkPrBodySections(body);
+export function validatePrBody(body, options = {}) {
+  const result = checkPrBodySections(body, options);
   const stateWarnings = (result.warnings ?? []).filter(
     (warning) => warning.type === 'bullet-without-state',
   );
@@ -175,9 +176,10 @@ export function validatePrBody(body) {
  *
  * @param {string} bodyPath
  * @param {string} [cwd]
+ * @param {{ diffPaths?: string[] }} [options]
  * @returns {{kind:'ok'|'contract-violation'|'infrastructure-error', path?:string, reason?:string, validation?:object}}
  */
-export function validatePrBodyFile(bodyPath, cwd = process.cwd()) {
+export function validatePrBodyFile(bodyPath, cwd = process.cwd(), options = {}) {
   if (!bodyPath) {
     return {
       kind: 'infrastructure-error',
@@ -197,7 +199,7 @@ export function validatePrBodyFile(bodyPath, cwd = process.cwd()) {
     };
   }
 
-  const validation = validatePrBody(body);
+  const validation = validatePrBody(body, options);
   return {
     kind: validation.ok ? 'ok' : 'contract-violation',
     path: resolved,

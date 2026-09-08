@@ -12,12 +12,24 @@ type Payload = {
   source: string;
 };
 
-function workflowFiles(directory: string): string[] {
+type ScriptWriter = {
+  script: string;
+  source: string;
+  writeStart: number;
+  workflows: Payload[];
+};
+
+function filesUnder(directory: string, filePattern: RegExp): string[] {
+  if (!fs.existsSync(directory)) return [];
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const full = path.join(directory, entry.name);
-    if (entry.isDirectory()) return workflowFiles(full);
-    return /\.ya?ml$/i.test(entry.name) ? [full] : [];
+    if (entry.isDirectory()) return filesUnder(full, filePattern);
+    return filePattern.test(entry.name) ? [full] : [];
   });
+}
+
+function workflowFiles(directory: string): string[] {
+  return filesUnder(directory, /\.ya?ml$/i);
 }
 
 function collectPayloads(value: unknown, workflow: string, location = '$') {
@@ -55,6 +67,12 @@ function withoutShellComments(source: string): string {
     .join('\n');
 }
 
+function withoutSourceComments(source: string): string {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, (comment) => comment.replace(/[^\n]/g, ' '))
+    .replace(/^\s*(?:\/\/|#).*$/gm, (comment) => comment.replace(/[^\n]/g, ' '));
+}
+
 function bodyWriteCommands(source: string): Array<{ start: number; command: string }> {
   const live = withoutShellComments(source);
   // Stop at the next gh command too, not only at the next PR command: a
@@ -73,14 +91,46 @@ function bodyWriteCommands(source: string): Array<{ start: number; command: stri
   });
 }
 
-function discoverWriters(): { direct: Payload[]; prompts: Payload[] } {
+function scriptBodyWriteStart(source: string): number {
+  const live = withoutSourceComments(source);
+  const nodeCli = live.search(
+    /(?:execFileSync|spawnSync)\(\s*['"]gh['"]\s*,\s*\[\s*['"]pr['"]\s*,\s*['"](?:create|edit)['"]/
+  );
+  if (nodeCli >= 0) return nodeCli;
+  const shellCli = live.search(/(?:^|\n)\s*(?:if\s+!)?gh\s+pr\s+(?:create|edit)\b/m);
+  return shellCli >= 0 && /--body-file(?:[=\s])/.test(live.slice(shellCli))
+    ? shellCli
+    : -1;
+}
+
+function scriptGateStart(source: string): number {
+  const live = withoutSourceComments(source);
+  const importedValidator = live.search(/\bvalidatePrBody(?:File)?\s*\(/);
+  if (importedValidator >= 0) return importedValidator;
+  return live.search(/\bnode\b[^\n]*pr-body-check-gate\.mjs[^\n]*--body-file/);
+}
+
+function workflowReferencedScripts(payloads: Payload[]): string[] {
+  const paths = new Set<string>();
+  for (const payload of payloads) {
+    for (const match of payload.source.matchAll(/(?:scripts|bin)\/[A-Za-z0-9_./-]+\.(?:mjs|js|sh)\b/g)) {
+      const script = match[0];
+      if (fs.existsSync(path.join(ROOT, script))) paths.add(script);
+    }
+  }
+  return [...paths];
+}
+
+function discoverWriters(): { direct: Payload[]; prompts: Payload[]; scripts: ScriptWriter[] } {
   const direct: Payload[] = [];
   const prompts: Payload[] = [];
+  const payloads: Payload[] = [];
 
   for (const file of workflowFiles(WORKFLOW_DIR)) {
     const workflow = path.relative(ROOT, file);
     const document = YAML.parse(fs.readFileSync(file, 'utf8'));
     for (const payload of collectPayloads(document, workflow)) {
+      payloads.push(payload);
       if (payload.location.endsWith('.run')) {
         if (bodyWriteCommands(payload.source).length > 0) direct.push(payload);
       } else if (
@@ -91,14 +141,29 @@ function discoverWriters(): { direct: Payload[]; prompts: Payload[] } {
       }
     }
   }
-  return { direct, prompts };
+
+  const scripts = workflowReferencedScripts(payloads)
+    .map((script): ScriptWriter | null => {
+      const source = fs.readFileSync(path.join(ROOT, script), 'utf8');
+      const writeStart = scriptBodyWriteStart(source);
+      if (writeStart < 0) return null;
+      return {
+        script,
+        source,
+        writeStart,
+        workflows: payloads.filter((payload) => payload.source.includes(script)),
+      };
+    })
+    .filter((writer): writer is ScriptWriter => writer !== null);
+
+  return { direct, prompts, scripts };
 }
 
 describe('every workflow PR body writer crosses the deterministic gate', () => {
   it('discovers body-writing paths instead of maintaining a hand-written workflow list', () => {
     const writers = discoverWriters();
     expect(
-      writers.direct.length + writers.prompts.length,
+      writers.direct.length + writers.prompts.length + writers.scripts.length,
       'the coverage detector must find at least one live PR body writer',
     ).toBeGreaterThan(0);
 
@@ -118,7 +183,7 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
       expect(
         firstWrite.command,
         `${payload.workflow} ${payload.location} must pass the validated file to gh`,
-      ).toMatch(/--body-file(?:[=\s])/);
+      ).toMatch(/--body-file\b/);
     }
 
     for (const payload of writers.prompts) {
@@ -142,6 +207,36 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
       expect(workflowSource, `${payload.workflow} does not put the wrapper on PATH`).toContain(
         '$GITHUB_PATH',
       );
+    }
+
+    for (const writer of writers.scripts) {
+      expect(
+        writer.workflows.length,
+        `${writer.script} writes a PR body but no workflow invokes it`,
+      ).toBeGreaterThan(0);
+      const live = withoutSourceComments(writer.source);
+      const gateReference = live.indexOf('pr-body-check-gate.mjs');
+      expect(
+        gateReference,
+        `${writer.script} writes a PR body but never references the shared gate`,
+      ).toBeGreaterThanOrEqual(0);
+      const gate = scriptGateStart(writer.source);
+      expect(
+        gate,
+        `${writer.script} writes a PR body but has no executable shared-gate call`,
+      ).toBeGreaterThanOrEqual(0);
+      expect(
+        gate,
+        `${writer.script} invokes the gate after its remote body writer`,
+      ).toBeLessThan(writer.writeStart);
+      expect(
+        live.slice(writer.writeStart),
+        `${writer.script} must pass the validated file to gh`,
+      ).toMatch(/--body-file\b/);
+      expect(
+        live.slice(writer.writeStart),
+        `${writer.script} still contains an inline --body writer`,
+      ).not.toMatch(/--body(?!-file)\b/);
     }
   });
 });

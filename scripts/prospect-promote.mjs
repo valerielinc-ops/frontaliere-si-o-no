@@ -38,7 +38,7 @@ import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prosp
 import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
-import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
+import { validatePrBodyFile } from './ci/pr-body-check-gate.mjs';
 // Sì, per due righe di logica si importa un file di ~2.870 righe: nit del
 // reviewer su PR #7276, valutato e NON preso, di proposito.
 //
@@ -519,21 +519,29 @@ function changedWorkflowPaths() {
   }
 }
 
-// Autocontrollo del corpo PRIMA di aprire la PR. Senza nessuno che guarda, un
-// body che non soddisfa il contratto del repo non e' un fastidio: la PR resta
-// ferma per sempre, e il loop continua a produrne altre uguali.
-const contract = checkPrBodySections(body, {
-  diffPaths: groupsRegenerated ? changedWorkflowPaths() : [],
-});
-if (!contract.ok) {
-  console.error('\n❌ il corpo della PR non soddisfa il contratto del repo, non apro nulla:');
-  for (const v of contract.violations) console.error(`   - [${v.type}] ${v.message}`);
-  process.exit(1);
-}
-for (const w of contract.warnings || []) console.log(`  ⚠️ ${w.type}: ${String(w.message).slice(0, 120)}`);
-
 const bodyFile = path.join(PROSPECTOR_DIR, 'promote-pr-body.md');
 fs.writeFileSync(bodyFile, body);
+
+// Autocontrollo del corpo PRIMA di fare commit, push o apertura della PR. La
+// funzione viene dal gate usato anche dal hook locale e dai workflow: qui non
+// si riscrive la tassonomia degli stati. Un problema del body blocca il
+// percorso; un problema infrastrutturale nel file non trasforma in rosso il
+// lavoro di promozione gia' eseguito.
+const contract = validatePrBodyFile(bodyFile, ROOT, {
+  diffPaths: groupsRegenerated ? changedWorkflowPaths() : [],
+});
+if (contract.kind === 'infrastructure-error') {
+  console.error(`::warning::body PR del prospector non verificabile; nessuna PR scritta: ${contract.reason}`);
+  process.exit(0);
+}
+for (const w of contract.validation?.warnings || []) {
+  console.log(`  ⚠️ ${w.type}: ${String(w.message).slice(0, 120)}`);
+}
+if (contract.kind === 'contract-violation') {
+  console.error('\n❌ il corpo della PR non soddisfa il contratto del repo, non apro nulla:');
+  for (const v of contract.validation.violations) console.error(`   - [${v.type}] ${v.message}`);
+  process.exit(1);
+}
 
 const git = (...a) => execFileSync('git', a, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
 try {
@@ -559,11 +567,17 @@ try {
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);
-  const url = execFileSync('gh', [
-    'pr', 'create', '--base', 'main', '--head', branch,
-    '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
-    '--body-file', bodyFile,
-  ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+  let url;
+  try {
+    url = execFileSync('gh', [
+      'pr', 'create', '--base', 'main', '--head', branch,
+      '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
+      '--body-file', bodyFile,
+    ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+  } catch {
+    console.error('::warning::gh pr create non ha risposto; il branch del prospector e\' gia\' pushato, nessun body PR scritto.');
+    process.exit(0);
+  }
   console.log(`\nPR aperta: ${url}`);
 
   // Il passaggio a `production` vive sul branch della PR, quindi su main questi
