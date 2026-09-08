@@ -11,20 +11,25 @@
  * full-test fallback only when the changed-path collector cannot prove a
  * complete diff. Runtime/configuration files are deliberately not treated as
  * global Vitest dependencies: changing CI or TypeScript configuration must
- * not expand an application test diff into the complete suite.
+ * not expand an application test diff into the complete suite. `--select-only`
+ * computes the same selection without invoking Vitest and emits the
+ * pre-assembly dataset decision for tests.yml.
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { listCorpusWideTests } from './corpus-wide-tests.mjs';
+import { shouldAssembleForRelatedTests } from './dataset-dependent-tests.mjs';
 import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers } from './lib/select-max-workers.mjs';
+import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
-const sourceRe = /\.(?:[cm]?[jt]sx?|vue|svelte)$/i;
+const selectionOnly = process.argv.includes('--select-only');
+const sourceRe = GRAPH_SOURCE_RE;
 const testRe = /^(?:tests|packages\/[^/]+\/tests)\/.*\.(?:test|spec)\.[cm]?[jt]sx?$/i;
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
 // e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
@@ -46,7 +51,7 @@ const alwaysExcludedTests = new Set([
   'tests/faq-readability-gate.test.ts',
   'tests/firestore-rules-consent-write.test.ts',
 ]);
-const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_modules)\//;
+const ignoredRe = GRAPH_IGNORED_RE;
 // Workflow e artefatti portabili sotto `.github/`. Non sono sorgenti e non
 // hanno nessun edge di import, ma i test che ne congelano il contenuto li
 // aprono per path LETTERALE (`fs.readFileSync('.github/…')`,
@@ -60,7 +65,6 @@ const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_module
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
-const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // These dependencies are wired by Vitest/configuration or executed through a
@@ -109,10 +113,7 @@ function stripComments(source) {
 
 function trackedFiles() {
   return execFileSync('git', ['ls-files', '-z'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    .split('\0').filter(Boolean).map(normalize)
-    .filter((file) => !file.startsWith('.github/') && !ignoredRe.test(file) && sourceRe.test(file)
-      && (!file.includes('/') || projectRe.test(file) || /^scripts\/[^/]+$/.test(file)
-        || /^packages\/[^/]+\/[^/]+$/.test(file)));
+    .split('\0').filter(Boolean).map(normalize).filter(isGraphSourceFile);
 }
 
 function trackedAssets() {
@@ -143,6 +144,36 @@ function resolveImport(from, specifier, fileSet) {
 // Tracked files this process could not read while building the graph. Empty on
 // a full checkout; see importsOf() for the only case that fills it.
 const unreadable = [];
+
+function writeAssembleDecision(selectedTests) {
+  let decision;
+  try {
+    decision = shouldAssembleForRelatedTests({
+      eventName: process.env.GITHUB_EVENT_NAME,
+      changedPaths: changed,
+      changedStatus,
+      selectedTests,
+      unreadableCount: unreadable.length,
+    });
+  } catch (error) {
+    decision = {
+      required: true,
+      degraded: true,
+      reason: `assemble decision failed: ${error?.message || String(error)}`,
+    };
+  }
+  console.log(`Assemble + migrate: ${decision.required ? 'required' : 'not required'} (${decision.reason})`);
+  if (decision.degraded) {
+    // Un `required: true` degradato non e' la feature che lavora: e' lo skip
+    // spento perche' il predicato non ha potuto misurare. Senza annotazione
+    // resta identico a una decisione legittima nel log, e l'ottimizzazione
+    // puo' restare un no-op per mesi senza che nessuno se ne accorga.
+    console.log(`::warning::Assemble + migrate non e' saltabile: ${decision.reason}. Lo skip del dataset e' disattivato finche' la causa resta.`);
+  }
+  if (process.env.GITHUB_OUTPUT) {
+    appendFileSync(process.env.GITHUB_OUTPUT, `required=${decision.required}\n`);
+  }
+}
 
 function importsOf(file, fileSet, assets) {
   let source;
@@ -238,6 +269,7 @@ const candidates = [...new Set(changed.filter((file) =>
 const forceFull = changedStatus !== 'complete';
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
+  if (selectionOnly) writeAssembleDecision([]);
   process.exit(0);
 }
 
@@ -345,6 +377,10 @@ console.log(`Running Vitest related to ${sourceCandidates.length} changed source
   + (fixtureCandidateCount ? ` + ${fixtureCandidateCount} tests fixture(s)` : '')
   + `: ${tests.length} test file(s)`);
 console.log(tests.join('\n'));
+if (selectionOnly) {
+  writeAssembleDecision([...related]);
+  process.exit(0);
+}
 if (tests.length === 0) process.exit(0);
 // Seam per ispezionare la SELEZIONE senza pagare la corsa: stampa l'elenco qui
 // sopra ed esce. Usato da tests/run-related-tests-github-assets.test.ts e utile
