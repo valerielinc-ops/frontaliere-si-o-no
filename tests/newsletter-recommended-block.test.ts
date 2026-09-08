@@ -38,6 +38,23 @@ describe('recommendedBlock selection', () => {
     }
   });
 
+  it('falls back to the only enabled affiliate when its interests do not cover the segment', () => {
+    const savedEntries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+    try {
+      const fallback = savedEntries.find((entry) => entry.goId === 'wise');
+      if (!fallback) throw new Error('Wise entry missing from newsletter registry');
+      NEWSLETTER_AFFILIATE_ENTRIES.push({ ...fallback, interests: ['general'] });
+
+      const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'unsupported-segment' });
+      expect(rec).not.toBeNull();
+      expect(rec!.goId).toBe('wise');
+    } finally {
+      NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+      NEWSLETTER_AFFILIATE_ENTRIES.push(...savedEntries);
+    }
+    expect(NEWSLETTER_AFFILIATE_ENTRIES).toEqual(savedEntries);
+  });
+
   it('routes an affiliate recommendation through /go/{id}/ with tracking + trailing slash', () => {
     const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
     expect(rec!.kind).toBe('affiliate');

@@ -77,7 +77,8 @@ export function markRunStart(epochMs) {
 }
 
 /**
- * Append one phase entry. Named recordRunPhase, not recordPhase: this repo
+ * Append one phase entry, or replace the latest snapshot of the same phase.
+ * Named recordRunPhase, not recordPhase: this repo
  * already exports a recordPhase from build-plugins/shared/jobsSeoProfiler.ts, an
  * in-process hrtime profiler for a Vite build. Same word, unrelated lifetime and
  * storage — the distinct name keeps the two from reading as one utility. Best-effort exactly like markRunStart: instrumentation
@@ -85,12 +86,17 @@ export function markRunStart(epochMs) {
  * bookkeeping — the observability report is hard-capped at 1 MiB, so an unbounded
  * append is a way to break the report from a script that only meant to measure it.
  */
-export function recordRunPhase(entry) {
+export function recordRunPhase(entry, { replaceLast = false } = {}) {
   try {
     if (!entry || typeof entry.name !== 'string' || !entry.name) return;
     const phases = readRunPhases();
-    if (phases.length >= MAX_RUN_PHASES) return;
-    phases.push(entry);
+    const lastIndex = phases.length - 1;
+    if (replaceLast && phases[lastIndex]?.name === entry.name) {
+      phases[lastIndex] = entry;
+    } else {
+      if (phases.length >= MAX_RUN_PHASES) return;
+      phases.push(entry);
+    }
     fs.writeFileSync(RUN_PHASES_PATH, JSON.stringify(phases), 'utf-8');
   } catch {
     // Best-effort: a sidecar write failure must never break the step.
