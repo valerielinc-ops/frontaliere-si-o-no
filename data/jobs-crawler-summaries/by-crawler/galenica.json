@@ -1,53 +1,55 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-07T23:24:28.282Z",
-  "total": 374,
+  "generatedAt": "2026-09-08T13:33:46.490Z",
+  "total": 372,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 92933,
-  "avgDurationMs": 92933,
+  "unchangedCount": 0,
+  "durationMs": 97979,
+  "avgDurationMs": 97979,
   "durationHistory": [
-    92933
+    97979
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistente di farmacia AFC",
-      "company": "Amavita (Galenica)",
+      "title": "Assistant en pharmacie / Assistante en pharmacie (h/f/d)",
+      "company": "Galenica (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692193",
-      "location": "Urtenen - Schönbühl BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3135390.4064198",
+      "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Urtenen - Schönbühl BE, EKZ Shoppyland, Industriestrasse 10, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692193-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-urtenen-schoenbuehl-be-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
-      "postedDate": "",
+      "descriptionIt": "Assistant en pharmacie / Assistante en pharmacie (h/f/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "",
+      "postedDate": "2026-06-04",
       "source": "company-website",
-      "sourceLang": "en",
-      "slug": "galenica-amavita-assistente-di-farmacia-afc-urtenen-schonbuhl-be",
-      "id": "galenica-a7697b083d87",
+      "sourceLang": "it",
+      "slug": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-h-f-d-bern",
+      "id": "galenica-c2a8475fb9fb",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Urtenen - Schönbühl BE",
+      "streetAddress": "Untermattweg 8",
+      "postalCode": "3027",
+      "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 78,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
