@@ -8,7 +8,7 @@ import { describe, it, expect } from 'vitest';
 import { mkdtempSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   eventLd,
   pathForEventDetail,
@@ -20,6 +20,7 @@ import {
   DIGESTS,
   assignEventSlugs,
   reserveLiveSiblingSlugs,
+  renderEventSlugRedirectPage,
   categoryLabel,
   normalizeCategoryKey,
 } from '../build-plugins/eventsSeoPagesPlugin';
@@ -990,6 +991,14 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     expect(forward.get('tio-agenda:200')).toBe('sagra-2026-08-01-2');
   });
 
+  it('keeps the finished tie-breaker inside the slug budget', () => {
+    const longTitle = 'Una manifestazione straordinaria con un programma molto ricco e dettagliato';
+    const events = [{ ...EVENT, id: 'tio-agenda:long-a', title: longTitle, startDate: '' }, { ...EVENT, id: 'tio-agenda:long-b', title: longTitle, startDate: '' }];
+    const slugs = assignEventSlugs(events as never);
+    expect(slugs.get('tio-agenda:long-b')!.length).toBeLessThanOrEqual(EVENT_SLUG_MAX_LENGTH);
+    expect(new Set(slugs.values()).size).toBe(2);
+  });
+
   it('the -N tie-breaker never lands on the reserved page-N ladder shape (issue #7743)', () => {
     // A dateless event titled `Page` mints base `page`, which is correctly NOT
     // reserved. Without the reservation on the tie-breaker the second sibling
@@ -1022,6 +1031,19 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     const pastEvent = { ...EVENT, id: 'tio-agenda:400', title: 'Concerto', startDate: '2026-05-01' };
     const slugs = assignEventSlugs([pastEvent] as never, new Set(['some-other-event-2026-01-01']));
     expect(slugs.get('tio-agenda:400')).toBe('concerto-2026-05-01');
+  });
+
+  it('normalizes a persisted reserved page-N slug before seeding the used namespace', () => {
+    const event = { ...EVENT, id: 'tio-agenda:page-two', title: 'Page 2', startDate: '' };
+    const slugs = assignEventSlugs([event] as never, new Set(['page-2']));
+    expect(slugs.get(event.id)).toBe('page-2-evento-2');
+  });
+
+  it('keeps the old published tie slug reachable through a noindex canonical bridge', () => {
+    const html = renderEventSlugRedirectPage('it', '/eventi/ticino/lugano/nuovo-slug/');
+    expect(html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(html).toContain('<link rel="canonical" href="https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/">');
+    expect(html).toContain('http-equiv="refresh" content="0; url=https://frontaliereticino.ch/eventi/ticino/lugano/nuovo-slug/"');
   });
 });
 

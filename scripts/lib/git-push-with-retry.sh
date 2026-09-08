@@ -147,6 +147,17 @@ done
 # github.com (local helper tests) are left alone by the configure script.
 bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 
+run_regenerate_with_retry() {
+  local regenerate_attempt=1
+  while true; do
+    if eval "$REGENERATE_CMD"; then return 0; fi
+    if [ "$regenerate_attempt" -ge 3 ] || [ ! -f ".git/index.lock" ]; then return 1; fi
+    echo "::warning::Regenerate hit a transient git index lock; retrying (attempt $((regenerate_attempt + 1))/3)"
+    sleep "$regenerate_attempt"
+    regenerate_attempt=$((regenerate_attempt + 1))
+  done
+}
+
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
 # of this helper is a data-refresh workflow pushing generated content to main —
 # not a pre-PR dev push, which is what the gate exists for (issue #3809).
@@ -214,7 +225,7 @@ until git push --no-verify origin "HEAD:${BRANCH}"; do
       # e.g. due to unstaged changes that the defensive reset above missed).
       git rebase --abort 2>/dev/null || true
       git reset --hard "origin/${BRANCH}"
-      eval "$REGENERATE_CMD"
+      run_regenerate_with_retry
       # Commit only if the regen command produced staged changes; otherwise
       # there is nothing left to push (a no-op rebase outcome is fine).
       if ! git diff --cached --quiet; then

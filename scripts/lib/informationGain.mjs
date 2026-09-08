@@ -392,11 +392,12 @@ const median = (values) => {
  * Group fingerprints into template cohorts and score each page.
  *
  * @param {Array} fingerprints output of `fingerprintPage`
- * @param {{minCohortPages?: number}} [opts]
+ * @param {{minCohortPages?: number, includePageScores?: boolean}} [opts]
  * @returns {{cohorts: Array, pagesScored: number, pagesUncohorted: number}}
  */
 export function scoreCohorts(fingerprints, opts = {}) {
   const minCohortPages = opts.minCohortPages ?? MIN_COHORT_PAGES;
+  const includePageScores = opts.includePageScores === true;
 
   const groups = new Map();
   for (const fp of fingerprints) {
@@ -440,7 +441,7 @@ export function scoreCohorts(fingerprints, opts = {}) {
 
     pagesScored += scored.length;
     const igsValues = scored.map((p) => p.igs);
-    cohorts.push({
+    const cohort = {
       key,
       label: `${pages[0].locale}:${commonPathPrefix(pages.map((p) => p.urlPath))}`,
       skeletonHash: pages[0].skeletonHash,
@@ -451,7 +452,9 @@ export function scoreCohorts(fingerprints, opts = {}) {
       meanIgs: igsValues.reduce((a, b) => a + b, 0) / igsValues.length,
       zeroGainPages: scored.filter((p) => p.pageSpecific === 0).length,
       worst: scored.slice(0, 5),
-    });
+    };
+    if (includePageScores) cohort.pageScores = scored;
+    cohorts.push(cohort);
   }
 
   // `commonPathPrefix` computes each cohort's label in isolation, with no

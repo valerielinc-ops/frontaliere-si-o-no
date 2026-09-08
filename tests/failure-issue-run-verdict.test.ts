@@ -109,4 +109,10 @@ describe('issue di fallimento aperte da un run che resta verde', () => {
     const finalReporter = blocks.find((b) => b.text.includes('Report unexpected failure to GitHub Issues'));
     expect(ifCondition(finalReporter!.text)).toContain("steps.open-issue.outputs.report_missing != 'true'");
   });
+
+  it('risolve anche il titolo standard del fallimento del workflow farmacie', () => {
+    const text = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pharmacy-data-health-monitor.yml'), 'utf8');
+    const cleanDashboard = text.split('name: Resolve issue on clean dashboard', 2)[1] ?? '';
+    expect(cleanDashboard).toMatch(/github-issue-creator\.mjs --resolve\s*\\\s*--title "Workflow Failure: pharmacy-data-health-monitor"/);
+  });
 });
