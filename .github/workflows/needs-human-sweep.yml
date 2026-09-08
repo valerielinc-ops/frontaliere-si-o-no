@@ -8,8 +8,8 @@ name: Needs-human sweep (Claude, weekly)
 #
 # Questo sweep è l'UNICA porta di rientro dallo stato, ed è volutamente:
 #  - SETTIMANALE (1 run Claude batch: frugalità di quota per architettura);
-#  - guidato da VISION.md (i driver dicono cosa è decidibile in autonomia e
-#    cosa resta del proprietario — incluse le decisioni GIÀ prese);
+#  - guidato da VISION.md e DECISIONS.md (i driver dicono cosa è decidibile in
+#    autonomia e il registro cosa ha già deciso il proprietario);
 #  - bounded (max 15 azioni per run, il resto al giro successivo).
 #
 # Esiti per issue: (A) decisione vera del proprietario → resta needs-human ed
@@ -78,17 +78,17 @@ jobs:
           # chiusura dal sorgente e fallisce se questo blocco non la copre: la
           # lista qui sotto non va tenuta aggiornata a memoria.
           #
-          # `/VISION.md` non e' un import: e' il DATO che il pre-pass legge dal
+          # `/DECISIONS.md` non e' un import: e' il DATO che il pre-pass legge dal
           # 2026-09-05 (registro delle decisioni gia' prese). Non lo vede il
           # test sulla chiusura degli import, che cammina i soli `from '...'`,
-          # e la sua assenza non uccide il modulo: `readVisionRegistry()` e'
+          # e la sua assenza non uccide il modulo: `readDecisionRegistry()` e'
           # fail-open e il pre-pass tornerebbe al comportamento precedente
           # SENZA dirlo forte. Cioe' il modo peggiore di rompersi — verde e
           # inerte — ed e' per questo che sta scritto qui e non altrove.
           sparse-checkout: |
             /scripts/ci/
             /scripts/lib/
-            /VISION.md
+            /DECISIONS.md
           sparse-checkout-cone-mode: false
         timeout-minutes: 10
 
@@ -182,17 +182,17 @@ jobs:
             Sei lo sweep settimanale delle issue `needs-human` di questo repo. Il tuo compito: separare le decisioni VERE del proprietario dal resto, e rimettere il resto nel ciclo autonomo. NON implementi fix e NON apri PR.
 
             **Bootstrap:**
-            1. Leggi `VISION.md` PER INTERO: i driver di decisione e il registro delle decisioni già prese sono il tuo criterio di classificazione. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario, registro in VISION.md): non esiste più una categoria di business riservata all'umano.
+            1. Leggi `VISION.md` PER INTERO per i driver di decisione e `DECISIONS.md` per il registro delle decisioni già prese: sono il tuo criterio di classificazione. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario, registro in DECISIONS.md): non esiste più una categoria di business riservata all'umano.
             2. `gh issue list --repo $REPO --state open --label needs-human --json number,title,labels,createdAt,updatedAt --limit 100` — ordina per updatedAt crescente (le più ferme prima).
 
             **Per ogni issue (MASSIMO 15 azioni totali in questo run — un'azione = un cambio di label/stato; le issue oltre il cap restano al giro successivo):**
-            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione del proprietario già registrata (comando nel registro di VISION.md): se c'è, la issue non è più una domanda — applicala.
+            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione del proprietario già registrata (comando nel registro di DECISIONS.md): se c'è, la issue non è più una domanda — applicala.
             2. Classifica in UNA delle quattro:
                - **A — vero vicolo cieco tecnico**: NESSUN driver la copre, e non è un blocco di capacità (quello è B). Con «Sempre umano» rimossa questa classe dovrebbe essere quasi sempre vuota: prima di usarla, verifica che non sia semplicemente una decisione di prodotto/business che ORA il ciclo può prendere da sé citando D1-D8. Se davvero nessun driver risponde, NON toccare le label e aggiungila al digest formulando la domanda in modo DECIDIBILE.
                - **B — capability/permessi**: era bloccata da una capacità che oggi esiste (scope `workflows` concesso via App quando `APP_TOKEN_WORKFLOWS=true`; il fixer ha tutti i tool incluso `curl` dal 2026-07-02; lo stadio di decomposizione esiste per le issue grandi). Commento che cita il driver o la capacità + `gh issue edit N --remove-label needs-human --remove-label fu-parked --add-label agent:fix-queued` (issue singola con causa chiara) oppure `--add-label agent:decompose-queued` (issue grande/contenitore: più cause o più target).
                - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, NON chiudere: trattala come A o lasciala.
-               - **D — parcheggiata giusta**: needs-human corretto ma già nel digest/registro (es. famiglia job-alert: VISION.md dice di lasciarla stare). Non toccare nulla, non metterla nel digest di nuovo se già presente.
-            3. VINCOLI: mai chiudere ciò che non hai misurato; mai toccare le issue che il registro di VISION.md riserva (famiglia job-alert: #5705 e affini); mai rimuovere `agent:no-age-out`; un'issue con PR aperta collegata non si tocca.
+               - **D — parcheggiata giusta**: needs-human corretto ma già nel digest/registro (es. famiglia job-alert: `DECISIONS.md` dice di lasciarla stare). Non toccare nulla, non metterla nel digest di nuovo se già presente.
+            3. VINCOLI: mai chiudere ciò che non hai misurato; mai toccare le issue che il registro di DECISIONS.md riserva (famiglia job-alert: #5705 e affini); mai rimuovere `agent:no-age-out`; un'issue con PR aperta collegata non si tocca.
 
             **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `needs-human,automation,agent:no-age-out`). Sostituisci/aggiorna il body con: l'elenco delle domande di classe A (numero, domanda decidibile, opzioni), le decisioni applicate in questo run (classe B/C, con issue e driver citato), e il conteggio residuo `needs-human`. Il body deve restare leggibile in 2 minuti: le domande sono POCHE e decidibili, o lo sweep ha fallito il suo compito.
 
