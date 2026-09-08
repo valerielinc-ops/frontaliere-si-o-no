@@ -18244,6 +18244,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bollette-26-centesimi-2027',
+    category: 'pratico',
+    date: '2026-09-08T11:56:17.405Z',
+    image: '/images/blog/bollette-26-centesimi-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

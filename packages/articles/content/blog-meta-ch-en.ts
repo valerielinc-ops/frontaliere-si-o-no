@@ -6082,6 +6082,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.studenti-svizzeri-lettura-pisa-2025.title': 'Swiss students read less: PISA 2025 results',
     'blog.article.studenti-svizzeri-lettura-pisa-2025.excerpt': 'PISA 2025: Swiss fifteen-year-olds excel in science, but reading and mathematics fall. 28.8% do not achieve minimum skills. The investigation reveals the crucial influence of social origin.',
     'blog.article.studenti-svizzeri-lettura-pisa-2025.imageAlt': 'Swiss school classroom with students solving mathematics and reading exercises',
+    'blog.article.bollette-26-centesimi-2027.title': 'Slightly falling electricity prices in 2027',
+    'blog.article.bollette-26-centesimi-2027.excerpt': 'In 2027, Swiss domestic economies will pay 26.5 ct./kWh average tariff: a 4% drop and savings of CHF 53 per year according to ElCom.',
+    'blog.article.bollette-26-centesimi-2027.imageAlt': 'Swiss family reviewing energy bills following the tariff reduction announced by ElCom for 2027',
 };
 
 export default blogMetaChEn;

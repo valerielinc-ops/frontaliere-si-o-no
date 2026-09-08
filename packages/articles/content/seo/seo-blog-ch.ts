@@ -78956,6 +78956,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollette-26-centesimi-2027': {
+    title: 'Prezzi dell\'elettricità in leggero calo nel 2027',
+    description: 'Nel 2027 le economie domestiche svizzere pagheranno meno per l\'energia. Tariffa media a 26,5 ct/kWh: calo del 4%, risparmio di 53 franchi annui secondo ElCom.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, dell, elettricità, leggero',
+    ogTitle: 'Prezzi dell\'elettricità in leggero calo nel 2027',
+    ogDescription: 'Nel 2027 le bollette dell\'energia calano del 4% in media. Economie domestiche svizzere a 26,5 ct/kWh: risparmio di 53 franchi annuali. Nuove tariffe comunicate da ElCom, valide dal 1° gennaio 2027.',
+    canonicalPath: '/articoli-svizzera/bollette-26-centesimi-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi dell'elettricità in leggero calo nel 2027",
+      "description": "Nel 2027 le economie domestiche svizzere pagheranno meno per l'energia. Tariffa media a 26,5 ct/kWh: calo del 4%, risparmio di 53 franchi annui secondo ElCom.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollette-26-centesimi-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia svizzera rilegge la bolletta dell'energia dopo il calo tariffario annunciato da ElCom per il 2027"
+      },
+      "datePublished": "2026-09-08T11:56:17+00:00",
+      "dateModified": "2026-09-08T11:56:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bollette-26-centesimi-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
