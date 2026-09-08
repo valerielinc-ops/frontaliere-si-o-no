@@ -300,7 +300,9 @@ function candidatesEquivalent(left, right) {
 }
 
 function candidateQuality(candidate) {
+  if (candidate === null || candidate === undefined) return { object: -1, fields: 0 };
   if (typeof candidate === 'string') return { object: 0, fields: 0 };
+  if (typeof candidate !== 'object') return { object: -1, fields: 0 };
   const fields = candidate && typeof candidate === 'object'
     ? Object.entries(candidate).filter(([key, value]) => key !== DUPLICATE_CANDIDATES_FIELD
       && value !== undefined && value !== null && String(value).trim() !== '').length
@@ -349,6 +351,8 @@ function attachDuplicateTrace(candidate, duplicates) {
 export function dedupeLocationCandidates(candidates = []) {
   const groups = new Map();
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
+    if (candidate === null || candidate === undefined
+      || (typeof candidate !== 'string' && typeof candidate !== 'object')) continue;
     const key = locationEvidenceKey(candidate);
     const current = groups.get(key);
     if (!current) {

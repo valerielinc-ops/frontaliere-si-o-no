@@ -326,6 +326,32 @@ describe('prospector location and identity contract', () => {
     expect(row).toMatchObject({ location: 'Chiasso', canton: 'TI' });
   });
 
+  it('does not publish a prose-only NPA as indexed job geography', async () => {
+    const spec = {
+      companyKey: 'example',
+      companyName: 'Example',
+      mode: 'template',
+      detailEnrichment: true,
+      detailTemplate: '/fr/fr/job/*',
+      seedUrls: [SEED_URL],
+    };
+    const listing = '<a href="/fr/fr/job/sales-executive">Sales Executive</a>';
+    const detail = `<h1>Sales Executive</h1><div class="job-description">${DESCRIPTION}`
+      + '</div><p>Apply online for this role in 4528 Zuchwil and join our team.</p>';
+    politeFetch.mockImplementation(async (url: string) => ({
+      ok: true,
+      status: 200,
+      body: url === SEED_URL ? listing : detail,
+      url,
+      host: new URL(url).hostname,
+    }));
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    await expect(runSpecInProduction(spec as any)).resolves.toEqual([]);
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('source-backed'));
+    warning.mockRestore();
+  });
+
   it('runs the detail enrichment that synthesis required for a location-free structured listing', async () => {
     const listing = `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',
