@@ -2040,6 +2040,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rosti-deposito-scorie-compensazioni': { it: 'rosti-deposito-scorie-compensazioni', en: 'rosti-radioactive-waste-deposit-compensation', de: 'rosti-radioaktive-abfaelle-lagerung-entschaedigung', fr: 'rosti-depot-dechets-radioactifs-compensations' },
  'sanzioni-onu-sesam-aggiornamento': { it: 'sanzioni-onu-sesam-aggiornamento', en: 'onu-sanctions-sesam-update', de: 'uno-sanktionen-sesam-aktualisierung', fr: 'sanctions-onu-sesam-mise-a-jour' },
  'novartis-battuta-arresto-neuromuscolare': { it: 'novartis-battuta-arresto-neuromuscolare', en: 'novartis-clinical-trial-failure-neuromuscular', de: 'novartis-rueckschlag-neuromuskulaer', fr: 'novartis-revers-neuromusculaire' },
+ 'ricongiungimento-familiare-burocrazia': { it: 'ricongiungimento-familiare-burocrazia', en: 'family-reunification-bureaucratic-delays', de: 'familienwiedervereinigung-buerokratie', fr: 'regroupement-familial-bureaucratie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

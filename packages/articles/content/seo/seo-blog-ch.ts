@@ -78449,6 +78449,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricongiungimento-familiare-burocrazia': {
+    title: 'Ricongiungimento familiare: burocrazia blocca bambini per anni',
+    description: 'Rapporto SBAA: procedure lente e documenti difficili separano famiglie fino a 10 anni in Svizzera. Richieste di limitare a 1 anno l\'esame delle domande.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricongiungimento, familiare, burocrazia, blocca',
+    ogTitle: 'Ricongiungimento familiare: burocrazia blocca bambini per anni',
+    ogDescription: 'L\'Osservatorio svizzero denuncia procedure burocratiche che separano famiglie fino a 10 anni. Documenti difficili, competenze frammentate tra SEM e cantoni: l\'impatto sui bambini è devastante.',
+    canonicalPath: '/articoli-svizzera/ricongiungimento-familiare-burocrazia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricongiungimento familiare: burocrazia blocca bambini per anni",
+      "description": "Rapporto SBAA: procedure lente e documenti difficili separano famiglie fino a 10 anni in Svizzera. Richieste di limitare a 1 anno l'esame delle domande.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricongiungimento-familiare-burocrazia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti e pratiche familiari, simbolo della complessità burocratica nel ricongiungimento in Svizzera"
+      },
+      "datePublished": "2026-09-08T06:06:42+00:00",
+      "dateModified": "2026-09-08T06:06:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricongiungimento-familiare-burocrazia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

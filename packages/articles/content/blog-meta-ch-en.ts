@@ -6043,6 +6043,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-battuta-arresto-neuromuscolare.title': 'Novartis: setback in the neuromuscular sector',
     'blog.article.novartis-battuta-arresto-neuromuscolare.excerpt': 'Novartis fails the Harbor study for the drug del-désiran in myotonic dystrophy type 1. It is the second negative trial in a few days, but the company maintains a 5-6% annual growth target for 2025-2030.',
     'blog.article.novartis-battuta-arresto-neuromuscolare.imageAlt': 'Swiss pharmaceutical research facility with modern laboratory equipment and digital displays of clinical trial data.',
+    'blog.article.ricongiungimento-familiare-burocrazia.title': 'Family reunification: bureaucracy blocks children for years',
+    'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'A report by the Swiss Observatory denounces: slow procedures and difficult documents separate families up to the age of 10. Children pay the highest price.',
+    'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Swiss administrative office with family documents representing bureaucratic complexity in the reunification process',
 };
 
 export default blogMetaChEn;

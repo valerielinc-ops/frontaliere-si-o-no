@@ -6043,6 +6043,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-battuta-arresto-neuromuscolare.title': 'Novartis: Rückschlag im neuromuskulären Bereich',
     'blog.article.novartis-battuta-arresto-neuromuscolare.excerpt': 'Novartis besteht die Harbor-Studie für das Medikament del-désiran bei myotonischer Dystrophie Typ 1 nicht. Es ist die zweite negative Studie innerhalb weniger Tage, aber das Unternehmen hält ein jährliches Wachstumsziel von 5–6 % für 2025–2030 an.',
     'blog.article.novartis-battuta-arresto-neuromuscolare.imageAlt': 'Schweizer Pharmaunternehmen mit moderner Forschungsanlage und digitalen Anzeigen von klinischen Versuchsdaten.',
+    'blog.article.ricongiungimento-familiare-burocrazia.title': 'Familienzusammenführung: Bürokratie blockiert Kinder jahrelang',
+    'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'Ein Bericht der Schweizerischen Sternwarte verurteilt: Langsame Verfahren und schwierige Dokumente trennen Familien bis zum Alter von 10 Jahren. Kinder zahlen den höchsten Preis.',
+    'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Schweizer Verwaltungsbüro mit Familiendokumenten zur Darstellung bürokratischer Komplexität bei der Familienzusammenführung',
 };
 
 export default blogMetaChDe;
