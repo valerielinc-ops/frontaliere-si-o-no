@@ -197,7 +197,7 @@
       "title": "Mitarbeiter*in HR Zeitmanagement (Projekt ZM2.0, befristet für 2 Jahre)",
       "titleByLocale": {
         "it": "Dipendente* nella gestione del tempo delle risorse umane (progetto ZM2.0, temporaneo per 2 anni)",
-        "en": "Employee* in HR time management (project ZM2.0, temporary for 2 years)",
+        "en": "Employee HR time management (project ZM2.0, limited to 2 years)",
         "de": "Mitarbeiter*in HR Zeitmanagement (Projekt ZM2.0, befristet für 2 Jahre)",
         "fr": "Employé* en gestion du temps des RH (projet ZM2.0, temporaire pendant 2 ans)"
       },
@@ -255,7 +255,6 @@
         "mitarbeiter-in-hr-zeitmanagement-projekt-zm2-0-befristet-fur-2-jahre-stadtspital-zurich-zurich",
         "collaboratore-trice-in-risorse-umane-zeitmanagement-projekt-zm2-0-befristet-per-2-jahre-stadtspital-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T22:00:05.892Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -644,7 +643,7 @@
       "title": "Berufsbildner*in Pflege Ausbildungsstation mit WAIDsicht",
       "titleByLocale": {
         "it": "Formazione professionale* nella stazione di addestramento per l'allattamento con visione WAID",
-        "en": "Vocational trainer*in nursing training station with WAID vision",
+        "en": "Vocational trainer Care training station with WAID vision",
         "de": "Berufsbildner*in Pflege Ausbildungsstation mit WAIDsicht",
         "fr": "Entraîneur professionnel* au poste de formation infirmière avec vision WAID"
       },
@@ -693,7 +692,6 @@
           "formateur-professionnel-au-poste-de-formation-infirmiere-avec-vision-waid-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -804,8 +802,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Praktikant*in Pflege",
       "titleByLocale": {
-        "it": "Allenamento* in allattamento",
-        "en": "Trainee* in nursing",
+        "it": "Infermieristica",
+        "en": "Internship nursing",
         "de": "Praktikant*in Pflege",
         "fr": "Stage* en soins infirmiers"
       },
@@ -856,7 +854,6 @@
           "praktikant-in-pflege-stadtspital-zuerich-3441"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -1552,7 +1549,7 @@
       "title": "Praktikant*in Arztsekretariat",
       "titleByLocale": {
         "it": "Segreteria medica",
-        "en": "Trainee*in Medical Secretariat",
+        "en": "Trainee medical secretariat",
         "de": "Praktikant*in Arztsekretariat",
         "fr": "Stagiaire* au Secrétariat médical"
       },
@@ -1614,7 +1611,6 @@
           "praktikant-in-arztsekretariat-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -1902,7 +1898,7 @@
       "title": "Fachspezialist*in Elektrischer Unterhalt",
       "titleByLocale": {
         "it": "Specialista* nella manutenzione elettrica",
-        "en": "Specialist* in Electrical Maintenance",
+        "en": "Specialist Electrical Maintenance",
         "de": "Fachspezialist*in Elektrischer Unterhalt",
         "fr": "Spécialiste* de l'entretien électrique"
       },
@@ -1957,7 +1953,6 @@
           "specialiste-en-entretien-electrique-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1987,8 +1982,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Nephrologie",
       "titleByLocale": {
-        "it": "Assistente medico* in nefrologia",
-        "en": "Assistant doctor* in nephrology",
+        "it": "Assistente medico nefro",
+        "en": "Assistant physician nephrology",
         "de": "Assistenzärzt*in Nephrologie",
         "fr": "Docteur adjoint* en néphrologie"
       },
@@ -2041,7 +2036,6 @@
           "assistenzarzt-in-nephrologie-stadtspital-zuerich-18860"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.245Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2238,8 +2232,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Gruppenleiter*in Physiotherapie",
       "titleByLocale": {
-        "it": "Leader del Gruppo* in Fisioterapia",
-        "en": "Group Leader* in Physiotherapy",
+        "it": "Fisioterapia leader di gruppo",
+        "en": "Group leader physiotherapy",
         "de": "Gruppenleiter*in Physiotherapie",
         "fr": "Chef de groupe* en physiothérapie"
       },
@@ -2292,7 +2286,6 @@
           "gruppenleiter-in-physiotherapie-stadtspital-zuerich-49595"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2322,8 +2315,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Radiologie",
       "titleByLocale": {
-        "it": "Assistente medico* in radiologia",
-        "en": "Assistant doctor* in radiology",
+        "it": "Assistente medico radiologia",
+        "en": "Assistant doctor radiology",
         "de": "Assistenzärzt*in Radiologie",
         "fr": "Docteur adjoint* en radiologie"
       },
@@ -2376,7 +2369,6 @@
           "assistenzarzt-in-radiologie-stadtspital-zuerich-4600"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2494,7 +2486,7 @@
       "title": "Reinigungsmitarbeiter*in Abendreinigung",
       "titleByLocale": {
         "it": "Personale di pulizia* nella pulizia serale",
-        "en": "Cleaning staff* in evening cleaning",
+        "en": "Cleaning staff evening cleaning services",
         "de": "Reinigungsmitarbeiter*in Abendreinigung",
         "fr": "Personnel de nettoyage* en soirée"
       },
@@ -2550,7 +2542,6 @@
           "reinigungsmitarbeiter-in-abendreinigung-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:56:58.890Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -2925,8 +2916,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "ICT Service Manager*in - 6 Monate befristet",
       "titleByLocale": {
-        "it": "ICT Service Manager*in - 6 mesi limitati",
-        "en": "ICT Service Manager*in - 6 months limited",
+        "it": "ICT Service Manager - 6 mesi limitati",
+        "en": "ICT Service Manager - 6 months limited",
         "de": "ICT Service Manager*in - 6 Monate befristet",
         "fr": "Gestionnaire de services TIC*en - 6 mois limités"
       },
@@ -2993,7 +2984,6 @@
           "gestionnaire-de-services-tic-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T22:34:08.502Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -3680,8 +3670,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
       "titleByLocale": {
-        "it": "Assistente medico* in medicina di emergenza interdisciplinare",
-        "en": "Assistant doctor* in interdisciplinary emergency medicine",
+        "it": "Assistente medico Medicina interdisciplinare di emergenza",
+        "en": "Assistant doctor Interdisciplinary Emergency Medicine",
         "de": "Assistenzärzt*in Interdisziplinäre Notfallmedizin",
         "fr": "Docteur adjoint* en médecine d'urgence interdisciplinaire"
       },
@@ -3736,7 +3726,6 @@
           "assistenzarzt-in-interdisziplinare-notfallmedizin-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3766,8 +3755,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Dermatologie",
       "titleByLocale": {
-        "it": "Assistente medico* in dermatologia",
-        "en": "Assistant doctor* in dermatology",
+        "it": "Dottore aggiunto dermatologia",
+        "en": "Assistant doctor dermatology",
         "de": "Assistenzärzt*in Dermatologie",
         "fr": "Docteur adjoint* en dermatologie"
       },
@@ -3818,7 +3807,6 @@
           "assistenzarzt-in-dermatologie-stadtspital-zuerich-37284"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4017,7 +4005,7 @@
       "title": "Assistenzärzt*in Augenklinik",
       "titleByLocale": {
         "it": "Assistente medico* nella clinica oculare",
-        "en": "Assistant doctor* in eye clinic",
+        "en": "Assistant physician eye clinic",
         "de": "Assistenzärzt*in Augenklinik",
         "fr": "Docteur adjoint* en clinique oculaire"
       },
@@ -4070,7 +4058,6 @@
           "medecin-adjoint-en-clinique-oculaire-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5343,7 +5330,7 @@
       "title": "Gruppenleiter*in Pflege Universitäre Klinik für Altersmedizin",
       "titleByLocale": {
         "it": "Leader del Gruppo* nella Clinica Universitaria di Infermieristica per la Medicina dell'Età Vecchia",
-        "en": "Group leader*in Nursing University Clinic for Old Age Medicine",
+        "en": "Group leader Nursing University Clinic for Old Age Medicine",
         "de": "Gruppenleiter*in Pflege Universitäre Klinik für Altersmedizin",
         "fr": "Chef de groupe* à la clinique universitaire de médecine de la vieillesse"
       },
@@ -5394,7 +5381,6 @@
           "gruppenleiter-in-pflege-universitare-klinik-fur-altersmedizin-stadtspital-zuerich-51403"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:59:10.246Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6081,8 +6067,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Neurologie",
       "titleByLocale": {
-        "it": "Assistente medico* in neurologia",
-        "en": "Assistant doctor* in neurology",
+        "it": "Assistente neurologico",
+        "en": "Assistant Neurology",
         "de": "Assistenzärzt*in Neurologie",
         "fr": "Docteur adjoint* en neurologie"
       },
@@ -6133,7 +6119,6 @@
           "assistenzarzt-in-neurologie-stadtspital-zuerich-12002"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6330,8 +6315,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Pädiatrie",
       "titleByLocale": {
-        "it": "Assistente medico* in pediatria",
-        "en": "Assistant doctor* in pediatrics",
+        "it": "Assistente medico pediatrico",
+        "en": "Assistant doctor paediatrics",
         "de": "Assistenzärzt*in Pädiatrie",
         "fr": "Docteur adjoint* en pédiatrie"
       },
@@ -6384,7 +6369,6 @@
           "assistenzarzt-in-padiatrie-stadtspital-zuerich-5508"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6995,8 +6979,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Kardiologie Triemli",
       "titleByLocale": {
-        "it": "Assistente medico* in Cardiologia Triemli",
-        "en": "Assistant doctor* in Cardiology Triemli",
+        "it": "Assistente Cardiologia Triemli",
+        "en": "Assistant Cardiology Triemli",
         "de": "Assistenzärzt*in Kardiologie Triemli",
         "fr": "Docteur adjoint* en cardiologie Triemli"
       },
@@ -7047,7 +7031,6 @@
           "assistenzarzt-in-kardiologie-triemli-stadtspital-zuerich-43922"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.243Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7318,8 +7301,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Rheumatologie",
       "titleByLocale": {
-        "it": "Assistente medico* in reumatologia",
-        "en": "Assistant doctor* in rheumatology",
+        "it": "Assistente medico reumatologia",
+        "en": "Assistant doctor rheumatology",
         "de": "Assistenzärzt*in Rheumatologie",
         "fr": "Docteur adjoint* en rhumatologie"
       },
@@ -7370,7 +7353,6 @@
           "assistenzarzt-in-rheumatologie-stadtspital-zuerich-14660"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.243Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7400,8 +7382,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Altersmedizin",
       "titleByLocale": {
-        "it": "Assistente medico* in medicina di vecchiaia",
-        "en": "Assistant doctor* in old-age medicine",
+        "it": "Assistente medico per medicina di vecchiaia",
+        "en": "Assistant doctor for old age medicine",
         "de": "Assistenzärzt*in Altersmedizin",
         "fr": "Docteur adjoint* en médecine de vieillesse"
       },
@@ -7454,7 +7436,6 @@
           "medecin-adjoint-en-medecine-de-vieillesse-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.243Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7740,8 +7721,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Gynäkologie",
       "titleByLocale": {
-        "it": "Assistente medico* in ginecologia",
-        "en": "Assistant doctor* in gynecology",
+        "it": "Assistente Ginecologia",
+        "en": "Assistant Gynecology",
         "de": "Assistenzärzt*in Gynäkologie",
         "fr": "Docteur adjoint* en gynécologie"
       },
@@ -7792,7 +7773,6 @@
           "assistenzarzt-in-gynakologie-stadtspital-zuerich-19340"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -7822,8 +7802,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Fachspezialist*in HR Services (befristet für 1 Jahr)",
       "titleByLocale": {
-        "it": "Fachspezialist*in Risorse Umane Services (befristet per 1 Jahr)",
-        "en": "Specialist* in HR Services (temporary for 1 year)",
+        "it": "Servizi HR specializzati (temporaneo per 1 anno)",
+        "en": "Specialist HR Services (temporary for 1 year)",
         "de": "Fachspezialist*in HR Services (befristet für 1 Jahr)",
         "fr": "Spécialiste* en RH (temporaire d'un an)"
       },
@@ -8437,7 +8417,7 @@
       "title": "ICT Service Manager*in Medizinische Services",
       "titleByLocale": {
         "it": "ICT Service Manager* nei servizi medici",
-        "en": "ICT Service Manager* in Medical Services",
+        "en": "ICT Service Manager Medical Services",
         "de": "ICT Service Manager*in Medizinische Services",
         "fr": "Gestionnaire de services TIC* dans les services médicaux"
       },
@@ -8488,7 +8468,6 @@
           "ict-service-manager-in-medizinische-services-stadtspital-zuerich-51104"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T11:54:41.176Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -9167,8 +9146,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Dipl. Physiotherapeut*in FH Akutgeriatrie",
       "titleByLocale": {
-        "it": "Dipl. Fisioterapista* in geriatria acuta FH",
-        "en": "Dipl. Physiotherapist* in FH acute geriatrics",
+        "it": "Dipl. Fisioterapista FH geriatria acuta",
+        "en": "Dipl. Physiotherapist FH acute geriatrics",
         "de": "Dipl. Physiotherapeut*in FH Akutgeriatrie",
         "fr": "Dipl. Physiothérapeute* en gériatrie aiguë FH"
       },
@@ -9221,7 +9200,6 @@
           "dipl-physiotherapeut-in-fh-akutgeriatrie-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10005,7 +9983,7 @@
       "title": "Gruppenleiter*in OP-Services",
       "titleByLocale": {
         "it": "Leader del gruppo* nei servizi OP",
-        "en": "Group leader* in OP services",
+        "en": "Group Leader OP Services",
         "de": "Gruppenleiter*in OP-Services",
         "fr": "Chef de groupe* dans les services OP"
       },
@@ -10056,7 +10034,6 @@
           "gruppenleiter-in-op-services-stadtspital-zuerich-50792"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10338,8 +10315,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Orthopädie, Hand- und Unfallchirurgie",
       "titleByLocale": {
-        "it": "Assistenzärzt*in Orthopäla, Hand- e Unfallchirurgie",
-        "en": "Assistant doctor* in orthopaedics, hand and accident surgery",
+        "it": "Assistente medico ortopedia, chirurgia della mano e del trauma",
+        "en": "Assistant doctor orthopaedics, hand and trauma surgery",
         "de": "Assistenzärzt*in Orthopädie, Hand- und Unfallchirurgie",
         "fr": "Médecin adjoint* en orthopédie, chirurgie des mains et des accidents"
       },
@@ -10408,7 +10385,6 @@
           "stagiaire-au-secretariat-medical-stadtspital-zurich-zurich-b8b29b"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.242Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10695,8 +10671,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Anästhesiologie",
       "titleByLocale": {
-        "it": "Assistente medico* in anestesiologia",
-        "en": "Assistant doctor* in anesthesiology",
+        "it": "Anestesi medico aggiunto",
+        "en": "Assistant physician anesthesiology",
         "de": "Assistenzärzt*in Anästhesiologie",
         "fr": "Docteur adjoint* en anesthésiologie"
       },
@@ -10749,7 +10725,6 @@
           "assistenzarzt-in-anasthesiologie-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11878,8 +11853,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Intensivmedizin",
       "titleByLocale": {
-        "it": "Assistente medico* in medicina intensiva",
-        "en": "Assistant doctor* in intensive care medicine",
+        "it": "Assistente medico per la cura intensiva",
+        "en": "Assistant doctor for intensive care",
         "de": "Assistenzärzt*in Intensivmedizin",
         "fr": "Docteur adjoint* en médecine intensive"
       },
@@ -11932,7 +11907,6 @@
           "assistenzarzt-in-intensivmedizin-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -11962,8 +11936,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Assistenzärzt*in Gastroenterologie & Hepatologie",
       "titleByLocale": {
-        "it": "Assistente medico* in Gastroenterologia & Epatologia",
-        "en": "Assistant doctor* in Gastroenterology & Hepatology",
+        "it": "Assistente medico Gastroenterologia & Epatologia",
+        "en": "Assistant doctor Gastroenterology & Hepatology",
         "de": "Assistenzärzt*in Gastroenterologie & Hepatologie",
         "fr": "Docteur adjoint* en gastroentérologie et hépatologie"
       },
@@ -12016,7 +11990,6 @@
           "assistenzarzt-in-gastroenterologie-hepatologie-stadtspital-zurich-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-12T22:04:54.240Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -12298,8 +12271,8 @@
       "companyDomain": "stadtspital.ch",
       "title": "Teamleiter*in Debitoren / Inkasso",
       "titleByLocale": {
-        "it": "Leader del team* in debitori / raccolta del debito",
-        "en": "Team leader*in debtors / debt collection",
+        "it": "Team Leader Debitors / Debt Collection",
+        "en": "Team Leader Debitors / Debt Collection",
         "de": "Teamleiter*in Debitoren / Inkasso",
         "fr": "Chef d'équipe*en débiteurs / recouvrement de créances"
       },
@@ -12350,7 +12323,6 @@
           "teamleiter-in-debitoren-inkasso-stadtspital-zuerich-51280"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:38:47.078Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
