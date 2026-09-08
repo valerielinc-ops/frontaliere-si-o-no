@@ -1,29 +1,9 @@
 {
-  "run": 6,
+  "run": 7,
   "companies": {
-    "corner-banca": {
-      "sterile": 0,
-      "signature": "2cccc64af778099e",
-      "skipUntilRun": 5
-    },
-    "weisse-arena": {
-      "sterile": 0,
-      "signature": "0c3d8519fa447934",
-      "skipUntilRun": 5
-    },
-    "vf-international-the-north-face-timberland": {
-      "sterile": 0,
-      "signature": "01516a4337aa60cc",
-      "skipUntilRun": 5
-    },
     "postfinance": {
       "sterile": 1,
       "signature": "4366b7bf23dc82b3"
-    },
-    "livit": {
-      "sterile": 0,
-      "signature": "2af828048ea066bb",
-      "skipUntilRun": 5
     },
     "marriott": {
       "sterile": 1,
@@ -37,13 +17,21 @@
       "sterile": 1,
       "signature": "e5b620c63ebb2e2a"
     },
-    "richemont": {
-      "sterile": 1,
-      "signature": "b954d8673678f114"
-    },
     "banca-sempione": {
       "sterile": 1,
       "signature": "1134ce9629c4a469"
+    },
+    "galenica": {
+      "sterile": 1,
+      "signature": "6ddda168d656f26d"
+    },
+    "medacta-international": {
+      "sterile": 1,
+      "signature": "ea643bc31eae2dea"
+    },
+    "arxada": {
+      "sterile": 1,
+      "signature": "c6319e7022fbea3d"
     }
   }
 }

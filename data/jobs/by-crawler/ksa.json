@@ -9,7 +9,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -57,7 +57,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -73,7 +74,8 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -1809,8 +1811,8 @@
       "companyDomain": "ksa.ch",
       "title": "Sachbearbeiter/in Patientenaufnahme Notfall Erwachsene und Kinder",
       "titleByLocale": {
-        "it": "Sachbearbeiter/in Patientenaufnahme Notfall Erwachsene e Kinder",
-        "en": "Personnel/in patient admission Emergency adults and children",
+        "it": "Personale paziente ammissione emergenza adulti e bambini",
+        "en": "Personnel patient admission emergency adults and children",
         "de": "Sachbearbeiter/in Patientenaufnahme Notfall Erwachsene und Kinder",
         "fr": "Admissibilité du personnel/du patient Urgence Adultes et enfants"
       },
@@ -1858,7 +1860,6 @@
           "sachbearbeiter-in-patientenaufnahme-notfall-erwachsene-und-kinder-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T11:34:11.050Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2887,7 +2888,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2958,7 +2959,8 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
@@ -3306,7 +3308,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3352,7 +3354,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3364,7 +3367,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
@@ -5577,10 +5581,10 @@
       "companyDomain": "ksa.ch",
       "title": "Pflegecontroller/in",
       "titleByLocale": {
-        "it": "Controllore/in",
-        "en": "Care controller/in",
+        "it": "Controller di cura",
+        "en": "Care controller",
         "de": "Pflegecontroller/in",
-        "fr": "Contrôleur/in"
+        "fr": "Contrôleur de soins"
       },
       "description": "Aufgaben:\n• Die finanzielle Führung des gesamten KSA läuft in der Direktion Finanzen zusammen. Du bist Teil dieses engagierten Teams und zuständig für die finanziellen Belange der Direktion CNO.\n\n• Du übernimmst eine zentrale Rolle in der betriebswirtschaftlichen Führung und Steuerung des Pflegebereichs und unterstützen die CNO sowie die Pflegeverantwortlichen in der finanziellen Führung. Insbesondere überwachst du die Budgeteinhaltung der Direktion CNO.\n\n• Du gestaltest die Finanz- und Budgetplanung des Pflegebereichs aktiv mit und erstellst Kalkulationen zur Ressourcen- und Personalplanung, unter anderem auf Basis von NHPPD (Nursing Hours Per Patient Day).\n\n• Du analysierst Personal-, Leistungs-, Belegungs- und Qualitätsdaten, erkennst Entwicklungspotenziale und leitest gemeinsam mit der CNO sowie den Verantwortlichen der Pflege konkrete Massnahmen zur Optimierung der Prozesse ab.\n\n• Du verantwortest pflegespezifische Datenerhebungen und Auswertungen, insbesondere in den Bereichen LEP, NHPPD und Pflegekomplexbehandlung (CHOP) sowie weiterer gesetzlicher und betrieblicher Anforderungen.\n\n• Du entwickelst Steuerungsinstrumente, Kennzahlenmodelle und Reportings kontinuierlich weiter und leistest damit einen wichtigen Beitrag zur datenbasierten Steuerung der Direktion CNO.\n\nAnforderungen:\n• Abgeschlossenes Studium auf Fachhochschul- oder Hochschulniveau, vorzugsweise mit betriebswirtschaftlichem, gesundheitsökonomischem oder pflegerischem Hintergrund.\n\n• Mehrjährige Berufserfahrung in einer betriebswirtschaftlichen Steuerungsfunktion im Gesundheitswesen, idealerweise im Pflegecontrolling, Gesundheitsmanagement oder einem vergleichbaren Umfeld.\n\n• Ausgeprägtes Verständnis für betriebswirtschaftliche Zusammenhänge sowie Erfahrung in der Beratung und Unterstützung von Führungskräften bei strategischen und operativen Fragestellungen.\n\n• Sehr gute analytische und konzeptionelle Fähigkeiten, hohe Zahlen- und IT-Affinität sowie fundierte Kenntnisse in der Datenanalyse; Erfahrung mit LEP ist von Vorteil.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung sowie Freude daran, Veränderungsprozesse aktiv mitzugestalten und eine moderne, datenbasierte Unternehmenssteuerung weiterzuentwickeln.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -5640,7 +5644,6 @@
           "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:42:21.739Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6977,10 +6980,10 @@
       "companyDomain": "ksa.ch",
       "title": "Mitarbeiter/in Reinigung Teilzeit für Oktober bis Dezember",
       "titleByLocale": {
-        "it": "Collaboratore/trice Reinigung Teilzeit per Oktober bis Dezember",
-        "en": "Employee/in cleaning part-time for October to December",
+        "it": "Pulizia dei dipendenti part-time per ottobre a dicembre",
+        "en": "Employee cleaning part-time for October to December",
         "de": "Mitarbeiter/in Reinigung Teilzeit für Oktober bis Dezember",
-        "fr": "Employé/in de nettoyage à temps partiel d'octobre à décembre"
+        "fr": "Nettoyage des employés à temps partiel d'octobre à décembre"
       },
       "description": "Mitarbeiter/in Reinigung Teilzeit für Oktober bis Dezember — Kantonsspital Aarau (KSA), Aarau",
       "descriptionByLocale": {
@@ -7054,9 +7057,9 @@
       "title": "ICT-Applikationsentwickler/in",
       "titleByLocale": {
         "it": "Sviluppo delle applicazioni ICT/in",
-        "en": "ICT application developer/in",
+        "en": "ICT application developer",
         "de": "ICT-Applikationsentwickler/in",
-        "fr": "Développeur/in d'applications TIC"
+        "fr": "développeur d'applications TIC"
       },
       "description": "Aufgaben:\n• Leitung oder Teilprojektleitung anspruchsvoller Automatisierungsprojekte sowie Mitarbeit in zentralen Rollen bei strategischen Vorhaben.\n\n• Analyse der Arbeitsabläufe und Identifizierung des Automatisierungspotenzials bei unseren Stakeholdern.\n\n• Planung, Konzeption und Umsetzung von Automatisierungslösungen mit Hilfe von UIPath in enger Zusammenarbeit mit unserem Dienstleister.\n\n• Mitarbeit beim Aufbau und der Weiterentwicklung von Betrieb, Support und Governance von UIPath / SAP BPA.\n\n• In dieser Rolle arbeiten Sie eng mit unserem SAP-Team zusammen.\n\nAnforderungen:\n• Abgeschlossenes Studium mit IT-Bezug oder eine vergleichbare Ausbildung.\n\n• Erfahrung mit Automation Software wie UiPath, Microsoft Power Platform, Automation Anywhere oder SAP BPA.\n\n• Verständnis von UI-Elementen und API Programmierung (für AI Anbindungen).\n\n• Erprobte analytische Fähigkeiten und konzeptionelles Denkvermögen.\n\n• Begeisterung für visionäre IT-Themen und Lust, die Zukunft der Arbeitswelt initiativ mitzugestalten.\n\n• Selbstständige, analytische, strukturierte und qualitätsorientierte Arbeitsweise.\n\n• Hohe Serviceorientierung, Eigeninitiative und Sozialkompetenz sowie Fähigkeit zur Zusammenarbeit mit interdisziplinären Teams.\n\n• Klare und präzise Kommunikationsfähigkeit in Deutsch mündlich und schriftlich, von Vorteil ebenfalls in Englisch.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -7107,7 +7110,6 @@
         "ict-applikationsentwickler-in-ksa-ch",
         "ict-applikationsentwickler-in-kantonsspital-aarau-ksa-aarau"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T23:07:29.749Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
