@@ -18163,6 +18163,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'infortuni-reinserimento-suva',
+    category: 'pratico',
+    date: '2026-09-08T07:58:32.033Z',
+    image: '/images/blog/infortuni-reinserimento-suva.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -6055,6 +6055,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-chfd-test-aziende-2026.title': 'Franc numérique CHFD : les tests avec 9 entreprises démarrent',
     'blog.article.franco-chfd-test-aziende-2026.excerpt': 'Le franc numérique CHFD est en phase de test pratique avec 9 entreprises jusqu\'à fin 2026. Les applications examinées vont des paiements automatisés à la gestion d\'actifs numériques sur blockchain.',
     'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Visualisation du franc suisse numérique CHFD et de la technologie blockchain dans les tests de paiement',
+    'blog.article.infortuni-reinserimento-suva.title': 'Accidents graves : près de 90 % retournent au travail',
+    'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva : après des accidents graves, 90 % des assurés retournent au travail. 78 % rentrent dans les 3 mois grâce à des soins médicaux et à une gestion de cas personnalisée.',
+    'blog.article.infortuni-reinserimento-suva.imageAlt': 'Séance de physiothérapie dans une clinique suisse de réadaptation post-traumatique',
 };
 
 export default blogMetaChFr;
