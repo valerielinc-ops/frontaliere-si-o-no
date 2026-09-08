@@ -957,7 +957,13 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
       return '';
     }
   }
-  if (attempted) noteIncompleteIfUntouched(outcome, outcomeBefore);
+  if (attempted) {
+    noteIncompleteIfUntouched(outcome, outcomeBefore);
+  } else if (outcome) {
+    // The configured tier was unavailable for this text; this is distinct from
+    // an attempted translation that returned no result.
+    outcome.tierUnavailable = true;
+  }
   return '';
 }
 

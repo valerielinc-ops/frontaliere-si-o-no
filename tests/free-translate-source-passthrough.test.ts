@@ -391,6 +391,18 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(result.first).toEqual({ text: '', passthrough: false });
     expect(result.second).toEqual({ text: '', passthrough: false });
   });
+
+  it('non memoizza un passthrough quando Azure ha tutte le chiavi gia esauste', () => {
+    const child = runExhaustedTierSkipScenario('azure', {
+      myMemoryResult: 'Titolo di prova',
+      detailed: true,
+    });
+
+    expect(child.status).toBe(0);
+    const result = JSON.parse(child.stdout);
+    expect(result.first).toEqual({ text: '', passthrough: false });
+    expect(result.second).toEqual({ text: '', passthrough: false });
+  });
 });
 
 describe('isSourcePassthrough', () => {
