@@ -1292,7 +1292,7 @@ async function main() {
   }
 }
 
-async function runRelocalization(phase) {
+export async function runRelocalization(phase) {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
@@ -1838,9 +1838,11 @@ async function runRelocalization(phase) {
 
       totalProcessed += companyJobCount;
       consecutiveFailures = 0;
+      cascadeStop = 'queue exhausted';
       if (totalProcessed >= effectiveMax) break;
 
     } catch (err) {
+      cascadeStop = 'company failure';
       consecutiveFailures++;
       console.error(`   ❌ ${key} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
