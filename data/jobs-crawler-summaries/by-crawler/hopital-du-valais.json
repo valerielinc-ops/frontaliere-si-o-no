@@ -1,23 +1,102 @@
 {
   "key": "hopital-du-valais",
   "label": "Hôpital du Valais",
-  "generatedAt": "2026-09-07T23:27:37.714Z",
-  "total": 49,
+  "generatedAt": "2026-09-08T13:37:35.308Z",
+  "total": 50,
   "discovered": null,
-  "parsed": 48,
+  "parsed": 50,
   "lastFetchOutcome": null,
-  "written": 49,
+  "written": 50,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 2,
   "updatedCount": 48,
-  "removedCount": 2,
-  "unchangedCount": 1,
-  "durationMs": 27243,
-  "avgDurationMs": 27243,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 29756,
+  "avgDurationMs": 29756,
   "durationHistory": [
-    27243
+    29756
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "hopital-du-valais-44e4c1b52f8d",
+      "slug": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Ausbildungsplatz Dipl. Radiologiefachmann/-frau HF",
+      "location": "Brig",
+      "canton": "VS",
+      "addressLocality": "Brig",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3900",
+      "category": "education",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:37:04.965Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004228",
+        "sysId": "dfdd86de976626501b87322f2153af9d",
+        "societe": "Spitalzentrum Oberwallis",
+        "famille": "Formation",
+        "site": "BRIG"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "hopital-du-valais-217b665422c2",
+      "slug": "secretaire-medical-e-a-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Secrétaire médical-e à 50 % pour le secrétariat médical de l’oncologie",
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "administration",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "50%",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9163b1444797c314ff8065f8736d43aa/ATSANN0004888/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9163b1444797c314ff8065f8736d43aa/ATSANN0004888/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:37:05.380Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004888",
+        "sysId": "9163b1444797c314ff8065f8736d43aa",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Administratif",
+        "site": "SION"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "hopital-du-valais-0d6f1d621ef9",
@@ -42,7 +121,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/95d6b727c3878b50a043be4c0501311c/ATSANN0004887/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:08.832Z",
+      "crawledAt": "2026-09-08T13:37:05.788Z",
       "_hvsMeta": {
         "number": "ATSANN0004887",
         "sysId": "95d6b727c3878b50a043be4c0501311c",
@@ -50,13 +129,12 @@
         "famille": "Soins",
         "site": "SION"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:03:57.035Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -83,7 +161,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd957befc3478b50a043be4c05013113/ATSANN0004886/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:09.223Z",
+      "crawledAt": "2026-09-08T13:37:06.184Z",
       "_hvsMeta": {
         "number": "ATSANN0004886",
         "sysId": "dd957befc3478b50a043be4c05013113",
@@ -91,13 +169,12 @@
         "famille": "Soins",
         "site": "SION"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:03:57.385Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -124,7 +201,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/249be0ba9747875012f9322f2153af77/ATSANN0004884/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:09.607Z",
+      "crawledAt": "2026-09-08T13:37:06.577Z",
       "_hvsMeta": {
         "number": "ATSANN0004884",
         "sysId": "249be0ba9747875012f9322f2153af77",
@@ -132,13 +209,12 @@
         "famille": "Soins",
         "site": "SIERRE"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:03:57.732Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +241,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:10.003Z",
+      "crawledAt": "2026-09-08T13:37:06.973Z",
       "_hvsMeta": {
         "number": "ATSANN0004885",
         "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
@@ -173,7 +249,6 @@
         "famille": "Soins",
         "site": "BRIG"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:28:31.442Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -206,7 +281,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47731b2197694b54e7ce346e2153af99/ATSANN0004744/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:10.384Z",
+      "crawledAt": "2026-09-08T13:37:07.364Z",
       "_hvsMeta": {
         "number": "ATSANN0004744",
         "sysId": "47731b2197694b54e7ce346e2153af99",
@@ -214,7 +289,6 @@
         "famille": "Soins",
         "site": "VISP"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:28:31.794Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -247,7 +321,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0566674287de0bd0dbd6ebd30cbb35f5/ATSANN0004818/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:10.777Z",
+      "crawledAt": "2026-09-08T13:37:07.758Z",
       "_hvsMeta": {
         "number": "ATSANN0004818",
         "sysId": "0566674287de0bd0dbd6ebd30cbb35f5",
@@ -287,7 +361,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/221a0cea47434790ff8065f8736d43fc/ATSANN0004880/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:11.164Z",
+      "crawledAt": "2026-09-08T13:37:08.146Z",
       "_hvsMeta": {
         "number": "ATSANN0004880",
         "sysId": "221a0cea47434790ff8065f8736d43fc",
@@ -297,47 +371,6 @@
       },
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:35:54.578Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "hopital-du-valais-2a9e1f457405",
-      "slug": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Infirmiers-ères entre 80-100 % pour les services de médecine de l’Hôpital de Martigny.",
-      "location": "Martigny",
-      "canton": "VS",
-      "addressLocality": "Martigny",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1920",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0163fdb997038b101b87322f2153af0a/ATSANN0004872/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0163fdb997038b101b87322f2153af0a/ATSANN0004872/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:11.541Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004872",
-        "sysId": "0163fdb997038b101b87322f2153af0a",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Soins",
-        "site": "MARTIGNY"
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-01T14:10:03.255Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,7 +402,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f16df1bd470bc710296bd1eb736d4314/ATSANN0004873/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:11.916Z",
+      "crawledAt": "2026-09-08T13:37:08.538Z",
       "_hvsMeta": {
         "number": "ATSANN0004873",
         "sysId": "f16df1bd470bc710296bd1eb736d4314",
@@ -409,7 +442,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c14a167d974f8b101b87322f2153af11/ATSANN0004878/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:12.299Z",
+      "crawledAt": "2026-09-08T13:37:08.924Z",
       "_hvsMeta": {
         "number": "ATSANN0004878",
         "sysId": "c14a167d974f8b101b87322f2153af11",
@@ -419,6 +452,47 @@
       },
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T23:07:46.672Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "hopital-du-valais-2a9e1f457405",
+      "slug": "infirmiers-eres-entre-80-100-pour-les-services-de-medecine-de-l-hopital-de-martigny",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Infirmiers-ères entre 80-100 % pour les services de médecine de l’Hôpital de Martigny.",
+      "location": "Martigny",
+      "canton": "VS",
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1920",
+      "category": "healthcare-nursing",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0163fdb997038b101b87322f2153af0a/ATSANN0004872/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0163fdb997038b101b87322f2153af0a/ATSANN0004872/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:37:09.318Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004872",
+        "sysId": "0163fdb997038b101b87322f2153af0a",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Soins",
+        "site": "MARTIGNY"
+      },
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-01T14:10:03.255Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -450,7 +524,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c8db355970b47101b87322f2153af6f/ATSANN0004870/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:12.672Z",
+      "crawledAt": "2026-09-08T13:37:09.708Z",
       "_hvsMeta": {
         "number": "ATSANN0004870",
         "sysId": "5c8db355970b47101b87322f2153af6f",
@@ -459,6 +533,46 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-08-31T17:06:30.195Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "hopital-du-valais-cf77f2a28bb6",
+      "slug": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Psychologin / Psychologe 40-60%, Schmerzklinik",
+      "location": "Brig",
+      "canton": "VS",
+      "addressLocality": "Brig",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3900",
+      "category": "healthcare-psychology",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "40 - 60%",
+      "featured": false,
+      "postedDate": "2026-08-30",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:37:10.111Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004869",
+        "sysId": "fb1bef51470f8310296bd1eb736d4347",
+        "societe": "Spitalzentrum Oberwallis",
+        "famille": "Psychologie, Sciences et Sociale",
+        "site": "BRIG"
+      },
+      "firstSeenAt": "2026-08-31T17:06:30.972Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -490,7 +604,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/645f27c0970b4b10316bb0b71153afd9/ATSANN0004863/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:13.065Z",
+      "crawledAt": "2026-09-08T13:37:10.507Z",
       "_hvsMeta": {
         "number": "ATSANN0004863",
         "sysId": "645f27c0970b4b10316bb0b71153afd9",
@@ -509,38 +623,37 @@
       }
     },
     {
-      "id": "hopital-du-valais-cf77f2a28bb6",
-      "slug": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
+      "id": "hopital-du-valais-3e35410bd08b",
+      "slug": "technicien-ne-de-fonctions-pulmonaires-a-100-pour-le-service-de-pneumologie-ambulatoire",
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
-      "title": "Psychologin / Psychologe 40-60%, Schmerzklinik",
-      "location": "Brig",
+      "title": "Technicien-ne de fonctions pulmonaires à 100% pour le service de pneumologie ambulatoire",
+      "location": "Martigny",
       "canton": "VS",
-      "addressLocality": "Brig",
+      "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3900",
-      "category": "healthcare-psychology",
+      "postalCode": "1920",
+      "category": "healthcare-nursing",
       "sector": "Santé / Hôpital",
       "contract": "full-time",
-      "employmentType": "40 - 60%",
+      "employmentType": "100%",
       "featured": false,
-      "postedDate": "2026-08-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
+      "postedDate": "2026-08-27",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b92e6450474f4710339c9146736d438b/ATSANN0004865/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b92e6450474f4710339c9146736d438b/ATSANN0004865/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:13.439Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:37:10.899Z",
       "_hvsMeta": {
-        "number": "ATSANN0004869",
-        "sysId": "fb1bef51470f8310296bd1eb736d4347",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Psychologie, Sciences et Sociale",
-        "site": "BRIG"
+        "number": "ATSANN0004865",
+        "sysId": "b92e6450474f4710339c9146736d438b",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Soins",
+        "site": "MARTIGNY"
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-31T17:06:30.972Z",
+      "firstSeenAt": "2026-08-27T19:53:12.686Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -572,7 +685,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/538f281087874b10dbd6ebd30cbb3551/ATSANN0004867/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:13.813Z",
+      "crawledAt": "2026-09-08T13:37:11.291Z",
       "_hvsMeta": {
         "number": "ATSANN0004867",
         "sysId": "538f281087874b10dbd6ebd30cbb3551",
@@ -580,7 +693,6 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-27T19:53:13.357Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -613,7 +725,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4fc7645447cb4710339c9146736d43ba/ATSANN0004864/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:14.210Z",
+      "crawledAt": "2026-09-08T13:37:11.680Z",
       "_hvsMeta": {
         "number": "ATSANN0004864",
         "sysId": "4fc7645447cb4710339c9146736d43ba",
@@ -622,87 +734,6 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-08-27T19:53:13.020Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "hopital-du-valais-3e35410bd08b",
-      "slug": "technicien-ne-de-fonctions-pulmonaires-a-100-pour-le-service-de-pneumologie-ambulatoire",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Technicien-ne de fonctions pulmonaires à 100% pour le service de pneumologie ambulatoire",
-      "location": "Martigny",
-      "canton": "VS",
-      "addressLocality": "Martigny",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1920",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "100%",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b92e6450474f4710339c9146736d438b/ATSANN0004865/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b92e6450474f4710339c9146736d438b/ATSANN0004865/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:14.586Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004865",
-        "sysId": "b92e6450474f4710339c9146736d438b",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Soins",
-        "site": "MARTIGNY"
-      },
-      "firstSeenAt": "2026-08-27T19:53:12.686Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "hopital-du-valais-7cb0f2d8a6cb",
-      "slug": "assistenzarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Assistenzärztin/-arzt 80-100%, Stationäre Psychiatrie",
-      "location": "Brig",
-      "canton": "VS",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "category": "healthcare-medical",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b3caad3797f20310316bb0b71153aff4/ATSANN0004860/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b3caad3797f20310316bb0b71153aff4/ATSANN0004860/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:14.961Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004860",
-        "sysId": "b3caad3797f20310316bb0b71153aff4",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Médecins",
-        "site": "BRIG"
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-26T09:55:20.557Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -734,7 +765,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3d1ca5f397360310316bb0b71153afd8/ATSANN0004861/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:15.338Z",
+      "crawledAt": "2026-09-08T13:37:12.085Z",
       "_hvsMeta": {
         "number": "ATSANN0004861",
         "sysId": "3d1ca5f397360310316bb0b71153afd8",
@@ -742,7 +773,6 @@
         "famille": "Médecins, Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:20.193Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -775,7 +805,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3debcaa383b20b1017a39d20ceaad339/ATSANN0004859/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:15.716Z",
+      "crawledAt": "2026-09-08T13:37:12.487Z",
       "_hvsMeta": {
         "number": "ATSANN0004859",
         "sysId": "3debcaa383b20b1017a39d20ceaad339",
@@ -793,37 +823,37 @@
       }
     },
     {
-      "id": "hopital-du-valais-754133935130",
-      "slug": "leitung-medizinische-codierung-medizincontrolling-80-100-hopital-du-valais-brig",
+      "id": "hopital-du-valais-7cb0f2d8a6cb",
+      "slug": "assistenzarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
-      "title": "Leitung Medizinische Codierung & Medizincontrolling 80-100%",
+      "title": "Assistenzärztin/-arzt 80-100%, Stationäre Psychiatrie",
       "location": "Brig",
       "canton": "VS",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3900",
-      "category": "finance",
+      "category": "healthcare-medical",
       "sector": "Santé / Hôpital",
       "contract": "full-time",
       "employmentType": "80 - 100%",
       "featured": false,
-      "postedDate": "2026-08-24",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d4cdcef83b2871017a39d20ceaad366/ATSANN0004858/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d4cdcef83b2871017a39d20ceaad366/ATSANN0004858/params/language/fr",
+      "postedDate": "2026-08-25",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b3caad3797f20310316bb0b71153aff4/ATSANN0004860/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b3caad3797f20310316bb0b71153aff4/ATSANN0004860/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:17.141Z",
+      "crawledAt": "2026-09-08T13:37:12.875Z",
       "_hvsMeta": {
-        "number": "ATSANN0004858",
-        "sysId": "2d4cdcef83b2871017a39d20ceaad366",
+        "number": "ATSANN0004860",
+        "sysId": "b3caad3797f20310316bb0b71153aff4",
         "societe": "Spitalzentrum Oberwallis",
-        "famille": "Finances",
+        "famille": "Médecins",
         "site": "BRIG"
       },
-      "firstSeenAt": "2026-08-25T09:48:57.328Z",
+      "firstSeenAt": "2026-08-26T09:55:20.557Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -855,7 +885,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f3023b0b97b64710316bb0b71153affc/ATSANN0004857/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:17.527Z",
+      "crawledAt": "2026-09-08T13:37:13.266Z",
       "_hvsMeta": {
         "number": "ATSANN0004857",
         "sysId": "f3023b0b97b64710316bb0b71153affc",
@@ -863,8 +893,47 @@
         "famille": "Médecins",
         "site": "SION"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T10:04:00.221Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "hopital-du-valais-754133935130",
+      "slug": "leitung-medizinische-codierung-medizincontrolling-80-100-hopital-du-valais-brig",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Leitung Medizinische Codierung & Medizincontrolling 80-100%",
+      "location": "Brig",
+      "canton": "VS",
+      "addressLocality": "Brig",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3900",
+      "category": "finance",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80 - 100%",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d4cdcef83b2871017a39d20ceaad366/ATSANN0004858/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d4cdcef83b2871017a39d20ceaad366/ATSANN0004858/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:37:14.797Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004858",
+        "sysId": "2d4cdcef83b2871017a39d20ceaad366",
+        "societe": "Spitalzentrum Oberwallis",
+        "famille": "Finances",
+        "site": "BRIG"
+      },
+      "firstSeenAt": "2026-08-25T09:48:57.328Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -896,7 +965,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:17.901Z",
+      "crawledAt": "2026-09-08T13:37:15.186Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -905,6 +974,46 @@
         "site": "VISP"
       },
       "firstSeenAt": "2026-08-21T09:52:24.339Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "hopital-du-valais-cbc58ac6ffa2",
+      "slug": "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion",
+      "company": "Hôpital du Valais",
+      "companyKey": "hopital-du-valais",
+      "companyDomain": "hopitalvs.ch",
+      "title": "Médecin adjoint-e du service de pédiatrie à 80%",
+      "location": "Sion",
+      "canton": "VS",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "healthcare-medical",
+      "sector": "Santé / Hôpital",
+      "contract": "full-time",
+      "employmentType": "80%",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5759884a973e0750e7ce346e2153af43/ATSANN0004852/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5759884a973e0750e7ce346e2153af43/ATSANN0004852/params/language/fr",
+      "source": "HVS Dedicated Parser (ServiceNow API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:37:15.574Z",
+      "_hvsMeta": {
+        "number": "ATSANN0004852",
+        "sysId": "5759884a973e0750e7ce346e2153af43",
+        "societe": "Centre Hospitalier du Valais romand",
+        "famille": "Médecins",
+        "site": "SION"
+      },
+      "firstSeenAt": "2026-08-20T21:40:26.893Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -936,7 +1045,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e402e44a473a8390339c9146736d437d/ATSANN0004853/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:18.272Z",
+      "crawledAt": "2026-09-08T13:37:15.961Z",
       "_hvsMeta": {
         "number": "ATSANN0004853",
         "sysId": "e402e44a473a8390339c9146736d437d",
@@ -944,7 +1053,6 @@
         "famille": "Médecins",
         "site": "SION"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-20T21:40:26.501Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -977,7 +1085,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a357440a973ec350316bb0b71153af58/ATSANN0004851/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:18.653Z",
+      "crawledAt": "2026-09-08T13:37:16.350Z",
       "_hvsMeta": {
         "number": "ATSANN0004851",
         "sysId": "a357440a973ec350316bb0b71153af58",
@@ -986,47 +1094,6 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-08-20T21:40:27.279Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "hopital-du-valais-cbc58ac6ffa2",
-      "slug": "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Médecin adjoint-e du service de pédiatrie à 80%",
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "healthcare-medical",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80%",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5759884a973e0750e7ce346e2153af43/ATSANN0004852/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5759884a973e0750e7ce346e2153af43/ATSANN0004852/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:19.043Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004852",
-        "sysId": "5759884a973e0750e7ce346e2153af43",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Médecins",
-        "site": "SION"
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-20T21:40:26.893Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1058,7 +1125,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/24f73c4547fac710339c9146736d43f6/ATSANN0004849/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:19.413Z",
+      "crawledAt": "2026-09-08T13:37:16.739Z",
       "_hvsMeta": {
         "number": "ATSANN0004849",
         "sysId": "24f73c4547fac710339c9146736d43f6",
@@ -1098,7 +1165,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:20.903Z",
+      "crawledAt": "2026-09-08T13:37:18.468Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -1116,43 +1183,43 @@
       }
     },
     {
-      "id": "hopital-du-valais-2520ca52dabc",
-      "slug": "koch-kochin-efz-hopital-du-valais-brig",
+      "id": "hopital-du-valais-ae11dc32f3ca",
+      "slug": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
-      "title": "Koch/Köchin EFZ",
-      "location": "Brig",
+      "title": "Oberärztin/-arzt oder Stv. Oberärztin/-arzt (Notfall)",
+      "location": "Visp",
       "canton": "VS",
-      "addressLocality": "Brig",
+      "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "3900",
-      "category": "education",
+      "postalCode": "3930",
+      "category": "healthcare-medical",
       "sector": "Santé / Hôpital",
       "contract": "full-time",
-      "employmentType": "100%",
+      "employmentType": "50%",
       "featured": false,
       "postedDate": "2026-07-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:22.041Z",
+      "crawledAt": "2026-09-08T13:37:19.643Z",
       "_hvsMeta": {
-        "number": "ATSANN0004728",
-        "sysId": "3706103387958f54dbd6ebd30cbb35f5",
+        "number": "ATSANN0004378",
+        "sysId": "c6680bcc8378b69017a39d20ceaad30d",
         "societe": "Spitalzentrum Oberwallis",
-        "famille": "Formation",
-        "site": "BRIG"
+        "famille": "Médecins",
+        "site": "VISP"
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T11:43:34.706Z",
-      "_qualityScore": 83,
+      "firstSeenAt": "2026-07-30T11:18:37.490Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1179,7 +1246,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e9af38b831acf9417a39d20ceaad3ed/ATSANN0004829/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:27:22.419Z",
+      "crawledAt": "2026-09-08T13:37:20.031Z",
       "_hvsMeta": {
         "number": "ATSANN0004829",
         "sysId": "9e9af38b831acf9417a39d20ceaad3ed",
@@ -1219,7 +1286,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:27:22.790Z",
+      "crawledAt": "2026-09-08T13:37:20.422Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -1227,7 +1294,6 @@
         "famille": "Formation",
         "site": "BRIG"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-31T11:43:36.846Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -1239,100 +1305,6 @@
     }
   ],
   "removedJobs": [
-    {
-      "id": "hopital-du-valais-ad08ca2313f2",
-      "slug": "persona-responsabile-60-80-hopital-du-valais-brig",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Sachbearbeiter/in Debitorenbuchhaltung 60-80%",
-      "location": "Brig",
-      "canton": "VS",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "category": "finance",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "60 - 80%",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/910f337787eec314dbd6ebd30cbb3588/ATSANN0004845/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/910f337787eec314dbd6ebd30cbb3588/ATSANN0004845/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-05T22:49:51.690Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004845",
-        "sysId": "910f337787eec314dbd6ebd30cbb3588",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Finances",
-        "site": "BRIG"
-      },
-      "firstSeenAt": "2026-08-14T10:20:11.159Z",
-      "salaryMin": 139600,
-      "salaryMax": 244800,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "hopital-du-valais-fc8810dfc3f0",
-      "slug": "80-100-coordinatore-di-stewardship-per-il-dipartimento-alberghiero-di-sion-hopital-du-valais-sion",
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Coordinateur-trice intendance à 80-100% pour le site de Sion pour son département Hôtelier",
-      "location": "Sion",
-      "canton": "VS",
-      "addressLocality": "Sion",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "hospitality",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f3c918d297b64b50e7ce346e2153af33/ATSANN0004854/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f3c918d297b64b50e7ce346e2153af33/ATSANN0004854/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-05T22:49:49.683Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004854",
-        "sysId": "f3c918d297b64b50e7ce346e2153af33",
-        "societe": "Centre Hospitalier du Valais romand",
-        "famille": "Hôtellerie / Restauration",
-        "site": "SION"
-      },
-      "firstSeenAt": "2026-08-21T09:52:24.686Z",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "id": "hopital-du-valais-f7859b158de7",
       "slug": "kaufmann-frau-cfc-hopital-du-valais-brig",
@@ -1380,5 +1352,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-09-07T23:35:41.218Z",
+  "assembledAt": "2026-09-08T13:45:38.656Z",
   "jobs": [
     {
       "id": "company-7ubj4j",
@@ -20,7 +20,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "nivarox-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-07T15:10:36.971Z",
+      "crawledAt": "2026-09-08T13:45:28.452Z",
       "firstSeenAt": "2026-09-02T13:40:27.256Z",
       "titleByLocale": {
         "it": "Practitioner nella meccanica AFP",
@@ -73,8 +73,7 @@
       },
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage Praticien",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-7ubj4i",
@@ -94,7 +93,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "nivarox-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-07T15:10:36.971Z",
+      "crawledAt": "2026-09-08T13:45:28.452Z",
       "firstSeenAt": "2026-09-02T13:40:27.256Z",
       "titleByLocale": {
         "it": "Formazione meccanica/produzione CFC",
@@ -148,7 +147,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubj4h",
@@ -168,7 +167,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "nivarox-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-07T15:10:36.971Z",
+      "crawledAt": "2026-09-08T13:45:28.452Z",
       "firstSeenAt": "2026-09-02T13:40:27.256Z",
       "titleByLocale": {
         "it": "Mechanical/Productive Learning CFC - orientamento décolleting",
@@ -224,7 +223,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubj4f",
@@ -298,7 +297,7 @@
       "addressLocality": "2026 The Swatch Group Ltd Remonter",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "company-7ubj4e",
@@ -372,7 +371,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage opérateur",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "company-7ubj4d",
@@ -446,7 +445,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage employ",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

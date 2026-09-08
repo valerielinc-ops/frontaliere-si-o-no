@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-07T23:26:49.397Z",
+  "assembledAt": "2026-09-08T13:36:52.282Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:37.059Z",
+      "crawledAt": "2026-09-08T13:36:41.585Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T23:26:36.418Z",
+      "crawledAt": "2026-09-08T13:36:30.545Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -160,7 +169,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -170,7 +179,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:35.603Z",
+      "crawledAt": "2026-09-08T13:36:29.886Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -250,7 +259,18 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern",
+        "service-operator-srg-ssr-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern",
+          "service-operator-srg-ssr-bern"
+        ]
+      },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -264,15 +284,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "previousSlugsByLocale": {
-        "it": [
-          "service-operator-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "service-operator-srg-ssr-bern"
-      ]
+      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-a8ae3325568d",
@@ -305,7 +317,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:35.078Z",
+      "crawledAt": "2026-09-08T13:36:29.333Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -341,16 +353,21 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -397,7 +414,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:34.542Z",
+      "crawledAt": "2026-09-08T13:36:28.770Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -432,17 +449,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -489,7 +509,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:34.028Z",
+      "crawledAt": "2026-09-08T13:36:28.201Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -541,6 +561,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -587,7 +608,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:33.411Z",
+      "crawledAt": "2026-09-08T13:36:27.654Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -624,11 +645,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -638,6 +661,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -684,7 +708,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:32.797Z",
+      "crawledAt": "2026-09-08T13:36:26.983Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -723,11 +747,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -737,6 +763,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -783,7 +810,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:32.174Z",
+      "crawledAt": "2026-09-08T13:36:26.308Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -822,11 +849,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -836,6 +865,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -882,7 +912,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:31.551Z",
+      "crawledAt": "2026-09-08T13:36:25.636Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -919,11 +949,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -933,6 +965,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -979,7 +1012,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T23:26:30.936Z",
+      "crawledAt": "2026-09-08T13:36:24.940Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1028,6 +1061,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1074,7 +1108,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:30.267Z",
+      "crawledAt": "2026-09-08T13:36:24.194Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1123,15 +1157,16 @@
           "hr-partner-in-srg-ssr-zurich",
           "risorse-umane-berater-in-srg-ssr-zurich"
         ],
+        "en": [
+          "hr-partner-in-srg-ssr-zurich"
+        ],
         "fr": [
           "hr-partner-in-srg-ssr-zurich",
           "ressources-humaines-partner-in-srg-ssr-zurich"
-        ],
-        "en": [
-          "hr-partner-in-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:14.107Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1178,7 +1213,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:29.618Z",
+      "crawledAt": "2026-09-08T13:36:23.529Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,7 +1297,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:28.962Z",
+      "crawledAt": "2026-09-08T13:36:22.789Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1312,11 +1347,13 @@
         "pensumMax": 35
       },
       "previousSlugs": [
-        "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+        "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+        "presentatore-di-tempo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
+          "presentatrice-ou-presentateur-meteo-srg-ssr-bern",
+          "presentatore-di-tempo-srg-ssr-bern"
         ],
         "en": [
           "presentatrice-ou-presentateur-meteo-srg-ssr-bern"
@@ -1326,6 +1363,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T19:52:31.631Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1372,7 +1410,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:26:28.313Z",
+      "crawledAt": "2026-09-08T13:36:22.111Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1409,11 +1447,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+          "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+          "responsabile-r-operazioni-offerta-nazionale-di-informazione-srg-ssr-zurich"
         ],
         "en": [
           "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
@@ -1423,6 +1463,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:42.256Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1469,7 +1510,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T23:26:27.582Z",
+      "crawledAt": "2026-09-08T13:36:21.439Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1507,6 +1548,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-08-31T17:00:43.065Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1553,7 +1595,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:26.873Z",
+      "crawledAt": "2026-09-08T13:36:20.688Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1591,11 +1633,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+          "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+          "capo-di-genere-offerta-nazionale-di-informazione-operazioni-srg-ssr-zurich"
         ],
         "en": [
           "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
@@ -1605,6 +1649,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:00:43.813Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -1651,7 +1696,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-07T23:26:26.244Z",
+      "crawledAt": "2026-09-08T13:36:19.986Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1743,7 +1788,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:25.532Z",
+      "crawledAt": "2026-09-08T13:36:19.108Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1788,6 +1833,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T23:09:02.702Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1834,7 +1880,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-recherchiste/7e518bec-7354-4090-9626-3d8c4ea47d3d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:26:24.862Z",
+      "crawledAt": "2026-09-08T13:36:18.449Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1879,11 +1925,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-recherchiste-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern",
+        "formazione-di-ricerca-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-recherchiste-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern",
+          "formazione-di-ricerca-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-recherchiste-srg-ssr-bern"
@@ -1893,6 +1941,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:01.047Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1907,6 +1956,270 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "srg-ssr-972d61666270",
+      "slug": "unternehmensentwickler-in-srg-ssr-bern",
+      "slugByLocale": {
+        "de": "unternehmensentwickler-in-srg-ssr-bern",
+        "it": "unternehmensentwickler-in-srg-ssr-bern",
+        "en": "unternehmensentwickler-in-srg-ssr-bern",
+        "fr": "unternehmensentwickler-in-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Unternehmensentwickler:in",
+      "titleByLocale": {
+        "de": "Unternehmensentwickler:in",
+        "it": "Unternehmensentwickler:in",
+        "en": "Unternehmensentwickler:in",
+        "fr": "Unternehmensentwickler:in"
+      },
+      "description": "Das ist Ihr Beitrag ​​Im Team Unternehmensentwicklung engagieren Sie sich für folgende Themen:​\n• Sie bearbeiten die wichtigsten strategischen Fragestellungen der SRG und treiben bereichsübergreifende Transformationsvorhaben voran.\n• Sie analysieren komplexe Herausforderungen und entwickeln daraus Zielbilder, Handlungsempfehlungen und konkrete Lösungsansätze.\n• Sie gestalten den Strategieprozess der SRG mit und übersetzen strategische Ziele in Initiativen, Massnahmen und Leitplanken.\n• Sie beobachten Markt-, Technologie- und Branchentrends und leiten daraus fundierte Handlungsoptionen für die Geschäftsleitung und die Bereiche ab.\n• Sie moderieren zwischen unterschiedlichen Interessen, fördern die bereichsübergreifende Zusammenarbeit und schaffen gemeinsame Entscheidungsgrundlagen.\n• Sie begleiten Veränderungsvorhaben von der Konzeption bis zur Umsetzung und sorgen auch ohne formale Führungsverantwortung für Verbindlichkeit. Damit begeistern Sie uns\n• Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.\n• Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.\n• Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.\n• Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.\n• Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.\n• Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil. Damit begeistern wir Sie\n• Eine Schlüsselrolle an der Schnittstelle von Strategie, Transformation und Unternehmensführung.\n• Viel Gestaltungsspielraum in einem engagierten und neu aufgebauten Team.\n• Spannende und abwechslungsreiche Projekte mit hoher strategischer Relevanz für die SRG.\n• Die Möglichkeit, die Zukunft des Service public Medienhauses der Schweiz aktiv mitzugestalten.\n• Zusammenarbeit mit interdisziplinären Teams und Führungskräften aus allen Unternehmenseinheiten.\n• Ein hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten. Noch Fragen? zum Bewerbungsprozess Corinne Mänz Partenaire RH corinne.maenz@rts.ch Wie soll sich die SRG in den nächsten Jahren weiterentwickeln? Wie muss sie sich positionieren, um auf die Entwicklungen im Medienmarkt vorausschauen reagieren zu können? Und wie positioniert sie sich als Service public Unternehmen, um den Rückhalt in der Bevölkerung langfristig zu sichern? An genau diesen Fragen arbeiten Sie mit. Im Stab der SRG begleiten wir im Auftrag der Geschäftsleitung die unternehmensweite Transformation und machen die Organisation zukunftsfit. Als Unternehmensentwickler:in sind Sie interne:r Berater:in: Sie verbinden Strategie, Transformation und Umsetzung und helfen dabei, auch bereichsübergreifende Themen erfolgreich voranzubringen. Ihr Einsatz ist bewusst breit angelegt, Sie wechseln je nach Bedarf zwischen unterschiedlichen Fragestellungen, Bereichen und Kontexten.",
+      "descriptionByLocale": {
+        "de": "Das ist Ihr Beitrag ​​Im Team Unternehmensentwicklung engagieren Sie sich für folgende Themen:​\n• Sie bearbeiten die wichtigsten strategischen Fragestellungen der SRG und treiben bereichsübergreifende Transformationsvorhaben voran.\n• Sie analysieren komplexe Herausforderungen und entwickeln daraus Zielbilder, Handlungsempfehlungen und konkrete Lösungsansätze.\n• Sie gestalten den Strategieprozess der SRG mit und übersetzen strategische Ziele in Initiativen, Massnahmen und Leitplanken.\n• Sie beobachten Markt-, Technologie- und Branchentrends und leiten daraus fundierte Handlungsoptionen für die Geschäftsleitung und die Bereiche ab.\n• Sie moderieren zwischen unterschiedlichen Interessen, fördern die bereichsübergreifende Zusammenarbeit und schaffen gemeinsame Entscheidungsgrundlagen.\n• Sie begleiten Veränderungsvorhaben von der Konzeption bis zur Umsetzung und sorgen auch ohne formale Führungsverantwortung für Verbindlichkeit. Damit begeistern Sie uns\n• Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.\n• Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.\n• Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.\n• Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.\n• Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.\n• Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil. Damit begeistern wir Sie\n• Eine Schlüsselrolle an der Schnittstelle von Strategie, Transformation und Unternehmensführung.\n• Viel Gestaltungsspielraum in einem engagierten und neu aufgebauten Team.\n• Spannende und abwechslungsreiche Projekte mit hoher strategischer Relevanz für die SRG.\n• Die Möglichkeit, die Zukunft des Service public Medienhauses der Schweiz aktiv mitzugestalten.\n• Zusammenarbeit mit interdisziplinären Teams und Führungskräften aus allen Unternehmenseinheiten.\n• Ein hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten. Noch Fragen? zum Bewerbungsprozess Corinne Mänz Partenaire RH corinne.maenz@rts.ch Wie soll sich die SRG in den nächsten Jahren weiterentwickeln? Wie muss sie sich positionieren, um auf die Entwicklungen im Medienmarkt vorausschauen reagieren zu können? Und wie positioniert sie sich als Service public Unternehmen, um den Rückhalt in der Bevölkerung langfristig zu sichern? An genau diesen Fragen arbeiten Sie mit. Im Stab der SRG begleiten wir im Auftrag der Geschäftsleitung die unternehmensweite Transformation und machen die Organisation zukunftsfit. Als Unternehmensentwickler:in sind Sie interne:r Berater:in: Sie verbinden Strategie, Transformation und Umsetzung und helfen dabei, auch bereichsübergreifende Themen erfolgreich voranzubringen. Ihr Einsatz ist bewusst breit angelegt, Sie wechseln je nach Bedarf zwischen unterschiedlichen Fragestellungen, Bereichen und Kontexten.",
+        "it": "Das ist Ihr Beitrag ​​Im Team Unternehmensentwicklung engagieren Sie sich für folgende Themen:​\n• Sie bearbeiten die wichtigsten strategischen Fragestellungen der SRG und treiben bereichsübergreifende Transformationsvorhaben voran.\n• Sie analysieren komplexe Herausforderungen und entwickeln daraus Zielbilder, Handlungsempfehlungen und konkrete Lösungsansätze.\n• Sie gestalten den Strategieprozess der SRG mit und übersetzen strategische Ziele in Initiativen, Massnahmen und Leitplanken.\n• Sie beobachten Markt-, Technologie- und Branchentrends und leiten daraus fundierte Handlungsoptionen für die Geschäftsleitung und die Bereiche ab.\n• Sie moderieren zwischen unterschiedlichen Interessen, fördern die bereichsübergreifende Zusammenarbeit und schaffen gemeinsame Entscheidungsgrundlagen.\n• Sie begleiten Veränderungsvorhaben von der Konzeption bis zur Umsetzung und sorgen auch ohne formale Führungsverantwortung für Verbindlichkeit. Damit begeistern Sie uns\n• Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.\n• Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.\n• Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.\n• Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.\n• Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.\n• Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil. Damit begeistern wir Sie\n• Eine Schlüsselrolle an der Schnittstelle von Strategie, Transformation und Unternehmensführung.\n• Viel Gestaltungsspielraum in einem engagierten und neu aufgebauten Team.\n• Spannende und abwechslungsreiche Projekte mit hoher strategischer Relevanz für die SRG.\n• Die Möglichkeit, die Zukunft des Service public Medienhauses der Schweiz aktiv mitzugestalten.\n• Zusammenarbeit mit interdisziplinären Teams und Führungskräften aus allen Unternehmenseinheiten.\n• Ein hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten. Noch Fragen? zum Bewerbungsprozess Corinne Mänz Partenaire RH corinne.maenz@rts.ch Wie soll sich die SRG in den nächsten Jahren weiterentwickeln? Wie muss sie sich positionieren, um auf die Entwicklungen im Medienmarkt vorausschauen reagieren zu können? Und wie positioniert sie sich als Service public Unternehmen, um den Rückhalt in der Bevölkerung langfristig zu sichern? An genau diesen Fragen arbeiten Sie mit. Im Stab der SRG begleiten wir im Auftrag der Geschäftsleitung die unternehmensweite Transformation und machen die Organisation zukunftsfit. Als Unternehmensentwickler:in sind Sie interne:r Berater:in: Sie verbinden Strategie, Transformation und Umsetzung und helfen dabei, auch bereichsübergreifende Themen erfolgreich voranzubringen. Ihr Einsatz ist bewusst breit angelegt, Sie wechseln je nach Bedarf zwischen unterschiedlichen Fragestellungen, Bereichen und Kontexten.",
+        "en": "Das ist Ihr Beitrag ​​Im Team Unternehmensentwicklung engagieren Sie sich für folgende Themen:​\n• Sie bearbeiten die wichtigsten strategischen Fragestellungen der SRG und treiben bereichsübergreifende Transformationsvorhaben voran.\n• Sie analysieren komplexe Herausforderungen und entwickeln daraus Zielbilder, Handlungsempfehlungen und konkrete Lösungsansätze.\n• Sie gestalten den Strategieprozess der SRG mit und übersetzen strategische Ziele in Initiativen, Massnahmen und Leitplanken.\n• Sie beobachten Markt-, Technologie- und Branchentrends und leiten daraus fundierte Handlungsoptionen für die Geschäftsleitung und die Bereiche ab.\n• Sie moderieren zwischen unterschiedlichen Interessen, fördern die bereichsübergreifende Zusammenarbeit und schaffen gemeinsame Entscheidungsgrundlagen.\n• Sie begleiten Veränderungsvorhaben von der Konzeption bis zur Umsetzung und sorgen auch ohne formale Führungsverantwortung für Verbindlichkeit. Damit begeistern Sie uns\n• Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.\n• Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.\n• Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.\n• Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.\n• Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.\n• Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil. Damit begeistern wir Sie\n• Eine Schlüsselrolle an der Schnittstelle von Strategie, Transformation und Unternehmensführung.\n• Viel Gestaltungsspielraum in einem engagierten und neu aufgebauten Team.\n• Spannende und abwechslungsreiche Projekte mit hoher strategischer Relevanz für die SRG.\n• Die Möglichkeit, die Zukunft des Service public Medienhauses der Schweiz aktiv mitzugestalten.\n• Zusammenarbeit mit interdisziplinären Teams und Führungskräften aus allen Unternehmenseinheiten.\n• Ein hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten. Noch Fragen? zum Bewerbungsprozess Corinne Mänz Partenaire RH corinne.maenz@rts.ch Wie soll sich die SRG in den nächsten Jahren weiterentwickeln? Wie muss sie sich positionieren, um auf die Entwicklungen im Medienmarkt vorausschauen reagieren zu können? Und wie positioniert sie sich als Service public Unternehmen, um den Rückhalt in der Bevölkerung langfristig zu sichern? An genau diesen Fragen arbeiten Sie mit. Im Stab der SRG begleiten wir im Auftrag der Geschäftsleitung die unternehmensweite Transformation und machen die Organisation zukunftsfit. Als Unternehmensentwickler:in sind Sie interne:r Berater:in: Sie verbinden Strategie, Transformation und Umsetzung und helfen dabei, auch bereichsübergreifende Themen erfolgreich voranzubringen. Ihr Einsatz ist bewusst breit angelegt, Sie wechseln je nach Bedarf zwischen unterschiedlichen Fragestellungen, Bereichen und Kontexten.",
+        "fr": "Das ist Ihr Beitrag ​​Im Team Unternehmensentwicklung engagieren Sie sich für folgende Themen:​\n• Sie bearbeiten die wichtigsten strategischen Fragestellungen der SRG und treiben bereichsübergreifende Transformationsvorhaben voran.\n• Sie analysieren komplexe Herausforderungen und entwickeln daraus Zielbilder, Handlungsempfehlungen und konkrete Lösungsansätze.\n• Sie gestalten den Strategieprozess der SRG mit und übersetzen strategische Ziele in Initiativen, Massnahmen und Leitplanken.\n• Sie beobachten Markt-, Technologie- und Branchentrends und leiten daraus fundierte Handlungsoptionen für die Geschäftsleitung und die Bereiche ab.\n• Sie moderieren zwischen unterschiedlichen Interessen, fördern die bereichsübergreifende Zusammenarbeit und schaffen gemeinsame Entscheidungsgrundlagen.\n• Sie begleiten Veränderungsvorhaben von der Konzeption bis zur Umsetzung und sorgen auch ohne formale Führungsverantwortung für Verbindlichkeit. Damit begeistern Sie uns\n• Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.\n• Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.\n• Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.\n• Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.\n• Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.\n• Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil. Damit begeistern wir Sie\n• Eine Schlüsselrolle an der Schnittstelle von Strategie, Transformation und Unternehmensführung.\n• Viel Gestaltungsspielraum in einem engagierten und neu aufgebauten Team.\n• Spannende und abwechslungsreiche Projekte mit hoher strategischer Relevanz für die SRG.\n• Die Möglichkeit, die Zukunft des Service public Medienhauses der Schweiz aktiv mitzugestalten.\n• Zusammenarbeit mit interdisziplinären Teams und Führungskräften aus allen Unternehmenseinheiten.\n• Ein hybrides Arbeitsmodell mit flexiblen Arbeitsformen und Homeoffice-Möglichkeiten. Noch Fragen? zum Bewerbungsprozess Corinne Mänz Partenaire RH corinne.maenz@rts.ch Wie soll sich die SRG in den nächsten Jahren weiterentwickeln? Wie muss sie sich positionieren, um auf die Entwicklungen im Medienmarkt vorausschauen reagieren zu können? Und wie positioniert sie sich als Service public Unternehmen, um den Rückhalt in der Bevölkerung langfristig zu sichern? An genau diesen Fragen arbeiten Sie mit. Im Stab der SRG begleiten wir im Auftrag der Geschäftsleitung die unternehmensweite Transformation und machen die Organisation zukunftsfit. Als Unternehmensentwickler:in sind Sie interne:r Berater:in: Sie verbinden Strategie, Transformation und Umsetzung und helfen dabei, auch bereichsübergreifende Themen erfolgreich voranzubringen. Ihr Einsatz ist bewusst breit angelegt, Sie wechseln je nach Bedarf zwischen unterschiedlichen Fragestellungen, Bereichen und Kontexten."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:36:17.762Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
+      "requirements": [
+        "Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.",
+        "Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.",
+        "Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.",
+        "Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.",
+        "Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.",
+        "Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Hochschulabschluss oder höhere Fachausbildung sowie Erfahrung in der Unternehmens-, Strategie- oder Organisationsentwicklung.",
+          "Systemische und vernetzte Denkweise sowie Freude an komplexen und anspruchsvollen Fragestellungen.",
+          "Erfahrung in der Begleitung von Veränderungsprozessen und fundierte Kenntnisse in Change-Management-Methoden.",
+          "Starke Kommunikations- und Moderationsfähigkeiten sowie Erfahrung in der lateralen Führung.",
+          "Fähigkeit, komplexe Sachverhalte rasch zu erfassen und adressatengerecht aufzubereiten.",
+          "Sehr gute Deutsch- und Französischkenntnisse; Italienisch oder Rätoromanisch sind von Vorteil."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "3622b4b4-a2dc-463a-80e1-17e8580a49d9",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-08T13:36:17.762Z"
+    },
+    {
+      "id": "srg-ssr-50182b852974",
+      "slug": "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+      "slugByLocale": {
+        "fr": "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+        "it": "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+        "en": "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+        "de": "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Spécialiste développement de l'entreprise (f/h)",
+      "titleByLocale": {
+        "fr": "Spécialiste développement de l'entreprise (f/h)",
+        "it": "Spécialiste développement de l'entreprise (f/h)",
+        "en": "Spécialiste développement de l'entreprise (f/h)",
+        "de": "Spécialiste développement de l'entreprise (f/h)"
+      },
+      "description": "Votre mission Au sein de l'équipe Développement de l'entreprise, vous serez notamment chargé.e de :\n• traiter les principales questions stratégiques de la SSR et faire avancer les projets de transformation transversaux,\n• analyser des défis complexes ; en tirer des objectifs, des recommandations d'action et des pistes de solutions concrètes,\n• participer à l'élaboration du processus stratégique de la SSR ; traduire les objectifs stratégiques en initiatives, mesures et lignes directrices,\n• observer les tendances du marché, des technologies et de la branche ; en déduire des pistes d'action fondées à l'intention du Comité de direction et des différents domaines,\n• assurer la médiation entre les différents intérêts ; favoriser la collaboration transversale et établir des bases décisionnelles communes,\n• accompagner les projets de changement de leur conception à leur mise en œuvre ; veiller au respect des engagements, même sans occuper de poste de conduite officiel. Votre profil\n• Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel\n• Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes\n• Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement\n• Solides compétences en communication et en médiation ; expérience en matière de leadership transversal\n• Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé\n• Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout. Ce que nous vous offrons\n• Un rôle-clé à la croisée de la stratégie, de la transformation et de la gestion d'entreprise\n• Une grande liberté d'action au sein d'une équipe motivée et récemment constituée\n• Des projets passionnants et variés, présentant un intérêt stratégique majeur pour la SSR\n• La possibilité de contribuer activement à façonner l'avenir de l'entreprise média de service public suisse\n• La collaboration avec des équipes interdisciplinaires et des personnes dirigeantes issues de toutes les unités d'entreprise\n• Un modèle de travail hybride proposant des formes de travail flexibles et des possibilités de télétravail Des questions? A propos du recrutement Corinne Mänz partenaire RH corinne.maenz@rts.ch Comment la SSR devrait-elle évoluer au cours des prochaines années ? Comment doit-elle se positionner pour pouvoir anticiper les évolutions sur le marché des médias ? Et comment se positionner en tant qu'entreprise de service public pour s'assurer le soutien de la population à long terme ? Telles sont précisément les questions que vous traitez. Au sein de l'Etat-major de la SSR, sur mandat du Comité de direction, nous accompagnons la transformation à l'échelle de l'entreprise et préparons l'organisation à affronter l'avenir. En tant que spécialiste du développement de l'entreprise, vous agissez en qualité de consultant.e interne : vous alliez stratégie, transformation et mise en œuvre, et contribuez ainsi à faire avancer avec succès des dossiers transversaux. Votre champ d'action est délibérément large ; vous passez, selon les besoins, d'une problématique, d'un domaine ou d'un contexte à l'autre.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Au sein de l'équipe Développement de l'entreprise, vous serez notamment chargé.e de :\n• traiter les principales questions stratégiques de la SSR et faire avancer les projets de transformation transversaux,\n• analyser des défis complexes ; en tirer des objectifs, des recommandations d'action et des pistes de solutions concrètes,\n• participer à l'élaboration du processus stratégique de la SSR ; traduire les objectifs stratégiques en initiatives, mesures et lignes directrices,\n• observer les tendances du marché, des technologies et de la branche ; en déduire des pistes d'action fondées à l'intention du Comité de direction et des différents domaines,\n• assurer la médiation entre les différents intérêts ; favoriser la collaboration transversale et établir des bases décisionnelles communes,\n• accompagner les projets de changement de leur conception à leur mise en œuvre ; veiller au respect des engagements, même sans occuper de poste de conduite officiel. Votre profil\n• Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel\n• Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes\n• Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement\n• Solides compétences en communication et en médiation ; expérience en matière de leadership transversal\n• Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé\n• Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout. Ce que nous vous offrons\n• Un rôle-clé à la croisée de la stratégie, de la transformation et de la gestion d'entreprise\n• Une grande liberté d'action au sein d'une équipe motivée et récemment constituée\n• Des projets passionnants et variés, présentant un intérêt stratégique majeur pour la SSR\n• La possibilité de contribuer activement à façonner l'avenir de l'entreprise média de service public suisse\n• La collaboration avec des équipes interdisciplinaires et des personnes dirigeantes issues de toutes les unités d'entreprise\n• Un modèle de travail hybride proposant des formes de travail flexibles et des possibilités de télétravail Des questions? A propos du recrutement Corinne Mänz partenaire RH corinne.maenz@rts.ch Comment la SSR devrait-elle évoluer au cours des prochaines années ? Comment doit-elle se positionner pour pouvoir anticiper les évolutions sur le marché des médias ? Et comment se positionner en tant qu'entreprise de service public pour s'assurer le soutien de la population à long terme ? Telles sont précisément les questions que vous traitez. Au sein de l'Etat-major de la SSR, sur mandat du Comité de direction, nous accompagnons la transformation à l'échelle de l'entreprise et préparons l'organisation à affronter l'avenir. En tant que spécialiste du développement de l'entreprise, vous agissez en qualité de consultant.e interne : vous alliez stratégie, transformation et mise en œuvre, et contribuez ainsi à faire avancer avec succès des dossiers transversaux. Votre champ d'action est délibérément large ; vous passez, selon les besoins, d'une problématique, d'un domaine ou d'un contexte à l'autre.",
+        "it": "Votre mission Au sein de l'équipe Développement de l'entreprise, vous serez notamment chargé.e de :\n• traiter les principales questions stratégiques de la SSR et faire avancer les projets de transformation transversaux,\n• analyser des défis complexes ; en tirer des objectifs, des recommandations d'action et des pistes de solutions concrètes,\n• participer à l'élaboration du processus stratégique de la SSR ; traduire les objectifs stratégiques en initiatives, mesures et lignes directrices,\n• observer les tendances du marché, des technologies et de la branche ; en déduire des pistes d'action fondées à l'intention du Comité de direction et des différents domaines,\n• assurer la médiation entre les différents intérêts ; favoriser la collaboration transversale et établir des bases décisionnelles communes,\n• accompagner les projets de changement de leur conception à leur mise en œuvre ; veiller au respect des engagements, même sans occuper de poste de conduite officiel. Votre profil\n• Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel\n• Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes\n• Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement\n• Solides compétences en communication et en médiation ; expérience en matière de leadership transversal\n• Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé\n• Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout. Ce que nous vous offrons\n• Un rôle-clé à la croisée de la stratégie, de la transformation et de la gestion d'entreprise\n• Une grande liberté d'action au sein d'une équipe motivée et récemment constituée\n• Des projets passionnants et variés, présentant un intérêt stratégique majeur pour la SSR\n• La possibilité de contribuer activement à façonner l'avenir de l'entreprise média de service public suisse\n• La collaboration avec des équipes interdisciplinaires et des personnes dirigeantes issues de toutes les unités d'entreprise\n• Un modèle de travail hybride proposant des formes de travail flexibles et des possibilités de télétravail Des questions? A propos du recrutement Corinne Mänz partenaire RH corinne.maenz@rts.ch Comment la SSR devrait-elle évoluer au cours des prochaines années ? Comment doit-elle se positionner pour pouvoir anticiper les évolutions sur le marché des médias ? Et comment se positionner en tant qu'entreprise de service public pour s'assurer le soutien de la population à long terme ? Telles sont précisément les questions que vous traitez. Au sein de l'Etat-major de la SSR, sur mandat du Comité de direction, nous accompagnons la transformation à l'échelle de l'entreprise et préparons l'organisation à affronter l'avenir. En tant que spécialiste du développement de l'entreprise, vous agissez en qualité de consultant.e interne : vous alliez stratégie, transformation et mise en œuvre, et contribuez ainsi à faire avancer avec succès des dossiers transversaux. Votre champ d'action est délibérément large ; vous passez, selon les besoins, d'une problématique, d'un domaine ou d'un contexte à l'autre.",
+        "en": "Votre mission Au sein de l'équipe Développement de l'entreprise, vous serez notamment chargé.e de :\n• traiter les principales questions stratégiques de la SSR et faire avancer les projets de transformation transversaux,\n• analyser des défis complexes ; en tirer des objectifs, des recommandations d'action et des pistes de solutions concrètes,\n• participer à l'élaboration du processus stratégique de la SSR ; traduire les objectifs stratégiques en initiatives, mesures et lignes directrices,\n• observer les tendances du marché, des technologies et de la branche ; en déduire des pistes d'action fondées à l'intention du Comité de direction et des différents domaines,\n• assurer la médiation entre les différents intérêts ; favoriser la collaboration transversale et établir des bases décisionnelles communes,\n• accompagner les projets de changement de leur conception à leur mise en œuvre ; veiller au respect des engagements, même sans occuper de poste de conduite officiel. Votre profil\n• Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel\n• Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes\n• Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement\n• Solides compétences en communication et en médiation ; expérience en matière de leadership transversal\n• Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé\n• Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout. Ce que nous vous offrons\n• Un rôle-clé à la croisée de la stratégie, de la transformation et de la gestion d'entreprise\n• Une grande liberté d'action au sein d'une équipe motivée et récemment constituée\n• Des projets passionnants et variés, présentant un intérêt stratégique majeur pour la SSR\n• La possibilité de contribuer activement à façonner l'avenir de l'entreprise média de service public suisse\n• La collaboration avec des équipes interdisciplinaires et des personnes dirigeantes issues de toutes les unités d'entreprise\n• Un modèle de travail hybride proposant des formes de travail flexibles et des possibilités de télétravail Des questions? A propos du recrutement Corinne Mänz partenaire RH corinne.maenz@rts.ch Comment la SSR devrait-elle évoluer au cours des prochaines années ? Comment doit-elle se positionner pour pouvoir anticiper les évolutions sur le marché des médias ? Et comment se positionner en tant qu'entreprise de service public pour s'assurer le soutien de la population à long terme ? Telles sont précisément les questions que vous traitez. Au sein de l'Etat-major de la SSR, sur mandat du Comité de direction, nous accompagnons la transformation à l'échelle de l'entreprise et préparons l'organisation à affronter l'avenir. En tant que spécialiste du développement de l'entreprise, vous agissez en qualité de consultant.e interne : vous alliez stratégie, transformation et mise en œuvre, et contribuez ainsi à faire avancer avec succès des dossiers transversaux. Votre champ d'action est délibérément large ; vous passez, selon les besoins, d'une problématique, d'un domaine ou d'un contexte à l'autre.",
+        "de": "Votre mission Au sein de l'équipe Développement de l'entreprise, vous serez notamment chargé.e de :\n• traiter les principales questions stratégiques de la SSR et faire avancer les projets de transformation transversaux,\n• analyser des défis complexes ; en tirer des objectifs, des recommandations d'action et des pistes de solutions concrètes,\n• participer à l'élaboration du processus stratégique de la SSR ; traduire les objectifs stratégiques en initiatives, mesures et lignes directrices,\n• observer les tendances du marché, des technologies et de la branche ; en déduire des pistes d'action fondées à l'intention du Comité de direction et des différents domaines,\n• assurer la médiation entre les différents intérêts ; favoriser la collaboration transversale et établir des bases décisionnelles communes,\n• accompagner les projets de changement de leur conception à leur mise en œuvre ; veiller au respect des engagements, même sans occuper de poste de conduite officiel. Votre profil\n• Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel\n• Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes\n• Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement\n• Solides compétences en communication et en médiation ; expérience en matière de leadership transversal\n• Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé\n• Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout. Ce que nous vous offrons\n• Un rôle-clé à la croisée de la stratégie, de la transformation et de la gestion d'entreprise\n• Une grande liberté d'action au sein d'une équipe motivée et récemment constituée\n• Des projets passionnants et variés, présentant un intérêt stratégique majeur pour la SSR\n• La possibilité de contribuer activement à façonner l'avenir de l'entreprise média de service public suisse\n• La collaboration avec des équipes interdisciplinaires et des personnes dirigeantes issues de toutes les unités d'entreprise\n• Un modèle de travail hybride proposant des formes de travail flexibles et des possibilités de télétravail Des questions? A propos du recrutement Corinne Mänz partenaire RH corinne.maenz@rts.ch Comment la SSR devrait-elle évoluer au cours des prochaines années ? Comment doit-elle se positionner pour pouvoir anticiper les évolutions sur le marché des médias ? Et comment se positionner en tant qu'entreprise de service public pour s'assurer le soutien de la population à long terme ? Telles sont précisément les questions que vous traitez. Au sein de l'Etat-major de la SSR, sur mandat du Comité de direction, nous accompagnons la transformation à l'échelle de l'entreprise et préparons l'organisation à affronter l'avenir. En tant que spécialiste du développement de l'entreprise, vous agissez en qualité de consultant.e interne : vous alliez stratégie, transformation et mise en œuvre, et contribuez ainsi à faire avancer avec succès des dossiers transversaux. Votre champ d'action est délibérément large ; vous passez, selon les besoins, d'une problématique, d'un domaine ou d'un contexte à l'autre."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:36:17.077Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
+      "requirements": [
+        "Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel",
+        "Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes",
+        "Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement",
+        "Solides compétences en communication et en médiation ; expérience en matière de leadership transversal",
+        "Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé",
+        "Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Diplôme universitaire ou formation spécialisée de niveau supérieur ; expérience dans le domaine du développement d'entreprise, du développement stratégique ou du développement organisationnel",
+          "Approche systémique et interdisciplinaire ; goût pour les problématiques complexes et exigeantes",
+          "Expérience dans l'accompagnement des processus de changement ; solides connaissances des méthodes de gestion du changement",
+          "Solides compétences en communication et en médiation ; expérience en matière de leadership transversal",
+          "Capacité à saisir rapidement des situations complexes et à les présenter de manière adaptée au public visé",
+          "Très bonne maîtrise du français et de l'allemand ; la maîtrise de l'italien ou du romanche constituerait un atout."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "68d88043-3525-4e16-9feb-b00befaafcd0",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 80
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-08T13:36:17.077Z"
+    },
+    {
+      "id": "srg-ssr-6e675ccd7c35",
+      "slug": "specialista-sviluppo-aziendale-srg-ssr-bern",
+      "slugByLocale": {
+        "it": "specialista-sviluppo-aziendale-srg-ssr-bern",
+        "en": "specialista-sviluppo-aziendale-srg-ssr-bern",
+        "de": "specialista-sviluppo-aziendale-srg-ssr-bern",
+        "fr": "specialista-sviluppo-aziendale-srg-ssr-bern"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Specialista sviluppo aziendale",
+      "titleByLocale": {
+        "it": "Specialista sviluppo aziendale",
+        "en": "Specialista sviluppo aziendale",
+        "de": "Specialista sviluppo aziendale",
+        "fr": "Specialista sviluppo aziendale"
+      },
+      "description": "Mansioni ​​All'interno del team Sviluppo aziendale assumerai le seguenti responsabilità:​\n• gestione delle principali questioni strategiche della SSR e avanzamento dei progetti di trasformazione trasversali;\n• analisi di sfide complesse e sviluppo di scenari futuri, raccomandazioni operative e proposte di soluzioni concrete;\n• partecipazione all'elaborazione del processo strategico della SSR e traduzione degli obiettivi strategici in iniziative, misure e linee guida;\n• monitoraggio delle tendenze del mercato, delle tecnologie e del settore e definizione di proposte operative fondate per il Comitato direttivo e i diversi settori;\n• mediazione tra i diversi interessi, promozione della collaborazione intersettoriale e definizione di basi decisionali comuni;\n• accompagnamento dei progetti di cambiamento dalla fase di ideazione fino alla realizzazione e garanzia del rispetto degli impegni, anche senza ricoprire un ruolo di responsabilità formale. Requisiti\n• Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.\n• Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.\n• Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.\n• Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.\n• Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.\n• Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale. Cosa offriamo\n• Un ruolo chiave nel punto di incontro tra strategia, trasformazione e gestione aziendale.\n• Ampia libertà d'azione all'interno di un team motivato e di nuova costituzione.\n• Progetti stimolanti e variegati, di grande rilevanza strategica per la SSR.\n• La possibilità di contribuire attivamente a plasmare il futuro dell'azienda mediatica di servizio pubblico svizzera.\n• La collaborazione con team interdisciplinari e figure dirigenziali di tutte le unità aziendali.\n• Un modello di lavoro ibrido, con modalità di lavoro flessibili e possibilità di telelavoro. Altre domande? Info sul processo di candidatura Corinne Mänz Partenaire RH corinne.maenz@rts.ch Come dovrebbe evolversi la SSR nei prossimi anni? Come dovrà posizionarsi per poter anticipare gli sviluppi del mercato dei media? E come dovrà posizionarsi in quanto azienda di servizio pubblico per assicurarsi a lungo termine il sostegno della popolazione? Sono esattamente queste le questioni di cui ti occuperai. All'interno dello Stato maggiore della SSR, su mandato del Comitato direttivo, accompagniamo la trasformazione a livello aziendale e prepariamo l'organizzazione ad affrontare il futuro. In qualità di specialista dello sviluppo aziendale, agirai come consulente interna/o: unirai strategia, trasformazione e attuazione, contribuendo così a portare avanti con successo anche le tematiche trasversali ai vari settori. Il tuo ruolo sarà volutamente ampio e variegato: a seconda delle esigenze, passerai da una tematica, da un ambito o da un contesto all'altro.",
+      "descriptionByLocale": {
+        "it": "Mansioni ​​All'interno del team Sviluppo aziendale assumerai le seguenti responsabilità:​\n• gestione delle principali questioni strategiche della SSR e avanzamento dei progetti di trasformazione trasversali;\n• analisi di sfide complesse e sviluppo di scenari futuri, raccomandazioni operative e proposte di soluzioni concrete;\n• partecipazione all'elaborazione del processo strategico della SSR e traduzione degli obiettivi strategici in iniziative, misure e linee guida;\n• monitoraggio delle tendenze del mercato, delle tecnologie e del settore e definizione di proposte operative fondate per il Comitato direttivo e i diversi settori;\n• mediazione tra i diversi interessi, promozione della collaborazione intersettoriale e definizione di basi decisionali comuni;\n• accompagnamento dei progetti di cambiamento dalla fase di ideazione fino alla realizzazione e garanzia del rispetto degli impegni, anche senza ricoprire un ruolo di responsabilità formale. Requisiti\n• Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.\n• Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.\n• Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.\n• Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.\n• Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.\n• Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale. Cosa offriamo\n• Un ruolo chiave nel punto di incontro tra strategia, trasformazione e gestione aziendale.\n• Ampia libertà d'azione all'interno di un team motivato e di nuova costituzione.\n• Progetti stimolanti e variegati, di grande rilevanza strategica per la SSR.\n• La possibilità di contribuire attivamente a plasmare il futuro dell'azienda mediatica di servizio pubblico svizzera.\n• La collaborazione con team interdisciplinari e figure dirigenziali di tutte le unità aziendali.\n• Un modello di lavoro ibrido, con modalità di lavoro flessibili e possibilità di telelavoro. Altre domande? Info sul processo di candidatura Corinne Mänz Partenaire RH corinne.maenz@rts.ch Come dovrebbe evolversi la SSR nei prossimi anni? Come dovrà posizionarsi per poter anticipare gli sviluppi del mercato dei media? E come dovrà posizionarsi in quanto azienda di servizio pubblico per assicurarsi a lungo termine il sostegno della popolazione? Sono esattamente queste le questioni di cui ti occuperai. All'interno dello Stato maggiore della SSR, su mandato del Comitato direttivo, accompagniamo la trasformazione a livello aziendale e prepariamo l'organizzazione ad affrontare il futuro. In qualità di specialista dello sviluppo aziendale, agirai come consulente interna/o: unirai strategia, trasformazione e attuazione, contribuendo così a portare avanti con successo anche le tematiche trasversali ai vari settori. Il tuo ruolo sarà volutamente ampio e variegato: a seconda delle esigenze, passerai da una tematica, da un ambito o da un contesto all'altro.",
+        "en": "Mansioni ​​All'interno del team Sviluppo aziendale assumerai le seguenti responsabilità:​\n• gestione delle principali questioni strategiche della SSR e avanzamento dei progetti di trasformazione trasversali;\n• analisi di sfide complesse e sviluppo di scenari futuri, raccomandazioni operative e proposte di soluzioni concrete;\n• partecipazione all'elaborazione del processo strategico della SSR e traduzione degli obiettivi strategici in iniziative, misure e linee guida;\n• monitoraggio delle tendenze del mercato, delle tecnologie e del settore e definizione di proposte operative fondate per il Comitato direttivo e i diversi settori;\n• mediazione tra i diversi interessi, promozione della collaborazione intersettoriale e definizione di basi decisionali comuni;\n• accompagnamento dei progetti di cambiamento dalla fase di ideazione fino alla realizzazione e garanzia del rispetto degli impegni, anche senza ricoprire un ruolo di responsabilità formale. Requisiti\n• Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.\n• Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.\n• Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.\n• Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.\n• Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.\n• Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale. Cosa offriamo\n• Un ruolo chiave nel punto di incontro tra strategia, trasformazione e gestione aziendale.\n• Ampia libertà d'azione all'interno di un team motivato e di nuova costituzione.\n• Progetti stimolanti e variegati, di grande rilevanza strategica per la SSR.\n• La possibilità di contribuire attivamente a plasmare il futuro dell'azienda mediatica di servizio pubblico svizzera.\n• La collaborazione con team interdisciplinari e figure dirigenziali di tutte le unità aziendali.\n• Un modello di lavoro ibrido, con modalità di lavoro flessibili e possibilità di telelavoro. Altre domande? Info sul processo di candidatura Corinne Mänz Partenaire RH corinne.maenz@rts.ch Come dovrebbe evolversi la SSR nei prossimi anni? Come dovrà posizionarsi per poter anticipare gli sviluppi del mercato dei media? E come dovrà posizionarsi in quanto azienda di servizio pubblico per assicurarsi a lungo termine il sostegno della popolazione? Sono esattamente queste le questioni di cui ti occuperai. All'interno dello Stato maggiore della SSR, su mandato del Comitato direttivo, accompagniamo la trasformazione a livello aziendale e prepariamo l'organizzazione ad affrontare il futuro. In qualità di specialista dello sviluppo aziendale, agirai come consulente interna/o: unirai strategia, trasformazione e attuazione, contribuendo così a portare avanti con successo anche le tematiche trasversali ai vari settori. Il tuo ruolo sarà volutamente ampio e variegato: a seconda delle esigenze, passerai da una tematica, da un ambito o da un contesto all'altro.",
+        "de": "Mansioni ​​All'interno del team Sviluppo aziendale assumerai le seguenti responsabilità:​\n• gestione delle principali questioni strategiche della SSR e avanzamento dei progetti di trasformazione trasversali;\n• analisi di sfide complesse e sviluppo di scenari futuri, raccomandazioni operative e proposte di soluzioni concrete;\n• partecipazione all'elaborazione del processo strategico della SSR e traduzione degli obiettivi strategici in iniziative, misure e linee guida;\n• monitoraggio delle tendenze del mercato, delle tecnologie e del settore e definizione di proposte operative fondate per il Comitato direttivo e i diversi settori;\n• mediazione tra i diversi interessi, promozione della collaborazione intersettoriale e definizione di basi decisionali comuni;\n• accompagnamento dei progetti di cambiamento dalla fase di ideazione fino alla realizzazione e garanzia del rispetto degli impegni, anche senza ricoprire un ruolo di responsabilità formale. Requisiti\n• Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.\n• Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.\n• Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.\n• Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.\n• Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.\n• Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale. Cosa offriamo\n• Un ruolo chiave nel punto di incontro tra strategia, trasformazione e gestione aziendale.\n• Ampia libertà d'azione all'interno di un team motivato e di nuova costituzione.\n• Progetti stimolanti e variegati, di grande rilevanza strategica per la SSR.\n• La possibilità di contribuire attivamente a plasmare il futuro dell'azienda mediatica di servizio pubblico svizzera.\n• La collaborazione con team interdisciplinari e figure dirigenziali di tutte le unità aziendali.\n• Un modello di lavoro ibrido, con modalità di lavoro flessibili e possibilità di telelavoro. Altre domande? Info sul processo di candidatura Corinne Mänz Partenaire RH corinne.maenz@rts.ch Come dovrebbe evolversi la SSR nei prossimi anni? Come dovrà posizionarsi per poter anticipare gli sviluppi del mercato dei media? E come dovrà posizionarsi in quanto azienda di servizio pubblico per assicurarsi a lungo termine il sostegno della popolazione? Sono esattamente queste le questioni di cui ti occuperai. All'interno dello Stato maggiore della SSR, su mandato del Comitato direttivo, accompagniamo la trasformazione a livello aziendale e prepariamo l'organizzazione ad affrontare il futuro. In qualità di specialista dello sviluppo aziendale, agirai come consulente interna/o: unirai strategia, trasformazione e attuazione, contribuendo così a portare avanti con successo anche le tematiche trasversali ai vari settori. Il tuo ruolo sarà volutamente ampio e variegato: a seconda delle esigenze, passerai da una tematica, da un ambito o da un contesto all'altro.",
+        "fr": "Mansioni ​​All'interno del team Sviluppo aziendale assumerai le seguenti responsabilità:​\n• gestione delle principali questioni strategiche della SSR e avanzamento dei progetti di trasformazione trasversali;\n• analisi di sfide complesse e sviluppo di scenari futuri, raccomandazioni operative e proposte di soluzioni concrete;\n• partecipazione all'elaborazione del processo strategico della SSR e traduzione degli obiettivi strategici in iniziative, misure e linee guida;\n• monitoraggio delle tendenze del mercato, delle tecnologie e del settore e definizione di proposte operative fondate per il Comitato direttivo e i diversi settori;\n• mediazione tra i diversi interessi, promozione della collaborazione intersettoriale e definizione di basi decisionali comuni;\n• accompagnamento dei progetti di cambiamento dalla fase di ideazione fino alla realizzazione e garanzia del rispetto degli impegni, anche senza ricoprire un ruolo di responsabilità formale. Requisiti\n• Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.\n• Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.\n• Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.\n• Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.\n• Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.\n• Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale. Cosa offriamo\n• Un ruolo chiave nel punto di incontro tra strategia, trasformazione e gestione aziendale.\n• Ampia libertà d'azione all'interno di un team motivato e di nuova costituzione.\n• Progetti stimolanti e variegati, di grande rilevanza strategica per la SSR.\n• La possibilità di contribuire attivamente a plasmare il futuro dell'azienda mediatica di servizio pubblico svizzera.\n• La collaborazione con team interdisciplinari e figure dirigenziali di tutte le unità aziendali.\n• Un modello di lavoro ibrido, con modalità di lavoro flessibili e possibilità di telelavoro. Altre domande? Info sul processo di candidatura Corinne Mänz Partenaire RH corinne.maenz@rts.ch Come dovrebbe evolversi la SSR nei prossimi anni? Come dovrà posizionarsi per poter anticipare gli sviluppi del mercato dei media? E come dovrà posizionarsi in quanto azienda di servizio pubblico per assicurarsi a lungo termine il sostegno della popolazione? Sono esattamente queste le questioni di cui ti occuperai. All'interno dello Stato maggiore della SSR, su mandato del Comitato direttivo, accompagniamo la trasformazione a livello aziendale e prepariamo l'organizzazione ad affrontare il futuro. In qualità di specialista dello sviluppo aziendale, agirai come consulente interna/o: unirai strategia, trasformazione e attuazione, contribuendo così a portare avanti con successo anche le tematiche trasversali ai vari settori. Il tuo ruolo sarà volutamente ampio e variegato: a seconda delle esigenze, passerai da una tematica, da un ambito o da un contesto all'altro."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-08T13:36:16.364Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3006",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Qualità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
+      "requirements": [
+        "Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.",
+        "Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.",
+        "Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.",
+        "Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.",
+        "Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.",
+        "Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma universitario o formazione professionale superiore ed esperienza nell'ambito dello sviluppo aziendale, dello sviluppo strategico o dello sviluppo organizzativo.",
+          "Approccio sistemico e interdisciplinare e interesse nel confrontarsi con problematiche complesse ed esigenti.",
+          "Esperienza nell'accompagnamento dei processi di cambiamento e solide conoscenze dei metodi di gestione del cambiamento.",
+          "Spiccate capacità comunicative e di facilitazione, nonché esperienza nella conduzione trasversale.",
+          "Capacità di cogliere rapidamente situazioni complesse e di presentarle in modo adeguato al pubblico di riferimento.",
+          "Ottima padronanza del tedesco e del francese; la conoscenza dell'italiano o del romancio costituisce titolo preferenziale."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "e5a4e260-bf26-4091-80eb-d00ff6e77726",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-08T13:36:16.364Z"
     }
   ]
 }
