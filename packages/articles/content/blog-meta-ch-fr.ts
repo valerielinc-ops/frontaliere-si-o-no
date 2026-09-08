@@ -6037,6 +6037,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promet une compensation pour le stockage des déchets',
     'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti présente le projet du dépôt Lägern Nord entre Zurich et Argovie à Fisibach. Compensation promise, décision vers 2030, stockage à partir de 2050.',
     'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Site de construction souterrain suisse pour le stockage géologique profond des déchets radioactifs',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Sanctions de l\'ONU mises à jour : SESAM modifié le 7 septembre',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Le comité de l\'ONU a modifié les listes de sanctions le 7 septembre 2026. La base de données SESAM met automatiquement à jour les mesures restrictives en Suisse.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Bureau de conformité suisse avec documents de sanctions ONU et base de données SESAM affichée à l\'écran.',
 };
 
 export default blogMetaChFr;
