@@ -15488,11 +15488,13 @@
       "firstSeenAt": "2026-08-12T10:26:05.027Z",
       "previousSlugsByLocale": {
         "it": [
-          "staplerfahrerin-staplerfahrer-w-m-d-landi-schweiz-ag-dotzigen"
+          "staplerfahrerin-staplerfahrer-w-m-d-landi-schweiz-ag-dotzigen",
+          "staplerfahrerin-staplerfahrer-m-w-d-landi-schweiz-ag-dotzigen"
         ]
       },
       "previousSlugs": [
-        "staplerfahrerin-staplerfahrer-w-m-d-landi-schweiz-ag-dotzigen"
+        "staplerfahrerin-staplerfahrer-w-m-d-landi-schweiz-ag-dotzigen",
+        "staplerfahrerin-staplerfahrer-m-w-d-landi-schweiz-ag-dotzigen"
       ],
       "salarySource": "reported"
     },
@@ -15705,7 +15707,15 @@
         }
       },
       "firstSeenAt": "2026-08-11T10:11:32.185Z",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "previousSlugsByLocale": {
+        "it": [
+          "magaziner-in-landi-saanen"
+        ]
+      },
+      "previousSlugs": [
+        "magaziner-in-landi-saanen"
+      ]
     },
     {
       "title": "Sachbearbeiterin / Sachbearbeiter Sortimentsplanung (w/m/d)",
@@ -17527,7 +17537,9 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-igis-gr"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -20751,7 +20763,8 @@
         "it": [
           "venditrice-venditore-f-h-d-volg-blumenstein",
           "verkauferin-verkaufer-f-m-d-volg-blumenstein",
-          "verkauferin-verkaufer-f-h-d-volg-blumenstein"
+          "verkauferin-verkaufer-f-h-d-volg-blumenstein",
+          "verkauferin-verkaufer-m-w-d-volg-blumenstein"
         ],
         "en": [
           "sales-associate-volg-blumenstein"
@@ -20761,7 +20774,8 @@
         "venditrice-venditore-f-h-d-volg-blumenstein",
         "verkauferin-verkaufer-f-m-d-volg-blumenstein",
         "verkauferin-verkaufer-f-h-d-volg-blumenstein",
-        "sales-associate-volg-blumenstein"
+        "sales-associate-volg-blumenstein",
+        "verkauferin-verkaufer-m-w-d-volg-blumenstein"
       ],
       "salarySource": "reported"
     },
@@ -27408,7 +27422,9 @@
       },
       "previousSlugs": [
         "leitung-verkauf-stv-geschaftsfuhrung-m-w-b-michel-comestibles-ag-unterseen"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Sachbearbeiterin / Sachbearbeiter Telefonverkauf (w/m/d)",
@@ -35633,7 +35649,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-mullerin-muller-efz-w-m-d-ab-august-2026-landi-laupen"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Gérante-adjointe / Gérant-adjoint (h/f/d)",

@@ -255,7 +255,9 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "firstSeenAt": "2026-09-01T14:18:46.369Z"
+      "firstSeenAt": "2026-09-01T14:18:46.369Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "System Engineer (Database Administrator)",
@@ -1503,7 +1505,8 @@
       },
       "previousSlugs": [
         "senior-technical-business-analyst-cash-operations-payments-avaloq-bioggio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Software Engineer PL/SQL - Cash Operations & Payments",

@@ -1,5 +1,5 @@
 {
-  "run": 7,
+  "run": 8,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -32,6 +32,14 @@
     "arxada": {
       "sterile": 1,
       "signature": "c6319e7022fbea3d"
+    },
+    "axa-svizzera": {
+      "sterile": 1,
+      "signature": "1c647427d0970f40"
+    },
+    "ffs-officine-ferrovie-federali": {
+      "sterile": 1,
+      "signature": "41f581129a283eed"
     }
   }
 }

@@ -512,7 +512,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     }
   ]
 }

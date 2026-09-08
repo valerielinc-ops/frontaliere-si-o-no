@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "it": "soluzioni-applicative-it-piombo-80-100-skyguide-wangen-b",
-        "en": "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf",
+        "en": "it-application-solutions-lead-80-100-skyguide-wangen-b",
         "de": "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf",
         "fr": "solutions-d-application-de-ti-responsable-80-100-skyguide-wangen-b"
       },
@@ -66,11 +66,10 @@
         "it": [
           "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch",
           "solutions-d-application-de-ti-responsable-80-100-skyguide-wangen-b",
-          "soluzioni-applicative-it-piombo-80-100-skyguide-wangen-b",
           "soluzioni-applicative-it-piombo-80-100-skyguide-wangen-b-dubendorf"
         ],
         "en": [
-          "it-application-solutions-lead-80-100-skyguide-wangen-b"
+          "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf"
         ],
         "de": [
           "it-application-solutions-lead-80-100-skyguide-wangen-b"
@@ -83,9 +82,9 @@
         "it-application-solutions-lead-80-100-skyguide-wangen-b",
         "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf-ch",
         "solutions-d-application-de-ti-responsable-80-100-skyguide-wangen-b",
-        "soluzioni-applicative-it-piombo-80-100-skyguide-wangen-b",
         "soluzioni-applicative-it-piombo-80-100-skyguide-wangen-b-dubendorf",
-        "solutions-d-application-de-ti-responsable-80-100-skyguide-wangen-b-dubendorf"
+        "solutions-d-application-de-ti-responsable-80-100-skyguide-wangen-b-dubendorf",
+        "it-application-solutions-lead-80-100-skyguide-wangen-b-dubendorf"
       ],
       "needsRetranslation": true
     },
@@ -215,7 +214,7 @@
       },
       "slugByLocale": {
         "it": "istruttore-aps-adc-atco-100-skyguide-wangen-b",
-        "en": "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf",
+        "en": "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
         "de": "aps-adc-rated-atco-instruktor-100-skyguide-wangen-b",
         "fr": "instructeur-aps-adc-cote-atco-100-skyguide-wangen-b"
       },
@@ -250,7 +249,8 @@
           "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf"
         ],
         "en": [
-          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b"
+          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b",
+          "aps-adc-rated-atco-instructor-100-skyguide-wangen-b-dubendorf"
         ],
         "fr": [
           "instructeur-aps-adc-cote-atco-100-skyguide-wangen-b-dubendorf"
@@ -826,7 +826,7 @@
       },
       "slugByLocale": {
         "it": "network-architetto-80-100-skyguide-wangen-b",
-        "en": "network-architect-80-100-skyguide-wangen-b-dubendorf",
+        "en": "network-architect-80-100-skyguide-wangen-b",
         "de": "netzwerkarchitekt-80-100-skyguide-wangen-b",
         "fr": "architecte-reseau-80-100-skyguide-wangen-b"
       },
@@ -842,6 +842,9 @@
         ],
         "fr": [
           "network-architecte-80-100-skyguide-wangen-b-dubendorf"
+        ],
+        "en": [
+          "network-architect-80-100-skyguide-wangen-b-dubendorf"
         ]
       },
       "previousSlugs": [

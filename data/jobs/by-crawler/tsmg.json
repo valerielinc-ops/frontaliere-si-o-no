@@ -1373,12 +1373,14 @@
       "previousSlugsByLocale": {
         "it": [
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
         ]
       },
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1"
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
       ],
       "salarySource": "estimated"
     },
@@ -1443,12 +1445,14 @@
       "previousSlugsByLocale": {
         "it": [
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce"
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
         ]
       },
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce"
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
       ],
       "salarySource": "estimated"
     },
@@ -1513,12 +1517,14 @@
       "previousSlugsByLocale": {
         "it": [
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303"
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
         ]
       },
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303"
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
       ],
       "salarySource": "estimated"
     },
@@ -1583,12 +1589,14 @@
       "previousSlugsByLocale": {
         "it": [
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c"
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
         ]
       },
       "previousSlugs": [
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c"
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
       ],
       "salarySource": "estimated"
     },
@@ -2044,7 +2052,8 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-zurich-6684934e"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations) / Depotmitarbeiter autonome Fahrzeuge",
@@ -2115,7 +2124,8 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-bern-bcaea0d6"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations) / Depotmitarbeiter autonome Fahrzeuge",
@@ -2185,7 +2195,9 @@
       },
       "previousSlugs": [
         "depot-specialist-robotaxi-fleet-operations-depotmitarbeiter-autonome-fahrzeuge-tsmg-st-gallen-eb355dab"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Autista / Addetto raccolta dati in Chalais, Switzerland",

@@ -6733,7 +6733,7 @@
       "slugByLocale": {
         "it": "assistenza-universitat-zurich-zurich-233556",
         "en": "assistance-universitat-zurich-zurich-233556",
-        "de": "hilfsassistenz-uzh-zurich-4ji9rt",
+        "de": "hilfsassistenz-uzh-zurich",
         "fr": "concours-universitat-zurich-zurich-233556"
       },
       "company": "Universität Zürich",
@@ -6787,7 +6787,8 @@
         "assistenzstelle-uzh-winterthurerstrasse-260",
         "concours-universitat-zurich-winterthurerstrasse-260",
         "assistenzstelle-universitat-zurich-winterthurerstrasse-260",
-        "hilfsassistenz-uzh-zurich-ce4md1"
+        "hilfsassistenz-uzh-zurich-ce4md1",
+        "hilfsassistenz-uzh-zurich-4ji9rt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6811,7 +6812,8 @@
           "concours-universitat-zurich-zurich"
         ],
         "de": [
-          "hilfsassistenz-uzh-zurich"
+          "hilfsassistenz-uzh-zurich",
+          "hilfsassistenz-uzh-zurich-4ji9rt"
         ]
       },
       "firstSeenAt": "2026-08-17T21:28:01.242Z",
