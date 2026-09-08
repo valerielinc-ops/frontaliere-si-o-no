@@ -1,11 +1,9 @@
 /**
  * hook-target-cwd.mjs — resolveHookTargetCwd tests.
  *
- * See the module's own header for the bug this closes: neither
- * sibling-check-gate.mjs nor pr-body-check-gate.mjs read the PreToolUse
- * payload's `cwd` field, so their child `git`/`readFileSync` calls ran
- * against whichever ambient directory the hook subprocess itself happened
- * to have — not the worktree the gated `gh pr create` was actually in.
+ * See the module's own header for the two cwd signals exercised here:
+ * `payload.cwd` is the tracked fallback, while a literal command `cd` carries
+ * the real Codex/sub-agent worktree when the payload stays at the launch root.
  */
 import { describe, it, expect } from 'vitest';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -20,6 +18,50 @@ describe('resolveHookTargetCwd', () => {
       expect(resolveHookTargetCwd({ cwd: dir })).toBe(dir);
     } finally {
       rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('prefers a literal command cd over a tracked cwd from the payload', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'hook-target-cwd-tracked-'));
+    const worktree = mkdtempSync(join(tmpdir(), 'hook-target-cwd-worktree-'));
+    try {
+      expect(
+        resolveHookTargetCwd(
+          { cwd: tracked },
+          `cd "${worktree}" && gh pr create --title x`,
+        ),
+      ).toBe(worktree);
+    } finally {
+      rmSync(tracked, { recursive: true, force: true });
+      rmSync(worktree, { recursive: true, force: true });
+    }
+  });
+
+  it('ignores a shell-substituted command cd and keeps the tracked cwd', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'hook-target-cwd-tracked-'));
+    try {
+      expect(
+        resolveHookTargetCwd(
+          { cwd: tracked },
+          'cd "$(git rev-parse --show-toplevel)" && gh pr create --title x',
+        ),
+      ).toBe(tracked);
+    } finally {
+      rmSync(tracked, { recursive: true, force: true });
+    }
+  });
+
+  it('does not read a cd phrase from the PR body as a command cwd', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'hook-target-cwd-tracked-'));
+    try {
+      expect(
+        resolveHookTargetCwd(
+          { cwd: tracked },
+          'gh pr create --body "testo: cd /tmp && gh pr create"',
+        ),
+      ).toBe(tracked);
+    } finally {
+      rmSync(tracked, { recursive: true, force: true });
     }
   });
 

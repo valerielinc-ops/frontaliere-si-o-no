@@ -11,59 +11,77 @@
  * `process.cwd()` inside the hook reflects wherever the hook runner itself
  * launched from, not the worktree the gated command is about to run in.
  *
- * The two `gh pr create` PreToolUse gates in this repo used to read only
- * `tool_input.command` and let their child `git`/`readFileSync` calls
- * inherit the hook's own ambient cwd. Observed 2026-08-25: a PR opened from
- * a worktree got the wrong gate verdict, citing a file that was dirty only
- * in an unrelated main checkout the gated branch never touched at all. The
- * agent worked around it by calling the GitHub API directly instead of
- * `gh pr create`; this module addresses the half of that incident where
- * `payload.cwd` IS the right directory and only the hook subprocess was
- * running elsewhere.
+ * The two `gh pr create` PreToolUse gates in this repo use this module for the
+ * directory-shaped parts of their work: resolving relative `--body-file`
+ * paths and choosing the repository in which to run `git`. Claude Code exposes
+ * the session's tracked directory in `payload.cwd`; Codex and sub-agents can
+ * leave that field at the workspace root because their `cd <worktree>` lives
+ * inside the command that is about to run.
  *
- * WHAT IT DOES NOT FIX, and used to claim it did (corrected 2026-09-05).
- * `payload.cwd` is the session's TRACKED working directory — the result of
- * `cd`s in PREVIOUS Bash calls. A `cd` written in the same call as the gated
- * command does not count: the hook runs BEFORE the command. So in a fleet of
- * parallel agents the tracked cwd is very often the shared main checkout, and
- * a gate that analyses THAT DIRECTORY'S WORKING TREE is reading whatever the
- * other sessions left uncommitted there. Measured 2026-09-05 on this
- * repository: `check-sibling-patterns.mjs` reported 5 changed files and 44
- * candidates from the main checkout (dirty with another session's
- * `scripts/lib/prospector/**` work) and 0/0 from a clean worktree at the same
- * instant. A branch touching 1 file was blocked over 50 candidates that
- * belonged to nobody's branch — unsatisfiable, because no per-file false
- * positive declaration can cover files the author never touched.
+ * `resolveHookTargetCwd` therefore prefers a literal `cd <dir> &&` in the
+ * command prefix before `gh pr create`, and falls back to the validated
+ * `payload.cwd`. The command is the only place where Codex's real directory is
+ * available before execution; shell substitutions are deliberately ignored.
+ * This same directory reaches both `readFileSync` and the sibling gate's
+ * fallback `HEAD`, so the two gates judge the same worktree.
  *
- * The directory is therefore the WRONG UNIT for a gate. `sibling-check-gate.mjs`
- * now resolves WHICH BRANCH the gated `gh pr create` is proposing (its `--head`,
- * else the tracked directory's `HEAD`) and analyses that ref against
- * `origin/main`. Worktrees share `.git`, so a branch ref resolves identically
- * from any directory of the repo, and uncommitted foreign work is invisible to
- * a commit-to-commit diff. This module is still the right answer for the
- * remaining directory-shaped question — WHERE to resolve a relative
- * `--body-file`, and which repo to run git in — which is what its callers use
- * it for now.
- *
- * Fail-safe by construction: any missing/malformed/nonexistent `cwd` returns
- * `undefined`, which `execFileSync`'s own `cwd` option treats identically to
- * "not passed" — i.e. today's behaviour (inherit the ambient cwd), never a
- * new failure mode.
+ * Fail-safe by construction: any missing/malformed/nonexistent cwd signal falls
+ * back to the next available signal and ultimately returns `undefined`, which
+ * `execFileSync`'s own `cwd` option treats identically to "not passed" — i.e.
+ * today's behaviour (inherit the ambient cwd), never a new failure mode.
  */
 import { statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { resolve } from 'node:path';
+
+// Only inspect shell separators (plus the quote opened by `zsh -lc "..."`),
+// and only the prefix before the first `gh pr create`. This avoids treating a
+// phrase such as `cd /tmp && gh pr create` inside the PR body as the command's
+// working-directory signal.
+const COMMAND_CWD_RE =
+  /(?:^|&&|;|\|\||\n|["'])\s*cd(?:\s+--)?\s+(?:"([^"\n]*)"|'([^'\n]*)'|([^\s;&|]+))\s*&&/g;
 
 /**
  * @param {{ cwd?: unknown }} payload parsed PreToolUse stdin JSON
+ * @param {string} [command] command received by the PreToolUse hook
  * @returns {string|undefined} an existing directory, or `undefined`
  */
-export function resolveHookTargetCwd(payload) {
+export function resolveHookTargetCwd(payload, command = '') {
   const candidate = payload?.cwd;
-  if (typeof candidate !== 'string' || !candidate) return undefined;
+  const trackedCwd =
+    typeof candidate === 'string' && candidate && isDirectory(candidate) ? candidate : undefined;
+  return resolveCommandCwd(command, trackedCwd ?? process.cwd()) ?? trackedCwd;
+}
+
+/**
+ * Resolve the literal directory change that belongs to the gated command.
+ * Returns `undefined` for absent, malformed, variable-based, or nonexistent
+ * paths so callers retain the old payload/ambient fallback.
+ *
+ * @param {string} command command received by the PreToolUse hook
+ * @param {string} baseCwd directory from which a relative `cd` would run
+ * @returns {string|undefined} an existing directory named by the command
+ */
+function resolveCommandCwd(command, baseCwd = process.cwd()) {
+  const text = String(command ?? '');
+  const cliIndex = text.indexOf('gh pr create');
+  const prefix = cliIndex >= 0 ? text.slice(0, cliIndex) : text;
+  let resolvedCwd;
+
+  for (const match of prefix.matchAll(COMMAND_CWD_RE)) {
+    const raw = (match[1] ?? match[2] ?? match[3] ?? '').trim();
+    if (!raw || /[$`]/.test(raw)) continue;
+    const candidate = resolve(baseCwd, raw);
+    if (isDirectory(candidate)) resolvedCwd = candidate;
+  }
+  return resolvedCwd;
+}
+
+function isDirectory(candidate) {
   try {
-    return statSync(candidate).isDirectory() ? candidate : undefined;
+    return statSync(candidate).isDirectory();
   } catch {
-    return undefined;
+    return false;
   }
 }
 
@@ -71,35 +89,20 @@ export function resolveHookTargetCwd(payload) {
  * Il ref da analizzare: il BRANCH che il comando sta proponendo, non la
  * directory da cui l'hook crede di girare.
  *
- * DA UN SUB-AGENTE `payload.cwd` NON SI MUOVE AFFATTO (misurato 2026-09-05, il
- * quinto difetto della stessa giornata). In un thread di sub-agente la cwd viene
- * resettata a ogni chiamata Bash, quindi il campo resta inchiodato alla
- * directory di lancio e `resolveHookTargetCwd` restituisce sempre quella: la
- * ricetta «entra nel worktree in una chiamata isolata, apri la PR in quella dopo»
- * funziona solo dalla sessione principale. Un agente si e' visto 44 candidati
- * calcolati sul checkout principale — quel giorno 57 commit dietro `origin/main`
- * e sporco del lavoro di un'altra sessione — che non poteva ne' dichiarare
- * onestamente ne' ripulire. Non e' un caso limite: rende il gate strutturalmente
- * inaffidabile per l'intera flotta, perche' ogni agente riceve un verdetto
- * calcolato su un albero che non e' il suo.
+ * Un sub-agente puo' ancora avere `payload.cwd` inchiodato alla directory di
+ * lancio. Quando il comando contiene un `cd` letterale, pero', i chiamanti lo
+ * hanno gia' trasformato nella cwd effettiva prima di arrivare qui; senza quel
+ * segnale resta importante passare un `--head <branch>` letterale. Quel ref
+ * viene cercato anche in `fallbackCwd` — il repo a cui appartiene il gate — e
+ * i worktree condividono `.git`, quindi il branch risolve allo stesso commit da
+ * qualunque checkout. La funzione restituisce anche la directory in cui il ref
+ * ha risolto, quella in cui il chiamante deve far girare git.
  *
- * Per questo un `--head <branch>` LETTERALE viene cercato anche in `fallbackCwd`
- * — il repo a cui appartiene il gate stesso, ricavato dal proprio path e quindi
- * sempre giusto — e la funzione restituisce ANCHE la directory in cui il ref ha
- * risolto, che e' quella in cui il chiamante deve far girare git. I worktree
- * condividono `.git`: un nome di branch risolve identico dal checkout principale
- * e da qualunque worktree, quindi con un `--head` letterale il verdetto non
- * dipende piu' da `payload.cwd` in nessun modo. E' una fix sola per il difetto 1
- * e per questo quinto.
- *
- * Resta un caso che nessuna directory puo' salvare: `--head` come sostituzione
- * di shell non espansa. `--head "$(git rev-parse --abbrev-ref HEAD)"` e' la
- * ricetta raccomandata altrove, e l'hook gira PRIMA che bash la espanda, quindi
- * non c'e' niente da leggere. Li' si ricade su `HEAD` della directory tracciata:
- * comunque meglio del working tree, perche' un diff commit-a-commit non vede il
- * lavoro non committato altrui, ma da un sub-agente sara' l'HEAD sbagliato — e
- * allora il gate se ne accorge (diff vuoto) e lo dice, invece di accusare file
- * estranei. L'uscita e' passare il nome letterale del branch.
+ * Resta un caso che nessun parser puo' salvare: `--head` come sostituzione di
+ * shell non espansa. L'hook gira PRIMA che bash la espanda, quindi ricade su
+ * `HEAD` della cwd gia' risolta; se quella e' la directory di lancio sbagliata,
+ * il diff vuoto lo dice invece di accusare file estranei. L'uscita e' passare il
+ * nome letterale del branch, oppure includere il `cd` letterale nel comando.
  *
  * COROLLARIO PER CHI DEBUGGA QUESTI GATE: un probe senza `--body-file` non
  * distingue i casi. `extractPrBody` ritorna `undefined`, il gate entra
@@ -108,7 +111,7 @@ export function resolveHookTargetCwd(payload) {
  * Simula sempre col body vero.
  *
  * @param {string} command la command line di `gh pr create`
- * @param {string|undefined} cwd directory tracciata dalla sessione (`payload.cwd`)
+ * @param {string|undefined} cwd directory gia' risolta per il comando
  * @param {string|undefined} [fallbackCwd] repo di cui il gate fa parte, usato solo
  *   per un `--head` letterale che `cwd` non sa risolvere
  * @returns {{ ref: string, source: 'head-flag'|'head-flag-fallback'|'cwd-head', cwd: string|undefined }}
