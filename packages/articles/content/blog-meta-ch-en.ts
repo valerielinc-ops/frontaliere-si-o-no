@@ -6118,6 +6118,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Chief of the Army: Switzerland Russia\'s target',
     'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Army chief Benedikt Roos warns: Switzerland is in Moscow\'s crosshairs. Hybrid threats to critical infrastructure, drones on military sites, and gaps in missile defense.',
     'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'View of Castelgrande fortress in Bellinzona, symbol of Ticino\'s military heritage',
+    'blog.article.abb-rolls-royce-smr-reattori.title': 'ABB and Rolls-Royce: Nuclear Reactors Alliance',
+    'blog.article.abb-rolls-royce-smr-reattori.excerpt': 'The giant ABB together with Rolls-Royce SMR for automation solutions in small modular reactors. Generative capacity: 470 MW with low carbon emissions.',
+    'blog.article.abb-rolls-royce-smr-reattori.imageAlt': 'ABB and Rolls-Royce SMR strategic partnership for low-emission small modular nuclear reactors',
 };
 
 export default blogMetaChEn;

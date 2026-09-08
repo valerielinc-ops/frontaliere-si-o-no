@@ -6118,6 +6118,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Capo dell\'esercito: Svizzera obiettivo della Russia',
     'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Il capo dell\'esercito Benedikt Roos avverte: la Svizzera è nel mirino di Mosca. Minacce ibride a infrastrutture critiche, droni sui siti militari e lacune nella difesa antimissile.',
     'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'Veduta del Castelgrande a Bellinzona, simbolo della storia militare ticinese',
+    'blog.article.abb-rolls-royce-smr-reattori.title': 'ABB e Rolls-Royce: alleanza reattori nucleari',
+    'blog.article.abb-rolls-royce-smr-reattori.excerpt': 'Il colosso ABB insieme a Rolls-Royce SMR per soluzioni di automazione nei piccoli reattori modulari. Capacità generativa: 470 MW a basse emissioni di carbonio.',
+    'blog.article.abb-rolls-royce-smr-reattori.imageAlt': 'Partnership strategica tra ABB e Rolls-Royce SMR per reattori nucleari modulari a basse emissioni',
 };
 
 export default blogMetaChIt;
