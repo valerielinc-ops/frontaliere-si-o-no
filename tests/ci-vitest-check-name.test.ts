@@ -129,9 +129,9 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
  *
  * 2. IL LOCK NON DEVE MORDERE SU MAIN. Su `push` non c'è nessuna label da
  *    contendere (gli step di collision sono `pull_request`-only) e accodare i
- *    run di main in un gruppo globale con `cancel-in-progress: false` li farebbe
- *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute di
- *    main che il `concurrency:` top-level protegge (vedi il describe sotto).
+ *    run di main in un gruppo globale con cancellazione attiva li farebbe
+ *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute
+ *    di main che il `concurrency:` top-level protegge (vedi il describe sotto).
  */
 describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   const jobsBody = TESTS_YML.slice(TESTS_YML.indexOf('\njobs:'));
@@ -347,11 +347,14 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
   });
 
-  it('cancel-in-progress è newest-wins per le esecuzioni PR', () => {
+  it('cancel-in-progress è newest-wins solo per PR e dispatch manuali', () => {
     const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
     expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
     const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(value).toBe('true');
+    expect(value).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+    expect(value).toMatch(/github\.event_name\s*==\s*'workflow_dispatch'/);
+    expect(value).not.toMatch(/github\.event_name\s*==\s*'push'/);
+    expect(value).not.toMatch(/github\.event_name\s*==\s*'merge_group'/);
   });
 
   it('lancia la suite sui push diretti a main', () => {
@@ -362,5 +365,21 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
   it('mantiene i trigger PR, push main e merge queue', () => {
     expect(TESTS_YML).toMatch(/^\s+pull_request:\s*$/m);
     expect(TESTS_YML).toMatch(/^\s+merge_group:\s*$/m);
+  });
+
+  it('prepara il diff per merge_group prima del related runner', () => {
+    const start = TESTS_YML.indexOf('- name: Collect changed paths');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const collectStep = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    expect(collectStep).toContain("github.event_name == 'merge_group'");
+    expect(collectStep).toContain('MERGE_GROUP_BASE_SHA');
+    expect(collectStep).toContain('github.event.merge_group.base_sha');
+    expect(collectStep).toContain('compare_base="$BEFORE_SHA"');
+    expect(collectStep).toContain('compare_base="$MERGE_GROUP_BASE_SHA"');
+    const branchStart = collectStep.indexOf('elif [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then');
+    const branchEnd = collectStep.indexOf('\n          else', branchStart);
+    const missingMergeGroupBase = collectStep.slice(branchStart, branchEnd < 0 ? undefined : branchEnd);
+    expect(missingMergeGroupBase).toContain(': > changed-paths.txt');
+    expect(missingMergeGroupBase).toMatch(/printf '%s\\n' error > changed-paths-status\.txt/);
   });
 });

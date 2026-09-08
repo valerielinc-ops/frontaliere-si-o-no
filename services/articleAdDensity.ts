@@ -19,13 +19,17 @@ import { fnv1a32Mod } from '../scripts/lib/fnv1a.mjs';
 /** Number of `## ` sections from which an article is treated as longform. */
 export const LONGFORM_MIN_H2_SECTIONS = 7;
 
+/** Minimum body size for any inline ad to be eligible in the renderer. */
+export const AD_ELIGIBLE_MIN_WORDS = 220;
+export const AD_ELIGIBLE_MIN_CHARS = 1400;
+
 /**
- * Word floor of the longform predicate. Deliberately the SAME floor as
- * `adEligible` in the renderer (220 words): a body under it carries no inline
- * ad at all, so the profile choice is decided by structure (section count),
- * never by shortening the reach of the ad-eligibility gate itself.
+ * Word floor of the longform predicate. Deliberately the SAME floor as the
+ * exported word floor used by `adEligible` in the renderer: a body under it
+ * carries no inline ad at all, so the profile choice is decided by structure
+ * (section count), never by shortening the reach of the ad-eligibility gate.
  */
-export const LONGFORM_MIN_WORDS = 220;
+export const LONGFORM_MIN_WORDS = AD_ELIGIBLE_MIN_WORDS;
 
 export interface ArticleAdDensityProfile {
   /** Per-article cap on inline ads. */
