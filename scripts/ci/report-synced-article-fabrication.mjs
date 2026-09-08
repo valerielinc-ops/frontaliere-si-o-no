@@ -267,6 +267,29 @@ function runUrl() {
     : undefined;
 }
 
+export function buildScopeFailureIssue(url) {
+  return {
+    description: [
+      'Il fabrication guard non è riuscito a calcolare il diff del working tree in questo sync, quindi ',
+      '**nessun body appena arrivato è stato verificato** contro `scripts/lib/article-fabrication-patterns.mjs`.',
+      '',
+      'Non è un "nessun problema trovato": è il guard che non ha girato affatto su questo batch.',
+      '',
+      url ? `Run: ${url}` : '',
+    ].filter(Boolean).join('\n'),
+    signals: {
+      cosa: 'diff del working tree non disponibile: nessun body-locale del sync è stato verificato',
+      metrica: { osservato: '0 body verificati', atteso: 'tutti i body-locale nuovi del sync verificati' },
+      comando: 'node scripts/ci/report-synced-article-fabrication.mjs',
+      evidenza: [
+        'scope=unavailable',
+        'guard=scripts/lib/article-fabrication-patterns.mjs',
+        url ? `run=${url}` : null,
+      ],
+    },
+  };
+}
+
 async function main() {
   const report = runFabricationScan();
   writeStepSummary(buildStepSummary(report));
@@ -278,16 +301,11 @@ async function main() {
     // The guard did not check the content it exists to check — a distinct,
     // louder failure than "checked, found nothing". See FAILURE_ISSUE_TITLE.
     console.error('⚠️  Scope non calcolabile — nessun articolo verificato dal fabrication guard in questo sync.');
+    const { description, signals } = buildScopeFailureIssue(url);
     await createGithubIssue({
       title: FAILURE_ISSUE_TITLE,
-      description: [
-        'Il fabrication guard non è riuscito a calcolare il diff del working tree in questo sync, quindi ',
-        '**nessun body appena arrivato è stato verificato** contro `scripts/lib/article-fabrication-patterns.mjs`.',
-        '',
-        'Non è un "nessun problema trovato": è il guard che non ha girato affatto su questo batch.',
-        '',
-        url ? `Run: ${url}` : '',
-      ].filter(Boolean).join('\n'),
+      description,
+      signals,
       priority: 2,
       labels: ['content-quality'],
       workflow,

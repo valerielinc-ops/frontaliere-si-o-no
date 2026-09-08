@@ -12,15 +12,19 @@ export function isCrawlerGenerationToken(value) {
  * started without it (direct dispatch, re-run of a leg) sees an EMPTY string —
  * which used to kill every crawler of the group. The run coordinates carry the
  * same grammar the orchestrator computes for its dispatches, so derive from
- * them instead of failing the whole group. Returns null when neither source
- * yields a valid token; callers decide whether that is fatal.
+ * them when the input is absent. A non-empty malformed explicit token fails
+ * closed rather than silently falling back to different run coordinates.
+ * Returns null when neither source yields a valid token; callers decide whether
+ * that is fatal.
  */
 export function resolveCrawlerGenerationToken(env = process.env) {
   const explicit = env.CRAWLER_GENERATION_TOKEN;
-  // A non-empty explicit token stays authoritative even when malformed: the
-  // downstream validators must keep rejecting it instead of silently drifting
-  // onto the run coordinates.
-  if (typeof explicit === 'string' && explicit.length > 0) return explicit;
+  // An explicit token stays authoritative only when it obeys the shared
+  // grammar. A non-empty malformed value is rejected before the caller builds
+  // a descriptor; it must not silently fall back to different run coordinates.
+  if (typeof explicit === 'string' && explicit.length > 0) {
+    return isCrawlerGenerationToken(explicit) ? explicit : null;
+  }
   const derived = `${env.GITHUB_RUN_ID}-${env.GITHUB_RUN_ATTEMPT}`;
   return isCrawlerGenerationToken(derived) ? derived : null;
 }

@@ -36,9 +36,12 @@ const opt = (flag) => {
   return i >= 0 ? argv[i + 1] : '';
 };
 
-if (process.argv[1]?.endsWith('alert-pat-down.mjs')) {
-  const workflow = opt('--workflow') || 'unknown-workflow';
-  const runUrl = opt('--run-url') || '';
+export function buildPatDownAlert({ workflow, runUrl = '' }) {
+  const command = [
+    'node scripts/ci/alert-pat-down.mjs',
+    `--workflow ${JSON.stringify(workflow)}`,
+    `--run-url ${JSON.stringify(runUrl)}`,
+  ].join(' ');
   const description =
     `Rilevato INLINE da \`${workflow}\`${runUrl ? ` (${runUrl})` : ''}: ` +
     '`env.GITHUB_PAT` vuoto dopo `scripts/load-rc-env.mjs` (che esce sempre 0 — ' +
@@ -49,9 +52,25 @@ if (process.argv[1]?.endsWith('alert-pat-down.mjs')) {
     'assente/ruotato · param `GITHUB_PAT` cancellato da RC · PAT revocato.\n\n' +
     'Recovery: l\'issue si auto-chiude al prossimo run verde di ' +
     '`gh-pat-expiry-monitor.yml` (stesso titolo canonico → dedup).';
+  return {
+    description,
+    signals: {
+      cosa: 'env.GITHUB_PAT vuoto: il loop agentico è entrato nel percorso fallback inerte',
+      metrica: { osservato: 'vuoto', atteso: 'token PAT presente' },
+      comando: command,
+      evidenza: [`workflow=${workflow}`, runUrl ? `run=${runUrl}` : null, 'loader=scripts/load-rc-env.mjs'],
+    },
+  };
+}
+
+if (process.argv[1]?.endsWith('alert-pat-down.mjs')) {
+  const workflow = opt('--workflow') || 'unknown-workflow';
+  const runUrl = opt('--run-url') || '';
+  const { description, signals } = buildPatDownAlert({ workflow, runUrl });
   createGithubIssue({
     title: PAT_DOWN_TITLE,
     description,
+    signals,
     priority: 1,
     labels: ['automation'],
     workflow,
