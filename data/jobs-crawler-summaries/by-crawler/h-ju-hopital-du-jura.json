@@ -1,21 +1,21 @@
 {
   "key": "h-ju-hopital-du-jura",
   "label": "Hôpital du Jura (H-JU)",
-  "generatedAt": "2026-09-07T23:25:22.062Z",
-  "total": 12,
+  "generatedAt": "2026-09-08T13:36:05.881Z",
+  "total": 11,
   "discovered": null,
   "parsed": 11,
   "lastFetchOutcome": null,
-  "written": 12,
+  "written": 11,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12094,
-  "avgDurationMs": 12094,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12536,
+  "avgDurationMs": 12536,
   "durationHistory": [
-    12094
+    12536
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4483/infirmierere-en-pediatrie",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:07.876Z",
+      "crawledAt": "2026-09-08T13:35:49.570Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -64,13 +64,13 @@
       "companyKey": "h-ju-hopital-du-jura",
       "companyDomain": "h-ju.ch",
       "title": "Physiothérapeute",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Delémont",
       "canton": "JU",
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4459/physiotherapeute",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:08.459Z",
+      "crawledAt": "2026-09-08T13:35:50.222Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4435/apprentie-employee-de-commerce",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:09.046Z",
+      "crawledAt": "2026-09-08T13:35:50.834Z",
       "addressLocality": "Delémont, Porrentruy, Saignelégier",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4436/apprenties-assistantes-en-soins-et-sante-communautaire-assc",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:09.662Z",
+      "crawledAt": "2026-09-08T13:35:51.443Z",
       "addressLocality": "Delémont, Porrentruy, Saignelégier",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4437/apprentie-technologue-en-dispositifs-medicaux-tdm",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:10.243Z",
+      "crawledAt": "2026-09-08T13:35:52.052Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4438/apprentie-logisticienne",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:10.852Z",
+      "crawledAt": "2026-09-08T13:35:52.658Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4439/apprentie-cuisinierere",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:11.450Z",
+      "crawledAt": "2026-09-08T13:35:53.291Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -298,7 +298,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4440/apprenties-aide-en-soins-et-accompagnement-asa",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:12.064Z",
+      "crawledAt": "2026-09-08T13:35:53.919Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -336,7 +336,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4401/therapeute-en-activite-physique-adaptee-apa",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:12.636Z",
+      "crawledAt": "2026-09-08T13:35:54.527Z",
       "addressLocality": "Porrentruy",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -374,7 +374,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4202/chef-ou-cheffe-de-clinique-service-des-urgences-delemont",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:13.243Z",
+      "crawledAt": "2026-09-08T13:35:55.171Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -412,7 +412,7 @@
       "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/4036/medecin-urgentiste",
       "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-07T23:25:13.821Z",
+      "crawledAt": "2026-09-08T13:35:55.794Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -438,8 +438,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "h-ju-hopital-du-jura-4b271216edd2",
       "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-hopital-du-jura-h-ju-delemont",
@@ -482,5 +481,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
