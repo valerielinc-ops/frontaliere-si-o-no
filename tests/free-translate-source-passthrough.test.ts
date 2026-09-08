@@ -115,6 +115,66 @@ function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown
   });
 }
 
+function runExhaustedTierSkipScenario(service: 'deepl' | 'azure') {
+  const modulePath = new URL('../scripts/lib/free-translate.mjs', import.meta.url).pathname;
+  const childScript = `
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync(${JSON.stringify(modulePath)}, 'utf8');
+    const standalone = source
+      .replace(
+        "import { translateWithMyMemory } from './mymemory-translate.mjs';",
+        "const translateWithMyMemory = async () => 'traduzione di prova';",
+      )
+      .replace(
+        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+      )
+      .replace(
+        "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
+        "const translateWithLocalOpusMt = async () => ''; const localOpusMtEnabled = () => false;",
+      );
+    globalThis.console.log = () => {};
+    globalThis.console.warn = () => {};
+    globalThis.fetch = async (url) => {
+      const value = String(url);
+      if (${JSON.stringify(service)} === 'deepl' && value.includes('api-free.deepl.com')) {
+        return { ok: false, status: 456 };
+      }
+      if (${JSON.stringify(service)} === 'azure' && value.includes('api.cognitive.microsofttranslator.com')) {
+        return { ok: false, status: 429 };
+      }
+      throw new Error('endpoint inatteso: ' + value);
+    };
+    const moduleUrl = 'data:text/javascript;base64,' + Buffer.from(standalone).toString('base64');
+    const { freeTranslate } = await import(moduleUrl);
+    const first = { passthroughs: 0, errors: 0, incomplete: false };
+    await freeTranslate({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en', _outcome: first });
+    const second = { passthroughs: 0, errors: 0, incomplete: false };
+    const out = await freeTranslate({ text: 'Titolo di prova', sourceLang: 'it', targetLang: 'en', _outcome: second });
+    process.stdout.write(JSON.stringify({ out, first, second }));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: service === 'azure' ? 'azure-one' : '',
+      AZURE_TRANSLATOR_KEY_2: service === 'azure' ? 'azure-two' : '',
+      DEEPL_API_KEY: service === 'deepl' ? 'deepl-one' : '',
+      DEEPL_API_KEY_2: service === 'deepl' ? 'deepl-two' : '',
+      GOOGLE_APPLICATION_CREDENTIALS: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      LIBRETRANSLATE_SELF_HOSTED_URL: '',
+      MT_LOCAL_OPUSMT: '',
+      VITEST: '1',
+    },
+  });
+}
+
 const EN = [
   '## In brief',
   '- Cross-border workers living within twenty kilometres of the border stay in the old tax regime',
@@ -273,6 +333,13 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
 
     expect(child.status).toBe(0);
     expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
+  });
+
+  it.each(['deepl', 'azure'] as const)('non marca incomplete quando tutte le chiavi %s sono gia esauste e il tier non prova alcuna chiave', (service) => {
+    const child = runExhaustedTierSkipScenario(service);
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout).second).toEqual({ passthroughs: 0, errors: 0, incomplete: false });
   });
 });
 

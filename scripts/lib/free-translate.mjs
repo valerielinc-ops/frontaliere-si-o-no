@@ -534,10 +534,12 @@ async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) 
   }
 
   // Try each non-exhausted key, rotating on quota errors
+  let attempted = false;
   for (let attempt = 0; attempt < DEEPL_API_KEYS.length; attempt++) {
     const idx = (_deeplKeyIndex + attempt) % DEEPL_API_KEYS.length;
     const key = DEEPL_API_KEYS[idx];
     if (_deeplExhaustedKeys.has(key)) continue;
+    attempted = true;
 
     try {
       const result = await _callDeepLWithKey(key, clean, srcCode, tgtCode);
@@ -568,7 +570,7 @@ async function translateWithDeepL(text, sourceLang, targetLang, outcome = null) 
       return ''; // network error, don't retry with other keys
     }
   }
-  noteIncompleteIfUntouched(outcome, outcomeBefore);
+  if (attempted) noteIncompleteIfUntouched(outcome, outcomeBefore);
   return ''; // all keys exhausted
 }
 
@@ -861,10 +863,12 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
   const MAX_CHUNK = 5000;
   const chunks = clean.length <= MAX_CHUNK ? [clean] : chunkText(clean, MAX_CHUNK);
 
+  let attempted = false;
   for (let attempt = 0; attempt < AZURE_TRANSLATOR_KEYS.length; attempt++) {
     const idx = (_azureKeyIndex + attempt) % AZURE_TRANSLATOR_KEYS.length;
     const key = AZURE_TRANSLATOR_KEYS[idx];
     if (_azureExhaustedKeys.has(key)) continue;
+    attempted = true;
 
     try {
       const translated = [];
@@ -947,7 +951,7 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
       return '';
     }
   }
-  noteIncompleteIfUntouched(outcome, outcomeBefore);
+  if (attempted) noteIncompleteIfUntouched(outcome, outcomeBefore);
   return '';
 }
 
