@@ -13,13 +13,13 @@
 // tempo peggiorando le traduzioni sarebbe un pessimo affare su una pipeline che
 // esiste per alzare `complete`. Da qui l'esperimento invece dell'interruttore.
 //
-// COME. Il braccio si assegna per AZIENDA, perche' l'azienda e' l'unita' di
-// lavoro del cascade: `runSharedCrawler([key], n)` rilancia l'intero crawler
-// dell'azienda, e il costo per job varia di trenta volte fra un batch e l'altro
-// (misurato nella stessa run: delvitech 152s/job con 1 job, arxada 4,7s/job con
-// 3, migros-ticino 65,6s/job con 25). Spezzare un batch a meta' mescolerebbe i
-// due bracci dentro la stessa invocazione del crawler e renderebbe il tempo non
-// attribuibile.
+// COME. Il braccio si assegna per invocazione, perche' `runSharedCrawler(keys, n)`
+// rilancia l'intero crawler del gruppo. Il costo per job varia di trenta volte
+// fra un batch e l'altro (misurato nella stessa run: delvitech 152s/job con 1
+// job, arxada 4,7s/job con 3, migros-ticino 65,6s/job con 25). Le righe
+// dell'artefatto restano per azienda e riportano il gruppo condiviso; cosi' il
+// tempo allocato e i job tentati restano attribuibili senza fingere invocazioni
+// separate.
 //
 // Il sale include l'id della run, quindi l'assegnazione CAMBIA a ogni giro: la
 // stessa azienda vede entrambi i bracci nel giro di poche run, e il confronto
@@ -31,8 +31,8 @@
 // `claudeCliChildEnv()` in `ai-models.mjs` legge l'ambiente del padre a ogni
 // spawn e NON sovrascrive un valore gia' presente, quindi impostarlo prima di
 // una azienda e toglierlo dopo agisce esattamente sulle chiamate di quel batch.
-// Il ciclo delle aziende e' sequenziale (`await runSharedCrawler` una per una),
-// quindi la mutazione globale non puo' sovrapporsi fra bracci.
+// Il ciclo delle invocazioni e' sequenziale (`await runSharedCrawler` una per
+// volta), quindi la mutazione globale non puo' sovrapporsi fra bracci.
 import { createHash } from 'node:crypto';
 
 export const THINKING_AB_FLAG = 'TRANSLATION_THINKING_AB';
