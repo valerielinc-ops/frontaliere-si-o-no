@@ -1292,7 +1292,7 @@ async function main() {
   }
 }
 
-async function runRelocalization(phase) {
+export async function runRelocalization(phase) {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
   if (!fs.existsSync(DATA_JOBS_PATH)) {
