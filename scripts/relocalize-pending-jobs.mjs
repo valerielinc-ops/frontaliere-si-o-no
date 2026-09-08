@@ -108,6 +108,10 @@ const MAX_RETRANSLATION_ATTEMPTS = 3;
 // fail too.
 const MAX_CONSECUTIVE_COMPANY_FAILURES = 3;
 
+// The fixed cost belongs to the shared-crawler invocation, so short company
+// rows can share one invocation without changing the traffic-ranked queue.
+export const SMALL_COMPANY_JOB_LIMIT = 4;
+
 /**
  * Default cascade cap when neither --max-jobs nor RELOCALIZE_MAX_JOBS is given.
  *
@@ -427,6 +431,37 @@ export function shouldStopAfterConsecutiveFailures(
   max = MAX_CONSECUTIVE_COMPANY_FAILURES,
 ) {
   return consecutiveFailures >= max;
+}
+
+/**
+ * Build crawler invocations from an already traffic-ordered company list.
+ * Large companies stay in their original positions; all eligible short
+ * companies are inserted as one group at the position of the first short row.
+ *
+ * @param {string[]} companyKeys
+ * @param {Map<string, number>} companyJobCounts
+ * @returns {string[][]}
+ */
+export function buildCompanyExecutionGroups(companyKeys, companyJobCounts) {
+  const shortKeys = companyKeys.filter((key) => (
+    (companyJobCounts.get(key) || 0) <= SMALL_COMPANY_JOB_LIMIT
+  ));
+  if (shortKeys.length === 0) return companyKeys.map((key) => [key]);
+
+  const shortKeySet = new Set(shortKeys);
+  const groups = [];
+  let shortGroupAdded = false;
+  for (const key of companyKeys) {
+    if (shortKeySet.has(key)) {
+      if (!shortGroupAdded) {
+        groups.push(shortKeys);
+        shortGroupAdded = true;
+      }
+      continue;
+    }
+    groups.push([key]);
+  }
+  return groups;
 }
 
 // ── Salto per azienda sterile (valerielinc-ops/frontaliere-workspace#24) ───
@@ -837,7 +872,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 
   try {
     const { runSharedCrawlerPipeline } = await import('./lib/shared-jobs-crawler.mjs');
-    await runSharedCrawlerPipeline();
+    return await runSharedCrawlerPipeline();
   } finally {
     // Restore original env
     for (const [key, value] of Object.entries(originals)) {
@@ -850,10 +885,11 @@ async function runSharedCrawler(companyKeys, maxJobs) {
  * Clear needsRetranslation flag from jobs that are now complete.
  * Returns the number of flags cleared.
  */
-function clearRetranslationFlags(jobs) {
+function clearRetranslationFlags(jobs, { onCleared } = {}) {
   let cleared = 0;
   for (const job of jobs) {
     if (job.needsRetranslation && !isIncomplete(job)) {
+      onCleared?.(job);
       delete job.needsRetranslation;
       delete job.retranslationAttempts;
       delete job.localeMismatchSuppressed;
@@ -1626,7 +1662,7 @@ export async function runRelocalization(phase) {
 
   console.log(`\n🔄 Re-localizing up to ${effectiveMax} jobs across ${cascadeCompanyKeys.length} companies (incremental save)...`);
 
-  // Process each company separately with intermediate saves
+  // Process each invocation group with per-company intermediate saves
   let totalFixed = 0;
   let totalProcessed = 0;
   let consecutiveFailures = 0;
@@ -1653,17 +1689,24 @@ export async function runRelocalization(phase) {
   }
 
   // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
-  // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs per il perche'
-  // il braccio si assegna per azienda e il sale include l'id della run.
+  // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs: il braccio si
+  // assegna per invocazione e il sale include l'id della run.
   const thinkingAb = isThinkingAbEnabled(process.env);
   const thinkingSalt = runSalt(process.env);
   const thinkingRows = [];
+  const companyExecutionGroups = buildCompanyExecutionGroups(cascadeCompanyKeys, companyJobCounts);
   if (thinkingAb) {
-    console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni azienda va a un braccio, il tempo e l'accettazione sono registrati per braccio.`);
+    console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni invocazione va a un braccio, con righe attribuibili per azienda.`);
   }
 
-  for (const key of cascadeCompanyKeys) {
-    const companyJobCount = companyJobCounts.get(key) || 0;
+  for (let executionGroupIndex = 0; executionGroupIndex < companyExecutionGroups.length; executionGroupIndex += 1) {
+    const executionKeys = companyExecutionGroups[executionGroupIndex];
+    const key = executionKeys[0];
+    const companyJobCount = executionKeys.reduce(
+      (total, companyKey) => total + (companyJobCounts.get(companyKey) || 0),
+      0,
+    );
+    const executionLabel = executionKeys.join(', ');
 
     // Stop before starting a new company once the RUN-WIDE cascade deadline
     // passes, so no company is started that would only immediately
@@ -1684,42 +1727,53 @@ export async function runRelocalization(phase) {
       cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
       console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
-      console.log(`   ${totalFixed} jobs translated so far; ${cascadeCompanyKeys.length - cascadeCompanyKeys.indexOf(key)} companies remaining (deferred to next run).`);
+      const remainingCompanies = companyExecutionGroups
+        .slice(executionGroupIndex)
+        .reduce((total, group) => total + group.length, 0);
+      console.log(`   ${totalFixed} jobs translated so far; ${remainingCompanies} companies remaining (deferred to next run).`);
       break;
     }
 
     const elapsedMs = companyNowMs - RUN_START_MS;
-    console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
+    console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${executionLabel} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
 
     // Invalidate stale cache entries for incomplete jobs so the shared crawler
     // actually calls translation APIs instead of serving cached bad translations.
-    const companyIncomplete = cappedPending.filter(j =>
-      normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(key));
-    const invalidated = invalidateCacheForIncompleteJobs(key, companyIncomplete);
+    const companyIncompleteByKey = new Map();
+    let invalidated = 0;
+    for (const companyKey of executionKeys) {
+      const companyIncomplete = cappedPending.filter(j =>
+        normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+      companyIncompleteByKey.set(companyKey, companyIncomplete);
+      invalidated += invalidateCacheForIncompleteJobs(companyKey, companyIncomplete);
+    }
     if (invalidated > 0) {
       console.log(`   🗑️  Invalidated ${invalidated} stale cache entries for incomplete jobs`);
     }
 
     // Re-set needsRetranslation on per-crawler file for incomplete jobs so the
     // FRO-327 cache bypass kicks in (even if the circuit breaker previously cleared it).
-    if (companyIncomplete.length > 0) {
-      const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${key}.json`);
-      if (fs.existsSync(crawlerFilePath)) {
-        const crawlerData = readJson(crawlerFilePath);
-        if (crawlerData?.jobs && Array.isArray(crawlerData.jobs)) {
-          const incompleteSlugs = new Set(companyIncomplete.map(j => j.slug).filter(Boolean));
-          let flagged = 0;
-          for (const cj of crawlerData.jobs) {
-            if (incompleteSlugs.has(cj.slug) && !cj.needsRetranslation
-                && !cj.localeMismatchSuppressed && isIncomplete(cj)) {
-              cj.needsRetranslation = true;
-              cj.retranslationAttempts = 0;
-              flagged++;
+    for (const companyKey of executionKeys) {
+      const companyIncomplete = companyIncompleteByKey.get(companyKey) || [];
+      if (companyIncomplete.length > 0) {
+        const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
+        if (fs.existsSync(crawlerFilePath)) {
+          const crawlerData = readJson(crawlerFilePath);
+          if (crawlerData?.jobs && Array.isArray(crawlerData.jobs)) {
+            const incompleteSlugs = new Set(companyIncomplete.map(j => j.slug).filter(Boolean));
+            let flagged = 0;
+            for (const cj of crawlerData.jobs) {
+              if (incompleteSlugs.has(cj.slug) && !cj.needsRetranslation
+                  && !cj.localeMismatchSuppressed && isIncomplete(cj)) {
+                cj.needsRetranslation = true;
+                cj.retranslationAttempts = 0;
+                flagged++;
+              }
             }
-          }
-          if (flagged > 0) {
-            writeJsonAtomic(crawlerFilePath, crawlerData);
-            console.log(`   🔁 Re-flagged ${flagged} stuck jobs for retranslation`);
+            if (flagged > 0) {
+              writeJsonAtomic(crawlerFilePath, crawlerData);
+              console.log(`   🔁 ${companyKey}: re-flagged ${flagged} stuck jobs for retranslation`);
+            }
           }
         }
       }
@@ -1729,11 +1783,14 @@ export async function runRelocalization(phase) {
       // Snapshot locale content BEFORE the crawler so we can tell which jobs it
       // actually translated (changed) vs the budget-unreached tail.
       const preCrawlerJobs = readJson(DATA_JOBS_PATH);
-      const preSig = Array.isArray(preCrawlerJobs)
-        ? snapshotCompanySignatures(preCrawlerJobs, key) : new Map();
+      const preSignatures = new Map(executionKeys.map((companyKey) => [
+        companyKey,
+        Array.isArray(preCrawlerJobs)
+          ? snapshotCompanySignatures(preCrawlerJobs, companyKey) : new Map(),
+      ]));
 
       // Il braccio si applica SOLO attorno alla chiamata del crawler, e il
-      // ripristino sta in finally: se il crawler lancia, l'azienda successiva
+      // ripristino sta in finally: se il crawler lancia, il gruppo successivo
       // erediterebbe il braccio sbagliato e l'esperimento misurerebbe un mix.
       const thinkingArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
       const armHandle = thinkingArm ? applyThinkingArm(thinkingArm, process.env) : null;
@@ -1745,42 +1802,73 @@ export async function runRelocalization(phase) {
       // piu' corretta: esclude il costo dell'osservatore invece di addebitarlo
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
+      let servedCompanyKeys = new Set();
       try {
-        await runSharedCrawler([key], companyJobCount);
+        const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
+        servedCompanyKeys = new Set(
+          (Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
+            ? crawlerResult.localizationCoveredCompanyKeys
+            : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
+              ? crawlerResult.localizationAttemptedCompanyKeys : []))
+            .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+            .filter(Boolean),
+        );
       } finally {
         if (armHandle) armHandle.restore();
       }
       const companyElapsedMs = LEGACY_CLOCK.now() - companyStartedMs;
 
       // Save progress after each company: clear flags and write to disk
-      const fixedBeforeCompany = totalFixed;
       const currentJobs = readJson(DATA_JOBS_PATH);
-      const attemptedSlugs = Array.isArray(currentJobs)
-        ? changedSlugsSince(preSig, currentJobs, key) : new Set();
+      const clearedByCompany = new Map();
+      const clearedInExecution = new Set(executionKeys);
       if (Array.isArray(currentJobs)) {
-        const cleared = clearRetranslationFlags(currentJobs);
+        const cleared = clearRetranslationFlags(currentJobs, {
+          onCleared: (job) => {
+            const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+            if (clearedInExecution.has(clearedKey)) {
+              clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
+            }
+          },
+        });
         if (cleared > 0) {
           writeJsonAtomic(DATA_JOBS_PATH, currentJobs, { compact: true });
           totalFixed += cleared;
-          console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
+        }
+
+        if (cleared > 0) console.log(`   ✅ ${executionLabel}: ${cleared} jobs translated, progress saved`);
+      }
+
+      const elapsedShare = (companyKey) => companyJobCount > 0
+        ? companyElapsedMs * (companyJobCounts.get(companyKey) || 0) / companyJobCount
+        : companyElapsedMs;
+      for (const companyKey of executionKeys) {
+        const companyCount = companyJobCounts.get(companyKey) || 0;
+        const attemptedSlugs = Array.isArray(currentJobs)
+          ? changedSlugsSince(preSignatures.get(companyKey), currentJobs, companyKey) : new Set();
+        const companyCleared = clearedByCompany.get(companyKey) || 0;
+        if (companyCleared > 0) {
+          console.log(`   ✅ ${companyKey}: ${companyCleared} jobs translated, progress saved`);
         } else {
-          console.log(`   ℹ️  ${key}: no flags cleared this pass`);
+          console.log(`   ℹ️  ${companyKey}: no flags cleared this pass`);
           // Diagnose: how many jobs for this company are still incomplete after crawler ran?
-          const companyJobs = currentJobs.filter(j =>
-            normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(key));
-          const companyIncomplete = companyJobs.filter(j => needsTranslation(j));
-          if (companyIncomplete.length > 0) {
-            console.log(`   🔬 ${key}: ${companyIncomplete.length}/${companyJobs.length} still pending after crawler`);
-            for (const j of companyIncomplete.slice(0, 3)) {
-              const tbl = j.titleByLocale || {};
-              const src = (j.title || '').trim().toLowerCase();
-              const info = LOCALES.map(l => {
-                const t = (tbl[l] || '').trim();
-                if (!t) return `${l}:EMPTY`;
-                if (t.toLowerCase() === src) return `${l}:=src`;
-                return `${l}:ok(${t.length})`;
-              }).join(' ');
-              console.log(`      "${j.title?.slice(0, 50)}" titles:[${info}] flag:${!!j.needsRetranslation}`);
+          if (Array.isArray(currentJobs)) {
+            const companyJobs = currentJobs.filter(j =>
+              normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(companyKey));
+            const companyIncomplete = companyJobs.filter(j => needsTranslation(j));
+            if (companyIncomplete.length > 0) {
+              console.log(`   🔬 ${companyKey}: ${companyIncomplete.length}/${companyJobs.length} still pending after crawler`);
+              for (const j of companyIncomplete.slice(0, 3)) {
+                const tbl = j.titleByLocale || {};
+                const src = (j.title || '').trim().toLowerCase();
+                const info = LOCALES.map(l => {
+                  const t = (tbl[l] || '').trim();
+                  if (!t) return `${l}:EMPTY`;
+                  if (t.toLowerCase() === src) return `${l}:=src`;
+                  return `${l}:ok(${t.length})`;
+                }).join(' ');
+                console.log(`      "${j.title?.slice(0, 50)}" titles:[${info}] flag:${!!j.needsRetranslation}`);
+              }
             }
           }
         }
@@ -1789,52 +1877,59 @@ export async function runRelocalization(phase) {
         // Previously, sync was gated on cleared > 0, creating a loop: shared crawler
         // improved translations in jobs.json, but improvements never reached per-crawler
         // slices (source of truth). Next assemble started from stale data.
-        const syncResult = syncTranslationsToCrawlerFile(key, currentJobs, attemptedSlugs);
-        if (syncResult.updated > 0) {
-          console.log(`   📁 ${key}: ${syncResult.updated} jobs synced to per-crawler file`);
+        if (Array.isArray(currentJobs)) {
+          const syncResult = syncTranslationsToCrawlerFile(companyKey, currentJobs, attemptedSlugs);
+          if (syncResult.updated > 0) {
+            console.log(`   📁 ${companyKey}: ${syncResult.updated} jobs synced to per-crawler file`);
+          }
+
+          // Increment retry counter directly on per-crawler file for stuck jobs.
+          // This catches jobs that don't appear in the assembled dataset (e.g. companies
+          // not in the shared crawler's census) where syncTranslationsToCrawlerFile can't
+          // match them. After 3 failed attempts, suppress the flag to break the loop.
+          incrementRetryCounterOnCrawlerFile(companyKey, syncResult.handledSlugs, attemptedSlugs);
         }
 
-        // Increment retry counter directly on per-crawler file for stuck jobs.
-        // This catches jobs that don't appear in the assembled dataset (e.g. companies
-        // not in the shared crawler's census) where syncTranslationsToCrawlerFile can't
-        // match them. After 3 failed attempts, suppress the flag to break the loop.
-        incrementRetryCounterOnCrawlerFile(key, syncResult.handledSlugs, attemptedSlugs);
-      }
+        // `cleared` e' il delta per azienda: le traduzioni che hanno superato
+        // il gate. Anche con un'invocazione aggregata resta una riga per azienda,
+        // con il gruppo esplicito per rendere leggibile il costo condiviso.
+        const row = {
+          arm: thinkingArm ?? null,
+          companyKey,
+          jobCount: companyCount,
+          elapsedMs: elapsedShare(companyKey),
+          attempted: attemptedSlugs.size,
+          cleared: companyCleared,
+          ...(executionKeys.length > 1 ? { invocationCompanyKeys: [...executionKeys] } : {}),
+        };
+        thinkingRows.push(row);
+        if (thinkingArm) {
+          console.log(`   🧪 ${companyKey}: braccio ${row.arm}, ${Math.round(row.elapsedMs / 1000)}s per ${row.jobCount} job, ${row.cleared}/${row.attempted} accettate`);
+        }
 
-      // `cleared` e' il delta di totalFixed: le traduzioni che hanno superato
-      // il gate. `attempted` e' quante il crawler ne ha toccate. Il rapporto
-      // fra i due e' la meta' che conta dell'esperimento — un braccio piu'
-      // veloce che produce piu' scarti non e' piu' veloce.
-      const row = {
-        arm: thinkingArm ?? null,
-        companyKey: key,
-        jobCount: companyJobCount,
-        elapsedMs: companyElapsedMs,
-        attempted: attemptedSlugs.size,
-        cleared: totalFixed - fixedBeforeCompany,
-      };
-      thinkingRows.push(row);
-      if (thinkingArm) {
-        console.log(`   🧪 ${key}: braccio ${row.arm}, ${Math.round(row.elapsedMs / 1000)}s per ${row.jobCount} job, ${row.cleared}/${row.attempted} accettate`);
+        // Contatore del salto per azienda (workspace#24). Legge il proprio
+        // risultato anche quando l'invocazione del crawler era aggregata.
+        // Con un cap condiviso, un'azienda aggregata puo' restare fuori dal
+        // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
+        // servita: il suo lavoro resta pending e deve poter rientrare nella
+        // prossima finestra senza accumulare falsi salti.
+        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        if (companyWasServed) {
+          const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
+            cleared: companyCleared,
+            runCounter: companySkipRun,
+            signature: companySignatures.get(companyKey),
+          });
+          if (entry) companySkipState.companies[companyKey] = entry;
+          else delete companySkipState.companies[companyKey];
+        } else {
+          console.log(`   ⏭️  ${companyKey}: invocazione aggregata esaurita prima di servirla; contatore sterile invariato`);
+        }
+        // Scritto per azienda, non a fine ciclo: la run muore sulla deadline del
+        // cascade o sul timeout del job, e uno stato perso a meta' run azzera il
+        // contatore esattamente come faceva il freno per-job.
+        writeCompanySkipState(companySkipState);
       }
-
-      // Contatore del salto per azienda (workspace#24). Legge lo STESSO
-      // `totalFixed - fixedBeforeCompany` della riga A/B qui sopra — non un
-      // secondo conteggio — cosi' la misura negli artifact e l'intervento non
-      // possono divergere. Fuori dal ramo `if (thinkingArm)` perche' l'A/B e'
-      // spento di default (TRANSLATION_THINKING_AB=1): dentro, la regola non
-      // conterebbe mai nulla in produzione.
-      const entry = nextCompanySkipEntry(companySkipState.companies[key], {
-        cleared: totalFixed - fixedBeforeCompany,
-        runCounter: companySkipRun,
-        signature: companySignatures.get(key),
-      });
-      if (entry) companySkipState.companies[key] = entry;
-      else delete companySkipState.companies[key];
-      // Scritto per azienda, non a fine ciclo: la run muore sulla deadline del
-      // cascade o sul timeout del job, e uno stato perso a meta' run azzera il
-      // contatore esattamente come faceva il freno per-job.
-      writeCompanySkipState(companySkipState);
 
       totalProcessed += companyJobCount;
       consecutiveFailures = 0;
@@ -1844,7 +1939,7 @@ export async function runRelocalization(phase) {
     } catch (err) {
       cascadeStop = 'company failure';
       consecutiveFailures++;
-      console.error(`   ❌ ${key} failed: ${err.message}`);
+      console.error(`   ❌ ${executionLabel} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
       if (shouldStopAfterConsecutiveFailures(consecutiveFailures)) {
         // N failures in a row is a systemic signal (e.g. AI quota exhausted on
@@ -1891,7 +1986,16 @@ export async function runRelocalization(phase) {
       const retryTotal = [...retryCompanies.values()].reduce((a, b) => a + b, 0);
       console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
 
-      for (const [key, count] of retryCompanies) {
+      const retryExecutionGroups = buildCompanyExecutionGroups(
+        [...retryCompanies.keys()],
+        companyJobCounts,
+      );
+      for (const retryKeys of retryExecutionGroups) {
+        const key = retryKeys[0];
+        const count = retryKeys.reduce((total, companyKey) => (
+          total + (retryCompanies.get(companyKey) || 0)
+        ), 0);
+        const retryLabel = retryKeys.join(', ');
         const retryCompanyStopReason = cascadeStopReason({
           nowMs: LEGACY_CLOCK.now(),
           runStartMs: RUN_START_MS,
@@ -1905,22 +2009,22 @@ export async function runRelocalization(phase) {
           break;
         }
 
-        console.log(`   🔁 Retrying ${key} (${count} jobs)...`);
+        console.log(`   🔁 Retrying ${retryLabel} (${count} jobs)...`);
         try {
           const preRetryJobs = readJson(DATA_JOBS_PATH);
-          const preRetrySig = Array.isArray(preRetryJobs)
-            ? snapshotCompanySignatures(preRetryJobs, key) : new Map();
-          // Stesso braccio del primo passaggio: `assignThinkingArm` e'
-          // deterministica sulla coppia (azienda, sale), quindi l'azienda non
-          // cambia braccio fra i due passaggi. Senza questo l'azienda verrebbe
-          // ritentata con il thinking al default mentre l'esperimento la conta
-          // nel braccio assegnato, e la misura sarebbe un miscuglio.
+          const preRetrySignatures = new Map(retryKeys.map((companyKey) => [
+            companyKey,
+            Array.isArray(preRetryJobs)
+              ? snapshotCompanySignatures(preRetryJobs, companyKey) : new Map(),
+          ]));
+          // Stesso braccio del primo passaggio: il primo key del gruppo e' la
+          // chiave deterministica dell'invocazione; ogni riga conserva comunque
+          // la propria azienda e il gruppo condiviso.
           const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
           const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
           const retryStartedMs = LEGACY_CLOCK.now();
-          const fixedBeforeRetry = totalFixed;
           try {
-            await runSharedCrawler([key], count);
+            await runSharedCrawler(retryKeys, count);
           } finally {
             if (retryHandle) retryHandle.restore();
           }
@@ -1933,43 +2037,70 @@ export async function runRelocalization(phase) {
           // lo penalizzano: ogni riga sopravvissuta avrebbe `cleared >= 1` e
           // l'acceptRate risulterebbe gonfiato per costruzione. E' l'opposto
           // di cio' che questa metrica esiste per catturare.
-          const retryAttemptedAll = Array.isArray(afterRetry)
-            ? changedSlugsSince(preRetrySig, afterRetry, key) : new Set();
+          const retryAttemptedByCompany = new Map(retryKeys.map((companyKey) => [
+            companyKey,
+            Array.isArray(afterRetry)
+              ? changedSlugsSince(preRetrySignatures.get(companyKey), afterRetry, companyKey) : new Set(),
+          ]));
+          const retryRowsByCompany = new Map();
           if (retryArm) {
-            thinkingRows.push({
-              arm: retryArm,
-              companyKey: key,
-              pass: 'retry',
-              // Zero, non `count`: sono gli STESSI job gia' contati nella riga
-              // del primo passaggio. Il tempo del retry va nel numeratore di
-              // msPerJob perche' e' stato speso davvero, ma i job non vanno
-              // contati due volte nel denominatore.
-              jobCount: 0,
-              elapsedMs: retryElapsedMs,
-              attempted: retryAttemptedAll.size,
-              cleared: 0,
-            });
+            for (const companyKey of retryKeys) {
+              const row = {
+                arm: retryArm,
+                companyKey,
+                pass: 'retry',
+                // Zero, non `count`: sono gli STESSI job gia' contati nella riga
+                // del primo passaggio. Il tempo del retry va nel numeratore di
+                // msPerJob perche' e' stato speso davvero, ma i job non vanno
+                // contati due volte nel denominatore.
+                jobCount: 0,
+                elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
+                attempted: retryAttemptedByCompany.get(companyKey).size,
+                cleared: 0,
+                ...(retryKeys.length > 1 ? { invocationCompanyKeys: [...retryKeys] } : {}),
+              };
+              retryRowsByCompany.set(companyKey, row);
+              thinkingRows.push(row);
+            }
           }
           if (Array.isArray(afterRetry)) {
-            const cleared = clearRetranslationFlags(afterRetry);
+            const clearedByCompany = new Map();
+            const cleared = clearRetranslationFlags(afterRetry, {
+              onCleared: (job) => {
+                const clearedKey = normalizeCompanyKey(job.companyKey || job.company || '');
+                if (retryKeys.includes(clearedKey)) {
+                  clearedByCompany.set(clearedKey, (clearedByCompany.get(clearedKey) || 0) + 1);
+                }
+              },
+            });
             if (cleared > 0) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
-              console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
-              // Il passaggio principale ha appena registrato questa azienda come
-              // sterile; il retry lo smentisce. Senza questa riga un'azienda che
-              // produce solo al secondo tentativo verrebbe contata verso il salto.
-              delete companySkipState.companies[key];
-              writeCompanySkipState(companySkipState);
-              syncTranslationsToCrawlerFile(key, afterRetry, retryAttemptedAll);
-              if (retryArm) {
-                // La riga e' gia' in coda: qui si aggiorna solo l'esito.
-                thinkingRows[thinkingRows.length - 1].cleared = totalFixed - fixedBeforeRetry;
+              console.log(`   ✅ ${retryLabel} retry: ${cleared} more jobs translated`);
+              for (const companyKey of retryKeys) {
+                const companyCleared = clearedByCompany.get(companyKey) || 0;
+                if (companyCleared > 0) {
+                  // Il passaggio principale ha appena registrato questa azienda
+                  // come sterile; il retry lo smentisce. Senza questa riga
+                  // un'azienda che produce solo al secondo tentativo verrebbe
+                  // contata verso il salto.
+                  delete companySkipState.companies[companyKey];
+                  syncTranslationsToCrawlerFile(
+                    companyKey,
+                    afterRetry,
+                    retryAttemptedByCompany.get(companyKey),
+                  );
+                }
+                if (retryArm) {
+                  // La riga e' gia' in coda: qui si aggiorna solo l'esito.
+                  retryRowsByCompany.get(companyKey).cleared = companyCleared;
+                }
               }
+              writeCompanySkipState(companySkipState);
             }
           }
         } catch {
-          console.log(`   ⚠️  ${key} retry failed — will be picked up by next scheduled run`);
+          console.log(`   ⚠️  ${retryLabel} retry failed — will be picked up by next scheduled run`);
         }
       }
     }
