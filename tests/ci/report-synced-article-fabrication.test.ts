@@ -33,6 +33,7 @@
 
 import { describe, expect, it } from 'vitest';
 import {
+  buildScopeFailureIssue,
   isEscalatableFinding,
   buildFindingsIssue,
 } from '../../scripts/ci/report-synced-article-fabrication.mjs';
@@ -47,6 +48,21 @@ const vecchio = {
 const nuovo = { ...vecchio, id: 'articolo-appena-ammesso', isNew: true };
 
 describe('fabrication reporter: escala il flusso, non lo stock (#5661)', () => {
+  it('il fallimento di scope espone misura, comando ed evidenza (#6685)', () => {
+    const issue = buildScopeFailureIssue('https://example.test/run/2');
+
+    expect(issue.description).toContain('nessun body appena arrivato è stato verificato');
+    expect(issue.signals).toMatchObject({
+      cosa: expect.stringContaining('nessun body-locale'),
+      metrica: { osservato: '0 body verificati' },
+      comando: 'node scripts/ci/report-synced-article-fabrication.mjs',
+    });
+    expect(issue.signals.evidenza).toEqual(expect.arrayContaining([
+      'scope=unavailable',
+      'run=https://example.test/run/2',
+    ]));
+  });
+
   it('#1 non escala un articolo che il sync ha solo modificato', () => {
     expect(isEscalatableFinding(vecchio)).toBe(false);
   });

@@ -899,17 +899,37 @@ export function examplesSinceFix(examples, cutoffMs) {
   });
 }
 
-function escalationBody(c) {
-  const examples = (c.examples || [])
-    .map((e) => '#' + (e.pr || e.issue))
-    .filter((s) => s !== '#undefined')
+function formatExamples(c) {
+  return (c.examples || [])
+    .map((e) => e.pr || e.issue)
+    .filter(Boolean)
+    .map((value) => `#${value}`)
     .join(', ') || '—';
+}
+
+export function buildEscalationSignals(c) {
+  return {
+    cosa: `bucket ${c.source}/${c.key}: pattern documentato che ricorre nonostante la regola`,
+    metrica: {
+      osservato: c.count,
+      atteso: `< ${THRESHOLD}×${EFFICACY_FACTOR} occorrenze nella finestra`,
+    },
+    comando: 'node scripts/ci/harvest-agent-lessons.mjs --dry-run',
+    evidenza: [
+      `bucket=${c.source}/${c.key}`,
+      `finestra=${WINDOW_DAYS}gg dal ${sinceDay}`,
+      `esempi=${formatExamples(c)}`,
+    ],
+  };
+}
+
+function escalationBody(c) {
   return [
     '## Bucket',
     `\`${c.source}/${c.key}\` — count **${c.count}** su finestra ${WINDOW_DAYS}gg (dal ${sinceDay})`,
     '',
     '## Esempi PR/issue',
-    examples,
+    formatExamples(c),
     '',
     '## Perché escalare',
     `Pattern GIÀ documentato ma che ricorre ≥ soglia×fattore-efficacia ` +
@@ -1189,6 +1209,7 @@ async function main() {
         const res = await createGithubIssue({
           title: escalationTitle(c),
           description: escalationBody(c),
+          signals: buildEscalationSignals(c),
           priority: 2,
           labels: ['follow-up'],
           workflow: 'Lessons harvester',

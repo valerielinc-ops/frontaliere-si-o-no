@@ -13,10 +13,11 @@
  * la promozione dei crawler PRIMA dello scaffolding, cioè in silenzio e nel
  * punto del funnel che alimenta nuovi annunci indicizzabili.
  *
- * Oggi la proprietà vale — verificata modulo per modulo il 2026-09-05 — ma non
- * la teneva niente: bastava che un modulo della catena aggiungesse un
- * `readFileSync` di un file assente, o che qualcuno importasse un nuovo CLI, e
- * il guasto sarebbe comparso in produzione. Questo è l'osservatore.
+ * Oggi la proprietà vale — verificata modulo per modulo il 2026-09-05 — e
+ * l'entrypoint ha anche una guardia di identità propria. Questo è
+ * l'osservatore che impedisce alla catena importata di regredire: bastava che
+ * un modulo aggiungesse un `readFileSync` di un file assente, o che qualcuno
+ * importasse un nuovo CLI, e il guasto sarebbe comparso in produzione.
  *
  * Perché è scritto sulla CHIUSURA calcolata e non su una lista fissa: la
  * regressione arriva quasi sempre da un modulo NUOVO nella catena, che una
@@ -24,9 +25,9 @@
  * il primo test verifica che stia davvero guardando qualcosa (una chiusura
  * vuota renderebbe verdi anche i due successivi).
  *
- * L'entrypoint stesso è ESCLUSO dalla propria chiusura di proposito: non ha un
- * guard e non deve averlo — quando è lui l'entrypoint, eseguire è il suo
- * lavoro.
+ * L'entrypoint stesso è ESCLUSO dalla propria chiusura di proposito: la sua
+ * guardia di esecuzione diretta è verificata staticamente sotto, mentre qui
+ * misuriamo solo i moduli che un import del file carica prima del suo main.
  *
  * Il test copre DUE entrypoint, non uno: `generate-crawler-group-workflows.mjs`
  * importa anch'esso da `scripts/ci/` ed è `prospect-promote.mjs` a lanciarlo
@@ -108,6 +109,19 @@ function importClosure(entry: string): { modules: string[]; unresolved: string[]
 }
 
 describe('promozione crawler — nessun side-effect a load-time nelle catene importate (#7292)', () => {
+  it('mette la guardia di esecuzione diretta prima del gate del prospector', () => {
+    const source = readFileSync(path.join(ROOT, 'scripts/prospect-promote.mjs'), 'utf8');
+    const guard = source.indexOf('const invokedDirectly =');
+    const main = source.indexOf('async function main()');
+    const gate = source.indexOf('assertKnownFlags(argv');
+
+    expect(guard).toBeGreaterThanOrEqual(0);
+    expect(main).toBeGreaterThan(guard);
+    expect(gate).toBeGreaterThan(main);
+    expect(source).toContain('pathToFileURL(realpathSync(process.argv[1])).href');
+    expect(source).toMatch(/if \(invokedDirectly\) \{\s+await main\(\);\s+\}/);
+  });
+
   it('la chiusura di prospect-promote contiene davvero la catena del drainer', () => {
     // Se il walker smettesse di risolvere gli import, i test qui sotto
     // passerebbero su un insieme vuoto senza provare niente.

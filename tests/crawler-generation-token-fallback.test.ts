@@ -56,7 +56,7 @@ describe('crawler generation token fallback', () => {
     expect(isCrawlerGenerationToken(token)).toBe(true);
   });
 
-  it('keeps a non-empty dispatcher token authoritative, malformed included', () => {
+  it('keeps a valid dispatcher token authoritative and rejects malformed input', () => {
     expect(resolveCrawlerGenerationToken({
       CRAWLER_GENERATION_TOKEN: '7-3',
       GITHUB_RUN_ID: '33585044260',
@@ -66,7 +66,7 @@ describe('crawler generation token fallback', () => {
       CRAWLER_GENERATION_TOKEN: 'not-a-token',
       GITHUB_RUN_ID: '33585044260',
       GITHUB_RUN_ATTEMPT: '1',
-    })).toBe('not-a-token');
+    })).toBeNull();
   });
 
   it('returns null when neither the input nor the run coordinates yield a token', () => {
