@@ -1,23 +1,24 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-09-08T13:56:06.129Z",
-  "total": 14,
+  "generatedAt": "2026-09-08T23:40:09.202Z",
+  "total": 12,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
-  "written": 14,
+  "written": 12,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 83779,
-  "avgDurationMs": 83779,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 2,
+  "unchangedCount": 2,
+  "durationMs": 81659,
+  "avgDurationMs": 81659,
   "durationHistory": [
-    83779
+    81659
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "heineken-ch-5cf60b489116",
       "jobReqId": "162775",
@@ -45,12 +46,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162775&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:54:51.407Z",
-      "_qualityScore": 67,
+      "crawledAt": "2026-09-08T23:38:53.074Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-08T13:54:51.407Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -81,17 +84,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162606&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:54:58.498Z",
-      "_qualityScore": 67,
+      "crawledAt": "2026-09-08T23:39:00.776Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-08T13:54:58.498Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "heineken-ch-0006bff573d9",
       "jobReqId": "164826",
@@ -119,7 +122,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:08.083Z",
+      "crawledAt": "2026-09-08T23:39:08.701Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -156,7 +160,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164842&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:14.903Z",
+      "crawledAt": "2026-09-08T23:39:16.702Z",
       "firstSeenAt": "2026-09-07T23:43:28.153Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -193,7 +197,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:22.234Z",
+      "crawledAt": "2026-09-08T23:39:24.678Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -230,7 +235,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:29.779Z",
+      "crawledAt": "2026-09-08T23:39:32.622Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:46:55.443Z",
       "_qualityScore": 88,
@@ -268,7 +273,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:39.911Z",
+      "crawledAt": "2026-09-08T23:39:40.824Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T10:08:51.921Z",
       "_qualityScore": 82,
@@ -306,7 +311,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164096&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:47.411Z",
+      "crawledAt": "2026-09-08T23:39:49.406Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:19:28.979Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -343,7 +349,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:55:53.727Z",
+      "crawledAt": "2026-09-08T23:39:57.155Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T11:54:58.821Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -380,7 +387,8 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:56:01.623Z",
+      "crawledAt": "2026-09-08T23:40:04.640Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -391,8 +399,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
@@ -437,6 +444,50 @@
       }
     },
     {
+      "id": "heineken-ch-b178feb93410",
+      "jobReqId": "153028",
+      "slug": "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern",
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "MitarbeiterIn Brauereiführungen (10% auf Abruf)",
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Produzione",
+      "sector": "Industria / Alimentare",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/mitarbeiterin-brauereifuhrungen-10-auf-abruf?jobid=153028",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T15:23:01.441Z",
+      "firstSeenAt": "2026-05-13T11:12:58.806Z",
+      "salaryMin": 7200,
+      "salaryMax": 9700,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
       "id": "heineken-ch-e2b43be893a0",
       "jobReqId": "158627",
       "slug": "servizio-clienti-agente-heineken-switzerland-luzern",
@@ -469,7 +520,8 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -509,48 +561,6 @@
       "firstSeenAt": "2026-05-13T11:12:28.078Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "heineken-ch-b178feb93410",
-      "jobReqId": "153028",
-      "slug": "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "MitarbeiterIn Brauereiführungen (10% auf Abruf)",
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Luzern, LU",
-      "category": "Produzione",
-      "sector": "Industria / Alimentare",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/mitarbeiterin-brauereifuhrungen-10-auf-abruf?jobid=153028",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T15:23:01.441Z",
-      "firstSeenAt": "2026-05-13T11:12:58.806Z",
-      "salaryMin": 7200,
-      "salaryMax": 9700,
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
