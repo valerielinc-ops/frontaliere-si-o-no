@@ -409,8 +409,9 @@ export function slugifyComune(value) {
  * that a date already disambiguates.
  */
 export function slugifyEvent(event) {
-  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), EVENT_SLUG_MAX_LENGTH).replace(/-+$/, '');
   const datePart = String(event?.startDate || '').slice(0, 10);
+  const titleBudget = Math.max(1, EVENT_SLUG_MAX_LENGTH - (datePart ? datePart.length + 1 : 0));
+  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), titleBudget).replace(/-+$/, '');
   const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
   return base || `evento-${normalizeSlug(event?.id || 'senza-data')}`;
 }

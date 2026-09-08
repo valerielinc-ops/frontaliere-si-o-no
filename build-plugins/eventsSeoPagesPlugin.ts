@@ -4009,8 +4009,6 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         });
         cantonStats.push({ canton, eventCount: events.length, comuneCount: byComune.size });
       }
-      for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);
-
       // Recently-ended events (issue #3646, F4 "indexability": noindex,follow
       // on events that already took place). `upcomingEvents` drops a past
       // event outright — without this pass the URL just 404s on the next
@@ -4076,6 +4074,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           }
         }
       }
+      for (const migration of liveSlugMigrations) for (const locale of LOCALES) emitSlugRedirect(locale, migration);
 
       // Swiss-wide index hub (issue #3645, F3) — one per locale, always
       // emitted alongside the per-canton hubs above: the `all.length === 0`

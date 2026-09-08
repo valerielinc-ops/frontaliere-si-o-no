@@ -5,7 +5,7 @@
  * and the router recognising the 2-segment detail URL.
  */
 import { describe, it, expect } from 'vitest';
-import { mkdtempSync } from 'node:fs';
+import { mkdtempSync, readFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { slugifyEvent, OTHER_EVENTS_COMUNE_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
@@ -973,6 +973,12 @@ describe('events schema data quality (#3508)', () => {
 });
 
 describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => {
+  it('registers past canonical paths before emitting live slug bridges', () => {
+    const source = readFileSync(path.join(__dirname, '../build-plugins/eventsSeoPagesPlugin.ts'), 'utf8');
+    expect(source.indexOf('for (const migration of liveSlugMigrations)'))
+      .toBeGreaterThan(source.indexOf('for (const [canton, events] of pastEventsByCanton)'));
+  });
+
   it('deduplicates bridge writes by locale and source path, not redirect target', () => {
     const fromPath = '/eventi/ticino/lugano/old-slug/';
     const keys = ['/eventi/ticino/lugano/live-slug/', '/eventi/ticino/lugano/past-slug/']
@@ -1007,6 +1013,17 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     const slugs = assignEventSlugs(events as never);
     expect(slugs.get('tio-agenda:long-b')!.length).toBeLessThanOrEqual(EVENT_SLUG_MAX_LENGTH);
     expect(new Set(slugs.values()).size).toBe(2);
+  });
+
+  it('keeps a primary slug within the budget after appending its date', () => {
+    const event = {
+      ...EVENT,
+      id: 'tio-agenda:long-primary',
+      title: 'Una manifestazione straordinaria con un programma molto ricco e dettagliato',
+      startDate: '2026-08-01',
+    };
+    const slug = assignEventSlugs([event] as never).get(event.id)!;
+    expect(slug.length).toBeLessThanOrEqual(EVENT_SLUG_MAX_LENGTH);
   });
 
   it('the -N tie-breaker never lands on the reserved page-N ladder shape (issue #7743)', () => {
