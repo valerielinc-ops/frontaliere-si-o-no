@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-09-07T23:46:49.394Z",
+  "generatedAt": "2026-09-08T13:58:29.642Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 3187,
-  "avgDurationMs": 3187,
+  "unchangedCount": 7,
+  "durationMs": 4280,
+  "avgDurationMs": 4280,
   "durationHistory": [
-    3187
+    4280
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "category": "finance",
       "sector": "Pharma & Biotech",
       "source": "debiopharm-dedicated-crawler",
-      "sourceLang": "fr",
+      "sourceLang": "en",
       "postedDate": "2026-07-22",
       "validThrough": "",
       "benefits": [
@@ -51,7 +51,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -95,55 +94,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "T2608 - Personalised Medicine Intern (12-months assignment)",
-      "slug": "t2608-personalised-medicine-tirocinante-12-months-assignment-debiopharm-lausanne",
-      "url": "https://apply.workable.com/debiopharm/j/717B7C1897/",
-      "applyUrl": "https://apply.workable.com/debiopharm/j/717B7C1897/apply/",
-      "company": "Debiopharm",
-      "companyKey": "debiopharm",
-      "companyDomain": "debiopharm.com",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Pharma & Biotech",
-      "source": "debiopharm-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-29",
-      "validThrough": "",
-      "benefits": [
-        "Being part of a company where innovation, collaboration, and impact aren’t just values — they’re how we work every day",
-        "Partner with teams across disciplines, at the forefront of oncology and anti-infective development",
-        "An inclusive and respectful workplace — proud to be Equal-Pay certified",
-        "Grow in a culture that values people, purpose, and performance",
-        "A chance to grow, share, and shape the future of healthcare"
-      ],
-      "id": "debiopharm-9a279e86b4a6",
-      "salaryMin": 51000,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-10T22:17:27.323Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -183,7 +137,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -228,7 +181,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -266,7 +218,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -305,7 +256,6 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -355,45 +305,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "P2608 - Head of Biostatistics & Data Management",
-      "slug": "p2608-responsabile-biostatistics-data-management-debiopharm-lausanne",
-      "url": "https://apply.workable.com/debiopharm/j/40722BE5DC/",
-      "applyUrl": "https://apply.workable.com/debiopharm/j/40722BE5DC/apply/",
-      "company": "Debiopharm",
-      "companyKey": "debiopharm",
-      "companyDomain": "debiopharm.com",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Pharma & Biotech",
-      "source": "debiopharm-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-07",
-      "validThrough": "",
-      "benefits": [],
-      "id": "debiopharm-2ce4447adc1a",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "1003",
-      "firstSeenAt": "2026-05-19T19:56:19.283Z",
-      "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
