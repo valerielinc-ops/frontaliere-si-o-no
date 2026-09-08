@@ -2658,7 +2658,7 @@ export function runDrain() {
           continue;
         }
         if (!unparkLabelEnsured) {
-          ensureLabel(LBL_UNPARKED, '0e8a16', 'Ri-accodata dal drainer: era parked senza alcun verdetto del fixer');
+          ensureLabel(LBL_UNPARKED, '0e8a16', 'Ri-accodata dal drainer: era parked per un addebito falso (nessun verdetto, oppure una consegna letta come run morta)');
           unparkLabelEnsured = true;
         }
         try {
@@ -2671,7 +2671,11 @@ export function runDrain() {
           add: [LBL_QUEUED, LBL_UNPARKED],
           remove: [LBL_PARKED, ...names(iss).filter((n) => /^fu-attempt:\d+$/.test(n))],
         });
-        console.log(`UNPARK #${iss.number} (parked senza verdetto) → ${LBL_QUEUED} — "${iss.title?.slice(0, 50)}"`);
+        // La ragione va nel log di PRODUZIONE, non solo nel `--dry-run`: questa
+        // riga e' l'unica traccia con cui si audita il drenaggio a posteriori, e
+        // su un pool misto attribuirebbe la causa sbagliata a ogni unpark
+        // `pr-created`. Stessa ternaria del ramo DRY, di proposito.
+        console.log(`UNPARK #${iss.number} (${deliveredParked ? 'aveva consegnato' : 'parked senza verdetto'}) → ${LBL_QUEUED} — "${iss.title?.slice(0, 50)}"`);
         continue;
       }
 
