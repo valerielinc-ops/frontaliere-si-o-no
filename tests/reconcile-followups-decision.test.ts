@@ -7,6 +7,8 @@
  * deterministically-resolved follow-up flips to flag vs auto-close vs held, including
  * the human-objection and multi-item-aggregate safety vetoes.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import { isAggregateTitle, decideReconcileAction, isStrongAutoCloseEvidence } from '../scripts/ci/reconcile-followups.mjs';
 
@@ -38,9 +40,11 @@ describe('isStrongAutoCloseEvidence — weak single tokens never auto-close', ()
   it('≥2 distinct matched tokens → strong', () => {
     expect(isStrongAutoCloseEvidence(['meta.model', 'CDN_BASE()'])).toBe(true);
   });
-  it('single RICH token (≥2 punctuation = real expression) → strong', () => {
-    expect(isStrongAutoCloseEvidence(['displayCount = page === 1 ? a : b'])).toBe(true);
-    expect(isStrongAutoCloseEvidence(['foo(bar).baz'])).toBe(true); // ( ) . → 3 punct
+  it('single RICH token is still insufficient for auto-close (#1085)', () => {
+    // Un solo token può essere lo status quo che la Suggested action chiede di
+    // cambiare. La conferma a due livelli non deve trasformarlo in una chiusura.
+    expect(isStrongAutoCloseEvidence(['displayCount = page === 1 ? a : b'])).toBe(false);
+    expect(isStrongAutoCloseEvidence(['foo(bar).baz'])).toBe(false); // ( ) . → 3 punct
   });
   it('single weak token (≤1 punctuation: bare dot-member / single op) → NOT strong (held for human)', () => {
     expect(isStrongAutoCloseEvidence(['meta.model'])).toBe(false); // 1 dot
@@ -94,5 +98,16 @@ describe('decideReconcileAction — two-tier, double-confirm-across-time', () =>
   it('weak evidence never auto-closes: first seen → flag, already flagged → held (none)', () => {
     expect(decideReconcileAction({ ...base, strongEvidence: false })).toBe('flag');
     expect(decideReconcileAction({ ...base, strongEvidence: false, hasPriorFlag: true, hasMaybeResolved: true })).toBe('none');
+  });
+
+  it('un fallimento nella lettura dei commenti è input sconosciuto, non una prima segnalazione (#1078)', () => {
+    expect(decideReconcileAction({ ...base, hasPriorFlag: null })).toBe('none');
+  });
+
+  it('un fallimento nei commenti non salta l’intera issue nel ciclo CLI (#1078)', () => {
+    const source = fs.readFileSync(path.resolve(process.cwd(), 'scripts/ci/reconcile-followups.mjs'), 'utf8');
+    const guard = source.match(/const hasPriorFlag = alreadyCommented\(iss\.number\);([\s\S]*?)const strongEvidence/);
+    expect(guard?.[1]).toContain('hasPriorFlag === null');
+    expect(guard?.[1]).not.toContain('continue;');
   });
 });

@@ -92,26 +92,18 @@ export function isAggregateTitle(title = '') {
   return /\b(?:sweep|batch|bulk)\b/i.test(t);
 }
 
-/** Count of code-punctuation marks in a token (specificity proxy). */
-function punctCount(t) {
-  return (String(t).match(/[(){}[\]'"`.:;=<>+\-*/!&|?]/g) || []).length;
-}
-
 /**
  * Evidence strong enough to AUTO-CLOSE (vs merely flag). A single common dot-member like
  * `meta.model` matches in countless unrelated files → too coincidental to close on. Require
- * either MULTIPLE distinct prescribed tokens all present, OR a single RICH token (an actual
- * expression carrying ≥2 punctuation marks, e.g. `displayCount = page === 1 ? a : b` or
- * `window.__CDN_DATA_BASE__`), never a bare 1-dot member. Weak-but-resolved stays flagged
- * for a human (never silently closed).
+ * MULTIPLE distinct prescribed tokens all present. A single token, even if it looks like a
+ * rich expression, can be the status quo that the follow-up asks to change. Weak-but-resolved
+ * stays flagged for a human (never silently closed).
  * @param {string[]} matchedTokens tokens that were found verbatim in a cited file
  * @returns {boolean}
  */
 export function isStrongAutoCloseEvidence(matchedTokens) {
   const uniq = [...new Set((matchedTokens || []).map((t) => String(t)))];
-  if (uniq.length >= 2) return true;
-  if (uniq.length === 1) return punctCount(uniq[0]) >= 2;
-  return false;
+  return uniq.length >= 2;
 }
 
 /**
@@ -157,17 +149,19 @@ export function aggregateCloseGate(body, io) {
  *   - eligible + strong + flagged-before + still labelled   → 'close' (second confirmation)
  *   - resolved but not close-eligible, already flagged      → 'none'  (held, no dup comment)
  *   - resolved but not close-eligible, first seen           → 'flag'  (grace / explain)
+ *   - comment history unreadable (`hasPriorFlag === null`)  → 'none'  (unknown, no action)
  *
  * Close-eligible = single-item, unblocked, auto-close on, AND strong evidence. `hasPriorFlag`
  * = THIS bot already left its advisory comment on a prior run; auto-close requires BOTH that
  * prior flag AND the `maybe-resolved` label still present (two confirmations across time +
  * an un-rescinded grace window). Removing the label after a flag = human objection → quiet.
- * @param {{resolved:boolean, hasMaybeResolved:boolean, hasPriorFlag:boolean,
+ * @param {{resolved:boolean, hasMaybeResolved:boolean, hasPriorFlag:boolean|null,
  *          isAggregate:boolean, blocked:boolean, noAutoclose?:boolean, strongEvidence?:boolean}} s
  * @returns {'close'|'flag'|'none'}
  */
 export function decideReconcileAction({ resolved, hasMaybeResolved, hasPriorFlag, isAggregate, blocked, noAutoclose, strongEvidence }) {
   if (!resolved) return 'none';
+  if (hasPriorFlag === null) return 'none';
   if (hasPriorFlag && !hasMaybeResolved) return 'none'; // label rescinded after our flag = objection
   const closeEligible = !noAutoclose && !blocked && !isAggregate && !!strongEvidence;
   if (closeEligible && hasPriorFlag && hasMaybeResolved) return 'close'; // second confirmation
@@ -200,11 +194,11 @@ const diskIo = {
 
 function alreadyCommented(number) {
   const out = gh(['issue', 'view', String(number), ...repoArgs, '--json', 'comments'], { allowFail: true });
-  if (!out) return false;
+  if (!out) return null;
   try {
     return JSON.parse(out).comments.some((c) => (c.body || '').includes(MARKER));
   } catch {
-    return false;
+    return null;
   }
 }
 
@@ -262,6 +256,9 @@ function main() {
       : { blocks: false, reason: null };
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
+    if (hasPriorFlag === null) {
+      console.log(`::warning::reconcile-followups: impossibile leggere i commenti di #${iss.number}; flag/chiusura non determinabili, issue lasciata nel ciclo`);
+    }
     const strongEvidence = isStrongAutoCloseEvidence(evidence.map((e) => e.tok));
     const action = decideReconcileAction({
       resolved, hasMaybeResolved, hasPriorFlag, isAggregate, blocked, noAutoclose: NO_AUTOCLOSE, strongEvidence,
