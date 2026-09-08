@@ -280,6 +280,7 @@ export function createGroupTerminalManifest(input) {
   const reasons = Array.isArray(input.additionalReasons)
     ? input.additionalReasons.filter((reason) => GROUP_REASON_SET.has(reason))
     : [];
+  if (!isCrawlerGenerationToken(input.generationToken)) reasons.push('generation_token_missing');
   const expectedCrawlerIds = Array.isArray(input.expectedCrawlerIds) ? [...input.expectedCrawlerIds] : [];
   if (!crawlerIdsAreValid(expectedCrawlerIds) || !primarySlicesAreValid(input.expectedPrimarySlices, expectedCrawlerIds)) {
     reasons.push('invalid_expected_roster');
@@ -399,7 +400,7 @@ export function validateGroupTerminalManifest(manifest) {
   const errors = [];
   if (manifest.schemaVersion !== 1) errors.push('unsupported_schema_version');
   if (!GROUP_ID_SET.has(manifest.group)) errors.push('invalid_group');
-  if (manifest.generationToken !== null && !isCrawlerGenerationToken(manifest.generationToken)) errors.push('invalid_generation_token');
+  if (!isCrawlerGenerationToken(manifest.generationToken)) errors.push('invalid_generation_token');
   if (!REPOSITORY_RE.test(manifest.callerRepository ?? '')) errors.push('invalid_caller_repository');
   if (!validRunId(manifest.callerRunId)) errors.push('invalid_caller_run_id');
   if (!Number.isInteger(manifest.callerRunAttempt) || manifest.callerRunAttempt < 1) errors.push('invalid_caller_run_attempt');

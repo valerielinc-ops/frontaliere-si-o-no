@@ -30,6 +30,11 @@ const hash = `sha256:${'0'.repeat(64)}`;
 function jobFrom(text: string) {
   return Object.values(YAML.parse(text).jobs)[0] as any;
 }
+function stepByName(steps: any[], name: string) {
+  const matches = steps.filter((step) => step?.name === name);
+  expect(matches, `${name}: expected exactly one step`).toHaveLength(1);
+  return matches[0];
+}
 
 function benchmarkReceipt(crawlerId: string, primarySlice: string) {
   const blobOid = 'c'.repeat(40);
@@ -184,11 +189,10 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
       expect(background.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(job.steps.at(-4)).toEqual({
-        name: 'Wait for all crawlers in this group',
-        'wait-all': true,
+      expect(stepByName(job.steps, 'Wait for all crawlers in this group')).toEqual({
+        name: 'Wait for all crawlers in this group', 'wait-all': true,
       });
-      expect(job.steps.at(-3)).toEqual({
+      expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
         if: 'always()',
         run: [
@@ -203,14 +207,22 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           'exit "$git_commit_exit"',
         ].join('\n'),
       });
-      expect(job.steps.at(-2).env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
-      expect(JSON.parse(job.steps.at(-2).env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
+      const finalizer = stepByName(job.steps, 'Finalize crawler generation manifest (shadow)');
+      expect(finalizer.id).toBe('crawler-generation-finalizer');
+      expect(finalizer.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
+      expect(finalizer.env.CRAWLER_GENERATION_LEDGER_PATH).toBe('data/crawler-generation-ledger.jsonl');
+      expect(finalizer.env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
+      expect(JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
         results.generationRoster.groups[group].map((crawlerId: string) => ({
           crawlerId,
           primarySlice: results.generationRoster.primarySlices[crawlerId],
         })),
       );
-      expect(job.steps.at(-1)).toMatchObject({
+      const persist = stepByName(job.steps, 'Persist crawler generation ledger');
+      expect(persist.if).toBe('always()');
+      expect(persist.run).toContain('--extra-only');
+      expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
+      expect(stepByName(job.steps, 'Upload crawler generation manifest (shadow)')).toMatchObject({
         uses: 'actions/upload-artifact@v7',
         with: { overwrite: true, 'retention-days': 14 },
       });
@@ -219,13 +231,13 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const portable = YAML.parse(portableText);
       expect(portable['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(portable.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: false, default: '', type: 'string' });
+        .toMatchObject({ required: true, type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       // #7083 invariant, restated as an equality instead of a blanket ban on
       // `github.run_*`: producers and finalizer must read ONE value, so the
       // terminal step env may only repeat the job-level expression verbatim.
-      expect(jobFrom(logic).steps.at(-2).env.CRAWLER_GENERATION_TOKEN)
+      expect(stepByName(jobFrom(logic).steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
         .toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
