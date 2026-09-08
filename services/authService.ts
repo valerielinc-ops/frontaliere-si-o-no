@@ -1335,7 +1335,6 @@ export async function initOneTap(): Promise<boolean> {
 async function persistOneTapSubscriber(user: { email?: string | null; displayName?: string | null }): Promise<void> {
  const rawEmail = user?.email?.toLowerCase().trim();
  if (!rawEmail || !rawEmail.includes('@')) return;
- if (typeof window !== 'undefined' && window.localStorage?.getItem('newsletter_subscribed') === 'true') return;
  try {
  const [{ getFirestore }, { getApp }, newsletterModule] = await Promise.all([
  resilientImport(() => import('firebase/firestore'), (m) => typeof m.getFirestore === 'function'),
@@ -1345,6 +1344,12 @@ async function persistOneTapSubscriber(user: { email?: string | null; displayNam
  const db = getFirestore(await getApp());
  const normalizedEmail = newsletterModule.normalizeNewsletterEmail(rawEmail);
  if (!normalizedEmail) return;
+ const hasLocalSubscriptionFlag = typeof window !== 'undefined'
+ && window.localStorage?.getItem('newsletter_subscribed') === 'true';
+ if (
+ hasLocalSubscriptionFlag
+ && !(await newsletterModule.isNewsletterAccountDeleted(db, normalizedEmail))
+ ) return;
  // Third sibling of the auto-subscribe-on-sign-in guard (App.tsx and
  // hooks/useUserState.ts are the other two): the localStorage flag above is
  // not a guard, because the unsubscribe handler clears it. One Tap signs the

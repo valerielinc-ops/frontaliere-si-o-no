@@ -1,4 +1,5 @@
 import admin from 'firebase-admin';
+import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
 
 /**
  * Hard-vs-soft bounce classification — shared by every newsletter*WebhookCore.js.
@@ -132,6 +133,12 @@ export async function maybeEscalateSoftBounce(subscriberRef, reason) {
   return subscriberRef.firestore.runTransaction(async (tx) => {
     const snap = await tx.get(subscriberRef);
     const data = snap.data() || {};
+
+    // Account deletion is a lifecycle boundary. A delayed soft-bounce event
+    // must not recreate a suppression or overwrite the state of a new
+    // registration while the deletion tombstone is still present.
+    if (isAccountDeletedTombstone(data)) return false;
+
     const count = Number(data.soft_bounce_count) || 0;
 
     if (data.status === 'bounced') {
