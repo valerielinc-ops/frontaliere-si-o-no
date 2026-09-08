@@ -11601,6 +11601,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-premi-cassa-malati-2027.title': 'Prämienerhöhung Krankenkasse: +5% im Jahr 2027',
     'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prognostiziert für 2027 eine durchschnittliche Teuerung von fast 5%, gegenüber 4,4% im Jahr 2026. Einige Versicherte haben Spitzenwerte von bis zu 20 % zu verkraften. Praktisch stabiles Tessin.',
     'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Arztpraxis im Kanton Tessin mit Krankenversicherung und Prämienrechner',
+    'blog.article.cassa-malati-rincari-2027.title': 'Krankenkassenprämien: +5% im Jahr 2027',
+    'blog.article.cassa-malati-rincari-2027.excerpt': 'Gemäss bonus.ch werden die KVG-Prämien im Jahr 2027 um fast 5% steigen, mit Spitzenwerten von bis zu 20%. Direkte Auswirkungen auf die Gehaltsabrechnung der Grenzgänger.',
+    'blog.article.cassa-malati-rincari-2027.imageAlt': 'Krankenkassenversicherungsdokumente und digitaler Prämienkalkulator',
 };
 
 export default blogMetaDe;
