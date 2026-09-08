@@ -34,6 +34,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  vi.restoreAllMocks();
   delete process.env.GH_REPO;
 });
 
@@ -54,7 +55,7 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     { message: 'The job running on runner ubuntu-latest has exceeded the maximum execution time of 45 minutes.' },
   ];
 
-  const mockGh = () => {
+  const mockGh = (annotationPayload: unknown = [ANNOTATIONS]) => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const path = args[1];
@@ -62,9 +63,9 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         // Il primo check-run risponde con l'oggetto d'errore, non con la lista.
         if (path === 'https://api.github.com/repos/o/r/check-runs/1/annotations') {
-          return JSON.stringify({ message: 'Not Found', documentation_url: 'https://docs.github.com/rest' });
+          return JSON.stringify([{ message: 'Not Found', documentation_url: 'https://docs.github.com/rest' }]);
         }
-        if (path.endsWith('/annotations')) return JSON.stringify(ANNOTATIONS);
+        if (path.endsWith('/annotations')) return JSON.stringify(annotationPayload);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
@@ -87,8 +88,32 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     expect(body).toContain('exceeded the maximum execution time');
   });
 
+  it.each([
+    ['title', [[{ title: 'The job has exceeded the maximum execution time of 45 minutes.' }]]],
+    ['raw_details', [[{ raw_details: 'The job has exceeded the maximum execution time of 45 minutes.' }]]],
+  ])('trova il timeout anche nel campo %s', async (_field, annotationPayload) => {
+    mockGh(annotationPayload);
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    expect(callsFor('create')).toHaveLength(1);
+  });
+
+  it('paga tutte le pagine delle annotazioni e trova il match nella pagina successiva', async () => {
+    mockGh([[], ANNOTATIONS]);
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    expect(callsFor('create')).toHaveLength(1);
+    const annotationCall = ghCalls().find((args) => args[0] === 'api' && args[1].endsWith('/annotations'));
+    expect(annotationCall).toEqual(expect.arrayContaining(['--paginate', '--slurp']));
+  });
+
   it('una lettura non-array vale come «nessuna prova», non come timeout', async () => {
     mockGh();
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
     await main();
@@ -98,5 +123,6 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     // viene dichiarato in timeout. `lighthouse` sì, ed è un prefisso di
     // `lighthouse-probe`, quindi il controllo va fatto sul nome intero.
     expect(body).not.toContain('lighthouse-probe');
+    expect(warning).toHaveBeenCalledWith(expect.stringContaining('lighthouse-probe'));
   });
 });

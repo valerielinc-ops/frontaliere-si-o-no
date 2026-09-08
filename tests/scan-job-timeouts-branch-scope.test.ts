@@ -84,7 +84,7 @@ describe('scan-job-timeouts end-to-end — a PR-branch timeout does not land on 
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [PR_RUN] });
         if (path.includes(`actions/runs/${PR_RUN.id}/jobs`)) return JSON.stringify({ jobs: [JOB] });
-        if (path.endsWith('/annotations')) return JSON.stringify(ANNOTATIONS);
+        if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
