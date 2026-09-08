@@ -303,7 +303,7 @@ for (const wt of worktrees) {
       });
       continue;
     }
-    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / blocco gitnexus), PR ${state}.`);
+    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron), PR ${state}.`);
     removeWt.push(wt);
   } else if (wt.detached) {
     reportWt.push({ ...wt, reason: 'detached HEAD, nessuna PR — probabile abbandono (rimuovi a mano se confermi)' });
@@ -317,7 +317,7 @@ for (const wt of worktrees) {
     // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
     const gone = wt.branch && upstreamGone(wt.branch) ? ' upstream-GONE (remoto cancellato — probabile merged/closed altrove, es. worktree Codex)' : '';
-    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron/gitnexus)` : '';
+    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron)` : '';
     reportWt.push({ ...wt, reason: `clean=${!dirty}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone} — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
   }
 }

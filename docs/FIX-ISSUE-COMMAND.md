@@ -6,7 +6,7 @@ Estratto da `ISSUES.md` → "Appendice A" per non far entrare ~3,1 KB in ogni se
 
 ````markdown
 ---
-description: Fix a GitHub issue locally with human supervision (worktree-first, GitNexus impact). For strategic/high-risk issues the CI fixer shouldn't auto-handle.
+description: Fix a GitHub issue locally with human supervision (worktree-first). For strategic/high-risk issues the CI fixer shouldn't auto-handle.
 argument-hint: <issue-number>
 allowed-tools: Bash(gh:*), Bash(git:*), Bash(npm:*), Bash(node:*), Read, Grep, Glob, Edit, Write
 ---
@@ -35,11 +35,11 @@ Companion locale di `issue-fix.yml` (CI). Usalo per issue HIGH-risk dove vuoi co
 
 ## Flow
 1. `git worktree add .claude/worktrees/fix-issue-$ARGUMENTS origin/main -b fix/issue-$ARGUMENTS`.
-2. GitNexus impact PRIMA di editare function/class/method. HIGH/CRITICAL → fermati e avvisa.
-3. Diagnosi root cause (non sintomo). `gitnexus_query` non grep cieco.
+2. Mappa i chiamanti (`grep -rn`, anche nell'altro repo) PRIMA di editare function/class/method. Fan-out ampio o contratto condiviso → fermati e avvisa.
+3. Diagnosi root cause (non sintomo): traccia il flusso fino alla causa, non fermarti al primo match.
 4. Fix chirurgico: no drive-by, no speculative abstraction. Mai abbassare gate, mai disabilitare Auto Ads.
 5. STOP — mostra il diff e attendi approvazione umana prima di commit/push.
-6. Dopo OK: `gitnexus_detect_changes()`, poi commit (identity `Valerie Linc <valerielinc@gmail.com>`, no path home, no email personali).
+6. Dopo OK: `git diff --stat` di controllo sul diff finale, poi commit (identity `Valerie Linc <valerielinc@gmail.com>`, no path home, no email personali).
 7. Push + `gh pr create`. Body `## Implementato` + `## Non implementato (ancora)`.
    - **Riga di chiusura — NON scriverla a mano.** Calcolala: `gh issue view $ARGUMENTS --json number,title,body,labels | node scripts/lib/pr-body-generator-contract.mjs --closing-ref`. Stampa `Closes #N` oppure `Addresses #N`: `Addresses` quando la issue è una follow-up **aggregata multi-item**, su cui `pr-body-contract.yml` fallisce ogni `Closes` (la PR nasce rossa — successo reale #5848 e #5862) perché al merge chiuderebbe un'aggregata con item ancora dovuti.
    - **Ogni bullet di `## Non implementato (ancora)` vuole uno STATO LETTERALE**, scritto esattamente così (AGENTS.md #8; `out of scope` / `follow-up` / `posposto` sono la tassonomia ABOLITA): `in questa PR` · `PR concatenata #N` (col numero) · `per scelta` · `by construction` · `blocked: <causa esterna reale>`. Senza stato, `scripts/ci/followup-has-candidates.mjs` riapre il bullet come issue di follow-up nuova — anche se il lavoro è già chiuso. E `blocked:` non è monolitico: `blocked: decisione del proprietario` chiude la voce, ogni altra causa la lascia aperta e la fa riaccodare. Non dare uno stato chiudente a ciò che stai solo rimandando (esce dalla coda e il ciclo lo perde), né `blocked: <causa tecnica>` a ciò che è chiuso per decisione (rientra a ogni ciclo, per sempre).

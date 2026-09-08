@@ -156,7 +156,17 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     //   Enforcement of its logic is not deferred — the recognizer is pinned
     //   per-rule, on the real incident data, in tests/job-content-plausibility.test.ts,
     //   which runs on every PR.
+    // - `audit:expired-at-parsable` (issue #7736) reads the expired archive in the
+    //   SOURCE tree — `data/jobs/expired/by-crawler/*.json`, `data/expired-jobs.json`,
+    //   `public/data/expired-jobs.json` — and never walks dist/, so a dist-walking
+    //   block has nothing to hand it. Same shape as `audit:slug-prompt-leaks`, and
+    //   like it the enforcement is not deferred: tests/expired-at-parsable.test.ts
+    //   both SPAWNS this very script and asserts its exit codes, and sweeps the
+    //   committed archive against the same `isParsableExpiredAt` predicate — the
+    //   population a dist gate could never see, since the archive is an input to
+    //   the build, not an output of it. The npm alias is the operator-facing form.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
+      'audit:expired-at-parsable',
       'audit:job-content-plausibility',
       'audit:title-uniqueness',
       'audit:dist-multi',
