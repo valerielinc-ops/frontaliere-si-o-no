@@ -93,6 +93,28 @@ describe('article slug registry parser', () => {
     expect(parsed['lavoro-forzato-catene-svizzere'].en).toBe('forced-labour-swiss-supply-chains');
   });
 
+  it('does not require locale properties in generator order or on one line', () => {
+    const src = [
+      'export const SWISS_SLUGS = {',
+      "  'ordine-permutato': {",
+      "    fr: 'slug-fr',",
+      "    it: 'slug-it',",
+      "    en: 'slug-en',",
+      "    de: 'slug-de',",
+      '  },',
+      '};',
+    ].join('\n');
+
+    expect(parseSlugRegistry(src, 'SWISS_SLUGS')).toEqual({
+      'ordine-permutato': {
+        it: 'slug-it',
+        en: 'slug-en',
+        de: 'slug-de',
+        fr: 'slug-fr',
+      },
+    });
+  });
+
   it('parses the real registries to a plausible size, so the guard is never blind', () => {
     for (const [section, { file, constName }] of Object.entries(ARTICLE_REGISTRY_FILES)) {
       const src = fs.readFileSync(path.join(ROOT, file), 'utf-8');

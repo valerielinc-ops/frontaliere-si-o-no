@@ -57,6 +57,7 @@ import {
   parseArticleRedirects,
   readHardcodedRedirects,
 } from '../build-plugins/shared/articleRedirects.mjs';
+import { parseSlugRegistry } from './lib/article-slug-registry.mjs';
 import { resolveGitAddPath, resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
@@ -388,21 +389,11 @@ function removeFromSeoService(articleId) {
 const SITEMAP_FILE_BY_SECTION = { frontaliere: 'public/sitemap-blog.xml', svizzera: 'public/sitemap-blog-ch.xml' };
 
 // Parses a `const <slugConst>: Record<string, Record<Locale,string>> = { ... }`
-// slug map out of `slugDataFile` (same shape/regex as
-// check-blog-slugs-sitemap-sync.mjs's parseSlugsConst — single source of the
-// parsing convention would require exporting it from a shared module; kept
-// local here to avoid widening that script's surface for these 2 callers).
+// slug map out of `slugDataFile`, using the shared parser also used by the
+// corpus-removal and sitemap-sync guards.
 // Returns `{ [articleId]: { it, en, de, fr } }`.
 function parseSectionSlugs(slugDataFile, slugConst) {
-  const src = read(slugDataFile);
-  const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
-  const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
-  const slugs = {};
-  let m;
-  while ((m = rx.exec(block)) !== null) {
-    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
-  }
-  return slugs;
+  return parseSlugRegistry(read(slugDataFile), slugConst);
 }
 
 // Finds which section's registry contains `articleId` (an id lives in

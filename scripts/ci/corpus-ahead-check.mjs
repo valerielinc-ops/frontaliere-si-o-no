@@ -146,6 +146,15 @@ export const SITE_REBASELINE_ONLY_STATES = ['both-moved-converged'];
 /** Una riga che richiede davvero una DECISIONE in questo repo. */
 export const needsDecisionHere = (r) => r.actionable && !SITE_REBASELINE_ONLY_STATES.includes(r.state);
 
+/** Results that make a strict comparison unsafe to accept. */
+export function strictFailureResults(results) {
+  return results.filter((result) => result.state === 'check-failed' || needsDecisionHere(result));
+}
+
+export function strictExitCode(results, strict) {
+  return strict && strictFailureResults(results).length ? 1 : 0;
+}
+
 /**
  * L'issue di questo lato e' il ricevitore delle DECISIONI che spettano a questo
  * repo: aprirla — o commentarla, che e' cio' che fa il creator sulla dedup del
@@ -668,7 +677,7 @@ async function main() {
 
   // I convergenti non rendono rosso `--strict`: non c'e' niente da decidere qui,
   // e la baseline si riallinea sul corpus.
-  return STRICT && decisions.length ? 1 : 0;
+  return strictExitCode(results, STRICT);
 }
 
 // `import.meta.main` non esiste su Node 20; il confronto sul path e' la forma
