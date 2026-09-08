@@ -243,7 +243,7 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     };
     const baseline = {
       ...BASELINE,
-      posthog: { ...BASELINE.posthog, source: 'posthog' },
+      posthogGa4: { ...BASELINE.posthog, source: 'posthog' },
     };
 
     const rows = buildComparisonRows(current, baseline);
@@ -254,6 +254,23 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
       delta: null,
       deltaPct: null,
     });
+  });
+
+  it('usa un baseline GA4 della stessa sorgente per confrontare il fallback', () => {
+    const current = {
+      adsense: null,
+      gsc: null,
+      posthog: { clsP75Mobile: 0.62, clsP75Desktop: 0.2, source: 'ga4-fallback' },
+    };
+    const baseline = {
+      ...BASELINE,
+      posthogGa4: { clsP75Mobile: 0.5, clsP75Desktop: 0.17, source: 'ga4-fallback' },
+    };
+
+    const rows = buildComparisonRows(current, baseline);
+    const clsMobile = rows.find((r: any) => r.metric === 'CLS p75 mobile');
+
+    expect(clsMobile!.verdict).toBe('🔴 regressed hard');
   });
 
   it('nulls out sections whose source data is missing', () => {

@@ -461,11 +461,18 @@ export function compare(current, baseline, { higherIsBetter = true, warnThreshol
   return { delta, deltaPct, verdict };
 }
 
-function compareWithSource(current, baseline, currentSource, baselineSource, options) {
-  if ((currentSource ?? null) !== (baselineSource ?? null)) {
+function compareWithSource(current, baseline, options) {
+  if (!baseline) {
+    return { delta: null, deltaPct: null, verdict: '⚪ source baseline unavailable' };
+  }
+  if ((current.source ?? null) !== (baseline.source ?? null)) {
     return { delta: null, deltaPct: null, verdict: '⚪ source mismatch' };
   }
-  return compare(current, baseline, options);
+  return compare(current.value, baseline.value, options);
+}
+
+function selectPosthogBaseline(posthog, baseline) {
+  return posthog.source === 'ga4-fallback' ? baseline.posthogGa4 ?? null : baseline.posthog;
 }
 
 export function buildComparisonRows(current, baseline = BASELINE) {
@@ -524,8 +531,9 @@ export function buildComparisonRows(current, baseline = BASELINE) {
 
   if (posthog) {
     // Lower is better for CLS.
-    rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compareWithSource(posthog.clsP75Mobile, b.posthog.clsP75Mobile, posthog.source, b.posthog.source, { higherIsBetter: false }) });
-    rows.push({ metric: 'CLS p75 desktop', baseline: b.posthog.clsP75Desktop, current: posthog.clsP75Desktop, ...compareWithSource(posthog.clsP75Desktop, b.posthog.clsP75Desktop, posthog.source, b.posthog.source, { higherIsBetter: false }) });
+    const posthogBaseline = selectPosthogBaseline(posthog, b);
+    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
   } else {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
@@ -679,6 +687,21 @@ export function buildHistoryEntry(current, rows, dateStr) {
   };
 }
 
+function loadLatestPosthogBaseline(file, source) {
+  if (!existsSync(file)) return null;
+  let latest = null;
+  for (const line of readFileSync(file, 'utf8').split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      const entry = JSON.parse(line);
+      if (entry.posthog?.source === source) latest = entry.posthog;
+    } catch {
+      // A malformed historical line must not prevent the monitor from running.
+    }
+  }
+  return latest;
+}
+
 // ── Main ────────────────────────────────────────────────────
 async function main() {
   const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, posthog: null, publisher: null, errors: [], warnings: [] };
@@ -753,8 +776,10 @@ async function main() {
     log('⚠️', `PostHog failed: ${e.message}`);
   }
 
-  const rows = buildComparisonRows(current);
-  const payload = { generatedAt: new Date().toISOString(), baseline: BASELINE, current, rows };
+  const ga4Baseline = loadLatestPosthogBaseline(HISTORY_FILE, 'ga4-fallback');
+  const comparisonBaseline = ga4Baseline ? { ...BASELINE, posthogGa4: ga4Baseline } : BASELINE;
+  const rows = buildComparisonRows(current, comparisonBaseline);
+  const payload = { generatedAt: new Date().toISOString(), baseline: comparisonBaseline, current, rows };
 
   if (flags.json) {
     process.stdout.write(JSON.stringify(payload, null, 2) + '\n');
