@@ -25,6 +25,9 @@
 import type fsT from 'node:fs';
 import type npT from 'node:path';
 import type { ArticleLocale as HubLocale } from '../siteShell';
+// @ts-ignore The site symlink can make tsc resolve this shared source from
+// build-plugins/shared, where the root-relative import appears outside the repo;
+// Node/Vite resolve the realpath correctly at runtime.
 import { parseSlugRegistry } from '../../../../scripts/lib/article-slug-registry.mjs';
 
 /**
