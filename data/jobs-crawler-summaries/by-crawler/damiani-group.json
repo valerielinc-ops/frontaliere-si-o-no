@@ -1,33 +1,33 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-08T13:39:01.560Z",
-  "total": 9,
+  "generatedAt": "2026-09-08T23:23:17.778Z",
+  "total": 10,
   "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6370,
-  "avgDurationMs": 6370,
+  "unchangedCount": 1,
+  "durationMs": 6457,
+  "avgDurationMs": 6457,
   "durationHistory": [
-    6370
+    6457
   ],
   "newJobs": [
     {
-      "title": "Legal Senior Specialist",
-      "slug": "legal-senior-specialist-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Legal-Senior-Specialist/1367555455/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1367555455/?locale=en_US",
+      "title": "Sales Advisor - Salvini Gioielli - Manor",
+      "slug": "sales-advisor-salvini-gioielli-manor-damiani-group-lugano",
+      "url": "https://careers.damianigroup.com/job/Lugano-Sales-Advisor-Salvini-Gioielli-Manor/1367607755/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1367607755/?locale=en_US",
       "company": "Damiani Group",
       "companyKey": "damiani-group",
       "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "other",
+      "category": "sales",
       "sector": "Lusso & Gioielleria",
       "source": "damiani-dedicated-crawler",
       "sourceLang": "it",
@@ -35,10 +35,10 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-09-08",
-      "_qualityScore": 73,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 10,
         "completeness": 14
       }
@@ -351,5 +351,44 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Legal Senior Specialist",
+      "slug": "legal-senior-specialist-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Legal-Senior-Specialist/1367555455/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1367555455/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-08",
+      "id": "damiani-group-855284947b4a",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-09-08T13:38:59.607Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ]
 }

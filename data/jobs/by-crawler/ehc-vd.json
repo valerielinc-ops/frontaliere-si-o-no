@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ehc-vd",
-  "assembledAt": "2026-09-08T13:38:55.905Z",
+  "assembledAt": "2026-09-08T23:23:08.269Z",
   "jobs": [
     {
       "id": "ehc-vd-442b64f7073a",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-centre-medicauxpermanences",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.270Z",
+      "crawledAt": "2026-09-08T23:22:57.507Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-bloc-operatoire-anesthesieambulances",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.269Z",
+      "crawledAt": "2026-09-08T23:22:57.506Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -225,7 +225,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-soins-hospitaliers",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.268Z",
+      "crawledAt": "2026-09-08T23:22:57.505Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -285,97 +285,6 @@
       }
     },
     {
-      "id": "ehc-vd-44f5f7435eb8",
-      "slug": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "slugByLocale": {
-        "it": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "spontaneous-offer-administration-hospitality-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "spontane-offerte-verwaltung-gastronomie-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fr": "offre-spontanee-intendance-hotellerie-ehc-vd-morges"
-      },
-      "company": "Ensemble hospitalier de la Côte (EHC)",
-      "companyKey": "ehc-vd",
-      "companyDomain": "ehc-vd.ch",
-      "title": "Offre spontanée - Intendance/Hôtellerie",
-      "titleByLocale": {
-        "it": "Offerta Spontanea - Intendenza/Azienda Alberghiera",
-        "en": "Spontaneous Offer - Administration/Hospitality",
-        "de": "Spontane Offerte - Verwaltung/Gastronomie",
-        "fr": "Offre spontanée - Intendance/Hôtellerie"
-      },
-      "description": "Offre spontanée - Intendance/Hôtellerie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-      "descriptionByLocale": {
-        "it": "Offerta Spontanea - Intendenza/Azienda Alberghiera a 10-100% Vi invitiamo a presentare la vostra candidatura nel seguente formato: - Innanzitutto, vi ringraziamo per l'interesse che portate alla nostra istituzione. - Qui, potete trasmettere il vostro dossier come offerta spontanea. In questo modo, quando un bisogno verrà identificato all'interno della nostra istituzione, il nostro servizio di reclutamento potrebbe essere portato a posizionare la vostra candidatura su un posto aperto che corrisponde al vostro profilo. - Nel caso in cui nessun posto si liberasse e che non riceveste alcuna risposta da parte nostra entro un periodo di 3 a 6 mesi, vi preghiamo di considerare che, purtroppo, la vostra candidatura non è stata selezionata. - Vi consigliamo di consultare regolarmente il nostro sito Carriera, al fine di prendere conoscenza delle nostre offerte di lavoro alle quali potete anche candidarvi. In effetti, le candidature depositate sui posti disponibili sono quelle che trattiamo in priorità, al fine di coprire le postazioni vacanti all'interno della nostra istituzione. - Il servizio di reclutamento rimane naturalmente a vostra disposizione per qualsiasi informazione complementare. Chi Siamo - Siamo un'istituzione comprensiva di strutture di cura a breve termine e di riabilitazione, di una clinica privata, di EMS, di centri medici e di presenze diffuse nella regione della Côte, nonché la prima scuola di ipnosi clinica dedicata al mondo dei servizi in Svizzera romanda. - Siamo un rete di cura che permette di numerose opportunità di mutazione interna secondo le aspirazioni e i progetti di sviluppo dei collaboratori. - Siamo un'azienda formatrice impegnata nella formazione della prossima generazione, contando circa 80 apprendisti in 16 mestieri diversi, 200 stagisti HES-ES e circa 300 medici in formazione. Cosa\n• Offriamo - Più di 2000 collaboratori che si prendono cura dei pazienti e dei residenti della regione, condividendo valori di Responsabilità, Prossimità, Humanità, Competenza, in un ambiente agile che favorisce la realizzazione dei progetti. Contatto - Cliccate su Postulate aggiungendo i seguenti documenti: - CV - Lettera di motivazione - Certificati di lavoro (necessari per l'elaborazione del calcolo del salario) - Diplomi - Se la vostra candidatura viene selezionata, l'estrazione del vostro casellario giudiziario vi sarà richiesta.",
-        "en": "Spontaneous Offer - Administration/Hospitality at 10-100% We invite you to submit your application in the following format: - Firstly, we would like to thank you for your interest in our institution. - Here, you can transmit your file as a spontaneous offer. In this way, when a need is identified within our institution, our recruitment service may be led to position your application on an open position that corresponds to your profile. - In the case where no position becomes available and you do not receive any response from us within a period of 3 to 6 months, please consider that unfortunately, your application has not been selected. - We recommend that you regularly consult our Career website, in order to take knowledge of our job offers to which you can also apply. In fact, the applications deposited on the available positions are those that we treat in priority, in order to cover the vacant positions within our institution. - Our recruitment service remains naturally at your disposal for any additional information. Who We Are - We are an institution comprising acute care and rehabilitation facilities, a private clinic, EMS, medical centers and presences spread throughout the La Côte region, as well as the first clinical hypnosis school dedicated to the healthcare world in the Swiss Romand region. - We are a care network that allows for numerous opportunities for internal mobility according to the aspirations and development projects of the collaborators. - We are a training company committed to training the next generation, with approximately 80 apprentices in 16 different trades, 200 HES-ES interns and nearly 300 doctors in training. What We Offer - Over 2000 collaborators taking care of patients and residents in the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment that promotes project realization. Contact - Click on Apply by adding the following documents: - CV - Motivation letter - Work certificates (necessary for the calculation of salary) - Diplomas - If your application is selected, your criminal record extract will be requested.",
-        "de": "Spontane Offerte - Verwaltung/Gastronomie bei 10-100% Wir laden Sie ein, Ihre Bewerbung im folgenden Format einzureichen: - Zunächst möchten wir Ihnen für Ihr Interesse an unserer Institution danken. - Hier können Sie Ihr Dossier als spontane Offerte übermitteln. In diesem Fall könnte unser Personalwesen Ihre Bewerbung auf einen offenen Posten positionieren, der Ihrem Profil entspricht. - Im Falle, dass kein Posten frei wird und Sie innerhalb eines Zeitraums von 3 bis 6 Monaten keine Antwort von uns erhalten, bitten wir Sie, zu berücksichtigen, dass leider Ihre Bewerbung nicht ausgewählt wurde. - Wir empfehlen Ihnen, unseren Career-Website regelmäßig zu besuchen, um sich über unsere Stellenangebote zu informieren, auf die Sie sich auch bewerben können. Tatsächlich werden die Bewerbungen, die auf die verfügbaren Posten eingereicht werden, in der Priorität behandelt, um die vakanten Posten innerhalb unserer Institution zu besetzen. - Unsere Personalabteilung bleibt Ihnen natürlich zur Verfügung für weitere Informationen. Wer Wir Sind - Wir sind eine Institution, die aus Kliniken für akute Behandlung und Rehabilitation, einer Privatklinik, EMS, medizinischen Zentren und Präsenzen in der Region La Côte besteht, sowie die erste klinische Hypnose-Schule, die sich dem Gesundheitswesen in der Schweiz-Romandregion widmet. - Wir sind ein Netzwerk der Pflege, das es ermöglicht, zahlreiche Möglichkeiten für interne Mobilität nach den Aspirationen und Entwicklungsvorhaben der Mitarbeiter zu nutzen. - Wir sind eine Ausbildungsunternehmen, das sich der Ausbildung der nächsten Generation widmet, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Praktikanten und fast 300 Ärzten in Ausbildung. Was Wir Bieten - Über 2000 Mitarbeiter, die sich um die Patienten und Bewohner in der Region kümmern, Werte von Verantwortung, Nähe, Menschlichkeit, Kompetenz, in einem agilen Umfeld, das die Realisierung von Projekten fördert. Kontakt - Klicken Sie auf Bewerben und fügen Sie die folgenden Dokumente hinzu: - CV - Motivationsbrief - Arbeitszeugnisse (notwendig für die Ermittlung des Gehalts) - Diplome - Wenn Ihre Bewerbung ausgewählt wird, wird Ihr Führungszeugnis angefordert.",
-        "fr": "Offre spontanée - Intendance/Hôtellerie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
-      },
-      "needsRetranslation": true,
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-intendancehotellerie",
-      "source": "EHC Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.267Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1110",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-02-16",
-      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-intendancehotellerie",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Lettera di motivazione",
-          "Certificati di lavoro",
-          "Casellario giudiziario"
-        ],
-        "en": [
-          "Motivation letter",
-          "Work certificates",
-          "Diplomas",
-          "Criminal record extract"
-        ],
-        "de": [
-          "Motivationsbrief",
-          "Arbeitszeugnisse",
-          "Führungszeugnis"
-        ]
-      },
-      "previousSlugs": [
-        "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
-        "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
-          "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:50.980Z",
-      "salaryMin": 65500,
-      "salaryMax": 82500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65500,
-          "maxValue": 82500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ehc-vd-61089c075b1f",
       "slug": "offerta-spontanea-tecnica-infrastruttura-acquisto-e-approvv-it-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
@@ -407,7 +316,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-techniqueinfrastructureachat-et-approit",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.267Z",
+      "crawledAt": "2026-09-08T23:22:57.504Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -477,6 +386,97 @@
       }
     },
     {
+      "id": "ehc-vd-44f5f7435eb8",
+      "slug": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slugByLocale": {
+        "it": "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "spontaneous-offer-administration-hospitality-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "spontane-offerte-verwaltung-gastronomie-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fr": "offre-spontanee-intendance-hotellerie-ehc-vd-morges"
+      },
+      "company": "Ensemble hospitalier de la Côte (EHC)",
+      "companyKey": "ehc-vd",
+      "companyDomain": "ehc-vd.ch",
+      "title": "Offre spontanée - Intendance/Hôtellerie",
+      "titleByLocale": {
+        "it": "Offerta Spontanea - Intendenza/Azienda Alberghiera",
+        "en": "Spontaneous Offer - Administration/Hospitality",
+        "de": "Spontane Offerte - Verwaltung/Gastronomie",
+        "fr": "Offre spontanée - Intendance/Hôtellerie"
+      },
+      "description": "Offre spontanée - Intendance/Hôtellerie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+      "descriptionByLocale": {
+        "it": "Offerta Spontanea - Intendenza/Azienda Alberghiera a 10-100% Vi invitiamo a presentare la vostra candidatura nel seguente formato: - Innanzitutto, vi ringraziamo per l'interesse che portate alla nostra istituzione. - Qui, potete trasmettere il vostro dossier come offerta spontanea. In questo modo, quando un bisogno verrà identificato all'interno della nostra istituzione, il nostro servizio di reclutamento potrebbe essere portato a posizionare la vostra candidatura su un posto aperto che corrisponde al vostro profilo. - Nel caso in cui nessun posto si liberasse e che non riceveste alcuna risposta da parte nostra entro un periodo di 3 a 6 mesi, vi preghiamo di considerare che, purtroppo, la vostra candidatura non è stata selezionata. - Vi consigliamo di consultare regolarmente il nostro sito Carriera, al fine di prendere conoscenza delle nostre offerte di lavoro alle quali potete anche candidarvi. In effetti, le candidature depositate sui posti disponibili sono quelle che trattiamo in priorità, al fine di coprire le postazioni vacanti all'interno della nostra istituzione. - Il servizio di reclutamento rimane naturalmente a vostra disposizione per qualsiasi informazione complementare. Chi Siamo - Siamo un'istituzione comprensiva di strutture di cura a breve termine e di riabilitazione, di una clinica privata, di EMS, di centri medici e di presenze diffuse nella regione della Côte, nonché la prima scuola di ipnosi clinica dedicata al mondo dei servizi in Svizzera romanda. - Siamo un rete di cura che permette di numerose opportunità di mutazione interna secondo le aspirazioni e i progetti di sviluppo dei collaboratori. - Siamo un'azienda formatrice impegnata nella formazione della prossima generazione, contando circa 80 apprendisti in 16 mestieri diversi, 200 stagisti HES-ES e circa 300 medici in formazione. Cosa\n• Offriamo - Più di 2000 collaboratori che si prendono cura dei pazienti e dei residenti della regione, condividendo valori di Responsabilità, Prossimità, Humanità, Competenza, in un ambiente agile che favorisce la realizzazione dei progetti. Contatto - Cliccate su Postulate aggiungendo i seguenti documenti: - CV - Lettera di motivazione - Certificati di lavoro (necessari per l'elaborazione del calcolo del salario) - Diplomi - Se la vostra candidatura viene selezionata, l'estrazione del vostro casellario giudiziario vi sarà richiesta.",
+        "en": "Spontaneous Offer - Administration/Hospitality at 10-100% We invite you to submit your application in the following format: - Firstly, we would like to thank you for your interest in our institution. - Here, you can transmit your file as a spontaneous offer. In this way, when a need is identified within our institution, our recruitment service may be led to position your application on an open position that corresponds to your profile. - In the case where no position becomes available and you do not receive any response from us within a period of 3 to 6 months, please consider that unfortunately, your application has not been selected. - We recommend that you regularly consult our Career website, in order to take knowledge of our job offers to which you can also apply. In fact, the applications deposited on the available positions are those that we treat in priority, in order to cover the vacant positions within our institution. - Our recruitment service remains naturally at your disposal for any additional information. Who We Are - We are an institution comprising acute care and rehabilitation facilities, a private clinic, EMS, medical centers and presences spread throughout the La Côte region, as well as the first clinical hypnosis school dedicated to the healthcare world in the Swiss Romand region. - We are a care network that allows for numerous opportunities for internal mobility according to the aspirations and development projects of the collaborators. - We are a training company committed to training the next generation, with approximately 80 apprentices in 16 different trades, 200 HES-ES interns and nearly 300 doctors in training. What We Offer - Over 2000 collaborators taking care of patients and residents in the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment that promotes project realization. Contact - Click on Apply by adding the following documents: - CV - Motivation letter - Work certificates (necessary for the calculation of salary) - Diplomas - If your application is selected, your criminal record extract will be requested.",
+        "de": "Spontane Offerte - Verwaltung/Gastronomie bei 10-100% Wir laden Sie ein, Ihre Bewerbung im folgenden Format einzureichen: - Zunächst möchten wir Ihnen für Ihr Interesse an unserer Institution danken. - Hier können Sie Ihr Dossier als spontane Offerte übermitteln. In diesem Fall könnte unser Personalwesen Ihre Bewerbung auf einen offenen Posten positionieren, der Ihrem Profil entspricht. - Im Falle, dass kein Posten frei wird und Sie innerhalb eines Zeitraums von 3 bis 6 Monaten keine Antwort von uns erhalten, bitten wir Sie, zu berücksichtigen, dass leider Ihre Bewerbung nicht ausgewählt wurde. - Wir empfehlen Ihnen, unseren Career-Website regelmäßig zu besuchen, um sich über unsere Stellenangebote zu informieren, auf die Sie sich auch bewerben können. Tatsächlich werden die Bewerbungen, die auf die verfügbaren Posten eingereicht werden, in der Priorität behandelt, um die vakanten Posten innerhalb unserer Institution zu besetzen. - Unsere Personalabteilung bleibt Ihnen natürlich zur Verfügung für weitere Informationen. Wer Wir Sind - Wir sind eine Institution, die aus Kliniken für akute Behandlung und Rehabilitation, einer Privatklinik, EMS, medizinischen Zentren und Präsenzen in der Region La Côte besteht, sowie die erste klinische Hypnose-Schule, die sich dem Gesundheitswesen in der Schweiz-Romandregion widmet. - Wir sind ein Netzwerk der Pflege, das es ermöglicht, zahlreiche Möglichkeiten für interne Mobilität nach den Aspirationen und Entwicklungsvorhaben der Mitarbeiter zu nutzen. - Wir sind eine Ausbildungsunternehmen, das sich der Ausbildung der nächsten Generation widmet, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Praktikanten und fast 300 Ärzten in Ausbildung. Was Wir Bieten - Über 2000 Mitarbeiter, die sich um die Patienten und Bewohner in der Region kümmern, Werte von Verantwortung, Nähe, Menschlichkeit, Kompetenz, in einem agilen Umfeld, das die Realisierung von Projekten fördert. Kontakt - Klicken Sie auf Bewerben und fügen Sie die folgenden Dokumente hinzu: - CV - Motivationsbrief - Arbeitszeugnisse (notwendig für die Ermittlung des Gehalts) - Diplome - Wenn Ihre Bewerbung ausgewählt wird, wird Ihr Führungszeugnis angefordert.",
+        "fr": "Offre spontanée - Intendance/Hôtellerie à 10-100%\n\nNous vous invitons à déposer votre candidature sous le format suivant :\n\nTout d'abord nous tenons à vous remercier de l'intérêt que vous portez à notre institution.\n\nIci, vous pouvez nous transmettre votre dossier en tant qu'offre spontanée. Ainsi, lorsqu’un besoin sera identifié au sein de notre institution, notre service recrutement pourrait être amené à positionner votre candidature sur un poste ouvert correspondant à votre profil.\n\nDans le cas où aucun poste ne se libérerait et que vous ne receviez aucune réponse de notre part dans un délai de 3 à 6 mois, veuillez considérer que malheureusement, votre candidature n’a pas été retenue.\n\nNous vous recommandons de consulter régulièrement notre site Carrière, afin de prendre connaissance de nos offres d'emplois auxquelles vous pouvez également postuler. En effet, les candidatures déposées sur les postes à pourvoir sont celles que nous traitons en priorité, afin de pourvoir les places vacantes au sein de notre institution.\n\nLe service recrutement reste naturellement à votre disposition pour toute information complémentaire.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
+      },
+      "needsRetranslation": true,
+      "location": "Morges",
+      "canton": "VD",
+      "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-intendancehotellerie",
+      "source": "EHC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T23:22:57.503Z",
+      "addressLocality": "Morges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1110",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-02-16",
+      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-intendancehotellerie",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Lettera di motivazione",
+          "Certificati di lavoro",
+          "Casellario giudiziario"
+        ],
+        "en": [
+          "Motivation letter",
+          "Work certificates",
+          "Diplomas",
+          "Criminal record extract"
+        ],
+        "de": [
+          "Motivationsbrief",
+          "Arbeitszeugnisse",
+          "Führungszeugnis"
+        ]
+      },
+      "previousSlugs": [
+        "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
+        "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "offre-spontanee-intendance-hotellerie-ehc-vd-morges",
+          "offerta-spontanea-intendenza-azienda-alberghiera-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:50.980Z",
+      "salaryMin": 65500,
+      "salaryMax": 82500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ehc-vd-08f51228b355",
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
@@ -508,7 +508,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-physiotherapieergotherapie",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.265Z",
+      "crawledAt": "2026-09-08T23:22:57.501Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-medecinmedecin-en-formation",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.264Z",
+      "crawledAt": "2026-09-08T23:22:57.500Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -680,7 +680,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-pharmacie",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.263Z",
+      "crawledAt": "2026-09-08T23:22:57.499Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -754,7 +754,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-soins-et-hebergement-ems-catanimation",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.262Z",
+      "crawledAt": "2026-09-08T23:22:57.498Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -782,80 +782,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.974Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ehc-vd-a82715d515f7",
-      "slug": "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
-      "slugByLocale": {
-        "it": "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "psychiatrist-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "psychiater-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fr": "psychiatre-ehc-vd-morges"
-      },
-      "company": "Ensemble hospitalier de la Côte (EHC)",
-      "companyKey": "ehc-vd",
-      "companyDomain": "ehc-vd.ch",
-      "title": "Psychiatre",
-      "titleByLocale": {
-        "it": "Psichiatra",
-        "en": "Psychiatrist",
-        "de": "Psychiater",
-        "fr": "Psychiatre"
-      },
-      "description": "Plus d’une dizaine de centres médicaux EHC longent la côte. Ces centres proposent des consultations de médecins généralistes et spécialistes dans des espaces modernes et lumineux.\n\n•\n\n• Hôpital de Morges 1320 personnes\n\n• Hôpital de Gilly 65 personnes\n\n• Hôpital d’Aubonne 140 personnes\n\n• Centres médicaux (tout confondu) 150 personnes\n\n• Permanences 58 personnes\n\n• EMS 250 personnes\n\n• CSU 40 personnes\n\n• PIC 40 personnes\n\nNous recherchons pour Morges pour nos Centres médicaux un(e) :\n\nPsychiatre à 50-100%\n\nNOUS VOUS OFFRONS\n\n• Une équipe de formateurs, professeurs et médecins hautement qualifiés, assurant un encadrement et un développement professionnel de qualité.\n\n• La renommée de l’hôpital et de ses médecins, offrant un cadre de travail valorisant et reconnu.\n\n• 5 jours par année de « congé formation » ainsi que 1'000 CHF de frais de formation remboursés sur 12 mois d’activité.\n\n• Plus de 20 disciplines reconnues « centre de formation ».\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d’une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Des activités sportives (Pilates, courses à pied, réductions auprès de divers centres tels que plusieurs fitness ou les Bains de Lavey), des événements destinés aux enfants de collaborateur-trice-s, une buvette d’entreprise pour partager des moments de convivialité lors des beaux jours.\n\n• Une rémunération basée sur la valorisation de vos années d’expériences professionnelles précédentes ainsi que des primes liées à l’ancienneté au sein de l’EHC.\n\n• Mutation à l’interne facilitée selon vos envies de développement.\n\nVOUS POSSÉDEZ\n\n• Un titre de Médecin, spécialisé en psychiatrie, reconnu par la MEBEKO.\n\n• La capacité à travailler en équipe interdisciplinaire.\n\n• Un esprit d'initiative, d'organisation et de collégialité.\n\n• Une facilité dans les relations humaines.\n\n• Un enthousiasme dans le maintien, le développement et l'enseignement des connaissances de son domaine.\n\nVOS OBJECTIFS\n\n• Assurer la prise en charge médicale des patients.\n\n• Assurer de manière collégiale le bon fonctionnement du Centre médical.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1 ère école d’hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice comptant environ 70 apprentis dans 13 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes (reconnaissances MEBEKO).",
-      "descriptionByLocale": {
-        "it": "# Descrizione L'EHC gestisce più di una decina di centri medici lungo la costa. Questi centri offrono consultazioni con medici generali e specialisti in spazi moderni e luminosi. ## Struttura dell'ospedale - Ospedale di Morges: 1320 persone - Ospedale di Gilly: 65 persone - Ospedale di Aubonne: 140 persone - Centri medici (in totale): 150 persone - Permanenze: 58 persone - EMS: 250 persone - CSU: 40 persone - PIC: 40 persone ## Offerta Cercasi per Morges per i nostri centri medici un/una: - Psichiatra a tempo pieno o part-time (50-100%) ###\n• Cosa offriamo - Un'équipe di formatori, professori e medici altamente qualificati, che garantiscono un'adeguata formazione e sviluppo professionale. - La reputazione dell'ospedale e dei suoi medici, che offre un contesto di lavoro stimolante e riconosciuto. - 5 giorni all'anno di \"congedo formazione\" e 1'000 CHF di spese di formazione rimborsati in 12 mesi di attività. - Più di 20 discipline riconosciute \"centro di formazione\". - 5 settimane di ferie annuali, 6 settimane a partire dai 50 anni. Possibilità di acquistare una settimana di ferie aggiuntiva e 10 giorni di ferie offerti. - Diversi suggerimenti per offrire flessibilità (ferie non retribuite, part-time, tempo di cambio retribuito, ecc.). - Attività sportive (Pilates, corsa, sconti in diversi centri come diversi fitness o i Bagni di Lavey), eventi per i figli dei collaboratori, una mensa aziendale per condividere momenti di convivialità durante le belle giornate. - Una retribuzione basata sull'esperienza professionale precedente e sulle gratifiche per l'anzianità all'interno dell'EHC. - Facilità di trasferimento interno secondo le proprie aspirazioni di sviluppo. ##\n• Requisiti ### Cosa possiedi - Un titolo di Medico, specializzato in psichiatria, riconosciuto dalla MEBEKO. - La capacità di lavorare in un'équipe interdisciplinare. - Un spirito d'iniziativa, di organizzazione e di collegialità. - Una facilità nelle relazioni interpersonali. - Un'entusiasmo nel mantenere, sviluppare e insegnare le conoscenze del proprio settore. ## Obiettivi ### Cosa ti aspettiamo di fare - Garantire la cura medica dei pazienti. - Garantire in modo collaborativo il corretto funzionamento del centro medico. ## Chi siamo ### La nostra struttura - Un'istituzione che comprende stabilimenti di cura acuti e riabilitazione, una clinica privata, EMS, centri medici e permanenze distribuiti nella regione della Costa, nonché la prima scuola di ipnosi clinica dedicata all'ambiente dei",
-        "en": "Description The EHC manages more than a dozen medical centers along the coast. These centers offer consultations with general practitioners and specialists in modern and bright spaces. Hospital Structure - Morges Hospital: 1320 people - Gilly Hospital: 65 people - Aubonne Hospital: 140 people - Medical centers (in total): 150 people - Residences: 58 people - EMS: 250 people - CSU: 40 people - PIC: 40 people Offer We are looking for a full-time or part-time (50-100%) psychiatrist for our medical centers in Morges:\n• What we offer - A team of trainers, professors, and highly qualified doctors who ensure adequate training and professional development. - The reputation of the hospital and its doctors, which offers a stimulating and recognized work environment. - 5 days of \"training leave\" per year and 1,000 CHF of training expenses refunded over 12 months of activity. - More than 20 recognized \"training centers\" disciplines. - 5 weeks of annual leave, 6 weeks from the age of 50. Possibility to buy an additional week of leave and 10 days of leave offered. - Various suggestions to offer flexibility (unpaid leave, part-time, paid time off, etc.). - Sports activities (Pilates, running, discounts in various centers such as various fitness or Lavey Baths), events for the children of employees, a company canteen to share convivial moments during the beautiful days. - A salary based on previous professional experience and bonuses for seniority within the EHC. - Facilities for internal transfer according to one's own development aspirations.\n• Requirements What you have - A medical degree, specialized in psychiatry, recognized by MEBEKO. - The ability to work in an interdisciplinary team. - An initiative, organization, and collegiality spirit. - Ease in interpersonal relationships. - Enthusiasm in maintaining, developing, and teaching the knowledge of one's field. Objectives What we expect you to do - Ensure the medical care of patients. - Collaboratively ensure the proper functioning of the medical center. Who we are Our structure - An institution that includes acute care and rehabilitation facilities, a private clinic, EMS, medical centers, and residences distributed in the region of the Coast, as well as the first clinical hypnosis school dedicated to the environment of",
-        "de": "Beschreibung Das EHC verwaltet mehr als ein Dutzend medizinische Zentren an der Küste. Diese Zentren bieten Konsultationen mit Allgemeinärzten und Fachärzten in modernen und hellen Räumen. Krankenhausstruktur - Morges-Krankenhaus: 1320 Personen - Gilly-Krankenhaus: 65 Personen - Aubonne-Krankenhaus: 140 Personen - Medizinische Zentren (insgesamt): 150 Personen - Wohnheime: 58 Personen - EMS: 250 Personen - CSU: 40 Personen - PIC: 40 Personen Angebot Wir suchen einen Voll- oder Teilzeit-Psychiater (50-100%) für unsere medizinischen Zentren in Morges:\n• Was wir bieten - Ein Team aus Trainern, Professoren und hochqualifizierten Ärzten, das eine angemessene Ausbildung und berufliche Entwicklung garantiert. - Der Ruf des Krankenhauses und seiner Ärzte, der eine anregende und anerkannte Arbeitsumgebung bietet. - 5 Tage \"Ausbildungskrankheit\" pro Jahr und 1.000 CHF Ausbildungskosten, die innerhalb von 12 Monaten Tätigkeit erstattet werden. - Mehr als 20 anerkannte \"Ausbildungszentren\"-Disziplinen. - 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Urlaubswoche zu kaufen und 10 Urlaubstage angeboten. - Verschiedene Vorschläge, um Flexibilität zu bieten (unbezahlter Urlaub, Teilzeit, bezahlte Freizeit, etc.). - Sportaktivitäten (Pilates, Laufen, Rabatte in verschiedenen Zentren wie verschiedene Fitnessstudios oder Lavey-Bäder), Veranstaltungen für die Kinder der Mitarbeiter, eine Kantine für gemeinsame conviviale Momente während der schönen Tage. - Ein Gehalt, das auf die vorherige berufliche Erfahrung und Bonuszahlungen für die Seniorität innerhalb des EHC basiert. - Erleichterungen für den internen Transfer entsprechend den eigenen Entwicklungsaspirationen.\n• Anforderungen Was Sie haben - Ein Medizinerdiplom, spezialisiert auf Psychiatrie, anerkannt von MEBEKO. - Die Fähigkeit, in einem interdisziplinären Team zu arbeiten. - Ein Initiativ-, Organisations- und Kollegialitätsspirit. - Eine Leichtigkeit in den zwischenmenschlichen Beziehungen. - Enthusiasmus bei der Aufrechterhaltung, Entwicklung und Lehre der Kenntnisse des eigenen Fachgebiets. Ziele Was wir von Ihnen erwarten - Die medizinische Versorgung der Patienten sicherzustellen. - Zusammenwirkend die einwandfreie Funktion des medizinischen Zentrums sicherzustellen. Wer wir sind Unsere Struktur - Eine Institution, die Akutversorgungs- und Rehabilitationseinrichtungen, eine Privatklinik, EMS, medizinische Zentren und Wohnheime umfasst, die in der Region der Küste sowie die erste klinische Hypnose-Schule, die der Umgebung gewidmet ist, verteilt sind.",
-        "fr": "Plus d’une dizaine de centres médicaux EHC longent la côte. Ces centres proposent des consultations de médecins généralistes et spécialistes dans des espaces modernes et lumineux.\n\n•\n\n• Hôpital de Morges 1320 personnes\n\n• Hôpital de Gilly 65 personnes\n\n• Hôpital d’Aubonne 140 personnes\n\n• Centres médicaux (tout confondu) 150 personnes\n\n• Permanences 58 personnes\n\n• EMS 250 personnes\n\n• CSU 40 personnes\n\n• PIC 40 personnes\n\nNous recherchons pour Morges pour nos Centres médicaux un(e) :\n\nPsychiatre à 50-100%\n\nNOUS VOUS OFFRONS\n\n• Une équipe de formateurs, professeurs et médecins hautement qualifiés, assurant un encadrement et un développement professionnel de qualité.\n\n• La renommée de l’hôpital et de ses médecins, offrant un cadre de travail valorisant et reconnu.\n\n• 5 jours par année de « congé formation » ainsi que 1'000 CHF de frais de formation remboursés sur 12 mois d’activité.\n\n• Plus de 20 disciplines reconnues « centre de formation ».\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d’une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Des activités sportives (Pilates, courses à pied, réductions auprès de divers centres tels que plusieurs fitness ou les Bains de Lavey), des événements destinés aux enfants de collaborateur-trice-s, une buvette d’entreprise pour partager des moments de convivialité lors des beaux jours.\n\n• Une rémunération basée sur la valorisation de vos années d’expériences professionnelles précédentes ainsi que des primes liées à l’ancienneté au sein de l’EHC.\n\n• Mutation à l’interne facilitée selon vos envies de développement.\n\nVOUS POSSÉDEZ\n\n• Un titre de Médecin, spécialisé en psychiatrie, reconnu par la MEBEKO.\n\n• La capacité à travailler en équipe interdisciplinaire.\n\n• Un esprit d'initiative, d'organisation et de collégialité.\n\n• Une facilité dans les relations humaines.\n\n• Un enthousiasme dans le maintien, le développement et l'enseignement des connaissances de son domaine.\n\nVOS OBJECTIFS\n\n• Assurer la prise en charge médicale des patients.\n\n• Assurer de manière collégiale le bon fonctionnement du Centre médical.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1 ère école d’hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice comptant environ 70 apprentis dans 13 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes (reconnaissances MEBEKO)."
-      },
-      "needsRetranslation": true,
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://emploi.ehc-vd.ch/nos-offres/psychiatre",
-      "source": "EHC Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.261Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-14",
-      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/psychiatre",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "psychiatre-ehc-vd-morges",
-        "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "psychiatre-ehc-vd-morges",
-          "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:50.957Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -902,7 +828,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/offre-spontanee-administrationsecretariat-medical",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.261Z",
+      "crawledAt": "2026-09-08T23:22:57.497Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -945,6 +871,80 @@
       }
     },
     {
+      "id": "ehc-vd-a82715d515f7",
+      "slug": "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slugByLocale": {
+        "it": "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "psychiatrist-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "psychiater-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fr": "psychiatre-ehc-vd-morges"
+      },
+      "company": "Ensemble hospitalier de la Côte (EHC)",
+      "companyKey": "ehc-vd",
+      "companyDomain": "ehc-vd.ch",
+      "title": "Psychiatre",
+      "titleByLocale": {
+        "it": "Psichiatra",
+        "en": "Psychiatrist",
+        "de": "Psychiater",
+        "fr": "Psychiatre"
+      },
+      "description": "Plus d’une dizaine de centres médicaux EHC longent la côte. Ces centres proposent des consultations de médecins généralistes et spécialistes dans des espaces modernes et lumineux.\n\n•\n\n• Hôpital de Morges 1320 personnes\n\n• Hôpital de Gilly 65 personnes\n\n• Hôpital d’Aubonne 140 personnes\n\n• Centres médicaux (tout confondu) 150 personnes\n\n• Permanences 58 personnes\n\n• EMS 250 personnes\n\n• CSU 40 personnes\n\n• PIC 40 personnes\n\nNous recherchons pour Morges pour nos Centres médicaux un(e) :\n\nPsychiatre à 50-100%\n\nNOUS VOUS OFFRONS\n\n• Une équipe de formateurs, professeurs et médecins hautement qualifiés, assurant un encadrement et un développement professionnel de qualité.\n\n• La renommée de l’hôpital et de ses médecins, offrant un cadre de travail valorisant et reconnu.\n\n• 5 jours par année de « congé formation » ainsi que 1'000 CHF de frais de formation remboursés sur 12 mois d’activité.\n\n• Plus de 20 disciplines reconnues « centre de formation ».\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d’une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Des activités sportives (Pilates, courses à pied, réductions auprès de divers centres tels que plusieurs fitness ou les Bains de Lavey), des événements destinés aux enfants de collaborateur-trice-s, une buvette d’entreprise pour partager des moments de convivialité lors des beaux jours.\n\n• Une rémunération basée sur la valorisation de vos années d’expériences professionnelles précédentes ainsi que des primes liées à l’ancienneté au sein de l’EHC.\n\n• Mutation à l’interne facilitée selon vos envies de développement.\n\nVOUS POSSÉDEZ\n\n• Un titre de Médecin, spécialisé en psychiatrie, reconnu par la MEBEKO.\n\n• La capacité à travailler en équipe interdisciplinaire.\n\n• Un esprit d'initiative, d'organisation et de collégialité.\n\n• Une facilité dans les relations humaines.\n\n• Un enthousiasme dans le maintien, le développement et l'enseignement des connaissances de son domaine.\n\nVOS OBJECTIFS\n\n• Assurer la prise en charge médicale des patients.\n\n• Assurer de manière collégiale le bon fonctionnement du Centre médical.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1 ère école d’hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice comptant environ 70 apprentis dans 13 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes (reconnaissances MEBEKO).",
+      "descriptionByLocale": {
+        "it": "# Descrizione L'EHC gestisce più di una decina di centri medici lungo la costa. Questi centri offrono consultazioni con medici generali e specialisti in spazi moderni e luminosi. ## Struttura dell'ospedale - Ospedale di Morges: 1320 persone - Ospedale di Gilly: 65 persone - Ospedale di Aubonne: 140 persone - Centri medici (in totale): 150 persone - Permanenze: 58 persone - EMS: 250 persone - CSU: 40 persone - PIC: 40 persone ## Offerta Cercasi per Morges per i nostri centri medici un/una: - Psichiatra a tempo pieno o part-time (50-100%) ###\n• Cosa offriamo - Un'équipe di formatori, professori e medici altamente qualificati, che garantiscono un'adeguata formazione e sviluppo professionale. - La reputazione dell'ospedale e dei suoi medici, che offre un contesto di lavoro stimolante e riconosciuto. - 5 giorni all'anno di \"congedo formazione\" e 1'000 CHF di spese di formazione rimborsati in 12 mesi di attività. - Più di 20 discipline riconosciute \"centro di formazione\". - 5 settimane di ferie annuali, 6 settimane a partire dai 50 anni. Possibilità di acquistare una settimana di ferie aggiuntiva e 10 giorni di ferie offerti. - Diversi suggerimenti per offrire flessibilità (ferie non retribuite, part-time, tempo di cambio retribuito, ecc.). - Attività sportive (Pilates, corsa, sconti in diversi centri come diversi fitness o i Bagni di Lavey), eventi per i figli dei collaboratori, una mensa aziendale per condividere momenti di convivialità durante le belle giornate. - Una retribuzione basata sull'esperienza professionale precedente e sulle gratifiche per l'anzianità all'interno dell'EHC. - Facilità di trasferimento interno secondo le proprie aspirazioni di sviluppo. ##\n• Requisiti ### Cosa possiedi - Un titolo di Medico, specializzato in psichiatria, riconosciuto dalla MEBEKO. - La capacità di lavorare in un'équipe interdisciplinare. - Un spirito d'iniziativa, di organizzazione e di collegialità. - Una facilità nelle relazioni interpersonali. - Un'entusiasmo nel mantenere, sviluppare e insegnare le conoscenze del proprio settore. ## Obiettivi ### Cosa ti aspettiamo di fare - Garantire la cura medica dei pazienti. - Garantire in modo collaborativo il corretto funzionamento del centro medico. ## Chi siamo ### La nostra struttura - Un'istituzione che comprende stabilimenti di cura acuti e riabilitazione, una clinica privata, EMS, centri medici e permanenze distribuiti nella regione della Costa, nonché la prima scuola di ipnosi clinica dedicata all'ambiente dei",
+        "en": "Description The EHC manages more than a dozen medical centers along the coast. These centers offer consultations with general practitioners and specialists in modern and bright spaces. Hospital Structure - Morges Hospital: 1320 people - Gilly Hospital: 65 people - Aubonne Hospital: 140 people - Medical centers (in total): 150 people - Residences: 58 people - EMS: 250 people - CSU: 40 people - PIC: 40 people Offer We are looking for a full-time or part-time (50-100%) psychiatrist for our medical centers in Morges:\n• What we offer - A team of trainers, professors, and highly qualified doctors who ensure adequate training and professional development. - The reputation of the hospital and its doctors, which offers a stimulating and recognized work environment. - 5 days of \"training leave\" per year and 1,000 CHF of training expenses refunded over 12 months of activity. - More than 20 recognized \"training centers\" disciplines. - 5 weeks of annual leave, 6 weeks from the age of 50. Possibility to buy an additional week of leave and 10 days of leave offered. - Various suggestions to offer flexibility (unpaid leave, part-time, paid time off, etc.). - Sports activities (Pilates, running, discounts in various centers such as various fitness or Lavey Baths), events for the children of employees, a company canteen to share convivial moments during the beautiful days. - A salary based on previous professional experience and bonuses for seniority within the EHC. - Facilities for internal transfer according to one's own development aspirations.\n• Requirements What you have - A medical degree, specialized in psychiatry, recognized by MEBEKO. - The ability to work in an interdisciplinary team. - An initiative, organization, and collegiality spirit. - Ease in interpersonal relationships. - Enthusiasm in maintaining, developing, and teaching the knowledge of one's field. Objectives What we expect you to do - Ensure the medical care of patients. - Collaboratively ensure the proper functioning of the medical center. Who we are Our structure - An institution that includes acute care and rehabilitation facilities, a private clinic, EMS, medical centers, and residences distributed in the region of the Coast, as well as the first clinical hypnosis school dedicated to the environment of",
+        "de": "Beschreibung Das EHC verwaltet mehr als ein Dutzend medizinische Zentren an der Küste. Diese Zentren bieten Konsultationen mit Allgemeinärzten und Fachärzten in modernen und hellen Räumen. Krankenhausstruktur - Morges-Krankenhaus: 1320 Personen - Gilly-Krankenhaus: 65 Personen - Aubonne-Krankenhaus: 140 Personen - Medizinische Zentren (insgesamt): 150 Personen - Wohnheime: 58 Personen - EMS: 250 Personen - CSU: 40 Personen - PIC: 40 Personen Angebot Wir suchen einen Voll- oder Teilzeit-Psychiater (50-100%) für unsere medizinischen Zentren in Morges:\n• Was wir bieten - Ein Team aus Trainern, Professoren und hochqualifizierten Ärzten, das eine angemessene Ausbildung und berufliche Entwicklung garantiert. - Der Ruf des Krankenhauses und seiner Ärzte, der eine anregende und anerkannte Arbeitsumgebung bietet. - 5 Tage \"Ausbildungskrankheit\" pro Jahr und 1.000 CHF Ausbildungskosten, die innerhalb von 12 Monaten Tätigkeit erstattet werden. - Mehr als 20 anerkannte \"Ausbildungszentren\"-Disziplinen. - 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Urlaubswoche zu kaufen und 10 Urlaubstage angeboten. - Verschiedene Vorschläge, um Flexibilität zu bieten (unbezahlter Urlaub, Teilzeit, bezahlte Freizeit, etc.). - Sportaktivitäten (Pilates, Laufen, Rabatte in verschiedenen Zentren wie verschiedene Fitnessstudios oder Lavey-Bäder), Veranstaltungen für die Kinder der Mitarbeiter, eine Kantine für gemeinsame conviviale Momente während der schönen Tage. - Ein Gehalt, das auf die vorherige berufliche Erfahrung und Bonuszahlungen für die Seniorität innerhalb des EHC basiert. - Erleichterungen für den internen Transfer entsprechend den eigenen Entwicklungsaspirationen.\n• Anforderungen Was Sie haben - Ein Medizinerdiplom, spezialisiert auf Psychiatrie, anerkannt von MEBEKO. - Die Fähigkeit, in einem interdisziplinären Team zu arbeiten. - Ein Initiativ-, Organisations- und Kollegialitätsspirit. - Eine Leichtigkeit in den zwischenmenschlichen Beziehungen. - Enthusiasmus bei der Aufrechterhaltung, Entwicklung und Lehre der Kenntnisse des eigenen Fachgebiets. Ziele Was wir von Ihnen erwarten - Die medizinische Versorgung der Patienten sicherzustellen. - Zusammenwirkend die einwandfreie Funktion des medizinischen Zentrums sicherzustellen. Wer wir sind Unsere Struktur - Eine Institution, die Akutversorgungs- und Rehabilitationseinrichtungen, eine Privatklinik, EMS, medizinische Zentren und Wohnheime umfasst, die in der Region der Küste sowie die erste klinische Hypnose-Schule, die der Umgebung gewidmet ist, verteilt sind.",
+        "fr": "Plus d’une dizaine de centres médicaux EHC longent la côte. Ces centres proposent des consultations de médecins généralistes et spécialistes dans des espaces modernes et lumineux.\n\n•\n\n• Hôpital de Morges 1320 personnes\n\n• Hôpital de Gilly 65 personnes\n\n• Hôpital d’Aubonne 140 personnes\n\n• Centres médicaux (tout confondu) 150 personnes\n\n• Permanences 58 personnes\n\n• EMS 250 personnes\n\n• CSU 40 personnes\n\n• PIC 40 personnes\n\nNous recherchons pour Morges pour nos Centres médicaux un(e) :\n\nPsychiatre à 50-100%\n\nNOUS VOUS OFFRONS\n\n• Une équipe de formateurs, professeurs et médecins hautement qualifiés, assurant un encadrement et un développement professionnel de qualité.\n\n• La renommée de l’hôpital et de ses médecins, offrant un cadre de travail valorisant et reconnu.\n\n• 5 jours par année de « congé formation » ainsi que 1'000 CHF de frais de formation remboursés sur 12 mois d’activité.\n\n• Plus de 20 disciplines reconnues « centre de formation ».\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d’une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Des activités sportives (Pilates, courses à pied, réductions auprès de divers centres tels que plusieurs fitness ou les Bains de Lavey), des événements destinés aux enfants de collaborateur-trice-s, une buvette d’entreprise pour partager des moments de convivialité lors des beaux jours.\n\n• Une rémunération basée sur la valorisation de vos années d’expériences professionnelles précédentes ainsi que des primes liées à l’ancienneté au sein de l’EHC.\n\n• Mutation à l’interne facilitée selon vos envies de développement.\n\nVOUS POSSÉDEZ\n\n• Un titre de Médecin, spécialisé en psychiatrie, reconnu par la MEBEKO.\n\n• La capacité à travailler en équipe interdisciplinaire.\n\n• Un esprit d'initiative, d'organisation et de collégialité.\n\n• Une facilité dans les relations humaines.\n\n• Un enthousiasme dans le maintien, le développement et l'enseignement des connaissances de son domaine.\n\nVOS OBJECTIFS\n\n• Assurer la prise en charge médicale des patients.\n\n• Assurer de manière collégiale le bon fonctionnement du Centre médical.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1 ère école d’hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice comptant environ 70 apprentis dans 13 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes (reconnaissances MEBEKO)."
+      },
+      "needsRetranslation": true,
+      "location": "Morges",
+      "canton": "VD",
+      "url": "https://emploi.ehc-vd.ch/nos-offres/psychiatre",
+      "source": "EHC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T23:22:57.496Z",
+      "addressLocality": "Morges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1110",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-14",
+      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/psychiatre",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "psychiatre-ehc-vd-morges",
+        "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "psychiatre-ehc-vd-morges",
+          "psychiatre-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:50.957Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ehc-vd-ffcc4e420e91",
       "slug": "psichiatra-infantile-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
@@ -976,7 +976,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/pedopsychiatre",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.260Z",
+      "crawledAt": "2026-09-08T23:22:57.495Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1077,7 +1077,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-pediatre-avec-interet-pour-le-neurodeveloppement-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.258Z",
+      "crawledAt": "2026-09-08T23:22:57.493Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1151,7 +1151,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-fh-en-ctr",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.254Z",
+      "crawledAt": "2026-09-08T23:22:57.489Z",
       "addressLocality": "Gilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1228,7 +1228,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/auxiliaire-de-sante-aide-soignant-en-medecine-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.251Z",
+      "crawledAt": "2026-09-08T23:22:57.484Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1313,7 +1313,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.249Z",
+      "crawledAt": "2026-09-08T23:22:57.482Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1335,13 +1335,13 @@
       "previousSlugs": [
         "assistant-medical-f-h-ehc-vd-crissier",
         "assistant-medical-f-h-ehc-vd-morges",
-        "assistant-medical-f-h-ehc-vd-ecublens",
-        "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+        "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistant-medical-f-h-ehc-vd-ecublens",
         "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
@@ -1349,13 +1349,13 @@
         "it": [
           "assistant-medical-f-h-ehc-vd-crissier",
           "assistant-medical-f-h-ehc-vd-morges",
-          "assistant-medical-f-h-ehc-vd-ecublens",
-          "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
           "medecin-assistant-medecine-interne-f-h-mai-2028-ehc-vd-morges",
+          "assistenzarzt-innere-medizin-f-h-mai-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "physician-assistant-internal-medicine-f-m-may-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistant-medical-f-h-ehc-vd-ecublens",
           "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
@@ -1378,7 +1378,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:38:49.249Z"
+      "firstSeenAt": "2026-09-08T23:22:57.482Z"
     },
     {
       "id": "ehc-vd-7cf8f8bd6a84",
@@ -1412,7 +1412,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/dermatologue",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.248Z",
+      "crawledAt": "2026-09-08T23:22:57.479Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1507,7 +1507,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-specialiste-en-endocrinologie-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.247Z",
+      "crawledAt": "2026-09-08T23:22:57.478Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1624,7 +1624,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-en-geriatrie-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.242Z",
+      "crawledAt": "2026-09-08T23:22:57.476Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1676,7 +1676,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:38:49.242Z"
+      "firstSeenAt": "2026-09-08T23:22:57.476Z"
     },
     {
       "id": "ehc-vd-7e9aca1ea372",
@@ -1710,7 +1710,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-assistant-medecine-interne-fh-mai-2028",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.241Z",
+      "crawledAt": "2026-09-08T23:22:57.475Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1784,7 +1784,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-soins-et-sante-communautaire-assc-medecine-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.240Z",
+      "crawledAt": "2026-09-08T23:22:57.474Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1875,7 +1875,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/fellowship-en-antalgie-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.234Z",
+      "crawledAt": "2026-09-08T23:22:57.472Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1906,107 +1906,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T12:55:00.494Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ehc-vd-33590f18fa6c",
-      "slug": "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-      "slugByLocale": {
-        "it": "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "en": "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "fr": "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
-      },
-      "company": "Ensemble hospitalier de la Côte (EHC)",
-      "companyKey": "ehc-vd",
-      "companyDomain": "ehc-vd.ch",
-      "title": "Auxiliaire de santé (F/H)",
-      "titleByLocale": {
-        "it": "Salute Ausiliare (M/F)",
-        "en": "Health Auxiliary (M/F)",
-        "de": "Gesundheitshilfe (M/W)",
-        "fr": "Auxiliaire de santé (F/H)"
-      },
-      "description": "L’EMS Nelty de Beausobre, ouvert en 1989, porte le nom de la dernière descendante de la famille Beausobre. Il offre 32 chambres individuelles ainsi que 9 chambres doubles. Proche de la gare et de la zone piétonne du centre-ville, l’EMS est idéalement situé et permet de profiter des commerces et des cafés à proximité ou de se rendre au bord du lac Léman.\n\nNous recherchons pour l'EMS Nelty de Beausobre deux :\n\nAuxiliaires de santé (F/H) à 70-80%\n\nAfin de renforcer nos services de Gériatrie, prise de poste à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'auxiliaire de santé ou d'aide infirmier-ère reconnu par la Croix Rouge Suisse.\n\n• L'attestation Gineste-Marescotti (GM) et d'Accompagnateur en psychiatrie de l'âge avancé (FAP), un atout.\n\n• Une expérience réussie en gériatrie ou psychiatrie de l'âge avancé, un atout.\n\n• Une connaissance du système de santé et des EMS en Suisse, un atout.\n\n• Une capacité à travailler de jour comme de nuit, en horaires continus et coupés.\n\n• De la douceur, de l'empathie et un excellent relationnel avec les personnes âgées.\n\n• Un esprit d'équipe et de la solidarité permettant le maintien d'une bonne collaboration interdisciplinaire.\n\n• Du dynamisme, de l'engagement et une bonne capacité d'adaptation.\n\nVOS OBJECTIFS\n\n• Accompagner les résident-e-s dans les activités de la vie quotidienne.\n\n• Assurer les soins corporels et le confort des résident-e-s.\n\n• Participer à l'adaptation et à l'entretien de leur environnement avec leur collaboration.\n\n• Participer à une démarche de prise en soins interdisciplinaire de nos résident-e-s.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-      "descriptionByLocale": {
-        "it": "Il parco di Beausobre è immerso nel parco dello stesso nome nella città di Morges, e offre un benvenuto personalizzato per 82 residenti. Progettato per favorire i legami intergenerazionali, lo SME è circondato da una residenza ospitale riparata, un centro di vita per bambini e due college. Il parco di Beausobre ha anche un ristorante e una caffetteria, aperta ogni 7 giorni/7, un'area benessere per i residenti (jacuzzi e bagni sensoriali) e un giardino aromatico con un perimetro completamente sicuro.\n\nStiamo cercando il Parc de Beausobre dello SME, des:\n\nAusiliari sanitari (M/F) a 80-100%\n\nAl fine di rafforzare i nostri servizi di Psicologia, in CDI con un ingresso in ufficio il prima possibile.\n\nNoi ti\n\n• 5 settimane di vacanza annuale, 6 settimane dall'età di 50 anni. Possibilità di riscattare una settimana aggiuntiva di vacanza, così come 10 vacanze offerte.\n\n• Varie proposte che offrono flessibilità ( congedo non retribuito, congedo part-time, tempo di cambio pagato, ecc.).\n\n• Un piano di mobilità che include la partecipazione al tuo abbonamento in bicicletta, basket o trasporto pubblico, con un focus ambientale su un piano di sostenibilità istituzionale.\n\n• Remunerazione basata sulla valutazione dei vostri anni precedenti di esperienza professionale, così come bonus di anzianità all'interno dell'EHC.\n\n• Corsi di pilates gratuiti, partecipazione finanziaria a eventi sportivi come i 20 km di Losanna o Bike to Work, un catalogo di vantaggi che offrono sconti nei settori dello sport, del benessere, del tempo libero, della mobilità, dell'assicurazione e della finanza.\n\n• Bevande calde offerte al mattino e pasti a CHF 8.50 nelle nostre mense.\n\n• Una bevanda aziendale \"Pâquis Plage\" per condividere momenti di convivialità durante le belle giornate.\n\n• Opportunità per il cambiamento interno, secondo il vostro desiderio di sviluppo.\n\n• Molti corsi di formazione in-house o attestanti.\n\n• Un programma dedicato ai manager per aiutarli ad acquisire le competenze necessarie per gestire le loro squadre.\n\nTu lo sai\n\n• Una laurea in Ausiliario di Salute, ASA o CRS riconosciuto Caregiver.\n\n• Gineste-Marescotti (GM) certificazione, un bene.\n\n• Un'esperienza di successo in geriatria o psichiatria di età avanzata.\n\n• Un rapporto eccellente, soprattutto con gli anziani.\n\n• Mildness e una sensibilità speciale per l'accompagnamento della persona anziana.\n\n• Una volontà di lavorare in tempi continui e di taglio, facendo qualche notte nel mese.\n\nI tuoi obiettivi\n\n• Accompagna i residenti nelle attività quotidiane.\nFornire igiene e comfort cura per gli anziani.\n\n• Partecipa all'adattamento e alla manutenzione dell'ambiente residente con la sua collaborazione.\n\n• Partecipa a una gestione interdisciplinare dei residenti.\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2.000 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile favorevole alla realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nTi riconosci in questa descrizione?\nFare clic su Applica aggiungendo i seguenti documenti:\nCV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\nSe la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
-        "en": "The park of Beausobre is nestled in the park of the same name in the city of Morges, and offers a personalized welcome for 82 residents. Designed to foster intergenerational ties, the EMS is surrounded by a sheltered housing residence, a Child Living Centre and two colleges. The park of Beausobre also has a restaurant and cafeteria, open every 7 days/7, a wellness area for residents (jacuzzi and sensory baths) and an aromatic garden with a fully secure perimeter.\n\nWe are looking for the EMS Parc de Beausobre, des:\n\nHealth Auxiliaries (M/F) at 80-100%\n\nIn order to strengthen our services of Psychogeriatry, in CDI with an entry into office as soon as possible.\n\nWE OFFER YOU\n\n• 5 weeks of annual vacation, 6 weeks from the age of 50. Possibility of redeeming an additional week of vacation, as well as 10 holidays offered.\n\n• Several proposals providing flexibility (unpaid leave, part-time leave, paid exchange time, etc.).\n\n• A mobility plan including participation in your cycling, basketball or public transport subscription, with an environmental focus on an institutional sustainability plan.\n\n• Remuneration based on the valuation of your previous years of professional experience, as well as seniority bonuses within the EHC.\n\n• Free pilates courses, financial participation in sporting events such as the 20km of Lausanne or Bike to Work, a catalogue of advantages offering discounts in the fields of sport, well-being, leisure, mobility, insurance and finance.\n\n• Hot drinks offered in the morning and meals at CHF 8.50 in our cafeterias.\n\n• A \"Pâquis Plage\" business drink to share moments of conviviality during the beautiful days.\n\n• Opportunities for internal change, according to your desire for development.\n\n• Many accessible in-house or certifying training.\n\n• A programme dedicated to managers to support them in acquiring the skills necessary to manage their teams.\n\nYOU MAY\n\n• A degree in Auxiliary of Health, ASA or CRS-recognized Caregiver.\n\n• Gineste-Marescotti (GM) certification, an asset.\n\n• A successful experience in geriatrics or psychiatry of advanced age.\n\n• An excellent relationship, especially with the elderly.\n\n• Mildness and a special sensitivity for the accompaniment of the elderly person.\n\n• A willingness to work in continuous and cut times, by doing a few nights in the month.\n\nYOUR OBJECTIVES\n\n• Accompany residents in daily activities.\nProvide hygiene and comfort care for the elderly.\n\n• Participate in the adaptation and maintenance of the resident's environment with his/her collaboration.\n\n• Participate in an interdisciplinary management of residents.\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2,000 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment conducive to the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nDo you recognize yourself in this description?\nClick Apply by adding the following documents:\nCV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\nIf your application is selected, you will be asked for the extract from your criminal record.",
-        "de": "Der Park von Beausobre liegt im gleichnamigen Park der Stadt Morges und bietet 82 Einwohnern eine persönliche Begrüßung. Entwickelt, um intergenerationale Bindungen zu fördern, ist das EMS von einer geschützten Wohnresidenz, einem Child Living Center und zwei Colleges umgeben. Der Park von Beausobre hat auch ein Restaurant und eine Cafeteria, die alle 7 Tage / 7 geöffnet sind, einen Wellnessbereich für die Bewohner (Whirlpool und sensorische Bäder) und einen aromatischen Garten mit einem absolut sicheren Umfang.\n\nWir suchen den EMS Parc de Beausobre, des:\n\nGesundheitshilfskräfte (M/W) bei 80-100%\n\nUm unsere Dienste der Psychogeriatrie zu stärken, in CDI mit einem Amtsantritt so schnell wie möglich.\n\nWir bieten Ihnen\n\n• 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Woche Urlaub einzulösen, sowie 10 angebotene Ferien.\n\n• Mehrere Vorschläge, die Flexibilität bieten (unbezahlter Urlaub, Teilzeiturlaub, bezahlte Austauschzeit usw.).\n\n• Ein Mobilitätsplan, der die Teilnahme an Ihrem Fahrrad-, Basketball- oder öffentlichen Verkehrsabonnement umfasst, mit einem ökologischen Schwerpunkt auf einem institutionellen Nachhaltigkeitsplan.\n\n• Vergütung basierend auf der Bewertung Ihrer früheren Berufserfahrung sowie Senioritätsboni innerhalb des EHC.\n\n• Kostenlose Pilates-Kurse, finanzielle Teilnahme an Sportveranstaltungen wie den 20 km von Lausanne oder Bike to Work, ein Katalog von Vorteilen mit Rabatten in den Bereichen Sport, Wohlbefinden, Freizeit, Mobilität, Versicherung und Finanzen.\n\n• Morgens warme Getränke und Mahlzeiten für CHF 8.50 in unseren Cafeterias.\n\n• Ein \"Pâquis Plage\" Geschäftsgetränk, um Momente der Geselligkeit während der schönen Tage zu teilen.\n\n• Chancen für innere Veränderungen, entsprechend Ihrem Wunsch nach Entwicklung.\n\n• Viele zugängliche interne oder zertifizierende Schulungen.\n\n• Ein Programm, das Managern gewidmet ist, um sie beim Erwerb der Fähigkeiten zu unterstützen, die für das Management ihrer Teams erforderlich sind.\n\nDürfen\n\n• Ein Abschluss in Auxiliary of Health, ASA oder CRS-anerkannt Caregiver.\n\n• Gineste-Marescotti (GM) Zertifizierung, ein Asset.\n\n• Eine erfolgreiche Erfahrung in der Geriatrie oder Psychiatrie im fortgeschrittenen Alter.\n\n• Eine ausgezeichnete Beziehung, vor allem mit älteren Menschen.\n\n• Mildness und eine besondere Sensibilität für die Begleitung der älteren Person.\n\n• Eine Bereitschaft, in kontinuierlichen und geschnittenen Zeiten zu arbeiten, indem man ein paar Nächte im Monat macht.\n\nIhre ZIELE\n\n• Begleiten Sie die Bewohner bei täglichen Aktivitäten.\nPflege von Hygiene und Komfort für ältere Menschen.\n\n• Beteiligen Sie sich an der Anpassung und Pflege der Umgebung des Bewohners mit seiner / ihrer Zusammenarbeit.\n\n• Beteiligen Sie sich an einem interdisziplinären Management von Bewohnern.\n\nWIR SIND\n\n• Eine Einrichtung, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2.000 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das der Realisierung von Projekten förderlich ist.\n\n• Eine Ausbildungsfirma, die sich mit Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nErkennen Sie sich selbst in dieser Beschreibung?\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\nLebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\nWenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt.",
-        "fr": "L’EMS Nelty de Beausobre, ouvert en 1989, porte le nom de la dernière descendante de la famille Beausobre. Il offre 32 chambres individuelles ainsi que 9 chambres doubles. Proche de la gare et de la zone piétonne du centre-ville, l’EMS est idéalement situé et permet de profiter des commerces et des cafés à proximité ou de se rendre au bord du lac Léman.\n\nNous recherchons pour l'EMS Nelty de Beausobre deux :\n\nAuxiliaires de santé (F/H) à 70-80%\n\nAfin de renforcer nos services de Gériatrie, prise de poste à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'auxiliaire de santé ou d'aide infirmier-ère reconnu par la Croix Rouge Suisse.\n\n• L'attestation Gineste-Marescotti (GM) et d'Accompagnateur en psychiatrie de l'âge avancé (FAP), un atout.\n\n• Une expérience réussie en gériatrie ou psychiatrie de l'âge avancé, un atout.\n\n• Une connaissance du système de santé et des EMS en Suisse, un atout.\n\n• Une capacité à travailler de jour comme de nuit, en horaires continus et coupés.\n\n• De la douceur, de l'empathie et un excellent relationnel avec les personnes âgées.\n\n• Un esprit d'équipe et de la solidarité permettant le maintien d'une bonne collaboration interdisciplinaire.\n\n• Du dynamisme, de l'engagement et une bonne capacité d'adaptation.\n\nVOS OBJECTIFS\n\n• Accompagner les résident-e-s dans les activités de la vie quotidienne.\n\n• Assurer les soins corporels et le confort des résident-e-s.\n\n• Participer à l'adaptation et à l'entretien de leur environnement avec leur collaboration.\n\n• Participer à une démarche de prise en soins interdisciplinaire de nos résident-e-s.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
-      },
-      "needsRetranslation": false,
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://emploi.ehc-vd.ch/nos-offres/auxiliaire-de-sante-fh",
-      "source": "EHC Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.231Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-02",
-      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/auxiliaire-de-sante-fh",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
-          "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
-        ],
-        "it": [
-          "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
-          "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
-          "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-        ],
-        "en": [
-          "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-        ],
-        "de": [
-          "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-        ]
-      },
-      "previousSlugs": [
-        "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
-        "auxiliaire-de-sante-f-h-ehc-vd-morges",
-        "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
-        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
-        "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
-      ],
-      "firstSeenAt": "2026-08-31T17:09:06.390Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -2053,7 +1952,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-specialiste-en-obesite",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.230Z",
+      "crawledAt": "2026-09-08T23:22:57.469Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2146,7 +2045,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/chef-de-clinique-soins-palliatifs-et-ctr-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.226Z",
+      "crawledAt": "2026-09-08T23:22:57.468Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2222,7 +2121,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/chef-de-clinique-en-ctr-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.223Z",
+      "crawledAt": "2026-09-08T23:22:57.464Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2298,7 +2197,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/neuropsychologue-sous-supervision-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.220Z",
+      "crawledAt": "2026-09-08T23:22:57.461Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2372,7 +2271,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-generaliste",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.217Z",
+      "crawledAt": "2026-09-08T23:22:57.457Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2474,7 +2373,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-hf-au-pole-plaie-et-en-stomatherapie",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.216Z",
+      "crawledAt": "2026-09-08T23:22:57.456Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2566,7 +2465,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/facturiste-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.209Z",
+      "crawledAt": "2026-09-08T23:22:57.439Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2727,7 +2626,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/medecin-chef-de-clinique-adjoint-en-medecine-interne-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.208Z",
+      "crawledAt": "2026-09-08T23:22:57.432Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2820,7 +2719,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-chef-dunite-icus-en-geriatrie-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.207Z",
+      "crawledAt": "2026-09-08T23:22:57.430Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2900,7 +2799,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/gestionnaire-en-intendance",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.202Z",
+      "crawledAt": "2026-09-08T23:22:57.428Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2923,22 +2822,19 @@
         "it": [
           "gestionnaire-en-intendance-ehc-vd-aubonne",
           "gestionnaire-en-intendance-ehc-vd-morges",
-          "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
           "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
           "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "gestionnaire-en-intendance-ehc-vd-aubonne"
-        ],
-        "en": [
-          "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
         "gestionnaire-en-intendance-ehc-vd-aubonne",
         "gestionnaire-en-intendance-ehc-vd-morges",
-        "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
         "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
         "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "salaryMin": 65500,
@@ -2954,7 +2850,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:38:49.202Z"
+      "firstSeenAt": "2026-09-08T23:22:57.428Z"
     },
     {
       "id": "ehc-vd-4f498a69a956",
@@ -2988,7 +2884,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.193Z",
+      "crawledAt": "2026-09-08T23:22:57.414Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3114,7 +3010,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-socio-educatif-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.192Z",
+      "crawledAt": "2026-09-08T23:22:57.412Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3171,7 +3067,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:38:49.192Z"
+      "firstSeenAt": "2026-09-08T23:22:57.412Z"
     },
     {
       "id": "ehc-vd-70e73065000f",
@@ -3205,7 +3101,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-nord-sud",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.189Z",
+      "crawledAt": "2026-09-08T23:22:57.409Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3287,7 +3183,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/secretaire-medicale-fh-centre-medical-nord-sud",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.185Z",
+      "crawledAt": "2026-09-08T23:22:57.403Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3367,7 +3263,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-en-pharmacie-dunite-de-soins-apus-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.162Z",
+      "crawledAt": "2026-09-08T23:22:57.363Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3444,7 +3340,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-technique-en-sterilisation-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.156Z",
+      "crawledAt": "2026-09-08T23:22:57.358Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3476,21 +3372,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:38:49.156Z",
+      "firstSeenAt": "2026-09-08T23:22:57.358Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ],
-        "en": [
-          "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ]
     },
     {
@@ -3525,7 +3418,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-du-simplon",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.155Z",
+      "crawledAt": "2026-09-08T23:22:57.355Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3599,7 +3492,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-centre-medical-de-chavannes-pres-renens",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.153Z",
+      "crawledAt": "2026-09-08T23:22:57.353Z",
       "addressLocality": "Chavannes-près-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3673,7 +3566,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/secretaire-medicale-fh-centre-medical-nedol",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.151Z",
+      "crawledAt": "2026-09-08T23:22:57.350Z",
       "addressLocality": "Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3722,6 +3615,84 @@
       }
     },
     {
+      "id": "ehc-vd-a96329b0ed61",
+      "slug": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
+      "slugByLocale": {
+        "fr": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
+        "it": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
+        "en": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
+        "de": "infirmier-en-pediatrie-f-h-ehc-vd-morges"
+      },
+      "company": "Ensemble hospitalier de la Côte (EHC)",
+      "companyKey": "ehc-vd",
+      "companyDomain": "ehc-vd.ch",
+      "title": "Infirmier en pédiatrie (F/H)",
+      "titleByLocale": {
+        "fr": "Infirmier en pédiatrie (F/H)",
+        "en": "Infirmier en pédiatrie (F/H)",
+        "it": "Infirmier en pédiatrie (F/H)",
+        "de": "Infirmier en pédiatrie (F/H)"
+      },
+      "description": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+      "descriptionByLocale": {
+        "fr": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "it": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "en": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+        "de": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
+      },
+      "needsRetranslation": true,
+      "location": "Morges",
+      "canton": "VD",
+      "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-en-pediatrie-fh",
+      "source": "EHC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T23:22:57.341Z",
+      "addressLocality": "Morges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1110",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/infirmier-en-pediatrie-fh",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-08T23:22:57.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ]
+      },
+      "previousSlugs": [
+        "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+      ]
+    },
+    {
       "id": "ehc-vd-4f9eed352e15",
       "slug": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
@@ -3753,7 +3724,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-soins-aigus-fh",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.145Z",
+      "crawledAt": "2026-09-08T23:22:57.335Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3806,90 +3777,6 @@
       }
     },
     {
-      "id": "ehc-vd-a96329b0ed61",
-      "slug": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
-      "slugByLocale": {
-        "fr": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
-        "it": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
-        "en": "infirmier-en-pediatrie-f-h-ehc-vd-morges",
-        "de": "infirmier-en-pediatrie-f-h-ehc-vd-morges"
-      },
-      "company": "Ensemble hospitalier de la Côte (EHC)",
-      "companyKey": "ehc-vd",
-      "companyDomain": "ehc-vd.ch",
-      "title": "Infirmier en pédiatrie (F/H)",
-      "titleByLocale": {
-        "fr": "Infirmier en pédiatrie (F/H)",
-        "en": "Infirmier en pédiatrie (F/H)",
-        "it": "Infirmier en pédiatrie (F/H)",
-        "de": "Infirmier en pédiatrie (F/H)"
-      },
-      "description": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-      "descriptionByLocale": {
-        "fr": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-        "it": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-        "en": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
-        "de": "Policlinique, urgences, soins ambulatoires, hospitalisations : de la naissance au grand âge, l’Hôpital de Morges offre un large éventail de prestations de soins. L’établissement compte 240 lits de soins aigus, une maternité, avec environ 1'500 naissances par année, et près 30'000 consultations d’urgence. En tout, ce sont plus de 40 disciplines médicales qui sont pratiquées dans ses murs depuis plus de 150 ans. Entouré de vignes, avec une vue incroyable sur les montagnes et le lac, l’Hôpital de Morges vous accueille dans un cadre chaleureux et dynamique.\n\nNous recherchons pour l'Hôpital de Morges un(e) :\n\nInfirmier en pédiatrie (F/H) à 100% - CDD\n\nAfin de renforcer notre service pour une mission déterminée jusqu'à fin mai 2027 .\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'infirmier-ère HES, ou équivalent étranger reconnu CRS\n\n• Une expérience réussie dans une fonction similaire en néonatalogie ou au service de pédiatrie ou d'urgences pédiatriques avec PALS, un atout\n\n• Une flexibilité et une disponibilité à travailler de jour et de nuit ainsi que la semaine et 2 week-ends par mois .\n\n• De la polyvalence et une excellente gestion des situations de stress vous permettant d'évoluer sur nos trois pôles pédiatriques (urgences, service de pédiatrie, néonatologie)\n\n• De grandes capacités de communication et d'écoute ainsi qu'un sens du travail en équipe pluridisciplinaire\n\nVOS OBJECTIFS\n\n• Assurer le tri de la patientèle âgée de 0 à 16 ans se présentant dans des situations d’urgence non vitale.\n\n• Prendre soin aux urgences pédiatriques, en service d'hospitalisation de la patientèle âgés de 0 à 16 ans, ainsi que des prématurés et bébés à terme.\n\n• Anticiper, planifier, organiser et prodiguer des soins de qualité avec bienveillance et dextérité\n\n• Élaborer des objectifs de soin personnalisés avec l'enfant, ses proches, l'équipe pluridisciplinaire, à partir des données recueillies et en tenant compte d'un projet thérapeutique global\n\n• Evaluer de manière systématique et en continu l'état clinique des enfants.\n\n• Élaborer des objectifs de soin personnalisés avec l’enfant et ses proches à partir des données recueillies.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
-      },
-      "needsRetranslation": true,
-      "location": "Morges",
-      "canton": "VD",
-      "url": "https://emploi.ehc-vd.ch/nos-offres/infirmier-en-pediatrie-fh",
-      "source": "EHC Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.143Z",
-      "addressLocality": "Morges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1110",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/infirmier-en-pediatrie-fh",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-08T13:38:49.143Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ],
-        "en": [
-          "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ],
-        "de": [
-          "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
-        ]
-      },
-      "previousSlugs": [
-        "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges"
-      ]
-    },
-    {
       "id": "ehc-vd-dcbca43f4b16",
       "slug": "assistente-medico-m-f-multisites-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
@@ -3921,7 +3808,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/assistant-medical-fh-multisites",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.139Z",
+      "crawledAt": "2026-09-08T23:22:57.325Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3995,7 +3882,7 @@
       "url": "https://emploi.ehc-vd.ch/nos-offres/neuropsychologue-fsp",
       "source": "EHC Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:38:49.136Z",
+      "crawledAt": "2026-09-08T23:22:57.321Z",
       "addressLocality": "Lavigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -4057,6 +3944,108 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "ehc-vd-33590f18fa6c",
+      "slug": "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+      "slugByLocale": {
+        "it": "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "gesundheitsassistent-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "fr": "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
+      },
+      "company": "Ensemble hospitalier de la Côte (EHC)",
+      "companyKey": "ehc-vd",
+      "companyDomain": "ehc-vd.ch",
+      "title": "Auxiliaire de santé (F/H)",
+      "titleByLocale": {
+        "it": "Salute Ausiliare (M/F)",
+        "en": "Health Auxiliary (M/F)",
+        "de": "Gesundheitshilfe (M/W)",
+        "fr": "Auxiliaire de santé (F/H)"
+      },
+      "description": "L’EMS Nelty de Beausobre, ouvert en 1989, porte le nom de la dernière descendante de la famille Beausobre. Il offre 32 chambres individuelles ainsi que 9 chambres doubles. Proche de la gare et de la zone piétonne du centre-ville, l’EMS est idéalement situé et permet de profiter des commerces et des cafés à proximité ou de se rendre au bord du lac Léman.\n\nNous recherchons pour l'EMS Nelty de Beausobre deux :\n\nAuxiliaires de santé (F/H) à 70-80%\n\nAfin de renforcer nos services de Gériatrie, prise de poste à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'auxiliaire de santé ou d'aide infirmier-ère reconnu par la Croix Rouge Suisse.\n\n• L'attestation Gineste-Marescotti (GM) et d'Accompagnateur en psychiatrie de l'âge avancé (FAP), un atout.\n\n• Une expérience réussie en gériatrie ou psychiatrie de l'âge avancé, un atout.\n\n• Une connaissance du système de santé et des EMS en Suisse, un atout.\n\n• Une capacité à travailler de jour comme de nuit, en horaires continus et coupés.\n\n• De la douceur, de l'empathie et un excellent relationnel avec les personnes âgées.\n\n• Un esprit d'équipe et de la solidarité permettant le maintien d'une bonne collaboration interdisciplinaire.\n\n• Du dynamisme, de l'engagement et une bonne capacité d'adaptation.\n\nVOS OBJECTIFS\n\n• Accompagner les résident-e-s dans les activités de la vie quotidienne.\n\n• Assurer les soins corporels et le confort des résident-e-s.\n\n• Participer à l'adaptation et à l'entretien de leur environnement avec leur collaboration.\n\n• Participer à une démarche de prise en soins interdisciplinaire de nos résident-e-s.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\n CV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\n Si votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé.",
+      "descriptionByLocale": {
+        "it": "Il parco di Beausobre è immerso nel parco dello stesso nome nella città di Morges, e offre un benvenuto personalizzato per 82 residenti. Progettato per favorire i legami intergenerazionali, lo SME è circondato da una residenza ospitale riparata, un centro di vita per bambini e due college. Il parco di Beausobre ha anche un ristorante e una caffetteria, aperta ogni 7 giorni/7, un'area benessere per i residenti (jacuzzi e bagni sensoriali) e un giardino aromatico con un perimetro completamente sicuro.\n\nStiamo cercando il Parc de Beausobre dello SME, des:\n\nAusiliari sanitari (M/F) a 80-100%\n\nAl fine di rafforzare i nostri servizi di Psicologia, in CDI con un ingresso in ufficio il prima possibile.\n\nNoi ti\n\n• 5 settimane di vacanza annuale, 6 settimane dall'età di 50 anni. Possibilità di riscattare una settimana aggiuntiva di vacanza, così come 10 vacanze offerte.\n\n• Varie proposte che offrono flessibilità ( congedo non retribuito, congedo part-time, tempo di cambio pagato, ecc.).\n\n• Un piano di mobilità che include la partecipazione al tuo abbonamento in bicicletta, basket o trasporto pubblico, con un focus ambientale su un piano di sostenibilità istituzionale.\n\n• Remunerazione basata sulla valutazione dei vostri anni precedenti di esperienza professionale, così come bonus di anzianità all'interno dell'EHC.\n\n• Corsi di pilates gratuiti, partecipazione finanziaria a eventi sportivi come i 20 km di Losanna o Bike to Work, un catalogo di vantaggi che offrono sconti nei settori dello sport, del benessere, del tempo libero, della mobilità, dell'assicurazione e della finanza.\n\n• Bevande calde offerte al mattino e pasti a CHF 8.50 nelle nostre mense.\n\n• Una bevanda aziendale \"Pâquis Plage\" per condividere momenti di convivialità durante le belle giornate.\n\n• Opportunità per il cambiamento interno, secondo il vostro desiderio di sviluppo.\n\n• Molti corsi di formazione in-house o attestanti.\n\n• Un programma dedicato ai manager per aiutarli ad acquisire le competenze necessarie per gestire le loro squadre.\n\nTu lo sai\n\n• Una laurea in Ausiliario di Salute, ASA o CRS riconosciuto Caregiver.\n\n• Gineste-Marescotti (GM) certificazione, un bene.\n\n• Un'esperienza di successo in geriatria o psichiatria di età avanzata.\n\n• Un rapporto eccellente, soprattutto con gli anziani.\n\n• Mildness e una sensibilità speciale per l'accompagnamento della persona anziana.\n\n• Una volontà di lavorare in tempi continui e di taglio, facendo qualche notte nel mese.\n\nI tuoi obiettivi\n\n• Accompagna i residenti nelle attività quotidiane.\nFornire igiene e comfort cura per gli anziani.\n\n• Partecipa all'adattamento e alla manutenzione dell'ambiente residente con la sua collaborazione.\n\n• Partecipa a una gestione interdisciplinare dei residenti.\n\nSiamo\n\n• Un'istituzione costituita da istituzioni di cura e riabilitazione acuta, una clinica privata, SME, centri medici e permanenze che si trovano nella regione di La Côte e la prima scuola di ipnosi clinica dedicata alla comunità di cura in Svizzera francofona.\n\n• Una rete di assistenza che consente molte opportunità di cambiamento interno in base alle aspirazioni e ai progetti di sviluppo dei dipendenti.\n\n• Più di 2.000 dipendenti che si occupano di pazienti e residenti della regione, condividono valori di Responsabilità, Proximità, Umanità, Competenza, in un ambiente agile favorevole alla realizzazione di progetti.\n\n• Una società di formazione impegnata in formazione di successione, con circa 80 apprendisti in 16 diversi scambi, 200 HES-ES tirocinanti e quasi 300 medici in formazione.\n\nEssere il prossimo evento della nostra rete.\n\nTi riconosci in questa descrizione?\nFare clic su Applica aggiungendo i seguenti documenti:\nCV, lettera di copertura, certificati di lavoro (necessario per il calcolo dei salari) e diplomi.\nSe la tua domanda è selezionata, ti verrà chiesto l'estratto dal tuo record penale.",
+        "en": "The park of Beausobre is nestled in the park of the same name in the city of Morges, and offers a personalized welcome for 82 residents. Designed to foster intergenerational ties, the EMS is surrounded by a sheltered housing residence, a Child Living Centre and two colleges. The park of Beausobre also has a restaurant and cafeteria, open every 7 days/7, a wellness area for residents (jacuzzi and sensory baths) and an aromatic garden with a fully secure perimeter.\n\nWe are looking for the EMS Parc de Beausobre, des:\n\nHealth Auxiliaries (M/F) at 80-100%\n\nIn order to strengthen our services of Psychogeriatry, in CDI with an entry into office as soon as possible.\n\nWE OFFER YOU\n\n• 5 weeks of annual vacation, 6 weeks from the age of 50. Possibility of redeeming an additional week of vacation, as well as 10 holidays offered.\n\n• Several proposals providing flexibility (unpaid leave, part-time leave, paid exchange time, etc.).\n\n• A mobility plan including participation in your cycling, basketball or public transport subscription, with an environmental focus on an institutional sustainability plan.\n\n• Remuneration based on the valuation of your previous years of professional experience, as well as seniority bonuses within the EHC.\n\n• Free pilates courses, financial participation in sporting events such as the 20km of Lausanne or Bike to Work, a catalogue of advantages offering discounts in the fields of sport, well-being, leisure, mobility, insurance and finance.\n\n• Hot drinks offered in the morning and meals at CHF 8.50 in our cafeterias.\n\n• A \"Pâquis Plage\" business drink to share moments of conviviality during the beautiful days.\n\n• Opportunities for internal change, according to your desire for development.\n\n• Many accessible in-house or certifying training.\n\n• A programme dedicated to managers to support them in acquiring the skills necessary to manage their teams.\n\nYOU MAY\n\n• A degree in Auxiliary of Health, ASA or CRS-recognized Caregiver.\n\n• Gineste-Marescotti (GM) certification, an asset.\n\n• A successful experience in geriatrics or psychiatry of advanced age.\n\n• An excellent relationship, especially with the elderly.\n\n• Mildness and a special sensitivity for the accompaniment of the elderly person.\n\n• A willingness to work in continuous and cut times, by doing a few nights in the month.\n\nYOUR OBJECTIVES\n\n• Accompany residents in daily activities.\nProvide hygiene and comfort care for the elderly.\n\n• Participate in the adaptation and maintenance of the resident's environment with his/her collaboration.\n\n• Participate in an interdisciplinary management of residents.\n\nWE ARE\n\n• An institution consisting of acute care and rehabilitation institutions, a private clinic, EMS, medical centres and permanences located in the region of La Côte and the first clinical hypnosis school dedicated to the care community in French-speaking Switzerland.\n\n• A network of care allowing many opportunities for internal change according to the aspirations and development projects of employees.\n\n• More than 2,000 employees taking care of patients and residents of the region, sharing values of Responsibility, Proximity, Humanity, Competence, in an agile environment conducive to the realization of projects.\n\n• A training company engaged in succession training, with about 80 apprentices in 16 different trades, 200 HES-ES trainees and nearly 300 doctors in training.\n\nBE THE NEXT TALENT OF OUR CARE NETWORK.\n\nDo you recognize yourself in this description?\nClick Apply by adding the following documents:\nCV, cover letter, work certificates (necessary for the calculation of wages) and diplomas.\nIf your application is selected, you will be asked for the extract from your criminal record.",
+        "de": "Der Park von Beausobre liegt im gleichnamigen Park der Stadt Morges und bietet 82 Einwohnern eine persönliche Begrüßung. Entwickelt, um intergenerationale Bindungen zu fördern, ist das EMS von einer geschützten Wohnresidenz, einem Child Living Center und zwei Colleges umgeben. Der Park von Beausobre hat auch ein Restaurant und eine Cafeteria, die alle 7 Tage / 7 geöffnet sind, einen Wellnessbereich für die Bewohner (Whirlpool und sensorische Bäder) und einen aromatischen Garten mit einem absolut sicheren Umfang.\n\nWir suchen den EMS Parc de Beausobre, des:\n\nGesundheitshilfskräfte (M/W) bei 80-100%\n\nUm unsere Dienste der Psychogeriatrie zu stärken, in CDI mit einem Amtsantritt so schnell wie möglich.\n\nWir bieten Ihnen\n\n• 5 Wochen Jahresurlaub, 6 Wochen ab dem 50. Lebensjahr. Möglichkeit, eine zusätzliche Woche Urlaub einzulösen, sowie 10 angebotene Ferien.\n\n• Mehrere Vorschläge, die Flexibilität bieten (unbezahlter Urlaub, Teilzeiturlaub, bezahlte Austauschzeit usw.).\n\n• Ein Mobilitätsplan, der die Teilnahme an Ihrem Fahrrad-, Basketball- oder öffentlichen Verkehrsabonnement umfasst, mit einem ökologischen Schwerpunkt auf einem institutionellen Nachhaltigkeitsplan.\n\n• Vergütung basierend auf der Bewertung Ihrer früheren Berufserfahrung sowie Senioritätsboni innerhalb des EHC.\n\n• Kostenlose Pilates-Kurse, finanzielle Teilnahme an Sportveranstaltungen wie den 20 km von Lausanne oder Bike to Work, ein Katalog von Vorteilen mit Rabatten in den Bereichen Sport, Wohlbefinden, Freizeit, Mobilität, Versicherung und Finanzen.\n\n• Morgens warme Getränke und Mahlzeiten für CHF 8.50 in unseren Cafeterias.\n\n• Ein \"Pâquis Plage\" Geschäftsgetränk, um Momente der Geselligkeit während der schönen Tage zu teilen.\n\n• Chancen für innere Veränderungen, entsprechend Ihrem Wunsch nach Entwicklung.\n\n• Viele zugängliche interne oder zertifizierende Schulungen.\n\n• Ein Programm, das Managern gewidmet ist, um sie beim Erwerb der Fähigkeiten zu unterstützen, die für das Management ihrer Teams erforderlich sind.\n\nDürfen\n\n• Ein Abschluss in Auxiliary of Health, ASA oder CRS-anerkannt Caregiver.\n\n• Gineste-Marescotti (GM) Zertifizierung, ein Asset.\n\n• Eine erfolgreiche Erfahrung in der Geriatrie oder Psychiatrie im fortgeschrittenen Alter.\n\n• Eine ausgezeichnete Beziehung, vor allem mit älteren Menschen.\n\n• Mildness und eine besondere Sensibilität für die Begleitung der älteren Person.\n\n• Eine Bereitschaft, in kontinuierlichen und geschnittenen Zeiten zu arbeiten, indem man ein paar Nächte im Monat macht.\n\nIhre ZIELE\n\n• Begleiten Sie die Bewohner bei täglichen Aktivitäten.\nPflege von Hygiene und Komfort für ältere Menschen.\n\n• Beteiligen Sie sich an der Anpassung und Pflege der Umgebung des Bewohners mit seiner / ihrer Zusammenarbeit.\n\n• Beteiligen Sie sich an einem interdisziplinären Management von Bewohnern.\n\nWIR SIND\n\n• Eine Einrichtung, bestehend aus Akut- und Rehabilitationseinrichtungen, einer Privatklinik, EMS, medizinischen Zentren und Dauerstationen in der Region La Côte und der ersten klinischen Hypnoseschule, die der Pflegegemeinschaft in der französischsprachigen Schweiz gewidmet ist.\n\n• Ein Netzwerk der Pflege, das viele Möglichkeiten für interne Veränderungen gemäß den Bestrebungen und Entwicklungsprojekten der Mitarbeiter ermöglicht.\n\n• Mehr als 2.000 Mitarbeiter kümmern sich um Patienten und Bewohner der Region und teilen Werte wie Verantwortung, Nähe, Menschlichkeit, Kompetenz in einem agilen Umfeld, das der Realisierung von Projekten förderlich ist.\n\n• Eine Ausbildungsfirma, die sich mit Nachfolgeausbildung beschäftigt, mit etwa 80 Auszubildenden in 16 verschiedenen Berufen, 200 HES-ES-Auszubildenden und fast 300 Ärzten in der Ausbildung.\n\nSei das nächste Talent unseres Pflegenetzes.\n\nErkennen Sie sich selbst in dieser Beschreibung?\nKlicken Sie auf Anwenden, indem Sie die folgenden Dokumente hinzufügen:\nLebenslauf, Anschreiben, Arbeitsbescheinigungen (für die Berechnung der Löhne erforderlich) und Diplome.\nWenn Ihre Bewerbung ausgewählt ist, werden Sie nach dem Auszug aus Ihrem Strafregister gefragt.",
+        "fr": "L’EMS Nelty de Beausobre, ouvert en 1989, porte le nom de la dernière descendante de la famille Beausobre. Il offre 32 chambres individuelles ainsi que 9 chambres doubles. Proche de la gare et de la zone piétonne du centre-ville, l’EMS est idéalement situé et permet de profiter des commerces et des cafés à proximité ou de se rendre au bord du lac Léman.\n\nNous recherchons pour l'EMS Nelty de Beausobre deux :\n\nAuxiliaires de santé (F/H) à 70-80%\n\nAfin de renforcer nos services de Gériatrie, prise de poste à convenir.\n\nNOUS VOUS OFFRONS\n\n• 5 semaines de vacances annuelles, 6 semaines dès l'âge de 50 ans. Possibilité de rachat d'une semaine de vacances supplémentaire, ainsi que 10 jours fériés offerts.\n\n• Plusieurs propositions apportant de la flexibilité (congés non-payés, temps partiels, temps de change rémunéré, etc.).\n\n• Un plan mobilité comprenant une participation à votre trajet à vélo, en basket ou à votre abonnement aux transports publics, dans un souci de l'environnement suivant un plan durabilité au niveau institutionnel.\n\n• Une rémunération basée sur la valorisation de vos années d'expériences professionnelles précédentes, ainsi que des primes liées à l'ancienneté au sein de l'EHC.\n\n• Des cours de pilates gratuits, une participation financière à des événements sportifs tels que les 20km de Lausanne ou Bike to Work, un catalogue d’avantages proposant des rabais dans les domaines du sport, du bien-être, des loisirs, de la mobilité, des assurances et des finances.\n\n• Les boissons chaudes offertes le matin et des repas à CHF 8.50 dans nos cafétérias.\n\n• Une buvette d'entreprise « Pâquis Plage » pour partager des moments de convivialité lors des beaux jours.\n\n• Des possibilités de mutations à l'interne, selon vos envies de développement.\n\n• De nombreuses formations internes ou certifiantes accessibles.\n\n• Un programme dédié aux cadres pour les accompagner dans l'acquisition des compétences nécessaires à la gestion de leurs équipes.\n\nVOUS POSSÉDEZ\n\n• Un diplôme d'auxiliaire de santé ou d'aide infirmier-ère reconnu par la Croix Rouge Suisse.\n\n• L'attestation Gineste-Marescotti (GM) et d'Accompagnateur en psychiatrie de l'âge avancé (FAP), un atout.\n\n• Une expérience réussie en gériatrie ou psychiatrie de l'âge avancé, un atout.\n\n• Une connaissance du système de santé et des EMS en Suisse, un atout.\n\n• Une capacité à travailler de jour comme de nuit, en horaires continus et coupés.\n\n• De la douceur, de l'empathie et un excellent relationnel avec les personnes âgées.\n\n• Un esprit d'équipe et de la solidarité permettant le maintien d'une bonne collaboration interdisciplinaire.\n\n• Du dynamisme, de l'engagement et une bonne capacité d'adaptation.\n\nVOS OBJECTIFS\n\n• Accompagner les résident-e-s dans les activités de la vie quotidienne.\n\n• Assurer les soins corporels et le confort des résident-e-s.\n\n• Participer à l'adaptation et à l'entretien de leur environnement avec leur collaboration.\n\n• Participer à une démarche de prise en soins interdisciplinaire de nos résident-e-s.\n\nNOUS SOMMES\n\n• Une institution comprenant des établissements de soins aigus et réadaptation, une clinique privée, des EMS, des centres médicaux et des permanences répartis dans la région de La Côte ainsi que la 1ère école d'hypnose clinique dédiée au milieu du soins en Suisse romande.\n\n• Un réseau de soins permettant de nombreuses opportunités de mutation interne selon les aspirations et projets de développement des collaborateurs.\n\n• Plus de 2000 collaborateurs prenant soin des patients et résidents de la région, en partageant des valeurs de Responsabilité, Proximité, Humanité, Compétence, dans un environnement agile favorisant la réalisation des projets.\n\n• Une entreprise formatrice engagée dans la formation de la relève, comptant environ 80 apprentis dans 16 métiers différents, 200 stagiaires HES-ES et près de 300 médecins en formation.\n\nENSEMBLE CÔTE À CÔTE, SOYEZ LE PROCHAIN TALENT DE NOTRE RESEAU DE SOIN.\n\nVous reconnaissez-vous dans cette description ?\nCliquez sur Postulez en ajoutant les documents suivants :\nCV, lettre de motivation, certificats de travail (nécessaires pour l'élaboration du calcul de salaire) et diplômes.\nSi votre candidature est sélectionnée, l’extrait de votre casier judiciaire vous sera demandé."
+      },
+      "needsRetranslation": false,
+      "location": "Morges",
+      "canton": "VD",
+      "url": "https://emploi.ehc-vd.ch/nos-offres/auxiliaire-de-sante-fh",
+      "source": "EHC Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-08T13:38:49.231Z",
+      "addressLocality": "Morges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1110",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-02",
+      "applyUrl": "https://emploi.ehc-vd.ch/nos-offres/auxiliaire-de-sante-fh",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "auxiliaire-de-sante-f-h-ehc-vd-morges",
+          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
+          "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
+        ],
+        "it": [
+          "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
+          "auxiliaire-de-sante-f-h-ehc-vd-morges",
+          "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+          "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+          "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
+          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
+          "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
+          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
+          "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        ],
+        "en": [
+          "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        ],
+        "de": [
+          "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
+        "auxiliaire-de-sante-f-h-ehc-vd-morges",
+        "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "health-assistant-caregiver-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "gesundheitsassistent-pflegehelfer-im-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
+        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
+        "assistente-sanitaria-ausiliario-socio-sanitario-in-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
+        "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
+        "assistente-sanitaria-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
+      ],
+      "firstSeenAt": "2026-08-31T17:09:06.390Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
