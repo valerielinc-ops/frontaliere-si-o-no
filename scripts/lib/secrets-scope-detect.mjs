@@ -11,7 +11,7 @@
  * CF_API_TOKEN / POSTHOG_PERSONAL_API_KEY+POSTHOG_PROJECT_ID / GEMINI_API_KEY+
  * GH_MODELS_PAT were ever available to it (scripts/load-rc-env.mjs requires
  * GOOGLE_APPLICATION_CREDENTIALS, absent in that container). From 2026-08-24
- * `issue-fix.yml` loads Remote Config too (owner decision, VISION.md), so the
+ * `issue-fix.yml` loads Remote Config too (owner decision, DECISIONS.md), so the
  * credential these three categories used to lack is now present — this
  * module's parking behaviour below is retained only as a log signal (see the
  * PROCEED-SAFE note further down), not because the fix is still impossible:
