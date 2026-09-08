@@ -1,0 +1,21 @@
+{
+  "companyKey": "govertical",
+  "companyName": "Go Vertical Davos",
+  "companyHost": "govertical.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://govertical.ch/jobs/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<img onload=\"Wpfcll.r(this,true);\" src=\"https://govertical.ch/wp-content/plugins/wp-fastest-cache-premium/pro/images/blank.gif\" fetchpriority=\"high\" decoding=\"a",
+    "<img onload=\"Wpfcll.r(this,true);\" src=\"https://govertical.ch/wp-content/plugins/wp-fastest-cache-premium/pro/images/blank.gif\" decoding=\"async\" width=\"480\" hei"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-07T09:20:39.727Z"
+}

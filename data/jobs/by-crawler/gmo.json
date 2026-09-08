@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-09-06T22:48:43.530Z",
+  "assembledAt": "2026-09-07T23:27:10.454Z",
   "jobs": [
     {
       "id": "gmo-69ead8a8b120",
@@ -33,7 +33,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.890Z",
+      "crawledAt": "2026-09-07T23:27:01.047Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.589Z",
+      "crawledAt": "2026-09-07T23:27:00.743Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:32.288Z",
+      "crawledAt": "2026-09-07T23:27:00.441Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -273,7 +273,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.983Z",
+      "crawledAt": "2026-09-07T23:27:00.140Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.682Z",
+      "crawledAt": "2026-09-07T23:26:59.837Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -427,7 +427,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.377Z",
+      "crawledAt": "2026-09-07T23:26:59.533Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -507,7 +507,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:31.074Z",
+      "crawledAt": "2026-09-07T23:26:59.231Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -585,7 +585,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:48:30.770Z",
+      "crawledAt": "2026-09-07T23:26:58.927Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,332 +632,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "gmo-fdf6239fe3ec",
-      "slug": "capo-gmo-lugano",
-      "slugByLocale": {
-        "it": "capo-gmo-lugano",
-        "en": "chief-nurse-gmo-lugano",
-        "de": "infirmier-ere-chef-fe-gmo-lugano",
-        "fr": "infirmier-ere-chef-fe-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Infirmier·ère chef·fe",
-      "titleByLocale": {
-        "it": "Capo",
-        "en": "Chief Nurse",
-        "de": "Infirmier·ère chef·fe",
-        "fr": "Infirmier·ère chef·fe"
-      },
-      "description": "Dans le cadre du développement de ses activités, notre établissement médico-social recherche un-e infirmier-ère chef-fe. Dépendant de la direction, l'infirmier-chef dirige le service des soins. Il participe, dans son domaine de... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Come parte dello sviluppo delle sue attività, la nostra istituzione medico-sociale sta cercando un'infermiera capo. A seconda della direzione, l'infermiera capo dirige il dipartimento di cura. Partecipa al suo campo di... Maggiori informazioni",
-        "en": "As part of the development of its activities, our medical-social institution is looking for a head nurse. Depending on management, the Chief Nurse heads the care department. He participates in his field of... More information",
-        "de": "Im Rahmen der Entwicklung ihrer Aktivitäten sucht unsere medizinisch-soziale Einrichtung eine Oberschwester. Je nach Management leitet die Chief Nurse die Pflegeabteilung. Er beteiligt sich an seinem Bereich der... Weitere Informationen",
-        "fr": "Dans le cadre du développement de ses activités, notre établissement médico-social recherche un-e infirmier-ère chef-fe. Dépendant de la direction, l'infirmier-chef dirige le service des soins. Il participe, dans son domaine de... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/infirmier-ere-chef-fe-89",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:06.112Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/infirmier-ere-chef-fe-89",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:26.253Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "reported",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-chef-fe-gmo-ch",
-          "un-infermiera-d-emergenza-gmo-lugano",
-          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-          "an-emergency-nurse-gmo-lugano",
-          "eine-notfallkrankenschwester-gmo-lugano"
-        ],
-        "en": [
-          "infirmier-ere-chef-fe-gmo-ch",
-          "an-emergency-nurse-gmo-lugano"
-        ],
-        "de": [
-          "infirmier-ere-chef-fe-gmo-ch",
-          "hauptkrankenschwester-gmo-lugano",
-          "infirmier-ere-chef-fe-gmo-lugano",
-          "eine-notfallkrankenschwester-gmo-lugano"
-        ],
-        "fr": [
-          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-chef-fe-gmo-ch",
-        "hauptkrankenschwester-gmo-lugano",
-        "infirmier-ere-chef-fe-gmo-lugano",
-        "un-infermiera-d-emergenza-gmo-lugano",
-        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-        "an-emergency-nurse-gmo-lugano",
-        "eine-notfallkrankenschwester-gmo-lugano"
-      ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
-    },
-    {
-      "id": "gmo-2e392bc89d01",
-      "slug": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
-      "slugByLocale": {
-        "it": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
-        "en": "fmh-medical-specialist-in-gynaecology-and-obstetrics-gmo-lugano",
-        "de": "fmh-facharzt-fur-gynakologie-und-geburtshilfe-gmo-lugano",
-        "fr": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin spécialiste FMH en gynécologie et obstétrique",
-      "titleByLocale": {
-        "it": "specialista medico FMH in ginecologia e ostetricia",
-        "en": "FMH medical specialist in gynaecology and obstetrics",
-        "de": "FMH Facharzt für Gynäkologie und Geburtshilfe",
-        "fr": "Médecin spécialiste FMH en gynécologie et obstétrique"
-      },
-      "description": "Rejoignez le Centre Médical des Crêts-de-Champel – www.cmchampel.ch – et intégrez notre unité dédiée à la santé de la femme, dans un environnement médical dynamique, reconnu et en plein développement. Notre... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Unisciti al Centre Médical des Crêts-de-Champel – www.cmchampel.ch – e integra la nostra unità dedicata alla salute delle donne in un ambiente medico dinamico, riconosciuto e in via di sviluppo. Il nostro... Maggiori informazioni",
-        "en": "Join the Centre Médical des Crêts-de-Champel – www.cmchampel.ch – and integrate our unit dedicated to women's health into a dynamic, recognized and developing medical environment. Our... More information",
-        "de": "Treten Sie dem Centre Médical des Crêts-de-Champel – www.cmchampel.ch – bei und integrieren Sie unsere Abteilung für die Gesundheit von Frauen in ein dynamisches, anerkanntes und sich entwickelndes medizinisches Umfeld. Unsere... Weitere Informationen",
-        "fr": "Rejoignez le Centre Médical des Crêts-de-Champel – www.cmchampel.ch – et intégrez notre unité dédiée à la santé de la femme, dans un environnement médical dynamique, reconnu et en plein développement. Notre... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:05.810Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:25.951Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-        ],
-        "en": [
-          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-        ],
-        "de": [
-          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "gmo-ac7868278538",
-      "slug": "psicologia-psicoterapeuta-fsp-gmo-lugano",
-      "slugByLocale": {
-        "it": "psicologia-psicoterapeuta-fsp-gmo-lugano",
-        "en": "psychologist-psychotherapist-fsp-gmo-lugano",
-        "de": "psychologe-psychotherapeut-fsp-gmo-lugano",
-        "fr": "psychologue-psychotherapeute-fsp-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Psychologue psychothérapeute FSP",
-      "titleByLocale": {
-        "it": "Psicologia psicoterapeuta FSP",
-        "en": "Psychologist psychotherapist FSP",
-        "de": "Psychologe Psychotherapeut FSP",
-        "fr": "Psychologue psychothérapeute FSP"
-      },
-      "description": "Pour le Centre Médical du Lignon et nos centres médicaux et maisons de santé du canton de Genève, nous recherchons des psychologues psychothérapeute diplômé·e pour rejoindre nos équipes pluridisciplinaires. Notre mission À travers son... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Per il Centro Medico di Lignon e i nostri centri medici e case sanitarie nel cantone di Ginevra, stiamo cercando psicologi psicoterapeuti che si sono diplomati per unirsi ai nostri team multidisciplinari. La nostra missione attraverso la sua... Maggiori informazioni",
-        "en": "For the Medical Centre of Lignon and our medical centres and health homes in the canton of Geneva, we are looking for psychotherapist psychologists who have graduated to join our multidisciplinary teams. Our mission Through his... More information",
-        "de": "Für das Medizinische Zentrum von Lignon und unsere medizinischen Zentren und Gesundheitsheime im Kanton Genf suchen wir Psychotherapeuten, die unseren multidisziplinären Teams beitreten. Unsere Mission durch seine... Weitere Informationen",
-        "fr": "Pour le Centre Médical du Lignon et nos centres médicaux et maisons de santé du canton de Genève, nous recherchons des psychologues psychothérapeute diplômé·e pour rejoindre nos équipes pluridisciplinaires. Notre mission À travers son... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:04.904Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:25.044Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "psychologue-psychotherapeute-fsp-gmo-ch"
-        ],
-        "en": [
-          "psychologue-psychotherapeute-fsp-gmo-ch"
-        ],
-        "de": [
-          "psychologue-psychotherapeute-fsp-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "psychologue-psychotherapeute-fsp-gmo-ch"
-      ],
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "gmo-287e39d62086",
-      "slug": "contabilita-gmo-lugano",
-      "slugByLocale": {
-        "it": "contabilita-gmo-lugano",
-        "en": "accountant-gmo-lugano",
-        "de": "buchhalter-gmo-lugano",
-        "fr": "comptable-gmo-ch"
-      },
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Comptable",
-      "titleByLocale": {
-        "it": "Contabilità",
-        "en": "Accountant",
-        "de": "Buchhalter",
-        "fr": "Comptable"
-      },
-      "description": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations",
-      "descriptionByLocale": {
-        "it": "Nell'ambito del rafforzamento della sua organizzazione amministrativa e finanziaria, un partner dello SME cerca un contabile all'80%.\n• La tua missione Si assicura, autonomamente e rigorosamente, che si indossa... Maggiori informazioni",
-        "en": "As part of the strengthening of its administrative and financial organisation, an EMS partner seeks an accounting officer at 80%.\n• Your Mission You ensure, autonomously and rigorously, that you wear... More information",
-        "de": "Im Rahmen der Stärkung der administrativen und finanziellen Organisation sucht ein EMS-Partner einen Rechnungsführer zu 80%.\n• Deine Mission Sie stellen sicher, autonom und streng, dass Sie tragen... Weitere Informationen",
-        "fr": "Dans le cadre du renforcement de son organisation administrative et financière, un EMS partenaire recherche un·e comptable à 80 %.\n• Votre mission Vous assurez, de manière autonome et rigoureuse, la tenue... Plus d’informations"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.arsante.ch/emploi/comptable-96",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:04.299Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.arsante.ch/emploi/comptable-96",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:19:24.438Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "previousSlugsByLocale": {
-        "it": [
-          "comptable-gmo-ch"
-        ],
-        "en": [
-          "comptable-gmo-ch"
-        ],
-        "de": [
-          "comptable-gmo-ch"
-        ]
-      },
-      "previousSlugs": [
-        "comptable-gmo-ch"
-      ],
-      "crawlerMissStreak": 2
     }
   ]
 }

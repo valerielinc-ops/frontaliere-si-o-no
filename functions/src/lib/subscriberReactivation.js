@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 
 import { assertSubscriberData, isNewsletterOptOutBinding } from './newsletterOptOut.js';
+import { isAccountDeletedTombstone } from '../authAccountCleanup.js';
 
 /**
  * Suppression recovery — the single decision point shared by every
@@ -185,6 +186,7 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
   // event is tolerated (the caller already gated on the event type) but then
   // there is nothing to record as the cause.
   if (eventType && !POSITIVE_RECOVERY_EVENTS.has(eventType)) return {};
+  if (isAccountDeletedTombstone(subscriber)) return {};
   // The stamp is checked BEFORE the status, and refuses on its own: a document
   // whose `status` a webhook overwrote to `suppressed` still carries the
   // camelCase `unsubscribedAt` the person's own click wrote, and the fact wins
@@ -239,12 +241,77 @@ export function positiveEventRecoveryFields({ currentStatus, bounceSeverity, eve
 export function positiveEventStatusFields({ currentStatus, bounceSeverity, event, subscriber } = {}) {
   const eventType = norm(event);
   if (eventType && !POSITIVE_RECOVERY_EVENTS.has(eventType)) return {};
+  if (isAccountDeletedTombstone(subscriber)) return {};
   if (hasBindingOptOutStamp(subscriber)) return {};
 
   const recovery = positiveEventRecoveryFields({ currentStatus, bounceSeverity, event, subscriber });
   if (Object.keys(recovery).length > 0) return recovery;
   if (isTerminalSuppression(currentStatus, bounceSeverity)) return {};
   return { status: 'active' };
+}
+
+// Webhooks update counters even when a subscriber is being deleted. The
+// lifecycle marker must nevertheless win over every derived status write until
+// a new registration explicitly clears it. Keeping this list here makes the
+// protection identical across all five providers and both channels.
+const ACCOUNT_DELETED_PROTECTED_FIELDS = Object.freeze([
+  'account_deleted_at',
+  'status',
+  'isActive',
+  'active',
+  'confirmed_at',
+  'confirmedAt',
+  'reactivated_at',
+  'recovered_from_status',
+  'recovered_by_event',
+  'bounce_reactivated_at',
+  'resubscribed_at',
+  'resubscribedAt',
+  'winback_sent_at',
+  'winback_pending',
+]);
+
+/**
+ * Remove lifecycle/status fields from a webhook merge while account deletion
+ * is still active. Engagement counters and event metadata remain writable.
+ */
+export function protectAccountDeletedSubscriberUpdate(update, subscriber) {
+  if (!isAccountDeletedTombstone(subscriber)) return update;
+  const protectedUpdate = { ...(update || {}) };
+  for (const field of ACCOUNT_DELETED_PROTECTED_FIELDS) delete protectedUpdate[field];
+  return protectedUpdate;
+}
+
+/**
+ * Read the subscriber and merge the provider update in one transaction. The
+ * older providers read, decided and then wrote separately; an account-delete
+ * tombstone landing between those operations could be overwritten by a late
+ * open/click or bounce event. `transactionDb` is optional for existing callers
+ * and tests: Admin document references expose `.firestore`, while lightweight
+ * doubles often expose `runTransaction` on the database itself.
+ */
+export async function mergeAccountDeletedSubscriberUpdate(
+  subscriberRef,
+  baseUpdate,
+  buildDynamicUpdate,
+  transactionDb = null,
+) {
+  const firestore = transactionDb?.runTransaction ? transactionDb : subscriberRef?.firestore;
+  if (!firestore || typeof firestore.runTransaction !== 'function') {
+    throw new Error('subscriber update requires a Firestore transaction');
+  }
+
+  return firestore.runTransaction(async (tx) => {
+    const snapshot = await tx.get(subscriberRef);
+    const current = snapshot?.exists ? (snapshot.data() || {}) : {};
+    const update = { ...(baseUpdate || {}) };
+    if (typeof buildDynamicUpdate === 'function') {
+      Object.assign(update, buildDynamicUpdate(current));
+    }
+    const safeUpdate = protectAccountDeletedSubscriberUpdate(update, current);
+    tx.set(subscriberRef, safeUpdate, { merge: true });
+    return safeUpdate;
+  });
 }
 
 /**

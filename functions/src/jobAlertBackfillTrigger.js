@@ -93,6 +93,12 @@ export async function handleNewsletterSubscriberCreated(
     email,
     userId: alertPayload.userId,
     locale: alertPayload.locale,
+    status: 'active',
+    isActive: true,
+    active: true,
+    // A fresh, consented backfill after account deletion is a new job-alert
+    // registration. Clear only the lifecycle marker; keep historical evidence.
+    account_deleted_at: admin.firestore.FieldValue.delete(),
     ...(patch || {}),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     created_at: admin.firestore.FieldValue.serverTimestamp(),

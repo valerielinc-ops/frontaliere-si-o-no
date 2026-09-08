@@ -58,7 +58,8 @@ import {
   inferNewsletterSubscriptionState,
   isNewsletterOptOutBinding,
   isNewsletterOptedOut,
-  unsubscribeNewsletterSubscriber,
+ unsubscribeNewsletterSubscriber,
+ isNewsletterAccountDeleted,
 } from '@/services/newsletterSubscribers';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { handleSubscriptionManagement } from '../functions/src/newsletterSubscriptionManagement.js';
@@ -78,6 +79,14 @@ const UNSUBSCRIBED_DOC = {
   active: false,
   unsubscribed_at: '2026-08-01T09:00:00.000Z',
   unsubscribedAt: '2026-08-01T09:00:00.000Z',
+};
+
+/** Account cleanup leaves this marker; it is not a permanent newsletter opt-out. */
+const ACCOUNT_DELETED_DOC = {
+  ...UNSUBSCRIBED_DOC,
+  account_deleted_at: '2026-08-02T09:00:00.000Z',
+  confirmed_at: '2026-07-01T09:00:00.000Z',
+  confirmedAt: '2026-07-01T09:00:00.000Z',
 };
 
 /**
@@ -196,6 +205,23 @@ describe('inferNewsletterSubscriptionState — a recorded opt-out is not undone 
     ).toEqual({ status: 'confirmed', isActive: true });
   });
 
+  it('allows every new-registration shape when the old Auth lifecycle is tombstoned', () => {
+    const registrationInputs = [
+      { email: EMAIL, source: 'newsletter_page', sourceChannel: 'newsletter_page', status: 'pending', isActive: false },
+      { email: EMAIL, source: 'signup', sourceChannel: 'auth_google', status: 'confirmed', isActive: true },
+      { email: EMAIL, source: 'signup', sourceChannel: 'auth_facebook', status: 'confirmed', isActive: true },
+      { email: EMAIL, source: 'signup', sourceChannel: 'auth_linkedin', status: 'confirmed', isActive: true },
+      { email: EMAIL, source: 'job_gate', sourceChannel: 'job_gate', status: 'pending', isActive: false },
+    ] as const;
+
+    for (const input of registrationInputs) {
+      expect(
+        inferNewsletterSubscriptionState(input, ACCOUNT_DELETED_DOC),
+        input.sourceChannel,
+      ).toEqual({ status: input.status, isActive: input.isActive });
+    }
+  });
+
   it('leaves every non-promoting write byte-identical', () => {
     // The guard is a post-filter that can only decline a promotion, so a
     // webhook demotion, a first-time signup and a healthy confirmed subscriber
@@ -287,6 +313,52 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     // mention the field, so whatever the document already recorded survives.
     expect(payload).not.toHaveProperty('unsubscribed_at');
     expect(payload).not.toHaveProperty('unsubscribedAt');
+  });
+
+  it('starts a fresh typed-email confirmation cycle after account deletion', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'newsletter_page',
+      sourceChannel: 'newsletter_page',
+      status: 'pending',
+      isActive: false,
+      consentAct: 'typed_email_submit',
+      consentText: 'formula di prova',
+    });
+
+    expect(result).toMatchObject({
+      status: 'pending',
+      optedOut: false,
+      hadConfirmationProof: false,
+    });
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.account_deleted_at).toBe('__delete_field__');
+    expect(payload.confirmed_at).toBe('__delete_field__');
+    expect(payload.confirmedAt).toBe('__delete_field__');
+    expect(payload.resubscribed_at).toBe('__server_timestamp__');
+    expect(payload.resubscribedAt).toBe('__server_timestamp__');
+  });
+
+  it('restores a tombstoned subscriber through a confirmed social/OAuth registration', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'signup',
+      sourceChannel: 'auth_google',
+      status: 'confirmed',
+      isActive: true,
+      consentAct: 'authentication',
+      consentText: 'formula di prova',
+    });
+
+    expect(result).toMatchObject({ status: 'confirmed', optedOut: false });
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.account_deleted_at).toBe('__delete_field__');
+    expect(payload.isActive).toBe(true);
+    expect(payload.active).toBe(true);
   });
 
   it('and the resulting document is mailable again — the lift is not cosmetic', () => {
@@ -527,6 +599,49 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
+  it('sends a new confirmation email for a tombstoned typed-email registration', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
+
+    const result = await upsertNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'newsletter_page',
+      sourceChannel: 'newsletter_page',
+      status: 'pending',
+      isActive: false,
+      consentAct: 'typed_email_submit',
+      consentText: 'formula di prova',
+    });
+
+    expect(result.status).toBe('pending');
+    expect(result.optedOut).toBe(false);
+    expect(result.hadConfirmationProof).toBe(false);
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.account_deleted_at).toBe('__delete_field__');
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
+    expect((fetchMock.mock.calls[0] as [string])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
+  });
+
+  it('sends a welcome email for a tombstoned social/OAuth registration', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
+
+    const result = await upsertNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'signup',
+      sourceChannel: 'auth_google',
+      status: 'confirmed',
+      isActive: true,
+      consentAct: 'authentication',
+      consentText: 'formula di prova',
+    });
+
+    expect(result.status).toBe('confirmed');
+    expect(result.optedOut).toBe(false);
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.account_deleted_at).toBe('__delete_field__');
+    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
+    expect((fetchMock.mock.calls[0] as [string])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendWelcome`);
+  });
+
   it('still sends the confirmation email to an address that never opted out', async () => {
     // The other direction, because a guard that blocks everything is not a
     // guard: the ordinary double-opt-in signup must be untouched.
@@ -570,6 +685,12 @@ describe('isNewsletterOptedOut — the guard the sign-in effects consult', () =>
 
     getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     await expect(isNewsletterOptedOut({} as any, 'new@example.com')).resolves.toBe(false);
+  });
+
+  it('does not treat an account-deletion tombstone as a permanent opt-out', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
+    await expect(isNewsletterOptedOut({} as any, EMAIL)).resolves.toBe(false);
+    await expect(isNewsletterAccountDeleted({} as any, EMAIL)).resolves.toBe(true);
   });
 
   it('fails CLOSED: a read error must not be read as "never unsubscribed"', async () => {

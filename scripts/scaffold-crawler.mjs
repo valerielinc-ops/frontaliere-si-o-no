@@ -523,7 +523,7 @@ export function is${pascalKey}Job(job) {
 
   return (
     key === ${CONST_PREFIX}_KEY ||
-    key.startsWith('${companyKey}') ||
+    key.startsWith('${companyKey}-') ||
     company.includes('${companyName.toLowerCase()}') ||
     url.includes('${companyDomain}')
   );
@@ -698,7 +698,10 @@ ${locationBlock}
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same \`url\`, \`applyUrl\` and \`id\` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, '${sourceLang}');
     const jobSlug = slugify(\`\${title} \${location} ${companyKey} ch\`);
@@ -746,7 +749,6 @@ ${locationBlock}
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(\`\\n📋 Total ${companyName} jobs discovered: \${jobs.length}\`);

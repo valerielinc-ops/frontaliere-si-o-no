@@ -22,7 +22,7 @@ const SKIP_DIRS = new Set([
   // Generated / environment dirs that contain no app source
   'public', 'data', 'reports', 'log', 'test-results',
   '.cache', '.build-cache', '.tmp', '.venv', '.playwright-mcp',
-  '.claude', '.cursor', '.idx', '.gitnexus', '.gstack', '.planning',
+  '.claude', '.cursor', '.idx', '.gstack', '.planning',
   '.agents', '.serena', '.superpowers', '.githooks', '.github',
   '.vscode', '_newsletter_variants', 'download', 'mcp-gsc-main',
   'functions', 'server',

@@ -276,7 +276,6 @@ Per verificare manualmente:
 - **Branches**: only `main` (after Phase 7 merge)
 - **Stashes**: 0
 - **Tags**: `pre-cathedral-2026-05-10` (global safety)
-- **GitNexus**: re-indexed (27,720+ nodes / 59,300+ edges / 1,270+ clusters)
 
 ---
 

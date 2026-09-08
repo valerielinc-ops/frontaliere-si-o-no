@@ -15,7 +15,6 @@ repo**. Vale una sola regola: *è disponibile solo ciò che è committato*.
 | `.env`, `.env.local`, service account Firebase su disco | ❌ restano sul Mac |
 | `~/.claude/CLAUDE.md`, `~/.claude/skills/`, `~/.claude/agents/` | ❌ user-level, non lasciano la macchina |
 | Auto-memory `~/.claude/projects/<repo>/memory/` | ❌ machine-local per design |
-| Indice GitNexus (`.gitnexus/`, ~8.5 GB, gitignored) | ❌ non ricostruibile nei limiti della VM |
 
 E soprattutto: **i cloud environment non hanno un secrets store**. Le loro
 variabili d'ambiente sono in chiaro e leggibili da chiunque usi l'environment.
@@ -98,13 +97,13 @@ Due cose da non fare:
 
 Se serve ridurre l'esposizione, l'alternativa è **Remote Control**
 (`/remote-control`): pilota da web e mobile una sessione che gira sul Mac, con
-credenziali, memoria e indice GitNexus veri, senza che nessun segreto lasci la
+credenziali e memoria veri, senza che nessun segreto lasci la
 macchina. Prezzo: il Mac deve restare acceso.
 
 ## Limiti della VM
 
 4 vCPU · 16 GB RAM · 30 GB disco. Il repo su GitHub pesa ~8.6 GB, quindi il clone
-ci sta ma non lascia spazio per l'indice GitNexus. `npm run build` chiede
+ci sta ma lascia poco margine. `npm run build` chiede
 `--max-old-space-size=18432`: in cloud non gira, ma è già la regola del progetto
 («mai full build locale» — vedi `AGENTS.md`), quindi le build restano su GitHub
 Actions come sempre.

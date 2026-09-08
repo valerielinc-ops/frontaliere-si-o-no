@@ -17,9 +17,12 @@ name: Stale PR rescuer (self-healing signal)
 #
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
 # issue-triage). Azione = label `stale-review` + UN commento idempotente con la
-# rescue instruction. NON fa auto-push (l'auto-merge-origin-main per la classe A
-# richiede PAT con scope `workflows`; è il follow-up dichiarato). Alert-only =
-# safe da girare live accanto agli agent locali attivi sui branch.
+# rescue instruction. La label è applicata con il token App quando disponibile:
+# così emette l'evento `pull_request:labeled` che riattiva tests.yml; il
+# GITHUB_TOKEN resta fallback fail-soft ma non può avviare workflow downstream.
+# NON fa auto-push (l'auto-merge-origin-main per la classe A richiede PAT con
+# scope `workflows`; è il follow-up dichiarato). Alert-only = safe da girare
+# live accanto agli agent locali attivi sui branch.
 
 on:
   # Event-driven primary: fire right after every review completes — exactly when
@@ -55,9 +58,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
+      # `secrets.GITHUB_TOKEN` è deliberatamente un fallback soltanto: un evento
+      # GitHub scritto da quell'identità non avvia un altro workflow. Il minter è
+      # zero-dep e viene preso in sparse checkout per mantenere questo rescuer
+      # leggero; l'App token emette invece il `pull_request:labeled` che
+      # tests.yml consuma per arrivare a pr-autorebase.
+      - name: Checkout App-token minter
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts/ci/mint-app-token.mjs
+            scripts/lib/githubApiHeaders.mjs
+            functions/src/githubApiHeaders.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Mint App token for non-recursive rescue labels
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Scan open PRs and flag stalled ones
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
@@ -111,14 +142,15 @@ jobs:
             # PR) + la review API (il suo `commit_id` è anch'esso corretto).
             checks=$(gh api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
             # Selezione allineata a `latestCompletedVitestConclusion`
-            # (scripts/ci/lib/vitestCheck.mjs): ULTIMO check-run COMPLETATO per
-            # `completed_at`, non `last` per ordine API. Uno stesso SHA può
+            # (scripts/ci/lib/vitestCheck.mjs): ULTIMO check-run COMPLETATO con
+            # verdetto per `completed_at`, non `last` per ordine API. Un job
+            # `skipped` è completato ma non è un verdetto. Uno stesso SHA può
             # portare PIÙ check-run omonimi (run `pull_request` + un
             # `workflow_dispatch` manuale): prendere l'ultimo per ordine API
             # pescava un verdetto ARBITRARIO, così un `failure` stantio
             # mascherava il `success` reale e viceversa (classe del bug #2394,
             # per cui quel modulo condiviso esiste).
-            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status=="completed" and .completed_at)] | sort_by(.completed_at) | last | .conclusion // "none"')
+            TESTS_CONCL=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status=="completed" and .completed_at and .conclusion != "skipped")] | sort_by(.completed_at) | last | .conclusion // "none"')
             # Un run già in volo sull'head si risolverà da sé → non è uno stallo.
             TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select(.name=="vitest (unit + integration)" and .status!="completed")] | length')
 
@@ -174,7 +206,7 @@ jobs:
               # d'età di 2h + l'idempotenza della label impediscono il rumore su
               # una PR con lavoro in corso.
               REASON="vitest \`$TESTS_CONCL\` sull'head da >2h, nessun run in volo e nessun segnale a valle (con i test rossi il job si ferma prima dello step di review Claude) — stallo silenzioso"
-              RESCUE="etichettata \`stale-review\` per riaprire il grafo: \`pr-autorebase\` ora la considera near-merge e la rebasa su main ri-dispatchando i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
+              RESCUE="etichettata \`stale-review\` per riaprire il grafo: il token App emette \`pull_request:labeled\`, tests.yml riattiva il consumer e \`pr-autorebase\` ora la considera near-merge, la rebasa su main e ri-dispatcha i test. Se il rosso è REALE (del diff della PR) va fixato a mano sul branch \`$BRANCH\` — la label non lo nasconde, lo rende visibile. Vedi AGENTS.md → \"main rosso blocca a cascata\"."
             else
               echo "PR #$N nessuno stallo noto (tests=$TESTS_CONCL pending=$TESTS_PENDING) — skip"; continue
             fi

@@ -24,7 +24,7 @@
  * routing with NO sub-tab, NO hubChrome, NO bespoke locale-rewrite in
  * services/router.ts's updatePathForLocale) rather than the Italian
  * borderMunicipalityPagesPlugin.ts pattern — that one requires a HIGH-risk
- * SlugTable edit (161 impacted, per GitNexus) for its bespoke locale-URL
+ * SlugTable edit (161 impacted) for its bespoke locale-URL
  * rewrite. This family also has no live wait-time/commute data for FR
  * crossings (data/borderCrossings.ts FR entries carry no avgWaitMorning/
  * avgWaitEvening/webcams), so it has no hydration/commute-simulator panel.

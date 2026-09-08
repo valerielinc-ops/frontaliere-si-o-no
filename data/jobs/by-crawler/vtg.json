@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-09-06T23:12:11.513Z",
+  "assembledAt": "2026-09-07T23:43:18.019Z",
   "jobs": [
     {
       "id": "company-u1mi81",
@@ -25,7 +25,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-09-04T13:49:24.861Z",
       "titleByLocale": {
         "it": "Impiegato/a in logistica",
@@ -196,7 +196,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-09-01T14:25:39.484Z",
       "titleByLocale": {
         "it": "Dottor Recruitment presso Mels Recruitment Center",
@@ -296,7 +296,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-09-01T23:27:26.191Z",
       "titleByLocale": {
         "it": "Tecnologia del trasportatore specializzato/in",
@@ -371,6 +371,91 @@
       "salaryMax": 116500
     },
     {
+      "id": "company-g574g1",
+      "slug": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Diesen Beitrag können Sie leisten\n\n- Als autorisierte Prüfperson (Zertifizierung) die ausgeführten Reparaturen und die Flugbereitschaft bescheinigen, Kontrollen überwachen sowie die Übergabe der Luftfahrzeuge an die Piloten/-innen leiten (Gruppenführer/-in)\n\n- Instandhaltungs- und Instandsetzungs- sowie Wartungsarbeiten am Luftfahrzeug und den flugrelevanten Bodensystemen erledigen\n\n- Konfigurationsänderungen, Einstellungs- und Kalibrierungsarbeiten inkl. Nutzlasten und Sensoren umsetzen\n\n- Die Flugbereitschaft und Retablierung der Systeme erstellen (inkl. Troubleshooting) sowie die Bodenlogistik administrativ planen und führen\n\n- Als Fachlehrer/-in unterrichten und technische Dokumente führen (englisch)\n\nDas macht Sie einzigartig\n\n- Berufsbildung als Automobil-Mechatroniker/-in EFZ, Automatiker/-in EFZ, Polymechaniker/-in EFZ oder gleichwertige technische Grundbildung, mit Fachrichtung Flugzeugunterhalt von Vorteil\n\n- Eigenverantwortung und absolute Zuverlässigkeit\n\n- Offene Persönlichkeit mit Freude an der Teamarbeit\n\n- Mündliche und schriftliche Kenntnisse einer zweiten Amtssprache und sehr gute Englischkenntnisse von Vorteil\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "url": "https://jobs.admin.ch/offene-stellen/techniker-in-aufklaerungsdrohnensystem-ads/e3439d10-b088-4739-a263-f33ab0567795",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
+      "firstSeenAt": "2026-08-28T05:33:19.805Z",
+      "titleByLocale": {
+        "it": "Sistema droni tecnico/in ricognizione (ADS)",
+        "en": "Technician/in reconnaissance drone system (ADS)",
+        "de": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
+        "fr": "Technicien/en système de drone de reconnaissance (SAD)"
+      },
+      "descriptionByLocale": {
+        "it": "Puoi dare questo contributo\n\n- In qualità di esaminatore autorizzato (certificazione), certificare le riparazioni effettuate e la disponibilità a volare, monitorare i controlli e portare il trasferimento dell'aeromobile ai piloti (gruppo leader)\n\n- Manutenzione completa, riparazione e manutenzione degli aerei e dei sistemi di terra correlati al volo\n\n- Cambiamenti di configurazione, regolazione e taratura incl. Implementare carichi e sensori\n\n- Creare la prontezza del volo e il ristabilimento dei sistemi (compresa la risoluzione dei problemi) e pianificare amministrativamente e gestire la logistica del terreno\n\n- Insegnamento come insegnante specializzato e gestione di documenti tecnici (inglese)\n\nQuesto li rende unici.\n\n- Formazione professionale come ingegnere meccatronico automobilistico, ingegnere automatico, formazione tecnica di base polimeccanica o equivalente, specializzata nella manutenzione degli aeromobili\n\n- Responsabilità personale e affidabilità assoluta\n\n- Personalità aperta con piacere nel lavoro di squadra\n\n- Conoscenza verbale e scritta di una seconda lingua ufficiale e buona conoscenza dell'inglese\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Attraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLe operazioni di comando (Kdo Op) sono responsabili di tutte le operazioni e le operazioni militari dell'esercito svizzero. Il Kdo Op comprende la Luftwaffe, l'esercito, le quattro divisioni territoriali, il SWISSINT Competence Center, il Comando delle Forze Speciali e la Polizia Militare. Circa il 40% dei circa 2.500 dipendenti sono dipendenti civili – dagli ingegneri alla meccanica degli aeromobili agli analisti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.",
+        "en": "You can make this contribution\n\n- As an authorized examiner (certification), certify the repairs carried out and the readiness to fly, monitor controls and lead the transfer of the aircraft to the pilots (group leader)\n\n- Complete maintenance, repair and maintenance of the aircraft and flight-related ground systems\n\n- Configuration changes, adjustment and calibration work incl. Implement payloads and sensors\n\n- Create the flight readiness and re-establishment of the systems (including troubleshooting) as well as administratively plan and manage ground logistics\n\n- Teaching as a specialist teacher and managing technical documents (English)\n\nThis makes them unique.\n\n- Vocational training as an automotive mechatronic engineer, automatic engineer, polymechanic or equivalent basic technical training, specialised in aircraft maintenance\n\n- Personal responsibility and absolute reliability\n\n- Open personality with pleasure in teamwork\n\n- Verbal and written knowledge of a second official language and very good knowledge of English\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Through equal opportunities, we develop our skills and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe Command Operations (Kdo Op) is responsible for all military operations and operations of the Swiss Army. The Kdo Op includes the Luftwaffe, the Army, the four territorial divisions, the SWISSINT Competence Center, the Special Forces Command and the Military Police. Around 40% of the approximately 2,500 employees are civil employees – from engineers to aircraft mechanics to analysts.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.",
+        "de": "Diesen Beitrag können Sie leisten\n\n- Als autorisierte Prüfperson (Zertifizierung) die ausgeführten Reparaturen und die Flugbereitschaft bescheinigen, Kontrollen überwachen sowie die Übergabe der Luftfahrzeuge an die Piloten/-innen leiten (Gruppenführer/-in)\n\n- Instandhaltungs- und Instandsetzungs- sowie Wartungsarbeiten am Luftfahrzeug und den flugrelevanten Bodensystemen erledigen\n\n- Konfigurationsänderungen, Einstellungs- und Kalibrierungsarbeiten inkl. Nutzlasten und Sensoren umsetzen\n\n- Die Flugbereitschaft und Retablierung der Systeme erstellen (inkl. Troubleshooting) sowie die Bodenlogistik administrativ planen und führen\n\n- Als Fachlehrer/-in unterrichten und technische Dokumente führen (englisch)\n\nDas macht Sie einzigartig\n\n- Berufsbildung als Automobil-Mechatroniker/-in EFZ, Automatiker/-in EFZ, Polymechaniker/-in EFZ oder gleichwertige technische Grundbildung, mit Fachrichtung Flugzeugunterhalt von Vorteil\n\n- Eigenverantwortung und absolute Zuverlässigkeit\n\n- Offene Persönlichkeit mit Freude an der Teamarbeit\n\n- Mündliche und schriftliche Kenntnisse einer zweiten Amtssprache und sehr gute Englischkenntnisse von Vorteil\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+        "fr": "Vous pouvez faire cette contribution\n\n- En tant qu'examinateur autorisé (certification), certifier les réparations effectuées et la disponibilité à voler, surveiller les commandes et diriger le transfert de l'aéronef aux pilotes (chef de groupe)\n\n- Entretien, réparation et entretien complets de l'aéronef et des systèmes terrestres liés au vol\n\n- Changements de configuration, réglage et travail d'étalonnage incl. Mettre en place des charges utiles et des capteurs\n\n- Créer la préparation au vol et le rétablissement des systèmes (y compris le dépannage) ainsi que planifier et gérer administrativement la logistique au sol\n\n- Enseignement en tant qu'enseignant spécialisé et gestion des documents techniques (anglais)\n\nCela les rend uniques.\n\n- Formation professionnelle en tant qu'ingénieur mécatronique automobile, ingénieur automatique, polymécanique ou formation technique de base équivalente, spécialisée dans l'entretien des aéronefs\n\n- Responsabilité personnelle et fiabilité absolue\n\n- Personnalité ouverte avec plaisir en travail d'équipe\n\n- Connaissance verbale et écrite d'une deuxième langue officielle et très bonne connaissance de l'anglais\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLes opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend la Luftwaffe, l'armée, les quatre divisions territoriales, le Centre de compétence SWISSINT, le Commandement des forces spéciales et la police militaire. Environ 40 % des quelque 2 500 employés sont des employés civils – des ingénieurs aux mécaniciens d'aéronefs aux analystes.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
+      },
+      "slugByLocale": {
+        "it": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
+        "en": "technician-in-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
+        "de": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
+        "fr": "technicien-en-systeme-de-drone-de-reconnaissance-sad-swiss-armed-forces-vtg-bern"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "de",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+        ],
+        "en": [
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+        ],
+        "de": [
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
+        ],
+        "fr": [
+          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
+        "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
+        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
+      ],
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "employmentType": "FULL_TIME",
+      "salarySource": "estimated",
+      "salaryMin": 68500,
+      "salaryMax": 104000
+    },
+    {
       "id": "company-oppjbh",
       "slug": "supporto-per-la-formazione-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
@@ -393,7 +478,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-26T10:13:55.322Z",
       "titleByLocale": {
         "it": "Supporto per la formazione",
@@ -471,7 +556,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-24T10:19:05.965Z",
       "titleByLocale": {
         "it": "Apparecchiature di trasmissione meccanica",
@@ -565,7 +650,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-21T10:10:43.879Z",
       "titleByLocale": {
         "it": "Gestione della flotta dell'unità di competenza",
@@ -656,7 +741,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-19T10:18:25.622Z",
       "titleByLocale": {
         "it": "Cyber Security Consulente",
@@ -738,7 +823,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-19T10:18:25.622Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica ingegneri/in veicoli commerciali",
@@ -811,7 +896,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-19T22:06:23.977Z",
       "titleByLocale": {
         "it": "Sistemi di refrigerazione polimeccanici (manutenzione/clima)",
@@ -884,7 +969,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-20T21:51:31.672Z",
       "titleByLocale": {
         "it": "Meccatronica automobilistica tecnico/in facilmente",
@@ -962,7 +1047,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-18T21:51:06.639Z",
       "titleByLocale": {
         "it": "Serbatoio elettrico",
@@ -1056,7 +1141,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-14T21:49:38.202Z",
       "titleByLocale": {
         "it": "Dipendenti / satellite",
@@ -1160,7 +1245,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista meccanico meccatronico, specializzato in autovetture",
@@ -1227,7 +1312,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, specializzazione magazzino",
@@ -1299,7 +1384,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprentice chef EFZ",
@@ -1366,7 +1451,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, Berufsfeld magazzino",
@@ -1438,7 +1523,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprendista Impiegato/a in logistica CFC, Berufsfeld magazzino",
@@ -1523,7 +1608,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-02T11:06:10.414Z",
       "slugByLocale": {
         "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-confederazione-svizzera-frauenfeld",
@@ -1605,7 +1690,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "Apprentice specialista di meccatronica automobilistica in EFZ, specializzazione in veicoli commerciali",
@@ -1677,7 +1762,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-31T22:31:00.841Z",
       "titleByLocale": {
         "it": "EFZ, specializzazione in servizio domestico",
@@ -1761,7 +1846,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-08-31T17:20:00.713Z",
       "slugByLocale": {
         "it": "apprendista-automobil-fachmann-frau-cfc-specializzazione-nutzfahrzeuge-swiss-armed-forces-vtg-bern",
@@ -1841,7 +1926,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
@@ -1924,7 +2009,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
@@ -2014,7 +2099,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
@@ -2119,7 +2204,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "driver-assistente-di-trasporto-swiss-armed-forces-vtg-bern",
@@ -2210,7 +2295,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
@@ -2305,7 +2390,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "agenti-del-personale-hq-kfor-swiss-armed-forces-vtg-bern",
@@ -2345,8 +2430,6 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
-          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
           "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
@@ -2364,7 +2447,9 @@
           "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern",
           "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
           "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
-          "logistics-department-swiss-armed-forces-vtg-bellinzona"
+          "logistics-department-swiss-armed-forces-vtg-bellinzona",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur"
         ],
         "en": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
@@ -2435,7 +2520,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "camion-automobile-meccatronica-tecnico-swiss-armed-forces-vtg-bern",
@@ -2536,7 +2621,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-09T22:31:05.681Z",
       "slugByLocale": {
         "it": "pioneer-maurer-m-f-swiss-armed-forces-vtg-bern",
@@ -2603,7 +2688,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
@@ -2695,7 +2780,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "specialista-delle-infrastrutture-sanitaria-swiss-armed-forces-vtg-bern",
@@ -2810,7 +2895,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "specialista-delle-infrastrutture-in-elettrici-potenza-swiss-armed-forces-vtg-bern",
@@ -2913,7 +2998,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "trasmissione-specialista-informatica-swiss-armed-forces-vtg-bern",
@@ -3006,7 +3091,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
@@ -3100,7 +3185,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "personale-militare-m-f-swiss-armed-forces-vtg-bern",
@@ -3198,7 +3283,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-06T23:11:52.739Z",
+      "crawledAt": "2026-09-07T23:42:54.809Z",
       "firstSeenAt": "2026-07-06T22:33:40.684Z",
       "slugByLocale": {
         "it": "osservatore-lmt-lot-m-w-swiss-armed-forces-vtg-bern",
@@ -3284,185 +3369,6 @@
       "salarySource": "estimated",
       "salaryMin": 68500,
       "salaryMax": 104000
-    },
-    {
-      "id": "company-g574g1",
-      "slug": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag können Sie leisten\n\n- Als autorisierte Prüfperson (Zertifizierung) die ausgeführten Reparaturen und die Flugbereitschaft bescheinigen, Kontrollen überwachen sowie die Übergabe der Luftfahrzeuge an die Piloten/-innen leiten (Gruppenführer/-in)\n\n- Instandhaltungs- und Instandsetzungs- sowie Wartungsarbeiten am Luftfahrzeug und den flugrelevanten Bodensystemen erledigen\n\n- Konfigurationsänderungen, Einstellungs- und Kalibrierungsarbeiten inkl. Nutzlasten und Sensoren umsetzen\n\n- Die Flugbereitschaft und Retablierung der Systeme erstellen (inkl. Troubleshooting) sowie die Bodenlogistik administrativ planen und führen\n\n- Als Fachlehrer/-in unterrichten und technische Dokumente führen (englisch)\n\nDas macht Sie einzigartig\n\n- Berufsbildung als Automobil-Mechatroniker/-in EFZ, Automatiker/-in EFZ, Polymechaniker/-in EFZ oder gleichwertige technische Grundbildung, mit Fachrichtung Flugzeugunterhalt von Vorteil\n\n- Eigenverantwortung und absolute Zuverlässigkeit\n\n- Offene Persönlichkeit mit Freude an der Teamarbeit\n\n- Mündliche und schriftliche Kenntnisse einer zweiten Amtssprache und sehr gute Englischkenntnisse von Vorteil\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "url": "https://jobs.admin.ch/offene-stellen/techniker-in-aufklaerungsdrohnensystem-ads/e3439d10-b088-4739-a263-f33ab0567795",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Emmen",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-05T23:02:48.122Z",
-      "firstSeenAt": "2026-08-28T05:33:19.805Z",
-      "titleByLocale": {
-        "it": "Sistema droni tecnico/in ricognizione (ADS)",
-        "en": "Technician/in reconnaissance drone system (ADS)",
-        "de": "Techniker/-in Aufklärungsdrohnensystem (ADS)",
-        "fr": "Technicien/en système de drone de reconnaissance (SAD)"
-      },
-      "descriptionByLocale": {
-        "it": "Puoi dare questo contributo\n\n- In qualità di esaminatore autorizzato (certificazione), certificare le riparazioni effettuate e la disponibilità a volare, monitorare i controlli e portare il trasferimento dell'aeromobile ai piloti (gruppo leader)\n\n- Manutenzione completa, riparazione e manutenzione degli aerei e dei sistemi di terra correlati al volo\n\n- Cambiamenti di configurazione, regolazione e taratura incl. Implementare carichi e sensori\n\n- Creare la prontezza del volo e il ristabilimento dei sistemi (compresa la risoluzione dei problemi) e pianificare amministrativamente e gestire la logistica del terreno\n\n- Insegnamento come insegnante specializzato e gestione di documenti tecnici (inglese)\n\nQuesto li rende unici.\n\n- Formazione professionale come ingegnere meccatronico automobilistico, ingegnere automatico, formazione tecnica di base polimeccanica o equivalente, specializzata nella manutenzione degli aeromobili\n\n- Responsabilità personale e affidabilità assoluta\n\n- Personalità aperta con piacere nel lavoro di squadra\n\n- Conoscenza verbale e scritta di una seconda lingua ufficiale e buona conoscenza dell'inglese\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Attraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLe operazioni di comando (Kdo Op) sono responsabili di tutte le operazioni e le operazioni militari dell'esercito svizzero. Il Kdo Op comprende la Luftwaffe, l'esercito, le quattro divisioni territoriali, il SWISSINT Competence Center, il Comando delle Forze Speciali e la Polizia Militare. Circa il 40% dei circa 2.500 dipendenti sono dipendenti civili – dagli ingegneri alla meccanica degli aeromobili agli analisti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.",
-        "en": "You can make this contribution\n\n- As an authorized examiner (certification), certify the repairs carried out and the readiness to fly, monitor controls and lead the transfer of the aircraft to the pilots (group leader)\n\n- Complete maintenance, repair and maintenance of the aircraft and flight-related ground systems\n\n- Configuration changes, adjustment and calibration work incl. Implement payloads and sensors\n\n- Create the flight readiness and re-establishment of the systems (including troubleshooting) as well as administratively plan and manage ground logistics\n\n- Teaching as a specialist teacher and managing technical documents (English)\n\nThis makes them unique.\n\n- Vocational training as an automotive mechatronic engineer, automatic engineer, polymechanic or equivalent basic technical training, specialised in aircraft maintenance\n\n- Personal responsibility and absolute reliability\n\n- Open personality with pleasure in teamwork\n\n- Verbal and written knowledge of a second official language and very good knowledge of English\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Through equal opportunities, we develop our skills and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe Command Operations (Kdo Op) is responsible for all military operations and operations of the Swiss Army. The Kdo Op includes the Luftwaffe, the Army, the four territorial divisions, the SWISSINT Competence Center, the Special Forces Command and the Military Police. Around 40% of the approximately 2,500 employees are civil employees – from engineers to aircraft mechanics to analysts.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.",
-        "de": "Diesen Beitrag können Sie leisten\n\n- Als autorisierte Prüfperson (Zertifizierung) die ausgeführten Reparaturen und die Flugbereitschaft bescheinigen, Kontrollen überwachen sowie die Übergabe der Luftfahrzeuge an die Piloten/-innen leiten (Gruppenführer/-in)\n\n- Instandhaltungs- und Instandsetzungs- sowie Wartungsarbeiten am Luftfahrzeug und den flugrelevanten Bodensystemen erledigen\n\n- Konfigurationsänderungen, Einstellungs- und Kalibrierungsarbeiten inkl. Nutzlasten und Sensoren umsetzen\n\n- Die Flugbereitschaft und Retablierung der Systeme erstellen (inkl. Troubleshooting) sowie die Bodenlogistik administrativ planen und führen\n\n- Als Fachlehrer/-in unterrichten und technische Dokumente führen (englisch)\n\nDas macht Sie einzigartig\n\n- Berufsbildung als Automobil-Mechatroniker/-in EFZ, Automatiker/-in EFZ, Polymechaniker/-in EFZ oder gleichwertige technische Grundbildung, mit Fachrichtung Flugzeugunterhalt von Vorteil\n\n- Eigenverantwortung und absolute Zuverlässigkeit\n\n- Offene Persönlichkeit mit Freude an der Teamarbeit\n\n- Mündliche und schriftliche Kenntnisse einer zweiten Amtssprache und sehr gute Englischkenntnisse von Vorteil\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Vous pouvez faire cette contribution\n\n- En tant qu'examinateur autorisé (certification), certifier les réparations effectuées et la disponibilité à voler, surveiller les commandes et diriger le transfert de l'aéronef aux pilotes (chef de groupe)\n\n- Entretien, réparation et entretien complets de l'aéronef et des systèmes terrestres liés au vol\n\n- Changements de configuration, réglage et travail d'étalonnage incl. Mettre en place des charges utiles et des capteurs\n\n- Créer la préparation au vol et le rétablissement des systèmes (y compris le dépannage) ainsi que planifier et gérer administrativement la logistique au sol\n\n- Enseignement en tant qu'enseignant spécialisé et gestion des documents techniques (anglais)\n\nCela les rend uniques.\n\n- Formation professionnelle en tant qu'ingénieur mécatronique automobile, ingénieur automatique, polymécanique ou formation technique de base équivalente, spécialisée dans l'entretien des aéronefs\n\n- Responsabilité personnelle et fiabilité absolue\n\n- Personnalité ouverte avec plaisir en travail d'équipe\n\n- Connaissance verbale et écrite d'une deuxième langue officielle et très bonne connaissance de l'anglais\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLes opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend la Luftwaffe, l'armée, les quatre divisions territoriales, le Centre de compétence SWISSINT, le Commandement des forces spéciales et la police militaire. Environ 40 % des quelque 2 500 employés sont des employés civils – des ingénieurs aux mécaniciens d'aéronefs aux analystes.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
-      },
-      "slugByLocale": {
-        "it": "sistema-droni-tecnico-in-ricognizione-ads-swiss-armed-forces-vtg-bern",
-        "en": "technician-in-reconnaissance-drone-system-ads-swiss-armed-forces-vtg-bern",
-        "de": "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1",
-        "fr": "technicien-en-systeme-de-drone-de-reconnaissance-sad-swiss-armed-forces-vtg-bern"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
-        ],
-        "en": [
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
-        ],
-        "de": [
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen"
-        ],
-        "fr": [
-          "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-          "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
-        ]
-      },
-      "previousSlugs": [
-        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern",
-        "techniker-in-aufklarungsdrohnensystem-ads-confederazione-emmen",
-        "techniker-in-aufklarungsdrohnensystem-ads-swiss-armed-forces-vtg-bern-g574g1"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "salarySource": "estimated",
-      "salaryMin": 68500,
-      "salaryMax": 104000
-    },
-    {
-      "id": "company-f018y2",
-      "slug": "logistikfachmann-frau-magazzino-monteceneri-isone-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Logistikfachmann/-frau Lager Monteceneri/Isone",
-      "location": "Bern",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag können Sie leisten\n\n- Die logistischen Aufgaben und Termine im Zusammenhang mit der Abgabe, Rücknahme und Umlagerung von Systemen, Armeematerial, Munition, Verpflegung und Treibstoffen planen, koordinieren und leiten\n\n- Waren annehmen und bewirtschaften (Entgegennahme, Identifikation, Kontrolle, Erfassung) sowie ausliefern (Versand: Auftragsbearbeitung, Kommissionierung, Planung/Organisation der Verteilung, Warenauslieferung)\n\n- Lagerung sicherstellen (Optimierung der Lagerflächen, Beurteilung von Menge/Qualität der Bestände, Einsatzbereitschaft, Lagerumschlag, Entsorgung)\n\n- Inventarführung von Systemen, Armeematerial und Munition unter Gewährleistung der vorschriftsgemässen Lagerbewirtschaftung sicherstellen\n\n- Arbeitsgruppen (bestehend aus den zugeteilten Angehörigen der Armee und/oder dem Zivilpersonal) während der Abgabe, Rücknahme und Umlagerung von Systemen und Material führen\n\n- Als Ansprechperson für die Leistungsbezüger (Truppe, Truppenhandwerker, militärische und zivile Kundschaft) zur Verfügung stehen und Truppe auf Italienisch und Deutsch im korrekten Umgang mit dem Material sowie in dessen Pflege und Unterhalt instruieren\n\nDas macht Sie einzigartig\n\n- Eidgenössisches Fähigkeitszeugnis (EFZ) als Logistiker/-in mit Weiterbildung zum/zur Logistikfachmann/-frau mit eidgenössischem Fachausweis\n\n- Eine kaufmännische Weiterbildung sowie der Besitz der Führerausweise der Kategorien B, C, CE und F sind von Vorteil\n\n- Fähigkeit, selbstständig und verantwortungsbewusst zu handeln, Ziel- und Ergebnisorientierung, Organisationsgeschick sowie eine speditive und gewissenhafte Arbeitsweise\n\n- Eine ausgeprägte Kontakt- und Beratungsbereitschaft gegenüber der Kundschaft; Kenntnisse des Armeematerials sowie militärische Grundkenntnisse sind von Vorteil\n\n- Gute Informatikkenntnisse, insbesondere des MS-Office-Pakets und des SAP-Systems\n\n- Gute kommunikative Fähigkeiten; gute Kenntnisse einer zweiten Amtssprache\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-03",
-      "url": "https://jobs.admin.ch/offene-stellen/logistikfachmann-frau-lager-monteceneri-isone/b771beef-e9fb-4a46-8383-41b3dcbd5a73",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Rivera",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-09-05T23:02:48.122Z",
-      "firstSeenAt": "2026-08-03T12:53:50.208Z",
-      "titleByLocale": {
-        "it": "Logistikfachmann/-frau magazzino Monteceneri/Isone",
-        "en": "Logistics specialists Lager Monteceneri/Isone",
-        "de": "Logistikfachmann/-frau Lager Monteceneri/Isone",
-        "fr": "Spécialistes en logistique Lager Monteceneri/Isone"
-      },
-      "descriptionByLocale": {
-        "it": "Puoi dare questo contributo\n\n- Pianificazione, coordinamento e gestione dei compiti e delle scadenze logistiche relative alla resa, all'acquisizione e allo spostamento di sistemi, attrezzature militari, munizioni, cibo e carburante\n\n- Accettare e gestire le merci (ricezione, identificazione, controllo, registrazione) e consegnare (trasmissione: elaborazione ordini, raccolta ordini, pianificazione/organizzazione della distribuzione, consegna delle merci)\n\n- Assicurare lo stoccaggio (ottimizzazione delle aree di stoccaggio, valutazione della quantità/qualità delle scorte, disponibilità operativa, stoccaggio, smaltimento)\n\n- Assicurare la gestione delle scorte di sistemi, attrezzature militari e munizioni, assicurando una corretta gestione delle scorte\n\n- Condurre gruppi di lavoro (costituiti da personale militare e/o civile) durante la resa, il ritiro e il trasferimento di sistemi e attrezzature\n\n- Come persona di contatto per i pagatori (capo, artigiani di truppe, clienti militari e civili) e istruire truppe in italiano e tedesco nella corretta gestione del materiale, nonché nella sua cura e manutenzione\n\nQuesto li rende unici.\n\n- Certificato federale svizzero di competenza (EFZ) come logistico con ulteriore formazione come specialista di logistica con certificato svizzero\n\n- Formazione commerciale e possesso di patenti di guida nelle categorie B, C, CE e F sono vantaggiosi\n\n- Capacità di agire in modo indipendente e responsabile, orientamento obiettivo e risultato, capacità organizzative e metodo di lavoro previsionale e coscienzioso\n\n- Una forte disponibilità a contattare e consigliare i clienti; La conoscenza dei materiali dell'esercito e delle conoscenze militari di base sono vantaggiose\n\n- Buone competenze informatiche, in particolare il pacchetto MS Office e il sistema SAP\n\n- Buone capacità di comunicazione; Buona conoscenza di una seconda lingua ufficiale\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Attraverso pari opportunità, sviluppiamo le nostre competenze e portiamo diverse prospettive.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell'esercito svizzero con i suoi circa 3'500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.",
-        "en": "You can make this contribution\n\n- Planning, coordinating and managing logistical tasks and deadlines related to the surrender, take-back and relocation of systems, military equipment, ammunition, food and fuel\n\n- Accept and manage goods (receipt, identification, control, registration) and deliver (shipping: order processing, order picking, planning/organisation of distribution, delivery of goods)\n\n- Ensure storage (optimisation of storage areas, assessment of quantity/quality of stocks, operational readiness, storage handling, disposal)\n\n- Ensure inventory management of systems, military equipment and ammunition while ensuring proper stockpile management\n\n- Conduct working groups (consisting of assigned military and/or civilian personnel) during the surrender, withdrawal and relocation of systems and equipment\n\n- As a contact person for the payers (troop, troop craftsmen, military and civilian customers) and instruct troops in Italian and German in the correct handling of the material as well as in its care and maintenance\n\nThis makes them unique.\n\n- Swiss Federal Certificate of Competence (EFZ) as a logistician with further training as a logistics specialist with a Swiss certificate\n\n- Commercial training and possession of driving licences in categories B, C, CE and F are advantageous\n\n- Ability to act independently and responsibly, goal and result orientation, organizational skills and a forward-looking and conscientious working method\n\n- A strong willingness to contact and advise customers; Knowledge of army materials and basic military knowledge are advantageous\n\n- Good computer science skills, in particular the MS Office package and the SAP system\n\n- Good communication skills; Good knowledge of a second official language\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Through equal opportunities, we develop our skills and bring different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3'500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.",
-        "de": "Diesen Beitrag können Sie leisten\n\n- Die logistischen Aufgaben und Termine im Zusammenhang mit der Abgabe, Rücknahme und Umlagerung von Systemen, Armeematerial, Munition, Verpflegung und Treibstoffen planen, koordinieren und leiten\n\n- Waren annehmen und bewirtschaften (Entgegennahme, Identifikation, Kontrolle, Erfassung) sowie ausliefern (Versand: Auftragsbearbeitung, Kommissionierung, Planung/Organisation der Verteilung, Warenauslieferung)\n\n- Lagerung sicherstellen (Optimierung der Lagerflächen, Beurteilung von Menge/Qualität der Bestände, Einsatzbereitschaft, Lagerumschlag, Entsorgung)\n\n- Inventarführung von Systemen, Armeematerial und Munition unter Gewährleistung der vorschriftsgemässen Lagerbewirtschaftung sicherstellen\n\n- Arbeitsgruppen (bestehend aus den zugeteilten Angehörigen der Armee und/oder dem Zivilpersonal) während der Abgabe, Rücknahme und Umlagerung von Systemen und Material führen\n\n- Als Ansprechperson für die Leistungsbezüger (Truppe, Truppenhandwerker, militärische und zivile Kundschaft) zur Verfügung stehen und Truppe auf Italienisch und Deutsch im korrekten Umgang mit dem Material sowie in dessen Pflege und Unterhalt instruieren\n\nDas macht Sie einzigartig\n\n- Eidgenössisches Fähigkeitszeugnis (EFZ) als Logistiker/-in mit Weiterbildung zum/zur Logistikfachmann/-frau mit eidgenössischem Fachausweis\n\n- Eine kaufmännische Weiterbildung sowie der Besitz der Führerausweise der Kategorien B, C, CE und F sind von Vorteil\n\n- Fähigkeit, selbstständig und verantwortungsbewusst zu handeln, Ziel- und Ergebnisorientierung, Organisationsgeschick sowie eine speditive und gewissenhafte Arbeitsweise\n\n- Eine ausgeprägte Kontakt- und Beratungsbereitschaft gegenüber der Kundschaft; Kenntnisse des Armeematerials sowie militärische Grundkenntnisse sind von Vorteil\n\n- Gute Informatikkenntnisse, insbesondere des MS-Office-Pakets und des SAP-Systems\n\n- Gute kommunikative Fähigkeiten; gute Kenntnisse einer zweiten Amtssprache\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nIhr Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Vous pouvez faire cette contribution\n\n- Planification, coordination et gestion des tâches logistiques et des délais liés à la remise, à la reprise et à la réinstallation des systèmes, du matériel militaire, des munitions, des denrées alimentaires et du carburant\n\n- Accepter et gérer les marchandises (réception, identification, contrôle, enregistrement) et livrer (expédition: traitement des commandes, cueillette des commandes, planification/organisation de la distribution, livraison des marchandises)\n\n- Assurer le stockage (optimisation des zones de stockage, évaluation de la quantité/qualité des stocks, préparation opérationnelle, manutention du stockage, élimination)\n\n- Assurer la gestion des stocks de systèmes, de matériel militaire et de munitions tout en assurant une bonne gestion des stocks\n\n- Conduire des groupes de travail (composés de personnel militaire et/ou civil affecté) pendant la remise, le retrait et la réinstallation des systèmes et du matériel\n\n- En tant que personne de contact pour les payeurs (troupes, artisans de troupes, clients militaires et civils) et d'instruire les troupes en italien et en allemand sur la manipulation correcte du matériel ainsi que dans ses soins et entretien\n\nCela les rend uniques.\n\n- Certificat fédéral de compétence suisse (EFZ) en tant que logisticien ayant une formation continue en tant que spécialiste de la logistique avec un certificat suisse\n\n- La formation commerciale et la possession de permis de conduire dans les catégories B, C, CE et F sont avantageuses\n\n- Aptitude à agir de manière indépendante et responsable, orientation des objectifs et des résultats, compétences organisationnelles et méthode de travail tournée vers l'avenir et consciencieuse\n\n- Une forte volonté de contacter et de conseiller les clients; La connaissance du matériel militaire et des connaissances militaires de base sont avantageuses\n\n- Bonnes compétences en informatique, en particulier le paquet MS Office et le système SAP\n\n- Bonnes compétences en communication; Bonne connaissance d'une deuxième langue officielle\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions."
-      },
-      "slugByLocale": {
-        "it": "logistikfachmann-frau-magazzino-monteceneri-isone-swiss-armed-forces-vtg-bern",
-        "en": "logistics-specialists-lager-monteceneri-isone-swiss-armed-forces-vtg-bern",
-        "de": "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
-        "fr": "specialistes-en-logistique-lager-monteceneri-isone-swiss-armed-forces-vtg-bern"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern",
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
-          "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-          "logistikfachmann-frau-magazzino-monteceneri-isone-confederazione-svizzera-rivera"
-        ],
-        "en": [
-          "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
-          "logistics-specialists-lager-monteceneri-isone-confederazione-svizzera-rivera"
-        ],
-        "de": [
-          "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera"
-        ],
-        "fr": [
-          "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-          "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
-          "specialistes-en-logistique-lager-monteceneri-isone-confederazione-svizzera-rivera"
-        ]
-      },
-      "previousSlugs": [
-        "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern",
-        "logistikfachmann-frau-lager-monteceneri-isone-swiss-armed-forces-vtg-bern-f018y2",
-        "logistikfachmann-frau-lager-monteceneri-isone-confederazione-rivera",
-        "logistikfachmann-frau-magazzino-monteceneri-isone-confederazione-svizzera-rivera",
-        "logistics-specialists-lager-monteceneri-isone-confederazione-svizzera-rivera",
-        "specialistes-en-logistique-lager-monteceneri-isone-confederazione-svizzera-rivera"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "salarySource": "estimated",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
     },
     {
       "id": "company-ebtwf9",

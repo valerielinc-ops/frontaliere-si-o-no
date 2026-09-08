@@ -1,59 +1,20 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-09-06T22:57:32.872Z",
-  "total": 3,
+  "generatedAt": "2026-09-07T23:36:10.394Z",
+  "total": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2403,
-  "avgDurationMs": 2403,
+  "durationMs": 1383,
+  "avgDurationMs": 1383,
   "durationHistory": [
-    2403
+    1383
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Architetto qualificato",
-      "slug": "architetto-qualificato-artisa-group-lugano",
-      "url": "https://artisagroup.com/carriera#architetto-qualificato",
-      "applyUrl": "https://app.smartsheet.com/b/form/019c46ebd5137236a9d1b0d500840bf4",
-      "company": "Artisa Group",
-      "companyKey": "artisa-group",
-      "companyDomain": "artisagroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Immobiliare & Architettura",
-      "source": "artisa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Nassa 5",
-      "postalCode": "6900",
-      "id": "artisa-group-009836d03a34",
-      "firstSeenAt": "2026-04-13T21:07:15.584Z",
-      "salarySource": "reported",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

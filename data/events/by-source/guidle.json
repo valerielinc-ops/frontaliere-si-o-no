@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-09-06T10:14:08.814Z",
+  "assembledAt": "2026-09-07T11:07:19.301Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -834,43 +834,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AvPhuZA.jpg"
-    },
-    {
-      "id": "guidle:AkDMs5x",
-      "title": "Festival del teatro di Basilea",
-      "titleByLocale": {
-        "it": "Festival del teatro di Basilea",
-        "en": "Theatre Festival",
-        "de": "Theaterfestival Basel",
-        "fr": "Le Festival de théâtre"
-      },
-      "description": "Il festival propone teatro, danza, performance, azioni urbane, tavole rotonde, film e feste create da 170 artisti di scena provenienti da numerosi Paesi.",
-      "descriptionByLocale": {
-        "it": "Il festival propone teatro, danza, performance, azioni urbane, tavole rotonde, film e feste create da 170 artisti di scena provenienti da numerosi Paesi.",
-        "en": "The festival offers theater, dance, performance, urban actions, panel discussions, films and party designed by 170 stage creators from numerous countries.",
-        "de": "Das Festival bietet Theater, Tanz, Performance, Stadtaktionen, Podiumsdiskussionen, Filme und Party gestaltet von 170 Bühnenschaffenden aus zahlreichen Ländern.",
-        "fr": "Le festival propose du théâtre, de la danse, des performances, des actions urbaines, des tables rondes, des films et des soirées organisées par 170 artistes de nombreux pays."
-      },
-      "startDate": "2026-08-26",
-      "endDate": "2026-09-06",
-      "startTime": "00:00",
-      "category": "Festival del teatro",
-      "venue": "Kaserne Basel",
-      "comune": "Basel",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/events/basel/theatre-festival_AkDMs5x",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Klybeckstrasse 1b",
-        "postalCode": "4057"
-      },
-      "geo": {
-        "lat": 47.5638411,
-        "lng": 7.5911571
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-AkDMs5x.jpg"
     },
     {
       "id": "guidle:AKEg5yP",
@@ -11768,48 +11731,6 @@
       "imageUrl": "/images/events/guidle-ATRpmp6.jpg"
     },
     {
-      "id": "guidle:A3hNase",
-      "title": "Kunst zum Frühstück",
-      "titleByLocale": {
-        "it": "Kunst zum Frühstück",
-        "en": "Kunst zum Frh",
-        "de": "Kunst zum Fr Graffhst ⑤ck",
-        "fr": "Musée d'art Frh"
-      },
-      "description": "Feines Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
-      "descriptionByLocale": {
-        "it": "Feines Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
-        "en": "Fine Frühstück und spannende Einblicke in die faszinierende Welt der aktuell ausgestellten Kunst.",
-        "de": "Feines fr Zucchhst Zucchck und spannende Einklicke in die faszinierende Graffelt der aktuell ausgestellten Kunst.",
-        "fr": "De beaux cadeaux et des images éclatantes dans le monde fascinant de l'art ausgestellten."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "09:30",
-      "category": "Mangiare insieme",
-      "venue": "Forum Würth Rorschach",
-      "comune": "Rorschach",
-      "canton": "SG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/kunst-zum-fruehstueck_A3hNase",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 35.5,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Churerstrasse 10",
-        "postalCode": "9400"
-      },
-      "geo": {
-        "lat": 47.4786506,
-        "lng": 9.5064734
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A3hNase.jpg"
-    },
-    {
       "id": "guidle:ACuNQAQ",
       "title": "Art for Tea",
       "titleByLocale": {
@@ -12019,42 +11940,6 @@
       "imageUrl": "/images/events/guidle-AgEAQV3.jpg"
     },
     {
-      "id": "guidle:A45ij8s",
-      "title": "Reiseziel Museum | Entdeckungsreise für die ganze Familie!",
-      "titleByLocale": {
-        "it": "Reiseziel Museum | Entdeckungsreise für die ganze Familie!",
-        "en": "Reiseziel Museum | Entrepreneurship for the great families!",
-        "de": "Reiseziel Museum | Unternehmertum für die tollen Familien!",
-        "fr": "Reiseziel Museum | Entdeckungsreise für die ganze Familie !"
-      },
-      "description": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
-      "descriptionByLocale": {
-        "it": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
-        "en": "zur Ausstellung Eleanor Antin. A Retrospektive",
-        "de": "zur Ausstellung Eleanor Antin. Eine Retrospektive",
-        "fr": "zur Ausstellung Eleanor Antin. Une rétrospektive"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "10:00",
-      "category": "L'arte in generale",
-      "venue": "Kunstmuseum Liechtenstein",
-      "canton": "",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/vaduz/reiseziel-museum-entdeckungsreise-fuer-die-ganze-familie_A45ij8s",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Städtle 32",
-        "postalCode": "9490"
-      },
-      "geo": {
-        "lat": 47.1394943,
-        "lng": 9.522103
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A45ij8s.jpg"
-    },
-    {
       "id": "guidle:AyYLvgJ",
       "title": "Provenienzen im Fokus",
       "titleByLocale": {
@@ -12137,48 +12022,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AqUSsEn.jpg"
-    },
-    {
-      "id": "guidle:A1VtHXL",
-      "title": "Öffentliche Führung",
-      "titleByLocale": {
-        "it": "Öffentliche Führung",
-        "en": "Fhr",
-        "de": "②fentliche F",
-        "fr": "RHF"
-      },
-      "description": "Ausgehend von der Aarauer Szene und der Ateliergemeinschaft Ziegelrain verknüpft «Miteinander nebeneinander» lokale, regionale und nationale Positionen.",
-      "descriptionByLocale": {
-        "it": "Ausgehend von der Aarauer Szene und der Ateliergemeinschaft Ziegelrain verknüpft «Miteinander nebeneinander» lokale, regionale und nationale Positionen.",
-        "en": "Ausgehend von der Aarauer Szene und der Ateliergemeinschaft Ziegelrain verknüpft «Miteinander nebeneinander» lokale, regional und nationale Positionen.",
-        "de": "Ausgehend von der Aarauer Szene und der Ateliergemeinschaft Ziegelrain verknüpft „Miteinander nebeneinander“ lokale, regionale und nationale Positionen.",
-        "fr": "Ausgehend von der Aarauer Szene und der Ateliergemeinschaft Ziegelrain verknüpft « Miteinander nebeneinander » lokale, regionale und nationale Positionen."
-      },
-      "startDate": "2026-08-22",
-      "endDate": "2026-09-06",
-      "startTime": "15:00",
-      "category": "Visita guidata al museo d'arte",
-      "venue": "Aargauer Kunsthaus",
-      "comune": "Aarau",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/aarau/oeffentliche-fuehrung_A1VtHXL",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 5,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Aargauerplatz",
-        "postalCode": "5000"
-      },
-      "geo": {
-        "lat": 47.3904621,
-        "lng": 8.0451976
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-A1VtHXL.jpg"
     },
     {
       "id": "guidle:ANqn1uj",
@@ -13595,88 +13438,6 @@
       "imageUrl": "/images/events/guidle-AmwWDi8.jpg"
     },
     {
-      "id": "guidle:A916yTf",
-      "title": "Schlosskonzerte Brig",
-      "titleByLocale": {
-        "it": "Schlosskonzerte Brig",
-        "en": "Schlosskonzerte Brig",
-        "de": "Schlosskonzerte Brig",
-        "fr": "Schlosskonzerte Brig"
-      },
-      "description": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
-      "descriptionByLocale": {
-        "it": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
-        "en": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
-        "de": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass",
-        "fr": "Geneva BrassKonzert mit&#160;&#160;Geneva Brass"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "18:00",
-      "category": "Altra musica classica & contemporanea",
-      "venue": "Stockalperschloss",
-      "canton": "VS",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/brig/schlosskonzerte-brig_A916yTf",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": null,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Alte Simplonstrasse 28",
-        "postalCode": "3900"
-      },
-      "geo": {
-        "lat": 46.3152887,
-        "lng": 7.9906455
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A916yTf.jpg"
-    },
-    {
-      "id": "guidle:AMG8Db6",
-      "title": "Leontiusgottesdienst",
-      "titleByLocale": {
-        "it": "Leontiusgottesdienst",
-        "en": "Leontiusgottesdienst",
-        "de": "Leontiusgottesdienst",
-        "fr": "Leontiusgottesdienst"
-      },
-      "description": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
-      "descriptionByLocale": {
-        "it": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
-        "en": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
-        "de": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus",
-        "fr": "Anton Cajetan Adlgasser: Missa in C | Jugendchor CantuSonus"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "19:00",
-      "category": "Servizio catolica romana",
-      "venue": "Klosterkirche",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/leontiusgottesdienst_AMG8Db6",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Marktstrasse 4",
-        "postalCode": "5630"
-      },
-      "geo": {
-        "lat": 47.275146,
-        "lng": 8.3375717
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AMG8Db6.jpg"
-    },
-    {
       "id": "guidle:AmGeuG3",
       "title": "Vespergottesdienst",
       "titleByLocale": {
@@ -13867,48 +13628,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-Ahde4eZ.jpg"
-    },
-    {
-      "id": "guidle:A7CmYPt",
-      "title": "Orgelfestival - Orgel und Hiphop",
-      "titleByLocale": {
-        "it": "Orgelfestival - Orgel und Hiphop",
-        "en": "Orgelfestival - Orgel und Hiphop",
-        "de": "Orgelfestival - Orgel und Hiphop",
-        "fr": "Orgelfestival - Orgel und Hiphop"
-      },
-      "description": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
-      "descriptionByLocale": {
-        "it": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
-        "en": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
-        "de": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno.",
-        "fr": "Gemeinsamer Auftritt des Organisten Davide De Zotti und dem Schlagzeuger Chrigel Bosshard aus Rapperswil-Jona mit der Ustermer Hiphop-Tanzgruppe Chibufam unter Audrey Moreno."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "19:00",
-      "category": "Pop generalmente",
-      "venue": "Evang.-ref. Kirche Uster",
-      "comune": "Uster",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/uster/orgelfestival-orgel-und-hiphop_A7CmYPt",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 18,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Zentralstrasse 40",
-        "postalCode": "8610"
-      },
-      "geo": {
-        "lat": 47.3465743,
-        "lng": 8.7166868
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A7CmYPt.jpg"
     },
     {
       "id": "guidle:Ae7Rmnk",
@@ -14702,48 +14421,6 @@
       "imageUrl": "/images/events/guidle-AMNj7ay.webp"
     },
     {
-      "id": "guidle:AdvnUGq",
-      "title": "Summer-Festival: Wiener Philharmoniker 2",
-      "titleByLocale": {
-        "it": "Summer-Festival: Wiener Philharmoniker 2",
-        "en": "Summer-Festival: Vienna Philharmonic 2",
-        "de": "Summer-Festival: Wiener Philharmoniker 2",
-        "fr": "Summer-Festival: Wiener Philharmoniker 2"
-      },
-      "description": "Wiener Philharmoniker | Tugan Sokhiev | Hilary Hahn | Dvořák | Prokofjew",
-      "descriptionByLocale": {
-        "it": "Wiener Philharmoniker | Tugan Sokhiev | Hilary Hahn | Dvořák | Prokofjew",
-        "en": "Vienna Philharmonic | Tugan Sokhiev | Hilary Hahn | Dvořák | Prokofjew",
-        "de": "Wiener Philharmoniker | Tugan Sokhiev | Hilary Hahn | Dvořák | Prokofjew",
-        "fr": "Wiener Philharmoniker | Tugan Sokhiev | Hilary Hahn | Dvořák | Prokofjew"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "19:30",
-      "category": "Musica sinfonica",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/events/classical/lucerne/summer-festival-vienna-philharmonic-2_AdvnUGq",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AdvnUGq.webp"
-    },
-    {
       "id": "guidle:Ar5sZvX",
       "title": "Summer-Festival: Klassik für alle - 40min 4",
       "titleByLocale": {
@@ -15452,48 +15129,6 @@
       "imageUrl": "/images/events/guidle-A93kA7T.webp"
     },
     {
-      "id": "guidle:Ax9Wv8W",
-      "title": "Orgelkonzert Andreas Jud",
-      "titleByLocale": {
-        "it": "Orgelkonzert Andreas Jud",
-        "en": "Orgelkonzert Andreas Jud",
-        "de": "Orgelkonzert Andreas Jud",
-        "fr": "Orgelkonzert Andreas Jud"
-      },
-      "description": "Werke aus verschiedenen Epochen von Georg Muffat, Bert Matter,&#160;&#160;Jehan Alain, Dietrich Buxtehude, Louis Vierne und Johann Sebastian Bach.",
-      "descriptionByLocale": {
-        "it": "Werke aus verschiedenen Epochen von Georg Muffat, Bert Matter,&#160;&#160;Jehan Alain, Dietrich Buxtehude, Louis Vierne und Johann Sebastian Bach.",
-        "en": "Werke aus verschiedenen Epochen von Georg Muffat, Bert Matter,&#160;&#160;Jehan Alain, Dietrich Buxtehude, Louis Vierne und Johann Sebastian Bach.",
-        "de": "Werke aus verschiedenen Epochen von Georg Muffat, Bert Matter,&#160;&#160;Jehan Alain, Dietrich Buxtehude, Louis Vierne und Johann Sebastian Bach.",
-        "fr": "Werke aus verschiedenen Epochen von Georg Muffat, Bert Matter,&#160;&#160;Jehan Alain, Dietrich Buxtehude, Louis Vierne und Johann Sebastian Bach."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "17:00",
-      "category": "Musica per piano / organo",
-      "venue": "Röm.-kath. Kirche St. Nikolaus",
-      "comune": "Frauenfeld",
-      "canton": "TG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/frauenfeld/orgelkonzert-andreas-jud_Ax9Wv8W",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": null,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Zürcherstrasse 181",
-        "postalCode": "8500"
-      },
-      "geo": {
-        "lat": 47.5571928,
-        "lng": 8.8979788
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Ax9Wv8W.webp"
-    },
-    {
       "id": "guidle:A5TQh5e",
       "title": "Dodo Hug mit \"Cosmopolitana\"",
       "titleByLocale": {
@@ -15534,47 +15169,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-A5TQh5e.webp"
-    },
-    {
-      "id": "guidle:A7MkLyQ",
-      "title": "Con d'amore",
-      "titleByLocale": {
-        "it": "Con d'amore",
-        "en": "Con d'amore",
-        "de": "Con d'amore",
-        "fr": "Con d'amore"
-      },
-      "description": "Il Grenzklang Barockensemble presenta opere per viola d'amore e oboe d'amore in tutte le loro sonorità.",
-      "descriptionByLocale": {
-        "it": "Il Grenzklang Barockensemble presenta opere per viola d'amore e oboe d'amore in tutte le loro sonorità.",
-        "en": "The Grenzklang Barockensemble presents works for violas d'amore and oboe d'amore in all their sonority.",
-        "de": "Das Grenzklang Barockensemble präsentiert Werke für Violas d'amore und Oboe d'amore in seiner ganzen Klangfülle.",
-        "fr": "L'ensemble baroque Grenzklang présente des œuvres pour altos d'amour et hautbois d'amour dans toute leur richesse sonore."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "17:00",
-      "category": "Barocco",
-      "venue": "Ehemaliges Kloster St.Urban",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/events/classical/st-urban/con-damore_A7MkLyQ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 15,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Schafmattstrasse 1",
-        "postalCode": "4915"
-      },
-      "geo": {
-        "lat": 47.2310575,
-        "lng": 7.8412206
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A7MkLyQ.webp"
     },
     {
       "id": "guidle:AhcNEFj",
@@ -15939,43 +15533,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-Au7EFg5.webp"
-    },
-    {
-      "id": "guidle:Air2KEJ",
-      "title": "Künstlermarkt - Kunstverein Creativwerkstatt Biberist",
-      "titleByLocale": {
-        "it": "Künstlermarkt - Kunstverein Creativwerkstatt Biberist",
-        "en": "Künstlermarkt - Kunstverein Creativwerkstatt Biberist",
-        "de": "Künstlermarkt - Kunstverein Creativwerkstatt Biberist",
-        "fr": "Künstlermarkt - Kunstverein Creativwerkstatt Biberist"
-      },
-      "description": "Künstlermarkt am 5./6. September - Schlendern Sie durch die vielfältige Ausstellung, lassen Sie sich von kreativen Ideen begeistern und kommen Sie mit den Kunstschaffenden persönlich ins Gespräch.",
-      "descriptionByLocale": {
-        "it": "Künstlermarkt am 5./6. September - Schlendern Sie durch die vielfältige Ausstellung, lassen Sie sich von kreativen Ideen begeistern und kommen Sie mit den Kunstschaffenden persönlich ins Gespräch.",
-        "en": "Künstlermarkt am 5./6. September - Schlendern Sie durch die vielfältige Ausstellung, lassen Sie sich von kreativen Ideen begeistern und kommen Sie mit den Kunstschaffenden persönlich ins Gespräch.",
-        "de": "Künstlermarkt am 5./6. September - Schlendern Sie durch die vielfältige Ausstellung, lassen Sie sich von kreativen Ideen begeistern und kommen Sie mit den Kunstschaffenden persönlich ins Gespräch.",
-        "fr": "Künstlermarkt am 5./6. September - Schlendern Sie durch die vielfältige Ausstellung, lassen Sie sich von kreativen Ideen begeistern und kommen Sie mit den Kunstschaffenden persönlich ins Gespräch."
-      },
-      "startDate": "2026-09-05",
-      "endDate": "2026-09-06",
-      "startTime": "12:00",
-      "category": "L'arte in generale",
-      "venue": "P9 Event-Location",
-      "comune": "Biberist",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/biberist/kuenstlermarkt-kunstverein-creativwerkstatt-biberist_Air2KEJ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Fabrikstrasse 34",
-        "postalCode": "4562"
-      },
-      "geo": {
-        "lat": 47.1839271,
-        "lng": 7.5733906
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-Air2KEJ.webp"
     },
     {
       "id": "guidle:AQA4fRt",
@@ -16383,90 +15940,6 @@
       "imageUrl": "/images/events/guidle-AMx9b3R.webp"
     },
     {
-      "id": "guidle:Ad4XDAA",
-      "title": "Bachwochen Thun: Festgottesdienst",
-      "titleByLocale": {
-        "it": "Bachwochen Thun: Festgottesdienst",
-        "en": "Bachoch",
-        "de": "Bachuszochen Thun: Festgottesdienst",
-        "fr": "Bachwochen Thun : Festgottesdienst"
-      },
-      "description": "«Das ist doch einmal etwas, woraus sich was lernen lässt!» Mozart über Bachs Motetten",
-      "descriptionByLocale": {
-        "it": "«Das ist doch einmal etwas, woraus sich was lernen lässt!» Mozart über Bachs Motetten",
-        "en": "“Das ist doch einmal etwas, woraus sich was lernen lässt!» Mozart über Bachs Motetten",
-        "de": "„Das ist doch einmal etwas, woraus sich was lernen lässt!» Mozart über Bachs Motetten",
-        "fr": "« Das ist doch einmal etwas, woraus sich was lernen lässt ! » Mozart über Bachs Motetten"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "11:00",
-      "category": "Barocco",
-      "venue": "Evang.-ref. Dorfkirche Steffisburg",
-      "comune": "Steffisburg",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/steffisburg/bachwochen-thun-festgottesdienst_Ad4XDAA",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Pfarrhausweg 6",
-        "postalCode": "3612"
-      },
-      "geo": {
-        "lat": 46.7818177,
-        "lng": 7.6337802
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Ad4XDAA.webp"
-    },
-    {
-      "id": "guidle:AkWa52h",
-      "title": "Bachwochen Thun: Finale – Motetten",
-      "titleByLocale": {
-        "it": "Bachwochen Thun: Finale – Motetten",
-        "en": "Bachwochen Thun: Final – Motetten",
-        "de": "Bachmandrochen Thun: Finale-Motetten",
-        "fr": "Bachwochen Thun : Finale – Motetten"
-      },
-      "description": "«Studiert Bach, dort findet ihr alles.» Johannes Brahms",
-      "descriptionByLocale": {
-        "it": "«Studiert Bach, dort findet ihr alles.» Johannes Brahms",
-        "en": "“Studiert Bach, dort findet ihr alles.” Johannes Brahms",
-        "de": "„Studiert Bach, dort findet er alles.“ Johannes Brahms",
-        "fr": "« Studiert Bach, dort findet ihr alles. » Johannes Brahms"
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "17:00",
-      "category": "Musica di chiesa",
-      "venue": "Stadtkirche Thun",
-      "comune": "Thun",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/thun/bachwochen-thun-finale-motetten_AkWa52h",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 1,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Schlossberg 14",
-        "postalCode": "3600"
-      },
-      "geo": {
-        "lat": 46.758802,
-        "lng": 7.6314854
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AkWa52h.webp"
-    },
-    {
       "id": "guidle:AP5bir5",
       "title": "Anna Jeger | Violoncello & Ivan Bašić | Klavier",
       "titleByLocale": {
@@ -16867,47 +16340,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AYYMHVG.webp"
-    },
-    {
-      "id": "guidle:AimW7EA",
-      "title": "«Via Francigena», Eröffnungskonzert Erasmus klingt! – Festival Lab",
-      "titleByLocale": {
-        "it": "«Via Francigena», Eröffnungskonzert Erasmus klingt! – Festival Lab",
-        "en": "«Via Francigena», Eröffnungskonzert Erasmus klingt! – Festival Lab",
-        "de": "«Via Francigena», Eröffnungskonzert Erasmus klingt! – Festival Lab",
-        "fr": "«Via Francigena», Eröffnungskonzert Erasmus klingt! – Festival Lab"
-      },
-      "description": "Die Frankenweg-Pilgerreise von Canterbury nach Rom gewährt Einblicke in die frühen musikalischen Ausdrucksformen des Humanismus, wo sich Glaube, Rhetorik und künstlerische Individualität begegnen.",
-      "descriptionByLocale": {
-        "it": "Die Frankenweg-Pilgerreise von Canterbury nach Rom gewährt Einblicke in die frühen musikalischen Ausdrucksformen des Humanismus, wo sich Glaube, Rhetorik und künstlerische Individualität begegnen.",
-        "en": "Die Frankenweg-Pilgerreise von Canterbury nach Rom gewährt Einblicke in die frühen musikalischen Ausdrucksformen des Humanismus, wo sich Glaube, Rhetorik und künstlerische Individualität begegnen.",
-        "de": "Die Frankenweg-Pilgerreise von Canterbury nach Rom gewährt Einblicke in die frühen musikalischen Ausdrucksformen des Humanismus, wo sich Glaube, Rhetorik und künstlerische Individualität begegnen.",
-        "fr": "Die Frankenweg-Pilgerreise von Canterbury nach Rom gewährt Einblicke in die frühen musikalischen Ausdrucksformen des Humanismus, wo sich Glaube, Rhetorik und künstlerische Individualität begegnen."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "19:00",
-      "category": "Barocco",
-      "venue": "Martinskirche",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/via-francigena-eroeffnungskonzert-erasmus-klingt-festival-lab_AimW7EA",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 1,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Martinskirchplatz 4",
-        "postalCode": "4051"
-      },
-      "geo": {
-        "lat": 47.5589229,
-        "lng": 7.5887646
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AimW7EA.webp"
     },
     {
       "id": "guidle:Ac1N6x2",
@@ -19022,47 +18454,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AwD7pda.webp"
-    },
-    {
-      "id": "guidle:AJmHLMQ",
-      "title": "Öffentliche Führung",
-      "titleByLocale": {
-        "it": "Öffentliche Führung",
-        "en": "Fhr",
-        "de": "②fentliche F",
-        "fr": "RHF"
-      },
-      "description": "Erhalten Sie vertiefte Einblicke in die Ausstellungen von Katja Schenker.",
-      "descriptionByLocale": {
-        "it": "Erhalten Sie vertiefte Einblicke in die Ausstellungen von Katja Schenker.",
-        "en": "Erhalten Sie vertiefte Einblicke in die Ausstellungen von Kat Sch",
-        "de": "Erhalten Sie vertiefte Einklicke in den Ausstellungen von Katjerka Schenker.",
-        "fr": "Essayez d'avoir un aperçu des explications de Katja Schenker."
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-06",
-      "startTime": "18:15",
-      "category": "Visita guidata al museo d'arte",
-      "venue": "Museum Haus Konstruktiv",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/oeffentliche-fuehrung_AJmHLMQ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Limmatstrasse 268",
-        "postalCode": "8005"
-      },
-      "geo": {
-        "lat": 47.389248,
-        "lng": 8.5254814
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-AJmHLMQ.webp"
     },
     {
       "id": "guidle:AqhNMYp",
@@ -31133,43 +30524,6 @@
       "imageUrl": "/images/events/guidle-AZKAvW9.webp"
     },
     {
-      "id": "guidle:AhgpMjv",
-      "title": "Prähistorische Jetwaffen Meisterschaft",
-      "titleByLocale": {
-        "it": "Prähistorische Jetwaffen Meisterschaft",
-        "en": "Prehistoric Jet Weapon Championship",
-        "de": "Prähistorische Jetwaffen Meisterschaft",
-        "fr": "Championnat de tir préhistorique"
-      },
-      "description": "Dies ist eine einzigartige Gelegenheit, diesen Sport aus einer anderen Zeit in der perfekt geeigneten Umgebung des Pfahlbaudorfes von Gletterens zu entdecken.",
-      "descriptionByLocale": {
-        "it": "Dies ist eine einzigartige Gelegenheit, diesen Sport aus einer anderen Zeit in der perfekt geeigneten Umgebung des Pfahlbaudorfes von Gletterens zu entdecken.",
-        "en": "This is a unique opportunity to discover this sport from another time in the perfectly suitable setting of the Lakeside Village of Gletterens.",
-        "de": "Dies ist eine einzigartige Gelegenheit, diesen Sport aus einer anderen Zeit in der perfekt geeigneten Umgebung des Pfahlbaudorfes von Gletterens zu entdecken.",
-        "fr": "Le Village Lacustre de Gletterens offre occasion unique de découvrir le tir préhistorique, sport d’un autre temps."
-      },
-      "startDate": "2026-09-06",
-      "endDate": "2026-09-06",
-      "startTime": "00:00",
-      "category": "Archeologia / Stoira preistorica",
-      "venue": "Village Lacustre de Gletterens",
-      "comune": "Gletterens",
-      "canton": "FR",
-      "url": "https://www.guidle.com/it/museen/kinder/veranstaltungen/gletterens/praehistorische-jetwaffen-meisterschaft_AhgpMjv",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Case postale",
-        "postalCode": "1544"
-      },
-      "geo": {
-        "lat": 46.902156,
-        "lng": 6.9288327
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AhgpMjv.webp"
-    },
-    {
       "id": "guidle:AnrKvaW",
       "title": "Babyweinen entschlüsseln mit Dunstan Babysprache - 27.11.26",
       "titleByLocale": {
@@ -31209,6 +30563,1123 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AnrKvaW.webp"
+    },
+    {
+      "id": "guidle:AHG74eT",
+      "title": "Berner Mineralien- und Fossilienbörse in Thun",
+      "titleByLocale": {
+        "it": "Berner Mineralien- und Fossilienbörse in Thun",
+        "en": "Berner Mineralien-und Fossilienbse",
+        "de": "Berner Mineralien-und Fossilienb ⑤rse in Thun",
+        "fr": "Berner Mineralien- und Fossilienbörse à Thoune"
+      },
+      "description": "Die 59. Berner Mineralien- und Fossilien Börse findet auch 2026 wieder in Thun statt.",
+      "descriptionByLocale": {
+        "it": "Die 59. Berner Mineralien- und Fossilien Börse findet auch 2026 wieder in Thun statt.",
+        "en": "Die 59. Berner Mineralien-und Fossilien B fin Rse findet auch 2026 w",
+        "de": "Die 59. Berner Mineralien-und Fossilien B ⑤rse findet auch 2026 ⑤ieder in Thun statt.",
+        "fr": "Die 59. Berner Mineralien- und Fossilien Börse findet en 2026 wieder in Thoune statt."
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "startTime": "10:00",
+      "category": "Fiera commerciale",
+      "venue": "Messegelände Thun-Expo",
+      "comune": "Thun",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/thun/berner-mineralien-und-fossilienboerse-in-thun_AHG74eT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kasernenstrasse 35b",
+        "postalCode": "3600"
+      },
+      "geo": {
+        "lat": 46.7576451,
+        "lng": 7.6186887
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AHG74eT.webp"
+    },
+    {
+      "id": "guidle:AgUJA5t",
+      "title": "Freiluft-Vortrag «Ohne Pilze kein Wald»",
+      "titleByLocale": {
+        "it": "Freiluft-Vortrag «Ohne Pilze kein Wald»",
+        "en": "Freiluft-Vortrag “Ohne Pilze kein Wald”",
+        "de": "Freiluft-Vortrag „Ohne Pilze kein Wald“",
+        "fr": "Freiluft-Vortrag « Ohne Pilze kein Wald »"
+      },
+      "description": "Entdecken Sie die geheimnisvolle Welt der Pilze!",
+      "descriptionByLocale": {
+        "it": "Entdecken Sie die geheimnisvolle Welt der Pilze!",
+        "en": "Entdecken Sie die geheimnisvolle der",
+        "de": "Entdecken Sie die heimnisvolle ①elt der Pilz!",
+        "fr": "Entdecken Sie die geheimnisvolle Welt der Pilze !"
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-11-08",
+      "startTime": "10:00",
+      "category": "Escursione",
+      "venue": "Städtlerwald",
+      "comune": "Cham",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/erlebnisse/alle/cham/waldspaziergang_AgUJA5t",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "6330"
+      },
+      "geo": {
+        "lat": 47.194949,
+        "lng": 8.461804
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AgUJA5t.webp"
+    },
+    {
+      "id": "guidle:AhS4ZgN",
+      "title": "Technik-Führung",
+      "titleByLocale": {
+        "it": "Technik-Führung",
+        "en": "Technik-Fhr",
+        "de": "Technik-F",
+        "fr": "Technique-Führung"
+      },
+      "description": "Für Technikfaszinierte, Bergbahnenliebhaber:innen und Geschichtsinteressierte.",
+      "descriptionByLocale": {
+        "it": "Für Technikfaszinierte, Bergbahnenliebhaber:innen und Geschichtsinteressierte.",
+        "en": "F Techn R Technikfaszinierte, Bergbahnenliebhaber: innen und Geschichtsinteressierte.",
+        "de": "F ①R Technikfaszinierte, Bergbahnenliebhaber:innere und Geschichtsinteressierte.",
+        "fr": "Für Technikfaszinierte, Bergbahnenliebhaber :innen und Geschichtsinteressierte."
+      },
+      "startDate": "2026-10-19",
+      "endDate": "2026-10-19",
+      "startTime": "18:00",
+      "category": "Storia",
+      "venue": "Niesenbahn",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/muelenen/technik-fuehrung_AhS4ZgN",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 44,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Heustrichstrasse 12",
+        "postalCode": "3711"
+      },
+      "geo": {
+        "lat": 46.6394102,
+        "lng": 7.6902211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhS4ZgN.webp"
+    },
+    {
+      "id": "guidle:A3dwncP",
+      "title": "Giovedì conferenza Museo Heiden / Migrazione di manodopera in Svizzera e AR",
+      "titleByLocale": {
+        "it": "Giovedì conferenza Museo Heiden / Migrazione di manodopera in Svizzera e AR",
+        "en": "Thursday lecture Museum Heiden / Labor migration to Switzerland and AR",
+        "de": "Donnerstagsvortrag Museum Heiden / Arbeitsmigration in die Schweiz und nach AR",
+        "fr": "Conférence du jeudi au musée de Heiden / Migration de travail vers la Suisse et AR"
+      },
+      "description": "***",
+      "descriptionByLocale": {
+        "it": "***",
+        "en": "***",
+        "de": "***",
+        "fr": "***"
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Museum Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/heiden/donnerstagsvortrag-museum-heiden-arbeitsmigration-in-die-schweiz-und-nach-ar_A3dwncP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchplatz 5",
+        "postalCode": "9410"
+      },
+      "geo": {
+        "lat": 47.4445344,
+        "lng": 9.534784
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A3dwncP.webp"
+    },
+    {
+      "id": "guidle:AyWjH2M",
+      "title": "Giovedì conferenza Museo Heiden / Gertrud Kurz",
+      "titleByLocale": {
+        "it": "Giovedì conferenza Museo Heiden / Gertrud Kurz",
+        "en": "Thursday lecture Museum Heiden / Gertrud Kurz",
+        "de": "Donnerstagsvortrag Museum Heiden / Gertrud Kurz",
+        "fr": "Conférence du jeudi Musée de Heiden / Gertrud Kurz"
+      },
+      "description": "***",
+      "descriptionByLocale": {
+        "it": "***",
+        "en": "***",
+        "de": "***",
+        "fr": "***"
+      },
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-15",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Museum Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/heiden/donnerstagsvortrag-museum-heiden-gertrud-kurz_AyWjH2M",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchplatz 5",
+        "postalCode": "9410"
+      },
+      "geo": {
+        "lat": 47.4445344,
+        "lng": 9.534784
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AyWjH2M.webp"
+    },
+    {
+      "id": "guidle:AyuRZ9j",
+      "title": "Giovedì conferenza Museo Heiden / Hüben und Drüben",
+      "titleByLocale": {
+        "it": "Giovedì conferenza Museo Heiden / Hüben und Drüben",
+        "en": "Thursday lecture Museum Heiden / Hüben und Drüben",
+        "de": "Donnerstagsvortrag Museum Heiden / Hüben und Drüben",
+        "fr": "Conférence du jeudi au musée de Heiden / Hüben und Drüben"
+      },
+      "description": "***",
+      "descriptionByLocale": {
+        "it": "***",
+        "en": "***",
+        "de": "***",
+        "fr": "***"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "19:00",
+      "category": "Lezione",
+      "venue": "Museum Heiden",
+      "comune": "Heiden",
+      "canton": "AR",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/heiden/donnerstagsvortrag-museum-heiden-hueben-und-drueben_AyuRZ9j",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchplatz 5",
+        "postalCode": "9410"
+      },
+      "geo": {
+        "lat": 47.4445344,
+        "lng": 9.534784
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AyuRZ9j.webp"
+    },
+    {
+      "id": "guidle:ANcZMxu",
+      "title": "Balance im Familienalltag",
+      "titleByLocale": {
+        "it": "Balance im Familienalltag",
+        "en": "Balance im Familienalltag",
+        "de": "Balance im Familienalltag",
+        "fr": "Balance im Familienalltag"
+      },
+      "description": "Zwischen Verantwortung und Selbstfürsorge – mit Achtsamkeit zu mehr Gelassenheit im Familienalltag.",
+      "descriptionByLocale": {
+        "it": "Zwischen Verantwortung und Selbstfürsorge – mit Achtsamkeit zu mehr Gelassenheit im Familienalltag.",
+        "en": "Zwischen Verantwortung und Selbstfürsorge – mit Achtsamkeit zu mehr Gelassenheit im Familienalltag.",
+        "de": "Zwischen Verantwortung und Selbstfürsorge – mit Achtsamkeit zu mehr Gelassenheit im Familienalltag.",
+        "fr": "Zwischen Verantwortung und Selbstfürsorge – mit Achtsamkeit zu mehr Gelassenheit im Familienalltag."
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "19:00",
+      "category": "Sostegno per i genitori",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/balance-im-familienalltag_ANcZMxu",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANcZMxu.webp"
+    },
+    {
+      "id": "guidle:AUSR9Yp",
+      "title": "Atem-Workshop für inneren Frieden",
+      "titleByLocale": {
+        "it": "Atem-Workshop für inneren Frieden",
+        "en": "Atem-Workshop für inneren Frieden",
+        "de": "Atem-Workshop für inneren Frieden",
+        "fr": "Atem-Workshop für inneren Frieden"
+      },
+      "description": "Frieden beginnt in jeder Einzelnen, in jedem Einzelnen von uns und kann nur von dort aus in die Welt getragen werden.",
+      "descriptionByLocale": {
+        "it": "Frieden beginnt in jeder Einzelnen, in jedem Einzelnen von uns und kann nur von dort aus in die Welt getragen werden.",
+        "en": "Frieden beginnt in jeder Einzelnen, in jedem Einzelnen von uns und kann nur von dort aus in die Welt getragen werden.",
+        "de": "Frieden beginnt in jeder Einzelnen, in jedem Einzelnen von uns und kann nur von dort aus in die Welt getragen werden.",
+        "fr": "Frieden beginnt in jeder Einzelnen, in jedem Einzelnen von uns und kann nur von dort aus in die Welt getragen werden."
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "startTime": "18:30",
+      "category": "Altra conoscenza / ambiente",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/atem-workshop-fuer-inneren-frieden_AUSR9Yp",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AUSR9Yp.webp"
+    },
+    {
+      "id": "guidle:AQDFMvB",
+      "title": "59. Innovationstagung \"Mensch & Arbeit\"",
+      "titleByLocale": {
+        "it": "59. Innovationstagung \"Mensch & Arbeit\"",
+        "en": "59. Innovationstagung \"Mensch & Arbeit\"",
+        "de": "59. Innovationstagung \"Mensch & Arbeit\"",
+        "fr": "59. Innovationstagung \"Mensch & Arbeit\""
+      },
+      "description": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+      "descriptionByLocale": {
+        "it": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "en": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "de": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "fr": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen."
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-16",
+      "startTime": "18:15",
+      "category": "Congresso: Formazione",
+      "venue": "OST Ostschweizer Fachhochschule",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/rapperswil-sg/59-innovationstagung-mensch-und-arbeit_AQDFMvB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Oberseestrasse 10",
+        "postalCode": "8640"
+      },
+      "geo": {
+        "lat": 47.223632,
+        "lng": 8.818084
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AQDFMvB.webp"
+    },
+    {
+      "id": "guidle:Axak3ma",
+      "title": "60. Innovationstagung \"Mensch & Gesundheit\"",
+      "titleByLocale": {
+        "it": "60. Innovationstagung \"Mensch & Gesundheit\"",
+        "en": "60. Innovationstagung \"Mensch & Gesundheit\"",
+        "de": "60. Innovationstagung \"Mensch & Gesundheit\"",
+        "fr": "60. Innovationstagung \"Mensch & Gesundheit\""
+      },
+      "description": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+      "descriptionByLocale": {
+        "it": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "en": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "de": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen.",
+        "fr": "Kostenloser Netzwerk-Event an der Schnittstelle Wissenschaft-Wirtschaft mit interessanten Inputs zu Zukunftsthemen."
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "startTime": "18:15",
+      "category": "Congresso: Formazione",
+      "venue": "OST Ostschweizer Fachhochschule",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/rapperswil-sg/60-innovationstagung-mensch-und-gesundheit_Axak3ma",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Oberseestrasse 10",
+        "postalCode": "8640"
+      },
+      "geo": {
+        "lat": 47.223632,
+        "lng": 8.818084
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Axak3ma.webp"
+    },
+    {
+      "id": "guidle:AaEZkVx",
+      "title": "Gletschervorfelder – unbekanntes Neuland",
+      "titleByLocale": {
+        "it": "Gletschervorfelder – unbekanntes Neuland",
+        "en": "Gletschervorfelder – unbekanntes Neuland",
+        "de": "Gletschervorfelder – unbekanntes Neuland",
+        "fr": "Gletschervorfelder – unbekanntes Neuland"
+      },
+      "description": "Vortrag von Mary Leibundgut",
+      "descriptionByLocale": {
+        "it": "Vortrag von Mary Leibundgut",
+        "en": "Lecture by Mary Leibundgut",
+        "de": "Vortrag von Mary Leibundgut",
+        "fr": "Vortrag von Mary Leibundgut"
+      },
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "startTime": "16:00",
+      "category": "Altra conoscenza / ambiente",
+      "venue": "Pro Natura Zentrum Aletsch‎",
+      "comune": "Riederalp",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/events/knowledge/riederalp/gletschervorfelder-unbekanntes-neuland_AaEZkVx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Riederfurka",
+        "postalCode": "3987"
+      },
+      "geo": {
+        "lat": 46.3766166,
+        "lng": 8.0161427
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AaEZkVx.webp"
+    },
+    {
+      "id": "guidle:AXtfkNT",
+      "title": "Hunger! ... oder doch nur Langeweile?",
+      "titleByLocale": {
+        "it": "Hunger! ... oder doch nur Langeweile?",
+        "en": "Hunger! ... oder doch nur Langeweile?",
+        "de": "Hunger! ... oder doch nur Langeweile?",
+        "fr": "Hunger! ... oder doch nur Langeweile?"
+      },
+      "description": "Ein Workshop für bewusstere Ernährung.",
+      "descriptionByLocale": {
+        "it": "Ein Workshop für bewusstere Ernährung.",
+        "en": "Ein Workshop für bewusstere Ernährung.",
+        "de": "Ein Workshop für bewusstere Ernährung.",
+        "fr": "Ein Workshop für bewusstere Ernährung."
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "14:00",
+      "category": "Lezione",
+      "venue": "Vögele Kultur Zentrum",
+      "comune": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/pfaeffikon-sz/hunger-oder-doch-nur-langeweile_AXtfkNT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Gwattstrasse 14",
+        "postalCode": "8808"
+      },
+      "geo": {
+        "lat": 47.1992273,
+        "lng": 8.791866
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AXtfkNT.webp"
+    },
+    {
+      "id": "guidle:AhWZQaS",
+      "title": "Niklas Kolorz – Evolution",
+      "titleByLocale": {
+        "it": "Niklas Kolorz – Evolution",
+        "en": "Niklas Kolorz – Evolution",
+        "de": "Niklas Kolorz – Evolution",
+        "fr": "Niklas Kolorz – Evolution"
+      },
+      "description": "Die neue Live-Show von Niklas Kolorz.",
+      "descriptionByLocale": {
+        "it": "Die neue Live-Show von Niklas Kolorz.",
+        "en": "Die neue Live-Show von Niklas Kolorz.",
+        "de": "Die neue Live-Show von Niklas Kolorz.",
+        "fr": "Die neue Live-Show von Niklas Kolorz."
+      },
+      "startDate": "2026-11-30",
+      "endDate": "2026-11-30",
+      "startTime": "19:30",
+      "category": "Show",
+      "venue": "Volkshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/niklas-kolorz-evolution_AhWZQaS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 62.5,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Stauffacherstrasse 60",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3755853,
+        "lng": 8.5271662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AhWZQaS.webp"
+    },
+    {
+      "id": "guidle:AUByaX7",
+      "title": "Die Entdeckung des Weltalls",
+      "titleByLocale": {
+        "it": "Die Entdeckung des Weltalls",
+        "en": "Die Entdeckung des Weltalls",
+        "de": "Die Entdeckung des Weltalls",
+        "fr": "Die Entdeckung des Weltalls"
+      },
+      "description": "Auf Forschungsreise mit Galileo Galilei - 360° Fulldome-Show.",
+      "descriptionByLocale": {
+        "it": "Auf Forschungsreise mit Galileo Galilei - 360° Fulldome-Show.",
+        "en": "Auf Forschungsreise mit Galileo Galilei - 360° Fulldome-Show.",
+        "de": "Auf Forschungsreise mit Galileo Galilei - 360° Fulldome-Show.",
+        "fr": "Auf Forschungsreise mit Galileo Galilei - 360° Fulldome-Show."
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-10-10",
+      "startTime": "15:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/die-entdeckung-des-weltalls_AUByaX7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AUByaX7.webp"
+    },
+    {
+      "id": "guidle:AfdWMeB",
+      "title": "Ferne Welten - Fremdes Leben",
+      "titleByLocale": {
+        "it": "Ferne Welten - Fremdes Leben",
+        "en": "Ferne Welten - Fremdes Leben",
+        "de": "Ferne Welten - Fremdes Leben",
+        "fr": "Ferne Welten - Fremdes Leben"
+      },
+      "description": "Der Mensch ist nicht allein im Universum – oder etwa doch? - 360° Fulldome-Show ab 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Der Mensch ist nicht allein im Universum – oder etwa doch? - 360° Fulldome-Show ab 12 Jahren.",
+        "en": "Der Mensch ist nicht allein im Universum – oder etwa doch? - 360° Fulldome-Show ab 12 Jahren.",
+        "de": "Der Mensch ist nicht allein im Universum – oder etwa doch? - 360° Fulldome-Show ab 12 Jahren.",
+        "fr": "Der Mensch ist nicht allein im Universum – oder etwa doch? - 360° Fulldome-Show ab 12 Jahren."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-10-17",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/ferne-welten-fremdes-leben_AfdWMeB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AfdWMeB.webp"
+    },
+    {
+      "id": "guidle:A6BF5cK",
+      "title": "Geheimnis Dunkle Materie",
+      "titleByLocale": {
+        "it": "Geheimnis Dunkle Materie",
+        "en": "Geheimnis Dunkle Materie",
+        "de": "Geheimnis Dunkle Materie",
+        "fr": "Geheimnis Dunkle Materie"
+      },
+      "description": "Hier tauchen BesucherInnen in das grösste Geheimnis der Wissenschaft ein - 360° Fulldome-Show ab 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Hier tauchen BesucherInnen in das grösste Geheimnis der Wissenschaft ein - 360° Fulldome-Show ab 12 Jahren.",
+        "en": "Hier tauchen BesucherInnen in das grösste Geheimnis der Wissenschaft ein - 360° Fulldome-Show ab 12 Jahren.",
+        "de": "Hier tauchen BesucherInnen in das grösste Geheimnis der Wissenschaft ein - 360° Fulldome-Show ab 12 Jahren.",
+        "fr": "Hier tauchen BesucherInnen in das grösste Geheimnis der Wissenschaft ein - 360° Fulldome-Show ab 12 Jahren."
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-10-04",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/geheimnis-dunkle-materie_A6BF5cK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A6BF5cK.webp"
+    },
+    {
+      "id": "guidle:AHiBByQ",
+      "title": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+      "titleByLocale": {
+        "it": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "en": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "de": "Milliarden Sonnen - Eine Reise durch die Galaxis",
+        "fr": "Milliarden Sonnen - Eine Reise durch die Galaxis"
+      },
+      "description": "Die einzigartige Geschichte der Vermessung des Weltalls - 360° Fulldome-Show ab 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Die einzigartige Geschichte der Vermessung des Weltalls - 360° Fulldome-Show ab 12 Jahren.",
+        "en": "Die einzigartige Geschichte der Vermessung des Weltalls - 360° Fulldome-Show ab 12 Jahren.",
+        "de": "Die einzigartige Geschichte der Vermessung des Weltalls - 360° Fulldome-Show ab 12 Jahren.",
+        "fr": "Die einzigartige Geschichte der Vermessung des Weltalls - 360° Fulldome-Show ab 12 Jahren."
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/milliarden-sonnen-eine-reise-durch-die-galaxis_AHiBByQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AHiBByQ.webp"
+    },
+    {
+      "id": "guidle:Ak3NX32",
+      "title": "Magic Globe - Das Geheimnis der Jahreszeiten",
+      "titleByLocale": {
+        "it": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "en": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "de": "Magic Globe - Das Geheimnis der Jahreszeiten",
+        "fr": "Magic Globe - Das Geheimnis der Jahreszeiten"
+      },
+      "description": "Ein spannendes Fulldome-Abenteuer für die ganze Familie. Ab 6 Jahren.",
+      "descriptionByLocale": {
+        "it": "Ein spannendes Fulldome-Abenteuer für die ganze Familie. Ab 6 Jahren.",
+        "en": "Ein spannendes Fulldome-Abenteuer für die ganze Familie. Ab 6 Jahren.",
+        "de": "Ein spannendes Fulldome-Abenteuer für die ganze Familie. Ab 6 Jahren.",
+        "fr": "Ein spannendes Fulldome-Abenteuer für die ganze Familie. Ab 6 Jahren."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-10-24",
+      "startTime": "14:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/magic-globe-das-geheimnis-der-jahreszeiten_Ak3NX32",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Ak3NX32.webp"
+    },
+    {
+      "id": "guidle:AqipZBi",
+      "title": "Von der Erde zum Universum",
+      "titleByLocale": {
+        "it": "Von der Erde zum Universum",
+        "en": "Von der Erde zum Universum",
+        "de": "Von der Erde zum Universum",
+        "fr": "Von der Erde zum Universum"
+      },
+      "description": "Die Faszination der Sterne und das Verlangen, das Universum zu verstehen - 360° Fulldome-Show ab 10 Jahren.",
+      "descriptionByLocale": {
+        "it": "Die Faszination der Sterne und das Verlangen, das Universum zu verstehen - 360° Fulldome-Show ab 10 Jahren.",
+        "en": "Die Faszination der Sterne und das Verlangen, das Universum zu verstehen - 360° Fulldome-Show ab 10 Jahren.",
+        "de": "Die Faszination der Sterne und das Verlangen, das Universum zu verstehen - 360° Fulldome-Show ab 10 Jahren.",
+        "fr": "Die Faszination der Sterne und das Verlangen, das Universum zu verstehen - 360° Fulldome-Show ab 10 Jahren."
+      },
+      "startDate": "2026-09-20",
+      "endDate": "2026-10-11",
+      "startTime": "16:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/von-der-erde-zum-universum_AqipZBi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AqipZBi.webp"
+    },
+    {
+      "id": "guidle:A2LfMdk",
+      "title": "Ohne Geld bis ans Ende der Welt - Reisevortrag Multivisionsshow",
+      "titleByLocale": {
+        "it": "Ohne Geld bis ans Ende der Welt - Reisevortrag Multivisionsshow",
+        "en": "Ohne Geld bis ans Ende der Welt - Reisevortrag Multivisionsshow",
+        "de": "Ohne Geld bis ans Ende der Welt - Reisevortrag Multivisionsshow",
+        "fr": "Ohne Geld bis ans Ende der Welt - Reisevortrag Multivisionsshow"
+      },
+      "description": "Michael Wigge reiste 2010 ohne Geld von Berlin bis in die Antarktis und dokumentierte dies in der Serie «Ohne Geld bis ans Ende der Welt».",
+      "descriptionByLocale": {
+        "it": "Michael Wigge reiste 2010 ohne Geld von Berlin bis in die Antarktis und dokumentierte dies in der Serie «Ohne Geld bis ans Ende der Welt».",
+        "en": "Michael Wigge reiste 2010 ohne Geld von Berlin bis in die Antarktis und dokumentierte dies in der Serie «Ohne Geld bis ans Ende der Welt».",
+        "de": "Michael Wigge reiste 2010 ohne Geld von Berlin bis in die Antarktis und dokumentierte dies in der Serie «Ohne Geld bis ans Ende der Welt».",
+        "fr": "Michael Wigge reiste 2010 ohne Geld von Berlin bis in die Antarktis und dokumentierte dies in der Serie «Ohne Geld bis ans Ende der Welt»."
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "20:00",
+      "category": "Diario di viaggio / del avventura",
+      "venue": "Gemeinschaftszentrum «In der Au»",
+      "comune": "Volketswil",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/volketswil/ohne-geld-bis-ans-ende-der-welt-reisevortrag-multivisionsshow_A2LfMdk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "In der Au 1",
+        "postalCode": "8604"
+      },
+      "geo": {
+        "lat": 47.3897862,
+        "lng": 8.688499
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2LfMdk.webp"
+    },
+    {
+      "id": "guidle:ApTYWDj",
+      "title": "Die Sonne, unser lebendiger Stern",
+      "titleByLocale": {
+        "it": "Die Sonne, unser lebendiger Stern",
+        "en": "Die Sonne, unser lebendiger Stern",
+        "de": "Die Sonne, unser lebendiger Stern",
+        "fr": "Die Sonne, unser lebendiger Stern"
+      },
+      "description": "Multimedia-Fulldome-Show mit spektakulären Bildern der Europäischen Raumfahrtorganisation ESA. Ab 10 Jahren.",
+      "descriptionByLocale": {
+        "it": "Multimedia-Fulldome-Show mit spektakulären Bildern der Europäischen Raumfahrtorganisation ESA. Ab 10 Jahren.",
+        "en": "Multimedia-Fulldome-Show mit spektakulären Bildern der Europäischen Raumfahrtorganisation ESA. Ab 10 Jahren.",
+        "de": "Multimedia-Fulldome-Show mit spektakulären Bildern der Europäischen Raumfahrtorganisation ESA. Ab 10 Jahren.",
+        "fr": "Multimedia-Fulldome-Show mit spektakulären Bildern der Europäischen Raumfahrtorganisation ESA. Ab 10 Jahren."
+      },
+      "startDate": "2026-09-13",
+      "endDate": "2026-10-24",
+      "startTime": "16:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/die-sonne-unser-lebendiger-stern_ApTYWDj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ApTYWDj.webp"
+    },
+    {
+      "id": "guidle:Ad8uUDq",
+      "title": "ESO - Europas Weg zu den Sternen",
+      "titleByLocale": {
+        "it": "ESO - Europas Weg zu den Sternen",
+        "en": "ESO - Europas Weg zu den Sternen",
+        "de": "ESO - Europas Weg zu den Sternen",
+        "fr": "ESO - Europas Weg zu den Sternen"
+      },
+      "description": "Der 360° Film mit Blick hinter die Kulissen der Europäischen Südsternwarte ESO und den Bau des leistungsstärksten Observatoriums auf der Erde. Ab 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Der 360° Film mit Blick hinter die Kulissen der Europäischen Südsternwarte ESO und den Bau des leistungsstärksten Observatoriums auf der Erde. Ab 12 Jahren.",
+        "en": "Der 360° Film mit Blick hinter die Kulissen der Europäischen Südsternwarte ESO und den Bau des leistungsstärksten Observatoriums auf der Erde. Ab 12 Jahren.",
+        "de": "Der 360° Film mit Blick hinter die Kulissen der Europäischen Südsternwarte ESO und den Bau des leistungsstärksten Observatoriums auf der Erde. Ab 12 Jahren.",
+        "fr": "Der 360° Film mit Blick hinter die Kulissen der Europäischen Südsternwarte ESO und den Bau des leistungsstärksten Observatoriums auf der Erde. Ab 12 Jahren."
+      },
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-07",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/eso-europas-weg-zu-den-sternen_Ad8uUDq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ad8uUDq.webp"
+    },
+    {
+      "id": "guidle:AJCd2bV",
+      "title": "Mission Erde",
+      "titleByLocale": {
+        "it": "Mission Erde",
+        "en": "Mission Erde",
+        "de": "Mission Erde",
+        "fr": "Mission Erde"
+      },
+      "description": "Im Auge des Klimawandels - Eine Reise in die Zukunft unseres Planeten. Ab 10 Jahren.",
+      "descriptionByLocale": {
+        "it": "Im Auge des Klimawandels - Eine Reise in die Zukunft unseres Planeten. Ab 10 Jahren.",
+        "en": "Im Auge des Klimawandels - Eine Reise in die Zukunft unseres Planeten. Ab 10 Jahren.",
+        "de": "Im Auge des Klimawandels - Eine Reise in die Zukunft unseres Planeten. Ab 10 Jahren.",
+        "fr": "Im Auge des Klimawandels - Eine Reise in die Zukunft unseres Planeten. Ab 10 Jahren."
+      },
+      "startDate": "2026-09-30",
+      "endDate": "2026-10-25",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/mission-erde_AJCd2bV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AJCd2bV.webp"
+    },
+    {
+      "id": "guidle:A9bT56v",
+      "title": "Zeitreise",
+      "titleByLocale": {
+        "it": "Zeitreise",
+        "en": "Zeitreise",
+        "de": "Zeitreise",
+        "fr": "Zeitreise"
+      },
+      "description": "Der 360° Film über die Entstehung des Universums. Ab 12 Jahren.",
+      "descriptionByLocale": {
+        "it": "Der 360° Film über die Entstehung des Universums. Ab 12 Jahren.",
+        "en": "Der 360° Film über die Entstehung des Universums. Ab 12 Jahren.",
+        "de": "Der 360° Film über die Entstehung des Universums. Ab 12 Jahren.",
+        "fr": "Der 360° Film über die Entstehung des Universums. Ab 12 Jahren."
+      },
+      "startDate": "2026-09-09",
+      "endDate": "2026-10-21",
+      "startTime": "17:00",
+      "category": "Astronomia",
+      "venue": "Bodensee Planetarium und Sternwarte",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/kreuzlingen/zeitreise_A9bT56v",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 6,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Breitenrainstrasse 21",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.6413135,
+        "lng": 9.1604477
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A9bT56v.webp"
+    },
+    {
+      "id": "guidle:ALd2SyR",
+      "title": "Güter- und Erbrecht - was und wohin vererben wir?",
+      "titleByLocale": {
+        "it": "Güter- und Erbrecht - was und wohin vererben wir?",
+        "en": "Güter- und Erbrecht - was und wohin vererben wir?",
+        "de": "Güter- und Erbrecht - was und wohin vererben wir?",
+        "fr": "Güter- und Erbrecht - was und wohin vererben wir?"
+      },
+      "description": "Güter- und Erbrecht betreffen die Vermögensverteilung. Das Referat beantwortet Fragen zu Güterrecht und Erbrecht, und zum Aufsetzen von Erbvertrag und Testament.",
+      "descriptionByLocale": {
+        "it": "Güter- und Erbrecht betreffen die Vermögensverteilung. Das Referat beantwortet Fragen zu Güterrecht und Erbrecht, und zum Aufsetzen von Erbvertrag und Testament.",
+        "en": "Güter- und Erbrecht betreffen die Vermögensverteilung. Das Referat beantwortet Fragen zu Güterrecht und Erbrecht, und zum Aufsetzen von Erbvertrag und Testament.",
+        "de": "Güter- und Erbrecht betreffen die Vermögensverteilung. Das Referat beantwortet Fragen zu Güterrecht und Erbrecht, und zum Aufsetzen von Erbvertrag und Testament.",
+        "fr": "Güter- und Erbrecht betreffen die Vermögensverteilung. Das Referat beantwortet Fragen zu Güterrecht und Erbrecht, und zum Aufsetzen von Erbvertrag und Testament."
+      },
+      "startDate": "2027-03-11",
+      "endDate": "2027-03-11",
+      "startTime": "15:00",
+      "category": "Lezione",
+      "venue": "Bleiche Wald",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/wald-zh/gueter-und-erbrecht-was-und-wohin-vererben-wir_ALd2SyR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Jonastrasse 11",
+        "postalCode": "8636"
+      },
+      "geo": {
+        "lat": 47.275609,
+        "lng": 8.9103
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:ACJim39",
+      "title": "SWISS CYBER SECURITY DAYS",
+      "titleByLocale": {
+        "it": "SWISS CYBER SECURITY DAYS",
+        "en": "SWISS CYBER SECURITY DAYS",
+        "de": "SWISS CYBER SECURITY DAYS",
+        "fr": "SWISS CYBER SECURITY DAYS"
+      },
+      "description": "Gli Swiss Cyber Security Days sono la principale piattaforma di dialogo e di business in Svizzera nel campo della sicurezza informatica.",
+      "descriptionByLocale": {
+        "it": "Gli Swiss Cyber Security Days sono la principale piattaforma di dialogo e di business in Svizzera nel campo della sicurezza informatica.",
+        "en": "The Swiss Cyber Security Days is the leading dialog and business platform in Switzerland in the field of cyber security.",
+        "de": "Die SCSD überbrücken die Wissenslücke zwischen Technologie, Forschung, Politik, Wirtschaft sowie der Bevölkerung und bieten Einblicke in aktuelle und zukünftige Bedrohungen sowie innovative Lösungen.",
+        "fr": "Les Swiss Cyber Security Days sont la principale plateforme de dialogue et d'affaires de Suisse dans le domaine de la cybersécurité."
+      },
+      "startDate": "2027-02-23",
+      "endDate": "2027-02-24",
+      "startTime": "09:00",
+      "category": "Fiera commerciale",
+      "venue": "BERNEXPO",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/events/knowledge/bern/swiss-cyber-security-days_ACJim39",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Mingerstrasse 6",
+        "postalCode": "3014"
+      },
+      "geo": {
+        "lat": 46.9591734,
+        "lng": 7.4667455
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ACJim39.webp"
+    },
+    {
+      "id": "guidle:ANupSZq",
+      "title": "Astronomie-Abende Chasseral",
+      "titleByLocale": {
+        "it": "Astronomie-Abende Chasseral",
+        "en": "Astronomy Evenings Chasseral",
+        "de": "Astronomie-Abende Chasseral",
+        "fr": "Soirée astronomique à Chasseral"
+      },
+      "description": "Entdecken Sie den Sternenhimmel auf dem Chasseral bei drei Astronomie-Abenden mit interaktiver Einfuehrung und Abendessen.",
+      "descriptionByLocale": {
+        "it": "Entdecken Sie den Sternenhimmel auf dem Chasseral bei drei Astronomie-Abenden mit interaktiver Einfuehrung und Abendessen.",
+        "en": "Discover the night sky on the Chasseral during three astronomy evenings with interactive introduction and dinner.",
+        "de": "Entdecken Sie den Sternenhimmel auf dem Chasseral bei drei Astronomie-Abenden mit interaktiver Einfuehrung und Abendessen.",
+        "fr": "Découvrez le ciel étoilé du Chasseral lors de trois soirées d’astronomie avec introduction interactive et repas au sommet."
+      },
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "19:00",
+      "category": "Astronomia",
+      "venue": "Hotel Chasseral",
+      "comune": "Nods",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/nods/astronomie-abende-chasseral_ANupSZq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Chasseral 124",
+        "postalCode": "2518"
+      },
+      "geo": {
+        "lat": 47.126903,
+        "lng": 7.0455884
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANupSZq.webp"
     }
   ]
 }

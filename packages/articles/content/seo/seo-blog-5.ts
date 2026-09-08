@@ -87667,6 +87667,1059 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-empatia-lavoro-immobiliare-ticino': {
+    title: 'Senza empatia non sai fare questo lavoro | Frontaliere Ticino',
+    description: 'L\'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, senza, empatia, fare, questo',
+    ogTitle: 'Senza empatia non sai fare questo lavoro',
+    ogDescription: 'Scopri perché l\'empatia è fondamentale nel lavoro immobiliare e come un episodio reale di subentro ha messo in luce l\'importanza di ascoltare le persone.',
+    canonicalPath: '/articoli-frontaliere/empatia-lavoro-immobiliare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Senza empatia non sai fare questo lavoro",
+      "description": "L'empatia è descritta come competenza imprescindibile nel lavoro immobiliare, con un episodio reale di subentro gestito senza ascolto umano. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/empatia-lavoro-immobiliare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un professionista del settore immobiliare ascolta empaticamente un cliente in un ufficio moderno in Ticino."
+      },
+      "datePublished": "2026-09-07T07:11:01+00:00",
+      "dateModified": "2026-09-07T07:11:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/empatia-lavoro-immobiliare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-stabile-ticino-2024': {
+    title: 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
+    description: 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, tasso, stabile, mese',
+    ogTitle: 'Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo',
+    ogDescription: 'Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-ticino-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione: tasso al 3,0%, stabile su mese ma in aumento annuo",
+      "description": "Il tasso di disoccupazione in Svizzera è stabile al 3,0% su base mensile, ma è in aumento dello 0,2 punti su base annua. In Ticino, il tasso è al 2,9%.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-stabile-ticino-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-07T07:20:24+00:00",
+      "dateModified": "2026-09-07T07:20:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-ticino-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-aymavilles-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Aymavilles e lavorare in Vallese da frontaliere',
+    description: 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi di trasferirsi a Aymavilles per lavorare in Vallese. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, aymavilles, lavorare, vallese',
+    ogTitle: 'Vivere a Aymavilles e lavorare in Vallese da frontaliere',
+    ogDescription: 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi di trasferirsi a Aymavilles per lavorare in Vallese. Informazioni pratiche e consigli per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/vivere-aymavilles-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Aymavilles e lavorare in Vallese da frontaliere",
+      "description": "Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi di trasferirsi a Aymavilles per lavorare in Vallese. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-aymavilles-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di Aymavilles con le Alpi svizzere sullo sfondo"
+      },
+      "datePublished": "2026-09-07T07:34:01+00:00",
+      "dateModified": "2026-09-07T07:34:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-aymavilles-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-arredamento-uffici-ticino-ai': {
+    title: 'Le 5 aziende top per uffici in Ticino | Frontaliere Ticino',
+    description: 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, uffici, scopri, quali',
+    ogTitle: 'Le 5 aziende per arredamento e progettazione di uffici più consigliate dall’AI in Ticino',
+    ogDescription: 'Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Baumgartner e Chiodoni Luigi SA sono tra le scelte consigliate.',
+    canonicalPath: '/articoli-frontaliere/arredamento-uffici-ticino-ai',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le 5 aziende top per uffici in Ticino",
+      "description": "Scopri quali aziende in Ticino sono le più indicate per arredare e progettare uffici secondo l’AI. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/arredamento-uffici-ticino-ai.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Ticino con arredamento su misura e tecnologia avanzata."
+      },
+      "datePublished": "2026-09-07T07:42:37+00:00",
+      "dateModified": "2026-09-07T07:42:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arredamento-uffici-ticino-ai/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-introd-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Introd e lavorare in Vallese da frontaliere',
+    description: 'Vivere a Introd e lavorare in Vallese da frontaliere: fiscalità, Permesso G, trattenute busta paga, LAMal e tempi di percorrenza verso il Vallese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, introd, lavorare, vallese',
+    ogTitle: 'Vivere a Introd e lavorare in Vallese da frontaliere',
+    ogDescription: 'Guida per residenti a Introd che lavorano in Vallese: Permesso G, imposta alla fonte, Nuovo Accordo 2024, trattenute busta paga, LAMal e pendolarismo alpino.',
+    canonicalPath: '/articoli-frontaliere/vivere-introd-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Introd e lavorare in Vallese da frontaliere",
+      "description": "Vivere a Introd e lavorare in Vallese da frontaliere: fiscalità, Permesso G, trattenute busta paga, LAMal e tempi di percorrenza verso il Vallese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-introd-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del villaggio alpino di Introd in Valle d'Aosta con montagne innevate sullo sfondo"
+      },
+      "datePublished": "2026-09-07T07:54:46+00:00",
+      "dateModified": "2026-09-07T07:54:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-introd-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-saint-christophe-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Saint-Christophe e lavorare in Vallese da frontaliere',
+    description: 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Saint-Christophe e lavorare in Vallese. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, saint-christophe, lavorare, vallese',
+    ogTitle: 'Vivere a Saint-Christophe e lavorare in Vallese da frontaliere',
+    ogDescription: 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Saint-Christophe e lavorare in Vallese. Con una pianificazione adeguata, è possibile godere dei vantaggi offerti da questa scelta e migliorare la propria',
+    canonicalPath: '/articoli-frontaliere/vivere-saint-christophe-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Saint-Christophe e lavorare in Vallese da frontaliere",
+      "description": "Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Saint-Christophe e lavorare in Vallese. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-saint-christophe-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le montagne circostanti"
+      },
+      "datePublished": "2026-09-07T08:09:12+00:00",
+      "dateModified": "2026-09-07T08:09:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-saint-christophe-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-stabile-ticino-agosto-2024': {
+    title: 'Disoccupazione stabile in Svizzera e Ticino ad agosto 2024',
+    description: 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% in agosto, con un aumento di 0,2 punti su base annua. In Ticino, il tasso è del 2,9%',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, agosto, tasso',
+    ogTitle: 'Disoccupazione stabile in Svizzera e Ticino ad agosto 2024',
+    ogDescription: 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% in agosto, con un aumento di 0,2 punti su base annua. In Ticino, il tasso è del 2,9%, con un incremento di 0,1 punti su base mensile e di 0,3 punti su base annua. Scopri di più',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-ticino-agosto-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione stabile in Svizzera e Ticino ad agosto 2024",
+      "description": "Il tasso di disoccupazione in Svizzera è rimasto stabile al 3% in agosto, con un aumento di 0,2 punti su base annua. In Ticino, il tasso è del 2,9%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-stabile-ticino-agosto-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con montagne e lago"
+      },
+      "datePublished": "2026-09-07T08:19:50+00:00",
+      "dateModified": "2026-09-07T08:19:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-ticino-agosto-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-stabile-agosto-2023': {
+    title: 'Disoccupazione stabile in Svizzera ad agosto | Frontaliere Ticino',
+    description: 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3,0% ad agosto, con il Ticino al 2,9%. Aumentano i disoccupati di lunga durata. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, agosto, tasso',
+    ogTitle: 'Disoccupazione stabile in Svizzera ad agosto',
+    ogDescription: 'Il tasso di disoccupazione in Svizzera è rimasto stabile al 3,0% ad agosto, con il Ticino al 2,9%. Aumentano i disoccupati di lunga durata. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-agosto-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione stabile in Svizzera ad agosto",
+      "description": "Il tasso di disoccupazione in Svizzera è rimasto stabile al 3,0% ad agosto, con il Ticino al 2,9%. Aumentano i disoccupati di lunga durata. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-stabile-agosto-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con le montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-07T08:38:51+00:00",
+      "dateModified": "2026-09-07T08:38:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-agosto-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-emergenza-terra-trasformazione': {
+    title: 'Emergenza Terra racconta la grande trasformazione',
+    description: 'Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, emergenza, terra, racconta, grande',
+    ogTitle: 'Emergenza Terra racconta la grande trasformazione',
+    ogDescription: 'Partecipa al ciclo di incontri Emergenza Terra dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio per discutere la trasformazione ecologica e sociale.',
+    canonicalPath: '/articoli-frontaliere/emergenza-terra-trasformazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emergenza Terra racconta la grande trasformazione",
+      "description": "Ciclo di incontri sulla trasformazione ecologica e sociale dal 16 settembre al 9 dicembre al Campus SUPSI di Mendrisio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emergenza-terra-trasformazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del campus SUPSI di Mendrisio, Ticino, con persone che partecipano a un evento."
+      },
+      "datePublished": "2026-09-07T08:52:50+00:00",
+      "dateModified": "2026-09-07T08:52:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/emergenza-terra-trasformazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sciopero-ferroviario-italia-ticino': {
+    title: 'Sciopero ferroviario: possibili ritardi in Ticino',
+    description: 'Uno sciopero nazionale delle Ferrovie dello Stato Italiane potrebbe causare disagi anche in Ticino. Scopri quali servizi saranno interessati e come pianificare',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, ferroviario, possibili, ritardi',
+    ogTitle: 'Sciopero ferroviario in Italia, possibili ritardi e cancellazioni anche in Ticino',
+    ogDescription: 'Uno sciopero nazionale delle Ferrovie dello Stato Italiane potrebbe causare disagi anche in Ticino. Scopri quali servizi saranno interessati e come pianificare i tuoi spostamenti.',
+    canonicalPath: '/articoli-frontaliere/sciopero-ferroviario-italia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero ferroviario: possibili ritardi in Ticino",
+      "description": "Uno sciopero nazionale delle Ferrovie dello Stato Italiane potrebbe causare disagi anche in Ticino. Scopri quali servizi saranno interessati e come pianificare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-ferroviario-italia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-09-07T09:02:17+00:00",
+      "dateModified": "2026-09-07T09:02:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-ferroviario-italia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-luganese-tram-treno-cantieri-2035': {
+    title: 'Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035',
+    description: 'I lavori preliminari prenderanno il via alla fine di ottobre 2026 sulla tratta tra Manno e Bioggio. La rete sarà operativa nel corso del 2035. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, luganese, tram-treno, ottobre, primi',
+    ogTitle: 'Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035',
+    ogDescription: 'Scopri quando inizieranno i lavori preliminari della Rete Tram-Treno del Luganese e quando sarà operativa la nuova rete. Informazioni dettagliate e aggiornate.',
+    canonicalPath: '/articoli-frontaliere/luganese-tram-treno-cantieri-2035',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Luganese Tram-Treno: a ottobre i primi cantieri, la rete sarà operativa nel 2035",
+      "description": "I lavori preliminari prenderanno il via alla fine di ottobre 2026 sulla tratta tra Manno e Bioggio. La rete sarà operativa nel corso del 2035. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/luganese-tram-treno-cantieri-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con la nuova rete Tram-Treno in costruzione"
+      },
+      "datePublished": "2026-09-07T09:46:51+00:00",
+      "dateModified": "2026-09-07T09:46:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/luganese-tram-treno-cantieri-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tram-treno-lugano-lavori-inizio': {
+    title: 'Inizia la costruzione del tram-treno del Luganese',
+    description: 'I lavori preliminari per il tram-treno del Luganese inizieranno a fine ottobre 2026 sulla tratta Bioggio-Manno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inizia, costruzione, tram-treno, luganese',
+    ogTitle: 'Inizia la costruzione del tram-treno del Luganese',
+    ogDescription: 'I lavori preliminari per il tram-treno del Luganese inizieranno a fine ottobre 2026 sulla tratta Bioggio-Manno, con l\'obiettivo di mettere in esercizio la rete nel 2035.',
+    canonicalPath: '/articoli-frontaliere/tram-treno-lugano-lavori-inizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inizia la costruzione del tram-treno del Luganese",
+      "description": "I lavori preliminari per il tram-treno del Luganese inizieranno a fine ottobre 2026 sulla tratta Bioggio-Manno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-lugano-lavori-inizio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con i binari del tram-treno in costruzione"
+      },
+      "datePublished": "2026-09-07T10:00:13+00:00",
+      "dateModified": "2026-09-07T10:00:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-lugano-lavori-inizio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-09-07': {
+    title: 'Bollettino del frontaliere – 7 settembre 2026: 118 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 7 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 7 settembre 2026: 118 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 7 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-09-07',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 7 settembre 2026: 118 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 7 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-09-07.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 7 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-09-07T10:02:12+00:00",
+      "dateModified": "2026-09-07T10:02:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-09-07/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-padula-nomina-direttore-ire-usi': {
+    title: 'Mario Padula nominato direttore IRE USI dal 2026',
+    description: 'Mario Padula nominato direttore IRE dell\'USI dal 1° settembre 2026. Esperto di previdenza e finanza familiare, sarà anche Professore di Economia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mario, padula, nominato, direttore',
+    ogTitle: 'Padula nuovo direttore IRE USI dal 2026',
+    ogDescription: 'L\'economista Mario Padula, specializzato in previdenza e finanza familiare, guiderà l\'Istituto di ricerche economiche dell\'USI dal 1° settembre 2026, succedendo a Mario Jametti.',
+    canonicalPath: '/articoli-frontaliere/padula-nomina-direttore-ire-usi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mario Padula nominato direttore IRE USI dal 2026",
+      "description": "Mario Padula nominato direttore IRE dell'USI dal 1° settembre 2026. Esperto di previdenza e finanza familiare, sarà anche Professore di Economia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/padula-nomina-direttore-ire-usi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus USI a Lugano con vista sul lago"
+      },
+      "datePublished": "2026-09-07T10:18:12+00:00",
+      "dateModified": "2026-09-07T10:18:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/padula-nomina-direttore-ire-usi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-morazzone-tante-care-cose-2026': {
+    title: 'Morazzone - torna “tante care cose” a casa macchi',
+    description: 'Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, morazzone, torna, tante, care',
+    ogTitle: 'Morazzone - A Morazzone torna “Tante Care Cose”, il mercato di rigatterie e anticaglie a Casa Macchi',
+    ogDescription: 'Scopri il mercato di rigatterie e anticaglie a Casa Macchi a Morazzone, in programma sabato 12 e domenica 13 settembre dalle 10 alle 18. Un\'opportunità unica per i frontalieri di trovare oggetti unici e di valore.',
+    canonicalPath: '/articoli-frontaliere/morazzone-tante-care-cose-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Morazzone - torna “tante care cose” a casa macchi",
+      "description": "Sabato 12 e domenica 13 settembre, Casa Macchi ospita una nuova edizione del mercato dedicato a rigatterie, antiquariato e modernariato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/morazzone-tante-care-cose-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato di rigatterie e anticaglie a Casa Macchi, Morazzone"
+      },
+      "datePublished": "2026-09-07T10:25:45+00:00",
+      "dateModified": "2026-09-07T10:25:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/morazzone-tante-care-cose-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rete-tram-treno-cantieri-inizio': {
+    title: 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
+    description: 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rete, tram-treno, ruspe, lavoro',
+    ogTitle: 'Rete Tram-Treno, ruspe al lavoro da metà ottobre',
+    ogDescription: 'I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.',
+    canonicalPath: '/articoli-frontaliere/rete-tram-treno-cantieri-inizio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rete Tram-Treno, ruspe al lavoro da metà ottobre",
+      "description": "I lavori per la Rete Tram-Treno inizieranno a metà ottobre con i muri di controriva sulla tratta Bioggio-Manno. Scopri di più sulle tempistiche e i costi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rete-tram-treno-cantieri-inizio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Lugano con cantieri visibili"
+      },
+      "datePublished": "2026-09-07T10:49:29+00:00",
+      "dateModified": "2026-09-07T10:49:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rete-tram-treno-cantieri-inizio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-varese-comunita-energetiche-rinnovabili': {
+    title: 'Varese: convegno su comunità energetiche rinnovabili',
+    description: 'La Camera di Commercio di Varese organizza un convegno sulle Comunità Energetiche Rinnovabili per imprese, enti locali e privati cittadini. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, convegno, comunità, energetiche',
+    ogTitle: 'Varese - Comunità Energetiche Rinnovabili: con Camera di Commercio di Varese un convegno per imprese e cittadini',
+    ogDescription: 'La Camera di Commercio di Varese organizza un convegno sulle Comunità Energetiche Rinnovabili per imprese, enti locali e privati cittadini, con l\'obiettivo di trasformare la sostenibilità ambientale in una risorsa concreta per il territorio.',
+    canonicalPath: '/articoli-frontaliere/varese-comunita-energetiche-rinnovabili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: convegno su comunità energetiche rinnovabili",
+      "description": "La Camera di Commercio di Varese organizza un convegno sulle Comunità Energetiche Rinnovabili per imprese, enti locali e privati cittadini. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-comunita-energetiche-rinnovabili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con pannelli solari sui tetti."
+      },
+      "datePublished": "2026-09-07T11:05:11+00:00",
+      "dateModified": "2026-09-07T11:05:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-comunita-energetiche-rinnovabili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-nus-lavorare-vallese-frontaliere': {
+    title: 'Vivere a Nus e lavorare in Vallese da frontaliere',
+    description: 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lavorare, vallese, scopri',
+    ogTitle: 'Vivere a Nus e lavorare in Vallese da frontaliere',
+    ogDescription: 'Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.',
+    canonicalPath: '/articoli-frontaliere/vivere-nus-lavorare-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Nus e lavorare in Vallese da frontaliere",
+      "description": "Scopri i vantaggi e gli svantaggi di vivere a Nus e lavorare in Vallese da frontaliere, inclusi collegamenti, tempi di percorrenza e costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-nus-lavorare-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con le Alpi svizzere sullo sfondo, mostrando una casa accogliente con un balcone che guarda sull'acqua."
+      },
+      "datePublished": "2026-09-07T11:24:20+00:00",
+      "dateModified": "2026-09-07T11:24:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-nus-lavorare-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sergio-savoia-politica-avanti-ticino-lavoro': {
+    title: 'Sergio Savoia torna in politica con Avanti con Ticino&Lavoro',
+    description: 'Sergio Savoia torna in politica con Avanti con Ticino&Lavoro per le cantonali 2027. Scopri le caratteristiche del nuovo movimento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sergio, savoia, torna, politica',
+    ogTitle: 'Sergio Savoia torna in politica con Avanti Ticino&Lavoro',
+    ogDescription: 'Sergio Savoia, ex coordinatore dei Verdi, sceglie Avanti con Ticino&Lavoro per le elezioni cantonali del 2027. Scopri le caratteristiche del nuovo movimento politico.',
+    canonicalPath: '/articoli-frontaliere/sergio-savoia-politica-avanti-ticino-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sergio Savoia torna in politica con Avanti con Ticino&Lavoro",
+      "description": "Sergio Savoia torna in politica con Avanti con Ticino&Lavoro per le cantonali 2027. Scopri le caratteristiche del nuovo movimento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sergio-savoia-politica-avanti-ticino-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sergio Savoia in un incontro politico a Bellinzona"
+      },
+      "datePublished": "2026-09-07T11:34:01+00:00",
+      "dateModified": "2026-09-07T11:34:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sergio-savoia-politica-avanti-ticino-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-a8-chiusure-varese-gallarate-settembre-2026': {
+    title: 'A8 chiude tre sere tra Varese e Gallarate: deviazioni',
+    description: 'Chiusure notturne A8 dal 9 all\'11 settembre 2026, ore 21-5, per lavori alle barriere antirumore tra Diramazione Gallarate-Gattico e Castronno. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiude, sere, varese, gallarate',
+    ogTitle: 'A8 chiude tre sere tra Varese e Gallarate: deviazioni',
+    ogDescription: 'Chiusure notturne A8 dal 9 all\'11 settembre 2026, ore 21-5, per lavori alle barriere antirumore tra Diramazione Gallarate-Gattico e Castronno.',
+    canonicalPath: '/articoli-frontaliere/a8-chiusure-varese-gallarate-settembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A8 chiude tre sere tra Varese e Gallarate: deviazioni",
+      "description": "Chiusure notturne A8 dal 9 all'11 settembre 2026, ore 21-5, per lavori alle barriere antirumore tra Diramazione Gallarate-Gattico e Castronno. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/a8-chiusure-varese-gallarate-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A8 con lavori notturni tra Varese e Gallarate"
+      },
+      "datePublished": "2026-09-07T14:31:31+00:00",
+      "dateModified": "2026-09-07T14:31:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a8-chiusure-varese-gallarate-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-b-quellensteuer': {
+    title: 'Permesso B e Quellensteuer: tariffe e regole fiscali',
+    description: 'Guida completa al Permesso B e all\'imposta alla fonte in Svizzera: tariffe, deduzioni Pillar 3a, scadenze e confronto con i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, quellensteuer, tariffe, regole',
+    ogTitle: 'Permesso B e Quellensteuer: Tariffe e Fisco in Svizzera',
+    ogDescription: 'Approfondimento completo sul Permesso B e sull\'imposta alla fonte in Svizzera, con analisi delle tariffe, deduzioni fiscali e regole per i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/permesso-b-quellensteuer',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso B e Quellensteuer: tariffe e regole fiscali",
+      "description": "Guida completa al Permesso B e all'imposta alla fonte in Svizzera: tariffe, deduzioni Pillar 3a, scadenze e confronto con i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-b-quellensteuer.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago Ceresio"
+      },
+      "datePublished": "2026-09-07T16:12:28+00:00",
+      "dateModified": "2026-09-07T16:12:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-b-quellensteuer/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grenzgaenger-schweiz-steuern-2026': {
+    title: 'Grenzgänger schweiz steuern 2026: regole e obblighi',
+    description: 'Guida completa sulle tasse per grenzgänger in Svizzera nel 2026: imposta alla fonte, nuovo accordo, differenze tra vecchi e nuovi frontalieri e aliquote.',
+    keywords: 'frontalieri, ticino, svizzera, italia, grenzgänger, schweiz, steuern, regole',
+    ogTitle: 'Grenzgänger Schweiz Steuern 2026: Regole Fiscali Frontalieri',
+    ogDescription: 'Approfondimento completo sulle imposte per i lavoratori transfrontalieri tra Svizzera e Italia, con dettagli su imposta alla fonte, nuovo accordo e regimi fiscali.',
+    canonicalPath: '/articoli-frontaliere/grenzgaenger-schweiz-steuern-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grenzgänger schweiz steuern 2026: regole e obblighi",
+      "description": "Guida completa sulle tasse per grenzgänger in Svizzera nel 2026: imposta alla fonte, nuovo accordo, differenze tra vecchi e nuovi frontalieri e aliquote.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grenzgaenger-schweiz-steuern-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del Canton Ticino con il lago"
+      },
+      "datePublished": "2026-09-07T16:22:00+00:00",
+      "dateModified": "2026-09-07T16:22:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grenzgaenger-schweiz-steuern-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regole-fiscali-grenzgaenger-2026': {
+    title: 'Tasse grenzgänger svizzera: obblighi e nuovo accordo',
+    description: 'Guida alle tasse per grenzgänger in Svizzera: imposta alla fonte, differenze tra vecchi e nuovi frontalieri, franchigie e scaglioni IRPEF. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, grenzgänger, obblighi, nuovo',
+    ogTitle: 'Tasse grenzgänger Svizzera: nuovo accordo e obblighi fiscali',
+    ogDescription: 'Approfondimento completo sulle regole fiscali per i grenzgänger in Svizzera, con dettagli su imposta alla fonte, franchigie, scaglioni e regimi transitori.',
+    canonicalPath: '/articoli-frontaliere/regole-fiscali-grenzgaenger-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse grenzgänger svizzera: obblighi e nuovo accordo",
+      "description": "Guida alle tasse per grenzgänger in Svizzera: imposta alla fonte, differenze tra vecchi e nuovi frontalieri, franchigie e scaglioni IRPEF. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/regole-fiscali-grenzgaenger-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago nel Canton Ticino"
+      },
+      "datePublished": "2026-09-07T16:34:00+00:00",
+      "dateModified": "2026-09-07T16:34:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regole-fiscali-grenzgaenger-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-g-bewilligung-antrag-schritt-fuer-schritt': {
+    title: 'Permesso G in Ticino: richiesta, costi e passaggi',
+    description: 'Guida completa al permesso G in Ticino: richiesta, costi di 65 CHF, validità quinquennale, documenti e procedura per lavoratori frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, richiesta, costi, passaggi',
+    ogTitle: 'Permesso G in Ticino: Guida Completa per Frontalieri',
+    ogDescription: 'Scopri come richiedere il permesso G per lavorare in Ticino: costi di 65 CHF, validità di 5 anni, documenti necessari e procedure per frontalieri italiani.',
+    canonicalPath: '/articoli-frontaliere/g-bewilligung-antrag-schritt-fuer-schritt',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso G in Ticino: richiesta, costi e passaggi",
+      "description": "Guida completa al permesso G in Ticino: richiesta, costi di 65 CHF, validità quinquennale, documenti e procedura per lavoratori frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/g-bewilligung-antrag-schritt-fuer-schritt.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Permesso G per frontalieri in Ticino"
+      },
+      "datePublished": "2026-09-07T16:45:42+00:00",
+      "dateModified": "2026-09-07T16:45:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g-bewilligung-antrag-schritt-fuer-schritt/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-g-bewilligung-antrag-guida-completa-2026': {
+    title: 'G Bewilligung Antrag 2026: documenti e procedura per frontalieri',
+    description: 'G Bewilligung Antrag 2026 in Canton Ticino: documenti, iter al Migrationsamt, validità 5 anni e rinnovo dopo il Nuovo Accordo 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, bewilligung, antrag, documenti, procedura',
+    ogTitle: 'G Bewilligung Antrag 2026: procedura per frontalieri in Ticino',
+    ogDescription: 'Tutto sulla domanda di permesso G nel 2026: documenti richiesti, iter al Migrationsamt ticinese, validità quinquennale, regime fiscale dopo il Nuovo Accordo Frontaliere in vigore dal 1° gennaio 2024 e contributi svizzeri.',
+    canonicalPath: '/articoli-frontaliere/g-bewilligung-antrag-guida-completa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G Bewilligung Antrag 2026: documenti e procedura per frontalieri",
+      "description": "G Bewilligung Antrag 2026 in Canton Ticino: documenti, iter al Migrationsamt, validità 5 anni e rinnovo dopo il Nuovo Accordo 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/g-bewilligung-antrag-guida-completa-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di Brogeda con documenti per il permesso G in Canton Ticino"
+      },
+      "datePublished": "2026-09-07T16:56:19+00:00",
+      "dateModified": "2026-09-07T16:56:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g-bewilligung-antrag-guida-completa-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-studente-pendolare-ticino-usi-supsi': {
+    title: 'Studente pendolare Ticino: guida USI e SUPSI | Frontaliere Ticino',
+    description: 'Guida pratica per studenti universitari pendolari tra Italia e Canton Ticino: iscrizione a USI e SUPSI, costi, alloggio e differenze con i lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, studente, pendolare, supsi, vivere',
+    ogTitle: 'Studente pendolare in Ticino: guida per USI e SUPSI',
+    ogDescription: 'Tutto quello che c\'è da sapere sulla vita da studente pendolare tra Italia e Canton Ticino: immatricolazione a USI e SUPSI, costi, alloggio e differenze con il lavoro frontaliero.',
+    canonicalPath: '/articoli-frontaliere/studente-pendolare-ticino-usi-supsi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studente pendolare Ticino: guida USI e SUPSI",
+      "description": "Guida pratica per studenti universitari pendolari tra Italia e Canton Ticino: iscrizione a USI e SUPSI, costi, alloggio e differenze con i lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/studente-pendolare-ticino-usi-supsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente universitario pendolare tra Italia e Ticino"
+      },
+      "datePublished": "2026-09-07T17:14:59+00:00",
+      "dateModified": "2026-09-07T17:14:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/studente-pendolare-ticino-usi-supsi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tram-treno-lavori-ottobre': {
+    title: 'Tram-treno in Ticino: via ai primi cantieri a ottobre',
+    description: 'Rttl Sa assegna dieci mandati di progettazione per 44,8 milioni. Scopri i dettagli sull\'avvio dei primi lavori a ottobre e le prospettive per il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tram-treno, primi, cantieri, ottobre',
+    ogTitle: 'Tram-treno in Ticino: via ai primi cantieri a ottobre',
+    ogDescription: 'Rttl Sa ha assegnato dieci mandati di progettazione per 44,8 milioni di franchi. Primi lavori in arrivo a ottobre e opere principali nel 2027.',
+    canonicalPath: '/articoli-frontaliere/tram-treno-lavori-ottobre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tram-treno in Ticino: via ai primi cantieri a ottobre",
+      "description": "Rttl Sa assegna dieci mandati di progettazione per 44,8 milioni. Scopri i dettagli sull'avvio dei primi lavori a ottobre e le prospettive per il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tram-treno-lavori-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano in Ticino con infrastrutture di trasporto"
+      },
+      "datePublished": "2026-09-07T17:30:45+00:00",
+      "dateModified": "2026-09-07T17:30:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-lavori-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -1,20 +1,21 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-09-06T22:57:32.919Z",
+  "generatedAt": "2026-09-07T23:35:58.241Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 3,
+  "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 10819,
-  "avgDurationMs": 10819,
+  "unchangedCount": 1,
+  "durationMs": 8758,
+  "avgDurationMs": 8758,
   "durationHistory": [
-    10819
+    8758
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +31,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:21.259Z",
+      "crawledAt": "2026-09-07T23:35:48.118Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -46,6 +47,7 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T11:17:49.437Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -67,7 +69,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:21.277Z",
+      "crawledAt": "2026-09-07T23:35:48.124Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -83,6 +85,7 @@
       "featured": false,
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T11:17:49.448Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -104,7 +107,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros HQ Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:57:21.283Z",
+      "crawledAt": "2026-09-07T23:35:48.126Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8005",
@@ -129,10 +132,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "migros-hq-591572a8e855",
-      "slug": "projektleiter-in-intralogistik-automatisierung-migros-hq-ch",
+      "slug": "project-manager-sistemi-di-automazione-e-logistica-migros-genossenschafts-bund-zurich-yh81ku",
       "company": "Migros HQ Zürich",
       "companyKey": "migros-hq",
       "companyDomain": "migros.ch",
@@ -160,15 +166,17 @@
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/projektleiterin-intralogistik-automatisierung/cb447da7-1318-4e75-b069-13e7d80a8619",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T11:17:49.453Z",
-      "_qualityScore": 94,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

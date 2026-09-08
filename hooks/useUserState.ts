@@ -56,16 +56,17 @@ export function useUserState(
  // it), so the recipient's real state decides. See #5672.
  useEffect(() => {
  if (!authEmail) return;
- if (localStorage.getItem('newsletter_subscribed') === 'true') return;
  let cancelled = false;
  (async () => {
- const [{ getFirestore }, { getApp }, { isNewsletterOptedOut }] = await Promise.all([
+ const [{ getFirestore }, { getApp }, { isNewsletterOptedOut, isNewsletterAccountDeleted }] = await Promise.all([
  import('firebase/firestore'),
  import('@/services/firebase'),
  import('@/services/newsletterSubscribers'),
  ]);
  if (cancelled) return;
  const db = getFirestore(await getApp() as any);
+ if (localStorage.getItem('newsletter_subscribed') === 'true'
+ && !(await isNewsletterAccountDeleted(db, authEmail))) return;
  if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
  await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null);
  })().catch((e) => reportCaughtError(e, 'user.autoNewsletterSubscribe'));

@@ -207,7 +207,7 @@ jobs:
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
         if: inputs.skip_translate != true
         continue-on-error: true
@@ -411,6 +411,15 @@ jobs:
         with:
           name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Upload cascade company rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-cascade-companies-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-cascade-companies.json
           retention-days: 30
           if-no-files-found: warn
       - name: Commit translation observability history
