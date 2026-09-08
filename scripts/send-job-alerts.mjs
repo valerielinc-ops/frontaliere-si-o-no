@@ -907,7 +907,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   // tagChip moved to services/newsletter-content.mjs as emailTagChip (#6104).
   const tagChip = emailTagChip;
 
-  const jobCards = shownJobs.map((job) => {
+  const jobCards = shownJobs.map((job, i) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
@@ -1098,12 +1098,27 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
   // ── Plaintext alternative (multipart/alternative) ──────────
   // Built from the same data source as the HTML — never regex-stripped.
   const heroLine = s.heroTitle(shownJobs.length).replace(/\ud83d\udd14\s*/, '\u{1F514} ');
-  const textJobs = shownJobs.map((job) => {
+  const textJobs = shownJobs.map((job, i) => {
     const title = cleanTitle(job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle);
     const company = job.company || '';
     const rawLocation = (job.location || job.addressLocality || '').replace(/^[-\u2013\u2014\s]+/, '').trim();
     const jobUrl = jobPageUrl(job, locale);
-    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
+    let rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
+    if (rankingContext && jobUrl) {
+      rawJobUrl = appendJobRankingParams(rawJobUrl, {
+        jobId: stableJobId(job),
+        surface: 'job_alert',
+        surfaceId: alert.id,
+        deliveryId: rankingContext.deliveryId,
+        position: i + 1,
+        variant: rankingContext.variant,
+        alertId: alert.id,
+        rankingScore: job.ranking?.rankingScore,
+        relevanceScore: job.ranking?.relevanceScore,
+        ctrShrink: job.ranking?.ctrShrink,
+        randomBoost: job.ranking?.randomBoost,
+      });
+    }
     const url = wrapJobUrl(rawJobUrl);
     const meta = [company, rawLocation].filter(Boolean).join(' \u00b7 ');
     return `${title}\n${meta}\n${url}`;

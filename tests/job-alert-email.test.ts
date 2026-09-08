@@ -216,6 +216,17 @@ describe('job alert email — plaintext alternative', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
     expect(result.text).not.toMatch(/<[a-z]+/i);
   });
+
+  it('tracks ranked job links in both HTML and plaintext alternatives', () => {
+    const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob({ id: 'job-plain-text' })], true, {
+      deliveryId: 'jer_job_alert_delivery',
+      variant: 'treatment',
+    });
+    expect(result.html).toContain('je=1');
+    expect(result.html).toContain('job_id=job-plain-text');
+    expect(result.text).toContain('je=1');
+    expect(result.text).toContain('job_id=job-plain-text');
+  });
 });
 
 describe('job alert email — identity footer', () => {
