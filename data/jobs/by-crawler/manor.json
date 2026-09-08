@@ -760,9 +760,9 @@
       },
       "postedDate": "2026-09-04",
       "source": "company-website",
-      "slug": "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+      "slug": "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
       "slugByLocale": {
-        "it": "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
+        "it": "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "en": "supermarket-collaborator-fruit-vegetables-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "supermarkt-mitarbeiter-obst-gemuse-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "fr": "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice"
@@ -777,12 +777,12 @@
       "id": "manor-f4da3cadfcb7",
       "previousSlugs": [
         "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice",
-        "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+        "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice",
-          "collaboratore-del-supermercato-fruit-verduras-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
+          "collaborateur-trice-supermarche-fruits-legumes-50-manor-ag-chavannes-de-bogis-collaborateurtrice"
         ],
         "en": [
           "manor-collaborateur-trice-supermarche-fruits-legumes-50-chavannes-de-bogis-collaborateurtrice"
@@ -1134,7 +1134,7 @@
         "it": "manor-boucher-ere-100-sierre-boucherere-100",
         "en": "boucher-rear-100-manor-ag-sierre-boucherere-100",
         "de": "boucher-hinterer-100-manor-ag-sierre-boucherere-100",
-        "fr": "boucher-arriere-100-manor-ag-sierre-boucherere-100"
+        "fr": "boucher-relever-100-manor-ag-sierre-boucherere-100"
       },
       "titleByLocale": {
         "it": "Boucher/ère 100%",
@@ -1145,11 +1145,11 @@
       "sourceLang": "it",
       "id": "manor-2c543bdc23af",
       "previousSlugs": [
-        "boucher-relever-100-manor-ag-sierre-boucherere-100"
+        "boucher-arriere-100-manor-ag-sierre-boucherere-100"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "boucher-relever-100-manor-ag-sierre-boucherere-100"
+          "boucher-arriere-100-manor-ag-sierre-boucherere-100"
         ]
       },
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
@@ -1888,10 +1888,10 @@
       },
       "postedDate": "2026-09-01",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
+      "slug": "vendita-dipendenti-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
-        "en": "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+        "it": "vendita-dipendenti-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
+        "en": "employee-sale-bijoutery-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
         "de": "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
         "fr": "employe-en-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
       },
@@ -1904,13 +1904,18 @@
       "sourceLang": "de",
       "id": "manor-6334790e083e",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+        "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+        "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+          "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie"
         ]
       },
@@ -5443,7 +5448,7 @@
       "slug": "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-parfumerie-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-50-manor-ag-basel-mitarbeiterin-verkauf-parfumerie"
       },
@@ -5463,6 +5468,9 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-parfumerie-50-basel-mitarbeiterin-verkauf-parfumerie"
         ]
       },
@@ -6360,7 +6368,7 @@
       "slug": "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
-        "en": "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
+        "en": "employee-sales-fashion-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion",
         "fr": "employe-en-mode-vente-100-manor-ag-zurich-mitarbeiterin-verkauf-fashion"
       },
@@ -6380,6 +6388,9 @@
           "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-fashion-100-zurich-mitarbeiterin-verkauf-fashion"
         ]
       },
@@ -7011,7 +7022,7 @@
       "slug": "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
-        "en": "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
+        "en": "employee-sales-fashion-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion",
         "de": "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion",
         "fr": "employes-en-mode-de-vente-40-manor-ag-wattwil-mitarbeiterin-verkauf-fashion"
       },
@@ -7031,6 +7042,9 @@
           "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-fashion-40-wattwil-mitarbeiterin-verkauf-fashion"
         ]
       },
@@ -7372,10 +7386,10 @@
       },
       "postedDate": "2026-08-11",
       "source": "company-website",
-      "slug": "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
+      "slug": "profumeria-di-vendita-dei-dipendenti-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+        "it": "profumeria-di-vendita-dei-dipendenti-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
       },
@@ -7388,13 +7402,18 @@
       "sourceLang": "de",
       "id": "manor-64b9c774c0d7",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+        "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
+          "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
         ]
       },
@@ -7812,7 +7831,7 @@
       "slug": "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30",
-        "en": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
+        "en": "employee-sales-30-manor-ag-basel-mitarbeiterin-verkauf-30",
         "de": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
         "fr": "salaries-en-ventes-30-manor-ag-basel-mitarbeiterin-verkauf-30"
       },
@@ -7832,6 +7851,9 @@
           "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
         ]
       },
@@ -8051,7 +8073,7 @@
       "slug": "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-haushalt-vorhange-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
-        "en": "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
+        "en": "employee-sales-household-curtains-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt",
         "de": "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt",
         "fr": "employe-dans-les-ventes-menages-courbes-60-manor-ag-schaffhausen-mitarbeiterin-verkauf-haushalt"
       },
@@ -8071,6 +8093,9 @@
           "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-haushalt-vorhange-60-schaffhausen-mitarbeiterin-verkauf-haushalt"
         ]
       },
@@ -8116,7 +8141,7 @@
       "slug": "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
       "slugByLocale": {
         "it": "collaboratore-trice-in-vendita-parfumerie-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
-        "en": "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
+        "en": "employee-sales-perfumery-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie",
         "fr": "employe-en-parfumerie-de-vente-80-manor-ag-emmen-mitarbeiterin-verkauf-parfumerie"
       },
@@ -8136,6 +8161,9 @@
           "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
         ],
         "fr": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "en": [
           "manor-mitarbeiter-in-verkauf-parfumerie-80-emmen-mitarbeiterin-verkauf-parfumerie"
         ]
       },
@@ -11817,9 +11845,9 @@
       },
       "postedDate": "2026-06-10",
       "source": "company-website",
-      "slug": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
+      "slug": "team-leader-facility-sicurezza-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
       "slugByLocale": {
-        "it": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
+        "it": "team-leader-facility-sicurezza-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
         "en": "team-leader-in-facility-security-non-food-100-manor-ag-hochdorf-teamleiterin-facility",
         "de": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
         "fr": "chef-d-equipe-en-installations-et-securite-non-alimentaire-100-manor-ag-hochdorf-teamleiterin-facility"
@@ -11850,7 +11878,15 @@
       },
       "addressLocality": "Hochdorf Teamleiterin Facility &",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility"
+        ]
+      },
+      "previousSlugs": [
+        "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility"
+      ]
     },
     {
       "title": "Drogist*in EFZ (Dermacenter) 50-80%",

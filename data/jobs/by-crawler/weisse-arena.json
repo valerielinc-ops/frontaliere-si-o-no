@@ -863,10 +863,10 @@
     },
     {
       "id": "weisse-arena-eaad7840c3e4",
-      "slug": "allrounder-in-hangar-weisse-arena-ch",
+      "slug": "appendino-in-metallo-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "allrounder-in-hangar-weisse-arena-ch",
-        "en": "allrounder-in-hangar-weisse-arena-ch",
+        "it": "appendino-in-metallo-weisse-arena-gruppe-laax",
+        "en": "all-rounder-hangar-weisse-arena-gruppe-laax",
         "de": "allrounder-in-hangar-weisse-arena-ch",
         "fr": "allrounder-in-hangar-weisse-arena-ch"
       },
@@ -926,7 +926,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-hangar-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-in-hangar-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-hangar-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-823008f4bd9a",

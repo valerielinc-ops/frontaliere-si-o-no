@@ -4682,9 +4682,9 @@
     },
     {
       "id": "tertianum-57f61878cf77",
-      "slug": "pflegefachfrau-mann-tertianum-uster",
+      "slug": "infermieristica-professionale-tertianum-uster",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-uster",
+        "it": "infermieristica-professionale-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -4729,11 +4729,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-uster"
+        "pflegefachfrau-mann-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-uster"
+          "pflegefachfrau-mann-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",
@@ -5583,10 +5583,10 @@
     },
     {
       "id": "tertianum-55a0b060ec07",
-      "slug": "assistente-in-srk-50-100-tertianum-emmenbrucke",
+      "slug": "assistenti-alla-cura-srk-50-100-tertianum-emmenbrucke",
       "slugByLocale": {
-        "it": "assistente-in-srk-50-100-tertianum-emmenbrucke",
-        "en": "nursing-assistant-in-srk-50-100-tertianum-emmenbrucke",
+        "it": "assistenti-alla-cura-srk-50-100-tertianum-emmenbrucke",
+        "en": "care-assistants-srk-50-100-tertianum-emmenbrucke",
         "de": "pflegehelfer-in-srk-50-100-tertianum-emmenbrucke",
         "fr": "assistant-infirmier-en-srk-50-100-tertianum-emmenbrucke"
       },
@@ -5631,11 +5631,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-srk-50-100-tertianum-emmenbrucke"
+        "pflegehelfer-in-srk-50-100-tertianum-emmenbrucke",
+        "assistente-in-srk-50-100-tertianum-emmenbrucke",
+        "nursing-assistant-in-srk-50-100-tertianum-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-srk-50-100-tertianum-emmenbrucke"
+          "pflegehelfer-in-srk-50-100-tertianum-emmenbrucke",
+          "assistente-in-srk-50-100-tertianum-emmenbrucke"
+        ],
+        "en": [
+          "nursing-assistant-in-srk-50-100-tertianum-emmenbrucke"
         ]
       },
       "firstSeenAt": "2026-09-02T23:26:43.418Z",

@@ -480,8 +480,7 @@
         "farmacista-kantonsspital-glarus-ksgl-glarus",
         "pharmacist-kantonsspital-glarus-ksgl-glarus",
         "apotheker-in-ksgl-glarus",
-        "pharmacienne-kantonsspital-glarus-ksgl-glarus",
-        "nutrizione-kantonsspital-glarus-ksgl-glarus"
+        "pharmacienne-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -498,8 +497,7 @@
           "farmacista-kantonsspital-glarus-ksgl-glarus",
           "pharmacist-kantonsspital-glarus-ksgl-glarus",
           "apotheker-in-ksgl-glarus",
-          "pharmacienne-kantonsspital-glarus-ksgl-glarus",
-          "nutrizione-kantonsspital-glarus-ksgl-glarus"
+          "pharmacienne-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "nutrition-consultant-kantonsspital-glarus-ksgl-glarus",
@@ -761,22 +759,18 @@
       "firstSeenAt": "2026-09-07T15:10:55.010Z",
       "previousSlugsByLocale": {
         "it": [
-          "farmacista-kantonsspital-glarus-ksgl-glarus",
           "pharmacist-kantonsspital-glarus-ksgl-glarus",
           "pharmacienne-kantonsspital-glarus-ksgl-glarus",
           "apotheker-in-ksgl-glarus"
         ],
         "en": [
-          "pharmacist-kantonsspital-glarus-ksgl-glarus",
           "apotheker-in-ksgl-glarus"
         ],
         "fr": [
-          "pharmacienne-kantonsspital-glarus-ksgl-glarus",
           "apotheker-in-ksgl-glarus"
         ]
       },
       "previousSlugs": [
-        "farmacista-kantonsspital-glarus-ksgl-glarus",
         "pharmacist-kantonsspital-glarus-ksgl-glarus",
         "pharmacienne-kantonsspital-glarus-ksgl-glarus",
         "apotheker-in-ksgl-glarus"
@@ -1717,7 +1711,7 @@
       "slug": "dipendenti-nell-industria-alberghiera-della-stazione-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "it": "dipendenti-nell-industria-alberghiera-della-stazione-kantonsspital-glarus-ksgl-glarus",
-        "en": "employee-in-station-hotel-industry-kantonsspital-glarus-ksgl-glarus",
+        "en": "station-hotel-employees-kantonsspital-glarus-ksgl-glarus",
         "de": "mitarbeiter-in-stationshotellerie-ksgl-glarus",
         "fr": "employes-dans-l-industrie-hoteliere-de-gare-kantonsspital-glarus-ksgl-glarus"
       },
@@ -1762,7 +1756,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-stationshotellerie-ksgl-glarus",
-        "collaboratore-trice-in-stationshotellerie-kantonsspital-glarus-ksgl-glarus"
+        "collaboratore-trice-in-stationshotellerie-kantonsspital-glarus-ksgl-glarus",
+        "employee-in-station-hotel-industry-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1770,7 +1765,8 @@
           "collaboratore-trice-in-stationshotellerie-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
-          "mitarbeiter-in-stationshotellerie-ksgl-glarus"
+          "mitarbeiter-in-stationshotellerie-ksgl-glarus",
+          "employee-in-station-hotel-industry-kantonsspital-glarus-ksgl-glarus"
         ],
         "fr": [
           "mitarbeiter-in-stationshotellerie-ksgl-glarus"

@@ -15109,9 +15109,9 @@
     },
     {
       "id": "stadt-zuerich-5154a3178b81",
-      "slug": "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich",
+      "slug": "gruppo-officina-manager-macchine-di-pulizia-e-attrezzature-macchine-di-manutenzione-e-attrezzature-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich",
+        "it": "gruppo-officina-manager-macchine-di-pulizia-e-attrezzature-macchine-di-manutenzione-e-attrezzature-stadt-zurich-zurich",
         "en": "gruppenleiter-in-werkstatt-stadt-zurich-zurich",
         "de": "gruppenleiter-in-werkstatt-stadt-zuerich-zurigo-51374",
         "fr": "chef-de-groupe-en-atelier-machines-et-equipements-de-nettoyage-machines-et-equipements-de-maintenance-stadt-zurich"
@@ -15165,7 +15165,8 @@
         ],
         "it": [
           "gruppenleiter-in-werkstatt-reinigungsmaschinen-und-gerate-unterhaltsmaschinen-und-gerate",
-          "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich-zurich"
+          "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich-zurich",
+          "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich"
         ],
         "fr": [
           "gruppenleiter-in-werkstatt-reinigungsmaschinen-und-gerate-unterhaltsmaschinen-und-gerate"
@@ -15173,7 +15174,8 @@
       },
       "previousSlugs": [
         "gruppenleiter-in-werkstatt-reinigungsmaschinen-und-gerate-unterhaltsmaschinen-und-gerate",
-        "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich-zurich"
+        "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich-zurich",
+        "gruppenleiter-in-werkstatt-reinigungsmaschinen-e-gerate-unterhaltsmaschinen-e-gerate-stadt-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:26:21.615Z",
@@ -15740,10 +15742,10 @@
     },
     {
       "id": "stadt-zuerich-405b4ac0728d",
-      "slug": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-efd09d",
+      "slug": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-efd09d",
-        "en": "childhood-teacher-in-hf-stadt-zurich-zurich-efd09d",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
+        "en": "childhood-education-hf-stadt-zurich-zurich",
         "de": "kindheitspadagog-in-hf-stadt-zurich-zurich-ghekxf",
         "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
@@ -15797,10 +15799,12 @@
         ],
         "it": [
           "kindheitspadagog-in-hf-stadt-zurich-zurich",
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
+          "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-efd09d"
         ],
         "en": [
-          "kindheitspadagog-in-hf-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-stadt-zurich-zurich",
+          "childhood-teacher-in-hf-stadt-zurich-zurich-efd09d"
         ],
         "fr": [
           "kindheitspadagog-in-hf-stadt-zurich-zurich"
@@ -15808,7 +15812,9 @@
       },
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zurich-zurich",
-        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
+        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
+        "insegnante-di-infanzia-in-hf-stadt-zurich-zurich-efd09d",
+        "childhood-teacher-in-hf-stadt-zurich-zurich-efd09d"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:26:21.614Z",
@@ -16636,9 +16642,9 @@
     },
     {
       "id": "stadt-zuerich-40e99d7f88af",
-      "slug": "universita-di-scienze-applicate-in-zona-notte-di-emergenza-stadt-zurich-zurich",
+      "slug": "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "universita-di-scienze-applicate-in-zona-notte-di-emergenza-stadt-zurich-zurich",
+        "it": "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich",
         "en": "university-of-applied-sciences-practitioner-in-emergency-sleeping-area-stadt-zurich-zurich",
         "de": "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
         "fr": "professeur-a-l-universite-des-sciences-appliquees-en-zone-de-couchage-d-urgence-stadt-zurich-zurich"
@@ -16689,7 +16695,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
-          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
+          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
+          "universita-di-scienze-applicate-in-zona-notte-di-emergenza-stadt-zurich-zurich"
         ],
         "en": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich"
@@ -16703,7 +16710,8 @@
       },
       "previousSlugs": [
         "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
-        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
+        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
+        "universita-di-scienze-applicate-in-zona-notte-di-emergenza-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:26:21.613Z",
@@ -19610,9 +19618,9 @@
     },
     {
       "id": "stadt-zuerich-68e41fb3bf10",
-      "slug": "capo-dipartimento-in-servizi-stadt-zurich-zurich",
+      "slug": "responsabile-dei-servizi-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "capo-dipartimento-in-servizi-stadt-zurich-zurich",
+        "it": "responsabile-dei-servizi-stadt-zurich-zurich",
         "en": "head-of-department-in-services-stadt-zurich-zurich",
         "de": "abteilungsleiter-in-services-stadt-zurich-zurich",
         "fr": "chef-de-departement-en-services-stadt-zurich-zurich"
@@ -19663,7 +19671,8 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-services-stadt-zurich-zurich",
-          "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372"
+          "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372",
+          "capo-dipartimento-in-servizi-stadt-zurich-zurich"
         ],
         "en": [
           "abteilungsleiter-in-services-stadt-zurich-zurich"
@@ -19677,7 +19686,8 @@
       },
       "previousSlugs": [
         "abteilungsleiter-in-services-stadt-zurich-zurich",
-        "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372"
+        "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372",
+        "capo-dipartimento-in-servizi-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:26:21.613Z",
@@ -23271,9 +23281,9 @@
     },
     {
       "id": "stadt-zuerich-d1b1fc033842",
-      "slug": "monteur-in-betrieb-e-unterhalt-stadt-zurich",
+      "slug": "installer-operazione-e-manutenzione-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "monteur-in-betrieb-e-unterhalt-stadt-zurich",
+        "it": "installer-operazione-e-manutenzione-stadt-zurich-zurich",
         "en": "installer-in-operation-and-maintenance-stadt-zurich-zurich",
         "de": "monteur-in-betrieb-und-unterhalt-stadt-zurich-zurich",
         "fr": "installateur-en-fonctionnement-et-maintenance-stadt-zurich-zurich"
@@ -23322,11 +23332,13 @@
       "unit": "Elektrizitätswerk",
       "referenceNumber": "51504",
       "previousSlugs": [
-        "monteur-in-betrieb-und-unterhalt-stadt-zuerich-zurigo-51504"
+        "monteur-in-betrieb-und-unterhalt-stadt-zuerich-zurigo-51504",
+        "monteur-in-betrieb-e-unterhalt-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteur-in-betrieb-und-unterhalt-stadt-zuerich-zurigo-51504"
+          "monteur-in-betrieb-und-unterhalt-stadt-zuerich-zurigo-51504",
+          "monteur-in-betrieb-e-unterhalt-stadt-zurich"
         ],
         "en": [
           "monteur-in-betrieb-und-unterhalt-stadt-zuerich-zurigo-51504"
@@ -25073,10 +25085,10 @@
     },
     {
       "id": "stadt-zuerich-045a590256b4",
-      "slug": "ufficiale-specializzato-in-globalkredit-stadt-zurich-zurich",
+      "slug": "credito-globale-specializzato-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "ufficiale-specializzato-in-globalkredit-stadt-zurich-zurich",
-        "en": "specialist-officer-in-globalkredit-stadt-zurich-zurich",
+        "it": "credito-globale-specializzato-stadt-zurich-zurich",
+        "en": "specialist-global-credit-stadt-zurich-zurich",
         "de": "fachbearbeiter-in-globalkredit-stadt-zurich-zurich",
         "fr": "specialiste-a-globalkredit-stadt-zurich-zurich"
       },
@@ -25124,14 +25136,18 @@
       "unit": "Schulamt",
       "referenceNumber": "51514",
       "previousSlugs": [
-        "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514"
+        "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514",
+        "ufficiale-specializzato-in-globalkredit-stadt-zurich-zurich",
+        "specialist-officer-in-globalkredit-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514"
+          "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514",
+          "ufficiale-specializzato-in-globalkredit-stadt-zurich-zurich"
         ],
         "en": [
-          "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514"
+          "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514",
+          "specialist-officer-in-globalkredit-stadt-zurich-zurich"
         ],
         "de": [
           "fachbearbeiter-in-globalkredit-stadt-zuerich-zurigo-51514"
@@ -26588,10 +26604,10 @@
     },
     {
       "id": "stadt-zuerich-84c873f96895",
-      "slug": "personale-in-amministrazione-stadt-zurich-zurich",
+      "slug": "ufficio-di-amministrazione-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "personale-in-amministrazione-stadt-zurich-zurich",
-        "en": "personnel-in-administration-stadt-zurich-zurich",
+        "it": "ufficio-di-amministrazione-stadt-zurich-zurich",
+        "en": "administration-clerk-stadt-zurich-zurich",
         "de": "sachbearbeiter-in-administration-stadt-zurich-zurich",
         "fr": "personnel-en-administration-stadt-zurich-zurich"
       },
@@ -26640,15 +26656,19 @@
       "referenceNumber": "51521",
       "previousSlugs": [
         "sachbearbeiter-in-administration-stadt-zuerich-zurigo-51521",
-        "sachbearbeiter-in-administration-stadt-zurich-zurich"
+        "sachbearbeiter-in-administration-stadt-zurich-zurich",
+        "personale-in-amministrazione-stadt-zurich-zurich",
+        "personnel-in-administration-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-administration-stadt-zuerich-zurigo-51521",
-          "sachbearbeiter-in-administration-stadt-zurich-zurich"
+          "sachbearbeiter-in-administration-stadt-zurich-zurich",
+          "personale-in-amministrazione-stadt-zurich-zurich"
         ],
         "en": [
-          "sachbearbeiter-in-administration-stadt-zurich-zurich"
+          "sachbearbeiter-in-administration-stadt-zurich-zurich",
+          "personnel-in-administration-stadt-zurich-zurich"
         ],
         "fr": [
           "sachbearbeiter-in-administration-stadt-zurich-zurich"
@@ -26844,9 +26864,9 @@
     },
     {
       "id": "stadt-zuerich-094c9f6d60be",
-      "slug": "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-per-3-jahre-stadt-zurich",
+      "slug": "noleggio-personale-a-breve-termine-70-100-temporaneo-per-3-anni-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-per-3-jahre-stadt-zurich",
+        "it": "noleggio-personale-a-breve-termine-70-100-temporaneo-per-3-anni-stadt-zurich-zurich",
         "en": "personnel-in-short-term-rentals-70-100-temporary-for-3-years-stadt-zurich-zurich",
         "de": "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zurich-zurich",
         "fr": "personnel-en-location-a-court-terme-70-100-temporaire-pendant-3-ans-stadt-zurich-zurich"
@@ -26896,11 +26916,13 @@
       "referenceNumber": "51528",
       "previousSlugs": [
         "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zuerich-zurigo",
-        "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zurich-zurich"
+        "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zurich-zurich",
+        "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-per-3-jahre-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zuerich-zurigo"
+          "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zuerich-zurigo",
+          "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-per-3-jahre-stadt-zurich"
         ],
         "en": [
           "sachbearbeiter-in-kurzzeitvermietungen-70-100-befristet-fur-3-jahre-stadt-zurich-zurich"
@@ -27530,7 +27552,7 @@
         "it": "application-manager-e-sviluppatore-fino-a-febbraio-2028-stadt-zurich-zurich",
         "en": "application-manager-and-developer-until-february-2028-stadt-zurich-zurich",
         "de": "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zuerich-zurigo-51454",
-        "fr": "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zurich-zurich"
+        "fr": "gestionnaire-d-applications-et-developpeur-jusqu-en-fevrier-2028-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27577,8 +27599,7 @@
       "referenceNumber": "51454",
       "previousSlugs": [
         "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zuerich-zurigo-51454",
-        "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zurich-zurich",
-        "gestionnaire-d-applications-et-developpeur-jusqu-en-fevrier-2028-stadt-zurich-zurich"
+        "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -27589,7 +27610,7 @@
           "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zurich-zurich"
         ],
         "fr": [
-          "gestionnaire-d-applications-et-developpeur-jusqu-en-fevrier-2028-stadt-zurich-zurich"
+          "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T23:34:45.457Z",
@@ -27609,9 +27630,9 @@
     },
     {
       "id": "stadt-zuerich-9c1ed5e40372",
-      "slug": "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich",
+      "slug": "strutture-tecniche-di-protezione-del-clerk-come-controller-di-rifugio-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich",
+        "it": "strutture-tecniche-di-protezione-del-clerk-come-controller-di-rifugio-stadt-zurich-zurich",
         "en": "technical-personnel-in-protective-structures-as-protective-room-controller-stadt-zurich-zurich",
         "de": "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich",
         "fr": "personnel-technique-dans-les-structures-de-protection-comme-controleur-de-salle-de-protection-stadt-zurich-zurich"
@@ -27661,11 +27682,13 @@
       "referenceNumber": "51510",
       "previousSlugs": [
         "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zuerich",
-        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich"
+        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich",
+        "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zuerich"
+          "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zuerich",
+          "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich"
         ],
         "en": [
           "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich"
@@ -29491,7 +29514,7 @@
       "slugByLocale": {
         "de": "berufsbildner-in-stadt-zurich-zurich",
         "it": "formazione-professionale-in-stadt-zurich-zurich",
-        "en": "vocational-trainees-in-stadt-zurich-zurich",
+        "en": "vocational-training-stadt-zurich-zurich",
         "fr": "entraineurs-professionnels-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29558,14 +29581,16 @@
           "berufsbildner-in-stadt-zuerich-zurigo-51520"
         ],
         "en": [
-          "berufsbildner-in-stadt-zuerich-zurigo-51520"
+          "berufsbildner-in-stadt-zuerich-zurigo-51520",
+          "vocational-trainees-in-stadt-zurich-zurich"
         ],
         "fr": [
           "berufsbildner-in-stadt-zuerich-zurigo-51520"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-in-stadt-zuerich-zurigo-51520"
+        "berufsbildner-in-stadt-zuerich-zurigo-51520",
+        "vocational-trainees-in-stadt-zurich-zurich"
       ]
     },
     {
@@ -33897,11 +33922,11 @@
     },
     {
       "id": "stadt-zuerich-f062065b5f54",
-      "slug": "professionista-dell-universita-in-dia-stadt-zurich-zurich",
+      "slug": "specialista-di-tirocinio-universitario-dia-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich",
-        "it": "professionista-dell-universita-in-dia-stadt-zurich-zurich",
-        "en": "university-practitioner-in-dia-stadt-zurich-zurich",
+        "it": "specialista-di-tirocinio-universitario-dia-stadt-zurich-zurich",
+        "en": "university-internship-specialist-dia-stadt-zurich-zurich",
         "fr": "professeur-en-dia-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -33950,13 +33975,15 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikant-in-fachstelle-dia-stadt-zuerich-zurigo-51559",
-          "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich"
+          "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich",
+          "professionista-dell-universita-in-dia-stadt-zurich-zurich"
         ],
         "de": [
           "hochschulpraktikant-in-fachstelle-dia-stadt-zuerich-zurigo-51559"
         ],
         "en": [
-          "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich"
+          "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich",
+          "university-practitioner-in-dia-stadt-zurich-zurich"
         ],
         "fr": [
           "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich"
@@ -33964,7 +33991,9 @@
       },
       "previousSlugs": [
         "hochschulpraktikant-in-fachstelle-dia-stadt-zuerich-zurigo-51559",
-        "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich"
+        "hochschulpraktikant-in-fachstelle-dia-stadt-zurich-zurich",
+        "professionista-dell-universita-in-dia-stadt-zurich-zurich",
+        "university-practitioner-in-dia-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -2677,10 +2677,10 @@
     },
     {
       "id": "spital-buelach-298f7bcb6b2f",
-      "slug": "formazione-professionale-in-medicina-di-allattamento-spital-bulach-bulach",
+      "slug": "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "formazione-professionale-in-medicina-di-allattamento-spital-bulach-bulach",
-        "en": "vocational-trainer-in-nursing-medicine-spital-bulach-bulach",
+        "it": "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach",
+        "en": "professional-trainers-nursing-medicine-spital-bulach-bulach",
         "de": "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
         "fr": "formateur-professionnel-en-medecine-infirmiere-spital-bulach-bulach"
       },
@@ -2725,14 +2725,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
+        "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
+        "formazione-professionale-in-medicina-di-allattamento-spital-bulach-bulach",
+        "vocational-trainer-in-nursing-medicine-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
+          "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
+          "formazione-professionale-in-medicina-di-allattamento-spital-bulach-bulach"
         ],
         "en": [
-          "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
+          "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
+          "vocational-trainer-in-nursing-medicine-spital-bulach-bulach"
         ],
         "fr": [
           "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
@@ -3206,8 +3210,7 @@
           "op-lagerungsassistenz-spital-bulach-bulach"
         ],
         "de": [
-          "op-lagerungsassistenz-spital-bulach-bulach",
-          "op-lagerungsassistenz-spital-buelach-bulach"
+          "op-lagerungsassistenz-spital-bulach-bulach"
         ],
         "fr": [
           "op-lagerungsassistenz-spital-bulach-bulach"
@@ -3628,9 +3631,9 @@
     },
     {
       "id": "spital-buelach-be053d63748a",
-      "slug": "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach",
+      "slug": "social-worker-case-manager-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach",
+        "it": "social-worker-case-manager-spital-bulach-bulach",
         "en": "social-worker-in-case-manager-in-spital-bulach-bulach",
         "de": "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
         "fr": "travailleur-social-dans-gestionnaire-de-cas-dans-spital-bulach-bulach"
@@ -3676,11 +3679,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+        "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+        "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
+          "sozialarbeiter-in-case-manager-in-spital-buelach-bulach",
+          "lavoratore-sociale-in-case-manager-in-spital-bulach-bulach"
         ],
         "en": [
           "sozialarbeiter-in-case-manager-in-spital-buelach-bulach"
@@ -3795,9 +3800,9 @@
     },
     {
       "id": "spital-buelach-fcd05fb8d820",
-      "slug": "stage-in-care-private-department-spital-bulach-bulach",
+      "slug": "internship-care-dipartimento-privato-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "stage-in-care-private-department-spital-bulach-bulach",
+        "it": "internship-care-dipartimento-privato-spital-bulach-bulach",
         "en": "internship-in-care-private-department-spital-bulach-bulach",
         "de": "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
         "fr": "stage-en-soins-departement-prive-spital-bulach-bulach"
@@ -3847,7 +3852,8 @@
         "stage-in-care-private-department-spital-bulach-bulach-4bb1a5",
         "internship-in-care-private-department-spital-bulach-bulach-4bb1a5",
         "stage-en-soins-departement-prive-spital-bulach-bulach-4bb1a5",
-        "praktikant-in-pflege-privatabteilung-spital-buelach-bulach-xaj9tc"
+        "praktikant-in-pflege-privatabteilung-spital-buelach-bulach-xaj9tc",
+        "stage-in-care-private-department-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3855,7 +3861,8 @@
           "stage-in-care-private-department-spital-bulach-bulach-4bb1a5",
           "internship-in-care-private-department-spital-bulach-bulach-4bb1a5",
           "stage-en-soins-departement-prive-spital-bulach-bulach-4bb1a5",
-          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach-xaj9tc"
+          "praktikant-in-pflege-privatabteilung-spital-buelach-bulach-xaj9tc",
+          "stage-in-care-private-department-spital-bulach-bulach"
         ],
         "en": [
           "praktikant-in-pflege-privatabteilung-spital-buelach-bulach",
@@ -4028,7 +4035,6 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-etagenservice-spital-buelach-bulach",
-          "collaboratore-trice-etagenservice-spital-bulach",
           "collaboratore-trice-kapazitatsmanagement-spital-bulach",
           "associate-kapazitatsmanagement-spital-bulach-bulach",
           "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
@@ -4048,7 +4054,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-etagenservice-spital-buelach-bulach",
-        "collaboratore-trice-etagenservice-spital-bulach",
         "collaboratore-trice-kapazitatsmanagement-spital-bulach",
         "associate-kapazitatsmanagement-spital-bulach-bulach",
         "mitarbeiter-in-kapazitatsmanagement-spital-buelach-bulach",
@@ -4214,7 +4219,6 @@
           "physiotherapeute-physiotherapeute-spital-bulach-bulach"
         ],
         "de": [
-          "leistungsspezialist-in-spital-buelach-bulach",
           "leistungsspezialist-in-spital-bulach-bulach"
         ],
         "en": [

@@ -2106,12 +2106,12 @@
     },
     {
       "id": "hornbach-155154",
-      "slug": "vendor-in-impianti-hornbach-luzern-littau",
+      "slug": "impianti-di-saldatura-hornbach-luzern-littau",
       "slugByLocale": {
-        "it": "vendor-in-impianti-hornbach-luzern-littau",
-        "en": "vendor-in-plants-hornbach-luzern-littau",
+        "it": "impianti-di-saldatura-hornbach-luzern-littau",
+        "en": "seller-plants-hornbach-luzern-littau",
         "de": "verkaufer-in-pflanzen-hornbach-luzern-littau",
-        "fr": "fournisseur-dans-les-usines-hornbach-luzern-littau"
+        "fr": "installations-de-vente-hornbach-luzern-littau"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2154,17 +2154,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufer-in-pflanzen-hornbach-luzern-littau"
+        "verkaufer-in-pflanzen-hornbach-luzern-littau",
+        "vendor-in-impianti-hornbach-luzern-littau",
+        "vendor-in-plants-hornbach-luzern-littau",
+        "fournisseur-dans-les-usines-hornbach-luzern-littau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-pflanzen-hornbach-luzern-littau"
+          "verkaufer-in-pflanzen-hornbach-luzern-littau",
+          "vendor-in-impianti-hornbach-luzern-littau"
         ],
         "en": [
-          "verkaufer-in-pflanzen-hornbach-luzern-littau"
+          "verkaufer-in-pflanzen-hornbach-luzern-littau",
+          "vendor-in-plants-hornbach-luzern-littau"
         ],
         "fr": [
-          "verkaufer-in-pflanzen-hornbach-luzern-littau"
+          "verkaufer-in-pflanzen-hornbach-luzern-littau",
+          "fournisseur-dans-les-usines-hornbach-luzern-littau"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:49.152Z",

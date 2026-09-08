@@ -1752,12 +1752,12 @@
     },
     {
       "id": "brack-alltron-8bf2ae780877",
-      "slug": "personale-in-contabilita-brack-alltron-ag-magenwil",
+      "slug": "agenti-contabili-brack-alltron-ag-magenwil",
       "slugByLocale": {
-        "it": "personale-in-contabilita-brack-alltron-ag-magenwil",
-        "en": "personnel-in-accounts-receivable-brack-alltron-ag-magenwil",
+        "it": "agenti-contabili-brack-alltron-ag-magenwil",
+        "en": "accounting-officers-brack-alltron-ag-magenwil",
         "de": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
-        "fr": "personnel-dans-les-comptes-debiteurs-brack-alltron-ag-magenwil"
+        "fr": "comptables-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -1800,17 +1800,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+        "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+        "personale-in-contabilita-brack-alltron-ag-magenwil",
+        "personnel-in-accounts-receivable-brack-alltron-ag-magenwil",
+        "personnel-dans-les-comptes-debiteurs-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+          "personale-in-contabilita-brack-alltron-ag-magenwil"
         ],
         "en": [
-          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+          "personnel-in-accounts-receivable-brack-alltron-ag-magenwil"
         ],
         "fr": [
-          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+          "personnel-dans-les-comptes-debiteurs-brack-alltron-ag-magenwil"
         ]
       },
       "firstSeenAt": "2026-08-26T10:04:02.659Z",
@@ -2122,9 +2128,9 @@
     },
     {
       "id": "brack-alltron-fcfddf03b35d",
-      "slug": "personale-in-contabilita-pagabile-temporanea-brack-alltron-ag-magenwil",
+      "slug": "conti-da-pagare-temporaneo-brack-alltron-ag-magenwil",
       "slugByLocale": {
-        "it": "personale-in-contabilita-pagabile-temporanea-brack-alltron-ag-magenwil",
+        "it": "conti-da-pagare-temporaneo-brack-alltron-ag-magenwil",
         "en": "personnel-in-accounts-payable-temporary-brack-alltron-ag-magenwil",
         "de": "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-magenwil",
         "fr": "personnel-dans-les-comptes-crediteurs-temporaires-brack-alltron-ag-magenwil"
@@ -2171,12 +2177,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-magenwil",
-        "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-ag-magenwil"
+        "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-ag-magenwil",
+        "personale-in-contabilita-pagabile-temporanea-brack-alltron-ag-magenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-magenwil",
-          "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-ag-magenwil"
+          "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-ag-magenwil",
+          "personale-in-contabilita-pagabile-temporanea-brack-alltron-ag-magenwil"
         ],
         "en": [
           "sachbearbeiter-in-kreditorenbuchhaltung-befristet-brack-alltron-magenwil"

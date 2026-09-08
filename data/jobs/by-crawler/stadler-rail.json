@@ -484,9 +484,9 @@
     },
     {
       "id": "stadler-rail-97fa50ca2dfb",
-      "slug": "spachtler-in-stadler-rail-ch",
+      "slug": "spachers-stadler-rail-altenrhein",
       "slugByLocale": {
-        "it": "spachtler-in-stadler-rail-ch",
+        "it": "spachers-stadler-rail-altenrhein",
         "en": "spachtler-in-stadler-rail-ch",
         "de": "spachtler-in-stadler-rail-ch",
         "fr": "pates-alimentaires-stadler-rail-altenrhein"
@@ -543,7 +543,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spachtler-in-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spachtler-in-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-6327c1d99931",
@@ -3415,9 +3423,9 @@
       "slug": "technische-r-responsabile-di-progetto-lifecycle-management-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "technische-r-responsabile-di-progetto-lifecycle-management-stadler-rail-frauenfeld",
-        "en": "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch",
+        "en": "technical-r-project-manager-lifecycle-management-stadler-rail-frauenfeld",
         "de": "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch",
-        "fr": "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch"
+        "fr": "technique-r-gestionnaire-de-projet-lifecycle-management-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -3464,6 +3472,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch"
+        ],
+        "en": [
+          "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch"
+        ],
+        "fr": [
+          "technische-r-projektleiter-in-lifecycle-management-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-07-20T22:24:13.844Z",
@@ -3486,7 +3500,7 @@
       "slug": "senior-responsabile-di-progetto-strategie-e-business-development-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "senior-responsabile-di-progetto-strategie-e-business-development-stadler-rail-bussnang",
-        "en": "senior-projektleiter-in-strategie-und-business-development-stadler-rail-ch",
+        "en": "senior-project-manager-strategy-and-business-development-stadler-rail-bussnang",
         "de": "senior-projektleiter-in-strategie-und-business-development-stadler-rail-ch",
         "fr": "gestionnaire-de-projet-principal-en-developpement-strategique-et-en-affaires-stadler-rail-bussnang"
       },
@@ -3537,6 +3551,9 @@
           "senior-projektleiter-in-strategie-und-business-development-stadler-rail-ch"
         ],
         "fr": [
+          "senior-projektleiter-in-strategie-und-business-development-stadler-rail-ch"
+        ],
+        "en": [
           "senior-projektleiter-in-strategie-und-business-development-stadler-rail-ch"
         ]
       },
@@ -6621,9 +6638,9 @@
     },
     {
       "id": "stadler-rail-6c649154a911",
-      "slug": "agente-in-amministrazione-e-fatturazione-stadler-rail-wallisellen",
+      "slug": "agent-order-administration-fatturazione-stadler-rail-wallisellen",
       "slugByLocale": {
-        "it": "agente-in-amministrazione-e-fatturazione-stadler-rail-wallisellen",
+        "it": "agent-order-administration-fatturazione-stadler-rail-wallisellen",
         "en": "agent-in-order-administration-invoicing-stadler-rail-wallisellen",
         "de": "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch",
         "fr": "agent-dans-l-ordre-administration-et-facturation-stadler-rail-wallisellen"
@@ -6668,11 +6685,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch"
+        "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch",
+        "agente-in-amministrazione-e-fatturazione-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch"
+          "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch",
+          "agente-in-amministrazione-e-fatturazione-stadler-rail-wallisellen"
         ],
         "en": [
           "sachbearbeiter-in-order-administration-fakturierung-stadler-rail-ch"
@@ -6775,10 +6794,10 @@
     },
     {
       "id": "stadler-rail-adf35bc48e7d",
-      "slug": "sandblazer-in-stadler-rail-st-margrethen",
+      "slug": "sabbiature-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "sandblazer-in-stadler-rail-st-margrethen",
-        "en": "sandstrahler-in-stadler-rail-ch",
+        "it": "sabbiature-stadler-rail-st-margrethen",
+        "en": "sandblasts-stadler-rail-st-margrethen",
         "de": "sandstrahler-in-stadler-rail-ch",
         "fr": "blazer-dans-stadler-rail-st-margrethen"
       },
@@ -6822,13 +6841,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sandstrahler-in-stadler-rail-ch"
+        "sandstrahler-in-stadler-rail-ch",
+        "sandblazer-in-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sandstrahler-in-stadler-rail-ch"
+          "sandstrahler-in-stadler-rail-ch",
+          "sandblazer-in-stadler-rail-st-margrethen"
         ],
         "fr": [
+          "sandstrahler-in-stadler-rail-ch"
+        ],
+        "en": [
           "sandstrahler-in-stadler-rail-ch"
         ]
       },
@@ -7290,7 +7314,7 @@
         "it": "personale-in-finanza-stadler-rail-wallisellen",
         "en": "personnel-in-finance-stadler-rail-wallisellen",
         "de": "sachbearbeiter-in-finanzen-stadler-rail-ch",
-        "fr": "personnel-en-finances-stadler-rail-wallisellen"
+        "fr": "financement-du-personnel-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -7332,7 +7356,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-finanzen-stadler-rail-ch"
+        "sachbearbeiter-in-finanzen-stadler-rail-ch",
+        "personnel-en-finances-stadler-rail-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7342,7 +7367,8 @@
           "sachbearbeiter-in-finanzen-stadler-rail-ch"
         ],
         "fr": [
-          "sachbearbeiter-in-finanzen-stadler-rail-ch"
+          "sachbearbeiter-in-finanzen-stadler-rail-ch",
+          "personnel-en-finances-stadler-rail-wallisellen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:41.509Z",
@@ -7365,7 +7391,7 @@
       "slug": "dipendenti-nella-pianificazione-e-controllo-della-produzione-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "dipendenti-nella-pianificazione-e-controllo-della-produzione-stadler-rail-st-margrethen",
-        "en": "associate-produktionsplanung-steuerung-stadler-rail-st-margrethen",
+        "en": "employees-production-planning-control-stadler-rail-st-margrethen",
         "de": "mitarbeiter-in-produktionsplanung-steuerung-stadler-rail-ch",
         "fr": "employes-en-planification-de-production-et-controle-stadler-rail-st-margrethen"
       },
@@ -7411,7 +7437,8 @@
       "previousSlugs": [
         "mitarbeiter-in-produktionsplanung-steuerung-stadler-rail-ch",
         "collaboratore-trice-produktionsplanung-steuerung-stadler-rail-st-margrethen",
-        "collaborateur-trice-produktionsplanung-steuerung-stadler-rail-st-margrethen"
+        "collaborateur-trice-produktionsplanung-steuerung-stadler-rail-st-margrethen",
+        "associate-produktionsplanung-steuerung-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7419,7 +7446,8 @@
           "collaboratore-trice-produktionsplanung-steuerung-stadler-rail-st-margrethen"
         ],
         "en": [
-          "mitarbeiter-in-produktionsplanung-steuerung-stadler-rail-ch"
+          "mitarbeiter-in-produktionsplanung-steuerung-stadler-rail-ch",
+          "associate-produktionsplanung-steuerung-stadler-rail-st-margrethen"
         ],
         "fr": [
           "mitarbeiter-in-produktionsplanung-steuerung-stadler-rail-ch",
@@ -8353,7 +8381,7 @@
       "slug": "ingegnere-per-acustica-stadler-rail-st-margrethen",
       "slugByLocale": {
         "it": "ingegnere-per-acustica-stadler-rail-st-margrethen",
-        "en": "engineer-in-for-acoustics-stadler-rail-st-margrethen",
+        "en": "acoustic-engineer-stadler-rail-st-margrethen",
         "de": "ingenieur-in-fur-akustik-stadler-rail-ch",
         "fr": "ingenieur-pour-l-acoustique-stadler-rail-st-margrethen"
       },
@@ -8398,7 +8426,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-in-fur-akustik-stadler-rail-ch",
-        "ingenieur-in-per-akustik-stadler-rail-st-margrethen"
+        "ingenieur-in-per-akustik-stadler-rail-st-margrethen",
+        "engineer-in-for-acoustics-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8406,7 +8435,8 @@
           "ingenieur-in-per-akustik-stadler-rail-st-margrethen"
         ],
         "en": [
-          "ingenieur-in-fur-akustik-stadler-rail-ch"
+          "ingenieur-in-fur-akustik-stadler-rail-ch",
+          "engineer-in-for-acoustics-stadler-rail-st-margrethen"
         ],
         "fr": [
           "ingenieur-in-fur-akustik-stadler-rail-ch"
@@ -8858,10 +8888,10 @@
     },
     {
       "id": "stadler-rail-ce6f696b16c4",
-      "slug": "materiale-di-spedizione-in-stadler-rail-st-margrethen",
+      "slug": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "materiale-di-spedizione-in-stadler-rail-st-margrethen",
-        "en": "material-dispatch-in-stadler-rail-st-margrethen",
+        "it": "smaltimento-dei-materiali-stadler-rail-st-margrethen",
+        "en": "disposal-of-materials-stadler-rail-st-margrethen",
         "de": "materialdisponent-in-stadler-rail-ch",
         "fr": "expedition-du-materiel-en-stadler-rail-st-margrethen"
       },
@@ -8906,15 +8936,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "materialdisponent-in-stadler-rail-ch",
-        "materialdisponent-in-stadler-rail-st-margrethen"
+        "materialdisponent-in-stadler-rail-st-margrethen",
+        "materiale-di-spedizione-in-stadler-rail-st-margrethen",
+        "material-dispatch-in-stadler-rail-st-margrethen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "materialdisponent-in-stadler-rail-ch",
-          "materialdisponent-in-stadler-rail-st-margrethen"
+          "materialdisponent-in-stadler-rail-st-margrethen",
+          "materiale-di-spedizione-in-stadler-rail-st-margrethen"
         ],
         "en": [
-          "materialdisponent-in-stadler-rail-st-margrethen"
+          "materialdisponent-in-stadler-rail-st-margrethen",
+          "material-dispatch-in-stadler-rail-st-margrethen"
         ],
         "fr": [
           "materialdisponent-in-stadler-rail-st-margrethen"
@@ -10302,7 +10336,7 @@
       "slug": "meccanica-nella-zona-di-servizio-stadler-rail-frauenfeld",
       "slugByLocale": {
         "it": "meccanica-nella-zona-di-servizio-stadler-rail-frauenfeld",
-        "en": "mechanic-in-the-service-area-stadler-rail-frauenfeld",
+        "en": "service-mechanics-stadler-rail-frauenfeld",
         "de": "mechaniker-in-im-servicebereich-stadler-rail-ch",
         "fr": "mecanicien-dans-la-zone-de-service-stadler-rail-frauenfeld"
       },
@@ -10346,14 +10380,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-im-servicebereich-stadler-rail-ch"
+        "mechaniker-in-im-servicebereich-stadler-rail-ch",
+        "mechanic-in-the-service-area-stadler-rail-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-in-im-servicebereich-stadler-rail-ch"
         ],
         "en": [
-          "mechaniker-in-im-servicebereich-stadler-rail-ch"
+          "mechaniker-in-im-servicebereich-stadler-rail-ch",
+          "mechanic-in-the-service-area-stadler-rail-frauenfeld"
         ],
         "fr": [
           "mechaniker-in-im-servicebereich-stadler-rail-ch"

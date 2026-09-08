@@ -56,16 +56,14 @@
         "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
         "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
         "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-        "acheteur-en-100-tous-les-sexes-bossard-group-zug",
-        "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
+        "acheteur-en-100-tous-les-sexes-bossard-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "einkaufer-in-80-all-genders-bossard-group-bossard-zug",
           "acquirente-al-100-tutti-i-generi-bossard-group-bossard-group-zug",
           "einkaufer-in-100-all-genders-bossard-group-bossard-zug",
-          "acheteur-en-100-tous-les-sexes-bossard-group-zug",
-          "acquirente-80-tutti-i-generi-bossard-group-bossard-group-zug"
+          "acheteur-en-100-tous-les-sexes-bossard-group-zug"
         ],
         "de": [
           "einkaufer-in-100-all-genders-bossard-group-bossard-zug"
@@ -141,13 +139,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
-        "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
+        "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag",
-          "dipendenti-logistici-nel-settore-della-fornitura-di-beni-esporta-100-tutti-i-sessi-bossard-ag-bossard-group-zug"
+          "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
         ],
         "en": [
           "logistikmitarbeiter-in-bereich-warenbereitstellung-export-100-all-genders-bossard-ag"
@@ -222,13 +218,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "customer-experience-specialist-80-100-all-genders-bossard-group-bossard-zug",
-        "servizio-clienti-specialista-80-100-all-genders-bossard-group-bossard-group-zug"
+        "customer-experience-specialist-80-100-all-genders-bossard-group-bossard-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-experience-specialist-80-100-all-genders-bossard-group-bossard-zug",
-          "servizio-clienti-specialista-80-100-all-genders-bossard-group-bossard-group-zug"
+          "customer-experience-specialist-80-100-all-genders-bossard-group-bossard-zug"
         ],
         "de": [
           "customer-experience-specialist-80-100-all-genders-bossard-group-bossard-zug"
@@ -317,12 +311,12 @@
     },
     {
       "id": "bossard-e469aaf731f7",
-      "slug": "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
+      "slug": "servizio-clienti-100-tutti-i-generi-bossard-ag-bossard-group-zug",
       "slugByLocale": {
-        "it": "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
-        "en": "associate-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
+        "it": "servizio-clienti-100-tutti-i-generi-bossard-ag-bossard-group-zug",
+        "en": "customer-service-100-all-genders-bossard-ag-bossard-group-zug",
         "de": "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
-        "fr": "collaborateur-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
+        "fr": "service-a-la-clientele-100-tous-les-sexes-bossard-group-zug"
       },
       "company": "Bossard Group",
       "companyKey": "bossard",
@@ -367,7 +361,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
-        "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
+        "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
+        "associate-kundenservice-100-all-genders-bossard-ag-bossard-group-zug",
+        "collaborateur-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -375,10 +371,12 @@
           "collaboratore-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
         ],
         "en": [
-          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
+          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
+          "associate-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
         ],
         "fr": [
-          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug"
+          "mitarbeiter-in-kundenservice-100-all-genders-bossard-ag-bossard-zug",
+          "collaborateur-trice-kundenservice-100-all-genders-bossard-ag-bossard-group-zug"
         ]
       },
       "firstSeenAt": "2026-08-21T21:27:02.123Z",
@@ -454,8 +452,7 @@
         "personnel-de-vente-a-l-interne-80-100-tous-les-sexes-bossard-group-zug",
         "sales-staff-in-house-80-100-all-genders-bossard-ag-bossard-group-zug",
         "anwendungstechniker-fur-verbindungslosungen-80-100-all-gender-bossard-ag-bossard-zug",
-        "verkaufsmitarbeiter-in-servizio-interno-80-100-all-genders-bossard-ag-bossard-group-zug",
-        "application-ingegnere-80-100-all-gender-bossard-ag-bossard-group-zug"
+        "verkaufsmitarbeiter-in-servizio-interno-80-100-all-genders-bossard-ag-bossard-group-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -465,8 +462,7 @@
           "personnel-de-vente-a-l-interne-80-100-tous-les-sexes-bossard-group-zug",
           "sales-staff-in-house-80-100-all-genders-bossard-ag-bossard-group-zug",
           "anwendungstechniker-fur-verbindungslosungen-80-100-all-gender-bossard-ag-bossard-zug",
-          "verkaufsmitarbeiter-in-servizio-interno-80-100-all-genders-bossard-ag-bossard-group-zug",
-          "application-ingegnere-80-100-all-gender-bossard-ag-bossard-group-zug"
+          "verkaufsmitarbeiter-in-servizio-interno-80-100-all-genders-bossard-ag-bossard-group-zug"
         ],
         "en": [
           "verkaufsmitarbeiter-in-innendienst-80-100-all-genders-bossard-ag-bossard-zug",

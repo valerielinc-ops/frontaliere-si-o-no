@@ -1814,12 +1814,12 @@
     },
     {
       "id": "coopers-5fa6984b11c8",
-      "slug": "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
+      "slug": "operativo-r-acquirente-progetti-energetici-capex-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
-        "en": "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
+        "it": "operativo-r-acquirente-progetti-energetici-capex-m-f-d-coopers-group-ag-bern",
+        "en": "operational-r-purchaser-capex-energy-projects-m-f-d-coopers-group-ag-bern",
         "de": "operative-r-einkaufer-in-capex-m-w-d-coopers-bern",
-        "fr": "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
+        "fr": "exploitation-r-acheteur-projets-energetiques-capex-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -1876,14 +1876,20 @@
         ]
       },
       "previousSlugs": [
-        "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern"
+        "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern",
+        "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern"
+          "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern",
+          "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
         ],
         "fr": [
-          "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern"
+          "operative-r-einkaufer-in-energieinfrastruktur-m-w-d-coopers-bern",
+          "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "operative-r-einkaufer-in-capex-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-26T10:38:07.026Z",
@@ -3603,9 +3609,9 @@
     },
     {
       "id": "coopers-5d0c996657ef",
-      "slug": "material-buyer-m-w-d-coopers-group-ag-zug",
+      "slug": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
-        "it": "material-buyer-m-w-d-coopers-group-ag-zug",
+        "it": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
         "en": "material-buyer-m-f-d-coopers-zug",
         "de": "materialkaufer-m-w-d-coopers-group-ag-zug",
         "fr": "acheteur-de-materiel-h-f-d-coopers-group-ag-zug"
@@ -3664,12 +3670,12 @@
       },
       "previousSlugs": [
         "material-buyer-m-f-d-coopers-zug",
-        "acquirente-materiale-m-f-d-coopers-group-ag-zug"
+        "material-buyer-m-w-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "material-buyer-m-f-d-coopers-zug",
-          "acquirente-materiale-m-f-d-coopers-group-ag-zug"
+          "material-buyer-m-w-d-coopers-group-ag-zug"
         ],
         "de": [
           "material-buyer-m-f-d-coopers-zug"

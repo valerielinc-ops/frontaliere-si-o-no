@@ -8533,9 +8533,9 @@
     },
     {
       "id": "usz-3d93147556f2",
-      "slug": "spezialpflege-berufsbildner-in-intensivstation-mit-schwerpunkt-brandverletzungen-zukunftig",
+      "slug": "special-care-professional-trainer-intensiva-unita-di-cura-con-un-focus-sulle-lesioni-da-ustione-in-futuro-in",
       "slugByLocale": {
-        "it": "spezialpflege-berufsbildner-in-intensivstation-mit-schwerpunkt-brandverletzungen-zukunftig",
+        "it": "special-care-professional-trainer-intensiva-unita-di-cura-con-un-focus-sulle-lesioni-da-ustione-in-futuro-in",
         "en": "special-care-vocational-trainers-in-intensive-care-unit-with-a-focus-on-burn-injuries-in-future-in-cooperation-with",
         "de": "spezialpflege-berufsbildner-in-intensivstation-mit-schwerpunkt-brandverletzungen-zukunftig",
         "fr": "soins-speciaux-formateurs-professionnels-dans-l-unite-de-soins-intensifs-avec-un-accent-sur-les-brulures-a-l-avenir-en"
@@ -8592,7 +8592,15 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-berufsbildner-in-intensivstation-mit-schwerpunkt-brandverletzungen-zukunftig"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-berufsbildner-in-intensivstation-mit-schwerpunkt-brandverletzungen-zukunftig"
+      ]
     },
     {
       "id": "usz-2a1fe7757afc",
@@ -9270,7 +9278,7 @@
       "slug": "berufsbildner-in-mpa-per-das-ambulatorium-am-usz-campus-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "it": "berufsbildner-in-mpa-per-das-ambulatorium-am-usz-campus-80-100-universitatsspital-zurich-usz-campus",
-        "en": "berufsbildner-in-mpa-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
+        "en": "professional-trainer-mpa-for-the-ambulatory-at-usz-campus-80-100-universitatsspital-zurich-usz-campus",
         "de": "berufsbildner-in-mpa-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch",
         "fr": "entraineur-professionnel-en-mpa-pour-l-ambulateur-a-usz-campus-80-100-universitatsspital-zurich-usz-campus"
       },
@@ -9321,6 +9329,9 @@
           "berufsbildner-in-mpa-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
         ],
         "fr": [
+          "berufsbildner-in-mpa-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
+        ],
+        "en": [
           "berufsbildner-in-mpa-fur-das-ambulatorium-am-usz-campus-80-100-usz-ch"
         ]
       },
@@ -14111,9 +14122,9 @@
     },
     {
       "id": "usz-0417049441f6",
-      "slug": "fachperson-gesundheit-pflegehelfer-in-o-pflegeassistent-in-per-la-augenklinik-80-100-universitatsspital-zurich-usz-campus",
+      "slug": "specialista-sanitario-assistente-di-cura-o-assistente-di-cura-per-la-clinica-oculare-80-100-universitatsspital-zurich",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-pflegehelfer-in-o-pflegeassistent-in-per-la-augenklinik-80-100-universitatsspital-zurich-usz-campus",
+        "it": "specialista-sanitario-assistente-di-cura-o-assistente-di-cura-per-la-clinica-oculare-80-100-universitatsspital-zurich",
         "en": "health-specialist-nursing-assistant-in-or-nursing-assistant-in-for-the-eye-clinic-80-100-universitatsspital-zurich-usz",
         "de": "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100",
         "fr": "specialiste-de-la-sante-assistant-infirmier-in-ou-assistant-infirmier-in-pour-la-clinique-oculaire-80-100"
@@ -14158,11 +14169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100"
+        "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100",
+        "fachperson-gesundheit-pflegehelfer-in-o-pflegeassistent-in-per-la-augenklinik-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100"
+          "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100",
+          "fachperson-gesundheit-pflegehelfer-in-o-pflegeassistent-in-per-la-augenklinik-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "fachperson-gesundheit-pflegehelfer-in-oder-pflegeassistent-in-fur-die-augenklinik-80-100"
@@ -14188,9 +14201,9 @@
     },
     {
       "id": "usz-f89aa643c319",
-      "slug": "verwaltungssekretar-in-per-la-dermatologische-klinik-60-80-universitatsspital-zurich-usz-flughafen",
+      "slug": "segretario-amministrativo-della-clinica-dermatologica-60-80-universitatsspital-zurich-usz-flughafen",
       "slugByLocale": {
-        "it": "verwaltungssekretar-in-per-la-dermatologische-klinik-60-80-universitatsspital-zurich-usz-flughafen",
+        "it": "segretario-amministrativo-della-clinica-dermatologica-60-80-universitatsspital-zurich-usz-flughafen",
         "en": "administrative-secretary-in-for-the-dermatological-clinic-60-80-universitatsspital-zurich-usz-flughafen",
         "de": "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch",
         "fr": "secretaire-d-administration-pour-la-clinique-dermatologique-60-80-universitatsspital-zurich-usz-flughafen"
@@ -14235,11 +14248,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch"
+        "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch",
+        "verwaltungssekretar-in-per-la-dermatologische-klinik-60-80-universitatsspital-zurich-usz-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch"
+          "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch",
+          "verwaltungssekretar-in-per-la-dermatologische-klinik-60-80-universitatsspital-zurich-usz-flughafen"
         ],
         "en": [
           "verwaltungssekretar-in-fur-die-dermatologische-klinik-60-80-usz-ch"
@@ -14589,9 +14604,9 @@
     },
     {
       "id": "usz-c66140383382",
-      "slug": "senior-applikationsmanager-in-sap-mm-wm-e-sd-im-s-4hana-umfeld-80-100-universitatsspital-zurich-usz-stettbach",
+      "slug": "responsabile-applicazioni-senior-sap-mm-wm-e-sd-nell-ambiente-s-4hana-80-100-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "senior-applikationsmanager-in-sap-mm-wm-e-sd-im-s-4hana-umfeld-80-100-universitatsspital-zurich-usz-stettbach",
+        "it": "responsabile-applicazioni-senior-sap-mm-wm-e-sd-nell-ambiente-s-4hana-80-100-universitatsspital-zurich-usz-stettbach",
         "en": "senior-application-manager-in-sap-mm-wm-and-sd-in-the-s-4hana-environment-80-100-universitatsspital-zurich-usz-stettbach",
         "de": "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch",
         "fr": "gestionnaire-d-applications-seniors-dans-sap-mm-wm-et-sd-dans-l-environnement-s-4hana-80-100-universitatsspital-zurich"
@@ -14636,11 +14651,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch"
+        "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch",
+        "senior-applikationsmanager-in-sap-mm-wm-e-sd-im-s-4hana-umfeld-80-100-universitatsspital-zurich-usz-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch"
+          "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch",
+          "senior-applikationsmanager-in-sap-mm-wm-e-sd-im-s-4hana-umfeld-80-100-universitatsspital-zurich-usz-stettbach"
         ],
         "en": [
           "senior-applikationsmanager-in-sap-mm-wm-und-sd-im-s-4hana-umfeld-80-100-usz-ch"
@@ -14743,9 +14760,9 @@
     },
     {
       "id": "usz-b9c621c12c5e",
-      "slug": "disponent-in-per-la-ambulante-patientendisposition-80-100-universitatsspital-zurich-usz-stettbach",
+      "slug": "smaltimento-per-paziente-ambulatorio-80-100-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "disponent-in-per-la-ambulante-patientendisposition-80-100-universitatsspital-zurich-usz-stettbach",
+        "it": "smaltimento-per-paziente-ambulatorio-80-100-universitatsspital-zurich-usz-stettbach",
         "en": "disponent-in-for-ambulatory-patient-disposition-80-100-universitatsspital-zurich-usz-stettbach",
         "de": "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch",
         "fr": "deposant-en-pour-la-disposition-ambulatoire-du-patient-80-100-universitatsspital-zurich-usz-stettbach"
@@ -14790,11 +14807,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch"
+        "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch",
+        "disponent-in-per-la-ambulante-patientendisposition-80-100-universitatsspital-zurich-usz-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch"
+          "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch",
+          "disponent-in-per-la-ambulante-patientendisposition-80-100-universitatsspital-zurich-usz-stettbach"
         ],
         "en": [
           "disponent-in-fur-die-ambulante-patientendisposition-80-100-usz-ch"
@@ -15062,9 +15081,9 @@
     },
     {
       "id": "usz-a23607109fc9",
-      "slug": "disponent-in-per-la-ambulante-medizinische-onkologie-hamatologie-80-universitatsspital-zurich-usz-campus",
+      "slug": "smaltimento-per-oncologia-medica-estetica-ematologia-80-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "disponent-in-per-la-ambulante-medizinische-onkologie-hamatologie-80-universitatsspital-zurich-usz-campus",
+        "it": "smaltimento-per-oncologia-medica-estetica-ematologia-80-universitatsspital-zurich-usz-campus",
         "en": "disponent-in-for-outpatient-medical-oncology-hematology-80-universitatsspital-zurich-usz-campus",
         "de": "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch",
         "fr": "deposant-en-pour-l-oncologie-medicale-externe-hematologie-80-universitatsspital-zurich-usz-campus"
@@ -15109,11 +15128,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch"
+        "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch",
+        "disponent-in-per-la-ambulante-medizinische-onkologie-hamatologie-80-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch"
+          "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch",
+          "disponent-in-per-la-ambulante-medizinische-onkologie-hamatologie-80-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "disponent-in-fur-die-ambulante-medizinische-onkologie-hamatologie-80-usz-ch"
@@ -15218,9 +15239,9 @@
     },
     {
       "id": "usz-c4c12b748043",
-      "slug": "apprendistato-come-medizinische-r-praxisassistent-in-cfc-2027-universitatsspital-zurich-usz-campus",
+      "slug": "apprendistato-come-medico-assistente-di-pratica-efz-2027-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "apprendistato-come-medizinische-r-praxisassistent-in-cfc-2027-universitatsspital-zurich-usz-campus",
+        "it": "apprendistato-come-medico-assistente-di-pratica-efz-2027-universitatsspital-zurich-usz-campus",
         "en": "apprenticeship-as-medical-assistant-in-efz-2027-universitatsspital-zurich-usz-campus",
         "de": "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch",
         "fr": "apprentissage-comme-assistant-medical-en-efz-2027-universitatsspital-zurich-usz-campus"
@@ -15265,11 +15286,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch"
+        "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch",
+        "apprendistato-come-medizinische-r-praxisassistent-in-cfc-2027-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch"
+          "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch",
+          "apprendistato-come-medizinische-r-praxisassistent-in-cfc-2027-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "lehrstelle-als-medizinische-r-praxisassistent-in-efz-2027-usz-ch"
@@ -15454,9 +15477,9 @@
     },
     {
       "id": "usz-561d026a42df",
-      "slug": "esperto-in-consulenza-sulle-ferite-60-80-universitatsspital-zurich-usz-campus",
+      "slug": "consulente-per-ferite-esperto-60-80-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "esperto-in-consulenza-sulle-ferite-60-80-universitatsspital-zurich-usz-campus",
+        "it": "consulente-per-ferite-esperto-60-80-universitatsspital-zurich-usz-campus",
         "en": "expert-in-wound-consulting-60-80-universitatsspital-zurich-usz-campus",
         "de": "fachexpert-in-wundberatung-60-80-usz-ch",
         "fr": "expert-conseil-en-plaies-60-80-universitatsspital-zurich-usz-campus"
@@ -15501,11 +15524,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachexpert-in-wundberatung-60-80-usz-ch"
+        "fachexpert-in-wundberatung-60-80-usz-ch",
+        "esperto-in-consulenza-sulle-ferite-60-80-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachexpert-in-wundberatung-60-80-usz-ch"
+          "fachexpert-in-wundberatung-60-80-usz-ch",
+          "esperto-in-consulenza-sulle-ferite-60-80-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "fachexpert-in-wundberatung-60-80-usz-ch"
@@ -15621,12 +15646,12 @@
     },
     {
       "id": "usz-5127a07ede8e",
-      "slug": "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach",
+      "slug": "assurance-standard-80-100-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach",
+        "it": "assurance-standard-80-100-universitatsspital-zurich-usz-stettbach",
         "en": "personnel-in-cost-assurance-standard-80-100-universitatsspital-zurich-usz-stettbach",
         "de": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
-        "fr": "personnel-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-stettbach"
+        "fr": "norme-d-assurance-des-couts-de-l-agent-80-100-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15668,17 +15693,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
+        "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach",
+        "personnel-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
+          "personale-in-garanzia-dei-costi-standard-80-100-universitatsspital-zurich-usz-stettbach"
         ],
         "en": [
           "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
         ],
         "fr": [
-          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+          "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
+          "personnel-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-stettbach"
         ]
       },
       "firstSeenAt": "2026-09-01T23:32:54.562Z",
@@ -15856,10 +15885,10 @@
     },
     {
       "id": "usz-6ec590c41f1c",
-      "slug": "collaboratore-trice-empfang-klinik-per-mund-kiefer-e-gesichtschirurgie-come-mutterschaftsvertretung-60-universitatsspital-zurich-usz-flughafen",
+      "slug": "clinica-di-accoglienza-dei-dipendenti-per-chirurgia-orale-maxillofacciale-e-facciale-come-rappresentazione-di-maternita",
       "slugByLocale": {
-        "it": "collaboratore-trice-empfang-klinik-per-mund-kiefer-e-gesichtschirurgie-come-mutterschaftsvertretung-60-universitatsspital-zurich-usz-flughafen",
-        "en": "associate-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als-mutterschaftsvertretung-60-universitatsspital-zurich",
+        "it": "clinica-di-accoglienza-dei-dipendenti-per-chirurgia-orale-maxillofacciale-e-facciale-come-rappresentazione-di-maternita",
+        "en": "employee-reception-clinic-for-oral-maxillofacial-and-facial-surgery-as-maternity-representation-60-universitatsspital",
         "de": "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als",
         "fr": "employe-a-l-accueil-clinique-de-chirurgie-buccale-maxillofaciale-et-faciale-comme-representation-de-la-maternite-60"
       },
@@ -15904,14 +15933,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als",
-        "collaborateur-trice-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als-mutterschaftsvertretung-60"
+        "collaborateur-trice-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als-mutterschaftsvertretung-60",
+        "collaboratore-trice-empfang-klinik-per-mund-kiefer-e-gesichtschirurgie-come-mutterschaftsvertretung-60-universitatsspital-zurich-usz-flughafen",
+        "associate-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als-mutterschaftsvertretung-60-universitatsspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als"
+          "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als",
+          "collaboratore-trice-empfang-klinik-per-mund-kiefer-e-gesichtschirurgie-come-mutterschaftsvertretung-60-universitatsspital-zurich-usz-flughafen"
         ],
         "en": [
-          "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als"
+          "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als",
+          "associate-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als-mutterschaftsvertretung-60-universitatsspital-zurich"
         ],
         "fr": [
           "mitarbeiter-in-empfang-klinik-fur-mund-kiefer-und-gesichtschirurgie-als",
@@ -16092,9 +16125,9 @@
     },
     {
       "id": "usz-6d4c37b2a3ff",
-      "slug": "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus",
+      "slug": "segretario-amministrativo-biopsy-secretariat-30-50-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus",
+        "it": "segretario-amministrativo-biopsy-secretariat-30-50-universitatsspital-zurich-usz-campus",
         "en": "administrative-secretary-in-biopsy-secretariat-30-50-universitatsspital-zurich-usz-campus",
         "de": "verwaltungssekretar-in-biopsiesekretariat-30-50-usz-ch",
         "fr": "secretaire-d-administration-dans-le-secretariat-de-la-biopsie-30-50-universitatsspital-zurich-usz-campus"
@@ -16141,13 +16174,15 @@
       "previousSlugs": [
         "verwaltungssekretar-in-biopsiesekretariat-30-50-usz-ch",
         "verwaltungssekretar-in-biopsiesekretariat-80-100-usz-ch",
-        "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
+        "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus",
+        "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-biopsiesekretariat-30-50-usz-ch",
           "verwaltungssekretar-in-biopsiesekretariat-80-100-usz-ch",
-          "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
+          "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus",
+          "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus"
         ],
         "en": [
           "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
@@ -16488,10 +16523,10 @@
     },
     {
       "id": "usz-930c0ee35a1d",
-      "slug": "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
+      "slug": "gastronomia-dei-dipendenti-con-responsabilita-della-posizione-70-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
-        "en": "associate-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
+        "it": "gastronomia-dei-dipendenti-con-responsabilita-della-posizione-70-universitatsspital-zurich-usz-stettbach",
+        "en": "employee-gastronomy-with-location-responsibility-70-universitatsspital-zurich-usz-stettbach",
         "de": "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
         "fr": "employes-dans-la-gastronomie-avec-responsabilite-de-localisation-70-universitatsspital-zurich-usz-stettbach"
       },
@@ -16536,14 +16571,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
-        "collaborateur-trice-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
+        "collaborateur-trice-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
+        "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
+        "associate-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch"
+          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
+          "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
         ],
         "en": [
-          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch"
+          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
+          "associate-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
         ],
         "fr": [
           "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
@@ -17198,7 +17237,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-zentrallager-80-100-usz-ch",
         "it": "dipendenti-nel-campo-centrale-80-100-universitatsspital-zurich-usz-schlieren",
-        "en": "associate-zentrallager-80-100-universitatsspital-zurich-usz-schlieren",
+        "en": "employees-central-camp-80-100-universitatsspital-zurich-usz-schlieren",
         "fr": "salaries-dans-le-camp-central-80-100-universitatsspital-zurich-usz-schlieren"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -17252,7 +17291,8 @@
           "personale-nel-magazzino-centrale-80-100-universitatsspital-zurich-usz-schlieren"
         ],
         "en": [
-          "mitarbeiter-in-zentrallager-80-100-usz-ch"
+          "mitarbeiter-in-zentrallager-80-100-usz-ch",
+          "associate-zentrallager-80-100-universitatsspital-zurich-usz-schlieren"
         ],
         "fr": [
           "mitarbeiter-in-zentrallager-80-100-usz-ch",

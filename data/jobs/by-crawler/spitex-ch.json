@@ -638,12 +638,12 @@
     },
     {
       "id": "spitex-ch-a7de3e409b22",
-      "slug": "collaboratore-trice-hauswirtschaft-spitex-stiftung-apw-weggis",
+      "slug": "dipendenti-pulizia-spitex-stiftung-apw-weggis",
       "slugByLocale": {
-        "it": "collaboratore-trice-hauswirtschaft-spitex-stiftung-apw-weggis",
-        "en": "associate-hauswirtschaft-spitex-stiftung-apw-weggis",
+        "it": "dipendenti-pulizia-spitex-stiftung-apw-weggis",
+        "en": "employees-housekeeping-spitex-stiftung-apw-weggis",
         "de": "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis",
-        "fr": "collaborateur-trice-hauswirtschaft-spitex-stiftung-apw-weggis"
+        "fr": "employes-menage-spitex-stiftung-apw-weggis"
       },
       "company": "Stiftung APW",
       "companyKey": "spitex-ch",
@@ -686,17 +686,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis"
+        "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis",
+        "collaboratore-trice-hauswirtschaft-spitex-stiftung-apw-weggis",
+        "associate-hauswirtschaft-spitex-stiftung-apw-weggis",
+        "collaborateur-trice-hauswirtschaft-spitex-stiftung-apw-weggis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis"
+          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis",
+          "collaboratore-trice-hauswirtschaft-spitex-stiftung-apw-weggis"
         ],
         "en": [
-          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis"
+          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis",
+          "associate-hauswirtschaft-spitex-stiftung-apw-weggis"
         ],
         "fr": [
-          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis"
+          "mitarbeiter-in-hauswirtschaft-spitex-spitex-ch-weggis",
+          "collaborateur-trice-hauswirtschaft-spitex-stiftung-apw-weggis"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:29.199Z",
@@ -716,9 +722,9 @@
     },
     {
       "id": "spitex-ch-0ba62bce485a",
-      "slug": "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa",
+      "slug": "occupazione-e-cura-dei-dipendenti-40-60-spitex-stafa-stafa",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa",
+        "it": "occupazione-e-cura-dei-dipendenti-40-60-spitex-stafa-stafa",
         "en": "employees-in-housekeeping-and-support-40-60-spitex-stafa-stafa",
         "de": "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa",
         "fr": "salaries-menages-et-soutien-40-60-spitex-stafa-stafa"
@@ -764,11 +770,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa"
+        "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa",
+        "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa"
+          "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa",
+          "collaboratore-trice-in-hauswirtschaft-e-betreuung-40-60-spitex-stafa"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-und-betreuung-40-60-spitex-ch-stafa"
@@ -1239,7 +1247,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl",
-          "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl",
           "dipl-infirmiere-hf-departement-de-demence-60-90-spitex-region-birs-gmbh-reinach-bl",
           "dipl-nurse-hf-department-of-dementia-60-90-spitex-region-birs-gmbh-reinach-bl",
           "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
@@ -1255,7 +1262,6 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-80-100-spitex-ch-reinach-bl",
-        "dipl-pflegefachperson-hf-specializzazione-psychiatrie-80-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-infirmiere-hf-departement-de-demence-60-90-spitex-region-birs-gmbh-reinach-bl",
         "dipl-nurse-hf-department-of-dementia-60-90-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
@@ -1279,11 +1285,11 @@
     },
     {
       "id": "spitex-ch-b4f69d642ad8",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-come-berufsbildner-in-spitex-60-100-spitex-baretswil",
+      "slug": "specialist-health-efz-come-formatore-professionale-spitex-60-100-spitex-baretswil-baretswil",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-als-berufsbildner-in-spitex-60-100-spitex-ch-baretswil",
-        "it": "fachfrau-fachmann-gesundheit-cfc-come-berufsbildner-in-spitex-60-100-spitex-baretswil",
-        "en": "fachfrau-fachmann-gesundheit-efz-als-berufsbildner-in-spitex-60-100-spitex-ch-baretswil",
+        "it": "specialist-health-efz-come-formatore-professionale-spitex-60-100-spitex-baretswil-baretswil",
+        "en": "specialist-health-efz-as-vocational-trainer-spitex-60-100-spitex-baretswil-baretswil",
         "fr": "specialiste-de-la-sante-efz-en-tant-que-formateur-professionnel-en-spitex-60-100-spitex-baretswil-baretswil"
       },
       "company": "Spitex Bäretswil",
@@ -1332,6 +1338,9 @@
           "fachfrau-fachmann-gesundheit-cfc-come-berufsbildner-in-spitex-60-100-spitex-baretswil"
         ],
         "fr": [
+          "fachfrau-fachmann-gesundheit-efz-als-berufsbildner-in-spitex-60-100-spitex-ch-baretswil"
+        ],
+        "en": [
           "fachfrau-fachmann-gesundheit-efz-als-berufsbildner-in-spitex-60-100-spitex-ch-baretswil"
         ]
       },

@@ -1068,9 +1068,9 @@
     },
     {
       "id": "hopital-du-valais-966b0e6540e9",
-      "slug": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
+      "slug": "assistente-medico-efz-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
+        "it": "assistente-medico-efz-hopital-du-valais-brig",
         "en": "medical-practice-assistant-in-efz-hopital-du-valais-brig",
         "de": "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig",
         "fr": "assistant-medical-praticien-en-efz-hopital-du-valais-brig"
@@ -1131,7 +1131,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-efz-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-cae1102e724b",

@@ -2051,7 +2051,7 @@
       "slug": "personale-nella-raccolta-del-debito-stadt-bern-bern",
       "slugByLocale": {
         "it": "personale-nella-raccolta-del-debito-stadt-bern-bern",
-        "en": "personnel-in-debt-collection-stadt-bern-bern",
+        "en": "person-handling-debt-collection-stadt-bern-bern",
         "de": "sachbearbeiter-in-inkasso-stadt-bern-bern",
         "fr": "personnel-en-recouvrement-de-la-dette-stadt-bern-bern"
       },
@@ -2096,14 +2096,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-inkasso-stadt-bern-bern"
+        "sachbearbeiter-in-inkasso-stadt-bern-bern",
+        "personnel-in-debt-collection-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-inkasso-stadt-bern-bern"
         ],
         "en": [
-          "sachbearbeiter-in-inkasso-stadt-bern-bern"
+          "sachbearbeiter-in-inkasso-stadt-bern-bern",
+          "personnel-in-debt-collection-stadt-bern-bern"
         ],
         "fr": [
           "sachbearbeiter-in-inkasso-stadt-bern-bern"
@@ -2205,9 +2207,9 @@
     },
     {
       "id": "stadt-bern-3e2b092dcb64",
-      "slug": "sachbearbeiter-in-veranstaltungs-br-management-e-einsatzplanung-stadt-bern-1",
+      "slug": "evento-br-gestione-e-pianificazione-operativa-stadt-bern-1",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-veranstaltungs-br-management-e-einsatzplanung-stadt-bern-1",
+        "it": "evento-br-gestione-e-pianificazione-operativa-stadt-bern-1",
         "en": "personnel-in-event-br-management-and-operational-planning-stadt-bern-1",
         "de": "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1",
         "fr": "personnel-en-activite-br-gestion-et-planification-operationnelle-stadt-bern-1"
@@ -2254,11 +2256,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1"
+        "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1",
+        "sachbearbeiter-in-veranstaltungs-br-management-e-einsatzplanung-stadt-bern-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1"
+          "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1",
+          "sachbearbeiter-in-veranstaltungs-br-management-e-einsatzplanung-stadt-bern-1"
         ],
         "en": [
           "sachbearbeiter-in-veranstaltungs-br-management-und-einsatzplanung-stadt-bern-1"
@@ -2284,9 +2288,9 @@
     },
     {
       "id": "stadt-bern-e375f8729775",
-      "slug": "sostegno-alle-tic-in-2-livello-stadt-bern-bern",
+      "slug": "supporto-ict-2-livello-stadt-bern-bern",
       "slugByLocale": {
-        "it": "sostegno-alle-tic-in-2-livello-stadt-bern-bern",
+        "it": "supporto-ict-2-livello-stadt-bern-bern",
         "en": "ict-supporter-in-2nd-level-stadt-bern-bern",
         "de": "ict-supporter-in-2nd-level-stadt-bern-bern",
         "fr": "supporteur-tic-en-2eme-niveau-stadt-bern-bern"
@@ -2333,11 +2337,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-supporter-in-2nd-level-stadt-bern-bern"
+        "ict-supporter-in-2nd-level-stadt-bern-bern",
+        "sostegno-alle-tic-in-2-livello-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-supporter-in-2nd-level-stadt-bern-bern"
+          "ict-supporter-in-2nd-level-stadt-bern-bern",
+          "sostegno-alle-tic-in-2-livello-stadt-bern-bern"
         ],
         "fr": [
           "ict-supporter-in-2nd-level-stadt-bern-bern"

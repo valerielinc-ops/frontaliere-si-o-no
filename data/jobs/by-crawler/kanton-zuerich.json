@@ -8672,10 +8672,10 @@
     },
     {
       "id": "kanton-zuerich-2c3caff07a84",
-      "slug": "infrastructure-manager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich",
+      "slug": "infrastrutture-manager-di-consegna-del-posto-di-lavoro-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "infrastructure-manager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich",
-        "en": "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich",
+        "it": "infrastrutture-manager-di-consegna-del-posto-di-lavoro-kantonale-verwaltung-zurich-zurich",
+        "en": "infrastructure-manager-workplace-delivery-kantonale-verwaltung-zurich-zurich",
         "de": "infrastrukturmanager-in-workplace-delivery-kanton-zuerich-zurich",
         "fr": "gestionnaire-de-l-infrastructure-en-milieu-de-travail-kantonale-verwaltung-zurich-zurich"
       },
@@ -8724,14 +8724,19 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "infrastrukturmanager-in-workplace-delivery-kanton-zuerich-zurich",
-        "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
+        "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich",
+        "infrastructure-manager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infrastrukturmanager-in-workplace-delivery-kanton-zuerich-zurich",
-          "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
+          "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich",
+          "infrastructure-manager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
+          "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
           "infrastrukturmanager-in-workplace-delivery-kantonale-verwaltung-zurich-zurich"
         ]
       },
@@ -9032,7 +9037,7 @@
       "slug": "merce-commerciale-in-kjz-miglia-kantonale-verwaltung-zurich-feldmeilen",
       "slugByLocale": {
         "it": "merce-commerciale-in-kjz-miglia-kantonale-verwaltung-zurich-feldmeilen",
-        "en": "commercial-clerk-in-kjz-miles-kantonale-verwaltung-zurich-feldmeilen",
+        "en": "commercial-agent-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
         "de": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kanton-zuerich-feldmeilen",
         "fr": "commis-commercial-a-kjz-miles-kantonale-verwaltung-zurich-feldmeilen"
       },
@@ -9081,7 +9086,8 @@
       "pensum": "70 - 80%",
       "previousSlugs": [
         "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kanton-zuerich-feldmeilen",
-        "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
+        "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
+        "commercial-clerk-in-kjz-miles-kantonale-verwaltung-zurich-feldmeilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9089,7 +9095,8 @@
           "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
         ],
         "en": [
-          "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
+          "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
+          "commercial-clerk-in-kjz-miles-kantonale-verwaltung-zurich-feldmeilen"
         ],
         "de": [
           "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
@@ -11370,7 +11377,7 @@
       "slug": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
-        "en": "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
+        "en": "rector-rector-kantonale-verwaltung-zurich-zurich",
         "de": "rektor-rektorin-kanton-zuerich-zurich",
         "fr": "recteur-recteur-kantonale-verwaltung-zurich-zurich"
       },
@@ -11420,7 +11427,7 @@
       "previousSlugs": [
         "rektor-rektorin-kanton-zuerich-zurich",
         "rektor-rektorin-kantonale-verwaltung-zurich",
-        "rector-rector-kantonale-verwaltung-zurich-zurich"
+        "rektor-rektorin-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11428,7 +11435,7 @@
         ],
         "en": [
           "rektor-rektorin-kantonale-verwaltung-zurich",
-          "rector-rector-kantonale-verwaltung-zurich-zurich"
+          "rektor-rektorin-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
           "rektor-rektorin-kanton-zuerich-zurich"
@@ -15335,9 +15342,9 @@
     },
     {
       "id": "kanton-zuerich-eee285028d74",
-      "slug": "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
         "en": "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf",
         "de": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf"
@@ -15387,12 +15394,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
-        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
-          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+          "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:00.841Z",
@@ -15858,7 +15867,7 @@
       "slug": "test-manager-in-temporaneo-12-mesi-kantonale-verwaltung-zurich-zurich-2b674d",
       "slugByLocale": {
         "it": "test-manager-in-temporaneo-12-mesi-kantonale-verwaltung-zurich-zurich-2b674d",
-        "en": "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich",
+        "en": "test-manager-limited-to-12-months-kantonale-verwaltung-zurich-zurich",
         "de": "test-manager-in-befristet-12-monate-kanton-zuerich-zurich",
         "fr": "gestionnaire-d-essais-en-temporaire-12-mois-kantonale-verwaltung-zurich-zurich-2b674d"
       },
@@ -15912,7 +15921,8 @@
         "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich",
         "gestionnaire-d-essais-en-temporaire-12-mois-kantonale-verwaltung-zurich-zurich",
         "responsabile-dei-test-limitato-a-12-mesi-kantonale-verwaltung-zurich-zurich",
-        "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich-2b674d"
+        "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich-2b674d",
+        "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15925,7 +15935,8 @@
         ],
         "en": [
           "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich",
-          "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich-2b674d"
+          "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich-2b674d",
+          "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
           "test-manager-in-befristet-12-monate-kanton-zuerich-zurich",
@@ -16829,7 +16840,7 @@
         "it": "supervisore-supervisore-che-lavora-in-amministrazione-e-sede-kantonale-verwaltung-zurich-horgen",
         "en": "supervisor-supervisor-working-in-administration-and-headquarters-kantonale-verwaltung-zurich-horgen",
         "de": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
-        "fr": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
+        "fr": "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16877,7 +16888,7 @@
       "previousSlugs": [
         "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
         "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen",
-        "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
+        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16888,7 +16899,7 @@
           "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
         ],
         "fr": [
-          "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
+          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:42.444Z",

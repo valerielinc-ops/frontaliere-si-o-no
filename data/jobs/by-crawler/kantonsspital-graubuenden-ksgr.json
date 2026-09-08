@@ -512,7 +512,7 @@
         "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
         "it": "assistente-medico-r-pratica-in-policlinico-medico-kantonsspital-graubunden-chur",
         "en": "medical-r-practice-assistant-in-medical-polyclinic-kantonsspital-graubunden-chur",
-        "fr": "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
+        "fr": "assistant-medical-r-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Medizinische Poliklinik",
@@ -538,11 +538,15 @@
       },
       "featured": false,
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
+        "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,

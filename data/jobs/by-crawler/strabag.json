@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "strabag-9db653d104f1",
-      "slug": "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
+      "slug": "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
       "slugByLocale": {
-        "it": "baumaschinenmechaniker-in-cfc-strabag-bmti-gmbh-lindau-d31321",
+        "it": "meccanico-per-macchine-da-costruzione-efz-strabag-bmti-gmbh-lindau",
         "en": "construction-machinery-mechanic-in-efz-strabag-bmti-gmbh-lindau-d31321",
         "de": "baumaschinenmechaniker-in-efz-strabag-lindau",
         "fr": "mecanicien-des-machines-de-construction-dans-efz-strabag-bmti-gmbh-lindau-d31321"
@@ -94,9 +94,9 @@
     },
     {
       "id": "strabag-359a4bd81b60",
-      "slug": "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
+      "slug": "costruzione-meccanica-meccanica-speciale-civile-strabag-bmti-gmbh-rothenburg",
       "slugByLocale": {
-        "it": "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
+        "it": "costruzione-meccanica-meccanica-speciale-civile-strabag-bmti-gmbh-rothenburg",
         "en": "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
         "de": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
         "fr": "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg"
@@ -229,14 +229,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
-        "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
-        "costruzione-macchine-riparazione-officina-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
+        "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
-          "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
-          "costruzione-macchine-riparazione-officina-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
+          "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
         ],
         "en": [
           "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1"
@@ -311,13 +309,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-ingenieurbau-strabag-schlieren",
-        "chef-de-projet-ingenieurbau-strabag-ag-schlieren",
-        "responsabile-di-progetto-ingegneria-civile-strabag-ag-schlieren"
+        "chef-de-projet-ingenieurbau-strabag-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-ingenieurbau-strabag-schlieren",
-          "responsabile-di-progetto-ingegneria-civile-strabag-ag-schlieren"
+          "projektleiter-in-ingenieurbau-strabag-schlieren"
         ],
         "en": [
           "projektleiter-in-ingenieurbau-strabag-schlieren"
@@ -344,10 +340,10 @@
     },
     {
       "id": "strabag-4bfa6e385622",
-      "slug": "konstrukteur-in-holz-e-schalungsbau-strabag-ag-lindau",
+      "slug": "timber-e-formwork-designer-strabag-ag-lindau",
       "slugByLocale": {
-        "it": "konstrukteur-in-holz-e-schalungsbau-strabag-ag-lindau",
-        "en": "constructor-in-wood-and-formwork-construction-strabag-ag-lindau",
+        "it": "timber-e-formwork-designer-strabag-ag-lindau",
+        "en": "timber-and-formwork-designer-strabag-ag-lindau",
         "de": "konstrukteur-in-holz-und-schalungsbau-strabag-lindau",
         "fr": "construction-en-bois-et-coffrage-strabag-ag-lindau"
       },
@@ -395,16 +391,19 @@
       "previousSlugs": [
         "konstrukteur-in-holz-und-schalungsbau-strabag-lindau",
         "constructor-in-wood-and-formwork-construction-strabag-ag-lindau",
-        "construction-en-bois-et-coffrage-strabag-ag-lindau"
+        "construction-en-bois-et-coffrage-strabag-ag-lindau",
+        "konstrukteur-in-holz-e-schalungsbau-strabag-ag-lindau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konstrukteur-in-holz-und-schalungsbau-strabag-lindau",
           "constructor-in-wood-and-formwork-construction-strabag-ag-lindau",
-          "construction-en-bois-et-coffrage-strabag-ag-lindau"
+          "construction-en-bois-et-coffrage-strabag-ag-lindau",
+          "konstrukteur-in-holz-e-schalungsbau-strabag-ag-lindau"
         ],
         "en": [
-          "konstrukteur-in-holz-und-schalungsbau-strabag-lindau"
+          "konstrukteur-in-holz-und-schalungsbau-strabag-lindau",
+          "constructor-in-wood-and-formwork-construction-strabag-ag-lindau"
         ],
         "fr": [
           "konstrukteur-in-holz-und-schalungsbau-strabag-lindau"
@@ -427,9 +426,9 @@
     },
     {
       "id": "strabag-03899f2f5b3b",
-      "slug": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
+      "slug": "edilizia-e-costruzione-di-strade-strabag-ag-amriswil",
       "slugByLocale": {
-        "it": "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
+        "it": "edilizia-e-costruzione-di-strade-strabag-ag-amriswil",
         "en": "construction-manager-in-civil-engineering-and-road-construction-strabag-ag-amriswil",
         "de": "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
         "fr": "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-amriswil"
@@ -613,13 +612,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon",
-        "calcolatore-in-acquirente-in-holzbau-80-100-strabag-ag-lindau-bei-effretikon"
+        "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon",
-          "calcolatore-in-acquirente-in-holzbau-80-100-strabag-ag-lindau-bei-effretikon"
+          "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon"
         ],
         "en": [
           "kalkulator-in-einkaufer-in-holzbau-80-100-strabag-lindau-bei-effretikon"
@@ -710,9 +707,9 @@
     },
     {
       "id": "strabag-19c228a45e21",
-      "slug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-beringen",
+      "slug": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-beringen",
       "slugByLocale": {
-        "it": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-beringen",
+        "it": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-beringen",
         "en": "technical-r-group-leader-in-civil-engineering-and-road-construction-strabag-ag-beringen",
         "de": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-beringen",
         "fr": "technical-r-chef-de-groupe-en-genie-civil-et-construction-routiere-strabag-ag-beringen"
@@ -791,10 +788,10 @@
     },
     {
       "id": "strabag-7a1f58297ec0",
-      "slug": "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen",
+      "slug": "project-manager-costruzione-stradale-e-ingegneria-civile-strabag-ag-beringen",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen",
-        "en": "project-manager-strassenbau-und-tiefbau-strabag-ag-beringen",
+        "it": "project-manager-costruzione-stradale-e-ingegneria-civile-strabag-ag-beringen",
+        "en": "project-manager-road-construction-and-civil-engineering-strabag-ag-beringen",
         "de": "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen",
         "fr": "directeur-de-projet-construction-routiere-et-genie-civil-strabag-ag-beringen"
       },
@@ -842,7 +839,8 @@
       "previousSlugs": [
         "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen",
         "chef-de-projet-strassenbau-und-tiefbau-strabag-ag-beringen",
-        "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen"
+        "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen",
+        "project-manager-strassenbau-und-tiefbau-strabag-ag-beringen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -850,7 +848,8 @@
           "responsabile-di-progetto-strassenbau-e-genio-civile-strabag-ag-beringen"
         ],
         "en": [
-          "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen"
+          "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen",
+          "project-manager-strassenbau-und-tiefbau-strabag-ag-beringen"
         ],
         "fr": [
           "projektleiter-in-strassenbau-und-tiefbau-strabag-beringen",
@@ -874,9 +873,9 @@
     },
     {
       "id": "strabag-0f71417460c0",
-      "slug": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
+      "slug": "ingegneria-civile-polacca-e-costruzione-stradale-strabag-ag-subingen",
       "slugByLocale": {
-        "it": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
+        "it": "ingegneria-civile-polacca-e-costruzione-stradale-strabag-ag-subingen",
         "en": "polisher-in-civil-engineering-and-road-construction-strabag-ag-subingen",
         "de": "polier-in-tiefbau-und-strassenbau-strabag-subingen",
         "fr": "polisher-en-genie-civil-et-construction-routiere-strabag-ag-subingen"
@@ -955,9 +954,9 @@
     },
     {
       "id": "strabag-6e8684998abd",
-      "slug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
+      "slug": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-bern",
       "slugByLocale": {
-        "it": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
+        "it": "tecnica-r-group-manager-ingegneria-civile-e-costruzione-stradale-strabag-ag-bern",
         "en": "technical-r-group-leader-in-civil-engineering-and-road-construction-strabag-ag-bern",
         "de": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
         "fr": "chef-de-groupe-en-genie-civil-et-construction-routiere-strabag-ag-bern"
@@ -1084,13 +1083,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-ingenieurbau-strabag-erstfeld",
-        "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
+        "projektleiter-in-ingenieurbau-strabag-erstfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-ingenieurbau-strabag-erstfeld",
-          "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
+          "projektleiter-in-ingenieurbau-strabag-erstfeld"
         ],
         "en": [
           "projektleiter-in-ingenieurbau-strabag-erstfeld"
@@ -1116,9 +1113,9 @@
     },
     {
       "id": "strabag-b0be6027032e",
-      "slug": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
+      "slug": "costruzione-di-una-strada-strabag-ag-erstfeld",
       "slugByLocale": {
-        "it": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
+        "it": "costruzione-di-una-strada-strabag-ag-erstfeld",
         "en": "construction-manager-in-road-construction-strabag-ag-erstfeld",
         "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
         "fr": "directeur-de-la-construction-en-construction-routiere-strabag-ag-erstfeld"
@@ -1197,9 +1194,9 @@
     },
     {
       "id": "strabag-a56a1d3c9973",
-      "slug": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
+      "slug": "costruzione-di-strade-strabag-ag-erstfeld",
       "slugByLocale": {
-        "it": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
+        "it": "costruzione-di-strade-strabag-ag-erstfeld",
         "en": "polisher-in-road-construction-strabag-ag-erstfeld",
         "de": "polier-in-strassenbau-strabag-erstfeld",
         "fr": "polisher-dans-la-construction-routiere-strabag-ag-erstfeld"

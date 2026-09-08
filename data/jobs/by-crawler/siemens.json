@@ -2383,9 +2383,9 @@
     },
     {
       "id": "siemens-ca1c65e1be7c",
-      "slug": "techniker-in-engineer-betriebsoptimierung-energieeffizienz-80-100-siemens-root",
+      "slug": "ottimizzazione-operativa-technician-engineer-energy-efficiency-80-100-siemens-root",
       "slugByLocale": {
-        "it": "techniker-in-engineer-betriebsoptimierung-energieeffizienz-80-100-siemens-root",
+        "it": "ottimizzazione-operativa-technician-engineer-energy-efficiency-80-100-siemens-root",
         "en": "technician-in-engineer-operational-optimization-energy-efficiency-80-100-siemens-root",
         "de": "techniker-in-engineer-betriebsoptimierung-energieeffizienz-80-100-siemens-root",
         "fr": "technicien-optimisation-operationnelle-et-efficacite-energetique-dans-ingenieur-80-100-siemens-root"
@@ -2446,7 +2446,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-engineer-betriebsoptimierung-energieeffizienz-80-100-siemens-root"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-engineer-betriebsoptimierung-energieeffizienz-80-100-siemens-root"
+      ]
     },
     {
       "id": "siemens-a7898866253b",

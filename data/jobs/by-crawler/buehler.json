@@ -11685,12 +11685,12 @@
     },
     {
       "id": "buehler-1cbd5acca828",
-      "slug": "smerigliatrice-cnc-in-buhler-group-uzwil",
+      "slug": "levigatrici-cnc-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "smerigliatrice-cnc-in-buhler-group-uzwil",
-        "en": "cnc-grinder-in-buhler-group-uzwil",
+        "it": "levigatrici-cnc-buhler-group-uzwil",
+        "en": "cnc-sanders-buhler-group-uzwil",
         "de": "cnc-schleifer-in-buhler-group-uzwil",
-        "fr": "broyeur-cnc-en-buhler-group-uzwil"
+        "fr": "ponceuses-cnc-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11740,20 +11740,24 @@
           "cnc-grinder-in-buhler-group-uzwil",
           "broyeur-cnc-en-buhler-group-uzwil",
           "rettifica-cnc-buhler-group-uzwil",
-          "cnc-schleifer-in-buehler-uzwil"
+          "cnc-schleifer-in-buehler-uzwil",
+          "smerigliatrice-cnc-in-buhler-group-uzwil"
         ],
         "en": [
-          "cnc-schleifer-in-buehler-uzwil"
+          "cnc-schleifer-in-buehler-uzwil",
+          "cnc-grinder-in-buhler-group-uzwil"
         ],
         "fr": [
-          "cnc-schleifer-in-buehler-uzwil"
+          "cnc-schleifer-in-buehler-uzwil",
+          "broyeur-cnc-en-buhler-group-uzwil"
         ]
       },
       "previousSlugs": [
         "cnc-grinder-in-buhler-group-uzwil",
         "broyeur-cnc-en-buhler-group-uzwil",
         "rettifica-cnc-buhler-group-uzwil",
-        "cnc-schleifer-in-buehler-uzwil"
+        "cnc-schleifer-in-buehler-uzwil",
+        "smerigliatrice-cnc-in-buhler-group-uzwil"
       ],
       "firstSeenAt": "2026-09-02T23:16:34.784Z",
       "salaryMin": 81500,

@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "cucina-aiuto-50-zfv-unternehmungen-epalinges",
         "en": "kitchen-help-50-zfv-unternehmungen-epalinges",
-        "de": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
+        "de": "kuchenhilfe-50-zfv-unternehmungen-epalinges",
         "fr": "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       },
       "company": "ZFV-Unternehmungen",
@@ -51,8 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
-        "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+        "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,7 +61,7 @@
           "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "de": [
-          "kuchenhilfe-50-zfv-unternehmungen-epalinges"
+          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ]
       },
       "firstSeenAt": "2026-09-04T13:40:05.712Z",
@@ -1122,7 +1121,7 @@
       "slug": "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern",
       "slugByLocale": {
         "it": "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern",
-        "en": "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
+        "en": "event-staff-assistant-zfv-unternehmungen-luzern",
         "de": "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
         "fr": "event-collaborateur-trice-aushilfe-zfv-unternehmungen-luzern"
       },
@@ -1174,6 +1173,9 @@
         ],
         "fr": [
           "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
+        ],
+        "en": [
+          "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-18T10:35:28.375Z",
@@ -1193,11 +1195,11 @@
     },
     {
       "id": "zfv-unternehmungen-7e618cc439f1",
-      "slug": "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich",
+      "slug": "produzione-dei-dipendenti-dell-evento-aiuto-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
-        "it": "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich",
-        "en": "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+        "it": "produzione-dei-dipendenti-dell-evento-aiuto-zfv-unternehmungen-zurich",
+        "en": "event-employee-production-aid-zfv-unternehmungen-zurich",
         "fr": "personnel-de-l-evenement-en-production-aide-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
@@ -1243,14 +1245,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+          "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich"
         ],
         "fr": [
+          "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        ],
+        "en": [
           "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
-        "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich"
+        "event-mitarbeiter-in-produktion-aushilfe-zfv-unternehmungen-zurich",
+        "event-addetto-a-alla-produzione-aushilfe-zfv-unternehmungen-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1269,9 +1276,9 @@
     },
     {
       "id": "zfv-unternehmungen-852148900a20",
-      "slug": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
+      "slug": "chef-esecutivo-80-100-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
+        "it": "chef-esecutivo-80-100-zfv-unternehmungen-bern",
         "en": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
         "de": "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern",
         "fr": "chef-executif-en-80-100-zfv-unternehmungen-bern"
@@ -1328,7 +1335,15 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern"
+        ]
+      },
+      "previousSlugs": [
+        "executive-kuchenchef-in-80-100-zfv-unternehmungen-bern"
+      ]
     },
     {
       "id": "zfv-unternehmungen-b4bcc0b52655",
@@ -3098,7 +3113,7 @@
       "slug": "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
       "slugByLocale": {
         "it": "cucinare-cucinare-80-zfv-unternehmungen-dubendorf",
-        "en": "kochin-koch-80-zfv-unternehmungen-dubendorf",
+        "en": "cook-cook-80-zfv-unternehmungen-dubendorf",
         "de": "kochin-koch-80-zfv-unternehmungen-dubendorf",
         "fr": "cuire-cuire-80-zfv-unternehmungen-dubendorf"
       },
@@ -3142,15 +3157,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-dubendorf",
-        "cook-cook-80-zfv-unternehmungen-dubendorf"
+        "kochin-koch-80-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-zfv-unternehmungen-dubendorf"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-dubendorf"
+          "kochin-koch-80-zfv-unternehmungen-dubendorf"
         ],
         "fr": [
           "kochin-koch-80-zfv-unternehmungen-dubendorf"
@@ -5123,7 +5137,7 @@
       "slug": "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
-        "en": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
+        "en": "employees-housekeeping-aid-zfv-unternehmungen-rapperswil",
         "de": "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
         "fr": "collaborateur-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
       },
@@ -5174,6 +5188,9 @@
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ],
         "fr": [
+          "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+        ],
+        "en": [
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ]
       },
@@ -5712,9 +5729,9 @@
     },
     {
       "id": "zfv-unternehmungen-89b469c6640e",
-      "slug": "stage-in-persone-cultura-zfv-unternehmungen-zurich",
+      "slug": "internship-people-culture-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "stage-in-persone-cultura-zfv-unternehmungen-zurich",
+        "it": "internship-people-culture-zfv-unternehmungen-zurich",
         "en": "internship-in-people-culture-zfv-unternehmungen-zurich",
         "de": "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
         "fr": "stage-dans-les-gens-et-la-culture-zfv-unternehmungen-zurich"
@@ -5759,11 +5776,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
+        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
+        "stage-in-persone-cultura-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
+          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
+          "stage-in-persone-cultura-zfv-unternehmungen-zurich"
         ],
         "en": [
           "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
@@ -6607,7 +6626,7 @@
       "slug": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich",
-        "en": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
+        "en": "service-staff-assistant-zfv-unternehmungen-zurich",
         "de": "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
         "fr": "service-collaborateur-trice-aushilfe-zfv-unternehmungen-zurich"
       },
@@ -6685,6 +6704,9 @@
           "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
           "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
           "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:02.368Z",

@@ -367,7 +367,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -418,6 +418,9 @@
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
+        ],
+        "en": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ]
       },
@@ -516,12 +519,12 @@
     },
     {
       "id": "endress-hauser-7d568f2351f6",
-      "slug": "schnuppertage-elektroniker-in-endress-hauser-reinach",
+      "slug": "esperti-di-elettronica-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "schnuppertage-elektroniker-in-endress-hauser-reinach",
-        "en": "schnuppertage-elektroniker-in-endress-hauser-reinach",
+        "it": "esperti-di-elettronica-endress-hauser-reinach",
+        "en": "electronics-experts-endress-hauser-reinach",
         "de": "schnuppertage-elektroniker-in-endress-hauser-reinach",
-        "fr": "schnuppertage-elektroniker-in-endress-hauser-reinach"
+        "fr": "experts-en-electronique-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -575,7 +578,21 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schnuppertage-elektroniker-in-endress-hauser-reinach"
+        ],
+        "en": [
+          "schnuppertage-elektroniker-in-endress-hauser-reinach"
+        ],
+        "fr": [
+          "schnuppertage-elektroniker-in-endress-hauser-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "schnuppertage-elektroniker-in-endress-hauser-reinach"
+      ]
     },
     {
       "id": "endress-hauser-d6fc299fe3cf",
@@ -1005,7 +1022,7 @@
       "slug": "meccanica-nei-sistemi-di-fabbricazione-di-impianti-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "it": "meccanica-nei-sistemi-di-fabbricazione-di-impianti-m-f-d-endress-hauser-reinach",
-        "en": "mechanic-in-plant-engineering-manufactoring-systems-m-f-d-endress-hauser-reinach",
+        "en": "mechanics-plant-construction-manufacturing-systems-m-f-d-endress-hauser-reinach",
         "de": "mechaniker-in-anlagenbau-manufacturing-systems-w-m-d-endress-hauser-reinach",
         "fr": "mecanicien-en-genie-vegetal-systemes-de-fabrication-h-f-d-endress-hauser-reinach"
       },
@@ -1050,7 +1067,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach",
-        "mechaniker-in-anlagenbau-manufacturing-systems-w-m-d-endress-hauser-reinach"
+        "mechaniker-in-anlagenbau-manufacturing-systems-w-m-d-endress-hauser-reinach",
+        "mechanic-in-plant-engineering-manufactoring-systems-m-f-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1058,7 +1076,8 @@
           "mechaniker-in-anlagenbau-manufacturing-systems-w-m-d-endress-hauser-reinach"
         ],
         "en": [
-          "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach"
+          "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach",
+          "mechanic-in-plant-engineering-manufactoring-systems-m-f-d-endress-hauser-reinach"
         ],
         "de": [
           "mechaniker-in-anlagenbau-manufactoring-systems-w-m-d-endress-hauser-reinach"
@@ -1834,9 +1853,9 @@
     },
     {
       "id": "endress-hauser-b4e43ca71d2d",
-      "slug": "system-architect-in-ingegneria-elettrica-e-dei-processi-m-f-d-endress-hauser-reinach",
+      "slug": "architettura-di-sistema-ingegneria-elettrica-e-di-processo-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "system-architect-in-ingegneria-elettrica-e-dei-processi-m-f-d-endress-hauser-reinach",
+        "it": "architettura-di-sistema-ingegneria-elettrica-e-di-processo-m-f-d-endress-hauser-reinach",
         "en": "system-architect-in-electrical-process-engineering-m-f-d-endress-hauser-reinach",
         "de": "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach",
         "fr": "architecte-systeme-en-genie-electrique-et-process-h-f-d-endress-hauser-reinach"
@@ -1881,11 +1900,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach"
+        "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach",
+        "system-architect-in-ingegneria-elettrica-e-dei-processi-m-f-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach"
+          "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach",
+          "system-architect-in-ingegneria-elettrica-e-dei-processi-m-f-d-endress-hauser-reinach"
         ],
         "en": [
           "systemarchitekt-in-elektro-verfahrenstechnik-w-m-d-endress-hauser-reinach"
@@ -3925,10 +3946,10 @@
     },
     {
       "id": "endress-hauser-924ad29e49d2",
-      "slug": "capo-turno-in-w-m-d-endress-hauser-reinach",
+      "slug": "conduttore-di-livello-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "capo-turno-in-w-m-d-endress-hauser-reinach",
-        "en": "shift-leader-in-w-m-d-endress-hauser-reinach",
+        "it": "conduttore-di-livello-m-f-d-endress-hauser-reinach",
+        "en": "layer-conductor-m-f-d-endress-hauser-reinach",
         "de": "schichtleiter-in-w-m-d-endress-hauser-reinach",
         "fr": "gestionnaire-de-postes-en-h-f-d-endress-hauser-reinach"
       },
@@ -3978,7 +3999,9 @@
         "capo-turno-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
         "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
         "schichtleiter-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
-        "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach"
+        "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
+        "capo-turno-in-w-m-d-endress-hauser-reinach",
+        "shift-leader-in-w-m-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3986,11 +4009,13 @@
           "capo-turno-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
           "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
           "schichtleiter-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
-          "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach"
+          "chef-d-equipe-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
+          "capo-turno-in-w-m-d-endress-hauser-reinach"
         ],
         "en": [
           "schichtleiter-in-w-m-d-endress-hauser-reinach",
-          "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach"
+          "shift-leader-in-direkte-fertigung-f-m-d-endress-hauser-reinach",
+          "shift-leader-in-w-m-d-endress-hauser-reinach"
         ],
         "de": [
           "schichtleiter-in-direkte-fertigung-f-m-d-endress-hauser-reinach"

@@ -2059,7 +2059,7 @@
       "slug": "dati-del-gestore-operativo-degli-asset-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
         "it": "dati-del-gestore-operativo-degli-asset-ffs-officine-ferrovie-federali-bern",
-        "en": "operative-r-asset-manager-in-daten-ffs-officine-ferrovie-federali-bern",
+        "en": "operational-r-asset-manager-data-ffs-officine-ferrovie-federali-bern",
         "de": "operative-r-asset-manager-in-daten-ffs-officine-ferrovie-federali-bern",
         "fr": "donnees-du-gestionnaire-d-actifs-operationnel-ffs-officine-ferrovie-federali-bern"
       },
@@ -2112,7 +2112,8 @@
         ],
         "en": [
           "operational-asset-manager-data-ffs-officine-ferrovie-federali-bern",
-          "operational-r-asset-manager-in-data-ffs-officine-ferrovie-federali-bern"
+          "operational-r-asset-manager-in-data-ffs-officine-ferrovie-federali-bern",
+          "operative-r-asset-manager-in-daten-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-09-03T23:23:43.146Z",
@@ -6094,9 +6095,9 @@
     },
     {
       "id": "sbb-39b1a11e9670",
-      "slug": "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
+      "slug": "cross-entry-train-driver-shunting-ffs-officine-ferrovie-federali-rapperswil-sg",
       "slugByLocale": {
-        "it": "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "it": "cross-entry-train-driver-shunting-ffs-officine-ferrovie-federali-rapperswil-sg",
         "en": "cross-entry-locomotive-engineer-ffs-officine-ferrovie-federali-rapperswil-sg",
         "de": "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
         "fr": "acces-transversal-conducteur-de-locomotive-a-man-uvre-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -6158,12 +6159,14 @@
       "crawledAt": "2026-09-07T23:56:01.967Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
-        "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg"
+        "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg",
-          "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg"
+          "ingresso-trasversale-macchinista-in-manovra-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-lokfuhrer-in-rangier-ffs-officine-ferrovie-federali-rapperswil-sg"
         ]
       },
       "firstSeenAt": "2026-08-26T10:07:03.590Z",
@@ -7059,9 +7062,9 @@
     },
     {
       "id": "sbb-405c77fd8e51",
-      "slug": "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+      "slug": "soccorso-ferroviario-specializzato-cross-entry-ffs-officine-ferrovie-federali-rapperswil-sg",
       "slugByLocale": {
-        "it": "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "it": "soccorso-ferroviario-specializzato-cross-entry-ffs-officine-ferrovie-federali-rapperswil-sg",
         "en": "transverse-entry-firefighter-or-firefighter-and-engine-driver-ffs-officine-ferrovie-federali-rapperswil-sg",
         "de": "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
         "fr": "entree-laterale-en-tant-que-pompier-et-conducteur-de-train-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -7130,14 +7133,16 @@
         "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
         "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
         "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
-        "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg"
+        "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
           "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
           "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
-          "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg"
+          "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
         ],
         "de": [
           "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg"

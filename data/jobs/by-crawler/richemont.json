@@ -5430,7 +5430,7 @@
       "slugByLocale": {
         "en": "ingenieur-amelioration-continue-richemont-geneva",
         "it": "ingenieur-continua-richemont-geneva",
-        "de": "ingenieur-amelioration-continue-richemont-geneva",
+        "de": "ingenieur-kontinuierliche-verbesserung-richemont-geneva",
         "fr": "ingenieur-amelioration-continue-richemont-geneva"
       },
       "company": "Richemont",
@@ -5489,6 +5489,9 @@
       "firstSeenAt": "2026-09-07T15:18:59.731Z",
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-amelioration-continue-richemont-geneva"
+        ],
+        "de": [
           "ingenieur-amelioration-continue-richemont-geneva"
         ]
       },
@@ -5804,7 +5807,7 @@
         "it": "associate-security-technology-engineer-richemont-meyrin",
         "en": "associate-security-technology-engineer-richemont-meyrin",
         "de": "associate-security-technology-engineer-richemont-meyrin",
-        "fr": "associate-security-technology-engineer-richemont-meyrin"
+        "fr": "ingenieur-associe-en-technologie-de-securite-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -6022,7 +6025,7 @@
       "slug": "parti-di-ricambio-planner-piaget-plan-les-ouates",
       "slugByLocale": {
         "it": "parti-di-ricambio-planner-piaget-plan-les-ouates",
-        "en": "spare-parts-planner-richemont-plan-les-ouates",
+        "en": "synthesis-of-the-planner-piaget-plan-les-ouates",
         "de": "ersatzteilplaner-piaget-plan-les-ouates",
         "fr": "spare-parts-planner-richemont-plan-les-ouates"
       },
@@ -6073,6 +6076,9 @@
           "spare-parts-planner-richemont-plan-les-ouates"
         ],
         "de": [
+          "spare-parts-planner-richemont-plan-les-ouates"
+        ],
+        "en": [
           "spare-parts-planner-richemont-plan-les-ouates"
         ]
       },
@@ -7257,7 +7263,7 @@
       "slugByLocale": {
         "it": "formazione-1-cartier-manufacture-villars-sur-glane",
         "en": "stagiaire-demarche-de-progres-1-richemont-villars-sur-glane",
-        "de": "stagiaire-demarche-de-progres-1-richemont-villars-sur-glane",
+        "de": "schrittweise-fortschritte-1-cartier-manufacture-villars-sur-glane",
         "fr": "stagiaire-demarche-de-progres-1-cartier-manufacture-villars-sur-glane"
       },
       "company": "Cartier Manufacture",
@@ -7312,7 +7318,8 @@
           "trainee-progress-1-cartier-manufacture-villars-sur-glane"
         ],
         "de": [
-          "trainee-progress-1-cartier-manufacture-villars-sur-glane"
+          "trainee-progress-1-cartier-manufacture-villars-sur-glane",
+          "stagiaire-demarche-de-progres-1-richemont-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-07-14T22:13:36.489Z",
@@ -7739,7 +7746,7 @@
       "slugByLocale": {
         "it": "dati-e-analisi-di-gruppo-senior-manager-richemont-plan-les-ouates",
         "en": "group-procurement-data-and-analytics-senior-manager-richemont-plan-les-ouates",
-        "de": "group-procurement-data-and-analytics-senior-manager-richemont-plan-les-ouates",
+        "de": "konzernbeschaffung-daten-und-analysen-senior-manager-richemont-plan-les-ouates",
         "fr": "groupe-donnees-d-approvisionnement-et-analyse-gestionnaire-principal-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -7789,6 +7796,9 @@
           "group-procurement-data-and-analytics-senior-manager-richemont-plan-les-ouates"
         ],
         "fr": [
+          "group-procurement-data-and-analytics-senior-manager-richemont-plan-les-ouates"
+        ],
+        "de": [
           "group-procurement-data-and-analytics-senior-manager-richemont-plan-les-ouates"
         ]
       },
@@ -8622,8 +8632,8 @@
       "slugByLocale": {
         "it": "orafo-buccellati-morbio-inferiore",
         "en": "orafo-richemont-morbio-inferiore",
-        "de": "orafo-richemont-morbio-inferiore",
-        "fr": "orafo-richemont-morbio-inferiore"
+        "de": "goldschmied-buccellati-morbio-inferiore",
+        "fr": "orfevre-buccellati-morbio-inferiore"
       },
       "company": "Buccellati",
       "companyKey": "richemont",
@@ -8692,10 +8702,12 @@
           "jewelry-cleaner-buccellati-morbio-inferiore"
         ],
         "de": [
-          "schmuckreiniger-buccellati-morbio-inferiore"
+          "schmuckreiniger-buccellati-morbio-inferiore",
+          "orafo-richemont-morbio-inferiore"
         ],
         "fr": [
-          "nettoyant-pour-bijoux-buccellati-morbio-inferiore"
+          "nettoyant-pour-bijoux-buccellati-morbio-inferiore",
+          "orafo-richemont-morbio-inferiore"
         ]
       },
       "firstSeenAt": "2026-07-21T11:30:53.183Z",
@@ -8719,7 +8731,7 @@
       "slug": "assistente-di-boutique-van-cleef-arpels-zurich",
       "slugByLocale": {
         "it": "assistente-di-boutique-van-cleef-arpels-zurich",
-        "en": "boutique-assistant-richemont-zurich",
+        "en": "assistant-shop-van-cleef-arpels-zurich",
         "de": "boutique-assistent-van-cleef-arpels-zurich",
         "fr": "boutique-assistant-richemont-zurich"
       },
@@ -8775,6 +8787,9 @@
         ],
         "fr": [
           "boutique-assistant-van-cleef-arpels-zurich"
+        ],
+        "en": [
+          "boutique-assistant-richemont-zurich"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:34.045Z",
@@ -13836,7 +13851,7 @@
       "slugByLocale": {
         "it": "apprenti-horloger-cartier-manufacture-couvet",
         "en": "apprenti-horloger-richemont-couvet",
-        "de": "lehrling-uhrmacher-cartier-manufacture-couvet",
+        "de": "auszubildender-horloger-cartier-manufacture-couvet",
         "fr": "apprenti-horloger-cartier-manufacture-couvet"
       },
       "company": "Cartier Manufacture",
@@ -13880,7 +13895,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprenti-horloger-richemont-couvet",
-        "apprentice-watchmaker-cartier-manufacture-couvet"
+        "apprentice-watchmaker-cartier-manufacture-couvet",
+        "lehrling-uhrmacher-cartier-manufacture-couvet"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13888,7 +13904,8 @@
           "apprentice-watchmaker-cartier-manufacture-couvet"
         ],
         "de": [
-          "apprenti-horloger-richemont-couvet"
+          "apprenti-horloger-richemont-couvet",
+          "lehrling-uhrmacher-cartier-manufacture-couvet"
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:29.493Z",

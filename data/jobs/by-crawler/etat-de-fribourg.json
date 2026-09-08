@@ -5164,7 +5164,7 @@
       "slugByLocale": {
         "it": "registratore-di-primo-grado-etat-de-fribourg-fribourg",
         "en": "civil-registrar-of-first-instance-etat-de-fribourg-fribourg",
-        "de": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg",
+        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg",
         "fr": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -5211,7 +5211,7 @@
       "pensum": "40-50%",
       "previousSlugs": [
         "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-        "registrar-erster-instanz-etat-de-fribourg-fribourg"
+        "greffier-ere-civil-de-1ere-instance-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5222,7 +5222,7 @@
         ],
         "de": [
           "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-          "registrar-erster-instanz-etat-de-fribourg-fribourg"
+          "greffier-ere-civil-de-1ere-instance-etat-de-fribourg"
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:14.455Z",
@@ -5244,10 +5244,10 @@
     },
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
-      "slug": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+      "slug": "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
-        "en": "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg",
+        "it": "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg",
+        "en": "diploma-assistant-doctoral-student-etat-de-fribourg-fribourg",
         "de": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
         "fr": "diplomes-en-doctorant-etat-de-fribourg-fribourg"
       },
@@ -5294,14 +5294,18 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+        "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+        "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+          "diplomassista-in-dottorando-etat-de-fribourg-fribourg"
         ],
         "en": [
-          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+          "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
@@ -6151,9 +6155,9 @@
     },
     {
       "id": "etat-de-fribourg-f6e71af54297",
-      "slug": "collaborateur-trice-administratif-ive-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ive-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg",
         "en": "administrative-ive-contributor-etat-de-fribourg-fribourg",
         "de": "administrativer-iver-beitrag-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
@@ -6202,12 +6206,14 @@
       "pensum": "50-80%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-        "contributo-amministrativo-attivo-etat-de-fribourg-fribourg"
+        "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ive-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-          "contributo-amministrativo-attivo-etat-de-fribourg-fribourg"
+          "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ive-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
@@ -6360,7 +6366,7 @@
       "slugByLocale": {
         "it": "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
         "en": "registrar-of-first-instance-etat-de-fribourg-fribourg",
-        "de": "greffier-iere-de-1ere-instance-etat-de-fribourg",
+        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg-e64fb0",
         "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -6407,7 +6413,8 @@
       "pensum": "50-100%",
       "previousSlugs": [
         "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg"
+        "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+        "greffier-iere-de-1ere-instance-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6418,7 +6425,8 @@
         ],
         "de": [
           "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-          "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg"
+          "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+          "greffier-iere-de-1ere-instance-etat-de-fribourg"
         ]
       },
       "firstSeenAt": "2026-09-03T23:26:10.994Z",

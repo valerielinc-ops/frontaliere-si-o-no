@@ -7825,10 +7825,10 @@
     },
     {
       "id": "raiffeisen-9c02ebc95933",
-      "slug": "consulente-clienti-in-m-f-d-raiffeisen-studen",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-studen",
       "slugByLocale": {
-        "it": "consulente-clienti-in-m-f-d-raiffeisen-studen",
-        "en": "customer-advisor-in-m-f-d-raiffeisen-studen",
+        "it": "servizio-clienti-m-f-d-raiffeisen-studen",
+        "en": "customer-service-provider-m-f-d-raiffeisen-studen",
         "de": "kundenberater-in-m-w-d-raiffeisen-studen",
         "fr": "conseiller-client-en-h-f-d-raiffeisen-studen"
       },
@@ -7874,14 +7874,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-m-w-d-raiffeisen-studen"
+        "kundenberater-in-m-w-d-raiffeisen-studen",
+        "consulente-clienti-in-m-f-d-raiffeisen-studen",
+        "customer-advisor-in-m-f-d-raiffeisen-studen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-m-w-d-raiffeisen-studen"
+          "kundenberater-in-m-w-d-raiffeisen-studen",
+          "consulente-clienti-in-m-f-d-raiffeisen-studen"
         ],
         "en": [
-          "kundenberater-in-m-w-d-raiffeisen-studen"
+          "kundenberater-in-m-w-d-raiffeisen-studen",
+          "customer-advisor-in-m-f-d-raiffeisen-studen"
         ],
         "fr": [
           "kundenberater-in-m-w-d-raiffeisen-studen"
@@ -10710,10 +10714,10 @@
     },
     {
       "id": "raiffeisen-afce4cec8fca",
-      "slug": "consulente-clienti-in-m-f-d-raiffeisen-lyss",
+      "slug": "servizio-clienti-m-f-d-raiffeisen-lyss",
       "slugByLocale": {
-        "it": "consulente-clienti-in-m-f-d-raiffeisen-lyss",
-        "en": "customer-advisor-in-m-f-d-raiffeisen-lyss",
+        "it": "servizio-clienti-m-f-d-raiffeisen-lyss",
+        "en": "customer-service-provider-m-f-d-raiffeisen-lyss",
         "de": "kundenberater-in-m-w-d-raiffeisen-lyss",
         "fr": "conseiller-client-en-h-f-d-raiffeisen-lyss"
       },
@@ -10759,14 +10763,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-m-w-d-raiffeisen-lyss"
+        "kundenberater-in-m-w-d-raiffeisen-lyss",
+        "consulente-clienti-in-m-f-d-raiffeisen-lyss",
+        "customer-advisor-in-m-f-d-raiffeisen-lyss"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-m-w-d-raiffeisen-lyss"
+          "kundenberater-in-m-w-d-raiffeisen-lyss",
+          "consulente-clienti-in-m-f-d-raiffeisen-lyss"
         ],
         "en": [
-          "kundenberater-in-m-w-d-raiffeisen-lyss"
+          "kundenberater-in-m-w-d-raiffeisen-lyss",
+          "customer-advisor-in-m-f-d-raiffeisen-lyss"
         ],
         "fr": [
           "kundenberater-in-m-w-d-raiffeisen-lyss"

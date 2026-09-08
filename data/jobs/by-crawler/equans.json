@@ -9245,7 +9245,7 @@
       "slug": "supporto-ict-in-equans-switzerland-olten",
       "slugByLocale": {
         "it": "supporto-ict-in-equans-switzerland-olten",
-        "en": "ict-supporter-in-equans-olten",
+        "en": "ict-supporters-equans-switzerland-olten",
         "de": "ict-supporter-in-equans-olten",
         "fr": "soutien-aux-tic-en-equans-switzerland-olten"
       },
@@ -9297,6 +9297,9 @@
           "ict-supporter-in-equans-olten"
         ],
         "fr": [
+          "ict-supporter-in-equans-olten"
+        ],
+        "en": [
           "ict-supporter-in-equans-olten"
         ]
       },
@@ -9701,7 +9704,7 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-equans-winterthur",
         "it": "installatore-trice-elettrico-a-in-equans-switzerland-winterthur",
-        "en": "electrical-installer-in-equans-switzerland-winterthur",
+        "en": "electrical-installers-equans-switzerland-winterthur",
         "fr": "installateur-electrique-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
@@ -9753,7 +9756,8 @@
           "installatore-trice-elettrico-a-in-equans-switzerland-winterthur-vlk9s7"
         ],
         "en": [
-          "elektroinstallateur-in-equans-switzerland-winterthur"
+          "elektroinstallateur-in-equans-switzerland-winterthur",
+          "electrical-installer-in-equans-switzerland-winterthur"
         ],
         "fr": [
           "elektroinstallateur-in-equans-switzerland-winterthur"
@@ -9784,12 +9788,12 @@
     },
     {
       "id": "equans-fbfea4ea4b37",
-      "slug": "senior-system-ingegnere-in-consulting-equans-switzerland-zurich",
+      "slug": "ingegnere-di-sistema-senior-consulenza-equans-switzerland-zurich",
       "slugByLocale": {
-        "it": "senior-system-ingegnere-in-consulting-equans-switzerland-zurich",
+        "it": "ingegnere-di-sistema-senior-consulenza-equans-switzerland-zurich",
         "en": "senior-system-engineer-in-consulting-equans-zurich",
         "de": "senior-system-engineer-in-consulting-equans-zurich",
-        "fr": "senior-system-ingenieur-in-consulting-equans-switzerland-zurich"
+        "fr": "ingenieur-principal-du-systeme-conseil-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9850,16 +9854,19 @@
         "it": [
           "senior-system-engineer-in-consulting-equans-zurich",
           "senior-system-ingenieur-in-consulting-equans-switzerland-zurich",
-          "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx"
+          "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx",
+          "senior-system-ingegnere-in-consulting-equans-switzerland-zurich"
         ],
         "fr": [
-          "senior-system-engineer-in-consulting-equans-zurich"
+          "senior-system-engineer-in-consulting-equans-zurich",
+          "senior-system-ingenieur-in-consulting-equans-switzerland-zurich"
         ]
       },
       "previousSlugs": [
         "senior-system-engineer-in-consulting-equans-zurich",
         "senior-system-ingenieur-in-consulting-equans-switzerland-zurich",
-        "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx"
+        "senior-system-ingegnere-in-consulting-equans-switzerland-zurich-pd2qsx",
+        "senior-system-ingegnere-in-consulting-equans-switzerland-zurich"
       ]
     },
     {
@@ -9868,8 +9875,8 @@
       "slugByLocale": {
         "de": "betriebssanitater-in-equans-zug",
         "it": "paramedico-equans-switzerland-zug",
-        "en": "paramedic-in-equans-switzerland-zug",
-        "fr": "betriebssanitater-in-equans-switzerland-zug"
+        "en": "paramedics-equans-switzerland-zug",
+        "fr": "paramedicaux-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9917,12 +9924,17 @@
           "betriebssanitater-in-equans-switzerland-zug"
         ],
         "en": [
+          "betriebssanitater-in-equans-switzerland-zug",
+          "paramedic-in-equans-switzerland-zug"
+        ],
+        "fr": [
           "betriebssanitater-in-equans-switzerland-zug"
         ]
       },
       "previousSlugs": [
         "betriebssanitater-in-equans-zug",
-        "betriebssanitater-in-equans-switzerland-zug"
+        "betriebssanitater-in-equans-switzerland-zug",
+        "paramedic-in-equans-switzerland-zug"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

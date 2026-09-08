@@ -1669,7 +1669,7 @@
       "slug": "collaboratore-trice-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
       "slugByLocale": {
         "it": "collaboratore-trice-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
-        "en": "employees-in-restoration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
+        "en": "employee-restoration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
         "de": "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
         "fr": "employes-en-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
       },
@@ -1714,14 +1714,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
+        "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
+        "employees-in-restoration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
         ],
         "en": [
-          "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
+          "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft",
+          "employees-in-restoration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
         ],
         "fr": [
           "mitarbeiter-in-restauration-50-80-viva-luzern-hotellerie-gastronomie-hauswirtschaft"
@@ -1744,10 +1746,10 @@
     },
     {
       "id": "viva-luzern-f6e4e4497951",
-      "slug": "assistente-farmaceutico-in-viva-luzern-luzern",
+      "slug": "assistente-di-farmacia-viva-luzern-luzern",
       "slugByLocale": {
-        "it": "assistente-farmaceutico-in-viva-luzern-luzern",
-        "en": "pharmaceutical-assistant-in-viva-luzern-luzern",
+        "it": "assistente-di-farmacia-viva-luzern-luzern",
+        "en": "pharma-assistant-viva-luzern-luzern",
         "de": "pharma-assistent-in-viva-luzern-luzern",
         "fr": "assistant-pharmaceutique-in-viva-luzern-luzern"
       },
@@ -1794,16 +1796,19 @@
       "previousSlugs": [
         "pharmaceutical-assistant-in-viva-luzern-luzern",
         "assistant-pharmaceutique-in-viva-luzern-luzern",
-        "pharma-assistent-in-viva-luzern-luzern"
+        "pharma-assistent-in-viva-luzern-luzern",
+        "assistente-farmaceutico-in-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pharmaceutical-assistant-in-viva-luzern-luzern",
           "assistant-pharmaceutique-in-viva-luzern-luzern",
-          "pharma-assistent-in-viva-luzern-luzern"
+          "pharma-assistent-in-viva-luzern-luzern",
+          "assistente-farmaceutico-in-viva-luzern-luzern"
         ],
         "en": [
-          "pharma-assistent-in-viva-luzern-luzern"
+          "pharma-assistent-in-viva-luzern-luzern",
+          "pharmaceutical-assistant-in-viva-luzern-luzern"
         ],
         "fr": [
           "pharma-assistent-in-viva-luzern-luzern"
