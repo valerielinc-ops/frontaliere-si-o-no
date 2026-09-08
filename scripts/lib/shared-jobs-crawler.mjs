@@ -5808,17 +5808,25 @@ async function main() {
       ) && (sourceDescLength >= 160 || hasTitleWork || flaggedForRetranslation);
     });
     if (localizeExistingOnly && hasScopedCompanyKeysForRun) {
+      const mergedCompanyKeys = new Set(
+        merged
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
+          .filter(Boolean),
+      );
       const queuedCompanyKeys = new Set(
         queue
           .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
           .filter(Boolean),
       );
-      // A requested company with no consumable localization candidate was
-      // reached by this invocation but cannot consume the shared AI budget.
-      // Count it as a sterile visit; leave companies with queued work outside
-      // the selected slice unmarked so their pending work is retried.
+      // A requested company present in the assembled dataset but with no
+      // consumable localization candidate was reached by this invocation but
+      // cannot consume the shared AI budget. Count it as a sterile visit;
+      // leave absent companies and queued work outside the selected slice
+      // unmarked so their pending work is retried.
       for (const companyKey of scopedCompanyKeysForRun) {
-        if (!queuedCompanyKeys.has(companyKey)) localizationCoveredCompanyKeys.add(companyKey);
+        if (mergedCompanyKeys.has(companyKey) && !queuedCompanyKeys.has(companyKey)) {
+          localizationCoveredCompanyKeys.add(companyKey);
+        }
       }
     }
     if (queue.length > 0) {
