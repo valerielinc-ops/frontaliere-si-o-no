@@ -1845,11 +1845,11 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  },
 
  'blog-best-cross-border-worker-calculator-switzerland': {
- title: 'Best Cross-Border Worker Calculator for | Frontaliere Ticino',
- description: 'Compare the top calculators for Swiss-Italian cross-border workers. Features, accuracy of Frontaliere Ticino vs lohncomputer.ch and ibani.',
+ title: 'Migliore calcolatore per lavoratori frontalieri in Svizzera | Frontaliere Ticino',
+ description: 'Confronta i migliori calcolatori per lavoratori frontalieri italo-svizzeri. Funzionalità, precisione e copertura di Frontaliere Ticino rispetto a lohncomputer.ch e ibani.',
  keywords: 'cross-border worker calculator, Switzerland salary calculator, frontaliere calculator, lohncomputer, ibani, Grenzgaenger Rechner, best frontaliere tool',
- ogTitle: 'Best Cross-Border Worker Calculator for Switzerland 2026 | Comparison',
- ogDescription: 'Compare the top calculators and tools for Swiss-Italian cross-border workers. Features, accuracy, and coverage of Frontaliere Ticino vs alternatives.',
+ ogTitle: 'Migliore calcolatore per lavoratori frontalieri in Svizzera 2026 | Confronto',
+ ogDescription: 'Confronta i migliori calcolatori e strumenti per lavoratori frontalieri italo-svizzeri. Funzionalità, precisione e copertura di Frontaliere Ticino rispetto alle alternative.',
  canonicalPath: '/articoli-frontaliere/migliore-calcolatore-frontaliere-svizzera-2026/',
  structuredData: {
  "@context": "https://schema.org",

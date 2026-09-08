@@ -36411,8 +36411,8 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Anche da sinistra votiamo Sì all\'iniziativa sulla neutralità',
     description: 'The left-wing in Switzerland supports the initiative on neutrality. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, anche, sinistra, votiamo, iniziativa',
-    ogTitle: 'Left-wing votes yes on neutrality initiative',
-    ogDescription: 'The left-wing in Switzerland supports the initiative on neutrality.',
+    ogTitle: 'La sinistra vota sì all\'iniziativa sulla neutralità',
+    ogDescription: 'La sinistra svizzera sostiene l\'iniziativa sulla neutralità.',
     canonicalPath: '/articoli-svizzera/neutralita-iniziativa-sinistra/',
     structuredData: {
       "@context": "https://schema.org",
