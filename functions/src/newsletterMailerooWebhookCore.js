@@ -7,6 +7,7 @@ import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, m
 import { campaignIdFromTags, tagValue } from './lib/mailerooRef.js';
 import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
+import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
 
 /**
  * Maileroo webhook handler — receives delivery events and stores them in Firestore.
@@ -159,6 +160,16 @@ export async function persistMailerooEvent(db, event) {
   const data = event.event_data || {};
   const clickedUrl = data.original_url || data.url || '';
   const bounceReason = data.reason || data.reject_reason || '';
+
+  if (type === 'click' && clickedUrl) {
+    await recordJobEmailRankingClick(db, {
+      provider: 'maileroo',
+      messageId,
+      email,
+      occurredAt,
+      url: clickedUrl,
+    });
+  }
 
   if (isJobAlert) {
     return persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl, campaignId });

@@ -56,6 +56,16 @@ import {
 } from './lib/jobAlertCadence.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
+import {
+  appendJobRankingParams,
+  assignJobRankingVariant,
+  buildEmbeddedRankingUpdate,
+  buildJobEmailDeliveryId,
+  rankEmailJobs,
+  readJobEmailRankingConfig,
+  stableJobId,
+} from '../functions/src/lib/jobEmailRanking.js';
+import { recordJobEmailImpressions } from '../functions/src/lib/jobEmailRankingStore.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
@@ -82,6 +92,10 @@ const DRY_RUN = process.argv.includes('--dry-run');
 // (median 240 min, max 590 for the `33 0 * * *` slot) cannot push a run across
 // midnight into a different answer than the one the operator saw.
 const TODAY_ISO = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
+const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
+const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
+  || process.env.RUN_ID
+  || `${TODAY_ISO}_${process.pid}_${Date.now()}`;
 // Candidate-pool gate: jobs whose crawledAt (or postedDate fallback) falls
 // inside this window. NOTE: crawledAt refreshes on every re-crawl, so this is
 // an "inventory still listed as of the last day" gate, NOT a "new jobs" gate —
@@ -647,6 +661,15 @@ function behaviorSignals(personalization) {
 // in main() builds a per-alert profile (alert config + source-job intent +
 // newsletter_subscribers profile) and scores every recent job against it.
 
+function embeddedAlertRankingStats(alert) {
+  const stats = new Map();
+  for (const entry of Object.values(alert?.ranking_stats || {})) {
+    const jobId = String(entry?.job_id || '');
+    if (jobId) stats.set(jobId, entry);
+  }
+  return stats;
+}
+
 // ── Email template ───────────────────────────────────────────
 
 // Mirrors the confidence bar used by the upstream needsRetranslation gate
@@ -683,7 +706,7 @@ function selectHeadlineIndex(shownJobs, locale) {
   return 0;
 }
 
-function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
+function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingContext = null) {
   const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
   const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
@@ -720,6 +743,14 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
   const headlineIdx = selectHeadlineIndex(shownJobs, locale);
   if (headlineIdx > 0) {
     [shownJobs[0], shownJobs[headlineIdx]] = [shownJobs[headlineIdx], shownJobs[0]];
+  }
+  // The visible card order is the source of truth for the impression position.
+  // Mutating the per-email clones also lets the post-send manifest use the same
+  // positions after the headline-language backstop swaps two cards.
+  if (rankingContext) {
+    shownJobs.forEach((job, index) => {
+      if (job?.ranking) job.ranking = { ...job.ranking, position: index + 1 };
+    });
   }
 
   // Subject: lead with the most relevant job (LinkedIn-style personalization).
@@ -882,7 +913,22 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true) {
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
     const jobUrl = jobPageUrl(job, locale);
-    const rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
+    let rawJobUrl = jobUrl ? `${jobUrl}?${utmBase}` : BASE_URL;
+    if (rankingContext && jobUrl) {
+      rawJobUrl = appendJobRankingParams(rawJobUrl, {
+        jobId: stableJobId(job),
+        surface: 'job_alert',
+        surfaceId: alert.id,
+        deliveryId: rankingContext.deliveryId,
+        position: i + 1,
+        variant: rankingContext.variant,
+        alertId: alert.id,
+        rankingScore: job.ranking?.rankingScore,
+        relevanceScore: job.ranking?.relevanceScore,
+        ctrShrink: job.ranking?.ctrShrink,
+        randomBoost: job.ranking?.randomBoost,
+      });
+    }
     const url = wrapJobUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const avatar = resolveAvatarSrc(job);
@@ -1124,7 +1170,7 @@ export async function mailerooMetaOnSent(item, sendResult) {
 
 // Job-alert delivery record (#3798 report accuracy): mirrors send-newsletter.mjs's
 // persistDelivery, but keyed by alertId instead of campaignId — writes under
-// job_alert_subscribers/{email}/campaign_deliveries/{buildDeliveryDocId(alertId,
+// job_alert_subscribers/{email}/campaign_deliveries/{buildDeliveryDocId(deliveryId,
 // email)} so scripts/report-send-hour-impact.mjs's collectionGroup('campaign_deliveries')
 // query (previously job-alert-blind — job alerts only wrote alert_deliveries, a
 // differently-named/shaped subcollection) sees per-user send-time outcomes for
@@ -1136,11 +1182,15 @@ async function persistJobAlertDelivery(item, sendResult) {
   if (!email || !alertId) return;
   try {
     const db = await getFirestoreAdmin();
-    const deliveryDocId = buildDeliveryDocId(alertId, email);
+    const rankingDeliveryId = item.meta?.rankingDeliveryId || null;
+    const deliveryDocId = buildDeliveryDocId(rankingDeliveryId || alertId, email);
     await db.collection('job_alert_subscribers').doc(email)
       .collection('campaign_deliveries').doc(deliveryDocId).set({
       email,
       campaign_id: alertId,
+      ranking_delivery_id: rankingDeliveryId,
+      ranking_variant: item.meta?.rankingVariant || null,
+      ranking_jobs: item.meta?.rankingJobs || [],
       message_id: sendResult?.messageId || null,
       provider: sendResult?.provider || null,
       // Per-user send-time (#3798): scheduledFor is the cascade's authoritative
@@ -1187,6 +1237,8 @@ async function sendBatch(emails) {
         tags: [
           { name: 'type', value: 'job-alert' },
           { name: 'alert_id', value: e.alertId },
+          { name: 'ranking_delivery_id', value: e.rankingDeliveryId || '' },
+          { name: 'ranking_variant', value: e.rankingVariant || 'control' },
         ],
         headers: { ...feedbackHeader, ...unsubHeaders },
         // Per-user send-time (#3798) — resolved per-recipient in main() above
@@ -1199,6 +1251,9 @@ async function sendBatch(emails) {
       meta: {
         type: 'job-alert',
         alertId: e.alertId,
+        rankingDeliveryId: e.rankingDeliveryId || null,
+        rankingVariant: e.rankingVariant || 'control',
+        rankingJobs: e.sentJobs || [],
         sendTimeSource: e.sendTimeSource || null,
         // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
         // an operator verification run (parallel send-newsletter.mjs's mode==='test')
@@ -1267,6 +1322,9 @@ async function enqueueFailedEmails(db, failedItems) {
         email: item.recipient.email,
         subject: item.payload?.subject || '',
         html: item.payload?.html || '',
+        rankingDeliveryId: item.meta?.rankingDeliveryId || null,
+        rankingVariant: item.meta?.rankingVariant || null,
+        rankingJobs: item.meta?.rankingJobs || [],
         createdAt: FieldValue.serverTimestamp(),
         retryCount: 0,
         error: (item.error || '').slice(0, 500),
@@ -1316,7 +1374,13 @@ async function processRetryQueue(db) {
         tags: [{ name: 'type', value: 'job-alert-retry' }],
       },
       recipient: { email: data.email },
-      meta: { type: 'job-alert-retry', alertId: data.alertId },
+      meta: {
+        type: 'job-alert-retry',
+        alertId: data.alertId,
+        rankingDeliveryId: data.rankingDeliveryId || null,
+        rankingVariant: data.rankingVariant || 'control',
+        rankingJobs: data.rankingJobs || [],
+      },
     });
     retryDocs.push({ ref: doc.ref, data });
   }
@@ -1335,6 +1399,40 @@ async function processRetryQueue(db) {
     onSent: onSentComposed,
   });
   logProviderSummary();
+
+  const retryRankingRecords = result.sent
+    .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
+    .map((item) => ({
+      deliveryId: item.meta.rankingDeliveryId,
+      surface: 'job_alert',
+      surfaceId: item.meta.alertId,
+      alertId: item.meta.alertId,
+      email: item.recipient?.email,
+      variant: item.meta.rankingVariant || 'control',
+      jobs: item.meta.rankingJobs,
+      sentAt: new Date(),
+    }));
+  if (retryRankingRecords.length > 0) {
+    try {
+      await recordJobEmailImpressions(db, retryRankingRecords);
+      for (const record of retryRankingRecords) {
+        const alertRef = db.collection('job_alert_subscribers').doc(String(record.email).toLowerCase())
+          .collection('alerts').doc(String(record.alertId));
+        const update = {};
+        for (const [index, job] of record.jobs.entries()) {
+          Object.assign(update, buildEmbeddedRankingUpdate({
+            jobId: stableJobId(job),
+            position: job?.ranking?.position || index + 1,
+            variant: record.variant,
+            FieldValue,
+          }));
+        }
+        if (Object.keys(update).length > 0) await alertRef.set(update, { merge: true });
+      }
+    } catch (error) {
+      console.warn('⚠️ Retry ranking impression persist failed:', error?.message || error);
+    }
+  }
 
   // Build a set of successfully sent recipient emails for lookup
   const sentEmails = new Set(result.sent.map(s => s.recipient?.email));
@@ -1824,7 +1922,10 @@ async function main() {
     const sorted = eligibleJobs
       .map((job) => {
         const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale));
-        return { job, score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0 };
+        return {
+          job: relevance > 0 ? { ...job, relevanceScore: relevance } : job,
+          score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0,
+        };
       })
       .filter((m) => m.score > 0)
       .sort((a, b) => {
@@ -1899,13 +2000,42 @@ async function main() {
     }
 
     totalMatches += liveMatched.length;
+    const rankingVariant = assignJobRankingVariant({
+      subjectId: alert.email,
+      surface: 'job_alert',
+      campaignId: TODAY_ISO,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
+    const rankingDeliveryId = buildJobEmailDeliveryId({
+      surface: 'job_alert',
+      surfaceId: alert.id,
+      recipientId: alert.email,
+      campaignId: TODAY_ISO,
+      runId: JOB_EMAIL_RANKING_RUN_ID,
+    });
+    const rankedForEmail = rankEmailJobs(liveMatched, {
+      statsByJob: embeddedAlertRankingStats(alert),
+      variant: rankingVariant,
+      surface: 'job_alert',
+      surfaceId: alert.id,
+      campaignId: TODAY_ISO,
+      randomSeed: alert.email,
+      limit: MAX_JOB_CARDS,
+      config: JOB_EMAIL_RANKING_CONFIG,
+      nowMs: now,
+    });
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
-    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(alert, liveMatched, autologinEnabled);
+    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(
+      alert,
+      rankedForEmail,
+      autologinEnabled,
+      { deliveryId: rankingDeliveryId, variant: rankingVariant },
+    );
 
     // Mark the jobs actually shown (the rendered cards) as sent so they rotate
     // out next run. buildAlertEmail renders up to MAX_JOB_CARDS cards.
     // References, not copies — cheap to carry to the post-send persistence step.
-    const sentJobs = liveMatched.slice(0, MAX_JOB_CARDS);
+    const sentJobs = rankedForEmail.slice(0, MAX_JOB_CARDS);
 
     // Per-user send-time (#3798): this channel's own preferred hour first
     // (job_alert_subscribers/{email}), falling back to the subscriber's
@@ -1949,6 +2079,8 @@ async function main() {
       matchCount: matched.length,
       sentMap,
       sentJobs,
+      rankingDeliveryId,
+      rankingVariant,
       unsubscribeUrl,
       scheduledAt,
       sendTimeSource,
@@ -2055,6 +2187,32 @@ async function main() {
         .filter((email) => !failedEmailSet.has(email)),
     )];
 
+    // Impression tracking is deliberately written only after the provider
+    // confirms the send. TARGET_EMAIL/ALLOWED_EMAILS is an operator QA run and
+    // must not enter the production CTR denominator.
+    const rankingRecords = ALLOWED_EMAILS
+      ? []
+      : emailsToSend
+        .filter((email) => !failedEmailSet.has(email.to.toLowerCase()))
+        .filter((email) => email.rankingDeliveryId && email.sentJobs?.length)
+        .map((email) => ({
+          deliveryId: email.rankingDeliveryId,
+          surface: 'job_alert',
+          surfaceId: email.alertId,
+          alertId: email.alertId,
+          email: email.to,
+          variant: email.rankingVariant || 'control',
+          jobs: email.sentJobs,
+          sentAt: new Date(),
+        }));
+    if (rankingRecords.length > 0) {
+      try {
+        await recordJobEmailImpressions(db, rankingRecords);
+      } catch (error) {
+        console.warn('⚠️ Job-alert ranking impression persist failed:', error?.message || error);
+      }
+    }
+
     // 5a-bis. Advance the per-recipient cadence state (#5705).
     //
     // ISO strings, not serverTimestamp(): the engine is a pure function of the
@@ -2102,6 +2260,17 @@ async function main() {
         sentAtIso: cadenceSentAtIso,
       });
       if (decay) decayedNow++;
+      const rankingUpdate = {};
+      if (!failedEmailSet.has(key) && !ALLOWED_EMAILS) {
+        for (const [index, job] of (email.sentJobs || []).entries()) {
+          Object.assign(rankingUpdate, buildEmbeddedRankingUpdate({
+            jobId: stableJobId(job),
+            position: job?.ranking?.position || index + 1,
+            variant: email.rankingVariant || 'control',
+            FieldValue,
+          }));
+        }
+      }
       batch.update(email.ref, {
         lastMatchedAt: FieldValue.serverTimestamp(),
         matchCount: FieldValue.increment(email.matchCount),
@@ -2115,6 +2284,7 @@ async function main() {
         // Persist the merged sent-job map (pruned to the dedup window + capped)
         // so the next run excludes these jobs and surfaces fresh ones.
         sentJobIds: mergeSentJobs(email.sentMap, email.sentJobs, now, DEDUP_WINDOW_MS),
+        ...rankingUpdate,
         ...(decay || {}),
       });
     });

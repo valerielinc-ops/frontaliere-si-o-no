@@ -805,6 +805,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     decayedViews: entry.decayedViews,
     date: entry.date,
   }));
+  const relevanceByJob = new Map(scored.map((entry) => [entry.job, entry.relevance]));
   const companyKey = (job) => (job.companyKey || job.company || '').toLowerCase();
 
   let ordered;
@@ -874,6 +875,11 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       rawContract: job.contract || '',
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
+      // Keep the matcher score with the normalized card so downstream email
+      // ranking can combine CTR without reconstructing subscriber signals.
+      // A floor of 1 preserves the existing popularity/freshness behavior for
+      // subscribers without a keyword profile or with a sparse match.
+      relevanceScore: Math.max(1, Number(relevanceByJob.get(job) || 0)),
     };
   });
 }

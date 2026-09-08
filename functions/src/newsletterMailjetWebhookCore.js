@@ -6,6 +6,7 @@ import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, m
 import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
+import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
 
 /**
  * Mailjet webhook handler — receives delivery events and stores them in Firestore.
@@ -81,6 +82,16 @@ export async function persistMailjetEvent(db, eventData) {
  const timestamp = eventData.time
  ? new Date(eventData.time * 1000).toISOString()
  : new Date().toISOString();
+
+ if (type === 'click' && eventData.url) {
+ await recordJobEmailRankingClick(db, {
+ provider: 'mailjet',
+ messageId,
+ email,
+ occurredAt: timestamp,
+ url: eventData.url,
+ });
+ }
 
  // Route job-alert events to job_alert_subscribers/{email}
  const customId = eventData.CustomID || eventData.custom_id || '';

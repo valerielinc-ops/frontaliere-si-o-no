@@ -18,6 +18,7 @@ export { nlNormLocale, directUrl, localizedUrl };
 // Data-controller identity for the footer (#5675) — see that file's header
 // for why the canonical home is functions/src/lib/, not services/.
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { appendJobRankingParams, stableJobId } from '../functions/src/lib/jobEmailRanking.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -494,7 +495,7 @@ function renderDivider() {
   return `<tr><td class="section-pad" style="padding:12px 28px;"><div style="border-top:1px solid ${BORDER_COLOR};"></div></td></tr>`;
 }
 
-function renderJobs(matchedJobs, locale, totalJobs) {
+function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
   if (!matchedJobs || matchedJobs.length === 0) return '';
   const jobCount = totalJobs || matchedJobs.length;
   const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
@@ -508,10 +509,26 @@ function renderJobs(matchedJobs, locale, totalJobs) {
     if (i === 0 && !job.alertMatch) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
     if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
+    let jobUrl = directUrl(job.url);
+    if (rankingContext && jobUrl) {
+      jobUrl = appendJobRankingParams(jobUrl, {
+        jobId: stableJobId(job),
+        surface: 'newsletter',
+        surfaceId: rankingContext.surfaceId || 'newsletter_weekly',
+        deliveryId: rankingContext.deliveryId,
+        position: i + 1,
+        variant: rankingContext.variant,
+        newsletterId: rankingContext.newsletterId,
+        rankingScore: job.ranking?.rankingScore,
+        relevanceScore: job.ranking?.relevanceScore,
+        ctrShrink: job.ranking?.ctrShrink,
+        randomBoost: job.ranking?.randomBoost,
+      });
+    }
 
     return `
       <tr><td style="padding:0 0 10px;">
-        <a target="_blank" rel="noopener noreferrer" href="${directUrl(job.url)}" style="text-decoration:none;display:block;">
+        <a target="_blank" rel="noopener noreferrer" href="${jobUrl}" style="text-decoration:none;display:block;">
           <table width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND_DARK};border-radius:12px;">
             <tr>
               <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
@@ -707,6 +724,10 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  * @param {string}  [data.interest]      — acquisition segment ('jobs'|'utility'|'articles'|'general') for the recommended block
  * @param {string}  [data.acquisitionSource] — signup surface, forwarded as `as` tracking on the recommended link
  * @param {string}  [data.recommendationCampaign] — utm_campaign for the recommended block (defaults to 'recommended')
+ * @param {string}  [data.rankingDeliveryId] — per-send job-ranking manifest id
+ * @param {string}  [data.rankingVariant] — control/treatment assignment
+ * @param {string}  [data.rankingSurfaceId] — aggregate surface id
+ * @param {string}  [data.newsletterId] — campaign id used by click attribution
  * @param {string}  [data.unsubscribeUrl]
  * @param {string}  [data.resubscribeUrl]
  * @param {string}  [data.preheaderText]
@@ -745,7 +766,12 @@ export function buildNewsletter(data) {
       <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
       <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
     </td></tr>`;
-    html += renderJobs(data.matchedJobs, locale, totalJobs);
+    html += renderJobs(data.matchedJobs, locale, totalJobs, data.rankingDeliveryId ? {
+      deliveryId: data.rankingDeliveryId,
+      variant: data.rankingVariant || 'control',
+      surfaceId: data.rankingSurfaceId || 'newsletter_weekly',
+      newsletterId: data.newsletterId || data.recommendationCampaign || null,
+    } : null);
   }
 
   // 7. Quote (from weekly fact or default)

@@ -1,0 +1,100 @@
+import { describe, expect, it } from 'vitest';
+import { appendJobRankingParams } from '../functions/src/lib/jobEmailRanking.js';
+import {
+  recordJobEmailImpressions,
+  recordJobEmailRankingClick,
+} from '../functions/src/lib/jobEmailRankingStore.js';
+
+function fakeDb() {
+  const values = new Map<string, any>();
+  const ref = (path: string): any => ({
+    path,
+    collection: (name: string) => ({ doc: (id: string) => ref(`${path}/${name}/${id}`) }),
+  });
+  const db: any = {
+    collection: (name: string) => ({ doc: (id: string) => ref(`${name}/${id}`) }),
+    batch: () => ({
+      set: (documentRef: any, data: any) => values.set(documentRef.path, data),
+      commit: async () => {},
+    }),
+    runTransaction: async (callback: (tx: any) => Promise<void>) => callback({
+      get: async (documentRef: any) => ({ exists: values.has(documentRef.path) }),
+      create: (documentRef: any, data: any) => values.set(documentRef.path, data),
+      set: (documentRef: any, data: any) => values.set(documentRef.path, data),
+    }),
+  };
+  return { db, values };
+}
+
+describe('job email ranking Firestore store', () => {
+  it('records a click once even when the provider retries the webhook', async () => {
+    const { db, values } = fakeDb();
+    const url = appendJobRankingParams('https://frontaliereticino.ch/cerca-lavoro-ticino/job-one/', {
+      jobId: 'job-one',
+      surface: 'job_alert',
+      surfaceId: 'alert-1',
+      alertId: 'alert-1',
+      deliveryId: 'jer_job_alert_1',
+      position: 1,
+      variant: 'treatment',
+    });
+    const first = await recordJobEmailRankingClick(db, {
+      email: 'person@example.com',
+      provider: 'resend',
+      messageId: 'message-1',
+      occurredAt: '2026-09-08T10:00:00.000Z',
+      url,
+    });
+    const second = await recordJobEmailRankingClick(db, {
+      email: 'person@example.com',
+      provider: 'resend',
+      messageId: 'message-1',
+      occurredAt: '2026-09-08T10:00:01.000Z',
+      url,
+    });
+
+    expect(first.recorded).toBe(true);
+    expect(second.recorded).toBe(false);
+    expect([...values.values()].some((value) => value.event_type === 'job_alert_click')).toBe(true);
+    const stats = [...values.values()].find((value) => value.clicks);
+    expect(stats).toBeTruthy();
+    expect(stats.surface).toBe('job_alert');
+    expect(stats.clicks).toHaveProperty('operand', 1);
+  });
+
+  it('stores the full ranking manifest and impression attribution fields', async () => {
+    const { db, values } = fakeDb();
+    await recordJobEmailImpressions(db, [{
+      deliveryId: 'jer_newsletter_2',
+      surface: 'newsletter',
+      surfaceId: 'newsletter_weekly',
+      newsletterId: 'weekly_2026-09-08',
+      email: 'person@example.com',
+      variant: 'treatment',
+      sentAt: '2026-09-08T10:00:00.000Z',
+      jobs: [{
+        jobId: 'job-one',
+        ranking: {
+          position: 2,
+          rankingScore: 0.81,
+          relevanceScore: 8,
+          ctrShrink: 0.11,
+          randomBoost: 0.4,
+        },
+      }],
+    }]);
+
+    const impression = [...values.values()].find((value) => value.event_type === 'newsletter_job_impression');
+    expect(impression).toMatchObject({
+      job_id: 'job-one',
+      position: 2,
+      ranking_variant: 'treatment',
+      ranking_score: 0.81,
+      relevance_score: 8,
+      ctr_shrink: 0.11,
+      random_boost: 0.4,
+    });
+    expect(impression.user_id).toHaveLength(32);
+    expect(impression).not.toHaveProperty('email');
+  });
+});
