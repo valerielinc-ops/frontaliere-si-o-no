@@ -6052,6 +6052,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'Tarifs américains sur la Suisse : 12,5 % et accord optimisé juillet-août 2026',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Le 24 juillet 2026, les États-Unis imposeront des tarifs allant jusqu\'à 12,5 % sur les importations suisses. Négociations sur l\'accord de libre-échange conclues le 20 août : impact sur les exportations et la compétitivité.',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Siège du Secrétariat d\'État à l\'économie (SECO) à Berne, le centre névralgique de la politique économique nationale suisse.',
+    'blog.article.franco-chfd-test-aziende-2026.title': 'Franc numérique CHFD : les tests avec 9 entreprises démarrent',
+    'blog.article.franco-chfd-test-aziende-2026.excerpt': 'Le franc numérique CHFD est en phase de test pratique avec 9 entreprises jusqu\'à fin 2026. Les applications examinées vont des paiements automatisés à la gestion d\'actifs numériques sur blockchain.',
+    'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Visualisation du franc suisse numérique CHFD et de la technologie blockchain dans les tests de paiement',
 };
 
 export default blogMetaChFr;

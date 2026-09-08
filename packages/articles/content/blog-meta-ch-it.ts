@@ -6052,6 +6052,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'Dazi USA verso Svizzera: 12,5% e accordo ottimizzato luglio-agosto 2026',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Il 24 luglio 2026 gli USA applicano dazi fino al 12,5% su importazioni svizzere. Il 20 agosto conclusi negoziati sull\'accordo di libero scambio: impatto su esportazioni e competitività.',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Sede della Segreteria di Stato dell\'Economia (SECO) a Berna, centro nevralgico della politica economica nazionale svizzera.',
+    'blog.article.franco-chfd-test-aziende-2026.title': 'Franco digitale CHFD: al via i test con 9 aziende',
+    'blog.article.franco-chfd-test-aziende-2026.excerpt': 'Il franco digitale CHFD è in fase di test pratico con 9 aziende fino a fine 2026. Le applicazioni esaminate spaziano dai pagamenti automatici alla gestione di asset digitali su blockchain.',
+    'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Visualizzazione del franco digitale CHFD e della tecnologia blockchain nei test di pagamento',
 };
 
 export default blogMetaChIt;

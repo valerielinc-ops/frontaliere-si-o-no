@@ -78566,6 +78566,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-chfd-test-aziende-2026': {
+    title: 'Franco digitale CHFD: al via i test con 9 aziende',
+    description: 'Il franco digitale CHFD è in test con 9 aziende svizzere fino a fine 2026. Scopri come funziona lo stablecoin su blockchain e le applicazioni esaminate.',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, digitale, chfd, test',
+    ogTitle: 'Franco digitale CHFD: al via i test con 9 aziende',
+    ogDescription: 'Il franco digitale CHFD è operativo dal giugno 2026. Nove aziende fra UBS, PostFinance, SIX e Twint lo testano su blockchain per pagamenti, asset digitali e transazioni programmate. Lancio commerciale da decidere a fine 2026.',
+    canonicalPath: '/articoli-svizzera/franco-chfd-test-aziende-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco digitale CHFD: al via i test con 9 aziende",
+      "description": "Il franco digitale CHFD è in test con 9 aziende svizzere fino a fine 2026. Scopri come funziona lo stablecoin su blockchain e le applicazioni esaminate.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-chfd-test-aziende-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visualizzazione del franco digitale CHFD e della tecnologia blockchain nei test di pagamento"
+      },
+      "datePublished": "2026-09-08T07:44:11+00:00",
+      "dateModified": "2026-09-08T07:44:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-chfd-test-aziende-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

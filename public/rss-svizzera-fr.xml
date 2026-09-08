@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 08 Sep 2026 07:27:12 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 07:44:11 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,73 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Franc numérique CHFD : les tests avec 9 entreprises démarrent</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/chfd-franc-numerique-test-entreprises-2026/</link>
+      <description><![CDATA[Le franc numérique CHFD est en phase de test pratique avec 9 entreprises jusqu'à fin 2026. Les applications examinées vont des paiements automatisés à la gestion d'actifs numériques sur blockchain.]]></description>
+      <content:encoded><![CDATA[## En bref
+- CHFD est un stablecoin qui vaut exactement 1 franc CHF
+- Test pratique avec 9 entreprises jusqu'à fin 2026 dans un environnement protégé
+- Transactions sur la blockchain; paiements et actifs numériques en examen
+
+## Faits clés
+- **Quoi**: Franc numérique CHFD (stablecoin ancré au CHF)
+- Quand: Opérationnel depuis fin juin 2026, test jusqu'à fin 2026
+- Où: Projet coordonné au niveau national suisse
+- Qui: 9 entreprises parmi UBS, PostFinance, SIX, Twint, Sygnum, Raiffeisen, ZKB, BCV, Swiss Stablecoin AG
+- Rapport: 1 CHFD = 1 CHF
+- Technologie: Blockchain pour les transactions vérifiées
+
+Neuf entreprises suisses ont lancé les tests pratiques du franc numérique (CHFD) sous la forme d'un stablecoin, un instrument innovant annoncé en avril dernier. Le projet implique de grandes banques comme UBS et PostFinance, des instituts régionaux (Sygnum, Raiffeisen, Zürcher Kantonalbank, BCV), la plateforme Swiss Stablecoin AG, la société de gestion de la bourse SIX et l'application de paiement Twint. Cet ensemble représentatif du système financier suisse travaille en parallèle pour définir les applications concrètes d'une monnaie numérique nationale.
+
+Le CHFD est techniquement opérationnel depuis fin juin et est ancré au franc suisse avec un rapport de un à un: un CHFD correspond à un franc CHF. Les transactions se font via la blockchain, un registre numérique dans lequel les opérations sont enregistrées et vérifiées conjointement par plusieurs ordinateurs, garantissant la transparence et la sécurité. L'expérimentation se poursuivra jusqu'à la fin de 2026 dans un environnement numérique protégé — aucun citoyen ou entreprise en dehors des neuf participants ne peut y accéder ou la tester directement à ce stade.
+
+### Quelles applications sont en examen?
+
+Les tests portent sur des domaines concrets du système financier et des paiements suisses. Parmi les utilisations examinées figurent les paiements automatiques entre institutions financières (fondamentaux pour l'efficacité du règlement bancaire) et la gestion des actifs numériques (titres, contrats, biens numériques). Les participants entendent également vérifier si les paiements programmables — transactions qui s'exécutent automatiquement quand certaines conditions sont remplies — pourraient entraver les fraudes sur les marchés en ligne, favoriser une vente plus équitable des billets pour événements ou être utilisés pour les paiements des autorités publiques (par exemple, versements d'impôts, taxes communales). Découvrez comment gérer au mieux votre [déclaration des impôts](nav:tax-return) en Suisse.
+
+Cette approche pragmatique reflète l'intérêt suisse de tester la monnaie numérique dans des scénarios réels du système financier avant toute décision sur un lancement au grand public.
+### Comment fonctionne le CHFD et pourquoi la Suisse l'expérimente-t-elle ?
+
+Le franc numérique représente une évolution technologique de la monnaie suisse. Contrairement aux cryptomonnaies volatiles (Bitcoin, Ethereum), une stablecoin est ancrée à une valeur fixe — en l'occurrence le franc CHF. Cela assure la stabilité et permet de l'utiliser dans des contextes où la volatilité poserait un problème : paiements récurrents entre entreprises, transactions commerciales récurrentes, versements à des organismes publics, liquidation de contrats commerciaux.
+
+La Suisse a choisi d'expérimenter le CHFD avec neuf acteurs financiers et technologiques — un échantillon représentatif du système financier national allant de la grande banque aux services de paiement innovants. La blockchain permet des transactions vérifiées, transparentes et potentiellement plus rapides par rapport aux systèmes traditionnels de liquidation centralisée actuellement utilisés (comme SIC ou Swiss Interbank Clearing). Chaque opération reste enregistrée et vérifiable, réduisant les risques de fraude et augmentant l'efficacité.
+
+### Quels avantages concrets pour le système financier suisse ?
+
+Pour les [banques suisses](nav:banks) et les services de paiement, le CHFD ouvre des scénarios concrets. Les paiements automatiques entre institutions financières pourraient réduire considérablement les délais de liquidation actuels, accélérant les flux de trésorerie pour les entreprises. La gestion d'actifs numériques pourrait faciliter la négociation de titres, d'obligations et de contrats intelligents (smart contracts) de manière plus rapide et transparente, sans intermédiaires papier.
+
+Les paiements programmables méritent une attention particulière. Une transaction programmable permettrait : exécution automatique quand une condition est vérifiée (par exemple : «paye CHF 50 quand tu reçois la confirmation de livraison») — réduisant le risque de fraude dans les ventes en ligne ; accès plus équitable aux ressources limitées, avec les billets pour concerts ou événements vendus de manière équitable via des algorithmes transparents plutôt que via «click race» manuel, garantissant des opportunités égales pour tous ; automatisation des paiements publics avec versements d'impôts communaux, taxes de concession et tributs cantonaux qui pourraient s'exécuter de manière transparente et vérifiable, réduisant les délais administratifs actuellement encore partiellement manuels ou sur papier.
+
+Jusqu'à présent, le projet est limité à un environnement protégé contrôlé. Aucune décision publique n'a été prise sur le lancement commercial au grand public ; avant cela, les aspects techniques (scalabilité, latence), opérationnels (intégrabilité avec les systèmes existants) et réglementaires (réglementations SNB, FINMA, protection des données) devront être clarifiés avec l'intervention des autorités fédérales et cantonales.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+### Quand le franc numérique arrivera-t-il sur le marché suisse ?
+
+La date d'un éventuel lancement commercial reste encore incertaine. Le test se poursuit jusqu'à la fin 2026. Une fois la phase expérimentale terminée, les autorités fédérales, la BNS et les participants devront : résoudre les questions techniques résiduelles (scalabilité de la blockchain, latence des transactions, protocoles de sécurité) ; définir le cadre normatif et réglementaire (comment le CHFD s'intègre avec les lois suisses sur la monnaie, la lutte contre le blanchiment de capitaux, la protection des données et la stabilité financière) ; évaluer l'impact sur la politique monétaire nationale et la stabilité du système financier suisse ; vérifier la compatibilité avec les systèmes de paiement et de règlement existants (SIC, SWIFT, cartes de débit/crédit, applications bancaires).
+
+Ce n'est qu'alors que le Conseil fédéral, le Parlement ou les autorités de surveillance décideront formellement si le CHFD sera disponible pour les entreprises et le grand public suisse.
+
+### Que s'attendre jusqu'à fin 2026 ?
+
+Jusqu'à fin 2026, les développements concerneront principalement le secteur financier et les autorités de régulation. Les citoyens suisses ne pourront pas utiliser le CHFD pendant le test — il est réservé aux 9 entreprises participantes dans un environnement protégé — mais pourront suivre les progrès par le biais de communiqués officiels de la BNS, de la FINMA, des médias économiques nationaux et des banques participantes.
+
+### Le positionnement de la Suisse dans l'innovation monétaire mondiale
+
+L'expérimentation du franc numérique positionne la Suisse à l'avant-garde de l'innovation monétaire mondiale. Des pays comme la Suède (avec l'e-krona), la zone euro (avec l'euro numérique) et la Chine (avec le yuan numérique) testent ou préparent des monnaies numériques de banque centrale. La Suisse, avec son système financier réputé stable, neutre et technologiquement avancé, ne reste pas à la traîne dans cette transformation mondiale.
+
+L'issue de cette expérimentation pourrait influencer de manière significative les stratégies monétaires, de paiement et d'innovation financière de la Suisse au cours des prochaines années. Si le CHFD devait recevoir l'approbation des autorités, il pourrait représenter un changement structurel dans la façon dont les Suisses, les entreprises et les administrations publiques paient, transfèrent l'argent et interagissent avec le système financier national.
+
+Pour rester informé des développements du franc numérique et de la façon dont cela pourrait affecter vos outils de paiement et la gestion de vos épargnes personnelles, suivez les communiqués officiels de la BNS et de la FINMA. Découvrez comment mieux gérer vos investissements et votre planification financière avec [notre calculatrice financière](nav:calculator).
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1948672/franco-chfd-test-aziende-nove)*]]></content:encoded>
+      <pubDate>Tue, 08 Sep 2026 07:44:11 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/franco-chfd-test-aziende-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/franco-chfd-test-aziende-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Tarifs américains sur la Suisse : 12,5 % et accord optimisé juillet-août 2026</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/tarifs-usa-2026-accord-libre-echange/</link>
@@ -3055,66 +3122,6 @@ Découvrez les [offres d'emploi au Tessin](nav:jobs) mises à jour quotidienneme
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/action-negozio-20esimo-schattdorf</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/action-negozio-20esimo-schattdorf.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Zurich renouvelle avec HCL : Gold Sponsor jusqu&apos;en 2030</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/zurich-renouvelle-avec-hcl-gold-sponsor-jusqu-en-2030/</link>
-      <description><![CDATA[Zurich Assurances a renouvelé son partenariat avec le Hockey Club Lugano jusqu'en 2030, confirmant ainsi son statut de Gold Sponsor.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Zurich renouvelle avec le HCL jusqu'en 2030
-- Partenariat de valeur enraciné dans le territoire tessinois
-- Zurich Assurances est Gold Sponsor du HCL
-
-## Faits marquants
-- **Quoi**: Renouvellement du sponsoring
-- Quand: Jusqu'à la fin de la saison 2029/2030
-- Où: Lugano
-- Qui: Zurich Assurances et Hockey Club Lugano
-- Montant: Non spécifié
-
-Zurich renouvelle avec le HCL: Gold Sponsor jusqu'en 2030
-
-LUGANO - Renouvellement de taille dans le secteur du sponsoring pour le Hockey Club Lugano. Le club bianconero a signé avec Zurich Assurances un nouvel accord quadriennal, valable jusqu'à la fin de la saison 2029/2030. Zurich Assurances, partenaire du HCL depuis plus de 20 ans, continuera donc à faire partie de la pyramide des sponsors du HCL dans le prestigieux rôle de Gold Sponsor.
-
-Avec une histoire commencée en 1872, Zurich Assurances est aujourd'hui l'un des principaux groupes d'assurances internationaux, présent dans plus de 200 pays. La solidité d'une grande réalité globale s'unit à un fort enracinement sur le marché suisse et dans notre Canton, où Zurich Assurances accompagne particuliers, entreprises et institutions avec des solutions et des services dédiés à la gestion et à la prévention des risques.
-
-C'est dans le partage de valeurs telles que la fiabilité, l'engagement, l'innovation et l'attention aux personnes que Zurich Assurances et le Hockey Club Lugano trouvent ainsi une signification significative, posant les bases pour une collaboration fondée sur une vision commune du territoire et de la communauté.
-
-Voici les significatives paroles de Samuele Donnini, membre de la direction et actuel responsable de la Région Marché sud de Zurich Suisse: «Célébrer avec le Hockey Club Lugano cet objectif nous rend heureux et témoigne de la solidité, ainsi que de la qualité de notre parcours pluriannuel commun, tant en tant que sponsor qu'en tant que partenaire d'assurance. Pour Zurich, il ne s'agit pas d'un simple sponsoring, mais d'un véritable partenariat de valeur enraciné dans le territoire tessinois».
-
-Tangible est la satisfaction du Président du Conseil d'Administration du Hockey Club Lugano SA Vicky Mantegazza: «Lorsque l'on renouvelle le contrat avec un joueur de grande classe, on cherche toujours à le faire à long terme pour se garantir dans le temps sa qualité. Le renouvellement quadriennal du sponsoring de Zurich Assurances suit le même parcours. S'assurer pour l'avenir la solidité et le prestige d'un Gold Sponsor de valeur absolue. Merci à tous ceux qui ont rendu possible cette étape significative».
-## Implications pratiques
-
-Le partenariat renouvelé entre Zurich Assurances et le Hockey Club Lugano représente un exemple de la façon dont les entreprises peuvent investir dans le territoire, contribuant non seulement à la croissance du sport, mais aussi à la communauté locale. Ce type de collaboration peut avoir un impact positif sur le tissu économique et social du canton du Tessin, en promouvant des valeurs telles que la fiabilité, l’engagement et l’innovation.
-
-## Partage de valeurs
-
-Le partage de valeurs entre Zurich Assurances et le Hockey Club Lugano est fondamental pour la solidité du partenariat. Les deux entités s'engagent à promouvoir la fiabilité, l’engagement, l’innovation et l’attention aux personnes. Cette approche commune permet de construire une collaboration durable et de valeur, qui va au-delà du simple parrainage.
-
-## Vision commune
-
-Zurich Assurances et le Hockey Club Lugano partagent une vision commune du territoire et de la communauté. Cette vision se traduit par des initiatives concrètes visant à améliorer la qualité de vie des résidents et à promouvoir le développement économique et social du canton du Tessin. Le partenariat entre les deux entités est un exemple de la façon dont les entreprises peuvent contribuer activement au bien-être de la communauté.
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-## Actions concrètes
-
-Pour ceux qui vivent ou travaillent en Suisse, le partenariat renouvelé entre Zurich Assurances et le Hockey Club Lugano offre la possibilité de participer à des initiatives qui promeuvent des valeurs importantes telles que la fiabilité, l’engagement et l’innovation. Ce type de collaboration peut avoir un impact positif sur le tissu économique et social du canton du Tessin, en contribuant à la croissance du sport et à la communauté locale.
-
-## Participation à la communauté
-
-Le partenariat entre Zurich Assurances et le Hockey Club Lugano représente un exemple de la façon dont les entreprises peuvent investir dans le territoire, contribuant non seulement à la croissance du sport, mais aussi à la communauté locale. Ce type de collaboration peut avoir un impact positif sur le tissu économique et social du canton du Tessin, en promouvant des valeurs telles que la fiabilité, l’engagement et l’innovation.
-
-## Outils du site
-
-Pour approfondir les implications pratiques de ce partenariat, vous pouvez consulter les [calcolatore stipendio](nav:calculator) et [comparatore CHF/EUR](nav:exchange) disponibles sur le site. Ces outils fournissent des informations utiles pour ceux qui vivent ou travaillent en Suisse, aidant à mieux comprendre la dynamique économique et financière du pays.
-
-*Source: [tio.ch](https://www.tio.ch/sport/hockey/1948451/z-rich-assicurazioni-sponsor-hcl-gold-rinnova)*]]></content:encoded>
-      <pubDate>Mon, 07 Sep 2026 09:33:52 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/zurich-hcl-gold-sponsor-2030</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/zurich-hcl-gold-sponsor-2030.webp" medium="image"/>
     </item>
   </channel>
 </rss>
