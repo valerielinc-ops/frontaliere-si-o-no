@@ -1,30 +1,29 @@
 #!/usr/bin/env node
 /**
- * OK Job SA, succursale di Mendrisio job parser — Fetcher and job builder.
+ * STA Personal AG job parser — Fetcher and job builder.
  *
- * Source: https://www.okjob.ch/offres-demplois/
+ * Source: https://www.sta.jobs/stellen/
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllOkjobJobs()  — Fetch and parse all jobs
- *   - isOkjobJob()         — Match jobs belonging to this company
+ *   - fetchAllStaJobs()  — Fetch and parse all jobs
+ *   - isStaJob()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
-export const OKJOB_KEY = 'okjob';
-export const OKJOB_COMPANY_NAME = 'OK Job SA, succursale di Mendrisio';
-export const OKJOB_COMPANY_DOMAIN = 'okjob.ch';
+export const STA_KEY = 'sta';
+export const STA_COMPANY_NAME = 'STA Personal AG';
+export const STA_COMPANY_DOMAIN = 'sta.jobs';
 
-const CAREER_URL = 'https://www.okjob.ch/offres-demplois/';
+const CAREER_URL = 'https://www.sta.jobs/stellen/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -39,10 +38,10 @@ function normalizeSpace(s = '') {
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
- * Check if a job belongs to OK Job SA, succursale di Mendrisio.
+ * Check if a job belongs to STA Personal AG.
  * Used by the template to filter this company's jobs from the global dataset.
  */
-export function isOkjobJob(job) {
+export function isStaJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -52,20 +51,20 @@ export function isOkjobJob(job) {
   const url = normalize(job?.url || '');
 
   return (
-    key === OKJOB_KEY ||
-    key.startsWith('okjob') ||
-    company.includes('ok job sa, succursale di mendrisio') ||
-    url.includes('okjob.ch')
+    key === STA_KEY ||
+    key.startsWith('sta-') ||
+    company.includes('sta personal ag') ||
+    url.includes('sta.jobs')
   );
 }
 
 /**
- * Validate that a URL belongs to OK Job SA, succursale di Mendrisio's domain.
+ * Validate that a URL belongs to STA Personal AG's domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'okjob.ch' || host.endsWith('.okjob.ch');
+    return host === 'sta.jobs' || host.endsWith('.sta.jobs');
   } catch {
     return false;
   }
@@ -109,75 +108,23 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-
-/**
- * La pagina di dettaglio okjob non pubblica ne' schema.org ne' un campo
- * indirizzo: il comune vive solo nel titolo di pagina, `<Prefisso> <titolo> -
- * <Comune> | Okjob` (`Emploi ... | Okjob` in francese, `Stellenangebote ... |
- * Okjob` in tedesco). Senza questa evidenza il gate geografico scarta ogni
- * riga e il crawler pubblica zero annunci.
- *
- * Il comune resta source-backed — e' il sito stesso a dichiararlo — e il
- * suffisso di marca e' obbligatorio, cosi' il titolo di una pagina qualunque
- * non puo' diventare evidenza. La validita' del comune la decide comunque il
- * resolver svizzero condiviso.
- *
- * @param {string} html
- * @param {string} pageUrl
- */
-export function extractOkjobDetailFields(html = '', pageUrl = '') {
-  const source = String(html || '');
-  const detail = extractDetailFields(source, pageUrl);
-  if (!source || detail.location || detail.locationCandidates?.length) return detail;
-
-  const dom = new JSDOM(source);
-  const { document } = dom.window;
-  try {
-    const branded = normalizeSpace(
-      document.querySelector('meta[property="og:title"]')?.getAttribute('content')
-      || document.querySelector('title')?.textContent
-      || '',
-    );
-    // `<Prefisso> <titolo> - <Comune> | Okjob`: accetta solo il suffisso di
-    // marca del sito, cosi' un titolo qualunque non diventa evidenza.
-    const withoutBrand = /\|\s*okjob\s*$/i.test(branded)
-      ? normalizeSpace(branded.replace(/\|\s*okjob\s*$/i, ''))
-      : '';
-    const separator = withoutBrand.lastIndexOf(' - ');
-    const location = separator === -1 ? '' : normalizeSpace(withoutBrand.slice(separator + 3));
-    if (!location) return detail;
-
-    return {
-      ...detail,
-      location,
-      addressLocality: location,
-      locationCandidates: [{ location, addressLocality: location, addressCountry: '' }],
-    };
-  } finally {
-    dom.window.close();
-  }
-}
-
-async function fetchJobListings(runtime = {}) {
-  const spec = loadSpec(OKJOB_KEY);
-  return runSpecInProduction(spec, {
-    ...runtime,
-    detailExtractor: extractOkjobDetailFields,
-  });
+async function fetchJobListings() {
+  const spec = loadSpec(STA_KEY);
+  return runSpecInProduction(spec);
 }
 
 /**
- * Fetch all OK Job SA, succursale di Mendrisio jobs.
+ * Fetch all STA Personal AG jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllOkjobJobs(runtime = {}) {
-  console.log(`🔍 Fetching OK Job SA, succursale di Mendrisio jobs`);
+export async function fetchAllStaJobs() {
+  console.log(`🔍 Fetching STA Personal AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings(runtime);
+  const listings = await fetchJobListings();
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -186,43 +133,37 @@ export async function fetchAllOkjobJobs(runtime = {}) {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
-  let geoEligible = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
+    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Required structured-data geography must come from the vacancy source.
+    // Missing, foreign or non-specific values are not replaced with an HQ.
+    if (!geography) continue;
+    const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
-
-    // Every non-geographic gate is behind us: title and description are
-    // fully extracted, so only the location can still exclude this listing.
-    // Counting here — and not `listings.length` — is what makes the count
-    // mean what autoFilteredEmpty claims it means (see note below).
-    geoEligible += 1;
-
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    if (!geography) continue;
-    const { location, canton } = geography;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     if (!listing.url) continue;
     const publicUrl = listing.url;
 
-    const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} okjob ch`);
+    const sourceLang = detectLang(descriptionText || title, 'de');
+    const jobSlug = slugify(`${title} ${location} sta ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
       // ── Required fields ──
-      id: `okjob-${urlHash}`,
+      id: `sta-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      company: OKJOB_COMPANY_NAME,
-      companyKey: OKJOB_KEY,
-      companyDomain: OKJOB_COMPANY_DOMAIN,
+      company: STA_COMPANY_NAME,
+      companyKey: STA_KEY,
+      companyDomain: STA_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
@@ -230,15 +171,17 @@ export async function fetchAllOkjobJobs(runtime = {}) {
       location,
       canton,
       url: publicUrl,
-      source: 'OK Job SA, succursale di Mendrisio Dedicated Parser',
+      source: 'STA Personal AG Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
+      // Prospected runtime rows retain the selected structured candidate;
+      // other ATS tiers use the same fields when their client exposes them.
       addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
       addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
+      addressCountry: normalizeSpace(listing.addressCountry || 'CH'),
+      country: normalizeSpace(listing.addressCountry || 'CH'),
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
@@ -257,26 +200,6 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total OK Job SA, succursale di Mendrisio jobs discovered: ${jobs.length}`);
-  // Geo-eligible candidate count (issue #5945, mirrors kudelski-nagra) — lets
-  // the crawler-template pipeline report "found N listings, 0 Swiss after
-  // filtering" as healthy instead of broken (check-crawler-health.mjs
-  // autoFilteredEmpty), which a bare 3-run empty streak cannot distinguish
-  // from a selector break.
-  //
-  // This counts listings that cleared EVERY non-geographic gate, not
-  // `listings.length`. autoFilteredEmpty (`discovered > 0 && written === 0`)
-  // asserts that the location filter alone emptied the run, so a listing
-  // dropped for a missing title/description must NOT be counted here: doing
-  // so would report a crawler whose detail extraction broke as healthy.
-  //
-  // Non-enumerable (repo idiom: ocst, chicco-doro, cippatrasporti, ipersonal):
-  // the crawler-template reader at scripts/lib/crawler-template.mjs reads it
-  // as a plain property, but an enumerable own property would leak into
-  // deep-equality contracts like `resolves.toEqual([])`.
-  Object.defineProperty(jobs, 'discoveredCount', {
-    value: geoEligible,
-    enumerable: false,
-  });
+  console.log(`\n📋 Total STA Personal AG jobs discovered: ${jobs.length}`);
   return jobs;
 }
