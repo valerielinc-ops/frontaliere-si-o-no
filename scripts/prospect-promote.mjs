@@ -31,9 +31,10 @@
  *   node scripts/prospect-promote.mjs --open-pr
  *   node scripts/prospect-promote.mjs --min-days=1 --open-pr   # verifica una tantum
  */
-import fs from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { pathToFileURL } from 'node:url';
 import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
 import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
@@ -62,8 +63,9 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 // il suffisso di `argv[1]`: sotto questo entrypoint il suffisso era solo
 // *probabilmente* diverso, l'identita' e' diversa per costruzione, e il
 // `main()` del drainer — che scrive su issue e PR reali — non puo' partire
-// dentro il job del prospector. Il contrario NON vale — questo file il guard
-// non ce l'ha e un `import()` lo esegue davvero.
+// dentro il job del prospector. Questo file ha ora la stessa guardia di
+// identità: un import lo carica per esporre eventuali helper, ma non entra nel
+// main che apre PR, scrive dati e rigenera workflow.
 //
 // Quell'argomento pero' copre il drainer e basta, non i moduli che si porta
 // dietro (`claude-rate-limit.mjs`, `close-recovered-failure-issues.mjs`,
@@ -78,6 +80,18 @@ import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
 import { canPushWorkflowsAs } from './ci/followup-drainer.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
+// Questo file apre PR, committa e pusha dati di produzione. La guardia deve
+// essere valutata prima del gate e del primo accesso allo store: un import di
+// un helper che nomina questo modulo non deve diventare una promozione.
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+async function main() {
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
@@ -592,4 +606,9 @@ try {
 } catch (err) {
   console.error(`\n❌ apertura PR fallita: ${String(err.stderr || err.message).slice(0, 400)}`);
   process.exit(1);
+}
+}
+
+if (invokedDirectly) {
+  await main();
 }

@@ -21,7 +21,40 @@
  * escalation again, regardless of regex accuracy.
  */
 import { describe, it, expect } from 'vitest';
-import { isEscalationDriver } from '../scripts/ci/harvest-agent-lessons.mjs';
+import { buildEscalationSignals, isEscalationDriver } from '../scripts/ci/harvest-agent-lessons.mjs';
+
+describe('buildEscalationSignals — contratto reporter zero-Claude (#6685)', () => {
+  it('porta bucket, misura, comando dry-run ed esempi senza diagnosi inventata', () => {
+    const signals = buildEscalationSignals({
+      source: 'reviewer-finding',
+      key: 'pr-body-contract',
+      count: 7,
+      examples: [{ pr: 101 }, { issue: 202 }],
+    });
+
+    expect(signals).toMatchObject({
+      cosa: expect.stringContaining('reviewer-finding/pr-body-contract'),
+      metrica: { osservato: 7 },
+      comando: 'node scripts/ci/harvest-agent-lessons.mjs --dry-run',
+    });
+    expect(signals.evidenza).toEqual(expect.arrayContaining([
+      'bucket=reviewer-finding/pr-body-contract',
+      'esempi=#101, #202',
+    ]));
+  });
+
+  it('non mostra placeholder per esempi privi di PR e issue', () => {
+    const signals = buildEscalationSignals({
+      source: 'reviewer-finding',
+      key: 'pr-body-contract',
+      count: 2,
+      examples: [{ pr: 101 }, {}, { issue: 202 }],
+    });
+
+    expect(signals.evidenza).toEqual(expect.arrayContaining(['esempi=#101, #202']));
+    expect(signals.evidenza.join('\n')).not.toContain('#undefined');
+  });
+});
 
 describe('isEscalationDriver — no-root-cause non può più driveare un\'escalation (#4750)', () => {
   it('fix-outcome:no-root-cause → mai driver, indipendentemente dal count', () => {
