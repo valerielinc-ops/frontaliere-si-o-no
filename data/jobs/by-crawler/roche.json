@@ -71501,9 +71501,9 @@
     },
     {
       "id": "roche-3bdda606feae",
-      "slug": "warehouse-operator-despatch-roche-pemulwuy",
+      "slug": "dispersione-dell-operatore-del-magazzino-roche-pemulwuy",
       "slugByLocale": {
-        "it": "warehouse-operator-despatch-roche-pemulwuy",
+        "it": "dispersione-dell-operatore-del-magazzino-roche-pemulwuy",
         "en": "warehouse-operator-despatch-roche-ch",
         "de": "versand-des-lagerbetreibers-roche-pemulwuy",
         "fr": "warehouse-operateur-despatch-roche-pemulwuy"
@@ -71547,12 +71547,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "warehouse-operator-despatch-roche-ch",
-        "dispersione-dell-operatore-del-magazzino-roche-pemulwuy"
+        "warehouse-operator-despatch-roche-pemulwuy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "warehouse-operator-despatch-roche-ch",
-          "dispersione-dell-operatore-del-magazzino-roche-pemulwuy"
+          "warehouse-operator-despatch-roche-pemulwuy"
         ],
         "de": [
           "warehouse-operator-despatch-roche-ch"
@@ -72140,7 +72140,7 @@
         "it": "accesso-e-policy-partner-roche-thailand",
         "en": "access-policy-partner-roche-ch",
         "de": "access-policy-partner-roche-ch",
-        "fr": "access-policy-partner-roche-thailand"
+        "fr": "partenaire-acces-et-politique-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -72181,16 +72181,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "access-policy-partner-roche-ch",
-        "partenaire-acces-et-politique-roche-thailand",
-        "partenaire-acces-politique-roche-thailand"
+        "partenaire-acces-politique-roche-thailand",
+        "access-policy-partner-roche-thailand"
       ],
       "previousSlugsByLocale": {
         "it": [
           "access-policy-partner-roche-ch"
         ],
         "fr": [
-          "partenaire-acces-et-politique-roche-thailand",
-          "partenaire-acces-politique-roche-thailand"
+          "partenaire-acces-politique-roche-thailand",
+          "access-policy-partner-roche-thailand"
         ]
       },
       "needsRetranslation": true,
