@@ -167,6 +167,23 @@ describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#
       expect(merged.map((entry) => entry.callerRunId)).toEqual(['1001', '1002', '1003']);
     } finally { cleanup(h); }
   });
+  it('stages only the explicit ledger path in extra-only mode', () => {
+    const h = initHarness();
+    const ledger = 'data/crawler-generation-ledger.jsonl';
+    try {
+      const base = ledgerEntry('1001');
+      mkdirSync(dirname(join(h.repoDir, ledger)), { recursive: true });
+      writeFileSync(join(h.repoDir, ledger), `${JSON.stringify(base)}\n`);
+      commitAndPush(h.repoDir, 'seed ledger');
+      writeFileSync(join(h.repoDir, ledger), `${JSON.stringify(base)}\n${JSON.stringify(ledgerEntry('1002'))}\n`);
+      writeJson(h.repoDir, SLICE, [job({ previousSlugs: ['sibling-only'] })]);
+
+      runExtraOnlyScript(h, [ledger]);
+
+      expect(readLedgerFromOrigin(h, ledger)).toHaveLength(2);
+      expect(() => execFileSync('git', ['cat-file', '-e', `main:${SLICE}`], { cwd: h.originDir })).toThrow();
+    } finally { cleanup(h); }
+  });
   it('unions previousSlugs instead of reading a deduped local array as intentional removals', () => {
     const h = initHarness();
     try {
