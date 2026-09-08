@@ -1294,9 +1294,7 @@
         "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
         "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "assistant-medical-f-h-ehc-vd-ecublens",
-        "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "medizinischer-assistent-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "assistant-medical-f-h-ehc-vd-ecublens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1308,8 +1306,7 @@
           "medico-assistente-medicina-interna-f-h-maggio-2028-ensemble-hospitalier-de-la-cote-ehc-morges",
           "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "segretario-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "assistant-medical-f-h-ehc-vd-ecublens",
-          "assistente-medico-f-m-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "assistant-medical-f-h-ehc-vd-ecublens"
         ],
         "fr": [
           "assistant-medical-f-h-ehc-vd-crissier"
@@ -2822,8 +2819,7 @@
           "gestionnaire-en-intendance-ehc-vd-aubonne",
           "gestionnaire-en-intendance-ehc-vd-morges",
           "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "fr": [
           "gestionnaire-en-intendance-ehc-vd-aubonne"
@@ -2833,8 +2829,7 @@
         "gestionnaire-en-intendance-ehc-vd-aubonne",
         "gestionnaire-en-intendance-ehc-vd-morges",
         "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "salaryMin": 65500,
       "salaryMax": 82500,
@@ -3348,7 +3343,6 @@
       "firstSeenAt": "2026-09-07T23:29:45.700Z",
       "previousSlugsByLocale": {
         "it": [
-          "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
           "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
@@ -3358,7 +3352,6 @@
         ]
       },
       "previousSlugs": [
-        "assistente-tecnico-nella-sterilizzazione-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "technical-assistant-in-sterilization-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "assistent-technique-en-sterilisation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "assistant-technique-en-sterilisation-f-h-ehc-vd-morges"
@@ -3591,7 +3584,7 @@
       "slugByLocale": {
         "it": "infermiera-cura-acuta-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "nurse-acute-care-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-soins-aigus-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3636,7 +3629,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-soins-aigus-f-h-ehc-vd-morges",
-        "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3647,7 +3640,7 @@
         ],
         "de": [
           "infirmier-soins-aigus-f-h-ehc-vd-morges",
-          "krankenschwester-akutpflege-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "infirmier-soins-aigus-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-01T09:20:07.963Z",
@@ -3731,7 +3724,6 @@
       "firstSeenAt": "2026-09-07T23:29:45.681Z",
       "previousSlugsByLocale": {
         "it": [
-          "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
           "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
           "infirmier-en-pediatrie-f-h-ehc-vd-morges"
@@ -3744,7 +3736,6 @@
         ]
       },
       "previousSlugs": [
-        "infermiera-pediatrica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "paediatric-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "kinderkrankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "infirmier-en-pediatrie-f-h-ehc-vd-morges"
