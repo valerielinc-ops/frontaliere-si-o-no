@@ -2051,6 +2051,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'volkswagen-tagli-amag-rassicura': { it: 'volkswagen-tagli-amag-rassicura', en: 'volkswagen-cuts-amag-reassures', de: 'volkswagen-kuerzzungen-amag-beruhigt', fr: 'volkswagen-reductions-amag-rassure' },
  'tariffe-elettricita-2027-calo': { it: 'tariffe-elettricita-2027-calo', en: 'electricity-tariffs-2027-decline', de: 'stromtarife-2027-senkung', fr: 'tarifs-electricite-2027-baisse' },
  'bollette-energia-calo-2027': { it: 'bollette-energia-calo-2027', en: 'energy-bills-decrease-2027', de: 'stromrechnungen-preisrueckgang-2027', fr: 'factures-energie-baisse-2027' },
+ 'bls-tagli-posti-trasporto-svizzera': { it: 'bls-tagli-posti-trasporto-svizzera', en: 'bls-job-cuts-travel-centers', de: 'bls-stellenabbau-reisezentren', fr: 'bls-reduction-postes-centres-voyages' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -18226,6 +18226,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bls-tagli-posti-trasporto-svizzera',
+    category: 'novita',
+    date: '2026-09-08T10:46:19.595Z',
+    image: '/images/blog/bls-tagli-posti-trasporto-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
