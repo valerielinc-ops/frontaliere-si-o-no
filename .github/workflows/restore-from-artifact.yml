@@ -30,6 +30,7 @@ jobs:
       - name: Download github-pages artifact from source run
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
         run: |
           set -euo pipefail
@@ -39,14 +40,20 @@ jobs:
           # uploads more than that, so a client-side name filter over a
           # truncated page reports "no github-pages artifact" for a run that
           # has one. Filter on the name server-side; `.expired == false` stays.
-          ARTIFACT_ID=$(gh api \
-            "repos/${{ github.repository }}/actions/runs/${SOURCE_RUN_ID}/artifacts?name=github-pages&per_page=100" \
-            --jq '.artifacts[] | select(.expired == false) | .id')
-          if [ -z "$ARTIFACT_ID" ]; then
+          ARTIFACT_IDS=$(gh api \
+            "repos/$GH_REPO/actions/runs/${SOURCE_RUN_ID}/artifacts?name=github-pages&per_page=100" \
+            --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | sort_by(.created_at) | reverse | .[].id')
+          if [ -z "$ARTIFACT_IDS" ]; then
             echo "::error::No github-pages artifact in run ${SOURCE_RUN_ID}"
             exit 1
           fi
-          gh api repos/${{ github.repository }}/actions/artifacts/${ARTIFACT_ID}/zip > _restore/artifact.zip
+          ARTIFACT_COUNT=$(printf '%s\n' "$ARTIFACT_IDS" | awk 'NF { count++ } END { print count + 0 }')
+          if [ "$ARTIFACT_COUNT" -ne 1 ]; then
+            echo "::error::Expected exactly one live github-pages artifact in run ${SOURCE_RUN_ID}, found ${ARTIFACT_COUNT}; refusing an ambiguous restore."
+            exit 1
+          fi
+          ARTIFACT_ID="$ARTIFACT_IDS"
+          gh api "repos/$GH_REPO/actions/artifacts/${ARTIFACT_ID}/zip" > _restore/artifact.zip
           # #7503, same class as the composite action: `unzip` exits 1 for
           # NON-fatal warnings with the members extracted anyway, and reserves
           # >= 2 for real errors. Under `set -e` a bare call turned a benign
@@ -54,7 +61,7 @@ jobs:
           # below has `if-no-files-found: error` on `_restore/artifact.tar`,
           # so a warning that really lost the file still fails the job.
           uzrc=0
-          (cd _restore && unzip -q artifact.zip) || uzrc=$?
+          unzip -q -o _restore/artifact.zip -d _restore || uzrc=$?
           if [ "$uzrc" -eq 1 ]; then
             echo "::warning::unzip of artifact ${ARTIFACT_ID} reported warnings (exit 1) — proceeding; the artifact.tar upload below is the contract"
           elif [ "$uzrc" -ge 2 ]; then

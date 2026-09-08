@@ -30,6 +30,12 @@ inputs:
   github-token:
     description: "Token used for `gh api` calls (usually github.token)."
     required: true
+  expected-sha:
+    description: >-
+      Optional commit SHA that the selected deploy run must have built. When
+      supplied, the action fails if the run's head_sha differs.
+    required: false
+    default: ""
 outputs:
   tar-path:
     description: "Path to the downloaded artifact.tar inside output-dir."
@@ -40,6 +46,9 @@ outputs:
   created-at:
     description: "created_at of the run the artifact was taken from (ISO 8601)."
     value: ${{ steps.fetch.outputs.created-at }}
+  head-sha:
+    description: "Full head_sha of the deploy run the artifact was taken from."
+    value: ${{ steps.fetch.outputs.head-sha }}
 runs:
   using: "composite"
   steps:
@@ -52,6 +61,7 @@ runs:
         # Inputs reach the shell as DATA, never as script text.
         INPUT_RUN_ID: ${{ inputs.run-id }}
         INPUT_OUTPUT_DIR: ${{ inputs.output-dir }}
+        INPUT_EXPECTED_SHA: ${{ inputs.expected-sha }}
       run: |
         set -euo pipefail
 
@@ -77,7 +87,7 @@ runs:
           # API call. If the lookup fails the run id is almost certainly not a
           # run of this repo, and saying so here beats a 404 three steps later.
           if ! gh api "repos/$GH_REPO/actions/runs/$PINNED" \
-                 --jq '[(.id|tostring), .created_at, (.head_sha[0:8])] | @tsv' \
+                 --jq '[(.id|tostring), .created_at, .head_sha] | @tsv' \
                > "$CANDS"; then
             echo "::error::Run $PINNED does not exist in $GH_REPO (or the token cannot read it)."
             exit 1
@@ -119,7 +129,7 @@ runs:
           # old code relied on an empirical observation. Order client-side.
           jq -rs '[.[].workflow_runs[]]
                   | sort_by(.created_at) | reverse
-                  | .[] | [(.id|tostring), .created_at, (.head_sha[0:8])] | @tsv' \
+                  | .[] | [(.id|tostring), .created_at, .head_sha] | @tsv' \
             "$WORK"/page-*.json > "$CANDS"
 
           TOTAL=$(wc -l < "$CANDS" | tr -d ' ')
@@ -160,13 +170,14 @@ runs:
           # cannot be truncated; `.expired==false` stays, it is a different
           # filter (#7392) and no query parameter covers it.
           gh api "repos/$GH_REPO/actions/runs/$cand/artifacts?name=github-pages&per_page=100" \
-            --jq '.artifacts[] | select(.expired==false) | .id' \
+            --jq '[.artifacts[] | select(.name=="github-pages" and .expired==false)]
+                  | sort_by(.created_at) | reverse | .[0].id // empty' \
             > "$WORK/art.txt" || rc=$?
           if [ "$rc" -ne 0 ]; then
             echo "::error::gh api failed while listing artifacts of run $cand (exit $rc)."
             exit 1
           fi
-          ARTIFACT_ID=$(head -1 "$WORK/art.txt")
+          ARTIFACT_ID=$(cat "$WORK/art.txt")
           if [ -z "$ARTIFACT_ID" ]; then
             # #7392: `.expired==false` above. An expired artifact stays LISTED
             # by the REST API for a while; without the filter it gets picked,
@@ -242,14 +253,18 @@ runs:
             mkdir -p "$OUTDIR"
             continue
           fi
-          if [ ! -f "$OUTDIR/artifact.tar" ]; then
-            # Not a walk-back case: the zip downloaded fine but does not hold
-            # what every caller extracts. That is a deploy.yml contract change.
-            echo "::error::Expected $OUTDIR/artifact.tar in the github-pages zip of run $cand — saw $(ls "$OUTDIR")"
-            exit 1
+          if [ ! -s "$OUTDIR/artifact.tar" ] || ! tar -tf "$OUTDIR/artifact.tar" >/dev/null 2>&1; then
+            # A non-empty file is not enough: a truncated or invalid tar would
+            # let a caller audit the wrong/partial dist. Treat this like a
+            # failed extraction and try the next candidate.
+            echo "  run $cand ($created): github-pages artifact.tar is missing, empty, or unreadable — trying older"
+            rm -rf "${OUTDIR:?}"
+            mkdir -p "$OUTDIR"
+            continue
           fi
           FOUND="$cand"
           FOUND_AT="$created"
+          FOUND_SHA="$sha"
           echo "Using deploy run $cand (created_at $created, sha $sha), github-pages artifact $ARTIFACT_ID"
           break
         done 9< "$CANDS"
@@ -265,9 +280,15 @@ runs:
           exit 1
         fi
 
+        if [ -n "$INPUT_EXPECTED_SHA" ] && [ "$FOUND_SHA" != "$INPUT_EXPECTED_SHA" ]; then
+          echo "::error::Deploy run $FOUND has head_sha $FOUND_SHA, expected $INPUT_EXPECTED_SHA; refusing to compare a different commit."
+          exit 1
+        fi
+
         rm -rf "$WORK"
         {
           echo "tar-path=$OUTDIR/artifact.tar"
           echo "run-id=$FOUND"
           echo "created-at=$FOUND_AT"
+          echo "head-sha=$FOUND_SHA"
         } >> "$GITHUB_OUTPUT"
