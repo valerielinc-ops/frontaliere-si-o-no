@@ -2775,7 +2775,6 @@
       "previousSlugs": [
         "apprenti-e-employe-e-de-commerce-raiffeisen-glane-gruyere-veveyse",
         "3-apprendisti-e-impiegati-e-di-commercio-afc-mendrisio",
-        "apprendisti-impiegati-nel-commercio-raiffeisen-glane-gruyere-veveyse",
         "apprendista-commerciale-raiffeisen-val-terbi",
         "apprentice-trade-employee-raiffeisen-val-terbi",
         "auszubildender-handelsmitarbeiter-raiffeisen-val-terbi",
@@ -2785,7 +2784,6 @@
         "it": [
           "apprenti-e-employe-e-de-commerce-raiffeisen-glane-gruyere-veveyse",
           "3-apprendisti-e-impiegati-e-di-commercio-afc-mendrisio",
-          "apprendisti-impiegati-nel-commercio-raiffeisen-glane-gruyere-veveyse",
           "apprendista-commerciale-raiffeisen-val-terbi",
           "apprentice-trade-employee-raiffeisen-val-terbi",
           "auszubildender-handelsmitarbeiter-raiffeisen-val-terbi",
@@ -9771,14 +9769,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-        "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
         "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
         "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen",
-          "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen",
           "collaboratore-trice-services-m-w-d-raiffeisen-obergosgen-red4iq",
           "mitarbeiter-services-w-m-d-raiffeisen-obergosgen-2"
         ],
@@ -11485,7 +11481,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "individualkundenberater-w-m-d-raiffeisen-baden",
-        "consulente-cliente-individuale-m-f-d-raiffeisen-baden",
         "consulente-cliente-individuale-f-m-d-raiffeisen-baden",
         "individual-client-advisor-f-m-d-raiffeisen-baden",
         "conseiller-client-individuel-f-m-d-raiffeisen-baden",
@@ -11494,7 +11489,6 @@
       "previousSlugsByLocale": {
         "it": [
           "individualkundenberater-w-m-d-raiffeisen-baden",
-          "consulente-cliente-individuale-m-f-d-raiffeisen-baden",
           "consulente-cliente-individuale-f-m-d-raiffeisen-baden",
           "individual-client-advisor-f-m-d-raiffeisen-baden",
           "conseiller-client-individuel-f-m-d-raiffeisen-baden",
@@ -12085,7 +12079,7 @@
         "de": "mitarbeiter-in-credit-office-w-m-d-raiffeisen-schiers",
         "it": "collaboratore-trice-credit-office-m-w-d-raiffeisen-schiers",
         "en": "mitarbeiter-in-credit-office-w-m-d-raiffeisen-schiers",
-        "fr": "mitarbeiter-in-credit-office-w-m-d-raiffeisen-schiers"
+        "fr": "collaborateur-trice-credit-office-w-m-d-raiffeisen-schiers"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12148,7 +12142,8 @@
           "mitarbeiter-credit-office-w-m-d-raiffeisen-warth-weiningen"
         ],
         "fr": [
-          "bureau-du-credit-aux-employes-f-m-d-raiffeisen-aadorf"
+          "bureau-du-credit-aux-employes-f-m-d-raiffeisen-aadorf",
+          "mitarbeiter-in-credit-office-w-m-d-raiffeisen-schiers"
         ]
       },
       "previousSlugs": [

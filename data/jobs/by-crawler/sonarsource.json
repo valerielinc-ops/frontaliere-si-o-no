@@ -1612,12 +1612,12 @@
     },
     {
       "id": "sonarsource-e8e6d77e825d",
-      "slug": "data-scientist-product-analytics-sonarsource-ch",
+      "slug": "data-scientist-analisi-dei-prodotti-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "data-scientist-product-analytics-sonarsource-ch",
-        "it": "data-scientist-product-analytics-sonarsource-ch",
-        "de": "data-scientist-product-analytics-sonarsource-ch",
-        "fr": "data-scientist-product-analytics-sonarsource-ch"
+        "it": "data-scientist-analisi-dei-prodotti-sonarsource-sonar-geneva",
+        "de": "data-scientist-produktanalyse-sonarsource-sonar-geneva",
+        "fr": "data-scientist-analyse-de-produits-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1672,7 +1672,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-09-07T23:46:01.360Z"
+      "firstSeenAt": "2026-09-07T23:46:01.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-product-analytics-sonarsource-ch"
+        ],
+        "de": [
+          "data-scientist-product-analytics-sonarsource-ch"
+        ],
+        "fr": [
+          "data-scientist-product-analytics-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-product-analytics-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-f44e2cd68511",

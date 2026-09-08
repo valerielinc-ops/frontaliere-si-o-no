@@ -3518,11 +3518,11 @@
     },
     {
       "id": "etat-de-vaud-5858",
-      "slug": "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "slug": "direttore-aggiunto-delle-finanze-dell-amministrazione-e-delle-risorse-umane-etat-de-vaud-administration-cantonale",
       "slugByLocale": {
-        "it": "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "en": "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd",
-        "de": "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd",
+        "it": "direttore-aggiunto-delle-finanze-dell-amministrazione-e-delle-risorse-umane-etat-de-vaud-administration-cantonale",
+        "en": "deputy-director-of-finance-administration-and-hr-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "stellvertretender-direktor-fur-finanzen-verwaltung-und-personal-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "fr": "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3566,10 +3566,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd"
+        "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd",
+        "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd",
+          "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        ],
+        "en": [
+          "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd"
+        ],
+        "de": [
           "directeur-trice-adjoint-e-finances-administration-et-rh-etat-de-vaud-renens-vd"
         ]
       },
@@ -3590,11 +3598,11 @@
     },
     {
       "id": "etat-de-vaud-5856",
-      "slug": "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly",
+      "slug": "capo-dell-ente-it-sicurezza-etat-de-vaud-administration-cantonale-vaudoise-prilly",
       "slugByLocale": {
-        "it": "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly",
-        "en": "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly",
-        "de": "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly",
+        "it": "capo-dell-ente-it-sicurezza-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+        "en": "head-of-it-entity-security-etat-de-vaud-administration-cantonale-vaudoise-prilly",
+        "de": "leiter-der-it-stelle-security-etat-de-vaud-administration-cantonale-vaudoise-prilly",
         "fr": "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3650,7 +3658,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly"
+        ],
+        "en": [
+          "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly"
+        ],
+        "de": [
+          "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-entite-informatique-des-si-securite-etat-de-vaud-prilly"
+      ]
     },
     {
       "id": "etat-de-vaud-5849",
@@ -3738,11 +3760,11 @@
     },
     {
       "id": "etat-de-vaud-5847",
-      "slug": "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse",
+      "slug": "capo-delle-emergenze-pre-ospedale-etat-de-vaud-administration-cantonale-vaudoise-suisse",
       "slugByLocale": {
-        "it": "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse",
-        "en": "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse",
-        "de": "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse",
+        "it": "capo-delle-emergenze-pre-ospedale-etat-de-vaud-administration-cantonale-vaudoise-suisse",
+        "en": "head-of-pre-hospital-emergencies-etat-de-vaud-administration-cantonale-vaudoise-suisse",
+        "de": "leiter-der-vorklinischen-notfalle-etat-de-vaud-administration-cantonale-vaudoise-suisse",
         "fr": "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3798,15 +3820,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse"
+        ],
+        "en": [
+          "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse"
+        ],
+        "de": [
+          "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-domaine-urgences-prehospitalieres-etat-de-vaud-suisse"
+      ]
     },
     {
       "id": "etat-de-vaud-5838",
-      "slug": "secretaire-d-unite-decentralisee-etat-de-vaud-nyon",
+      "slug": "segretario-unita-decente-etat-de-vaud-administration-cantonale-vaudoise-nyon",
       "slugByLocale": {
-        "it": "secretaire-d-unite-decentralisee-etat-de-vaud-nyon",
-        "en": "secretaire-d-unite-decentralisee-etat-de-vaud-nyon",
-        "de": "secretaire-d-unite-decentralisee-etat-de-vaud-nyon",
+        "it": "segretario-unita-decente-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+        "en": "decentralised-unit-secretary-etat-de-vaud-administration-cantonale-vaudoise-nyon",
+        "de": "dezentraler-referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-nyon",
         "fr": "secretaire-d-unite-decentralisee-etat-de-vaud-nyon"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3862,7 +3898,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-nyon"
+        ],
+        "en": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-nyon"
+        ],
+        "de": [
+          "secretaire-d-unite-decentralisee-etat-de-vaud-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-d-unite-decentralisee-etat-de-vaud-nyon"
+      ]
     },
     {
       "id": "etat-de-vaud-5746",

@@ -1831,12 +1831,12 @@
     },
     {
       "id": "viva-luzern-feb3647be1b9",
-      "slug": "teamleiter-in-kuche-viva-luzern-luzern",
+      "slug": "team-leader-cuisine-viva-luzern-luzern",
       "slugByLocale": {
         "de": "teamleiter-in-kuche-viva-luzern-luzern",
-        "it": "teamleiter-in-kuche-viva-luzern-luzern",
+        "it": "team-leader-cuisine-viva-luzern-luzern",
         "en": "teamleiter-in-kuche-viva-luzern-luzern",
-        "fr": "teamleiter-in-kuche-viva-luzern-luzern"
+        "fr": "chef-d-equipe-cuisine-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1893,7 +1893,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T23:30:56.000Z"
+      "firstSeenAt": "2026-09-07T23:30:56.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-kuche-viva-luzern-luzern"
+        ],
+        "fr": [
+          "teamleiter-in-kuche-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-kuche-viva-luzern-luzern"
+      ]
     }
   ]
 }
