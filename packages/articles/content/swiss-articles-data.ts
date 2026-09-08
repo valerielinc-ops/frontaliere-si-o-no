@@ -18118,6 +18118,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'novartis-battuta-arresto-neuromuscolare',
+    category: 'novita',
+    date: '2026-09-08T05:53:30.974Z',
+    image: '/images/blog/novartis-battuta-arresto-neuromuscolare.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ricongiungimento-familiare-burocrazia',
+    category: 'novita',
+    date: '2026-09-08T06:06:42.005Z',
+    image: '/images/blog/ricongiungimento-familiare-burocrazia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
