@@ -6097,6 +6097,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Salario minimo Ticino a rischio: 4.000 lavoratori esclusi',
     'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'Il 7 settembre 2026 ritira l\'iniziativa popolare, ma la mozione Ettlin rischia di azzerare i benefici per il 67% dei lavoratori ristorazione. A rischio 316 franchi mensili di aumento.',
     'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Aula del Parlamento federale svizzero durante una seduta plenaria sulla politica salariale',
+    'blog.article.casse-pensioni-rendimenti-2025.title': 'Casse pensioni: boom di rendimenti nel 2025',
+    'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Le casse pensioni svizzere archiviano il 2025 con rendimento medio del 6,3%, trainato dalle azioni. Tasso conversione stabile al 5,20% per le rendite future.',
+    'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investitore che rivede prospettive di rendita della propria cassa pensione con documenti finanziari e proiezioni.',
 };
 
 export default blogMetaChIt;

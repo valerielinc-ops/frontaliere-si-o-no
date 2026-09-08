@@ -6097,6 +6097,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Salaire minimum Tessin à risque : 4 000 travailleurs exclus',
     'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'Le 7 septembre 2026, il retire l\'initiative populaire, mais la motion Ettlin risque de supprimer les avantages pour 67 % des travailleurs de la restauration. A risque 316 francs mensuels d\'augmentation.',
     'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Salle plénière du Parlement fédéral suisse lors d\'une session sur la politique salariale',
+    'blog.article.casse-pensioni-rendimenti-2025.title': 'Caisses de retraite : boom des rendements en 2025',
+    'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Les caisses de pension suisses classent 2025 avec un rendement moyen de 6,3%, tiré par les actions. Taux de conversion stable à 5,20 % pour les rentes futures.',
+    'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investisseur examinant rendements caisses de pension et projections de retraite.',
 };
 
 export default blogMetaChFr;

@@ -79151,6 +79151,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casse-pensioni-rendimenti-2025': {
+    title: 'Casse pensioni: boom di rendimenti nel 2025 | Frontaliere Ticino',
+    description: 'Casse pensioni svizzere: +6,3% nel 2025, azioni al 34%, tasso conversione 5,20%. Implicazioni per la rendita futura e scenari di investimento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, pensioni, boom, rendimenti',
+    ogTitle: 'Casse pensioni: boom di rendimenti nel 2025',
+    ogDescription: 'Nel 2025 le casse pensioni svizzere hanno registrato un rendimento medio del 6,3%, trainato dalle azioni (34% del portafoglio). Nel 2026 il trend continua con +5%. Scopri come impatta la tua rendita futura al 5,20% di conversione media.',
+    canonicalPath: '/articoli-svizzera/casse-pensioni-rendimenti-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse pensioni: boom di rendimenti nel 2025",
+      "description": "Casse pensioni svizzere: +6,3% nel 2025, azioni al 34%, tasso conversione 5,20%. Implicazioni per la rendita futura e scenari di investimento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casse-pensioni-rendimenti-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Investitore che rivede prospettive di rendita della propria cassa pensione con documenti finanziari e proiezioni."
+      },
+      "datePublished": "2026-09-08T19:20:17+00:00",
+      "dateModified": "2026-09-08T19:20:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/casse-pensioni-rendimenti-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
