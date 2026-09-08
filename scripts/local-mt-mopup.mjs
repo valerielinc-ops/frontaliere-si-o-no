@@ -229,8 +229,9 @@ function masculineGermanTitle(text) {
   return String(text ?? '')
     .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
     .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
-    .replace(/\b(\p{L}[\p{L}-]*)[/:]in\b/giu, '$1')
-    .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1');
+    .replace(/\b(\p{L}[\p{L}-]*)[/:*_]-?in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)\*r\b/giu, '$1r');
 }
 
 function normalizeArgosText(text, from, field) {
