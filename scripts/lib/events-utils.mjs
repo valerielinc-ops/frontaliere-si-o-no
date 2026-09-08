@@ -349,6 +349,7 @@ export function normalizeText(value) {
  * rather than by convention.
  */
 export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
+export const EVENT_SLUG_MAX_LENGTH = 60;
 
 /** Append `suffix` to a freshly minted segment that lands on the reserved
  *  ladder shape. No comune of `data/canton-municipalities.json` (0 of 2110) and
@@ -364,6 +365,17 @@ export const RESERVED_EVENTS_SEGMENT_RE = /^page-\d+$/;
  *  the minter is a guard the dedup step walks around. */
 export function reserveLadderShape(slug, suffix) {
   return RESERVED_EVENTS_SEGMENT_RE.test(slug) ? `${slug}-${suffix}` : slug;
+}
+
+export function disambiguateEventSlug(base, n) {
+  const tie = `-${n}`;
+  let baseBudget = EVENT_SLUG_MAX_LENGTH - tie.length;
+  for (;;) {
+    const shortenedBase = truncateSlugAtWordBoundary(base, Math.max(1, baseBudget)).replace(/-+$/, '');
+    const candidate = reserveLadderShape(`${shortenedBase}${tie}`, 'evento');
+    if (candidate.length <= EVENT_SLUG_MAX_LENGTH) return candidate;
+    baseBudget -= candidate.length - EVENT_SLUG_MAX_LENGTH;
+  }
 }
 
 /** Shared normalization: diacritic-free, lowercase, hyphenated, ascii. Kept
@@ -397,7 +409,7 @@ export function slugifyComune(value) {
  * that a date already disambiguates.
  */
 export function slugifyEvent(event) {
-  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), 60).replace(/-+$/, '');
+  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), EVENT_SLUG_MAX_LENGTH).replace(/-+$/, '');
   const datePart = String(event?.startDate || '').slice(0, 10);
   const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
   return base || `evento-${normalizeSlug(event?.id || 'senza-data')}`;
