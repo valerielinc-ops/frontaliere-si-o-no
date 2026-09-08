@@ -1,63 +1,24 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-09-07T23:29:56.960Z",
-  "total": 4,
+  "generatedAt": "2026-09-08T13:40:00.019Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4938,
-  "avgDurationMs": 4938,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4326,
+  "avgDurationMs": 4326,
   "durationHistory": [
-    4938
+    4326
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "oetiker-8119d815097a",
-      "slug": "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland",
-      "company": "Oetiker",
-      "companyKey": "oetiker",
-      "companyDomain": "oetiker.com",
-      "title": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
-      "location": "Horgen, ZH, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
-      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:29:48.779Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "streetAddress": "Spätzstrasse 11",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-04",
-      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
-      "jobReqId": "744000147495900",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-04T13:28:05.508Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
     {
       "id": "oetiker-7bb49a86a11c",
       "slug": "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland",
@@ -70,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:29:48.817Z",
+      "crawledAt": "2026-09-08T13:39:55.171Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -98,6 +59,45 @@
       }
     },
     {
+      "id": "oetiker-8119d815097a",
+      "slug": "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland",
+      "company": "Oetiker",
+      "companyKey": "oetiker",
+      "companyDomain": "oetiker.com",
+      "title": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
+      "location": "Horgen, ZH, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
+      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:39:55.184Z",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "streetAddress": "Spätzstrasse 11",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true",
+      "jobReqId": "744000147495900",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-04T13:28:05.508Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "id": "oetiker-e8ad3c22184a",
       "slug": "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland",
       "company": "Oetiker",
@@ -109,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:29:48.821Z",
+      "crawledAt": "2026-09-08T13:39:55.186Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -126,7 +126,6 @@
       "postedDate": "2026-07-06",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "jobReqId": "744000135999378",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -137,8 +136,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "oetiker-ba02a35ef045",
       "slug": "apprendistato-come-polymechaniker-in-cfc-all-oetiker-horgen",
@@ -168,7 +166,6 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "jobReqId": "744000143252339",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:19:10.620Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -182,5 +179,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

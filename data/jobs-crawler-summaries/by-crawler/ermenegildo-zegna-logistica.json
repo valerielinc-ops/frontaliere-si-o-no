@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-09-07T23:30:27.839Z",
+  "generatedAt": "2026-09-08T13:40:31.272Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9860,
-  "avgDurationMs": 9860,
+  "durationMs": 11119,
+  "avgDurationMs": 11119,
   "durationHistory": [
-    9860
+    11119
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,6 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-07T01:15:25.380Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,7 +135,6 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-31T11:54:47.257Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
