@@ -80,6 +80,14 @@ describe('detectWideScopeAggregate — instrada allo scorporo ciò che nasce gi�
     expect(w).toEqual({ items: 4, titleItems: 4, bodyItems: 4 });
   });
 
+  it('titolo italiano del template (`item deferiti`) → wide-scope', () => {
+    const w = detectWideScopeAggregate(
+      'follow-up(#6330): 4 item deferiti — interviste, SERP, collisione, troncamento',
+      B_6421,
+    );
+    expect(w).toEqual({ items: 4, titleItems: 4, bodyItems: 4 });
+  });
+
   it('3 item restano sotto soglia: li lavora il circuit-breaker one-item di issue-fix', () => {
     expect(detectWideScopeAggregate(
       'follow-up(#1): 3 items deferred — a, b, c',
@@ -120,6 +128,8 @@ describe('AGGREGATE_ITEMS_RE — una sola definizione, due letture', () => {
   it('è la stessa forma che issue-fix.yml legge per il circuit-breaker one-item', () => {
     expect(AGGREGATE_ITEMS_RE.exec('follow-up(#1): 1 item deferred — x')?.[1]).toBe('1');
     expect(AGGREGATE_ITEMS_RE.exec('follow-up(#1): 12 items deferred — x')?.[1]).toBe('12');
+    expect(AGGREGATE_ITEMS_RE.exec('follow-up(#1): 1 item deferito — x')?.[1]).toBe('1');
+    expect(AGGREGATE_ITEMS_RE.exec('follow-up(#1): 12 item deferiti — x')?.[1]).toBe('12');
     expect(AGGREGATE_ITEMS_RE.exec('follow-up(#1): niente da rimandare')).toBeNull();
   });
 

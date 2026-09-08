@@ -209,7 +209,7 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
  */
 export function isAggregate(title, body) {
   const titleText = String(title || '');
-  const m = titleText.match(/\b(\d+)\s+items?\s+deferred\b/i);
+  const m = titleText.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   // An explicit count is authoritative once stated — trust it fully rather
   // than falling through to the keyword heuristic below, which exists ONLY
   // for aggregates that never state a count (e.g. "Sweep: ~30 crawlers").
@@ -220,8 +220,7 @@ export function isAggregate(title, body) {
   // that wrongly blocked `pr-body-contract` on a fully-completed single item
   // (#3378).
   if (m) return Number(m[1]) >= 2;
-  const bodyText = stripFencedBlocks(body);
-  if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
+  if (/\b(?:sweep|batch|bulk)\b/i.test(titleText)) return true;
   return hasEnumeratedItems(body);
 }
 

@@ -33,6 +33,7 @@ describe('isAvoidableAlreadyFixed — non escalare il burn che nessun gate sicur
       ['follow-up', 'fu-parked'],
     )).toBe(false);
     expect(isAvoidableAlreadyFixed('follow-up(#x): 5 items deferred — perf sweep', ['follow-up'])).toBe(false);
+    expect(isAvoidableAlreadyFixed('follow-up(#x): 5 item deferiti — perf sweep', ['follow-up'])).toBe(false);
   });
 
   it('follow-up AGGREGATE per keyword (sweep/batch/bulk) → NON contabile', () => {
