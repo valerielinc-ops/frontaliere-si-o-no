@@ -234,9 +234,27 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
+      # `--no-summaries` here and NOWHERE else in this job. This assemble exists
+      # to give the cascade a data/jobs.json that already carries the Argos bulk
+      # translations; its cost is paid inside the cascade's fixed setup, which is
+      # 8,31 min of a 17,8 min median window (workspace issue 34). Rebuilding
+      # data/jobs-crawler-summaries.json costs 131-209 s of that (median 169,1 s)
+      # because assembleSummaries() re-reads every job slice a second time to
+      # recompute the per-crawler quality aggregate — and no step between here and
+      # the commit reads that file (grepped: mark-*, log-translation-stats,
+      # collect-translation-observability, relocalize-pending-jobs, local-mt-mopup
+      # never mention it). Nor is it committed: `git-commit-data.sh --slice-only`
+      # commits data/jobs-crawler-summaries/BY-CRAWLER/, not the monolithic file.
+      # The two later re-assembles in this job (post-mop-up, true-final) both run
+      # WITHOUT the flag, so it is rebuilt from the final slices before the job
+      # ends, exactly as before.
+      #
+      # Keep this comment free of the literal step names used further down:
+      # tests/translation-observability-workflow.test.ts locates those steps with
+      # indexOf(), so repeating one here makes it match this comment instead.
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
         if: inputs.skip_translate != true

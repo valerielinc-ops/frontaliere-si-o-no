@@ -22,13 +22,14 @@
  *   3. Final sort: descending postedDate, then ascending stable identity for ties.
  *
  * Usage:
- *   node scripts/assemble-jobs-dataset.mjs              # assemble only
- *   node scripts/assemble-jobs-dataset.mjs --stats      # assemble + regenerate stats
+ *   node scripts/assemble-jobs-dataset.mjs                 # assemble only
+ *   node scripts/assemble-jobs-dataset.mjs --stats         # assemble + regenerate stats
+ *   node scripts/assemble-jobs-dataset.mjs --no-summaries  # assemble, skip jobs-crawler-summaries.json
  *
  * Module API (for crawlers):
  *   writeJobsCrawlerSlice(crawlerKey, jobs)    → write data/jobs/by-crawler/<key>.json
  *   writeSummaryCrawlerSlice(summaryEntry)     → write data/jobs-crawler-summaries/by-crawler/<key>.json
- *   assembleJobsDataset({ withStats? })        → run full assembly
+ *   assembleJobsDataset({ withStats?, withSummaries? })  → run full assembly
  */
 
 import fs from 'node:fs';
@@ -3106,7 +3107,7 @@ async function persistQualityScoresToFirestore(summaries) {
   }
 }
 
-export async function assembleJobsDataset({ withStats = false } = {}) {
+export async function assembleJobsDataset({ withStats = false, withSummaries = true } = {}) {
   // In slice-only mode crawlers skip assembly — it runs during deploy instead.
   if (String(process.env.CRAWLER_SLICE_ONLY || '0') === '1') {
     console.log('📦 Slice-only mode: skipping assembly (will run at deploy time)');
@@ -3118,7 +3119,12 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   // Inputs change on a few cron hours per day; between those events, ~80 % of
   // deploys feed identical bytes through the same pipeline.
   const inputFingerprint = computeAssembleInputFingerprint();
-  const cacheKey = `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}`;
+  // The suffix is part of the key because the snapshot below copies whatever is
+  // on disk: a `--no-summaries` run stores the PREVIOUS jobs-crawler-summaries
+  // .json, so sharing a key with a full run would let a later full run restore
+  // that stale file from cache instead of regenerating it. The default arm keeps
+  // its historical key byte-for-byte, so no existing cache entry goes cold.
+  const cacheKey = `${inputFingerprint}_${withStats ? 'stats' : 'nostats'}${withSummaries ? '' : '_nosummaries'}`;
   const cacheDir = path.join(CACHE_ROOT, cacheKey);
   const manifestPath = path.join(cacheDir, 'manifest.json');
 
@@ -3380,13 +3386,27 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   }
 
   // --- Summaries ---
-  const summaryStore = assembleSummaries();
-  if (summaryStore !== null) {
-    writeCrawlerSummaryStore(DATA_SUMMARIES, summaryStore);
-    console.log(`✅ data/jobs-crawler-summaries.json assembled: ${summaryStore.summaries.length} crawler entries`);
+  // `withSummaries: false` skips the SECOND full read of data/jobs/by-crawler/*
+  // that assembleSummaries() performs to enrich each entry with
+  // computeCrawlerQualityAggregate(). Measured 131-209 s (median 169,1) inside
+  // the `Re-assemble dataset after Argos bulk` step of
+  // .github/workflows/translate-pending-logic.yml — 34 % of the cascade's fixed
+  // setup cost, paid for a file that step's consumer never reads and that the
+  // later assembles in the same job (Phase 2c mop-up, true-final) regenerate
+  // before anything is committed. Opt-in on purpose: every other caller (npm
+  // scripts, the crawler update-*.mjs modules, the other workflow steps) omits
+  // the flag and keeps assembling summaries exactly as before.
+  if (withSummaries) {
+    const summaryStore = assembleSummaries();
+    if (summaryStore !== null) {
+      writeCrawlerSummaryStore(DATA_SUMMARIES, summaryStore);
+      console.log(`✅ data/jobs-crawler-summaries.json assembled: ${summaryStore.summaries.length} crawler entries`);
 
-    // FRO-585: Persist quality scores to Firestore
-    await persistQualityScoresToFirestore(summaryStore.summaries);
+      // FRO-585: Persist quality scores to Firestore
+      await persistQualityScoresToFirestore(summaryStore.summaries);
+    }
+  } else {
+    console.log('⏭️  Summaries skipped (--no-summaries): data/jobs-crawler-summaries.json left as-is');
   }
 
   // --- Stats (optional) ---
@@ -3457,9 +3477,25 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
 /* ── CLI entry point ──────────────────────────────────────────────────── */
 
+/**
+ * CLI flags → assembleJobsDataset() options.
+ *
+ * Exported so the OPT-IN contract of `--no-summaries` is checkable by a test
+ * without running an assembly (which writes into tracked data/ files): the
+ * default arm must stay `withSummaries: true` for every caller that does not
+ * pass the flag.
+ *
+ * @param {string[]} argv  argv WITHOUT the node/script prefix
+ */
+export function parseAssembleCliArgs(argv = []) {
+  return {
+    withStats: argv.includes('--stats'),
+    withSummaries: !argv.includes('--no-summaries'),
+  };
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const withStats = process.argv.includes('--stats');
-  assembleJobsDataset({ withStats })
+  assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
     .then(() => {
       // Some optional SDKs imported during assembly can leave idle handles
       // open in CI. The CLI contract is done once artifacts are written.
