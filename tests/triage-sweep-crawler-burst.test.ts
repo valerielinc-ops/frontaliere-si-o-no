@@ -12,7 +12,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { crawlerDirectFixBudget } from '../scripts/ci/triage-sweep.mjs';
+import { crawlerDirectFixBudget, isTriagedButNotRouted } from '../scripts/ci/triage-sweep.mjs';
 
 describe('crawlerDirectFixBudget', () => {
   it('concede UN route diretto a slot libero (immediatezza preservata nel caso comune)', () => {
@@ -56,5 +56,12 @@ describe('crawlerDirectFixBudget', () => {
     }
     expect(routedFix).toBe(1);
     expect(queued).toBe(4); // prima erano 4 SFRATTATI, ora 4 in coda
+  });
+
+  it('esclude dal secondo passaggio i pin keep-open e agent:no-age-out', () => {
+    const labels = (...names: string[]) => names.map((name) => ({ name }));
+    expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'keep-open') })).toBe(false);
+    expect(isTriagedButNotRouted({ labels: labels('agent:triaged', 'agent:no-age-out') })).toBe(false);
+    expect(isTriagedButNotRouted({ labels: labels('agent:triaged') })).toBe(true);
   });
 });

@@ -222,7 +222,7 @@ export const REGISTRY_QUALIFIERS = [
  * non-word char e `/\bSÌ\b/` non aggancia mai la virgola che segue. I lookaround
  * su `\p{L}` fanno il lavoro giusto con il flag `u`.
  */
-const REGISTRY_YES_RE = /(?<![\p{L}])(?:SÌ|SI|sì)(?![\p{L}])/u;
+const REGISTRY_YES_RE = /(?<![\p{L}])SÌ(?![\p{L}])/u;
 const REGISTRY_AUTHORIZED_RE = /\bprocedi\b|\bautorizzat[oaie]\b/i;
 
 /**
@@ -399,11 +399,31 @@ export function blockedRefs(body = '', { homeScope = 'site' } = {}) {
   // Le sezioni sono delimitate dalle intestazioni Markdown, e l'intestazione va
   // guardata anche da sola: su nanako#471 la parola `blocked` sta LÌ
   // (`## 1. … — blocked su PR esterna aperta`) e il riferimento nel corpo sotto.
-  const headings = text.match(/^#{1,6} .*$/gm) || [];
-  const sections = text.split(/^#{1,6} .*$/m);
+  // Le righe che sembrano intestazioni dentro un fence sono codice, non confini.
+  const sections = [];
+  let current = '';
+  let fence = null;
+  for (const line of text.split('\n')) {
+    const fenceMatch = /^\s{0,3}(`{3,}|~{3,})/.exec(line);
+    const isHeading = !fence && /^#{1,6} .*$/u.test(line);
+    if (isHeading) {
+      sections.push(current);
+      current = line;
+    } else {
+      current = current ? `${current}\n${line}` : line;
+    }
+    if (fenceMatch) {
+      const marker = fenceMatch[1];
+      if (!fence) {
+        fence = { char: marker[0], length: marker.length };
+      } else if (marker[0] === fence.char && marker.length >= fence.length) {
+        fence = null;
+      }
+    }
+  }
+  sections.push(current);
   for (let i = 0; i < sections.length; i++) {
-    const heading = i > 0 ? headings[i - 1] : '';
-    if (/\bblocked\b/i.test(`${heading}\n${sections[i]}`)) collect(`${heading}\n${sections[i]}`);
+    if (/\bblocked\b/i.test(sections[i])) collect(sections[i]);
   }
   return [...out.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
@@ -639,7 +659,9 @@ export function noteMarker(reg, staleBlocks = []) {
  */
 export function prepassNote(reg, staleBlocks = []) {
   const rows = [...((reg && reg.unconditional) || []), ...((reg && reg.conditional) || [])];
-  if (!rows.length && !staleBlocks.length) return null;
+  const expiredBlocks = staleBlocks.filter((b) => b.state === 'MERGED');
+  const closedWithoutMerge = staleBlocks.filter((b) => b.state === 'CLOSED');
+  if (!rows.length && !expiredBlocks.length && !closedWithoutMerge.length) return null;
   const out = [];
 
   if (rows.length) {
@@ -670,10 +692,10 @@ export function prepassNote(reg, staleBlocks = []) {
     }
   }
 
-  if (staleBlocks.length) {
+  if (expiredBlocks.length) {
     if (out.length) out.push('');
     out.push('⏱️ **Blocco scaduto.** Il corpo dichiara un blocco e nomina riferimenti che oggi risultano chiusi:', '');
-    for (const b of staleBlocks) out.push(`- ${b.link} — **${b.state}** il ${b.at}`);
+    for (const b of expiredBlocks) out.push(`- ${b.link} — **${b.state}** il ${b.at}`);
     out.push(
       '',
       'Il pre-pass **non toglie `needs-human` d\'ufficio** su questo segnale, e la ragione è la '
@@ -685,6 +707,16 @@ export function prepassNote(reg, staleBlocks = []) {
       + 'Quello che qui costa zero è la MISURA, ed è quella che manca allo sweep: la classe C del '
       + 'suo prompt («claim scaduta») chiede la misura più economica che decide, e ora ce l\'ha già '
       + 'scritta sotto gli occhi.',
+    );
+  }
+
+  if (closedWithoutMerge.length) {
+    if (out.length) out.push('');
+    out.push('🔒 **Riferimento chiuso senza merge.** Il corpo lo dichiara come blocco, ma una PR chiusa senza merge resta potenzialmente ancora viva:', '');
+    for (const b of closedWithoutMerge) out.push(`- ${b.link} — **${b.state}** il ${b.at}`);
+    out.push(
+      '',
+      'Il pre-pass **non** lo considera un blocco scaduto e non toglie `needs-human`: la chiusura senza merge non prova che il lavoro sia stato consegnato.',
     );
   }
   return out.join('\n');

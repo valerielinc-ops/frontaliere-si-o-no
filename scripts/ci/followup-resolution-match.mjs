@@ -85,6 +85,10 @@ export function citedFiles(body, fileExists) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
+  for (const m of body.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
+    const p = m[1];
+    if (p.includes('/') && fileExists(p)) out.add(p);
+  }
   return [...out];
 }
 
