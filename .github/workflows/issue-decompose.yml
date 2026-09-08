@@ -39,6 +39,10 @@ on:
 concurrency:
   group: issue-decompose-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: false
+# Contratto #7549: anche con `cancel:false` c'e' una sola pending per issue;
+# il terzo evento può sostituire la pending e l'evento `issues:labeled` e' one-
+# shot. Il rescue del drainer deve ri-armare l'issue se quella run non ha
+# prodotto un verdetto.
 
 permissions:
   contents: read

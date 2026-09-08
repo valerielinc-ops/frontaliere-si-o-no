@@ -3,10 +3,18 @@ import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
 const staleRescuer = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
+const autorebase = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
 const autoMergeEval = readFileSync(new URL('../scripts/ci/auto-merge-eval.mjs', import.meta.url), 'utf8');
 const nativeAutoMerge = readFileSync(new URL('../.github/workflows/enable-native-automerge.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
+  it('consuma stale-review dopo un re-trigger riuscito, senza perdere il rescue se fallisce', () => {
+    expect(autorebase).toContain("'--remove-label', 'stale-review'");
+    expect(autorebase).toContain('function clearStaleReviewLabel');
+    expect(autorebase).toContain('if (dispatchTests(num, branch)) clearStaleReviewLabel(num);');
+    expect(autorebase).toContain('if (guardedReopen(num, head)) clearStaleReviewLabel(num);');
+  });
+
   it('lets stale-review reach autorebase even when the review gate is red', () => {
     const reviewGate = workflow.indexOf('id: review_gate');
     const autorebase = workflow.indexOf('Rebase near-merge PRs after review or stale rescue');

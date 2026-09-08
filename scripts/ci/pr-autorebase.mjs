@@ -69,6 +69,7 @@ import {
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
   vitestFailureIsReviewGate,
+  reviewStepIsInFlight,
 } from './lib/vitestCheck.mjs';
 import { hasCommentMarker as hasCommentMarkerShared, upsertStickyComment } from './lib/prComments.mjs';
 import { runBudgetFromEnv, rotateForFairness } from './lib/run-budget.mjs';
@@ -602,8 +603,10 @@ function hasCommentMarker(num, marker) {
   return hasCommentMarkerShared(gh, REPO, num, marker);
 }
 
-/** C'è una review Claude (`pr-review-loop`, check-run `review`) ANCORA in volo
- * sull'head (status `queued`/`in_progress`)? Il push del rebase si autentica via
+/** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Claude
+ * review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive dentro il
+ * check `vitest (unit + integration)`: cercare un check-run chiamato `review`
+ * è quindi un segnale morto. Il push del rebase si autentica via
  * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
  * ha `cancel-in-progress: true` → il nostro push CANCELLA la review in corso e ne
  * avvia un'altra. Con main caldo (commit ogni pochi minuti) e una review da
@@ -614,11 +617,18 @@ function hasCommentMarker(num, marker) {
  * tick (come ACTIVITY_GUARD). Il rebase non è urgente (main è sempre fresco); la
  * review conclude, posta il verdetto, e auto-merge-eval porta avanti l'LGTM. */
 function reviewInProgress(head) {
-  const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', '[.check_runs[] | select(.name == "review" and (.status == "in_progress" or .status == "queued"))] | length'],
-    { json: false, allowFail: true });
-  return (parseInt((out || '0').trim(), 10) || 0) > 0;
+  const checks = checkRunsOf(head);
+  const activeVitest = checks.filter(
+    (check) => check?.name === VITEST_CHECK_NAME &&
+      ['queued', 'in_progress'].includes(String(check.status || '')),
+  );
+  for (const check of activeVitest) {
+    const jobId = /\/job\/(\d+)(?:[/?#]|$)/.exec(check.details_url || '')?.[1];
+    if (!jobId) continue;
+    const job = gh(['api', `repos/${REPO}/actions/jobs/${jobId}`], { allowFail: true });
+    if (reviewStepIsInFlight(job?.steps)) return true;
+  }
+  return false;
 }
 
 /** Statuti NON terminali di un workflow-run GitHub: il run sta ancora
@@ -767,6 +777,18 @@ async function mergeableState(num) {
 function ensureStaleLabel(num) {
   if (DRY) { console.log(`[dry] +label stale-review #${num}`); return; }
   gh(['pr', 'edit', String(num), '--repo', REPO, '--add-label', 'stale-review'],
+    { json: false, allowFail: true });
+}
+
+/**
+ * Consuma la label di rescue dopo che il suo rebase/ri-trigger è riuscito.
+ * Lasciarla appesa riattiva il ramo stale a ogni evento e può riproporre un
+ * autorebase già completato; se l'azione successiva fallisce, invece, la
+ * label resta per il prossimo rescue.
+ */
+function clearStaleReviewLabel(num) {
+  if (DRY) { console.log(`[dry] -label stale-review #${num}`); return; }
+  gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', 'stale-review'],
     { json: false, allowFail: true });
 }
 
@@ -1093,10 +1115,10 @@ async function processPR(pr) {
         // Classe-A: nemmeno la review esiste (drift 401) — il solo vitest non
         // sblocca (auto-merge esige LGTM). Reopen = review+tests insieme.
         console.log(`PR #${num} 0 dietro main, NESSUNA review claude e niente vitest → close+reopen (re-trigger review+tests).`);
-        guardedReopen(num, head);
+        if (guardedReopen(num, head)) clearStaleReviewLabel(num);
       } else {
         console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
-        dispatchTests(num, branch);
+        if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
       }
     } else if (vitestVerdictIsTransient(head)) {
       // Il check vitest ESISTE ma il suo verdetto rosso è una CANCELLAZIONE da
@@ -1108,7 +1130,7 @@ async function processPR(pr) {
       // Ri-dispatch tests.yml (heal), NESSUN rebase. Un `failure` REALE non passa
       // di qui → niente re-run gratis (AGENTS #5 + frugalità CI).
       console.log(`PR #${num} 0 dietro main, vitest rosso da CANCELLAZIONE (transient, nessun verdetto sul codice) → dispatch tests.yml (heal, no rebase).`);
-      dispatchTests(num, branch);
+      if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
     } else {
       console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
     }
@@ -1140,7 +1162,7 @@ async function processPR(pr) {
             // auto-merge-eval valida la risoluzione: se l'unione fosse errata i
             // test falliscono e non si mergia). LGTM carry-forward.
             console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests.`);
-            dispatchTests(num, branch);
+            if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
             done = true;
           }
         }
@@ -1194,7 +1216,7 @@ async function processPR(pr) {
   });
   if (action === 'heal') {
     console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests (heal, NO rebase: main non-strict, auto-merge la mergia behind).`);
-    dispatchTests(num, branch);
+    if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
     return;
   }
   if (action === 'skip') {
@@ -1332,7 +1354,7 @@ async function processPR(pr) {
   if (!lgtm) {
     if (labels.includes('needs-human')) {
       console.log(`PR #${num}: rebasata ma needs-human (round-cap) → no reopen (attende umano); solo dispatch tests.`);
-      dispatchTests(num, branch);
+      if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
       return;
     }
     const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
@@ -1346,11 +1368,13 @@ async function processPR(pr) {
     // esattamente la ri-esecuzione promessa — `stuckRedReason` disattiva la
     // sola precondizione (il budget del breaker conta comunque).
     if (guardedReopen(num, head, { stuckRedReason })) {
+      clearStaleReviewLabel(num);
       console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (${why}) → review+redflag ri-triggerati drift-free.`);
     }
     return;
   }
   if (dispatchTests(num, branch)) {
+    clearStaleReviewLabel(num);
     console.log(`✅ PR #${num}: rebasata su origin/main, pushata (${branch}) e dispatchato tests.yml → vitest sull'head; LGTM carry-forward, zero Claude.`);
   }
 }

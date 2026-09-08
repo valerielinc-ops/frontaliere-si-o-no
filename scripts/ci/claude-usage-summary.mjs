@@ -13,12 +13,17 @@ const label = process.argv[3] || process.env.GITHUB_WORKFLOW || 'claude';
 const t = { input_tokens: 0, output_tokens: 0, cache_creation_input_tokens: 0,
   cache_read_input_tokens: 0, cost_usd: 0, num_turns: 0, duration_ms: 0 };
 
+function finiteNumber(value) {
+  const n = Number(value);
+  return Number.isFinite(n) && n >= 0 ? n : 0;
+}
+
 function addUsage(u) {
   if (!u || typeof u !== 'object') return;
-  t.input_tokens += u.input_tokens || 0;
-  t.output_tokens += u.output_tokens || 0;
-  t.cache_creation_input_tokens += u.cache_creation_input_tokens || 0;
-  t.cache_read_input_tokens += u.cache_read_input_tokens || 0;
+  t.input_tokens += finiteNumber(u.input_tokens);
+  t.output_tokens += finiteNumber(u.output_tokens);
+  t.cache_creation_input_tokens += finiteNumber(u.cache_creation_input_tokens);
+  t.cache_read_input_tokens += finiteNumber(u.cache_read_input_tokens);
 }
 function parseMessages(raw) {
   const s = raw.trim();
@@ -46,9 +51,9 @@ try {
     const result = [...msgs].reverse().find((m) => m && m.type === 'result');
     if (result) {
       addUsage(result.usage);
-      t.cost_usd = result.total_cost_usd || result.cost_usd || 0;
-      t.num_turns = result.num_turns || 0;
-      t.duration_ms = result.duration_ms || 0;
+      t.cost_usd = finiteNumber(result.total_cost_usd || result.cost_usd);
+      t.num_turns = finiteNumber(result.num_turns);
+      t.duration_ms = finiteNumber(result.duration_ms);
       parsed = true;
     }
     if (!parsed) {

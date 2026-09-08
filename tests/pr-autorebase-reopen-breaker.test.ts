@@ -340,6 +340,14 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
     ];
     expect(vitestFailureIsReviewGate(gateOnly)).toBe(true);
 
+    // Jobs API può lasciare `failure` sui due step continue-on-error: non
+    // devono trasformare un gate puro in un falso rosso dei test.
+    expect(vitestFailureIsReviewGate([
+      ...gateOnly,
+      { name: 'Mint GitHub App token for Claude review', conclusion: 'failure' },
+      { name: 'Claude usage metrics', conclusion: 'failure' },
+    ])).toBe(true);
+
     // Test rotti sotto → il gate non è la causa (unica) del rosso: fail-CLOSED,
     // vale la precondizione normale. Riciclare qui rifarebbe #5896/#5906.
     expect(vitestFailureIsReviewGate([

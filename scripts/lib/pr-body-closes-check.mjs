@@ -144,7 +144,12 @@ function lineIntentRefs(line) {
   INTENT_RE.lastIndex = 0;
   return [...s.matchAll(INTENT_RE)]
     .filter((m) => {
-      const before = s.slice(Math.max(0, m.index - 24), m.index);
+      // Keep the whole prefix: a fixed-width window can cut away the
+      // negation/past-report word and turn an explicit "still open" report
+      // into a false closure finding. The regexes below already stop at
+      // punctuation and bound the words they accept, so the full prefix does
+      // not make a sentence boundary disappear.
+      const before = s.slice(0, m.index);
       return !PAST_REPORT_RE.test(before) && !NEG_REPORT_RE.test(before);
     })
     .map((m) => ({ keyword: m[1], ref: m[2] }));

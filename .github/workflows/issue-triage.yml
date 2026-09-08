@@ -43,6 +43,9 @@ on:
 concurrency:
   group: issue-triage-${{ github.event.issue.number || 'sweep' }}
   cancel-in-progress: false
+# Contratto #7549: per un evento issue, un terzo evento sulla stessa issue può
+# sostituire la sola pending consentita anche con `cancel:false`; essendo
+# `issues:opened` one-shot, il rescue del drainer e' il ri-arma osservabile.
 
 permissions:
   contents: read

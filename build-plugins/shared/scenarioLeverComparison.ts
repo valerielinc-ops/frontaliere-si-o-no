@@ -834,6 +834,14 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
     // gradino con cui confrontarsi, e qui il gradino c'è.
     if (retention > 0 && retention <= 1) {
       sentences.push(copy.retention(copy.retentionBuckets[bucketIndex(retention, RETENTION_EDGES)]));
+    } else {
+      // Tacere evita una frase falsa, ma il silenzio non deve nascondere una
+      // deriva del motore: fuori dal dominio promesso la pagina perde
+      // informazione e il build deve renderlo osservabile.
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[scenario-levers] retention fuori range per ${scenarioKey(scenario)}: ${retention}; frase omessa`,
+      );
     }
   } else {
     sentences.push(copy.retentionTop);
