@@ -18370,6 +18370,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'neutralita-iniziativa-svizzera-freysinger',
+    category: 'novita',
+    date: '2026-09-08T22:42:51.754Z',
+    image: '/images/blog/neutralita-iniziativa-svizzera-freysinger.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
