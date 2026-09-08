@@ -222,8 +222,19 @@ export function missingSlots(job) {
  * @returns {{ request: {id: string, text: string, from: string, to: string},
  *             protectedTokens: Array }}
  */
+function masculineGermanTitle(text) {
+  return text
+    .replace(/\b(\p{L}[\p{L}-]*?)mann\/\1in\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)frau(?:\/-?|[-_])mann\b/giu, '$1mann')
+    .replace(/\b(\p{L}[\p{L}-]*)[/:]in\b/gu, '$1')
+    .replace(/\b(\p{L}[\p{L}-]*)\/\1in\b/giu, '$1');
+}
+
 export function buildMopupRequest({ id, text, from, to }) {
-  const { text: masked, tokens: protectedTokens } = maskProtectedTokens(text);
+  const sourceText = String(from).toLowerCase() === 'de'
+    ? masculineGermanTitle(text)
+    : text;
+  const { text: masked, tokens: protectedTokens } = maskProtectedTokens(sourceText);
   return { request: { id, text: masked, from, to }, protectedTokens };
 }
 
