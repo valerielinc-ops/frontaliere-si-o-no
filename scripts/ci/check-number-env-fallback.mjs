@@ -50,7 +50,7 @@ const JSON_OUT = argv.includes('--json');
  */
 const GLOBS = ['scripts/**', 'build-plugins/**', 'services/**', 'tests/**', 'functions/**', '.github/**'];
 
-const BAD_RE = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\|\|/;
+const NUMBER_ENV_FALLBACK_PATTERN = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\|\|/;
 
 /** A raw env number is only dangerous when it controls a bounded operation. */
 const RAW_NUMBER_ENV_ASSIGNMENT_RE =
@@ -60,7 +60,7 @@ const RAW_NUMBER_ENV_ASSIGNMENT_RE =
  * Remove comments without changing offsets, so regex matches still map to the
  * original line and comments cannot manufacture a violation.
  */
-function stripComments(source) {
+function stripCommentsForNumberEnvGate(source) {
   let out = '';
   let block = false;
   let line = false;
@@ -116,11 +116,11 @@ function stripComments(source) {
   return out;
 }
 
-function escapeRegExp(value) {
+function escapeNumericEnvIdentifier(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function containingBlock(source, index) {
+function containingNumericEnvBlock(source, index) {
   const stack = [];
   let quote = '';
   for (let i = 0; i < index; i++) {
@@ -168,20 +168,20 @@ function containingBlock(source, index) {
  * the positive rule and its false-positive boundary.
  */
 export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
-  const code = stripComments(String(source ?? ''));
+  const code = stripCommentsForNumberEnvGate(String(source ?? ''));
   const violations = [];
   let match;
 
   while ((match = RAW_NUMBER_ENV_ASSIGNMENT_RE.exec(code))) {
     const variable = match[1];
-    const escaped = escapeRegExp(variable);
-    const [scopeStart, scopeEnd] = containingBlock(code, match.index);
-    const compactScope = code.slice(scopeStart, scopeEnd).replace(/\s+/g, ' ');
+    const escaped = escapeNumericEnvIdentifier(variable);
+    const [scopeStart, scopeEnd] = containingNumericEnvBlock(code, match.index);
+    const compactNumericEnvScope = code.slice(scopeStart, scopeEnd).replace(/\s+/g, ' ');
     const usedAsBound = [
       new RegExp(`\\.\\s*slice\\s*\\([^)]*\\b${escaped}\\b`),
       new RegExp(`\\bfor\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)`),
       new RegExp(`\\bconcurrency\\b\\s*[:=]\\s*\\b${escaped}\\b`, 'i'),
-    ].some((pattern) => pattern.test(compactScope));
+    ].some((pattern) => pattern.test(compactNumericEnvScope));
 
     if (!usedAsBound) continue;
     const line = code.slice(0, match.index).split('\n').length;
@@ -200,7 +200,7 @@ export function lineHasNumberEnvFallback(line) {
   const trimmed = s.trimStart();
   if (trimmed.startsWith('*') || trimmed.startsWith('//') || trimmed.startsWith('#')) return false;
   const code = s.split('//')[0];
-  return BAD_RE.test(code);
+  return NUMBER_ENV_FALLBACK_PATTERN.test(code);
 }
 
 /**
