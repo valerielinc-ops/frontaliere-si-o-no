@@ -1,20 +1,21 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-09-06T22:56:50.377Z",
+  "generatedAt": "2026-09-07T23:33:22.592Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
+  "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3197,
-  "avgDurationMs": 3197,
+  "durationMs": 6254,
+  "avgDurationMs": 6254,
   "durationHistory": [
-    3197
+    6254
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +33,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000140227709-physiotherapeute-cabinet-ambulatoire-suivi-hospitalier",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:56:45.336Z",
+      "crawledAt": "2026-09-07T23:33:14.243Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -70,7 +71,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:56:45.337Z",
+      "crawledAt": "2026-09-07T23:33:14.244Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",

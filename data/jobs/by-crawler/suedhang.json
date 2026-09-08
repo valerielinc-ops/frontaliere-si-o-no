@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suedhang",
-  "assembledAt": "2026-09-06T22:46:52.931Z",
+  "assembledAt": "2026-09-07T23:22:55.718Z",
   "jobs": [
     {
       "id": "suedhang-e01dd9e6dfeb",
@@ -34,7 +34,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-facility-management/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:48.746Z",
+      "crawledAt": "2026-09-07T23:22:50.926Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -55,13 +55,11 @@
       "pensum": "50%",
       "previousSlugs": [
         "mitarbeiter-in-facility-management-suedhang-ch",
-        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach",
-        "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+        "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-facility-management-suedhang-ch",
-          "collaboratore-trice-in-facility-management-klinik-sudhang-kirchlindach"
+          "mitarbeiter-in-facility-management-suedhang-ch"
         ],
         "fr": [
           "mitarbeiter-in-facility-management-klinik-sudhang-kirchlindach"
@@ -115,7 +113,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/it-applikationsmanager-in/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:48.220Z",
+      "crawledAt": "2026-09-07T23:22:50.386Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -136,12 +134,10 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "de": [
-          "it-applikationsmanager-in-suedhang-ch",
-          "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
+          "it-applikationsmanager-in-suedhang-ch"
         ],
         "it": [
-          "it-applikationsmanager-in-suedhang-ch",
-          "responsabile-dell-applicazione-it-klinik-sudhang-kirchlindach"
+          "it-applikationsmanager-in-suedhang-ch"
         ],
         "en": [
           "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
@@ -152,8 +148,7 @@
       },
       "previousSlugs": [
         "it-applikationsmanager-in-suedhang-ch",
-        "it-applikationsmanager-in-klinik-sudhang-kirchlindach",
-        "responsabile-dell-applicazione-it-klinik-sudhang-kirchlindach"
+        "it-applikationsmanager-in-klinik-sudhang-kirchlindach"
       ],
       "firstSeenAt": "2026-08-07T01:06:15.892Z",
       "salaryMin": 113000,
@@ -203,7 +198,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leiter-in-praxismanagement/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:47.691Z",
+      "crawledAt": "2026-09-07T23:22:49.843Z",
       "addressLocality": "Ambulatorium Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -224,14 +219,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "leiter-in-praxismanagement-suedhang-ch",
-        "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern",
-        "responsabile-della-gestione-delle-pratiche-klinik-sudhang-ambulatorium-bern"
+        "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-praxismanagement-suedhang-ch",
-          "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern",
-          "responsabile-della-gestione-delle-pratiche-klinik-sudhang-ambulatorium-bern"
+          "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
         ],
         "en": [
           "leiter-in-praxismanagement-klinik-sudhang-ambulatorium-bern"
@@ -251,93 +244,6 @@
           "@type": "QuantitativeValue",
           "minValue": 115000,
           "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "suedhang-86806469200f",
-      "slug": "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach",
-      "slugByLocale": {
-        "it": "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach",
-        "en": "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach",
-        "de": "sport-bewegungstherapeut-in-suedhang-ch",
-        "fr": "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach"
-      },
-      "company": "Klinik Südhang",
-      "companyKey": "suedhang",
-      "companyDomain": "suedhang.ch",
-      "title": "Sport- & Bewegungstherapeut*in",
-      "titleByLocale": {
-        "it": "Therapist di sport e movimento*",
-        "en": "Sports & Movement Therapist*",
-        "de": "Sport- & Bewegungstherapeut*in",
-        "fr": "Thérapeute du sport et du mouvement*"
-      },
-      "description": "Für unser Team in Kirchlindach suchen wir per 01. November 2026 oder nach Vereinbarung eine*n Sport- & Bewegungstherapeut*in Arbeitsort Klinik Südhang, Kirchlindach Beschäftigungsgrad 50 – 55% Stellenantritt per 01.11.2026 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Zu Ihren \n• Aufgaben gehört die Planung und Leitung von sport- und bewegungstherapeutischen Angeboten für stationäre Patientinnen und Patienten der Tagesklinik. Dazu gehören die Medizinische Trainingstherapie (MTT), Ausdauertraining Indoor und Outdoor, Fitnesstraining, Freizeitspiele, Bogenschiessen, Bouldern, Funktionelle Gymnastik, Yoga und Entspannungstechniken. Sie tauschen sich regelmässig mit dem interdisziplinären Behandlungsteam sowie anderen Fachbereichen aus und erledigen administrative Arbeiten im Auftrag. Was Sie auszeichnet Für diese vielseitige Tätigkeit suchen wir eine*n Absolvent*in der Sportwissenschaften, idealerweise mit Nebenfach Psychologie und/oder einem abgeschlossenen CAS in «Bewegungs- und Sporttherapie bei psychischen Erkrankungen». Idealerweise verfügen Sie über erste Erfahrungen im psychiatrischen Bereich und zeigen ein grosses Interesse an der Arbeit mit Patient*innen in der Behandlung von Abhängigkeitserkrankungen. Sie zeichnen sich durch ein hohes Verantwortungsbewusstsein aus und bringen Freude an der Vermittlung von Sport und Bewegung als Ressource mit. Weiter gehören Flexibilität, Kommunikationsfähigkeit und soziale Kompetenz zu Ihren Stärken. Worauf Sie sich freuen dürfen Es erwartet Sie eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem motivierten, interprofessionellen Team und ein attraktives, dynamisches Arbeitsumfeld, in dem Ihre Ideen und Beiträge geschätzt werden. Das ausgeprägte Teamverständnis ist ein Plus für die Mitarbeitenden und trägt gleichzeitig zu einer hohen Behandlungsqualität bei. Ihr Arbeitsort liegt in naturnaher Umgebung und ist ab Bern in 20 Minuten mit dem Postauto erreichbar. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Weitere Auskünfte erteilt Ihnen gerne Kristin Milby, Leiterin Sport & Bewegungstherapie, kristin.milby@suedhang.ch Bitte senden Sie Ihre Bewerbungsunterlagen an jobs@suedhang.ch . Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
-      "descriptionByLocale": {
-        "it": "Cerchiamo un terapista sportivo ed esercizio* al 01.11.2026 o su appuntamento al Klinik Südhang, Kirchlindach Occupazione Grado 50 – 55% Lavoro al 01.11.2026 o su appuntamento PDF Ciò che rende il vostro lavoro particolarmente attraente A te\n• Compiti includono la pianificazione e la gestione dello sport e l'esercizio di offerte terapeutiche per i pazienti inpatici della clinica diurna. Questi includono la terapia medica di allenamento (MTT), l'allenamento di resistenza indoor e outdoor, l'allenamento di fitness, giochi ricreativi, tiro con l'arco, bouldering, ginnastica funzionale, yoga e tecniche di rilassamento. Essi scambiano regolarmente opinioni con il team di trattamento interdisciplinare, così come altri settori specializzati e svolgono lavori amministrativi per conto. Ciò che ti distingue Per questa attività versatile siamo alla ricerca di un laureato di scienze sportive, idealmente con un minore in psicologia e / o un CAS in \"Motion and Sports Therapy in Mental Illness\". Idealmente, avete esperienza iniziale nel campo psichiatrico e mostrare un grande interesse a lavorare con i pazienti nel trattamento delle malattie della dipendenza. Sono caratterizzati da un alto senso di responsabilità e portano gioia alla mediazione dello sport e dell'esercizio come risorsa. Inoltre, la flessibilità, le capacità di comunicazione e le competenze sociali sono tra i vostri punti di forza. Si può aspettare un lavoro responsabile e vario in un team motivato, interprofessionale e un ambiente di lavoro attraente e dinamico in cui le vostre idee e contributi sono apprezzati. La chiara comprensione del team è un vantaggio per i dipendenti e allo stesso tempo contribuisce ad un'alta qualità del trattamento. Il vostro posto di lavoro è in un ambiente naturale e può essere raggiunto da Berna in 20 minuti in autobus postale. Klinik Südhang accompagna e sostiene i dipendenti nel loro sviluppo professionale e personale. Perché South Slope? I dipendenti beneficiano di condizioni di lavoro interessanti e di una cultura aziendale apprezzata. Ulteriori informazioni sono fornite da Kristin Milby, Head of Sports & Movement Therapy, kristin.milby@suedhang.ch Si prega di inviare i documenti di richiesta a job@suedhang.ch . Iscriviti a Jobmail. Vi informeremo volentieri via e-mail non appena un nuovo lavoro nel vostro gruppo professionale è pubblicizzato. Iscriviti a Jobmail qui",
-        "en": "We are looking for a sports and exercise therapist* at 01.11.2026 or by appointment at Klinik Südhang, Kirchlindach Employment Grade 50 – 55% Job as of 01.11.2026 or by appointment PDF What makes your work particularly attractive To your\n• Tasks include the planning and management of sports and exercise therapeutic offers for inpatient patients of the day clinic. These include medical training therapy (MTT), endurance training indoor and outdoor, fitness training, recreational games, archery, bouldering, functional gymnastics, yoga and relaxation techniques. They regularly exchange views with the interdisciplinary treatment team as well as other specialist areas and carry out administrative work on behalf. What distinguishes you For this versatile activity we are looking for a graduate of sports sciences, ideally with a minor in psychology and / or a CAS in \"Motion and Sports Therapy in Mental Illness\". Ideally, you have initial experience in the psychiatric field and show a great interest in working with patients in the treatment of addiction diseases. They are characterized by a high sense of responsibility and bring joy to the mediation of sport and exercise as a resource. Furthermore, flexibility, communication skills and social competence are among your strengths. You can look forward to a responsible and varied work in a motivated, interprofessional team and an attractive, dynamic working environment in which your ideas and contributions are appreciated. The pronounced understanding of the team is a plus for the employees and at the same time contributes to a high quality of treatment. Your place of work is in a natural environment and can be reached from Bern in 20 minutes by post bus. Klinik Südhang accompanies and supports employees in their professional and personal development. Learn more Why South Slope? Employees benefit from attractive working conditions and an appreciative company culture. Find out more Further information is provided by Kristin Milby, Head of Sports & Movement Therapy, kristin.milby@suedhang.ch Please send your application documents to jobs@suedhang.ch . Subscribe to Jobmail. We will gladly inform you by email as soon as a new job in your professional group is advertised. Subscribe to Jobmail here",
-        "de": "Für unser Team in Kirchlindach suchen wir per 01. November 2026 oder nach Vereinbarung eine*n Sport- & Bewegungstherapeut*in Arbeitsort Klinik Südhang, Kirchlindach Beschäftigungsgrad 50 – 55% Stellenantritt per 01.11.2026 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Zu Ihren \n• Aufgaben gehört die Planung und Leitung von sport- und bewegungstherapeutischen Angeboten für stationäre Patientinnen und Patienten der Tagesklinik. Dazu gehören die Medizinische Trainingstherapie (MTT), Ausdauertraining Indoor und Outdoor, Fitnesstraining, Freizeitspiele, Bogenschiessen, Bouldern, Funktionelle Gymnastik, Yoga und Entspannungstechniken. Sie tauschen sich regelmässig mit dem interdisziplinären Behandlungsteam sowie anderen Fachbereichen aus und erledigen administrative Arbeiten im Auftrag. Was Sie auszeichnet Für diese vielseitige Tätigkeit suchen wir eine*n Absolvent*in der Sportwissenschaften, idealerweise mit Nebenfach Psychologie und/oder einem abgeschlossenen CAS in «Bewegungs- und Sporttherapie bei psychischen Erkrankungen». Idealerweise verfügen Sie über erste Erfahrungen im psychiatrischen Bereich und zeigen ein grosses Interesse an der Arbeit mit Patient*innen in der Behandlung von Abhängigkeitserkrankungen. Sie zeichnen sich durch ein hohes Verantwortungsbewusstsein aus und bringen Freude an der Vermittlung von Sport und Bewegung als Ressource mit. Weiter gehören Flexibilität, Kommunikationsfähigkeit und soziale Kompetenz zu Ihren Stärken. Worauf Sie sich freuen dürfen Es erwartet Sie eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem motivierten, interprofessionellen Team und ein attraktives, dynamisches Arbeitsumfeld, in dem Ihre Ideen und Beiträge geschätzt werden. Das ausgeprägte Teamverständnis ist ein Plus für die Mitarbeitenden und trägt gleichzeitig zu einer hohen Behandlungsqualität bei. Ihr Arbeitsort liegt in naturnaher Umgebung und ist ab Bern in 20 Minuten mit dem Postauto erreichbar. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Weitere Auskünfte erteilt Ihnen gerne Kristin Milby, Leiterin Sport & Bewegungstherapie, kristin.milby@suedhang.ch Bitte senden Sie Ihre Bewerbungsunterlagen an jobs@suedhang.ch . Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
-        "fr": "Nous recherchons un thérapeute du sport et de l'exercice* au 01.11.2026 ou sur rendez-vous chez Klinik Südhang, Kirchlindach Emploi 50e année – 55% Emploi au 01.11.2026 ou sur rendez-vous PDF Ce qui rend votre travail particulièrement attrayant À votre\n• Les tâches comprennent la planification et la gestion des offres de sport et d'exercice thérapeutique pour les patients hospitalisés de la clinique de jour. Il s'agit notamment de la thérapie d'entraînement médical (MTT), de l'entraînement d'endurance à l'intérieur et à l'extérieur, de l'entraînement de fitness, des jeux récréatifs, du tir à l'arc, du bloc, de la gymnastique fonctionnelle, du yoga et des techniques de relaxation. Ils échangent régulièrement leurs points de vue avec l'équipe de traitement interdisciplinaire ainsi qu'avec d'autres domaines spécialisés et effectuent des travaux administratifs en leur nom. Ce qui vous distingue Pour cette activité polyvalente, nous cherchons un diplôme en sciences du sport, idéalement avec un mineur en psychologie et / ou un CAS dans \"Motion et thérapie sportive en maladie mentale\". Idéalement, vous avez une expérience initiale dans le domaine psychiatrique et montrez un grand intérêt à travailler avec les patients dans le traitement des maladies de dépendance. Ils sont caractérisés par un haut sens des responsabilités et apportent de la joie à la médiation du sport et de l'exercice comme une ressource. De plus, la flexibilité, les compétences en communication et la compétence sociale font partie de vos forces. Vous pouvez vous attendre à un travail responsable et varié dans une équipe motivée, interprofessionnelle et un environnement de travail attrayant et dynamique dans lequel vos idées et vos contributions sont appréciées. La compréhension prononcée de l'équipe est un atout pour les employés et contribue en même temps à une qualité de traitement élevée. Votre lieu de travail est dans un environnement naturel et peut être atteint de Berne en 20 minutes en bus. Klinik Südhang accompagne et soutient les employés dans leur développement professionnel et personnel. En savoir plus Pourquoi South Slope ? Les employés bénéficient de conditions de travail attrayantes et d'une culture d'entreprise appréciée. Pour en savoir plus Kristin Milby, responsable de la thérapie sportive et du mouvement, kristin.milby@suedhang.ch Veuillez envoyer vos documents de candidature à jobs@suedhang.ch . Abonnez-vous à Jobmail. Nous vous informerons volontiers par courriel dès qu'un nouvel emploi dans votre groupe professionnel sera annoncé. Abonnez-vous à Jobmail ici"
-      },
-      "needsRetranslation": false,
-      "location": "Kirchlindach",
-      "canton": "BE",
-      "url": "https://www.suedhang.ch/karriere/offene-stellen/sport_und_bewegungstherapeut_in/",
-      "source": "Klinik Südhang Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:47.165Z",
-      "addressLocality": "Kirchlindach",
-      "postalCode": "3038",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-27",
-      "applyUrl": "https://www.suedhang.ch/karriere/offene-stellen/sport_und_bewegungstherapeut_in/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 50,
-      "pensumMax": 55,
-      "pensum": "50 - 55%",
-      "previousSlugs": [
-        "sport-bewegungstherapeut-in-suedhang-ch",
-        "therapist-di-sport-e-movimento-klinik-sudhang-kirchlindach",
-        "sports-movement-therapist-klinik-sudhang-kirchlindach",
-        "therapeute-du-sport-et-du-mouvement-klinik-sudhang-kirchlindach",
-        "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sport-bewegungstherapeut-in-suedhang-ch",
-          "therapist-di-sport-e-movimento-klinik-sudhang-kirchlindach",
-          "sport-bewegungstherapeut-in-klinik-sudhang-kirchlindach"
-        ],
-        "en": [
-          "sports-movement-therapist-klinik-sudhang-kirchlindach"
-        ],
-        "fr": [
-          "therapeute-du-sport-et-du-mouvement-klinik-sudhang-kirchlindach"
-        ]
-      },
-      "firstSeenAt": "2026-07-27T12:30:41.034Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
@@ -375,7 +281,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/stellvertreter-in-tanztherapie/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:46.641Z",
+      "crawledAt": "2026-09-07T23:22:49.303Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -392,13 +298,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertreter-in-tanztherapie-suedhang-ch",
-        "terapia-da-ballo-aggiunto-klinik-sudhang-kirchlindach"
+        "stellvertreter-in-tanztherapie-suedhang-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertreter-in-tanztherapie-suedhang-ch",
-          "terapia-da-ballo-aggiunto-klinik-sudhang-kirchlindach"
+          "stellvertreter-in-tanztherapie-suedhang-ch"
         ],
         "en": [
           "stellvertreter-in-tanztherapie-suedhang-ch"
@@ -455,7 +359,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:46.116Z",
+      "crawledAt": "2026-09-07T23:22:48.764Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -477,12 +381,10 @@
       "firstSeenAt": "2026-08-31T17:02:35.263Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "de": [
-          "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach"
+          "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
@@ -492,9 +394,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-suedhang-ch",
-        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "salute-specialistica-efz-klinik-sudhang-kirchlindach"
+        "fachfrau-fachmann-gesundheit-efz-suedhang-ch"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -543,7 +443,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-im-nachtdienst/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:45.590Z",
+      "crawledAt": "2026-09-07T23:22:48.223Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -564,14 +464,12 @@
       "pensum": "50%",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+        "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch",
-          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach",
-          "dipl-infermieristica-professionale-hf-in-servizio-notturno-klinik-sudhang-kirchlindach"
+          "dipl-pflegefachfrau-mann-hf-im-nachtdienst-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-im-nachtdienst-suedhang-ch"
@@ -627,7 +525,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/assistenzarzt-assistenzaerztin-ambulatorium-biel/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:45.067Z",
+      "crawledAt": "2026-09-07T23:22:47.682Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -677,14 +575,12 @@
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-suedhang-ch",
         "assistenzarztin-assistenzarzt-suedhang-ch-2",
-        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne",
-        "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+        "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-suedhang-ch",
-          "assistenzarztin-assistenzarzt-suedhang-ch-2",
-          "assistente-medico-klinik-sudhang-ambulatorium-biel-bienne"
+          "assistenzarztin-assistenzarzt-suedhang-ch-2"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-klinik-sudhang-ambulatorium-biel-bienne"
@@ -737,7 +633,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:46:44.540Z",
+      "crawledAt": "2026-09-07T23:22:47.142Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -759,14 +655,12 @@
       "previousSlugs": [
         "klinische-n-psycholog-in-suedhang-ch-2",
         "klinische-n-psycholog-in-suedhang-ch",
-        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne",
-        "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+        "klinische-n-psycholog-in-klinik-sudhang-ambulatorium-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-n-psycholog-in-suedhang-ch-2",
-          "klinische-n-psycholog-in-suedhang-ch",
-          "psicologo-a-clinico-a-klinik-sudhang-ambulatorium-biel-bienne"
+          "klinische-n-psycholog-in-suedhang-ch"
         ],
         "en": [
           "klinische-n-psycholog-in-suedhang-ch-2"
@@ -793,6 +687,88 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "suedhang-44adb4c95e69",
+      "slug": "principale-medico-principal-medico-klinik-sudhang-kirchlindach",
+      "slugByLocale": {
+        "de": "leitende-arztin-leitenden-arzt-suedhang-ch",
+        "it": "principale-medico-principal-medico-klinik-sudhang-kirchlindach",
+        "en": "principal-physician-principal-physician-klinik-sudhang-kirchlindach",
+        "fr": "medecin-principal-medecin-principal-klinik-sudhang-kirchlindach"
+      },
+      "company": "Klinik Südhang",
+      "companyKey": "suedhang",
+      "companyDomain": "suedhang.ch",
+      "title": "Leitende Ärztin / Leitenden Arzt",
+      "titleByLocale": {
+        "de": "Leitende Ärztin / Leitenden Arzt",
+        "it": "Principale medico / Principal medico",
+        "en": "Principal physician / Principal physician",
+        "fr": "Médecin principal / Médecin principal"
+      },
+      "description": "Für unseren Ärztlich-psychologischen Dienst in Kirchlindach suchen wir per 01. Dezember 2026 oder nach Vereinbarung eine*n Leitende Ärztin / Leitenden Arzt Arbeitsort Klinik Südhang, Kirchlindach Beschäftigungsgrad 80 – 100% Stellenantritt 01. Dezember 2026 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Sie arbeiten in einer Institution, die sich um die Bedürfnisse der Patient*innen organisiert und durch ein hohes psychotherapeutisches Verständnis geprägt ist. Die Patient*innen werden in interprofessionellen Teams kontinuierlich vom Entzug bis in die Tagesklinik begleitet. Als Mitglied des höheren Kaders sind Sie in der Gestaltung strategischer Ziele einbezogen und mitverantwortlich für die operative Umsetzung. Gemeinsam mit einer Leitenden Psychologin tragen Sie die Verantwortung in der fachlichen und personellen Führung einer Abteilung des Ärztlich-psychologischen Dienstes am Standort Kirchlindach. Ihr Team besteht aus Assistenzärzt*innen und Psycholog*innen. Sie verantworten die psychiatrisch-medizinische Betreuung der Patient*innen im Entzug und in der Entwöhnung und beteiligen sich am ärztlichen Hintergrunddienst. Die direkte Betreuung eigener Patient*innen und die Durchführung themenspezifischer Gruppentherapien sind möglich und erwünscht. Als Leitender Arzt/Leitende Ärztin bringen Sie sich in einer entwicklungsfreudigen, äusserst innovativen Klinik mit Ihrer Erfahrung und Ihrer Gestaltungskraft ein und prägen die fachliche Weiterentwicklung des Therapieangebotes und der klinischen Prozesse mit. Was Sie auszeichnet Sie besitzen den Facharzttitel im Bereich Psychiatrie und Psychotherapie. Sie verfügen über fundierte psychotherapeutische Erfahrungen, sind sicher in der Behandlung akuter psychiatrischer Zustandsbilder und in der ersten Beurteilung sowie im Management von somatischen Komorbiditäten. Psychotherapeutisches Arbeiten liegt Ihnen am Herzen und Sie haben Freude an einer individuellen Fallkonzeption im Rahmen des in der Klinik gelebten biopsychosozialen Modells. Sie können Führungserfahrung ausweisen und zeigen Verantwortungsbereitschaft für wirtschaftliche Zusammenhänge. Der Kontakt mit Menschen, die von Abhängigkeitserkrankungen betroffen sind, sowie interprofessionelles und vernetzendes Arbeiten bereiten Ihnen Freude. Sie sind motiviert, sich in der Weiterentwicklung des Therapieprogramms zu engagieren und die von Ihnen geführten Mitarbeitenden durch die Weitergabe Ihrer Erfahrung in ihrer beruflichen Entwicklung zu fördern. Worauf Sie sich freuen dürfen Es erwartet Sie ein vielseitiges, selbstständiges Aufgabengebiet in einem kollegialen und interprofessionellen Team bei fortschrittlichen Anstellungsbedingungen. Sie werden in Ihrer beruflichen und fachlichen Entwicklung gefördert. Das Therapieprogramm der Klinik zeichnet sich durch ein hohes Mass an Patient*innenzentrierung und innovativen Angeboten aus. Der ärztliche Hintergrunddienst erfolgt im Pikettsystem. Die Eintritte der Patient*innen erfolgen geplant und elektiv. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Fachliche Informationen zur Stelle erhalten von Chefarzt Dr. med. Alexander Wopfner Lempen unter +41 31 828 14 14. Informationen zum Bewerbungsprozess erhalten Sie von Denise Utiger, HR-Fachfrau, +41 31 828 15 50. Wir freuen uns auf Ihre vollständige Bewerbung via Online-Formular. Jetzt bewerben Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
+      "descriptionByLocale": {
+        "de": "Für unseren Ärztlich-psychologischen Dienst in Kirchlindach suchen wir per 01. Dezember 2026 oder nach Vereinbarung eine*n Leitende Ärztin / Leitenden Arzt Arbeitsort Klinik Südhang, Kirchlindach Beschäftigungsgrad 80 – 100% Stellenantritt 01. Dezember 2026 oder nach Vereinbarung PDF Was Ihre Arbeit besonders attraktiv mach t Sie arbeiten in einer Institution, die sich um die Bedürfnisse der Patient*innen organisiert und durch ein hohes psychotherapeutisches Verständnis geprägt ist. Die Patient*innen werden in interprofessionellen Teams kontinuierlich vom Entzug bis in die Tagesklinik begleitet. Als Mitglied des höheren Kaders sind Sie in der Gestaltung strategischer Ziele einbezogen und mitverantwortlich für die operative Umsetzung. Gemeinsam mit einer Leitenden Psychologin tragen Sie die Verantwortung in der fachlichen und personellen Führung einer Abteilung des Ärztlich-psychologischen Dienstes am Standort Kirchlindach. Ihr Team besteht aus Assistenzärzt*innen und Psycholog*innen. Sie verantworten die psychiatrisch-medizinische Betreuung der Patient*innen im Entzug und in der Entwöhnung und beteiligen sich am ärztlichen Hintergrunddienst. Die direkte Betreuung eigener Patient*innen und die Durchführung themenspezifischer Gruppentherapien sind möglich und erwünscht. Als Leitender Arzt/Leitende Ärztin bringen Sie sich in einer entwicklungsfreudigen, äusserst innovativen Klinik mit Ihrer Erfahrung und Ihrer Gestaltungskraft ein und prägen die fachliche Weiterentwicklung des Therapieangebotes und der klinischen Prozesse mit. Was Sie auszeichnet Sie besitzen den Facharzttitel im Bereich Psychiatrie und Psychotherapie. Sie verfügen über fundierte psychotherapeutische Erfahrungen, sind sicher in der Behandlung akuter psychiatrischer Zustandsbilder und in der ersten Beurteilung sowie im Management von somatischen Komorbiditäten. Psychotherapeutisches Arbeiten liegt Ihnen am Herzen und Sie haben Freude an einer individuellen Fallkonzeption im Rahmen des in der Klinik gelebten biopsychosozialen Modells. Sie können Führungserfahrung ausweisen und zeigen Verantwortungsbereitschaft für wirtschaftliche Zusammenhänge. Der Kontakt mit Menschen, die von Abhängigkeitserkrankungen betroffen sind, sowie interprofessionelles und vernetzendes Arbeiten bereiten Ihnen Freude. Sie sind motiviert, sich in der Weiterentwicklung des Therapieprogramms zu engagieren und die von Ihnen geführten Mitarbeitenden durch die Weitergabe Ihrer Erfahrung in ihrer beruflichen Entwicklung zu fördern. Worauf Sie sich freuen dürfen Es erwartet Sie ein vielseitiges, selbstständiges Aufgabengebiet in einem kollegialen und interprofessionellen Team bei fortschrittlichen Anstellungsbedingungen. Sie werden in Ihrer beruflichen und fachlichen Entwicklung gefördert. Das Therapieprogramm der Klinik zeichnet sich durch ein hohes Mass an Patient*innenzentrierung und innovativen Angeboten aus. Der ärztliche Hintergrunddienst erfolgt im Pikettsystem. Die Eintritte der Patient*innen erfolgen geplant und elektiv. Entwicklungsperspektiven Die Klinik Südhang begleitet und fördert die Mitarbeitenden in ihrer fachlichen und persönlichen Entwicklung. Mehr erfahren Warum Südhang? Mitarbeitende profitieren von attraktiven Arbeitsbedingungen und einer wertschätzenden Betriebskultur. Mehr erfahren Fachliche Informationen zur Stelle erhalten von Chefarzt Dr. med. Alexander Wopfner Lempen unter +41 31 828 14 14. Informationen zum Bewerbungsprozess erhalten Sie von Denise Utiger, HR-Fachfrau, +41 31 828 15 50. Wir freuen uns auf Ihre vollständige Bewerbung via Online-Formular. Jetzt bewerben Jobmail abonnieren. Gerne informieren wir Sie per Mail, sobald eine neue Stelle in Ihrer Berufsgruppe ausgeschrieben wird. Hier Jobmail abonnieren",
+        "it": "Per il nostro servizio medico-psicologico a Kirchlindach stiamo cercando 01. Dicembre 2026 o, d'accordo, un medico principale / principale posizione fisica Klinik Südhang, Kirchlindach Occupazione Grado 80 – 100% occupazione ingresso 01. Dicembre 2026 o accordo PDF Ciò che rende il vostro lavoro particolarmente attraente Si lavora in un'istituzione che è organizzata intorno alle esigenze dei pazienti ed è caratterizzata da un'alta comprensione psicoterapeutica. I pazienti sono continuamente accompagnati in team interprofessionali dal ritiro alla clinica diurna. In qualità di membro del team di gestione senior, sei coinvolto nella progettazione di obiettivi strategici e sono congiuntamente responsabili per l'implementazione operativa. Insieme a uno psicologo senior, sarete responsabili della gestione tecnica e del personale di un dipartimento del Servizio psicologico medico presso la sede di Kirchlindach. Il suo team è composto da assistenti medici e psicologi. Essi sono responsabili della cura psichiatrica-medica dei pazienti in ritiro e svezzamento e partecipare al servizio di sfondo medico. La cura diretta dei propri pazienti e l'implementazione di terapie di gruppo specifiche per l'argomento sono possibili e desiderati. Come medico leader, si contribuisce a una clinica di sviluppo-friendly, estremamente innovativa con la vostra esperienza e la vostra potenza creativa e modellare lo sviluppo professionale dell'offerta di terapia e dei processi clinici. Quello che ti distingue Possiedi il titolo specialistico nel campo della psichiatria e della psicoterapia. Hanno una profonda esperienza psicoterapeutica, sono al sicuro nel trattamento delle condizioni psichiatriche acute e nella valutazione iniziale, nonché nella gestione delle comorbidità somatiche. Il lavoro psicoterapeutico è importante per voi e si gode di un concetto di caso individuale nel quadro del modello biopsicosociale vissuto nella clinica. Possono dimostrare esperienza di leadership e mostrare la volontà di assumersi la responsabilità per i contesti economici. Il contatto con le persone che sono affetti da malattie della dipendenza, così come il lavoro interprofessionale e di rete vi dà piacere. Siete motivati a impegnarsi nell'ulteriore sviluppo del programma di terapia e a promuovere i dipendenti che si conducono passando la vostra esperienza nel loro sviluppo professionale. Si può aspettare un'area di responsabilità versatile e indipendente in un team collegiale e interprofessionale con condizioni di lavoro progressivo. Sono promossi nel loro sviluppo professionale e professionale. Il programma di terapia della clinica è caratterizzato da un alto grado di paziente centrato e offerte innovative. Il servizio di sfondo medico è effettuato nel sistema pikett. Gli ingressi dei pazienti sono pianificati ed elettivi. Klinik Südhang accompagna e sostiene i dipendenti nel loro sviluppo professionale e personale. Perché South Slope? I dipendenti beneficiano di condizioni di lavoro interessanti e di una cultura aziendale apprezzata. Maggiori informazioni sulla posizione possono essere ottenute dal medico capo Dr. med. Alexander Wopfner Lempen sotto +41 31 828 14 14. Informazioni sul processo di applicazione possono essere ottenuti da Denise Utiger, specialista HR, +41 31 828 15 50. Attendiamo con ansia la vostra applicazione completa tramite il modulo online. Iscriviti subito a Jobmail. Vi informeremo volentieri via e-mail non appena un nuovo lavoro nel vostro gruppo professionale è pubblicizzato. Iscriviti a Jobmail qui",
+        "en": "For our medical-psychological service in Kirchlindach we are looking for 01. December 2026 or, by agreement, a Chief Physician / Chief Physician Location Klinik Südhang, Kirchlindach Employment Grade 80 – 100% Job entry 01. December 2026 or by agreement PDF What makes your work particularly attractive You work in an institution that is organized around the needs of patients and is characterized by a high psychotherapeutic understanding. Patients are continuously accompanied in interprofessional teams from withdrawal to the day clinic. As a member of the senior management team, you are involved in the design of strategic goals and are jointly responsible for the operational implementation. Together with a senior psychologist, you will be responsible for the technical and personnel management of a department of the Medical Psychological Service at the Kirchlindach location. Her team consists of assistant doctors and psychologists. They are responsible for the psychiatric-medical care of patients in withdrawal and weaning and participate in the medical background service. The direct care of own patients and the implementation of topic-specific group therapies are possible and desired. As a leading physician, you contribute to a development-friendly, extremely innovative clinic with your experience and your creative power and shape the professional development of the therapy offer and the clinical processes. What distinguishes you You possess the specialist title in the field of psychiatry and psychotherapy. They have profound psychotherapeutic experience, are safe in the treatment of acute psychiatric conditions and in the initial assessment as well as in the management of somatic comorbidities. Psychotherapeutic work is important to you and you enjoy an individual case concept within the framework of the biopsychosocial model lived in the clinic. They can demonstrate leadership experience and show a willingness to take responsibility for economic contexts. Contact with people who are affected by addiction diseases, as well as interprofessional and networking work give you pleasure. You are motivated to engage in the further development of the therapy program and to promote the employees you lead by passing on your experience in their professional development. You can look forward to a versatile, independent area of responsibility in a collegial and interprofessional team with progressive employment conditions. They are promoted in their professional and professional development. The clinic’s therapy program is characterized by a high degree of patient centering and innovative offerings. The medical background service is carried out in the pikett system. The entrances of the patients are planned and elective. Klinik Südhang accompanies and supports employees in their professional and personal development. Learn more Why South Slope? Employees benefit from attractive working conditions and an appreciative company culture. More information about the position can be obtained from chief physician Dr. med. Alexander Wopfner Lempen under +41 31 828 14 14. Information about the application process can be obtained from Denise Utiger, HR specialist, +41 31 828 15 50. We look forward to your complete application via online form. Subscribe to Jobmail now. We will gladly inform you by email as soon as a new job in your professional group is advertised. Subscribe to Jobmail here",
+        "fr": "Pour notre service médical-psychologique à Kirchlindach nous cherchons 01. Décembre 2026 ou, par accord, un médecin en chef / médecin en chef Lieu Klinik Südhang, Kirchlindach Emploi 80e année – 100 % Emploi 01. Décembre 2026 ou par accord PDF Ce qui rend votre travail particulièrement attrayant Vous travaillez dans une institution qui est organisée autour des besoins des patients et se caractérise par une compréhension psychothérapeutique élevée. Les patients sont accompagnés en permanence par des équipes interprofessionnelles, du retrait à la clinique de jour. En tant que membre de l'équipe de la haute direction, vous participez à la conception des objectifs stratégiques et êtes conjointement responsable de la mise en oeuvre opérationnelle. Avec un psychologue principal, vous serez responsable de la gestion technique et du personnel d'un département du Service de psychologie médicale à l'emplacement Kirchlindach. Son équipe est composée de médecins adjoints et de psychologues. Ils sont responsables des soins psychiatriques-médicaux des patients en sevrage et en sevrage et participent au service de formation médicale. La prise en charge directe des patients et la mise en œuvre de thérapies de groupe spécifiques sont possibles et souhaitées. En tant que médecin de premier plan, vous contribuez au développement d'une clinique extrêmement innovante avec votre expérience et votre pouvoir créatif et façonnez le développement professionnel de l'offre de thérapie et les processus cliniques. Ce qui vous distingue Vous possédez le titre de spécialiste en psychiatrie et en psychothérapie. Ils ont une expérience psychothérapeutique profonde, sont sûrs dans le traitement des troubles psychiatriques aigus et dans l'évaluation initiale ainsi que dans la gestion des comorbidités somatiques. Le travail psychothérapeutique est important pour vous et vous appréciez un concept de cas individuel dans le cadre du modèle biopsychosocial vécu dans la clinique. Ils peuvent faire preuve d'expérience en matière de leadership et se montrer disposés à assumer la responsabilité des contextes économiques. Le contact avec les personnes touchées par les maladies de la dépendance, ainsi que le travail interprofessionnel et de réseautage vous donnent du plaisir. Vous êtes motivé à poursuivre le développement du programme de thérapie et à promouvoir les employés que vous dirigez en transmettant votre expérience dans leur perfectionnement professionnel. Vous pouvez vous attendre à un secteur de responsabilité polyvalent et indépendant dans une équipe collégiale et interprofessionnelle aux conditions d'emploi progressives. Ils sont promus dans leur perfectionnement professionnel. Le programme de thérapie clinique est caractérisé par un degré élevé de centrage des patients et des offres innovantes. Le service de formation médicale est assuré dans le système Pikett. Les entrées des patients sont planifiées et électives. Klinik Südhang accompagne et soutient les employés dans leur développement professionnel et personnel. En savoir plus Pourquoi South Slope ? Les employés bénéficient de conditions de travail attrayantes et d'une culture d'entreprise appréciée. De plus amples renseignements sur le poste peuvent être obtenus auprès du médecin en chef Dr. med. Alexander Wopfner Lempen sous +41 31 828 14 14. Des informations sur le processus de candidature peuvent être obtenues auprès de Denise Utiger, spécialiste des RH, +41 31 828 15 50. Nous attendons avec impatience votre candidature complète via un formulaire en ligne. Abonnez-vous à Jobmail maintenant. Nous vous informerons volontiers par courriel dès qu'un nouvel emploi dans votre groupe professionnel sera annoncé. Abonnez-vous à Jobmail ici"
+      },
+      "location": "Kirchlindach",
+      "canton": "BE",
+      "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
+      "source": "Klinik Südhang Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-07T23:22:46.599Z",
+      "addressLocality": "Kirchlindach",
+      "postalCode": "3038",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-07T23:22:46.599Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-suedhang-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitenden-arzt-suedhang-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-suedhang-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-suedhang-ch"
+      ]
     }
   ]
 }

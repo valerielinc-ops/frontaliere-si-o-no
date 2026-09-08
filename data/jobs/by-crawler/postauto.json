@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-09-06T22:59:36.738Z",
+  "assembledAt": "2026-09-07T23:38:01.875Z",
   "jobs": [
     {
       "id": "posta-svizzera-centro-regionale-0fd41e8901e3",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:30.474Z",
+      "crawledAt": "2026-09-07T23:37:53.079Z",
       "addressLocality": "Belmont-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -56,14 +56,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne"
         ],
         "it": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
         ]
       },
       "previousSlugs": [
-        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
       ],
       "firstSeenAt": "2026-08-17T09:59:08.422Z",
       "datePosted": "2026-08-17",
@@ -112,7 +116,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Thierrens/74564-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:29.197Z",
+      "crawledAt": "2026-09-07T23:37:52.023Z",
       "addressLocality": "Thierrens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -135,12 +139,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-thierrens-post",
-        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+        "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-thierrens-post",
-          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+          "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
         ],
         "en": [
           "conductrice-conducteur-carpostal-thierrens-post"
@@ -199,7 +205,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-St-Aubin-Sauges/74588-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:27.910Z",
+      "crawledAt": "2026-09-07T23:37:50.930Z",
       "addressLocality": "St-Aubin-Sauges",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -222,12 +228,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-        "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+        "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+        "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-          "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+          "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+          "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
         ],
         "fr": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-post"
@@ -280,7 +288,7 @@
       "url": "https://job.post.ch/default/job/Responsable-d'%C3%A9quipe-Personnel-de-conduite%2C-Gland/74610-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:26.618Z",
+      "crawledAt": "2026-09-07T23:37:49.877Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -304,16 +312,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland"
         ],
         "it": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-post"
         ]
       },
       "previousSlugs": [
         "responsable-d-equipe-personnel-de-conduite-post",
-        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-post"
       ],
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "datePosted": "2026-08-26",
@@ -333,11 +345,11 @@
     },
     {
       "id": "postauto-45de32178186",
-      "slug": "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+      "slug": "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
-        "en": "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
-        "de": "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+        "it": "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne",
+        "en": "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne",
+        "de": "fahrer-carpostal-aubonne-gimel-gland-postauto-ag-aubonne",
         "fr": "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
       },
       "company": "PostAuto AG",
@@ -362,7 +374,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal%2C-Aubonne-Gimel-Gland/74652-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:25.307Z",
+      "crawledAt": "2026-09-07T23:37:48.789Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -384,6 +396,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-02T13:45:42.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+          "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-aubonne-gimel-gland-postauto-aubonne",
+        "driver-carpostal-aubonne-gimel-gland-postauto-ag-aubonne"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -403,7 +431,7 @@
       "slug": "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne",
       "slugByLocale": {
         "it": "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne",
-        "en": "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
+        "en": "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne",
         "de": "fahrer-hilfsfahrer-carpostal-aubonne-postauto-ag-aubonne",
         "fr": "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne"
       },
@@ -429,7 +457,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-Auxiliaire-CarPostal%2C-Aubonne/74680-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:24.163Z",
+      "crawledAt": "2026-09-07T23:37:47.733Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -452,12 +480,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
+        "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
+        "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne",
-          "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne"
+          "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-ag-aubonne",
+          "driver-auxiliary-driver-carpostal-aubonne-postauto-ag-aubonne"
+        ],
+        "en": [
+          "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne"
         ],
         "de": [
           "conductrice-conducteur-auxiliaire-carpostal-aubonne-postauto-aubonne"
@@ -509,7 +542,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Yverdon-les-Bains/74682-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:59:22.883Z",
+      "crawledAt": "2026-09-07T23:37:46.637Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -535,7 +568,8 @@
         "carpostal-driver-carpostal-yverdon-les-bains",
         "carpostal-fahrer-carpostal-yverdon-les-bains",
         "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+        "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -543,7 +577,8 @@
           "carpostal-driver-carpostal-yverdon-les-bains",
           "carpostal-fahrer-carpostal-yverdon-les-bains",
           "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
-          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+          "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains"
         ],
         "en": [
           "carpostal-driver-carpostal-yverdon-les-bains",
@@ -603,7 +638,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:21.592Z",
+      "crawledAt": "2026-09-07T23:37:45.587Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -628,13 +663,15 @@
         "postauto-fahrer-in-postauto-reichenburg",
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg",
+        "postbus-driver-in-postauto-ag-reichenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-reichenburg",
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg"
+          "postbus-driver-in-postauto-reichenburg",
+          "postbus-driver-in-postauto-ag-reichenburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-reichenburg",
@@ -693,7 +730,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:20.279Z",
+      "crawledAt": "2026-09-07T23:37:43.760Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -781,7 +818,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74549-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:19.111Z",
+      "crawledAt": "2026-09-07T23:37:42.819Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -803,11 +840,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-bad-ragaz"
+        "postauto-chauffeur-in-postauto-bad-ragaz",
+        "postauto-chauffeur-in-post"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-bad-ragaz"
+          "postauto-chauffeur-in-postauto-bad-ragaz",
+          "postauto-chauffeur-in-post"
         ]
       },
       "needsRetranslation": true,
@@ -857,7 +896,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:17.809Z",
+      "crawledAt": "2026-09-07T23:37:41.740Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -883,13 +922,15 @@
         "postauto-fahrer-in-im-stundenlohn-post",
         "postbus-driver-nel-salario-orario-postauto-einsiedeln",
         "postbus-driver-in-the-hourly-wage-postauto-einsiedeln",
-        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln"
+        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln",
+        "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
           "postauto-fahrer-in-im-stundenlohn-post",
-          "postbus-driver-nel-salario-orario-postauto-einsiedeln"
+          "postbus-driver-nel-salario-orario-postauto-einsiedeln",
+          "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
         ],
         "en": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
@@ -949,7 +990,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:16.516Z",
+      "crawledAt": "2026-09-07T23:37:40.690Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1017,7 +1058,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:15.216Z",
+      "crawledAt": "2026-09-07T23:37:39.613Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1042,13 +1083,15 @@
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
-        "pilote-postbus-in-postauto-ilanz"
+        "pilote-postbus-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-ilanz",
           "postbus-driver-in-postauto-ilanz",
-          "postauto-fahrer-in-post"
+          "postauto-fahrer-in-post",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postbus-driver-in-postauto-ilanz",
@@ -1107,7 +1150,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/74547-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:13.919Z",
+      "crawledAt": "2026-09-07T23:37:38.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1133,13 +1176,15 @@
         "fachspezialist-in-kundenservice-inkasso-post",
         "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
         "specialist-in-customer-service-debt-collection-postauto-zurich",
-        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich"
+        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich",
+        "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
           "fachspezialist-in-kundenservice-inkasso-post",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich"
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
         ],
         "en": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
@@ -1199,7 +1244,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74626-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:12.541Z",
+      "crawledAt": "2026-09-07T23:37:37.419Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1237,94 +1282,6 @@
       }
     },
     {
-      "id": "postauto-c74ea0006101",
-      "slug": "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern",
-      "slugByLocale": {
-        "it": "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern",
-        "en": "bid-manager-in-markt-financial-technical-postauto-bern",
-        "de": "bid-manager-in-markt-financial-technical-postauto-bern",
-        "fr": "gestionnaire-de-la-soumission-sur-le-marche-financier-technique-postauto-ag-bern"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Bid-Manager:in Markt (financial, technical)",
-      "titleByLocale": {
-        "it": "Bid manager: sul mercato (finanziario, tecnico)",
-        "en": "Bid Manager: in market (financial, technical)",
-        "de": "Bid-Manager:in Markt (financial, technical)",
-        "fr": "Gestionnaire de la soumission: sur le marché (financier, technique)"
-      },
-      "description": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
-      "descriptionByLocale": {
-        "it": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
-        "en": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
-        "de": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
-        "fr": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:11.266Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Wankdorfallee 4",
-      "postalCode": "3030",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "validThrough": "2026-09-19",
-      "pensum": "70-100%",
-      "applyUrl": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
-      "jobReqId": "74562",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "bid-manager-in-markt-financial-technical-post",
-        "bid-manager-in-markt-financial-technical-postauto-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "bid-manager-in-markt-financial-technical-post",
-          "bid-manager-in-markt-financial-technical-postauto-bern"
-        ],
-        "en": [
-          "bid-manager-in-markt-financial-technical-post"
-        ],
-        "de": [
-          "bid-manager-in-markt-financial-technical-post"
-        ],
-        "fr": [
-          "bid-manager-in-markt-financial-technical-post",
-          "bid-manager-in-markt-financial-technical-postauto-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:30:57.803Z",
-      "salaryMin": 175000,
-      "salaryMax": 307500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 175000,
-          "maxValue": 307500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "postauto-e542d1622bec",
       "slug": "postbus-driver-in-postauto-appenzell",
       "slugByLocale": {
@@ -1355,7 +1312,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:09.959Z",
+      "crawledAt": "2026-09-07T23:37:36.371Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -1380,14 +1337,16 @@
         "postauto-fahrer-in-postauto-appenzell",
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
           "postauto-fahrer-in-post",
           "pilote-postbus-in-postauto-ag-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ]
       },
       "needsRetranslation": true,
@@ -1437,7 +1396,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:08.816Z",
+      "crawledAt": "2026-09-07T23:37:35.298Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -1505,7 +1464,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:07.496Z",
+      "crawledAt": "2026-09-07T23:37:34.223Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -1587,7 +1546,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74691-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:06.217Z",
+      "crawledAt": "2026-09-07T23:37:33.009Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1683,7 +1642,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:04.906Z",
+      "crawledAt": "2026-09-07T23:37:31.959Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1706,14 +1665,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "security-specialist-in-public-transport-postauto-ag-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
@@ -1730,7 +1691,9 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
@@ -1779,7 +1742,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:03.611Z",
+      "crawledAt": "2026-09-07T23:37:30.876Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1806,7 +1769,8 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1814,7 +1778,8 @@
           "security-specialist-in-public-transport-postauto-ag-wallisellen",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
@@ -1872,7 +1837,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:02.317Z",
+      "crawledAt": "2026-09-07T23:37:29.823Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1956,7 +1921,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:59:01.044Z",
+      "crawledAt": "2026-09-07T23:37:28.728Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2053,7 +2018,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Betriebssupport-Ladesysteme/74672-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-06T22:58:58.983Z",
+      "crawledAt": "2026-09-07T23:37:27.080Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2075,11 +2040,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+        "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+          "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern"
         ],
         "en": [
           "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
@@ -2103,6 +2070,95 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "postauto-c74ea0006101",
+      "slug": "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern",
+      "slugByLocale": {
+        "it": "bid-manager-sul-mercato-finanziario-tecnico-postauto-ag-bern",
+        "en": "bid-manager-in-markt-financial-technical-postauto-bern",
+        "de": "bid-manager-in-markt-financial-technical-postauto-bern",
+        "fr": "gestionnaire-de-la-soumission-sur-le-marche-financier-technique-postauto-ag-bern"
+      },
+      "company": "PostAuto AG",
+      "companyKey": "postauto",
+      "companyDomain": "postauto.ch",
+      "title": "Bid-Manager:in Markt (financial, technical)",
+      "titleByLocale": {
+        "it": "Bid Manager: sul mercato (finanziario, tecnico)",
+        "en": "Bid Manager: in market (financial, technical)",
+        "de": "Bid-Manager:in Markt (financial, technical)",
+        "fr": "Gestionnaire de la soumission: sur le marché (financier, technique)"
+      },
+      "description": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
+      "descriptionByLocale": {
+        "it": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
+        "en": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
+        "de": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen.",
+        "fr": "Das Bid-Team Markt ist die zentrale Steuerungseinheit für einheitliche, professionelle und erfolgreiche Angebotsprozesse. Dank unserer Spezialisierung, einer hohen Plangenauigkeit und unserem konsequenten Fokus auf Marktanforderungen stellen wir sicher, dass unsere Angebote qualitativ und nachhaltig überzeugen. Mit dir entstehen überzeugende Angebote, die Marktanforderungen, finanzielle Stärke und technische Exzellenz erfolgreich vereinen.\n\nDas kannst du bewirken\n\n- In dieser Schlüsselrolle verantwortest du die übergeordnete Koordination finanzieller und betrieblicher Analysen und schaffst die Grundlagen für eine datenbasierte Steuerung des Kern- & Zusatzgeschäfts.\n\n- Als Schnittstelle zur Finanzabteilung verantwortest du die Kalkulationen, Plausibilisierung und die Erarbeitung finanzieller Grundlagen im Kern- & Zusatzgeschäft. Zudem treibst du die Weiterentwicklung bestehender Reportinglösungen voran.\n\n- Das Mehrjahres-Tracking im Kontext Bestellverfahren und Zielvereinbarungen sowie die Analyse von Planabweichungen auf Kantonsebene gehören zu deinem Verantwortungsbereich.\n\n- Die strategische Weiterentwicklung des BAV-Benchmarking-Modells sowie die Analyse und aktive Beeinflussung der Benchmarking-Position sind ein wichtiger Teil deiner Tätigkeit.\n\n- Du entwickelst Arbeitsinstrumente, Standards und Grundlagen weiter und unterstützt die Bid-Spezialist:innen bei finanziellen und betriebswirtschaftlichen Fragestellungen.\n\n- In weiteren Aufgaben begleitest du Digitalisierungsprojekte gemeinsam mit der IT und übernimmst die Rolle des Business Owners.\n\n​\n\nDas bringst du mit\n\n- Du verfügst über ein abgeschlossenes Studium in Betriebswirtschaft oder einem verwandten Bereich und hast Erfahrung im Controlling oder Finanzwesen.\n\n- Analytisches Denken, Methodenkompetenz und die Fähigkeit, komplexe regulatorische Anforderungen in praxisnahe Massnahmen zu überführen, zeichnen dich aus.\n\n- Der Umgang mit Aufsichtsbehörden sowie die Erstellung und Verwaltung von Offerten im Bestellverfahren des regionalen Personenverkehrs sind dir vertraut.\n\n- Du verfügst über erste Erfahrung bei Digitalisierungsprojekten oder bringst das Interesse dich in diesem Bereich weiterzuentwickeln.\n\n- Kommunikationsstärke, Durchsetzungsvermögen und eine lösungsorientierte Arbeitsweise helfen dir, mit Stakeholdern erfolgreich zusammenzuarbeiten und Prozesse zu optimieren.\n\n- Du kommunizierst mündlich und schriftlich sehr gut in einer ersten Landessprache und hast gute Kenntnisse in einer zweiten Landessprache.\n\nZur Förderung der Sprachen- und Geschlechtervielfalt freuen wir uns besonders über Bewerbungen von Frauen oder von Personen, die Französisch oder Italienisch sprechen."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
+      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-06T22:59:11.266Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "streetAddress": "Wankdorfallee 4",
+      "postalCode": "3030",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti pubblici / Autobus",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "validThrough": "2026-09-19",
+      "pensum": "70-100%",
+      "applyUrl": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
+      "jobReqId": "74562",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "bid-manager-in-markt-financial-technical-post",
+        "bid-manager-in-markt-financial-technical-postauto-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bid-manager-in-markt-financial-technical-post",
+          "bid-manager-in-markt-financial-technical-postauto-bern"
+        ],
+        "en": [
+          "bid-manager-in-markt-financial-technical-post"
+        ],
+        "de": [
+          "bid-manager-in-markt-financial-technical-post"
+        ],
+        "fr": [
+          "bid-manager-in-markt-financial-technical-post",
+          "bid-manager-in-markt-financial-technical-postauto-bern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:30:57.803Z",
+      "salaryMin": 175000,
+      "salaryMax": 307500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 175000,
+          "maxValue": 307500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }

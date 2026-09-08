@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-09-06T23:13:31.471Z",
+  "assembledAt": "2026-09-07T23:46:24.150Z",
   "jobs": [
     {
       "id": "company-a24znt",
@@ -27,7 +27,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-06T23:13:28.429Z",
+      "crawledAt": "2026-09-07T23:46:20.943Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -119,7 +119,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-06T23:13:28.429Z",
+      "crawledAt": "2026-09-07T23:46:20.943Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -281,7 +281,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1
     }
   ]
 }

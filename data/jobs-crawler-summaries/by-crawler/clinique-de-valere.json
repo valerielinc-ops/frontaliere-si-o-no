@@ -1,20 +1,21 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-09-06T22:52:33.174Z",
+  "generatedAt": "2026-09-07T23:28:04.212Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
+  "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6882,
-  "avgDurationMs": 6882,
+  "durationMs": 9012,
+  "avgDurationMs": 9012,
   "durationHistory": [
-    6882
+    9012
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +33,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146683320-assistant-e-medicale-en-policlinique-a-70-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:52:19.483Z",
+      "crawledAt": "2026-09-07T23:27:48.268Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -70,7 +71,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144287819-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-06T22:52:19.485Z",
+      "crawledAt": "2026-09-07T23:27:48.270Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
