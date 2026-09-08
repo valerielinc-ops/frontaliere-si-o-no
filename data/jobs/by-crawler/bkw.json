@@ -5832,22 +5832,34 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-automatiker-in-efz-alle-bkw-ch",
-        "apprendistato-automatiker-in-cfc-alle-bkw-murten"
+        "apprendistato-automatiker-in-cfc-alle-bkw-murten",
+        "apprendistato-automatiker-in-alle-bkw-winterthur",
+        "automatic-apprenticeship-in-all-bkw-winterthur",
+        "lehrstelle-automatiker-in-alle-bkw-ch",
+        "apprentissage-automatique-en-tous-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-automatiker-in-efz-alle-bkw-ch",
-          "apprendistato-automatiker-in-cfc-alle-bkw-murten"
+          "apprendistato-automatiker-in-cfc-alle-bkw-murten",
+          "apprendistato-automatiker-in-alle-bkw-winterthur",
+          "automatic-apprenticeship-in-all-bkw-winterthur",
+          "lehrstelle-automatiker-in-alle-bkw-ch",
+          "apprentissage-automatique-en-tous-bkw-winterthur"
         ],
         "en": [
-          "lehrstelle-automatiker-in-efz-alle-bkw-ch"
+          "lehrstelle-automatiker-in-efz-alle-bkw-ch",
+          "automatic-apprenticeship-in-all-bkw-winterthur"
         ],
         "fr": [
-          "lehrstelle-automatiker-in-efz-alle-bkw-ch"
+          "lehrstelle-automatiker-in-efz-alle-bkw-ch",
+          "apprentissage-automatique-en-tous-bkw-winterthur"
+        ],
+        "de": [
+          "lehrstelle-automatiker-in-alle-bkw-ch"
         ]
       },
       "firstSeenAt": "2026-08-05T11:34:05.630Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5860,7 +5872,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "bkw-5eb9b9ce1d0b",

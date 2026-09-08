@@ -9514,11 +9514,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch"
+        "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch",
+        "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch"
+          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch",
+          "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch-2"
         ],
         "en": [
           "pflegefachperson-fur-das-endoskopiezentrum-80-100-usz-ch"
@@ -15963,22 +15965,44 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-80-usz-ch",
         "mitarbeiter-in-gastronomie-80-universitatsspital-zurich-usz-campus",
-        "collaboratore-trice-gastronomie-80-universitatsspital-zurich-usz-campus"
+        "collaboratore-trice-gastronomie-80-universitatsspital-zurich-usz-campus",
+        "collaboratore-trice-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+        "associate-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+        "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+        "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+        "collaboratore-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus",
+        "associate-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus",
+        "mitarbeiter-in-versorgungslogistik-80-100-usz-ch",
+        "collaborateur-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-80-usz-ch",
-          "collaboratore-trice-gastronomie-80-universitatsspital-zurich-usz-campus"
+          "collaboratore-trice-gastronomie-80-universitatsspital-zurich-usz-campus",
+          "collaboratore-trice-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+          "associate-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+          "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+          "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+          "collaboratore-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus",
+          "associate-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus",
+          "mitarbeiter-in-versorgungslogistik-80-100-usz-ch",
+          "collaborateur-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus"
         ],
         "en": [
-          "mitarbeiter-in-gastronomie-80-universitatsspital-zurich-usz-campus"
+          "mitarbeiter-in-gastronomie-80-universitatsspital-zurich-usz-campus",
+          "associate-medizintechnik-80-100-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "mitarbeiter-in-gastronomie-80-universitatsspital-zurich-usz-campus"
+          "mitarbeiter-in-gastronomie-80-universitatsspital-zurich-usz-campus",
+          "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-campus",
+          "collaborateur-trice-versorgungslogistik-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "de": [
+          "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+          "mitarbeiter-in-versorgungslogistik-80-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T23:35:16.311Z",
-      "needsRetranslation": true,
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -15991,7 +16015,8 @@
           "maxValue": 89200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "usz-34bd159016ef",

@@ -2854,15 +2854,24 @@
           "vendor-vendor-volg-daily-w-m-d-volg-tagerig",
           "verkauferin-verkaufer-volg-tagerig-w-m-d-volg-tagerig",
           "fournisseur-fournisseur-volg-daily-w-m-d-volg-tagerig",
-          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil-udxxbv"
+          "verkauferin-verkaufer-volg-w-m-d-volg-ballwil-udxxbv",
+          "venditore-30-40-volg-dielsdorf-m-f-d-volg-dielsdorf",
+          "seller-30-40-volg-dielsdorf-m-f-d-volg-dielsdorf",
+          "verkauferin-verkaufer-30-40-volg-dielsdorf-w-m-d-volg-dielsdorf",
+          "vendeur-30-40-volg-dielsdorf-h-f-d-volg-dielsdorf"
         ],
         "en": [
           "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
-          "seller-seller-volg-m-f-d-volg-ballwil"
+          "seller-seller-volg-m-f-d-volg-ballwil",
+          "seller-30-40-volg-dielsdorf-m-f-d-volg-dielsdorf"
         ],
         "fr": [
           "verkauferin-verkaufer-volg-w-m-d-volg-ballwil",
-          "vendeur-vendeur-volg-h-f-d-volg-ballwil"
+          "vendeur-vendeur-volg-h-f-d-volg-ballwil",
+          "vendeur-30-40-volg-dielsdorf-h-f-d-volg-dielsdorf"
+        ],
+        "de": [
+          "verkauferin-verkaufer-30-40-volg-dielsdorf-w-m-d-volg-dielsdorf"
         ]
       },
       "previousSlugs": [
@@ -2879,7 +2888,11 @@
         "vendor-vendor-volg-daily-w-m-d-volg-tagerig",
         "verkauferin-verkaufer-volg-tagerig-w-m-d-volg-tagerig",
         "fournisseur-fournisseur-volg-daily-w-m-d-volg-tagerig",
-        "verkauferin-verkaufer-volg-w-m-d-volg-ballwil-udxxbv"
+        "verkauferin-verkaufer-volg-w-m-d-volg-ballwil-udxxbv",
+        "venditore-30-40-volg-dielsdorf-m-f-d-volg-dielsdorf",
+        "seller-30-40-volg-dielsdorf-m-f-d-volg-dielsdorf",
+        "verkauferin-verkaufer-30-40-volg-dielsdorf-w-m-d-volg-dielsdorf",
+        "vendeur-30-40-volg-dielsdorf-h-f-d-volg-dielsdorf"
       ]
     },
     {
@@ -4696,19 +4709,70 @@
       "id": "volg-fenaco-ef84af25447e",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-logistikerin-logistiker-cfc-m-w-d-traveco-transporte-ag-nebikon",
-          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon"
+          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-romerswil",
+          "logistikerin-logistiker-cfc-w-m-d-ramseier-suisse-ag-sursee",
+          "logistician-efz-m-f-d-ramseier-suisse-ag-sursee",
+          "logistikerin-logistiker-efz-w-m-d-ramseier-suisse-ag-sursee",
+          "logisticien-efz-h-f-d-ramseier-suisse-ag-sursee",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-sursee",
+          "logistician-logistician-efz-f-m-d-ramseier-suisse-ag-sursee",
+          "logisticien-logisticien-efz-f-m-d-ramseier-suisse-ag-sursee",
+          "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch",
+          "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+          "logistikerin-logistiker-efz-m-w-d-ramseier-suisse-ag-oberkirch",
+          "logisticien-logisticien-efz-h-f-d-ramseier-suisse-ag-oberkirch",
+          "apprendistato-come-logistikerin-logistiker-cfc-w-m-d-ernst-sutter-ag-gossau",
+          "apprendistato-come-logistikerin-logistiker-cfc-m-w-d-ernst-sutter-ag-gossau",
+          "apprendistato-come-lebensmitteltechnologin-lebensmitteltechnologe-cfc-m-w-d-ernst-sutter-ag-gossau",
+          "apprenticeship-as-food-technologist-food-technologist-efz-m-f-d-ernst-sutter-ag-gossau",
+          "lehrstelle-als-lebensmitteltechnologin-lebensmitteltechnologe-efz-w-m-d-ernst-sutter-ag-gossau",
+          "apprentissage-en-tant-que-technologue-alimentaire-technologue-alimentaire-efz-h-f-d-ernst-sutter-ag-gossau",
+          "logistikerin-logistiker-cfc-w-m-d-ramseier-suisse-ag-romerswil"
         ],
         "en": [
-          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon"
+          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon",
+          "apprenticeship-as-a-logistician-logistician-efz-m-f-d-ernst-sutter-ag-gossau",
+          "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-romerswil"
         ],
         "fr": [
-          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon"
+          "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon",
+          "apprentissage-en-tant-que-logisticien-logisticien-efz-h-f-d-ernst-sutter-ag-gossau",
+          "logisticien-logisticien-efz-h-f-d-ramseier-suisse-ag-romerswil"
+        ],
+        "de": [
+          "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+          "logistikerin-logistiker-efz-w-m-d-ramseier-suisse-ag-romerswil"
         ]
       },
       "previousSlugs": [
         "apprendistato-logistikerin-logistiker-cfc-m-w-d-traveco-transporte-ag-nebikon",
-        "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon"
+        "lehrstelle-logistikerin-logistiker-efz-w-m-d-traveco-transporte-ag-nebikon",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-romerswil",
+        "logistikerin-logistiker-cfc-w-m-d-ramseier-suisse-ag-sursee",
+        "logistician-efz-m-f-d-ramseier-suisse-ag-sursee",
+        "logistikerin-logistiker-efz-w-m-d-ramseier-suisse-ag-sursee",
+        "logisticien-efz-h-f-d-ramseier-suisse-ag-sursee",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-sursee",
+        "logistician-logistician-efz-f-m-d-ramseier-suisse-ag-sursee",
+        "logisticien-logisticien-efz-f-m-d-ramseier-suisse-ag-sursee",
+        "logistikerin-logistiker-cfc-m-w-d-ramseier-suisse-ag-oberkirch",
+        "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-oberkirch",
+        "logistikerin-logistiker-efz-m-w-d-ramseier-suisse-ag-oberkirch",
+        "logisticien-logisticien-efz-h-f-d-ramseier-suisse-ag-oberkirch",
+        "apprendistato-come-logistikerin-logistiker-cfc-w-m-d-ernst-sutter-ag-gossau",
+        "apprendistato-come-logistikerin-logistiker-cfc-m-w-d-ernst-sutter-ag-gossau",
+        "apprendistato-come-lebensmitteltechnologin-lebensmitteltechnologe-cfc-m-w-d-ernst-sutter-ag-gossau",
+        "apprenticeship-as-food-technologist-food-technologist-efz-m-f-d-ernst-sutter-ag-gossau",
+        "lehrstelle-als-lebensmitteltechnologin-lebensmitteltechnologe-efz-w-m-d-ernst-sutter-ag-gossau",
+        "apprentissage-en-tant-que-technologue-alimentaire-technologue-alimentaire-efz-h-f-d-ernst-sutter-ag-gossau",
+        "logistikerin-logistiker-cfc-w-m-d-ramseier-suisse-ag-romerswil",
+        "apprenticeship-as-a-logistician-logistician-efz-m-f-d-ernst-sutter-ag-gossau",
+        "logistician-logistician-efz-m-f-d-ramseier-suisse-ag-romerswil",
+        "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ernst-sutter-ag-gossau",
+        "logistikerin-logistiker-efz-w-m-d-ramseier-suisse-ag-romerswil",
+        "apprentissage-en-tant-que-logisticien-logisticien-efz-h-f-d-ernst-sutter-ag-gossau",
+        "logisticien-logisticien-efz-h-f-d-ramseier-suisse-ag-romerswil"
       ],
       "salaryMin": 58500,
       "salaryMax": 89000,

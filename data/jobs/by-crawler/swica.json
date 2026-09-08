@@ -2182,18 +2182,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-service-clientele-tous-swica-geneve",
-        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve",
+        "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne",
+        "customer-service-advisor-all-swica-gesundheitsorganisation-lausanne",
+        "customer-service-advisor-alle-swica-gesundheitsorganisation-lausanne",
+        "conseiller-service-clientele-tous-swica-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-service-clientele-tous-swica-geneve",
-          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve"
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-geneve",
+          "consulente-servizio-clienti-tutti-swica-gesundheitsorganisation-lausanne",
+          "customer-service-advisor-all-swica-gesundheitsorganisation-lausanne",
+          "customer-service-advisor-alle-swica-gesundheitsorganisation-lausanne",
+          "conseiller-service-clientele-tous-swica-lausanne"
         ],
         "en": [
-          "conseiller-service-clientele-tous-swica-geneve"
+          "conseiller-service-clientele-tous-swica-geneve",
+          "customer-service-advisor-all-swica-gesundheitsorganisation-lausanne"
         ],
         "de": [
-          "conseiller-service-clientele-tous-swica-geneve"
+          "conseiller-service-clientele-tous-swica-geneve",
+          "customer-service-advisor-alle-swica-gesundheitsorganisation-lausanne"
+        ],
+        "fr": [
+          "conseiller-service-clientele-tous-swica-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-25T10:00:15.482Z",

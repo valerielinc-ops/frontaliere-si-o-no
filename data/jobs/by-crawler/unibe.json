@@ -676,7 +676,6 @@
         "de": "<b>Die UniBE ist vielseitig.</b><br/>Bei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\nAufgaben:\n• Selbständige Abwicklung der Personaladministration vom Eintritt bis zum Austritt\n\n• Verantwortung für das Bewerbungsmanagement inkl. Publikation von Inseraten\n\n• Planung des gesamten Rekrutierungsprozesses\n\n• Betreuung und Koordination der Arbeitszeiterfassung\n\n• Unterstützung der Direktion in administrativen und organisatorischen Belangen\n\n• Mitarbeit bei der Optimierung, Weiterentwicklung von HR-Prozessen- und Instrumenten\n\nAnforderungen:\n• Kaufmännische Grundausbildung EFZ\n\n• Weiterbildung als Personalassistent/in und Erfahrung im Personalwesen von Vorteil\n\n• Organisationstalent, hohe Selbständigkeit\n\n• Hohes Verantwortungsbewusstsein und Freude an Teamarbeit\n\n• Ausgeprägte Kunden- und Dienstleistungsorientierung\n\n• Sehr gute Deutsch- und gute Englischkenntnisse\n\n• Sicherer Umgang mit MS Office und digitalen Tools, SAP-Kenntnisse von Vorteil\n\nWir bieten:\nVielseitige Tätigkeit in einem interdisziplinären, universitären Umfeld",
         "fr": "L'UniBE est polyvalent. Avec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\nTâches :\n• Gestion indépendante de l ' administration du personnel de l ' entrée à la sortie\n\n• Responsabilité de la gestion des demandes, y compris Publication de publicités\n\n• Planification de tout le processus de recrutement\n\n• Surveillance et coordination de l'enregistrement du temps de travail\n\n• Appui à la gestion en matière administrative et organisationnelle\n\n• Participation à l ' optimisation, à la poursuite du développement des processus et instruments relatifs aux ressources humaines\n\nExigences\n• Formation commerciale de base EFZ\n\n• Formation continue en tant qu'assistant en ressources humaines et expérience en ressources humaines\n\n• Compétences organisationnelles, grande indépendance\n\n• Un sens élevé des responsabilités et du plaisir dans le travail d'équipe\n\n• Une forte orientation client et service\n\n• Très bonnes compétences en allemand et en anglais\n\n• Utilisation sécurisée de MS Office et d'outils numériques, les connaissances SAP sont un avantage\n\nNous offrons:\nTravail multiple dans un environnement interdisciplinaire et universitaire"
       },
-      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiter-in-hr/edf00edc-e14c-4fff-b926-5323d4a9c798",
@@ -707,7 +706,11 @@
         "sachbearbeiter-sachbearbeiterin-hr-unibe-bern",
         "sachbearbeiter-sachbearbeiterin-hr-universitat-bern-bern-migj0y",
         "sachbearbeiter-sachbearbeiterin-hr-unibe-bern-2",
-        "sachbearbeiter-in-hr-80-100-universitat-bern-bern"
+        "sachbearbeiter-in-hr-80-100-universitat-bern-bern",
+        "wissenschaftliche-mitarbeiterin-wissenschaftlichen-collaboratore-trice-universitat-bern",
+        "scientific-staff-member-universitat-bern-bern",
+        "wissenschaftliche-mitarbeiterin-wissenschaftlichen-mitarbeiter-unibe-bern",
+        "personnel-scientifique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -717,18 +720,25 @@
           "sachbearbeiter-sachbearbeiterin-hr-unibe-bern",
           "sachbearbeiter-sachbearbeiterin-hr-universitat-bern-bern-migj0y",
           "sachbearbeiter-sachbearbeiterin-hr-unibe-bern-2",
-          "sachbearbeiter-in-hr-80-100-universitat-bern-bern"
+          "sachbearbeiter-in-hr-80-100-universitat-bern-bern",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlichen-collaboratore-trice-universitat-bern",
+          "scientific-staff-member-universitat-bern-bern",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlichen-mitarbeiter-unibe-bern",
+          "personnel-scientifique-universitat-bern-bern"
         ],
         "en": [
-          "personnel-personnel-hr-universitat-bern-bern"
+          "personnel-personnel-hr-universitat-bern-bern",
+          "scientific-staff-member-universitat-bern-bern"
         ],
         "de": [
           "sachbearbeiter-sachbearbeiterin-hr-unibe-bern",
           "sachbearbeiter-sachbearbeiterin-hr-universitat-bern-bern-migj0y",
-          "sachbearbeiter-sachbearbeiterin-hr-unibe-bern-2"
+          "sachbearbeiter-sachbearbeiterin-hr-unibe-bern-2",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlichen-mitarbeiter-unibe-bern"
         ],
         "fr": [
-          "sachbearbeiter-sachbearbeiterin-hr-universitat-bern-bern"
+          "sachbearbeiter-sachbearbeiterin-hr-universitat-bern-bern",
+          "personnel-scientifique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-15T21:42:13.552Z",
@@ -744,7 +754,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": false
     },
     {
       "id": "unibe-ef21a5613fe1",

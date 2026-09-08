@@ -6525,7 +6525,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-08T13:39:29.413Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -6548,22 +6547,64 @@
         "service-associate-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-zfv-unternehmungen-bern",
         "service-collaborateur-trice-zfv-unternehmungen-bern",
-        "service-collaboratore-trice-zfv-unternehmungen-zurich"
+        "service-collaboratore-trice-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
+        "service-associate-80-zfv-unternehmungen-zurich",
+        "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-30-zfv-unternehmungen-zurich",
+        "service-associate-30-zfv-unternehmungen-zurich",
+        "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-30-zfv-unternehmungen-zurich",
+        "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
+        "associate-hauswirtschaft-zfv-unternehmungen-zurich",
+        "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
+        "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
+        "service-collaboratore-trice-60-zfv-unternehmungen-zurich",
+        "service-associate-60-zfv-unternehmungen-zurich",
+        "service-mitarbeiter-in-60-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-zfv-unternehmungen-zurich",
           "service-collaboratore-trice-zfv-unternehmungen-bern",
-          "service-collaboratore-trice-zfv-unternehmungen-zurich"
+          "service-collaboratore-trice-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-80-zfv-unternehmungen-zurich",
+          "service-associate-80-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-30-zfv-unternehmungen-zurich",
+          "service-associate-30-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-30-zfv-unternehmungen-zurich",
+          "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
+          "associate-hauswirtschaft-zfv-unternehmungen-zurich",
+          "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
+          "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
+          "service-collaboratore-trice-60-zfv-unternehmungen-zurich",
+          "service-associate-60-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-60-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-60-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "service-associate-zfv-unternehmungen-bern"
+          "service-associate-zfv-unternehmungen-bern",
+          "service-associate-80-zfv-unternehmungen-zurich",
+          "service-associate-60-zfv-unternehmungen-zurich"
         ],
         "de": [
-          "service-mitarbeiter-in-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-zfv-unternehmungen-bern",
+          "service-mitarbeiter-in-80-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-30-zfv-unternehmungen-zurich",
+          "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-60-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "service-collaborateur-trice-zfv-unternehmungen-bern"
+          "service-collaborateur-trice-zfv-unternehmungen-bern",
+          "service-collaborateur-trice-80-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-30-zfv-unternehmungen-zurich",
+          "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-60-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:48.577Z",
@@ -6579,7 +6620,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zfv-unternehmungen-7e4f10d29cce",
