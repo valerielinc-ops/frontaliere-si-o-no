@@ -134,8 +134,11 @@ on:
     # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
     # had [opened, edited, synchronize, reopened]. `edited` is required so
     # `contract` still re-validates a PR body edit; `ready_for_review` is
-    # required so `collision` still re-scans a draft coming out of draft.
-    types: [opened, edited, synchronize, reopened, ready_for_review]
+    # required so `collision` still re-scans a draft coming out of draft. The
+    # `labeled` event is the non-recursive handoff from stale-pr-rescuer:
+    # that workflow uses the App identity because GITHUB_TOKEN labels do not
+    # start another workflow run.
+    types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
@@ -2244,12 +2247,15 @@ jobs:
           exit 1
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
-      # o un errore del review gate lo saltano automaticamente. Il token App è
-      # l’identità primaria; il fallback GITHUB_TOKEN mantiene il job
-      # fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
+      # job. Parte dopo il verdetto approvante oppure quando stale-pr-rescuer ha
+      # marcato la PR come stallo: pr-autorebase.mjs applica poi le sue guardie
+      # near-merge, conflitto, test-in-flight e breaker. `always()` è necessaria
+      # solo per il ramo stale-review, perché il review gate è rosso proprio lì;
+      # `success()` conserva invece il comportamento del ramo LGTM esistente.
+      # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
+      # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: steps.review_gate.outputs.approved == 'true'
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (always() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2257,8 +2263,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Rebase near-merge PRs after approved review
-        if: steps.review_gate.outputs.approved == 'true'
+      - name: Rebase near-merge PRs after review or stale rescue
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (always() && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}

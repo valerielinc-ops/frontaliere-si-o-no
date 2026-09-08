@@ -336,7 +336,7 @@ describe('#7429 — il rosso da REVIEW GATE non è il rosso dei test', () => {
       { name: 'vitest related (PR diff)', conclusion: 'success' },
       { name: 'Run Claude review', conclusion: 'success' },
       { name: 'Require approving Claude review', conclusion: 'failure' },
-      { name: 'Rebase near-merge PRs after approved review', conclusion: 'skipped' },
+      { name: 'Rebase near-merge PRs after review or stale rescue', conclusion: 'skipped' },
     ];
     expect(vitestFailureIsReviewGate(gateOnly)).toBe(true);
 
