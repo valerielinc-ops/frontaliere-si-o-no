@@ -121,7 +121,7 @@ export function hasEnumeratedItems(body) {
 }
 
 /**
- * A title like "follow-up(#X): 3 item deferred — …" with N≥2 → multi-item aggregate.
+ * A title like "follow-up(#X): 3 item deferred/deferiti — …" with N≥2 → multi-item aggregate.
  * The explicit count matches the pre-flight form; body enumeration is the conservative
  * fallback for titles that do not carry a count.
  * @param {string} title
@@ -130,7 +130,7 @@ export function hasEnumeratedItems(body) {
  */
 export function isAggregateTitle(title = '', body = '') {
   const t = String(title);
-  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
+  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   // An explicit count is authoritative once present — trust it fully instead
   // of falling through to the keyword fallback below, which exists ONLY for
   // aggregates that never state a count. Otherwise a genuinely single-item

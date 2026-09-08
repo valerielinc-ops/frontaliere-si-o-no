@@ -498,7 +498,7 @@ export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
   const t = String(title || '');
-  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
+  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   // An explicit count is authoritative once present — no keyword fallback
   // needed (and none applied), else a single-item title containing an
   // ordinary word like "batch" (e.g. "1 item deferred ... batch backfill...")
@@ -609,7 +609,7 @@ export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') 
   //     count is authoritative once present, no keyword fallback needed (else a
   //     single-item title containing an ordinary word like "batch" was
   //     misclassified as an aggregate, #3378).
-  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
+  const m = t.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   if (m) return Number(m[1]) < 2;
   if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
   if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)

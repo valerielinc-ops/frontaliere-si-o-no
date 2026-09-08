@@ -297,11 +297,20 @@ export const REVIEW_GATE_STEP_NAME = 'Require approving Claude review';
 /** Nome dello step che esegue davvero la review dentro il job vitest. */
 export const CLAUDE_REVIEW_STEP_NAME = 'Run Claude review';
 
+/** Nome dello step che rende esplicita una review abortita senza verdetto. */
+export const REVIEW_ABORT_STEP_NAME = 'Fail on transient API error (no review posted)';
+
 const REVIEW_STEP_IN_FLIGHT = new Set(['queued', 'in_progress']);
 const NON_GATING_REVIEW_STEPS = new Set([
   'Mint GitHub App token for Claude review',
   'Claude usage metrics',
   'Explain the job verdict in the run summary',
+]);
+// Questi due step appartengono alla review, non al codice della PR. Un loro
+// rosso non deve trasformare un gate puro in un falso rosso dei test.
+export const REVIEW_DEATH_STEP_NAMES = new Set([
+  CLAUDE_REVIEW_STEP_NAME,
+  REVIEW_ABORT_STEP_NAME,
 ]);
 
 /**
@@ -355,13 +364,51 @@ export function vitestFailureIsReviewGate(steps) {
   if (!Array.isArray(steps) || steps.length === 0) return false;
   let gateFailed = false;
   for (const s of steps) {
-    if (!s || s.conclusion !== 'failure') continue;
+    // `cancelled` è un rosso operativo quanto `failure`: un cap del job può
+    // lasciare i test senza verdetto, e ignorarlo farebbe passare il caso per
+    // review pura (#1185).
+    if (!s || !['failure', 'cancelled'].includes(s.conclusion)) continue;
     // Jobs API può esporre `failure` anche per `continue-on-error: true`.
     // Questi step sono advisory: il solo fallimento del review gate resta il
     // discriminante, non il rumore di token/metriche dopo il gate.
     if (isNonGatingReviewStep(s.name)) continue;
-    if (s.name === REVIEW_GATE_STEP_NAME) gateFailed = true;
+    if (s.name === REVIEW_GATE_STEP_NAME && s.conclusion === 'failure') gateFailed = true;
+    else if (REVIEW_DEATH_STEP_NAMES.has(s.name)) continue;
     else return false; // un altro step rosso: non è (solo) il gate.
   }
   return gateFailed;
+}
+
+/**
+ * Il gate è rosso perché il `Re-review guard` ha saltato Claude, non perché la
+ * review sia fallita a metà? Pura e conservativa: un abort esplicito della
+ * review prevale sul semplice `skipped`, così un errore API non consuma/nega
+ * il one-shot del review gate (#1140).
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps
+ * @returns {boolean}
+ */
+export function reviewSkippedByGuard(steps) {
+  if (!Array.isArray(steps) || steps.length === 0) return false;
+  const gate = steps.find((s) => s && s.name === REVIEW_GATE_STEP_NAME);
+  if (!gate || gate.conclusion !== 'failure') return false;
+  const abort = steps.find((s) => s && s.name === REVIEW_ABORT_STEP_NAME);
+  if (abort && ['failure', 'cancelled'].includes(abort.conclusion)) return false;
+  const review = steps.find((s) => s && s.name === CLAUDE_REVIEW_STEP_NAME);
+  return Boolean(review && review.conclusion === 'skipped');
+}
+
+/**
+ * La review è partita ma è morta senza postare il proprio verdetto?
+ * L'output esplicito dello step di abort è la prova disponibile al consumer.
+ *
+ * @param {Array<{name?: string, conclusion?: string}>} steps
+ * @returns {boolean}
+ */
+export function reviewAbortedWithoutVerdict(steps) {
+  if (!Array.isArray(steps) || steps.length === 0) return false;
+  const gate = steps.find((s) => s && s.name === REVIEW_GATE_STEP_NAME);
+  if (!gate || gate.conclusion !== 'failure') return false;
+  const abort = steps.find((s) => s && s.name === REVIEW_ABORT_STEP_NAME);
+  return Boolean(abort && abort.conclusion === 'failure');
 }

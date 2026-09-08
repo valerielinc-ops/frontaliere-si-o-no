@@ -79,24 +79,30 @@ describe('G5 — follow-up detector regressions', () => {
     expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
   });
 
-  it('rimuove i fence prima del fallback keyword, senza restringerlo al solo titolo', () => {
+  it('rimuove i fence e legge il fallback keyword solo dal titolo', () => {
     const fencedKeyword = ['```text', 'batch of unrelated prose', '```'].join('\n');
 
     expect(isAggregate('follow-up(#1): cleanup', fencedKeyword)).toBe(false);
-    expect(isAggregate('follow-up(#1): cleanup', 'This batch has work to do.')).toBe(true);
+    expect(isAggregate('follow-up(#1): cleanup', 'This batch has work to do.')).toBe(false);
+    expect(isAggregate('follow-up(#1): batch cleanup', 'ordinary single-item prose')).toBe(true);
   });
 
-  it('usa la forma esplicita `items deferred` nel reconcile', () => {
+  it('usa la forma esplicita bilingue `items deferred` / `item deferiti` in tutti gli stadi', () => {
     expect(isAggregateTitle('follow-up(#1): 3 items deferred — a, b, c')).toBe(true);
+    expect(isAggregateTitle('follow-up(#1): 3 item deferiti — a, b, c')).toBe(true);
+    expect(isAggregateTitle('follow-up(#1): 1 item deferito — a')).toBe(false);
     expect(isAggregateTitle('follow-up(#1): 3 items planned — a, b, c')).toBe(false);
     expect(isAggregateTitle('follow-up(#1): 3 items — a, b, c')).toBe(false);
     expect(isAggregate('follow-up(#1): 3 items — a, b, c', '')).toBe(false);
+    expect(isAggregate('follow-up(#1): 3 item deferiti — a, b, c', '')).toBe(true);
     expect(isAggregateTitle('follow-up(#1): cleanup', G5_BODY)).toBe(true);
   });
 
   it('non classifica il lavoro enumerato come burn evitabile nell’harvester', () => {
     expect(isAvoidableAlreadyFixed('follow-up(#1): cleanup', ['follow-up'], G5_BODY)).toBe(false);
     expect(isAvoidableMaxTurns('follow-up(#1): cleanup', ['follow-up'], false, G5_BODY)).toBe(false);
+    expect(isAvoidableAlreadyFixed('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
+    expect(isAvoidableMaxTurns('follow-up(#1): 3 item deferiti — a, b, c', ['follow-up'])).toBe(false);
   });
 });
 

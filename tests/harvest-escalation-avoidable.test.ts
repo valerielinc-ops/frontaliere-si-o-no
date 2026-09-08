@@ -57,6 +57,7 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
       ['follow-up', 'funnel-ux', 'agent:fix', 'agent:triaged'],
     )).toBe(false);
     expect(isAvoidableMaxTurns('follow-up(#x): 2 items deferred — perf', ['follow-up'])).toBe(false);
+    expect(isAvoidableMaxTurns('follow-up(#x): 2 item deferiti — perf', ['follow-up'])).toBe(false);
   });
 
   it('aggregate per keyword (sweep/batch/bulk) → NON contabile', () => {
