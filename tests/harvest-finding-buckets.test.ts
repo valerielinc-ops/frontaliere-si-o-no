@@ -138,6 +138,15 @@ describe('bucketFinding — le tre imprecisioni chiuse dalla review di corpus#90
     expect(bucketFinding(line)).not.toBe('canonical-sitemap');
   });
 
+  it('la coda contrastiva non perde il finding quando la clausola prima della virgola supera 120 caratteri', () => {
+    const longLead = ' con il relativo controllo di coerenza e il contesto operativo'.repeat(4);
+    const line = `🟡 Nit: il fix tocca il percorso operativo${longLead}, non \`dist/api/\`, le sitemap o i feed.`;
+    const stripped = stripNegatedImpactClauses(line);
+    expect(stripped).toMatch(/tocca il percorso operativo/);
+    expect(stripped).not.toMatch(/sitemap|feed/);
+    expect(bucketFinding(line)).not.toBe('canonical-sitemap');
+  });
+
   it('la negazione inglese `not` conta quanto `no impact on`', () => {
     // `IMPACT_VERB` portava gia' touch/reach/affect, ma l'elenco delle negazioni
     // aveva solo `no`: la forma piu' comune in inglese («does not touch») passava.

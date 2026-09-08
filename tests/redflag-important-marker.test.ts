@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { REDFLAG_IMPORTANT_RE } from '../scripts/ci/lib/constants.mjs';
 
@@ -175,7 +176,7 @@ describe('REDFLAG_IMPORTANT_RE — coerenza col conteggio dichiarato', () => {
 // pretende verbatim in entrambi i workflow: una quarta variante applicata a una sola
 // copia rende rosso qui invece di restare in silenzio per mesi.
 describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
-  const bashPattern = REDFLAG_IMPORTANT_RE.source.replace('[^\\n', '[^');
+  const bashPattern = `(*UTF)${REDFLAG_IMPORTANT_RE.source.replace('[^\\n', '[^')}`;
 
   // Il pattern atteso è scritto per ESTESO, non ri-derivato dalla `.source`: un
   // `expect(x).toBe(<la stessa espressione che ha prodotto x>)` è vero per
@@ -185,7 +186,7 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
   // NB: stringa singola, non `String.raw`: in un raw template `\`` resta backslash +
   // backtick, mentre la `.source` porta il backtick nudo. Qui gli unici escape sono
   // i `\\s`/`\\*` che diventano `\s`/`\*`.
-  const BASH_PATTERN_ATTESO = '^[^🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]';
+  const BASH_PATTERN_ATTESO = '(*UTF)^[^🟡🟢]*(?<!`)🔴\\s*\\*{0,2}\\s*Important\\s*\\*{0,2}\\s*[:—-]';
 
   it('il pattern bash è la source JS senza il `\\n` della classe negata', () => {
     expect(bashPattern).toBe(BASH_PATTERN_ATTESO);
@@ -198,4 +199,45 @@ describe('REDFLAG_IMPORTANT_RE — le copie bash non possono divergere', () => {
       expect(yaml).toContain(`grep -qP '${bashPattern}'`);
     });
   }
+
+  const pcreRunner = (() => {
+    try {
+      execFileSync('grep', ['-qP', '(*UTF)a'], { input: 'a\n', stdio: ['pipe', 'ignore', 'ignore'] });
+      return { command: 'grep', args: ['-qP'] };
+    } catch (error) {
+      if ((error as { status?: number }).status !== 2) return { command: 'grep', args: ['-qP'] };
+      try {
+        execFileSync('pcre2grep', ['-q', '(*UTF)a'], { input: 'a\n', stdio: ['pipe', 'ignore', 'ignore'] });
+        return { command: 'pcre2grep', args: ['-q'] };
+      } catch {
+        return null;
+      }
+    }
+  })();
+
+  it.skipIf(!pcreRunner)('le copie bash hanno lo stesso verdetto della regex JS sui casi decisivi', () => {
+    const cases: Array<[string, boolean]> = [
+      ['🔴 Important: manca il canonical', true],
+      ['🟡 Nit: la review cita 🔴 Important: manca il canonical', false],
+      ['Il test usa `🔴 Important: manca il canonical` come fixture', false],
+      ['🟣 Pre-existing: 🔴 Important: manca il canonical', true],
+    ];
+    const bashMatches = (line: string): boolean => {
+      try {
+        execFileSync(pcreRunner!.command, [...pcreRunner!.args, bashPattern], {
+          input: `${line}\n`,
+          stdio: ['pipe', 'ignore', 'ignore'],
+        });
+        return true;
+      } catch (error) {
+        const status = (error as { status?: number }).status;
+        if (status === 1) return false;
+        throw error;
+      }
+    };
+    for (const [line, expected] of cases) {
+      expect(REDFLAG_IMPORTANT_RE.test(line), `JS verdict for ${line}`).toBe(expected);
+      expect(bashMatches(line), `bash verdict for ${line}`).toBe(expected);
+    }
+  });
 });
