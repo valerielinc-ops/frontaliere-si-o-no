@@ -37,6 +37,11 @@ const opt = (flag) => {
 };
 
 export function buildPatDownAlert({ workflow, runUrl = '' }) {
+  const command = [
+    'node scripts/ci/alert-pat-down.mjs',
+    `--workflow ${JSON.stringify(workflow)}`,
+    `--run-url ${JSON.stringify(runUrl)}`,
+  ].join(' ');
   const description =
     `Rilevato INLINE da \`${workflow}\`${runUrl ? ` (${runUrl})` : ''}: ` +
     '`env.GITHUB_PAT` vuoto dopo `scripts/load-rc-env.mjs` (che esce sempre 0 — ' +
@@ -52,7 +57,7 @@ export function buildPatDownAlert({ workflow, runUrl = '' }) {
     signals: {
       cosa: 'env.GITHUB_PAT vuoto: il loop agentico è entrato nel percorso fallback inerte',
       metrica: { osservato: 'vuoto', atteso: 'token PAT presente' },
-      comando: 'node scripts/ci/alert-pat-down.mjs --workflow "<nome-workflow>" --run-url "<run-url>"',
+      comando: command,
       evidenza: [`workflow=${workflow}`, runUrl ? `run=${runUrl}` : null, 'loader=scripts/load-rc-env.mjs'],
     },
   };

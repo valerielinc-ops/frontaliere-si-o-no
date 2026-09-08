@@ -12,16 +12,16 @@ export function isCrawlerGenerationToken(value) {
  * started without it (direct dispatch, re-run of a leg) sees an EMPTY string —
  * which used to kill every crawler of the group. The run coordinates carry the
  * same grammar the orchestrator computes for its dispatches, so derive from
- * them instead of failing the whole group. Returns null when neither source
- * yields a valid token; callers decide whether that is fatal.
+ * them when the input is absent. A non-empty malformed explicit token fails
+ * closed rather than silently falling back to different run coordinates.
+ * Returns null when neither source yields a valid token; callers decide whether
+ * that is fatal.
  */
 export function resolveCrawlerGenerationToken(env = process.env) {
   const explicit = env.CRAWLER_GENERATION_TOKEN;
   // An explicit token stays authoritative only when it obeys the shared
-  // grammar. Returning a truthy malformed value makes callers build a
-  // descriptor that the downstream validator rejects, classifying an entire
-  // crawler group as a shared precondition failure instead of using the valid
-  // run coordinates available in the same environment.
+  // grammar. A non-empty malformed value is rejected before the caller builds
+  // a descriptor; it must not silently fall back to different run coordinates.
   if (typeof explicit === 'string' && explicit.length > 0) {
     return isCrawlerGenerationToken(explicit) ? explicit : null;
   }

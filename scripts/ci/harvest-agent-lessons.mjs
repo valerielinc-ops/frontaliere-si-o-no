@@ -899,11 +899,15 @@ export function examplesSinceFix(examples, cutoffMs) {
   });
 }
 
-export function buildEscalationSignals(c) {
-  const examples = (c.examples || [])
-    .map((e) => '#' + (e.pr || e.issue))
-    .filter((s) => s !== '#undefined')
+function formatExamples(c) {
+  return (c.examples || [])
+    .map((e) => e.pr || e.issue)
+    .filter(Boolean)
+    .map((value) => `#${value}`)
     .join(', ') || '—';
+}
+
+export function buildEscalationSignals(c) {
   return {
     cosa: `bucket ${c.source}/${c.key}: pattern documentato che ricorre nonostante la regola`,
     metrica: {
@@ -914,22 +918,18 @@ export function buildEscalationSignals(c) {
     evidenza: [
       `bucket=${c.source}/${c.key}`,
       `finestra=${WINDOW_DAYS}gg dal ${sinceDay}`,
-      `esempi=${examples}`,
+      `esempi=${formatExamples(c)}`,
     ],
   };
 }
 
 function escalationBody(c) {
-  const examples = (c.examples || [])
-    .map((e) => '#' + (e.pr || e.issue))
-    .filter((s) => s !== '#undefined')
-    .join(', ') || '—';
   return [
     '## Bucket',
     `\`${c.source}/${c.key}\` — count **${c.count}** su finestra ${WINDOW_DAYS}gg (dal ${sinceDay})`,
     '',
     '## Esempi PR/issue',
-    examples,
+    formatExamples(c),
     '',
     '## Perché escalare',
     `Pattern GIÀ documentato ma che ricorre ≥ soglia×fattore-efficacia ` +

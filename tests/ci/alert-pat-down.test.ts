@@ -12,7 +12,7 @@ describe('alert-pat-down — segnali strutturati (#6685)', () => {
     expect(alert.signals).toMatchObject({
       cosa: expect.stringContaining('GITHUB_PAT'),
       metrica: { osservato: 'vuoto', atteso: 'token PAT presente' },
-      comando: expect.stringContaining('alert-pat-down.mjs'),
+      comando: 'node scripts/ci/alert-pat-down.mjs --workflow "Follow-up drainer" --run-url "https://github.com/example/repo/actions/runs/42"',
     });
     expect(alert.signals.evidenza).toEqual(expect.arrayContaining([
       'workflow=Follow-up drainer',
