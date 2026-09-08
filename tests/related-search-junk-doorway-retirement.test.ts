@@ -441,7 +441,7 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
     fs.writeFileSync(
       path.join(collisionDir, 'manifest.json'),
       JSON.stringify({
-        version: 1,
+        version: 'v11',
         files: [
           'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
           retired,
@@ -453,6 +453,28 @@ describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record
 
     expect(() => loadPreviouslyEmittedClusterKeys(collisionRoot)).toThrow(/issue #7752/);
     fs.rmSync(collisionRoot, { recursive: true, force: true });
+  });
+
+  it('quarantines a collision in a historical manifest without blocking the build', () => {
+    const historicalRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-historical-collision-'));
+    const historicalDir = path.join(historicalRoot, '.cache', 'related-search-clusters', 'historical');
+    fs.mkdirSync(historicalDir, { recursive: true });
+    const retired = 'cerca-lavoro-svizzera/ricerca-cookie-bern/index.html';
+    fs.writeFileSync(
+      path.join(historicalDir, 'manifest.json'),
+      JSON.stringify({
+        version: 'v10',
+        files: [
+          'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html',
+          retired,
+          retired,
+        ],
+        retiredFiles: [retired],
+      }),
+    );
+
+    expect(loadPreviouslyEmittedClusterKeys(historicalRoot)).toEqual(new Set());
+    fs.rmSync(historicalRoot, { recursive: true, force: true });
   });
 
   it('does not count a WITHDRAWAL document as evidence of publication', () => {

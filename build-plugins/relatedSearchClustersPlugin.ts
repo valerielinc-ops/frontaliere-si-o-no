@@ -835,7 +835,10 @@ function clusterKeyFromAnyPath(p: string): string | null {
  * definition on a cache MISS and its own directory does not exist yet. Manifests
  * of any `version` that carry the retirement split count — an old cache is
  * still a record of a real emit, and the question here is history, not
- * restorability. A manifest without that split is deliberately ignored.
+ * restorability. A manifest without that split is deliberately ignored. An
+ * old manifest with the collision signature is also ignored: it cannot
+ * poison every future build, while a collision in the current cache format
+ * remains a hard build failure.
  *
  * Absent/unreadable cache → empty set, i.e. no evidence from this source. That is
  * the conservative direction: a candidate with no evidence at all gets no
@@ -866,11 +869,22 @@ export function loadPreviouslyEmittedClusterKeys(rootDir: string): Set<string> {
     if (manifest.retiredFiles === undefined) continue;
     if (!Array.isArray(manifest.files) || !Array.isArray(manifest.retiredFiles)) continue;
     // The cache-HIT path already rejects a rel written by both the live and
-    // retirement writers. Apply the same assertion here: otherwise the
-    // loader would silently skip the colliding rel and discard the evidence
-    // that a real landing existed. This throw is intentionally outside the
-    // malformed-manifest catch above: collision is a build-safety failure.
-    assertNoRestoredRetirementCollision(manifest.files, manifest.retiredFiles);
+    // retirement writers. Apply the same assertion to the current cache
+    // format: otherwise the loader would silently skip the colliding rel and
+    // discard the evidence that a real landing existed. Historical manifests
+    // can carry the same pre-#7752 corruption; they are not restorable after
+    // the version bump, so quarantine that directory instead of making an old
+    // cache poison every future build.
+    try {
+      assertNoRestoredRetirementCollision(manifest.files, manifest.retiredFiles);
+    } catch (err) {
+      if (manifest.version === CACHE_VERSION) throw err;
+      console.warn(
+        `[related-search-clusters] ignoring collision in historical retirement manifest ${manifestPath}:`,
+        err instanceof Error ? err.message : err,
+      );
+      continue;
+    }
     // `retiredFiles` is a SUBSET of `files` (see the field docs and
     // `saveToCache`), so counting `files` raw would make the evidence
     // self-confirming on exactly the population this gate exists to
