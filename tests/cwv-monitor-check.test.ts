@@ -165,7 +165,7 @@ describe('main()', () => {
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
     global.fetch = vi.fn();
-    await main();
+    await main({ ga4FallbackImpl: async () => [] });
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
@@ -174,7 +174,7 @@ describe('main()', () => {
       ok: true,
       json: async () => ({ results: [[1.5, 50, 100, 40]] }), // cls_p75=1.5 (way over every threshold)
     });
-    await main();
+    await main({ ga4FallbackImpl: async () => [] });
     expect(execFileSync).not.toHaveBeenCalled();
   });
 });

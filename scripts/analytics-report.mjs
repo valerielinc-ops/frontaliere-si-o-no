@@ -1624,6 +1624,13 @@ async function reportGA4(token) {
     { parameterName: 'section', displayName: 'UI Interaction Section', description: 'Section within the page for ui_interaction events (e.g. ab_test, modal, subscribe_page)' },
     { parameterName: 'component', displayName: 'UI Interaction Component', description: 'Component within the section for ui_interaction events (e.g. bucket_assigned, outcome, checkout)' },
     { parameterName: 'cta_id', displayName: 'UI Interaction CTA ID', description: 'Stable CTA id for funnel joins, defaults to page.section.component.action' },
+    // Web Vitals RUM dimensions (services/webVitals.ts). The Data API rejects
+    // customEvent dimensions until the corresponding event parameters are
+    // registered on the property, so provision them before the report queries
+    // the web_vitals event.
+    { parameterName: 'metric_name', displayName: 'Web Vitals Metric Name', description: 'Web Vitals metric name (LCP, INP, CLS)' },
+    { parameterName: 'metric_value', displayName: 'Web Vitals Metric Value', description: 'Web Vitals metric value (CLS in thousandths, other metrics in milliseconds)' },
+    { parameterName: 'metric_rating', displayName: 'Web Vitals Metric Rating', description: 'Web Vitals metric rating (good, needs-improvement, poor)' },
   ];
 
   try {

@@ -1418,16 +1418,17 @@ describe('promotion gate', () => {
     expect(bodySignature(withMillis)).toBe(bodySignature(withOffset));
   });
 
-  it('denoisa tutte le etichette del contatore, non una sola forma', () => {
+  it('denoisa tutte le etichette del contatore senza denoisare il contenuto', () => {
     const shell = `${'chrome '.repeat(900)}stesso annuncio identico`;
-    const labels = ['hits', 'klicks', 'letture', 'consultazioni'];
-    const counts = ["1'001", '1.002', '1,003', '1004'];
+    const labels = ['visite', 'hits', 'Klicks', 'letture', 'consultazioni', 'consultations'];
     for (const label of labels) {
-      const copies = counts.map((count, index) =>
-        `${shell} ${label}${index % 2 === 0 ? ':' : ''} ${count}`,
+      const copies = [1, 2, 3, 4].map((n) =>
+        bodySignature(`${shell} ${label} ${1000 + n} ultimo aggiornamento 05.09.2026 1${n}:0${n}`),
       );
-      expect(new Set(copies.map(bodySignature)).size, `${label} non denoisato`).toBe(1);
+      expect(new Set(copies).size, `${label} non viene trattato come contatore`).toBe(1);
     }
+
+    expect(bodySignature(`${shell} hits ruolo`)).not.toBe(bodySignature(`${shell} hits reparto`));
   });
 
   it('tiene distinti due annunci template che differiscono solo per la data di entrata', () => {

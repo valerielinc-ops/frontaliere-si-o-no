@@ -16,7 +16,8 @@
  *   GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN     (required for GSC)
  *   ADSENSE_REFRESH_TOKEN                                     (required for AdSense)
  *   ADSENSE_CLIENT_ID / ADSENSE_CLIENT_SECRET                 (optional; defaults to GSC_*)
- *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS section)
+ *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS
+ *                                                              section; GA4 fallback)
  *   POSTHOG_HOST                                              (optional; defaults to https://eu.posthog.com)
  *
  * Usage:
@@ -44,6 +45,14 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
+import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import {
+  fetchGa4WebVitals,
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+  getServiceAccountToken,
+  weightedQuantile,
+} from './lib/ga4-service-account.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -388,6 +397,37 @@ export async function fetchPostHogCls({ apiKey, projectId, host = 'https://eu.po
   };
 }
 
+export async function fetchGa4ClsFallback({
+  windowDays = 7,
+  now = new Date(),
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  const token = getTokenImpl === getServiceAccountToken
+    ? await getServiceAccountToken([GA4_READONLY_SCOPE])
+    : await getTokenImpl([GA4_READONLY_SCOPE]);
+  if (!token) return null;
+  const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
+  const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
+  const byDevice = new Map([
+    ['mobile', []],
+    ['desktop', []],
+  ]);
+  for (const row of rows) {
+    if (row.metric !== 'CLS' || !byDevice.has(row.device)) continue;
+    byDevice.get(row.device).push({ value: row.value, count: row.count });
+  }
+  const clsP75Mobile = weightedQuantile(byDevice.get('mobile'), 0.75);
+  const clsP75Desktop = weightedQuantile(byDevice.get('desktop'), 0.75);
+  if (clsP75Mobile === null && clsP75Desktop === null) return null;
+  return {
+    window: { start: startDate, end: endDate },
+    clsP75Mobile,
+    clsP75Desktop,
+    source: 'ga4-fallback',
+  };
+}
+
 // ── Comparison ──────────────────────────────────────────────
 /**
  * Compare a current value against a baseline, returning delta, percentage,
@@ -678,19 +718,24 @@ async function main() {
     log('⚠️', `GSC failed: ${e.message}`);
   }
 
-  // PostHog CLS is optional: if credentials missing, surface a warning instead
-  // of failing. Required secrets are POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID
-  // (add in repo Settings → Secrets or Firebase Remote Config).
+  // PostHog is primary when its credentials and ingestion are healthy. If
+  // either is missing, the same branch below attempts the GA4 mirror before
+  // declaring CLS non misurabile.
   try {
     const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
     const projectId = process.env.POSTHOG_PROJECT_ID;
     const host = process.env.POSTHOG_HOST;
-    if (apiKey && projectId) {
+    const liveness = await checkPostHogLiveness({ windowDays: 7 });
+    if (liveness.alive) {
       current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
     } else {
-      const msg = 'PostHog CLS skipped (POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID not set)';
-      current.warnings.push(msg);
-      log('⚪', msg);
+      current.posthog = await fetchGa4ClsFallback({ windowDays: 7 });
+      if (current.posthog) {
+        log('🔁', 'PostHog non misurabile: CLS preso da GA4 `web_vitals`');
+      } else {
+        declareNotMeasurable('revenue-monitor', liveness);
+        current.warnings.push(`CLS non misurabile: ${liveness.reason}`);
+      }
     }
   } catch (e) {
     current.errors.push(`posthog: ${e.message}`);

@@ -23,6 +23,8 @@ import { fetchGa4Pages } from './lib/evidence/ga4Fetcher.mjs';
 import { fetchPosthogPages } from './lib/evidence/posthogFetcher.mjs';
 import { buildClusterStats } from './lib/evidence/clusterStatsBuilder.mjs';
 import { DEFAULT_WINDOW_DAYS } from './lib/evidence/constants.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
@@ -68,11 +70,23 @@ async function main() {
 
   console.error(`EVIDENCE_BUILD start=${startDate} end=${endDate} window=${windowDays}d`);
 
+  const posthogLiveness = await checkPostHogLiveness({ windowDays });
+  if (!posthogLiveness.alive) declareNotMeasurable('build-evidence-index', posthogLiveness);
+
   // Run fetchers in parallel — each is internally resilient (returns error key on failure).
   const [gscResult, ga4Result, posthogResult] = await Promise.all([
     fetchGscQueries({ startDate, endDate }),
-    fetchGa4Pages({ startDate, endDate }),
-    fetchPosthogPages({ startDate, endDate }),
+    // GA4 stays an independent source when PostHog is unavailable; the
+    // explicit token call here makes that fallback visible at this consumer,
+    // not only buried in the fetcher implementation.
+    fetchGa4Pages({
+      startDate,
+      endDate,
+      getTokenImpl: () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+    }),
+    posthogLiveness.alive
+      ? fetchPosthogPages({ startDate, endDate })
+      : Promise.resolve({ pages: {}, error: `posthog non misurabile: ${posthogLiveness.reason}` }),
   ]);
 
   const failures = [];

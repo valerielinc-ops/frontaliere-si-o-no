@@ -375,4 +375,13 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(collectStep).toContain('MERGE_GROUP_BASE_SHA');
     expect(collectStep).toContain('github.event.merge_group.base_sha');
   });
+
+  it('il gate Number gira su ogni percorso che può portare codice su main', () => {
+    const m = TESTS_YML.match(/- name: Forbid the NaN-producing env fallback inside Number\(\)\n([\s\S]*?)(?=\n\s+- name:)/);
+    expect(m, 'gate Number(process.env) non trovato').toBeTruthy();
+    expect(m![1]).toContain("github.event_name == 'push'");
+    expect(m![1]).toContain("github.event_name == 'merge_group'");
+    expect(m![1]).toContain("github.event_name == 'pull_request'");
+    expect(m![1]).not.toMatch(/continue-on-error:\s*true/);
+  });
 });

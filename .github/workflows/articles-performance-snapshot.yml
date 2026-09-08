@@ -39,7 +39,6 @@ jobs:
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
-            !/data/evidence-index.json
             !/data/health-premiums/
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
