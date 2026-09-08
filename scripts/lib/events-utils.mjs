@@ -408,11 +408,22 @@ export function slugifyComune(value) {
  * the reserved shape. Checking the title alone would also tag `Page 2` events
  * that a date already disambiguates.
  */
-export function slugifyEvent(event) {
-  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), EVENT_SLUG_MAX_LENGTH).replace(/-+$/, '');
+function slugifyEventWithTitleBudget(event, titleBudget) {
   const datePart = String(event?.startDate || '').slice(0, 10);
+  const titlePart = truncateSlugAtWordBoundary(normalizeSlug(event?.title || ''), titleBudget).replace(/-+$/, '');
   const base = reserveLadderShape([titlePart, datePart].filter(Boolean).join('-'), 'evento');
   return base || `evento-${normalizeSlug(event?.id || 'senza-data')}`;
+}
+
+export function slugifyEvent(event) {
+  const datePart = String(event?.startDate || '').slice(0, 10);
+  const titleBudget = Math.max(1, EVENT_SLUG_MAX_LENGTH - (datePart ? datePart.length + 1 : 0));
+  return slugifyEventWithTitleBudget(event, titleBudget);
+}
+
+/** Reproduce the pre-budget slug shape so published URLs can be bridged. */
+export function slugifyLegacyEvent(event) {
+  return slugifyEventWithTitleBudget(event, EVENT_SLUG_MAX_LENGTH);
 }
 
 // ── Comuni loader ────────────────────────────────────────────
