@@ -11607,6 +11607,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassa-malati-rincari-2027.title': 'Primes caisse-maladie : +5% en 2027',
     'blog.article.cassa-malati-rincari-2027.excerpt': 'Selon bonus.ch, les primes LAMal augmenteront de près de 5% en 2027, avec des pics allant jusqu\'à 20%. Impact direct sur la paie des frontaliers.',
     'blog.article.cassa-malati-rincari-2027.imageAlt': 'Documents d\'assurance maladie et interface de calcul numérique des primes',
+    'blog.article.frontalieri-libro-analisi-miti.title': 'Frontières suisses : 400 000, mythes et analyses',
+    'blog.article.frontalieri-libro-analisi-miti.excerpt': 'La Suisse emploie 400 000+ frontaliers (record européen). Nouveau livre démystifie les mythes : croissance 1978–2026, salaires, fiscalité, transports. Tessin au centre.',
+    'blog.article.frontalieri-libro-analisi-miti.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes environnantes, symbole de la région tessinoise',
 };
 
 export default blogMetaFr;

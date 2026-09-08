@@ -6091,6 +6091,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.infermieri-carenza-svizzera-2034.title': 'Infirmières : pénurie d\'ici 2034 en Suisse',
     'blog.article.infermieri-carenza-svizzera-2034.excerpt': 'Le 4ème rapport Obsan prévoit une pénurie sévère d\'infirmières d\'ici 2034. Seulement 55% des besoins couverts par du personnel formé en Suisse.',
     'blog.article.infermieri-carenza-svizzera-2034.imageAlt': 'Couloir d\'hôpital suisse moderne avec personnel de santé en costume médical',
+    'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis chute de 10% en bourse pour cause de faillite',
+    'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen et Del-desiran ne passent pas les tests cliniques. Capitalisation en baisse de 24 milliards de CHF, l\'effondrement le plus grave de l\'histoire.',
+    'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Panorama suisse reflétant la stabilité économique du pays en période de volatilité boursière',
 };
 
 export default blogMetaChFr;

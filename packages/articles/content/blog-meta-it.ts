@@ -11606,6 +11606,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassa-malati-rincari-2027.title': 'Premi cassa malati: +5% nel 2027',
     'blog.article.cassa-malati-rincari-2027.excerpt': 'Secondo bonus.ch, premi LAMal aumenteranno quasi il 5% nel 2027, con picchi fino al 20%. Impatto diretto sulla busta paga dei frontalieri.',
     'blog.article.cassa-malati-rincari-2027.imageAlt': 'Documenti di assicurazione malattia e calcolatore digitale di premi LAMal',
+    'blog.article.frontalieri-libro-analisi-miti.title': 'Frontalieri svizzera: 400mila, miti e analisi',
+    'blog.article.frontalieri-libro-analisi-miti.excerpt': 'La Svizzera impiega 400mila+ frontalieri (record europeo). Nuovo libro sfata miti: crescita 1978–2026, salari, fiscalità, trasporti. Ticino al centro.',
+    'blog.article.frontalieri-libro-analisi-miti.imageAlt': 'Panorama di Lugano con il lago e le montagne circostanti, simbolo della regione ticinese e del lavoro frontaliero',
 };
 
 export default blogMetaIt;

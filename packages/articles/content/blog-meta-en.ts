@@ -11605,6 +11605,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassa-malati-rincari-2027.title': 'Sick pay premiums: +5% in 2027',
     'blog.article.cassa-malati-rincari-2027.excerpt': 'According to bonus.ch, LAMal premiums will increase by almost 5% in 2027, with peaks of up to 20%. Direct impact on border workers\' paychecks.',
     'blog.article.cassa-malati-rincari-2027.imageAlt': 'Health insurance documents and digital premium calculator interface',
+    'blog.article.frontalieri-libro-analisi-miti.title': 'Swiss cross-border commuters: 400,000, myths and analysis',
+    'blog.article.frontalieri-libro-analisi-miti.excerpt': 'Switzerland employs 400,000+ border workers (European record). New book dispels myths: growth 1978–2026, wages, taxation, transport. Ticino in the centre.',
+    'blog.article.frontalieri-libro-analisi-miti.imageAlt': 'Lugano skyline with Lake Lugano and surrounding mountains, symbol of Ticino and cross-border work',
 };
 
 export default blogMetaEn;
