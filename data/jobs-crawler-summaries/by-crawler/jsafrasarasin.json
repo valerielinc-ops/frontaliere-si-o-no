@@ -1,23 +1,58 @@
 {
   "key": "jsafrasarasin",
   "label": "J. Safra Sarasin",
-  "generatedAt": "2026-09-07T23:23:06.760Z",
-  "total": 9,
+  "generatedAt": "2026-09-08T13:31:46.180Z",
+  "total": 8,
   "discovered": null,
-  "parsed": 7,
+  "parsed": 8,
   "lastFetchOutcome": null,
-  "written": 9,
+  "written": 8,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 14312,
-  "avgDurationMs": 14312,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 16577,
+  "avgDurationMs": 16577,
   "durationHistory": [
-    14312
+    16577
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "jsafrasarasin-f5141b65059d",
+      "slug": "senior-fmi-business-analyst-jsafrasarasin-ch",
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Senior FMI Business Analyst",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-08T13:31:37.076Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "jsafrasarasin-36022dbbf26f",
@@ -31,7 +66,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:22:58.885Z",
+      "crawledAt": "2026-09-08T13:31:37.380Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -47,11 +82,11 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-02T13:34:11.477Z",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -67,7 +102,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:22:59.189Z",
+      "crawledAt": "2026-09-08T13:31:37.682Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -102,7 +137,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:22:59.494Z",
+      "crawledAt": "2026-09-08T13:31:37.989Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +172,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:22:59.798Z",
+      "crawledAt": "2026-09-08T13:31:38.290Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -172,7 +207,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:23:00.100Z",
+      "crawledAt": "2026-09-08T13:31:38.592Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -207,7 +242,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:23:00.401Z",
+      "crawledAt": "2026-09-08T13:31:38.893Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -221,7 +256,6 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -243,7 +277,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:23:00.703Z",
+      "crawledAt": "2026-09-08T13:31:39.195Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -268,8 +302,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "jsafrasarasin-0da08d3b61e1",
       "slug": "treasury-operations-specialista-j-safra-sarasin-lugano",
@@ -301,7 +334,6 @@
       "salaryMax": 93500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,7 +368,6 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:42:50.455Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -350,5 +381,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
