@@ -57,6 +57,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { machineAdmission } from './lib/machine-broken.mjs';
 import { hasFalsifiableAcceptance, splitFollowupItems } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
@@ -74,25 +75,35 @@ const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
 
 /**
  * Spezza il corpo coniato in testa + item, e partiziona gli item con l'oracolo
- * condiviso. Puro.
+ * condiviso e con l'ammissibilità della macchina. L'osservazione della macchina è
+ * iniettabile nei test tramite `opts.machineOptions`.
  *
  * @param {string} body
+ * @param {{machineOptions?: object}} [opts]
  * @returns {{ head: string, valid: string[], demoted: string[], unparsed: boolean }}
  */
-export function partitionMintedItems(body) {
+export function partitionMintedItems(body, opts = {}) {
   const src = String(body || '');
   const items = splitFollowupItems(src);
   if (!items.length) return { head: src, valid: [], demoted: [], unparsed: true };
   const head = src.split(/^### \d+\./m)[0];
   const valid = [];
   const demoted = [];
-  for (const it of items) (hasFalsifiableAcceptance(it) ? valid : demoted).push(it);
+  const machineOptions = opts.machineOptions || {};
+  const machineCache = machineOptions.cache instanceof Map ? machineOptions.cache : new Map();
+  for (const it of items) {
+    const falsifiable = hasFalsifiableAcceptance(it);
+    const admission = falsifiable
+      ? machineAdmission(it, { ...machineOptions, cache: machineCache })
+      : 'reject';
+    (falsifiable && admission !== 'reject' ? valid : demoted).push(it);
+  }
   return { head, valid, demoted, unparsed: false };
 }
 
 /**
- * Verdetto per una issue appena coniata. Puro — nessuna I/O, così il test lo esercita
- * senza rete.
+ * Verdetto per una issue appena coniata. L'I/O della macchina è iniettabile, così il
+ * test lo esercita senza rete.
  *
  * @param {{body: string, createdAt?: string}} issue
  * @param {{now?: number, maxAgeMin?: number}} [opts]
@@ -106,7 +117,7 @@ export function decideMintGate(issue, opts = {}) {
   if (Number.isFinite(createdAt) && now - createdAt > maxAgeMin * 60_000) {
     return { action: 'skip', reason: 'not-freshly-minted', valid: [], demoted: [], body: null };
   }
-  const { head, valid, demoted, unparsed } = partitionMintedItems(issue?.body || '');
+  const { head, valid, demoted, unparsed } = partitionMintedItems(issue?.body || '', opts);
   // «Non so leggerlo» non è «è vuoto»: un corpo senza struttura a item resta intatto.
   if (unparsed) return { action: 'skip', reason: 'aggregate-unparsed', valid: [], demoted: [], body: null };
   // La soppressione NON riscrive il corpo (chiude e basta), quindi non ha bisogno della
@@ -253,6 +264,7 @@ function main() {
   if (open.length >= 200) console.log(`⚠️ lista al tetto (${open.length}): una issue coniata potrebbe non comparire — se un no-op sorprende, alzare il limite.`);
   const report = [];
   const tally = [];
+  const machineCache = new Map();
   for (const pr of prs) {
     try {
       const found = open.filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
@@ -267,7 +279,7 @@ function main() {
         issues.push(one);
       }
       for (const iss of issues) {
-        const d = decideMintGate(iss);
+        const d = decideMintGate(iss, { machineOptions: { cache: machineCache } });
         console.log(`#${iss.number} (PR #${pr}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
         tally.push({ pr, issue: iss.number, action: d.action, demoted: d.demoted.length, kept: d.valid.length });
         if (d.action === 'skip' || d.action === 'keep') continue;
