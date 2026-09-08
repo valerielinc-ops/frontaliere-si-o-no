@@ -17,7 +17,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { AD_SLOTS } from '../services/adsenseSlots.ts';
-import { isLongformArticle, inlineSlotIndex, resolveArticleAdDensity } from '../services/articleAdDensity.ts';
+import {
+  AD_ELIGIBLE_MIN_CHARS,
+  AD_ELIGIBLE_MIN_WORDS,
+  isLongformArticle,
+  inlineSlotIndex,
+  resolveArticleAdDensity,
+} from '../services/articleAdDensity.ts';
 import { extractBodies } from './lib/blog-body-io.mjs';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE } from '../services/adPlacement.ts';
 
@@ -207,7 +213,11 @@ export function auditLongformAdDensity(bodyDir = DEFAULT_BODY_DIR) {
     const profile = resolveArticleAdDensity(segments);
     const wordCount = segments.join(' ').split(WORD_RE).filter(Boolean).length;
     const charCount = segments.join(' ').trim().length;
-    const state = createArticleState(id, profile, segments.length >= 3 && wordCount >= 220 && charCount >= 1400);
+    const state = createArticleState(
+      id,
+      profile,
+      segments.length >= 3 && wordCount >= AD_ELIGIBLE_MIN_WORDS && charCount >= AD_ELIGIBLE_MIN_CHARS,
+    );
     for (const segment of segments) replaySegment(segment, state, boundaryStats);
     const bucket = state.emitted >= 3 ? '3+' : String(state.emitted);
     histogram[bucket] += 1;

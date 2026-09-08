@@ -182,8 +182,11 @@ concurrency:
   # Body edits have their own newest-wins lane: an edit can cancel only an
   # earlier edit on the same ref, never a run testing a new commit.
   group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || 'code' }}
-  # PR and workflow_dispatch runs use newest-wins inside their lane.
-  cancel-in-progress: true
+  # PR and workflow_dispatch runs use newest-wins inside their lane. Direct
+  # pushes to main and merge queues must not cancel one another: each emitted
+  # head needs a completed source-gate verdict before it can become the next
+  # health signal.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch' }}
 
 jobs:
   # Job pesante: checkout + setup-node + npm ci una volta sola, poi le quattro
@@ -1327,12 +1330,10 @@ jobs:
         #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
         #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
         #
-        # Il ramo `push` resta difensivo per eventuali dispatch/manual run, ma
-        # `tests.yml` non è triggerato dai push diretti a main: i writer dati
-        # mantengono il proprio percorso senza pagare questa suite. Quando il
-        # ramo viene usato, il commit riceve la STESSA valutazione per-diff,
-        # con l'API compare al posto di `pulls/<n>/files`. Prima di questa
-        # configurazione un push che non toccava affatto il corpus faceva
+        # I rami `push` e `merge_group` producono il proprio diff con l'API
+        # compare: non hanno un numero di PR associato, ma ricevono la STESSA
+        # valutazione per-diff. Prima di questa configurazione un push che non
+        # toccava affatto il corpus faceva
         # comunque ripartire tutti e sette i gate O(corpus) dentro `tests.yml`,
         # e una deriva pura
         # del DATO (es. job-locale-consistency, 25744/77967 = 33,02% contro il
@@ -1358,12 +1359,13 @@ jobs:
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
         # delegati.
-        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+        if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           BASE_REF: ${{ github.base_ref }}
           BEFORE_SHA: ${{ github.event.before }}
+          MERGE_GROUP_BASE_SHA: ${{ github.event.merge_group.base_sha }}
           AFTER_SHA: ${{ github.sha }}
         run: |
           # I path toccati arrivano dall'API della PR, non da `git diff`, e la
@@ -1395,11 +1397,14 @@ jobs:
               : > changed-paths.txt
               printf '%s\n' error > changed-paths-status.txt
             fi
-          elif [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] \
-            && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+          elif { [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] \
+            && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; } \
+            || { [ "$GITHUB_EVENT_NAME" = "merge_group" ] && [ -n "$MERGE_GROUP_BASE_SHA" ]; }; then
             # `compare` invece di `pulls/<n>/files`: un push a main non ha una
             # PR associata (o non è quella che ci interessa — un push può
-            # arrivare anche da un commit diretto di un bot/crawler), ma
+            # arrivare anche da un commit diretto di un bot/crawler), e una
+            # merge queue non ha un numero di PR associato, ma in entrambi i
+            # casi
             # confronta comunque due SHA con la stessa identica API, senza
             # bisogno di storia locale. NIENTE `--paginate` qui: la risposta
             # è UN oggetto (nessun Link header da seguire), quindi sarebbe
@@ -1416,13 +1421,23 @@ jobs:
             # silenzio, ed è esattamente lo scenario che il controllo sotto
             # dichiara di coprire.
             cap=300
-            if gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
+            compare_base="$BEFORE_SHA"
+            if [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then
+              compare_base="$MERGE_GROUP_BASE_SHA"
+            fi
+            if gh api "repos/${GITHUB_REPOSITORY}/compare/${compare_base}...${AFTER_SHA}" \
               -q '.files[].filename' > changed-paths.txt 2>/dev/null; then
               printf '%s\n' complete > changed-paths-status.txt
             else
               : > changed-paths.txt
               printf '%s\n' error > changed-paths-status.txt
             fi
+          elif [ "$GITHUB_EVENT_NAME" = "merge_group" ]; then
+            # Un evento merge queue senza base_sha non è un diff vuoto: è una
+            # misura non disponibile e deve restare fail-safe per il related
+            # runner, che lo promuove alla suite completa.
+            : > changed-paths.txt
+            printf '%s\n' error > changed-paths-status.txt
           else
             printf '%s\n' complete > changed-paths-status.txt
           fi
