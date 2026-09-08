@@ -3883,7 +3883,7 @@
       "slugByLocale": {
         "it": "nuove-fondazioni-scope-simplification-manager-richemont-meyrin",
         "en": "new-foundations-scope-simplification-manager-richemont-meyrin",
-        "de": "new-foundations-scope-simplification-manager-richemont-meyrin",
+        "de": "neue-stiftungen-scope-simplification-manager-richemont-meyrin",
         "fr": "nouveau-gestionnaire-de-la-portee-et-de-la-simplification-des-fondations-richemont-meyrin"
       },
       "company": "Richemont",
@@ -3933,6 +3933,9 @@
           "new-foundations-scope-simplification-manager-richemont-meyrin"
         ],
         "fr": [
+          "new-foundations-scope-simplification-manager-richemont-meyrin"
+        ],
+        "de": [
           "new-foundations-scope-simplification-manager-richemont-meyrin"
         ]
       },
@@ -4004,14 +4007,12 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -11418,14 +11419,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3089,
       "retranslationAttempts": 7,
