@@ -24,6 +24,7 @@
  * ─── Reading it back ────────────────────────────────────────────────────────────────
  *   node scripts/ci/cf-5xx-snapshot.mjs --report          # trend across all snapshots
  *   node scripts/ci/cf-5xx-snapshot.mjs --report --json   # same, machine-readable
+ *   node scripts/ci/cf-5xx-snapshot.mjs --check-url '<host/path>' --snapshots 7   # closure criterion, exit 1 = still failing
  *
  * ─── Auth ───────────────────────────────────────────────────────────────────────────
  * CF_API_TOKEN (Zone -> Analytics -> Read), from Firebase Remote Config via
@@ -60,8 +61,8 @@ import {
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DEFAULT_HISTORY_FILE = 'data/cf-5xx-history.jsonl';
-/** Top offending URLs kept per snapshot. Enough to spot a pattern, small enough to keep forever. */
-const TOP_PATHS = 15;
+/** Top offending URLs kept per snapshot. Matches cf-5xx-issue-sync's --limit=50 feeder cap. */
+const TOP_PATHS = 50;
 
 // ── Pure helpers (exported for tests) ────────────────────────────────────────────────
 
@@ -204,6 +205,87 @@ export function loadHistory(file) {
   return out;
 }
 
+/** Quanti snapshot puliti servono per considerare chiuso un `CF 5xx: <url>`. */
+export const CHECK_URL_DEFAULT_SNAPSHOTS = 7;
+/** Oltre questa eta' dell'ultimo snapshot la serie non e' un osservatore: e' un fermo immagine. */
+export const CHECK_URL_MAX_AGE_DAYS = 3;
+
+/** `cdn.frontaliereticino.ch/assets/x.js`, con o senza schema, sempre nella stessa forma. */
+function historyUrlKey(u) {
+  return String(u ?? '').trim().replace(/^https?:\/\//, '').replace(/\/+$/, '') || '/';
+}
+
+/**
+ * La condizione di chiusura di un `CF 5xx: <url>`, letta su
+ * `data/cf-5xx-history.jsonl`: «questo URL non compare fra i path 5xx degli
+ * ultimi N snapshot».
+ *
+ * ─── Perche' si conta in SNAPSHOT e non in «finestre di deploy» ────────────
+ * La serie e' giornaliera a finestra fissa di 23 ore e il deploy non compare
+ * nel file, quindi «due finestre di deploy» non e' esprimibile su questo dato.
+ * L'unita' esprimibile e' lo snapshot.
+ *
+ * ─── Cosa si fa del buco (decisione, non default) ─────────────────────────
+ * Si contano N snapshot PRESENTI — le ultime N righe del file — NON N giorni
+ * di calendario consecutivi. Misurato il 2026-09-07 su origin/main: 31
+ * snapshot su uno span di 32 giorni, un solo giorno mancante (2026-09-01).
+ * Un giorno mancante e' un fatto sul MONITOR (una run saltata), non sulla
+ * zona: far rompere la catena a quel buco significherebbe rimandare la
+ * chiusura di una issue per l'indisponibilita' di GitHub Actions, cioe' un
+ * rosso che nessuna modifica al repo puo' togliere. Con un buco ogni 32
+ * giorni, una catena di 7 giorni consecutivi fallirebbe circa un quinto delle
+ * volte per quel motivo.
+ *
+ * Il prezzo di quella scelta e' dichiarato e pagato qui: se il monitor si
+ * ferma del tutto, le ultime N righe restano pulite per sempre e il criterio
+ * leggerebbe «verde» su dati morti. Percio' la freschezza e' un requisito
+ * SEPARATO e fail-closed — serie piu' vecchia di `staleAfterDays` o piu' corta di
+ * N snapshot: `ok: false` con la ragione, mai un verde per assenza di dati.
+ *
+ * @param {Array<object>} history
+ * @param {string} url
+ * @returns {{ok: boolean, reason: string, checked: number, lastSeenAt: string|null}}
+ */
+export function checkUrlClean(history, url, {
+  snapshots = CHECK_URL_DEFAULT_SNAPSHOTS,
+  now = Date.now(),
+  staleAfterDays = CHECK_URL_MAX_AGE_DAYS,
+} = {}) {
+  const target = historyUrlKey(url);
+  if (!target || target === '/') return { ok: false, reason: 'URL mancante', checked: 0, lastSeenAt: null };
+  const all = (history || []).filter((s) => s && s.ts);
+  if (all.length < snapshots) {
+    return { ok: false, reason: `storia troppo corta: ${all.length} snapshot su ${snapshots} richiesti`, checked: all.length, lastSeenAt: null };
+  }
+  const ageDays = (now - Date.parse(all[all.length - 1].ts)) / 86_400_000;
+  if (!(ageDays <= staleAfterDays)) {
+    return { ok: false, reason: `serie ferma da ${ageDays.toFixed(1)} giorni (max ${staleAfterDays}) — il monitor non sta guardando`, checked: 0, lastSeenAt: null };
+  }
+  // Fail-closed sull'URL introvabile. `topPaths` tiene i 15 peggiori per
+  // snapshot, e la chiave arriva da fuori (il titolo della issue, sanificato):
+  // un URL che non compare in NESSUNO snapshot dell'intera storia non e' un URL
+  // guarito, e' una chiave che non ha mai fatto match — refuso, sanificazione
+  // che ha riscritto un carattere, o un path troppo raro per entrare nei top.
+  // Trattarlo come pulito darebbe un verde permanente su una issue ancora rossa.
+  if (!all.some((s) => (s.topPaths || []).some((p) => historyUrlKey(p?.url) === target))) {
+    return {
+      ok: false,
+      reason: `mai visto in ${all.length} snapshot: la chiave non fa match (refuso, o path fuori dai top path di ogni snapshot) — non e' una prova di guarigione`,
+      checked: 0,
+      lastSeenAt: null,
+    };
+  }
+
+  const window = all.slice(-snapshots);
+  let lastSeenAt = null;
+  for (const s of window) {
+    if ((s.topPaths || []).some((p) => historyUrlKey(p?.url) === target)) lastSeenAt = s.ts;
+  }
+  return lastSeenAt
+    ? { ok: false, reason: `ancora fra i path 5xx, ultimo snapshot ${lastSeenAt}`, checked: window.length, lastSeenAt }
+    : { ok: true, reason: `nessun 5xx negli ultimi ${window.length} snapshot presenti (dal ${window[0].ts})`, checked: window.length, lastSeenAt: null };
+}
+
 /** Human-readable trend across snapshots — the thing you actually want when triaging. */
 export function renderReport(history) {
   if (!history.length) return 'Nessuno snapshot ancora registrato.';
@@ -256,6 +338,48 @@ async function main() {
     canonicalPath: DEFAULT_HISTORY_FILE,
     root: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
   });
+
+  // `--check-url <url> [--snapshots N]`: la condizione di chiusura di un
+  // `CF 5xx: <url>`, eseguibile. Exit 1 = non ancora chiudibile (ancora 5xx,
+  // oppure serie corta/ferma). Non tocca la rete e non vuole CF_API_TOKEN.
+  const argv = process.argv.slice(2);
+  const valueOf = (flag) => {
+    const i = argv.indexOf(flag);
+    if (i < 0) return undefined;
+    const value = argv[i + 1];
+    return !value || value.startsWith('--') ? null : value;
+  };
+  const urlArg = valueOf('--check-url');
+  if (urlArg === null) {
+    console.error('[cf-5xx-snapshot] --check-url richiede un valore');
+    process.exitCode = 2;
+    return;
+  }
+  const urlToCheck = urlArg;
+  if (urlToCheck) {
+    const snapshotsArg = valueOf('--snapshots');
+    if (snapshotsArg === null) {
+      console.error('[cf-5xx-snapshot] --snapshots richiede un valore');
+      process.exitCode = 2;
+      return;
+    }
+    const raw = snapshotsArg;
+    const snapshots = raw === undefined ? CHECK_URL_DEFAULT_SNAPSHOTS : Number(raw);
+    // Senza questo, `--snapshots pippo` da'
+    // NaN: `all.length < NaN` e' falso e `slice(-NaN)` degrada a `slice(0)`, cioe'
+    // la finestra diventa la storia intera mentre la ragione stampata ne annuncia
+    // un'altra. Un criterio che mente sulla finestra che ha usato e' peggio di uno
+    // che rifiuta di rispondere.
+    if (!Number.isInteger(snapshots) || snapshots < 1) {
+      console.error(`[cf-5xx-snapshot] --snapshots non valido: ${raw} (serve un intero >= 1)`);
+      process.exitCode = 2;
+      return;
+    }
+    const res = checkUrlClean(loadHistory(historyFile), urlToCheck, { snapshots });
+    console.log(`${res.ok ? '✅' : '❌'} ${urlToCheck}: ${res.reason}`);
+    process.exitCode = res.ok ? 0 : 1;
+    return;
+  }
 
   if (args.has('--report')) {
     const history = loadHistory(historyFile);

@@ -196,6 +196,14 @@ jobs:
             status=$(jq -r ".[$i].status" data/crawler-health-issues.json)
             lastSeen=$(jq -r ".[$i].lastSeenAt // \"never\"" data/crawler-health-issues.json)
             empties=$(jq -r ".[$i].consecutiveEmptyRuns // 0" data/crawler-health-issues.json)
+            # Il blocco `## Scheda` (OSSERVATORE + COMANDO) arriva gia' composto
+            # da check-crawler-health.mjs: `buildHealthScheda()`. Il formato sta
+            # in scripts/lib/monitor-scheda.mjs, in un posto solo per tutti i
+            # monitor, invece di essere riscritto dentro questo heredoc.
+            # I backtick che contiene sono innocui: bash espande le command
+            # substitution nel TESTO dell'heredoc, non nel valore delle variabili
+            # che vi espande dentro.
+            scheda=$(jq -r ".[$i].scheda // \"\"" data/crawler-health-issues.json)
 
             # `${slug}` is a legitimate discriminant — one issue per crawler.
             # `${status}` was NOT: a crawler sliding degraded → broken changed the
@@ -233,6 +241,8 @@ jobs:
           2. Run the crawler locally to reproduce.
           3. If the source HTML changed, patch the parser.
           4. If the source is gone, retire the crawler and remove from the orchestrator.
+
+          ${scheda}
           EOF
           )
 

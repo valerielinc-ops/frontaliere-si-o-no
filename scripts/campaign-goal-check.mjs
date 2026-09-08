@@ -49,6 +49,7 @@ import { computeCtr } from './lib/analytics-opportunity-utils.mjs';
 import { getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { getBingRankAndTrafficStats } from './lib/bing-webmaster.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -654,7 +655,7 @@ function loadState(path) {
   }
 }
 
-function buildIssueBody({ goal, outcome, matureAt }) {
+export function buildIssueBody({ goal, outcome, matureAt }) {
   return [
     `## Campaign goal FAILED — ${goal.title}`,
     '',
@@ -666,6 +667,31 @@ function buildIssueBody({ goal, outcome, matureAt }) {
     `**Issue campagna:** ${goal.issueRef}`,
     '',
     '_Fonte: scripts/campaign-goal-check.mjs, cron settimanale .github/workflows/campaign-goal-check.yml. Rivalutato ogni run finché non supera il target._',
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) L'obiettivo \`${goal.id}\` e' maturo dal ${matureAt} e non`,
+        `raggiunge il target: ${outcome.detail}. Perche' non lo raggiunga non e' in questo`,
+        'dato — la misura dice se il traguardo e\' stato preso, non che cosa lo impedisce.',
+      ],
+      fix: [
+        'Dipende da cosa mostra la sorgente della misura; non preassegnata qui. | **REPO**:',
+        'sito.',
+      ],
+      metrica: `prima=${outcome.detail} atteso=${outcome.targetDescription}`,
+      comando: 'node scripts/campaign-goal-check.mjs --dry-run',
+      note: [
+        'Il comando rivaluta tutti gli obiettivi e stampa la tabella senza scrivere lo stato',
+        "e senza coniare: la issue si chiude quando questa riga passa. Vuole le credenziali",
+        'delle sorgenti — dalla root del workspace, `source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        '`.github/workflows/campaign-goal-check.yml`, che rivaluta ogni settimana e tiene',
+        "aperta questa issue finche' il target non e' superato. Non esiste un closer",
+        "automatico: il comando qui sopra e' il criterio con cui chiuderla.",
+      ],
+      fallimento: `\`Campaign goal FAILED — ${goal.title}\``,
+    }),
   ].join('\n');
 }
 

@@ -65,6 +65,7 @@ import { pathToFileURL } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const HOURS = process.env.CF_5XX_HOURS || '23';
 const MIN_COUNT = intFromEnv('CF_5XX_MIN_COUNT', 20);
@@ -143,6 +144,65 @@ function describeBurst(shape, hours) {
   ].join('\n');
 }
 
+/**
+ * Il corpo della issue, scheda inclusa.
+ *
+ * ─── Perche' `cf-5xx` puo' finalmente coniare con un criterio ─────────────
+ * `docs/CF-5XX-TRIAGE.md` ha dichiarato per un mese che un criterio di
+ * chiusura osservativo non era verificabile, perche' la retention del piano
+ * free e' ~3 giorni. Vero per l'API, non per noi: dal 2026-08-05
+ * `cf-5xx-monitor.yml` persiste uno snapshot giornaliero in
+ * `data/cf-5xx-history.jsonl`, che al 2026-09-07 porta 31 snapshot su 32
+ * giorni. Il criterio si ancora a quel file — `checkUrlClean()` in
+ * `scripts/ci/cf-5xx-snapshot.mjs`, che documenta perche' si contano snapshot
+ * presenti e non giorni consecutivi — e non alla finestra dell'API. Quindi
+ * l'esenzione permanente non serve piu': questo opener conia una scheda
+ * normale come gli altri monitor.
+ *
+ * @param {object} e   entry con `url`, `status`, `count`, `shape`
+ * @param {string} hours  ampiezza della finestra, ore
+ */
+export function buildIssueBody(e, hours = HOURS) {
+  const url = sanitizeUrlLikeText(e.url);
+  return [
+    `**Status:** ${e.status}`,
+    `**URL:** ${url}`,
+    `**5xx responses (last ${hours}h):** ${e.count}`,
+    describeBurst(e.shape, hours),
+    '',
+    '_Source: Cloudflare GraphQL Analytics (`httpRequestsAdaptiveGroups`), zone-wide eyeball 5xx — see scripts/cf-status-report.mjs._',
+    '',
+    buildScheda({
+      causa: [
+        "(ipotesi, da confermare.) Questo URL sta rispondendo 5xx adesso, non in un burst gia'",
+        "finito: il gate di recency lo ha tenuto. Su quale delle tre superfici stia — CDN,",
+        'shard per-locale, apex — decide il rimedio e NON si assume: la partizione e il triage',
+        'stanno in `docs/CF-5XX-TRIAGE.md`. Se lo stato di origine e\' zero, l\'origine non ha',
+        "risposto affatto e l'errore lo sintetizza l'edge; se e' un codice vero, lo ha",
+        'restituito l\'origine, e i due rimedi sono opposti.',
+      ],
+      fix: [
+        'Dipende dalla superficie; non preassegnata qui. | **REPO**: sito | **MODE**: nessun',
+        'vincolo di mirror: le regole di cache della zona sono possedute dallo script che le',
+        'configura, e il triage dice quale.',
+      ],
+      metrica: `prima=${e.count} risposte 5xx in ${hours}h atteso=0 negli ultimi 7 snapshot`,
+      comando: `node scripts/ci/cf-5xx-snapshot.mjs --check-url '${url}' --snapshots 7`,
+      note: [
+        'Il comando legge `data/cf-5xx-history.jsonl` e non tocca la rete: exit 0 solo se',
+        "l'URL e' assente dai path 5xx degli ultimi 7 snapshot PRESENTI, con la serie fresca.",
+        'Serie corta o ferma = exit 1 con la ragione, mai un verde per assenza di dati.',
+      ],
+      osservatore: [
+        '`.github/workflows/cf-5xx-monitor.yml`, che ogni giorno alle 03:50 UTC riconia questa',
+        "issue se l'URL torna sopra soglia e appende uno snapshot a",
+        '`data/cf-5xx-history.jsonl` — la serie su cui il COMANDO qui sopra si verifica.',
+      ],
+      fallimento: `\`CF 5xx: ${url.slice(0, 80)}\``,
+    }),
+  ].join('\n');
+}
+
 export async function main() {
   if (!process.env.CF_API_TOKEN) {
     console.log('[cf-5xx-issue-sync] CF_API_TOKEN missing — skip');
@@ -207,19 +267,13 @@ export async function main() {
 
   return syncErrorIssues({
     entries,
+    dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'cloudflare-5xx'],
     source: `Cloudflare 5xx Monitor — last ${HOURS}h (zone-wide)`,
     priorityFor: (e) => (e.count >= MIN_COUNT * 5 ? 2 : 3),
     titleFor: (e) => `CF 5xx: ${sanitizeUrlLikeText(e.url).slice(0, 80)}`,
-    bodyFor: (e) => [
-      `**Status:** ${e.status}`,
-      `**URL:** ${sanitizeUrlLikeText(e.url)}`,
-      `**5xx responses (last ${HOURS}h):** ${e.count}`,
-      describeBurst(e.shape, HOURS),
-      '',
-      '_Source: Cloudflare GraphQL Analytics (`httpRequestsAdaptiveGroups`), zone-wide eyeball 5xx — see scripts/cf-status-report.mjs._',
-    ].join('\n'),
+    bodyFor: (e) => buildIssueBody(e, HOURS),
   });
 }
 

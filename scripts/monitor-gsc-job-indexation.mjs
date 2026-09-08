@@ -33,6 +33,7 @@ import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -608,14 +609,9 @@ async function main() {
 }
 
 // ── GitHub Issue ────────────────────────────────────────────
-async function createGithubIssue(failedPages, results, priority = 1, persistentFailures = []) {
-  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
-  if (!apiKey) {
-    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
-    return;
-  }
-
-  const description = [
+/** Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami. */
+export function buildIndexationIssueBody(failedPages, results, priority = 1, persistentFailures = []) {
+  return [
     '## GSC Job Indexation Monitor — Failures Detected',
     '',
     `**Date**: ${new Date().toISOString().split('T')[0]}`,
@@ -635,7 +631,42 @@ async function createGithubIssue(failedPages, results, priority = 1, persistentF
     '2. Run `npm run validate:spa-render` to verify SPA behavior',
     '3. Manually inspect via: `curl -s URL | grep canonical`',
     '4. Submit for re-crawl: `node scripts/submit-indexnow.js`',
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) ${failedPages.length} pagina/e di annuncio non risultano`,
+        'indicizzate come dovrebbero. La causa sta a monte del monitor e non in esso: una',
+        'canonica che Google sceglie diversa dalla nostra, una pagina servita vuota al',
+        'crawler, o un deploy che non ha ancora raggiunto quegli URL.',
+      ],
+      fix: [
+        'Dipende da quale delle tre; non preassegnata qui. | **REPO**: sito.',
+      ],
+      metrica: `prima=${results.FAIL} pagine fail su ${results.PASS + results.FAIL + results.WARN + results.STALE} atteso=0 fail`,
+      comando: 'node scripts/monitor-gsc-job-indexation.mjs --dry-run',
+      note: [
+        'Il comando rigira la stessa interrogazione e stampa il verdetto per pagina senza',
+        "coniare: la issue si chiude quando il conteggio dei fail e' zero. Vuole le",
+        'credenziali della Search Console — dalla root del workspace, `source bin/rc-env.sh`.',
+      ],
+      osservatore: [
+        '`.github/workflows/monitor-gsc-job-indexation.yml`, che rigira la misura e riconia',
+        "questa issue finche' restano pagine fallite. Non esiste un closer automatico: il",
+        "comando qui sopra e' il criterio con cui chiuderla.",
+      ],
+      fallimento: '`[Monitor] job page(s) with indexation issues`',
+    }),
   ].join('\n');
+}
+
+async function createGithubIssue(failedPages, results, priority = 1, persistentFailures = []) {
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!apiKey) {
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
+    return;
+  }
+
+  const description = buildIndexationIssueBody(failedPages, results, priority, persistentFailures);
 
   try {
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
@@ -658,14 +689,9 @@ async function createGithubIssue(failedPages, results, priority = 1, persistentF
   }
 }
 
-async function createStructuredDataIssue(pages) {
-  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
-  if (!apiKey) {
-    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
-    return;
-  }
-
-  const description = [
+/** Il corpo della issue sui dati strutturati, scheda inclusa. Esportato per il test. */
+export function buildStructuredDataIssueBody(pages) {
+  return [
     '## GSC Job Indexation Monitor — Structured Data Errors Detected',
     '',
     `**Date**: ${new Date().toISOString().split('T')[0]}`,
@@ -685,7 +711,42 @@ async function createStructuredDataIssue(pages) {
     '1. Verify JobPosting JSON-LD on the affected pages includes all required fields per CLAUDE.md non-negotiable #3: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`.',
     '2. Missing source data → apply safe default, do not drop the field/check.',
     '3. Re-test via GSC Rich Results Test or URL Inspection after the fix deploys.',
+    '',
+    buildScheda({
+      causa: [
+        `(ipotesi, da confermare.) ${pages.length} pagina/e emettono dati strutturati che`,
+        'Google rifiuta. Il verdetto arriva da fuori, quindi dice CHE il markup non passa e',
+        'non QUALE campo manchi: il dettaglio per pagina, quando c\'e\', e\' nella lista sopra.',
+      ],
+      fix: [
+        'Completare i campi obbligatori elencati nel Non-Negotiable #3 di `AGENTS.md`. Una',
+        'sorgente mancante si copre con un valore di riserva sicuro, **mai togliendo il campo',
+        'o il controllo**. | **REPO**: sito.',
+      ],
+      metrica: `prima=${pages.length} pagine con markup rifiutato atteso=0`,
+      comando: 'node scripts/monitor-gsc-job-indexation.mjs --dry-run',
+      note: [
+        'Il comando rigira la stessa interrogazione senza coniare: la issue si chiude quando',
+        'nessuna pagina porta piu\' un verdetto negativo sui dati strutturati.',
+      ],
+      osservatore: [
+        '`.github/workflows/monitor-gsc-job-indexation.yml`, che rigira la misura e riconia',
+        "questa issue finche' il markup resta rifiutato. Non esiste un closer automatico: il",
+        "comando qui sopra e' il criterio con cui chiuderla.",
+      ],
+      fallimento: '`[Monitor] job page(s) with structured data issues`',
+    }),
   ].join('\n');
+}
+
+async function createStructuredDataIssue(pages) {
+  const apiKey = process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!apiKey) {
+    log('ℹ️', 'GH_TOKEN/GITHUB_TOKEN not set — skipping');
+    return;
+  }
+
+  const description = buildStructuredDataIssueBody(pages);
 
   try {
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');

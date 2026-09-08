@@ -85,6 +85,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 import {
   CRAWLER_FETCH_FAILURE_OUTCOMES,
   normalizeFetchOutcome,
@@ -1603,13 +1604,20 @@ async function main() {
       // EMPTY_OK_CRAWLERS design is intentionally not overridden) — surface
       // it as its own issue status so it doesn't read as stale/broken.
       const issueStatus = state.advisory && status === 'healthy' ? 'advisory' : status;
-      issues.push({
+      const issue = {
         slug,
         reason: issueStatus === 'advisory' ? state.advisoryReason : (reason ?? `status=${status}`),
         lastSeenAt: state.lastSuccessfulRunAt,
         status: issueStatus,
         consecutiveEmptyRuns: state.consecutiveEmptyRuns,
-      });
+      };
+      // La scheda viaggia nel file, non nel workflow: la condizione di chiusura
+      // di questa issue vive nel codice del closer (lo step "Close recovered
+      // crawler-health issues"), e finora nessuno che leggesse la issue poteva
+      // vederla. Il corpo lo compone la bash dello step di apertura, ma il testo
+      // si costruisce qui — dove i valori esistono — invece di duplicare il
+      // formato della scheda dentro un heredoc.
+      issues.push({ ...issue, scheda: buildHealthScheda(issue) });
     }
   }
 
@@ -1658,6 +1666,49 @@ export {
   nextCrawlerState,
   selectNewestCrawlerObservation,
 };
+
+/**
+ * Il blocco `## Scheda` della issue `[crawler-health] <slug>`.
+ *
+ * La condizione di chiusura esisteva gia', ma solo come codice: lo step "Close
+ * recovered crawler-health issues" di `crawler-health-monitor.yml` risolve la
+ * issue quando `data/crawler-health.json` dice `status: "healthy"` e
+ * `advisory: false` per quello slug. Qui quella stessa condizione diventa
+ * leggibile da chi raccoglie la issue, con il comando che la verifica.
+ *
+ * @param {{slug:string, status:string, reason:string, consecutiveEmptyRuns?:number}} issue
+ */
+export function buildHealthScheda(issue) {
+  const { slug, status } = issue;
+  return buildScheda({
+    causa: [
+      `(ipotesi, da confermare.) Il crawler \`${slug}\` non pubblica piu' annunci freschi:`,
+      `${issue.reason}. Leggi la Reason PRIMA di aprire il parser: se dice che le run`,
+      "*abortiscono prima di pubblicare*, la sorgente non e' stata osservata vuota e il",
+      "difetto e' un bail-out fail-closed del crawler, non un selettore morto.",
+    ],
+    fix: [
+      'Dipende da cosa mostra la sorgente; non preassegnata qui. | **REPO**: sito |',
+      '**MODE**: nessun vincolo di mirror (i crawler non sono nel manifest del ciclo).',
+    ],
+    metrica: `prima=status:${status} atteso=status:healthy`,
+    comando: `git show origin/main:data/crawler-health.json | jq -r '.crawlers["${slug}"] | .status + " advisory=" + (.advisory // false | tostring)'`,
+    note: [
+      '`healthy advisory=false` e\' la condizione esatta con cui lo step di chiusura',
+      'risolve questa issue: qualunque altro valore la tiene aperta. Si legge da git e non',
+      'dal disco per due motivi: lo stato che il closer guarda e\' quello che il monitor',
+      'committa su `main`, non uno ricalcolato in locale, e cosi\' verificare il criterio non',
+      'lascia file dati modificati nel working tree di chi verifica.',
+    ],
+    osservatore: [
+      '`.github/workflows/crawler-health-monitor.yml` — lo step "Close recovered',
+      'crawler-health issues" chiude questa issue da solo quando il criterio sopra torna',
+      'vero, e lo step di apertura la riconia se il crawler ricade. La serie sta in',
+      '`data/crawler-health.json`.',
+    ],
+    fallimento: `\`[crawler-health] ${slug}: crawler unhealthy\``,
+  });
+}
 
 const isMain = (() => {
   try {
