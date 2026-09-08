@@ -6040,6 +6040,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Sanctions de l\'ONU mises à jour : SESAM modifié le 7 septembre',
     'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'Le comité de l\'ONU a modifié les listes de sanctions le 7 septembre 2026. La base de données SESAM met automatiquement à jour les mesures restrictives en Suisse.',
     'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Bureau de conformité suisse avec documents de sanctions ONU et base de données SESAM affichée à l\'écran.',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.title': 'Novartis : revers dans le secteur neuromusculaire',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.excerpt': 'Novartis échoue à l\'étude Harbor concernant le médicament del-désiran dans la dystrophie myotonique de type 1. C\'est le deuxième essai négatif en quelques jours, mais l\'entreprise maintient un objectif de croissance annuel de 5 à 6 % pour 2025-2030.',
+    'blog.article.novartis-battuta-arresto-neuromuscolare.imageAlt': 'Installation de recherche pharmaceutique suisse avec équipement de laboratoire moderne et données d\'essais cliniques.',
 };
 
 export default blogMetaChFr;

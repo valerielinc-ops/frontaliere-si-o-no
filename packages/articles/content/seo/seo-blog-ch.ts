@@ -78410,6 +78410,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-novartis-battuta-arresto-neuromuscolare': {
+    title: 'Novartis: battuta d\'arresto nel settore neuromuscolare',
+    description: 'Novartis fallisce lo studio Harbor sul farmaco del-désiran per distrofia miotonica tipo 1. È il secondo trial negativo in pochi giorni. Target di crescita 5-6%',
+    keywords: 'frontalieri, ticino, svizzera, italia, novartis, battuta, arresto, settore',
+    ogTitle: 'Novartis: battuta d\'arresto nel settore neuromuscolare',
+    ogDescription: 'Novartis ammette il fallimento dello studio Harbor per il farmaco del-désiran nella distrofia miotonica tipo 1. È il secondo fallimento clinico in pochi giorni per il colosso di Basilea, che mantiene target di crescita annua 5-6% per il 2025-2030.',
+    canonicalPath: '/articoli-svizzera/novartis-battuta-arresto-neuromuscolare/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Novartis: battuta d'arresto nel settore neuromuscolare",
+      "description": "Novartis fallisce lo studio Harbor sul farmaco del-désiran per distrofia miotonica tipo 1. È il secondo trial negativo in pochi giorni. Target di crescita 5-6%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/novartis-battuta-arresto-neuromuscolare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca farmaceutica svizzero con attrezzature moderne e schermi digitali che mostrano dati di trial clinici."
+      },
+      "datePublished": "2026-09-08T05:53:31+00:00",
+      "dateModified": "2026-09-08T05:53:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/novartis-battuta-arresto-neuromuscolare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
