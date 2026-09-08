@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-09-07T23:47:18.433Z",
+  "assembledAt": "2026-09-08T13:58:53.806Z",
   "jobs": [
     {
       "id": "bls-96a54e15e203",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:47:04.030Z",
+      "crawledAt": "2026-09-08T13:58:48.113Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -68,11 +68,13 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-thun-bls-ch"
+        "metallbauer-in-nautiker-in-thun-bls-ch",
+        "metalworker-in-navigatore-in-thun-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-thun-bls-ch"
+          "metallbauer-in-nautiker-in-thun-bls-ch",
+          "metalworker-in-navigatore-in-thun-bls-ag-bern"
         ],
         "en": [
           "metallbauer-in-nautiker-in-thun-bls-ch"
@@ -82,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:21:38.595Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -128,7 +131,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-interlaken/149bbf4e-e1e4-437b-b72f-fbcc4472d71b",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:47:02.529Z",
+      "crawledAt": "2026-09-08T13:58:46.612Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -165,12 +168,14 @@
         "metallbauer-in-nautiker-in-interlaken-bls-ch",
         "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken",
         "metalworkers-in-navigator-in-interlaken-bls-ag-interlaken",
-        "metaux-in-navigateur-in-interlaken-bls-ag-interlaken"
+        "metaux-in-navigateur-in-interlaken-bls-ag-interlaken",
+        "lavoratori-navigatori-interlaken-bls-ag-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-nautiker-in-interlaken-bls-ch",
-          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken",
+          "lavoratori-navigatori-interlaken-bls-ag-interlaken"
         ],
         "en": [
           "metallbauer-in-nautiker-in-interlaken-bls-ch",
@@ -182,6 +187,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:21:39.320Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -228,7 +234,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/servicetechniker-in-lueftung-und-klima/329f7c5f-e5f5-4897-8927-e1b7d9129ca4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:47:01.109Z",
+      "crawledAt": "2026-09-08T13:58:45.285Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -272,7 +278,8 @@
         "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
         "technicien-du-systeme-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
         "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
-        "servicetechniker-in-luftung-e-klima-bls-ag-bern"
+        "servicetechniker-in-luftung-e-klima-bls-ag-bern",
+        "servizio-tecnico-ventilazione-e-climatizzazione-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -282,7 +289,8 @@
           "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
           "technicien-du-systeme-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
           "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern",
-          "servicetechniker-in-luftung-e-klima-bls-ag-bern"
+          "servicetechniker-in-luftung-e-klima-bls-ag-bern",
+          "servizio-tecnico-ventilazione-e-climatizzazione-bls-ag-bern"
         ],
         "en": [
           "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
@@ -297,6 +305,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:20.574Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -343,7 +352,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-reinigung-und-unterhalt/0d050a3c-138c-4ac3-af9e-acd4b632f1cf",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:59.622Z",
+      "crawledAt": "2026-09-08T13:58:43.603Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,12 +390,14 @@
       },
       "previousSlugs": [
         "fachperson-reinigung-und-unterhalt-bls-ch",
-        "fachperson-reinigung-e-unterhalt-bls-ag-spiez"
+        "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
+        "pulizia-e-manutenzione-specialistici-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-reinigung-und-unterhalt-bls-ch",
-          "fachperson-reinigung-e-unterhalt-bls-ag-spiez"
+          "fachperson-reinigung-e-unterhalt-bls-ag-spiez",
+          "pulizia-e-manutenzione-specialistici-bls-ag-spiez"
         ],
         "en": [
           "fachperson-reinigung-und-unterhalt-bls-ch"
@@ -396,6 +407,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:32:01.912Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -442,7 +454,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-montage/9cec9d21-68ad-4fb0-abb8-f629847a6d4a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:58.181Z",
+      "crawledAt": "2026-09-08T13:58:42.120Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -476,11 +488,13 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-montage-bls-ch",
-        "mitarbeiter-in-montage-bls-ag-bonigen"
+        "mitarbeiter-in-montage-bls-ag-bonigen",
+        "collaboratore-trice-montage-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-montage-bls-ch"
+          "mitarbeiter-in-montage-bls-ch",
+          "collaboratore-trice-montage-bls-ag-bonigen"
         ],
         "en": [
           "mitarbeiter-in-montage-bls-ag-bonigen"
@@ -493,6 +507,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:09:00.521Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -539,7 +554,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachperson-mechanik/6544762b-6ae7-4752-a69c-b22a7026984a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:56.649Z",
+      "crawledAt": "2026-09-08T13:58:40.741Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,11 +587,13 @@
       },
       "previousSlugs": [
         "fachperson-mechanik-bls-ag-bonigen",
-        "fachperson-mechanik-bls-ch"
+        "fachperson-mechanik-bls-ch",
+        "meccanica-specialistica-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-mechanik-bls-ch"
+          "fachperson-mechanik-bls-ch",
+          "meccanica-specialistica-bls-ag-bonigen"
         ],
         "en": [
           "fachperson-mechanik-bls-ch"
@@ -589,6 +606,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:08:57.564Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -635,7 +653,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrzeugbereitsteller-in/a8bc0154-aea7-4676-8a48-44f8fdb1ba88",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:55.112Z",
+      "crawledAt": "2026-09-08T13:58:39.247Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -671,13 +689,15 @@
         "fahrzeugbereitsteller-in-bls-ch",
         "fahrzeugbereitsteller-in-bls-ag-spiez",
         "fornitore-del-veicolo-in-bls-ag-spiez",
-        "vehicle-supplier-in-bls-ag-spiez"
+        "vehicle-supplier-in-bls-ag-spiez",
+        "fornitori-di-veicoli-bls-ag-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrzeugbereitsteller-in-bls-ch",
           "fahrzeugbereitsteller-in-bls-ag-spiez",
-          "fornitore-del-veicolo-in-bls-ag-spiez"
+          "fornitore-del-veicolo-in-bls-ag-spiez",
+          "fornitori-di-veicoli-bls-ag-spiez"
         ],
         "en": [
           "fahrzeugbereitsteller-in-bls-ag-spiez",
@@ -688,6 +708,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:09.774Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -734,7 +755,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/99858068-a3fb-41fb-aa2f-dbd64dae6eb0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:53.617Z",
+      "crawledAt": "2026-09-08T13:58:37.749Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -772,7 +793,8 @@
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
         "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -782,7 +804,8 @@
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez"
         ],
         "en": [
           "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
@@ -792,6 +815,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:08.112Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -838,7 +862,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/d31bf417-0bf5-4aff-be08-d38c97a45489",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:52.041Z",
+      "crawledAt": "2026-09-08T13:58:36.137Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -873,14 +897,16 @@
         "instandhalter-in-schienenfahrzeuge-bls-ch",
         "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
         "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+        "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
           "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
-          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez",
+          "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez"
         ],
         "en": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
@@ -894,6 +920,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:07.410Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -940,7 +967,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/flottenmanager-in-bahnproduktion/e7518e76-0b9a-449b-b63f-fcdb8e28e128",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:50.538Z",
+      "crawledAt": "2026-09-08T13:58:34.604Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -976,11 +1003,13 @@
       },
       "previousSlugs": [
         "flottenmanager-in-bahnproduktion-bls-ch",
-        "flottenmanager-in-bahnproduktion-bls-ag-bern"
+        "flottenmanager-in-bahnproduktion-bls-ag-bern",
+        "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "flottenmanager-in-bahnproduktion-bls-ch"
+          "flottenmanager-in-bahnproduktion-bls-ch",
+          "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
         ],
         "en": [
           "flottenmanager-in-bahnproduktion-bls-ch"
@@ -993,6 +1022,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:32:02.777Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1039,7 +1069,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/polymechaniker-in/2c363dd2-257a-43f6-a3fb-5c8eac9165dc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:49.112Z",
+      "crawledAt": "2026-09-08T13:58:33.245Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1077,14 +1107,16 @@
         "fachperson-fahrmotoren-bls-ch",
         "polymechaniker-in-bls-ag-bonigen",
         "polimeccanico-in-bls-ag-bonigen",
-        "polymechanic-in-bls-ag-bonigen"
+        "polymechanic-in-bls-ag-bonigen",
+        "meccanica-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-bls-ch",
           "fachperson-fahrmotoren-bls-ch",
           "polymechaniker-in-bls-ag-bonigen",
-          "polimeccanico-in-bls-ag-bonigen"
+          "polimeccanico-in-bls-ag-bonigen",
+          "meccanica-bls-ag-bonigen"
         ],
         "en": [
           "fachperson-fahrmotoren-bls-ch",
@@ -1101,6 +1133,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:08:59.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1147,7 +1180,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in/125b4d58-28f5-4ccb-9977-c0157cf1f103",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:47.618Z",
+      "crawledAt": "2026-09-08T13:58:31.730Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1182,20 +1215,22 @@
         "fahrleitungsmonteur-in-bls-ch",
         "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch",
         "fahrleitungsmonteur-in-bls-ag-bern",
-        "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern"
+        "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern",
+        "fitter-di-linea-di-contatto-o-artigiano-r-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-in-bls-ch",
           "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch",
           "fahrleitungsmonteur-in-bls-ag-bern",
-          "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern"
+          "fahrleitungsmonteur-in-o-handwerkliche-r-candidato-a-in-riqualificazione-bls-ag-bern",
+          "fitter-di-linea-di-contatto-o-artigiano-r-bls-ag-bern"
+        ],
+        "en": [
+          "fahrleitungsmonteur-in-bls-ag-bern"
         ],
         "de": [
           "fahrleitungsmonteur-in-bls-ch",
-          "fahrleitungsmonteur-in-bls-ag-bern"
-        ],
-        "en": [
           "fahrleitungsmonteur-in-bls-ag-bern"
         ],
         "fr": [
@@ -1203,6 +1238,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T20:15:43.770Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1249,7 +1285,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teilprojektleiter-in-oberbauleitung-loetschberg-basistunnel/2fd274d2-f0cf-435e-b83a-4c30bf6664cf",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:46:46.119Z",
+      "crawledAt": "2026-09-08T13:58:30.276Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1283,11 +1319,13 @@
         ]
       },
       "previousSlugs": [
-        "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch"
+        "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch",
+        "responsabile-del-progetto-in-oberbauleitung-lotschberg-bls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch"
+          "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch",
+          "responsabile-del-progetto-in-oberbauleitung-lotschberg-bls-ag-bern"
         ],
         "en": [
           "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch"
@@ -1312,6 +1350,87 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-b7e376b97544",
+      "slug": "devops-engineer-bls-ch",
+      "slugByLocale": {
+        "de": "devops-engineer-bls-ch",
+        "it": "devops-engineer-bls-ch",
+        "en": "devops-engineer-bls-ag-bern",
+        "fr": "devops-engineer-bls-ch"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "DevOps Engineer",
+      "titleByLocale": {
+        "de": "DevOps Ingenieur",
+        "en": "DevOps Engineer",
+        "it": "DevOps Ingegnere",
+        "fr": "DevOps Ingénieur"
+      },
+      "description": "Täglich sind rund 200'000 Fahrgäste mit der BLS unterwegs. Damit sie von der Abfahrt bis zur Ankunft jederzeit die richtigen Informationen erhalten, braucht es eine moderne und zuverlässige Fahrgastinformation in unseren Zügen. Du verbindest die Technologie mit Wirkung, entwickelst diese weiter und gestaltest die digitale Zukunft der Mobilität aktiv mit.\n\nDas wartet auf dich:\n\n• Die Softwarelösung für die Fahrgastinformation in den Zügen weiterentwickeln, neue Funktionen und Schnittstellen umsetzen und deren zuverlässigen Betrieb sicherstellen\n\n• Die CI/CD-Pipeline pflegen sowie Build-, Test-, Deployment- und Betriebsprozesse automatisieren und kontinuierlich optimieren\n\n• Störungen im 2nd- und 3rd-Level-Support analysieren und beheben sowie gemeinsam mit internen und externen Fachteams nachhaltige Verbesserungen erarbeiten und umsetzen\n\n• Releases, Wartungsarbeiten und technische Changes planen, begleiten und koordinieren sowie die System- und Betriebsdokumentation pflegen\n\n• Neue fachliche und technische Anforderungen gemeinsam mit Produktverantwortlichen, Fachbereichen, Lieferanten und weiteren IT-Teams erarbeiten und umsetzen\n\nDas bringst du mit:\n\n• Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen\n\n• Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab\n\n• Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften\n\n• Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Täglich sind rund 200'000 Fahrgäste mit der BLS unterwegs. Damit sie von der Abfahrt bis zur Ankunft jederzeit die richtigen Informationen erhalten, braucht es eine moderne und zuverlässige Fahrgastinformation in unseren Zügen. Du verbindest die Technologie mit Wirkung, entwickelst diese weiter und gestaltest die digitale Zukunft der Mobilität aktiv mit.\n\nDas wartet auf dich:\n\n• Die Softwarelösung für die Fahrgastinformation in den Zügen weiterentwickeln, neue Funktionen und Schnittstellen umsetzen und deren zuverlässigen Betrieb sicherstellen\n\n• Die CI/CD-Pipeline pflegen sowie Build-, Test-, Deployment- und Betriebsprozesse automatisieren und kontinuierlich optimieren\n\n• Störungen im 2nd- und 3rd-Level-Support analysieren und beheben sowie gemeinsam mit internen und externen Fachteams nachhaltige Verbesserungen erarbeiten und umsetzen\n\n• Releases, Wartungsarbeiten und technische Changes planen, begleiten und koordinieren sowie die System- und Betriebsdokumentation pflegen\n\n• Neue fachliche und technische Anforderungen gemeinsam mit Produktverantwortlichen, Fachbereichen, Lieferanten und weiteren IT-Teams erarbeiten und umsetzen\n\nDas bringst du mit:\n\n• Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen\n\n• Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab\n\n• Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften\n\n• Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Täglich sind rund 200'000 Fahrgäste mit der BLS unterwegs. Damit sie von der Abfahrt bis zur Ankunft jederzeit die richtigen Informationen erhalten, braucht es eine moderne und zuverlässige Fahrgastinformation in unseren Zügen. Du verbindest die Technologie mit Wirkung, entwickelst diese weiter und gestaltest die digitale Zukunft der Mobilität aktiv mit.\n\nDas wartet auf dich:\n\n• Die Softwarelösung für die Fahrgastinformation in den Zügen weiterentwickeln, neue Funktionen und Schnittstellen umsetzen und deren zuverlässigen Betrieb sicherstellen\n\n• Die CI/CD-Pipeline pflegen sowie Build-, Test-, Deployment- und Betriebsprozesse automatisieren und kontinuierlich optimieren\n\n• Störungen im 2nd- und 3rd-Level-Support analysieren und beheben sowie gemeinsam mit internen und externen Fachteams nachhaltige Verbesserungen erarbeiten und umsetzen\n\n• Releases, Wartungsarbeiten und technische Changes planen, begleiten und koordinieren sowie die System- und Betriebsdokumentation pflegen\n\n• Neue fachliche und technische Anforderungen gemeinsam mit Produktverantwortlichen, Fachbereichen, Lieferanten und weiteren IT-Teams erarbeiten und umsetzen\n\nDas bringst du mit:\n\n• Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen\n\n• Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab\n\n• Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften\n\n• Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Täglich sind rund 200'000 Fahrgäste mit der BLS unterwegs. Damit sie von der Abfahrt bis zur Ankunft jederzeit die richtigen Informationen erhalten, braucht es eine moderne und zuverlässige Fahrgastinformation in unseren Zügen. Du verbindest die Technologie mit Wirkung, entwickelst diese weiter und gestaltest die digitale Zukunft der Mobilität aktiv mit.\n\nDas wartet auf dich:\n\n• Die Softwarelösung für die Fahrgastinformation in den Zügen weiterentwickeln, neue Funktionen und Schnittstellen umsetzen und deren zuverlässigen Betrieb sicherstellen\n\n• Die CI/CD-Pipeline pflegen sowie Build-, Test-, Deployment- und Betriebsprozesse automatisieren und kontinuierlich optimieren\n\n• Störungen im 2nd- und 3rd-Level-Support analysieren und beheben sowie gemeinsam mit internen und externen Fachteams nachhaltige Verbesserungen erarbeiten und umsetzen\n\n• Releases, Wartungsarbeiten und technische Changes planen, begleiten und koordinieren sowie die System- und Betriebsdokumentation pflegen\n\n• Neue fachliche und technische Anforderungen gemeinsam mit Produktverantwortlichen, Fachbereichen, Lieferanten und weiteren IT-Teams erarbeiten und umsetzen\n\nDas bringst du mit:\n\n• Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen\n\n• Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab\n\n• Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften\n\n• Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Täglich sind rund 200'000 Fahrgäste mit der BLS unterwegs. Damit sie von der Abfahrt bis zur Ankunft jederzeit die richtigen Informationen erhalten, braucht es eine moderne und zuverlässige Fahrgastinformation in unseren Zügen. Du verbindest die Technologie mit Wirkung, entwickelst diese weiter und gestaltest die digitale Zukunft der Mobilität aktiv mit.\n\nDas wartet auf dich:\n\n• Die Softwarelösung für die Fahrgastinformation in den Zügen weiterentwickeln, neue Funktionen und Schnittstellen umsetzen und deren zuverlässigen Betrieb sicherstellen\n\n• Die CI/CD-Pipeline pflegen sowie Build-, Test-, Deployment- und Betriebsprozesse automatisieren und kontinuierlich optimieren\n\n• Störungen im 2nd- und 3rd-Level-Support analysieren und beheben sowie gemeinsam mit internen und externen Fachteams nachhaltige Verbesserungen erarbeiten und umsetzen\n\n• Releases, Wartungsarbeiten und technische Changes planen, begleiten und koordinieren sowie die System- und Betriebsdokumentation pflegen\n\n• Neue fachliche und technische Anforderungen gemeinsam mit Produktverantwortlichen, Fachbereichen, Lieferanten und weiteren IT-Teams erarbeiten und umsetzen\n\nDas bringst du mit:\n\n• Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung\n\n• Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen\n\n• Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab\n\n• Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften\n\n• Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/devops-engineer/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-08T13:58:28.744Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Europaplatz",
+      "category": "Ingegneria",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-08",
+      "validThrough": "2026-10-07",
+      "pensum": "70-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/9f444a72-ac31-48e8-af8c-3dcbaf4edc95",
+      "requirements": [
+        "Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung",
+        "Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen",
+        "Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab",
+        "Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften",
+        "Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abgeschlossene Aus- oder Weiterbildung in Informatik, Software Engineering oder einer vergleichbaren Fachrichtung",
+          "Mehrjährige Erfahrung in der Softwareentwicklung sowie im Betrieb produktiver Anwendungen",
+          "Gute Kenntnisse in Java sowie Erfahrung mit CI/CD-Pipelines, Container-Plattformen und modernen Entwicklungswerkzeugen, idealerweise OpenShift und GitLab",
+          "Fundierte Praxis im Applikations-Management sowie in der Analyse und Behebung von Störungen in komplexen Systemlandschaften",
+          "Strukturierte und lösungsorientierte Arbeitsweise, ausgeprägte analytische Fähigkeiten sowie Freude an der interdisziplinären Zusammenarbeit mit unterschiedlichen Stakeholdern"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-09-08T13:58:28.744Z"
     }
   ]
 }
