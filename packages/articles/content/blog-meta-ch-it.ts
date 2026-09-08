@@ -6127,6 +6127,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralita-iniziativa-svizzera-freysinger.title': 'Neutralità: la Svizzera alle urne per l\'iniziativa',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.excerpt': 'Oscar Freysinger invita a votare a favore dell\'Iniziativa per la neutralità. Oltre 300 partecipanti alla Festa di Pro Svizzera a Lugano.',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.imageAlt': 'Veduta di Lugano dal lago con bandiera svizzera e edifici civici',
+    'blog.article.licenza-guida-lucerna-procedura.title': 'Patente estero a Lucerna: conversione e esami',
+    'blog.article.licenza-guida-lucerna-procedura.excerpt': 'Procedura completa per convertire patente internazionale nel Canton Lucerna: requisiti, esame teorico e pratico, corsi obbligatori e tempi.',
+    'blog.article.licenza-guida-lucerna-procedura.imageAlt': 'Ufficio della circolazione del Canton Lucerna con personale che assiste nel processo di conversione della patente.',
 };
 
 export default blogMetaChIt;
