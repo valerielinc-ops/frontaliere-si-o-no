@@ -6046,6 +6046,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ricongiungimento-familiare-burocrazia.title': 'Familienzusammenführung: Bürokratie blockiert Kinder jahrelang',
     'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'Ein Bericht der Schweizerischen Sternwarte verurteilt: Langsame Verfahren und schwierige Dokumente trennen Familien bis zum Alter von 10 Jahren. Kinder zahlen den höchsten Preis.',
     'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Schweizer Verwaltungsbüro mit Familiendokumenten zur Darstellung bürokratischer Komplexität bei der Familienzusammenführung',
+    'blog.article.affitto-scende-chiedi.title': 'Deine Miete sinkt nicht von selbst. Du musst darum bitten',
+    'blog.article.affitto-scende-chiedi.excerpt': 'Der Hypothekenzins blieb bei 1,25 %, aber nur 12 % der Mieter haben eine Kürzung verlangt. So prüfen Sie, ob Sie Anspruch auf weniger Zahlungen haben.',
+    'blog.article.affitto-scende-chiedi.imageAlt': 'Ein typisches Schweizer Haus mit Blick auf den Luganersee, Symbol der Mietkosten in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -6046,6 +6046,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricongiungimento-familiare-burocrazia.title': 'Regroupement familial : la bureaucratie bloque les enfants pendant des années',
     'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'Un rapport de l\'Observatoire suisse dénonce : les procédures lentes et les documents difficiles séparent les familles jusqu\'à l\'âge de 10 ans. Les enfants paient le prix le plus élevé.',
     'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Bureau administratif suisse avec documents familiaux illustrant la complexité bureaucratique du regroupement familial',
+    'blog.article.affitto-scende-chiedi.title': 'Ton loyer ne baisse pas tout seul. Tu dois le demander',
+    'blog.article.affitto-scende-chiedi.excerpt': 'Le taux hypothécaire est resté bloqué à 1,25 %, mais seulement 12 % des locataires ont demandé une réduction. Voici comment vérifier si vous avez droit à payer moins.',
+    'blog.article.affitto-scende-chiedi.imageAlt': 'Une maison suisse typique surplombant le lac Lugano, symbole du coût de la location en Suisse',
 };
 
 export default blogMetaChFr;

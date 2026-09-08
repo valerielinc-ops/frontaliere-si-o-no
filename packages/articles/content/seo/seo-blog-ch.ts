@@ -78488,6 +78488,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitto-scende-chiedi': {
+    title: 'Il tuo affitto non scende da solo. Devi chiederlo',
+    description: 'Tasso ipotecario fermo all\'1,25%, ma solo il 12% ha chiesto la riduzione. Scopri come verificare se hai diritto a pagare meno e quali passi seguire.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitto, scende, solo, devi',
+    ogTitle: 'Affitto fermo al tasso alto? Chiedine la riduzione oggi',
+    ogDescription: 'Migliaia di inquilini pagano ancora affitti su tassi antiquati. Con il tasso ipotecario all\'1,25%, hai il diritto di chiedere l\'adeguamento. Ecco come fare e quanto puoi risparmiare.',
+    canonicalPath: '/articoli-svizzera/affitto-scende-chiedi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il tuo affitto non scende da solo. Devi chiederlo",
+      "description": "Tasso ipotecario fermo all'1,25%, ma solo il 12% ha chiesto la riduzione. Scopri come verificare se hai diritto a pagare meno e quali passi seguire.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitto-scende-chiedi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una casa tipica svizzera con vista su Lugano, simbolo del costo della locazione in Svizzera"
+      },
+      "datePublished": "2026-09-08T06:24:48+00:00",
+      "dateModified": "2026-09-08T06:24:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitto-scende-chiedi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

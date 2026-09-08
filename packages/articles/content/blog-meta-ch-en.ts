@@ -6046,6 +6046,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ricongiungimento-familiare-burocrazia.title': 'Family reunification: bureaucracy blocks children for years',
     'blog.article.ricongiungimento-familiare-burocrazia.excerpt': 'A report by the Swiss Observatory denounces: slow procedures and difficult documents separate families up to the age of 10. Children pay the highest price.',
     'blog.article.ricongiungimento-familiare-burocrazia.imageAlt': 'Swiss administrative office with family documents representing bureaucratic complexity in the reunification process',
+    'blog.article.affitto-scende-chiedi.title': 'Your rent doesn\'t go down on its own. You have to ask for it',
+    'blog.article.affitto-scende-chiedi.excerpt': 'Mortgage rate stuck at 1.25%, but only 12% of tenants asked for a reduction. Here\'s how to check if you are entitled to pay less.',
+    'blog.article.affitto-scende-chiedi.imageAlt': 'A typical Swiss home overlooking Lake Lugano, representing rental costs in Switzerland',
 };
 
 export default blogMetaChEn;
