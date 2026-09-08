@@ -88,27 +88,52 @@ export function citedFiles(body, fileExists) {
   return [...out];
 }
 
+const ITEM_SECTION_START = /^(#{2,3}\s|-\s+[^:\n]+:)/i;
+const SUGGESTED_ACTION_SECTION_BREAK = /^(#{2,3}\s|- Source:|- Original text:|- Funnel impact:|- METRICA:|- OSSERVATORE:)/i;
+
+/**
+ * Keep only the part of an item that can describe the current acceptance condition.
+ * `Original text` is quoted status quo, so it must be excluded for every acceptance
+ * predicate, including the sheet branch that does not require `Suggested action`.
+ */
+function acceptanceScopeText(body) {
+  const lines = String(body || '').split('\n');
+  const scoped = [];
+  let inOriginalText = false;
+
+  for (const line of lines) {
+    if (/^-\s+Original text\s*:/i.test(line)) {
+      inOriginalText = true;
+      continue;
+    }
+    if (inOriginalText && ITEM_SECTION_START.test(line)) inOriginalText = false;
+    if (!inOriginalText) scoped.push(line);
+  }
+  return scoped.join('\n');
+}
+
 /**
  * Scope token extraction to the `Suggested action` region(s) when present — that text
  * describes the PRESCRIBED fix, so a token from it appearing in the file is real signal
- * of "done". Falls back to the whole body for free-form issues. Avoids the trap where an
- * issue QUOTES the status-quo code it wants changed (`Original text`) — that token is in
- * the file because the work is NOT done, the opposite of what we want to flag.
+ * of "done". Falls back to the item text outside `Original text` for free-form issues.
+ * Avoids the trap where an issue QUOTES the status-quo code it wants changed — that token
+ * is in the file because the work is NOT done, the opposite of what we want to flag.
  */
 export function suggestedActionText(body) {
-  const lines = body.split('\n');
+  const scoped = acceptanceScopeText(body);
+  const lines = scoped.split('\n');
   const regions = [];
   for (let i = 0; i < lines.length; i++) {
     if (/suggested action/i.test(lines[i])) {
       const buf = [lines[i]];
       for (let j = i + 1; j < lines.length; j++) {
-        if (/^(#{2,3}\s|- Source:|- Original text:|- Funnel impact:)/.test(lines[j])) break;
+        if (SUGGESTED_ACTION_SECTION_BREAK.test(lines[j])) break;
         buf.push(lines[j]);
       }
       regions.push(buf.join('\n'));
     }
   }
-  return regions.length ? regions.join('\n') : body;
+  return regions.length ? regions.join('\n') : scoped;
 }
 
 /** Backticked spans inside the suggested-action region → distinctive tokens (capped, deduped). */
@@ -147,24 +172,15 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
   describe: 'almeno un token-codice distintivo citato in `Suggested action`',
   /**
    * La regione `Suggested action` va richiesta ESPLICITAMENTE, non dedotta dai
-   * token: `suggestedActionText()` ricade sull'INTERO testo quando non trova la
-   * regione, e quel fallback qui sarebbe una trappola che apre esattamente il
-   * buco che questo modulo esiste per chiudere.
+   * token. `suggestedActionText()` usa lo stesso `acceptanceScopeText()` degli
+   * altri predicati, quindi il suo fallback non legge mai `Original text`; il
+   * requisito esplicito resta comunque necessario perché un item senza azione
+   * prescritta non è falsificabile per definizione.
    *
-   * Su un corpo intero il fallback non scattava quasi mai — basta un item ben
-   * formato perché la regione esista. Applicato PER-ITEM scatta su ogni item
-   * che non riporta la riga `- Suggested action:` del template, e gli item li
-   * scrive un LLM, non un emettitore deterministico. Per quell'item i token
-   * verrebbero raccolti da `- Original text: > …`, cioè dallo **status quo che
-   * la issue vuole cambiato**: `detectAlreadyResolved()` lo troverebbe verbatim
-   * nel file citato PROPRIO PERCHE' il lavoro non è fatto, e l'aggregata si
-   * auto-chiuderebbe su lavoro pendente. Il ramo `no-valid-item` non la copre:
-   * quell'item risulterebbe valido, non prosa.
-   *
-   * Un item senza `Suggested action` non è falsificabile per definizione — non
-   * prescrive nulla da verificare — quindi cade nel guardrail. Trovato dalla
-   * review su questa stessa PR, non da un incidente: il costo di sbagliarlo
-   * sarebbe stato una chiusura silenziosa di lavoro vero.
+   * Un item senza `Suggested action` può quindi passare solo per la condizione
+   * alternativa della scheda. I suoi eventuali token non entrano nel detector
+   * di chiusura: quello consuma token prescritti soltanto dalla regione
+   * `Suggested action`.
    *
    * @param {string} itemText @returns {boolean}
    */
@@ -187,7 +203,7 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
  * @param {string} itemText @returns {string|null}
  */
 export function schedaCommand(itemText) {
-  for (const line of String(itemText || '').split('\n')) {
+  for (const line of acceptanceScopeText(itemText).split('\n')) {
     const m = line.match(/\*{0,2}COMANDO\*{0,2}\s*:\s*(.+)$/);
     if (!m) continue;
     const cmd = m[1].trim().replace(/^`+|`+$/g, '').trim();
@@ -230,7 +246,7 @@ export function commandReferent(command) {
  * @param {string} itemText @returns {boolean}
  */
 export function metricAlreadyGreen(itemText) {
-  const m = String(itemText || '').match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
+  const m = acceptanceScopeText(itemText).match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
   if (!m) return false;
   if (/[<>≤≥]/.test(m[1]) || /[<>≤≥]/.test(m[2])) return false;
   const a = Number.parseFloat(m[1].replace(/%$/, ''));
@@ -430,8 +446,11 @@ export function detectAlreadyResolved(body, io) {
   try {
     const fileExists = io && typeof io.fileExists === 'function' ? io.fileExists : () => false;
     const readFile = io && typeof io.readFile === 'function' ? io.readFile : () => null;
-    const files = citedFiles(body || '', fileExists);
-    const tokens = citedTokens(body || '');
+    const bodyText = typeof body === 'string' ? body : '';
+    const files = citedFiles(bodyText, fileExists);
+    // A sheet-only item is accepted through `COMMAND_CONDITION`, not through a
+    // prescribed token. Keep it out of the token-resolution path entirely.
+    const tokens = /suggested action/i.test(bodyText) ? citedTokens(bodyText) : [];
     const evidence = [];
     if (files.length && tokens.length) {
       const cache = new Map();

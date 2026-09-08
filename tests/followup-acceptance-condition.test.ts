@@ -199,6 +199,55 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
     expect(hasFalsifiableAcceptance(senzaComando)).toBe(false);
   });
 
+  it('una scheda citata solo dentro `Original text` viene RIFIUTATA', () => {
+    const item = `
+- Source: reviewer
+- Original text:
+  > - METRICA: prima=12 atteso=0 | **COMANDO**: \`node scripts/ci/other-gate.mjs\`
+- Funnel impact: correttezza
+- Rationale: il testo citato non è l'azione di questo item
+- Suggested action: verificare il problema concreto senza una scheda propria
+`;
+    expect(hasFalsifiableAcceptance(item)).toBe(false);
+  });
+
+  it('una scheda propria resta AMMESSA anche se `Original text` cita una metrica già verde', () => {
+    const item = `
+- Source: reviewer
+- Original text:
+  > - METRICA: prima=5 atteso=5 | COMANDO: node scripts/ci/other-gate.mjs
+- Funnel impact: correttezza
+- Rationale: il testo citato non è l'azione di questo item
+- Suggested action: aggiungere la verifica necessaria senza token distintivo
+- METRICA: prima=12 atteso=0 | COMANDO: npx vitest run tests/own-gate.test.ts
+`;
+    expect(hasFalsifiableAcceptance(item)).toBe(true);
+  });
+
+  it('una riga METRICA dopo `Suggested action` non diventa un token di auto-chiusura', () => {
+    const item = `
+- Source: monitor
+- Suggested action: verificare l'invariante senza token distintivo
+- METRICA: prima=12 atteso=0 | **COMANDO**: \`node scripts/ci/other-gate.mjs\`
+`;
+    const g = aggregateCloseGate(body([item]), io('node scripts/ci/other-gate.mjs'));
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('valid-item-unconfirmed');
+  });
+
+  it('un item ammesso solo via COMANDO non porta token al detector, nemmeno se il comando è backticked', () => {
+    const item = `
+- Source: monitor \`scripts/ci/other-gate.mjs\`
+- METRICA: prima=12 atteso=0 | **COMANDO**: \`node scripts/ci/other-gate.mjs\`
+`;
+    const g = aggregateCloseGate(body([item]), {
+      fileExists: (path) => path === 'scripts/ci/other-gate.mjs',
+      readFile: () => 'node scripts/ci/other-gate.mjs',
+    });
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('valid-item-unconfirmed');
+  });
+
   it('la disgiunzione NON allarga la chiusura: un item-COMANDO non si auto-chiude', () => {
     // Non porta token prescritti, quindi `detectAlreadyResolved()` resta false
     // qualunque cosa contenga il file citato. E' la D2 letta al contrario:
