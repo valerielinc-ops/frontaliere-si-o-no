@@ -134,8 +134,11 @@ on:
     # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
     # had [opened, edited, synchronize, reopened]. `edited` is required so
     # `contract` still re-validates a PR body edit; `ready_for_review` is
-    # required so `collision` still re-scans a draft coming out of draft.
-    types: [opened, edited, synchronize, reopened, ready_for_review]
+    # required so `collision` still re-scans a draft coming out of draft. The
+    # `labeled` event is the non-recursive handoff from stale-pr-rescuer:
+    # that workflow uses the App identity because GITHUB_TOKEN labels do not
+    # start another workflow run.
+    types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
@@ -181,6 +184,9 @@ jobs:
   # `VITEST_CHECK_NAME`. Non infilare altre chiavi fra le due righe.
   vitest:
     name: vitest (unit + integration)
+    # `labeled` è stato aggiunto solo per il rescue: non pagare l'intero job per
+    # label estranee (`agent:fix`, `needs-human`, recycle, redflag-fixer).
+    if: ${{ github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review') }}
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -2107,6 +2113,7 @@ jobs:
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
+        id: review_abort
         # claude-code-action can exit 0 even when the model run ABORTED on a
         # transient Anthropic API error WITHOUT posting a review. The job then
         # looks green but no `## LGTM`/finding was written → the PR silently
@@ -2244,12 +2251,14 @@ jobs:
           exit 1
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
-      # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
-      # o un errore del review gate lo saltano automaticamente. Il token App è
-      # l’identità primaria; il fallback GITHUB_TOKEN mantiene il job
-      # fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
+      # job. Il ramo stale-review è una rescue one-shot: richiede l’evento
+      # `labeled`, il percorso di review completato e il solo review gate rosso.
+      # Così un errore duro precedente non rebasea un workspace parziale e la
+      # label persistente non riattiva il ramo su eventi successivi.
+      # Il token App è l’identità primaria; il fallback GITHUB_TOKEN mantiene il
+      # job fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
       - name: Mint autorebase App token
-        if: steps.review_gate.outputs.approved == 'true'
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -2257,8 +2266,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Rebase near-merge PRs after approved review
-        if: steps.review_gate.outputs.approved == 'true'
+      - name: Rebase near-merge PRs after review or stale rescue
+        if: (success() && steps.review_gate.outputs.approved == 'true') || (!cancelled() && github.event.action == 'labeled' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.claude_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure' && contains(github.event.pull_request.labels.*.name, 'stale-review'))
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
