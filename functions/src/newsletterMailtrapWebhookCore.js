@@ -9,6 +9,7 @@ import {
  mergeAccountDeletedSubscriberUpdate,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
+import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -86,6 +87,16 @@ export async function persistMailtrapEvent(db, eventData) {
  const occurredAt = eventData.timestamp
  ? new Date(eventData.timestamp * 1000).toISOString()
  : new Date().toISOString();
+
+ if (type === 'click' && eventData.url) {
+ await recordJobEmailRankingClick(db, {
+ provider: 'mailtrap',
+ messageId,
+ email,
+ occurredAt,
+ url: eventData.url,
+ });
+ }
 
  // Route job-alert events to job_alert_subscribers
  const vars = eventData.custom_variables || {};

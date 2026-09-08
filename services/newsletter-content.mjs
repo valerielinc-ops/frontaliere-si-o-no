@@ -805,6 +805,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     decayedViews: entry.decayedViews,
     date: entry.date,
   }));
+  const relevanceByJob = new Map(scored.map((entry) => [entry.job, entry.relevance]));
   const companyKey = (job) => (job.companyKey || job.company || '').toLowerCase();
 
   let ordered;
@@ -857,7 +858,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   // Company hubs and canton paths must resolve only against emitted dataset
   // state, otherwise a card can link to a route that was never built.
   const fallbackBoardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
-  return finalJobs.slice(0, limit).map((job) => {
+  return finalJobs.slice(0, limit).map((job, index) => {
     const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
     const boardPath = context.resolvers
       ? context.resolvers.resolveCantonSection(locale, context.resolvers.resolveJobCanton(job))
@@ -874,6 +875,15 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       rawContract: job.contract || '',
       logoUrl: resolveLogoUrl(job),
       companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
+      // Keep the matcher score with the normalized card so downstream email
+      // ranking can combine CTR without reconstructing subscriber signals.
+      // A no-profile match has no keyword score; its existing popularity /
+      // freshness order becomes a monotonic relevance proxy so treatment
+      // ranking does not discard the matcher order and let CTR/randomness
+      // become the only signal.
+      relevanceScore: Number(relevanceByJob.get(job)) > 0
+        ? Number(relevanceByJob.get(job))
+        : Math.max(1, finalJobs.length - index),
     };
   });
 }

@@ -43,6 +43,18 @@ import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
+import {
+  appendJobRankingParams,
+  assignJobRankingVariant,
+  buildJobEmailDeliveryId,
+  rankEmailJobs,
+  readJobEmailRankingConfig,
+  stableJobId,
+} from '../functions/src/lib/jobEmailRanking.js';
+import {
+  loadNewsletterRankingStats,
+  recordJobEmailImpressions,
+} from '../functions/src/lib/jobEmailRankingStore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
@@ -121,6 +133,10 @@ const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
 const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend'
   ? finiteDailyLimit(EMAIL_PROVIDERS.find(p => p.id === 'resend'))
   : getCascadeDailyCapacity();
+const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
+const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
+  || process.env.RUN_ID
+  || `${process.pid}_${Date.now()}`;
 
 /**
  * Run async tasks with bounded concurrency.
@@ -719,14 +735,50 @@ async function personalizeHtmlForRecipient(email, html) {
  * Synchronous HTML personalization using a pre-generated autologin code.
  * Used by the optimized pipeline where codes are generated in bulk beforehand.
  */
-function personalizeHtmlWithToken(email, html, autologinCode) {
+function personalizeHtmlWithToken(email, html, autologinCode, rankingContext = null) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, { autologinCode });
+    let trackedHref = href;
+    if (rankingContext && !href.includes('je=1')) {
+      let targetPath = '';
+      try {
+        targetPath = new URL(href, BASE_URL).pathname.replace(/\/+$/, '');
+      } catch {
+        targetPath = '';
+      }
+      const matchedIndex = targetPath && Array.isArray(rankingContext.jobs)
+        ? rankingContext.jobs.findIndex((job) => {
+          if (!job?.url) return false;
+          try {
+            const jobPath = new URL(directUrl(job.url), BASE_URL).pathname.replace(/\/+$/, '');
+            return jobPath === targetPath;
+          } catch {
+            return false;
+          }
+        })
+        : -1;
+      if (matchedIndex >= 0) {
+        const job = rankingContext.jobs[matchedIndex];
+        trackedHref = appendJobRankingParams(href, {
+          jobId: stableJobId(job),
+          surface: 'newsletter',
+          surfaceId: rankingContext.surfaceId,
+          deliveryId: rankingContext.deliveryId,
+          position: matchedIndex + 1,
+          variant: rankingContext.variant,
+          newsletterId: rankingContext.newsletterId,
+          rankingScore: job.ranking?.rankingScore,
+          relevanceScore: job.ranking?.relevanceScore,
+          ctrShrink: job.ranking?.ctrShrink,
+          randomBoost: job.ranking?.randomBoost,
+        });
+      }
+    }
+    const wrapped = makeAuthenticatedUrl(trackedHref, email, { autologinCode });
     replacements.set(href, wrapped);
   }
 
@@ -1690,6 +1742,9 @@ async function persistDelivery(recipient, messageId, meta) {
       // Operator QA send (mode==='test', single --target-email) — not real
       // subscriber traffic; report-send-hour-impact.mjs excludes these.
       is_operator_verification: meta.isOperatorVerification ?? false,
+      ranking_delivery_id: meta.rankingDeliveryId || null,
+      ranking_variant: meta.rankingVariant || null,
+      ranking_jobs: meta.rankingJobs || [],
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -2295,19 +2350,44 @@ async function main() {
   // displace a real job from the top-4). The owner still sees them.
   const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
   const publicNewsletterJobContext = prepareNewsletterJobContext(jobsNoCanary, recentlyFeaturedJobs);
+  let newsletterRankingStats = new Map();
+  if (db && JOB_EMAIL_RANKING_CONFIG.enabled) {
+    const since = new Date(Date.now() - JOB_EMAIL_RANKING_CONFIG.windowDays * 86_400_000)
+      .toISOString().slice(0, 10);
+    newsletterRankingStats = await loadNewsletterRankingStats(db, { sinceDay: since });
+  }
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
     const eligibleJobContext = isOwnerEmail(subscriber.email)
       ? fullNewsletterJobContext
       : publicNewsletterJobContext;
-    const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, 4, locale);
-    const matchedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
+    const rankingVariant = assignJobRankingVariant({
+      subjectId: subscriber.email,
+      surface: 'newsletter',
+      campaignId,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
+    // Treatment gets a wider candidate pool so exploration can surface a
+    // relevant low-impression job; control keeps the historical top-four pool.
+    const candidateLimit = rankingVariant === 'treatment' ? 12 : 4;
+    const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, candidateLimit, locale);
+    const validatedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
       ...job,
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),
     }));
+    const matchedJobs = rankEmailJobs(validatedJobs, {
+      statsByJob: newsletterRankingStats,
+      variant: rankingVariant,
+      surface: 'newsletter',
+      surfaceId: 'newsletter_weekly',
+      campaignId,
+      randomSeed: subscriber.email,
+      limit: 4,
+      config: JOB_EMAIL_RANKING_CONFIG,
+    });
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
-    return { subscriber, locale, matchedJobs, cohortKey };
+    return { subscriber, locale, matchedJobs, cohortKey, rankingVariant };
   });
 
   // Group by cohort (same locale + same job set = same AI briefing)
@@ -2453,7 +2533,7 @@ async function main() {
   // post-send log can report immediate vs scheduled, broken down by source.
   const scheduleTally = { immediate: 0, personal: 0, global: 0 };
 
-  for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
+  for (const { subscriber, locale, matchedJobs, cohortKey, rankingVariant } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
     // A/B test: deterministic per-subscriber variant (stable for this campaign),
     // epsilon-greedy when a winner is promoted. Fall back to the first variant's
@@ -2470,6 +2550,13 @@ async function main() {
     // falling back to the globally-rotated featuredArticle when nothing
     // localizes.
     const articleContent = resolveArticleContent(subscriber, locale, featuredArticle);
+    const rankingDeliveryId = buildJobEmailDeliveryId({
+      surface: 'newsletter',
+      surfaceId: 'newsletter_weekly',
+      recipientId: subscriber.email,
+      campaignId,
+      runId: JOB_EMAIL_RANKING_RUN_ID,
+    });
 
     const html = buildNewsletter({
       aiBriefing: briefing,
@@ -2492,6 +2579,10 @@ async function main() {
       interest: inferInterest(subscriber),
       acquisitionSource: subscriber.source || subscriber.sourceComponent || subscriber.sourceChannel || null,
       recommendationCampaign: campaignId,
+      rankingSurfaceId: 'newsletter_weekly',
+      rankingVariant: rankingVariant || 'control',
+      newsletterId: campaignId,
+      rankingDeliveryId,
       // makeUnsubscribeUrl points at the site root and is handled by the SPA,
       // which REJECTS it with "Link non valido" unless the URL carries the `ac`
       // autologin code. That code is normally injected a few lines below by
@@ -2519,7 +2610,13 @@ async function main() {
 
     // Personalize links with pre-generated HMAC autologin code (never expires)
     const autologinCode = codeMap.get(subscriber.email);
-    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode);
+    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode, {
+      jobs: matchedJobs,
+      surfaceId: 'newsletter_weekly',
+      deliveryId: rankingDeliveryId,
+      variant: rankingVariant || 'control',
+      newsletterId: campaignId,
+    });
     const sanitizedHtml = sanitizeJobUrls(personalizedHtml, validJobSlugs);
 
     // Per-user send-time (#3798): resolve this subscriber's effective
@@ -2553,7 +2650,17 @@ async function main() {
       // single --target-email for manual QA, not real subscriber traffic — flagged so
       // report-send-hour-impact.mjs can exclude them instead of miscounting them as
       // "immediate/pre-feature" sends.
-      meta: { campaignId, subject, variant, sendTimeSource, segment: articleContent.segment, isOperatorVerification: mode === 'test' },
+      meta: {
+        campaignId,
+        subject,
+        variant,
+        sendTimeSource,
+        segment: articleContent.segment,
+        isOperatorVerification: mode === 'test',
+        rankingDeliveryId,
+        rankingVariant: rankingVariant || 'control',
+        rankingJobs: matchedJobs,
+      },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],
@@ -2569,6 +2676,8 @@ async function main() {
           // A/B subject variant — read by the Resend webhook (tags.variant) and
           // recomputed deterministically by scripts/newsletter-ab-report.mjs.
           { name: 'variant', value: variant },
+          { name: 'ranking_delivery_id', value: rankingDeliveryId },
+          { name: 'ranking_variant', value: rankingVariant || 'control' },
         ],
       },
     });
@@ -2663,6 +2772,32 @@ async function main() {
     : null;
   const { sent, failed } = await sendEmailBatch(cappedEmails, finalizeForProvider, resume ? (email) => resume.record(email) : null);
   if (resume) await resume.flush();
+
+  // Record an impression only for confirmed production sends. Test/QA sends
+  // intentionally remain outside the CTR denominator, just like the subject
+  // experiment's delivery records.
+  if (mode === 'send' && db && sent.length > 0) {
+    const rankingRecords = sent
+      .filter((item) => !item.meta?.isOperatorVerification)
+      .filter((item) => item.meta?.rankingDeliveryId && item.meta?.rankingJobs?.length)
+      .map((item) => ({
+        deliveryId: item.meta.rankingDeliveryId,
+        surface: 'newsletter',
+        surfaceId: 'newsletter_weekly',
+        newsletterId: item.meta.campaignId,
+        email: item.recipient?.email,
+        variant: item.meta.rankingVariant || 'control',
+        jobs: item.meta.rankingJobs,
+        sentAt: new Date(),
+      }));
+    if (rankingRecords.length > 0) {
+      try {
+        await recordJobEmailImpressions(db, rankingRecords);
+      } catch (error) {
+        console.warn('⚠️ Newsletter ranking impression persist failed:', error?.message || error);
+      }
+    }
+  }
 
   const totalForCampaign = alreadySent.size + sent.length;
   const totalSubscribers = emails.length;
