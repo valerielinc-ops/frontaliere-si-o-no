@@ -198,9 +198,11 @@ const SCAN_DIRS = [
   'services/',
 ];
 
-function scanSource(pattern: string, fixed = false): string {
+function scanSource(pattern: string | string[], fixed = false): string {
+  const patterns = Array.isArray(pattern) ? pattern : [pattern];
   const rgArgs = [
-    '--no-heading', '--color', 'never', '-n', ...(fixed ? ['-F'] : []), '-e', pattern, ...SCAN_DIRS,
+    '--no-heading', '--color', 'never', '-n', ...(fixed ? ['-F'] : []),
+    ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
   ];
   try {
     return execFileSync('rg', rgArgs, { encoding: 'utf8' });
@@ -214,7 +216,8 @@ function scanSource(pattern: string, fixed = false): string {
   // shell in either implementation.
   try {
     return execFileSync('grep', [
-      '-r', '-n', fixed ? '-F' : '-E', '-e', pattern, ...SCAN_DIRS,
+      '-r', '-n', fixed ? '-F' : '-E',
+      ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
     ], { encoding: 'utf8' });
   } catch (error: any) {
     if (error?.status === 1) return '';
@@ -428,8 +431,11 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
     // slower than rg; one traversal keeps the CI-without-rg case bounded while
     // the per-slug occurrence count below preserves the ratchet semantics.
     const patterns = new Map(TI_SECTION_SLUGS.map((slug) => [slug, tiSegmentPattern(slug)]));
-    const combinedPattern = [...patterns.values()].map((pattern) => `(?:${pattern})`).join('|');
-    const out = scanSource(combinedPattern);
+    // Search by plain slug, then apply the JavaScript matcher below. ERE
+    // dialects differ on the non-capturing groups used by tiSegmentPattern;
+    // passing that JS regexp to grep made the no-rg fallback silently return
+    // no candidates on some runners.
+    const out = scanSource(TI_SECTION_SLUGS, true);
     for (const entry of out.split('\n').filter(Boolean)
       .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {
       if (isAllowlisted(entry)) continue;
