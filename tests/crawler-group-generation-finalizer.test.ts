@@ -73,13 +73,16 @@ describe('crawler group generation finalizer', () => {
     expect(entries[0].manifestDigest).not.toBe(entries[1].manifestDigest);
   });
 
-  it('refuses to append after durable ledger history fails validation', () => {
+  it('blocks readiness but still returns a diagnostic manifest after ledger history fails validation', () => {
     const fixture = fixtureRepository();
     const ledger = path.join(fixture.work, 'data/crawler-generation-ledger.jsonl');
     fs.mkdirSync(path.dirname(ledger), { recursive: true });
     fs.writeFileSync(ledger, '{broken}\n');
     writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
-    expect(() => finalizeCrawlerGroup(baseInput(fixture))).toThrow(/ledger/i);
+    const manifest = finalizeCrawlerGroup(baseInput(fixture));
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toContain('ledger_persistence_failed');
+    expect(validateGroupTerminalManifest(manifest).valid).toBe(true);
     expect(fs.readFileSync(ledger, 'utf8')).toBe('{broken}\n');
   });
   it('verifies the receipt commit and remote tip while ignoring a deliberately stale workspace', () => {
