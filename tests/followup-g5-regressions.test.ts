@@ -1,0 +1,107 @@
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+import {
+  countAggregateItems,
+  countBacklogItems,
+} from '../scripts/ci/followup-drainer.mjs';
+import {
+  hasEnumeratedItems as preflightHasEnumeratedItems,
+  isAggregate,
+} from '../scripts/ci/check-issue-already-resolved.mjs';
+import {
+  hasEnumeratedItems as harvestHasEnumeratedItems,
+  isAvoidableAlreadyFixed,
+  isAvoidableMaxTurns,
+} from '../scripts/ci/harvest-agent-lessons.mjs';
+import {
+  hasEnumeratedItems as reconcileHasEnumeratedItems,
+  isAggregateTitle,
+} from '../scripts/ci/reconcile-followups.mjs';
+
+const G5_BODY = [
+  '## 1. Primo item',
+  '## 2. Secondo item',
+].join('\n');
+
+describe('G5 — follow-up detector regressions', () => {
+  it('ignora fence anche quando sono indentati sotto un bullet', () => {
+    const body = [
+      '- contesto',
+      '    ```markdown',
+      '    ## 1. item inventato',
+      '    ## 2. item inventato',
+      '    ```',
+    ].join('\n');
+
+    expect(countBacklogItems(body)).toBe(0);
+    expect(countAggregateItems(body)).toBe(0);
+    expect(preflightHasEnumeratedItems(body)).toBe(false);
+    expect(harvestHasEnumeratedItems(body)).toBe(false);
+    expect(reconcileHasEnumeratedItems(body)).toBe(false);
+  });
+
+  it('mantiene il testo di un fence non chiuso come fallback conservativo', () => {
+    const body = ['```markdown', '## 1. item reale', '## 2. item reale'].join('\n');
+
+    expect(countBacklogItems(body)).toBe(2);
+    expect(countAggregateItems(body)).toBe(2);
+    expect(preflightHasEnumeratedItems(body)).toBe(true);
+    expect(harvestHasEnumeratedItems(body)).toBe(true);
+    expect(reconcileHasEnumeratedItems(body)).toBe(true);
+  });
+
+  it('conta come item un lead bold che chiude sulla riga successiva', () => {
+    const wrapped = '1. **Un titolo che\n   continua**\n2. **Altro titolo**';
+
+    expect(preflightHasEnumeratedItems(wrapped)).toBe(true);
+    expect(harvestHasEnumeratedItems(wrapped)).toBe(true);
+    expect(reconcileHasEnumeratedItems(wrapped)).toBe(true);
+  });
+
+  it('riconosce la stessa enumerazione reale nelle tre copie del detector', () => {
+    const valid = '1. **Primo titolo.**\n2. **Secondo titolo.**';
+
+    expect(preflightHasEnumeratedItems(valid)).toBe(true);
+    expect(harvestHasEnumeratedItems(valid)).toBe(true);
+    expect(reconcileHasEnumeratedItems(valid)).toBe(true);
+  });
+
+  it('non lascia che un conteggio nel body sopprima gli item enumerati', () => {
+    expect(isAggregate('follow-up(#1): cleanup', `${G5_BODY}\n1 item deferred`)).toBe(true);
+  });
+
+  it('rimuove i fence prima del fallback keyword, senza restringerlo al solo titolo', () => {
+    const fencedKeyword = ['```text', 'batch of unrelated prose', '```'].join('\n');
+
+    expect(isAggregate('follow-up(#1): cleanup', fencedKeyword)).toBe(false);
+    expect(isAggregate('follow-up(#1): cleanup', 'This batch has work to do.')).toBe(true);
+  });
+
+  it('usa la forma esplicita `items deferred` nel reconcile', () => {
+    expect(isAggregateTitle('follow-up(#1): 3 items deferred — a, b, c')).toBe(true);
+    expect(isAggregateTitle('follow-up(#1): 3 items planned — a, b, c')).toBe(false);
+    expect(isAggregateTitle('follow-up(#1): 3 items — a, b, c')).toBe(false);
+    expect(isAggregate('follow-up(#1): 3 items — a, b, c', '')).toBe(false);
+    expect(isAggregateTitle('follow-up(#1): cleanup', G5_BODY)).toBe(true);
+  });
+
+  it('non classifica il lavoro enumerato come burn evitabile nell’harvester', () => {
+    expect(isAvoidableAlreadyFixed('follow-up(#1): cleanup', ['follow-up'], G5_BODY)).toBe(false);
+    expect(isAvoidableMaxTurns('follow-up(#1): cleanup', ['follow-up'], false, G5_BODY)).toBe(false);
+  });
+});
+
+describe('G5 — kill switch di auto-chiusura nei workflow', () => {
+  it('passa FOLLOWUP_NO_AUTOCLOSE ai due percorsi che possono chiudere issue', () => {
+    const drainer = readFileSync('.github/workflows/followup-drainer.yml', 'utf8');
+    const harvest = readFileSync('.github/workflows/lessons-harvester.yml', 'utf8');
+    const harvestScript = readFileSync('scripts/ci/harvest-agent-lessons.mjs', 'utf8');
+
+    const drainStep = drainer.slice(drainer.indexOf('- name: Drain follow-up queue'));
+    const harvestStep = harvest.slice(harvest.indexOf('- name: Aggregate recurring patterns'));
+    expect(drainStep).toContain("FOLLOWUP_NO_AUTOCLOSE: '1'");
+    expect(harvestStep).toContain("FOLLOWUP_NO_AUTOCLOSE: '1'");
+    expect(harvestScript).toMatch(/const NO_AUTOCLOSE = process\.env\.FOLLOWUP_NO_AUTOCLOSE === '1'/);
+    expect(harvestScript).toContain('SELF-HEAL close skipped');
+  });
+});

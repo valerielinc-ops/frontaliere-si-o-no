@@ -139,20 +139,77 @@ const io = {
 };
 
 /**
- * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Two
- * detectors, OR'd:
- *   1. Numeric count "N items deferred" with N>=2.
- *   2. Keyword fallback `sweep|batch|bulk` — a sweep enumerates many targets WITHOUT an
- *      "N items deferred" count (e.g. "Sweep: ~30 crawlers", #1826). Without it the sweep
- *      scores single-item and the preflight short-circuits after the FIRST resolved target,
- *      removing `agent:fix` and dropping the rest of the sweep. Bias-to-PROCEED holds: a
- *      false aggregate just lets the normal fixer run (safe), never a false short-circuit.
- *      Mirrors the same fallback in reconcile-followups.mjs / issue-fix.yml (single bug
- *      class across the sibling aggregate detectors).
+ * Righe dentro un blocco recintato rimosse prima del conteggio (#926).
+ * Un fence indentato è valido quando lo snippet è annidato sotto un bullet;
+ * un fence non chiuso ripristina il segmento scartato come fallback sicuro.
+ * @param {string} text
+ * @returns {string}
+ */
+function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+export function hasEnumeratedItems(body) {
+  const b = stripFencedBlocks(body);
+  const numberedSections = (b.match(/^#{2,4}[ \t]*\d+[.)](?=[ \t]|$)/gm) || []).length;
+  if (numberedSections >= 2) return true;
+  const lines = b.split('\n');
+  const orderedBoldItems = lines.reduce((count, line, index) => {
+    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  if (orderedBoldItems >= 2) return true;
+  const boldLeadBullets = lines.reduce((count, line, index) => {
+    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  return boldLeadBullets >= 2;
+}
+
+function isBoldTitleLead(rest, lines = [], start = 0) {
+  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+  let candidate = String(rest || '');
+  if (bold.test(candidate)) return true;
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+    candidate += '\n' + line;
+    if (bold.test(candidate)) return true;
+  }
+  return false;
+}
+
+/**
+ * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Three
+ * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
  */
 export function isAggregate(title, body) {
-  const text = `${title}\n${body}`;
-  const m = text.match(/(\d+)\s+items?\s+deferred/i);
+  const titleText = String(title || '');
+  const m = titleText.match(/\b(\d+)\s+items?\s+deferred\b/i);
   // An explicit count is authoritative once stated — trust it fully rather
   // than falling through to the keyword heuristic below, which exists ONLY
   // for aggregates that never state a count (e.g. "Sweep: ~30 crawlers").
@@ -163,7 +220,9 @@ export function isAggregate(title, body) {
   // that wrongly blocked `pr-body-contract` on a fully-completed single item
   // (#3378).
   if (m) return Number(m[1]) >= 2;
-  return /\b(?:sweep|batch|bulk)\b/i.test(text);
+  const bodyText = stripFencedBlocks(body);
+  if (/\b(?:sweep|batch|bulk)\b/i.test(`${titleText}\n${bodyText}`)) return true;
+  return hasEnumeratedItems(body);
 }
 
 function main() {

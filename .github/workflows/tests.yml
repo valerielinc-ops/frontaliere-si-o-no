@@ -585,10 +585,63 @@ jobs:
             // keyword fallback only applies when NO count is stated (aggregates that
             // enumerate N targets WITHOUT the count, e.g. "Sweep: ~30 crawlers" #1826).
             const isAggregateTitleBody = (t, b) => {
-              const text = `${t}\n${b}`;
-              const m = text.match(/(\d+)\s+items?\s+deferred/i);
+              function stripFencedBlocks(text) {
+                const lines = String(text || '').split('\n');
+                const out = [];
+                let fence = null;
+                let fenceStart = -1;
+                for (let i = 0; i < lines.length; i++) {
+                  const line = lines[i];
+                  const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+                  if (fence) {
+                    const closes = match
+                      && match[2][0] === fence.char
+                      && match[2].length >= fence.length
+                      && match[1].length >= fence.indent;
+                    if (closes) fence = null;
+                    continue;
+                  }
+                  if (match) {
+                    fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+                    fenceStart = i;
+                    continue;
+                  }
+                  out.push(line);
+                }
+                return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+              }
+              function isBoldTitleLead(rest, lines = [], start = 0) {
+                const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+                let candidate = String(rest || '');
+                if (bold.test(candidate)) return true;
+                for (let i = start; i < lines.length; i++) {
+                  const line = lines[i];
+                  if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+                  candidate += '\n' + line;
+                  if (bold.test(candidate)) return true;
+                }
+                return false;
+              }
+              function hasEnumeratedItems(body) {
+                const clean = stripFencedBlocks(body);
+                if ((clean.match(/^#{2,4}[ \t]*\d+[.)](?=[ \t]|$)/gm) || []).length >= 2) return true;
+                const lines = clean.split('\n');
+                let ordered = 0;
+                let bullets = 0;
+                for (let i = 0; i < lines.length; i++) {
+                  const orderedMatch = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(lines[i]);
+                  if (orderedMatch && isBoldTitleLead(orderedMatch[1], lines, i + 1)) ordered++;
+                  const bulletMatch = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(lines[i]);
+                  if (bulletMatch && isBoldTitleLead(bulletMatch[1], lines, i + 1)) bullets++;
+                }
+                return ordered >= 2 || bullets >= 2;
+              }
+              const title = String(t || '');
+              const m = title.match(/\b(\d+)\s+items?\s+deferred\b/i);
               if (m) return Number(m[1]) >= 2;
-              return /\b(?:sweep|batch|bulk)\b/i.test(text);
+              const bodyText = stripFencedBlocks(b);
+              if (/\b(?:sweep|batch|bulk)\b/i.test(title + '\n' + bodyText)) return true;
+              return hasEnumeratedItems(bodyText);
             };
             // Strip code-formatted text first: GitHub does NOT honour a closing
             // keyword inside a fenced block or inline `code` span, so neither should

@@ -32,6 +32,7 @@ const THRESHOLD = intFromEnv('THRESHOLD', 3);
 const MAX_PRS = intFromEnv('MAX_PRS', 40);
 const MAX_ISSUES = intFromEnv('MAX_ISSUES', 120);
 const OUT = process.env.HARVEST_OUT || 'harvest-clusters.json';
+const NO_AUTOCLOSE = process.env.FOLLOWUP_NO_AUTOCLOSE === '1' || process.env.NO_AUTOCLOSE === '1';
 // EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
 // is evidence the prose rule isn't preventing the mistake → escalate to a
 // structural fix instead of writing another line nobody follows.
@@ -432,18 +433,77 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
 //      never be pre-empted by a content-token matcher.
 // Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
 // the outcome loop below: don't count burn that no safe gate could have prevented.
+function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+export function hasEnumeratedItems(body) {
+  const b = stripFencedBlocks(body);
+  const numberedSections = (b.match(/^#{2,4}[ \t]*\d+[.)](?=[ \t]|$)/gm) || []).length;
+  if (numberedSections >= 2) return true;
+  const lines = b.split('\n');
+  const isListItemStart = (line) => /^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line);
+  const isBoldTitleLead = (rest, allLines = [], start = 0) => {
+    const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+    let candidate = String(rest || '');
+    if (bold.test(candidate)) return true;
+    for (let i = start; i < allLines.length; i++) {
+      const line = allLines[i];
+      if (isListItemStart(line)) break;
+      candidate += '\n' + line;
+      if (bold.test(candidate)) return true;
+    }
+    return false;
+  };
+  const orderedBoldItems = lines.reduce((count, line, index) => {
+    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  if (orderedBoldItems >= 2) return true;
+  const boldLeadBullets = lines.reduce((count, line, index) => {
+    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  return boldLeadBullets >= 2;
+}
+
 // Pure → unit-tested. `labels` is an array of label-name strings.
-export function isAvoidableAlreadyFixed(title, labels) {
+export function isAvoidableAlreadyFixed(title, labels, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   if (!names.includes('follow-up')) return false; // out of the gate's scope
   const t = String(title || '');
-  const m = t.match(/(\d+)\s+items?\s+deferred/i);
+  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
   // An explicit count is authoritative once present — no keyword fallback
   // needed (and none applied), else a single-item title containing an
   // ordinary word like "batch" (e.g. "1 item deferred ... batch backfill...")
   // was misclassified as an aggregate (#3378).
   if (m) return Number(m[1]) < 2;
   if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
+  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
   return true; // single-item follow-up → the gate's real target → countable
 }
 
@@ -528,7 +588,7 @@ export function orphanNoteBody(r) {
     + `recuperabile — la resume-logic del fixer riparte da qui.\n\n${ORPHAN_NOTE_MARKER}`;
 }
 
-export function isAvoidableMaxTurns(title, labels, delivery = false) {
+export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') {
   const names = Array.isArray(labels) ? labels : [];
   const t = String(title || '');
   // `delivery` accepts the legacy boolean (`hasDeliveredPr`) or the richer
@@ -547,9 +607,10 @@ export function isAvoidableMaxTurns(title, labels, delivery = false) {
   //     count is authoritative once present, no keyword fallback needed (else a
   //     single-item title containing an ordinary word like "batch" was
   //     misclassified as an aggregate, #3378).
-  const m = t.match(/(\d+)\s+items?\s+deferred/i);
+  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
   if (m) return Number(m[1]) < 2;
   if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword (no explicit count stated)
+  if (hasEnumeratedItems(body)) return false; // aggregate by enumerazione nel corpo (#568)
   return true; // single-item, still-routable → fixable loop → countable
 }
 
@@ -952,7 +1013,7 @@ async function main() {
       // is the EXPECTED confirmation path, not preventable burn → don't escalate it
       // (root cause of #2290: bucket re-fired at 9/14d, all 5 examples aggregate or
       // non-follow-up). Single-item follow-ups — the gate's real target — still count.
-      if (code === 'already-fixed' && !isAvoidableAlreadyFixed(issue.title, labelNames)) continue;
+      if (code === 'already-fixed' && !isAvoidableAlreadyFixed(issue.title, labelNames, issue.body || '')) continue;
       // `max-turns` on an aggregate multi-item issue (over-budget by construction,
       // the per-item circuit-breaker's target) or on an issue the drainer has already
       // parked `needs-human` (structurally non-fixable: malformed body / network-audit
@@ -971,7 +1032,7 @@ async function main() {
           recoverableMaxTurns.push({ issue: number, title: (issue.title || '').slice(0, 80), ...recoverable });
         }
         if (!isAvoidableMaxTurns(issue.title, labelNames,
-          { hasDeliveredPr, hasRecoverableBranch: Boolean(recoverable) })) continue;
+          { hasDeliveredPr, hasRecoverableBranch: Boolean(recoverable) }, issue.body || '')) continue;
       }
       // `overlap-skip` / `pr-already-open`: deferral by the loop's own scheduling rule,
       // declared TRANSIENT by followup-drainer.mjs — expected, not preventable burn. Only
@@ -1159,6 +1220,10 @@ async function main() {
     for (const iss of openEsc) {
       const key = parseEscalationKey(iss.title);
       if (liveKeys.has(key)) continue; // ancora attivo → lascia aperta
+      if (NO_AUTOCLOSE) {
+        console.log(`SELF-HEAL close skipped #${iss.number} — no-autoclose`);
+        continue;
+      }
       try {
         gh(['issue', 'comment', String(iss.number), '--body',
           `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
