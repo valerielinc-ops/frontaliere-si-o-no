@@ -377,11 +377,23 @@ function isExplicitForeignCountry(value) {
   return FOREIGN_COUNTRY_NAME_LABELS.has(normalized);
 }
 
+function isSwissCantonCodeInLocation(segment, value) {
+  const code = normalizePlace(segment).toUpperCase();
+  if (code === 'CH' || !/^[A-Z]{2}$/.test(code)
+    || !LOCATION_NOISE_TOKENS.has(code.toLowerCase())) return false;
+  const locationWithoutSegment = String(value || '').split(/[,;/|()]+/)
+    .filter((part) => normalizePlace(part) !== normalizePlace(segment))
+    .join(' ');
+  return canonicalLocationTokens(locationWithoutSegment).some((token) => SWISS_REGION_NAMES.has(token));
+}
+
 function hasExplicitForeignCountry(value, addressCountry = '') {
   if (isExplicitForeignCountry(addressCountry)) return true;
-  return String(value || '').split(/[,;/|()]+/)
+  const locationText = String(value || '');
+  return locationText.split(/[,;/|()]+/)
     .map((segment) => segment.trim())
-    .some((segment) => isExplicitForeignCountry(segment));
+    .some((segment) => isExplicitForeignCountry(segment)
+      && !isSwissCantonCodeInLocation(segment, locationText));
 }
 
 /**
@@ -404,7 +416,8 @@ function isUsableSourceLocation(value, context = {}) {
     && !swissPlace && !foreignPlace) return false;
   // A postal code is geographic evidence. Other digits in an ATS site code
   // (`TOI L 112`, `Cri-Mon25`, `Zür-Pfi51`) are not.
-  if (/\d/.test(normalized) && !/\b\d{4,5}\b/.test(normalized)) return false;
+  if (/\d/.test(normalized) && !/\b\d{4,5}\b/.test(normalized)
+    && !swissPlace && !foreignPlace) return false;
   if (tokens.every((token) => token.length <= 3) && !swissPlace && !foreignPlace) return false;
   return true;
 }
@@ -550,13 +563,9 @@ function elementValue(html, openTagEnd, tagName, attrs) {
  */
 export function extractSourceLocationObservation(html = '', pageUrl = '') {
   const structured = extractJsonLd(html, pageUrl)
-    .map((item) => {
-      const candidates = Array.isArray(item.locationCandidates) && item.locationCandidates.length > 0
-        ? item.locationCandidates
-        : [{ location: item.location, addressCountry: item.addressCountry }];
-      return candidates.find((candidate) => isUsableSourceLocation(candidate.location, candidate));
-    })
-    .find(Boolean);
+    .flatMap((item) => (item.locationCandidates || [])
+      .filter((candidate) => isUsableSourceLocation(candidate.location, candidate)))
+    .at(0);
   if (structured) return { location: structured.location, evidence: 'jsonld' };
 
   const stack = [];
