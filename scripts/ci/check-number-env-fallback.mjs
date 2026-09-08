@@ -26,10 +26,14 @@
  * non e' una violazione.
  *
  * Exit codes: 0 = pulito, 1 = violazioni. `--json` stampa un report macchina.
+ * Oltre al fallback dentro `Number`, il gate segnala anche un `const` che legge
+ * un env con `Number(...)` senza `||`/`??` quando lo stesso valore governa un
+ * `slice`, un `for` o una `concurrency` nel suo blocco locale.
  *
  * Usage: node scripts/ci/check-number-env-fallback.mjs [--json]
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
@@ -46,7 +50,146 @@ const JSON_OUT = argv.includes('--json');
  */
 const GLOBS = ['scripts/**', 'build-plugins/**', 'services/**', 'tests/**', 'functions/**', '.github/**'];
 
-const BAD_RE = /Number\(\s*process\.env\.[A-Za-z_0-9]+\s*\|\|/;
+const BAD_RE = /Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\|\|/;
+
+/** A raw env number is only dangerous when it controls a bounded operation. */
+const RAW_NUMBER_ENV_ASSIGNMENT_RE =
+  /\bconst\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*Number\(\s*process\s*\.\s*env\s*(?:\.\s*[A-Za-z_$][A-Za-z0-9_$]*|\[\s*(?:'[^']*'|"[^"]*")\s*\])\s*\)(?!\s*(?:\|\||\?\?))/g;
+
+/**
+ * Remove comments without changing offsets, so regex matches still map to the
+ * original line and comments cannot manufacture a violation.
+ */
+function stripComments(source) {
+  let out = '';
+  let block = false;
+  let line = false;
+  let quote = '';
+
+  for (let i = 0; i < source.length; i++) {
+    const c = source[i];
+    const next = source[i + 1];
+
+    if (line) {
+      if (c === '\n') {
+        line = false;
+        out += c;
+      } else {
+        out += ' ';
+      }
+      continue;
+    }
+
+    if (block) {
+      if (c === '*' && next === '/') {
+        block = false;
+        out += '  ';
+        i++;
+      } else {
+        out += c === '\n' ? '\n' : ' ';
+      }
+      continue;
+    }
+
+    if (quote) {
+      out += c;
+      if (c === '\\' && i + 1 < source.length) out += source[++i];
+      else if (c === quote) quote = '';
+      continue;
+    }
+
+    if (c === '/' && next === '/') {
+      line = true;
+      out += '  ';
+      i++;
+    } else if (c === '/' && next === '*') {
+      block = true;
+      out += '  ';
+      i++;
+    } else if (c === "'" || c === '"' || c === '`') {
+      quote = c;
+      out += c;
+    } else {
+      out += c;
+    }
+  }
+  return out;
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function containingBlock(source, index) {
+  const stack = [];
+  let quote = '';
+  for (let i = 0; i < index; i++) {
+    const c = source[i];
+    if (quote) {
+      if (c === '\\') i++;
+      else if (c === quote) quote = '';
+      continue;
+    }
+    if (c === "'" || c === '"' || c === '`') {
+      quote = c;
+    } else if (c === '{') {
+      stack.push(i);
+    } else if (c === '}') {
+      stack.pop();
+    }
+  }
+  if (stack.length === 0) return [0, source.length];
+
+  const start = stack[stack.length - 1] + 1;
+  let depth = 1;
+  quote = '';
+  for (let i = start; i < source.length; i++) {
+    const c = source[i];
+    if (quote) {
+      if (c === '\\') i++;
+      else if (c === quote) quote = '';
+      continue;
+    }
+    if (c === "'" || c === '"' || c === '`') {
+      quote = c;
+    } else if (c === '{') {
+      depth++;
+    } else if (c === '}' && --depth === 0) {
+      return [start, i];
+    }
+  }
+  return [start, source.length];
+}
+
+/**
+ * Find raw Number(process.env.X) assignments that control a local bound.
+ * This deliberately stays syntactic: it does not follow values across files
+ * or through functions. The helper is exported so fixture tests prove both
+ * the positive rule and its false-positive boundary.
+ */
+export function findRawNumberEnvBoundViolations(source, file = '<fixture>') {
+  const code = stripComments(String(source ?? ''));
+  const violations = [];
+  let match;
+
+  while ((match = RAW_NUMBER_ENV_ASSIGNMENT_RE.exec(code))) {
+    const variable = match[1];
+    const escaped = escapeRegExp(variable);
+    const [scopeStart, scopeEnd] = containingBlock(code, match.index);
+    const compactScope = code.slice(scopeStart, scopeEnd).replace(/\s+/g, ' ');
+    const usedAsBound = [
+      new RegExp(`\\.\\s*slice\\s*\\([^)]*\\b${escaped}\\b`),
+      new RegExp(`\\bfor\\s*\\([^)]*\\b${escaped}\\b[^)]*\\)`),
+      new RegExp(`\\bconcurrency\\b\\s*[:=]\\s*\\b${escaped}\\b`, 'i'),
+    ].some((pattern) => pattern.test(compactScope));
+
+    if (!usedAsBound) continue;
+    const line = code.slice(0, match.index).split('\n').length;
+    const content = String(source).split('\n')[line - 1]?.trim() || '';
+    violations.push({ file, line, content });
+  }
+  return violations;
+}
 
 /**
  * La riga contiene il costrutto vietato in CODICE (non in un commento)?
@@ -68,7 +211,7 @@ export function lineHasNumberEnvFallback(line) {
  * verde vacuo che questo gate esiste per impedire, in questo gate. La classe
  * POSIX e' l'unica forma che significa la stessa cosa sui due sistemi.
  */
-const GIT_GREP_PATTERN = 'Number\\([[:space:]]*process\\.env\\.[A-Za-z_0-9]+[[:space:]]*\\|\\|';
+const GIT_GREP_PATTERN = 'Number\\([[:space:]]*process[[:space:]]*\\.[[:space:]]*env';
 
 /**
  * CONTROLLO POSITIVO. `tests/int-from-env.test.ts` contiene per mestiere il
@@ -107,7 +250,11 @@ function gitGrep(pattern) {
 
 function gitGrepLines() {
   const hits = gitGrep(GIT_GREP_PATTERN);
-  if (!hits.some((h) => h.startsWith(`${CANARY_FILE}:`))) {
+  if (!hits.some((h) => {
+    if (!h.startsWith(`${CANARY_FILE}:`)) return false;
+    const content = h.replace(/^[^:]+:\d+:/, '');
+    return lineHasNumberEnvFallback(content);
+  })) {
     throw new Error(
       `check-number-env-fallback: il controllo positivo non ha trovato il costrutto in ${CANARY_FILE}, `
       + 'dove c\'e\' di sicuro. La ricerca non ha guardato l\'albero (pathspec, motore di regex o '
@@ -119,10 +266,12 @@ function gitGrepLines() {
 
 export function findViolations() {
   const violations = [];
+  const rawCandidateFiles = new Set();
   for (const hit of gitGrepLines()) {
     const m = hit.match(/^([^:]+):(\d+):(.*)$/);
     if (!m) continue;
     const [, file, lineno, content] = m;
+    rawCandidateFiles.add(file);
     // `.yml` incluso: lo script inline di `actions/github-script` e' JavaScript
     // eseguito, con lo stesso identico guasto (misurato:
     // `.github/workflows/job-title-locale-audit.yml` calcolava la soglia di
@@ -138,6 +287,14 @@ export function findViolations() {
     if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
     if (lineHasNumberEnvFallback(content)) violations.push({ file, line: Number(lineno), content: content.trim() });
   }
+
+  for (const file of rawCandidateFiles) {
+    if (file.includes('.test.') || file.includes('.spec.')) continue;
+    if (file === 'scripts/ci/check-number-env-fallback.mjs') continue;
+    const source = readFileSync(file, 'utf8');
+    violations.push(...findRawNumberEnvBoundViolations(source, file));
+  }
+
   return violations.sort((a, b) => (a.file === b.file ? a.line - b.line : a.file < b.file ? -1 : 1));
 }
 
@@ -146,14 +303,14 @@ function main() {
   if (JSON_OUT) console.log(JSON.stringify({ violations }, null, 2));
 
   if (violations.length === 0) {
-    if (!JSON_OUT) console.log('✓ check-number-env-fallback: nessun Number(process.env.X || N) nel codice.');
+    if (!JSON_OUT) console.log('✓ check-number-env-fallback: nessun fallback numerico non validato nel codice.');
     process.exit(0);
   }
 
   if (!JSON_OUT) {
     console.error(
-      `✗ check-number-env-fallback: ${violations.length} occorrenza/e di Number(process.env.X || N) — `
-      + 'un valore non numerico diventa NaN e si propaga in silenzio (issue #7344):\n',
+      `✗ check-number-env-fallback: ${violations.length} occorrenza/e di lettura numerica non validata — `
+      + 'un valore non numerico o non positivo si propaga in silenzio (issue #7344/#884):\n',
     );
     for (const v of violations) console.error(`  - ${v.file}:${v.line}  ${v.content.slice(0, 110)}`);
     console.error(
