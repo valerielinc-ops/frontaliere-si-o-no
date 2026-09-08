@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-09-08T13:32:04.975Z",
+  "assembledAt": "2026-09-08T23:17:19.514Z",
   "jobs": [
     {
       "id": "hermes-72295ebf73a5",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:31:58.734Z",
+      "crawledAt": "2026-09-08T23:17:13.191Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -83,8 +83,8 @@
           "cdi-verkaufsberater-experte-uhren-und-schmuck-zurich-f-m-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -130,7 +130,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:31:58.155Z",
+      "crawledAt": "2026-09-08T23:17:12.589Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -203,7 +203,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:31:57.525Z",
+      "crawledAt": "2026-09-08T23:17:12.038Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -282,7 +282,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:31:56.895Z",
+      "crawledAt": "2026-09-08T23:17:11.466Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -314,8 +314,8 @@
           "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
         ]
       },
-      "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -408,7 +408,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hermes-0ca6ddf0fa1f",
@@ -480,7 +480,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
