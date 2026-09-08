@@ -30,6 +30,8 @@ describe('testsRunInFlightOnHead (#6037 autorebase↔tests livelock guard)', () 
     ])).toBe(false);
     expect(AUTOREBASE_SOURCE).toContain('actions/jobs/');
     expect(AUTOREBASE_SOURCE).toContain('reviewStepIsInFlight');
+    expect(AUTOREBASE_SOURCE).toContain('if (!jobId) return true;');
+    expect(AUTOREBASE_SOURCE).toContain('if (!job || !Array.isArray(job.steps) || job.steps.length === 0) return true;');
     expect(AUTOREBASE_SOURCE).not.toContain('c.name == "review"');
   });
 

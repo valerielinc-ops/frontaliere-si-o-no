@@ -19,6 +19,9 @@ describe('isReviewerBot', () => {
     expect(isReviewerBot({ type: 'Bot', login: 'frontaliere-automation-evil[bot]' })).toBe(false);
     expect(isReviewerBot({ type: 'User', login: 'frontaliere-automation[bot]' })).toBe(true);
     expect(isReviewerBot({ login: 'claude[bot]' })).toBe(true);
+    // The naked `claude` login is a real human account, not the App reviewer.
+    expect(isReviewerBot({ type: 'Bot', login: 'claude' })).toBe(false);
+    expect(isReviewerBot({ login: 'claude' })).toBe(false);
     expect(isReviewerBot({ type: 'Bot', login: 'github-actions[bot]' })).toBe(false);
   });
 });
