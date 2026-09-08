@@ -5,9 +5,10 @@ import {
   isAnkerSwissJob,
   isTrustedDomain,
   buildSlugDisambiguator,
+  buildAnkerSwissJobSlug,
 } from '../scripts/lib/anker-swiss-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
-import { appendSlugDisambiguator } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { buildSlug as buildCanonicalSlug } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 
 describe('Anker Swiss Ticino AG crawler parser', () => {
   // ── Constants ──
@@ -85,7 +86,22 @@ describe('Anker Swiss Ticino AG crawler parser', () => {
   // ── slugDisambiguator (staffing agency: repeated title+location) ──
   describe('buildSlugDisambiguator', () => {
     const buildSlug = (title: string, location: string, url: string) =>
-      appendSlugDisambiguator(slugify(`${title} ${location} anker-swiss ch`), buildSlugDisambiguator(url));
+      buildAnkerSwissJobSlug(title, location, url);
+
+    it('uses the canonical title-company-location slug base', () => {
+      const slug = buildAnkerSwissJobSlug(
+        'Bauarbeiter, Bauhauptgewerbe 100%',
+        'Lugano',
+        'https://anker-swiss.ch/stellen/bauarbeiter-1/',
+      );
+      expect(slug).toBe(buildCanonicalSlug(
+        'Bauarbeiter, Bauhauptgewerbe 100%',
+        ANKER_SWISS_COMPANY_NAME,
+        'Lugano',
+        buildSlugDisambiguator('https://anker-swiss.ch/stellen/bauarbeiter-1/'),
+      ));
+      expect(slug).toContain('anker-swiss-ticino-ag');
+    });
 
     it('keeps two vacancies with identical title and location on distinct slugs', () => {
       const a = buildSlug('Bauarbeiter, Bauhauptgewerbe 100%', 'Lugano', 'https://anker-swiss.ch/stellen/bauarbeiter-1/');

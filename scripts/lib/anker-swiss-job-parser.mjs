@@ -88,6 +88,21 @@ export function buildSlugDisambiguator(publicUrl = '') {
   return createHash('sha1').update(url).digest('hex').slice(0, 8);
 }
 
+/**
+ * Build the canonical slug base used by the generic slug validators.
+ *
+ * The company name is part of the identity contract: using only the source
+ * key/domain made this parser's slugs differ from regenerated slugs.
+ */
+export function buildAnkerSwissJobSlug(title, location, publicUrl = '') {
+  const disambiguator = buildSlugDisambiguator(publicUrl);
+  return appendSlugDisambiguator(
+    slugify(`${title} ${ANKER_SWISS_COMPANY_NAME} ${location}`),
+    disambiguator,
+  );
+}
+
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -173,7 +188,7 @@ export async function fetchAllAnkerSwissJobs() {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const disambiguator = buildSlugDisambiguator(publicUrl);
-    const jobSlug = appendSlugDisambiguator(slugify(`${title} ${location} anker-swiss ch`), disambiguator);
+    const jobSlug = buildAnkerSwissJobSlug(title, location, publicUrl);
 
     const job = {
       // ── Required fields ──

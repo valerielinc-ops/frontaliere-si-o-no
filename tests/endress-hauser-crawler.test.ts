@@ -154,6 +154,19 @@ describe('Endress+Hauser crawler parser', () => {
       expect(jobs[0].location).toBe('Lugano, CH');
     });
 
+    it('does not elect a title cell after stripping its +N more marker', () => {
+      const html = `
+        <tr>
+          <td><a href="/job/Team-Lead-2-more-AG/1234567892/" class="jobTitle-link">Team Lead +2 altri reparti</a></td>
+          <td>Team Lead, Zürich, CH</td>
+          <td>Zürich, CH</td>
+          <td>Jun 17, 2026</td>
+        </tr>`;
+      const jobs = parseCsbSearchResults(html);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].location).toBe('Zürich, CH');
+    });
+
     it('still parses flat (non-prefixed) job links for existing tenants', () => {
       const html = rowHtml(
         '/job/Test-Position-4153/1234567890/',
