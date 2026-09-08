@@ -78917,6 +78917,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-studenti-svizzeri-lettura-pisa-2025': {
+    title: 'Studenti svizzeri leggono meno: risultati PISA 2025',
+    description: 'PISA 2025: quindicenni svizzeri eccellono in scienze, ma lettura e matematica calano. Il 28,8% non raggiunge competenze minime. L\'indagine rivela l\'influenza',
+    keywords: 'frontalieri, ticino, svizzera, italia, studenti, svizzeri, leggono, meno',
+    ogTitle: 'Studenti svizzeri leggono meno: risultati PISA 2025',
+    ogDescription: 'PISA 2025: quindicenni svizzeri eccellono in scienze, ma lettura e matematica calano. Il 28,8% non raggiunge competenze minime. L\'indagine rivela l\'influenza cruciale dell\'origine sociale.',
+    canonicalPath: '/articoli-svizzera/studenti-svizzeri-lettura-pisa-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Studenti svizzeri leggono meno: risultati PISA 2025",
+      "description": "PISA 2025: quindicenni svizzeri eccellono in scienze, ma lettura e matematica calano. Il 28,8% non raggiunge competenze minime. L'indagine rivela l'influenza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/studenti-svizzeri-lettura-pisa-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica svizzera con studenti che risolvono esercizi di matematica e lettura"
+      },
+      "datePublished": "2026-09-08T11:37:32+00:00",
+      "dateModified": "2026-09-08T11:37:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/studenti-svizzeri-lettura-pisa-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

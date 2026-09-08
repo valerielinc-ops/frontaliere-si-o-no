@@ -6079,6 +6079,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS schneidet 40 Stellen ab, schließt Zentren und reduziert Dienstleistungen',
     'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'Die BLS kündigt 40 Stellenstreichungen, die Schließung von 5 Reisezentren und den Abbau von Dienstleistungen an. Zieleinsparungen: 5 Mio. CHF im Zweijahreszeitraum 2027-2028.',
     'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Schweizer Landschaft mit Blick auf nationale Mobilität und öffentliche Verkehrsinfrastruktur',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.title': 'Schweizer Studenten lesen weniger: Ergebnisse PISA 2025',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.excerpt': 'PISA 2025: Fünfzehnjährige Schweizerinnen und Schweizer glänzen in den Naturwissenschaften, aber Lesen und Mathematik sinken. 28,8% erreichen keine Mindestkompetenz. Die Umfrage zeigt den entscheidenden Einfluss der sozialen Herkunft.',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.imageAlt': 'Schweizer Klassenzimmer mit Schülern, die Mathematik- und Leseaufgaben lösen',
 };
 
 export default blogMetaChDe;
