@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "oerlikon-198124ab8c0c",
-      "slug": "internship-accounting-reporting-oerlikon-ch",
+      "slug": "contabilita-e-reporting-oerlikon-pfaffikon-sz",
       "slugByLocale": {
-        "it": "internship-accounting-reporting-oerlikon-ch",
         "en": "internship-accounting-reporting-oerlikon-ch",
+        "it": "contabilita-e-reporting-oerlikon-pfaffikon-sz",
         "de": "internship-accounting-reporting-oerlikon-ch",
-        "fr": "internship-accounting-reporting-oerlikon-ch"
+        "fr": "comptabilite-des-stages-et-rapports-oerlikon-pfaffikon-sz"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:22:35.383Z"
+      "firstSeenAt": "2026-09-07T15:22:35.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-accounting-reporting-oerlikon-ch"
+        ],
+        "fr": [
+          "internship-accounting-reporting-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-accounting-reporting-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-623eccb0a7a7",
@@ -116,14 +127,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "customer-service-specialist-riri-zippers-oerlikon-ch",
-        "customer-service-specialist-riri-zippers-w-m-oerlikon-ch",
-        "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
+        "customer-service-specialist-riri-zippers-w-m-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-specialist-riri-zippers-oerlikon-ch",
-          "customer-service-specialist-riri-zippers-w-m-oerlikon-ch",
-          "servizio-clienti-specialista-riri-zippers-oerlikon-mendrisio-ti"
+          "customer-service-specialist-riri-zippers-w-m-oerlikon-ch"
         ],
         "de": [
           "customer-service-specialist-riri-zippers-oerlikon-ch"
@@ -202,8 +211,7 @@
         "service-technician-gn-oerlikon-wohlen",
         "servicetechniker-gn-oerlikon-ch",
         "servicetechniker-gn-oerlikon-wohlen",
-        "technicien-des-services-gn-oerlikon-wohlen",
-        "costruttore-gn-oerlikon-wohlen"
+        "technicien-des-services-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -212,8 +220,7 @@
           "service-technician-gn-oerlikon-wohlen",
           "servicetechniker-gn-oerlikon-ch",
           "servicetechniker-gn-oerlikon-wohlen",
-          "technicien-des-services-gn-oerlikon-wohlen",
-          "costruttore-gn-oerlikon-wohlen"
+          "technicien-des-services-gn-oerlikon-wohlen"
         ],
         "en": [
           "konstrukteur-gn-oerlikon-wohlen",
@@ -292,14 +299,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-        "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-          "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen"
+          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
         ],
         "en": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
@@ -463,20 +468,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-        "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
+        "sales-engineer-fur-upgrades-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-engineer-fur-upgrades-gn-oerlikon-ch",
-          "sales-ingegnere-per-upgrades-gn-oerlikon-wohlen"
+          "sales-engineer-fur-upgrades-gn-oerlikon-ch"
         ],
         "fr": [
           "sales-engineer-fur-upgrades-gn-oerlikon-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:54:34.438Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -541,13 +544,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automatiker-gn-im-anlagenbau-oerlikon-ch",
-        "automatiker-gn-im-anlagenbau-oerlikon-wohlen",
-        "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+        "automatiker-gn-im-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-gn-im-anlagenbau-oerlikon-ch",
-          "automatico-gn-in-ingegneria-vegetale-oerlikon-wohlen"
+          "automatiker-gn-im-anlagenbau-oerlikon-ch"
         ],
         "en": [
           "automatiker-gn-im-anlagenbau-oerlikon-ch"
@@ -624,14 +625,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "konstruktionsingenieur-gn-oerlikon-ch",
-        "konstruktionsingenieur-gn-oerlikon-wohlen",
-        "ingegnere-di-progettazione-gn-oerlikon-wohlen"
+        "konstruktionsingenieur-gn-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "konstruktionsingenieur-gn-oerlikon-ch",
-          "konstruktionsingenieur-gn-oerlikon-wohlen",
-          "ingegnere-di-progettazione-gn-oerlikon-wohlen"
+          "konstruktionsingenieur-gn-oerlikon-wohlen"
         ],
         "en": [
           "konstruktionsingenieur-gn-oerlikon-wohlen"
@@ -709,13 +708,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-        "projektingenieur-gn-electrical-engineering-oerlikon-wohlen",
-        "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+        "projektingenieur-gn-electrical-engineering-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektingenieur-gn-electrical-engineering-oerlikon-ch",
-          "ingegnere-di-progetto-gn-ingegneria-elettrica-oerlikon-wohlen"
+          "projektingenieur-gn-electrical-engineering-oerlikon-ch"
         ],
         "en": [
           "projektingenieur-gn-electrical-engineering-oerlikon-wohlen"
@@ -724,8 +721,8 @@
           "projektingenieur-gn-electrical-engineering-oerlikon-wohlen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T09:48:37.612Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -856,16 +853,14 @@
         "export-verpacker-gn-oerlikon-wohlen",
         "emballeur-d-exportation-gn-oerlikon-wohlen",
         "export-packer-gn-oerlikon-wohlen",
-        "export-verpacker-gn-oerlikon-ch",
-        "esportatore-gn-oerlikon-wohlen"
+        "export-verpacker-gn-oerlikon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "export-verpacker-gn-oerlikon-wohlen",
           "emballeur-d-exportation-gn-oerlikon-wohlen",
           "export-packer-gn-oerlikon-wohlen",
-          "export-verpacker-gn-oerlikon-ch",
-          "esportatore-gn-oerlikon-wohlen"
+          "export-verpacker-gn-oerlikon-ch"
         ],
         "en": [
           "export-verpacker-gn-oerlikon-ch"
@@ -942,13 +937,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "it": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-          "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+          "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
         ],
         "en": [
           "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
@@ -959,8 +952,7 @@
       },
       "previousSlugs": [
         "service-techniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch",
-        "service-techniker-per-produktionsanlagen-inhouse-gn-oerlikon-wohlen"
+        "elektrotechniker-fur-produktionsanlagen-inhouse-gn-oerlikon-ch"
       ],
       "firstSeenAt": "2026-07-08T22:12:58.275Z",
       "salaryMin": 72500,

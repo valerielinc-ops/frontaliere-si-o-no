@@ -372,13 +372,11 @@
       },
       "remote": true,
       "previousSlugs": [
-        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
-        "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
+        "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
-          "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
+          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
         ],
         "de": [
           "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
@@ -496,12 +494,12 @@
     },
     {
       "id": "climeworks-47d9150f6cda",
-      "slug": "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich",
+      "slug": "science-manager-soluzioni-basate-sulla-natura-80-100-climeworks-opfikon-zurich",
       "slugByLocale": {
-        "it": "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich",
         "en": "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich",
-        "de": "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich",
-        "fr": "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich"
+        "it": "science-manager-soluzioni-basate-sulla-natura-80-100-climeworks-opfikon-zurich",
+        "de": "science-manager-naturbasierte-losungen-80-100-climeworks-opfikon-zurich",
+        "fr": "directeur-scientifique-solutions-basees-sur-la-nature-80-100-climeworks-opfikon-zurich"
       },
       "company": "Climeworks",
       "companyKey": "climeworks",
@@ -587,7 +585,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-07T15:04:05.559Z"
+      "firstSeenAt": "2026-09-07T15:04:05.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich"
+        ],
+        "de": [
+          "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich"
+        ],
+        "fr": [
+          "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "science-manager-nature-based-solutions-80-100-climeworks-opfikon-zurich"
+      ]
     }
   ]
 }

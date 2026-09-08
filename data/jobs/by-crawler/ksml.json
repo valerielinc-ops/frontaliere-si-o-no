@@ -3868,9 +3868,9 @@
     },
     {
       "id": "ksml-6867c9736ae4",
-      "slug": "stellvertretung-if-lehrperson-15-lektionen-in-zwei-basisstufen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+      "slug": "professore-aggiunto-if-15-lezioni-in-due-livelli-di-base-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40166",
       "slugByLocale": {
-        "it": "stellvertretung-if-lehrperson-15-lektionen-in-zwei-basisstufen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "it": "professore-aggiunto-if-15-lezioni-in-due-livelli-di-base-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40166",
         "en": "deputy-if-teacher-15-lessons-in-two-basic-levels-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40166",
         "de": "stellvertretung-if-lehrperson-15-lektionen-in-zwei-basisstufen-volksschule-rossfeld-enge-40166",
         "fr": "professeur-adjoint-if-15-lecons-dans-deux-niveaux-de-base-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40166"
@@ -3936,7 +3936,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:46:51.509Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3949,7 +3948,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-6028d9b4b23a",

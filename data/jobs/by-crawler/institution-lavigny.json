@@ -53,14 +53,12 @@
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugs": [
         "civilistes-100-institution-lavigny-lavigny",
-        "civilistes-institution-lavigny-lavigny",
-        "civilisti-100-institution-de-lavigny-lavigny"
+        "civilistes-institution-lavigny-lavigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "civilistes-100-institution-lavigny-lavigny",
-          "civilistes-institution-lavigny-lavigny",
-          "civilisti-100-institution-de-lavigny-lavigny"
+          "civilistes-institution-lavigny-lavigny"
         ],
         "fr": [
           "civilistes-100-institution-lavigny-lavigny"
@@ -135,14 +133,12 @@
         "animateur-trice-socioculturel-le-a-70-80-institution-lavigny-lausanne",
         "moderatore-sociale-e-culturale-70-80-institution-de-lavigny-lausanne",
         "social-and-cultural-moderator-70-80-institution-de-lavigny-lausanne",
-        "sozial-und-kulturmoderator-70-80-institution-de-lavigny-lausanne",
-        "facilitatore-sociale-e-culturale-70-80-institution-de-lavigny-lausanne"
+        "sozial-und-kulturmoderator-70-80-institution-de-lavigny-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "animateur-trice-socioculturel-le-a-70-80-institution-lavigny-lausanne",
-          "moderatore-sociale-e-culturale-70-80-institution-de-lavigny-lausanne",
-          "facilitatore-sociale-e-culturale-70-80-institution-de-lavigny-lausanne"
+          "moderatore-sociale-e-culturale-70-80-institution-de-lavigny-lausanne"
         ],
         "en": [
           "animateur-trice-socioculturel-le-a-70-80-institution-lavigny-lausanne",
@@ -220,14 +216,12 @@
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugs": [
         "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd",
-        "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd-2",
-        "educatore-specializzato-laboratori-di-sviluppo-personale-e-animazione-cdi-cdd-tra-il-60-e-l-80-institution-de-lavigny"
+        "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd",
-          "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd-2",
-          "educatore-specializzato-laboratori-di-sviluppo-personale-e-animazione-cdi-cdd-tra-il-60-e-l-80-institution-de-lavigny"
+          "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd-2"
         ],
         "en": [
           "educateur-trice-specialise-e-ateliers-de-developpement-personnel-et-animation-cdi-cdd"
@@ -253,12 +247,12 @@
     },
     {
       "id": "institution-lavigny-011a5bfb305f",
-      "slug": "secretaire-medical-e-a-80-institution-lavigny-lavigny",
+      "slug": "segreteria-medica-all-80-institution-de-lavigny-lavigny",
       "slugByLocale": {
-        "it": "secretaire-medical-e-a-80-institution-lavigny-lavigny",
-        "en": "secretaire-medical-e-a-80-institution-lavigny-lavigny",
-        "de": "secretaire-medical-e-a-80-institution-lavigny-lavigny",
-        "fr": "secretaire-medical-e-a-80-institution-lavigny-lavigny"
+        "fr": "secretaire-medical-e-a-80-institution-lavigny-lavigny",
+        "it": "segreteria-medica-all-80-institution-de-lavigny-lavigny",
+        "en": "medical-secretary-at-80-institution-de-lavigny-lavigny",
+        "de": "medizinische-sekretarin-bei-80-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -313,16 +307,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:21:37.150Z"
+      "firstSeenAt": "2026-09-07T15:21:37.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-80-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "secretaire-medical-e-a-80-institution-lavigny-lavigny"
+        ],
+        "de": [
+          "secretaire-medical-e-a-80-institution-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-80-institution-lavigny-lavigny"
+      ]
     },
     {
       "id": "institution-lavigny-cedc2c518dff",
-      "slug": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne",
+      "slug": "capo-del-settore-socioculturale-institution-de-lavigny-lausanne",
       "slugByLocale": {
-        "it": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne",
-        "en": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne",
-        "de": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne",
-        "fr": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne"
+        "fr": "responsable-du-secteur-socioculturel-institution-lavigny-lausanne",
+        "it": "capo-del-settore-socioculturale-institution-de-lavigny-lausanne",
+        "en": "head-of-the-sociocultural-sector-institution-de-lavigny-lausanne",
+        "de": "leiter-des-sektors-soziokultur-institution-de-lavigny-lausanne"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -377,7 +385,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:21:37.152Z"
+      "firstSeenAt": "2026-09-07T15:21:37.152Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-secteur-socioculturel-institution-lavigny-lausanne"
+        ],
+        "en": [
+          "responsable-du-secteur-socioculturel-institution-lavigny-lausanne"
+        ],
+        "de": [
+          "responsable-du-secteur-socioculturel-institution-lavigny-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-secteur-socioculturel-institution-lavigny-lausanne"
+      ]
     }
   ]
 }
