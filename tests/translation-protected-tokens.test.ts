@@ -462,6 +462,10 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     const cases = [
       ['Hochschulpraktikant/in Recht', 'Hochschulpraktikant Recht'],
       ['Montage-Elektriker:in EFZ', 'Montage-Elektriker EFZ'],
+      ['Mitarbeiter*in Dispensation', 'Mitarbeiter Dispensation'],
+      ['Projektingenieur/-in Leittechnik', 'Projektingenieur Leittechnik'],
+      ['Leiter/-in Rechnungswesen', 'Leiter Rechnungswesen'],
+      ['Technische*r Sterilisationsassistent*in AEMP', 'Technischer Sterilisationsassistent AEMP'],
       ['Fachfrau/-mann Gesundheit', 'Fachmann Gesundheit'],
       ['Dipl. Pflegefachfrau_mann Endoskopie', 'Dipl. Pflegefachmann Endoskopie'],
       ['Zimmermann/Zimmerin fuer Holzbau', 'Zimmermann fuer Holzbau'],
