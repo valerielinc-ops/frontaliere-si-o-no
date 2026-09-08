@@ -14,7 +14,10 @@ describe('isAggregate — aggregate follow-ups bypass the already-resolved short
     expect(isAggregate('follow-up(#1674): 3 items deferred — fix(seo)', '')).toBe(true);
     expect(isAggregate('follow-up(#1651): 2 item deferred', '')).toBe(true);
   });
-  it('matches the count in the body too, not just the title', () => {
+  it('does not promote a body-only count to authoritative title evidence', () => {
+    expect(isAggregate('follow-up(#10): cleanup', '4 items deferred for later.')).toBe(false);
+  });
+  it('keeps the body keyword fallback for count-less aggregate prose', () => {
     expect(isAggregate('follow-up(#10): cleanup', 'This batch has 4 items deferred for later.')).toBe(true);
   });
   it('treats single-item / count-less follow-ups as non-aggregate (gate may short-circuit)', () => {

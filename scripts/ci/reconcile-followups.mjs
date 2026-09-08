@@ -62,26 +62,75 @@ const CLOSED_LABEL = 'fu-resolved-auto';
 // explicit keep-open pins + strategic trackers (revenue/tracker stay owner-gated).
 const KEEP_OPEN_LABELS = new Set(['pinned', 'keep-open', 'revenue', 'tracker', 'do-not-close']);
 
+function stripFencedBlocks(text) {
+  const lines = String(text || '').split('\n');
+  const out = [];
+  let fence = null;
+  let fenceStart = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = /^([ \t]*)(`{3,}|~{3,})/.exec(line);
+    if (fence) {
+      const closes = match
+        && match[2][0] === fence.char
+        && match[2].length >= fence.length
+        && match[1].length >= fence.indent;
+      if (closes) fence = null;
+      continue;
+    }
+    if (match) {
+      fence = { char: match[2][0], length: match[2].length, indent: match[1].length };
+      fenceStart = i;
+      continue;
+    }
+    out.push(line);
+  }
+
+  return fence ? [...out, ...lines.slice(fenceStart)].join('\n') : out.join('\n');
+}
+
+function isBoldTitleLead(rest, lines = [], start = 0) {
+  const bold = /^\*\*(?![ \t])(?:[^*]|\*(?!\*))+\*\*/;
+  let candidate = String(rest || '');
+  if (bold.test(candidate)) return true;
+  for (let i = start; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^[ \t]*(?:\d+[.)]|[-*])[ \t]+/.test(line)) break;
+    candidate += '\n' + line;
+    if (bold.test(candidate)) return true;
+  }
+  return false;
+}
+
+export function hasEnumeratedItems(body) {
+  const b = stripFencedBlocks(body);
+  const numberedSections = (b.match(/^#{2,4}[ \t]*(?:Item[ \t]*)?\d+[ \t]*[.)—–](?=[ \t]|$)/gim) || []).length;
+  if (numberedSections >= 2) return true;
+  const lines = b.split('\n');
+  const orderedBoldItems = lines.reduce((count, line, index) => {
+    const match = /^[ \t]*\d+[.)][ \t]+(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  if (orderedBoldItems >= 2) return true;
+  const boldLeadBullets = lines.reduce((count, line, index) => {
+    const match = /^[-*][ \t]+(?:\[[ xX]\][ \t]*)?(.*)$/.exec(line);
+    return count + (match && isBoldTitleLead(match[1], lines, index + 1) ? 1 : 0);
+  }, 0);
+  return boldLeadBullets >= 2;
+}
+
 /**
  * A title like "follow-up(#X): 3 item deferred — …" with N≥2 → multi-item aggregate.
- * These never auto-close: a prose-only sub-item contributes no gating code token, so the
- * matcher's "ALL tokens present" can be true while that sub-item is still undone — closing
- * would silently drop it. Single-item follow-ups (no count, or "1 item") are eligible.
- *
- * Two detectors, OR'd:
- *   1. Numeric count `N items` with N≥2.
- *   2. Keyword fallback `sweep|batch|bulk` — a sweep enumerates many targets WITHOUT an
- *      "N items" count (e.g. "Sweep: ~30 crawlers", #1826). Without this it scores as
- *      non-aggregate → `closeEligible` in decideReconcileAction can flip true and
- *      silently auto-close a partially-resolved sweep, dropping the remaining targets
- *      (29 of 30). Mirrors the same fallback added to issue-fix.yml / check-issue-
- *      already-resolved.mjs (single bug class across the sibling aggregate detectors).
+ * The explicit count matches the pre-flight form; body enumeration is the conservative
+ * fallback for titles that do not carry a count.
  * @param {string} title
+ * @param {string} [body]
  * @returns {boolean}
  */
-export function isAggregateTitle(title = '') {
+export function isAggregateTitle(title = '', body = '') {
   const t = String(title);
-  const m = t.match(/\b(\d+)\s+items?\b/i);
+  const m = t.match(/\b(\d+)\s+items?\s+deferred\b/i);
   // An explicit count is authoritative once present — trust it fully instead
   // of falling through to the keyword fallback below, which exists ONLY for
   // aggregates that never state a count. Otherwise a genuinely single-item
@@ -89,7 +138,8 @@ export function isAggregateTitle(title = '') {
   // (e.g. "1 item deferred ... batch backfill...") is misclassified as an
   // aggregate despite explicitly saying "1 item" (#3378).
   if (m) return Number(m[1]) >= 2;
-  return /\b(?:sweep|batch|bulk)\b/i.test(t);
+  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return true;
+  return hasEnumeratedItems(body);
 }
 
 /**
@@ -251,7 +301,7 @@ function main() {
     const labelNames = (iss.labels || []).map((l) => l.name);
     const hasMaybeResolved = labelNames.includes(LABEL);
     const blocked = labelNames.some((n) => KEEP_OPEN_LABELS.has(n));
-    const aggGate = isAggregateTitle(iss.title)
+    const aggGate = isAggregateTitle(iss.title, iss.body || '')
       ? aggregateCloseGate(iss.body || '', diskIo)
       : { blocks: false, reason: null };
     const isAggregate = aggGate.blocks;
