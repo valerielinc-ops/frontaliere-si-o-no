@@ -624,8 +624,14 @@ function reviewInProgress(head) {
   );
   for (const check of activeVitest) {
     const jobId = /\/job\/(\d+)(?:[/?#]|$)/.exec(check.details_url || '')?.[1];
-    if (!jobId) continue;
+    // An active check with no job link is still an unknown review state. Do
+    // not rebase into that gap: the push could cancel a review whose Jobs API
+    // record has not been materialized yet.
+    if (!jobId) return true;
     const job = gh(['api', `repos/${REPO}/actions/jobs/${jobId}`], { allowFail: true });
+    // During startup GitHub can return the job with `steps: []`; this is not a
+    // negative answer, it is the short window before the review step appears.
+    if (!job || !Array.isArray(job.steps) || job.steps.length === 0) return true;
     if (reviewStepIsInFlight(job?.steps)) return true;
   }
   return false;

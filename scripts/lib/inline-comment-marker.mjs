@@ -38,10 +38,20 @@ const MARKER_SOURCE = Symbol('markerSource');
 function hasCommentBefore(line, markerIndex) {
   let quote = '';
   let escaped = false;
+  let regex = false;
+  let regexClass = false;
   const firstCode = line.search(/\S/);
 
   for (let i = 0; i < markerIndex; i += 1) {
     const ch = line[i];
+    if (regex) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '[') regexClass = true;
+      else if (ch === ']') regexClass = false;
+      else if (ch === '/' && !regexClass) regex = false;
+      continue;
+    }
     if (quote) {
       if (escaped) escaped = false;
       else if (ch === '\\') escaped = true;
@@ -49,7 +59,13 @@ function hasCommentBefore(line, markerIndex) {
       continue;
     }
 
-    if (ch === "'" || ch === '"' || ch === '`') {
+    if (ch === '/' && line[i + 1] !== '/' && line[i + 1] !== '*' &&
+        isRegexLiteralStart(line, i)) {
+      regex = true;
+      regexClass = false;
+      continue;
+    }
+    if ((ch === "'" || ch === '"' || ch === '`') && isQuoteStart(line, i)) {
       quote = ch;
       continue;
     }
@@ -59,6 +75,21 @@ function hasCommentBefore(line, markerIndex) {
     if (ch === '*' && i === firstCode) return true;
   }
   return false;
+}
+
+function isQuoteStart(line, index) {
+  const previous = line[index - 1] || '';
+  return !(previous && /[\p{L}\p{N}_]/u.test(previous));
+}
+
+function isRegexLiteralStart(line, index) {
+  const prefix = line.slice(0, index).trimEnd();
+  const previous = prefix.at(-1) || '';
+  if (!previous) return true;
+  if (previous === '<' && /[\p{L}\p{N}]/u.test(line[index + 1] || '')) return false;
+  if (/(?:\+\+|--)$/.test(prefix)) return false;
+  if (/[=([{,:;!&|?+\-*%^~<>]/.test(previous)) return true;
+  return /\b(?:case|delete|do|else|in|instanceof|of|return|throw|typeof|void|yield|await)\s*$/u.test(prefix);
 }
 
 /** The actual context-sensitive implementation behind both public APIs. */

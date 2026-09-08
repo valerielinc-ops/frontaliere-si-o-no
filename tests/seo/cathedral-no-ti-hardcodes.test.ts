@@ -211,13 +211,25 @@ function scanSource(pattern: string | string[], fixed = false): string {
     if (error?.code !== 'ENOENT') throw error;
   }
 
-  // GitHub's runner has grep but not necessarily ripgrep. Keep the search
-  // argument-based so backticks and regex metacharacters never pass through a
-  // shell in either implementation.
+  // GitHub's runner has git but not necessarily ripgrep. Use git grep rather
+  // than grep -r so the fallback searches the same tracked source surface and
+  // does not diverge on ignored files or hidden-directory traversal.
+  const trackedScanDirs = [];
+  for (const directory of SCAN_DIRS) {
+    try {
+      if (execFileSync('git', ['ls-files', '--', directory], { encoding: 'utf8' }).trim() !== '') {
+        trackedScanDirs.push(directory);
+      }
+    } catch (error) {
+      // A missing path is an empty successful result; a git/repository error
+      // must remain loud, or the ratchet would pass on an empty scan.
+      throw error;
+    }
+  }
+  if (trackedScanDirs.length === 0) return '';
   try {
-    return execFileSync('grep', [
-      '-r', '-n', fixed ? '-F' : '-E',
-      ...patterns.flatMap((value) => ['-e', value]), ...SCAN_DIRS,
+    return execFileSync('git', ['grep', '--no-color', '-n', fixed ? '-F' : '-E',
+      ...patterns.flatMap((value) => ['-e', value]), ...trackedScanDirs,
     ], { encoding: 'utf8' });
   } catch (error: any) {
     if (error?.status === 1) return '';
@@ -356,6 +368,12 @@ describe('hasInlineAllow — il marker vale solo dentro un commento (#7676)', ()
     expect(hasInlineAllow("const css = 'border: 1px solid #ccc — vedi cathedral-allow';")).toBe(false);
     expect(hasInlineAllow("const cdn = '//cdn.esempio.dev/cathedral-allow/file.js';")).toBe(false);
     expect(hasInlineAllow('<a href="#cathedral-allow">cerca-lavoro-ticino</a>')).toBe(false);
+    expect(hasInlineAllow(`const re = /['"]/; // cathedral-allow: regex`)).toBe(true);
+    expect(hasInlineAllow('const parts = s.split(/=/); // cathedral-allow: regex')).toBe(true);
+    expect(hasInlineAllow('count /= 2; // cathedral-allow: assignment')).toBe(true);
+    expect(hasInlineAllow('count++ / 2 // cathedral-allow: division')).toBe(true);
+    expect(hasInlineAllow('</div> <!-- cathedral-allow: html -->')).toBe(true);
+    expect(hasInlineAllow("- name: L'app  # cathedral-allow: yaml")).toBe(true);
     expect(hasInlineAllow("const s = 'x'; // cathedral-allow: ragione")).toBe(true);
   });
 
@@ -433,8 +451,8 @@ describe('cathedral — forme derivate del literal TI (slash-delimited, #7674)',
     const patterns = new Map(TI_SECTION_SLUGS.map((slug) => [slug, tiSegmentPattern(slug)]));
     // Search by plain slug, then apply the JavaScript matcher below. ERE
     // dialects differ on the non-capturing groups used by tiSegmentPattern;
-    // passing that JS regexp to grep made the no-rg fallback silently return
-    // no candidates on some runners.
+    // passing that JS regexp to the fallback silently returned no candidates
+    // on some runners.
     const out = scanSource(TI_SECTION_SLUGS, true);
     for (const entry of out.split('\n').filter(Boolean)
       .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)) {

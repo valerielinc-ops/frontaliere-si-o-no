@@ -786,4 +786,32 @@ describe("il pavimento host misura l'headroom anonimo, non la sola RAM (#5899)",
     expect(text).toContain(`pavimento RAM-only duro di ${HOST_AVAIL_HARD_FLOOR_MB} MB`);
     expect(text).not.toContain('headroom anonimo dell\'host');
   });
+
+  it('congela la causa al primo breach, anche se i campioni successivi cambiano ramo', () => {
+    const state = createGuardState();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 200, swapFreeMb: 8000 }, withSwap);
+    }
+    observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    const text = formatBreachDiagnosis('host-floor', state, withSwap);
+    expect(text).toContain('MemAvailable dell\'host e\' scesa a 200 MB');
+    expect(text).toContain(`pavimento RAM-only duro di ${HOST_AVAIL_HARD_FLOOR_MB} MB`);
+    expect(text).not.toContain('headroom anonimo dell\'host');
+  });
+
+  it('azzera la causa quando la streak recupera e classifica la streak successiva', () => {
+    const state = createGuardState();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 200, swapFreeMb: 8000 }, withSwap);
+    }
+    observeSample(state, { rssMb: 11000, hostAvailMb: 1000, swapFreeMb: 8000 }, withSwap);
+    expect(state.consecutiveHostUnder).toBe(0);
+    expect(state.hostFloorCause).toBeNull();
+    for (let i = 0; i < 3; i += 1) {
+      observeSample(state, { rssMb: 11000, hostAvailMb: 600, swapFreeMb: 100 }, withSwap);
+    }
+    const text = formatBreachDiagnosis('host-floor', state, withSwap);
+    expect(text).toContain('headroom anonimo dell\'host');
+    expect(text).not.toContain('pavimento RAM-only duro');
+  });
 });
