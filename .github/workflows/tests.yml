@@ -26,11 +26,12 @@ name: tests
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
 #
-# ── UN SOLO job, quattro cancelli come step (era 4 job paralleli) ──────────
+# ── UN job pesante, quattro cancelli come step (era 4 job paralleli) ────────
 # `collision` (ex `pr-collision-detector.yml` job `detect`), `contract` (ex
 # `pr-body-contract.yml`), `typecheck` e `vitest` erano quattro JOB. Ora sono
-# quattro FAMIGLIE DI STEP dentro un job solo, e la fase comune — checkout +
-# `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro.
+# quattro FAMIGLIE DI STEP dentro il job pesante, e la fase comune — checkout +
+# `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro. Il
+# solo evento `edited` usa il companion body-only in fondo al file.
 #
 # Cosa cambiava prima e cosa cambia adesso: la PR #6534 aveva fattorizzato
 # setup-node+npm-ci in `.github/actions/ci-npm-setup`, ma una composite action
@@ -125,6 +126,12 @@ name: tests
 # descrive, e la PR del rename non mergerebbe MAI da sola. Il rename onesto
 # richiede due PR concatenate: prima insegnare ai lettori su `main` ad accettare
 # entrambi i nomi, poi rinominare.
+#
+# L'evento `edited` è l'unica eccezione al percorso pesante: il job qui sotto
+# viene saltato e il companion `body-contract` esegue lo stesso step del
+# contratto, con lo stesso nome required. Così il check `skipped` del job
+# pesante non può diventare un verdetto: `vitestCheck.mjs` ignora già i
+# `skipped`, mentre il companion lascia un esito reale del body.
 on:
   pull_request:
     branches: [main]
@@ -132,8 +139,8 @@ on:
     # types are [opened, synchronize, reopened] when unset, which is what
     # this workflow itself relied on before): pr-collision-detector.yml had
     # [opened, synchronize, reopened, ready_for_review], pr-body-contract.yml
-    # had [opened, edited, synchronize, reopened]. `edited` is required so
-    # `contract` still re-validates a PR body edit; `ready_for_review` is
+    # had [opened, edited, synchronize, reopened]. `edited` is required so the
+    # body-contract companion re-validates a PR body edit; `ready_for_review` is
     # required so `collision` still re-scans a draft coming out of draft. The
     # `labeled` event is the non-recursive handoff from stale-pr-rescuer:
     # that workflow uses the App identity because GITHUB_TOKEN labels do not
@@ -170,12 +177,14 @@ permissions:
 #   automation keeps its direct-push path without paying for or depending on
 #   the PR test job.
 concurrency:
-  group: tests-${{ github.workflow }}-${{ github.ref }}
-  # PR and workflow_dispatch runs use newest-wins.
+  # Body edits have their own newest-wins lane: an edit can cancel only an
+  # earlier edit, never a run testing a new commit on the same ref.
+  group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || 'code' }}
+  # PR and workflow_dispatch runs use newest-wins inside their lane.
   cancel-in-progress: true
 
 jobs:
-  # Job UNICO: checkout + setup-node + npm ci una volta sola, poi le quattro
+  # Job pesante: checkout + setup-node + npm ci una volta sola, poi le quattro
   # famiglie di step (collision, contract, typecheck, vitest). Il razionale
   # completo — e i quattro trade-off accettati — sta nella testata del file.
   #
@@ -184,9 +193,11 @@ jobs:
   # `VITEST_CHECK_NAME`. Non infilare altre chiavi fra le due righe.
   vitest:
     name: vitest (unit + integration)
-    # `labeled` è stato aggiunto solo per il rescue: non pagare l'intero job per
-    # label estranee (`agent:fix`, `needs-human`, recycle, redflag-fixer).
-    if: ${{ github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review') }}
+    # `edited` usa il companion body-contract qui sotto: non pagare il job
+    # pesante per una modifica che non ha cambiato il codice. `labeled` è stato
+    # aggiunto solo per il rescue: non pagare l'intero job per label estranee
+    # (`agent:fix`, `needs-human`, recycle, redflag-fixer).
+    if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -392,11 +403,12 @@ jobs:
       # `!cancelled()` sul primo step: un rosso di un'altra famiglia NON deve
       # impedire a questa di girare — era la proprietà dei quattro job
       # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
-      # Gira su OGNI evento `pull_request`, `edited` compreso: un'edit del body
-      # deve rivalidare il contract, ed è la ragione per cui `edited` sta nei
-      # `pull_request.types` di questo workflow.
+      # Gira su ogni evento `pull_request` del job pesante; su `edited` il
+      # companion body-only in fondo al file riusa questo stesso step. Il body
+      # viene quindi rivalidato senza riaprire il percorso pesante.
       # ══════════════════════════════════════════════════════════════════════
-      - name: PR-body completeness + multi-issue Closes (no checkout, all events)
+      - &pr-body-contract-step
+        name: PR-body completeness + multi-issue Closes (no checkout, all events)
         if: ${{ !cancelled() && github.event_name == 'pull_request' }}
         uses: actions/github-script@v8
         with:
@@ -2308,3 +2320,14 @@ jobs:
           # fallire è stato solo uno step `continue-on-error`.
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
+
+  # `edited` deve rivalidare il body ma non deve sostituire una verifica del
+  # codice in corso. Il nome è quello required del ruleset: su `edited` questo
+  # job produce il verdetto reale, mentre il job `vitest` sopra produce solo un
+  # check `skipped` che i selettori di `vitestCheck.mjs` ignorano.
+  body-contract:
+    name: vitest (unit + integration)
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}
+    runs-on: ubuntu-latest
+    steps:
+      - *pr-body-contract-step
