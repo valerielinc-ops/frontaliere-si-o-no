@@ -2061,6 +2061,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'casse-pensioni-rendimenti-2025': { it: 'casse-pensioni-rendimenti-2025', en: 'pension-funds-returns-2025', de: 'pensionskassen-rendite-2025', fr: 'caisses-pension-rendements-2025' },
  'ospedali-svizzeri-infermieri-fuga-anno': { it: 'ospedali-svizzeri-infermieri-fuga-anno', en: 'swiss-hospitals-nurses-exodus-year', de: 'schweizer-krankenhaeuser-pfleger-flucht-jahr', fr: 'hopitaux-suisses-infirmieres-fuite-annee' },
  'naturalizzazione-lucerna-documenti-timeline': { it: 'naturalizzazione-lucerna-documenti-timeline', en: 'lucerne-naturalization-documents-timeline', de: 'luzern-naturalisierung-dokumente-zeitplan', fr: 'lucerne-naturalisation-documents-delai' },
+ 'traffico-aereo-svizzero-cresce': { it: 'traffico-aereo-svizzero-cresce', en: 'swiss-air-traffic-grows', de: 'schweizer-luftverkehr-waechst', fr: 'trafic-aerien-suisse-augmente' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

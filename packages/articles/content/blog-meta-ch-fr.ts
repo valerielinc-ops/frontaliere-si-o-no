@@ -6106,6 +6106,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Naturalisation Lucerne : permis, coûts et procédures',
     'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Guide complet de la naturalisation ordinaire dans le canton de Lucerne : 10 ans de résidence avec permis C, exigences d\'intégration et langue allemande B1, 12-24 mois, taxes cantonales et communales.',
     'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Bureau communal lucernois avec formulaires de naturalisation suisse et documents de citoyenneté sur bureau administratif',
+    'blog.article.traffico-aereo-svizzero-cresce.title': 'Le trafic aérien suisse augmente, mais les émissions augmentent',
+    'blog.article.traffico-aereo-svizzero-cresce.excerpt': 'En 2025, l\'aviation civile a dépassé les chiffres pré-Covid : 1,4 million de mouvements (+5%), 60,5 millions de passagers (+4%). Cependant, les émissions de CO2 augmentent de 3%.',
+    'blog.article.traffico-aereo-svizzero-cresce.imageAlt': 'Vue aérienne du paysage alpin suisse avec avion au coucher du soleil',
 };
 
 export default blogMetaChFr;
