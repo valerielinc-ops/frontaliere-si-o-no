@@ -20,6 +20,7 @@ import { describe, expect, it } from 'vitest';
 import { buildScheda } from '../scripts/lib/monitor-scheda.mjs';
 import { checkUrlClean } from '../scripts/ci/cf-5xx-snapshot.mjs';
 import { buildAlertBody } from '../scripts/audit-canton-url-drift.mjs';
+import { buildPacingIssueBody } from '../scripts/check-email-quotas.mjs';
 import { buildHealthScheda } from '../scripts/check-crawler-health.mjs';
 import { buildFailBody, buildReadyBody } from '../scripts/dmarc-monitor.mjs';
 import { buildIssueBody as buildCf5xxBody } from '../scripts/cf-5xx-issue-sync.mjs';
@@ -94,6 +95,11 @@ const OPENERS: Array<[string, () => string]> = [
     alive: false, reason: '3 giorni sotto la soglia', floor: 200, windowDays: 7,
     deadDays: [{ date: '2026-09-05', count: 3 }],
   })],
+  ['email-quota-pacing', () => buildPacingIssueBody({
+    count: 2700, monthlyLimit: 3000, actualRatio: 0.9, expectedRatio: 0.5,
+    daysRemaining: 15, cycleStart: new Date(),
+    cycleEnd: new Date(Date.now() + 86_400_000),
+  })],
 ];
 
 /**
@@ -102,9 +108,12 @@ const OPENERS: Array<[string, () => string]> = [
  * Il controllo statico costa una riga e prende il caso che conta davvero —
  * qualcuno toglie la scheda da un opener.
  */
-const OPENERS_STATICI = [
-  'scripts/monitor-jobs-pipeline-queue.mjs',
-  'scripts/monitor-seo-ctr-by-template.mjs',
+const OPENERS_STATICI: Array<[string, number]> = [
+  ['scripts/monitor-jobs-pipeline-queue.mjs', 2],
+  ['scripts/monitor-seo-ctr-by-template.mjs', 2],
+  ['scripts/monitor-sector-coverage.mjs', 3],
+  ['scripts/check-autologin-refusal-rate.mjs', 1],
+  ['scripts/check-unsubscribe-credential-rate.mjs', 1],
 ];
 
 describe('opener dei monitor — il blocco `## Scheda`', () => {
@@ -141,13 +150,21 @@ describe('opener dei monitor — il blocco `## Scheda`', () => {
 });
 
 describe('opener senza corpo esportato — controllo statico', () => {
-  for (const rel of OPENERS_STATICI) {
+  for (const [rel, expectedSchede] of OPENERS_STATICI) {
     it(`${rel} chiama ancora buildScheda`, () => {
       const src = readFileSync(path.join(__dirname, '..', rel), 'utf8');
       expect(src).toContain("from './lib/monitor-scheda.mjs'");
-      expect(src).toContain('buildScheda({');
+      expect(src.match(/buildScheda\(\{/g)?.length ?? 0).toBeGreaterThanOrEqual(expectedSchede);
     });
   }
+
+  it('il corpo manuale di source-liveness usa sempre la variante che non conia', () => {
+    const body = buildSourceLivenessBody({
+      alive: false, reason: '3 giorni sotto la soglia', floor: 200, windowDays: 7,
+      deadDays: [{ date: '2026-09-05', count: 3 }],
+    });
+    expect(body).not.toMatch(/node scripts\/check-source-liveness\.mjs --json\n```/);
+  });
 });
 
 describe('buildScheda — l\'invariante e\' eseguibile, non un commento', () => {

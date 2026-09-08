@@ -39,6 +39,7 @@ import {
   fetchMailerooCycleUsage,
   fetchMailtrapCycleUsage,
 } from './lib/email-cascade.mjs';
+import { buildScheda } from './lib/monitor-scheda.mjs';
 
 // 15% slack over the expected pace before alerting — daily sends are lumpy
 // (newsletter days vs quiet days), so a small overshoot is normal noise, not
@@ -122,6 +123,31 @@ export function buildPacingIssueBody(signal) {
     '- Picco reale di domanda (newsletter/job-alert più grandi del solito).',
     '',
     '_Aperta automaticamente dal workflow Email Quota Check. Chiudi quando il ritmo rientra sotto pace._',
+    '',
+    buildScheda({
+      causa: [
+        '(ipotesi, da confermare.) Il consumo Resend sta correndo oltre il ritmo',
+        `compatibile con la quota mensile: ${pct(signal.actualRatio)} usato contro ${pct(signal.expectedRatio)} atteso.`,
+        'Il dato segnala il ritmo, non distingue da solo un bypass della cascade da un picco reale.',
+      ],
+      fix: [
+        'Dipende dalla causa confermata: cercare un invio che bypassa la cascade, verificare il',
+        'riordino dei provider o ridurre la domanda anomala. | **REPO**: sito e configurazione',
+        'dei provider; non preassegnata qui.',
+      ],
+      metrica: `prima=${pct(signal.actualRatio)} quota usata atteso=${pct(signal.expectedRatio * RESEND_PACE_BUFFER)} massimo con buffer`,
+      comando: 'node scripts/check-email-quotas.mjs --dry-run',
+      note: [
+        'Il comando rilegge le quote dei provider e stampa il segnale senza aprire o aggiornare',
+        'issue: la scheda si chiude quando il ritmo torna entro il buffer atteso.',
+      ],
+      osservatore: [
+        '`.github/workflows/check-email-quotas.yml`, che ricontrolla ogni giorno il ciclo Resend',
+        'e apre/aggiorna la issue quando il ritmo supera il buffer. Non esiste un closer automatico:',
+        'il comando qui sopra è il criterio con cui chiuderla.',
+      ],
+      fallimento: `\`${RESEND_PACING_ISSUE_TITLE}\``,
+    }),
   ].join('\n');
 }
 

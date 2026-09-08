@@ -61,8 +61,8 @@ import {
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DEFAULT_HISTORY_FILE = 'data/cf-5xx-history.jsonl';
-/** Top offending URLs kept per snapshot. Enough to spot a pattern, small enough to keep forever. */
-const TOP_PATHS = 15;
+/** Top offending URLs kept per snapshot. Matches cf-5xx-issue-sync's --limit=50 feeder cap. */
+const TOP_PATHS = 50;
 
 // ── Pure helpers (exported for tests) ────────────────────────────────────────────────
 
@@ -345,13 +345,27 @@ async function main() {
   const argv = process.argv.slice(2);
   const valueOf = (flag) => {
     const i = argv.indexOf(flag);
-    return i >= 0 ? argv[i + 1] : undefined;
+    if (i < 0) return undefined;
+    const value = argv[i + 1];
+    return !value || value.startsWith('--') ? null : value;
   };
-  const urlToCheck = valueOf('--check-url');
+  const urlArg = valueOf('--check-url');
+  if (urlArg === null) {
+    console.error('[cf-5xx-snapshot] --check-url richiede un valore');
+    process.exitCode = 2;
+    return;
+  }
+  const urlToCheck = urlArg;
   if (urlToCheck) {
-    const raw = valueOf('--snapshots');
+    const snapshotsArg = valueOf('--snapshots');
+    if (snapshotsArg === null) {
+      console.error('[cf-5xx-snapshot] --snapshots richiede un valore');
+      process.exitCode = 2;
+      return;
+    }
+    const raw = snapshotsArg;
     const snapshots = raw === undefined ? CHECK_URL_DEFAULT_SNAPSHOTS : Number(raw);
-    // Senza questo, `--snapshots pippo` (o `--snapshots` in coda ad argv) da'
+    // Senza questo, `--snapshots pippo` da'
     // NaN: `all.length < NaN` e' falso e `slice(-NaN)` degrada a `slice(0)`, cioe'
     // la finestra diventa la storia intera mentre la ragione stampata ne annuncia
     // un'altra. Un criterio che mente sulla finestra che ha usato e' peggio di uno

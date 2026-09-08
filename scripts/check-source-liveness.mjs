@@ -66,7 +66,7 @@ export function buildIssueBody(verdict) {
     '**Come rimisurare a mano:**',
     '```',
     'source bin/rc-env.sh   # dalla root del workspace',
-    'node scripts/check-source-liveness.mjs --json',
+    'node scripts/check-source-liveness.mjs --json --dry-run',
     '```',
     '',
     '_Fonte: scripts/check-source-liveness.mjs (guardia di vitalita\', scripts/lib/source-liveness.mjs). Questa issue e\' l\'UNICO canale di allarme per una sorgente morta: i singoli monitor si astengono in silenzio-dichiarato apposta, per non trasformare un guasto in dodici falsi allarmi._',
