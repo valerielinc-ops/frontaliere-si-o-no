@@ -1806,8 +1806,10 @@ export async function runRelocalization(phase) {
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
         servedCompanyKeys = new Set(
-          (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
-            ? crawlerResult.localizationAttemptedCompanyKeys : [])
+          (Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
+            ? crawlerResult.localizationCoveredCompanyKeys
+            : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
+              ? crawlerResult.localizationAttemptedCompanyKeys : []))
             .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
             .filter(Boolean),
         );
@@ -1911,7 +1913,8 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
+        const companyWasServed = executionKeys.length === 1
+          || servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
         if (companyWasServed) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,

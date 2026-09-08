@@ -175,7 +175,10 @@ describe('relocalize company invocation batching', () => {
     crawler.runSharedCrawlerPipeline
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
-        return { localizationAttemptedCompanyKeys: ['served-company'] };
+        return {
+          localizationAttemptedCompanyKeys: [],
+          localizationCoveredCompanyKeys: ['served-company'],
+        };
       })
       .mockImplementationOnce(async () => {
         crawlerCompanyKeys = process.env.JOBS_CRAWLER_COMPANY_KEYS || '';
@@ -202,13 +205,14 @@ describe('relocalize company invocation batching', () => {
     expect(ledger.companies['served-company'].sterile).toBe(1);
     expect(ledger.companies['unserved-company']).toEqual({ sterile: 1 });
 
-    // A singleton with no crawler coverage is also unserved: cardinality alone
-    // must never advance its ledger entry.
+    // Singleton invocations retain the pre-batching sterile-ledger semantics:
+    // they have their own full budget, so an empty result is a sterile visit.
     jobs = [jobs[1]];
     await runRelocalization(makePhase());
 
     expect(crawler.runSharedCrawlerPipeline).toHaveBeenCalledTimes(2);
     expect(crawlerCompanyKeys).toBe('unserved-company');
-    expect(ledger.companies['unserved-company']).toEqual({ sterile: 1 });
+    expect(ledger.companies['unserved-company'].sterile).toBe(0);
+    expect(ledger.companies['unserved-company'].skipUntilRun).toBeGreaterThan(0);
   });
 });
