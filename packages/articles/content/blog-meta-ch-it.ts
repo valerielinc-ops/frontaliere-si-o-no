@@ -6094,6 +6094,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novartis-fondo-pensione-crollo.title': 'Novartis crolla 10% in borsa per studi falliti',
     'blog.article.novartis-fondo-pensione-crollo.excerpt': 'Pelacarsen e Del-desiran non superano i test clinici. Capitalizzazione giù di 24 miliardi CHF, il crollo più grave della storia.',
     'blog.article.novartis-fondo-pensione-crollo.imageAlt': 'Veduta della Svizzera che evoca la stabilità economica nazionale in un momento di volatilità di borsa',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Salario minimo Ticino a rischio: 4.000 lavoratori esclusi',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'Il 7 settembre 2026 ritira l\'iniziativa popolare, ma la mozione Ettlin rischia di azzerare i benefici per il 67% dei lavoratori ristorazione. A rischio 316 franchi mensili di aumento.',
+    'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Aula del Parlamento federale svizzero durante una seduta plenaria sulla politica salariale',
 };
 
 export default blogMetaChIt;

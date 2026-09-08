@@ -2057,6 +2057,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'migros-online-regensdorf-2026': { it: 'migros-online-regensdorf-2026', en: 'migros-online-distribution-regensdorf-2026', de: 'migros-online-regensdorf-logistik-2026', fr: 'migros-ligne-regensdorf-distribution-2026' },
  'infermieri-carenza-svizzera-2034': { it: 'infermieri-carenza-svizzera-2034', en: 'nurses-shortage-switzerland-2034', de: 'pflegekraefte-mangel-schweiz-2034', fr: 'infirmiers-penurie-suisse-2034' },
  'novartis-fondo-pensione-crollo': { it: 'novartis-fondo-pensione-crollo', en: 'novartis-pension-fund-crash', de: 'novartis-pensionskasse-crash', fr: 'novartis-fonds-pension-effondrement' },
+ 'salario-minimo-ticino-mozione-ettlin': { it: 'salario-minimo-ticino-mozione-ettlin', en: 'minimum-wage-ticino-ettlin-motion', de: 'mindestlohn-tessin-ettlin-motion', fr: 'salaire-minimum-tessin-motion-ettlin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

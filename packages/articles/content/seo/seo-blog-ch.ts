@@ -79112,6 +79112,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-ticino-mozione-ettlin': {
+    title: 'Salario minimo Ticino a rischio: 4.000 lavoratori esclusi',
+    description: 'Il salario minimo ticinese raggiunge 21.75-22.25 CHF/ora, ma la mozione Ettlin rischia di escludere 4.000 lavoratori. Scopri come potrebbe cambiare il tuo',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, rischio, lavoratori',
+    ogTitle: 'Salario minimo Ticino a rischio: cosa devi sapere',
+    ogDescription: 'Il 7 settembre 2026 il Partito Socialista ritira l\'iniziativa, ma la mozione Ettlin minaccia i benefici per 4.000 lavoratori nel settore ristorazione. Aumento di 316 CHF mensili a rischio.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-ticino-mozione-ettlin/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo Ticino a rischio: 4.000 lavoratori esclusi",
+      "description": "Il salario minimo ticinese raggiunge 21.75-22.25 CHF/ora, ma la mozione Ettlin rischia di escludere 4.000 lavoratori. Scopri come potrebbe cambiare il tuo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-mozione-ettlin.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Parlamento federale svizzero durante una seduta plenaria sulla politica salariale"
+      },
+      "datePublished": "2026-09-08T15:06:51+00:00",
+      "dateModified": "2026-09-08T15:06:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-ticino-mozione-ettlin/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
