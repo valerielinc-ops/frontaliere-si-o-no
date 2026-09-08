@@ -111,7 +111,7 @@ jobs:
             Sei il growth report settimanale di frontaliereticino.ch. Il tuo compito: leggere i dati di prodotto DISPONIBILI e proporre al massimo 2 leve di crescita misurate, instradate nel ciclo autonomo. NON implementi nulla.
 
             **Bootstrap:**
-            1. Leggi `VISION.md` PER INTERO: missione, north-star, ordine di valore, driver, registro delle decisioni prese. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24: una proposta di espansione di scope (nuova verticale/dominio) ORA può diventare lavoro vero, non solo una domanda per il digest.
+            1. Leggi `VISION.md` PER INTERO per missione, north-star, ordine di valore e driver; leggi `DECISIONS.md` per il registro delle decisioni prese. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24: una proposta di espansione di scope (nuova verticale/dominio) ORA può diventare lavoro vero, non solo una domanda per il digest.
             2. Dati nel repo (leggi ciò che esiste, salta ciò che manca): `data/gsc-position-rolling.json` (posizioni GSC 7gg), `data/jobs-stats-history.json`, i file `data/*campaign*`/`data/*goal*` se presenti.
             3. Segnali dal ciclo: `gh issue list --state open --label seo --limit 20`; `gh issue list --state open --label campaign-goal --limit 10`; l'ultima issue "Loop health report" (`gh issue list --state open --search "Loop health report in:title" --limit 1` + ultimi 3 commenti); le famiglie ricorrenti (issue con titoli simili chiuse di recente: `gh issue list --state closed --limit 60 --json title` e conta i prefissi ripetuti).
 

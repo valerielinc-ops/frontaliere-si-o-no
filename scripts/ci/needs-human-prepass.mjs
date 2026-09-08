@@ -13,7 +13,7 @@
  *
  * La cosa che rende il cap sprecato è che la maggior parte di quelle issue **non
  * contiene una decisione**. Sulle 59 misurate, 7 erano decisioni vere (registrate
- * in `VISION.md` § «Decisioni RICHIESTE»); le altre erano guasti aperti da un
+ * in `DECISIONS.md`); le altre erano guasti aperti da un
  * monitor — `Crawler Failure:`, `CI Failure:`, `Validation Failure (dist)`,
  * `[crawler-health]`, `App Error:`, `PostHog Exception:` — e follow-up tecniche
  * con item deferred. Su nessuna di queste serve il giudizio di un modello per
@@ -128,17 +128,17 @@ export const MONITOR_TITLE_PATTERNS = [
  * Verdetti che il 2026-08-24 hanno smesso di essere blocchi di capacità.
  *
  * `blocked-secrets`: il proprietario ha autorizzato in modo permanente l'uso dei
- * secret (registro in `VISION.md`), e `issue-fix.yml` carica Remote Config prima
+ * secret (registro in `DECISIONS.md`), e `issue-fix.yml` carica Remote Config prima
  * del run. Un verdetto emesso prima di quella data descrive una configurazione
  * che non esiste più, quindi la issue è lavoro normale.
  */
 export const STALE_BLOCK_VERDICTS = new Set(['blocked-secrets']);
 
 /**
- * ## Il registro di VISION.md, letto QUI e non solo dal run Claude (#7280)
+ * ## Il registro di DECISIONS.md, letto QUI e non solo dal run Claude (#7280)
  *
  * `needs-human-sweep.yml` istruisce il run Claude a «cercare PRIMA una decisione
- * del proprietario già registrata nel registro di VISION.md: se c'è, la issue
+ * del proprietario già registrata nel registro di DECISIONS.md: se c'è, la issue
  * non è più una domanda — applicala». È corretto, ma quel run è SETTIMANALE, ha
  * cap 15 e costa quota. Questo pre-pass è GIORNALIERO, costa zero e scala — che
  * è testualmente il driver D5 di VISION.md («Allargare il riconoscimento del
@@ -177,7 +177,7 @@ export const STALE_BLOCK_VERDICTS = new Set(['blocked-secrets']);
  * affermativo è «condizionata», mai «incondizionata per default».
  */
 
-/** L'intestazione della sezione-tabella del registro in `VISION.md`. */
+/** L'intestazione della sezione-tabella del registro in `DECISIONS.md`. */
 export const REGISTRY_HEADING_RE = /^##\s+Decisioni del proprietario gi[àa] prese\b.*$/m;
 
 /**
@@ -274,7 +274,7 @@ export function citedRefs(text, { repo = '', requireRepo = false } = {}) {
 }
 
 /**
- * Le righe della tabella «Decisioni del proprietario già prese» di `VISION.md`.
+ * Le righe della tabella «Decisioni del proprietario già prese» di `DECISIONS.md`.
  *
  * Parsing a righe e non con un parser Markdown per la stessa ragione per cui
  * `needs-human-prepass-sparse-closure.test.ts` non usa un parser YAML: è
@@ -285,7 +285,7 @@ export function citedRefs(text, { repo = '', requireRepo = false } = {}) {
  * @returns {Array<{date: string, decision: string, source: string, refs: number[],
  *                  state: 'unconditional'|'conditional', why: string[]}>}
  */
-export function parseVisionRegistry(md = '') {
+export function parseDecisionRegistry(md = '') {
   const text = String(md || '');
   const head = REGISTRY_HEADING_RE.exec(text);
   if (!head) return [];
@@ -319,7 +319,7 @@ export const REPO_SLUGS = {
 /**
  * Di QUALE repo sono i numeri di una riga del registro.
  *
- * `VISION.md` sta sul sito ma è il registro del ciclo INTERO: le righe del
+ * `DECISIONS.md` sta sul sito ma è il registro del ciclo INTERO: le righe del
  * 2026-09-05 decidono su #727, #728, #814, #621, #625, #787, #804, #832 — che
  * sono numeri del CORPUS. Senza questo campo una issue del sito che nomina
  * `#814` per tutt'altra ragione aggancerebbe una decisione che non la riguarda:
@@ -408,12 +408,12 @@ export function blockedRefs(body = '', { homeScope = 'site' } = {}) {
   return [...out.values()].sort((a, b) => a.key.localeCompare(b.key));
 }
 
-const VISION_PATH = new URL('../../VISION.md', import.meta.url);
+const DECISIONS_PATH = new URL('../../DECISIONS.md', import.meta.url);
 
 /**
- * Il registro, dal file di QUESTO repo: `VISION.md` è la sorgente unica e sta
+ * Il registro, dal file di QUESTO repo: `DECISIONS.md` è la sorgente unica e sta
  * qui. Il gemello del corpus non ne ha una copia — deliberato — e la recupera
- * via `gh api …/contents/VISION.md`; là questa funzione è l'unico punto che
+ * via `gh api …/contents/DECISIONS.md`; là questa funzione è l'unico punto che
  * diverge, il resto del riconoscimento è lo stesso codice.
  *
  * Fail-open, e non per pigrizia: senza registro il pre-pass torna ESATTAMENTE
@@ -422,13 +422,13 @@ const VISION_PATH = new URL('../../VISION.md', import.meta.url);
  * girare — già successo, otto giorni, per un file fuori dal checkout sparse
  * (`tests/needs-human-prepass-sparse-closure.test.ts`).
  */
-export function readVisionRegistry() {
+export function readDecisionRegistry() {
   try {
-    const rows = parseVisionRegistry(fs.readFileSync(VISION_PATH, 'utf8'));
-    if (!rows.length) console.log('::warning::needs-human-prepass: registro di VISION.md vuoto o non riconosciuto → riconoscimento disattivato per questo run.');
+    const rows = parseDecisionRegistry(fs.readFileSync(DECISIONS_PATH, 'utf8'));
+    if (!rows.length) console.log('::warning::needs-human-prepass: registro di DECISIONS.md vuoto o non riconosciuto → riconoscimento disattivato per questo run.');
     return rows;
   } catch (e) {
-    console.log(`::warning::needs-human-prepass: VISION.md non leggibile (${String(e).slice(0, 120)}) → riconoscimento del registro disattivato per questo run.`);
+    console.log(`::warning::needs-human-prepass: DECISIONS.md non leggibile (${String(e).slice(0, 120)}) → riconoscimento del registro disattivato per questo run.`);
     return [];
   }
 }
@@ -535,7 +535,7 @@ function decideAction({ title = '', labels = [], verdict = null, reg }) {
     };
   }
 
-  // Il registro di `VISION.md` batte il «famiglia non riconosciuta → keep» qui
+  // Il registro di `DECISIONS.md` batte il «famiglia non riconosciuta → keep» qui
   // sotto: una issue che cita una riga INCONDIZIONATA non è più una domanda per
   // il proprietario — è lavoro normale, e la sua porta non deve essere un run
   // Claude settimanale con cap 15 (D5).
@@ -558,7 +558,7 @@ function decideAction({ title = '', labels = [], verdict = null, reg }) {
     const cited = reg.refs.map((n) => `#${n}`).join(' ');
     return {
       action: 'requeue',
-      reason: `il registro di \`VISION.md\` ha già deciso il ${r.date} sui riferimenti citati nel corpo (${cited}), con una riga incondizionata (nessun qualificatore): non è più una domanda per il proprietario`,
+      reason: `il registro di \`DECISIONS.md\` ha già deciso il ${r.date} sui riferimenti citati nel corpo (${cited}), con una riga incondizionata (nessun qualificatore): non è più una domanda per il proprietario`,
     };
   }
 
@@ -643,7 +643,7 @@ export function prepassNote(reg, staleBlocks = []) {
   const out = [];
 
   if (rows.length) {
-    out.push('📓 **Registro di `VISION.md`: la decisione che riguarda questa issue esiste già.**', '');
+    out.push('📓 **Registro di `DECISIONS.md`: la decisione che riguarda questa issue esiste già.**', '');
     out.push(
       'Il pre-pass deterministico (zero-Claude, giornaliero) ha agganciato i riferimenti citati '
       + 'nel corpo alle righe del registro «Decisioni del proprietario già prese». Sono qui, '
@@ -726,7 +726,7 @@ function makeRefResolver() {
 
 function main() {
   if (!REPO) { console.log('needs-human-prepass: nessun repo risolvibile → niente da fare.'); return; }
-  const registry = readVisionRegistry();
+  const registry = readDecisionRegistry();
   let issues = [];
   try {
     // `body` entra qui e non con una chiamata per issue: `gh issue list` lo
@@ -738,7 +738,7 @@ function main() {
     console.log(`::warning::needs-human-prepass: elenco non leggibile (${String(e).slice(0, 100)}) → nessuna azione.`);
     return;
   }
-  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue \`needs-human\`, registro VISION.md: ${registry.length} righe${DRY ? ' [DRY-RUN]' : ''}`);
+  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue \`needs-human\`, registro DECISIONS.md: ${registry.length} righe${DRY ? ' [DRY-RUN]' : ''}`);
 
   // Le più stantie prima: sono quelle che aspettano da più tempo, e il cap non
   // deve tagliarle sempre. `gh issue list` ordina dalla più recente.
@@ -811,8 +811,8 @@ function main() {
     // decisione del proprietario`, affermato SENZA aver letto il registro. Ora è
     // un esito verificato in questo run, e la forma dice quale dei tre casi è.
     const registryVerdict = registry.length
-      ? (d.note ? '' : 'Nessuna riga del registro «Decisioni del proprietario già prese» di `VISION.md` riguarda i riferimenti citati nel corpo: verificato in questo run, non assunto.')
-      : 'Il registro di `VISION.md` non è stato leggibile in questo run, quindi il riconoscimento del registro non si è pronunciato (fail-open).';
+      ? (d.note ? '' : 'Nessuna riga del registro «Decisioni del proprietario già prese» di `DECISIONS.md` riguarda i riferimenti citati nel corpo: verificato in questo run, non assunto.')
+      : 'Il registro di `DECISIONS.md` non è stato leggibile in questo run, quindi il riconoscimento del registro non si è pronunciato (fail-open).';
     const note = [
       `🔁 **Pre-pass deterministico dello sweep (zero-Claude)**: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
       registryVerdict,

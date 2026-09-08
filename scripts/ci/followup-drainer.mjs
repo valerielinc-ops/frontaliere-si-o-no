@@ -476,7 +476,7 @@ export const NON_RETRYABLE = new Set([
 export const PREPASS_VERDICT_BEATS_FAMILY = new Set([...NON_RETRYABLE, 'max-turns']);
 
 // `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
-// proprietario del 2026-08-24 (registro in VISION.md): l'uso dei secret dal
+// proprietario del 2026-08-24 (registro in DECISIONS.md): l'uso dei secret dal
 // ciclo autonomo e' autorizzato in modo permanente. `issue-fix.yml` carica
 // Remote Config prima del run, quindi la credenziale che il verdetto dichiarava
 // mancante ORA c'e' — e un verdetto emesso prima di quella data descrive una
@@ -1976,7 +1976,7 @@ export function isCapabilityScoped(iss, {
   canPushWorkflows: canPushWorkflowsOpt = canPushWorkflows(),
 } = {}) {
   // Il ramo secrets e' CADUTO INTERO, per label e per forma: decisione del
-  // proprietario del 2026-08-24 (registro in VISION.md). Le credenziali sono
+  // proprietario del 2026-08-24 (registro in DECISIONS.md). Le credenziali sono
   // caricate nel run del fixer, quindi una issue secrets-scoped e' lavoro
   // normale e non una capacita' mancante.
   //
@@ -3585,7 +3585,7 @@ export function runDrain() {
       // NON si parca piu', e il commento che stava qui dichiarava il falso: diceva
       // «credenziale caricata via Firebase Remote Config, non disponibile
       // nell'ambiente issue-fix». Dal 2026-08-24 `issue-fix.yml` la carica —
-      // decisione del proprietario, registro in VISION.md — quindi quel gate
+      // decisione del proprietario, registro in DECISIONS.md — quindi quel gate
       // parcheggiava lavoro che il fixer puo' fare. Misurato: 7 occorrenze in
       // 14 giorni.
       //

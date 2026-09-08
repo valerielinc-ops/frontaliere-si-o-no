@@ -64,7 +64,7 @@ describe('prepassDecision — ciò che NON deve toccare', () => {
     ['CMP certificato: unificare il consenso ads'],
     ['Repo weight: backlog delle leve sul tasso di crescita'],
   ])('decisione del proprietario → keep: %s', (title) => {
-    // Sono le righe di VISION.md § «Decisioni RICHIESTE». Se una finisse in
+    // Sono le righe di DECISIONS.md. Se una finisse in
     // `requeue`, il fixer implementerebbe una scelta che non gli spetta —
     // espansione di scope, denaro, consenso — che è precisamente ciò che la
     // lista «Sempre umano» esiste per impedire.
@@ -301,9 +301,9 @@ describe('l\'allowlist è un contratto, non un\'euristica', () => {
 });
 
 /**
- * ## Il riconoscimento del registro di VISION.md (#7280)
+ * ## Il riconoscimento del registro di DECISIONS.md (#7280)
  *
- * Questi casi girano sul `VISION.md` REALE del repo, non su una fixture. È
+ * Questi casi girano sul `DECISIONS.md` REALE del repo, non su una fixture. È
  * deliberato: il difetto che chiudono non è «il parser sbaglia una tabella
  * inventata», è «il pre-pass legge male le righe che il proprietario ha
  * davvero scritto». Una fixture direbbe di sì a qualunque criterio.
@@ -315,7 +315,7 @@ describe('l\'allowlist è un contratto, non un\'euristica', () => {
 import fs from 'node:fs';
 import path from 'node:path';
 import {
-  parseVisionRegistry,
+  parseDecisionRegistry,
   matchRegistry,
   registryRowState,
   registryRowScope,
@@ -325,8 +325,8 @@ import {
   noteMarker,
 } from '../scripts/ci/needs-human-prepass.mjs';
 
-const VISION = fs.readFileSync(path.resolve(__dirname, '..', 'VISION.md'), 'utf-8');
-const REGISTRY = parseVisionRegistry(VISION);
+const DECISIONS = fs.readFileSync(path.resolve(__dirname, '..', 'DECISIONS.md'), 'utf-8');
+const REGISTRY = parseDecisionRegistry(DECISIONS);
 
 /** L'esito del pre-pass su un corpo che cita `#n`, senza altri segnali. */
 function verdictFor(n: number) {
@@ -335,7 +335,7 @@ function verdictFor(n: number) {
   return g.unconditional.length && !g.conditional.length ? 'sblocca' : 'annota';
 }
 
-describe('registro di VISION.md — incondizionata vs condizionata (i casi reali)', () => {
+describe('registro di DECISIONS.md — incondizionata vs condizionata (i casi reali)', () => {
   it('il registro si legge davvero: la tabella non è vuota', () => {
     expect(REGISTRY.length).toBeGreaterThan(10);
   });
@@ -419,7 +419,7 @@ describe('numerazione: due repo, un registro', () => {
   });
 
   it('una riga che parla del corpus non decide su un numero del sito', () => {
-    // `VISION.md` sta sul sito ma registra il ciclo intero: le righe del
+    // `DECISIONS.md` sta sul sito ma registra il ciclo intero: le righe del
     // 2026-09-05 decidono su #727/#814/#832, che sono numeri del CORPUS.
     expect(registryRowScope('Obiettivo crawler-goal RIATTIVATO (#727 piano, #728 audit, corpus)')).toBe('corpus');
     expect(registryRowScope('#6280 (candidatura assistita): **SÌ, procedi**')).toBe('site');
@@ -442,7 +442,7 @@ describe('il registro non scavalca i verdetti che questo stadio non sa cambiare'
   it('riga incondizionata + nessun verdetto → requeue col registro citato', () => {
     const d = prepassDecision({ title: 'candidatura assistita: checkout', body: 'vedi #6280', registry: REGISTRY });
     expect(d.action).toBe('requeue');
-    expect(d.reason).toMatch(/registro di `VISION\.md`/);
+    expect(d.reason).toMatch(/registro di `DECISIONS\.md`/);
   });
 
   it('`max-turns` batte il registro: la decisione non accorcia la run già morta', () => {
@@ -464,7 +464,7 @@ describe('il registro non scavalca i verdetti che questo stadio non sa cambiare'
   it('la riga condizionata viene ALLEGATA: la issue non è più indistinguibile nel keep', () => {
     const d = prepassDecision({ title: 'repo weight', body: 'leva 2 di #5995', registry: REGISTRY });
     expect(d.action).toBe('keep');
-    expect(d.note).toContain('Registro di `VISION.md`');
+    expect(d.note).toContain('Registro di `DECISIONS.md`');
     expect(d.note).toMatch(/2026-08-24/);
     expect(d.marker).toBe('<!-- PREPASS_NOTE: r=5995 -->');
   });

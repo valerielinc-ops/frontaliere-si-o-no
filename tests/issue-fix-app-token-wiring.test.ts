@@ -132,7 +132,7 @@ describe('issue-fix.yml — App token wiring', () => {
     // Until 2026-08-24 the prompt told the agent the opposite of what this asserts now —
     // "NON hai PAT/Firebase SA" — and that line was true: the fixer ran with no Remote
     // Config loaded, so `blocked-secrets` was a real capability gap, not a stale verdict.
-    // The owner then authorized secret USE from the autonomous loop permanently (VISION.md
+    // The owner then authorized secret USE from the autonomous loop permanently (DECISIONS.md
     // registry), and `issue-fix.yml` grew a Firebase SA + `load-rc-env.mjs` step for it
     // (same commit that removed the old sentence this test used to check for). A prompt
     // still telling the agent "you have no PAT/Firebase SA" after that step runs would be
@@ -298,7 +298,7 @@ describe('secrets: USO autorizzato ≠ ROTAZIONE (review round 2, #6333)', () =>
   // Trovato dalla review su #6333: il capability-guard aggiornato dice "USALA" per
   // qualunque fix che richiede una credenziale, ma non distingue "usare un secret che
   // c'è" da "ruotarlo/rigenerarlo/revocarlo" — un'azione fuori-banda che nessuna
-  // variabile in process.env può soddisfare. VISION.md distingue le due cose (uso
+  // variabile in process.env può soddisfare. DECISIONS.md distingue le due cose (uso
   // autorizzato il 24-08, rotazione dichiarata umana il 18-08); senza quella
   // distinzione riportata anche in ISSUES.md, un'issue di rotazione rischiava di far
   // tentare al fixer un'implementazione impossibile invece di abortire al turno 1 —

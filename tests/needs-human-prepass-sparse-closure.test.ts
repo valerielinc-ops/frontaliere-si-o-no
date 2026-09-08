@@ -151,20 +151,20 @@ describe('needs-human-sweep.yml — chiusura sparse del job prepass', () => {
 });
 
 describe('needs-human-sweep.yml — il DATO che il pre-pass legge, non solo i suoi import', () => {
-  it('il job `prepass` checkouta `/VISION.md`', () => {
+  it('il job `prepass` checkouta `/DECISIONS.md`', () => {
     // Il test qui sopra cammina i `from '...'` e per costruzione non puo'
-    // vedere questo: `VISION.md` non e' un modulo, e' il registro che il
+    // vedere questo: `DECISIONS.md` non e' un modulo, e' il registro che il
     // pre-pass legge dal 2026-09-05 per riconoscere le decisioni gia' prese.
     //
     // E la sua assenza non e' rumorosa come un ERR_MODULE_NOT_FOUND:
-    // `readVisionRegistry()` e' fail-open apposta (un pre-pass che muore e'
+    // `readDecisionRegistry()` e' fail-open apposta (un pre-pass che muore e'
     // peggio di uno che non riconosce), quindi senza questa riga il job
     // resterebbe VERDE mentre il riconoscimento e' spento — la forma «smette di
     // avanzare in silenzio». Questo test e' l'unico posto che la vede.
     const wf = fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf-8');
     expect(
       sparsePatternsFor(wf, 'prepass'),
-      'senza /VISION.md il riconoscimento del registro e\' spento e il job resta verde',
-    ).toContain('/VISION.md');
+      'senza /DECISIONS.md il riconoscimento del registro e\' spento e il job resta verde',
+    ).toContain('/DECISIONS.md');
   });
 });

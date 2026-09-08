@@ -8,7 +8,7 @@
  * full Claude run that ended `blocked-secrets`. This detector intercepted
  * them PRE-promotion, mirroring `detectWorkflowScoped` (#1724). From
  * 2026-08-24 `issue-fix.yml` loads Remote Config too (owner decision,
- * VISION.md), so that credential is now present and the drainer promotes
+ * DECISIONS.md), so that credential is now present and the drainer promotes
  * these anyway — the detector's match is logged, not parking. CONSERVATIVE
  * (bias to promote): only the 3 known monitor-applied labels ever match.
  */
@@ -208,7 +208,7 @@ describe('#5838 — poi CADUTO per decisione del proprietario (2026-08-24)', () 
   // era un blocco di capacità reale.
   //
   // Il proprietario ha autorizzato in modo permanente l'uso dei secret dal
-  // ciclo autonomo (registro in VISION.md) e `issue-fix.yml` carica Remote
+    // ciclo autonomo (registro in DECISIONS.md) e `issue-fix.yml` carica Remote
   // Config prima di ogni run: una issue secrets-scoped è ora lavoro normale.
   // Questi due test sono INVERTITI, non cancellati — sono il punto dove un
   // ripristino accidentale del vecchio guard diventerebbe rosso invece di

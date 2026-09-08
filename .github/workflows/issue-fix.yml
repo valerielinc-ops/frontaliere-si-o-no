@@ -196,7 +196,7 @@ jobs:
         if: steps.quota.outputs.quota_blocked != 'true'
         run: npm ci
 
-      # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in VISION.md): l'uso dei
+      # DECISIONE DEL PROPRIETARIO, 2026-08-24 (registro in DECISIONS.md): l'uso dei
       # secret dal ciclo autonomo è autorizzato in modo permanente e non va più
       # chiesto caso per caso.
       #
@@ -381,6 +381,26 @@ jobs:
           mkdir -p "$CTX_DIR"
           gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
           body=$(jq -r '.title + "\n" + .body + "\n" + (.labels[].name)' "$CTX_DIR/issue.json")
+          # Decision registry prefetch: il fixer deve ricevere le decisioni senza
+          # spendere un turno per una lettura che può arrivare troncata. Il cap
+          # è intenzionale: se il registro cresce oltre 12 KiB il run fallisce
+          # qui, invece di riprodurre silenziosamente il difetto di contesto.
+          DECISIONS_FILE="DECISIONS.md"
+          DECISIONS_MAX_BYTES=12288
+          if [ ! -f "$DECISIONS_FILE" ]; then
+            echo "::error::decision registry missing: $DECISIONS_FILE"
+            exit 1
+          fi
+          DECISIONS_BYTES=$(wc -c < "$DECISIONS_FILE")
+          if [ "$DECISIONS_BYTES" -gt "$DECISIONS_MAX_BYTES" ]; then
+            echo "::error::decision registry too large: $DECISIONS_BYTES bytes > $DECISIONS_MAX_BYTES-byte cap"
+            exit 1
+          fi
+          {
+            echo "decision_registry<<DECISION_REGISTRY_EOF"
+            cat "$DECISIONS_FILE"
+            echo "DECISION_REGISTRY_EOF"
+          } >> "$GITHUB_OUTPUT"
           # Capability guard text (spostato qui da un ternario inline nel
           # prompt, #6688-followup 2026-08-30): lo stesso ternario espanso in YAML
           # gonfiava lo scalar `prompt:` di ~2000 char, e quel singolo step scalar
@@ -401,7 +421,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           # Stessa mossa, testo statico (nessun ternario): anche questo pezzo
           # viveva inline nel prompt e contribuiva al totale del blocco.
-          SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
+          SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in DECISIONS.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
           {
             echo "secrets_note<<SECRETS_NOTE_EOF"
             echo "$SECRETS_NOTE"
@@ -657,7 +677,11 @@ jobs:
             **Bootstrap (in quest'ordine):**
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
-            2b. Leggi `VISION.md` — driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé. Il registro delle decisioni del proprietario già prese è lì: non ri-chiedere ciò che è già deciso.
+            2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé.
+            Il registro delle decisioni è stato precaricato deterministicamente dal workflow (zero-Claude) e va trattato come fonte vincolante; non cercare il file e non ri-chiedere ciò che è già deciso:
+
+            ### Registro delle decisioni del proprietario (iniettato dal workflow)
+            ${{ steps.tier.outputs.decision_registry }}
             3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
 
             **Pre-condizioni (abort se falliscono):**

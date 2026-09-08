@@ -130,7 +130,7 @@ describe('il secrets-scope guard è CADUTO (decisione del proprietario, 2026-08-
   // (a differenza di quello del corpus, che le carica da sempre), quindi
   // escludere quelle issue per sempre era corretto. Dal 2026-08-24 il
   // proprietario ha autorizzato in modo permanente l'uso dei secret (registro in
-  // VISION.md) e `issue-fix.yml` carica Remote Config: la premessa non c'è più.
+  // DECISIONS.md) e `issue-fix.yml` carica Remote Config: la premessa non c'è più.
   //
   // Il test resta, invertito, perché è il punto dove un ripristino accidentale si
   // vedrebbe: se qualcuno rimette l'esclusione, qui diventa rosso e la decisione
