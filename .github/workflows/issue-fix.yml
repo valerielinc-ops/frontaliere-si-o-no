@@ -401,6 +401,29 @@ jobs:
             cat "$DECISIONS_FILE"
             echo "DECISION_REGISTRY_EOF"
           } >> "$GITHUB_OUTPUT"
+          # Binding AGENTS contract prefetch: reuse the fail-closed section
+          # extractor used by pr-redflag-fixer, so the fixer receives the
+          # non-negotiables before Claude spends a turn reading the file.
+          AGENTS_CONTRACT_FILE="AGENTS.md"
+          AGENTS_CONTRACT_MAX_BYTES=12288
+          if [ ! -f "$AGENTS_CONTRACT_FILE" ]; then
+            echo "::error::AGENTS contract missing: $AGENTS_CONTRACT_FILE"
+            exit 1
+          fi
+          if ! REDFLAG_DOC_ROOT=. node scripts/ci/redflag-doc-sections.mjs --agents-only > "$CTX_DIR/agents-contract.md"; then
+            echo "::error::could not prefetch the binding AGENTS contract"
+            exit 1
+          fi
+          AGENTS_CONTRACT_BYTES=$(wc -c < "$CTX_DIR/agents-contract.md")
+          if [ "$AGENTS_CONTRACT_BYTES" -gt "$AGENTS_CONTRACT_MAX_BYTES" ]; then
+            echo "::error::AGENTS contract too large: $AGENTS_CONTRACT_BYTES bytes > $AGENTS_CONTRACT_MAX_BYTES-byte cap"
+            exit 1
+          fi
+          {
+            echo "agents_contract<<AGENTS_CONTRACT_EOF"
+            cat "$CTX_DIR/agents-contract.md"
+            echo "AGENTS_CONTRACT_EOF"
+          } >> "$GITHUB_OUTPUT"
           # Capability guard text (spostato qui da un ternario inline nel
           # prompt, #6688-followup 2026-08-30): lo stesso ternario espanso in YAML
           # gonfiava lo scalar `prompt:` di ~2000 char, e quel singolo step scalar
@@ -674,9 +697,13 @@ jobs:
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
+            **Contratto vincolante di `AGENTS.md` (prefetch zero-Claude):**
+            Il workflow ha già iniettato qui sotto le sezioni `Non-Negotiables` e `Privacy` dal checkout corrente. Sono la fonte vincolante per questo run: non spendere un turno per rileggerle e TERMINA se il blocco manca o appare incompleto.
+            ${{ steps.tier.outputs.agents_contract }}
+
             **Bootstrap (in quest'ordine):**
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
-            2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
+            2. Il contratto vincolante di `AGENTS.md` è già iniettato sopra. Leggi da `AGENTS.md` solo le sezioni operative necessarie, inclusa l'architettura, dopo aver caricato il contratto.
             2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé.
             Il registro delle decisioni è stato precaricato deterministicamente dal workflow (zero-Claude) e va trattato come fonte vincolante; non cercare il file e non ri-chiedere ciò che è già deciso:
 

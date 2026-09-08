@@ -1,5 +1,5 @@
 /**
- * Extract the small, binding document sections needed by pr-redflag-fixer.
+ * Extract the small, binding document sections needed by automated fixers.
  *
  * This runs before Claude and fails closed: a renamed or removed heading must
  * stop the prefetch instead of producing a bundle that looks complete.
@@ -12,6 +12,11 @@ import { resolve } from 'node:path';
 export const REQUIRED_SECTIONS = Object.freeze([
   { file: 'REVIEW.md', heading: '## Scopo progetto = filtro "important"' },
   { file: 'REVIEW.md', heading: '## Severity' },
+  { file: 'AGENTS.md', heading: '## Non-Negotiables' },
+  { file: 'AGENTS.md', heading: '## Privacy' },
+]);
+
+export const AGENTS_REQUIRED_SECTIONS = Object.freeze([
   { file: 'AGENTS.md', heading: '## Non-Negotiables' },
   { file: 'AGENTS.md', heading: '## Privacy' },
 ]);
@@ -99,15 +104,23 @@ export function extractSectionByHeading(markdown, heading) {
  * @param {{ read?: (file: string) => string }} [options]
  * @returns {string}
  */
-export function buildRedflagDocumentSections({ read } = {}) {
+function buildDocumentSections(requiredSections, title, { read } = {}) {
   const reader = read ?? ((file) => readFileSync(resolve(process.env.REDFLAG_DOC_ROOT ?? '.', file), 'utf8'));
-  const chunks = REQUIRED_SECTIONS.map(({ file, heading }) => {
+  const chunks = requiredSections.map(({ file, heading }) => {
     const content = extractSectionByHeading(reader(file), heading);
     const title = heading.replace(/^#{1,6}[ \t]+/, '');
     return [`## ${file} — ${title}`, content].join('\n\n');
   });
 
-  return ['# Redflag-fix: sezioni documentali vincolanti', ...chunks].join('\n\n') + '\n';
+  return [title, ...chunks].join('\n\n') + '\n';
+}
+
+export function buildRedflagDocumentSections({ read } = {}) {
+  return buildDocumentSections(REQUIRED_SECTIONS, '# Redflag-fix: sezioni documentali vincolanti', { read });
+}
+
+export function buildIssueFixAgentContract({ read } = {}) {
+  return buildDocumentSections(AGENTS_REQUIRED_SECTIONS, '# Issue-fix: contratto AGENTS.md vincolante', { read });
 }
 
 const invokedDirectly = process.argv[1]
@@ -115,7 +128,10 @@ const invokedDirectly = process.argv[1]
 
 if (invokedDirectly) {
   try {
-    process.stdout.write(buildRedflagDocumentSections());
+    const builder = process.argv.includes('--agents-only')
+      ? buildIssueFixAgentContract
+      : buildRedflagDocumentSections;
+    process.stdout.write(builder());
   } catch (error) {
     console.error(`redflag-doc-sections: ${error instanceof Error ? error.message : String(error)}`);
     process.exitCode = 1;
