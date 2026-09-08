@@ -291,7 +291,7 @@ describe('posthog-error-issue-sync.mjs', () => {
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
 
-    await posthogSync.main();
+    await posthogSync.main({ ga4FallbackImpl: async () => [] });
 
     expect(fetchMock).not.toHaveBeenCalled();
     expect(ghCalls()).toHaveLength(0);
@@ -302,7 +302,7 @@ describe('posthog-error-issue-sync.mjs', () => {
     process.env.POSTHOG_PROJECT_ID = 'p';
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 500, text: async () => 'boom' }));
 
-    await posthogSync.main();
+    await posthogSync.main({ ga4FallbackImpl: async () => [] });
 
     expect(ghCalls()).toHaveLength(0);
     delete process.env.POSTHOG_PERSONAL_API_KEY;

@@ -108,13 +108,51 @@ export async function verifyCdnAssetRefs({
     }
     checked += 1;
 
+    /**
+     * A fetch timeout alone is not a run budget: a HEAD that reaches its
+     * timeout can still be followed by a full GET fallback. Arm one
+     * AbortController with the smaller of the per-request timeout and the
+     * remaining run budget, and recompute that residual before a fallback.
+     * The first residual is passed in because `now` is injectable and a test
+     * clock may advance on every read.
+     */
+    const fetchWithinBudget = async (method, initialRemainingMs = null) => {
+      const remainingMs = initialRemainingMs ?? (budgetMs - (now() - startedAt));
+      if (remainingMs <= 0) return { budget: true };
+
+      const controller = new AbortController();
+      const deadlineMs = Math.max(1, Math.min(timeoutMs, remainingMs));
+      const timer = setTimeout(() => controller.abort(), deadlineMs);
+      try {
+        return {
+          response: await fetchImpl(url, { method, redirect: 'follow', signal: controller.signal }),
+        };
+      } catch (error) {
+        return { error };
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+
     try {
-      let res = await fetchImpl(url, { method: 'HEAD', redirect: 'follow', signal: AbortSignal.timeout(timeoutMs) });
+      let attempt = await fetchWithinBudget('HEAD', budgetMs - elapsed);
+      if (attempt.budget) {
+        results.push({ url, state: 'skipped', status: null, reason: `budget di ${budgetMs}ms esaurito prima della richiesta` });
+        continue;
+      }
+      if (attempt.error) throw attempt.error;
+      let res = attempt.response;
       // Alcune origin non implementano HEAD (405/501): la domanda e'
       // sull'esistenza dell'oggetto, non sul metodo, quindi si ripiega su GET
       // invece di registrare un falso `missing`.
       if (res.status === 405 || res.status === 501) {
-        res = await fetchImpl(url, { method: 'GET', redirect: 'follow', signal: AbortSignal.timeout(timeoutMs) });
+        attempt = await fetchWithinBudget('GET');
+        if (attempt.budget) {
+          results.push({ url, state: 'skipped', status: null, reason: `budget di ${budgetMs}ms esaurito prima del GET di fallback` });
+          continue;
+        }
+        if (attempt.error) throw attempt.error;
+        res = attempt.response;
       }
       const contentType = res.headers?.get ? res.headers.get('content-type') : null;
       if (res.ok && isSoftMissing(url, contentType)) {

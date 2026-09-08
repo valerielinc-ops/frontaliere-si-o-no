@@ -7,27 +7,7 @@
 
 import { windowDates } from './safe.mjs';
 import { engagementConsistency, fetchDailyEngagementVerdict } from '../ga4-engagement-reliability.mjs';
-
-const SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
-
-async function getToken({ fetchImpl = fetch } = {}) {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    return null;
-  }
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    const fs = await import('node:fs');
-    const path = await import('node:path');
-    const os = await import('node:os');
-    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
-    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
-  }
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({ scopes: SCOPES });
-  const client = await auth.getClient();
-  const { token } = await client.getAccessToken();
-  return token;
-}
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from '../ga4-service-account.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -52,7 +32,11 @@ function normalizePropertyId(raw) {
  * pressione sul `limit: 10000` — e il suo verdetto prevale su quello per-path
  * quando marca la finestra, come già fa `scripts/analytics-report.mjs` (#7511).
  */
-export async function fetchGa4ByPage({ windowDays = 30, fetchImpl = fetch, getTokenImpl = getToken } = {}) {
+export async function fetchGa4ByPage({
+  windowDays = 30,
+  fetchImpl = fetch,
+  getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+} = {}) {
   const propertyId = normalizePropertyId(process.env.GA4_PROPERTY_ID);
   if (!propertyId) throw new Error('no GA4_PROPERTY_ID');
   const token = await getTokenImpl({ fetchImpl });

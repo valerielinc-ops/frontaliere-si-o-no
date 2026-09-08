@@ -247,7 +247,7 @@ describe('cwv-monitor-check abstains on a dead source', () => {
     process.env.CWV_MONITOR_HISTORY_FILE_ALLOW_CI = '1';
 
     const { main } = await import('../scripts/cwv-monitor-check.mjs');
-    await main();
+    await main({ ga4FallbackImpl: async () => [] });
 
     expect(syncErrorIssues).not.toHaveBeenCalled();
     // And it never even ran the per-page measurement queries.
@@ -283,10 +283,23 @@ describe('posthog-error-issue-sync abstains on a dead source', () => {
     globalThis.fetch = rawFetch as never;
 
     const { main } = await import('../scripts/posthog-error-issue-sync.mjs');
-    await main();
+    await main({ ga4FallbackImpl: async () => [] });
 
     expect(syncErrorIssues).not.toHaveBeenCalled();
     expect(rawFetch).not.toHaveBeenCalled();
+  });
+
+  it('uses the GA4 mirror when PostHog is dead and the fallback is measurable', async () => {
+    mockPostHog(DEAD_PER_DAY);
+    const ga4Fallback = vi.fn(async () => [{
+      message: 'Boom', type: 'TypeError', count: 900, sessions: 400,
+      sampleUrl: 'https://x/', sampleExceptionList: [],
+    }]);
+    const { main } = await import('../scripts/posthog-error-issue-sync.mjs');
+    await main({ ga4FallbackImpl: ga4Fallback });
+
+    expect(ga4Fallback).toHaveBeenCalledTimes(1);
+    expect(syncErrorIssues).toHaveBeenCalledTimes(1);
   });
 
   it('positive control: with a live source the same rows DO reach the issue sync', async () => {
@@ -388,10 +401,13 @@ describe('the PostHog monitor fleet is fully declared', () => {
     // on purpose.
     const guarded = POSTHOG_MONITORS.filter((m: { guarded: boolean }) => m.guarded).map((m: { path: string }) => m.path).sort();
     expect(guarded).toEqual([
+      'scripts/build-evidence-index.mjs',
       'scripts/campaign-goal-check.mjs',
       'scripts/cwv-monitor-check.mjs',
+      'scripts/fetch-article-performance.mjs',
       'scripts/posthog-error-issue-sync.mjs',
       'scripts/profession-keyword-opportunities.mjs',
+      'scripts/revenue-monitor.mjs',
     ]);
   });
 

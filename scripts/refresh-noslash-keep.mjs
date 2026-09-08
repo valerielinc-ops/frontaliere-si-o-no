@@ -52,6 +52,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -151,11 +152,14 @@ async function fetchGsc(sa, startDate, endDate) {
   return rows;
 }
 
-async function fetchGa4(sa, startDate, endDate) {
+async function fetchGa4(startDate, endDate) {
   const propertyIdRaw = process.env.GA4_PROPERTY_ID;
   if (!propertyIdRaw) throw new Error('GA4_PROPERTY_ID unset');
   const propertyId = propertyIdRaw.startsWith('properties/') ? propertyIdRaw : `properties/${propertyIdRaw}`;
-  const token = await getAccessToken(sa, 'https://www.googleapis.com/auth/analytics.readonly');
+  // The same service-account helper used by the other GA4 consumers supports
+  // both the CI credential path and the Remote Config JSON form.
+  const token = await getServiceAccountToken([GA4_READONLY_SCOPE]);
+  if (!token) throw new Error('GA4 service-account credentials unavailable');
   const url = `https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`;
   const res = await fetch(url, {
     method: 'POST',
@@ -242,7 +246,7 @@ async function main() {
   // ─── GA4 ───────────────────────────────────────────────────────────────
   if (sa && process.env.GA4_PROPERTY_ID) {
     try {
-      const rows = await fetchGa4(sa, startDate, endDate);
+      const rows = await fetchGa4(startDate, endDate);
       let noSlashSeen = 0, kept = 0;
       for (const row of rows) {
         const p = row.path;

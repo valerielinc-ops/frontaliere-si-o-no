@@ -50,6 +50,7 @@ import { fileURLToPath } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
 import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -109,30 +110,12 @@ async function fetchPosthog(windowHours) {
 
 // ─── GA4: runReport with eventName=thin_page_view ────────────────────
 
-async function getGa4Token() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    throw new Error('no service-account credentials');
-  }
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    const fs = await import('node:fs');
-    const path = await import('node:path');
-    const os = await import('node:os');
-    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
-    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
-  }
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({ scopes: ['https://www.googleapis.com/auth/analytics.readonly'] });
-  const client = await auth.getClient();
-  const { token } = await client.getAccessToken();
-  return token;
-}
-
 async function fetchGa4(windowHours) {
   const propertyRaw = process.env.GA4_PROPERTY_ID;
   if (!propertyRaw) throw new Error('GA4_PROPERTY_ID missing');
   const property = propertyRaw.startsWith('properties/') ? propertyRaw : `properties/${propertyRaw}`;
-  const token = await getGa4Token();
+  const token = await getServiceAccountToken([GA4_READONLY_SCOPE]);
+  if (!token) throw new Error('no service-account credentials');
   // GA4 Data API doesn't support sub-day windows on runReport's dateRanges
   // (the smallest grain is a day). For windowHours <= 24 we query "today"
   // + "yesterday" and let the volume be a one-day approximation; the

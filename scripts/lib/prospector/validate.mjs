@@ -170,8 +170,11 @@ const REQUEST_NOISE_PATTERNS = [
   ...DATE_NOISE_PATTERNS,
   // 15:04, 15:04:22
   /\b\d{1,2}:\d{2}(?::\d{2})?\b/g,
-  // contatore visite, nelle lingue dei layout che incontriamo
-  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits|klicks|letture|consultazioni)\b[\s:]*\d[\d'’.,]*/gi,
+  // Etichette del contatore, enumerate per lingua e per sinonimo: i layout
+  // alternano «visite», «hits», «Klicks», «letture» e «consultazioni» senza
+  // cambiare il resto della pagina. Il valore numerico e' obbligatorio, cosi'
+  // una parola del contenuto non viene rimossa da sola.
+  /\b(?:visite|visitatori|visualizzazioni|visite?urs?|vues|besucher|aufrufe|zugriffe|views?|hits?|klicks?|clicks?|letture|consultazioni|consultations?)\b[\s:]*\d[\d'’.,]*/gi,
   // il progressivo stampato in coda dal layout: «annuncio n. 1234»,
   // «Inserat Nr. 1234». NON il numero di riferimento dell'annuncio
   // (`ref`/`riferimento`/`referenz`), che e' contenuto e distingue due

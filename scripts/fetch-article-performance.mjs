@@ -47,6 +47,8 @@ import {
   sortScored,
 } from './lib/perf-sources/scoring.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { checkPostHogLiveness } from './lib/source-liveness.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
@@ -394,8 +396,15 @@ async function main() {
   // Each source is wrapped in safe() so the orchestrator never throws.
   const [gsc, ga4, posthog, adsense] = await Promise.all([
     safe('gsc', () => fetchGscByPage({ windowDays: WINDOW_DAYS })),
-    safe('ga4', () => fetchGa4ByPage({ windowDays: WINDOW_DAYS })),
-    safe('posthog', () => fetchPostHogByPage({ windowDays: WINDOW_DAYS })),
+    safe('ga4', () => fetchGa4ByPage({
+      windowDays: WINDOW_DAYS,
+      getTokenImpl: () => getServiceAccountToken([GA4_READONLY_SCOPE]),
+    })),
+    safe('posthog', async () => {
+      const liveness = await checkPostHogLiveness({ windowDays: WINDOW_DAYS });
+      if (!liveness.alive) throw new Error(`PostHog non misurabile: ${liveness.reason}`);
+      return fetchPostHogByPage({ windowDays: WINDOW_DAYS });
+    }),
     safe('adsense', () => fetchAdsenseChannelRevenue({ windowDays: WINDOW_DAYS })),
   ]);
 

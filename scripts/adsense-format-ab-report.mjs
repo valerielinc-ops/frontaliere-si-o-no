@@ -29,16 +29,13 @@
  * 3. Core Web Vitals (LCP/INP/CLS) guardrail — best-effort across THREE
  *    sources, tried in this order and reported honestly when none works:
  *      a. GA4 custom events (`web_vitals`, dimensions `customEvent:metric_name`
- *         / `customEvent:metric_rating`) — VERIFIED LIVE 2026-08-25: returns
- *         `400 INVALID_ARGUMENT` on this property. `services/webVitals.ts`
- *         sends the event, but the event-scoped custom dimensions needed to
- *         QUERY it via the Data API were never registered (checked via
- *         `analyticsadmin.googleapis.com/.../customDimensions` — 37
- *         registered, none named `metric_name`/`metric_rating`/`metric_value`).
- *         This script does NOT auto-register them (an app-instrumentation
- *         change is out of scope for a reporting script, and a freshly
- *         registered dimension needs a processing window before it backfills
- *         anyway) — it just detects the 400 and falls through.
+ *         / `customEvent:metric_rating`) — the dimensions are provisioned by
+ *         analytics-report.mjs. A property still waiting for registration or
+ *         processing returns `400 INVALID_ARGUMENT`; this script detects that
+ *         case and falls through rather than presenting a false CWV value.
+ *         This script does NOT auto-register them itself: registration belongs
+ *         to the central analytics report and a new dimension needs a
+ *         processing window before it backfills.
  *      b. PostHog `$web_vitals` events (project from POSTHOG_PROJECT_ID),
  *         filtered by exact `$pathname`. This section uses a
  *         POSTHOG_CWV_WINDOW_DAYS rolling window (30d, not 7d) and reports the
@@ -392,9 +389,9 @@ export const POSTHOG_CWV_MIN_N = 5;
 /**
  * Attempt GA4's own `web_vitals` custom event (services/webVitals.ts sends
  * it). Requires the event-scoped custom dimensions `metric_name` /
- * `metric_rating` to be registered on the property — verified 2026-08-25 that
- * they are NOT (see module docblock). Returns `{ available: false, reason }`
- * on ANY failure (never throws) so the caller can fall through to PostHog.
+ * `metric_rating` to be registered on the property. Returns
+ * `{ available: false, reason }` on ANY failure (never throws) so the caller
+ * can fall through to PostHog.
  */
 export async function fetchGa4WebVitalsRatings(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();

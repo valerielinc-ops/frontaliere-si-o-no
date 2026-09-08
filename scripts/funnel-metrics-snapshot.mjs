@@ -8,7 +8,9 @@
  * `scripts/revenue-monitor.mjs --json` (which is fail-soft and aggregates
  * AdSense RPM, GSC avg position + CTR-by-bucket, and PostHog CLS p75
  * mobile/desktop). This keeps a single source of truth for the field data and
- * zero duplicated API logic — and zero Claude usage.
+ * zero duplicated API logic — and zero Claude usage. #6948 is therefore
+ * satisfied upstream: this sink carries the source state and cannot acquire a
+ * useful GA4 token or manufacture a metric fallback itself.
  *
  * Pipeline (see .github/workflows/funnel-metrics-snapshot.yml):
  *   node scripts/revenue-monitor.mjs --json > /tmp/revenue.json

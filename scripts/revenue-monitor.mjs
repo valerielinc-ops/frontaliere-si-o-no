@@ -16,7 +16,8 @@
  *   GSC_CLIENT_ID / GSC_CLIENT_SECRET / GSC_REFRESH_TOKEN     (required for GSC)
  *   ADSENSE_REFRESH_TOKEN                                     (required for AdSense)
  *   ADSENSE_CLIENT_ID / ADSENSE_CLIENT_SECRET                 (optional; defaults to GSC_*)
- *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS section)
+ *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID             (optional; CLS
+ *                                                              section; GA4 fallback)
  *   POSTHOG_HOST                                              (optional; defaults to https://eu.posthog.com)
  *
  * Usage:
@@ -44,6 +45,15 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
+import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
+import {
+  fetchGa4WebVitals,
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+  getServiceAccountToken,
+  hasSignificantOtherBucket,
+  weightedQuantile,
+} from './lib/ga4-service-account.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -388,6 +398,38 @@ export async function fetchPostHogCls({ apiKey, projectId, host = 'https://eu.po
   };
 }
 
+export async function fetchGa4ClsFallback({
+  windowDays = 7,
+  now = new Date(),
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  const token = getTokenImpl === getServiceAccountToken
+    ? await getServiceAccountToken([GA4_READONLY_SCOPE])
+    : await getTokenImpl([GA4_READONLY_SCOPE]);
+  if (!token) return null;
+  const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
+  const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
+  if (hasSignificantOtherBucket(rows)) return null;
+  const byDevice = new Map([
+    ['mobile', []],
+    ['desktop', []],
+  ]);
+  for (const row of rows) {
+    if (row.metric !== 'CLS' || !byDevice.has(row.device)) continue;
+    byDevice.get(row.device).push({ value: row.value, count: row.count });
+  }
+  const clsP75Mobile = weightedQuantile(byDevice.get('mobile'), 0.75);
+  const clsP75Desktop = weightedQuantile(byDevice.get('desktop'), 0.75);
+  if (clsP75Mobile === null && clsP75Desktop === null) return null;
+  return {
+    window: { start: startDate, end: endDate },
+    clsP75Mobile,
+    clsP75Desktop,
+    source: 'ga4-fallback',
+  };
+}
+
 // ── Comparison ──────────────────────────────────────────────
 /**
  * Compare a current value against a baseline, returning delta, percentage,
@@ -417,6 +459,20 @@ export function compare(current, baseline, { higherIsBetter = true, warnThreshol
     else if (improved) verdict = '📈 improved';
   }
   return { delta, deltaPct, verdict };
+}
+
+function compareWithSource(current, baseline, options) {
+  if (!baseline) {
+    return { delta: null, deltaPct: null, verdict: '⚪ source baseline unavailable' };
+  }
+  if ((current.source ?? null) !== (baseline.source ?? null)) {
+    return { delta: null, deltaPct: null, verdict: '⚪ source mismatch' };
+  }
+  return compare(current.value, baseline.value, options);
+}
+
+function selectPosthogBaseline(posthog, baseline) {
+  return posthog.source === 'ga4-fallback' ? baseline.posthogGa4 ?? null : baseline.posthog;
 }
 
 export function buildComparisonRows(current, baseline = BASELINE) {
@@ -475,8 +531,9 @@ export function buildComparisonRows(current, baseline = BASELINE) {
 
   if (posthog) {
     // Lower is better for CLS.
-    rows.push({ metric: 'CLS p75 mobile', baseline: b.posthog.clsP75Mobile, current: posthog.clsP75Mobile, ...compare(posthog.clsP75Mobile, b.posthog.clsP75Mobile, { higherIsBetter: false }) });
-    rows.push({ metric: 'CLS p75 desktop', baseline: b.posthog.clsP75Desktop, current: posthog.clsP75Desktop, ...compare(posthog.clsP75Desktop, b.posthog.clsP75Desktop, { higherIsBetter: false }) });
+    const posthogBaseline = selectPosthogBaseline(posthog, b);
+    rows.push({ metric: 'CLS p75 mobile', baseline: posthogBaseline?.clsP75Mobile ?? null, current: posthog.clsP75Mobile, ...compareWithSource({ value: posthog.clsP75Mobile, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Mobile, source: posthogBaseline.source }, { higherIsBetter: false }) });
+    rows.push({ metric: 'CLS p75 desktop', baseline: posthogBaseline?.clsP75Desktop ?? null, current: posthog.clsP75Desktop, ...compareWithSource({ value: posthog.clsP75Desktop, source: posthog.source }, posthogBaseline && { value: posthogBaseline.clsP75Desktop, source: posthogBaseline.source }, { higherIsBetter: false }) });
   } else {
     rows.push({ metric: 'PostHog CLS', baseline: '—', current: 'skipped', delta: null, deltaPct: null, verdict: '⚪ auth missing' });
   }
@@ -596,6 +653,7 @@ export function buildHistoryEntry(current, rows, dateStr) {
       ? {
           clsP75Mobile: current.posthog.clsP75Mobile ?? null,
           clsP75Desktop: current.posthog.clsP75Desktop ?? null,
+          source: current.posthog.source ?? null,
         }
       : null,
     // Publisher stream (issue #4448) — additive key: older history lines simply
@@ -627,6 +685,21 @@ export function buildHistoryEntry(current, rows, dateStr) {
       : null,
     regressions,
   };
+}
+
+function loadLatestPosthogBaseline(file, source) {
+  if (!existsSync(file)) return null;
+  let latest = null;
+  for (const line of readFileSync(file, 'utf8').split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      const entry = JSON.parse(line);
+      if (entry.posthog?.source === source) latest = entry.posthog;
+    } catch {
+      // A malformed historical line must not prevent the monitor from running.
+    }
+  }
+  return latest;
 }
 
 // ── Main ────────────────────────────────────────────────────
@@ -678,19 +751,24 @@ async function main() {
     log('⚠️', `GSC failed: ${e.message}`);
   }
 
-  // PostHog CLS is optional: if credentials missing, surface a warning instead
-  // of failing. Required secrets are POSTHOG_PERSONAL_API_KEY + POSTHOG_PROJECT_ID
-  // (add in repo Settings → Secrets or Firebase Remote Config).
+  // PostHog is primary when its credentials and ingestion are healthy. If
+  // either is missing, the same branch below attempts the GA4 mirror before
+  // declaring CLS non misurabile.
   try {
     const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
     const projectId = process.env.POSTHOG_PROJECT_ID;
     const host = process.env.POSTHOG_HOST;
-    if (apiKey && projectId) {
+    const liveness = await checkPostHogLiveness({ windowDays: 7 });
+    if (liveness.alive) {
       current.posthog = await fetchPostHogCls({ apiKey, projectId, host });
     } else {
-      const msg = 'PostHog CLS skipped (POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID not set)';
-      current.warnings.push(msg);
-      log('⚪', msg);
+      current.posthog = await fetchGa4ClsFallback({ windowDays: 7 });
+      if (current.posthog) {
+        log('🔁', 'PostHog non misurabile: CLS preso da GA4 `web_vitals`');
+      } else {
+        declareNotMeasurable('revenue-monitor', liveness);
+        current.warnings.push(`CLS non misurabile: ${liveness.reason}`);
+      }
     }
   } catch (e) {
     current.errors.push(`posthog: ${e.message}`);
@@ -698,8 +776,10 @@ async function main() {
     log('⚠️', `PostHog failed: ${e.message}`);
   }
 
-  const rows = buildComparisonRows(current);
-  const payload = { generatedAt: new Date().toISOString(), baseline: BASELINE, current, rows };
+  const ga4Baseline = loadLatestPosthogBaseline(HISTORY_FILE, 'ga4-fallback');
+  const comparisonBaseline = ga4Baseline ? { ...BASELINE, posthogGa4: ga4Baseline } : BASELINE;
+  const rows = buildComparisonRows(current, comparisonBaseline);
+  const payload = { generatedAt: new Date().toISOString(), baseline: comparisonBaseline, current, rows };
 
   if (flags.json) {
     process.stdout.write(JSON.stringify(payload, null, 2) + '\n');

@@ -16,9 +16,15 @@
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { extractStackFrameOrigins, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
-import { abstainIfSourceDead } from './lib/source-liveness.mjs';
+import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  fetchGa4ErrorEntries,
+  GA4_READONLY_SCOPE,
+  ga4DateRange,
+  getServiceAccountToken,
+} from './lib/ga4-service-account.mjs';
 
 export function truncate(value, n) {
   const str = String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -53,7 +59,7 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
       `**Sample URL:** ${sanitizeTrackedDiagnosticValue(e.sampleUrl)}`,
       `**Resolved stack origins (sample):** ${originsText}`,
       '',
-      '_Source: PostHog `$exception` autocapture events._',
+      `_Source: ${e.sourceLabel || 'PostHog `$exception` autocapture events'}._`,
       '',
       buildScheda({
         causa: [
@@ -84,7 +90,23 @@ export function buildIssueBody(e, windowDays = process.env.WINDOW_DAYS || '7', m
     ].join('\n');
 }
 
-export async function main() {
+export async function fetchGa4ErrorFallback({
+  windowDays = 7,
+  now = new Date(),
+  fetchImpl = fetch,
+  getTokenImpl = getServiceAccountToken,
+} = {}) {
+  // Keep the call in this consumer: the fallback is not merely an imported
+  // GA4 client, it is the explicit alternate source selected by this monitor.
+  const token = getTokenImpl === getServiceAccountToken
+    ? await getServiceAccountToken([GA4_READONLY_SCOPE])
+    : await getTokenImpl([GA4_READONLY_SCOPE]);
+  if (!token) return null;
+  const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
+  return fetchGa4ErrorEntries({ token, startDate, endDate, fetchImpl });
+}
+
+export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
   // Read env lazily (not at module load) so importing this module for tests
   // doesn't freeze stale/missing credentials — each run's env is fixed by
   // the time main() is invoked, whether that's the CLI entrypoint below or
@@ -105,39 +127,58 @@ export async function main() {
   // $exception above MIN_COUNT" below reads identically whether the app threw
   // nothing or PostHog ingested nothing — the second is what happened for the
   // three weeks from 2026-07-23, and the resulting `$exception` counts fed
-  // #5606/#5607/#5608. Abstain rather than sync issues off a dead source.
-  const notMeasurable = await abstainIfSourceDead('posthog-error-issue-sync', { windowDays: Number(WINDOW_DAYS) });
-  if (notMeasurable) return;
-
-  const query = `
-    SELECT
-      properties.$exception_values.1 AS msg,
-      properties.$exception_types.1 AS type,
-      count() AS n,
-      count(DISTINCT $session_id) AS sessions,
-      any(properties.$current_url) AS sample_url,
-      any(properties.$exception_list) AS sample_exception_list
-    FROM events
-    WHERE event = '$exception'
-      AND timestamp > now() - INTERVAL ${WINDOW_DAYS} DAY
-    GROUP BY msg, type
-    ORDER BY n DESC
-    LIMIT 25
-  `.trim();
-
+  // #5606/#5607/#5608. Prefer the GA4 mirror rather than inventing a zero from
+  // a dead source; if both sources are unavailable, abstain.
+  const liveness = await checkPostHogLiveness({ windowDays: Number(WINDOW_DAYS) });
+  let sourceLabel = 'PostHog `$exception` autocapture events';
   let rows;
-  try {
-    const result = await hogql(HOST, PID, KEY, query);
-    rows = result.results || [];
-  } catch (e) {
-    console.error(`[posthog-error-issue-sync] HogQL query failed: ${e.message}`);
-    return;
+
+  // `$exception` has a GA4 mirror through Analytics.trackAppError(). Use it
+  // only after the same-window PostHog liveness verdict says the primary
+  // source cannot be judged; a missing/failed GA4 fallback still abstains.
+  if (!liveness.alive) {
+    try {
+      const ga4Entries = await ga4FallbackImpl({ windowDays: Number(WINDOW_DAYS) });
+      if (!ga4Entries?.length) {
+        declareNotMeasurable('posthog-error-issue-sync', liveness);
+        return;
+      }
+      rows = ga4Entries;
+      sourceLabel = 'GA4 `app_error`/`exception` events (fallback — PostHog non misurabile)';
+    } catch (error) {
+      declareNotMeasurable('posthog-error-issue-sync', { ...liveness, reason: `${liveness.reason}; GA4 fallback failed: ${error.message}` });
+      return;
+    }
+  } else {
+    const query = `
+      SELECT
+        properties.$exception_values.1 AS msg,
+        properties.$exception_types.1 AS type,
+        count() AS n,
+        count(DISTINCT $session_id) AS sessions,
+        any(properties.$current_url) AS sample_url,
+        any(properties.$exception_list) AS sample_exception_list
+      FROM events
+      WHERE event = '$exception'
+        AND timestamp > now() - INTERVAL ${WINDOW_DAYS} DAY
+      GROUP BY msg, type
+      ORDER BY n DESC
+      LIMIT 25
+    `.trim();
+
+    try {
+      const result = await hogql(HOST, PID, KEY, query);
+      rows = (result.results || []).map(([msg, type, n, sessions, sampleUrl, sampleExceptionList]) => ({
+        message: msg, type: type || 'exception', count: n, sessions, sampleUrl, sampleExceptionList,
+      }));
+    } catch (e) {
+      console.error(`[posthog-error-issue-sync] HogQL query failed: ${e.message}`);
+      return;
+    }
   }
 
   const entries = rows
-    .map(([msg, type, n, sessions, sampleUrl, sampleExceptionList]) => ({
-      message: msg, type: type || 'exception', count: n, sessions, sampleUrl, sampleExceptionList,
-    }))
+    .map((entry) => ({ ...entry, sourceLabel }))
     .filter((e) => e.count >= MIN_COUNT)
     .filter((e) => !isIssueDenied(e.message));
 
@@ -151,9 +192,9 @@ export async function main() {
     dryRun: process.argv.includes('--dry-run'),
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
-    source: `PostHog Error Monitor — last ${WINDOW_DAYS}d`,
+    source: `${sourceLabel} — last ${WINDOW_DAYS}d`,
     priorityFor: (e) => (e.count >= MIN_COUNT * 10 ? 2 : 3),
-    titleFor: (e) => `PostHog Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
+    titleFor: (e) => `${sourceLabel.startsWith('GA4') ? 'GA4' : 'PostHog'} Exception: ${truncate(sanitizeTrackedDiagnosticValue(e.type), 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.message), 60)}`,
     bodyFor: (e) => buildIssueBody(e, WINDOW_DAYS, MIN_COUNT),
   });
 }
