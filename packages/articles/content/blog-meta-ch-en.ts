@@ -6103,6 +6103,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Swiss hospitals: 1,700 nurses fleeing every year',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'The Obsan reveals that 75% of nursing graduates start in the hospital, but at 40 years old it drops to 47%. The VPOD immediately asks for better conditions.',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Swiss alpine landscape symbolizing the national healthcare system facing a critical nursing shortage crisis',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Naturalization Lucerne: permits, costs and procedures',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Complete guide to ordinary naturalization in the Canton of Lucerne: 10 years of residence with C permit, integration requirements and German language B1, times 12-24 months, cantonal and municipal taxes.',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Lucerne municipal office with Swiss naturalization forms and citizenship documents on administrative desk',
 };
 
 export default blogMetaChEn;

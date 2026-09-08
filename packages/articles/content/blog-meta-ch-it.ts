@@ -6103,6 +6103,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Ospedali svizzeri: 1.700 infermieri in fuga ogni anno',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'L\'Obsan rivela che il 75% dei diplomati in infermieristica inizia in ospedale, ma a 40 anni scende al 47%. Il VPOD chiede subito condizioni migliori.',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Vista alpina della Svizzera, simbolo del sistema sanitario nazionale in crisi per carenza di infermieri qualificati',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Naturalizzazione Lucerna: permessi, costi e procedure',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Guida completa alla naturalizzazione ordinaria nel Canton Lucerna: 10 anni di residenza con permesso C, requisiti di integrazione e lingua tedesca B1, tempi 12-24 mesi, tasse cantonali e comunali.',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Ufficio comunale lucernese con moduli di naturalizzazione e documenti di cittadinanza svizzera su scrivania amministrativa',
 };
 
 export default blogMetaChIt;

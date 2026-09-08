@@ -6103,6 +6103,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Hôpitaux suisses : 1 700 infirmières en fuite chaque année',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'L\'Obsan révèle que 75 % des diplômés en soins infirmiers commencent à l\'hôpital, mais à 40 ans, ils tombent à 47 %. Le VPOD demande immédiatement de meilleures conditions.',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Paysage alpin suisse symbolisant le système sanitaire national confronté à une pénurie d\'infirmières qualifiées',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Naturalisation Lucerne : permis, coûts et procédures',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Guide complet de la naturalisation ordinaire dans le canton de Lucerne : 10 ans de résidence avec permis C, exigences d\'intégration et langue allemande B1, 12-24 mois, taxes cantonales et communales.',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Bureau communal lucernois avec formulaires de naturalisation suisse et documents de citoyenneté sur bureau administratif',
 };
 
 export default blogMetaChFr;

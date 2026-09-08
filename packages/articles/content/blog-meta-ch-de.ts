@@ -6103,6 +6103,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.title': 'Schweizer Spitäler: 1.700 Pflegekräfte pro Jahr auf der Flucht',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.excerpt': 'Der Obsan zeigt, dass 75% der Absolventen der Krankenpflege im Krankenhaus beginnen, aber mit 40 Jahren auf 47% sinken. Der VPOD fordert sofort bessere Konditionen.',
     'blog.article.ospedali-svizzeri-infermieri-fuga-anno.imageAlt': 'Schweizer Alpenlandschaft als Symbol des nationalen Gesundheitssystems mit Engpässen bei Krankenpflegepersonal',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.title': 'Einbürgerung Luzern: Genehmigungen, Kosten und Verfahren',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.excerpt': 'Vollständiger Leitfaden zur ordentlichen Einbürgerung im Kanton Luzern: 10 Jahre Aufenthalt mit Ausweis C, Integrationsvoraussetzungen und deutscher Sprache B1, 12-24 Monate, Kantons- und Gemeindesteuern.',
+    'blog.article.naturalizzazione-lucerna-documenti-timeline.imageAlt': 'Luzerner Gemeindeamt mit Schweizer Naturalisierungsformularen und Bürgerschaftsdokumenten auf Verwaltungstisch',
 };
 
 export default blogMetaChDe;

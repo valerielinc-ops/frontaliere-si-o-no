@@ -18307,6 +18307,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'naturalizzazione-lucerna-documenti-timeline',
+    category: 'pratico',
+    date: '2026-09-08T20:09:40.491Z',
+    image: '/images/blog/naturalizzazione-lucerna-documenti-timeline.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
