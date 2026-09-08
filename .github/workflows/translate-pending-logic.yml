@@ -221,10 +221,6 @@ jobs:
         if: inputs.skip_translate != true
         run: node scripts/assemble-jobs-dataset.mjs
 
-      - name: Log translation stats (before)
-        if: inputs.skip_translate != true
-        run: node scripts/log-translation-stats.mjs before
-
       # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
       - name: "Phase 2a: Local MT bulk translate (Argos)"
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
@@ -272,6 +268,10 @@ jobs:
           TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
           TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
         run: node scripts/mark-mistranslated-jobs.mjs
+
+      - name: Log translation stats (before)
+        if: inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs before
 
       # Shadow-only baseline: hashes and aggregates only. The temporary snapshot
       # is needed to calculate the final delta, but is never uploaded or committed.
