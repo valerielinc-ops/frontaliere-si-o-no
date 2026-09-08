@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import {
   freeTranslate,
   getCascadeStats,
@@ -49,6 +50,70 @@ const IT = [
   '',
   'Chi ha iniziato a lavorare in Svizzera dopo il 2023 rientra fra i nuovi frontalieri e paga le imposte in entrambi i Paesi.',
 ].join('\n');
+
+function runRealCascadeWithSelfHostedBody(selfHostedBody: Record<string, unknown>) {
+  const moduleUrl = new URL('../scripts/lib/free-translate.mjs', import.meta.url).href;
+  const childScript = `
+    const echo = ${JSON.stringify(IT)};
+    const selfHostedBody = ${JSON.stringify(selfHostedBody)};
+    globalThis.fetch = async (url) => {
+      const value = String(url);
+      if (value.startsWith('http://self-hosted.test/')) {
+        return { ok: true, json: async () => selfHostedBody };
+      }
+      if (value.includes('api.mymemory.translated.net')) {
+        return { ok: true, json: async () => ({ responseData: { translatedText: echo, match: 1 } }) };
+      }
+      if (value.includes('translate.googleapis.com')) {
+        return { ok: true, text: async () => JSON.stringify([[[echo]]]) };
+      }
+      if (value.includes('clients5.google.com')) {
+        return { ok: true, text: async () => JSON.stringify({ sentences: [{ trans: echo }] }) };
+      }
+      if (value.includes('/api/v1/')) {
+        return { ok: true, json: async () => ({ translation: echo }) };
+      }
+      if (value.includes('mozhi.')) {
+        return { ok: true, json: async () => ({ 'translated-text': echo }) };
+      }
+      if (value.includes('simplytranslate')) {
+        return { ok: true, json: async () => ({ translated_text: echo }) };
+      }
+      if (value.includes('/translate')) {
+        return { ok: true, json: async () => ({ translatedText: echo }) };
+      }
+      throw new Error('endpoint inatteso: ' + value);
+    };
+    const { freeTranslateWithRetryDetailed } = await import(${JSON.stringify(moduleUrl)});
+    const result = await freeTranslateWithRetryDetailed({
+      text: echo,
+      sourceLang: 'it',
+      targetLang: 'en',
+      maxRetries: 0,
+    });
+    process.stdout.write(JSON.stringify(result));
+  `;
+
+  return spawnSync(process.execPath, ['--input-type=module', '--eval', childScript], {
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      AZURE_TRANSLATOR_KEY: '',
+      AZURE_TRANSLATOR_KEY_2: '',
+      DEEPL_API_KEY: '',
+      DEEPL_API_KEY_2: '',
+      GOOGLE_APPLICATION_CREDENTIALS: '',
+      GSC_CLIENT_ID: '',
+      GSC_CLIENT_SECRET: '',
+      GSC_REFRESH_TOKEN: '',
+      HF_TOKEN: '',
+      HUGGINGFACE_API_KEY: '',
+      LIBRETRANSLATE_SELF_HOSTED_URL: 'http://self-hosted.test/translate',
+      MT_LOCAL_OPUSMT: '',
+      VITEST: '1',
+    },
+  });
+}
 
 const EN = [
   '## In brief',
@@ -194,6 +259,20 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(out).toBe('');
     expect(after.passthroughs - before.passthroughs).toBe(0);
     expect(after.hits - before.hits).toBe(0);
+  });
+
+  it('riporta passthrough true dalla cascata reale quando riconosce un echo', () => {
+    const child = runRealCascadeWithSelfHostedBody({ translatedText: IT });
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: true });
+  });
+
+  it('non riporta passthrough quando la cascata reale incontra una risposta 200 vuota', () => {
+    const child = runRealCascadeWithSelfHostedBody({});
+
+    expect(child.status).toBe(0);
+    expect(JSON.parse(child.stdout)).toEqual({ text: '', passthrough: false });
   });
 });
 
