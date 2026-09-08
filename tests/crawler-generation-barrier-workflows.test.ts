@@ -180,6 +180,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(() => assertCrawlerLogicParity(generated, logic, `crawler-group-${group}-logic.yml`)).not.toThrow();
 
       const job = jobFrom(logic);
+      expect(YAML.parse(logic).on.workflow_call.inputs.generation_token)
+        .toMatchObject({ required: false, default: '', type: 'string' });
       expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(job.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
@@ -207,7 +209,9 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           'exit "$git_commit_exit"',
         ].join('\n'),
       });
-      const finalizer = stepByName(job.steps, 'Finalize crawler generation manifest (shadow)');
+      const jobWithFutureTail = structuredClone(job);
+      jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
+      const finalizer = stepByName(jobWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)');
       expect(finalizer.id).toBe('crawler-generation-finalizer');
       expect(finalizer.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       expect(finalizer.env.CRAWLER_GENERATION_LEDGER_PATH).toBe('data/crawler-generation-ledger.jsonl');
@@ -237,7 +241,9 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       // #7083 invariant, restated as an equality instead of a blanket ban on
       // `github.run_*`: producers and finalizer must read ONE value, so the
       // terminal step env may only repeat the job-level expression verbatim.
-      expect(stepByName(jobFrom(logic).steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
+      const logicWithFutureTail = structuredClone(jobFrom(logic));
+      logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
+      expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
         .toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)

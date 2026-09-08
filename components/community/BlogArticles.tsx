@@ -17,7 +17,7 @@ import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
-import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
+import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, AD_ELIGIBLE_MIN_WORDS, AD_ELIGIBLE_MIN_CHARS, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
@@ -2068,10 +2068,10 @@ function BlogArticles({
  const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
  const bodyCharCount = combinedBody.trim().length;
  // Single quality threshold for all ad formats (FRO-287):
- // 220 words + 1400 chars minimum ensures AdSense policy compliance
+ // The shared word/character floor ensures AdSense policy compliance
  // and avoids thin-content penalties. Articles below this threshold
  // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
- const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
+ const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= AD_ELIGIBLE_MIN_WORDS && bodyCharCount >= AD_ELIGIBLE_MIN_CHARS;
  const adEligibleInline = adEligible;
  // Number of stacked side-rail ad panels, scaled to body length so the chain
  // fills (but doesn't overcrowd) the gutter: ~1 panel per 700 words, 1–4.
