@@ -78332,6 +78332,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rosti-deposito-scorie-compensazioni': {
+    title: 'Rösti promette compensazioni per il deposito di scorie',
+    description: 'Rösti presenta il deposito Lägern Nord tra Argovia e Zurigo. Compensazioni promesse, votazione verso il 2030, stoccaggio dal 2050. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, rösti, promette, compensazioni, deposito',
+    ogTitle: 'Rösti promette compensazioni per il deposito di scorie',
+    ogDescription: 'Albert Rösti ha presentato a Fisibach il progetto del deposito profondo Lägern Nord per scorie radioattive, tra Argovia e Zurigo. Compensazioni promesse per la regione; Consiglio federale deciderà verso il 2030 con votazione popolare prevista',
+    canonicalPath: '/articoli-svizzera/rosti-deposito-scorie-compensazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rösti promette compensazioni per il deposito di scorie",
+      "description": "Rösti presenta il deposito Lägern Nord tra Argovia e Zurigo. Compensazioni promesse, votazione verso il 2030, stoccaggio dal 2050. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rosti-deposito-scorie-compensazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere sotterraneo svizzero dove è in corso la costruzione di un deposito profondo per lo stoccaggio sicuro di rifiuti radioattivi"
+      },
+      "datePublished": "2026-09-08T05:29:01+00:00",
+      "dateModified": "2026-09-08T05:29:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rosti-deposito-scorie-compensazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

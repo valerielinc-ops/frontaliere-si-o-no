@@ -6034,6 +6034,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV in Svizzera: i costi non sono coperti',
     'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fecondazione in vitro costa fino a 8\'000 franchi e non è rimborsata da LAMal. Un esperto la definisce «un\'ingiustizia» poiché l\'OMS riconosce l\'infertilità come malattia.',
     'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Visita medica presso una clinica specializzata in medicina della riproduzione, ambiente sanitario moderno e clinico in Svizzera',
+    'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promette compensazioni per il deposito di scorie',
+    'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti presenta a Fisibach il progetto del deposito Lägern Nord tra Zurigo e Argovia. Compensazioni promesse, decisione verso il 2030, stoccaggio dal 2050.',
+    'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Cantiere sotterraneo svizzero dove è in corso la costruzione di un deposito profondo per lo stoccaggio sicuro di rifiuti radioattivi',
 };
 
 export default blogMetaChIt;
