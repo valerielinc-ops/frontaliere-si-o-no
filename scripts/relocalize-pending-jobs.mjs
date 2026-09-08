@@ -1706,7 +1706,6 @@ export async function runRelocalization(phase) {
       (total, companyKey) => total + (companyJobCounts.get(companyKey) || 0),
       0,
     );
-    const executionKeySet = new Set(executionKeys);
     const executionLabel = executionKeys.join(', ');
 
     // Stop before starting a new company once the RUN-WIDE cascade deadline
@@ -1728,7 +1727,10 @@ export async function runRelocalization(phase) {
       cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
       console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
-      console.log(`   ${totalFixed} jobs translated so far; ${cascadeCompanyKeys.length - cascadeCompanyKeys.indexOf(key)} companies remaining (deferred to next run).`);
+      const remainingCompanies = companyExecutionGroups
+        .slice(executionGroupIndex)
+        .reduce((total, group) => total + group.length, 0);
+      console.log(`   ${totalFixed} jobs translated so far; ${remainingCompanies} companies remaining (deferred to next run).`);
       break;
     }
 
@@ -1800,9 +1802,8 @@ export async function runRelocalization(phase) {
       // piu' corretta: esclude il costo dell'osservatore invece di addebitarlo
       // al crawler.
       const companyStartedMs = LEGACY_CLOCK.now();
-      const invocationKeys = executionKeys.length === 1 ? [key] : executionKeys;
       try {
-        await runSharedCrawler(invocationKeys, companyJobCount);
+        await runSharedCrawler(executionKeys, companyJobCount);
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -1899,13 +1900,24 @@ export async function runRelocalization(phase) {
 
         // Contatore del salto per azienda (workspace#24). Legge il proprio
         // risultato anche quando l'invocazione del crawler era aggregata.
-        const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
-          cleared: companyCleared,
-          runCounter: companySkipRun,
-          signature: companySignatures.get(companyKey),
-        });
-        if (entry) companySkipState.companies[companyKey] = entry;
-        else delete companySkipState.companies[companyKey];
+        // Con un cap condiviso, un'azienda aggregata puo' restare fuori dal
+        // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
+        // servita: il suo lavoro resta pending e deve poter rientrare nella
+        // prossima finestra senza accumulare falsi salti.
+        const companyWasServed = executionKeys.length === 1
+          || attemptedSlugs.size > 0
+          || companyCleared > 0;
+        if (companyWasServed) {
+          const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
+            cleared: companyCleared,
+            runCounter: companySkipRun,
+            signature: companySignatures.get(companyKey),
+          });
+          if (entry) companySkipState.companies[companyKey] = entry;
+          else delete companySkipState.companies[companyKey];
+        } else {
+          console.log(`   ⏭️  ${companyKey}: invocazione aggregata esaurita prima di servirla; contatore sterile invariato`);
+        }
         // Scritto per azienda, non a fine ciclo: la run muore sulla deadline del
         // cascade o sul timeout del job, e uno stato perso a meta' run azzera il
         // contatore esattamente come faceva il freno per-job.
@@ -2004,9 +2016,8 @@ export async function runRelocalization(phase) {
           const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
           const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
           const retryStartedMs = LEGACY_CLOCK.now();
-          const invocationKeys = retryKeys.length === 1 ? [key] : retryKeys;
           try {
-            await runSharedCrawler(invocationKeys, count);
+            await runSharedCrawler(retryKeys, count);
           } finally {
             if (retryHandle) retryHandle.restore();
           }
