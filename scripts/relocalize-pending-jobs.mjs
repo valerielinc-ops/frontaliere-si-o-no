@@ -259,6 +259,20 @@ const RUN_START_MS = readRunStartMs() ?? Date.now();
 // when the bulk pass ran long, takes its window when the bulk was quick).
 const CASCADE_LOCALIZATION_DEADLINE_MS =
   Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000;
+const CASCADE_PER_COMPANY_BUDGET_MS =
+  Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS) > 0
+    ? Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS)
+    : 15 * 60 * 1000;
+
+export function cascadeCompanyTimeBudgetMs(
+  elapsedMs,
+  {
+    deadlineMs = CASCADE_LOCALIZATION_DEADLINE_MS,
+    perCompanyMs = CASCADE_PER_COMPANY_BUDGET_MS,
+  } = {},
+) {
+  return Math.max(1, Math.min(perCompanyMs, deadlineMs - elapsedMs));
+}
 
 function readJson(filePath) {
   try {
@@ -871,9 +885,10 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // prior baseline OR fewer jobs completed/run, revert this knob (and the warmup
     // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
-    // ELAPSED-AWARE localization budget (review #2205 🔴): remaining time until
-    // the run-wide cascade deadline, recomputed per call. A company starting near
-    // the deadline gets a small budget and defers its tail to the next run,
+    // ELAPSED-AWARE localization budget (review #2205 🔴): the smaller of the
+    // remaining value `CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)`
+    // and the per-company cap; the floor at 1 is mandatory because 0 means unlimited.
+    // A company starting near the deadline gets a small budget and defers its tail to the next run,
     // instead of a fresh 250min that could blow past the 350min job timeout. The
     // shared crawler reads this and stops queuing new jobs once exceeded; jobs
     // already localized are written incrementally per-company, so nothing is lost.
@@ -884,7 +899,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // i.e. a company that starts past the deadline does nothing and leaves its
     // jobs for the next run, never an unbounded run.
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
-      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)),
+      cascadeCompanyTimeBudgetMs(LEGACY_CLOCK.now() - RUN_START_MS),
     ),
   };
 
