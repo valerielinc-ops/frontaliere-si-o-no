@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 597,
+  "crawlerCount": 600,
   "groups": {
     "10": [
       "berit-klinik",
@@ -26,6 +26,7 @@
       "mtic-group",
       "pzm-muensingen",
       "richemont",
+      "stellentreff",
       "swiss-medical-network",
       "triaplus",
       "viva-luzern",
@@ -54,6 +55,7 @@
       "rehab-basel",
       "spital-thurgau",
       "spitex-ch",
+      "stellenpartner",
       "swiss-re",
       "tecan",
       "tpl-lugano",
@@ -171,6 +173,7 @@
       "recruitingapp-2563",
       "rennbahnklinik",
       "spital-affoltern",
+      "sta",
       "unispital-basel",
       "valiant-bank",
       "wagerenhof"
@@ -1154,6 +1157,7 @@
     "spruengli": "data/jobs/by-crawler/spruengli.json",
     "srg-ssr": "data/jobs/by-crawler/srg-ssr.json",
     "sro": "data/jobs/by-crawler/sro.json",
+    "sta": "data/jobs/by-crawler/sta.json",
     "stadler-rail": "data/jobs/by-crawler/stadler-rail.json",
     "stadt-bern": "data/jobs/by-crawler/stadt-bern.json",
     "stadt-chur": "data/jobs/by-crawler/stadt-chur.json",
@@ -1161,6 +1165,8 @@
     "stadt-zuerich": "data/jobs/by-crawler/stadt-zuerich.json",
     "stadtspital-zuerich": "data/jobs/by-crawler/stadtspital-zuerich.json",
     "staubli": "data/jobs/by-crawler/staubli.json",
+    "stellenpartner": "data/jobs/by-crawler/stellenpartner.json",
+    "stellentreff": "data/jobs/by-crawler/stellentreff.json",
     "stiftung-diaconis": "data/jobs/by-crawler/stiftung-diaconis.json",
     "stiftung-kind-autismus": "data/jobs/by-crawler/stiftung-kind-autismus.json",
     "strabag": "data/jobs/by-crawler/strabag.json",
@@ -1246,5 +1252,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:4fd8d1447a7f45eb8644cedd8c37f0982911ec6935b299986fe8e968d9439713"
+  "digest": "sha256:60176d0ad1c7a9994a56693723fde97162905feb29c2166af0dbb079cf4e3aae"
 }

@@ -94,7 +94,7 @@ export function isBcvJob(job) {
 
   return (
     key === BCV_KEY ||
-    key.startsWith('bcv') ||
+    key.startsWith('bcv-') ||
     company.includes('banque cantonale vaudoise') ||
     url.includes('jobs.bcv.ch')
   );

@@ -6,11 +6,11 @@
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 597,
+  "crawlerCount": 600,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:4fd8d1447a7f45eb8644cedd8c37f0982911ec6935b299986fe8e968d9439713",
+    "rosterDigest": "sha256:60176d0ad1c7a9994a56693723fde97162905feb29c2166af0dbb079cf4e3aae",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -455,12 +455,15 @@
     "scripts/update-spruengli-jobs.mjs",
     "scripts/update-srg-ssr-jobs.mjs",
     "scripts/update-sro-jobs.mjs",
+    "scripts/update-sta-jobs.mjs",
     "scripts/update-stadler-rail-jobs.mjs",
     "scripts/update-stadt-bern-jobs.mjs",
     "scripts/update-stadt-luzern-jobs.mjs",
     "scripts/update-stadt-zuerich-jobs.mjs",
     "scripts/update-stadtspital-zuerich-jobs.mjs",
     "scripts/update-staubli-jobs.mjs",
+    "scripts/update-stellenpartner-jobs.mjs",
+    "scripts/update-stellentreff-jobs.mjs",
     "scripts/update-stiftung-diaconis-jobs.mjs",
     "scripts/update-stiftung-kind-autismus-jobs.mjs",
     "scripts/update-strabag-jobs.mjs",
@@ -878,8 +881,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "5db81c1c48a13de37b65348f3e7602d053dfb7cb35262a33dc833ea762eb5981",
-      "artifactSha256": "ba91240398e24f975c153cf38658a9de1638ffa5f1888c71f2cd1591345a63b4",
+      "sourceSha256": "4faf0e3acfa0adfe4cd9348ae4cbe6863b2ff71784a9f0df614a556955da6369",
+      "artifactSha256": "6ef1cf116bd063207151292d4c53b16ee8b827f14ee3aa578b729fa540326a15",
       "members": [
         "jumbo",
         "swiss-medical-network",
@@ -906,14 +909,15 @@
         "ksgl",
         "endress-hauser",
         "berit-klinik",
-        "fondation-domus"
+        "fondation-domus",
+        "stellentreff"
       ]
     },
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "59f8d2e43665dfa818b544418b7e33ddcc49c1e25c035fc4018dd38140b08df9",
-      "artifactSha256": "fbdbb248e04520dee67df99d7c8a3813f4235e6a064665602518e68a5241e7bc",
+      "sourceSha256": "641d5df518122b21b7c8d4717497d6f6ad2da2910a37a04119fb2dd193d665a7",
+      "artifactSha256": "79ff340a05bd280e2e3d2b717585281466f91f87e246df97213cdea4bd60ef53",
       "members": [
         "rehab-basel",
         "luks",
@@ -940,7 +944,8 @@
         "axpo",
         "ardentis",
         "amag",
-        "a-plus-plus-group"
+        "a-plus-plus-group",
+        "stellenpartner"
       ]
     },
     {
@@ -1052,8 +1057,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "9b87eff8276dbaf8d0635449c95a8f52ff3a0b9c8472c5546faa568b896dc32a",
-      "artifactSha256": "c9e6f73466be5771f8c8a21b7fe96cbdb1ca1d532a3482a02b9dc0c26ed12fca",
+      "sourceSha256": "58fd4781d660455646e575ff9f4cab6e64a34de2398d528a665c5ed95c389922",
+      "artifactSha256": "b4fe2c9d0907de810a3da49b5991f68806f306c9f8a97ef10b7353774ce1cb2e",
       "members": [
         "kronenhof",
         "spital-affoltern",
@@ -1080,7 +1085,8 @@
         "asana-spital",
         "bachem",
         "apg-sga",
-        "ail"
+        "ail",
+        "sta"
       ]
     },
     {

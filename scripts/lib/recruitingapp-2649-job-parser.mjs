@@ -340,7 +340,6 @@ export async function fetchAllRecruitingapp2649Jobs(runtime = {}) {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Alexander von Humboldt-Stiftung Stellen jobs discovered: ${jobs.length}`);

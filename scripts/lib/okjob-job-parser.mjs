@@ -206,7 +206,10 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     const geography = resolveSourceBackedSwissGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
-    const publicUrl = listing.url || CAREER_URL;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} okjob ch`);
@@ -252,7 +255,6 @@ export async function fetchAllOkjobJobs(runtime = {}) {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total OK Job SA, succursale di Mendrisio jobs discovered: ${jobs.length}`);

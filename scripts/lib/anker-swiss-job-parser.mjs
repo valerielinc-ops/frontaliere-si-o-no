@@ -165,7 +165,10 @@ export async function fetchAllAnkerSwissJobs() {
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -215,7 +218,6 @@ export async function fetchAllAnkerSwissJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Anker Swiss Ticino AG jobs discovered: ${jobs.length}`);

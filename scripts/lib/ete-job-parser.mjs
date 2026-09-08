@@ -208,7 +208,10 @@ export async function fetchAllEteJobs(runtime = {}) {
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
     if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
+    // The detail URL is the vacancy identity: falling back to the listing page
+    // would give every posting the same `url`, `applyUrl` and `id` hash.
+    if (!listing.url) continue;
+    const publicUrl = listing.url;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     // ETE publishes identical titles at distinct depots. Location is exact
@@ -257,7 +260,6 @@ export async function fetchAllEteJobs(runtime = {}) {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Emil Egger AG jobs discovered: ${jobs.length}`);
