@@ -100,6 +100,14 @@ describe('citedFiles', () => {
   it('ignores paths without a slash and non-existent files', () => {
     expect(citedFiles('see `package.json` and `scripts/ci/missing.mjs`', fileExists)).toEqual([]);
   });
+
+  it('extracts an existing path from the non-backticked Target file field', () => {
+    const body = [
+      'Target repository: valerielinc-ops/frontaliere-si-o-no',
+      'Target file: scripts/ci/foo.mjs',
+    ].join('\n');
+    expect(citedFiles(body, fileExists)).toEqual(['scripts/ci/foo.mjs']);
+  });
 });
 
 describe('suggestedActionText scoping', () => {
