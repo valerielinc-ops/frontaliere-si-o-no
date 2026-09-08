@@ -1060,7 +1060,7 @@
         "it": "bijoutier-m-w-d-jaeger-lecoultre-le-sentier",
         "en": "bijoutier-m-w-d-jaeger-lecoultre-le-sentier",
         "de": "bijoutier-h-f-richemont-le-sentier",
-        "fr": "bijoutier-h-f-richemont-le-sentier"
+        "fr": "bijoux-h-f-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -1112,6 +1112,9 @@
         "en": [
           "bijoutier-h-f-richemont-le-sentier",
           "jewellery-m-f-jaeger-lecoultre-le-sentier"
+        ],
+        "fr": [
+          "bijoutier-h-f-richemont-le-sentier"
         ]
       },
       "previousSlugs": [
@@ -1326,9 +1329,9 @@
     },
     {
       "id": "richemont-3c7cf0c34544",
-      "slug": "product-manager-customer-relations-centers-crcs-richemont-meyrin",
+      "slug": "product-manager-centri-di-relazioni-con-i-clienti-crc-richemont-meyrin",
       "slugByLocale": {
-        "it": "product-manager-customer-relations-centers-crcs-richemont-meyrin",
+        "it": "product-manager-centri-di-relazioni-con-i-clienti-crc-richemont-meyrin",
         "en": "product-manager-customer-relations-centers-crcs-richemont-meyrin",
         "de": "produktmanager-customer-relations-centers-crcs-richemont-meyrin",
         "fr": "gestionnaire-de-produits-centres-de-relations-avec-la-clientele-crc-richemont-meyrin"
@@ -1385,7 +1388,15 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-customer-relations-centers-crcs-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-customer-relations-centers-crcs-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-c24765c6ec23",
@@ -1956,8 +1967,8 @@
       "slugByLocale": {
         "it": "produzione-di-prestazioni-leader-vacheron-constantin-plan-les-ouates",
         "en": "leader-performance-manufacturing-richemont-plan-les-ouates",
-        "de": "leader-performance-manufacturing-richemont-plan-les-ouates",
-        "fr": "leader-performance-manufacturing-richemont-plan-les-ouates"
+        "de": "fuhrende-leistungsfertigung-vacheron-constantin-plan-les-ouates",
+        "fr": "production-performance-leader-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -2008,6 +2019,12 @@
         ],
         "en": [
           "leader-performance-manufacturing-vacheron-constantin-plan-les-ouates"
+        ],
+        "de": [
+          "leader-performance-manufacturing-richemont-plan-les-ouates"
+        ],
+        "fr": [
+          "leader-performance-manufacturing-richemont-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-07-24T22:19:34.362Z",
@@ -3051,8 +3068,8 @@
       "slugByLocale": {
         "it": "coordinator-training-manufacturing-csd-vacheron-constantin-plan-les-ouates",
         "en": "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates",
-        "de": "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates",
-        "fr": "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates"
+        "de": "koordinator-ausbildung-fertigung-cdd-vacheron-constantin-plan-les-ouates",
+        "fr": "fabrication-de-la-formation-de-co3-cdd-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -3098,6 +3115,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates"
+        ],
+        "de": [
+          "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates"
+        ],
+        "fr": [
           "coordinateur-formation-manufacturing-cdd-richemont-plan-les-ouates"
         ]
       },
@@ -3457,7 +3480,7 @@
         "it": "capo-squadra-accounting-richemont-villars-sur-glane",
         "en": "team-leader-accounting-richemont-villars-sur-glane",
         "de": "teamleiter-buchhaltung-richemont-villars-sur-glane",
-        "fr": "team-leader-accounting-richemont-villars-sur-glane"
+        "fr": "comptabilite-de-chef-d-equipe-richemont-villars-sur-glane"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -3502,7 +3525,6 @@
         "team-leader-accounting-richemont-villars-sur-glane",
         "contabilita-capo-squadra-richemont-villars-sur-glane",
         "team-leader-contabilita-richemont-villars-sur-glane",
-        "comptabilite-de-chef-d-equipe-richemont-villars-sur-glane",
         "capo-squadra-export-richemont-villars-sur-glane",
         "team-leader-export-richemont-villars-sur-glane",
         "teamleiter-export-richemont-villars-sur-glane"
@@ -3521,8 +3543,8 @@
           "teamleiter-export-richemont-villars-sur-glane"
         ],
         "fr": [
-          "comptabilite-de-chef-d-equipe-richemont-villars-sur-glane",
-          "team-leader-export-richemont-villars-sur-glane"
+          "team-leader-export-richemont-villars-sur-glane",
+          "team-leader-accounting-richemont-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-06-16T14:26:01.780Z",
@@ -8765,7 +8787,7 @@
         "it": "junior-sourcing-intelligence-project-manager-richemont-villars-sur-glane",
         "en": "junior-sourcing-intelligence-project-manager-richemont-villars-sur-glane",
         "de": "junior-sourcing-intelligence-project-manager-richemont-villars-sur-glane",
-        "fr": "junior-sourcing-intelligence-project-manager-richemont-villars-sur-glane"
+        "fr": "junior-gestionnaire-de-projet-de-renseignement-d-approvisionnement-richemont-villars-sur-glane"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -9335,7 +9357,7 @@
         "it": "acquisire-excellence-manager-van-cleef-arpels-meyrin",
         "en": "purchasing-excellence-manager-richemont-meyrin",
         "de": "purchasing-excellence-manager-richemont-meyrin",
-        "fr": "purchasing-excellence-manager-richemont-meyrin"
+        "fr": "gestionnaire-de-l-excellence-des-achats-van-cleef-arpels-meyrin"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -9386,6 +9408,9 @@
         ],
         "en": [
           "purchasing-excellence-manager-van-cleef-arpels-meyrin"
+        ],
+        "fr": [
+          "purchasing-excellence-manager-richemont-meyrin"
         ]
       },
       "needsRetranslation": true,
@@ -11390,6 +11415,14 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3089,
       "retranslationAttempts": 7,
@@ -11406,15 +11439,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ]
+      }
     },
     {
       "id": "richemont-beb532d93689",
@@ -12652,7 +12677,7 @@
         "it": "supply-planner-richemont-neuchatel",
         "en": "supply-planner-richemont-neuchatel",
         "de": "versorgungsplaner-panerai-neuchatel",
-        "fr": "supply-planner-richemont-neuchatel"
+        "fr": "planificateur-d-approvisionnement-panerai-neuchatel"
       },
       "company": "Panerai",
       "companyKey": "richemont",
