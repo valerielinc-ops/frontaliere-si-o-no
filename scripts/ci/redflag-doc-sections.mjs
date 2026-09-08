@@ -21,7 +21,12 @@ function normalizeMarkdownHeading(line) {
 }
 
 function headingLine(line) {
-  return /^[ \t]{0,3}#{1,6}[ \t]+/.test(line);
+  return headingLevel(line) !== null;
+}
+
+function headingLevel(line) {
+  const match = normalizeMarkdownHeading(line).match(/^(#{1,6})[ \t]+/);
+  return match ? match[1].length : null;
 }
 
 function fenceMarker(line) {
@@ -52,6 +57,9 @@ export function extractSectionByHeading(markdown, heading) {
     if (!inFence && normalizeMarkdownHeading(lines[index]) === target) matches.push(index);
   }
 
+  if (inFence) {
+    throw new Error(`Unclosed fenced code block while locating required heading: ${target}`);
+  }
   if (matches.length === 0) {
     throw new Error(`Required heading not found: ${target}`);
   }
@@ -60,6 +68,7 @@ export function extractSectionByHeading(markdown, heading) {
   }
 
   const start = matches[0];
+  const targetLevel = headingLevel(lines[start]);
   inFence = null;
   const body = [];
   for (let index = start + 1; index < lines.length; index += 1) {
@@ -69,10 +78,14 @@ export function extractSectionByHeading(markdown, heading) {
       body.push(lines[index]);
       continue;
     }
-    if (!inFence && headingLine(lines[index])) break;
+    const level = headingLine(lines[index]) ? headingLevel(lines[index]) : null;
+    if (!inFence && level !== null && level <= targetLevel) break;
     body.push(lines[index]);
   }
 
+  if (inFence) {
+    throw new Error(`Unclosed fenced code block in required section: ${target}`);
+  }
   const content = body.join('\n').trim();
   if (!content) {
     throw new Error(`Required heading has no content: ${target}`);
@@ -86,9 +99,10 @@ export function extractSectionByHeading(markdown, heading) {
  * @param {{ read?: (file: string) => string }} [options]
  * @returns {string}
  */
-export function buildRedflagDocumentSections({ read = (file) => readFileSync(file, 'utf8') } = {}) {
+export function buildRedflagDocumentSections({ read } = {}) {
+  const reader = read ?? ((file) => readFileSync(resolve(process.env.REDFLAG_DOC_ROOT ?? '.', file), 'utf8'));
   const chunks = REQUIRED_SECTIONS.map(({ file, heading }) => {
-    const content = extractSectionByHeading(read(file), heading);
+    const content = extractSectionByHeading(reader(file), heading);
     const title = heading.replace(/^#{1,6}[ \t]+/, '');
     return [`## ${file} — ${title}`, content].join('\n\n');
   });

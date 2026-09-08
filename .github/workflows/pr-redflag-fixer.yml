@@ -433,19 +433,10 @@ jobs:
             --jq '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // empty' \
             > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
 
-          # Le sezioni vincolanti di REVIEW.md e AGENTS.md entrano nel bundle
-          # con estrazione per intestazione. L'helper fallisce se un heading e'
-          # stato rimosso/rinominato, cosi' non si puo' consegnare a Claude un
-          # bundle apparentemente completo ma privo dei non-negotiables.
-          if ! node scripts/ci/redflag-doc-sections.mjs > "$OUT/redflag-doc-sections.md"; then
-            echo "::error::Impossibile estrarre le sezioni vincolanti di REVIEW.md/AGENTS.md; bundle non generato."
-            exit 1
-          fi
-
           # Stati già dichiarati in `## Non implementato`: la tassonomia va letta
           # da main (non dalla head di questa PR, che può precedere #5916 e non
           # esportare `bulletState`) — stessa ragione per cui il prompt lo faceva
-          # con `git fetch`+`git show FETCH_HEAD:...` invece di leggere il
+          # con `git fetch`+`git show origin/main:...` invece di leggere il
           # checkout locale.
           # `pr-body-sections-check.mjs` importa `../ci/lib/false-positive-
           # declaration.mjs` in modo RELATIVO (risolto da import.meta.url, non
@@ -455,11 +446,13 @@ jobs:
           # prima di #5916" è raro — misurato a mano riproducendo la catena
           # d'import fuori dal repo). Preservare la STESSA struttura relativa
           # (scripts/lib/ + scripts/ci/lib/) sotto $OUT lo risolve.
-          if git fetch --no-tags --depth=1 origin main >/dev/null 2>&1; then
+          BASE_FETCHED=0
+          if git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main >/dev/null 2>&1; then
+            BASE_FETCHED=1
             mkdir -p "$OUT/scripts/lib" "$OUT/scripts/ci/lib"
-            git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs \
+            git show origin/main:scripts/lib/pr-body-sections-check.mjs \
               > "$OUT/scripts/lib/pr-body-sections-check.mjs" 2>/dev/null
-            git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs \
+            git show origin/main:scripts/ci/lib/false-positive-declaration.mjs \
               > "$OUT/scripts/ci/lib/false-positive-declaration.mjs" 2>/dev/null
           fi
           if [ -s "$OUT/scripts/lib/pr-body-sections-check.mjs" ]; then
@@ -476,6 +469,27 @@ jobs:
               2>/dev/null || echo '[]' > "$OUT/closing-states.json"
           else
             echo '[]' > "$OUT/closing-states.json"
+          fi
+
+          # Le sezioni vincolanti devono provenire dalla base canonica, non dalla
+          # head della PR: una PR che rinomina uno di questi heading non deve
+          # poter disabilitare il fixer che la esamina. Il fetch e l'estrazione
+          # sono fail-closed: se la base o un heading mancano, il bundle non
+          # viene prodotto e la run lascia un errore visibile.
+          if [ "$BASE_FETCHED" -ne 1 ]; then
+            echo "::error::Impossibile leggere origin/main per estrarre le sezioni vincolanti; bundle non generato."
+            exit 1
+          fi
+          mkdir -p "$OUT/canonical-docs"
+          for doc in REVIEW.md AGENTS.md; do
+            if ! git show "origin/main:$doc" > "$OUT/canonical-docs/$doc" 2>/dev/null; then
+              echo "::error::Documento vincolante assente in origin/main: $doc; bundle non generato."
+              exit 1
+            fi
+          done
+          if ! REDFLAG_DOC_ROOT="$OUT/canonical-docs" node scripts/ci/redflag-doc-sections.mjs > "$OUT/redflag-doc-sections.md"; then
+            echo "::error::Impossibile estrarre le sezioni vincolanti di REVIEW.md/AGENTS.md da origin/main; bundle non generato."
+            exit 1
           fi
 
           {

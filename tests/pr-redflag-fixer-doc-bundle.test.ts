@@ -49,8 +49,13 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     expect(result.stdout).toContain('Mai abbassare quality threshold/test tolerance');
     expect(result.stdout).toContain('Git identity canonica');
 
+    expect(run).toContain('git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main');
+    expect(run).toContain('git show "origin/main:$doc"');
+    expect(run).toContain('REDFLAG_DOC_ROOT="$OUT/canonical-docs"');
     expect(run).toContain('node scripts/ci/redflag-doc-sections.mjs');
-    expect(run).toMatch(/cat "\$OUT\/redflag-doc-sections\.md"[\s\S]*> "\$OUT\/redflag-bundle\.md"/);
+    const bundleAssembly = run.match(/\{\n([\s\S]*?)\n\s*\} > "\$OUT\/redflag-bundle\.md"/)?.[1];
+    expect(bundleAssembly, 'the existing bundle assembly is missing').toEqual(expect.any(String));
+    expect(bundleAssembly).toContain('cat "$OUT/redflag-doc-sections.md"');
 
     expect(prompt).toContain('`REVIEW.md` (scopo + severity)');
     expect(prompt).toContain('`AGENTS.md` (Non-Negotiables + Privacy)');
@@ -68,13 +73,24 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
       '## Severity',
       'binding content',
       '',
-      '### Next section',
+      '### Nested section',
+      'nested binding content',
+      '',
+      '## Next section',
       'after',
     ].join('\n');
 
-    expect(extractSectionByHeading(fixture, '## Severity')).toBe('binding content');
+    expect(extractSectionByHeading(fixture, '## Severity')).toBe(
+      'binding content\n\n### Nested section\nnested binding content',
+    );
     expect(() => extractSectionByHeading(fixture, '## Privacy')).toThrow(
       /Required heading not found: ## Privacy/,
+    );
+  });
+
+  it('fails closed on an unclosed fence instead of swallowing the rest of the document', () => {
+    expect(() => extractSectionByHeading('## Severity\n```\nnot finished', '## Severity')).toThrow(
+      /Unclosed fenced code block/,
     );
   });
 
