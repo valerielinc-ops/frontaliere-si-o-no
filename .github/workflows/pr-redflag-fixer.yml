@@ -433,6 +433,15 @@ jobs:
             --jq '[.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i"))] | last | .body // empty' \
             > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
 
+          # Le sezioni vincolanti di REVIEW.md e AGENTS.md entrano nel bundle
+          # con estrazione per intestazione. L'helper fallisce se un heading e'
+          # stato rimosso/rinominato, cosi' non si puo' consegnare a Claude un
+          # bundle apparentemente completo ma privo dei non-negotiables.
+          if ! node scripts/ci/redflag-doc-sections.mjs > "$OUT/redflag-doc-sections.md"; then
+            echo "::error::Impossibile estrarre le sezioni vincolanti di REVIEW.md/AGENTS.md; bundle non generato."
+            exit 1
+          fi
+
           # Stati già dichiarati in `## Non implementato`: la tassonomia va letta
           # da main (non dalla head di questa PR, che può precedere #5916 e non
           # esportare `bulletState`) — stessa ragione per cui il prompt lo faceva
@@ -471,6 +480,8 @@ jobs:
 
           {
             echo "# Redflag-fix bundle — PR #$PR_NUMBER"
+            echo
+            cat "$OUT/redflag-doc-sections.md"
             echo
             echo "## PR metadata (title, body, headRefName)"
             cat "$OUT/pr.json"
@@ -550,8 +561,8 @@ jobs:
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
             **Bootstrap:**
-            1. Leggi `REVIEW.md` (severity/scopo) + `AGENTS.md` (non-negotiables + Privacy). VINCOLANTI.
-            2. Il bundle deterministico è già pronto in `${{ runner.temp }}/redflag/redflag-bundle.md` (prefetch zero-Claude): PR metadata (title/body/headRefName), elenco file completo (REST paginata, non tronca a 100), ultima review Claude con i 🔴, e gli stati già dichiarati in `## Non implementato` (vedi Regole sotto). **Leggilo con `Read` come prima cosa; non rieseguire `gh pr view`, `gh api .../files` o `gh api .../reviews` per gli stessi dati** — solo se una sezione risulta vuota/mancante e ti serve davvero, ripeti la singola chiamata mancante. Il branch è già checkoutato sulla head della PR.
+            1. Leggi con `Read`, come prima cosa, le sezioni vincolanti già incluse nel bundle: `REVIEW.md` (scopo + severity) e `AGENTS.md` (Non-Negotiables + Privacy). Se una sezione manca, considera il prefetch fallito e fermati: non procedere con un bundle incompleto.
+            2. Il bundle deterministico è già pronto in `${{ runner.temp }}/redflag/redflag-bundle.md` (prefetch zero-Claude): sezioni vincolanti di `REVIEW.md`/`AGENTS.md`, PR metadata (title/body/headRefName), elenco file completo (REST paginata, non tronca a 100), ultima review Claude con i 🔴, e gli stati già dichiarati in `## Non implementato` (vedi Regole sotto). **Non rieseguire `gh pr view`, `gh api .../files` o `gh api .../reviews` per gli stessi dati** — solo se una sezione risulta vuota/mancante e ti serve davvero, ripeti la singola chiamata mancante. Il branch è già checkoutato sulla head della PR.
 
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
