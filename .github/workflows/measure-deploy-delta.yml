@@ -70,7 +70,7 @@ jobs:
           # owns artifact resolve+download for every workflow in the repo.
           sparse-checkout: |
             scripts/measure-dist-delta.py
-            .github/actions/fetch-pages-artifact
+            .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
 
       - name: Resolve run ids (auto-pick last two with github-pages artifact)

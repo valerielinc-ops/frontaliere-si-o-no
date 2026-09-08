@@ -424,7 +424,7 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
       const sparse = /^[ \t]*sparse-checkout:[ \t]*(\|[\s\S]*?\n\s{0,10}[a-z-]+:|[^\n]+)/m.exec(src);
       if (sparse && !sparse[1].includes('/*')) {
         expect(sparse[1], `${f}: sparse checkout omits the action`).toContain(
-          '.github/actions/fetch-pages-artifact',
+          '.github/actions/fetch-pages-artifact/',
         );
       }
     }

@@ -22,7 +22,7 @@ jobs:
       - name: Checkout the composite action only
         uses: actions/checkout@v5
         with:
-          sparse-checkout: .github/actions/fetch-pages-artifact
+          sparse-checkout: .github/actions/fetch-pages-artifact/
           sparse-checkout-cone-mode: false
 
       - name: Fetch the deployed dist (github-pages artifact)
