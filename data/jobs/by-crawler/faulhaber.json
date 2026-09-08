@@ -16,14 +16,14 @@
       "companyDomain": "faulhaber.com",
       "title": "Candidatura spontanea",
       "titleByLocale": {
-        "it": "Candidatura spontanea",
         "en": "Candidatura spontanea",
+        "it": "Candidatura",
         "de": "Candidatura spontanea",
         "fr": "Candidatura spontanea"
       },
       "description": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nStampa lavoro\n\nContatto:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
       "descriptionByLocale": {
-        "it": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nStampa lavoro\n\nContatto:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "it": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nlavoro lavoro lavoro lavoro Stampa Stampa Stampa\n\nContatto:\n\nRisorse umane Croglio\n\nFaulhaber\n\nVia Cantonale 6980 Croglio",
         "en": "CH - Croglio\n\nAltro\n\nPosto indeterminato\n\nTutti\n\nCandidarsi ora\n\nStampa lavoro\n\nContatto:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
         "de": "CH — Croglio\n\nandere\n\nUnbestimmter Ort\n\nalle\n\nJetzt bewerben\n\nDrucken\n\nKontakt:\n\nHuman Resources Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
         "fr": "CH - Croglio\n\nAutres\n\nLieu indéterminé\n\nTous\n\nAppliquer maintenant\n\nImpression\n\nPersonne à contacter:\n\nRessources humaines Croglio\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio"
@@ -47,12 +47,7 @@
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-07T23:26:05.902Z",
-      "previousSlugs": [
-        "spontaneous-application-faulhaber-croglio",
-        "spontananwendung-faulhaber-croglio",
-        "demande-spontanee-faulhaber-croglio",
-        "candidatura-spontanea-faulhaber-croglio"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "spontaneous-application-faulhaber-croglio"
@@ -66,7 +61,12 @@
           "candidatura-spontanea-faulhaber-croglio"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "spontaneous-application-faulhaber-croglio",
+        "spontananwendung-faulhaber-croglio",
+        "demande-spontanee-faulhaber-croglio",
+        "candidatura-spontanea-faulhaber-croglio"
+      ],
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "salaryMin": 49500,
       "salaryMax": 75000,

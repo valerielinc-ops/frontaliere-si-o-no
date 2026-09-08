@@ -268,9 +268,9 @@
       "crawledAt": "2026-09-07T23:38:12.558Z",
       "firstSeenAt": "2026-09-06T23:01:59.541Z",
       "titleByLocale": {
+        "de": "Polydesigner:in 3D",
         "it": "Polidesigner 3D",
         "en": "Poly Designer 3D",
-        "de": "Polydesigner:in 3D",
         "fr": "Concepteur/Conceptrice 3D polymorphe"
       },
       "descriptionByLocale": {
@@ -295,8 +295,9 @@
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -308,7 +309,6 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "polydesigner-in-3d-coop-city-zurich-38ep9h",
@@ -321,9 +321,7 @@
       "previousSlugs": [
         "polydesigner-in-3d-coop-city-zurich-38ep9h",
         "polydesigner-in-3d-coop-city-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+      ]
     },
     {
       "id": "company-iwzu3s",
@@ -6671,7 +6669,6 @@
       },
       "addressLocality": "Aesch",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BL",
       "salarySource": "estimated",
       "baseSalary": {
@@ -6700,7 +6697,6 @@
         "verkaufer-in-food-getranke-coop-aesch-basel-landschaft-at1p3v",
         "verkaufer-in-food-getranke-coop-aesch-basel-landschaft"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -7014,7 +7010,6 @@
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "GR",
       "salarySource": "estimated",
       "baseSalary": {
@@ -7043,7 +7038,6 @@
         "verkaufer-in-food-frischprodukte-nonfood-coop-chur-graubunden-yjbiyk",
         "verkaufer-in-food-frischprodukte-nonfood-coop-chur-graubunden"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -7102,7 +7096,6 @@
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "GR",
       "salarySource": "estimated",
       "baseSalary": {
@@ -7131,7 +7124,6 @@
         "verkaufer-in-food-frischprodukte-coop-chur-graubunden-p128l3",
         "verkaufer-in-food-frischprodukte-coop-chur-graubunden"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -8824,7 +8816,6 @@
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BS",
       "salarySource": "estimated",
       "baseSalary": {
@@ -8853,7 +8844,6 @@
         "sachbearbeiter-in-kundendienst-coop-basel-stadt-g1eq5d",
         "sachbearbeiter-in-kundendienst-coop-basel-stadt"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -9081,7 +9071,6 @@
         "de": "magaziner-in-verkauf-coop-leuk-wallis-c9dxib",
         "fr": "magasin-en-vente-coop-genossenschaft-leuk"
       },
-      "needsRetranslation": true,
       "addressLocality": "Leuk",
       "sourceLang": "de",
       "addressRegion": "VS",
@@ -9125,7 +9114,6 @@
         "magaziner-in-vente-coop-leuk-wallis-c9dxib",
         "magaziner-in-verkauf-coop-leuk-wallis"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -9441,7 +9429,6 @@
       },
       "addressLocality": "Muri bei Bern",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salarySource": "reported",
       "baseSalary": {
@@ -9477,7 +9464,6 @@
         "rayonleiter-in-wein-getranke-coop-muri-bei-bern-gcc9se",
         "conducteur-de-rayon-dans-le-vin-boissons-coop-genossenschaft-urtenen-schonbuhl-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -9626,7 +9612,6 @@
       },
       "addressLocality": "Liestal",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BL",
       "salarySource": "estimated",
       "baseSalary": {
@@ -9670,7 +9655,6 @@
         "metzger-in-fleischfachfrau-fleischfachmann-region-baselland-coop-liestal-basel-landschaft-hw1wfg",
         "metzger-in-fleischfachfrau-fleischfachmann-region-baselland-coop-liestal-basel-landschaft"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -9831,7 +9815,6 @@
       },
       "addressLocality": "Zell",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZH",
       "salarySource": "estimated",
       "baseSalary": {
@@ -9860,7 +9843,6 @@
         "verkaufer-in-food-getranke-coop-zell-zurich-b5lr3f",
         "verkaufer-in-food-getranke-coop-zell-zurich"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -10978,7 +10960,6 @@
       },
       "addressLocality": "Steinhausen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "ZG",
       "salarySource": "reported",
       "baseSalary": {
@@ -11007,7 +10988,6 @@
         "rayonleiter-in-brot-backwaren-coop-steinhausen-zug-m14jzk",
         "rayonleiter-in-brot-backwaren-coop-steinhausen-zug"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -11066,7 +11046,6 @@
       },
       "addressLocality": "Meggen",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "LU",
       "salarySource": "estimated",
       "baseSalary": {
@@ -11122,7 +11101,6 @@
         "verkaufer-in-food-coop-genossenschaft-meggen-1iazli",
         "verkaufer-in-food-coop-genossenschaft-meggen"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -11303,7 +11281,6 @@
       },
       "addressLocality": "Brienz",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "addressRegion": "BE",
       "salarySource": "reported",
       "baseSalary": {
@@ -11332,7 +11309,6 @@
         "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1",
         "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
