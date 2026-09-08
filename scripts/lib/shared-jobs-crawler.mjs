@@ -5572,13 +5572,13 @@ async function main() {
   }
   const scopedCompanyKeysForRun = new Set(
     requestedCompanyKeys
-      .map((k) => normalizeCompanyKey(k))
+      .map((k) => normalizeCompanyKey(k).slice(0, 64))
       .filter(Boolean)
   );
   const hasScopedCompanyKeysForRun = scopedCompanyKeysForRun.size > 0;
   const isInScopedCompaniesForRun = (job) => {
     if (!hasScopedCompanyKeysForRun) return true;
-    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
+    const key = normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64);
     return scopedCompanyKeysForRun.has(key);
   };
   const geoScopeFingerprint = (job) =>
@@ -5807,15 +5807,20 @@ async function main() {
         flaggedForRetranslation
       ) && (sourceDescLength >= 160 || hasTitleWork || flaggedForRetranslation);
     });
-    if (localizeExistingOnly && hasScopedCompanyKeysForRun) {
+    if (
+      localizeExistingOnly
+      && hasScopedCompanyKeysForRun
+      && crawlerConfig.aiLocalizationEnabled
+      && canUseAi
+    ) {
       const mergedCompanyKeys = new Set(
         merged
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
           .filter(Boolean),
       );
       const queuedCompanyKeys = new Set(
         queue
-          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')))
+          .map((job) => normalizeCompanyKey(String(job?.companyKey || job?.company || '')).slice(0, 64))
           .filter(Boolean),
       );
       // A requested company present in the assembled dataset but with no
@@ -5900,7 +5905,7 @@ async function main() {
             }
             const localizationCompanyKey = normalizeCompanyKey(
               String(job?.companyKey || job?.company || ''),
-            );
+            ).slice(0, 64);
             if (localizationCompanyKey) {
               localizationAttemptedCompanyKeys.add(localizationCompanyKey);
               localizationCoveredCompanyKeys.add(localizationCompanyKey);
