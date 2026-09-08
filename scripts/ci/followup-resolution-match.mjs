@@ -89,6 +89,10 @@ export function citedFiles(body, fileExists) {
 }
 
 const ITEM_HEADING_START = /^#{2,3}\s/i;
+// `Funnel impact` is no longer emitted by the schema, but it remains a boundary
+// for backwards compatibility with already-minted issues. Removing it would
+// absorb the legacy line into `Suggested action` and recreate the too-wide-region
+// false positive fixed by #7902.
 const ITEM_FIELD_START = /^-\s+(?:Source|Original text|Stato dichiarato nella PR|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
 const POST_ORIGINAL_FIELD_START = /^-\s+(?:Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
 const DECORATED_SHEET_START = /^\s*\*{0,2}\d+\s*-\s*(?:METRICA|OSSERVATORE)(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:])/i;
