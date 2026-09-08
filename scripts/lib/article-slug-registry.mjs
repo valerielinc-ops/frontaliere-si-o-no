@@ -111,7 +111,7 @@ export function extractObjectLiteral(src, constName) {
 export function parseSlugRegistry(src, constName) {
   const block = extractObjectLiteral(src, constName);
   const entryRx = /["']([^"']+)["']\s*:\s*\{([^{}]*)\}/g;
-  const localeRx = /["']?(it|en|de|fr)["']?\s*:\s*["']([^"']+)["']/g;
+  const localeRx = /(?:^|[,{\s])["']?(it|en|de|fr)["']?\s*:\s*["']([^"']+)["']/g;
   /** @type {Record<string, {it: string, en: string, de: string, fr: string}>} */
   const slugs = {};
   let m;
