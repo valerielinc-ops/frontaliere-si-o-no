@@ -2063,6 +2063,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-lucerna-documenti-timeline': { it: 'naturalizzazione-lucerna-documenti-timeline', en: 'lucerne-naturalization-documents-timeline', de: 'luzern-naturalisierung-dokumente-zeitplan', fr: 'lucerne-naturalisation-documents-delai' },
  'traffico-aereo-svizzero-cresce': { it: 'traffico-aereo-svizzero-cresce', en: 'swiss-air-traffic-grows', de: 'schweizer-luftverkehr-waechst', fr: 'trafic-aerien-suisse-augmente' },
  'novartis-giornata-nera': { it: 'novartis-giornata-nera', en: 'novartis-black-day', de: 'novartis-schwarzer-tag', fr: 'novartis-jour-noir' },
+ 'f35a-prezzo-fisso-non-concordato': { it: 'f35a-prezzo-fisso-non-concordato', en: 'f35a-fixed-price-not-agreed', de: 'f35a-kein-festpreis-vereinbart', fr: 'f35a-aucun-prix-fixe-convenu' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

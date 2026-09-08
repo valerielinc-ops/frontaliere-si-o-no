@@ -6112,6 +6112,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-giornata-nera.title': 'Black Day for Novartis: 10% Collapse',
     'blog.article.novartis-giornata-nera.excerpt': 'Novartis shares plummet by more than 10% in a day. Lost capitalisation: CHF 24 billion. Two failures in clinical research shake the Swiss pharmaceutical giant.',
     'blog.article.novartis-giornata-nera.imageAlt': 'Swiss trading floor with stock market data displayed on screens at dawn, reflecting the importance of Switzerland\'s financial markets.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: no fixed price agreed',
+    'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'CoG investigation: no fixed price in the contract. Viola Amherd informed the government 7-8 months late. Serious gaps in federal transparency.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Swiss Federal Palace in Bern, representing national transparency and parliamentary oversight',
 };
 
 export default blogMetaChEn;

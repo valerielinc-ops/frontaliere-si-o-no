@@ -6112,6 +6112,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novartis-giornata-nera.title': 'Giornata nera per Novartis: crollo del 10%',
     'blog.article.novartis-giornata-nera.excerpt': 'Azioni Novartis crollano di oltre il 10% in una giornata. Capitalizzazione persa: 24 miliardi CHF. Due fallimenti nella ricerca clinica scuotono il gigante farmaceutico svizzero.',
     'blog.article.novartis-giornata-nera.imageAlt': 'Sala di trading svizzera con dati di borsa su schermi, raffigurante l\'importanza economica della Svizzera.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: nessun prezzo fisso concordato',
+    'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'Indagine della CdG: nessun prezzo fisso nel contratto. Viola Amherd informò il governo con 7-8 mesi di ritardo. Gravi lacune nella trasparenza federale.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Palazzo federale svizzero di Berna, simbolo della trasparenza e del controllo parlamentare federale',
 };
 
 export default blogMetaChIt;

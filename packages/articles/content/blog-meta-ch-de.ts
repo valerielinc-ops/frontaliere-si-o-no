@@ -6112,6 +6112,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-giornata-nera.title': 'Schwarzer Tag für Novartis: 10% Einbruch',
     'blog.article.novartis-giornata-nera.excerpt': 'Novartis-Aktien stürzen an einem Tag um mehr als 10% ab. Verlorene Kapitalisierung: 24 Mrd. CHF. Zwei Misserfolge in der klinischen Forschung erschüttern den Schweizer Pharmariesen.',
     'blog.article.novartis-giornata-nera.imageAlt': 'Schweizer Handelssaal mit Börsendaten auf Bildschirmen bei Tagesanbruch, der die Bedeutung der Schweizer Finanzmärkte widerspiegelt.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: kein Festpreis vereinbart',
+    'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'Untersuchung der GPK: Kein Festpreis im Vertrag. Viola Amherd informierte die Regierung mit 7-8 Monaten Verspätung. Schwerwiegende Lücken in der Bundestransparenz.',
+    'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Schweizer Bundespalast in Bern, Symbol für Transparenz und parlamentarische Kontrolle',
 };
 
 export default blogMetaChDe;
