@@ -6055,6 +6055,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-chfd-test-aziende-2026.title': 'Franco digitale CHFD: al via i test con 9 aziende',
     'blog.article.franco-chfd-test-aziende-2026.excerpt': 'Il franco digitale CHFD è in fase di test pratico con 9 aziende fino a fine 2026. Le applicazioni esaminate spaziano dai pagamenti automatici alla gestione di asset digitali su blockchain.',
     'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Visualizzazione del franco digitale CHFD e della tecnologia blockchain nei test di pagamento',
+    'blog.article.infortuni-reinserimento-suva.title': 'Infortuni gravi: quasi il 90% torna al lavoro',
+    'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva: dopo incidenti gravi, il 90% degli assicurati torna al lavoro. Il 78% rientra entro 3 mesi grazie a cure mediche e case management personalizzato.',
+    'blog.article.infortuni-reinserimento-suva.imageAlt': 'Sessione di fisioterapia presso una clinica svizzera specializzata in riabilitazione post-infortunio',
 };
 
 export default blogMetaChIt;

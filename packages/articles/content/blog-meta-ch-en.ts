@@ -6055,6 +6055,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-chfd-test-aziende-2026.title': 'CHFD digital franc: tests with 9 companies are underway',
     'blog.article.franco-chfd-test-aziende-2026.excerpt': 'The CHFD digital franc is undergoing practical testing with 9 companies until the end of 2026. The applications examined range from automatic payments to managing digital assets on blockchain.',
     'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Conceptual visualization of digital Swiss franc CHFD and blockchain technology in payment testing',
+    'blog.article.infortuni-reinserimento-suva.title': 'Serious injuries: almost 90% return to work',
+    'blog.article.infortuni-reinserimento-suva.excerpt': 'Suva: After serious accidents, 90% of policyholders return to work. 78% return within 3 months thanks to medical care and personalised case management.',
+    'blog.article.infortuni-reinserimento-suva.imageAlt': 'Physiotherapy session at a Swiss rehabilitation clinic for post-injury recovery',
 };
 
 export default blogMetaChEn;
