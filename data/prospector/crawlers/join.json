@@ -1,0 +1,24 @@
+{
+  "companyKey": "join",
+  "companyName": "SFS HandwerkStadt Chur",
+  "companyHost": "join.sfs.com",
+  "platform": "sfs.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://join.sfs.com/ch/de/offene-stellen/"
+  ],
+  "detailTemplate": "/ch/de/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 16,
+  "sampleTitles": [
+    "Automatiker/in Instandhaltung (m/w/d) 100% Heerbrugg, Schweiz SFS Group Schweiz AG <span class=\"e",
+    "Automatiker/in Schichtmodell (m/w/d) 100% Heerbrugg, Schweiz SFS Group Schweiz AG <span class=\"ex",
+    "Conseiller de vente Cité de l'artisan (m/w/d) 100% Sion, Schweiz SFS Group Schweiz AG <span class",
+    "Fachperson Debitorenbuchhaltung (m/w/d) 80%–100% Heerbrugg, Schweiz SFS Group Schweiz AG <s",
+    "Fachperson Labor (Metallographie/Werkstoffprüfung) (m/w/d) 100% Heerbrugg, Schweiz SFS Group Schweiz AG <"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-08T09:12:16.128Z"
+}

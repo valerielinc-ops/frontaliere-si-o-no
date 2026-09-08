@@ -1,0 +1,21 @@
+{
+  "companyKey": "repower",
+  "companyName": "Kraftwerk Papierfabrik Landquart",
+  "companyHost": "repower.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.repower.com/ch/jobs/deine-repower"
+  ],
+  "detailTemplate": "/ch/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Bewerbungsprozess",
+    "Onboarding"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-08T09:10:44.783Z"
+}
