@@ -78527,6 +78527,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-usa-2026-accordo-libero-scambio': {
+    title: 'Dazi USA verso Svizzera: 12,5% e accordo ottimizzato luglio-agosto 2026',
+    description: 'USA applicano dazi fino al 12,5% su importazioni svizzere dal 24 luglio. Negoziati accordo libero scambio conclusi ad agosto: impatto su esportazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, verso, accordo, ottimizzato',
+    ogTitle: 'Dazi USA e accordo 2026: cosa cambia per la Svizzera',
+    ogDescription: 'Il 24 luglio gli USA hanno adottato dazi fino al 12,5% sulle importazioni svizzere. Il 20 agosto si sono conclusi i negoziati sull\'accordo di libero scambio. Scopri le implicazioni economiche per imprese e lavoratori svizzeri.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-2026-accordo-libero-scambio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA verso Svizzera: 12,5% e accordo ottimizzato luglio-agosto 2026",
+      "description": "USA applicano dazi fino al 12,5% su importazioni svizzere dal 24 luglio. Negoziati accordo libero scambio conclusi ad agosto: impatto su esportazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-2026-accordo-libero-scambio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede della Segreteria di Stato dell'Economia (SECO) a Berna, centro nevralgico della politica economica nazionale svizzera."
+      },
+      "datePublished": "2026-09-08T07:27:12+00:00",
+      "dateModified": "2026-09-08T07:27:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-2026-accordo-libero-scambio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

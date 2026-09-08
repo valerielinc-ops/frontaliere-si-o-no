@@ -6049,6 +6049,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitto-scende-chiedi.title': 'Ton loyer ne baisse pas tout seul. Tu dois le demander',
     'blog.article.affitto-scende-chiedi.excerpt': 'Le taux hypothécaire est resté bloqué à 1,25 %, mais seulement 12 % des locataires ont demandé une réduction. Voici comment vérifier si vous avez droit à payer moins.',
     'blog.article.affitto-scende-chiedi.imageAlt': 'Une maison suisse typique surplombant le lac Lugano, symbole du coût de la location en Suisse',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'Tarifs américains sur la Suisse : 12,5 % et accord optimisé juillet-août 2026',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Le 24 juillet 2026, les États-Unis imposeront des tarifs allant jusqu\'à 12,5 % sur les importations suisses. Négociations sur l\'accord de libre-échange conclues le 20 août : impact sur les exportations et la compétitivité.',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Siège du Secrétariat d\'État à l\'économie (SECO) à Berne, le centre névralgique de la politique économique nationale suisse.',
 };
 
 export default blogMetaChFr;

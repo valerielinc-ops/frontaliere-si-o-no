@@ -6049,6 +6049,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitto-scende-chiedi.title': 'Il tuo affitto non scende da solo. Devi chiederlo',
     'blog.article.affitto-scende-chiedi.excerpt': 'Tasso ipotecario fermo all\'1,25%, ma solo il 12% degli inquilini ha chiesto la riduzione. Ecco come verificare se hai diritto a pagare meno.',
     'blog.article.affitto-scende-chiedi.imageAlt': 'Una casa tipica svizzera con vista su Lugano, simbolo del costo della locazione in Svizzera',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'Dazi USA verso Svizzera: 12,5% e accordo ottimizzato luglio-agosto 2026',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Il 24 luglio 2026 gli USA applicano dazi fino al 12,5% su importazioni svizzere. Il 20 agosto conclusi negoziati sull\'accordo di libero scambio: impatto su esportazioni e competitività.',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Sede della Segreteria di Stato dell\'Economia (SECO) a Berna, centro nevralgico della politica economica nazionale svizzera.',
 };
 
 export default blogMetaChIt;

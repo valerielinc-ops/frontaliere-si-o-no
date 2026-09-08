@@ -6049,6 +6049,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitto-scende-chiedi.title': 'Your rent doesn\'t go down on its own. You have to ask for it',
     'blog.article.affitto-scende-chiedi.excerpt': 'Mortgage rate stuck at 1.25%, but only 12% of tenants asked for a reduction. Here\'s how to check if you are entitled to pay less.',
     'blog.article.affitto-scende-chiedi.imageAlt': 'A typical Swiss home overlooking Lake Lugano, representing rental costs in Switzerland',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'US tariffs on Switzerland: 12.5% and optimized agreement July-August 2026',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'On 24 July 2026, the US will impose tariffs of up to 12.5% on Swiss imports. Negotiations on the free trade agreement concluded on 20 August: impact on exports and competitiveness.',
+    'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Swiss State Secretariat for the Economy (SECO) headquarters in Bern, the central hub of Switzerland\'s national economic policy.',
 };
 
 export default blogMetaChEn;
