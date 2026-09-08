@@ -6115,6 +6115,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.f35a-prezzo-fisso-non-concordato.title': 'F-35A: kein Festpreis vereinbart',
     'blog.article.f35a-prezzo-fisso-non-concordato.excerpt': 'Untersuchung der GPK: Kein Festpreis im Vertrag. Viola Amherd informierte die Regierung mit 7-8 Monaten Verspätung. Schwerwiegende Lücken in der Bundestransparenz.',
     'blog.article.f35a-prezzo-fisso-non-concordato.imageAlt': 'Schweizer Bundespalast in Bern, Symbol für Transparenz und parlamentarische Kontrolle',
+    'blog.article.svizzera-obiettivo-mosca-esercito.title': 'Armeechef: Die Zielschweiz Russlands',
+    'blog.article.svizzera-obiettivo-mosca-esercito.excerpt': 'Armeechef Benedikt Roos warnt: Die Schweiz ist im Visier Moskaus. Hybride Bedrohungen kritischer Infrastrukturen, Drohnen an militärischen Standorten und Lücken in der Raketenabwehr.',
+    'blog.article.svizzera-obiettivo-mosca-esercito.imageAlt': 'Ansicht der Castelgrande-Festung in Bellinzona, Symbol von Tessins Militärgeschichte',
 };
 
 export default blogMetaChDe;
