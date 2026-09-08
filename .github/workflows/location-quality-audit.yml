@@ -222,8 +222,13 @@ jobs:
               --workflow "${{ github.workflow }}"
           fi
 
+      # `failure()` is load-bearing: without it the `if:` carries an implicit
+      # `success()`, so a job dying BEFORE the `audit` step (checkout, `npm ci`,
+      # `Assemble jobs dataset`) skips this reporter and the red run stays mute.
+      # The second half stays because `audit` is `continue-on-error: true` and
+      # can fail without turning the job red, which `failure()` alone misses.
       - name: Report audit crash to GitHub Issues
-        if: steps.audit.outcome != 'success'
+        if: failure() || steps.audit.outcome != 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -232,7 +237,7 @@ jobs:
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Location quality audit crashed
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          Il job \`scripts/audit-job-locations.mjs\` è uscito con errore — nessuno snapshot numerico prodotto questo run. Verifica \`data/jobs.json\` assemblato correttamente e il log del job." \
+          Il job è fallito prima di poter pubblicare uno snapshot: o \`scripts/audit-job-locations.mjs\` è uscito con errore, o il run è morto prima (installazione dipendenze, \`node scripts/assemble-jobs-dataset.mjs\`). Apri il log del run e verifica quale step è rosso." \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"

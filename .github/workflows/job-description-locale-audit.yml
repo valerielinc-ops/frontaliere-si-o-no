@@ -304,8 +304,13 @@ jobs:
             --run-url "$RUN_URL" \
             --workflow "${{ github.workflow }}"
 
+      # `failure()` is load-bearing: without it the `if:` carries an implicit
+      # `success()`, so a job dying BEFORE the `audit` step (checkout, `npm ci`,
+      # `Assemble jobs dataset`) skips this reporter and the red run stays mute.
+      # The second half stays because `audit` is `continue-on-error: true` and
+      # can fail without turning the job red, which `failure()` alone misses.
       - name: Report audit crash to GitHub Issues
-        if: steps.audit.outcome != 'success'
+        if: failure() || steps.audit.outcome != 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
@@ -314,7 +319,7 @@ jobs:
             --title "Workflow Failure: ${{ github.workflow }}" \
             --description "## Job description locale audit crashed
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          \`scripts/audit-job-description-locale.mjs\` exited non-zero — no snapshot produced this run. Check that \`data/jobs.json\` assembled." \
+          The job failed before it could publish a snapshot: either \`scripts/audit-job-description-locale.mjs\` exited non-zero, or the run died earlier (dependency install, \`node scripts/assemble-jobs-dataset.mjs\`). Open the run log and check which step is red." \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"

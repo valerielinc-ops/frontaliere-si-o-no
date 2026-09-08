@@ -447,3 +447,57 @@ describe('post-deploy-validate-dist.yml — the audit runs on every deploy, repo
     expect(POSTDEPLOY).toMatch(/cat \/tmp\/job-title-locale\.log/);
   });
 });
+
+/**
+ * The three dataset audits share one failure channel: they assemble
+ * `data/jobs.json`, run their auditor with `continue-on-error: true`, and open a
+ * `Workflow Failure:` issue when it crashes. That reporter was gated on
+ * `steps.audit.outcome != 'success'` alone — and a bare `if:` carries an
+ * implicit `success()`, so a job dying BEFORE the audit step (dependency
+ * install, `assemble-jobs-dataset.mjs`) skipped the reporter entirely. The
+ * weekly job-title-locale run stayed red and mute from 2026-09-01 to 09-06
+ * (#7550): the channel existed, but only on the branch that had not happened.
+ */
+describe('dataset audits — the crash reporter survives a death before the audit step', () => {
+  const AUDITS = [
+    'job-title-locale-audit.yml',
+    'job-description-locale-audit.yml',
+    'location-quality-audit.yml',
+  ] as const;
+
+  const read = (file: string) =>
+    fs.readFileSync(path.join(ROOT, '.github', 'workflows', file), 'utf-8');
+
+  /** The `if:` line of the crash reporter step, or '' when the step is gone. */
+  const crashGate = (yml: string) => {
+    const lines = yml.split('\n');
+    const step = lines.findIndex((l) => /^\s*- name: Report audit crash to GitHub Issues\s*$/.test(l));
+    if (step < 0) return '';
+    return lines.slice(step + 1, step + 4).find((l) => /^\s*if:/.test(l)) ?? '';
+  };
+
+  it.each(AUDITS)('%s reports a crash that happens before the audit step', (file) => {
+    const gate = crashGate(read(file));
+    // Guards the guard: an empty slice would make the assertion below vacuous.
+    expect(gate, `no crash reporter found in ${file}`).toMatch(/^\s*if:/);
+    expect(gate).toMatch(/failure\(\)/);
+  });
+
+  it.each(AUDITS)('%s still reports a soft audit failure that leaves the job green', (file) => {
+    // Both halves are load-bearing. `audit` is `continue-on-error: true`, so it
+    // can fail without failing the job — a case `failure()` alone never sees.
+    expect(crashGate(read(file))).toMatch(/steps\.audit\.outcome != 'success'/);
+  });
+
+  it.each(AUDITS)('%s installs dependencies before assembling the dataset', (file) => {
+    // The 2026-09-01 red was `ERR_MODULE_NOT_FOUND: undici`, thrown by
+    // `scripts/lib/prospector/public-fetch-policy.mjs` which the assemble
+    // imports transitively (#6807). Ordering is the invariant, not the text.
+    const yml = read(file);
+    const install = yml.indexOf('npm ci');
+    const assemble = yml.indexOf('node scripts/assemble-jobs-dataset.mjs');
+    expect(install, `no npm ci in ${file}`).toBeGreaterThan(-1);
+    expect(assemble, `no assemble step in ${file}`).toBeGreaterThan(-1);
+    expect(install).toBeLessThan(assemble);
+  });
+});
