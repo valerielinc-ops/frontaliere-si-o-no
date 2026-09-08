@@ -26,6 +26,10 @@ function createFakeDb(
       collection: (subName: string) => ({
         add: async (data: Record<string, unknown>) => {
           adds.push({ collection: `${name}/${docId}/${subName}`, data });
+          return {
+            id: 'new-alert-1',
+            get: async () => ({ exists: true, data: () => data }),
+          };
         },
         get: async () => {
           const subDocs: Record<string, Record<string, unknown>> = subcollectionDocs[name]?.[docId]?.[subName] || {};
@@ -130,6 +134,45 @@ describe('handleSubscriptionManagement', () => {
     const subscriberSet = db.__sets.find((s) => s.collection === 'newsletter_subscribers');
     expect(subscriberSet!.data.status).toBe('confirmed');
     expect(subscriberSet!.data.isActive).toBe(true);
+  });
+
+  it('reactivates the job-alert parent when a new alert is created after account deletion', async () => {
+    const db = createFakeDb({
+      job_alert_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'inactive',
+          isActive: false,
+          active: false,
+          account_deleted_at: '2026-08-01T09:00:00.000Z',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      keywords: 'engineer',
+      locations: 'Lugano',
+      sectors: '',
+      frequency: 'weekly',
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    const parentSet = db.__sets.find(
+      (s) => s.collection === 'job_alert_subscribers' && s.docId === TEST_EMAIL,
+    );
+    expect(parentSet?.data).toMatchObject({
+      status: 'active',
+      isActive: true,
+      active: true,
+    });
+    expect(parentSet?.data).toHaveProperty('account_deleted_at');
+    expect(db.__adds.some((a) => a.collection === `job_alert_subscribers/${TEST_EMAIL}/alerts`)).toBe(true);
   });
 
   it('rejects invalid HMAC token', async () => {

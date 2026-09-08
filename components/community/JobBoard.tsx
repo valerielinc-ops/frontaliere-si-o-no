@@ -6053,7 +6053,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const autoNewsletterSubscribe = async (email?: string, source?: string) => {
- if (!email || localStorage.getItem('newsletter_subscribed') === 'true') return;
+ if (!email) return;
  try {
  const [{ getFirestore }, { getApp }] = await Promise.all([
  import('firebase/firestore'),
@@ -6079,7 +6079,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // this guard necessary. The job unlock itself is unaffected — every caller
  // grants it (JOB_EMAIL_ACCESS_KEY / setEmailAccessGranted) after the await,
  // independently of what happens in here.
- const { isNewsletterOptedOut } = await import('@/services/newsletterSubscribers');
+ const { isNewsletterOptedOut, isNewsletterAccountDeleted } = await import('@/services/newsletterSubscribers');
+ if (localStorage.getItem('newsletter_subscribed') === 'true'
+ && !(await isNewsletterAccountDeleted(firestore, email))) return;
  if (await isNewsletterOptedOut(firestore, email)) return;
  const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const isTrustedAuthSource = normalizedSource.includes('google') || normalizedSource.includes('facebook');

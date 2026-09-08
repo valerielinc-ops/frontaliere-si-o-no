@@ -222,6 +222,7 @@ export async function createAlert(
     orderBy,
     getDocs,
     serverTimestamp,
+    deleteField,
   } = await import('firebase/firestore');
 
   const normalizedEmail = normalizeEmail(email);
@@ -266,6 +267,13 @@ export async function createAlert(
       email: normalizedEmail,
       userId,
       locale: config.locale || 'it',
+      status: 'active',
+      isActive: true,
+      active: true,
+      // An explicit new alert is also a new registration after Auth account
+      // deletion. Remove only the lifecycle tombstone; historical delivery
+      // and opt-out fields remain untouched.
+      account_deleted_at: deleteField(),
       updated_at: serverTimestamp(),
       created_at: serverTimestamp(),
     },

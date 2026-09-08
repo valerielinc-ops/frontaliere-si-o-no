@@ -3,7 +3,11 @@ import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
-import { positiveEventRecoveryFields, positiveEventStatusFields } from './lib/subscriberReactivation.js';
+import {
+ positiveEventRecoveryFields,
+ positiveEventStatusFields,
+ mergeAccountDeletedSubscriberUpdate,
+} from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { uniqueUnknownFallback } from './lib/deliveryDocId.js';
 
@@ -142,18 +146,20 @@ export async function persistMailjetEvent(db, eventData) {
  // The doc read happens only on these three event types. ('delivered' is
  // unreachable for Mailjet — mapMailjetEvent has no such mapping — but the
  // guard is kept identical across the 5 providers so the class cannot drift.)
- if (type === 'delivered' || type === 'open' || type === 'click') {
- const current = (await subscriberRef.get()).data() || {};
- Object.assign(subscriberUpdate, positiveEventRecoveryFields({
+ if (Object.keys(subscriberUpdate).length > 1) {
+ await mergeAccountDeletedSubscriberUpdate(
+ subscriberRef,
+ subscriberUpdate,
+ type === 'delivered' || type === 'open' || type === 'click'
+ ? (current) => positiveEventRecoveryFields({
  subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
- }));
- }
-
- if (Object.keys(subscriberUpdate).length > 1) {
- await subscriberRef.set(subscriberUpdate, { merge: true });
+ })
+ : null,
+ db,
+ );
  }
 
  if (bounceSeverity === 'soft') {
@@ -260,17 +266,19 @@ async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- if (type === 'delivered' || type === 'open' || type === 'click') {
- const current = (await subscriberRef.get()).data() || {};
- Object.assign(topUpdate, positiveEventStatusFields({
+ await mergeAccountDeletedSubscriberUpdate(
+ subscriberRef,
+ topUpdate,
+ type === 'delivered' || type === 'open' || type === 'click'
+ ? (current) => positiveEventStatusFields({
  subscriber: current,
  currentStatus: current.status,
  bounceSeverity: current.bounce_severity,
  event: type,
- }));
- }
-
- await subscriberRef.set(topUpdate, { merge: true });
+ })
+ : null,
+ db,
+ );
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

@@ -1,6 +1,7 @@
 import {
  addDoc,
  collection,
+ deleteField,
  doc,
  getDoc,
  increment,
@@ -412,17 +413,44 @@ export function normalizeNewsletterEmail(raw: string): string {
 export { isNewsletterOptOutBinding };
 
 /**
- * The ONLY signals that may lift a recorded opt-out.
+ * The ONLY signals that may lift an ordinary recorded opt-out.
  *
  * `resubscribe_link` is the win-back / "riattiva" click — the recipient
  * deliberately asked to come back. `reconsent` is the explicit escape hatch
  * for any future caller that can prove the same thing. Everything else,
  * INCLUDING every `CONFIRMED_NEWSLETTER_SOURCES` entry, is an authentication
  * or a link click: neither is consent to resume mail the recipient refused.
+ * An `account_deleted_at` marker is different: it records account cleanup, not
+ * a newsletter opt-out, and a new signup is allowed to start a new account
+ * cycle through any supported channel.
  */
 function isExplicitNewsletterReOptIn(input: NewsletterUpsertInput): boolean {
  if (input.reconsent === true) return true;
  return normalizeSourceChannel(input) === 'resubscribe_link';
+}
+
+function isAccountDeletedSubscriber(existing: Record<string, any> | undefined): boolean {
+ return Boolean(
+ existing?.account_deleted_at
+ || String(existing?.status || '').trim().toLowerCase() === 'account_deleted',
+ );
+}
+
+/**
+ * A new registration may reuse an address whose former Auth account was
+ * deleted. This deliberately covers every signup shape: typed email, OAuth,
+ * One Tap, job gates, confirmation links and autologin. Suppression statuses
+ * remain excluded because they are delivery signals, not registration input.
+ */
+function isAccountDeletionReRegistration(
+ input: NewsletterUpsertInput,
+ existing: Record<string, any> | undefined,
+): boolean {
+ const requestedStatus = String(input.status || '').trim().toLowerCase();
+ return Boolean(
+ isAccountDeletedSubscriber(existing)
+ && !['unsubscribed', 'bounced', 'complained', 'suppressed', 'expired', 'inactive'].includes(requestedStatus),
+ );
 }
 
 /**
@@ -468,6 +496,8 @@ export function inferNewsletterSubscriptionState(
 ): { status: NewsletterSubscriberStatus; isActive: boolean } {
  const inferred = inferSubscriptionStateIgnoringOptOut(input, existing);
 
+ if (isAccountDeletionReRegistration(input, existing)) return inferred;
+
  // ── The opt-out is binding against EVERY write path (#5672) ───────────────
  //
  // Applied as a post-filter, and deliberately so: it never invents a state,
@@ -499,7 +529,9 @@ export function inferNewsletterSubscriptionState(
  // 186 documents ALL carry a `confirmed_at` newer than their opt-out, because
  // the resurrection wrote one (`status === 'confirmed' && !wasConfirmed`
  // below). Such a rule would exempt exactly the cohort this guard exists for.
- // Only `resubscribe_link` / `reconsent` lift it.
+ // Only `resubscribe_link` / `reconsent` lift an ordinary opt-out. An
+ // account-deletion tombstone is a separate lifecycle marker and is lifted by
+ // the new registration itself, regardless of its channel.
  //
  // Fail-closed on an unrecognised status: only a KNOWN suppression status is
  // waved through, so a caller passing something outside the union is treated
@@ -573,7 +605,14 @@ export async function isNewsletterOptedOut(db: Firestore, email: string): Promis
  try {
  const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
  if (!snap.exists()) return false;
- return isNewsletterOptOutBinding(snap.data());
+ const data = snap.data() || {};
+ // Account deletion is a lifecycle tombstone, not a permanent newsletter
+ // opt-out. A subsequent registration is allowed to clear it through the
+ // normal upsert path, including OAuth and autologin callers.
+ if (data.account_deleted_at || String(data.status || '').trim().toLowerCase() === 'account_deleted') {
+ return false;
+ }
+ return isNewsletterOptOutBinding(data);
  } catch (err) {
  // Reported, not swallowed. `true` here and `true` for a real opt-out are
  // the same value and the same silence, so without this line a Firestore
@@ -583,6 +622,33 @@ export async function isNewsletterOptedOut(db: Firestore, email: string): Promis
  // decision stays fail-closed; only its cause becomes visible.
  reportCaughtError(err, 'newsletter.optOutCheckUnavailable');
  return true;
+ }
+}
+
+/**
+ * True only for the account-lifecycle tombstone left by Auth deletion.
+ *
+ * Auth sign-in effects may have a stale local `newsletter_subscribed` flag
+ * from a previous lifecycle (for example after the account was deleted on a
+ * different device). They must still perform one server check so that a
+ * tombstoned address can start a new registration cycle. Read failures return
+ * false deliberately: callers use this predicate only to decide whether to
+ * bypass that local fast path, and a failed read must never cause a write.
+ */
+export async function isNewsletterAccountDeleted(db: Firestore, email: string): Promise<boolean> {
+ const normalized = normalizeNewsletterEmail(email);
+ if (!normalized || !normalized.includes('@')) return false;
+ try {
+ const snap = await getDoc(doc(collection(db, 'newsletter_subscribers'), normalized));
+ if (!snap.exists()) return false;
+ const data = snap.data() || {};
+ return Boolean(
+ data.account_deleted_at
+ || String(data.status || '').trim().toLowerCase() === 'account_deleted',
+ );
+ } catch (err) {
+ reportCaughtError(err, 'newsletter.accountDeletionCheckUnavailable');
+ return false;
  }
 }
 
@@ -857,7 +923,8 @@ export async function captureNewsletterSubscriber(
  // stamp-lift below and the confirmation/welcome emails in
  // `upsertNewsletterSubscriber` are all decisions about a recorded opt-out,
  // and until #5733 each of them re-derived it from a different proxy.
- const reOptInGranted = isExplicitNewsletterReOptIn(input);
+ const reOptInGranted = isExplicitNewsletterReOptIn(input)
+ || isAccountDeletionReRegistration(input, existingData);
  const optOutBinding = isNewsletterOptOutBinding(existingData);
  const optedOut = optOutBinding && !reOptInGranted;
  const resolved = await resolveCaptureDefaults(input);
@@ -947,6 +1014,20 @@ export async function captureNewsletterSubscriber(
  updatedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  } as Record<string, any>;
+
+ if (isAccountDeletionReRegistration(input, existingData)) {
+ // Keep the historical opt-out stamps as evidence, but remove the account
+ // deletion marker: this write is the fresh registration that starts a new
+ // account cycle. A pending cycle must also forget the old confirmation proof
+ // so it really sends a new double opt-in request.
+ mergedData.account_deleted_at = deleteField();
+ mergedData.resubscribed_at = serverTimestamp();
+ mergedData.resubscribedAt = serverTimestamp();
+ if (subscriptionState.status === 'pending') {
+ mergedData.confirmed_at = deleteField();
+ mergedData.confirmedAt = deleteField();
+ }
+ }
 
  if (subscriptionState.status === 'confirmed' && !wasConfirmed) {
  mergedData.confirmed_at = serverTimestamp();
@@ -1075,7 +1156,10 @@ export async function captureNewsletterSubscriber(
  // tests/newsletter-confirmation-followup.test.ts rather than by importing a
  // Cloud Functions module into the client bundle — the same shape the
  // NEWSLETTER_EXCLUDED_STATUSES correspondence already uses above.
- const hadConfirmationProof = !!(existingData?.confirmed_at || existingData?.confirmedAt);
+ const hadConfirmationProof = isAccountDeletionReRegistration(input, existingData)
+ && subscriptionState.status === 'pending'
+ ? false
+ : !!(existingData?.confirmed_at || existingData?.confirmedAt);
 
  return {
  existed: alreadyActive,

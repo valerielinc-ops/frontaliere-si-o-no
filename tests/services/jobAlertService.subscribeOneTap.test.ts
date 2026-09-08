@@ -32,6 +32,7 @@ vi.mock('firebase/firestore', () => ({
   getDocs: (...args: unknown[]) => getDocsMock(...args),
   orderBy: vi.fn(() => ({})),
   serverTimestamp: vi.fn(() => new Date()),
+  deleteField: vi.fn(() => '__delete_field__'),
   getFirestore: vi.fn(() => ({})),
 }));
 
@@ -139,6 +140,7 @@ describe('subscribeJobAlertOneTap', () => {
       email: 'foo@example.com',
       userId: 'user-1',
       locale: 'it',
+      account_deleted_at: '__delete_field__',
     });
 
     // The alert subdoc carries the canonical 1-tap shape.

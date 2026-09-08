@@ -25,6 +25,7 @@ import {
  requestConfirmationEmail,
  markNewsletterSubscribedLocally,
  isNewsletterOptedOut,
+ isNewsletterAccountDeleted,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
 import ConsentNotice from '@/components/shared/ConsentNotice';
@@ -554,16 +555,15 @@ const PublisherPublishPage: React.FC = () => {
  // submit handler, so this only needs to cover the OAuth providers.
  useEffect(() => {
  if (!user || gateSocialSyncedRef.current) return;
- if (typeof window !== 'undefined' && localStorage.getItem('newsletter_subscribed') === 'true') {
- gateSocialSyncedRef.current = true;
- return;
- }
  const email = getAuthEmail(user);
  if (!email) return;
  gateSocialSyncedRef.current = true;
  void (async () => {
  try {
  const firestore = getFirestore(await getApp());
+ if (typeof window !== 'undefined'
+ && localStorage.getItem('newsletter_subscribed') === 'true'
+ && !(await isNewsletterAccountDeleted(firestore, email))) return;
  // Fourth sibling of the auto-subscribe-on-sign-in guard (App.tsx,
  // hooks/useUserState.ts, services/authService.ts are the other three),
  // and it needs the same pre-check for the same reason (#5672). The

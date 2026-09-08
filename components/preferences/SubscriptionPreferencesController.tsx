@@ -25,6 +25,7 @@ import {
  createJobAlert,
  setDailyBriefFrequency,
  setAdvertisingEnabled,
+ isNewsletterOptOutBinding,
  DAILY_BRIEF_FREQUENCIES,
  type DailyBriefFrequency,
  type SubscriptionAlertSummary,
@@ -538,12 +539,11 @@ async function authLoadFullStatus(email: string): Promise<{
  const status = data.status;
  // Both spellings — see functions/src/newsletterSubscriptionManagement.js's
  // get_full_status, which this mirrors token-for-token (#5673).
- const hasUnsubAt = !!(data.unsubscribed_at || data.unsubscribedAt);
+ const optOutBinding = isNewsletterOptOutBinding(data);
  const isActive = data.isActive === true || data.active === true;
  newsletter = {
  subscribed:
- status !== 'unsubscribed' &&
- !hasUnsubAt &&
+ !optOutBinding &&
  (isActive || status === 'confirmed' || status === 'pending'),
  autologinEnabled: data.autologin_enabled !== false,
  dailyBriefFrequency: DAILY_BRIEF_FREQUENCIES.includes(data.daily_brief_frequency_override)
@@ -753,10 +753,10 @@ async function authSetSavedJobsDigest(userId: string, enabled: boolean): Promise
 }
 
 async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
- // No `deleteField` here any more (#5711): this function used to clear the
- // opt-out stamps to perform the lift, and clearing them destroyed the record
- // that the person had unsubscribed at all.
- const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp } =
+ // Keep historical opt-out stamps as evidence; only the account-deletion
+ // lifecycle marker is removed when this explicit authenticated re-registration
+ // turns the newsletter back on.
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -777,6 +777,7 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  status: 'subscribed',
  isActive: true,
  active: true,
+ account_deleted_at: deleteField(),
  // Both spellings of the RE-OPT-IN stamp, and neither opt-out stamp is
  // deleted (#5711). scripts/send-newsletter.mjs drops a row carrying
  // either spelling of the opt-out, so the lift has to be visible to it —
@@ -934,10 +935,11 @@ async function authUpdateAlert(
 }
 
 async function authCreateAlert(
+ userId: string,
  email: string,
  payload: JobAlertCreatePayload,
 ): Promise<SubscriptionAlertSummary> {
- const { getFirestore, doc, addDoc, collection, serverTimestamp, getDoc } = await resilientImport(
+ const { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, deleteField, getDoc } = await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
  );
@@ -948,6 +950,24 @@ async function authCreateAlert(
  const app = await getApp();
  const db = getFirestore(app as any);
  const key = email.trim().toLowerCase();
+
+ // An explicit alert created from the authenticated preference centre starts a
+ // new job-alert lifecycle after account deletion. Reactivate the parent before
+ // adding the child; the sender gates on this parent document.
+ await setDoc(
+  doc(db, 'job_alert_subscribers', key),
+  {
+   email: key,
+   userId,
+   status: 'active',
+   isActive: true,
+   active: true,
+   account_deleted_at: deleteField(),
+   updated_at: serverTimestamp(),
+   updatedAt: serverTimestamp(),
+  },
+  { merge: true },
+ );
 
  const docData = {
  keywords: payload.keywords,
@@ -963,6 +983,7 @@ async function authCreateAlert(
  specificCompanyKey: payload.specificCompanyKey || null,
  specificJobId: payload.specificJobId || null,
  email: key,
+ userId,
  createdAt: serverTimestamp(),
  };
  const newRef = await addDoc(
@@ -1998,7 +2019,8 @@ export function SubscriptionPreferencesController({
  ...prev,
  ]);
  } else {
- const fresh = await authCreateAlert(email, values);
+ if (!userId) throw new Error('missing_user_id');
+ const fresh = await authCreateAlert(userId, email, values);
  setAlerts((prev) => [fresh, ...prev]);
  }
  flashSaved('new_alert');

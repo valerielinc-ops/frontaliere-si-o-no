@@ -234,6 +234,7 @@ import {
  confirmNewsletterSubscription,
  clearNewsletterPendingLocally,
  isNewsletterOptedOut,
+ isNewsletterAccountDeleted,
  unsubscribeNewsletterSubscriber,
 } from '@/services/newsletterSubscribers';
 import { consentProof } from '@/services/consentTexts';
@@ -1183,7 +1184,7 @@ const App: React.FC = () => {
 
  useEffect(() => {
  if (!authEmail) return;
- if (localStorage.getItem('newsletter_subscribed') === 'true') return;
+ const hasLocalSubscriptionFlag = localStorage.getItem('newsletter_subscribed') === 'true';
  let cancelled = false;
  (async () => {
  // The localStorage flag is NOT a guard for this: it is client-side,
@@ -1202,6 +1203,10 @@ const App: React.FC = () => {
  ]);
  if (cancelled) return;
  const db = getFirestore(await getApp());
+ // A stale local flag must not hide a new registration after account deletion
+ // on another device. Keep the fast path for an ordinary active subscriber,
+ // but reopen it when the server still carries the deletion tombstone.
+ if (hasLocalSubscriptionFlag && !(await isNewsletterAccountDeleted(db, authEmail))) return;
  if (cancelled || await isNewsletterOptedOut(db, authEmail)) return;
  const savedJobCtx = consumeAuthJobContext();
  await upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx);
