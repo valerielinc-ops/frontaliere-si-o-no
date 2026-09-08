@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatDurationMs, stepTimingLines } from '../scripts/ci/scan-job-timeouts.mjs';
+import { formatDurationMs, markdownCodeSpan, stepTimingLines } from '../scripts/ci/scan-job-timeouts.mjs';
 
 // L'OSSERVATORE di #7421.
 //
@@ -100,6 +100,44 @@ describe('stepTimingLines — attribuzione del tempo di un job in timeout', () =
     });
     expect(open.find((l) => l.includes('Run gates check'))).toContain('✂️');
     expect(open.join('\n')).toContain('2h24m');
+  });
+
+  it('usa la finestra del job come denominatore e dichiara i gap non attribuiti', () => {
+    const lines = stepTimingLines({
+      started_at: '2026-09-08T10:00:00Z',
+      completed_at: '2026-09-08T10:10:00Z',
+      steps: [
+        { name: 'prima', started_at: '2026-09-08T10:00:00Z', completed_at: '2026-09-08T10:01:00Z' },
+        { name: 'dopo il gap', started_at: '2026-09-08T10:09:00Z', completed_at: '2026-09-08T10:10:00Z' },
+      ],
+    });
+    const body = lines.join('\n');
+
+    expect(body).toContain('10m00s di vita del job');
+    expect(body).toContain('2m00s attribuiti agli step');
+    expect(body).toContain('8m00s non attribuiti');
+    expect(lines.find((line) => line.includes('prima'))).toContain('(10%)');
+  });
+
+  it('non stampa percentuali quando la finestra del job è zero', () => {
+    const lines = stepTimingLines({
+      started_at: '2026-09-08T10:00:00Z',
+      completed_at: '2026-09-08T10:00:00Z',
+      steps: [{ name: 'zero', started_at: '2026-09-08T10:00:00Z', completed_at: '2026-09-08T10:00:00Z' }],
+    });
+
+    expect(lines.join('\n')).not.toMatch(/\(\d+%\)/);
+  });
+
+  it('delimita in modo sicuro uno step con backtick e pipe', () => {
+    const name = 'Build `special` | check';
+    const lines = stepTimingLines({
+      started_at: '2026-09-08T10:00:00Z',
+      completed_at: '2026-09-08T10:01:00Z',
+      steps: [{ name, started_at: '2026-09-08T10:00:00Z', completed_at: '2026-09-08T10:01:00Z' }],
+    });
+
+    expect(lines.join('\n')).toContain(markdownCodeSpan(name));
   });
 });
 

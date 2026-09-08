@@ -64,7 +64,7 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
-        if (path.endsWith('/annotations')) return JSON.stringify(ANNOTATIONS);
+        if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';
       }
       // Worst case on purpose: BOTH the search and the listing come back empty,
@@ -97,7 +97,7 @@ describe('scan-job-timeouts — two timed-out jobs of one run ⇒ ONE issue', ()
         const path = args[1];
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
-        if (path.endsWith('/annotations')) return JSON.stringify(ANNOTATIONS);
+        if (path.endsWith('/annotations')) return JSON.stringify([ANNOTATIONS]);
         return '{}';
       }
       if (args[0] === 'issue' && args[1] === 'list') return '[]';
