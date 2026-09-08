@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-09-08T13:40:11.245Z",
+  "generatedAt": "2026-09-08T23:28:31.227Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15676,
-  "avgDurationMs": 15676,
+  "durationMs": 20795,
+  "avgDurationMs": 20795,
   "durationHistory": [
-    15676
+    20795
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,8 +79,8 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T21:38:26.963Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
