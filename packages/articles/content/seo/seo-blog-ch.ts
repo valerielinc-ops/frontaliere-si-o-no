@@ -78293,6 +78293,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fiv-costi-assicurazione-svizzera': {
+    title: 'FIV in Svizzera: i costi non sono coperti | Frontaliere Ticino',
+    description: 'La fecondazione in vitro costa fino a 8\'000 franchi in Svizzera e non è rimborsata da LAMal. Scopri i costi reali, le percentuali di accesso ai trattamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, costi, sono, coperti, fecondazione',
+    ogTitle: 'FIV non rimborsata in Svizzera: costi e disparità di accesso',
+    ogDescription: 'La fecondazione in vitro costa fino a 8\'000 franchi in Svizzera e non è coperta da LAMal. Scopri i costi esatti, le percentuali di successo con altri trattamenti (50%) e come la medicina della riproduzione rimane inaccessibile per molte coppie',
+    canonicalPath: '/articoli-svizzera/fiv-costi-assicurazione-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FIV in Svizzera: i costi non sono coperti",
+      "description": "La fecondazione in vitro costa fino a 8'000 franchi in Svizzera e non è rimborsata da LAMal. Scopri i costi reali, le percentuali di accesso ai trattamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fiv-costi-assicurazione-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Visita medica presso una clinica specializzata in medicina della riproduzione, ambiente sanitario moderno e clinico in Svizzera"
+      },
+      "datePublished": "2026-09-08T05:18:16+00:00",
+      "dateModified": "2026-09-08T05:18:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fiv-costi-assicurazione-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

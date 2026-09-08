@@ -6031,6 +6031,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.incontro-pensioni-salute-2026.title': 'Sozialministertreffen in Luxemburg: Fokus auf Renten und Gesundheit',
     'blog.article.incontro-pensioni-salute-2026.excerpt': 'Am 7. September 2026 unterzeichnete die Schweiz in Luxemburg eine Erklärung mit Österreich, Deutschland, Liechtenstein und Luxemburg zu Renten, NCDs und neurodegenerativen Erkrankungen.',
     'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Luxemburg Skyline bei Sonnenuntergang, Symbol für ein schweizerisch‑europäisches Treffen zu Pensionen und Gesundheit',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'IVF in der Schweiz: Kosten werden nicht übernommen',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'Die In-vitro-Fertilisation kostet bis zu 8.000 Francs und wird von KVG nicht erstattet. Ein Experte bezeichnet dies als "Ungerechtigkeit", weil die WHO Unfruchtbarkeit als Krankheit anerkennt.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Medizinische Untersuchung in einer Fertilitätsklinik, modernes klinisches Umfeld in der Schweiz',
 };
 
 export default blogMetaChDe;

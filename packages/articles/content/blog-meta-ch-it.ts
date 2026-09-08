@@ -6031,6 +6031,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.incontro-pensioni-salute-2026.title': 'Incontro dei ministri sociali in Lussemburgo: focus su pensioni e salute',
     'blog.article.incontro-pensioni-salute-2026.excerpt': 'Il 7 settembre 2026 a Lussemburgo, la Svizzera ha firmato una dichiarazione con Austria, Germania, Liechtenstein e Lussemburgo su pensioni, NCD e malattie neurodegenerative.',
     'blog.article.incontro-pensioni-salute-2026.imageAlt': 'Panorama di Lussemburgo al tramonto, simbolo di un incontro svizzero‑europeo su pensioni e salute',
+    'blog.article.fiv-costi-assicurazione-svizzera.title': 'FIV in Svizzera: i costi non sono coperti',
+    'blog.article.fiv-costi-assicurazione-svizzera.excerpt': 'La fecondazione in vitro costa fino a 8\'000 franchi e non è rimborsata da LAMal. Un esperto la definisce «un\'ingiustizia» poiché l\'OMS riconosce l\'infertilità come malattia.',
+    'blog.article.fiv-costi-assicurazione-svizzera.imageAlt': 'Visita medica presso una clinica specializzata in medicina della riproduzione, ambiente sanitario moderno e clinico in Svizzera',
 };
 
 export default blogMetaChIt;
