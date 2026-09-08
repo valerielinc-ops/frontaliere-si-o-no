@@ -88,8 +88,19 @@ export function citedFiles(body, fileExists) {
   return [...out];
 }
 
-const ITEM_SECTION_START = /^(#{2,3}\s|-\s+[^:\n]+:)/i;
-const SUGGESTED_ACTION_SECTION_BREAK = /^(#{2,3}\s|- Source:|- Original text:|- Funnel impact:|- METRICA:|- OSSERVATORE:)/i;
+const ITEM_HEADING_START = /^#{2,3}\s/i;
+const ITEM_FIELD_START = /^-\s+(?:Source|Original text|Stato dichiarato nella PR|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const POST_ORIGINAL_FIELD_START = /^-\s+(?:Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const DECORATED_SHEET_START = /^\s*\*{0,2}\d+\s*-\s*(?:METRICA|OSSERVATORE)(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:])/i;
+const METRIC_SHEET_START = /^(?:-\s+METRICA\s*:|\s*\*{0,2}\d+\s*-\s*METRICA(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:]))/i;
+
+function isOriginalTextBoundary(line) {
+  return ITEM_HEADING_START.test(line) || POST_ORIGINAL_FIELD_START.test(line) || DECORATED_SHEET_START.test(line);
+}
+
+function isSuggestedActionSectionBreak(line) {
+  return ITEM_HEADING_START.test(line) || ITEM_FIELD_START.test(line) || DECORATED_SHEET_START.test(line);
+}
 
 /**
  * Keep only the part of an item that can describe the current acceptance condition.
@@ -106,7 +117,7 @@ function acceptanceScopeText(body) {
       inOriginalText = true;
       continue;
     }
-    if (inOriginalText && ITEM_SECTION_START.test(line)) inOriginalText = false;
+    if (inOriginalText && isOriginalTextBoundary(line)) inOriginalText = false;
     if (!inOriginalText) scoped.push(line);
   }
   return scoped.join('\n');
@@ -127,7 +138,7 @@ export function suggestedActionText(body) {
     if (/suggested action/i.test(lines[i])) {
       const buf = [lines[i]];
       for (let j = i + 1; j < lines.length; j++) {
-        if (SUGGESTED_ACTION_SECTION_BREAK.test(lines[j])) break;
+        if (isSuggestedActionSectionBreak(lines[j])) break;
         buf.push(lines[j]);
       }
       regions.push(buf.join('\n'));
@@ -196,14 +207,17 @@ export const ACCEPTANCE_CONDITION = Object.freeze({
  * differiscono solo per decorazione: la riga del template di `issue-decompose.yml`
  * (`- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>`) e quella emessa da
  * `scripts/audit-canton-url-drift.mjs` (`**3-METRICA.** … | **COMANDO**: \`<comando>\``).
- * Il marker `COMANDO` è l'ancora esplicita: non si deduce da una riga che «sembra»
- * un comando, per la stessa ragione per cui `ACCEPTANCE_CONDITION` pretende la
- * regione `Suggested action` invece di dedurla dai token. Puro.
+ * Il marker `COMANDO` è l'ancora esplicita e viene cercato solo su una riga
+ * `METRICA`: non si deduce da una riga che «sembra» un comando né da prosa che
+ * contiene la stringa `COMANDO:`, per la stessa ragione per cui
+ * `ACCEPTANCE_CONDITION` pretende la regione `Suggested action` invece di dedurla
+ * dai token. Puro.
  *
  * @param {string} itemText @returns {string|null}
  */
 export function schedaCommand(itemText) {
   for (const line of acceptanceScopeText(itemText).split('\n')) {
+    if (!METRIC_SHEET_START.test(line)) continue;
     const m = line.match(/\*{0,2}COMANDO\*{0,2}\s*:\s*(.+)$/);
     if (!m) continue;
     const cmd = m[1].trim().replace(/^`+|`+$/g, '').trim();
@@ -235,8 +249,9 @@ export function commandReferent(command) {
  * La scheda dichiara una metrica GIA' al bersaglio (`prima=N atteso=N`)?
  *
  * È il terzo stato della D2: referente esistente e già verde → l'item non muove
- * niente, è irrobustimento travestito da lavoro. Si legge dal TESTO, non
- * eseguendo il comando: questo modulo non esegue nulla.
+ * niente, è irrobustimento travestito da lavoro. Si legge dal TESTO, solo dalla
+ * riga `METRICA` della scheda, non eseguendo il comando: questo modulo non
+ * esegue nulla.
  *
  * Solo numeri NUDI. `atteso=<6.17%` dichiara una soglia sotto cui scendere, non un
  * bersaglio raggiunto: leggerlo come «già verde» scarterebbe lavoro vero, e in
@@ -246,7 +261,8 @@ export function commandReferent(command) {
  * @param {string} itemText @returns {boolean}
  */
 export function metricAlreadyGreen(itemText) {
-  const m = acceptanceScopeText(itemText).match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
+  const metricLine = acceptanceScopeText(itemText).split('\n').find((line) => METRIC_SHEET_START.test(line));
+  const m = metricLine?.match(/prima\s*=\s*([^\s|]+)\s+atteso\s*=\s*([^\s|]+)/i);
   if (!m) return false;
   if (/[<>≤≥]/.test(m[1]) || /[<>≤≥]/.test(m[2])) return false;
   const a = Number.parseFloat(m[1].replace(/%$/, ''));
@@ -449,8 +465,10 @@ export function detectAlreadyResolved(body, io) {
     const bodyText = typeof body === 'string' ? body : '';
     const files = citedFiles(bodyText, fileExists);
     // A sheet-only item is accepted through `COMMAND_CONDITION`, not through a
-    // prescribed token. Keep it out of the token-resolution path entirely.
-    const tokens = /suggested action/i.test(bodyText) ? citedTokens(bodyText) : [];
+    // prescribed token. Keep it out of the token-resolution path entirely, while
+    // preserving the free-form issue fallback for bodies with no sheet at all.
+    const sheetOnly = COMMAND_CONDITION.holds(bodyText) && !ACCEPTANCE_CONDITION.holds(bodyText);
+    const tokens = sheetOnly ? [] : citedTokens(bodyText);
     const evidence = [];
     if (files.length && tokens.length) {
       const cache = new Map();

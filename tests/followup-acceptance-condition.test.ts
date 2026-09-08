@@ -235,6 +235,30 @@ describe('condizione di accettazione — la scheda con COMANDO (D1/D2/D3)', () =
     expect(g.reason).toBe('valid-item-unconfirmed');
   });
 
+  it('una riga METRICA decorata dopo `Suggested action` non diventa un token di auto-chiusura', () => {
+    const item = `
+- Source: monitor
+- Suggested action: verificare l'invariante senza token distintivo
+**3-METRICA.** prima=12.34% atteso=<6.17% | **COMANDO**: \`node scripts/ci/other-gate.mjs\`
+`;
+    const g = aggregateCloseGate(body([item]), io('node scripts/ci/other-gate.mjs'));
+    expect(g.blocks).toBe(true);
+    expect(g.reason).toBe('valid-item-unconfirmed');
+  });
+
+  it('un campo che somiglia a una riga di item dentro `Original text` non riapre la scansione', () => {
+    const item = `
+- Source: reviewer
+- Original text:
+- services/router.ts:L42: 🔴 il reviewer cita anche il comando del gate
+  **COMANDO**: \`node scripts/ci/foreign-gate.mjs\`
+- Funnel impact: correttezza
+- Rationale: il testo citato non è l'azione di questo item
+- Suggested action: verificare il problema concreto senza una scheda propria
+`;
+    expect(hasFalsifiableAcceptance(item)).toBe(false);
+  });
+
   it('un item ammesso solo via COMANDO non porta token al detector, nemmeno se il comando è backticked', () => {
     const item = `
 - Source: monitor \`scripts/ci/other-gate.mjs\`
