@@ -2336,50 +2336,10 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
-          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp)
-          # Questo è il gate autorevole della Claude review per il job required:
-          # ultima review del bot reviewer, `## LGTM` presente e nessun finding
-          # `🔴 Important` reale. Il native auto-merge può procedere solo dopo
-          # la conclusione successiva di questo job.
-          review_commit=$(printf '%s' "$reviews" | node --input-type=module -e '
-            import { readFileSync } from "node:fs";
-            import { REDFLAG_IMPORTANT_RE } from "./scripts/ci/lib/constants.mjs";
-            const pages = JSON.parse(readFileSync(0, "utf8"));
-            const reviews = pages.flat();
-            const bots = reviews.filter((r) => r.user?.type === "Bot" && /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.user?.login || ""));
-            const lastBot = bots.length ? bots[bots.length - 1] : null;
-            const body = lastBot?.body || "";
-            process.stdout.write(lastBot && body.includes("## LGTM") && !REDFLAG_IMPORTANT_RE.test(body)
-              ? (lastBot.commit_id || "") : "");
-          ')
-          approved=false
-          if [ "$review_commit" = "$HEAD_SHA" ]; then
-            approved=true
-          elif [ -n "$review_commit" ]; then
-            head_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
-            review_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$review_commit" 2>/dev/null || echo NULL)
-            if [ "$head_fp" != "NULL" ] && [ "$head_fp" = "$review_fp" ]; then
-              approved=true
-              echo "LGTM carry-forward: il contributo della PR è invariato tra $review_commit e $HEAD_SHA."
-            fi
-          fi
-          if [ "$approved" = "true" ]; then
-            echo "approved=true" >> "$GITHUB_OUTPUT"
-            echo "Review Claude approvante trovata sulla HEAD $HEAD_SHA: LGTM senza 🔴 Important."
-            exit 0
-          fi
-
-          echo "approved=false" >> "$GITHUB_OUTPUT"
-          marker='<!-- REVIEW_GATE_NO_LGTM -->'
-          existing=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq '.[].body' 2>/dev/null || true)
-          if ! printf '%s' "$existing" | grep -Fq "$marker"; then
-            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$marker
-          ⚠️ **Review gate bloccato** — la review Claude sulla HEAD $HEAD_SHA non contiene un LGTM valido senza un finding Important. Il merge resta bloccato.
-
-          Run: $RUN_URL" || echo "::warning::Impossibile pubblicare il commento del review gate."
-          fi
-          echo "::error::Nessuna review Claude approvante sulla HEAD: manca LGTM oppure è presente un finding 🔴 Important."
-          exit 1
+          # Il gate autorevole resta questo step required; la decisione è
+          # estratta in un modulo testabile che conserva commit/fingerprint,
+          # classificazione fail-closed e conio della follow-up aggregata.
+          node scripts/ci/review-gate.mjs
 
       # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
       # job. Il ramo stale-review è una rescue one-shot: richiede l’evento
