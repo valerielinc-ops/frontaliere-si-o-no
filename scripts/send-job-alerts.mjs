@@ -1430,7 +1430,11 @@ async function processRetryQueue(db) {
   if (retryRankingRecords.length > 0) {
     try {
       await recordJobEmailImpressions(db, retryRankingRecords);
-      for (const record of retryRankingRecords) {
+    } catch (error) {
+      console.warn('⚠️ Retry ranking impression persist failed:', error?.message || error);
+    }
+    for (const record of retryRankingRecords) {
+      try {
         const alertRef = db.collection('job_alert_subscribers').doc(String(record.email).toLowerCase())
           .collection('alerts').doc(String(record.alertId));
         const update = {};
@@ -1443,9 +1447,9 @@ async function processRetryQueue(db) {
           }));
         }
         if (Object.keys(update).length > 0) await alertRef.update(update);
+      } catch (error) {
+        console.warn(`⚠️ Retry embedded ranking persist failed for ${record.email} (${record.alertId}):`, error?.message || error);
       }
-    } catch (error) {
-      console.warn('⚠️ Retry ranking impression persist failed:', error?.message || error);
     }
   }
 

@@ -217,6 +217,10 @@ export async function recordJobEmailRankingClick(db, {
   const statsRef = db.collection(JOB_EMAIL_RANKING_STATS_COLLECTION).doc(
     rankingStatsDocumentId({ surface: click.surface, surfaceId, jobId: click.jobId, day }),
   );
+  const alertRef = click.surface === 'job_alert' && click.alertId
+    ? db.collection('job_alert_subscribers').doc(String(email).trim().toLowerCase())
+      .collection('alerts').doc(String(click.alertId))
+    : null;
   const FieldValue = admin.firestore.FieldValue;
   const userId = pseudonymousUserId(email);
   const eventData = {
@@ -245,6 +249,11 @@ export async function recordJobEmailRankingClick(db, {
     await db.runTransaction(async (transaction) => {
       const existing = await transaction.get(eventRef);
       if (existing.exists) return;
+      // Firestore requires every transaction read to happen before its first
+      // write.  The alert can be gone by the time a recipient clicks an old
+      // email, so probe it first and keep the durable event/stats writes even
+      // when the optional embedded mirror no longer exists.
+      const alertSnapshot = alertRef ? await transaction.get(alertRef) : null;
       transaction.create(eventRef, eventData);
       transaction.set(statsRef, {
         surface: click.surface,
@@ -261,10 +270,7 @@ export async function recordJobEmailRankingClick(db, {
         },
         expires_at: retentionDate(occurred),
       }, { merge: true });
-      if (click.surface === 'job_alert' && click.alertId) {
-        const normalizedEmail = String(email).trim().toLowerCase();
-        const alertRef = db.collection('job_alert_subscribers').doc(normalizedEmail)
-          .collection('alerts').doc(String(click.alertId));
+      if (alertRef && alertSnapshot?.exists) {
         const alertUpdate = buildEmbeddedRankingUpdate({
           jobId: click.jobId,
           day,
