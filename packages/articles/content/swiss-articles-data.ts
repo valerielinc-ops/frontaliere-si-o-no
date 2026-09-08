@@ -18289,6 +18289,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'casse-pensioni-rendimenti-2025',
+    category: 'pensione',
+    date: '2026-09-08T19:20:17.618Z',
+    image: '/images/blog/casse-pensioni-rendimenti-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

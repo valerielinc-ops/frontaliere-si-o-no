@@ -6097,6 +6097,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Mindestlohn gefährdetes Tessin: 4.000 Arbeitnehmer ausgeschlossen',
     'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'Am 7. September 2026 wird die Volksinitiative zurückgezogen, aber die Motion Ettlin droht 67% der Gaststättenarbeiterinnen und Gaststättenarbeiter keine Vorteile zu bringen. Ein monatlicher Anstieg von 316 Franken ist gefährdet.',
     'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Plenarsaal des Schweizer Parlaments während einer Sitzung zur Lohnpolitik',
+    'blog.article.casse-pensioni-rendimenti-2025.title': 'Pensionskassen: Rendite-Boom im Jahr 2025',
+    'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Die Schweizer Pensionskassen archivieren das aktiengetriebene Jahr 2025 mit einer durchschnittlichen Rendite von 6,3%. Konstanter Umwandlungssatz von 5,20% für zukünftige Renten.',
+    'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investor überprüft Pensionsfonds-Renditen und Renteneinkünfte mit Finanzdokumenten.',
 };
 
 export default blogMetaChDe;

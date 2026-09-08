@@ -6097,6 +6097,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-minimo-ticino-mozione-ettlin.title': 'Ticino minimum wage at risk: 4,000 workers excluded',
     'blog.article.salario-minimo-ticino-mozione-ettlin.excerpt': 'On September 7, 2026, it withdraws the popular initiative, but the Ettlin motion risks nullifying the benefits for 67% of catering workers. At risk 316 francs per month increase.',
     'blog.article.salario-minimo-ticino-mozione-ettlin.imageAlt': 'Swiss Federal Parliament chamber during a plenary session on wage policy',
+    'blog.article.casse-pensioni-rendimenti-2025.title': 'Pension funds: return boom in 2025',
+    'blog.article.casse-pensioni-rendimenti-2025.excerpt': 'Swiss pension funds archive 2025 with an average return of 6.3%, driven by equities. Stable conversion rate at 5.20% for future annuities.',
+    'blog.article.casse-pensioni-rendimenti-2025.imageAlt': 'Investor reviewing pension fund performance and retirement income projections with financial documents.',
 };
 
 export default blogMetaChEn;
