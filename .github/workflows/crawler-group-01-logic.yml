@@ -44,8 +44,7 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: false
-        default: ""
+        required: true
         type: string
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
@@ -174,6 +173,7 @@ jobs:
           fi
           exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
+        id: crawler-generation-finalizer
         if: always()
         continue-on-error: true
         env:
@@ -185,7 +185,15 @@ jobs:
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"coop-ticino","primarySlice":"data/jobs/by-crawler/coop-ticino.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-01-terminal.json
+          CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Persist crawler generation ledger
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_RECEIPT_DIR: ""
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

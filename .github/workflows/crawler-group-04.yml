@@ -50,8 +50,7 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: false
-        default: ""
+        required: true
         type: string
 concurrency:
   group: jobs-crawler-group-04
@@ -1701,6 +1700,7 @@ jobs:
           fi
           exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
+        id: crawler-generation-finalizer
         if: always()
         continue-on-error: true
         env:
@@ -1712,7 +1712,15 @@ jobs:
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"aarreha-schinznach","primarySlice":"data/jobs/by-crawler/aarreha-schinznach.json"},{"crawlerId":"ameos-ch","primarySlice":"data/jobs/by-crawler/ameos-ch.json"},{"crawlerId":"anybotics","primarySlice":"data/jobs/by-crawler/anybotics.json"},{"crawlerId":"cereneo","primarySlice":"data/jobs/by-crawler/cereneo.json"},{"crawlerId":"clariant","primarySlice":"data/jobs/by-crawler/clariant.json"},{"crawlerId":"emil-frey","primarySlice":"data/jobs/by-crawler/emil-frey.json"},{"crawlerId":"equans","primarySlice":"data/jobs/by-crawler/equans.json"},{"crawlerId":"ergolz-klinik","primarySlice":"data/jobs/by-crawler/ergolz-klinik.json"},{"crawlerId":"ferrovia-retica","primarySlice":"data/jobs/by-crawler/ferrovia-retica.json"},{"crawlerId":"gkb","primarySlice":"data/jobs/by-crawler/gkb.json"},{"crawlerId":"google-switzerland","primarySlice":"data/jobs/by-crawler/google-switzerland.json"},{"crawlerId":"hermes","primarySlice":"data/jobs/by-crawler/hermes.json"},{"crawlerId":"hitachi-energy","primarySlice":"data/jobs/by-crawler/hitachi-energy.json"},{"crawlerId":"honegger","primarySlice":"data/jobs/by-crawler/honegger.json"},{"crawlerId":"jsafrasarasin","primarySlice":"data/jobs/by-crawler/jsafrasarasin.json"},{"crawlerId":"kanton-basel-landschaft","primarySlice":"data/jobs/by-crawler/kanton-basel-landschaft.json"},{"crawlerId":"klinik-im-hasel","primarySlice":"data/jobs/by-crawler/klinik-im-hasel.json"},{"crawlerId":"lidl-svizzera","primarySlice":"data/jobs/by-crawler/lidl-svizzera.json"},{"crawlerId":"nant","primarySlice":"data/jobs/by-crawler/nant.json"},{"crawlerId":"pemsa","primarySlice":"data/jobs/by-crawler/pemsa.json"},{"crawlerId":"pole-sante-pays-enhaut","primarySlice":"data/jobs/by-crawler/pole-sante-pays-enhaut.json"},{"crawlerId":"puk-zuerich","primarySlice":"data/jobs/by-crawler/puk-zuerich.json"},{"crawlerId":"spital-limmattal","primarySlice":"data/jobs/by-crawler/spital-limmattal.json"},{"crawlerId":"suedhang","primarySlice":"data/jobs/by-crawler/suedhang.json"},{"crawlerId":"tarchini-group","primarySlice":"data/jobs/by-crawler/tarchini-group.json"},{"crawlerId":"volksschule-luzern","primarySlice":"data/jobs/by-crawler/volksschule-luzern.json"},{"crawlerId":"zurzach-care","primarySlice":"data/jobs/by-crawler/zurzach-care.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-04-terminal.json
+          CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Persist crawler generation ledger
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_RECEIPT_DIR: ""
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

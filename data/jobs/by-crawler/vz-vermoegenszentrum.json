@@ -16,8 +16,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Mitarbeiter/-in Contact Center (zweisprachig)",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Contact Center (zweisprachig)",
-        "en": "Employee/-in contact center (bilingual), from 50%",
+        "it": "Centro di contatto dei dipendenti (Bilingual)",
+        "en": "Employee Contact Center (Bilingual)",
         "de": "Mitarbeiter/-in Contact Center (zweisprachig)",
         "fr": "Centre de contact/employé (bilingue), à partir de 50%"
       },
@@ -79,7 +79,6 @@
           "mitarbeiter-in-contact-center-zweisprachig-ab-50-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.788Z",
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -109,8 +108,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Mitarbeiter/-in Contact Center",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Contact Center",
-        "en": "Employee/-in contact center, from 50%",
+        "it": "Centro di contatto personale",
+        "en": "Staff Contact Center",
         "de": "Mitarbeiter/-in Contact Center",
         "fr": "Employé/-en centre de contact, à partir de 50%"
       },
@@ -169,7 +168,6 @@
           "mitarbeiter-in-contact-center-ab-50-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -306,8 +304,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Contact Center (Hochdeutsch)",
-        "en": "Employee/in Contact Center (High German), 40-80 %",
+        "it": "Centro di contatto dei dipendenti (High German)",
+        "en": "Employee Contact Center (High German)",
         "de": "Mitarbeiter/-in Contact Center (Hochdeutsch)",
         "fr": "Employé/dans le centre de contact (haut allemand), 40-80 %"
       },
@@ -369,7 +367,6 @@
           "mitarbeiter-in-contact-center-hochdeutsch-40-80-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.788Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -694,9 +691,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-c6c11085934c",
-      "slug": "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
+      "slug": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
+        "it": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
         "en": "personnel-in-operations-pension-fund-with-specialist-responsibility-80-100-vz-vermogenszentrum-zurich-zurich",
         "de": "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
         "fr": "personnel-dans-la-caisse-de-retraite-des-operations-avec-responsabilite-specialisee-80-100-vz-vermogenszentrum-zurich"
@@ -706,8 +703,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
       "titleByLocale": {
-        "it": "Sachbearbeiter/-in Operations Pensionskasse (con Fachverantwortung)",
-        "en": "Personnel/in Operations Pension Fund (with specialist responsibility)",
+        "it": "Fondo Pensione Operazioni Personali (con responsabilità specialistica)",
+        "en": "Personnel Operations Pension Fund (with specialist responsibility)",
         "de": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
         "fr": "Personnel/dans la Caisse de retraite des opérations (avec responsabilité spécialisée), 80-100 %"
       },
@@ -753,7 +750,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
         ],
         "de": [
           "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
@@ -761,9 +759,9 @@
       },
       "previousSlugs": [
         "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.775Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2056,9 +2054,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-e65a44812339",
-      "slug": "apprendistato-come-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich",
+      "slug": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich",
+        "it": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
         "en": "teaching-as-a-computer-scientist-in-platform-development-vz-vermogenszentrum-zurich-zurich",
         "de": "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch",
         "fr": "l-enseignement-en-tant-qu-informaticien-en-developpement-de-plateforme-vz-vermogenszentrum-zurich-zurich"
@@ -2068,8 +2066,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Lehre als Informatiker/-in Plattformentwicklung",
       "titleByLocale": {
-        "it": "Apprendistato come Informatiker/-in Plattformentwicklung",
-        "en": "Teaching as a computer scientist/in platform development",
+        "it": "Insegnamento come sviluppo della piattaforma informatica",
+        "en": "Teaching as a computer scientist platform development",
         "de": "Lehre als Informatiker/-in Plattformentwicklung",
         "fr": "L'enseignement en tant qu'informaticien/en développement de plateforme"
       },
@@ -2118,11 +2116,13 @@
       },
       "previousSlugs": [
         "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch",
-        "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich"
+        "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich",
+        "apprendistato-come-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch"
+          "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch",
+          "apprendistato-come-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich"
@@ -2131,7 +2131,6 @@
           "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T21:41:35.295Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -2549,9 +2548,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-cebfeb07c7b2",
-      "slug": "apprendistato-come-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich",
+      "slug": "insegnamento-come-sviluppo-dell-applicazione-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich",
+        "it": "insegnamento-come-sviluppo-dell-applicazione-informatica-vz-vermogenszentrum-zurich-zurich",
         "en": "teaching-as-a-computer-scientist-in-application-development-vz-vermogenszentrum-zurich-zurich",
         "de": "lehre-als-informatiker-in-applikationsentwicklung-vz-vermoegenszentrum-ch",
         "fr": "enseignement-en-tant-qu-informaticien-en-developpement-d-applications-vz-vermogenszentrum-zurich-zurich"
@@ -2561,8 +2560,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Lehre als Informatiker/-in Applikationsentwicklung",
       "titleByLocale": {
-        "it": "Apprendistato come Informatiker/-in Applikationsentwicklung",
-        "en": "Teaching as a computer scientist/in application development",
+        "it": "Insegnamento come sviluppo dell'applicazione informatica",
+        "en": "Teaching as computer science application development",
         "de": "Lehre als Informatiker/-in Applikationsentwicklung",
         "fr": "Enseignement en tant qu'informaticien/en développement d'applications"
       },
@@ -2609,11 +2608,13 @@
       },
       "previousSlugs": [
         "lehre-als-informatiker-in-applikationsentwicklung-vz-vermoegenszentrum-ch",
-        "lehre-als-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich"
+        "lehre-als-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich",
+        "apprendistato-come-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-informatiker-in-applikationsentwicklung-vz-vermoegenszentrum-ch"
+          "lehre-als-informatiker-in-applikationsentwicklung-vz-vermoegenszentrum-ch",
+          "apprendistato-come-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich"
         ],
         "en": [
           "lehre-als-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich"
@@ -2622,7 +2623,6 @@
           "lehre-als-informatiker-in-applikationsentwicklung-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T21:41:35.311Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -4145,8 +4145,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Finanzmarktanalyst/-in & Redaktor/-in",
       "titleByLocale": {
-        "it": "Analista del mercato finanziario/in & editor/in",
-        "en": "Financial market analyst/-in & editor/in",
+        "it": "Analista del mercato finanziario e editore",
+        "en": "Financial market analyst and editor",
         "de": "Finanzmarktanalyst/-in & Redaktor/-in",
         "fr": "Analyste des marchés financiers/dans & éditeur/dans"
       },
@@ -4213,7 +4213,6 @@
           "finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:11:10.050Z",
       "salaryMin": 107500,
       "salaryMax": 188500,
@@ -4976,7 +4975,7 @@
       "slug": "consulente-associato-successione-aziendale-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "it": "consulente-associato-successione-aziendale-vz-vermogenszentrum-zurich-zurich",
-        "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich-zurich",
+        "en": "associate-consultant-business-succession-vz-vermogenszentrum-zurich-zurich",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
         "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-zurich-zurich"
       },
@@ -4986,7 +4985,7 @@
       "title": "Associate Consultant Unternehmensnachfolge",
       "titleByLocale": {
         "it": "Consulente associato Successione aziendale",
-        "en": "Associate Consultant Unternehmensnachfolge",
+        "en": "Associate Consultant Business Succession",
         "de": "Associate Berater Unternehmensnachfolge",
         "fr": "Consultant associé Succession d'affaires"
       },
@@ -5036,7 +5035,7 @@
       "previousSlugs": [
         "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
         "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich",
-        "associate-consultant-business-succession-vz-vermogenszentrum-zurich-zurich"
+        "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5045,13 +5044,12 @@
         ],
         "en": [
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich",
-          "associate-consultant-business-succession-vz-vermogenszentrum-zurich-zurich"
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich-zurich"
         ],
         "fr": [
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
       "salaryMin": 73500,
       "salaryMax": 111500,

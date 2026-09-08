@@ -6079,6 +6079,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS taglia 40 posti, chiude centri e riduce servizi',
     'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'BLS annuncia 40 tagli di posti, chiusura di 5 centri viaggi e riduzione servizi. Risparmi target: 5 milioni CHF nel biennio 2027-2028.',
     'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Veduta della Svizzera: paesaggio che rappresenta la mobilità nazionale e i trasporti pubblici',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.title': 'Studenti svizzeri leggono meno: risultati PISA 2025',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.excerpt': 'PISA 2025: quindicenni svizzeri eccellono in scienze, ma lettura e matematica calano. Il 28,8% non raggiunge competenze minime. L\'indagine rivela l\'influenza cruciale dell\'origine sociale.',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.imageAlt': 'Aula scolastica svizzera con studenti che risolvono esercizi di matematica e lettura',
+    'blog.article.bollette-26-centesimi-2027.title': 'Prezzi dell\'elettricità in leggero calo nel 2027',
+    'blog.article.bollette-26-centesimi-2027.excerpt': 'Nel 2027 le economie domestiche svizzere pagheranno 26,5 ct./kWh di tariffa media: calo del 4% e risparmio di 53 franchi annuali secondo ElCom.',
+    'blog.article.bollette-26-centesimi-2027.imageAlt': 'Una famiglia svizzera rilegge la bolletta dell\'energia dopo il calo tariffario annunciato da ElCom per il 2027',
 };
 
 export default blogMetaChIt;

@@ -7,7 +7,7 @@
       "slug": "camion-driver-in-holcim-group-oberdorf",
       "slugByLocale": {
         "it": "camion-driver-in-holcim-group-oberdorf",
-        "en": "truck-driver-in-holcim-group-oberdorf",
+        "en": "truck-drivers-holcim-group-oberdorf",
         "de": "lastwagenfuhrer-in-holcim-ch",
         "fr": "conducteur-de-camion-en-holcim-group-oberdorf"
       },
@@ -16,8 +16,8 @@
       "companyDomain": "holcim.com",
       "title": "Lastwagenführer:in",
       "titleByLocale": {
-        "it": "Camion driver:in",
-        "en": "Truck driver:in",
+        "it": "Driver per il camion",
+        "en": "Truck drivers",
         "de": "Lastwagenführer:in",
         "fr": "Conducteur de camion: en"
       },
@@ -52,16 +52,16 @@
       "previousSlugs": [
         "lastwagenfuhrer-in-holcim-ch",
         "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "camion-driver-in-holcim-group-oberdorf"
+        "truck-driver-in-holcim-group-oberdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
-          "lastwagenfuhrer-in-holcim-group-oberdorf",
-          "camion-driver-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
         ],
         "en": [
-          "lastwagenfuhrer-in-holcim-group-oberdorf"
+          "lastwagenfuhrer-in-holcim-group-oberdorf",
+          "truck-driver-in-holcim-group-oberdorf"
         ],
         "de": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
@@ -70,7 +70,6 @@
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:39.818Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -101,7 +100,7 @@
       "title": "Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%",
       "titleByLocale": {
         "it": "Coordinatore: nella sicurezza sul lavoro / Protezione della salute Kies&Beton 80-100 %",
-        "en": "H&S Coordinator: in Kies & Beton 80-100 %",
+        "en": "Coordinator of Occupational Safety/Health Protection Kies&Beton 80-100 %",
         "de": "Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%",
         "fr": "Coordonnateur de la santé et de la sécurité : à Kies & Beton 80-100 %"
       },
@@ -155,7 +154,6 @@
           "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:40.260Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -220,13 +218,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "allrounder-in-holcim-ch",
-        "allrounder-in-holcim-group-ingenbohl-brunnen",
-        "allrounder-holcim-group-ingenbohl-brunnen"
+        "allrounder-in-holcim-group-ingenbohl-brunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-holcim-ch",
-          "allrounder-holcim-group-ingenbohl-brunnen"
+          "allrounder-in-holcim-ch"
         ],
         "de": [
           "allrounder-in-holcim-group-ingenbohl-brunnen"
@@ -266,7 +262,7 @@
       "title": "Springer:in Disposition und Fahrmischer Region Nordost",
       "titleByLocale": {
         "it": "Springer: nella zona di deposito e di trasporto Nord-est",
-        "en": "Springer: in disposition and trucking region Northeast",
+        "en": "Springer disposition and trucking region Northeast",
         "de": "Springer:in Disposition und Fahrmischer Region Nordost",
         "fr": "Springer: dans la région de disposition et de camionnage Nord-Est"
       },
@@ -300,14 +296,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch",
-        "springer-in-disposition-e-fahrmischer-region-nordost-holcim-group-niederstetten",
-        "springer-nella-zona-di-deposito-e-di-trasporto-nord-est-holcim-group-niederstetten"
+        "springer-in-disposition-e-fahrmischer-region-nordost-holcim-group-niederstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch",
-          "springer-in-disposition-e-fahrmischer-region-nordost-holcim-group-niederstetten",
-          "springer-nella-zona-di-deposito-e-di-trasporto-nord-est-holcim-group-niederstetten"
+          "springer-in-disposition-e-fahrmischer-region-nordost-holcim-group-niederstetten"
         ],
         "en": [
           "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch"
@@ -316,7 +310,6 @@
           "springer-in-disposition-und-fahrmischer-region-nordost-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:54:40.223Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -346,8 +339,8 @@
       "companyDomain": "holcim.com",
       "title": "Chauffeur:in Kies, Beton & Recycling 80-100% - Kirchberg",
       "titleByLocale": {
-        "it": "Chauffeur: in ghiaia, cemento e riciclaggio 80-100% - Kirchberg",
-        "en": "Chauffeur: in gravel, concrete & recycling 80-100% - Kirchberg",
+        "it": "ghiaia Chauffeur, cemento e riciclaggio 80-100% - Kirchberg",
+        "en": "Chauffeur gravel, concrete & recycling 80-100% - Kirchberg",
         "de": "Chauffeur:in Kies, Beton & Recycling 80-100% - Kirchberg",
         "fr": "Chauffeur: en gravier, béton & recyclage 80-100% - Kirchberg"
       },
@@ -397,7 +390,6 @@
           "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:41:41.606Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -540,13 +532,11 @@
       "previousSlugs": [
         "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
         "sales-und-stoffstrommanager-region-nordost-holcim-group-wil",
-        "vente-und-stoffstrommanager-region-nordost-holcim-group-wil",
-        "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
+        "vente-und-stoffstrommanager-region-nordost-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
-          "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
         ],
         "en": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
@@ -620,13 +610,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machiniste-polyvalent-biere-holcim-ch",
-        "macchinista-multiuso-birra-holcim-group-biere"
+        "machiniste-polyvalent-biere-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machiniste-polyvalent-biere-holcim-ch",
-          "macchinista-multiuso-birra-holcim-group-biere"
+          "machiniste-polyvalent-biere-holcim-ch"
         ],
         "en": [
           "machiniste-polyvalent-biere-holcim-ch"
@@ -664,8 +652,8 @@
       "companyDomain": "holcim.com",
       "title": "Projektleiter:in Elektrotechnik & Automatisierung 80-100%",
       "titleByLocale": {
-        "it": "Responsabile di progetto Elektrotechnik & Automatisierung 80-100%",
-        "en": "Project Manager Elektrotechnik & Automatisierung 80-100%",
+        "it": "Project Manager Ingegneria elettrica e automazione 80-100 %",
+        "en": "Project Manager Electrical Engineering & Automation 80-100 %",
         "de": "Projektleiter:in Elektrotechnik & Automatisierung 80-100%",
         "fr": "Gestionnaire de projet: en génie électrique et automatisation 80-100 %"
       },
@@ -705,7 +693,6 @@
           "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:44.314Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -769,13 +756,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-80-100-holcim-ch",
-        "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
+        "projektleiter-in-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-holcim-ch",
-          "responsabile-di-progetto-80-100-holcim-group-wurenlingen"
+          "projektleiter-in-80-100-holcim-ch"
         ],
         "en": [
           "projektleiter-in-80-100-holcim-ch"
@@ -813,8 +798,8 @@
       "companyDomain": "holcim.com",
       "title": "Techniker:in Automation",
       "titleByLocale": {
-        "it": "Tecnico: in Automazione",
-        "en": "Technician: in Automation",
+        "it": "Automazione tecnica",
+        "en": "Technician Automation",
         "de": "Techniker:in Automation",
         "fr": "Technicien: en Automation"
       },
@@ -847,13 +832,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-automation-holcim-ch",
-        "tecnico-in-automazione-holcim-group-untervaz"
+        "techniker-in-automation-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-automation-holcim-ch",
-          "tecnico-in-automazione-holcim-group-untervaz"
+          "techniker-in-automation-holcim-ch"
         ],
         "en": [
           "techniker-in-automation-holcim-ch"
@@ -862,7 +845,6 @@
           "techniker-in-automation-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T10:03:17.890Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -893,7 +875,7 @@
       "title": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
       "titleByLocale": {
         "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Specialist:in processing technology 80-100% (Operations Excellence Manager:in)",
+        "en": "Specialist processing technology 80-100% (Operations Excellence Manager)",
         "de": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
@@ -928,14 +910,12 @@
       "previousSlugsByLocale": {
         "de": [
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-          "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
         ],
         "it": [
           "operations-excellence-manager-agg-80-100-holcim-ch",
           "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-          "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
+          "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
         ],
         "fr": [
           "operations-excellence-manager-agg-80-100-holcim-ch"
@@ -944,11 +924,8 @@
       "previousSlugs": [
         "operations-excellence-manager-agg-80-100-holcim-ch",
         "spezialist-aufbereitungstechnik-80-100-holcim-ch",
-        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch",
-        "manager-fur-operative-exzellenz-agg-80-100-holcim-group-wurenlingen",
-        "operazioni-excellence-manager-agg-80-100-holcim-group-wurenlingen"
+        "spezialist-in-aufbereitungstechnik-80-100-operations-excellence-manager-in-holcim-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:51.964Z",
       "salaryMin": 123000,
       "salaryMax": 165500,
@@ -1016,8 +993,7 @@
         "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
         "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
         "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen",
-        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+        "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1025,8 +1001,7 @@
           "materiali-operativi-tuttofare-operatore-macchina-costruzione-80-100-holcim-group-wurenlingen",
           "all-rounder-operating-materials-construction-machine-operator-80-100-holcim-group-wurenlingen",
           "allrounder-betriebsstoffe-baumaschinenfuhrer-80-100-holcim-ch",
-          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen",
-          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-wurenlingen"
+          "materiaux-d-exploitation-complets-operateur-de-machines-de-construction-80-100-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
@@ -1070,7 +1045,7 @@
       "title": "Baumaschinenführer:in im Steinbruch 80-100%",
       "titleByLocale": {
         "it": "Operatore di macchine da costruzione: nella cava 80-100 %",
-        "en": "Construction machine operator: in the quarry 80-100 %",
+        "en": "Construction machine operator in the quarry 80-100 %",
         "de": "Baumaschinenführer:in im Steinbruch 80-100%",
         "fr": "Opérateur de machines de construction: dans la carrière 80-100 %"
       },
@@ -1116,8 +1091,7 @@
         "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
         "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
         "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
-        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-        "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-untervaz"
+        "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1134,8 +1108,7 @@
           "construction-machine-operator-in-the-quarry-60-100-holcim-group-untervaz",
           "baumaschinenfuhrer-in-im-steinbruch-60-100-holcim-ch",
           "operateur-de-machines-de-construction-dans-la-carriere-60-100-holcim-group-untervaz",
-          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch",
-          "operatore-di-macchine-da-costruzione-nella-cava-80-100-holcim-group-untervaz"
+          "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
         ],
         "en": [
           "construction-machinery-operator-in-holcim-group-untervaz",
@@ -1149,7 +1122,6 @@
           "baumaschinenfuhrer-in-im-steinbruch-80-100-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:39:15.387Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
@@ -1225,15 +1197,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "fr": [
-          "materiel-electrique-80-100-holcim-group-eclepens"
-        ]
-      },
-      "previousSlugs": [
-        "materiel-electrique-80-100-holcim-group-eclepens"
-      ]
+      }
     },
     {
       "id": "holcim-9c8bef513ca7",
@@ -1283,13 +1247,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "electrical-engineering-project-manager-holcim-ch",
-        "responsabile-del-progetto-di-ingegneria-elettrica-holcim-group-wurenlingen"
+        "electrical-engineering-project-manager-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electrical-engineering-project-manager-holcim-ch",
-          "responsabile-del-progetto-di-ingegneria-elettrica-holcim-group-wurenlingen"
+          "electrical-engineering-project-manager-holcim-ch"
         ],
         "fr": [
           "electrical-engineering-project-manager-holcim-ch"
@@ -1362,16 +1324,14 @@
         "lastwagenfuhrer-in-holcim-ch-2",
         "lastwagenfuhrer-in-holcim-ch",
         "lastwagenfuhrer-in-holcim-group-mulligen",
-        "camion-driver-in-holcim-group-mulligen",
-        "driver-del-camion-in-holcim-group-mulligen"
+        "camion-driver-in-holcim-group-mulligen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-holcim-ch-2",
           "lastwagenfuhrer-in-holcim-ch",
           "lastwagenfuhrer-in-holcim-group-mulligen",
-          "camion-driver-in-holcim-group-mulligen",
-          "driver-del-camion-in-holcim-group-mulligen"
+          "camion-driver-in-holcim-group-mulligen"
         ],
         "en": [
           "lastwagenfuhrer-in-holcim-group-mulligen"
@@ -1443,13 +1403,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
-        "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
+        "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch",
-          "specialista-a-turni-specialista-a-turni-in-siggenthal-holcim-group-wurenlingen"
+          "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
         ],
         "en": [
           "schichtfachmann-schichtfachfrau-in-siggenthal-holcim-ch"
@@ -1521,13 +1479,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-        "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
+        "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch",
-          "electric-operation-manager-epel-o-ifcf-holcim-group-eclepens"
+          "responsable-exploitation-electrique-bpel-ou-ifcf-holcim-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T14:18:52.230Z",
@@ -1593,13 +1549,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-people-department-holcim-ch",
-        "interno-in-dipartimento-persone-holcim-group-wurenlingen"
+        "praktikant-in-people-department-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-people-department-holcim-ch",
-          "interno-in-dipartimento-persone-holcim-group-wurenlingen"
+          "praktikant-in-people-department-holcim-ch"
         ],
         "fr": [
           "praktikant-in-people-department-holcim-ch"
@@ -1634,8 +1588,8 @@
       "companyDomain": "holcim.com",
       "title": "Techniker:in HF im Bereich Elektrotechnik oder Systemtechnik",
       "titleByLocale": {
-        "it": "Techniker:in HF im Bereich Elektrotechnik o Systemtechnik",
-        "en": "Technician: in HF in the field of electrical engineering or system engineering",
+        "it": "HF tecnico nel campo dell'ingegneria elettrica o dell'ingegneria del sistema",
+        "en": "Technician HF in the field of electrical engineering or system engineering",
         "de": "Techniker:in HF im Bereich Elektrotechnik oder Systemtechnik",
         "fr": "Technicien: en HF dans le domaine du génie électrique ou de l'ingénierie de systèmes"
       },
@@ -1682,7 +1636,6 @@
           "techniker-in-hf-im-bereich-elektrotechnik-oder-systemtechnik-holcim-group-untervaz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T10:03:58.460Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -1746,13 +1699,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch",
-        "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz"
+        "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch",
-          "stellvertretende-r-responsabile-elektrische-instandhaltung-holcim-group-untervaz"
+          "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
         ],
         "en": [
           "stellvertretende-r-leiter-in-elektrische-instandhaltung-holcim-ch"
@@ -1929,10 +1880,10 @@
       "companyDomain": "holcim.com",
       "title": "Baumaschinenmechaniker:in",
       "titleByLocale": {
-        "it": "Meccanico di macchine da costruzione:in",
-        "en": "Construction machinery mechanic:in",
+        "it": "Meccanica di macchine da costruzione",
+        "en": "Construction machinery mechanics",
         "de": "Baumaschinenmechaniker:in",
-        "fr": "Mécanicien des machines de construction:in"
+        "fr": "Mécanique des machines de construction"
       },
       "description": "Du bist technisch versiert, packst gerne selbst mit an und sorgst dafür, dass Fahrzeuge und Maschinen jederzeit einsatzbereit sind? Dann bring dein Know-how in unsere Instandhaltung ein und halte unseren Furhpark am Laufen.\n\nWas dich erwartet:\n\n• Sicherstellung der Betriebsbereitschaft unserer Fahrzeuge, Maschinen und Geräte\n\n• Eigenständige Fehlerdiagnose, Reparaturen und Dokumentation des Flottenzustands\n\n• Planung und Organisation von Serviceintervallen sowie gesetzlich vorgeschriebenen Prüfungen\n\n• Bestellung und Koordination von Ersatzteilen und externen Dienstleistern\n\n• Durchführung von Schlosser- und Schweißarbeiten\n\n• Betreuung der Garageninfrastruktur sowie Unterstützung bei internen Transporten, Instandhaltungs- und Werksunterhaltsarbeiten\n\nWas du mitbringst:\n\n• Abgeschlossene Berufsausbildung als Baumaschinen-, Landmaschinen- oder Nutzfahrzeugmechaniker (oder vergleichbar)\n\n• Erfahrung in der Instandhaltung und Reparatur von Baumaschinen, Fahrzeugen oder technischen Anlagen\n\n• Führerschein der Klasse B, BE, C1 oder C (Baumaschinenprüfung von Vorteil bzw. Bereitschaft, diese zu erwerben)\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohes Sicherheitsbewusstsein sowie Teamgeist und Verantwortungsbereitschaft\n\n• Technisches Verständnis, IT-Affinität und Interesse an modernen Technologien\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
       "descriptionByLocale": {
@@ -1964,14 +1915,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "baumaschinenmechaniker-in-holcim-ch",
-        "baumaschinenmechaniker-in-holcim-group-wurenlingen",
-        "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
+        "baumaschinenmechaniker-in-holcim-group-wurenlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "baumaschinenmechaniker-in-holcim-ch",
-          "baumaschinenmechaniker-in-holcim-group-wurenlingen",
-          "meccanico-di-macchine-da-costruzione-in-holcim-group-wurenlingen"
+          "baumaschinenmechaniker-in-holcim-group-wurenlingen"
         ],
         "en": [
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
@@ -1980,7 +1929,6 @@
           "baumaschinenmechaniker-in-holcim-group-wurenlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:42.042Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -2084,8 +2032,8 @@
       "companyDomain": "holcim.com",
       "title": "Lastwagenführer:in Beton",
       "titleByLocale": {
-        "it": "Driver per il camion: in cemento",
-        "en": "Truck driver: in concrete",
+        "it": "Camion driver calcestruzzo",
+        "en": "Truck driver concrete",
         "de": "Lastwagenführer:in Beton",
         "fr": "Conducteur de camion: en béton"
       },
@@ -2119,14 +2067,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lastwagenfuhrer-in-beton-holcim-ch",
-        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
-        "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
+        "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenfuhrer-in-beton-holcim-ch",
-          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen",
-          "driver-per-il-camion-in-cemento-holcim-group-schaffhausen"
+          "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
         ],
         "en": [
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
@@ -2135,7 +2081,6 @@
           "lastwagenfuhrer-in-beton-holcim-group-schaffhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:46.096Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2165,10 +2110,10 @@
       "companyDomain": "holcim.com",
       "title": "Betriebselektriker:in",
       "titleByLocale": {
-        "it": "Azienda elettrica:in",
-        "en": "Company electrician:in",
+        "it": "Elettricisti di affari",
+        "en": "Business electricians",
         "de": "Betriebselektriker:in",
-        "fr": "Électricien d'entreprise:in"
+        "fr": "Électriciens d'affaires"
       },
       "description": "“Hey du! Als Betriebselektriker:in bei Holcim halte ich unsere Anlagen am Laufen. Mir gefällt, dass ich mein handwerkliches Geschick mit moderner Technik verbinden kann und gleichzeitig eng mit anderen Abteilungen zusammenarbeite.” - Yann, Betriebselektriker bei Holcim (Schweiz) AG\n\nWas dich erwartet:\n\n• Du bist für die Sicherstellung der Betriebsbereitschaft von Anlagen, Maschinen, Steuerungen und elektrischen Installationen zuständig\n\n• Du führst selbstständig die Wartung, Kontrolle und Messung an Stark-, Schwach- und Niederspannungsanlagen durch\n\n• Du übernimmst die Durchführung der Inbetriebnahme sowie die Schaltung an Hoch- und Mittelspannungsanlagen gemäss Vorschriften.\n\n• Du arbeitest eng mit der Produktion sowie dem Qualitätsmanagement zusammen und unterstützt die Ausbildung der Lernenden\n\n• Du übernimmst Pikettdienst (Tag/Nacht) und weitere Aufgaben nach betrieblichem Bedarf\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene technische oder handwerkliche Berufsausbildung im Elektrobereich, idealerweise mit zwei bis drei Berufserfahrung in einem ähnlichen Umfeld.\n\n• Du bringst gute IT-Kenntnisse mit sowie Erfahrung in der Störungssuche und -beseitigung\n\n• Du hast eine rasche Auffassungsgabe, arbeitest selbstständig und genau\n\n• Du bist handwerklich geschickt, bist ein:e Teamplayer:in sowie flexibel\n\n• Du hast ein hohes Sicherheits- und Verantwortungsbewusstsein\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird\n\n• Flexibilität & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren Mitarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst\n\n• Gesundheit und Soziales : Wir engagieren uns für deine Gesundheit und fördern diese durch präventive Massnahmen",
       "descriptionByLocale": {
@@ -2199,16 +2144,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "betriebselektriker-in-holcim-ch",
-        "betriebselektriker-in-holcim-group-untervaz"
+        "betriebselektriker-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-holcim-ch",
-          "betriebselektriker-in-holcim-group-untervaz"
+          "betriebselektriker-in-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:41:38.849Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2273,14 +2215,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "disponent-in-holcim-ch",
-          "disponent-in-betonmaschinist-in-holcim-ch"
+          "disponent-in-holcim-ch"
         ],
         "it": [
           "disponent-in-betonmaschinist-in-holcim-ch",
           "disponent-in-betonmaschinist-in-holcim-group-giswil",
-          "disponent-in-holcim-ch",
-          "fornito-in-ingegnere-di-cemento-in-holcim-group-giswil"
+          "disponent-in-holcim-ch"
         ],
         "en": [
           "disponent-in-betonmaschinist-in-holcim-group-giswil"
@@ -2292,8 +2232,7 @@
       "previousSlugs": [
         "disponent-in-betonmaschinist-in-holcim-ch",
         "disponent-in-betonmaschinist-in-holcim-group-giswil",
-        "disponent-in-holcim-ch",
-        "fornito-in-ingegnere-di-cemento-in-holcim-group-giswil"
+        "disponent-in-holcim-ch"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:54:02.879Z",
@@ -2359,13 +2298,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "international-mobility-manager-holcim-ch",
-        "responsabile-della-mobilita-internazionale-holcim-group-zug"
+        "international-mobility-manager-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-mobility-manager-holcim-ch",
-          "responsabile-della-mobilita-internazionale-holcim-group-zug"
+          "international-mobility-manager-holcim-ch"
         ],
         "fr": [
           "international-mobility-manager-holcim-ch"
@@ -2435,13 +2372,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-specification-selling-holcim-ch",
-        "global-responsabile-specification-selling-holcim-group-zug"
+        "global-head-of-specification-selling-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-specification-selling-holcim-ch",
-          "global-responsabile-specification-selling-holcim-group-zug"
+          "global-head-of-specification-selling-holcim-ch"
         ],
         "de": [
           "global-head-of-specification-selling-holcim-ch"
@@ -2480,7 +2415,7 @@
       "title": "Anlagen- und Apparatebauer:in",
       "titleByLocale": {
         "it": "Produttore di impianti ed apparecchi:",
-        "en": "Plant and apparatus manufacturer:in",
+        "en": "Manufacturers of plant and equipment",
         "de": "Anlagen- und Apparatebauer:in",
         "fr": "Fabricant d'installations et d'appareils: en"
       },
@@ -2513,13 +2448,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-holcim-ch",
-        "anlagen-e-apparatebauer-in-holcim-group-untervaz"
+        "anlagen-und-apparatebauer-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-holcim-ch",
-          "anlagen-e-apparatebauer-in-holcim-group-untervaz"
+          "anlagen-und-apparatebauer-in-holcim-ch"
         ],
         "en": [
           "anlagen-und-apparatebauer-in-holcim-ch"
@@ -2528,7 +2461,6 @@
           "anlagen-und-apparatebauer-in-holcim-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:52.910Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -43,6 +43,13 @@ const HELPER_MODULE = 'scripts/lib/pr-body-sections-check.mjs';
 
 /** The two fixer prompts, keyed by workflow file name. */
 const FIXERS = ['pr-redflag-fixer.yml', 'issue-fix.yml'] as const;
+const CLOSING_STATE_LITERALS = [
+  'in questa PR',
+  'PR concatenata #N',
+  'per scelta',
+  'by construction',
+  'blocked: decisione del proprietario',
+] as const;
 
 /** The `with.prompt` of every `anthropics/claude-code-action` step in a workflow. */
 function claudePrompts(file: string): string[] {
@@ -150,6 +157,24 @@ describe('the autonomous fixers read declared states before contradicting them (
       .toMatch(/monolitic/i);
   });
 
+  it.each(FIXERS)('%s mirrors all five canonical closing states and rejects an unnumbered chained PR', (file) => {
+    const p = prompt(file);
+    for (const state of CLOSING_STATE_LITERALS) {
+      expect(p, `${file}: missing canonical closing state \`${state}\`.`).toContain(state);
+    }
+    expect(p, `${file}: an unnumbered chained PR is not called an open violation.`).toMatch(
+      /PR concatenata[^\n]*senza[^\n]*#N[^\n]*(?:non chiude|lavoro aperto)/i,
+    );
+  });
+
+  it('pr-redflag-fixer does not veto current work merely because it is tracked', () => {
+    const p = prompt('pr-redflag-fixer.yml');
+    expect(p).toMatch(
+      /Regola specifica[\s\S]*in questa PR[\s\S]*PR concatenata #N[\s\S]*NON sono un veto/i,
+    );
+    expect(p).toMatch(/solo per i tre NO motivati[\s\S]*per scelta[\s\S]*by construction/i);
+  });
+
   it.each(FIXERS)('%s guards the veto against the earliest-match false positive', (file) => {
     const p = prompt(file);
     // `bulletState` returns the state whose match starts FIRST. "il floor non è
@@ -163,6 +188,9 @@ describe('the autonomous fixers read declared states before contradicting them (
     ).toMatch(/negazione/i);
     expect(p, `${file}: the prompt no longer requires the motive to come AFTER the state.`)
       .toMatch(/motivo\b[^\n]*\bdopo\b|\bdopo\b[^\n]*\bmotivo\b/i);
+    expect(p, `${file}: the prompt does not reject a bare motivated-no state.`).toMatch(
+      /menzione nuda[\s\S]*per scelta[\s\S]*by construction[\s\S]*non è una chiusura/i,
+    );
   });
 
   it('pr-redflag-fixer unblocks the loop when the round ends with no diff', () => {
@@ -240,6 +268,9 @@ describe('the autonomous fixers read declared states before contradicting them (
       reviewer,
       'the tier `minimal` short path no longer exempts a bullet closed with a motive.',
     ).toMatch(/nessun placeholder vuoto[\s\S]{0,400}non è un finding/);
+    expect(reviewer, 'the reviewer prompt does not reject `PR concatenata` without `#N`.').toMatch(
+      /PR concatenata[^\n]*#N[^\n]*non/i,
+    );
 
     const reviewDoc = readFileSync(join(ROOT, 'REVIEW.md'), 'utf8');
     expect(
@@ -263,6 +294,19 @@ describe('the autonomous fixers read declared states before contradicting them (
     expect(doc, 'docs/FIX-ISSUE-COMMAND.md does not warn about the negated state word.').toMatch(
       /negazione/i,
     );
+    expect(doc, 'docs/FIX-ISSUE-COMMAND.md still teaches the old three-state taxonomy.').toMatch(
+      /Cinque stati[\s\S]*in questa PR[\s\S]*PR concatenata #N[\s\S]*by construction/,
+    );
+    expect(doc, 'docs/FIX-ISSUE-COMMAND.md does not reject an unnumbered chained PR.').toMatch(
+      /PR concatenata[^\n]*senza[^\n]*#N[^\n]*non è uno stato/i,
+    );
+  });
+
+  it('AGENTS.md names the owner decision, not generic blocked work, as closing', () => {
+    const agents = readFileSync(join(ROOT, 'AGENTS.md'), 'utf8');
+    expect(agents).toMatch(/stati letterali[\s\S]*blocked: decisione del proprietario/);
+    expect(agents).toMatch(/blocked: <causa tecnica>[\s\S]*task(?: resta)? \*\*non chiuso\*\*/);
+    expect(agents).not.toMatch(/stati letterali[^\n]*blocked: <causa>/);
   });
 
   it('the helper really exports what the three surfaces name', () => {

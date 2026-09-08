@@ -179,7 +179,7 @@ describe('crawler generation PR B workflow wiring', () => {
       });
       expect(crawler['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(crawler.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: false, default: '', type: 'string' });
+        .toMatchObject({ required: true, type: 'string' });
       const job = Object.values(crawler.jobs)[0] as any;
       expect(job.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');

@@ -5164,7 +5164,7 @@
       "slugByLocale": {
         "it": "registratore-di-primo-grado-etat-de-fribourg-fribourg",
         "en": "civil-registrar-of-first-instance-etat-de-fribourg-fribourg",
-        "de": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg",
+        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg",
         "fr": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -5174,7 +5174,7 @@
       "titleByLocale": {
         "it": "Registratore di primo grado",
         "en": "Civil Registrar of First Instance",
-        "de": "Greffier-ère civil de 1ère instance",
+        "de": "Registrar erster Instanz",
         "fr": "Greffier-ère civil de 1ère instance"
       },
       "description": "Qui sommes-nous?\n\nLe Tribunal de l'arrondissement de la Sarine est le tribunal de première instance compétent pour le district de la Sarine, dans le canton de Fribourg. Ce tribunal bilingue emploie environ soixante collaborateur-rice-s qui contribuent quotidiennement au bon fonctionnement de la justice et au service de la population.  Il siège en matière civile et pénale et assume également les compétences de plusieurs juridictions spécialisées, telles que le tribunal des Prud'hommes ou des baux.\n\nTravailler au Tribunal de la Sarine, c'est s'engager dans un environnement professionnel stimulant, collaboratif et exigeant, offrant des missions variées, un cadre de travail stable et des conditions favorisant le développement des compétences.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Tenue des procès-verbaux d'audience\n\n• Rédaction de décisions en droit civil\n\nProfil souhaité\n\n• Titulaire d'un master en droit, le brevet d'avocat étant un avantage\n\n• Expérience au sein d'un greffe\n\n• Aisance rédactionnelle\n\n• Bonnes connaissances informatiques\n\n• Maîtrise de la langue française avec de bonnes connaissances de la langue allemande\n\nCoordonnées des personnes de contact\n\nChristelle Almeida Borges, Greffière-cheffe\nChristelle.AlmeidaBorges@fr.ch, T +41 26 305 62 06",
@@ -5211,7 +5211,7 @@
       "pensum": "40-50%",
       "previousSlugs": [
         "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-        "registrar-erster-instanz-etat-de-fribourg-fribourg"
+        "greffier-ere-civil-de-1ere-instance-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5222,10 +5222,9 @@
         ],
         "de": [
           "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-          "registrar-erster-instanz-etat-de-fribourg-fribourg"
+          "greffier-ere-civil-de-1ere-instance-etat-de-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:26:14.455Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5245,10 +5244,10 @@
     },
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
-      "slug": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+      "slug": "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
-        "en": "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg",
+        "it": "diploma-assistant-dottorato-studente-etat-de-fribourg-fribourg",
+        "en": "diploma-assistant-doctoral-student-etat-de-fribourg-fribourg",
         "de": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
         "fr": "diplomes-en-doctorant-etat-de-fribourg-fribourg"
       },
@@ -5257,8 +5256,8 @@
       "companyDomain": "fr.ch",
       "title": "Diplomassistent/in - Doktorand/in",
       "titleByLocale": {
-        "it": "Diplomassista/in - dottorando",
-        "en": "Diplomassist/in - doctoral student",
+        "it": "Diploma Assistant - Dottorato Studente",
+        "en": "Diploma Assistant - Doctoral Student",
         "de": "Diplomassistent/in - Doktorand/in",
         "fr": "Diplômes/en - doctorant"
       },
@@ -5295,20 +5294,23 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+        "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+        "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+          "diplomassista-in-dottorando-etat-de-fribourg-fribourg"
         ],
         "en": [
-          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+          "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg"
         ],
         "fr": [
           "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:26:15.153Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -6153,9 +6155,9 @@
     },
     {
       "id": "etat-de-fribourg-f6e71af54297",
-      "slug": "collaborateur-trice-administratif-ive-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ive-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-attivo-etat-de-fribourg-fribourg",
         "en": "administrative-ive-contributor-etat-de-fribourg-fribourg",
         "de": "administrativer-iver-beitrag-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
@@ -6165,7 +6167,7 @@
       "companyDomain": "fr.ch",
       "title": "Collaborateur-trice administratif-ive",
       "titleByLocale": {
-        "it": "Collaborateur-trice administratif-ive",
+        "it": "Collaboratore amministrativo/attivo",
         "en": "Administrative/ive contributor",
         "de": "Administrativer/iver Beitrag",
         "fr": "Collaborateur-trice administratif-ive"
@@ -6204,12 +6206,14 @@
       "pensum": "50-80%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-        "contributo-amministrativo-attivo-etat-de-fribourg-fribourg"
+        "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ive-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-          "contributo-amministrativo-attivo-etat-de-fribourg-fribourg"
+          "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ive-etat-de-fribourg"
         ],
         "en": [
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
@@ -6218,7 +6222,6 @@
           "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:26:07.530Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
@@ -6363,7 +6366,7 @@
       "slugByLocale": {
         "it": "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
         "en": "registrar-of-first-instance-etat-de-fribourg-fribourg",
-        "de": "greffier-iere-de-1ere-instance-etat-de-fribourg",
+        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg-e64fb0",
         "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -6373,7 +6376,7 @@
       "titleByLocale": {
         "it": "Registratore di prima istanza",
         "en": "Registrar of first instance",
-        "de": "Greffier-ière de 1ère instance",
+        "de": "Registrar erster Instanz",
         "fr": "Greffier-ière de 1ère instance"
       },
       "description": "Qui sommes-nous?\n\nLa Justice de paix est l'Autorité de protection de l'enfant et de l'adulte. A ce titre, elle agit sur requête ou d'office. Au terme de l'instruction, il est décidé d'instaurer ou non une mesure de protection. La Justice de paix a également des compétences en matière successorale, de placements à des fins d'assistance et dans le domaine des mises à ban.\n\nPourquoi nous rejoindre ?\n\nNous misons sur la complémentarité des compétences et la variété des perspectives car c’est la diversité des parcours et des profils qui fait la force de l’Etat de Fribourg. Nous favorisons la conciliation vie professionnelle et vie privée et les conditions de travail flexibles. Pour en savoir plus, suivez ce lien .\n\nVos missions\n\n• Rédaction en français et en allemand des décisions en matière civile, notamment en matière de protection de l’enfant et de l’adulte\n\n• Participation aux séances de l’Autorité de protection de l’enfant et de l’adulte et prise de procès-verbaux d’audition\n\n• Gestion du greffe : prise de contacts avec les personnes concernées et leurs proches, les partenaires de la Justice de paix, notamment par un soutien juridique aux curateurs professionnels et privés et aux autres services\n\n• Informations et conseils aux tiers\n\n• Recherches juridiques\n\n• Suivi des dossiers et élaboration de courriers administratifs\n\nProfil souhaité\n\n• Diplôme universitaire en droit (licence ou Master en droit)\n\n• Plusieurs années d’expérience professionnelle, de préférence dans un greffe\n\n• Aisance rédactionnelle, excellente orthographe, autonomie, résistance au stress et esprit d’équipe\n\n• Sens de la communication, de l’organisation et aisance dans les contacts\n\n• Bonnes connaissances informatiques\n\n• Maîtrise de la langue française ou allemande, d’excellentes connaissances orales et écrites de l'autre langue\n\nCoordonnées des personnes de contact\n\nValentine Ruffieux et Saskia Oldendorf-Pittet, Greffière-cheffes",
@@ -6410,7 +6413,8 @@
       "pensum": "50-100%",
       "previousSlugs": [
         "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg"
+        "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+        "greffier-iere-de-1ere-instance-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6421,10 +6425,10 @@
         ],
         "de": [
           "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-          "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg"
+          "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg",
+          "greffier-iere-de-1ere-instance-etat-de-fribourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:26:10.994Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
@@ -7149,7 +7153,7 @@
       "title": "Verwaltungssachbearbeiter/in Grundbuchamt",
       "titleByLocale": {
         "it": "Responsabile del caso amministrativo/al Registro di terra",
-        "en": "Administrative case officer/in Land Registry",
+        "en": "Administrative case officer Landbuchamt",
         "de": "Verwaltungssachbearbeiter/in Grundbuchamt",
         "fr": "Agent administratif/dans le Registre foncier"
       },
@@ -7199,7 +7203,6 @@
           "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:25:58.520Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -7231,7 +7234,7 @@
       "title": "Chef-fe du projet informatique e-Justice - ICT Project Leader",
       "titleByLocale": {
         "it": "Responsabile del progetto e-Justice IT - ICT Project Leader",
-        "en": "Chef-fe du projet informatique e-Justice - ICT Project Leader",
+        "en": "Head of e-Justice IT project - ICT Project Leader",
         "de": "Leiter des E-Justiz-IT-Projekts - ICT Projektleiter",
         "fr": "Chef-fe du projet informatique e-Justice - ICT Project Leader"
       },
@@ -7278,7 +7281,6 @@
           "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:25:57.814Z",
       "salaryMin": 113000,
       "salaryMax": 192000,

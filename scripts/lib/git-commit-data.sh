@@ -5,6 +5,7 @@
 # Usage:
 #   bash scripts/lib/git-commit-data.sh "commit message" [extra-paths ...]
 #   bash scripts/lib/git-commit-data.sh --slice-only "commit message" [extra-paths ...]
+#   bash scripts/lib/git-commit-data.sh --extra-only "commit message" [extra-paths ...]
 #
 # --slice-only mode:
 #   Only commits per-crawler slice files (data/jobs/by-crawler/,
@@ -43,6 +44,9 @@
 #        opens ONE `Workflow Failure: <group>` issue — but must NOT file a
 #        per-crawler issue: the crawler is not what broke. Distinct from 1
 #        so a real per-crawler commit failure keeps its own report.
+#        A receipt process killed by a signal reports the conventional shell
+#        status 128+signal; defer mode normalizes that status to 43 for the
+#        same shared-precondition carve-out while keeping the outer step red.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
@@ -113,13 +117,13 @@ fi
 # ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
 GROUP_BATCH=false
-LEDGER_ONLY=false
+EXTRA_ONLY=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
-if [ "${1:-}" = "--ledger-only" ]; then
-  LEDGER_ONLY=true
+if [ "${1:-}" = "--extra-only" ]; then
+  EXTRA_ONLY=true
   SLICE_ONLY=true
   GROUPED_ISOLATED=true
   shift
@@ -133,7 +137,7 @@ elif [ "${1:-}" = "--slice-only" ]; then
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch|--ledger-only] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
@@ -164,10 +168,7 @@ ${SLUG_HISTORY_BODY}"
 fi
 
 # ── Standard data files committed by every crawler ──────────────────────────
-if [ "$LEDGER_ONLY" = true ]; then
-  # The finalizer has already produced the group verdict. Persist exactly its
-  # append-only ledger line; never sweep crawler slices left dirty after a
-  # failed or contended group batch.
+if [ "$EXTRA_ONLY" = true ]; then
   STANDARD_FILES=()
 elif [ "$GROUP_BATCH" = true ]; then
   # Paths are loaded below from the successful crawlers' immutable descriptors.
@@ -579,6 +580,10 @@ if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}" \
     || descriptor_exit=$?
+  if [ "$descriptor_exit" -ge 128 ]; then
+    echo "⚠️ crawler group defer receipt was terminated by a signal (exit ${descriptor_exit}) — classifying as shared precondition (exit 43)"
+    descriptor_exit=43
+  fi
   if [ "$descriptor_exit" -ne 0 ]; then
     echo "❌ crawler group defer mode could not persist its commit descriptor"
     exit "$descriptor_exit"
@@ -1438,6 +1443,36 @@ is_push_contention_output() {
 #     translate-pending) are 3-way merged content-wise (base = checkout HEAD,
 #     remote = origin/main, local = worktree) via the same merge_json_3way
 #     used by the legacy path, so concurrent remote additions survive.
+merge_crawler_generation_ledger() {
+  local remote_file="$1" local_file="$2" output_file="$3"
+  node --input-type=module - "$remote_file" "$local_file" "$output_file" "$(dirname "$0")/../crawler-group-generation-finalizer.mjs" <<'NODE'
+import fs from 'node:fs';
+import { pathToFileURL } from 'node:url';
+const [remotePath, localPath, outputPath, finalizerPath] = process.argv.slice(2);
+const { validateCrawlerGenerationLedgerEntry } = await import(pathToFileURL(finalizerPath).href);
+function readLedger(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  const raw = fs.readFileSync(filePath, 'utf8');
+  if (raw.length === 0) return [];
+  if (!raw.endsWith('\n')) throw new Error(`partial crawler generation ledger: ${filePath}`);
+  return raw.split('\n').slice(0, -1).map((line, index) => {
+    let entry;
+    try { entry = JSON.parse(line); } catch { throw new Error(`invalid crawler generation ledger JSON at ${filePath}:${index + 1}`); }
+    const validation = validateCrawlerGenerationLedgerEntry(entry);
+    if (!validation.valid) throw new Error(`invalid crawler generation ledger record at ${filePath}:${index + 1}: ${validation.errors.join(', ')}`);
+    return entry;
+  });
+}
+const merged = new Map();
+for (const entry of [...readLedger(remotePath), ...readLedger(localPath)]) {
+  const existing = merged.get(entry.digest);
+  if (existing && JSON.stringify(existing) !== JSON.stringify(entry)) throw new Error(`conflicting crawler generation ledger records for ${entry.digest}`);
+  merged.set(entry.digest, entry);
+}
+fs.writeFileSync(outputPath, `${[...merged.values()].map((entry) => JSON.stringify(entry)).join('\n')}\n`, 'utf8');
+NODE
+}
+
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
@@ -1621,7 +1656,7 @@ commit_isolated_from_worktree() {
       # Remote moved for this file since our checkout AND disagrees with our
       # local content → merge instead of clobbering (keeps e.g. translation
       # updates or another group's ai-cache entries pushed mid-run).
-      if [[ "$f" == *.json ]] \
+      if { [[ "$f" == *.json ]] || [ "$f" = "data/crawler-generation-ledger.jsonl" ]; } \
         && [ -n "$remote_blob" ] \
         && [ "$remote_blob" != "$base_blob" ] \
         && [ "$remote_blob" != "$local_blob" ]; then
@@ -1634,7 +1669,13 @@ commit_isolated_from_worktree() {
           rm -f "$merge_dir/base/$f"
         fi
         git cat-file blob "$remote_blob" > "$merge_dir/remote/$f"
-        if merge_json_3way \
+        if [ "$f" = "data/crawler-generation-ledger.jsonl" ]; then
+          if ! merge_crawler_generation_ledger "$merge_dir/remote/$f" "$local_merge_path" "$merge_dir/out/$f"; then
+            echo "❌ grouped-isolated: crawler generation ledger merge failed for $f — refusing to drop durable history"
+            return 1
+          fi
+          blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
+        elif merge_json_3way \
           "$merge_dir/base/$f" \
           "$merge_dir/remote/$f" \
           "$local_merge_path" \

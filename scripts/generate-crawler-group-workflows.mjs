@@ -27,9 +27,8 @@
  * ORIGINAL per-crawler shell fragments spliced together. After `wait-all`,
  * one group commit atomically persists the union of successful descriptors.
  *
- * TWO CONCURRENCY HAZARDS this generator fixes at the callsite (not in the
- * shared libraries, which stay untouched and correct for standalone/manual
- * dispatch use):
+ * TWO CONCURRENCY HAZARDS this generator fixes at the callsite (shared
+ * receipt helpers remain compatible with standalone crawler runs):
  *
  *  1. scripts/lib/slug-history-journal.mjs writes per-run telemetry to
  *     `process.env.SLUG_HISTORY_SUMMARY_FILE || /tmp/slug-history-summary-${pid}.txt`.
@@ -96,11 +95,10 @@ const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
 const ASSIGNMENTS_PATH = path.join(REPO_ROOT, 'data/crawler-group-assignments.json');
 const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.json');
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
-// `generation_token` is declared `required: false, default: ''`, so a direct
-// dispatch or a re-run of a single leg reaches the job with an empty string.
-// The run coordinates are the same pair `scripts/lib/crawler-generation-token.mjs`
-// derives at runtime (`<run_id>-<run_attempt>`), so YAML and JS agree on the
-// value instead of racing on two different fallbacks.
+// Every supported group trigger must bind the caller to an explicit token.
+// The fallback is retained only as a defensive renderer guard for future
+// inputs; the workflow input is required and the central barrier rejects an
+// unbound run.
 export const CRAWLER_GENERATION_TOKEN_EXPR =
   "${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}";
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
@@ -114,6 +112,7 @@ const CORPUS_OBSERVER_SITE_SOURCES = new Map([
 ]);
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
 const CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS = 14;
+const CRAWLER_GENERATION_LEDGER_PATH = 'data/crawler-generation-ledger.jsonl';
 const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'functions/src/githubApiHeaders.js',
   'scripts/crawler-group-generation-finalizer.mjs',
@@ -849,6 +848,7 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
   return [
     {
       name: 'Finalize crawler generation manifest (shadow)',
+      id: 'crawler-generation-finalizer',
       if: 'always()',
       'continue-on-error': true,
       env: {
@@ -864,8 +864,16 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
         CRAWLER_GENERATION_WAIT_OUTCOME: '${{ job.status }}',
         CRAWLER_GENERATION_EXPECTED_CRAWLERS: JSON.stringify(expectedCrawlers),
         CRAWLER_GENERATION_OUTPUT: output,
+        CRAWLER_GENERATION_LEDGER_PATH,
       },
       run: 'node scripts/crawler-group-generation-finalizer.mjs',
+    },
+    {
+      name: 'Persist crawler generation ledger',
+      if: 'always()',
+      'continue-on-error': true,
+      env: { CRAWLER_GENERATION_RECEIPT_DIR: '', SKIP_AI_TRANSLATION: '1' },
+      run: 'bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl',
     },
     {
       name: 'Upload crawler generation manifest (shadow)',
@@ -1052,8 +1060,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           },
           generation_token: {
             description: 'Explicit generation correlation token (shadow only)',
-            required: false,
-            default: '',
+            required: true,
             type: 'string',
           },
         },

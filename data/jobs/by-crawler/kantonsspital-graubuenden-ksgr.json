@@ -250,9 +250,9 @@
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Endokrinologie",
-        "it": "Medico:r Assistente pratico:in Endocrinologia",
-        "en": "Medical:r Practical Assistant:in Endocrinology",
-        "fr": "Assistant pratique:en endocrinologie"
+        "it": "Medico:r pratica assistente endocrinologia",
+        "en": "Medical:r practice assistant endocrinology",
+        "fr": "Endocrinologie de l'assistant médical:r"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. November 2026 als\n\nAufgaben:\n• Du planst und organisierst die fachärztlichen Sprechstunden (RAP-Agenda) und koordinierst dabei alle beteiligten Berufsgruppen\n\n• Du unterstützt die ärztlichen Sprechstunden durch Blutentnahmen, Blutzuckermessungen und kleinere Laboranalysen und erstellst ärztliche Berichte ab Diktat mithilfe unseres Spracherkennungssystems\n\n• Du stellst eine vollständige Patientendokumentation sicher und übernimmst administrative Aufgaben im Tagesgeschäft\n\nAnforderungen:\n• Ein Diplom als Medizinische:r Praxisassistent:in (MPA) sowie Erfahrung in Sprechstundenorganisation, Patientenadministration und Berichtswesen\n\n• Eine selbstständige, strukturierte und effiziente Arbeitsweise mit hoher Serviceorientierung und Qualitätsbewusstsein\n\n• Eine aufgeschlossene, kommunikative Persönlichkeit mit Freude an der Arbeit im interprofessionellen Umfeld\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -317,8 +317,8 @@
       },
       "titleByLocale": {
         "de": "HR Projektleiter:in Projekte & Applikationen",
-        "it": "HR Project Manager: in Progetti e Applicazioni",
-        "en": "HR Project Manager: in Projects & Applications",
+        "it": "HR Project Manager Progetti e applicazioni",
+        "en": "HR Project Manager Projects & Applications",
         "fr": "Gestionnaire de projet RH : dans Projets et applications"
       },
       "descriptionByLocale": {
@@ -512,13 +512,13 @@
         "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
         "it": "assistente-medico-r-pratica-in-policlinico-medico-kantonsspital-graubunden-chur",
         "en": "medical-r-practice-assistant-in-medical-polyclinic-kantonsspital-graubunden-chur",
-        "fr": "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
+        "fr": "assistant-medical-r-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Medizinische Poliklinik",
-        "it": "Assistente medico:r pratica: in policlinico medico",
-        "en": "Medical:r practice assistant:in Medical Polyclinic",
-        "fr": "Assistant de pratique médicale:en polyclinique médicale"
+        "it": "Medico:r assistente medico policlinico medico",
+        "en": "Medical:r practice assistant Medical polyclinic",
+        "fr": "Assistant médical:r"
       },
       "descriptionByLocale": {
         "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du empfängst und betreust unsere Patientinnen und Patienten und sorgst für einen reibungslosen Ablauf an der Anmeldung\n\n• Du organisierst und assistierst bei fachärztlichen Sprechstunden und übernimmst vielfältige administrative Aufgaben im Backoffice\n\n• Du führst selbstständig Knochendichtemessungen durch und stellst eine sorgfältige Dokumentation sicher\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in sowie Erfahrung in der Sprechstundenorganisation und Patientenadministration\n\n• Eine selbstständige, strukturierte Arbeitsweise und ausgeprägte Qualitäts- und Dienstleistungsorientierung\n\n• Eine aufgeschlossene, sympathische Persönlichkeit mit sehr guten kommunikativen Fähigkeiten und sicherem Auftreten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -538,11 +538,15 @@
       },
       "featured": false,
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur",
+        "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-medizinische-poliklinik-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "assistant-de-pratique-medicale-en-polyclinique-medicale-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -583,8 +587,8 @@
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Angiologie",
-        "it": "Medico:r Assistente pratico:in Angiologia",
-        "en": "Medical:r Practical Assistant:in Angiology",
+        "it": "Medico:r pratica assistente angiologia",
+        "en": "Medical:r practice assistant angiology",
         "fr": "Assistante pratique médicale: en angiologie"
       },
       "descriptionByLocale": {
@@ -863,9 +867,9 @@
       },
       "titleByLocale": {
         "de": "Medizinische:r Dokumentar:in",
-        "it": "Medico:r Documentario:in",
-        "en": "Medical:r Documentary:in",
-        "fr": "Documentaire:in"
+        "it": "Medico:r Documentario",
+        "en": "Medical:r Documentary",
+        "fr": "Documentaire médical"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. November 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du erfasst, beurteilst und kodierst Krebsfälle gemäss nationalen und internationalen Richtlinien (ICD-10, ICD-O-3 und TNM)\n\n• Du arbeitest an den Qualitätssicherungsmassnahmen mit\n\n• Du unterstützt bei der Datenerfassung für Forschungsprojekte\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Medizinische:r Kodierer:in, Dokumentar:in, Pflegefachperson oder eine vergleichbare medizinische Ausbildung sowie Berufserfahrung\n\n• Kenntnisse der Kodierrichtlinien; Erfahrung in der Krebsdokumentation ist von Vorteil\n\n• Italienischkenntnisse idealerweise, Englischkenntnisse von Vorteil sowie gute MS-Office-Kenntnisse\n\n• Eine strukturierte, exakte und zuverlässige Arbeitsweise mit rascher Auffassungsgabe\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -1004,7 +1008,7 @@
       "titleByLocale": {
         "de": "Pharmazeutisch-technische:r Assistent:in",
         "it": "Prodotti farmaceutici e tecnici:",
-        "en": "Pharmaceutical and technical:r Assistant:in",
+        "en": "Pharmaceutical-technical:r assistant",
         "fr": "Pharmaceutique et technique:"
       },
       "descriptionByLocale": {
@@ -1559,8 +1563,8 @@
       "titleByLocale": {
         "de": "Mitarbeiter:in Hauswirtschaft",
         "it": "Dipendenti: nelle pulizie",
-        "en": "Employee:in housekeeping",
-        "fr": "Employé:dans le ménage"
+        "en": "Employees Domestic",
+        "fr": "Salariés"
       },
       "descriptionByLocale": {
         "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du bist zuständig für die Aufbereitung der Patientenbetten, dabei entfernst du Bettwäsche, reinigst Matratzen und Bettgestelle und beziehst die Betten neu\n\n• Du sorgst für Ordnung und Sauberkeit und erledigst allgemeine hauswirtschaftliche Tätigkeiten\n\n• Du übernimmst die Tagesverantwortung sowie leichte administrative Arbeiten, mündliche und telefonische Anfragen und Onlinebestellungen\n\nAnforderungen:\n• Du bringst Berufserfahrung in der Hauswirtschaft mit\n\n• Du bist körperlich fit und arbeitest selbstständig, effizient sowie dienstleistungsorientiert\n\n• Du verfügst über gute mündliche und schriftliche Deutschkenntnisse\n\n• Du bist eine verantwortungsbewusste und teamfähige Persönlichkeit mit Eigeninitiative, Organisationsgeschick und Qualitätsbewusstsein\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -1936,9 +1940,9 @@
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in oder Fachfrau / Fachmann Gesundheit Ambulatorium",
-        "it": "Medico:r Assistente pratico:in o specialista",
-        "en": "Medical:r Practical assistant:in or specialist Health Ambulator",
-        "fr": "Assistant pratique:en ambulateur de santé ou spécialiste"
+        "it": "Medico:r assistente di pratica o ambulante sanitario specializzato",
+        "en": "Medical:r practice assistant or specialist health ambulator",
+        "fr": "Assistant de pratique médicale ou ambulateur de santé spécialisé"
       },
       "descriptionByLocale": {
         "de": "Starte nach Vereinbarung als\n\nAufgaben:\n• Du übernimmst moderne pneumologische und HNO-Diagnostik – von der Bodyplethysmographie bis zur Audiometrie – und führst Blutentnahmen, Allergietestungen, EKGs, Ergometrien sowie intramuskuläre Injektionen durch\n\n• Du programmierst und legst Geräte wie die 24-Stunden-Blutdruckmessung oder die Polygraphie an\n\n• Du unterstützt die Ärzt:innen aktiv in den interdisziplinären Sprechstunden und behältst den Überblick über alle Abläufe\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Medizinische:r Praxisassistent:in oder Fachfrau / Fachmann Gesundheit (FaGe)\n\n• Eine freundliche, serviceorientierte Art sowie Zuverlässigkeit und Überblick auch in hektischen Momenten\n\n• Freude an vielseitigen Aufgaben in verschiedenen Fachbereichen und echten Teamgeist\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -2012,8 +2016,8 @@
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Kinderwunschzentrum",
         "it": "Medico:r Assistente di pratica: nel centro di fertilità",
-        "en": "Medical:r Practical assistant:in fertility center",
-        "fr": "Médical:r Assistant pratique:dans le centre de fertilité"
+        "en": "Medical:r Practice assistant fertility center",
+        "fr": "Médical:r Centre de fertilité d'assistant de pratique"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. September 2026 als\n\nAufgaben:\n• Die Kinderwunsch-Sprechstunde wird durch dich geplant, durchgeführt und nachbereitet\n\n• Die ambulanten Sprechstunden der Chef- und Oberärzt:innen, präoperative Untersuchungen und die poliklinische Sprechstunde inkl. Notfall werden durch dich begleitet und betreut\n\n• Du assistierst bei Kinderwunsch-Eingriffen und kleinchirurgischen Eingriffen in den Sprechstunden\n\n• Du führst Laborarbeiten durch\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als MPA; Berufserfahrung ist von Vorteil, idealerweise in der Frauenheilkunde\n\n• Hohe Flexibilität in der Einsatzplanung\n\n• Eine teamorientierte, verantwortungsbewusste und initiative Persönlichkeit mit Einfühlungsvermögen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -2085,7 +2089,7 @@
       "titleByLocale": {
         "de": "Biomedizinische:r Analytiker:in HF/FH digitale Labormedizin",
         "it": "Biomedica: Analista: nella medicina di laboratorio digitale",
-        "en": "Biomedical:r Analyst: in HF/FH digital laboratory medicine",
+        "en": "Biomedical:r analyst digital laboratory medicine",
         "fr": "Analyste biomédical: en médecine de laboratoire numérique HF/FH"
       },
       "descriptionByLocale": {
@@ -2157,8 +2161,8 @@
       },
       "titleByLocale": {
         "de": "Teamleiter:in Physiotherapie Medizin",
-        "it": "Leader del team: in Medicina di Fisioterapia",
-        "en": "Team leader: in Physiotherapy Medicine",
+        "it": "Team leader Medicina Fisioterapia",
+        "en": "Team leader Physiotherapy Medicine",
         "fr": "Chef d'équipe : en médecine physiothérapie"
       },
       "descriptionByLocale": {
@@ -2678,7 +2682,7 @@
       "titleByLocale": {
         "de": "Tarifspezialit:in",
         "it": "Tariffa doganale",
-        "en": "Tariff Specialty:in",
+        "en": "Tariff specialty",
         "fr": "Spécialité tarifaire:"
       },
       "descriptionByLocale": {
@@ -4115,9 +4119,9 @@
       },
       "titleByLocale": {
         "de": "Praktikant:in Kauffrau / Kaufmann",
-        "it": "Interno: in Kauffrau / Kaufmann",
-        "en": "Intern:in Kauffrau / Kaufmann",
-        "fr": "Stagiaire: à Kauffrau / Kaufmann"
+        "it": "Mercante di stage / commerciante",
+        "en": "Internship merchant / merchant",
+        "fr": "Trafic de stage / marchand"
       },
       "descriptionByLocale": {
         "de": "## Descrizione\nStarte am 1. August 2027 das einjährige Praktikum als\n\n## Aufgaben:\n- Du führst allgemeine Korrespondenzen und verwaltest Dokumente\n- Du erfasst Stammdaten in den jeweiligen Systemen\n- Du erledigst allgemeine kaufmännische Aufgaben in den Bereichen Einkauf oder Patientenadministration\n\n## Anforderungen:\n- Du besuchst die Handelsmittelschule (HMS) oder Wirtschaftsmittelschule (WMS) und beendest im Sommer 2027 das 3. Schuljahr\n- Du verfügst über eine gymnasiale Maturität oder Berufsmaturität und willst Berufspraxis sammeln\n- Du bringst ein hohes Interesse für das Gesundheitswesen und den Spitalbetrieb mit\n- Du freust dich im Praxisjahr Neues zu lernen und bist bereit, dich für den erfolgreichen Verlauf der Ausbildung einzusetzen\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -4487,9 +4491,9 @@
       },
       "titleByLocale": {
         "de": "Physiotherapeut:in",
-        "it": "Fisioterapista:in",
-        "en": "Physiotherapist:in",
-        "fr": "Physiothérapeute:in"
+        "it": "Fisioterapisti",
+        "en": "Physiotherapists",
+        "fr": "Physiothérapeutes"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. September 2026 oder nach Vereinbarung als\n\nAufgaben:\n- Du führst individuelle, patientenorientierte physiotherapeutische Behandlungen mit zielgerichteten und diagnosebezogenen Massnahmen durch\n- Du behandelst stationäre und ambulante Patientinnen und Patienten – in Einzel- und Gruppentherapien mit Schwerpunkt im Bereich Medizin, Intensivmedizin und Neurologie\n- Du arbeitest eng und interdisziplinär mit dem Therapieteam sowie mit anderen Berufsgruppen zusammen und stellst eine professionelle Kommunikation sicher\n\nAnforderungen:\n- Du hast eine abgeschlossene Ausbildung als Physiotherapeutin / Physiotherapeut\n- Du bringst mehrjährige Berufserfahrung sowie relevante Weiterbildungen im Fachgebiet und aus im Spitalumfeld mit\n- Du zeigst Engagement und Freude an der Ausbildung von Studierenden und trägst aktiv zur Wissensvermittlung im Team bei\n- Du arbeitest verantwortungsbewusst, selbstständig und schätzt die Zusammenarbeit im interdisziplinären Team\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",

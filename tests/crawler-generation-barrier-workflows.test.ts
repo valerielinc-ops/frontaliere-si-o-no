@@ -30,6 +30,11 @@ const hash = `sha256:${'0'.repeat(64)}`;
 function jobFrom(text: string) {
   return Object.values(YAML.parse(text).jobs)[0] as any;
 }
+function stepByName(steps: any[], name: string) {
+  const matches = steps.filter((step) => step?.name === name);
+  expect(matches, `${name}: expected exactly one step`).toHaveLength(1);
+  return matches[0];
+}
 
 function benchmarkReceipt(crawlerId: string, primarySlice: string) {
   const blobOid = 'c'.repeat(40);
@@ -184,11 +189,10 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
       expect(background.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
-      expect(job.steps.at(-4)).toEqual({
-        name: 'Wait for all crawlers in this group',
-        'wait-all': true,
+      expect(stepByName(job.steps, 'Wait for all crawlers in this group')).toEqual({
+        name: 'Wait for all crawlers in this group', 'wait-all': true,
       });
-      expect(job.steps.at(-3)).toEqual({
+      expect(stepByName(job.steps, 'Commit crawler group data atomically')).toEqual({
         name: 'Commit crawler group data atomically',
         if: 'always()',
         run: [
@@ -205,10 +209,10 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       });
       const jobWithFutureTail = structuredClone(job);
       jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
-      const finalizer = jobWithFutureTail.steps.find(
-        (step: any) => step.name === 'Finalize crawler generation manifest (shadow)',
-      );
-      expect(finalizer).toBeDefined();
+      const finalizer = stepByName(jobWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)');
+      expect(finalizer.id).toBe('crawler-generation-finalizer');
+      expect(finalizer.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
+      expect(finalizer.env.CRAWLER_GENERATION_LEDGER_PATH).toBe('data/crawler-generation-ledger.jsonl');
       expect(finalizer.env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
       expect(JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
         results.generationRoster.groups[group].map((crawlerId: string) => ({
@@ -216,7 +220,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           primarySlice: results.generationRoster.primarySlices[crawlerId],
         })),
       );
-      expect(job.steps.at(-1)).toMatchObject({
+      const persist = stepByName(job.steps, 'Persist crawler generation ledger');
+      expect(persist.if).toBe('always()');
+      expect(persist.run).toContain('--extra-only');
+      expect(persist.run).toContain('data/crawler-generation-ledger.jsonl');
+      expect(stepByName(job.steps, 'Upload crawler generation manifest (shadow)')).toMatchObject({
         uses: 'actions/upload-artifact@v7',
         with: { overwrite: true, 'retention-days': 14 },
       });
@@ -225,7 +233,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       const portable = YAML.parse(portableText);
       expect(portable['run-name']).toBe(`crawler-generation-${GENERATION_TOKEN_EXPR}-group-${group}`);
       expect(portable.on.workflow_dispatch.inputs.generation_token)
-        .toMatchObject({ required: false, default: '', type: 'string' });
+        .toMatchObject({ required: true, type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(GENERATION_TOKEN_EXPR);
       // #7083 invariant, restated as an equality instead of a blanket ban on
@@ -233,11 +241,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       // terminal step env may only repeat the job-level expression verbatim.
       const logicWithFutureTail = structuredClone(jobFrom(logic));
       logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
-      const logicFinalizer = logicWithFutureTail.steps.find(
-        (step: any) => step.name === 'Finalize crawler generation manifest (shadow)',
-      );
-      expect(logicFinalizer).toBeDefined();
-      expect(logicFinalizer.env.CRAWLER_GENERATION_TOKEN)
+      expect(stepByName(logicWithFutureTail.steps, 'Finalize crawler generation manifest (shadow)').env.CRAWLER_GENERATION_TOKEN)
         .toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)

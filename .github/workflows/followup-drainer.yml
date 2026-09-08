@@ -196,6 +196,7 @@ jobs:
           FAIRNESS_PEER_REPO: nanakokyobashi-rgb/frontaliere-articles
           FAIRNESS_HOURS_UTC: '7'
           FAIRNESS_PEER_QUEUE_MIN: '10'
+          FOLLOWUP_NO_AUTOCLOSE: '1'
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Nessun token usabile (App/PAT assenti) → drainer inerte (promozione non triggererebbe issue-fix)."

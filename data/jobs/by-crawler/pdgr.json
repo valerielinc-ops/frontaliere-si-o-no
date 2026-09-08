@@ -2406,8 +2406,8 @@
       "companyDomain": "pdgr.ch",
       "title": "Psychologiepraktikant/in",
       "titleByLocale": {
-        "it": "Psicologia praticante/in",
-        "en": "Psychology practitioner/in",
+        "it": "Pratica di psicologia",
+        "en": "Psychology practitioner",
         "de": "Psychologiepraktikant/in",
         "fr": "Psychologue"
       },
@@ -2460,7 +2460,6 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T23:01:45.684Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2656,10 +2655,10 @@
       "companyDomain": "pdgr.ch",
       "title": "Florist/in",
       "titleByLocale": {
-        "it": "Fiorista/in",
+        "it": "Fiorista",
         "en": "Florist/in",
         "de": "Florist/in",
-        "fr": "Fleuriste/in"
+        "fr": "Fleuriste"
       },
       "description": "Ihre Umgebung:\nDas ARBES Lädali liegt am Stadtrand von Chur und bietet ein trendiges, hochwertiges Sortiment, darunter Floristik, Produkte aus unseren Werkstätten, Gemüse aus den Gärtnereien sowie weitere regionale Produkte. Sie arbeiten in einem engagierten Team bestehend aus drei Floristinnen, drei bis vier Lernenden und rund sieben betreuten Angestellten.\n\nIhre Aufgaben:\n- Sie fertigen Blumensträusse, Saisonfloristik, Floristik für Anlässe an\n\n- Sie gestalten die Floristikausstellung sowie das gesamte Ladensortiment mit\n\n- Sie sind mitverantwortlich für die praktische Ausbildung der Lernenden Floristen EFZ\n\n- Sie sind für die kompetente und kundenfreundliche Beratung unserer Kundschaft zuständig\n\n- Sie unterstützen die betreuten Angestellten im Arbeitsprozess\n\nUnser Anforderungsprofil:\n- Sie haben eine abgeschlossene Ausbildung als Florist/in EFZ mit Berufserfahrung\n\n- Sie verfügen vorzugsweise bereits über den Berufsbildnerkurs\n\n- Sie sind kreativ und innovativ\n\n- Sie sind eine ausgeglichene, zuverlässige und belastbare Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten",
       "descriptionByLocale": {
@@ -3314,10 +3313,10 @@
     },
     {
       "id": "pdgr-e99eac9c824d",
-      "slug": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "slug": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
-        "it": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "en": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "it": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
         "de": "betreuer-in-pdgr-ch",
         "fr": "superviseur-interne-psychiatrische-dienste-graubunden-rothenbrunnen"
       },
@@ -3326,8 +3325,8 @@
       "companyDomain": "pdgr.ch",
       "title": "Betreuer/-in",
       "titleByLocale": {
-        "it": "Betreuer/in",
-        "en": "Betreuer/in",
+        "it": "Consigliere",
+        "en": "Supervisor",
         "de": "Betreuer/-in",
         "fr": "Superviseur/interne"
       },
@@ -3365,15 +3364,18 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "betreuer-in-pdgr-ch",
-        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betreuer-in-pdgr-ch",
-          "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
+          "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "en": [
-          "betreuer-in-pdgr-ch"
+          "betreuer-in-pdgr-ch",
+          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen"
         ],
         "fr": [
           "betreuer-in-pdgr-ch"
@@ -3743,22 +3745,22 @@
     },
     {
       "id": "pdgr-16daeae2e7ac",
-      "slug": "giardino-in-psychiatrische-dienste-graubunden-chur",
+      "slug": "giardinieri-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "giardino-in-psychiatrische-dienste-graubunden-chur",
-        "en": "gardener-in-psychiatrische-dienste-graubunden-chur",
+        "it": "giardinieri-psychiatrische-dienste-graubunden-chur",
+        "en": "gardeners-psychiatrische-dienste-graubunden-chur",
         "de": "gartner-in-pdgr-ch",
-        "fr": "jardinier-in-psychiatrische-dienste-graubunden-chur"
+        "fr": "jardiniers-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
       "companyDomain": "pdgr.ch",
       "title": "Gärtner/-in",
       "titleByLocale": {
-        "it": "Giardino/in",
-        "en": "Gardener/in",
+        "it": "Giardinieri",
+        "en": "Gardeners",
         "de": "Gärtner/-in",
-        "fr": "Jardinier/in"
+        "fr": "Jardiniers"
       },
       "description": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie führen selbständig die Ihnen zugeteilten Kultur- und Arbeitsplanungen\n\n- Sie leiten die betreuten Mitarbeiter im Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in verschiedenen gärtnerischen Bereichen mit\n\n- Sie wirken bei der Entwicklung der Produkte und der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Gärtnerin / Gärtner EFZ und bringen vorzugsweise einige Jahre Berufserfahrung mit\n\n- Sie besitzen fundierte Kenntnisse im Gemüseanbau und/oder in der Topf- und Zierpflanzenpflege\n\n- Sie haben grosse Freude am Umgang mit Menschen und bringen idealerweise bereits Erfahrung im agogischen Bereich mit\n\n- Sie zeichnen sich durch eine selbstständige Arbeitsweise aus und sind eine belastbare Persönlichkeit\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
       "descriptionByLocale": {
@@ -3793,20 +3795,25 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "gartner-in-pdgr-ch"
+        "gartner-in-pdgr-ch",
+        "giardino-in-psychiatrische-dienste-graubunden-chur",
+        "gardener-in-psychiatrische-dienste-graubunden-chur",
+        "jardinier-in-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "giardino-in-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "gardener-in-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "gartner-in-pdgr-ch"
+          "gartner-in-pdgr-ch",
+          "jardinier-in-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:23:20.801Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3825,9 +3832,9 @@
     },
     {
       "id": "pdgr-d6e4f98002d7",
-      "slug": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+      "slug": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+        "it": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
         "en": "work-handler-in-psychiatrische-dienste-graubunden-chur",
         "de": "arbeitsagoge-in-pdgr-ch",
         "fr": "gestionnaire-de-travail-in-psychiatrische-dienste-graubunden-chur"
@@ -3837,10 +3844,10 @@
       "companyDomain": "pdgr.ch",
       "title": "Arbeitsagoge/-in",
       "titleByLocale": {
-        "it": "Maniglia di lavoro/in",
-        "en": "Work handler/in",
+        "it": "Manipolatore di lavoro",
+        "en": "Work handler",
         "de": "Arbeitsagoge/-in",
-        "fr": "Gestionnaire de travail/in"
+        "fr": "Gestionnaire de travail"
       },
       "description": "Ihre Umgebung:\n- Ihr zukünftiges Umfeld besteht aus einem Team von 13 Mitarbeitenden (Leitung, Fachpersonen, Lernende und Praktikanten) sowie rund 35 Klienten (betreute Mitarbeiter). Das vielseitige Areal umfasst das Freiland, gedeckte Kulturen, verschiedene Arbeitsräume und das ARBES Lädali. Die Gärtnerei ist ganz auf den Anbau, die Hege und Pflege von regionalem Gemüse und Blumen sowie auf die Floristik und den direkten Verkauf der Produkte ausgerichtet.\n\nIhre Aufgaben:\n- Sie leiten die betreuten Mitarbeitenden im täglichen Arbeitsprozess an\n\n- Sie arbeiten aktiv in der Produktion in den verschiedenen gärtnerischen Bereichen mit\n\n- Sie führen die Ihnen zugeteilten Kultur- und Arbeitsplanungen selbstständig aus\n\n- Sie wirken aktiv bei der Weiterentwicklung der Produkte sowie der Dienstleistungsqualität mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Arbeitsagoge / Arbeitsagogin\n\n- Sie besitzen vorzugsweise eine Grundausbildung im gärtnerischen Bereich oder bringen fundierte Kenntnisse im Gemüseanbau sowie der Topf- und Zierpflanzenpflege mit\n\n- Sie haben grosse Freude am Umgang mit Menschen, sind kommunikativ und zeichnen sich als echter Teamplayer aus\n\n- Sie arbeiten selbstständig, bewahren auch in lebhaften Situationen den Überblick und sind belastbar\n\nWir bieten Ihnen:\n- Die besondere Stelle – in sozialem Umfeld wirtschaftlich tätig sein\n\n- Eine vielseitige und abwechslungsreiche Stelle in einem innovativen Team mit sozialem Umfeld\n\n- Einen Arbeitsplatz, bei dem Sie Ihre fachlichen und persönlichen Stärken einbringen können\n\n- Die Möglichkeit aktiv an der Weiterentwicklung in einem “bewegenden” Unternehmen mitzuwirken\n\n- Fachliche und persönliche Fort- und Weiterbildungsmöglichkeiten\n\n- Überdurchschnittliche Sozialleistungen",
       "descriptionByLocale": {
@@ -3875,11 +3882,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "arbeitsagoge-in-pdgr-ch"
+        "arbeitsagoge-in-pdgr-ch",
+        "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arbeitsagoge-in-pdgr-ch"
+          "arbeitsagoge-in-pdgr-ch",
+          "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "arbeitsagoge-in-pdgr-ch"
@@ -3888,7 +3897,6 @@
           "arbeitsagoge-in-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:23:19.650Z",
       "salaryMin": 81500,
       "salaryMax": 114000,

@@ -386,6 +386,8 @@ describe('generatori del body PR — keyword di chiusura', () => {
 
     const cases: Array<[string, string]> = [
       ['follow-up(#1): 3 items deferred — x', ''],
+      ['follow-up(#1): 3 items — x', ''],
+      ['follow-up(#1): cleanup', '## 1. first\n## 2. second'],
       ['follow-up(#1): 1 item deferred — batch backfill', ''],
       ['Sweep: ~30 crawlers', ''],
       ['fix(seo): un titolo qualunque', 'nessun conteggio'],

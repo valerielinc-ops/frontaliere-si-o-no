@@ -14,7 +14,7 @@ const {
   gapIssue,
   staleSnapshotIssue,
 } = await import('../scripts/audit-duplicate-crawler-companies.mjs');
-const { createGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
+const { createGithubIssue, formatSignalsBlock } = await import('../scripts/lib/github-issue-creator.mjs');
 
 function duplicatePairs(count: number): { keys: [string, string]; shared: string[] }[] {
   return Array.from({ length: count }, (_, index) => ({
@@ -46,6 +46,24 @@ function ghCalls(): string[][] {
     .filter((call) => call[0] === 'gh')
     .map((call) => call[1] as string[]);
 }
+
+it('attaches the deterministic Segnali contract to every aggregate finding kind', () => {
+  const findings = [
+    duplicateIssue(duplicatePairs(2)),
+    gapIssue(coverageGaps(3)),
+    staleSnapshotIssue(staleSnapshots(2)),
+  ];
+
+  for (const finding of findings) {
+    expect(finding.signals).toMatchObject({
+      metrica: { osservato: expect.any(Number), atteso: 0 },
+      comando: 'node scripts/audit-duplicate-crawler-companies.mjs',
+    });
+    expect(finding.signals.cosa).toEqual(expect.any(String));
+    expect(finding.signals.evidenza).toEqual(expect.any(Array));
+    expect(formatSignalsBlock(finding.signals)).toContain('## Segnali (raccolti automaticamente)');
+  }
+});
 
 beforeEach(() => {
   execFileSync.mockReset();

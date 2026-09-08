@@ -44,8 +44,7 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: false
-        default: ""
+        required: true
         type: string
     secrets:
       FIREBASE_SERVICE_ACCOUNT_JSON:
@@ -1743,6 +1742,7 @@ jobs:
           fi
           exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
+        id: crawler-generation-finalizer
         if: always()
         continue-on-error: true
         env:
@@ -1754,7 +1754,15 @@ jobs:
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"aldi-suisse","primarySlice":"data/jobs/by-crawler/aldi-suisse.json"},{"crawlerId":"badrutts-palace","primarySlice":"data/jobs/by-crawler/badrutts-palace.json"},{"crawlerId":"baronie","primarySlice":"data/jobs/by-crawler/baronie.json"},{"crawlerId":"barry-callebaut","primarySlice":"data/jobs/by-crawler/barry-callebaut.json"},{"crawlerId":"board-international","primarySlice":"data/jobs/by-crawler/board-international.json"},{"crawlerId":"cerbios-pharma","primarySlice":"data/jobs/by-crawler/cerbios-pharma.json"},{"crawlerId":"clinique-de-montchoisi","primarySlice":"data/jobs/by-crawler/clinique-de-montchoisi.json"},{"crawlerId":"clinique-generale-beaulieu","primarySlice":"data/jobs/by-crawler/clinique-generale-beaulieu.json"},{"crawlerId":"elettra-1938","primarySlice":"data/jobs/by-crawler/elettra-1938.json"},{"crawlerId":"evam-vaud","primarySlice":"data/jobs/by-crawler/evam-vaud.json"},{"crawlerId":"gim-architekten","primarySlice":"data/jobs/by-crawler/gim-architekten.json"},{"crawlerId":"holmes-place","primarySlice":"data/jobs/by-crawler/holmes-place.json"},{"crawlerId":"imerys","primarySlice":"data/jobs/by-crawler/imerys.json"},{"crawlerId":"implenia","primarySlice":"data/jobs/by-crawler/implenia.json"},{"crawlerId":"kispi","primarySlice":"data/jobs/by-crawler/kispi.json"},{"crawlerId":"klinik-arlesheim","primarySlice":"data/jobs/by-crawler/klinik-arlesheim.json"},{"crawlerId":"new-yorker","primarySlice":"data/jobs/by-crawler/new-yorker.json"},{"crawlerId":"ophtalmique","primarySlice":"data/jobs/by-crawler/ophtalmique.json"},{"crawlerId":"pdgr","primarySlice":"data/jobs/by-crawler/pdgr.json"},{"crawlerId":"pigna","primarySlice":"data/jobs/by-crawler/pigna.json"},{"crawlerId":"proton","primarySlice":"data/jobs/by-crawler/proton.json"},{"crawlerId":"recruitingapp-1123","primarySlice":"data/jobs/by-crawler/recruitingapp-1123.json"},{"crawlerId":"relewant","primarySlice":"data/jobs/by-crawler/relewant.json"},{"crawlerId":"siemens-healthineers","primarySlice":"data/jobs/by-crawler/siemens-healthineers.json"},{"crawlerId":"spital-zofingen","primarySlice":"data/jobs/by-crawler/spital-zofingen.json"},{"crawlerId":"sygnum","primarySlice":"data/jobs/by-crawler/sygnum.json"},{"crawlerId":"veeam","primarySlice":"data/jobs/by-crawler/veeam.json"},{"crawlerId":"zurich-insurance-sede-ticino","primarySlice":"data/jobs/by-crawler/zurich-insurance-sede-ticino.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-17-terminal.json
+          CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Persist crawler generation ledger
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_RECEIPT_DIR: ""
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

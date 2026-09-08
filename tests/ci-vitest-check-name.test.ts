@@ -129,9 +129,9 @@ describe('vitest single-job contract (#2882 de-sharding)', () => {
  *
  * 2. IL LOCK NON DEVE MORDERE SU MAIN. Su `push` non c'è nessuna label da
  *    contendere (gli step di collision sono `pull_request`-only) e accodare i
- *    run di main in un gruppo globale con `cancel-in-progress: false` li farebbe
- *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute di
- *    main che il `concurrency:` top-level protegge (vedi il describe sotto).
+ *    run di main in un gruppo globale con cancellazione attiva li farebbe
+ *    sfrattare da run più recenti — cioè distruggerebbe il verdetto di salute
+ *    di main che il `concurrency:` top-level protegge (vedi il describe sotto).
  */
 describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   const jobsBody = TESTS_YML.slice(TESTS_YML.indexOf('\njobs:'));
@@ -320,18 +320,18 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
 /**
  * Il verdetto su main deve poter ARRIVARE IN FONDO.
  *
- * I push diretti su main sono intenzionalmente esclusi da tests.yml: i writer
- * automatici mantengono il loro percorso diretto senza lanciare questa suite.
- * Le PR usano invece newest-wins perché l'head precedente diventa irrilevante
- * quando arriva un nuovo commit.
+ * I push diretti su main e le merge queue devono attraversare lo stesso gate
+ * blocking della PR: il verde deve restare una prova anche fuori dal percorso
+ * pull request. Le PR usano invece newest-wins perché l'head precedente
+ * diventa irrilevante quando arriva un nuovo commit.
  *
  * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
  * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
  * la regola non è applicabile e una regressione su main resta invisibile finché
  * non la eredita per caso una PR.
  *
- * Il contratto fissato qui: tests.yml valida le PR, non i push diretti su main.
- * Questo test fallisce se qualcuno reintroduce il trigger push senza aggiornare
+ * Il contratto fissato qui: tests.yml valida PR, push diretti su main e merge
+ * queue. Questo test fallisce se uno dei trigger viene rimosso senza aggiornare
  * esplicitamente il comportamento atteso.
  */
 describe('main health-signal contract (verdetto non cancellabile)', () => {
@@ -347,19 +347,32 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
   });
 
-  it('cancel-in-progress è newest-wins per le esecuzioni PR', () => {
+  it('cancel-in-progress è newest-wins solo per PR e dispatch manuali', () => {
     const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
     expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
     const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(value).toBe('true');
+    expect(value).toMatch(/github\.event_name\s*==\s*'pull_request'/);
+    expect(value).toMatch(/github\.event_name\s*==\s*'workflow_dispatch'/);
+    expect(value).not.toMatch(/github\.event_name\s*==\s*'push'/);
+    expect(value).not.toMatch(/github\.event_name\s*==\s*'merge_group'/);
   });
 
-  it('non lancia la suite sui push diretti a main', () => {
+  it('lancia la suite sui push diretti a main', () => {
     const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
-    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml non deve avere un trigger push su main').toBe(false);
+    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml deve avere un trigger push su main').toBe(true);
   });
 
-  it('mantiene il trigger PR come unico trigger automatico di verifica', () => {
+  it('mantiene i trigger PR, push main e merge queue', () => {
     expect(TESTS_YML).toMatch(/^\s+pull_request:\s*$/m);
+    expect(TESTS_YML).toMatch(/^\s+merge_group:\s*$/m);
+  });
+
+  it('prepara il diff per merge_group prima del related runner', () => {
+    const start = TESTS_YML.indexOf('- name: Collect changed paths');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const collectStep = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    expect(collectStep).toContain("github.event_name == 'merge_group'");
+    expect(collectStep).toContain('MERGE_GROUP_BASE_SHA');
+    expect(collectStep).toContain('github.event.merge_group.base_sha');
   });
 });

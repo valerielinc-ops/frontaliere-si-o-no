@@ -77,8 +77,8 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-produzione-farmaceutica-coira.title': 'Pharmacy Jobs: Coira',
     'blog.article.lavoro-produzione-farmaceutica-coira.excerpt': 'Professional opportunities in the pharmaceutical sector at Kantonsspital Graubünden in Coira. Discover details on open positions and requirements.',
     'blog.article.lavoro-produzione-farmaceutica-coira.imageAlt': 'Pharmaceutical manufacturing facility in Switzerland',
-    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.title': 'La finanza svizzera sotto esame per il clima',
-    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.excerpt': 'La Svizzera è una potenza finanziaria, ma il suo settore finanziario continua a investire miliardi in progetti legati ai combustibili fossili.',
+    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.title': 'Swiss Finance Under Scrutiny for Its Climate Impact',
+    'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.excerpt': 'Switzerland is a financial powerhouse, but its financial sector continues to invest billions in fossil-fuel projects.',
     'blog.article.la-finanza-svizzera-sotto-esame-per-il-suo-impatto-sul-clima.imageAlt': 'Lugano financial district with a sustainable atmosphere',
     'blog.article.cassa-malati-estero-scelta-assicurazione.title': 'Health insurance for Swiss abroad: obligations',
     'blog.article.cassa-malati-estero-scelta-assicurazione.excerpt': 'Learn the rules for health insurance of Swiss retirees and workers abroad: obligations, deadlines and a fixed deductible of 300 CHF.',
@@ -625,7 +625,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.frontaliere-smart-working-regole.title': 'Smart Working for Frontier Workers: Updated Rules',
     'blog.article.frontaliere-smart-working-regole.excerpt': 'Learn about the current rules for remote work for border workers between Switzerland and Italy.',
     'blog.article.frontaliere-smart-working-regole.imageAlt': 'Scenic view of Lugano with the lake and a person working on a laptop.',
-    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mutuo casa in Svizzera per frontaliere: requisiti e banche',
+    'blog.article.mutuo-frontaliere-casa-svizzera-procedure.title': 'Mortgage in Switzerland for Cross-Border Workers: Requirements and Banks',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.excerpt': 'Practical guide to the requirements and procedures for applying for a home mortgage in Switzerland as a border worker. Focus on banks and required documentation.',
     'blog.article.mutuo-frontaliere-casa-svizzera-procedure.imageAlt': 'Swiss bank desk with mortgage documents and lake view.',
     'blog.article.congedo-parentale-frontalieri.title': 'Parental leave for border workers: a guide to rights in Switzerland and Italy',
@@ -6079,6 +6079,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bls-tagli-posti-trasporto-svizzera.title': 'BLS cuts 40 seats, closes centres and reduces services',
     'blog.article.bls-tagli-posti-trasporto-svizzera.excerpt': 'BLS announces 40 job cuts, closure of 5 travel centres and reduced services. Target savings: CHF 5 million in the two-year period 2027-2028.',
     'blog.article.bls-tagli-posti-trasporto-svizzera.imageAlt': 'Swiss landscape representing national mobility and public transport infrastructure',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.title': 'Swiss students read less: PISA 2025 results',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.excerpt': 'PISA 2025: Swiss fifteen-year-olds excel in science, but reading and mathematics fall. 28.8% do not achieve minimum skills. The investigation reveals the crucial influence of social origin.',
+    'blog.article.studenti-svizzeri-lettura-pisa-2025.imageAlt': 'Swiss school classroom with students solving mathematics and reading exercises',
+    'blog.article.bollette-26-centesimi-2027.title': 'Slightly falling electricity prices in 2027',
+    'blog.article.bollette-26-centesimi-2027.excerpt': 'In 2027, Swiss domestic economies will pay 26.5 ct./kWh average tariff: a 4% drop and savings of CHF 53 per year according to ElCom.',
+    'blog.article.bollette-26-centesimi-2027.imageAlt': 'Swiss family reviewing energy bills following the tariff reduction announced by ElCom for 2027',
 };
 
 export default blogMetaChEn;
