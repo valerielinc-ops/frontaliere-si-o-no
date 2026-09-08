@@ -3,7 +3,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { finalizeCrawlerGroup } from '../scripts/crawler-group-generation-finalizer.mjs';
+import {
+  appendCrawlerGenerationLedger,
+  finalizeCrawlerGroup,
+  persistCrawlerGenerationLedger,
+} from '../scripts/crawler-group-generation-finalizer.mjs';
 import { digestDocument, validateGroupTerminalManifest } from '../scripts/lib/crawler-generation-contract.mjs';
 import { MAX_RECEIPT_BYTES, createCrawlerGenerationReceipt } from '../scripts/lib/crawler-generation-receipt.mjs';
 
@@ -59,6 +63,44 @@ function baseInput(fixture: ReturnType<typeof fixtureRepository>) {
 }
 
 describe('crawler group generation finalizer', () => {
+  it('appends one durable, per-group ledger record for the terminal verdict', () => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
+    const manifest = finalizeCrawlerGroup(baseInput(fixture));
+
+    const ledgerPath = appendCrawlerGenerationLedger(fixture.work, manifest);
+    appendCrawlerGenerationLedger(fixture.work, manifest);
+    const entries = fs.readFileSync(ledgerPath, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+
+    expect(entries).toHaveLength(2);
+    expect(entries[0]).toMatchObject({
+      schemaVersion: 1,
+      group: '01',
+      generationToken: '9001-2',
+      valid: true,
+      reasons: [],
+      manifestDigest: manifest.digest,
+    });
+    expect(entries[1]).toEqual(entries[0]);
+  });
+
+  it('persists only the ledger line through the isolated commit path', () => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
+    const manifest = finalizeCrawlerGroup(baseInput(fixture));
+
+    const ledgerPath = persistCrawlerGenerationLedger(fixture.work, manifest);
+    const committed = git(fixture.work, ['show', `origin/main:${path.relative(fs.realpathSync(fixture.work), ledgerPath)}`]);
+
+    expect(JSON.parse(committed.trim())).toMatchObject({
+      group: '01',
+      generationToken: '9001-2',
+      manifestDigest: manifest.digest,
+    });
+    expect(git(fixture.work, ['show', '--name-only', '--format=', 'origin/main']))
+      .toBe('data/crawler-generation-ledger/group-01.jsonl');
+  });
+
   it('verifies the receipt commit and remote tip while ignoring a deliberately stale workspace', () => {
     const fixture = fixtureRepository();
     fs.writeFileSync(path.join(fixture.work, fixture.slice), '{"jobs":[{"id":"pushed"}]}\n');

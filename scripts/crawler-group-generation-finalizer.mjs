@@ -18,6 +18,7 @@ import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './lib/c
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
+const GENERATION_LEDGER_ROOT = 'data/crawler-generation-ledger';
 
 function runGit(cwd, args, encoding = 'utf8') {
   return execFileSync('git', args, {
@@ -106,6 +107,68 @@ function loadReceipts(receiptsDir, expectedCrawlerIds, generationToken, reasons)
     }
   }
   return receipts;
+}
+
+function crawlerGenerationLedgerPath(cwd, group) {
+  if (!/^\d{2}$/.test(String(group ?? ''))) throw new TypeError('Invalid crawler generation ledger group');
+  const root = fs.realpathSync(cwd);
+  const target = path.resolve(root, GENERATION_LEDGER_ROOT, `group-${group}.jsonl`);
+  const relative = path.relative(root, target);
+  if (!relative || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new TypeError('Crawler generation ledger path escapes repository');
+  }
+  return target;
+}
+
+/** Append one immutable group verdict; the per-group file avoids cross-group merge races. */
+export function appendCrawlerGenerationLedger(cwd, manifest) {
+  const ledgerPath = crawlerGenerationLedgerPath(cwd, manifest?.group);
+  if (!Array.isArray(manifest?.reasons) || typeof manifest?.valid !== 'boolean') {
+    throw new TypeError('Invalid crawler generation ledger manifest');
+  }
+  const entry = {
+    schemaVersion: 1,
+    recordedAt: manifest.checkedAt,
+    group: manifest.group,
+    generationToken: manifest.generationToken,
+    callerRepository: manifest.callerRepository,
+    callerRunId: manifest.callerRunId,
+    callerRunAttempt: manifest.callerRunAttempt,
+    remoteCommit: manifest.remote?.commit ?? null,
+    valid: manifest.valid,
+    reasons: [...manifest.reasons],
+    manifestDigest: manifest.digest,
+  };
+  fs.mkdirSync(path.dirname(ledgerPath), { recursive: true });
+  fs.appendFileSync(ledgerPath, `${JSON.stringify(entry)}\n`, 'utf8');
+  return ledgerPath;
+}
+
+/** Append and persist the ledger through the existing isolated data commit path. */
+export function persistCrawlerGenerationLedger(cwd, manifest) {
+  const repositoryRoot = fs.realpathSync(cwd);
+  const ledgerPath = appendCrawlerGenerationLedger(cwd, manifest);
+  const relativeLedgerPath = path.relative(repositoryRoot, ledgerPath);
+  execFileSync('bash', [
+    path.join(path.dirname(SCRIPT_PATH), 'lib', 'git-commit-data.sh'),
+    '--ledger-only',
+    `Record crawler generation group ${manifest.group}`,
+    relativeLedgerPath,
+  ], {
+    cwd: repositoryRoot,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: GIT_TIMEOUT_MS,
+    killSignal: 'SIGTERM',
+    env: {
+      ...process.env,
+      CRAWLER_GENERATION_RECEIPT_DIR: '',
+      CRAWLER_GROUP_DEFER_COMMIT: '0',
+      GITHUB_OUTPUT: '',
+      SKIP_AI_TRANSLATION: '1',
+    },
+  });
+  return ledgerPath;
 }
 
 /** Build a report from exact private-index receipts; the stale worktree is deliberately ignored. */
@@ -217,6 +280,12 @@ export function runCrawlerGroupGenerationFinalizerCli() {
   });
   writeJsonAtomic(outputPath, manifest, { compact: true });
   process.stdout.write(`${JSON.stringify({ valid: manifest.valid, reasons: manifest.reasons })}\n`);
+  try {
+    persistCrawlerGenerationLedger(process.cwd(), manifest);
+  } catch (error) {
+    process.stderr.write(`crawler generation ledger persistence failed: ${error instanceof Error ? error.message : String(error)}\n`);
+    throw error;
+  }
   return manifest;
 }
 

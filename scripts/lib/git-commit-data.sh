@@ -113,11 +113,17 @@ fi
 # ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
 GROUP_BATCH=false
+LEDGER_ONLY=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
-if [ "${1:-}" = "--group-batch" ]; then
+if [ "${1:-}" = "--ledger-only" ]; then
+  LEDGER_ONLY=true
+  SLICE_ONLY=true
+  GROUPED_ISOLATED=true
+  shift
+elif [ "${1:-}" = "--group-batch" ]; then
   GROUP_BATCH=true
   SLICE_ONLY=true
   GROUPED_ISOLATED=true
@@ -127,7 +133,7 @@ elif [ "${1:-}" = "--slice-only" ]; then
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch|--ledger-only] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
@@ -158,7 +164,12 @@ ${SLUG_HISTORY_BODY}"
 fi
 
 # ── Standard data files committed by every crawler ──────────────────────────
-if [ "$GROUP_BATCH" = true ]; then
+if [ "$LEDGER_ONLY" = true ]; then
+  # The finalizer has already produced the group verdict. Persist exactly its
+  # append-only ledger line; never sweep crawler slices left dirty after a
+  # failed or contended group batch.
+  STANDARD_FILES=()
+elif [ "$GROUP_BATCH" = true ]; then
   # Paths are loaded below from the successful crawlers' immutable descriptors.
   # Keeping this list empty is load-bearing: the batch must never sweep a
   # failed sibling's partial files merely because they remain dirty in the

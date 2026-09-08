@@ -203,8 +203,14 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
           'exit "$git_commit_exit"',
         ].join('\n'),
       });
-      expect(job.steps.at(-2).env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
-      expect(JSON.parse(job.steps.at(-2).env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
+      const jobWithFutureTail = structuredClone(job);
+      jobWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
+      const finalizer = jobWithFutureTail.steps.find(
+        (step: any) => step.name === 'Finalize crawler generation manifest (shadow)',
+      );
+      expect(finalizer).toBeDefined();
+      expect(finalizer.env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
+      expect(JSON.parse(finalizer.env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
         results.generationRoster.groups[group].map((crawlerId: string) => ({
           crawlerId,
           primarySlice: results.generationRoster.primarySlices[crawlerId],
@@ -225,7 +231,13 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       // #7083 invariant, restated as an equality instead of a blanket ban on
       // `github.run_*`: producers and finalizer must read ONE value, so the
       // terminal step env may only repeat the job-level expression verbatim.
-      expect(jobFrom(logic).steps.at(-2).env.CRAWLER_GENERATION_TOKEN)
+      const logicWithFutureTail = structuredClone(jobFrom(logic));
+      logicWithFutureTail.steps.push({ name: 'Future post-finalizer step', run: 'true' });
+      const logicFinalizer = logicWithFutureTail.steps.find(
+        (step: any) => step.name === 'Finalize crawler generation manifest (shadow)',
+      );
+      expect(logicFinalizer).toBeDefined();
+      expect(logicFinalizer.env.CRAWLER_GENERATION_TOKEN)
         .toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_TOKEN).toBe(job.env.CRAWLER_GENERATION_TOKEN);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
