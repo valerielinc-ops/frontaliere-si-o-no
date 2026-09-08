@@ -121,7 +121,10 @@
  *   2. Find which `crawler-group-*.yml` file currently contains that crawler (greps each
  *      group file's `id: crawler-<slug>` markers — group membership can shift whenever
  *      the generator re-runs, so this is resolved fresh each time, not cached).
- *   3. Ask GitHub for that GROUP workflow's most-recent COMPLETED run on `main`.
+ *   3. Ask GitHub for that GROUP workflow's most-recent COMPLETED run on the
+ *      production generation refs (`crawler-generation-shadow-<token>`) plus
+ *      `main` for legacy/local runs. The old `-b main` query never saw the
+ *      shadow runs that actually execute the crawlers.
  *   4. Fetch that run's job(s) via the Jobs API and find the STEP named `Run <slug>`
  *      inside it — steps have their OWN independent `conclusion` in the API response
  *      (confirmed empirically against a live run using this repo's other background-step
@@ -164,6 +167,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveGithubIssue, commentOnGithubIssue } from '../lib/github-issue-creator.mjs';
+import { isCrawlerGenerationToken } from '../lib/crawler-generation-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -852,6 +856,40 @@ function fetchIssueComments(issueNumber) {
 // spinge verso la chiusura (il comportamento vecchio), mai verso l'hold.
 const RUN_HISTORY_LIMIT = 100;
 
+const CRAWLER_GENERATION_SHADOW_PREFIX = 'crawler-generation-shadow-';
+
+/**
+ * Production crawler runs use the generation token as their branch name. Keep
+ * the allowlist exact: querying every branch would mix pull requests and
+ * unrelated manual runs into the recovery decision.
+ */
+export function isCrawlerRecoveryBranch(branch) {
+  if (branch === 'main') return true;
+  if (typeof branch !== 'string' || !branch.startsWith(CRAWLER_GENERATION_SHADOW_PREFIX)) return false;
+  return isCrawlerGenerationToken(branch.slice(CRAWLER_GENERATION_SHADOW_PREFIX.length));
+}
+
+/** Keep only branches that can carry a production crawler-group run. */
+export function filterCrawlerRecoveryRuns(runs) {
+  if (!Array.isArray(runs)) return [];
+  return runs.filter((run) => isCrawlerRecoveryBranch(run?.headBranch));
+}
+
+/**
+ * Build the `gh run list` arguments for a workflow family. Normal failures
+ * remain main-scoped; crawler recovery must list branches and filter the
+ * returned head branch explicitly because `gh` has no wildcard `--branch`.
+ */
+export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = false } = {}) {
+  const args = ['run', 'list', '-w', workflowName];
+  if (!includeCrawlerShadowBranches) args.push('-b', 'main');
+  args.push(
+    '-L', String(RUN_HISTORY_LIMIT),
+    '--json', 'databaseId,conclusion,status,createdAt,headBranch',
+  );
+  return args;
+}
+
 /**
  * True quando la run `cancelled` non ha una prova di timeout. Uno scarto in coda non ha
  * job; una cancellazione manuale o una supersessione dopo l'avvio ha job, ma nessuna
@@ -955,13 +993,15 @@ export function dropPhantomCancellations(runs, isPhantom) {
   return runs.filter((r) => r?.conclusion !== 'cancelled' || !isPhantom(r?.databaseId));
 }
 
-// Le run COMPLETATE più recenti del workflow su main, dalla più nuova alla più vecchia,
-// o null se il workflow non ha run (rinominato/cancellato) o il listing è fallito — nel
-// qual caso lasciamo conservativamente aperta la issue, come da sempre.
-function recentCompletedRuns(workflowName, repo = REPO, token) {
+// Le run COMPLETATE più recenti del workflow sulla popolazione richiesta,
+// dalla più nuova alla più vecchia, o null se il workflow non ha run
+// (rinominato/cancellato) o il listing è fallito — nel qual caso lasciamo
+// conservativamente aperta la issue, come da sempre.
+function recentCompletedRuns(workflowName, repo = REPO, token, options = {}) {
+  const includeCrawlerShadowBranches = options.includeCrawlerShadowBranches === true;
   const out = gh([
-    'run', 'list', '-w', workflowName, '-b', 'main', '-L', String(RUN_HISTORY_LIMIT),
-    '--json', 'databaseId,conclusion,status,createdAt', ...repoFlag(repo),
+    ...buildRunListArgs(workflowName, { includeCrawlerShadowBranches }),
+    ...repoFlag(repo),
   ], { allowFailure: true, token });
   if (out === null) return null;
   let runs;
@@ -970,6 +1010,7 @@ function recentCompletedRuns(workflowName, repo = REPO, token) {
   } catch {
     return null;
   }
+  if (includeCrawlerShadowBranches) runs = filterCrawlerRecoveryRuns(runs);
   // L'ordine di `gh run list` è già newest-first, ma la streak verde ne dipende in modo
   // portante (un ordine invertito la calcolerebbe dal fondo della storia): riordinare
   // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
@@ -982,10 +1023,11 @@ function recentCompletedRuns(workflowName, repo = REPO, token) {
   return completed.length ? completed : null;
 }
 
-// Most-recent COMPLETED run of the named workflow on main, or null if the workflow has
-// no runs (e.g. renamed/deleted) — in which case we conservatively leave the issue open.
-function latestCompletedRun(workflowName, repo = REPO, token) {
-  const runs = recentCompletedRuns(workflowName, repo, token);
+// Most-recent COMPLETED run of the named workflow on the requested population,
+// or null if the workflow has no runs (e.g. renamed/deleted) — in which case we
+// conservatively leave the issue open.
+function latestCompletedRun(workflowName, repo = REPO, token, options = {}) {
+  const runs = recentCompletedRuns(workflowName, repo, token, options);
   return runs ? runs[0] : null;
 }
 
@@ -1048,7 +1090,9 @@ function latestCompletedCrawlerStepRun(slug) {
   if (!workflowRef) return null;
 
   const runToken = crawlerRunToken(CRAWLER_RUN_REPO);
-  const run = latestCompletedRun(workflowRef, CRAWLER_RUN_REPO, runToken);
+  const run = latestCompletedRun(workflowRef, CRAWLER_RUN_REPO, runToken, {
+    includeCrawlerShadowBranches: true,
+  });
   if (!run) return null;
 
   const jobsOut = gh(
