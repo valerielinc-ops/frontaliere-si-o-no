@@ -104,19 +104,29 @@ export function extractObjectLiteral(src, constName) {
 
 /**
  * Parse `{ '<id>': { it, en, de, fr } }` out of a registry source string.
- * Same shape the generator emits — key order is fixed, so the regex pins it
- * rather than parsing generically: a reordered emit is a generator change worth
- * noticing, not absorbing.
+ * Same shape the generator emits. Locale properties are collected by name so
+ * a harmless reorder or line wrapping in the generated object cannot blind the
+ * callers that use this parser as a safety gate.
  */
 export function parseSlugRegistry(src, constName) {
   const block = extractObjectLiteral(src, constName);
-  const rx =
-    /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
+  const entryRx = /["']([^"']+)["']\s*:\s*\{([^{}]*)\}/g;
+  const localeRx = /(?:^|[,{\s])["']?(it|en|de|fr)["']?\s*:\s*["']([^"']+)["']/g;
   /** @type {Record<string, {it: string, en: string, de: string, fr: string}>} */
   const slugs = {};
   let m;
-  while ((m = rx.exec(block)) !== null) {
-    slugs[m[1]] = { it: m[2], en: m[3], de: m[4], fr: m[5] };
+  while ((m = entryRx.exec(block)) !== null) {
+    const locales = {};
+    let locale;
+    while ((locale = localeRx.exec(m[2])) !== null) locales[locale[1]] = locale[2];
+    if (['it', 'en', 'de', 'fr'].every((key) => locales[key])) {
+      slugs[m[1]] = {
+        it: locales.it,
+        en: locales.en,
+        de: locales.de,
+        fr: locales.fr,
+      };
+    }
   }
   return slugs;
 }

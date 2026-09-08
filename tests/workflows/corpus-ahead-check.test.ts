@@ -9,6 +9,8 @@ import {
   needsDecisionHere,
   renderIssueBody,
   shouldOpenIssueHere,
+  strictExitCode,
+  strictFailureResults,
   SITE_ACTIONABLE_STATES,
 } from '../../scripts/ci/corpus-ahead-check.mjs';
 
@@ -233,6 +235,19 @@ describe('il confronto a tre vie riporta solo la meta\' su cui questo repo puo\'
   it('gemello assente di qua → non azionabile, mai un falso `corpus-ahead`', () => {
     const v = classify(twin(), { site: null, corpus: 'cccccccccccccccc' }, BASE);
     expect(v.actionable).toBe(false);
+  });
+});
+
+describe('strict gate — fetch falliti', () => {
+  it('non passa in verde una verifica `check-failed`', () => {
+    const results = [
+      { state: 'stable', actionable: false },
+      { state: 'check-failed', actionable: false },
+    ];
+
+    expect(strictFailureResults(results)).toEqual([{ state: 'check-failed', actionable: false }]);
+    expect(strictExitCode(results, true)).toBe(1);
+    expect(strictExitCode(results, false)).toBe(0);
   });
 });
 

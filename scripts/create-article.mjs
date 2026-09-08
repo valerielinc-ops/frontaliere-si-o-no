@@ -2002,6 +2002,22 @@ function readSectionSlugData() {
   return read(SECTION_SLUG_DATA_FILE);
 }
 
+/** Extract one registry object without importing a site-only helper. */
+function extractRegistryObject(src, constName) {
+  const declaration = new RegExp(`\\bconst\\s+${constName}\\b[^=]*=\\s*\\{`).exec(src);
+  if (!declaration) return '';
+  const open = declaration.index + declaration[0].length - 1;
+  let depth = 0;
+  for (let i = open; i < src.length; i += 1) {
+    if (src[i] === '{') depth += 1;
+    else if (src[i] === '}') {
+      depth -= 1;
+      if (depth === 0) return src.slice(open, i + 1);
+    }
+  }
+  return '';
+}
+
 /**
  * Extract existing article IDs from the ACTIVE section's slugs map (`'id': {
  * it: ... }`). Used for the append-anchor (last id of THIS section) and for
@@ -2011,10 +2027,12 @@ function readSectionSlugData() {
  */
 function getSectionExistingIds(slugDataSrc) {
   const src = slugDataSrc ?? readSectionSlugData();
+  const block = extractRegistryObject(src, SECTION.slugsConstName);
   // Quote-agnostic key match (mirrors getAllArticleIds): a formatter/manual
   // edit could switch an entry key to double quotes; the `\1` backreference
   // rejects mixed quotes. Key is m[2] (group 1 is the quote char).
-  return [...src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)].map((m) => m[2]);
+  // Entry-key-only match: ID discovery must not depend on locale-property order inside the entry.
+  return [...block.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)].map((m) => m[2]);
 }
 
 /**
@@ -2044,7 +2062,8 @@ function getAllArticleIds() {
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
     let src = '';
     try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
-    for (const m of src.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{\s*it:/gm)) ids.add(m[2]);
+    const block = extractRegistryObject(src, cfg.slugsConstName);
+    for (const m of block.matchAll(/^\s+(['"])([^'"]+)\1:\s*\{/gm)) ids.add(m[2]);
   }
   _allArticleIdsCache = [...ids];
   return _allArticleIdsCache;

@@ -2,7 +2,11 @@ import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 // @ts-expect-error — .mjs senza tipi, come corpus-ahead-check.mjs.
-import { classifyForTransport } from '../../scripts/ci/identical-twin-transport-dryrun.mjs';
+import {
+  classifyForTransport,
+  strictExitCode,
+  strictFailureResults,
+} from '../../scripts/ci/identical-twin-transport-dryrun.mjs';
 
 /**
  * Il piano di verifica del proprietario (corpus#331, 2026-08-14) elenca cinque
@@ -93,5 +97,19 @@ describe('classifyForTransport — controllo 2: dry-run guidato dal manifest, no
     const r = classifyForTransport(entry, now, null);
     expect(r.state).toBe('no-baseline');
     expect(r.transport).toBe('no-op');
+  });
+});
+
+describe('strict gate — fetch falliti', () => {
+  it('non passa in verde un risultato `check-failed`', () => {
+    const results = [
+      { transport: 'ready' },
+      { transport: 'no-op' },
+      { transport: 'check-failed' },
+    ];
+
+    expect(strictFailureResults(results)).toEqual([{ transport: 'check-failed' }]);
+    expect(strictExitCode(results, true)).toBe(1);
+    expect(strictExitCode(results, false)).toBe(0);
   });
 });
