@@ -1,21 +1,21 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-09-07T23:25:18.671Z",
-  "total": 3,
+  "generatedAt": "2026-09-08T13:36:03.408Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7539,
-  "avgDurationMs": 7539,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8395,
+  "avgDurationMs": 8395,
   "durationHistory": [
-    7539
+    8395
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:25:08.373Z",
+      "crawledAt": "2026-09-08T13:35:52.708Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -70,7 +70,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-07T23:25:08.970Z",
+      "crawledAt": "2026-09-08T13:35:53.488Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -98,8 +98,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "gavi-b02c416d7edd",
       "slug": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
@@ -143,5 +142,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
