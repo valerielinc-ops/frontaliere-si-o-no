@@ -11601,6 +11601,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'Les chiffres du jour pour les frontaliers – 8 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Bulletin du frontalier du 8 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'Les chiffres du 8 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.aumento-premi-cassa-malati-2027.title': 'Augmentation des primes de la caisse-maladie : +5% en 2027',
+    'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prévoit un renchérissement moyen de près de 5 % pour 2027, supérieur à 4,4 % en 2026. Certains assurés font face à des pics allant jusqu\'à 20 %. Tessin pratiquement stable.',
+    'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Cabinet médical au Tessin avec assurance-maladie et calculatrice de primes',
 };
 
 export default blogMetaFr;

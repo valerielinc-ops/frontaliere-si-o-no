@@ -11600,6 +11600,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'I numeri del giorno per i frontalieri – 8 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Bollettino frontalieri del 8 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'I numeri del 8 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.aumento-premi-cassa-malati-2027.title': 'Aumento premi cassa malati: +5% nel 2027',
+    'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prevede rincaro medio di quasi il 5% per 2027, superiore al 4,4% del 2026. Alcuni assicurati affrontano picchi fino al 20%. Ticino praticamente stabile.',
+    'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Studio medico nel Canton Ticino con assicurazione malattia e calcolatore per verificare i premi',
 };
 
 export default blogMetaIt;

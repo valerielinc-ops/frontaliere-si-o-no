@@ -11598,6 +11598,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-08.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 8. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-08.seoDescription': 'Grenzgänger-Bulletin vom 8. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-08.ogDescription': 'Die Zahlen vom 8. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.aumento-premi-cassa-malati-2027.title': 'Prämienerhöhung Krankenkasse: +5% im Jahr 2027',
+    'blog.article.aumento-premi-cassa-malati-2027.excerpt': 'bonus.ch prognostiziert für 2027 eine durchschnittliche Teuerung von fast 5%, gegenüber 4,4% im Jahr 2026. Einige Versicherte haben Spitzenwerte von bis zu 20 % zu verkraften. Praktisch stabiles Tessin.',
+    'blog.article.aumento-premi-cassa-malati-2027.imageAlt': 'Arztpraxis im Kanton Tessin mit Krankenversicherung und Prämienrechner',
 };
 
 export default blogMetaDe;

@@ -34635,6 +34635,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'aumento-premi-cassa-malati-2027',
+ category: 'pratico',
+ date: '2026-09-08T09:28:19.182Z',
+ image: '/images/blog/aumento-premi-cassa-malati-2027.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
