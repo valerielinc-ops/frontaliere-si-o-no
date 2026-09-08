@@ -88876,6 +88876,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-s30-guasto-tecnico-cadenazzo-luino': {
+    title: 'S30 bloccata tra Cadenazzo e Luino per guasto tecnico',
+    description: 'Linea ferroviaria S30 interrotta tra Cadenazzo e Luino fino a mercoledì 9 settembre 2026 ore 4:00. Bus sostitutivi, ritardi e assenza coincidenze. Guida pratica',
+    keywords: 'frontalieri, ticino, svizzera, italia, bloccata, cadenazzo, luino, guasto',
+    ogTitle: 'S30 bloccata tra Cadenazzo e Luino per guasto tecnico',
+    ogDescription: 'Il traffico ferroviario sulla linea S30 è bloccato per guasto tecnico fino a mercoledì 9 settembre 2026 ore 4:00. Bus sostitutivi in servizio. Scopri come organizzarti se sei un frontaliere che lavora in Lombardia e vivi in Ticino.',
+    canonicalPath: '/articoli-frontaliere/s30-guasto-tecnico-cadenazzo-luino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "S30 bloccata tra Cadenazzo e Luino per guasto tecnico",
+      "description": "Linea ferroviaria S30 interrotta tra Cadenazzo e Luino fino a mercoledì 9 settembre 2026 ore 4:00. Bus sostitutivi, ritardi e assenza coincidenze. Guida pratica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/s30-guasto-tecnico-cadenazzo-luino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Bellinzona con binari e treni SBB in sosta durante il giorno"
+      },
+      "datePublished": "2026-09-08T15:20:15+00:00",
+      "dateModified": "2026-09-08T15:20:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/s30-guasto-tecnico-cadenazzo-luino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-libro-boom-frontalieri-svizzera': {
+    title: 'Il libro sul boom dei frontalieri in Svizzera | Frontaliere Ticino',
+    description: 'Nuovo libro accademico spiega come la Svizzera conta 400.000 frontalieri. Da 84.000 nel 1978 al boom dopo il 2000. Focus su salari, sicurezza sociale',
+    keywords: 'frontalieri, ticino, svizzera, italia, libro, boom, nuovo, accademico',
+    ogTitle: 'Il libro sul boom dei frontalieri in Svizzera',
+    ogDescription: 'Scopri come la Svizzera è diventata il primo paese europeo con 400.000 frontalieri attraverso il libro \'Le travail frontalier en Suisse – 30 questions\'. Analisi critica di salari, fiscalità, sicurezza sociale, trasporti e xenofobia.',
+    canonicalPath: '/articoli-frontaliere/libro-boom-frontalieri-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il libro sul boom dei frontalieri in Svizzera",
+      "description": "Nuovo libro accademico spiega come la Svizzera conta 400.000 frontalieri. Da 84.000 nel 1978 al boom dopo il 2000. Focus su salari, sicurezza sociale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/libro-boom-frontalieri-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio della regione ticinese al confine con l'Italia, simbolo del mercato del lavoro frontaliero svizzero-italiano."
+      },
+      "datePublished": "2026-09-08T19:06:51+00:00",
+      "dateModified": "2026-09-08T19:06:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/libro-boom-frontalieri-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
