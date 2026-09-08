@@ -268,6 +268,17 @@ export function isDirectAssembleInput(file) {
  * unnecessary assembly only spends time. The selected-test list is produced
  * by the same related runner that later invokes Vitest; this function only
  * reuses the existing dataset partition to inspect that list.
+ *
+ * Those fail-safe branches carry `degraded: true`. The distinction is not
+ * cosmetic: a `required: true` that means «this diff needs the dataset» is the
+ * feature working, while one that means «I could not see the repo» is the
+ * optimization silently turned off. The second kind is indistinguishable from
+ * the first in the log, so it can sit there for months as a permanent no-op —
+ * exactly the failure mode `unreadableCount > 0` would produce if the
+ * `vitest:` sparse-checkout ever stopped materializing the files that
+ * `trackedFiles()` selects. The caller turns `degraded` into a CI warning
+ * annotation; `tests/ci-vitest-check-name.test.ts` pins the sparse profile so
+ * the condition cannot arise in the first place.
  */
 export function shouldAssembleForRelatedTests({
   eventName,
@@ -280,16 +291,20 @@ export function shouldAssembleForRelatedTests({
     return { required: true, reason: 'event is not pull_request' };
   }
   if (changedStatus !== 'complete') {
-    return { required: true, reason: `changed-paths status is ${String(changedStatus || 'unknown')}` };
+    return {
+      required: true,
+      degraded: true,
+      reason: `changed-paths status is ${String(changedStatus || 'unknown')}`,
+    };
   }
   if (!Array.isArray(changedPaths) || !Array.isArray(selectedTests)) {
-    return { required: true, reason: 'related selection input is not classifiable' };
+    return { required: true, degraded: true, reason: 'related selection input is not classifiable' };
   }
   if (!Number.isInteger(unreadableCount) || unreadableCount < 0) {
-    return { required: true, reason: 'related graph completeness is unknown' };
+    return { required: true, degraded: true, reason: 'related graph completeness is unknown' };
   }
   if (unreadableCount > 0) {
-    return { required: true, reason: 'related graph contains unreadable tracked files' };
+    return { required: true, degraded: true, reason: 'related graph contains unreadable tracked files' };
   }
 
   let dependentTests;
@@ -298,6 +313,7 @@ export function shouldAssembleForRelatedTests({
   } catch (error) {
     return {
       required: true,
+      degraded: true,
       reason: `dataset partition failed: ${error?.message || String(error)}`,
     };
   }

@@ -1,8 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync, readdirSync } from 'node:fs';
+import { mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import YAML from 'yaml';
 import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/constants.mjs';
+import { isGraphSourceFile } from '../scripts/ci/lib/related-graph-scope.mjs';
 
 /**
  * Guard per il drift descritto in #1602: il nome del check-run vitest è la
@@ -23,8 +26,11 @@ const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().star
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
 const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
+const RELATED_SCOPE = readFileSync(resolve(ROOT, 'scripts/ci/lib/related-graph-scope.mjs'), 'utf-8');
 
-function assembleDecision(input: Record<string, unknown>): { required: boolean; reason: string } {
+function assembleDecision(
+  input: Record<string, unknown>,
+): { required: boolean; reason: string; degraded?: boolean } {
   const probe = [
     "import { shouldAssembleForRelatedTests } from './scripts/ci/dataset-dependent-tests.mjs';",
     'const input = JSON.parse(process.argv[process.argv.length - 1]);',
@@ -107,6 +113,93 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     expect(cache).toContain("if: steps.assemble.outputs.required == 'true'");
     expect(assemble).toContain("if: steps.assemble.outputs.required == 'true'");
     expect(TESTS_YML).toContain('node scripts/ci/run-related-tests.mjs --select-only');
+  });
+
+  /**
+   * L'invariante che rende lo skip REALE invece che teorico.
+   *
+   * `shouldAssembleForRelatedTests()` risponde `required: true` appena
+   * `unreadableCount > 0`, e `unreadable` si riempie con i file che `git
+   * ls-files` elenca (l'INDEX, quindi completo anche sotto sparse) ma che il
+   * working tree non sa aprire. Il job `vitest:` fa un checkout sparse con
+   * allowlist non-cone: se quell'allowlist smettesse di materializzare anche
+   * UN SOLO file selezionato da `isGraphSourceFile()`, il predicato
+   * risponderebbe `required: true` su OGNI PR e l'ottimizzazione
+   * diventerebbe un no-op permanente — silenzioso, perche' nel log un
+   * `required: true` degradato e' identico a uno legittimo (per questo il
+   * runner ora emette anche un `::warning::`, vedi `decision.degraded`).
+   *
+   * Misurato oggi: 5'429 file tracciati nel grafo, 0 non coperti. Il
+   * confronto usa `git sparse-checkout check-rules`, cioe' il valutatore di
+   * git stesso: replicare a mano la semantica dei pattern non-cone (con le
+   * negazioni e i glob a stella sulle directory) sarebbe un secondo parser
+   * che diverge in silenzio da quello che il checkout esegue davvero.
+   */
+  it('lo sparse-checkout del job vitest materializza tutto il grafo related (unreadableCount == 0)', () => {
+    const doc = YAML.parse(TESTS_YML, { logLevel: 'silent' }) as any;
+    const checkout = (doc?.jobs?.vitest?.steps ?? []).find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    expect(checkout, 'il job vitest ha perso il passo di checkout').toBeTruthy();
+    expect(checkout.with['sparse-checkout-cone-mode']).toBe(false);
+    const rules = String(checkout.with['sparse-checkout']);
+
+    const tracked = execFileSync('git', ['ls-files', '-z'], {
+      cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+    }).split('\0').filter(Boolean)
+      .map((file) => file.replaceAll('\\', '/').replace(/^\.\//, ''))
+      .filter(isGraphSourceFile);
+    expect(tracked.length).toBeGreaterThan(1000);
+
+    const rulesFile = join(mkdtempSync(join(tmpdir(), 'sparse-rules-')), 'rules');
+    writeFileSync(rulesFile, rules.endsWith('\n') ? rules : `${rules}\n`);
+    const included = new Set(execFileSync(
+      'git',
+      ['sparse-checkout', 'check-rules', '--no-cone', '--rules-file', rulesFile],
+      { cwd: ROOT, input: `${tracked.join('\n')}\n`, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
+    ).split('\n').filter(Boolean));
+
+    const missing = tracked.filter((file) => !included.has(file));
+    expect(
+      missing.slice(0, 20),
+      `${missing.length} file del grafo related non sono nell'allowlist sparse del job vitest: ` +
+        'il runner li conterebbe come `unreadable` e `Assemble + migrate` non verrebbe ' +
+        'saltato su NESSUNA PR. Aggiungili all\'allowlist, oppure restringi ' +
+        '`isGraphSourceFile()` se davvero non servono al grafo.',
+    ).toEqual([]);
+  });
+
+  it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
+    // Un `required: true` che dice «questo diff usa il dataset» e' la feature
+    // che lavora; uno che dice «non ho potuto guardare» e' lo skip spento.
+    // Senza il discriminante i due sono indistinguibili nel log.
+    expect(assembleDecision({
+      eventName: 'pull_request',
+      changedPaths: ['README.md'],
+      changedStatus: 'complete',
+      selectedTests: [],
+      unreadableCount: 3,
+    })).toMatchObject({ required: true, degraded: true });
+
+    expect(assembleDecision({
+      eventName: 'pull_request',
+      changedPaths: ['README.md'],
+      changedStatus: 'partial',
+      selectedTests: [],
+      unreadableCount: 0,
+    })).toMatchObject({ required: true, degraded: true });
+
+    // Una richiesta legittima NON e' degradata: il warning deve restare raro.
+    expect(assembleDecision({
+      eventName: 'pull_request',
+      changedPaths: ['data/jobs/by-crawler/x.json'],
+      changedStatus: 'complete',
+      selectedTests: [],
+      unreadableCount: 0,
+    }).degraded).toBeUndefined();
+
+    expect(RELATED_RUNNER).toContain('::warning::');
+    expect(RELATED_RUNNER).toContain('decision.degraded');
   });
 });
 
@@ -304,10 +397,14 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   });
 
   it('include tutti i root applicativi nel grafo related', () => {
-    expect(RELATED_RUNNER).toContain('const projectRe');
+    // La selezione dei file del grafo vive in `lib/related-graph-scope.mjs`:
+    // il runner e il guard dello sparse-checkout qui sotto devono leggerla
+    // dalla STESSA sede, o il guard certifica un insieme che il runner non usa.
+    expect(RELATED_RUNNER).toContain('isGraphSourceFile');
+    expect(RELATED_SCOPE).toContain('GRAPH_PROJECT_RE');
     expect(RELATED_RUNNER).toContain('!alwaysExcludedTests.has(file)');
-    expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
-    expect(RELATED_RUNNER).toContain("!file.includes('/')");
+    expect(RELATED_SCOPE).toContain("file.startsWith('.github/')");
+    expect(RELATED_SCOPE).toContain("!file.includes('/')");
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
     expect(RELATED_RUNNER).toContain('sourceRe.test(file)');
     expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
