@@ -18,7 +18,13 @@ import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverrid
 import { getAuthorBySlug } from '@/data/authors';
 import { resolveArticleProvenance } from '@/services/articleProvenance';
 import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, type ArticleAdDensityProfile } from '@/services/articleAdDensity';
+import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
+
+// Re-export the parser predicates for the focused renderer tests and existing
+// callers; the implementation lives in the shared, JSX-free module so the
+// offline placement observer can use the same rules.
+export { isAdStraddleBlock, isTableBlock } from '@/services/adPlacement';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
 const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
@@ -312,24 +318,6 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  return parts;
 }
 
-/** Separator row of a markdown table (`|---|:--:|`). Shared by the renderer and
- *  by the `isTableBlock` lookahead so the two can never disagree on what a
- *  table is (AGENTS.md #6: no duplicated literal regex). */
-const TABLE_SEPARATOR_RE = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
-
-/**
- * True when a block is a markdown table, using the SAME acceptance rule as
- * `tryRenderMdTable` (header row + separator + at least one body row) without
- * building the React tree. Lookahead-only: `renderFormattedContent` needs to
- * know what the block AFTER a `## ` heading is before deciding where an ad goes.
- */
-export function isTableBlock(text: string): boolean {
- if (!text.includes('|')) return false;
- const tableLines = text.split('\n').filter(l => l.trim().startsWith('|'));
- const sepIdx = tableLines.findIndex(l => TABLE_SEPARATOR_RE.test(l.trim()));
- return sepIdx > 0 && tableLines.length > sepIdx + 1;
-}
-
 /**
  * Try to render a markdown table from text. Returns null if not a valid table.
  *
@@ -375,52 +363,6 @@ export function tryRenderMdTable(text: string, keyPrefix: string, navigators?: N
  </table>
  </div>
  );
-}
-
-/** Matches a `- ` or `* ` markdown list item marker at line start. AI-generated
- *  body copy frequently emits `* ` bullets (pdfWhitepapersPlugin's parser already
- *  accepts both) — without this, a bulleted block collapses into one run-on
- *  paragraph with stray asterisks instead of a list. */
-const LIST_ITEM_RE = /^[-*]\s+/;
-
-/** True when every non-blank line in a block is a markdown list item. */
-function isListBlock(value: string): boolean {
- return value.split('\n').every(line => LIST_ITEM_RE.test(line.trim()) || line.trim() === '');
-}
-
-/** Matches a `1. ` / `1) ` ordered list item marker at line start. The renderer
- *  paints such a block as a plain paragraph (only `- `/`* ` become a `<ul>`),
- *  but for AD PLACEMENT a numbered block is the operative case: a procedure the
- *  reader is stepping through. */
-const ORDERED_LIST_ITEM_RE = /^\d+[.)]\s+/;
-
-/** True when every non-blank line in a block is an ordered list item, and there
- *  is at least one. Unlike `isListBlock` this rejects the empty block, because
- *  its only caller asks the question about a block that may not exist. */
-function isOrderedListBlock(value: string): boolean {
- const lines = value.split('\n').map(l => l.trim()).filter(Boolean);
- return lines.length > 0 && lines.every(line => ORDERED_LIST_ITEM_RE.test(line));
-}
-
-/**
- * True when an ad emitted immediately BEFORE this block would land inside a unit
- * the reader consumes as one piece: a table, a blockquote, or a list of steps
- * (`- `/`* ` bullets, or a numbered `1. ` procedure).
- *
- * `docs/ads-placement-longform.md` §2 rules out the straddle for tables (issue
- * #7337); a citation and an operative list break the same way — the ad splits
- * the content exactly where the reader is following it, which costs UX and, for
- * the same reason, viewability. Lookahead-only, as `isTableBlock` is: it decides
- * WHERE the ad goes, never whether the block renders.
- *
- * Exported for `tests/community/BlogArticles.ad-table-boundary.test.tsx`.
- */
-export function isAdStraddleBlock(text: string): boolean {
- const trimmed = text.trim();
- if (!trimmed) return false;
- if (isTableBlock(trimmed)) return true;
- if (trimmed.startsWith('> ')) return true;
- return isListBlock(trimmed) || isOrderedListBlock(trimmed);
 }
 
 /** AI-generated body copy sometimes tacks a decorative 📊/💡/⚠️ marker onto the

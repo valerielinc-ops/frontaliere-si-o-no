@@ -1,7 +1,8 @@
 name: tests
 
 # Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
-# CI gate. Direct crawler pushes to main intentionally do not run this workflow.
+# CI gate. Direct crawler pushes to main run the same blocking check, so the
+# post-merge tree cannot bypass the source gate.
 # Before this workflow existed, vitest tests were never run in CI —
 # regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
 # (added in PR #294) landed already-failing without anyone noticing, and the
@@ -145,6 +146,9 @@ on:
     # that workflow uses the App identity because GITHUB_TOKEN labels do not
     # start another workflow run.
     types: [opened, edited, synchronize, reopened, ready_for_review, labeled]
+  push:
+    branches: [main]
+  merge_group:
   # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
@@ -172,9 +176,8 @@ permissions:
 #   older head irrelevant, so cancelling it is free — the answer for the head
 #   that matters is still produced. `cancel-in-progress: true` is correct.
 #
-#   Direct pushes to main are intentionally outside this workflow: crawler
-#   automation keeps its direct-push path without paying for or depending on
-#   the PR test job.
+#   Direct pushes to main and merge queues ask the same question as a PR:
+#   does the tree pass the source gate before it becomes the next main head?
 concurrency:
   # Body edits have their own newest-wins lane: an edit can cancel only an
   # earlier edit on the same ref, never a run testing a new commit.
@@ -1081,7 +1084,7 @@ jobs:
       # scripts/lib/int-from-env.mjs. Comment-aware; zero-Claude. Also covered
       # by tests/int-from-env.test.ts.
       - name: Forbid the NaN-producing env fallback inside Number()
-        if: ${{ !cancelled() && github.event_name == 'pull_request' && github.event.action != 'edited' }}
+        if: ${{ !cancelled() && ((github.event_name == 'pull_request' && github.event.action != 'edited') || (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'merge_group') }}
         background: true
         run: node scripts/ci/check-number-env-fallback.mjs
 
@@ -2173,9 +2176,33 @@ jobs:
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
-            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
+            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. `PR concatenata` without `#N` is not a closing state and is always an open violation. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
 
             Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
+
+      - name: Verify Claude CLI supports the requested effort
+        id: claude_effort
+        # claude-code-action installs/resolves the CLI at runtime and adds its
+        # bin directory to GITHUB_PATH. Invoke that exact binary in the next
+        # step so an unsupported flag cannot silently downgrade the review.
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success'
+        shell: bash
+        run: |
+          set -o pipefail
+          if output="$(claude --effort medium --version 2>&1)"; then
+            :
+          else
+            status=$?
+            printf '%s\n' "$output"
+            echo "::error::Claude CLI does not accept --effort medium"
+            exit "$status"
+          fi
+          printf '%s\n' "$output"
+          if printf '%s\n' "$output" | grep -qiE 'unknown.{0,20}--effort|--effort.{0,20}unknown|unknown option.{0,20}effort'; then
+            echo "::error::Claude CLI reported that --effort medium is unknown"
+            exit 1
+          fi
+
       - name: Fail on transient API error (no review posted)
         id: review_abort
         # claude-code-action can exit 0 even when the model run ABORTED on a

@@ -259,6 +259,20 @@ const RUN_START_MS = readRunStartMs() ?? Date.now();
 // when the bulk pass ran long, takes its window when the bulk was quick).
 const CASCADE_LOCALIZATION_DEADLINE_MS =
   Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000;
+const CASCADE_PER_COMPANY_BUDGET_MS =
+  Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS) > 0
+    ? Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS)
+    : 15 * 60 * 1000;
+
+export function cascadeCompanyTimeBudgetMs(
+  elapsedMs,
+  {
+    deadlineMs = CASCADE_LOCALIZATION_DEADLINE_MS,
+    perCompanyMs = CASCADE_PER_COMPANY_BUDGET_MS,
+  } = {},
+) {
+  return Math.max(1, Math.min(perCompanyMs, deadlineMs - elapsedMs));
+}
 
 function readJson(filePath) {
   try {
@@ -592,6 +606,35 @@ export function cascadeStopReason({
   return null;
 }
 
+export function computeCascadeWindow({ nowMs, runStartMs, deadlineMs }) {
+  const elapsedMs = nowMs - runStartMs;
+  if (!Number.isFinite(elapsedMs) || !Number.isFinite(deadlineMs) || deadlineMs < 0) {
+    return { startedAtMs: 0, windowMs: 0, stopReason: 'clock incoherent' };
+  }
+  const startedAtMs = Math.max(0, elapsedMs);
+  const windowMs = Math.max(0, deadlineMs - startedAtMs);
+  return {
+    startedAtMs,
+    windowMs,
+    stopReason: elapsedMs < 0
+      ? 'clock incoherent'
+      : windowMs === 0
+        ? 'cascade deadline'
+        : 'in progress',
+  };
+}
+
+export function markCascadeFailure(phase) {
+  if (
+    phase?.stopReason === 'nothing to relocalize'
+    || phase?.stopReason === 'in progress'
+    || phase?.stopReason === 'cascade deadline'
+  ) {
+    phase.stopReason = 'failed';
+  }
+  return phase;
+}
+
 /**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
@@ -842,9 +885,10 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // prior baseline OR fewer jobs completed/run, revert this knob (and the warmup
     // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
-    // ELAPSED-AWARE localization budget (review #2205 🔴): remaining time until
-    // the run-wide cascade deadline, recomputed per call. A company starting near
-    // the deadline gets a small budget and defers its tail to the next run,
+    // ELAPSED-AWARE localization budget (review #2205 🔴): the smaller of the
+    // remaining value `CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)`
+    // and the per-company cap; the floor at 1 is mandatory because 0 means unlimited.
+    // A company starting near the deadline gets a small budget and defers its tail to the next run,
     // instead of a fresh 250min that could blow past the 350min job timeout. The
     // shared crawler reads this and stops queuing new jobs once exceeded; jobs
     // already localized are written incrementally per-company, so nothing is lost.
@@ -855,7 +899,7 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // i.e. a company that starts past the deadline does nothing and leaves its
     // jobs for the next run, never an unbounded run.
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
-      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (LEGACY_CLOCK.now() - RUN_START_MS)),
+      cascadeCompanyTimeBudgetMs(LEGACY_CLOCK.now() - RUN_START_MS),
     ),
   };
 
@@ -1320,11 +1364,11 @@ async function main() {
     // with the defaults of an early return — same signature as a run that simply
     // found nothing to do. That is precisely the confusion this instrumentation
     // exists to remove, so a failure has to sign itself.
-    phase.stopReason = 'failed';
+    markCascadeFailure(phase);
     throw error;
   } finally {
     phase.endedAtMs = LEGACY_CLOCK.now() - RUN_START_MS;
-    recordRunPhase(phase);
+    recordRunPhase(phase, { replaceLast: phase.startedAtMs !== null });
   }
 }
 
@@ -1669,13 +1713,23 @@ export async function runRelocalization(phase) {
   const startTime = LEGACY_CLOCK.now();
   // Published here, not at the bottom: from this instant the window is a known
   // fact, and a crash on the next line must not report it as unknown.
-  phase.startedAtMs = startTime - RUN_START_MS;
-  phase.windowMs = CASCADE_LOCALIZATION_DEADLINE_MS - phase.startedAtMs;
-  phase.stopReason = 'in progress';
+  const window = computeCascadeWindow({
+    nowMs: startTime,
+    runStartMs: RUN_START_MS,
+    deadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+  });
+  phase.startedAtMs = window.startedAtMs;
+  phase.windowMs = window.windowMs;
+  phase.stopReason = window.stopReason;
+  recordRunPhase(phase);
+  if (window.stopReason === 'clock incoherent') {
+    console.log('⚠️  Run clock incoherent — stopping cascade without spending translation budget.');
+    return;
+  }
   // Why the stop reason is hoisted: it is the difference between "the cascade ran
   // out of companies" and "the cascade was never given a window", and only the
   // second is a problem with the run rather than with the queue.
-  let cascadeStop = 'queue exhausted';
+  let cascadeStop = window.stopReason === 'cascade deadline' ? 'cascade deadline' : 'queue exhausted';
   // Ogni azienda della finestra e' saltata (workspace#24). Va detto per nome:
   // il guardrail di coda vuota sopra legge `companyKeys`, la lista PIENA,
   // quindi non scatta, il ciclo gira zero volte e la run finirebbe con
@@ -1683,7 +1737,7 @@ export async function runRelocalization(phase) {
   // indistinguibile da uno stallo, con la regola che produce un falso allarme
   // proprio quando funziona. Nessun `return`: il mop-up a valle e' un
   // meccanismo diverso e puo' ancora liberare job.
-  if (cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
+  if (cascadeStop !== 'cascade deadline' && cascadeCompanyKeys.length === 0 && companyKeys.length > 0) {
     console.log(`\n⏭️  Tutte le ${companyKeys.length} aziende della finestra sono saltate: nessuna e' eleggibile in questa run.`);
     cascadeStop = 'all companies skipped';
   }
@@ -1715,14 +1769,16 @@ export async function runRelocalization(phase) {
     // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
     // window where late companies could still run — review #2205 🔴 round 2.)
     const companyNowMs = LEGACY_CLOCK.now();
-    const companyStopReason = cascadeStopReason({
-      nowMs: companyNowMs,
-      runStartMs: RUN_START_MS,
-      cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
-      passStartMs: startTime,
-      timeBudgetMs: TIME_BUDGET_MS,
-      timeBudgetFraction: 1,
-    });
+    const companyStopReason = cascadeStop === 'cascade deadline'
+      ? 'cascade deadline'
+      : cascadeStopReason({
+        nowMs: companyNowMs,
+        runStartMs: RUN_START_MS,
+        cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+        passStartMs: startTime,
+        timeBudgetMs: TIME_BUDGET_MS,
+        timeBudgetFraction: 1,
+      });
     if (companyStopReason) {
       cascadeStop = companyStopReason;
       const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);

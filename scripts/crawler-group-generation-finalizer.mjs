@@ -5,19 +5,138 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
+  GROUP_IDS,
+  GROUP_MANIFEST_REASON_CODES,
   SITE_MAIN_REF,
   SITE_REPOSITORY,
   createGroupTerminalManifest,
+  digestDocument,
 } from './lib/crawler-generation-contract.mjs';
 import {
   MAX_RECEIPT_BYTES,
   assertSafeRunnerReportOutput,
   validateCrawlerGenerationReceipt,
 } from './lib/crawler-generation-receipt.mjs';
-import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
+import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
+export const CRAWLER_GENERATION_LEDGER_PATH = 'data/crawler-generation-ledger.jsonl';
+const LEDGER_COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
+const LEDGER_HASH_RE = /^sha256:[a-f0-9]{64}$/;
+const LEDGER_REASON_SET = new Set(GROUP_MANIFEST_REASON_CODES);
+
+function exactKeys(value, keys) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  const actual = Object.keys(value).sort();
+  const expected = [...keys].sort();
+  return actual.length === expected.length && actual.every((key, index) => key === expected[index]);
+}
+
+function safeLedgerPath(cwd, requestedPath = CRAWLER_GENERATION_LEDGER_PATH) {
+  if (typeof requestedPath !== 'string' || requestedPath.length === 0 || path.isAbsolute(requestedPath)
+      || requestedPath.includes('\\')) throw new TypeError('Crawler generation ledger path must be a relative POSIX path');
+  const parts = requestedPath.split('/');
+  if (parts.some((part) => part.length === 0 || part === '.' || part === '..')) {
+    throw new TypeError('Crawler generation ledger path escapes the repository');
+  }
+  const repositoryRoot = fs.realpathSync(runGit(cwd, ['rev-parse', '--show-toplevel']).trim());
+  const target = path.resolve(repositoryRoot, ...parts);
+  const relative = path.relative(repositoryRoot, target);
+  if (!relative || relative.startsWith(`..${path.sep}`) || relative === '..' || path.isAbsolute(relative)) {
+    throw new TypeError('Crawler generation ledger path escapes the repository');
+  }
+  const parent = path.dirname(target);
+  fs.mkdirSync(parent, { recursive: true });
+  const realParent = fs.realpathSync(parent);
+  const parentRelative = path.relative(repositoryRoot, realParent);
+  if (parentRelative.startsWith(`..${path.sep}`) || parentRelative === '..' || path.isAbsolute(parentRelative)) {
+    throw new TypeError('Crawler generation ledger parent escapes the repository');
+  }
+  if (fs.existsSync(target) && (!fs.statSync(target).isFile() || fs.lstatSync(target).isSymbolicLink())) {
+    throw new TypeError('Crawler generation ledger must be a regular file');
+  }
+  return target;
+}
+
+function ledgerPayload(manifest) {
+  return {
+    schemaVersion: 1,
+    group: manifest.group,
+    generationToken: manifest.generationToken,
+    callerRepository: manifest.callerRepository,
+    callerRunId: manifest.callerRunId,
+    callerRunAttempt: manifest.callerRunAttempt,
+    checkedAt: manifest.checkedAt,
+    remoteCommit: manifest.remote?.commit ?? null,
+    manifestDigest: manifest.digest,
+    valid: manifest.valid,
+    reasons: manifest.reasons,
+  };
+}
+
+export function createCrawlerGenerationLedgerEntry(manifest) {
+  const payload = ledgerPayload(manifest);
+  return { ...payload, digest: digestDocument(payload) };
+}
+
+export function validateCrawlerGenerationLedgerEntry(entry) {
+  const keys = [
+    'schemaVersion', 'group', 'generationToken', 'callerRepository', 'callerRunId', 'callerRunAttempt',
+    'checkedAt', 'remoteCommit', 'manifestDigest', 'valid', 'reasons', 'digest',
+  ];
+  if (!exactKeys(entry, keys)) return { valid: false, errors: ['unsupported_schema'] };
+  const errors = [];
+  if (entry.schemaVersion !== 1) errors.push('unsupported_schema_version');
+  if (!GROUP_IDS.includes(entry.group)) errors.push('invalid_group');
+  if (entry.generationToken !== null && !isCrawlerGenerationToken(entry.generationToken)) errors.push('invalid_generation_token');
+  if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(entry.callerRepository ?? '')) errors.push('invalid_caller_repository');
+  if (!/^[1-9][0-9]*$/.test(entry.callerRunId ?? '')) errors.push('invalid_caller_run_id');
+  if (!Number.isInteger(entry.callerRunAttempt) || entry.callerRunAttempt < 1) errors.push('invalid_caller_run_attempt');
+  if (typeof entry.checkedAt !== 'string' || Number.isNaN(Date.parse(entry.checkedAt))) errors.push('invalid_checked_at');
+  if (entry.remoteCommit !== null && !LEDGER_COMMIT_RE.test(entry.remoteCommit ?? '')) errors.push('invalid_remote_commit');
+  if (!LEDGER_HASH_RE.test(entry.manifestDigest ?? '')) errors.push('invalid_manifest_digest');
+  if (typeof entry.valid !== 'boolean') errors.push('invalid_valid_flag');
+  if (!Array.isArray(entry.reasons) || entry.reasons.some((reason) => !LEDGER_REASON_SET.has(reason))) errors.push('invalid_reasons');
+  if (Array.isArray(entry.reasons) && new Set(entry.reasons).size !== entry.reasons.length) errors.push('duplicate_reasons');
+  if (entry.valid === true && Array.isArray(entry.reasons) && entry.reasons.length > 0) errors.push('valid_entry_has_reasons');
+  if (entry.valid === false && Array.isArray(entry.reasons) && entry.reasons.length === 0) errors.push('invalid_entry_without_reasons');
+  if (entry.generationToken === null && Array.isArray(entry.reasons) && !entry.reasons.includes('generation_token_missing')) errors.push('missing_generation_token_reason');
+  if (!LEDGER_HASH_RE.test(entry.digest ?? '')) errors.push('invalid_digest');
+  try {
+    const { digest: _digest, ...payload } = entry;
+    if (digestDocument(payload) !== entry.digest) errors.push('digest_mismatch');
+  } catch { errors.push('digest_mismatch'); }
+  return errors.length === 0 ? { valid: true, errors: [] } : { valid: false, errors: [...new Set(errors)] };
+}
+
+export function readCrawlerGenerationLedger(cwd, requestedPath = CRAWLER_GENERATION_LEDGER_PATH) {
+  const target = safeLedgerPath(cwd, requestedPath);
+  if (!fs.existsSync(target)) return [];
+  const raw = fs.readFileSync(target, 'utf8');
+  if (raw.length === 0) return [];
+  if (!raw.endsWith('\n')) throw new TypeError('Crawler generation ledger has a partial final record');
+  const entries = [];
+  for (const [index, line] of raw.split('\n').slice(0, -1).entries()) {
+    if (line.length === 0) throw new TypeError(`Crawler generation ledger has an empty record at line ${index + 1}`);
+    let entry;
+    try { entry = JSON.parse(line); } catch { throw new TypeError(`Crawler generation ledger has invalid JSON at line ${index + 1}`); }
+    const validation = validateCrawlerGenerationLedgerEntry(entry);
+    if (!validation.valid) throw new TypeError(`Crawler generation ledger record ${index + 1} is invalid: ${validation.errors.join(', ')}`);
+    entries.push(entry);
+  }
+  return entries;
+}
+
+export function appendCrawlerGenerationLedger(cwd, manifest, requestedPath = CRAWLER_GENERATION_LEDGER_PATH) {
+  const target = safeLedgerPath(cwd, requestedPath);
+  readCrawlerGenerationLedger(cwd, requestedPath);
+  const entry = createCrawlerGenerationLedgerEntry(manifest);
+  const validation = validateCrawlerGenerationLedgerEntry(entry);
+  if (!validation.valid) throw new TypeError(`Cannot append invalid crawler generation ledger record: ${validation.errors.join(', ')}`);
+  fs.appendFileSync(target, `${JSON.stringify(entry)}\n`, { encoding: 'utf8', flag: 'a' });
+  return entry;
+}
 
 function runGit(cwd, args, encoding = 'utf8') {
   return execFileSync('git', args, {
@@ -121,6 +240,7 @@ export function finalizeCrawlerGroup(input) {
   let remoteCommit = null;
   const remoteSliceOids = {};
 
+  let manifest;
   try {
     receipts = loadReceipts(input.receiptsDir, expectedCrawlerIds, input.generationToken, additionalReasons);
     runGit(input.cwd, ['fetch', '--no-tags', '--depth=2000', input.remoteName, 'main']);
@@ -140,7 +260,7 @@ export function finalizeCrawlerGroup(input) {
   }
 
   try {
-    return createGroupTerminalManifest({
+    manifest = createGroupTerminalManifest({
       group: input.group,
       generationToken: input.generationToken ?? null,
       callerRepository: input.callerRepository,
@@ -158,7 +278,7 @@ export function finalizeCrawlerGroup(input) {
       additionalReasons,
     });
   } catch {
-    return createGroupTerminalManifest({
+    manifest = createGroupTerminalManifest({
       group: input.group,
       generationToken: input.generationToken ?? null,
       callerRepository: input.callerRepository,
@@ -176,6 +296,8 @@ export function finalizeCrawlerGroup(input) {
       additionalReasons: ['manifest_internal_error'],
     });
   }
+  appendCrawlerGenerationLedger(input.cwd, manifest, input.ledgerPath ?? CRAWLER_GENERATION_LEDGER_PATH);
+  return manifest;
 }
 
 function requiredEnv(name) {
@@ -203,7 +325,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
   const manifest = finalizeCrawlerGroup({
     cwd: process.cwd(),
     group,
-    generationToken: resolveCrawlerGenerationToken(),
+    generationToken: requiredEnv('CRAWLER_GENERATION_TOKEN'),
     callerRepository: requiredEnv('CRAWLER_GENERATION_CALLER_REPOSITORY'),
     callerRunId: requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ID'),
     callerRunAttempt: Number(requiredEnv('CRAWLER_GENERATION_CALLER_RUN_ATTEMPT')),
@@ -214,6 +336,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
     remoteRef: SITE_MAIN_REF,
     expectedCrawlers,
     receiptsDir,
+    ledgerPath: process.env.CRAWLER_GENERATION_LEDGER_PATH || CRAWLER_GENERATION_LEDGER_PATH,
   });
   writeJsonAtomic(outputPath, manifest, { compact: true });
   process.stdout.write(`${JSON.stringify({ valid: manifest.valid, reasons: manifest.reasons })}\n`);
