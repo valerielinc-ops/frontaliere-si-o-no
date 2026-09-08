@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-09-07T23:27:45.994Z",
-  "total": 10,
+  "generatedAt": "2026-09-08T13:34:01.670Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 3260,
-  "avgDurationMs": 3260,
+  "durationMs": 2869,
+  "avgDurationMs": 2869,
   "durationHistory": [
-    3260
+    2869
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -336,7 +336,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
