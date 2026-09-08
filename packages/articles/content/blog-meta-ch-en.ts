@@ -6037,6 +6037,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rosti-deposito-scorie-compensazioni.title': 'Rösti promises compensation for waste storage',
     'blog.article.rosti-deposito-scorie-compensazioni.excerpt': 'Rösti presents the project for the Lägern Nord depot between Zurich and Aargau in Fisibach. Promised compensations, decision towards 2030, storage from 2050.',
     'blog.article.rosti-deposito-scorie-compensazioni.imageAlt': 'Swiss underground construction site showing deep geological storage facility for radioactive waste disposal',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.title': 'Updated UN sanctions: SESAM amended on 7 September',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.excerpt': 'The UN committee amended the sanctions lists on 7 September 2026. The SESAM database automatically updates the restrictive measures in Switzerland.',
+    'blog.article.sanzioni-onu-sesam-aggiornamento.imageAlt': 'Swiss compliance desk with UN sanctions documents and SESAM database displayed on monitor.',
 };
 
 export default blogMetaChEn;

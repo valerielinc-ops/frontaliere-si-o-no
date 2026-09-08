@@ -78371,6 +78371,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanzioni-onu-sesam-aggiornamento': {
+    title: 'Sanzioni ONU aggiornate: SESAM modificato il 7 settembre',
+    description: 'Il 7 settembre 2026 il comitato ONU ha modificato le liste di sanzioni. La banca dati SESAM è aggiornata automaticamente. Scopri implicazioni e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, aggiornate, sesam, modificato',
+    ogTitle: 'Sanzioni ONU aggiornate: SESAM modificato il 7 settembre 2026',
+    ogDescription: 'Il comitato di sanzioni ONU ha modificato le liste il 7 settembre 2026. La banca dati SESAM è stata aggiornata automaticamente. Scopri cosa significa per banche e imprese svizzere e come verificare la conformità alle nuove sanzioni internazionali.',
+    canonicalPath: '/articoli-svizzera/sanzioni-onu-sesam-aggiornamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni ONU aggiornate: SESAM modificato il 7 settembre",
+      "description": "Il 7 settembre 2026 il comitato ONU ha modificato le liste di sanzioni. La banca dati SESAM è aggiornata automaticamente. Scopri implicazioni e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-onu-sesam-aggiornamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banco di conformità amministrativa svizzera con documenti di sanzioni ONU e database SESAM sullo schermo."
+      },
+      "datePublished": "2026-09-08T05:41:38+00:00",
+      "dateModified": "2026-09-08T05:41:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-onu-sesam-aggiornamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
