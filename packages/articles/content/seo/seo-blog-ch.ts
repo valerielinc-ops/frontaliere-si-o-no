@@ -79307,6 +79307,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-novartis-giornata-nera': {
+    title: 'Giornata nera per Novartis: crollo del 10% | Frontaliere Ticino',
+    description: 'Azioni Novartis crollano di oltre il 10% in una giornata. Capitalizzazione persa: 24 miliardi CHF. Due fallimenti nella ricerca clinica scuotono il gigante',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornata, nera, novartis, crollo',
+    ogTitle: 'Novartis crolla: -10% e 24 miliardi persi',
+    ogDescription: 'Martedì è stata una giornata nera per Novartis. Il gigante farmaceutico basilese ha subìto il peggior crollo giornaliero della sua storia: -10%, 24 miliardi CHF di capitalizzazione persi. Due fallimenti nella ricerca clinica hanno scosso gli',
+    canonicalPath: '/articoli-svizzera/novartis-giornata-nera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giornata nera per Novartis: crollo del 10%",
+      "description": "Azioni Novartis crollano di oltre il 10% in una giornata. Capitalizzazione persa: 24 miliardi CHF. Due fallimenti nella ricerca clinica scuotono il gigante",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/novartis-giornata-nera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala di trading svizzera con dati di borsa su schermi, raffigurante l'importanza economica della Svizzera."
+      },
+      "datePublished": "2026-09-08T20:53:48+00:00",
+      "dateModified": "2026-09-08T20:53:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/novartis-giornata-nera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

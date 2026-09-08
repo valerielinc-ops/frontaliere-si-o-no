@@ -6109,6 +6109,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.traffico-aereo-svizzero-cresce.title': 'Schweizer Luftverkehr wächst, aber die Emissionen steigen',
     'blog.article.traffico-aereo-svizzero-cresce.excerpt': 'Im Jahr 2025 übertraf die Zivilluftfahrt die Vor-Covid-Zahlen: 1,4 Millionen Flugbewegungen (+5%), 60,5 Millionen Passagiere (+4%). Die CO2-Emissionen steigen jedoch um 3 %.',
     'blog.article.traffico-aereo-svizzero-cresce.imageAlt': 'Luftaufnahme der Schweizer Alpenlandschaft mit Flugzeug bei Sonnenuntergang',
+    'blog.article.novartis-giornata-nera.title': 'Schwarzer Tag für Novartis: 10% Einbruch',
+    'blog.article.novartis-giornata-nera.excerpt': 'Novartis-Aktien stürzen an einem Tag um mehr als 10% ab. Verlorene Kapitalisierung: 24 Mrd. CHF. Zwei Misserfolge in der klinischen Forschung erschüttern den Schweizer Pharmariesen.',
+    'blog.article.novartis-giornata-nera.imageAlt': 'Schweizer Handelssaal mit Börsendaten auf Bildschirmen bei Tagesanbruch, der die Bedeutung der Schweizer Finanzmärkte widerspiegelt.',
 };
 
 export default blogMetaChDe;
