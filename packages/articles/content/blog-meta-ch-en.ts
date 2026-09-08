@@ -6109,6 +6109,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.traffico-aereo-svizzero-cresce.title': 'Swiss air traffic grows, but emissions rise',
     'blog.article.traffico-aereo-svizzero-cresce.excerpt': 'In 2025, civil aviation surpassed pre-Covid numbers: 1.4 million movements (+5%), 60.5 million passengers (+4%). However, CO2 emissions go up by 3%.',
     'blog.article.traffico-aereo-svizzero-cresce.imageAlt': 'Aerial view of Swiss alpine landscape with aircraft during sunset',
+    'blog.article.novartis-giornata-nera.title': 'Black Day for Novartis: 10% Collapse',
+    'blog.article.novartis-giornata-nera.excerpt': 'Novartis shares plummet by more than 10% in a day. Lost capitalisation: CHF 24 billion. Two failures in clinical research shake the Swiss pharmaceutical giant.',
+    'blog.article.novartis-giornata-nera.imageAlt': 'Swiss trading floor with stock market data displayed on screens at dawn, reflecting the importance of Switzerland\'s financial markets.',
 };
 
 export default blogMetaChEn;

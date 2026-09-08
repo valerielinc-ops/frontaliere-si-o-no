@@ -2062,6 +2062,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ospedali-svizzeri-infermieri-fuga-anno': { it: 'ospedali-svizzeri-infermieri-fuga-anno', en: 'swiss-hospitals-nurses-exodus-year', de: 'schweizer-krankenhaeuser-pfleger-flucht-jahr', fr: 'hopitaux-suisses-infirmieres-fuite-annee' },
  'naturalizzazione-lucerna-documenti-timeline': { it: 'naturalizzazione-lucerna-documenti-timeline', en: 'lucerne-naturalization-documents-timeline', de: 'luzern-naturalisierung-dokumente-zeitplan', fr: 'lucerne-naturalisation-documents-delai' },
  'traffico-aereo-svizzero-cresce': { it: 'traffico-aereo-svizzero-cresce', en: 'swiss-air-traffic-grows', de: 'schweizer-luftverkehr-waechst', fr: 'trafic-aerien-suisse-augmente' },
+ 'novartis-giornata-nera': { it: 'novartis-giornata-nera', en: 'novartis-black-day', de: 'novartis-schwarzer-tag', fr: 'novartis-jour-noir' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

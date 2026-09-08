@@ -18325,6 +18325,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'novartis-giornata-nera',
+    category: 'novita',
+    date: '2026-09-08T20:53:47.953Z',
+    image: '/images/blog/novartis-giornata-nera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
