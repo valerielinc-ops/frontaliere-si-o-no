@@ -6124,6 +6124,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aviazione-emissioni-svizzera-2025.title': 'Air traffic and emissions: return to pre-Covid levels',
     'blog.article.aviazione-emissioni-svizzera-2025.excerpt': 'In 2025, Switzerland recorded 1.4 million air movements and 60.5 million passengers. CO2 emissions are growing (+3%). UST confirms the pre-Covid recovery.',
     'blog.article.aviazione-emissioni-svizzera-2025.imageAlt': 'Aerial view of Swiss landscape from commercial aircraft window, cities and lakes visible below during cruise flight.',
+    'blog.article.neutralita-iniziativa-svizzera-freysinger.title': 'Neutrality: Switzerland at the polls for the initiative',
+    'blog.article.neutralita-iniziativa-svizzera-freysinger.excerpt': 'Oscar Freysinger calls for a vote in favour of the Neutrality Initiative. Over 300 participants at the Swiss Pro Festival in Lugano.',
+    'blog.article.neutralita-iniziativa-svizzera-freysinger.imageAlt': 'Aerial view of Lugano waterfront with Swiss flag and civic buildings',
 };
 
 export default blogMetaChEn;

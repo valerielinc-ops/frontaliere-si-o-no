@@ -2067,6 +2067,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-obiettivo-mosca-esercito': { it: 'svizzera-obiettivo-mosca-esercito', en: 'switzerland-moscow-target-military', de: 'schweiz-moskau-ziel-militaer', fr: 'suisse-cible-moscou-defence' },
  'abb-rolls-royce-smr-reattori': { it: 'abb-rolls-royce-smr-reattori', en: 'abb-rolls-royce-smr-reactors', de: 'abb-rolls-royce-smr-reaktoren', fr: 'abb-rolls-royce-smr-reacteurs' },
  'aviazione-emissioni-svizzera-2025': { it: 'aviazione-emissioni-svizzera-2025', en: 'aviation-emissions-switzerland-2025', de: 'luftfahrt-emissionen-schweiz-2025', fr: 'aviation-emissions-suisse-2025' },
+ 'neutralita-iniziativa-svizzera-freysinger': { it: 'neutralita-iniziativa-svizzera-freysinger', en: 'neutrality-initiative-switzerland-freysinger', de: 'neutralitaet-initiative-schweiz-freysinger', fr: 'neutralite-initiative-suisse-freysinger' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
