@@ -15,9 +15,11 @@ describe('isReviewerBot', () => {
     expect(isReviewerBot({ type: 'Bot', login: 'frontaliere-automation[bot]' })).toBe(true);
   });
 
-  it('non accetta bot esterni o utenti con login simile', () => {
+  it('non accetta login simili, ma tollera il type REST mancante o variabile', () => {
     expect(isReviewerBot({ type: 'Bot', login: 'frontaliere-automation-evil[bot]' })).toBe(false);
-    expect(isReviewerBot({ type: 'User', login: 'frontaliere-automation[bot]' })).toBe(false);
+    expect(isReviewerBot({ type: 'User', login: 'frontaliere-automation[bot]' })).toBe(true);
+    expect(isReviewerBot({ login: 'claude[bot]' })).toBe(true);
+    expect(isReviewerBot({ type: 'Bot', login: 'github-actions[bot]' })).toBe(false);
   });
 });
 

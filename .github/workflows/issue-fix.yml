@@ -62,6 +62,10 @@ on:
 concurrency:
   group: issue-fix-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: false
+# Contratto #7549: `cancel:false` conserva la run in corso, ma GitHub mantiene
+# una sola pending per gruppo. Un terzo evento sulla stessa issue può quindi
+# sostituire la pending; l'evento e' one-shot e il rescue del drainer deve
+# ri-armare la label/outcome se la run sfrattata non ha mai scritto un verdetto.
 
 permissions:
   contents: write

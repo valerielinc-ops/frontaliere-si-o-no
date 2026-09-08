@@ -11,6 +11,7 @@
 
 import { describe, it, expect } from 'vitest';
 import { checkClosesLines, maskQuoted } from '../scripts/lib/pr-body-closes-check.mjs';
+import { readFileSync } from 'node:fs';
 
 describe('checkClosesLines', () => {
   describe('flags the bug (multiple issues, single keyword on one line)', () => {
@@ -87,6 +88,12 @@ describe('checkClosesLines', () => {
  * valid keywords, so a line without one was neither a violation nor a `Closes`.
  */
 describe('checkClosesLines — ineffective closing keyword', () => {
+  it('non tronca il contesto a una finestra fissa di 24 caratteri', () => {
+    const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
+    expect(source).not.toContain('m.index - 24');
+    expect(checkClosesLines('La issue è già chiusa da #849').ok).toBe(true);
+  });
+
   describe('flags closure intent GitHub will ignore', () => {
     const bad: Array<{ body: string; ref: string }> = [
       { body: 'Chiude #133', ref: '#133' }, // the measured recurrence (PR #139)

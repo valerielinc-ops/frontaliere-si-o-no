@@ -20,12 +20,76 @@
  *
  * Due restrizioni tolgono i falsi apri-commento che una riga di prosa può
  * contenere per caso:
- *  - `//` non preceduto da `:` → uno `https://…` dentro una stringa non apre
- *    un commento;
- *  - `#` solo a inizio riga o dopo uno spazio → un `href="#top"` o un colore
- *    `#0a0a0a` non apre un commento.
+ *  - gli apri-commento dentro una stringa non contano: questo copre sia un
+ *    colore `#0a0a0a` sia un URL protocol-relative `//cdn.example/...`;
+ *  - `#` solo a inizio riga o dopo uno spazio → un `href="#top"` non apre un
+ *    commento.
  */
 const COMMENT_OPENER = String.raw`(?:(?<!:)\/\/|\/\*|<!--|(?:^|\s)#|^\s*\*)`;
+
+const MARKER_SOURCE = Symbol('markerSource');
+
+/**
+ * True when the prefix contains a real comment opener, not one lexed inside
+ * a quoted JS/TS/HTML value. This is intentionally a small line lexer rather
+ * than a second language parser: the marker contract only needs quote state
+ * and the five opener forms above.
+ */
+function hasCommentBefore(line, markerIndex) {
+  let quote = '';
+  let escaped = false;
+  const firstCode = line.search(/\S/);
+
+  for (let i = 0; i < markerIndex; i += 1) {
+    const ch = line[i];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === quote) quote = '';
+      continue;
+    }
+
+    if (ch === "'" || ch === '"' || ch === '`') {
+      quote = ch;
+      continue;
+    }
+    if (line.startsWith('//', i) && (i === 0 || line[i - 1] !== ':')) return true;
+    if (line.startsWith('/*', i) || line.startsWith('<!--', i)) return true;
+    if (ch === '#' && (i === 0 || /\s/.test(line[i - 1]))) return true;
+    if (ch === '*' && i === firstCode) return true;
+  }
+  return false;
+}
+
+/** The actual context-sensitive implementation behind both public APIs. */
+function markerMatches(line, markerSource) {
+  const s = String(line ?? '');
+  let marker;
+  try {
+    marker = new RegExp(markerSource, 'g');
+  } catch {
+    return false;
+  }
+  for (const match of s.matchAll(marker)) {
+    if (hasCommentBefore(s, match.index ?? 0)) return true;
+  }
+  return false;
+}
+
+/** RegExp-compatible wrapper whose `.test()` uses the line lexer above. */
+class CommentMarkerRegExp extends RegExp {
+  constructor(markerSource) {
+    // Keep a useful native `.source` for callers that inspect the expression;
+    // `.test()` is overridden because quote context cannot be expressed by a
+    // fixed opener regex.
+    super(`${COMMENT_OPENER}[^\\n]*(?:${markerSource})`);
+    this[MARKER_SOURCE] = markerSource;
+  }
+
+  test(line) {
+    return markerMatches(line, this[MARKER_SOURCE]);
+  }
+}
 
 /**
  * Costruisce il pattern «<apri-commento> … <marker>» a partire dal SORGENTE
@@ -33,10 +97,10 @@ const COMMENT_OPENER = String.raw`(?:(?<!:)\/\/|\/\*|<!--|(?:^|\s)#|^\s*\*)`;
  * test sul contenuto grezzo.
  */
 export function markerInComment(markerSource) {
-  return new RegExp(`${COMMENT_OPENER}[^\\n]*(?:${markerSource})`);
+  return new CommentMarkerRegExp(markerSource);
 }
 
 /** Il marker compare dentro un commento su questa riga? */
 export function hasMarkerInComment(line, markerSource) {
-  return markerInComment(markerSource).test(line);
+  return markerMatches(line, markerSource);
 }
