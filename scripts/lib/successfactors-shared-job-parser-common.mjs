@@ -143,6 +143,7 @@ export function parseCsbSearchResults(html) {
     // A row link's anchor text can be the SF cookie-consent / search widget
     // rather than a posting title on some CSB skins — discard the row.
     if (isSuccessFactorsWidgetText(title)) continue;
+    const titleForLocationGuard = stripSuccessFactorsMoreLocations(title) || title;
 
     // Preferred: dedicated `<td class="colLocation hidden-phone">` cell or
     // `<span class="jobLocation">…</span>` directly. This avoids picking up
@@ -174,11 +175,11 @@ export function parseCsbSearchResults(html) {
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
-    // CC[,…]"). We skip cells that contain the job title to avoid the
-    // dual-layout issue described above.
+    // CC[,…]"). Cells have already had the marker stripped, so compare them
+    // with the equally stripped title to avoid electing a title cell.
     let postedDate = '';
     for (const cell of cells) {
-      if (!location && /,\s*[A-Z]{2}(?:,|$)/.test(cell) && !cell.includes(title)) {
+      if (!location && /,\s*[A-Z]{2}(?:,|$)/.test(cell) && !cell.includes(titleForLocationGuard)) {
         location = cell;
         continue;
       }

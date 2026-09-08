@@ -178,6 +178,8 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     // page renders as a bare <strong>, so the ladder itself links 199/201/400
     // plus the basePath for page-1).
     expect([...laddered(inner)].sort((a, b) => a - b)).toEqual([199, 200, 201, 400]);
+    expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-199/" rel="prev">199</a>');
+    expect(inner).toContain('<a href="/cerca-lavoro-argovia/tutti/page-201/" rel="next">201</a>');
     expect(inner).toContain('/cerca-lavoro-argovia/tutti/');
     expect(Buffer.byteLength(inner)).toBeLessThan(Buffer.byteLength(first) / 2);
   });
