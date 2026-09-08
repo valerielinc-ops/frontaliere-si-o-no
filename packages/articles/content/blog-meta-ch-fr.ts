@@ -6082,6 +6082,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.studenti-svizzeri-lettura-pisa-2025.title': 'Les étudiants suisses lisent moins : résultats PISA 2025',
     'blog.article.studenti-svizzeri-lettura-pisa-2025.excerpt': 'PISE 2025 : les Suisses de 15 ans excellent en sciences, mais la lecture et les mathématiques baissent. 28,8 % n\'atteignent pas les compétences minimales. L\'enquête révèle l\'influence cruciale de l\'origine sociale.',
     'blog.article.studenti-svizzeri-lettura-pisa-2025.imageAlt': 'Salle de classe suisse avec des élèves qui résolvent des exercices de mathématiques et de lecture',
+    'blog.article.bollette-26-centesimi-2027.title': 'Les prix de l\'électricité en légère baisse en 2027',
+    'blog.article.bollette-26-centesimi-2027.excerpt': 'En 2027, les ménages suisses paieront 26,5 ct./kWh de tarif moyen : baisse de 4% et économie de 53 francs par an selon ElCom.',
+    'blog.article.bollette-26-centesimi-2027.imageAlt': 'Famille suisse consultant facture d\'énergie après baisse tarifaire 2027 annoncée par ElCom',
 };
 
 export default blogMetaChFr;
