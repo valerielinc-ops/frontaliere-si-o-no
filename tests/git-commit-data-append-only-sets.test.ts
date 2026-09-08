@@ -33,6 +33,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
+import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -100,6 +101,12 @@ function runScript(h: Harness, extraPaths: string[], sliceFile?: string): void {
     },
   });
 }
+function runExtraOnlyScript(h: Harness, extraPaths: string[]): void {
+  execFileSync(BASH_BIN, [SCRIPT_PATH, '--extra-only', 'record generation ledger', ...extraPaths], {
+    cwd: h.repoDir,
+    env: { ...process.env, SKIP_AI_TRANSLATION: '1', SLUG_HISTORY_SUMMARY_FILE: join(h.repoDir, 'none.txt'), GH_TOKEN: '', GITHUB_TOKEN: '', GITHUB_RUN_ID: '', GITHUB_REPOSITORY: '', GITHUB_OUTPUT: '' },
+  });
+}
 
 /** Reads a file back from origin/main — i.e. what was actually pushed. */
 function readFromOrigin<T>(h: Harness, relPath: string): T {
@@ -108,6 +115,13 @@ function readFromOrigin<T>(h: Harness, relPath: string): T {
     encoding: 'utf8',
   });
   return JSON.parse(out) as T;
+}
+function readLedgerFromOrigin(h: Harness, relPath: string): unknown[] {
+  return execFileSync('git', ['show', `main:${relPath}`], { cwd: h.originDir, encoding: 'utf8' }).trim().split('\n').map((line) => JSON.parse(line));
+}
+function ledgerEntry(runId: string) {
+  const payload = { schemaVersion: 1, group: '01', generationToken: '9001-2', callerRepository: 'nanakokyobashi-rgb/frontaliere-articles', callerRunId: runId, callerRunAttempt: 1, checkedAt: daysAgo(1), remoteCommit: 'a'.repeat(40), manifestDigest: `sha256:${runId.padStart(64, '0')}`, valid: false, reasons: ['wait_failed'] };
+  return { ...payload, digest: digestDocument(payload) };
 }
 
 function cleanup(h: Harness): void {
@@ -136,6 +150,23 @@ function job(overrides: Partial<JobRecord> = {}): JobRecord {
 const SLICE = 'data/jobs/by-crawler/acme.json';
 
 describe('git-commit-data.sh 3-way merge — append-only slug/path registries (#4887)', () => {
+  it('preserves concurrent crawler generation ledger appends', () => {
+    const h = initHarness();
+    const ledger = 'data/crawler-generation-ledger.jsonl';
+    try {
+      const base = ledgerEntry('1001');
+      mkdirSync(dirname(join(h.repoDir, ledger)), { recursive: true });
+      writeFileSync(join(h.repoDir, ledger), `${JSON.stringify(base)}\n`);
+      commitAndPush(h.repoDir, 'seed ledger');
+      const remote = ledgerEntry('1002');
+      pushFromConcurrentWriter(h, (dir) => writeFileSync(join(dir, ledger), `${JSON.stringify(base)}\n${JSON.stringify(remote)}\n`), 'remote generation ledger append');
+      const local = ledgerEntry('1003');
+      writeFileSync(join(h.repoDir, ledger), `${JSON.stringify(base)}\n${JSON.stringify(local)}\n`);
+      runExtraOnlyScript(h, [ledger]);
+      const merged = readLedgerFromOrigin(h, ledger) as Array<{ callerRunId: string }>;
+      expect(merged.map((entry) => entry.callerRunId)).toEqual(['1001', '1002', '1003']);
+    } finally { cleanup(h); }
+  });
   it('unions previousSlugs instead of reading a deduped local array as intentional removals', () => {
     const h = initHarness();
     try {

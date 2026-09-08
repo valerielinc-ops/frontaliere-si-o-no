@@ -16,7 +16,7 @@
 # - scripts/lib/slug-preservation-guard.mjs
 
 name: Crawler Group 03 (sparse cross-repo execution)
-run-name: crawler-generation-${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-03
+run-name: crawler-generation-${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}-group-03
 on:
   workflow_dispatch:
     inputs:
@@ -27,8 +27,7 @@ on:
         type: string
       generation_token:
         description: Explicit generation correlation token (shadow only)
-        required: false
-        default: ""
+        required: true
         type: string
       site_code_commit:
         description: Full immutable site commit used by this generation (empty keeps legacy main)
@@ -59,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
+      CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
     steps:
@@ -1757,18 +1756,27 @@ jobs:
           fi
           exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
+        id: crawler-generation-finalizer
         if: always()
         continue-on-error: true
         env:
           CRAWLER_GENERATION_GROUP: "03"
-          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token != '' && inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
+          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token || format('{0}-{1}', github.run_id, github.run_attempt) }}
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"arosa-lenzerheide","primarySlice":"data/jobs/by-crawler/arosa-lenzerheide.json"},{"crawlerId":"berner-montage","primarySlice":"data/jobs/by-crawler/berner-montage.json"},{"crawlerId":"bosch-thermotechnik-ag","primarySlice":"data/jobs/by-crawler/bosch-thermotechnik-ag.json"},{"crawlerId":"casale","primarySlice":"data/jobs/by-crawler/casale.json"},{"crawlerId":"climeworks","primarySlice":"data/jobs/by-crawler/climeworks.json"},{"crawlerId":"clinique-cic","primarySlice":"data/jobs/by-crawler/clinique-cic.json"},{"crawlerId":"efg-international","primarySlice":"data/jobs/by-crawler/efg-international.json"},{"crawlerId":"felfel","primarySlice":"data/jobs/by-crawler/felfel.json"},{"crawlerId":"galliker","primarySlice":"data/jobs/by-crawler/galliker.json"},{"crawlerId":"helsinn","primarySlice":"data/jobs/by-crawler/helsinn.json"},{"crawlerId":"hib-broye","primarySlice":"data/jobs/by-crawler/hib-broye.json"},{"crawlerId":"hopital-de-moutier","primarySlice":"data/jobs/by-crawler/hopital-de-moutier.json"},{"crawlerId":"interdiscount","primarySlice":"data/jobs/by-crawler/interdiscount.json"},{"crawlerId":"kispi-zurich","primarySlice":"data/jobs/by-crawler/kispi-zurich.json"},{"crawlerId":"klinik-aadorf","primarySlice":"data/jobs/by-crawler/klinik-aadorf.json"},{"crawlerId":"ksa","primarySlice":"data/jobs/by-crawler/ksa.json"},{"crawlerId":"linnea","primarySlice":"data/jobs/by-crawler/linnea.json"},{"crawlerId":"mobiliar","primarySlice":"data/jobs/by-crawler/mobiliar.json"},{"crawlerId":"oscam-castelrotto","primarySlice":"data/jobs/by-crawler/oscam-castelrotto.json"},{"crawlerId":"rss-surselva","primarySlice":"data/jobs/by-crawler/rss-surselva.json"},{"crawlerId":"siemens","primarySlice":"data/jobs/by-crawler/siemens.json"},{"crawlerId":"spital-maennedorf","primarySlice":"data/jobs/by-crawler/spital-maennedorf.json"},{"crawlerId":"totalenergies","primarySlice":"data/jobs/by-crawler/totalenergies.json"},{"crawlerId":"ubs","primarySlice":"data/jobs/by-crawler/ubs.json"},{"crawlerId":"ukbb","primarySlice":"data/jobs/by-crawler/ukbb.json"},{"crawlerId":"uzh","primarySlice":"data/jobs/by-crawler/uzh.json"},{"crawlerId":"zkb","primarySlice":"data/jobs/by-crawler/zkb.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-03-terminal.json
+          CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Persist crawler generation ledger
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_RECEIPT_DIR: ""
+          SKIP_AI_TRANSLATION: "1"
+        run: bash scripts/lib/git-commit-data.sh --extra-only "Record crawler generation ledger" data/crawler-generation-ledger.jsonl
       - name: Upload crawler generation manifest (shadow)
         if: always()
         continue-on-error: true
