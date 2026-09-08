@@ -22,6 +22,7 @@ function fakeDb() {
       get: async (documentRef: any) => ({ exists: values.has(documentRef.path) }),
       create: (documentRef: any, data: any) => values.set(documentRef.path, data),
       set: (documentRef: any, data: any) => values.set(documentRef.path, data),
+      update: (documentRef: any, data: any) => values.set(documentRef.path, data),
     }),
   };
   return { db, values };
@@ -61,6 +62,9 @@ describe('job email ranking Firestore store', () => {
     expect(stats).toBeTruthy();
     expect(stats.surface).toBe('job_alert');
     expect(stats.clicks).toHaveProperty('operand', 1);
+    expect(stats.clicks_by_variant).toEqual({
+      treatment: expect.objectContaining({ operand: 1 }),
+    });
   });
 
   it('stores the full ranking manifest and impression attribution fields', async () => {

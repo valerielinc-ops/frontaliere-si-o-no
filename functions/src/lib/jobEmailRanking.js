@@ -355,7 +355,11 @@ export function rankEmailJobs(jobs, {
   const explorationPool = [...sorted]
     .filter((candidate) => candidate.ranking.impressions < config.minImpressions)
     .sort(compareByExposureThenRandom);
-  const explore = (explorationPool.length > 0 ? explorationPool : sorted)
+  // If every candidate is already well sampled, explore a non-top candidate;
+  // falling back to `sorted` would remove the top result from exploit and put
+  // it in an arbitrary middle slot without adding any exploration value.
+  const fallbackExplorationPool = sorted.length > 1 ? sorted.slice(1) : sorted;
+  const explore = (explorationPool.length > 0 ? explorationPool : fallbackExplorationPool)
     .slice(0, explorationCount);
   const exploreIds = new Set(explore.map((candidate) => candidate.jobId));
 

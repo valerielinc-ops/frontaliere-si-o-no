@@ -152,6 +152,26 @@ describe('job email ranking', () => {
     expect(ranked.map((job) => job.slug)).not.toContain('third');
   });
 
+  it('keeps the top exploit result first when no candidate needs cold-start exploration', () => {
+    const ranked = rankEmailJobs([
+      { slug: 'top', relevanceScore: 10 },
+      { slug: 'second', relevanceScore: 9 },
+      { slug: 'third', relevanceScore: 8 },
+      { slug: 'fourth', relevanceScore: 7 },
+    ], {
+      variant: 'treatment',
+      limit: 4,
+      config: { ...CONFIG, alpha: 1, minImpressions: 0, epsilon: 0.15 },
+      statsByJob: new Map([
+        ['top', { impressions: 100, clicks: 50 }],
+        ['second', { impressions: 100, clicks: 50 }],
+        ['third', { impressions: 100, clicks: 50 }],
+        ['fourth', { impressions: 100, clicks: 50 }],
+      ]),
+    });
+    expect(ranked[0].slug).toBe('top');
+  });
+
   it('clamps malformed environment settings to safe bounds', () => {
     expect(readJobEmailRankingConfig({
       JOB_EMAIL_RANKING_ENABLED: 'off',

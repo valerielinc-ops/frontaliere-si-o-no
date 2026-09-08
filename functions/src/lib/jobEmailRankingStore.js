@@ -160,7 +160,10 @@ export async function recordJobEmailImpressions(db, records) {
     incrementField(data, 'impressions', row.impressions);
     incrementField(data, 'position_sum', row.position_sum);
     for (const [variant, count] of row.variants) {
-      incrementField(data, `impressions_by_variant.${variantKey(variant)}`, count);
+      data.impressions_by_variant = {
+        ...(data.impressions_by_variant || {}),
+        [variantKey(variant)]: admin.firestore.FieldValue.increment(count),
+      };
     }
     operations.push({ type: 'set', ref: row.ref, data });
   }
@@ -253,7 +256,9 @@ export async function recordJobEmailRankingClick(db, {
         impressions: FieldValue.increment(0),
         position_sum: FieldValue.increment(0),
         clicks: FieldValue.increment(1),
-        [`clicks_by_variant.${variantKey(click.variant)}`]: FieldValue.increment(1),
+        clicks_by_variant: {
+          [variantKey(click.variant)]: FieldValue.increment(1),
+        },
         expires_at: retentionDate(occurred),
       }, { merge: true });
       if (click.surface === 'job_alert' && click.alertId) {
@@ -267,7 +272,9 @@ export async function recordJobEmailRankingClick(db, {
           variant: click.variant,
           FieldValue,
         });
-        transaction.set(alertRef, alertUpdate, { merge: true });
+        // buildEmbeddedRankingUpdate returns field-path keys for update()/batch.update().
+        // `set(..., { merge: true })` would persist those dots literally.
+        transaction.update(alertRef, alertUpdate);
       }
       recorded = true;
     });

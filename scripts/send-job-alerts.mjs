@@ -1442,7 +1442,7 @@ async function processRetryQueue(db) {
             FieldValue,
           }));
         }
-        if (Object.keys(update).length > 0) await alertRef.set(update, { merge: true });
+        if (Object.keys(update).length > 0) await alertRef.update(update);
       }
     } catch (error) {
       console.warn('⚠️ Retry ranking impression persist failed:', error?.message || error);
