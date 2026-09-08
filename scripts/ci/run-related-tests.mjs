@@ -58,7 +58,8 @@ const ignoredRe = /^(?:data|public|reports|docs|_newsletter_variants|node_module
 // gira solo su `pull_request` il rosso e' rimasto invisibile su `main`
 // finche' non l'ha ereditato una PR estranea (#7514, #7580).
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
-const githubLiteralRe = /\.github\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+const testFixtureRe = /^tests\/.+\.json$/i;
+const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 const projectRe = /^(?:tests|scripts\/(?:ci|lib|dev|evals)\/|services|components|hooks|server|infra|build-plugins|functions|packages\/[^/]+\/(?:engine|src|tests)\/)/;
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
@@ -114,9 +115,13 @@ function trackedFiles() {
         || /^packages\/[^/]+\/[^/]+$/.test(file)));
 }
 
-function trackedGithubAssets() {
+function trackedAssets() {
   return execFileSync('git', ['ls-files', '-z', '--', '.github'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    .split('\0').filter(Boolean).map(normalize).filter((file) => githubAssetRe.test(file));
+    .split('\0').filter(Boolean).map(normalize).filter((file) => githubAssetRe.test(file))
+    .concat(
+      execFileSync('git', ['ls-files', '-z', '--', 'tests'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+        .split('\0').filter(Boolean).map(normalize).filter((file) => testFixtureRe.test(file)),
+    );
 }
 
 function signature(file) {
@@ -139,7 +144,7 @@ function resolveImport(from, specifier, fileSet) {
 // a full checkout; see importsOf() for the only case that fills it.
 const unreadable = [];
 
-function importsOf(file, fileSet, githubAssets) {
+function importsOf(file, fileSet, assets) {
   let source;
   try {
     source = readFileSync(file, 'utf8');
@@ -165,28 +170,26 @@ function importsOf(file, fileSet, githubAssets) {
     const dep = resolveImport(file, match[2], fileSet);
     if (dep) deps.add(dep);
   }
-  // Il letterale vale come dipendenza quando nomina il file (`'.github/x.yml'`)
-  // o la directory che lo contiene (`'.github/workflows'`, usato dai test che
-  // scandiscono l'intera cartella). Solo dentro il CODICE: un path citato in un
+  // Il letterale vale come dipendenza quando nomina un asset o la directory
+  // che lo contiene (`'.github/workflows'` e `tests/fixtures`, usati dai test
+  // che scandiscono una cartella). Solo dentro il CODICE: un path citato in un
   // commento non e' una dipendenza. Niente prefissi parziali — un template
   // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
   // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
   // gli sha256 ed e' nominato per esteso.
-  for (const [rawLiteral] of code.matchAll(githubLiteralRe)) {
+  for (const [rawLiteral] of code.matchAll(assetLiteralRe)) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
-    // lascia il letterale con lo slash, e senza normalizzazione il confronto
-    // diventa `startsWith('.github/workflows//')`, che non matcha niente. Il
-    // caso che funzionava era solo quello senza template.
+    // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = rawLiteral.replace(/\/+$/, '');
-    for (const asset of githubAssets) {
+    for (const asset of assets) {
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
   return [...deps].sort();
 }
 
-function loadGraph(files, githubAssets) {
+function loadGraph(files, assets) {
   let previous = {};
   let previousVersion = 0;
   let previousAssets = null;
@@ -202,7 +205,7 @@ function loadGraph(files, githubAssets) {
   // riaperto per ogni workflow nato dopo l'ultima invalidazione. Il bump di
   // `version` lo copriva una volta sola. Ora l'insieme degli asset entra nella
   // chiave di validità: se cambia, il grafo si ricalcola.
-  const assetsDigest = createHash('sha1').update(githubAssets.join('\n')).digest('hex');
+  const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
     previous = cached.files || {};
@@ -221,7 +224,7 @@ function loadGraph(files, githubAssets) {
     const old = previous[file];
     graph[file] = reusable && old?.signature === sig
       ? old
-      : { signature: sig, deps: importsOf(file, fileSet, githubAssets) };
+      : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({ version: 6, assets: assetsDigest, files: graph }));
@@ -230,15 +233,57 @@ function loadGraph(files, githubAssets) {
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
-    && (sourceRe.test(file) || githubAssetRe.test(file)) && !alwaysExcludedTests.has(file)))];
+    && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
+    && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
 if (candidates.length === 0 && !forceFull) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   process.exit(0);
 }
 
+function changedAssetsFromDiff() {
+  const refs = [...new Set([
+    process.env.GITHUB_BASE_REF ? `origin/${process.env.GITHUB_BASE_REF}` : null,
+    'origin/main',
+  ].filter(Boolean))];
+  for (const ref of refs) {
+    let base;
+    try {
+      base = execFileSync('git', ['merge-base', ref, 'HEAD'], {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+    } catch {
+      continue;
+    }
+    try {
+      const fields = execFileSync('git', [
+        'diff', '--name-status', '--find-renames', '-z', base, '--', '.github', 'tests',
+      ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\0').filter(Boolean);
+      const assets = [];
+      for (let i = 0; i < fields.length;) {
+        const status = fields[i++];
+        const pathCount = /^[RC]/.test(status) ? 2 : 1;
+        for (let j = 0; j < pathCount && i < fields.length; j++) {
+          const file = normalize(fields[i++]);
+          if (githubAssetRe.test(file) || testFixtureRe.test(file)) assets.push(file);
+        }
+      }
+      return assets;
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
+
 const tracked = trackedFiles();
-const graph = loadGraph(tracked, trackedGithubAssets());
+const assets = [...new Set([
+  ...trackedAssets(),
+  ...candidates.filter((file) => githubAssetRe.test(file) || testFixtureRe.test(file)),
+  ...changedAssetsFromDiff(),
+])];
+const graph = loadGraph(tracked, assets);
 if (unreadable.length > 0) {
   // Loud, and above the selection, because it is the one thing that can make
   // the list below shorter than it should be. Zero on a full checkout.
@@ -276,7 +321,7 @@ while (queue.length) {
 // changed file is a genuine leaf (zero importers anywhere in the repo, not
 // just no test importer), in which case nothing could ever reach it through
 // an import and the full run protects nothing (see lib/orphan-fallback.mjs).
-// Il fallback si decide sui soli candidati SORGENTE. Un asset `.github/**` che
+// Il fallback si decide sui soli candidati SORGENTE. Un asset non-sorgente che
 // nessun test nomina non ha blind spot da coprire — non e' importabile, quindi
 // non esiste l'import mancato che il fallback esiste per proteggere — e farlo
 // ricadere sulla suite intera farebbe pagare ~1900 file a ogni PR di soli
@@ -293,9 +338,11 @@ if (related.size === 0 && sourceCandidates.length > 0) {
   }
 }
 const tests = [...related].filter((file) => existsSync(file)).sort();
-const githubCandidateCount = candidates.length - sourceCandidates.length;
+const githubCandidateCount = candidates.filter((file) => githubAssetRe.test(file)).length;
+const fixtureCandidateCount = candidates.filter((file) => testFixtureRe.test(file)).length;
 console.log(`Running Vitest related to ${sourceCandidates.length} changed source/test file(s)`
   + (githubCandidateCount ? ` + ${githubCandidateCount} .github asset(s)` : '')
+  + (fixtureCandidateCount ? ` + ${fixtureCandidateCount} tests fixture(s)` : '')
   + `: ${tests.length} test file(s)`);
 console.log(tests.join('\n'));
 if (tests.length === 0) process.exit(0);
@@ -303,11 +350,14 @@ if (tests.length === 0) process.exit(0);
 // sopra ed esce. Usato da tests/run-related-tests-github-assets.test.ts e utile
 // a mano per capire perche' un file seleziona (o non seleziona) un test.
 //
-// Disarmato sotto GitHub Actions, e di proposito: se questa variabile
-// trapelasse nell'env del job bloccante, il gate uscirebbe 0 senza eseguire un
-// solo test — un verde indistinguibile da una selezione vuota legittima. Il
-// seam serve in locale e nel sottoprocesso dell'osservatore, mai nel gate.
-if (process.env.VITEST_RELATED_DRY_RUN === 'true' && !process.env.GITHUB_ACTIONS) {
+// Il seam serve in locale e nel sottoprocesso dell'osservatore, mai nel gate.
+// Se trapelasse nel job bloccante, fallire esplicitamente e' piu' sicuro che
+// uscire 0 senza eseguire un solo test, indistinguibile da una selezione vuota.
+if (process.env.VITEST_RELATED_DRY_RUN === 'true') {
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.error('VITEST_RELATED_DRY_RUN non e\' consentito in GitHub Actions: esecuzione bloccante annullata.');
+    process.exit(1);
+  }
   process.exit(0);
 }
 

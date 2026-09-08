@@ -98,7 +98,7 @@ const PR_COST_MS = intFromEnv('AUTOREBASE_PR_COST_MS', 30_000);
 // Non si entra senza il tempo di uscirne — con margine largo rispetto a due
 // chiamate API che nel caso peggiore ritentano.
 /** Tentativi di reopen e pausa fra uno e l'altro — vedi reopenToRetrigger. */
-const REOPEN_ATTEMPTS = intFromEnv('AUTOREBASE_REOPEN_ATTEMPTS', 4);
+const REOPEN_ATTEMPTS = Math.max(4, intFromEnv('AUTOREBASE_REOPEN_ATTEMPTS', 4));
 const REOPEN_RETRY_SLEEP_S = intFromEnv('AUTOREBASE_REOPEN_RETRY_SLEEP_S', 5);
 /**
  * DERIVATO dai due sopra, non scritto a mano: il guard vale solo se il tempo
