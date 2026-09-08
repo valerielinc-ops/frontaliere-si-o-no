@@ -12,7 +12,9 @@
  *    The three workflows that deliberately run WITHOUT `npm ci` and rely on the
  *    download (`npx -y tsx@4` style) are exempt by construction: they have no
  *    `npm ci` step, so the predicate below never looks at them. No allowlist is
- *    needed — "has an npm ci step" IS the discriminator.
+ *    needed — "has an npm ci step" IS the discriminator. The discriminator is
+ *    per execution unit (job), including local composite/reusable workflows;
+ *    one job in a YAML file must not taint a different job.
  *
  * 2. `--regenerate-cmd` resolving files from a reflog position (`HEAD@{N}`)
  *    instead of a pinned SHA (issue #7389). scripts/lib/git-push-with-retry.sh
@@ -22,32 +24,97 @@
  *    it pushed stale content and lost the registration without an error.
  */
 import { describe, it, expect } from 'vitest';
-import { readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import YAML from 'yaml';
 
 const WORKFLOW_DIR = join(__dirname, '..', '.github', 'workflows');
 
 const workflows = readdirSync(WORKFLOW_DIR)
   .filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'))
-  .map((f) => ({ name: f, body: readFileSync(join(WORKFLOW_DIR, f), 'utf8') }));
+  .map((f) => ({ name: f, body: readFileSync(join(WORKFLOW_DIR, f), 'utf8'), path: join(WORKFLOW_DIR, f) }));
 
-/** A real `npm ci` run step, not the word inside a comment saying "deliberately NO npm ci". */
-const runsNpmCi = (body: string) =>
-  body.split('\n').some((line) => /^\s*(-\s*)?(run:\s*)?npm ci\b/.test(line) && !/^\s*#/.test(line));
+interface ExecutionUnit {
+  readonly name: string;
+  readonly source: string;
+  readonly commands: readonly string[];
+}
+
+function commandLines(value: unknown): string[] {
+  if (typeof value !== 'string') return [];
+  return value
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0 && !line.startsWith('#'));
+}
+
+function localFile(uses: unknown, baseDir: string, kind: 'action' | 'workflow'): string | undefined {
+  if (typeof uses !== 'string' || !uses.startsWith('./.github/')) return undefined;
+  const relative = kind === 'action' ? join(uses.slice(2), 'action.yml') : uses.slice(2);
+  const candidate = resolve(baseDir, '..', '..', relative);
+  return existsSync(candidate) ? candidate : undefined;
+}
+
+function collectSteps(steps: unknown, sourcePath: string, seen: Set<string>): string[] {
+  if (!Array.isArray(steps)) return [];
+  const commands: string[] = [];
+  for (const step of steps) {
+    if (!step || typeof step !== 'object') continue;
+    const record = step as Record<string, unknown>;
+    commands.push(...commandLines(record.run));
+    const actionPath = localFile(record.uses, dirname(sourcePath), 'action');
+    if (actionPath && !seen.has(actionPath)) {
+      seen.add(actionPath);
+      const action = YAML.parse(readFileSync(actionPath, 'utf8')) as { runs?: { steps?: unknown } };
+      commands.push(...collectSteps(action.runs?.steps, actionPath, seen));
+    }
+  }
+  return commands;
+}
+
+function collectWorkflowCommands(workflowPath: string, seen: Set<string>): string[] {
+  if (seen.has(workflowPath)) return [];
+  seen.add(workflowPath);
+  const doc = YAML.parse(readFileSync(workflowPath, 'utf8')) as { jobs?: Record<string, Record<string, unknown>> };
+  const commands: string[] = [];
+  for (const job of Object.values(doc.jobs ?? {})) {
+    const reusablePath = localFile(job.uses, dirname(workflowPath), 'workflow');
+    if (reusablePath) commands.push(...collectWorkflowCommands(reusablePath, seen));
+    commands.push(...collectSteps(job.steps, workflowPath, seen));
+  }
+  return commands;
+}
+
+function executionUnits(): ExecutionUnit[] {
+  return workflows.flatMap(({ name, path }) => {
+    const doc = YAML.parse(readFileSync(path, 'utf8')) as { jobs?: Record<string, Record<string, unknown>> };
+    return Object.entries(doc.jobs ?? {}).map(([jobName, job]) => {
+      const seen = new Set<string>([path]);
+      const commands = [
+        ...collectSteps(job.steps, path, seen),
+        ...(localFile(job.uses, dirname(path), 'workflow')
+          ? collectWorkflowCommands(localFile(job.uses, dirname(path), 'workflow')!, seen)
+          : []),
+      ];
+      return { name: `${name}:${jobName}`, source: name, commands };
+    });
+  });
+}
+
+const units = executionUnits();
+
+const runsNpmCi = (commands: readonly string[]) => commands.some((line) => /(^|[;&|]\s*)npm ci\b/.test(line));
+const runsBareNpxTsx = (commands: readonly string[]) => commands.some((line) => /(^|[;&|]\s*)npx\s+tsx\b/.test(line));
 
 describe('workflow hygiene: npx tsx (#7390)', () => {
   it('finds at least one workflow that runs npm ci (guards against a vacuous pass)', () => {
-    expect(workflows.filter((w) => runsNpmCi(w.body)).length).toBeGreaterThan(0);
+    expect(units.filter((unit) => runsNpmCi(unit.commands)).length).toBeGreaterThan(0);
   });
 
   it('never invokes bare `npx tsx` in a workflow that already ran npm ci', () => {
     const offenders: string[] = [];
-    for (const { name, body } of workflows) {
-      if (!runsNpmCi(body)) continue;
-      body.split('\n').forEach((line, i) => {
-        // Bare `npx tsx`: any npx invocation of tsx with no flag between the two.
-        if (/\bnpx\s+tsx\b/.test(line)) offenders.push(`${name}:${i + 1}: ${line.trim()}`);
-      });
+    for (const unit of units) {
+      if (runsNpmCi(unit.commands) && runsBareNpxTsx(unit.commands)) offenders.push(unit.name);
     }
     expect(offenders).toEqual([]);
   });

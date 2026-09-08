@@ -733,26 +733,32 @@ export function scenarioLeverSentences(input: LeverComparisonInput): string[] {
   // cioè l'asse su cui le sorelle di una stessa combinazione si distinguevano
   // finora solo in cifre.
   const step = referenceStepLever(levers);
-  // La prima leva non salariale con Δ non nullo la cui coppia col gradino non
-  // sia già stata nominata da `ratio`. Prendere sempre la prima e basta faceva
-  // uscire `(levers[0], levers[1])` una seconda volta su 188 delle 432
-  // combinazioni pubblicate — la frase non aggiungeva nulla a quella sopra.
-  // Nessun candidato libero (una sola leva non salariale, già nominata) → si
-  // tace: la frase esiste per mostrare un confronto nuovo, non per ripeterne
-  // uno.
+  // The superlative below is about the fastest-changing comparison, so the
+  // candidate is the NON-salary lever with the smallest non-zero magnitude —
+  // not the first one in `levers`, which is sorted from heaviest to lightest.
+  // Choosing the heaviest candidate could make “moves fastest” false when a
+  // lighter lever changes less than the step. If that true fastest pair was
+  // already named by `ratio`, suppress this sentence rather than silently
+  // changing the pair and keeping a false superlative.
+  const fastestOther = levers.reduce<Lever | undefined>((best, candidate) => {
+    if (
+      candidate.key === 'salaryUp' ||
+      candidate.key === 'salaryDown' ||
+      Math.abs(candidate.deltaCHF) === 0
+    ) {
+      return best;
+    }
+    return best === undefined || Math.abs(candidate.deltaCHF) < Math.abs(best.deltaCHF) ? candidate : best;
+  }, undefined);
   const other =
-    step === null
+    step === null || fastestOther === undefined
       ? undefined
-      : levers.find(
-          (x) =>
-            x.key !== 'salaryUp' &&
-            x.key !== 'salaryDown' &&
-            Math.abs(x.deltaCHF) > 0 &&
-            !named.has(
-              Math.abs(step.deltaCHF) >= Math.abs(x.deltaCHF) ? step : x,
-              Math.abs(step.deltaCHF) >= Math.abs(x.deltaCHF) ? x : step,
-            ),
-        );
+      : named.has(
+            Math.abs(step.deltaCHF) >= Math.abs(fastestOther.deltaCHF) ? step : fastestOther,
+            Math.abs(step.deltaCHF) >= Math.abs(fastestOther.deltaCHF) ? fastestOther : step,
+          )
+        ? undefined
+        : fastestOther;
   if (step && other && Math.abs(other.deltaCHF) > 0 && Math.abs(step.deltaCHF) > 0) {
     // `ratioBuckets` descrive un rapporto >= 1 ("pesa il doppio di"), e la
     // frase attribuisce il peso maggiore alla leva nominata per prima. Sotto

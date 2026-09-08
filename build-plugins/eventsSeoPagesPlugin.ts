@@ -76,6 +76,7 @@ import {
   UNRESOLVED_CANTON_LABEL,
   normalizeText,
 } from '../scripts/lib/events-utils.mjs';
+import { truncateSlugAtWordBoundary } from '../scripts/lib/slug-truncate.mjs';
 import { getCantonLabel, type CantonLocale } from '../services/cantonList';
 import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd';
 import { osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
@@ -3614,11 +3615,50 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
  * its live bare slug; the ending one gets the decorated fallback instead of
  * fighting over the same URL).
  */
-export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
+const EVENT_SLUG_MAX_LENGTH = 60;
+
+function fitEventSlug(base: string, suffix?: number): string {
+  const raw = suffix === undefined ? base : `${base}-${suffix}`;
+  const reserved = reserveLadderShape(raw, 'evento');
+  if (reserved.length <= EVENT_SLUG_MAX_LENGTH) return reserved;
+  const reservationExtra = reserved.length - raw.length;
+  const suffixLength = (suffix === undefined ? 0 : String(suffix).length + 1) + reservationExtra;
+  const baseBudget = Math.max(1, EVENT_SLUG_MAX_LENGTH - suffixLength);
+  const shortBase = truncateSlugAtWordBoundary(base, baseBudget).replace(/-+$/, '');
+  const fitted = reserveLadderShape(
+    suffix === undefined ? shortBase : `${shortBase}-${suffix}`,
+    'evento',
+  );
+  // The budget above accounts for the normal reservation suffix. Keep the
+  // hard cap defensive if a future reservation rule grows another suffix.
+  return fitted.length <= EVENT_SLUG_MAX_LENGTH
+    ? fitted
+    : truncateSlugAtWordBoundary(fitted, EVENT_SLUG_MAX_LENGTH).replace(/-+$/, '');
+}
+
+/** The pre-#7872 assignment, used only to mint redirects for already-published URLs. */
+function assignLegacyEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string>): Map<string, string> {
   const used = new Set<string>(reservedBaseSlugs);
   const slugFor = new Map<string, string>();
   for (const ev of list) {
     const base = slugifyEvent(ev);
+    let slug = base;
+    let n = 2;
+    while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
+    used.add(slug);
+    slugFor.set(ev.id, slug);
+  }
+  return slugFor;
+}
+
+export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlySet<string> = new Set()): Map<string, string> {
+  // Reserved values are finished URL segments too: normalize the ladder shape
+  // before putting them in `used`, otherwise a raw `page-N` reservation could
+  // still block the wrong candidate or let a page-N URL through (#7872).
+  const used = new Set<string>([...reservedBaseSlugs].map((slug) => reserveLadderShape(slug, 'evento')));
+  const slugFor = new Map<string, string>();
+  for (const ev of list) {
+    const base = fitEventSlug(slugifyEvent(ev));
     let slug = base;
     let n = 2;
     // The `-N` tie-breaker mints a FINISHED segment, so it has to honour the
@@ -3627,11 +3667,34 @@ export function assignEventSlugs(list: SiteEvent[], reservedBaseSlugs: ReadonlyS
     // second sibling `page-2` — the URL of ladder page 2 of this very bucket
     // (issue #7743). `reserveLadderShape()` runs inside the loop so the
     // disambiguated candidate is re-checked against `used`.
-    while (used.has(slug)) slug = reserveLadderShape(`${base}-${n++}`, 'evento');
+    while (used.has(slug)) slug = fitEventSlug(base, n++);
     used.add(slug);
     slugFor.set(ev.id, slug);
   }
   return slugFor;
+}
+
+interface EventSlugRedirect {
+  canton: string;
+  comune: string;
+  from: string;
+  to: string;
+}
+
+function eventSlugRedirectHtml(locale: Locale, toPath: string, distDir: string): string {
+  const targetUrl = `${BASE_URL}${toPath}`;
+  const bodyHtml = `<section class="ev-wrap3"><h1 class="ev-h1">Pagina spostata</h1><p class="ev-lede">Questa pagina evento ha un indirizzo aggiornato.</p><p><a class="ev-btn" href="${esc(toPath)}">Apri la pagina aggiornata →</a></p></section>`;
+  return buildSeoPageHtml({
+    locale,
+    title: 'Pagina evento spostata',
+    description: 'Questa pagina evento ha un indirizzo aggiornato.',
+    canonicalUrl: targetUrl,
+    bodyHtml,
+    robots: 'noindex,follow',
+    extraHeadHtml: `<meta http-equiv="refresh" content="0; url=${esc(targetUrl)}">`,
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
 }
 
 /**
@@ -3729,6 +3792,24 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // a full href for the event cards.
       const detailSlugs = new Map<string, { canton: string; comune: string; slug: string }>();
       const byCantonComune = new Map<string, Map<string, SiteEvent[]>>();
+      const slugRedirects: EventSlugRedirect[] = [];
+      const assignedDetailKeys = new Set<string>();
+      const registerAssignedSlugs = (
+        list: SiteEvent[],
+        canton: string,
+        comune: string,
+        reservedBaseSlugs: ReadonlySet<string> = new Set(),
+      ): Map<string, string> => {
+        const slugs = assignEventSlugs(list, reservedBaseSlugs);
+        const legacySlugs = assignLegacyEventSlugs(list, reservedBaseSlugs);
+        for (const ev of list) {
+          const slug = slugs.get(ev.id)!;
+          assignedDetailKeys.add(`${canton}|${comune}|${slug}`);
+          const legacy = legacySlugs.get(ev.id)!;
+          if (legacy !== slug) slugRedirects.push({ canton, comune, from: legacy, to: slug });
+        }
+        return slugs;
+      };
       // `groupByComune()` drops events with `comune == null` (intentional,
       // protected by tests/events-pipeline.test.ts) — collect them separately
       // per canton and dedup-slug them the same way as real comuni, under the
@@ -3740,7 +3821,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const byComune = groupByComune(byCanton.get(canton)!) as Map<string, SiteEvent[]>;
         byCantonComune.set(canton, byComune);
         for (const [comune, list] of byComune) {
-          const slugs = assignEventSlugs(list);
+          const slugs = registerAssignedSlugs(list, canton, comune);
           for (const ev of list) {
             detailSlugs.set(ev.id, { canton, comune, slug: slugs.get(ev.id)! });
           }
@@ -3749,7 +3830,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         const otherEvents = byCanton.get(canton)!.filter((e) => !e.comune);
         if (otherEvents.length > 0) {
           otherEventsByCanton.set(canton, otherEvents);
-          const slugs = assignEventSlugs(otherEvents);
+          const slugs = registerAssignedSlugs(otherEvents, canton, OTHER_EVENTS_COMUNE_KEY);
           for (const ev of otherEvents) {
             detailSlugs.set(ev.id, { canton, comune: OTHER_EVENTS_COMUNE_KEY, slug: slugs.get(ev.id)! });
           }
@@ -3970,7 +4051,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           // for that sibling. See reserveLiveSiblingSlugs() doc for why this
           // must use the actual assigned slug, not the raw base.
           const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune, detailSlugs);
-          const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
+          const pastSlugFor = registerAssignedSlugs(list, canton, comune, reservedBaseSlugs);
           for (const locale of LOCALES) {
             // Same shard gate as the main render loop above.
             if (!shouldEmitLocale(locale)) { skippedLocaleRenders += 1; continue; }
@@ -3991,6 +4072,34 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
               );
             }
           }
+        }
+      }
+
+      // A cap or reservation fix can change a URL that was already published.
+      // Emit a noindex bridge for the old deterministic candidate in the same
+      // build, instead of treating the CDN's SPA 200 fallback as evidence that
+      // the old path still exists. Never let an alias overwrite a current
+      // detail page, and deduplicate aliases shared by live/past passes.
+      const emittedRedirects = new Set<string>();
+      for (const redirect of slugRedirects) {
+        for (const locale of LOCALES) {
+          if (!shouldEmitLocale(locale)) continue;
+          const fromPath = pathForEventDetail(locale, redirect.comune, redirect.from, redirect.canton);
+          const toPath = pathForEventDetail(locale, redirect.comune, redirect.to, redirect.canton);
+          const key = `${locale}|${fromPath}|${toPath}`;
+          if (
+            fromPath === toPath ||
+            emittedRedirects.has(key) ||
+            assignedDetailKeys.has(`${redirect.canton}|${redirect.comune}|${redirect.from}`)
+          ) {
+            continue;
+          }
+          emittedRedirects.add(key);
+          emit({
+            urlPath: fromPath,
+            html: eventSlugRedirectHtml(locale, toPath, distDir),
+            wordCount: 0,
+          });
         }
       }
 

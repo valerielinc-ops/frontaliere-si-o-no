@@ -97,8 +97,12 @@ const idOf = (scenario: SalaryHubScenario): string =>
 
 /** Le etichette nominate da una frase, nell'ordine in cui compaiono. */
 function labelsIn(sentence: string, labels: readonly string[]): string[] {
+  const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return labels
-    .map((label) => ({ label, at: sentence.indexOf(label) }))
+    .map((label) => ({
+      label,
+      at: sentence.search(new RegExp(`(?<![\\p{L}\\p{N}])${escapeRegExp(label)}(?![\\p{L}\\p{N}])`, 'u')),
+    }))
     .filter((x) => x.at >= 0)
     .sort((a, b) => a.at - b.at)
     .map((x) => x.label);
@@ -120,7 +124,12 @@ describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', ()
         const labels = ranking!
           .slice(ranking!.indexOf(spec.ranking) + spec.ranking.length)
           .replace(/\.$/, '')
-          .split(spec.listSeparator);
+          .split(spec.listSeparator)
+          .map((label) => label.trim());
+
+        for (const label of labels) {
+          expect(label, `${idOf(scenario)}: separatore finito dentro l'etichetta «${label}»`).not.toMatch(spec.listSeparator);
+        }
 
         const seen = new Set<string>();
         for (const prefix of spec.pairs) {
@@ -168,5 +177,22 @@ describe('nessuna pagina nomina due volte la stessa coppia ordinata di leve', ()
         ),
     );
     expect(suppressed.length).toBeGreaterThan(0);
+  });
+
+  it('misura le soppressioni sovrapposte senza nascondere un doppio vuoto', () => {
+    let stepVsOtherSuppressed = 0;
+    let closestPairSuppressed = 0;
+    let bothSuppressed = 0;
+    for (const scenario of scenarios) {
+      const sentences = sentencesFor(scenario, 'it');
+      const stepPresent = sentences.some((s) => s.startsWith('Il confronto che si muove'));
+      const closestPresent = sentences.some((s) => s.startsWith('Le due leve che qui si equivalgono'));
+      if (!stepPresent) stepVsOtherSuppressed += 1;
+      if (!closestPresent) closestPairSuppressed += 1;
+      if (!stepPresent && !closestPresent) bothSuppressed += 1;
+    }
+    expect(stepVsOtherSuppressed).toBe(0);
+    expect(closestPairSuppressed).toBeGreaterThan(0);
+    expect(bothSuppressed).toBe(0);
   });
 });

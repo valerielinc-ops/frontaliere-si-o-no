@@ -148,12 +148,56 @@ function identifiersIn(node: ts.Node): Set<string> {
  * Under the `corpus` seed a plain constant counts too, not just a function: a
  * test is corpus-scale because it names `DIST`, and that name is a `const`.
  */
+function containsCorpusPath(node: ts.Node, sf: ts.SourceFile, allowInlinePath = false): boolean {
+  const isPathArgument = (literal: ts.StringLiteralLike): boolean => {
+    let current: ts.Node | undefined = literal.parent;
+    while (current) {
+      if (ts.isVariableDeclaration(current) && ts.isIdentifier(current.name)) {
+        return /(?:DIST|CORPUS|JOBS|DATA)/i.test(current.name.text);
+      }
+      if (ts.isCallExpression(current)) {
+        const callee = current.expression;
+        const name = ts.isIdentifier(callee)
+          ? callee.text
+          : ts.isPropertyAccessExpression(callee)
+            ? callee.name.text
+            : '';
+        if (new Set(['readFileSync', 'readdirSync', 'statSync', 'existsSync', 'scanDistHtml', 'readJobsDataset']).has(name)) {
+          return true;
+        }
+        if (new Set(['join', 'resolve', 'normalize', 'relative']).has(name)) {
+          const rootedAtRepo = current.arguments.some(
+            (argument) => ts.isIdentifier(argument) && ['__dirname', '__filename', 'ROOT'].includes(argument.text),
+          );
+          if (rootedAtRepo && (allowInlinePath || (ts.isCallExpression(node) && current.parent === node))) return true;
+        } else {
+          return false;
+        }
+      }
+      current = current.parent;
+    }
+    return false;
+  };
+  let found = false;
+  const visit = (current: ts.Node): void => {
+    if (found) return;
+    if (ts.isStringLiteralLike(current) && CORPUS_PATH_RE.test(current.text) && isPathArgument(current)) {
+      found = true;
+      return;
+    }
+    ts.forEachChild(current, visit);
+  };
+  visit(node);
+  return found;
+}
+
 function ioReachingNames(sf: ts.SourceFile, seeds: 'io' | 'corpus'): Set<string> {
   const bodies = new Map<string, Set<string>>();
   const tainted = new Set(seeds === 'io' ? IO_PRIMITIVES : CORPUS_HELPERS);
   for (const stmt of sf.statements) {
     if (ts.isFunctionDeclaration(stmt) && stmt.name && stmt.body) {
       bodies.set(stmt.name.text, identifiersIn(stmt.body));
+      if (seeds === 'corpus' && containsCorpusPath(stmt.body, sf)) tainted.add(stmt.name.text);
     } else if (ts.isVariableStatement(stmt)) {
       for (const decl of stmt.declarationList.declarations) {
         if (!ts.isIdentifier(decl.name) || !decl.initializer) continue;
@@ -161,7 +205,7 @@ function ioReachingNames(sf: ts.SourceFile, seeds: 'io' | 'corpus'): Set<string>
           ts.isArrowFunction(decl.initializer) || ts.isFunctionExpression(decl.initializer);
         if (seeds === 'io' && !isFn) continue;
         bodies.set(decl.name.text, identifiersIn(decl.initializer));
-        if (seeds === 'corpus' && !isFn && CORPUS_PATH_RE.test(decl.initializer.getText(sf))) {
+        if (seeds === 'corpus' && containsCorpusPath(decl.initializer, sf)) {
           tainted.add(decl.name.text);
         }
       }
@@ -194,9 +238,9 @@ interface Offender {
 }
 
 /** Numeric value of a timeout expression, when it can be read statically. */
-function timeoutValue(expr: ts.Expression, sf: ts.SourceFile): number | undefined {
+function timeoutValue(expr: ts.Expression, sf: ts.SourceFile): number | null {
   if (ts.isNumericLiteral(expr)) return Number(expr.text.replace(/_/g, ''));
-  if (!ts.isIdentifier(expr)) return undefined;
+  if (!ts.isIdentifier(expr)) return null;
   // `SCAN_TEST_TIMEOUT_MS` is imported, so its initializer is not in this file.
   if (expr.text === 'SCAN_TEST_TIMEOUT_MS') return SCAN_TEST_TIMEOUT_MS;
   for (const stmt of sf.statements) {
@@ -212,7 +256,7 @@ function timeoutValue(expr: ts.Expression, sf: ts.SourceFile): number | undefine
       }
     }
   }
-  return undefined;
+  return null;
 }
 
 /**
@@ -236,9 +280,12 @@ function timeoutDefect(call: ts.CallExpression, sf: ts.SourceFile): string | und
         continue;
       }
       const value = timeoutValue(p.initializer, sf);
-      // Unreadable statically (an expression, an imported alias): the author
-      // made a deliberate choice this parser cannot second-guess — accept it.
-      if (value === undefined || value >= SCAN_TEST_TIMEOUT_MS) return undefined;
+      // Fail closed: an expression or imported alias may resolve below the
+      // scan ceiling, so an observer cannot certify it without evaluating the
+      // module. Numeric literals and local numeric constants are the only
+      // forms this structural guard can prove.
+      if (value === null) return 'unreadable timeout expression';
+      if (value >= SCAN_TEST_TIMEOUT_MS) return undefined;
       return `${value}ms < SCAN_TEST_TIMEOUT_MS (${SCAN_TEST_TIMEOUT_MS}ms)`;
     }
   }
@@ -264,7 +311,7 @@ function scanFile(rel: string, seeds: 'io' | 'corpus'): Offender[] {
         const defect = body ? timeoutDefect(node, sf) : undefined;
         if (body && defect) {
           const refs = identifiersIn(body);
-          let touchesIo = false;
+          let touchesIo = seeds === 'corpus' && containsCorpusPath(body, sf, true);
           for (const r of refs) {
             if (tainted.has(r)) {
               touchesIo = true;
@@ -288,7 +335,7 @@ function scanFile(rel: string, seeds: 'io' | 'corpus'): Offender[] {
 }
 
 describe.each(GATES)('$script — every corpus-scanning test declares an honest timeout', ({ script, seeds }) => {
-  it(`no corpus-scanning test in ${script} can be reported as a timeout while passing`, () => {
+  it(`no corpus-scanning test in ${script} can be reported as a timeout while passing`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     const files = gateFiles(script);
     const offenders = files.flatMap((f) => scanFile(f, seeds));
 
@@ -308,7 +355,34 @@ describe.each(GATES)('$script — every corpus-scanning test declares an honest 
     ).toEqual([]);
   });
 
-  it('the gate script is still parseable and non-empty', () => {
+  it('the gate script is still parseable and non-empty', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
     expect(gateFiles(script).length).toBeGreaterThan(0);
+  });
+});
+
+describe('timeout expressions fail closed', () => {
+  for (const expression of ['5 * 1000', 'TIMEOUTS.short', 'IMPORTED_TIMEOUT']) {
+    it(`rejects an unreadable expression: ${expression}`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+      const sf = ts.createSourceFile(
+        'timeout-fixture.ts',
+        `it('fixture', { timeout: ${expression} }, () => {});`,
+        ts.ScriptTarget.Latest,
+        true,
+      );
+      const call = (sf.statements[0] as ts.ExpressionStatement).expression as ts.CallExpression;
+      expect(timeoutDefect(call, sf)).toBe('unreadable timeout expression');
+    });
+  }
+
+  it('sees an inline repository dist path inside a test body', { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
+    const sf = ts.createSourceFile(
+      'inline-path-fixture.ts',
+      `it('fixture', { timeout: SCAN_TEST_TIMEOUT_MS }, () => path.join(__dirname, '../../dist'));`,
+      ts.ScriptTarget.Latest,
+      true,
+    );
+    const call = (sf.statements[0] as ts.ExpressionStatement).expression as ts.CallExpression;
+    const body = call.arguments.find((argument) => ts.isArrowFunction(argument))!;
+    expect(containsCorpusPath(body, sf, true)).toBe(true);
   });
 });

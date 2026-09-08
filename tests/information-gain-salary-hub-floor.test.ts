@@ -48,11 +48,20 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 /** Misurato il 2026-09-05 (peggiore 6,5 %), meno un punto di margine. */
 const MIN_MEDIAN_IGS = 5.5;
+// The page-level minimum is intentionally a separate, slightly lower floor:
+// the median catches a whole weak cohort, while this catches a single page
+// whose comparison block silently collapsed. Measured after the #7843
+// fastest-pair selection on 2026-09-08: 4.84 % (the floor keeps a safety
+// margin without pretending the page minimum should equal the median).
+const MIN_PAGE_IGS = 4.5;
 
 const scenarios = generateAllScenarios();
 const results = new Map(scenarios.map((s) => [s, calculateSimulation(scenarioToInputs(s))]));
+const cohortCache = new Map<(typeof LOCALES)[number], ReturnType<typeof scoreCohorts>['cohorts']>();
 
 function cohortsFor(locale: (typeof LOCALES)[number]) {
+  const cached = cohortCache.get(locale);
+  if (cached) return cached;
   const fingerprints = scenarios.map((s) => {
     const urlPath = buildFullPath(s, locale);
     const html = generatePageHtml(s, results.get(s)!, locale, scenarios, DIST);
@@ -60,7 +69,9 @@ function cohortsFor(locale: (typeof LOCALES)[number]) {
   });
   // minCohortPages 2: la popolazione qui è la famiglia intera per costruzione,
   // non un campione, quindi non serve la soglia anti-rumore del gate.
-  return scoreCohorts(fingerprints, { minCohortPages: 2 }).cohorts;
+  const cohorts = scoreCohorts(fingerprints, { minCohortPages: 2 }).cohorts;
+  cohortCache.set(locale, cohorts);
+  return cohorts;
 }
 
 describe('information gain dei calcolatori di stipendio, misurato sull’output del plugin', () => {
@@ -91,6 +102,14 @@ describe('information gain dei calcolatori di stipendio, misurato sull’output 
         .map((c) => `${c.label}: ${c.zeroGainPages}/${c.pages}`),
     );
     expect(offenders).toEqual([]);
+  });
+
+  it(`nessuna pagina della famiglia scende sotto ${MIN_PAGE_IGS} %`, () => {
+    const below = LOCALES.flatMap((locale) =>
+      cohortsFor(locale)
+        .flatMap((c) => c.worst.filter((page) => page.igs < MIN_PAGE_IGS).map((page) => `${locale}/${page.urlPath}: ${page.igs.toFixed(2)} %`)),
+    );
+    expect(below).toEqual([]);
   });
 
   it('l’intestazione del blocco è la stessa su tutte le pagine di un locale', () => {

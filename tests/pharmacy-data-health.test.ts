@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import {
   DEFAULT_ANAGRAFICA_MAX_AGE_HOURS,
   buildReport,
@@ -12,6 +14,8 @@ import {
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
 import ticino from '../data/pharmacies-ticino.json';
+
+const PHARMACY_WORKFLOW = join(__dirname, '..', '.github', 'workflows', 'pharmacy-data-health-monitor.yml');
 
 /**
  * Osservatore della dashboard dati farmacie (#6753). Il punto misurato: le
@@ -217,5 +221,14 @@ describe('report payload consumed by the workflow', () => {
       nowMs: NOW,
     });
     expect(report.problems.join('\n')).toContain('#6752');
+  });
+});
+
+describe('recovery issue lifecycle', () => {
+  it('the clean path resolves both the degraded-data and workflow-failure titles', () => {
+    const workflow = readFileSync(PHARMACY_WORKFLOW, 'utf8');
+    const cleanStep = workflow.slice(workflow.indexOf('Resolve issue on clean dashboard'));
+    expect(cleanStep).toContain('--title "[pharmacy-data-health] dato farmacie degradato');
+    expect(cleanStep).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
   });
 });

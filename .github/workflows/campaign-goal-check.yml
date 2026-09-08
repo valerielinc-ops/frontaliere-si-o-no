@@ -121,7 +121,7 @@ jobs:
 
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout $COMMIT_SHA -- data/campaign-goal-status.json; git add data/campaign-goal-status.json"
+            --regenerate-cmd "bash scripts/lib/restore-generated-files.sh --commit $COMMIT_SHA --checkout data/campaign-goal-status.json; git add data/campaign-goal-status.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -1023,6 +1023,26 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     const slugs = assignEventSlugs([pastEvent] as never, new Set(['some-other-event-2026-01-01']));
     expect(slugs.get('tio-agenda:400')).toBe('concerto-2026-05-01');
   });
+
+  it('keeps the complete assigned candidate within 60 characters, including its tie-breaker', () => {
+    const longTitle = 'Evento internazionale straordinario per lavoratori frontalieri nel Canton Ticino e dintorni';
+    const list = [
+      { ...EVENT, id: 'tio-agenda:long-a', title: longTitle, startDate: '2026-08-01' },
+      { ...EVENT, id: 'tio-agenda:long-b', title: longTitle, startDate: '2026-08-01' },
+    ];
+    const slugs = assignEventSlugs(list as never);
+    expect(slugs.get('tio-agenda:long-a')!.length).toBeLessThanOrEqual(60);
+    expect(slugs.get('tio-agenda:long-b')!.length).toBeLessThanOrEqual(60);
+    expect(slugs.get('tio-agenda:long-b')).toMatch(/-2$/);
+    expect(new Set(slugs.values()).size).toBe(2);
+  });
+
+  it('normalizes a reserved page-N segment before deduplication', () => {
+    const event = { ...EVENT, id: 'tio-agenda:reserved', title: 'Page 2', startDate: '' };
+    const slugs = assignEventSlugs([event] as never, new Set(['page-2']));
+    expect(slugs.get(event.id)).toBe('page-2-evento-2');
+    expect(slugs.get(event.id)!.length).toBeLessThanOrEqual(60);
+  });
 });
 
 describe('reserveLiveSiblingSlugs (issue #3715 — reviewer-found collision)', () => {

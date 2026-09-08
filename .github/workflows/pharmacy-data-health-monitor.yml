@@ -174,6 +174,14 @@ jobs:
             --title "[pharmacy-data-health] dato farmacie degradato (copertura/freschezza/fetch/conflitti)" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # A missing report opens this separate crash issue before the explicit
+          # fail step below. A clean run must close both stable titles; leaving
+          # the workflow-failure title open makes the monitor permanently red
+          # even though the dashboard recovered (#7379).
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Upload report artifact
         if: always()
