@@ -6052,6 +6052,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'US tariffs on Switzerland: 12.5% and optimized agreement July-August 2026',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'On 24 July 2026, the US will impose tariffs of up to 12.5% on Swiss imports. Negotiations on the free trade agreement concluded on 20 August: impact on exports and competitiveness.',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Swiss State Secretariat for the Economy (SECO) headquarters in Bern, the central hub of Switzerland\'s national economic policy.',
+    'blog.article.franco-chfd-test-aziende-2026.title': 'CHFD digital franc: tests with 9 companies are underway',
+    'blog.article.franco-chfd-test-aziende-2026.excerpt': 'The CHFD digital franc is undergoing practical testing with 9 companies until the end of 2026. The applications examined range from automatic payments to managing digital assets on blockchain.',
+    'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Conceptual visualization of digital Swiss franc CHFD and blockchain technology in payment testing',
 };
 
 export default blogMetaChEn;

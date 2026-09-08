@@ -6052,6 +6052,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-2026-accordo-libero-scambio.title': 'US-Zölle auf die Schweiz: 12,5 % und optimierte Vereinbarung Juli–August 2026',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.excerpt': 'Am 24. Juli 2026 werden die USA Zölle von bis zu 12,5 % auf Schweizer Importe verhängen. Verhandlungen über das am 20. August abgeschlossene Freihandelsabkommen: Auswirkungen auf Exporte und Wettbewerbsfähigkeit.',
     'blog.article.dazi-usa-2026-accordo-libero-scambio.imageAlt': 'Hauptsitz des Staatssekretariats für Wirtschaft (SECO) in Bern, das Nervenzentrum der Schweizer Wirtschaftspolitik.',
+    'blog.article.franco-chfd-test-aziende-2026.title': 'Digital-Franc CHFD: Testlauf mit 9 Unternehmen gestartet',
+    'blog.article.franco-chfd-test-aziende-2026.excerpt': 'Der digitale Franken CHFD befindet sich bis Ende 2026 bei 9 Unternehmen in der Praxistestphase. Die untersuchten Anwendungen reichen von automatisierten Zahlungen bis hin zur Verwaltung digitaler Assets auf der Blockchain.',
+    'blog.article.franco-chfd-test-aziende-2026.imageAlt': 'Visualisierung des digitalen Schweizer Franken CHFD und Blockchain-Technologie bei Zahlungstests',
 };
 
 export default blogMetaChDe;
