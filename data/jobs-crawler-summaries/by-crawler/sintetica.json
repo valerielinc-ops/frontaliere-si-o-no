@@ -1,18 +1,19 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-09-08T13:31:45.648Z",
+  "generatedAt": "2026-09-08T23:16:45.839Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15739,
-  "avgDurationMs": 15739,
+  "durationMs": 12966,
+  "avgDurationMs": 12966,
   "durationHistory": [
-    15739
+    12966
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/810830/purchasing-amp-logistics-specialist-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/810830/purchasing-amp-logistics-specialist-ch/sintetica",
@@ -39,16 +40,17 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
-      "_qualityScore": 62,
+      "id": "sintetica-0743e4dc7171",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-08T13:31:39.784Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 2,
+        "translation": 21,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/808005/cmc-senior-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -76,6 +78,7 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -222,6 +225,7 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -292,13 +296,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 15
       }
@@ -330,6 +334,7 @@
       },
       "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -366,6 +371,7 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -428,7 +434,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate 5",
-      "slug": "purchasing-logistics-specialist-mendrisio-site-ticino-sintetica",
+      "slug": "purchasing-logistica-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio",
       "category": "logistics",
       "datePosted": "2026-09-08",
       "source": "sintetica-careers-crawler",
@@ -440,9 +446,10 @@
         "location": "Mendrisio"
       },
       "sourceLang": "en",
-      "crawledAt": "",
-      "needsRetranslation": true,
       "id": "sintetica-0743e4dc7171",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:31:39.784Z",
+      "crawledAt": "",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -482,13 +489,13 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "crawledAt": "",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -649,9 +656,9 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -730,7 +737,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
@@ -738,10 +745,10 @@
       "salaryMax": 169000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -773,13 +780,13 @@
       },
       "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -815,9 +822,9 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",

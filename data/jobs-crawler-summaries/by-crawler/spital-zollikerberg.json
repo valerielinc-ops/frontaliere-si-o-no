@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-08T13:32:06.340Z",
+  "generatedAt": "2026-09-08T23:17:02.877Z",
   "total": 9,
   "discovered": null,
   "parsed": 6,
@@ -9,16 +9,18 @@
   "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 40201,
-  "avgDurationMs": 40201,
+  "unchangedCount": 1,
+  "durationMs": 36150,
+  "avgDurationMs": 36150,
   "durationHistory": [
-    40201
+    36150
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-63ba0b3fc37b",
       "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
@@ -50,7 +52,8 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,7 +62,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
