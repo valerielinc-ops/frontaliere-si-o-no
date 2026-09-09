@@ -1,19 +1,55 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-08T23:18:32.394Z",
+  "generatedAt": "2026-09-09T13:42:52.585Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19322,
-  "avgDurationMs": 19322,
+  "unchangedCount": 0,
+  "durationMs": 23229,
+  "avgDurationMs": 23229,
   "durationHistory": [
-    19322
+    23229
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Method & Process Engineer - CAD and Digital Engineering (f/m/d) 100% - REF287029N",
+      "slug": "method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF287029N-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000148427999-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-09",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-7db085910876",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T10:14:24.092Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "title": "Praktikum – Produkt- und Projektmanagement REF295388E",
       "slug": "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil",
@@ -42,7 +78,6 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-02T13:33:43.548Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -115,7 +150,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T23:08:07.074Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -188,7 +222,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T10:14:24.092Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,7 +258,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T10:14:24.092Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,7 +294,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T10:14:24.092Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -273,43 +304,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Method & Process Engineer - CAD and Digital Engineering (f/m/d) 100% - REF287029N",
-      "slug": "method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF287029N-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146657769-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-7db085910876",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-01T10:14:24.092Z",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
