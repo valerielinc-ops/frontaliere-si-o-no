@@ -2070,6 +2070,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'neutralita-iniziativa-svizzera-freysinger': { it: 'neutralita-iniziativa-svizzera-freysinger', en: 'neutrality-initiative-switzerland-freysinger', de: 'neutralitaet-initiative-schweiz-freysinger', fr: 'neutralite-initiative-suisse-freysinger' },
  'licenza-guida-lucerna-procedura': { it: 'licenza-guida-lucerna-procedura', en: 'driver-license-lucerne-procedure', de: 'fuehrerschein-luzern-verfahren', fr: 'permis-lucerne-procedure' },
  'aprire-attivita-appenzello-interno-costi': { it: 'aprire-attivita-appenzello-interno-costi', en: 'open-business-appenzell-internal-register', de: 'geschaft-offnen-appenzell-intern-handelsregister', fr: 'creer-entreprise-appenzell-interne-registre' },
+ 'pa30-consultazione-agricola': { it: 'pa30-consultazione-agricola', en: 'pa30-agricultural-consultation', de: 'pa30-landwirtschaftliche-konsultation', fr: 'pa30-consultation-agricole' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

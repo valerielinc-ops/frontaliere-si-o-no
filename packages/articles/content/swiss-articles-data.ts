@@ -18397,6 +18397,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pa30-consultazione-agricola',
+    category: 'novita',
+    date: '2026-09-09T01:07:51.629Z',
+    image: '/images/blog/pa30-consultazione-agricola.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
