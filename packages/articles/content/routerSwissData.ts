@@ -2093,6 +2093,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tour-operator-calo-conflitti': { it: 'tour-operator-calo-conflitti', en: 'tour-operators-decline-conflicts', de: 'reiseveranstalter-rueckgang-konflikte', fr: 'operateurs-tourisme-baisse-conflits' },
  'banda-larga-zone-rurali': { it: 'banda-larga-zone-rurali', en: 'broadband-rural-areas-switzerland', de: 'breitband-laendliche-gebiete', fr: 'haut-debit-zones-rurales-suisse' },
  'emissione-prestiti-federali-2026': { it: 'emissione-prestiti-federali-2026', en: 'federal-loan-emission-september-2026', de: 'emission-bundesanleihen-september-2026', fr: 'emission-emprunts-federaux-2026' },
+ 'opportunita-lavoro-federale': { it: 'opportunita-lavoro-federale', en: 'federal-employment-opportunities', de: 'chancen-bundesverwaltung', fr: 'opportunites-emploi-federale' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
