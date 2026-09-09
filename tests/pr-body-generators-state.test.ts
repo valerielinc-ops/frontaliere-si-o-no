@@ -160,9 +160,9 @@ function isPlaceholder(bullet: string): boolean {
  */
 function promptBlocks(text: string): string[] {
   const out: string[] = [];
-  const lines = text.split('\n');
+  const lines = text.split(/\r?\n/);
   for (let i = 0; i < lines.length; i++) {
-    const m = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:\s+#.*)?$/.exec(lines[i]);
+    const m = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:[ \t]+(?:#.*)?)?$/.exec(lines[i]);
     if (!m) continue;
     const indent = m[1].length;
     const buf: string[] = [];
@@ -214,6 +214,18 @@ describe('generatori del body PR — sezione dei residui', () => {
       workflowSources.map((s) => s.rel).sort(),
       'il discovery dei workflow non deve diventare parziale o vuoto',
     ).toEqual(workflowFiles);
+
+    const promptWorkflows = workflowSources.filter(({ text }) =>
+      /^\s*prompt\s*:\s*[|>]/m.test(text),
+    );
+    expect(promptWorkflows.length, 'nessun block scalar prompt trovato: il controllo sarebbe vacuo')
+      .toBeGreaterThan(0);
+    for (const workflow of promptWorkflows) {
+      expect(
+        promptBlocks(workflow.text).length,
+        `${workflow.rel}: il parser non ha estratto il block scalar prompt`,
+      ).toBeGreaterThan(0);
+    }
 
     const offenders: string[] = [];
     for (const workflow of workflowSources) {
