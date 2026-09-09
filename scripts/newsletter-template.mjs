@@ -11,6 +11,7 @@
 
 import { newsletterPartnerPlacement } from '../functions/src/lib/newsletterPlacements.js';
 import { buildAffiliateHref } from '../functions/src/lib/affiliateLinks.js';
+import { getEnabledPartner } from '../functions/src/lib/affiliatePartnersRegistry.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_BLUE = '#2563EB';
@@ -517,7 +518,8 @@ const AFFILIATE_PARTNERS_NL = [
 ];
 
 function renderAffiliatePartners({ campaign, locale }) {
-  const rows = AFFILIATE_PARTNERS_NL.map((p, i) => {
+  const enabledPartners = AFFILIATE_PARTNERS_NL.filter((p) => getEnabledPartner(p.partnerId));
+  const rows = enabledPartners.map((p, i) => {
     const desc = p.desc[locale] || p.desc.it;
     // Posizione della riga nel blocco: `nl-partner-<indice 1-based>-<id>`.
     // L'indice viene dall'ordine di AFFILIATE_PARTNERS_NL, cioe' dall'ordine

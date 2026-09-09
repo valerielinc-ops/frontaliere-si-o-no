@@ -38,7 +38,7 @@ export function safeAffiliateToken(raw, fallback = '') {
 
 /** Normalise one Partnerize publisher reference. */
 export function sanitizeAffiliatePubref(raw) {
-  return safeAffiliateToken(raw).slice(0, PUBREF_MAX_LEN).replace(/-+$/, '');
+  return safeAffiliateToken(raw);
 }
 
 /**
