@@ -6208,6 +6208,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Kanton und Gemeinden tauschen sich über Steuern und ARP-Reform aus',
     'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Dialog Kanton-Gemeinden über Steuern, Tessin 2020 und ARP-Reform. Im Zentrum: Abschaffung des Bundesmietwerts und Besteuerung von Zweitwohnungen',
     'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, Sitz der Kantonsadministration während Dialog Kanton-Gemeinden zu Fiskalpolitik und Reformen',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet schneidet in Winterthur, Unia auf dem Feld',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 Stellen auf 730 Stellen bei Zimmer Biomet (Winterthur). Die Gewerkschaft Unia protestiert: Die Arbeitnehmer müssen nicht für die Bereicherung der Aktionäre bezahlen.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur, wo 580 von 730 Arbeitsplätzen abgebaut werden',
 };
 
 export default blogMetaChDe;

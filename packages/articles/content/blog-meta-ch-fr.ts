@@ -6208,6 +6208,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton et communes se confrontent sur la fiscalité et la réforme de l\'ARP',
     'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzone, dialogue cantonal-commun sur le fisc, Tessin 2020 et réforme de l\'ARP. Au centre : abolition de la valeur locative fédérale et de l\'impôt sur les résidences secondaires',
     'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, siège de l\'Administration cantonale, lors du dialogue Kanton-Communes sur la fiscalité et réformes',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet coupe à Winterthour, Unia sur le terrain',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 coupes sur 730 places à Zimmer Biomet (Winterthour). Le syndicat Unia proteste : les travailleurs n\'ont pas à payer pour l\'enrichissement des actionnaires.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Usine de production Zimmer Biomet à Winterthour, où 580 suppressions d\'emploi sur 730 sont envisagées',
 };
 
 export default blogMetaChFr;

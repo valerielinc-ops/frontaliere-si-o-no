@@ -6208,6 +6208,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Cantone e Comuni si confrontano su fisco e riforma ARP',
     'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, dialogo Cantone-Comuni su fisco, Ticino 2020 e riforma ARP. Al centro: abolizione valore locativo federale e imposta residenze secondarie',
     'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, sede dell\'Amministrazione cantonale, durante il dialogo Cantone-Comuni su fisco e riforme',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet taglia a Winterthur, Unia in campo',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 tagli su 730 posti a Zimmer Biomet (Winterthur). Il sindacato Unia protesta: i lavoratori non devono pagare per l\'arricchimento degli azionisti.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Stabilimento di produzione Zimmer Biomet a Winterthur, dove sono previsti 580 tagli su 730 posti di lavoro',
 };
 
 export default blogMetaChIt;

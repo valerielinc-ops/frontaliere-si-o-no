@@ -6208,6 +6208,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton and Municipalities discuss tax and ARP reform',
     'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Cantone-Comuni dialogue on tax, Ticino 2020 and ARP reform. At center: abolition of federal rental value and secondary residence tax',
     'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, seat of the Ticino Cantonal Administration, during Canton-Municipalities dialogue on fiscal and administrative reforms',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet cuts in Winterthur, Unia in the field',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 cuts on 730 seats at Zimmer Biomet (Winterthur). The Unia union protests: workers do not have to pay for the enrichment of shareholders.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Zimmer Biomet production facility in Winterthur, where 580 job cuts out of 730 employees are planned',
 };
 
 export default blogMetaChEn;
