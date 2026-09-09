@@ -19,6 +19,8 @@
  *  - **Idempotenza:** scarta le PR che hanno GIÀ un commento
  *    `## Post-merge follow-up triage` (il marker che Claude posta su OGNI PR
  *    processata) → niente doppio-triage sulla finestra di overlap.
+ *    Una PR di fix daily con `Addresses` + `Follow-up item: FU-...` è l'unica
+ *    eccezione al grandchild gate: passa per cercare finding nuovi nel bucket padre.
  *  - **Gate per-PR riusati BYTE-PER-BYTE:** ogni candidato passa per i due gate
  *    deterministici esistenti, invocati come subprocess (`is-followup-fix-pr.mjs`
  *    grandchild-suppression + `followup-has-candidates.mjs` no-op), così il risparmio
@@ -29,8 +31,7 @@
  *    con motivo loggato. Meglio una run Claude in più che perdere un follow-up.
  *
  * Output (GITHUB_OUTPUT): `batch_prs=<csv di numeri>`, `batch_count=<n>`,
- *   `max_turns=<n>` (min(26 + 8*batch_count, 80); MAI < 26 — AGENTS.md vieta di
- *   abbassare i turni di post-merge-followup, qui li alza in proporzione al batch).
+ *   `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage riuscito in Zurich).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
@@ -41,6 +42,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { dailyKeyZurich } from './followup-resolution-match.mjs';
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
@@ -146,52 +148,88 @@ export function maxTurnsFor(batchCount) {
   return Math.min(26 + 8 * Math.max(0, Number(batchCount) || 0), 80);
 }
 
+/**
+ * The bucket key belongs to the triage run, not to an individual merge event. An
+ * explicit value is accepted for workflow retries/tests, while the default is the
+ * current successful triage day in Europe/Zurich.
+ */
+export function triageDailyKey(nowMs = Date.now()) {
+  return process.env.TRIAGE_DAILY_KEY || dailyKeyZurich(nowMs);
+}
+
+/**
+ * Keep ordinary follow-up fixes out of the batch, but let a marker-complete daily
+ * partial fix reach the parent-bucket triage path. Unknown gate results stay fail-open.
+ */
+export function shouldTriageAfterFixGate({ isFollowupFix, followupPartial } = {}) {
+  return isFollowupFix !== true || followupPartial === true;
+}
+
+/**
+ * A marker-complete daily partial fix must still reach Claude even when the
+ * source PR has no ordinary `## Non implementato`/reviewer candidate. Its
+ * purpose is to inspect the fix PR for genuinely new findings and append them
+ * to the parent bucket; the no-op gate cannot see that parent-bucket contract.
+ */
+export function shouldTriageAfterCandidateGate({ hasCandidates, followupPartial } = {}) {
+  return hasCandidates !== false || followupPartial === true;
+}
+
 // ── I/O helpers ─────────────────────────────────────────────────────
 
 /**
- * Invoke an existing per-PR gate script as a subprocess and parse its
- * `key=value` stdout line. Reuses the gate logic byte-per-byte (no modification →
- * no risk to its tests / proceed-safe semantics). GITHUB_OUTPUT/STEP_SUMMARY are
- * blanked for the child so it only prints to stdout (no pollution of OUR outputs).
- * @returns {boolean|null} parsed boolean, or null when inconclusive (proceed-safe).
+ * Invoke an existing per-PR gate script as a subprocess. GITHUB_OUTPUT/STEP_SUMMARY
+ * are blanked for the child so it only prints to stdout (no pollution of OUR outputs).
+ * @returns {string|null} stdout, or null when inconclusive (proceed-safe).
  */
-function runGate(scriptName, prNumber, outputKey) {
+function runGateOutput(scriptName, prNumber) {
   try {
-    const out = execFileSync('node', [path.join(HERE, scriptName)], {
+    return execFileSync('node', [path.join(HERE, scriptName)], {
       encoding: 'utf-8',
       maxBuffer: 32 * 1024 * 1024,
       env: { ...process.env, PR_NUMBER: String(prNumber), GITHUB_OUTPUT: '', GITHUB_STEP_SUMMARY: '' },
     });
-    const m = new RegExp(`${outputKey}=(true|false)`).exec(out);
-    return m ? m[1] === 'true' : null;
   } catch {
     return null; // proceed-safe: gate crash → inconclusive → caller includes the PR.
   }
 }
 
-function emit(batch) {
+function gateBoolean(output, outputKey) {
+  if (output === null) return null;
+  const m = new RegExp(`(?:^|\\n)${outputKey}=(true|false)(?:\\n|$)`).exec(output);
+  return m ? m[1] === 'true' : null;
+}
+
+function runGate(scriptName, prNumber, outputKey) {
+  return gateBoolean(runGateOutput(scriptName, prNumber), outputKey);
+}
+
+function emit(batch, dailyKey = triageDailyKey()) {
   const csv = batch.join(',');
   const count = batch.length;
   const maxTurns = maxTurnsFor(count);
   console.log(`batch_count=${count}`);
   console.log(`batch_prs=${csv}`);
   console.log(`max_turns=${maxTurns}`);
+  console.log(`daily_key=${dailyKey}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `batch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\n`,
+      `batch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
     );
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(
       process.env.GITHUB_STEP_SUMMARY,
-      `## Follow-up batch collected: ${count} PR\n` +
+      `## Follow-up batch collected: ${count} PR\nDaily key: ${dailyKey} (Europe/Zurich).\n` +
       (count ? `PR: ${csv} — max-turns ${maxTurns}.\n` : `Nessuna PR da triagiare in questa finestra.\n`),
     );
   }
 }
 
 export function main() {
+  const dailyKey = triageDailyKey();
+  console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
   // 1. Watermark = start of the last SUCCESSFUL run (failed run → re-covered later).
   const runListRaw = gh([
     'run', 'list', `--workflow=${WORKFLOW}`, '--status', 'success',
@@ -223,18 +261,26 @@ export function main() {
     }
 
     // Gate 1: grandchild-suppression. true → it's a follow-up fix → skip.
-    const isFix = runGate('is-followup-fix-pr.mjs', n, 'is_followup_fix');
-    if (isFix === true) {
+    const fixGateOutput = runGateOutput('is-followup-fix-pr.mjs', n);
+    const isFix = gateBoolean(fixGateOutput, 'is_followup_fix');
+    const isPartialDailyFix = gateBoolean(fixGateOutput, 'followup_partial');
+    if (!shouldTriageAfterFixGate({ isFollowupFix: isFix, followupPartial: isPartialDailyFix })) {
       console.log(`PR #${n}: follow-up FIX (grandchild-suppression) → skip.`);
       continue;
     }
     if (isFix === null) console.log(`PR #${n}: grandchild gate inconclusive — PROCEED-SAFE (keep).`);
+    if (isFix === true && isPartialDailyFix === true) {
+      console.log(`PR #${n}: partial daily follow-up FIX → keep for parent-bucket triage; no grandchild issue.`);
+    }
 
     // Gate 2: no-op candidate pre-gate. false → nothing to triage → skip.
     const hasCand = runGate('followup-has-candidates.mjs', n, 'has_candidates');
-    if (hasCand === false) {
+    if (!shouldTriageAfterCandidateGate({ hasCandidates: hasCand, followupPartial: isPartialDailyFix })) {
       console.log(`PR #${n}: no plausible candidate (no-op gate) → skip.`);
       continue;
+    }
+    if (hasCand === false && isPartialDailyFix === true) {
+      console.log(`PR #${n}: partial daily follow-up FIX has no ordinary candidate → keep to inspect parent bucket for new findings.`);
     }
     if (hasCand === null) console.log(`PR #${n}: candidate gate inconclusive — PROCEED-SAFE (keep).`);
 
@@ -242,7 +288,7 @@ export function main() {
     console.log(`PR #${n}: passes both gates → added to batch.`);
   }
 
-  emit(batch);
+  emit(batch, dailyKey);
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
@@ -253,6 +299,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     main();
   } catch (e) {
     console.log(`collect-followup-batch: unexpected error (${e?.message || e}) — emitting empty batch (window re-covered next run).`);
-    emit([]);
+    emit([], triageDailyKey());
   }
 }

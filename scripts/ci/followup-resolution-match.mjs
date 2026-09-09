@@ -23,6 +23,86 @@
  * `git show origin/main:<path>`), so the same logic works on a worktree or a ref.
  */
 
+import { createHash } from 'node:crypto';
+
+export const FOLLOWUP_DAILY_TIME_ZONE = 'Europe/Zurich';
+export const FOLLOWUP_ITEM_ID_RE = /\bFU-(\d{4}-\d{2}-\d{2})-(\d{3})\b/g;
+export const FOLLOWUP_ITEM_ID_SINGLE_RE = /^FU-\d{4}-\d{2}-\d{2}-\d{3}$/;
+
+/**
+ * Return the calendar day used to identify a successful triage bucket.
+ * The input is deliberately the triage time, never a PR's `mergedAt`.
+ *
+ * @param {number|string|Date} [value]
+ * @param {string} [timeZone]
+ * @returns {string}
+ */
+export function dailyKeyZurich(value = Date.now(), timeZone = FOLLOWUP_DAILY_TIME_ZONE) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return dailyKeyZurich(Date.now(), timeZone);
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(date);
+  const byType = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+  return `${byType.year}-${byType.month}-${byType.day}`;
+}
+
+/** Stable title for one daily bucket. */
+export function dailyBucketTitle(dailyKey, targetRepository, itemCount = 1) {
+  const key = String(dailyKey || '').trim();
+  const repo = String(targetRepository || '').trim();
+  const count = Math.max(1, Math.floor(Number(itemCount) || 1));
+  return `follow-up(daily:${key}): ${count} item${count === 1 ? '' : 's'} — ${repo}`;
+}
+
+/** Stable item identifier; numbering is allocated only when an item is first added. */
+export function followupItemId(dailyKey, sequence) {
+  const key = String(dailyKey || '').trim();
+  const n = Math.max(1, Math.floor(Number(sequence) || 1));
+  return `FU-${key}-${String(n).padStart(3, '0')}`;
+}
+
+/** Parse the stable daily-bucket title, or return null for legacy per-PR titles. */
+export function dailyBucketInfo(title = '') {
+  const m = String(title || '').match(
+    /^follow-up\(daily:(\d{4}-\d{2}-\d{2})\):\s*(\d+)\s+items?\s*[—-]\s*(\S.*)$/i,
+  );
+  if (!m) return null;
+  return { dailyKey: m[1], itemCount: Number(m[2]), targetRepository: m[3].trim() };
+}
+
+export function isDailyBucketTitle(title = '') {
+  return !!dailyBucketInfo(title);
+}
+
+/**
+ * Normalize a fingerprint component without changing the acceptance oracle.
+ * Punctuation meaningful to code tokens is retained; whitespace/case drift is not.
+ */
+export function normalizeFingerprintPart(value) {
+  return String(value || '').trim().toLowerCase().replace(/[`*_]/g, '').replace(/\s+/g, ' ');
+}
+
+/**
+ * Fingerprint for bucket-level deduplication. It is scoped by target repository and
+ * target file, so site and corpus findings can never collapse into one issue.
+ */
+export function followupFingerprint({
+  targetRepository = '',
+  targetFile = '',
+  acceptanceToken = '',
+  suggestedAction = '',
+} = {}) {
+  const tokenOrAction = String(acceptanceToken || '').trim() || suggestedAction;
+  const material = [targetRepository, targetFile, tokenOrAction]
+    .map(normalizeFingerprintPart)
+    .join('|');
+  return createHash('sha256').update(material).digest('hex');
+}
+
 /**
  * A token qualifies only if it carries CODE PUNCTUATION (paren/brace/quote/backtick,
  * dot-member, `::`, `=>`, comparison/assignment operator, `:digit`). Bare prose words
@@ -97,8 +177,8 @@ const ITEM_HEADING_START = /^#{2,3}\s/i;
 // for backwards compatibility with already-minted issues. Removing it would
 // absorb the legacy line into `Suggested action` and recreate the too-wide-region
 // false positive fixed by #7902.
-const ITEM_FIELD_START = /^-\s+(?:Source|Original text|Stato dichiarato nella PR|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
-const POST_ORIGINAL_FIELD_START = /^-\s+(?:Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const ITEM_FIELD_START = /^-\s+(?:State|Sources?|Stato dichiarato nella PR|Target repository|Target file|Acceptance token|Original text|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
+const POST_ORIGINAL_FIELD_START = /^-\s+(?:State|Sources?|Stato dichiarato nella PR|Target repository|Target file|Acceptance token|Funnel impact|Rationale|Suggested action|METRICA|OSSERVATORE)\s*:/i;
 const DECORATED_SHEET_START = /^\s*\*{0,2}\d+\s*-\s*(?:METRICA|OSSERVATORE)(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:])/i;
 const METRIC_SHEET_START = /^(?:-\s+METRICA\s*:|\s*\*{0,2}\d+\s*-\s*METRICA(?:\s*[.:]\s*\*{0,2}|\s*\*{0,2}\s*[.:]))/i;
 
@@ -336,12 +416,129 @@ export function hasFalsifiableAcceptance(itemText) {
 }
 
 /**
- * Spezza il corpo di una follow-up nei suoi item (`### 1.`, `### 2.`, …).
- * Ritorna `[]` se il corpo non ha la struttura a item — che per i chiamanti
- * significa «non riclassificare», mai «zero item validi».
+ * Heading riconosciuti per gli item. Il primo ramo è il formato stabile dei bucket
+ * giornalieri; il secondo mantiene la compatibilità con le follow-up già pubblicate.
+ * La regex è intenzionalmente ancorata a `###` e a inizio riga: un heading citato dentro
+ * un blocco fenced resta materia per il controllo lossless del mint gate.
+ */
+const FOLLOWUP_ITEM_HEADING_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/gmi;
+
+function itemStateFromText(text) {
+  const m = String(text || '').match(/^\s*-\s+State\s*:\s*(open|in-progress|done|blocked)\s*$/im);
+  return m ? m[1].toLowerCase() : null;
+}
+
+function itemFieldFromText(text, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = String(text || '').match(new RegExp(`^\\s*-\\s+${escaped}\\s*:\\s*(.*?)\\s*$`, 'im'));
+  return m ? m[1].trim() : '';
+}
+
+/**
+ * Parse both legacy numbered items and stable `FU-YYYY-MM-DD-NNN` items.
+ * `text` intentionally preserves the old split semantics: it starts immediately after
+ * the heading, so existing acceptance/matcher callers and tests remain unchanged.
+ *
+ * @param {string} body
+ * @returns {Array<{id:string|null, number:number|null, title:string, heading:string,
+ *                  text:string, raw:string, state:string|null, targetFile:string,
+ *                  acceptanceToken:string, suggestedAction:string}>}
+ */
+export function parseFollowupItems(body) {
+  const source = String(body || '');
+  const matches = [...source.matchAll(FOLLOWUP_ITEM_HEADING_RE)];
+  return matches.map((match, index) => {
+    const heading = match[0];
+    const start = match.index ?? 0;
+    const end = matches[index + 1]?.index ?? source.length;
+    // Legacy callers historically received the suffix immediately after `### N.`
+    // (including its leading space). Stable headings own the short title, so their
+    // text starts after the complete heading line.
+    const contentStart = match[3]
+      ? start + heading.indexOf('.') + 1
+      : start + heading.length;
+    const text = source.slice(contentStart, end);
+    const id = match[1] || null;
+    const number = match[3] ? Number(match[3]) : null;
+    const title = (match[2] ?? match[4] ?? '').trim();
+    return {
+      id,
+      number,
+      title,
+      heading,
+      start,
+      end,
+      text,
+      raw: source.slice(start, end),
+      state: itemStateFromText(text),
+      targetFile: itemFieldFromText(text, 'Target file'),
+      acceptanceToken: itemFieldFromText(text, 'Acceptance token'),
+      suggestedAction: itemFieldFromText(text, 'Suggested action'),
+    };
+  });
+}
+
+/**
+ * Spezza il corpo di una follow-up nei suoi item (`### 1.`, `### 2.`, … oppure
+ * `### FU-YYYY-MM-DD-NNN — ...`). Ritorna `[]` se il corpo non ha struttura.
  */
 export function splitFollowupItems(body) {
-  return String(body || '').split(/^### \d+\./m).slice(1);
+  return parseFollowupItems(body).map((item) => item.text);
+}
+
+/** True when every parsed item has a unique stable FU identifier. */
+export function hasStableItemIds(body) {
+  const items = parseFollowupItems(body);
+  const ids = items.map((item) => item.id);
+  return ids.length > 0 && ids.every((id) => FOLLOWUP_ITEM_ID_SINGLE_RE.test(String(id)))
+    && new Set(ids).size === ids.length;
+}
+
+/** Return the bucket-level collecting/sealed state, or null for malformed bodies. */
+export function bucketState(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  // The bucket state belongs to the Batch header. Do not mistake a quoted
+  // `- State: collecting` inside an item's Original text/code fence for it.
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const m = head.match(/^\s*-\s+State\s*:\s*(collecting|sealed)\s*$/im);
+  return m ? m[1].toLowerCase() : null;
+}
+
+/** The first stable item explicitly waiting for a fixer. */
+export function selectFirstOpenItem(body) {
+  return parseFollowupItems(body).find((item) => item.id && item.state === 'open') || null;
+}
+
+/** Replace one stable item's state without touching neighboring body text. */
+export function updateFollowupItemState(body, itemId, state) {
+  const wanted = String(itemId || '').toUpperCase();
+  if (!FOLLOWUP_ITEM_ID_SINGLE_RE.test(wanted) || !/^(open|in-progress|done|blocked)$/i.test(String(state || ''))) return null;
+  const source = String(body || '');
+  const item = parseFollowupItems(source).find((candidate) => candidate.id?.toUpperCase() === wanted);
+  if (!item || !item.state) return null;
+  const next = String(state).toLowerCase();
+  const updatedRaw = item.raw.replace(
+    /^(\s*-\s+State\s*:\s*)(?:open|in-progress|done|blocked)(\s*)$/im,
+    `$1${next}$2`,
+  );
+  return `${source.slice(0, item.start)}${updatedRaw}${source.slice(item.end)}`;
+}
+
+/** Extract the item ID from a PR marker such as `Follow-up item: FU-...`. */
+export function followupItemMarkers(text) {
+  const out = [];
+  const seen = new Set();
+  const source = String(text || '');
+  const markerRe = /Follow-up\s+item\s*:\s*(FU-\d{4}-\d{2}-\d{2}-\d{3})\b/gi;
+  for (const match of source.matchAll(markerRe)) {
+    const id = match[1].toUpperCase();
+    if (!seen.has(id)) {
+      seen.add(id);
+      out.push(id);
+    }
+  }
+  return out;
 }
 
 /**

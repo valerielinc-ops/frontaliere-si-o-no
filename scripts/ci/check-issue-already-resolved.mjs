@@ -54,7 +54,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { detectAlreadyResolved, closingMergedPr } from './followup-resolution-match.mjs';
+import { dailyBucketInfo, detectAlreadyResolved, closingMergedPr } from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
@@ -209,6 +209,10 @@ function isBoldTitleLead(rest, lines = [], start = 0) {
  */
 export function isAggregate(title, body) {
   const titleText = String(title || '');
+  // Daily buckets are aggregates even when their current count is one. Keep
+  // this shared predicate aligned with the issue-fix closing-ref generator so
+  // a fallback path can never emit `Closes #N` for a daily bucket.
+  if (dailyBucketInfo(titleText)) return true;
   const m = titleText.match(/\b(\d+)\s+items?\s+(?:deferred|deferit[oi])\b/i);
   // An explicit count is authoritative once stated — trust it fully rather
   // than falling through to the keyword heuristic below, which exists ONLY
@@ -258,6 +262,14 @@ function main() {
   }
 
   const body = iss.body || '';
+  // A daily bucket is reconciled item-by-item. An issue-wide token match here
+  // could short-circuit the fixer for FU-001 while FU-002 is still open; leave
+  // selection and closure to the daily bucket gates instead.
+  if (dailyBucketInfo(iss.title || '')) {
+    console.log('Daily follow-up bucket — proceeding (item-level reconciliation owns resolution).');
+    setOutput(false);
+    return;
+  }
   if (isAggregate(iss.title || '', body)) {
     console.log('Aggregate multi-item follow-up — proceeding (one item resolved ≠ all).');
     setOutput(false);

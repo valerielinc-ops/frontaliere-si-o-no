@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { fixIssueNumberFromBranch } from '../scripts/ci/is-followup-fix-pr.mjs';
+import {
+  addressedFollowupNumbers,
+  fixIssueNumberFromBranch,
+  followupItemMarkerIds,
+  isPartialDailyFollowupFix,
+} from '../scripts/ci/is-followup-fix-pr.mjs';
 
 // The grandchild-suppression gate (post-merge-followup) anchors on the fixer BRANCH,
 // not the PR body, so a prose "closes #N" can never false-positive (regression PR #2214).
@@ -33,5 +38,41 @@ describe('fixIssueNumberFromBranch', () => {
 
   it('tolerates surrounding whitespace', () => {
     expect(fixIssueNumberFromBranch('  fix/issue-99  ')).toBe(99);
+  });
+});
+
+describe('partial daily follow-up PR markers', () => {
+  it('reads stable item markers and de-duplicates them case-insensitively', () => {
+    expect(
+      followupItemMarkerIds(
+        'Follow-up item: fu-2026-09-09-001\nFollow-up item: FU-2026-09-09-001\nFollow-up item: FU-2026-09-09-002',
+      ),
+    ).toEqual(['FU-2026-09-09-001', 'FU-2026-09-09-002']);
+  });
+
+  it('accepts only explicit Addresses #N parent references', () => {
+    expect(addressedFollowupNumbers('Addresses #123 and addresses #456; related #789')).toEqual([123, 456]);
+    expect(addressedFollowupNumbers('Closes #123')).toEqual([]);
+  });
+
+  it('requires both marker and Addresses before allowing parent-bucket triage', () => {
+    expect(isPartialDailyFollowupFix('Follow-up item: FU-2026-09-09-001\nAddresses #123')).toBe(true);
+    expect(isPartialDailyFollowupFix('Follow-up item: FU-2026-09-09-001')).toBe(false);
+    expect(isPartialDailyFollowupFix('Addresses #123')).toBe(false);
+  });
+
+  it('rejects a closing keyword for the addressed bucket', () => {
+    expect(isPartialDailyFollowupFix(
+      'Follow-up item: FU-2026-09-09-001\nAddresses #123\nCloses #123',
+    )).toBe(false);
+  });
+
+  it('rejects a multi-item or multi-parent body at the partial-fix gate', () => {
+    expect(isPartialDailyFollowupFix(
+      'Follow-up item: FU-2026-09-09-001\nFollow-up item: FU-2026-09-09-002\nAddresses #123',
+    )).toBe(false);
+    expect(isPartialDailyFollowupFix(
+      'Follow-up item: FU-2026-09-09-001\nAddresses #123\nAddresses #456',
+    )).toBe(false);
   });
 });

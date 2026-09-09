@@ -14,6 +14,8 @@ import {
   hasTriageComment,
   canonicalLogin,
   maxTurnsFor,
+  shouldTriageAfterCandidateGate,
+  shouldTriageAfterFixGate,
 } from '../scripts/ci/collect-followup-batch.mjs';
 
 describe('canonicalLogin', () => {
@@ -125,5 +127,22 @@ describe('maxTurnsFor', () => {
   });
   it('caps at 80', () => {
     expect(maxTurnsFor(20)).toBe(80);
+  });
+});
+
+describe('grandchild gate exception', () => {
+  it('keeps ordinary fixes skipped but lets a marker-complete daily partial fix through', () => {
+    expect(shouldTriageAfterFixGate({ isFollowupFix: true, followupPartial: false })).toBe(false);
+    expect(shouldTriageAfterFixGate({ isFollowupFix: true, followupPartial: true })).toBe(true);
+  });
+
+  it('keeps an unreadable gate fail-open', () => {
+    expect(shouldTriageAfterFixGate({ isFollowupFix: null, followupPartial: null })).toBe(true);
+  });
+
+  it('keeps a marker-complete daily partial fix even when the ordinary no-op gate is false', () => {
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: true })).toBe(true);
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: false, followupPartial: false })).toBe(false);
+    expect(shouldTriageAfterCandidateGate({ hasCandidates: null, followupPartial: false })).toBe(true);
   });
 });

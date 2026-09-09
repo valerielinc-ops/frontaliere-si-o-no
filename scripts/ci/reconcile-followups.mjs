@@ -45,8 +45,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  bucketState,
+  dailyBucketInfo,
   detectAlreadyResolved,
   hasFalsifiableAcceptance,
+  hasStableItemIds,
+  isDailyBucketTitle,
+  parseFollowupItems,
+  updateFollowupItemState,
   splitFollowupItems,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
@@ -292,6 +298,67 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
 }
 
 /**
+ * Item-level close gate for a sealed daily bucket. Every item must be structurally
+ * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
+ * A single unresolved/ambiguous/weak item vetoes the whole issue.
+ */
+export function dailyBucketCloseGate(body, io) {
+  const items = parseFollowupItems(body);
+  if (!items.length) return { blocks: true, reason: 'aggregate-unparsed', validItems: [], unresolvedItems: [] };
+  if (!hasStableItemIds(body)) return { blocks: true, reason: 'missing-stable-item-id', validItems: [], unresolvedItems: items };
+  const state = bucketState(body);
+  if (!state) return { blocks: true, reason: 'ambiguous-bucket-state', validItems: items, unresolvedItems: items };
+  if (state !== 'sealed') return { blocks: true, reason: 'bucket-collecting', validItems: items, unresolvedItems: items };
+  const invalid = items.filter((item) => !hasFalsifiableAcceptance(item.text));
+  if (invalid.length) return { blocks: true, reason: 'invalid-item', validItems: items.filter((item) => !invalid.includes(item)), unresolvedItems: invalid };
+  const evidenceById = new Map();
+  const unresolvedItems = [];
+  const weakItems = [];
+  for (const item of items) {
+    const result = detectAlreadyResolved(item.text, io);
+    evidenceById.set(item.id, result.evidence || []);
+    if (item.state !== 'done' || !result.resolved) unresolvedItems.push(item);
+    if (!isStrongAutoCloseEvidence((result.evidence || []).map((entry) => entry.tok))) weakItems.push(item);
+  }
+  if (unresolvedItems.length) {
+    return { blocks: true, reason: 'valid-item-unconfirmed', validItems: items, unresolvedItems, evidenceById };
+  }
+  if (weakItems.length) {
+    return { blocks: true, reason: 'weak-item-evidence', validItems: items, unresolvedItems: weakItems, evidenceById };
+  }
+  return { blocks: false, reason: null, validItems: items, unresolvedItems: [], evidenceById };
+}
+
+/** Mark only token-confirmed daily items as done; never infer completion from prose. */
+export function reconcileDailyItems(body, io) {
+  const source = String(body || '');
+  const items = parseFollowupItems(source);
+  if (!items.length || !hasStableItemIds(source)) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-stable-item-id' };
+  }
+  if (bucketState(source) !== 'sealed') {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'bucket-collecting' };
+  }
+  let nextBody = source;
+  const changes = [];
+  const evidenceById = new Map();
+  for (const item of items) {
+    const result = hasFalsifiableAcceptance(item.text)
+      ? detectAlreadyResolved(item.text, io)
+      : { resolved: false, evidence: [] };
+    evidenceById.set(item.id, result.evidence || []);
+    if (result.resolved && (item.state === 'open' || item.state === 'in-progress')) {
+      const updated = updateFollowupItemState(nextBody, item.id, 'done');
+      if (updated) {
+        nextBody = updated;
+        changes.push({ id: item.id, state: 'done', evidence: result.evidence || [] });
+      }
+    }
+  }
+  return { body: nextBody, changed: nextBody !== source, changes, evidenceById, reason: null };
+}
+
+/**
  * Il veto dell'aggregata, per CONTENUTO invece che per titolo.
  *
  * Prima bastava «il titolo dice K≥2 item» per non chiudere mai. Il motivo
@@ -317,6 +384,7 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
  * @returns {{blocks: boolean, reason: string|null}}
  */
 export function aggregateCloseGate(body, io) {
+  if (bucketState(body) || hasStableItemIds(body)) return dailyBucketCloseGate(body, io);
   const items = splitFollowupItems(body);
   // Corpo senza struttura a item: non abbiamo riclassificato nulla, quindi
   // resta il veto storico. Mai interpretare «non so leggerlo» come «vuoto».
@@ -364,6 +432,17 @@ function gh(args, { allowFail = false } = {}) {
 
 const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 
+/** Parse a `gh --json` response without turning an API failure into `null` data. */
+function parseIssueJson(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return null;
+  try {
+    const value = JSON.parse(raw);
+    return value && typeof value === 'object' && !Array.isArray(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
 // Matcher (isDistinctiveToken / citedFiles / citedTokens / detectAlreadyResolved) lives
 // in ./followup-resolution-match.mjs — shared verbatim with the issue-fix.yml pre-flight
 // gate (check-issue-already-resolved.mjs) so the two can never drift on what counts as
@@ -409,6 +488,12 @@ function evidenceLines(evidence) {
     .join('\n');
 }
 
+function writeBodyFile(text) {
+  const file = path.join('/tmp', `reconcile-followup-${process.pid}-${Math.random().toString(36).slice(2)}.md`);
+  fs.writeFileSync(file, String(text || ''));
+  return file;
+}
+
 function main() {
   const raw = gh([
     'issue', 'list', '--label', 'follow-up', '--state', 'open',
@@ -448,7 +533,7 @@ function main() {
   const unclassifiableCandidates = [];
   let unclassifiableSkipped = 0;
 
-  for (const iss of issues) {
+  for (let iss of issues) {
     if (inFlight(iss.number)) { console.log(`#${iss.number}: in-flight PR open, skip`); continue; }
     const labelNames = (iss.labels || []).map(labelName);
     const hasUnclassifiableLabel = labelNames.includes(UNCLASSIFIABLE_LABEL);
@@ -468,7 +553,49 @@ function main() {
       }
     }
 
-    const { resolved, evidence } = detectAlreadyResolved(iss.body || '', diskIo);
+    const daily = dailyBucketInfo(iss.title || '');
+    let resolved;
+    let evidence;
+    if (daily) {
+      // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
+      // one completed item hide another open item, which is precisely the aggregate
+      // closure bug this format removes.
+      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo);
+      let reconciledBody = itemReconciliation.body;
+      if (itemReconciliation.changed) {
+        if (DRY_RUN) {
+          console.log(`#${iss.number}: ${itemReconciliation.changes.length} item già provati → dry-run, body non riscritto.`);
+        } else {
+          const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs, '--json', 'body'], { allowFail: true }));
+          if (!latest || String(latest.body || '') !== String(iss.body || '')) {
+            console.log(`#${iss.number}: body cambiato/non leggibile durante la riconciliazione → skip, nessun overwrite.`);
+            continue;
+          }
+          const bodyFile = writeBodyFile(reconciledBody);
+          const edited = gh(['issue', 'edit', String(iss.number), ...repoArgs, '--body-file', bodyFile], { allowFail: true });
+          fs.rmSync(bodyFile, { force: true });
+          if (edited === null) {
+            console.log(`#${iss.number}: aggiornamento item done non riuscito → resta aperta.`);
+            continue;
+          }
+          for (const change of itemReconciliation.changes) {
+            const lines = evidenceLines(change.evidence || []);
+            gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
+              `${MARKER}\n✅ Item \`${change.id}\` marcato \`done\` dopo verifica deterministica del matcher.\n\n${lines}`], { allowFail: true });
+          }
+        }
+      }
+      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo);
+      if (bucketGate.blocks) {
+        console.log(`#${iss.number} daily:${daily.dailyKey}: bucket aperto (${bucketGate.reason}), item non ancora tutti provati.`);
+        continue;
+      }
+      iss = { ...iss, body: reconciledBody };
+      resolved = true;
+      evidence = [...(bucketGate.evidenceById?.values() || [])].flat();
+    } else {
+      ({ resolved, evidence } = detectAlreadyResolved(iss.body || '', diskIo));
+    }
 
     // The marker records the exact structural veto. It is deliberately written even
     // when the token detector is negative: the next pass must not pay to rediscover
@@ -483,9 +610,10 @@ function main() {
 
     const hasMaybeResolved = labelNames.includes(LABEL);
     const blocked = labelNames.some((n) => KEEP_OPEN_LABELS.has(n));
-    const aggGate = isAggregateTitle(iss.title, iss.body || '')
+    let aggGate = isAggregateTitle(iss.title, iss.body || '')
       ? aggregateCloseGate(iss.body || '', diskIo)
       : { blocks: false, reason: null };
+    if (isDailyBucketTitle(iss.title || '')) aggGate = dailyBucketCloseGate(iss.body || '', diskIo);
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
     if (hasPriorFlag === null) {
@@ -497,7 +625,7 @@ function main() {
     });
 
     if (action === 'close') {
-      closed.push({ number: iss.number, title: iss.title, evidence });
+      closed.push({ number: iss.number, title: iss.title, evidence, daily: !!daily });
     } else if (action === 'flag') {
       const reason = blocked ? 'keep-open'
         : isAggregate ? aggGate.reason
@@ -549,7 +677,7 @@ ${evidenceLines(f.evidence)}${note}`;
   // Tier 2 — auto-close (second confirmation, grace window elapsed, eligible).
   for (const c of closed) {
     const comment = `${CLOSE_MARKER}
-✅ **Reconcile auto-close**: seconda conferma deterministica (\`maybe-resolved\` da un run precedente, finestra di grazia trascorsa senza obiezioni, ancora risolta, single-item, nessuna label keep-open). Tutti i token-codice prescritti sono presenti nei file citati:
+✅ **Reconcile auto-close**: seconda conferma deterministica (\`maybe-resolved\` da un run precedente, finestra di grazia trascorsa senza obiezioni, ancora risolta, ${c.daily ? 'daily bucket con TUTTI gli item validi done' : 'single-item'}, nessuna label keep-open). Tutti i token-codice prescritti sono presenti nei file citati:
 
 ${evidenceLines(c.evidence)}
 

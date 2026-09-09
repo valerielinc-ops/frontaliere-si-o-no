@@ -66,7 +66,8 @@ jobs:
       #  - workflow_dispatch → batch = [pr_number] diretto (backfill volontario,
       #    bypass gate: il prompt Claude ri-verifica eligibility).
       # PROCEED-SAFE: dubbio/errore su una PR → inclusa nel batch (mai persa).
-      # Emette batch_prs (csv), batch_count, max_turns. Vedi scripts/ci/collect-followup-batch.mjs.
+      # Emette batch_prs (csv), batch_count, max_turns e daily_key (Europe/Zurich).
+      # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
         env:
@@ -82,6 +83,7 @@ jobs:
               echo "batch_prs=${PR}"
               echo "batch_count=1"
               echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
+              echo "daily_key=$(TZ=Europe/Zurich date +%F)"
             } >> "$GITHUB_OUTPUT"
           else
             node scripts/ci/collect-followup-batch.mjs
@@ -235,10 +237,14 @@ jobs:
         # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
         if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
         uses: ./.github/actions/claude-codex-fallback
+        # The shared action invokes `uses: anthropics/claude-code-action@v1` for
+        # Claude and switches to the one-shot Codex subscription fallback only on
+        # a detected usage-limit/quota response.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           REPO: ${{ github.repository }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
@@ -304,15 +310,28 @@ jobs:
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
             Conteggio: ${{ steps.collect.outputs.batch_count }}
+            Daily key (Europe/Zurich, solo se la triage run riesce): ${{ steps.collect.outputs.daily_key }}
 
             Itera su OGNI PR del batch ed esegui il workflow FOLLOWUP.md per ciascuna, in
             modo INDIPENDENTE: un errore su una PR non deve impedire di processare le altre.
+            I finding validi non diventano issue per-PR: vengono prima raccolti e poi
+            raggruppati per repository target nel bucket giornaliero della chiave sopra.
 
             **Bootstrap (UNA volta, condiviso per TUTTO il batch — non ri-leggere per ogni PR):**
             1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
             2. Leggi `REVIEW.md → "Scopo progetto"` per il filtro funnel.
-            3. `gh issue list --label follow-up --state all --json number,title --limit 50` (SOLO `number,title`: il bulk overview serve per la vista d'insieme/titoli; il dedup vero è item-level scoped via `--search`. MAI aggiungere `,body`: con ~170 issue follow-up il dump arriva a ~170KB emoji-heavy, troncato a un boundary di surrogate UTF-16 → lone surrogate → `400 no low surrogate in string`, ogni run fallisce.) Riusa questa lista per il dedup su tutte le PR del batch.
+            3. `gh issue list --label follow-up --state all --json number,title --limit 300` (SOLO `number,title`: il bulk overview serve per la vista d'insieme; il dedup vero è item-level e il body va letto solo per i bucket daily candidati). Riusa questa lista per il dedup su tutte le PR del batch.
             4. Il contesto per-PR del batch è già prefetchato (zero-Claude, token-lever) in `${{ runner.temp }}/followup-ctx/followup-bundle.md`: leggilo con `Read` — contiene, per ciascuna PR #N del batch, `gh pr view` (number/title/body/mergedAt/mergeCommit/url/author) + le review, e l'elenco delle PR aperte con i rispettivi file (per l'In-flight PR overlap sotto). Non ripetere queste chiamate per-PR a meno che la sezione della PR risulti vuota/incompleta nel bundle.
+
+            **Protocollo bucket giornaliero (vincolante):**
+            - La chiave è `${{ steps.collect.outputs.daily_key }}` in `Europe/Zurich`, derivata dal giorno della triage riuscita, MAI da `mergedAt`. Lo stesso retry può quindi raccogliere la finestra arretrata nello stesso bucket della run.
+            - Dopo aver applicato tutti i filtri esistenti, determina il repository target di ogni item e raggruppa per `(daily_key, target repository)`: sito e corpus sono issue separate. Il titolo canonico è `follow-up(daily:YYYY-MM-DD): N item — owner/repo`.
+            - Cerca prima un issue aperto con quella chiave e quel repository. Se esiste, rileggi il body immediatamente prima dell'append; confronta la baseline (o una hash), ricostruisci l'append dalla lettura nuova su divergenza e non sovrascrivere contenuto concorrente. Se trovi un bucket `collecting` storico che contiene una PR della finestra, riusa quella chiave/titolo anche se il retry è entrato nel giorno successivo: mai sdoppiare la finestra. Se non esiste, crea UNA sola issue per gruppo con `State: collecting`; non aggiungere `agent:fix` né `agent:fix-queued` durante la raccolta.
+            - Ogni item deve avere un ID stabile `FU-YYYY-MM-DD-NNN`, assegnato una sola volta, e i campi `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`, `Sources`. Deduplica col fingerprint `target repository + target file + token/azione normalizzata`; su match aggiungi la PR alla riga `Sources`, non un secondo item.
+            - Il body resta `State: collecting` finché tutti i chunk seriali del batch sono conclusi. Non troncare mai il set per un cap “max 10”: il cap vale solo per chunk/sessione. Un errore lascia il bucket collecting e la finestra senza avanzare; il retry riusa la stessa chiave e le PR già commentate restano idempotenti.
+            - Se `batch_count` supera il budget della sessione, lavora in chunk seriali: dopo ogni chunk salva gli item nel bucket esistente, poi continua dal primo PR non commentato. Non aprire un secondo bucket per lo stesso `(daily_key, target repository)`.
+            - Solo il gate zero-Claude successivo demota gli item privi di acceptance falsificabile, porta il bucket a `State: sealed` e aggiunge `agent:fix-queued`. Un bucket collecting non è lavorabile dal drainer.
+            - Una PR di fix daily con `Addresses #<bucket>` e `Follow-up item: FU-...` passa il gate anti-nipote solo per cercare finding nuovi: non creare issue figlie. Leggi il bucket padre nello stesso repository target; i finding già coperti dal padre aggiornano `Sources`/si deduplicano, quelli genuinamente nuovi si appendono al padre (se sealed, riportalo a collecting per il gate successivo). Se il padre è illeggibile, posta il blocco sulla PR e non creare un contenitore alternativo.
 
             **Per OGNI PR #N del batch (CSV sopra):**
             - **Backfill check (SOLO se `EVENT_NAME=workflow_dispatch`):** ri-verifica che
@@ -359,15 +378,15 @@ jobs:
               NB: dopo di te gira uno step deterministico (`scripts/ci/gate-minted-followups.mjs`) che ri-applica questa regola con la funzione vera, non con la tua lettura di questa riga. Un item che non la rispetta viene demoto dal corpo della issue e conservato nel commento della PR.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando — usa `## Open PRs` + `## Open PR changed files` già nel bundle (punto 4 del Bootstrap), non rifare `gh pr list`/`gh pr diff --name-only` → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
-            - Crea issue per candidate validi, **max 10 per PR**. Label: `follow-up` + UNO funnel-* se inferibile.
+            - Non creare issue per-PR: aggiungi tutti i candidate validi al bucket giornaliero/repository target, senza un cap che tronchi gli item. Il cap è ammesso solo per il chunk/sessione. Label del bucket: `follow-up` + UNO funnel-* se inferibile; non aggiungere `agent:fix`/`agent:fix-queued` finché il gate non ha sigillato il bucket.
             - **OBBLIGATORIO:** posta `## Post-merge follow-up triage` summary commento su QUELLA PR (#N) — SEMPRE, anche con zero candidate (`## Post-merge follow-up triage: zero outstanding items.`). Questo commento è il MARKER DI IDEMPOTENZA del batch: senza, la prossima run schedulata ri-triagia la stessa PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
             **Constraint:**
-            - Read-only eccetto `gh issue create`, `gh pr comment`.
-            - Mai modificare PR label/state/title. Mai chiudere/riaprire issue.
+            - Le scritture ammesse sono `gh issue create/edit/comment` sul repository target e `gh pr comment` sulla PR sorgente; mai modificare PR label/state/title e mai chiudere/riaprire issue dal triage.
+            - Le append al body sono concorrenti: lettura subito prima, confronto baseline/hash, ricostruzione su body nuovo e commento append-only per gli eventi di stato. Un errore di append non deve cancellare item già presenti.
             - Incerto sul filtro → crea con rationale "needs triage".
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
-            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude).
+            - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude). Una PR nata per un bucket porta `Follow-up item: FU-...` e `Addresses #<bucket>`; non usare `Closes` finché resta anche un item aperto.
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
       # = triage perso per sempre). Nel modello batch il watermark avanza SOLO su run di
@@ -391,25 +410,29 @@ jobs:
       # timeout DOPO aver creato una issue; `continue-on-error` perche' un guasto qui non
       # deve poter far cadere il triage (la issue resta intatta, e' il verso sicuro).
       - name: Gate sul conio — demota gli item senza condizione di accettazione (zero-Claude)
-        if: always() && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          TRIAGE_COMPLETE: ${{ steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome == 'success' || steps.followup.outputs.fallback_success == 'true' }}
         run: node scripts/ci/gate-minted-followups.mjs
 
       # Le follow-up che riguardano il producer vengono coniate sul corpus, non sul
       # sito. Il gate deve quindi leggere/scrivere le issue su Nanako ma commentare la
       # PR sorgente qui: `GATE_PR_REPO` separa i due repository nel gate.
       - name: Gate sul conio — corpus (zero-Claude)
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        if: always()
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           GH_REPO: nanakokyobashi-rgb/frontaliere-articles
           GATE_PR_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          TRIAGE_COMPLETE: ${{ steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome == 'success' || steps.followup.outputs.fallback_success == 'true' }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Gate sul conio corpus saltato: GITHUB_PAT_NANAKO/GITHUB_PAT assente; issue lasciate intatte."
