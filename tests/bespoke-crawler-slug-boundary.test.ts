@@ -9,7 +9,7 @@ import { slugify as slugifyBellinzona } from '../scripts/lib/citta-di-bellinzona
 import { slugify as slugifyLocarno } from '../scripts/lib/citta-di-locarno-job-parser.mjs';
 import { normalizeGreenhouseJob } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { extractSuccessFactorsJobIdentity } from '../scripts/lib/ats-clients/successfactors-client.mjs';
-import { extractWorkdayJobIdentity } from '../scripts/lib/ats-clients/workday-client.mjs';
+import { extractWorkdayJobIdentity, firstLocationSegment } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { repairBurkhalterBoundarySlugs } from '../scripts/lib/burkhalter-slug-boundary-repair.mjs';
 import { truncateSlugAtWordBoundary } from '../scripts/lib/slug-truncate.mjs';
 
@@ -349,6 +349,9 @@ describe('Workday shared client compatibility', () => {
       externalPath: '/job/Sion/322',
       locationsText: 'CH \u2014 Sion',
     }).location).toBe('Sion');
+    expect(firstLocationSegment('CH - Plan-les-Ouates')).toBe('Plan-les-Ouates');
+    expect(firstLocationSegment('St-Maurice')).toBe('St-Maurice');
+    expect(firstLocationSegment('Visp – Switzerland')).toBe('Visp');
   });
 
   it('caps long shared output at a deterministic token boundary', () => {
