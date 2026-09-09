@@ -1,23 +1,24 @@
 {
   "key": "kuehne-nagel",
   "label": "Kuehne+Nagel",
-  "generatedAt": "2026-09-08T23:26:47.509Z",
-  "total": 14,
+  "generatedAt": "2026-09-09T13:52:31.650Z",
+  "total": 13,
   "discovered": null,
   "parsed": 13,
   "lastFetchOutcome": null,
-  "written": 14,
+  "written": 13,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9763,
-  "avgDurationMs": 9763,
+  "newCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 15755,
+  "avgDurationMs": 15755,
   "durationHistory": [
-    9763
+    15755
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuehne-nagel-e682041b5b7f",
       "slug": "senior-internal-auditor-kuehne-nagel-schindellegi",
@@ -30,7 +31,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:26:37.350Z",
+      "crawledAt": "2026-09-09T13:52:21.846Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -47,16 +48,15 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "jobReqId": "17233",
-      "_qualityScore": 54,
+      "firstSeenAt": "2026-09-08T23:26:37.350Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuehne-nagel-d8007556cee6",
       "slug": "global-sea-logistics-trade-specialist-kuehne-nagel-schindellegi",
@@ -69,7 +69,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17534EXTERNALENGLOBAL/global-sea-logistics-trade-specialist",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:26:37.009Z",
+      "crawledAt": "2026-09-09T13:52:16.665Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -86,13 +86,12 @@
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17534EXTERNALENGLOBAL/global-sea-logistics-trade-specialist",
       "jobReqId": "17534",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:39:59.056Z",
-      "_qualityScore": 71,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -108,7 +107,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17505EXTERNALENGLOBAL/technischer-leiter-m-w-d-messelogistik",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:38.206Z",
+      "crawledAt": "2026-09-09T13:52:22.804Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "",
@@ -147,7 +146,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16726EXTERNALENGLOBAL/expo-event-logistics-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:39.815Z",
+      "crawledAt": "2026-09-09T13:52:23.576Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "",
@@ -186,7 +185,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16989EXTERNALENGLOBAL/sachbearbeiter-in-export-m-w-d-landverkehr",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:36.632Z",
+      "crawledAt": "2026-09-09T13:52:20.950Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -203,7 +202,6 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16989EXTERNALENGLOBAL/sachbearbeiter-in-export-m-w-d-landverkehr",
       "jobReqId": "16989",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T23:19:43.927Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -225,7 +223,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17182EXTERNALENGLOBAL/operations-manager-healthcare-m-w-d-landverkehr",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:38.817Z",
+      "crawledAt": "2026-09-09T13:52:22.183Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -264,7 +262,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16937EXTERNALENGLOBAL/contract-logistics-operations-manager-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:35.296Z",
+      "crawledAt": "2026-09-09T13:52:15.508Z",
       "addressLocality": "Moehlin",
       "addressRegion": "AG",
       "postalCode": "4313",
@@ -303,7 +301,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/customer-care-specialist-seefracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:35.975Z",
+      "crawledAt": "2026-09-09T13:52:18.536Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -342,7 +340,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17037EXTERNALENGLOBAL/senior-export-specialist-m-f-d-sea-logistics",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:26:35.630Z",
+      "crawledAt": "2026-09-09T13:52:15.938Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -359,7 +357,6 @@
       "postedDate": "2026-08-25",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17037EXTERNALENGLOBAL/senior-export-specialist-m-f-d-sea-logistics",
       "jobReqId": "17037",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:15:23.615Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
@@ -381,7 +378,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16273EXTERNALENGLOBAL/customer-care-specialist-landverkehr-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:36.314Z",
+      "crawledAt": "2026-09-09T13:52:16.288Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -398,7 +395,6 @@
       "postedDate": "2026-08-14",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16273EXTERNALENGLOBAL/customer-care-specialist-landverkehr-m-w-d",
       "jobReqId": "16273",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T21:36:39.887Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -420,7 +416,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16225EXTERNALENGLOBAL/export-specialist-luftfracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:37.738Z",
+      "crawledAt": "2026-09-09T13:52:23.138Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -437,7 +433,6 @@
       "postedDate": "2026-08-13",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16225EXTERNALENGLOBAL/export-specialist-luftfracht-m-w-d",
       "jobReqId": "16225",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:13:28.844Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
@@ -459,7 +454,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:26:39.498Z",
+      "crawledAt": "2026-09-09T13:52:25.443Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -476,7 +471,6 @@
       "postedDate": "2026-05-26",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "jobReqId": "16638",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:15:31.466Z",
       "_qualityScore": 72,
       "_qualityBreakdown": {
@@ -498,7 +492,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:26:39.170Z",
+      "crawledAt": "2026-09-09T13:52:24.919Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -515,7 +509,6 @@
       "postedDate": "2025-12-18",
       "applyUrl": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "jobReqId": "7329",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:08:08.265Z",
       "_qualityScore": 72,
       "_qualityBreakdown": {
@@ -526,8 +519,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kuehne-nagel-5daaedbc88c8",
       "slug": "global-trade-specialist-kuehne-nagel-schindellegi",
@@ -570,5 +562,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
