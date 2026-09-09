@@ -113,6 +113,7 @@ import {
   jobIdentityQuarantineReason,
   DELIVERY_STATES,
   DEDUP_WINDOW_MS,
+  DEFERRED_MAX_ATTEMPTS,
 } from './lib/alert-sent-jobs.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
@@ -534,18 +535,34 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
   const normalizedReason = String(reason || '').trim() || 'deferred';
   return (sections || [])
     .filter((section) => section?.alert?.ref && (section.jobs || []).length > 0)
-    .map((section) => ({
-      ref: section.alert.ref,
-      deliveryLedger: mergeDeliveryLedger(
-        section.alert.deliveryLedger,
-        section.jobs,
-        nowMs,
-        DELIVERY_STATES.DEFERRED,
-        { reason: normalizedReason },
-      ),
-      reason: normalizedReason,
-      at: nowMs,
-    }));
+    .map((section) => {
+      let deliveryLedger = normalizeDeliveryLedger(section.alert.deliveryLedger);
+      for (const job of section.jobs) {
+        const key = jobDedupKey(job);
+        if (!key) continue;
+        const previous = deliveryLedger[key];
+        if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+        const attempts = previous?.state === DELIVERY_STATES.DEFERRED
+          ? (Number(previous.attempts) || 0) + 1
+          : 1;
+        const state = attempts >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : DELIVERY_STATES.DEFERRED;
+        deliveryLedger = mergeDeliveryLedger(
+          deliveryLedger,
+          [job],
+          nowMs,
+          state,
+          { reason: normalizedReason, attempts },
+        );
+      }
+      return {
+        ref: section.alert.ref,
+        deliveryLedger,
+        reason: normalizedReason,
+        at: nowMs,
+      };
+    });
 }
 
 function coalesceDeliveryWrites(writes) {

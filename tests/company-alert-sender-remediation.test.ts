@@ -24,6 +24,7 @@ import {
 } from '../scripts/send-company-alerts.mjs';
 import {
   DEDUP_WINDOW_MS,
+  DEFERRED_MAX_ATTEMPTS,
   DELIVERY_STATES,
   filterUnsentJobs,
   jobIdentityQuarantineReason,
@@ -432,5 +433,42 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
       state: DELIVERY_STATES.DEFERRED,
       reason: 'per-run-cap',
     });
+  });
+
+  it('terminates a deferred job after bounded attempts and never requeues it', () => {
+    const sourceAlert = alert('b6-exhausted', 'Acme');
+    const sourceJob = job('b6-exhausted-job', 'Acme', 'acme');
+    let ledger = {};
+
+    for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS; attempt += 1) {
+      const [write] = planDeferredDeliveryWrites([{
+        alert: { ...sourceAlert, deliveryLedger: ledger },
+        jobs: [sourceJob],
+      }], NOW + attempt, 'consent-lookup-failed');
+      ledger = write.deliveryLedger;
+      expect(ledger[sourceJob.id].attempts).toBe(attempt);
+    }
+
+    expect(ledger[sourceJob.id]).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+    expect(ledger[sourceJob.id].state).not.toBe('accepted');
+    expect(ledger[sourceJob.id].state).not.toBe(DELIVERY_STATES.FAILED);
+    expect(hasDeferredCompanyAlertWork([{ ...sourceAlert, deliveryLedger: ledger }])).toBe(false);
+    expect(filterUnsentJobs(
+      [sourceJob],
+      {},
+      NOW,
+      DEDUP_WINDOW_MS,
+      ledger,
+    )).toEqual([]);
+    expect(buildRecipientSections(
+      [{ ...sourceAlert, deliveryLedger: ledger }],
+      [],
+      NOW,
+      DEDUP_WINDOW_MS,
+      [sourceJob],
+    )).toEqual([]);
   });
 });
