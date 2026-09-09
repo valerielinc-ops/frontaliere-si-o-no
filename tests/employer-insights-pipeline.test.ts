@@ -329,13 +329,13 @@ describe('employer insights technical deduplication', () => {
       queries.push(query);
       if (query.startsWith('SELECT count() AS total FROM (')) return [[3]];
       if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[3]];
-      if (!query.includes(' LIMIT 2')) throw new Error(`unexpected test query: ${query}`);
-      const pageNumber = queries.filter((candidate) => candidate.includes(' LIMIT 2')).length;
+      if (!query.includes(' LIMIT 3')) throw new Error(`unexpected test query: ${query}`);
+      const pageNumber = queries.filter((candidate) => candidate.includes(' LIMIT 3')).length;
       return pageNumber === 1 ? pageRows.slice(0, 2) : pageRows.slice(2);
     };
 
-    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 2 });
-    const pageQueries = queries.filter((query) => query.includes(' LIMIT 2'));
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 3 });
+    const pageQueries = queries.filter((query) => query.includes(' LIMIT 3'));
 
     expect(result.rows.map((row) => row[0])).toEqual(['event-a', 'event-b', 'event-c']);
     expect(result.coverage).toMatchObject({ pages: 2, rowsReturned: 3, truncated: false });

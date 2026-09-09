@@ -1081,8 +1081,8 @@ export async function queryEventRows(window, { query: runQuery = hogql, pageSize
       throw new Error('posthog keyset cursor did not advance');
     }
     cursor = nextCursor;
-    if (pageRows.length < pageSize) break;
     if (groupedRowsBeforeCut > 0 && rows.length >= groupedRowsBeforeCut) break;
+    if (groupedRowsBeforeCut === 0 && pageRows.length < pageSize) break;
   }
   const truncated = rows.length < groupedRowsBeforeCut;
   const returnedObserved = rows.reduce((sum, row) => sum + Math.max(0, numberOr(Array.isArray(row) ? row[10] : row.observed, 1)), 0);
