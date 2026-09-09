@@ -12,7 +12,8 @@ export interface ColdEmailTouch {
 
 export interface BuildSequenceArgs {
   company?: string;
-  candidates: number;
+  metricValue?: number | null;
+  metricLabel?: 'click per candidarsi' | 'segnali di interesse';
   periodLabel: string;
   contactName?: string;
   topRole?: string;
