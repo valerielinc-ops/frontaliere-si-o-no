@@ -890,7 +890,12 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           profilePages++;
 
           if (indexable) {
-            emittedProfiles.push({ locale, path: urlPath, label: profile.name });
+            emittedProfiles.push({
+              locale,
+              path: urlPath,
+              label: profile.name,
+              companyKey: profile.companyKey ?? null,
+            });
           }
 
           if (locale === 'it' && indexable) {
