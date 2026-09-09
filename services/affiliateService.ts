@@ -25,6 +25,9 @@ import {
  buildAffiliatePubref,
  safeAffiliateToken,
  sanitizeAffiliatePubref,
+ PUBREF_HASH_LEN as PUBREF_HASH_LEN_RUNTIME,
+ PUBREF_HASH_MULTIPLIER as PUBREF_HASH_MULTIPLIER_RUNTIME,
+ PUBREF_HASH_SEED as PUBREF_HASH_SEED_RUNTIME,
  PUBREF_INVALID_RE as PUBREF_INVALID_RE_RUNTIME,
  PUBREF_MAX_LEN as PUBREF_MAX_LEN_RUNTIME,
 } from '../functions/src/lib/affiliateLinks.js';
@@ -203,6 +206,9 @@ export function partnerRelAttr(partner: Pick<AffiliatePartner, 'sponsored'>): st
 export const PUBREF_INVALID_RE = PUBREF_INVALID_RE_RUNTIME;
 /** Partnerize truncates long publisher references; keep them short by design. */
 export const PUBREF_MAX_LEN = PUBREF_MAX_LEN_RUNTIME;
+export const PUBREF_HASH_LEN = PUBREF_HASH_LEN_RUNTIME;
+export const PUBREF_HASH_SEED = PUBREF_HASH_SEED_RUNTIME;
+export const PUBREF_HASH_MULTIPLIER = PUBREF_HASH_MULTIPLIER_RUNTIME;
 
 /** True for Partnerize tracking deeplinks (the paid destination is the redirect). */
 export function isPartnerizeUrl(url: string): boolean {

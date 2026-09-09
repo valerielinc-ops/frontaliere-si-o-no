@@ -8,7 +8,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { buildRedirectPage } from '../build-plugins/affiliateRedirectPlugin';
-import { PARTNERS, isPartnerizeUrl } from '../services/affiliateService';
+import { PARTNERS, isPartnerizeUrl, sanitizePubref } from '../services/affiliateService';
 
 const wise = PARTNERS.find((p) => p.id === 'wise')!;
 
@@ -97,5 +97,17 @@ describe('affiliate redirect pubref', () => {
   it('the build-time destination already carries a default pubref', () => {
     const html = buildRedirectPage(wise);
     expect(html).toContain('pubref=go-redirect');
+  });
+
+  it('keeps the inline redirect sanitiser aligned on capped pubrefs', () => {
+    const html = buildRedirectPage(wise);
+    const slot2 = 'creditagricole-control-web-partner-page-banking-2-g4-contextual';
+    const slot3 = 'creditagricole-control-web-partner-page-banking-3-g4-contextual';
+    const rewrittenSlot2 = pubrefOf(rewrittenUrl(html, { search: `?pos=${slot2}` }));
+    const rewrittenSlot3 = pubrefOf(rewrittenUrl(html, { search: `?pos=${slot3}` }));
+
+    expect(rewrittenSlot2).toBe(sanitizePubref(slot2));
+    expect(rewrittenSlot2).toMatch(/_[a-z0-9]{7}$/);
+    expect(rewrittenSlot2).not.toBe(rewrittenSlot3);
   });
 });

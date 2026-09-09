@@ -20,7 +20,7 @@ const STATUS_ALIASES = new Map([
 ]);
 
 const STATUS_PRIORITY = { pending: 1, approved: 2, reversed: 3 };
-const GROUPED_THOUSANDS_RE = /^-?\d{1,3}([,.]\d{3})+$/;
+const GROUPED_THOUSANDS_RE = /^-?(?:[1-9]\d{0,2})([,.]\d{3})+$/;
 
 const FIELD_ALIASES = {
   transactionId: ['transactionId', 'transaction_id', 'id', 'commissionId', 'commission_id'],

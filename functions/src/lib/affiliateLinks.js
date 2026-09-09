@@ -13,8 +13,11 @@ const BASE_URL = 'https://frontaliereticino.ch';
 
 /** Characters Partnerize does not accept in a publisher reference. */
 export const PUBREF_INVALID_RE = /[^a-z0-9_-]+/g;
-/** Partnerize truncates publisher references; keep the cap explicit. */
+/** Network-facing publisher-reference cap; keep it explicit and observable. */
 export const PUBREF_MAX_LEN = 48;
+export const PUBREF_HASH_LEN = 7;
+export const PUBREF_HASH_SEED = 0x811c9dc5;
+export const PUBREF_HASH_MULTIPLIER = 0x01000193;
 
 const SENSITIVE_ATTRIBUTION_RE = /@|%40|(?:^|[-_])(email|token|auth|secret|password|phone|uid|user)(?:$|[-_])/i;
 
@@ -28,12 +31,21 @@ const SENSITIVE_ATTRIBUTION_RE = /@|%40|(?:^|[-_])(email|token|auth|secret|passw
 export function safeAffiliateToken(raw, fallback = '') {
   const value = String(raw ?? '').trim();
   if (!value || SENSITIVE_ATTRIBUTION_RE.test(value)) return fallback;
-  return value
+  const normalized = value
     .toLowerCase()
     .replace(PUBREF_INVALID_RE, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, PUBREF_MAX_LEN)
-    .replace(/-+$/, '');
+    .replace(/^-+|-+$/g, '');
+  if (normalized.length <= PUBREF_MAX_LEN) return normalized;
+
+  let hash = PUBREF_HASH_SEED;
+  for (let index = 0; index < normalized.length; index += 1) {
+    hash = Math.imul(hash ^ normalized.charCodeAt(index), PUBREF_HASH_MULTIPLIER);
+  }
+  const suffix = `_${(hash >>> 0).toString(36).padStart(PUBREF_HASH_LEN, '0')}`;
+  const prefix = normalized
+    .slice(0, PUBREF_MAX_LEN - suffix.length)
+    .replace(/[-_]+$/, '');
+  return `${prefix}${suffix}`;
 }
 
 /** Normalise one Partnerize publisher reference. */

@@ -19,15 +19,27 @@ describe('affiliate link attribution', () => {
       variant: 'v1',
     })).toBe('wise-v1-web-exchange-1-g4-contextual');
 
-    const longPubref = buildAffiliatePubref({
+    const longDimensions = {
       partnerId: 'creditagricole',
       surface: 'web',
-      position: 'partner-page-banking-n',
       campaign: 'g4-contextual',
-      variant: 'v1',
+      variant: 'control',
+    };
+    const longPubref = buildAffiliatePubref({
+      ...longDimensions,
+      position: 'partner-page-banking-2',
     });
     expect(longPubref.length).toBeLessThanOrEqual(48);
-    expect(longPubref.startsWith('creditagricole-v1-web-')).toBe(true);
+    expect(longPubref).toMatch(/_[a-z0-9]{7}$/);
+    expect(longPubref).not.toBe(buildAffiliatePubref({
+      ...longDimensions,
+      position: 'partner-page-banking-3',
+    }));
+    expect(longPubref).not.toBe(buildAffiliatePubref({
+      ...longDimensions,
+      position: 'partner-page-banking-2',
+      campaign: 'g4-seasonal',
+    }));
 
     const href = buildAffiliateLinkHref({ id: 'wise' }, {
       surface: 'web',
@@ -142,5 +154,24 @@ describe('affiliate revenue reconciliation', () => {
       amount: '1.234.567',
       transaction_date: '2026-09-04',
     })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234567 }) }));
+
+    for (const [amount, expected] of [
+      ['0.500', 0.5],
+      ['0,500', 0.5],
+      ['-0.500', -0.5],
+      ['0.5', 0.5],
+      ['0,5', 0.5],
+    ] as const) {
+      expect(normalizeAffiliateTransaction({
+        transaction_id: `tx-fraction-${amount}`,
+        status: 'approved',
+        currency: 'CHF',
+        amount,
+        transaction_date: '2026-09-04',
+      })).toEqual(expect.objectContaining({
+        ok: true,
+        value: expect.objectContaining({ amount: expected }),
+      }));
+    }
   });
 });
