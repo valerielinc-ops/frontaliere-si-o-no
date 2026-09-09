@@ -6148,6 +6148,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Berna e USA: nessun prezzo fisso concordato',
     'blog.article.f35-caccia-commissione-amherd.excerpt': 'Rapporto della Commissione di vigilanza smentisce Amherd: non c\'era accordo su prezzo fisso con gli USA. Credito aggiuntivo di 394 milioni CHF e riduzione a 30 caccia.',
     'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Parlamento federale svizzero a Berna, simbolo della vigilanza amministrativa sui progetti di difesa della Confederazione',
+    'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Aprire impresa Appenzello interno: guida',
+    'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Registrazione impresa Appenzello Interno: capitale minimo da CHF 0 (ditta) a CHF 100\'000 (SA), contributi AVS 5.3%+5.3%, iscrizione 2-4 settimane',
+    'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Ufficio comunale svizzero con scrivanie in legno e registri ufficiali per l\'iscrizione di attività commerciali',
 };
 
 export default blogMetaChIt;

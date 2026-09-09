@@ -6148,6 +6148,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Bern and USA: no fixed price agreed',
     'blog.article.f35-caccia-commissione-amherd.excerpt': 'Report of the Supervisory Commission denies Amherd: there was no agreement on a fixed price with the US. Additional credit of CHF 394 million and reduction to 30 fighters.',
     'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Swiss Federal Parliament in Bern, symbol of administrative oversight on defense projects',
+    'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Open internal Appenzello company: guide',
+    'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Internal Appenzello company registration: minimum capital from CHF 0 (company) to CHF 100,000 (SA), AVS contributions 5.3%+5.3%, registration 2-4 weeks',
+    'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Swiss municipal office with wooden desks and official business registration documents and registers',
 };
 
 export default blogMetaChEn;
