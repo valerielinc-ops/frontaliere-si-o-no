@@ -424899,7 +424899,9 @@
     "canonicalSlug": "global-trade-compliance-manager-tecan-mannedorf",
     "slugByLocale": {
       "en": "global-trade-compliance-manager-tecan-mannedorf",
-      "fr": "gestionnaire-de-la-conformite-commerciale-mondiale-tecan-mannedorf"
+      "fr": "gestionnaire-de-la-conformite-commerciale-mondiale-tecan-mannedorf",
+      "it": "conformita-alle-disposizioni-in-materia-di-commercio-globale-tecan-mannedorf",
+      "de": "die-globale-handels-compliance-tecan-mannedorf"
     },
     "createdAt": "2026-07-29",
     "canton": "ZH"
@@ -693709,7 +693711,9 @@
   "id|manor.ch|1367562955": {
     "canonicalSlug": "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
     "slugByLocale": {
-      "it": "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60"
+      "it": "manor-mitarbeiter-in-service-60-emmen-mitarbeiterin-service-60",
+      "en": "service-associate-60-manor-ag-emmen-mitarbeiterin-service-60",
+      "fr": "collaborateur-rice-service-60-manor-ag-emmen-mitarbeiterin-service-60"
     },
     "createdAt": "2026-09-09",
     "canton": "LU"
@@ -693717,7 +693721,10 @@
   "id|manor.ch|1367540055": {
     "canonicalSlug": "manor-collaborateur-trice-vente-parfumerie-70-geneve-1-collaborateurtrice-vente",
     "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-parfumerie-70-geneve-1-collaborateurtrice-vente"
+      "it": "manor-collaborateur-trice-vente-parfumerie-70-geneve-1-collaborateurtrice-vente",
+      "en": "sales-associate-perfumery-70-manor-ag-geneve-1-collaborateurtrice-vente",
+      "de": "verkaufsassistent-in-parfumerie-70-manor-ag-geneve-1-collaborateurtrice-vente",
+      "fr": "ouvrier-eur-cart-parfumerie-70-manor-ag-geneve-1-collaborateurtrice-vente"
     },
     "createdAt": "2026-09-09",
     "canton": "GE"
@@ -693744,7 +693751,10 @@
   "id|manor.ch|1367472855": {
     "canonicalSlug": "manor-collaborateur-trice-caisse-papeterie-50-geneve-1-collaborateurtrice-caisse",
     "slugByLocale": {
-      "it": "manor-collaborateur-trice-caisse-papeterie-50-geneve-1-collaborateurtrice-caisse"
+      "it": "manor-collaborateur-trice-caisse-papeterie-50-geneve-1-collaborateurtrice-caisse",
+      "en": "cashier-stationery-50-manor-ag-geneve-1-collaborateurtrice-caisse",
+      "de": "kassierer-in-schreibwaren-50-manor-ag-geneve-1-collaborateurtrice-caisse",
+      "fr": "caissier-ere-papeterie-50-manor-ag-geneve-1-collaborateurtrice-caisse"
     },
     "createdAt": "2026-09-09",
     "canton": "GE"
@@ -693752,7 +693762,10 @@
   "id|manor.ch|1367483855": {
     "canonicalSlug": "manor-collaborateur-trice-vente-bijouterie-35-geneve-1-collaborateurtrice-vente",
     "slugByLocale": {
-      "it": "manor-collaborateur-trice-vente-bijouterie-35-geneve-1-collaborateurtrice-vente"
+      "it": "manor-collaborateur-trice-vente-bijouterie-35-geneve-1-collaborateurtrice-vente",
+      "en": "sales-associate-jewelry-35-manor-ag-geneve-1-collaborateurtrice-vente",
+      "de": "verkaufsassistent-in-schmuck-35-manor-ag-geneve-1-collaborateurtrice-vente",
+      "fr": "travaille-avec-m-sauern-sheer-bijouterie-35-manor-ag-geneve-1-collaborateurtrice-vente"
     },
     "createdAt": "2026-09-09",
     "canton": "GE"
@@ -695885,5 +695898,44 @@
     },
     "createdAt": "2026-09-09",
     "canton": "VD"
+  },
+  "url|https://sygnumpeopleportal.my.salesforce-sites.com/recruit/frecruit__applyjob?vacancyno=vn217": {
+    "canonicalSlug": "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+    "slugByLocale": {
+      "en": "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+      "de": "praktikum-produktmanagement-digital-assets-custody-wallets-sygnum-bank-zurich",
+      "fr": "gestion-des-produits-de-stages-actifs-numeriques-garde-et-portefeuilles-sygnum-bank-zurich"
+    },
+    "createdAt": "2026-09-09",
+    "canton": "ZH"
+  },
+  "url|https://sygnumpeopleportal.my.salesforce-sites.com/recruit/frecruit__applyjob?vacancyno=vn280": {
+    "canonicalSlug": "compliance-finanziaria-del-crimine-sygnum-bank-zurich",
+    "slugByLocale": {
+      "it": "compliance-finanziaria-del-crimine-sygnum-bank-zurich",
+      "en": "internship-financial-crime-compliance-sygnum-zurich",
+      "fr": "criminalite-financiere-sygnum-bank-zurich"
+    },
+    "createdAt": "2026-09-09",
+    "canton": "ZH"
+  },
+  "url|https://sygnumpeopleportal.my.salesforce-sites.com/recruit/frecruit__applyjob?vacancyno=vn283": {
+    "canonicalSlug": "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich",
+    "slugByLocale": {
+      "it": "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich",
+      "en": "information-security-risk-manager-sygnum-zurich",
+      "de": "informationssicherheitsrisikomanager-sygnum-bank-zurich",
+      "fr": "gestionnaire-des-risques-lies-a-la-securite-de-l-information-sygnum-bank-zurich"
+    },
+    "createdAt": "2026-09-09",
+    "canton": "ZH"
+  },
+  "url|https://sygnumpeopleportal.my.salesforce-sites.com/recruit/frecruit__applyjob?vacancyno=vn268": {
+    "canonicalSlug": "junior-forward-deployed-engineer-artificial-intelligence-sygnum-zurich",
+    "slugByLocale": {
+      "en": "junior-forward-deployed-engineer-artificial-intelligence-sygnum-zurich"
+    },
+    "createdAt": "2026-09-09",
+    "canton": "ZH"
   }
 }

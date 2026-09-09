@@ -1,5 +1,5 @@
 {
-  "run": 15,
+  "run": 16,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -51,6 +51,10 @@
       "sterile": 0,
       "signature": "c4dd21cb0b542968",
       "skipUntilRun": 17
+    },
+    "manor": {
+      "sterile": 1,
+      "signature": "ced15d04377d89d2"
     }
   }
 }
