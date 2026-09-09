@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import {
   RESERVE_FOR_OLDEST,
   NEAR_MISS_CAP_FRACTION,
+  NEAR_MISS_WINDOW_MS,
   FRESH_WINDOW_MS,
   freshHeadCeiling,
   strideForReserve,
@@ -211,6 +212,23 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(order).toHaveLength(pending.length);
   });
 
+  it('esclude dalla testa i job oltre la finestra near-miss anche con cap largo', () => {
+    const cap = 40;
+    const pending = [
+      job('fresh', daysAgo(0.1)),
+      job('near-miss', daysAgo(25 / 24)),
+      job('too-old-for-near-miss', daysAgo(3)),
+      ...Array.from({ length: 20 }, (_, i) => job(`old-${i}`, daysAgo(30 + i))),
+    ];
+    const { order, selected, stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true, cap });
+
+    expect(NEAR_MISS_WINDOW_MS).toBe(2 * FRESH_WINDOW_MS);
+    expect(stats.nearMiss).toBe(1);
+    expect(order.slice(0, 2).map((j: any) => j.slug)).toEqual(['fresh', 'near-miss']);
+    expect(selected.slice(0, 2).map((j: any) => j.slug)).toEqual(['fresh', 'near-miss']);
+    expect(order.map((j: any) => j.slug).indexOf('too-old-for-near-miss')).toBeGreaterThan(1);
+  });
+
   it('con la testa fresca piena i near-miss non le rubano posti', () => {
     const cap = 10;
     const fresh = Array.from({ length: freshHeadCeiling(cap, RESERVE_FOR_OLDEST) }, (_, i) =>
@@ -283,7 +301,7 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     const { order, stats } = buildTrafficPriority([...rest, ...fresh], {}, { now: NOW, freshFirst: true });
     expect(order).toHaveLength(27);
     expect(stats.freshHead).toBe(7);
-    expect(stats.nearMiss).toBe(2);
+    expect(stats.nearMiss).toBe(0);
     expect(order.slice(0, 7).every((j: any) => j.slug.startsWith('f'))).toBe(true);
     expect(new Set(order.map((j: any) => j.slug)).size).toBe(27);
   });
@@ -396,9 +414,16 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     const off = formatPriorityReport(buildTrafficPriority([job('a', daysAgo(3))], {}, { now: NOW }).stats).join('\n');
     expect(off).toContain('Freshness lane');
     expect(off).toContain('off');
+    expect(off).not.toContain('Near-miss admitted:');
     const on = formatPriorityReport(buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, freshFirst: true }).stats).join('\n');
     expect(on).toMatch(/Freshness lane:\s+1 job\(s\) ahead of the stride \(< 24h old\)/);
     expect(on).toContain('Near-miss admitted:');
+
+    const historical = { ...buildTrafficPriority([job('a', daysAgo(0.1))], {}, {
+      now: NOW, freshFirst: true,
+    }).stats } as any;
+    delete historical.nearMiss;
+    expect(formatPriorityReport(historical).join('\n')).toContain('Near-miss admitted:   0');
   });
 
   it('il mop-up gratuito la accende, il cascade a pagamento no — per VALORE, non per testo', () => {

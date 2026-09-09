@@ -61,6 +61,17 @@ export const TRAFFIC_SOURCE_PATH = 'data/job-popularity.json';
  */
 export const RESERVE_FOR_OLDEST = 0.2;
 
+function fractionFromEnv(name, fallback) {
+  const raw = process.env[name];
+  if (raw === undefined || raw === null || String(raw).trim() === '') return fallback;
+  const value = Number(String(raw).trim());
+  if (Number.isFinite(value) && value >= 0 && value <= 1) return value;
+  console.warn(
+    `[job-traffic-priority] Ignoring invalid ${name} value ${JSON.stringify(raw)}; using default ${fallback}.`,
+  );
+  return fallback;
+}
+
 /**
  * Fraction of the caller's cap that may fill unused freshness-head slots with
  * jobs that just missed the 24-hour window. The fresh head still owns the
@@ -68,13 +79,6 @@ export const RESERVE_FOR_OLDEST = 0.2;
  * from becoming a cliff without letting a sparse head swallow the whole run.
  * Override with `NEAR_MISS_CAP_FRACTION` when the live queue needs retuning.
  */
-function fractionFromEnv(name, fallback) {
-  const raw = process.env[name];
-  if (raw === undefined || raw === null || String(raw).trim() === '') return fallback;
-  const value = Number(String(raw).trim());
-  return Number.isFinite(value) && value >= 0 && value <= 1 ? value : fallback;
-}
-
 export const NEAR_MISS_CAP_FRACTION = fractionFromEnv('NEAR_MISS_CAP_FRACTION', 0.05);
 
 /**
@@ -92,11 +96,12 @@ export const QUEUE_AGE_ALERT_DAYS = 150;
  * 24 hours because that is the second condition of the translation map's
  * destination — «a new job gets all four languages within 24 hours of first
  * sighting» — not because 24 was tuned against anything. It is a definition
- * this code serves, so it is a constant here and NOT a knob: the one number
- * meant to be tuned in this module stays `RESERVE_FOR_OLDEST`, which is what a
- * feedback loop would have to move on its own.
+ * this code serves, so it is a constant here and NOT a knob.
  */
 export const FRESH_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+/** The near-miss band ends two freshness windows after first sighting. */
+export const NEAR_MISS_WINDOW_MS = 2 * FRESH_WINDOW_MS;
 
 /**
  * How many slots of the batch go to the oldest-first stride: one age pick every
@@ -143,8 +148,8 @@ export function strideForReserve(reserveForOldest) {
  * earn) — and their count is reported as `freshDeferred`, so a truncation that
  * changes the ordering can never be silent.
  *
- * Not a knob: it is derived. The one number meant to be tuned in this module
- * stays `RESERVE_FOR_OLDEST`.
+ * Not a knob: it is derived. The tunables in this module are
+ * `RESERVE_FOR_OLDEST` and `NEAR_MISS_CAP_FRACTION`.
  */
 export function freshHeadCeiling(capSlots, reserveForOldest = RESERVE_FOR_OLDEST) {
   // No reserve configured means no reserve to starve: the pure-traffic order
@@ -504,14 +509,15 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   const deferred = new Set(freshCohort.slice(freshHeadMax).map((s) => s.index));
   // A fresh head can be smaller than its ceiling on an ordinary run. Give a
   // bounded share of those ALREADY AVAILABLE head slots to the youngest jobs
-  // just outside the 24-hour definition, so expiry is a bridge rather than a
-  // cliff. The head ceiling is still the hard upper bound: a full fresh head
-  // leaves no room, and the cap fraction keeps a sparse head from consuming
-  // the whole batch.
+  // just outside the 24-hour definition and still inside NEAR_MISS_WINDOW_MS,
+  // so expiry is a bridge rather than a cliff. The head ceiling is still the
+  // hard upper bound: a full fresh head leaves no room, and the cap fraction
+  // keeps a sparse head from consuming the whole batch.
   const nearMissCap = freshFirst ? Math.max(0, freshHeadMax - freshHeadCount) : 0;
   const nearMiss = freshFirst
     ? scored
-      .filter((s) => !isFresh(s) && !isFuture(s) && Number.isFinite(s.queuedAt))
+      .filter((s) => !isFresh(s) && !isFuture(s) && Number.isFinite(s.queuedAt)
+        && now - s.queuedAt <= NEAR_MISS_WINDOW_MS)
       .sort((a, b) => b.queuedAt - a.queuedAt || b.views - a.views || a.index - b.index)
       .slice(0, Math.min(nearMissCap, Math.ceil(capSlots * NEAR_MISS_CAP_FRACTION)))
     : [];
@@ -689,7 +695,7 @@ export function formatPriorityReport(stats, { freshCoverage = null } = {}) {
           ? ` · ${stats.freshFuture} skipped, dated in the FUTURE (still queued, served by the stride — check the crawler that dated them)`
           : '')
       : 'off (this consumer keeps the plain traffic/age stride)'}`,
-    `   Near-miss admitted:   ${stats.nearMiss}`,
+    ...(stats.freshFirst ? [`   Near-miss admitted:   ${stats.nearMiss ?? 0}`] : []),
     `   Queue age (from first-seen, upper bound on time-in-queue):`,
     `     oldest ${a.oldestAgeDays ?? 'n/a'}d · p50 ${a.p50AgeDays ?? 'n/a'}d · p90 ${a.p90AgeDays ?? 'n/a'}d` +
       ` · dated ${a.withTimestamp}/${a.count}`,
