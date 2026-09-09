@@ -1834,8 +1834,13 @@ function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
  }
 }
 
-/** Update URL query params without pushing to history (avoids bloating back stack). */
-function syncQueryParamsToUrl(updates: Record<string, string | null>) {
+/** Update URL query params, optionally creating a navigable search entry. */
+type QueryHistoryMode = 'replace' | 'push';
+
+function syncQueryParamsToUrl(
+ updates: Record<string, string | null>,
+ mode: QueryHistoryMode = 'replace',
+) {
  if (typeof window === 'undefined') return;
  try {
  const params = new URLSearchParams(window.location.search || '');
@@ -1846,7 +1851,8 @@ function syncQueryParamsToUrl(updates: Record<string, string | null>) {
  const qs = params.toString();
  const newUrl = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
  if (newUrl !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
- window.history.replaceState(window.history.state, '', newUrl);
+ if (mode === 'push') window.history.pushState(window.history.state, '', newUrl);
+ else window.history.replaceState(window.history.state, '', newUrl);
  }
  } catch { /* non-critical */ }
 }
@@ -2664,7 +2670,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isDesktopXl = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
 
  // --- List state preservation across detail navigation ---
- const savedListState = useRef<{ page: number; scrollY: number } | null>(null);
+ const savedListState = useRef<{ page: number; scrollY: number; query: string } | null>(null);
  const skipPageReset = useRef(false);
  const prevSlugRef = useRef(initialJobSlug);
 
@@ -2673,9 +2679,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
  prevSlugRef.current = initialJobSlug;
  if (shouldRestore && savedListState.current) {
- const { page: savedPage, scrollY } = savedListState.current;
+ const { page: savedPage, scrollY, query } = savedListState.current;
  skipPageReset.current = true;
  setPage(savedPage);
+ applySearchQuery(query);
+ syncQueryParamsToUrl({ q: query || null });
  savedListState.current = null;
  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
  }
@@ -2840,6 +2848,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const next = searchSlugFilter || readSearchQueryFromUrl();
  applySearchQuery((prev) => (prev === next ? prev : next));
  }, [searchSlugFilter, initialJobSlug]);
+
+ const commitSearchQuery = useCallback((value: string) => {
+ const next = value.trim();
+ applySearchQuery(next);
+ if (!searchSlugFilter) syncQueryParamsToUrl({ q: next || null }, 'push');
+ }, [applySearchQuery, searchSlugFilter]);
 
  /**
  * Initial-mount data load (D9 + D11 + E4).
@@ -5281,7 +5295,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
  },
  },
- directApply: Boolean(job.url),
+ directApply: Boolean(job.applyUrl || job.url),
  url: canonicalUrl,
  };
  if (isRemote) {
@@ -5861,7 +5875,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Always navigate to the detail page — the inline auth gate handles
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
- savedListState.current = { page, scrollY: window.scrollY };
+ savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
@@ -6296,8 +6310,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- if (job.url) {
- window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
+ const applyDestination = job.applyUrl || job.url;
+ if (applyDestination) {
+ window.open(buildReferralUrl(applyDestination, job), '_blank', 'noopener,noreferrer');
  // Mutate the page in the same tick as the hand-off — the confirmation is the
  // user-visible receipt AND the DOM change that makes this click non-dead.
  setAppliedJobId(job.id);
@@ -8519,6 +8534,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sector: selectedJob.sector,
  category: selectedJob.category,
  url: selectedJob.url,
+ applyUrl: selectedJob.applyUrl,
  };
  const faqIsRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${selectedJobTitle} ${detailDescription} ${selectedJob.location || ''}`
@@ -9310,9 +9326,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
  {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
  { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
@@ -9368,7 +9384,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
  <div id="jobboard-search-utilities">
- <PopularSearchChips onSelect={applySearchQuery} activeTerm={searchQuery} />
+ <PopularSearchChips onSelect={commitSearchQuery} activeTerm={searchQuery} />
  </div>
 
  {enableJobAlerts && (
@@ -9491,13 +9507,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = setTimeout(() => setSearchQuery(next), 200);
  }}
+ onKeyDown={(e) => {
+ if (e.key === 'Enter') {
+ e.preventDefault();
+ commitSearchQuery(e.currentTarget.value);
+ }
+ }}
  className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-heading placeholder:text-muted focus:outline-none"
  aria-label={t('jobBoard.searchPlaceholder')}
  />
  {searchQuery && (
  <button
  type="button"
- onClick={() => applySearchQuery('')}
+ onClick={() => commitSearchQuery('')}
  className="p-2 mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
  aria-label="Clear search"
  >
@@ -9522,7 +9544,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  key={s}
  type="button"
- onClick={() => applySearchQuery(s)}
+ onClick={() => commitSearchQuery(s)}
  className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
@@ -10072,7 +10094,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  key={term}
  type="button"
- onClick={() => applySearchQuery(term)}
+ onClick={() => commitSearchQuery(term)}
  className="px-3 py-1.5 min-h-11 rounded-full text-xs font-medium bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {term}
