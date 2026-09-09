@@ -6220,6 +6220,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-richiesta.title': 'Familienzulagen in Schwyz: So beantragen Sie sie',
     'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Im Kanton Schwyz ist die Familienzulage ein öffentlicher Beitrag für Eltern mit Kindern. Finden Sie heraus, wer berechtigt ist, wie Sie sich bewerben und welche Dokumente Sie benötigen.',
     'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Schweizer Familie, die Unterlagen zu Familienausgleichen bei einer kantonalen Behörde einsieht',
+    'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Sudanesisches Goldverbot in der Schweiz ab 10. September',
+    'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'Der Bundesrat blockiert seit dem 10. September 2026 den Kauf und Import von sudanesischem Gold. Anpassung an die EU-Sanktionen vom 13. Juli. Auswirkungen für Händler und Finanzinstitute.',
+    'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Compliance-Dokumentation und Goldbarren auf Schreibtisch im Schweizer Bundesverwaltungskontext',
 };
 
 export default blogMetaChDe;

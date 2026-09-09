@@ -6220,6 +6220,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-richiesta.title': 'Allocations familiales à Schwyz : comment les demander',
     'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Dans le canton de Schwyz, les allocations familiales sont une contribution publique pour les parents avec enfants. Découvrez qui a le droit, comment postuler et quels documents sont nécessaires.',
     'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Famille suisse examinant les documents des allocations familiales auprès d\'un bureau cantonal',
+    'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Interdiction de l\'or soudanais en Suisse à partir du 10 septembre',
+    'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'Le Conseil fédéral bloque depuis le 10 septembre 2026 l\'achat et l\'importation d\'or soudanais. Alignement avec les sanctions UE du 13 juillet. Impacts pour les commerçants et les institutions financières.',
+    'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Documentation de conformité et lingots d\'or sur bureau dans un contexte administratif fédéral suisse',
 };
 
 export default blogMetaChFr;
