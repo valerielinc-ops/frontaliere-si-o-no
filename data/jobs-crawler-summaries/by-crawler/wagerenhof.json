@@ -1,21 +1,21 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-09-08T23:27:47.177Z",
-  "total": 6,
+  "generatedAt": "2026-09-09T13:54:25.832Z",
+  "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
-  "written": 6,
+  "written": 5,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12207,
-  "avgDurationMs": 12207,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 12384,
+  "avgDurationMs": 12384,
   "durationHistory": [
-    12207
+    12384
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,13 +26,13 @@
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Servicetechniker/-in HLKS / Hauswart/-in (80-100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-535&cHash=35a4cedfc1091d73415c31e6ac0d32d9",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:27:30.846Z",
+      "crawledAt": "2026-09-09T13:54:09.926Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,11 +48,11 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-535&cHash=35a4cedfc1091d73415c31e6ac0d32d9",
       "firstSeenAt": "2026-09-08T13:45:59.320Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -69,7 +69,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-552&cHash=f8b3edefd6a343428bf4c62e27f072c5",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:27:31.703Z",
+      "crawledAt": "2026-09-09T13:54:11.253Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-457&cHash=d61123f8b229adec9543be50a30fc3f1",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:27:32.583Z",
+      "crawledAt": "2026-09-09T13:54:12.263Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:27:33.372Z",
+      "crawledAt": "2026-09-09T13:54:13.109Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:27:34.246Z",
+      "crawledAt": "2026-09-09T13:54:14.107Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,8 +205,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "wagerenhof-2981c897a451",
       "slug": "servizio-lavanderia-100-stiftung-wagerenhof-uster",
@@ -239,7 +238,6 @@
       "salaryMax": 134500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -248,5 +246,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

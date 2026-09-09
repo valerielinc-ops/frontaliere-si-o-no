@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-09-08T23:28:39.016Z",
+  "generatedAt": "2026-09-09T13:55:25.748Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7135,
-  "avgDurationMs": 7135,
+  "durationMs": 9035,
+  "avgDurationMs": 9035,
   "durationHistory": [
-    7135
+    9035
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:28:31.696Z",
+      "crawledAt": "2026-09-09T13:55:15.699Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:28:32.421Z",
+      "crawledAt": "2026-09-09T13:55:16.802Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:28:33.120Z",
+      "crawledAt": "2026-09-09T13:55:17.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -120,7 +120,6 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
