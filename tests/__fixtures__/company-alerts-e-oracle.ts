@@ -62,6 +62,13 @@ export function makeJob(
   options: OracleJobOptions = {},
 ): Record<string, unknown> {
   const stablePart = id || 'idless';
+  // Oracle correction: a null id must produce a genuinely id-less job. The
+  // previous unconditional URL was itself a stable identity, so the old
+  // quarantine expectation was testing the wrong fixture rather than the
+  // missing-identity contract.
+  const url = options.url ?? (id
+    ? 'https://frontaliereticino.ch/lavoro/company-alert-oracle-' + stablePart + '/'
+    : undefined);
   return {
     ...(id ? { id } : {}),
     title: 'Ruolo controllato ' + stablePart,
@@ -70,7 +77,7 @@ export function makeJob(
     location: 'Lugano',
     canton: 'TI',
     firstSeenAt: hoursAgo(nowMs, firstSeenHoursAgo),
-    url: options.url || 'https://frontaliereticino.ch/lavoro/company-alert-oracle-' + stablePart + '/',
+    ...(url === undefined ? {} : { url }),
     ...(options.status === undefined ? {} : { status: options.status }),
     ...(options.active === undefined ? {} : { active: options.active }),
     ...(options.expiresAt === undefined ? {} : { expiresAt: options.expiresAt }),

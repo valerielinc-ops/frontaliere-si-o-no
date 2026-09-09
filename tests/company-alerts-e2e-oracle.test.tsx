@@ -289,8 +289,11 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     check('E-POS-02-popup-visible-after-delay',
       screen.queryByRole('dialog') !== null, true, errors);
     check('E-POS-02-impression-after-visibility', onShown.mock.calls.length, 1, errors);
+    // Oracle correction: BottomPromptShell publishes the shared slot with a
+    // colon. The previous hyphen selector expected an attribute value that
+    // production never emits, so it rejected the correct shared-slot contract.
     check('E-POS-02-shared-popup-slot',
-      document.querySelector('[data-bottom-prompt="company-follow-prompt-' + key + '"]') !== null,
+      document.querySelector('[data-bottom-prompt="company-follow-prompt:' + key + '"]') !== null,
       true,
       errors);
 
@@ -301,12 +304,18 @@ describe('E oracle: public company identity and hydrated CTA', () => {
       : null;
     check('E-POS-03-popup-keeps-inline-acceptance', Boolean(accept), true, errors);
     if (accept) {
-      fireEvent.click(accept);
-      await waitFor(() => {
-        if (!screen.queryByLabelText(/azienda|company/i)) throw new Error('anonymous inline capture did not open');
+      // Oracle correction: the label and the input both match the old
+      // queryByLabelText(/azienda|company/i), so waitFor timed out on an
+      // ambiguous query even though the capture form had opened correctly;
+      // the stable input id is the unambiguous public seam for this form.
+      await act(async () => {
+        fireEvent.click(accept);
       });
       check('E-POS-03-popup-accept-does-not-write-alert', subscribe.mock.calls.length, 0, errors);
-      check('E-POS-03-popup-accept-opens-capture', screen.queryByLabelText(/azienda|company/i) !== null, true, errors);
+      check('E-POS-03-popup-accept-opens-capture',
+        document.querySelector('#company-follow-email') !== null,
+        true,
+        errors);
     }
     finish(errors);
   });
@@ -716,6 +725,90 @@ describe('E oracle: sender, matching, provider, and writeback', () => {
         : null,
       0,
       errors);
+    finish(errors);
+  });
+
+  it('E-NEG-13: a provider 2xx without an id is ambiguous and terminal', async () => {
+    const errors: unknown[] = [];
+    const envKeys = [
+      'MAILJET_API_KEY',
+      'MAILJET_SECRET_KEY',
+      'MAILGUN_API_KEY',
+      'MAILGUN_DOMAIN',
+      'MAILTRAP_API_TOKEN',
+      'MAILEROO_API_KEY',
+      'MAILEROO_ACCOUNT_API_KEY',
+      'RESEND_API_KEY',
+      'CF_API_TOKEN',
+      'CF_ACCOUNT_ID',
+      'CLOUDFLARE_EMAIL_API_TOKEN',
+      'CLOUDFLARE_ACCOUNT_ID',
+      'CF_EMAIL_API_TOKEN',
+    ];
+    const previousEnv = Object.fromEntries(envKeys.map((key) => [key, process.env[key]]));
+    const realFetch = globalThis.fetch;
+    let mailgunSends = 0;
+    let mailjetSends = 0;
+    const response = (json: Record<string, unknown>) => ({
+      ok: true,
+      status: 200,
+      json: async () => json,
+      text: async () => JSON.stringify(json),
+    });
+
+    try {
+      for (const key of envKeys) delete process.env[key];
+      Object.assign(process.env, {
+        MAILGUN_API_KEY: 'oracle-mailgun-key',
+        MAILGUN_DOMAIN: 'oracle.example.test',
+        MAILJET_API_KEY: 'oracle-mailjet-key',
+        MAILJET_SECRET_KEY: 'oracle-mailjet-secret',
+      });
+      globalThis.fetch = vi.fn(async (url: unknown, options?: { method?: string }) => {
+        const target = String(url);
+        if (target.includes('mailgun.net') && options?.method === 'POST') {
+          mailgunSends += 1;
+          return response({});
+        }
+        if (target.includes('mailjet.com') && options?.method === 'POST') {
+          mailjetSends += 1;
+          return response({ Messages: [{ To: [{ MessageID: 'unexpected-fallback-id' }] }] });
+        }
+        return response({});
+      }) as typeof globalThis.fetch;
+
+      const { sendEmailCascade } = await import('../functions/src/emailCascade.js');
+      const result = await sendEmailCascade([{
+        payload: {
+          from: 'Company Alert Oracle <company-alert-oracle@example.test>',
+          to: [CONTROLLED_EMAIL],
+          subject: 'C6-bis oracle fixture',
+          html: '<p>C6-bis oracle fixture</p>',
+        },
+        recipient: { email: CONTROLLED_EMAIL },
+        meta: {},
+      }], { delayMs: 0 });
+
+      // C6-bis is now a live contract on this base: #8152 is closed and its
+      // fix is present through merged #8153. These remain ordinary assertions;
+      // an expected-failure marker would misrepresent the current code.
+      check('E-NEG-13-2xx-without-id-not-accepted', result.accepted.length, 0, errors);
+      check('E-NEG-13-2xx-without-id-is-ambiguous',
+        [result.ambiguous.length, result.failed.length, mailjetSends],
+        [1, 0, 0],
+        errors);
+      check('E-NEG-13-no-synthetic-id-in-accepted',
+        [result.accepted.some((item: { messageId?: unknown }) => /^mg-\d+$/.test(String(item.messageId))),
+          result.ambiguous[0]?.messageId ?? null, mailgunSends],
+        [false, null, 1],
+        errors);
+    } finally {
+      globalThis.fetch = realFetch;
+      for (const key of envKeys) {
+        if (previousEnv[key] === undefined) delete process.env[key];
+        else process.env[key] = previousEnv[key];
+      }
+    }
     finish(errors);
   });
 
