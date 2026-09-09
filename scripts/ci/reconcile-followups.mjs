@@ -40,6 +40,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -57,6 +58,32 @@ const MARKER = '<!-- reconcile-bot -->';
 const CLOSE_MARKER = '<!-- reconcile-bot:autoclose -->';
 const LABEL = 'maybe-resolved';
 const CLOSED_LABEL = 'fu-resolved-auto';
+export const UNCLASSIFIABLE_LABEL = 'reconcile-unclassifiable';
+export const UNCLASSIFIABLE_MARKER_PREFIX = '<!-- reconcile-unclassifiable';
+export const UNCLASSIFIABLE_MARKER_SCHEMA = 1;
+export const UNCLASSIFIABLE_MARKER_RE = /<!-- reconcile-unclassifiable schema=(\d+) classifier=([0-9a-f]{64}) fingerprint=([0-9a-f]{64}) -->/;
+
+function classifierVersion() {
+  const source = [
+    readClassifierSource(import.meta.url, 'scripts/ci/reconcile-followups.mjs'),
+    readClassifierSource(new URL('./followup-resolution-match.mjs', import.meta.url), 'scripts/ci/followup-resolution-match.mjs'),
+  ];
+  return createHash('sha256')
+    .update(source[0])
+    .update('\0')
+    .update(source[1])
+    .digest('hex');
+}
+
+function readClassifierSource(url, fallbackPath) {
+  try {
+    return fs.readFileSync(fileURLToPath(url));
+  } catch {
+    return fs.readFileSync(path.resolve(process.cwd(), fallbackPath));
+  }
+}
+
+export const RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION = classifierVersion();
 
 // Labels that VETO auto-close (the issue wants human eyes regardless of token match):
 // explicit keep-open pins + strategic trackers (revenue/tracker stay owner-gated).
@@ -140,6 +167,114 @@ export function isAggregateTitle(title = '', body = '') {
   if (m) return Number(m[1]) >= 2;
   if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return true;
   return hasEnumeratedItems(body);
+}
+
+const TECHNICAL_LABELS = new Set([UNCLASSIFIABLE_LABEL, LABEL, CLOSED_LABEL]);
+const TECHNICAL_COMMENT_MARKERS = [UNCLASSIFIABLE_MARKER_PREFIX, MARKER, CLOSE_MARKER];
+
+function labelName(label) {
+  return typeof label === 'string' ? label : label?.name;
+}
+
+function fingerprintLabels(issue) {
+  return [...new Set((issue?.labels || [])
+    .map(labelName)
+    .filter(Boolean)
+    .map(String)
+    .filter((name) => !TECHNICAL_LABELS.has(name)))]
+    .sort();
+}
+
+function commentField(comment, camel, snake) {
+  return comment?.[camel] ?? comment?.[snake] ?? '';
+}
+
+function isTechnicalComment(body) {
+  return TECHNICAL_COMMENT_MARKERS.some((marker) => String(body || '').includes(marker));
+}
+
+function fingerprintComment(comment) {
+  return {
+    id: String(comment?.id || ''),
+    author: String(comment?.author?.login || comment?.author?.name || comment?.author || ''),
+    createdAt: String(commentField(comment, 'createdAt', 'created_at')),
+    updatedAt: String(commentField(comment, 'updatedAt', 'updated_at')),
+    body: String(comment?.body || ''),
+  };
+}
+
+export function unclassifiableIssueFingerprint(issue, comments) {
+  if (!Array.isArray(comments)) return null;
+  const humanComments = comments
+    .filter((comment) => !isTechnicalComment(comment?.body))
+    .map(fingerprintComment)
+    .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)));
+  const input = JSON.stringify({
+    title: String(issue?.title || ''),
+    body: String(issue?.body || ''),
+    labels: fingerprintLabels(issue),
+    comments: humanComments,
+  });
+  return createHash('sha256').update(input).digest('hex');
+}
+
+function markerCommentOrder(comment, index) {
+  return `${commentField(comment, 'createdAt', 'created_at')}\0${commentField(comment, 'updatedAt', 'updated_at')}\0${String(index).padStart(8, '0')}`;
+}
+
+function latestUnclassifiableMarker(comments) {
+  if (!Array.isArray(comments)) return null;
+  const candidates = comments
+    .map((comment, index) => ({ comment, index }))
+    .filter(({ comment }) => String(comment?.body || '').includes(UNCLASSIFIABLE_MARKER_PREFIX))
+    .sort((a, b) => markerCommentOrder(a.comment, a.index).localeCompare(markerCommentOrder(b.comment, b.index)));
+  if (!candidates.length) return null;
+
+  const { comment } = candidates[candidates.length - 1];
+  const body = String(comment?.body || '');
+  if (body.indexOf(UNCLASSIFIABLE_MARKER_PREFIX) !== body.lastIndexOf(UNCLASSIFIABLE_MARKER_PREFIX)) {
+    return { valid: false };
+  }
+  const match = UNCLASSIFIABLE_MARKER_RE.exec(body);
+  if (!match) return { valid: false };
+  return {
+    valid: true,
+    schema: Number(match[1]),
+    classifierVersion: match[2],
+    fingerprint: match[3],
+  };
+}
+
+export function isUnclassifiableAggregate(title = '', body = '') {
+  return isAggregateTitle(title, body) && splitFollowupItems(body).length === 0;
+}
+
+export function unclassifiableMarker(issue, comments, {
+  classifierVersion: expectedClassifierVersion = RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION,
+} = {}) {
+  if (!isUnclassifiableAggregate(issue?.title, issue?.body)) return null;
+  const fingerprint = unclassifiableIssueFingerprint(issue, comments);
+  const normalizedClassifier = String(expectedClassifierVersion || '').toLowerCase();
+  if (!fingerprint || !/^[0-9a-f]{64}$/.test(normalizedClassifier)) {
+    return null;
+  }
+  return `${UNCLASSIFIABLE_MARKER_PREFIX} schema=${UNCLASSIFIABLE_MARKER_SCHEMA} classifier=${normalizedClassifier} fingerprint=${fingerprint} -->`;
+}
+
+export function isCurrentUnclassifiable(issue, comments, {
+  classifierVersion: expectedClassifierVersion = RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION,
+} = {}) {
+  const labels = (issue?.labels || []).map(labelName);
+  if (!labels.includes(UNCLASSIFIABLE_LABEL) || !isUnclassifiableAggregate(issue?.title, issue?.body)) return false;
+  const expectedFingerprint = unclassifiableIssueFingerprint(issue, comments);
+  const expectedClassifier = String(expectedClassifierVersion || '').toLowerCase();
+  if (!expectedFingerprint || !/^[0-9a-f]{64}$/.test(expectedClassifier)) return false;
+  const marker = latestUnclassifiableMarker(comments);
+  return !!marker
+    && marker.valid
+    && marker.schema === UNCLASSIFIABLE_MARKER_SCHEMA
+    && marker.classifierVersion === expectedClassifier
+    && marker.fingerprint === expectedFingerprint;
 }
 
 /**
@@ -234,6 +369,7 @@ const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
 // gate (check-issue-already-resolved.mjs) so the two can never drift on what counts as
 // "already resolved" (AGENTS.md #6). Disk-backed IO resolver for this scheduled pass:
 const fileCache = new Map();
+const issueCommentCache = new Map();
 const diskIo = {
   fileExists: (p) => fs.existsSync(p),
   readFile: (p) => {
@@ -242,14 +378,28 @@ const diskIo = {
   },
 };
 
-function alreadyCommented(number) {
+function readIssueComments(number) {
+  if (issueCommentCache.has(number)) return issueCommentCache.get(number);
   const out = gh(['issue', 'view', String(number), ...repoArgs, '--json', 'comments'], { allowFail: true });
-  if (!out) return null;
-  try {
-    return JSON.parse(out).comments.some((c) => (c.body || '').includes(MARKER));
-  } catch {
+  if (!out) {
+    issueCommentCache.set(number, null);
     return null;
   }
+  try {
+    const comments = JSON.parse(out).comments;
+    const result = Array.isArray(comments) ? comments : null;
+    issueCommentCache.set(number, result);
+    return result;
+  } catch {
+    issueCommentCache.set(number, null);
+    return null;
+  }
+}
+
+function alreadyCommented(number, comments = undefined) {
+  const resolvedComments = comments === undefined ? readIssueComments(number) : comments;
+  if (!Array.isArray(resolvedComments)) return null;
+  return resolvedComments.some((c) => (c.body || '').includes(MARKER));
 }
 
 function evidenceLines(evidence) {
@@ -281,7 +431,10 @@ function main() {
   }
 
   if (!DRY_RUN) {
-    // Best-effort: ensure the advisory + auto-close labels exist (no-op if already there).
+    // Best-effort: ensure the advisory, cache, and auto-close labels exist (no-op if already there).
+    gh(['label', 'create', UNCLASSIFIABLE_LABEL, '--color', 'cfd3d7',
+        '--description', 'Reconcile: aggregate esaminata ma non classificabile; riesame su modifica/versione',
+        ...repoArgs], { allowFail: true });
     gh(['label', 'create', LABEL, '--color', 'c5def5',
         '--description', 'Reconcile bot: cited code present in file — likely done-but-open',
         ...repoArgs], { allowFail: true });
@@ -292,13 +445,42 @@ function main() {
 
   const flagged = [];
   const closed = [];
+  const unclassifiableCandidates = [];
+  let unclassifiableSkipped = 0;
 
   for (const iss of issues) {
     if (inFlight(iss.number)) { console.log(`#${iss.number}: in-flight PR open, skip`); continue; }
+    const labelNames = (iss.labels || []).map(labelName);
+    const hasUnclassifiableLabel = labelNames.includes(UNCLASSIFIABLE_LABEL);
+    const unclassifiable = isUnclassifiableAggregate(iss.title, iss.body || '');
+    let comments;
+
+    if (hasUnclassifiableLabel) {
+      comments = readIssueComments(iss.number);
+      if (comments && isCurrentUnclassifiable(iss, comments)) {
+        unclassifiableSkipped += 1;
+        console.log(`#${iss.number}: aggregate non classificabile già esaminata, cache corrente → skip`);
+        continue;
+      }
+      if (comments) {
+        console.log(`#${iss.number}: cache non classificabile assente/scaduta, riesame`);
+        gh(['issue', 'edit', String(iss.number), ...repoArgs, '--remove-label', UNCLASSIFIABLE_LABEL], { allowFail: true });
+      }
+    }
+
     const { resolved, evidence } = detectAlreadyResolved(iss.body || '', diskIo);
+
+    // The marker records the exact structural veto. It is deliberately written even
+    // when the token detector is negative: the next pass must not pay to rediscover
+    // that this aggregate cannot be parsed, while the close predicates stay unchanged.
+    if (unclassifiable) {
+      if (comments === undefined) comments = readIssueComments(iss.number);
+      const marker = comments ? unclassifiableMarker(iss, comments) : null;
+      if (marker) unclassifiableCandidates.push({ number: iss.number, title: iss.title, marker });
+    }
+
     if (!resolved) continue;
 
-    const labelNames = (iss.labels || []).map((l) => l.name);
     const hasMaybeResolved = labelNames.includes(LABEL);
     const blocked = labelNames.some((n) => KEEP_OPEN_LABELS.has(n));
     const aggGate = isAggregateTitle(iss.title, iss.body || '')
@@ -326,6 +508,19 @@ function main() {
     } else { // 'none' — leave alone (not resolved / objection / held at tier-1)
       if (hasPriorFlag) console.log(`#${iss.number}: held (objection / weak / tier-1), skip`);
     }
+  }
+
+  // Cache only the structural non-classifiable veto. The issue stays open, keeps
+  // `follow-up`, and remains visible; this label/comment pair is a reread cache,
+  // not a resolution state.
+  for (const c of unclassifiableCandidates) {
+    const comment = `🔎 **Reconcile cache**: questa aggregata è stata esaminata ma il corpo non contiene una struttura a item classificabile. Resta aperta e visibile; un cambiamento alla issue o alla versione del classificatore farà scattare un nuovo riesame.
+
+${c.marker}`;
+    console.log(`#${c.number} "${c.title}" → cache non classificabile`);
+    if (DRY_RUN) continue;
+    gh(['issue', 'edit', String(c.number), ...repoArgs, '--add-label', UNCLASSIFIABLE_LABEL], { allowFail: true });
+    gh(['issue', 'comment', String(c.number), ...repoArgs, '--body', comment], { allowFail: true });
   }
 
   // Tier 1 — flag (grace window): comment + maybe-resolved label.
@@ -366,12 +561,13 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     gh(['issue', 'close', String(c.number), ...repoArgs, '--reason', 'completed'], { allowFail: true });
   }
 
-  const summary = `Reconcile follow-ups: scanned ${issues.length}, flagged ${flagged.length}, auto-closed ${closed.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
+  const summary = `Reconcile follow-ups: scanned ${issues.length}, cache-skipped ${unclassifiableSkipped}, cache-marked ${unclassifiableCandidates.length}, flagged ${flagged.length}, auto-closed ${closed.length}${DRY_RUN ? ' (dry-run)' : ''}${NO_AUTOCLOSE ? ' (no-autoclose)' : ''}.`;
   console.log(summary);
   if (process.env.GITHUB_STEP_SUMMARY) {
+    const uc = unclassifiableCandidates.map((c) => `- 🔎 #${c.number} ${c.title} (aggregate non classificabile, resta aperta)`).join('\n');
     const fl = flagged.map((f) => `- 🟡 #${f.number} ${f.title} (flag: ${f.reason}, ${f.evidence.length} match)`).join('\n');
     const cl = closed.map((c) => `- ✅ #${c.number} ${c.title} (auto-closed, ${c.evidence.length} match)`).join('\n');
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[cl, fl].filter(Boolean).join('\n')}\n`);
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## ${summary}\n${[uc, cl, fl].filter(Boolean).join('\n')}\n`);
   }
 }
 
