@@ -124,6 +124,14 @@ runs:
         set -euo pipefail
         install_home="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-cli-install.XXXXXX")"
         chmod 700 "$install_home"
+        codex_prefix="$install_home/prefix"
+        mkdir -p "$codex_prefix"
+        chmod 700 "$codex_prefix"
+        # Publish the guarded root before npm runs so the always() cleanup also
+        # handles a failed or interrupted install. The CLI stays here for the
+        # later sandbox/exec step; it is never installed into a runner-global
+        # prefix or discovered through a mutable PATH lookup.
+        printf 'codex_install_root=%s\n' "$install_home" >> "$GITHUB_OUTPUT"
         # This step intentionally has neither CODEX_HOME/auth.json nor any
         # bridge token. Keep npm's cache/user config in the throw-away home.
         env -i \
@@ -132,24 +140,33 @@ runs:
           CI="true" \
           NPM_CONFIG_USERCONFIG=/dev/null \
           npm_config_cache="$install_home/cache" \
+          npm_config_prefix="$codex_prefix" \
           npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
-        codex_path="$(command -v codex || true)"
-        if [ -z "$codex_path" ] || [ ! -x "$codex_path" ]; then
-          echo '::error::Pinned Codex CLI was not installed on PATH.'
+        codex_path="$codex_prefix/bin/codex"
+        case "$codex_path" in
+          /*) ;;
+          *) echo '::error::Pinned Codex CLI path is not absolute.'; exit 1 ;;
+        esac
+        if [ ! -x "$codex_path" ]; then
+          echo '::error::Pinned Codex CLI was not installed at its dedicated prefix.'
+          exit 1
+        fi
+        codex_version="$("$codex_path" --version 2>/dev/null || true)"
+        if [ "$codex_version" != 'codex-cli 0.153.4' ]; then
+          echo "::error::Unexpected Codex CLI version: $codex_version"
           exit 1
         fi
         codex_realpath="$(realpath "$codex_path")"
         codex_launcher_dir="$(dirname "$codex_realpath")"
         codex_runtime_root="$(dirname "$codex_realpath")"
-        codex_npm_root="$(env -i PATH="$PATH" HOME="$install_home" NPM_CONFIG_USERCONFIG=/dev/null npm_config_cache="$install_home/cache" npm root --global)"
-        if [ -d "$codex_npm_root/@openai/codex" ]; then
-          codex_runtime_root="$codex_npm_root/@openai/codex"
+        codex_package_root="$codex_prefix/lib/node_modules/@openai/codex"
+        if [ -d "$codex_package_root" ]; then
+          codex_runtime_root="$(realpath "$codex_package_root")"
         fi
         printf 'codex_path=%s\n' "$codex_path" >> "$GITHUB_OUTPUT"
         printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
         printf 'codex_launcher_dir=%s\n' "$codex_launcher_dir" >> "$GITHUB_OUTPUT"
         printf 'codex_runtime_root=%s\n' "$codex_runtime_root" >> "$GITHUB_OUTPUT"
-        node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$install_home"
 
     - name: Prepare ephemeral Codex subscription auth
       id: codex_auth
@@ -200,6 +217,8 @@ runs:
         codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
         codex_runtime_root="${CODEX_RUNTIME_ROOT:?Codex runtime directory unavailable}"
         [ -x "$codex_realpath" ] || { echo '::error::Pinned Codex CLI realpath is not executable.'; exit 1; }
+        codex_version="$("$codex_bin" --version 2>/dev/null || true)"
+        [ "$codex_version" = 'codex-cli 0.153.4' ] || { echo "::error::Codex CLI version changed: $codex_version"; exit 1; }
 
         # `shell_environment_policy.ignore_default_excludes=false` deliberately
         # strips GH_TOKEN/GITHUB_TOKEN from model-generated subprocesses. Keep
@@ -695,6 +714,20 @@ runs:
             node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_HOME"
             ;;
           *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
+        esac
+
+    - name: Cleanup ephemeral Codex CLI install
+      if: always() && steps.codex_cli.outputs.codex_install_root != ''
+      shell: bash
+      env:
+        CODEX_CLI_ROOT: ${{ steps.codex_cli.outputs.codex_install_root }}
+      run: |
+        set +e
+        case "$CODEX_CLI_ROOT" in
+          "${RUNNER_TEMP:-/tmp}"/codex-cli-install.*)
+            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_CLI_ROOT"
+            ;;
+          *) echo "::warning::unexpected Codex CLI install path; leaving it untouched" ;;
         esac
 
     - name: Preserve primary/fallback outcome

@@ -17,6 +17,7 @@ export const MAX_ACTIVE_CONNECTIONS = 8;
 export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
+export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
 
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
@@ -194,7 +195,15 @@ function main() {
   };
   let activeConnections = 0;
   const children = new Set();
+  const clients = new Set();
+  let shuttingDown = false;
+  let shutdownFinalized = false;
+  let shutdownTimer = null;
+  let hardExitTimer = null;
+  let exitStarted = false;
   const server = net.createServer({ allowHalfOpen: true }, (client) => {
+    clients.add(client);
+    client.once('close', () => clients.delete(client));
     if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
       responseFor(client, { code: 2, stderr: 'Codex Git bridge is busy; retry later\n' });
       return;
@@ -303,6 +312,7 @@ function main() {
         childExited = true;
         children.delete(child);
         finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+        if (shuttingDown && children.size === 0) finalizeShutdown();
       });
       child.on('close', (code) => {
         childExited = true;
@@ -312,19 +322,42 @@ function main() {
           ? `${stderr}Codex Git bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
         finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
+        if (shuttingDown && children.size === 0) finalizeShutdown();
       });
     });
   });
   server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
+  const exitProcess = (code) => {
+    if (exitStarted) return;
+    exitStarted = true;
+    if (hardExitTimer) clearTimeout(hardExitTimer);
+    fs.rmSync(shadowCommonDir, { recursive: true, force: true });
+    process.exit(code);
+  };
+  function finalizeShutdown() {
+    if (shutdownFinalized) return;
+    shutdownFinalized = true;
+    if (shutdownTimer) clearTimeout(shutdownTimer);
+    hardExitTimer = setTimeout(() => exitProcess(1), 500);
+    hardExitTimer.unref?.();
+    if (server.listening) server.close(() => exitProcess(0));
+    else exitProcess(0);
+  }
   const shutdown = () => {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    for (const client of clients) client.destroy();
     for (const child of children) {
       if (isChildRunning(child)) requestChildTermination(child);
     }
-    server.close(() => {
-      fs.rmSync(shadowCommonDir, { recursive: true, force: true });
-      process.exit(0);
-    });
+    shutdownTimer = setTimeout(() => {
+      for (const child of children) {
+        if (isChildRunning(child)) child.kill('SIGKILL');
+      }
+      finalizeShutdown();
+    }, SHUTDOWN_TIMEOUT_MS);
+    if (children.size === 0) finalizeShutdown();
   };
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);

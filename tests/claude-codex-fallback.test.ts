@@ -29,6 +29,7 @@ import {
   SOCKET_TIMEOUT_MS as GH_SOCKET_TIMEOUT_MS,
   CHILD_TIMEOUT_MS as GH_CHILD_TIMEOUT_MS,
   FORCE_KILL_GRACE_MS as GH_FORCE_KILL_GRACE_MS,
+  SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
   validateGhArgs,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
@@ -38,6 +39,7 @@ import {
   SOCKET_TIMEOUT_MS as GIT_SOCKET_TIMEOUT_MS,
   CHILD_TIMEOUT_MS as GIT_CHILD_TIMEOUT_MS,
   FORCE_KILL_GRACE_MS as GIT_FORCE_KILL_GRACE_MS,
+  SHUTDOWN_TIMEOUT_MS as GIT_SHUTDOWN_TIMEOUT_MS,
   buildGitNetworkArgs,
   canonicalGitRemote,
   validateGitArgs,
@@ -208,17 +210,18 @@ describe('validator dei bridge host-side', () => {
     try {
       expect(validateGhArgs(['auth', 'token'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['--repo', 'owner/repo', 'auth', 'token'], context)).toMatch(/not permitted/);
-      expect(validateGhArgs(['api', '--input', outsideAuth], context)).toMatch(/workspace\/scratch/);
+      expect(validateGhArgs(['api', '--method', 'GET', '--input', outsideAuth], context)).toMatch(/workspace\/scratch/);
       expect(validateGhArgs(['issue', 'create', '--body-file', join(scratch, 'auth-link')], context)).toMatch(/workspace\/scratch/);
       expect(validateGhArgs(['issue', 'create', '--body-file', join(workspace, 'body.md')], context)).toBe('');
-      expect(validateGhArgs(['api', '-F', `body=@${outsideAuth}`], context)).toMatch(/workspace\/scratch/);
-      expect(validateGhArgs(['api', '-F', `body=@${join(scratch, 'payload.json')}`], context)).toBe('');
+      expect(validateGhArgs(['api', '--method', 'GET', '-F', `body=@${outsideAuth}`], context)).toMatch(/workspace\/scratch/);
+      expect(validateGhArgs(['api', '--method', 'GET', '-F', `body=@${join(scratch, 'payload.json')}`], context)).toBe('');
       expect(validateGhArgs(['api', '--template', `@${outsideAuth}`], context)).toMatch(/workspace\/scratch/);
       expect(validateGhArgs(['api', '--template', '{{.number}}'], context)).toBe('');
       expect(validateGhArgs(['pr', 'view', '--verbose'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['api', '/repos/owner/repo/actions/secrets'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['issue', 'list', '--repo', 'other/repo'], context)).toMatch(/restricted to owner\/repo/);
       expect(validateGhArgs(['issue', 'list', '--repo=owner/other'], context)).toMatch(/restricted to owner\/repo/);
+      expect(validateGhArgs(['issue', 'list', '-R', 'other/repo'], context)).toMatch(/restricted to owner\/repo/);
       expect(validateGhArgs(['issue', 'list', '--hostname', 'evil.example'], context)).toMatch(/hostname is restricted/);
       expect(validateGhArgs(['issue', 'list', '--hostname=github.com'], context)).toBe('');
       expect(validateGhArgs(['api', 'https://evil.example/repos/owner/repo/issues'], context)).toMatch(/relative endpoint/);
@@ -227,14 +230,26 @@ describe('validator dei bridge host-side', () => {
       expect(validateGhArgs(['api', 'repos/owner/repo/../other'], context)).toMatch(/dot segments/);
       expect(validateGhArgs(['api', 'repos/owner/repo/%2e%2e/other'], context)).toMatch(/percent-encoded/);
       expect(validateGhArgs(['api', 'repos%2Fowner%2Frepo/issues'], context)).toMatch(/percent-encoded/);
+      for (const bodyFlag of ['--input', '-F', '--field', '-f', '--raw-field']) {
+        const bodyArgs = bodyFlag === '--input' ? [bodyFlag, join(scratch, 'payload.json')] : [bodyFlag, 'state=open'];
+        expect(validateGhArgs(['api', 'repos/owner/repo/issues', ...bodyArgs], context)).toMatch(/body flags.*explicit GET/);
+        expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'POST', ...bodyArgs], context)).toMatch(/body flags.*explicit GET/);
+        expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'GET', ...bodyArgs], context)).toBe('');
+      }
+      expect(validateGhArgs(['api', 'repos/owner/repo/issues', '-Fstate=@' + outsideAuth], context)).toMatch(/body flags.*explicit GET/);
+      expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'GET', '-Fstate=@' + outsideAuth], context)).toMatch(/workspace\/scratch/);
       expect(validateGhArgs(['search', 'code', 'secret'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['search', 'issues'], context)).toMatch(/explicit current-repository/);
       expect(validateGhArgs(['search', 'issues', '--repo', 'owner/repo'], context)).toBe('');
+      expect(validateGhArgs(['search', 'issues', '-R', 'owner/repo'], context)).toBe('');
       expect(validateGhArgs(['run', 'download', '123', '--dir', outsideAuth], context)).toMatch(/download/);
       expect(validateGhArgs(['run', 'cancel', '123'], context)).toMatch(/operation is not permitted/);
       expect(validateGhArgs(['label', 'delete', 'needs-human'], context)).toMatch(/operation is not permitted/);
       expect(validateGhArgs(['issue', 'close', '123'], context)).toMatch(/operation is not permitted/);
       expect(validateGhArgs(['pr', 'merge', '123'], context)).toMatch(/operation is not permitted/);
+      expect(validateGhArgs(['issue', 'view', 'https://evil.example/owner/repo/issues/1'], context)).toMatch(/positional URLs/);
+      expect(validateGhArgs(['pr', 'view', 'https://github.com/other/repo/pull/1'], context)).toMatch(/positional URLs/);
+      expect(validateGhArgs(['pr', 'view', 'https://github.com/owner/repo/pull/1'], context)).toMatch(/positional URLs/);
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'DELETE'], context)).toMatch(/mutations/);
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '-XPOST'], context)).toMatch(/mutations/);
     } finally {
@@ -271,12 +286,14 @@ describe('validator dei bridge host-side', () => {
     expect(GH_SOCKET_TIMEOUT_MS).toBe(30_000);
     expect(GH_CHILD_TIMEOUT_MS).toBe(120_000);
     expect(GH_FORCE_KILL_GRACE_MS).toBe(2_000);
+    expect(GH_SHUTDOWN_TIMEOUT_MS).toBe(2_500);
     expect(GIT_MAX_REQUEST_BYTES).toBe(64 * 1024);
     expect(GIT_MAX_OUTPUT_BYTES).toBe(1024 * 1024);
     expect(GIT_MAX_ACTIVE_CONNECTIONS).toBe(8);
     expect(GIT_SOCKET_TIMEOUT_MS).toBe(30_000);
     expect(GIT_CHILD_TIMEOUT_MS).toBe(120_000);
     expect(GIT_FORCE_KILL_GRACE_MS).toBe(2_000);
+    expect(GIT_SHUTDOWN_TIMEOUT_MS).toBe(2_500);
   });
 
   it('forza un child stubborn dopo SIGTERM e non uccide un child già terminato', async () => {
@@ -367,6 +384,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
     expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
+    expect(action).toContain('codex_install_root=');
     const installStart = action.indexOf('- name: Install pinned Codex CLI');
     const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth');
     const codexStart = action.indexOf('- name: Run one Codex subscription fallback');
@@ -377,6 +395,12 @@ describe('copertura workflow diretti', () => {
     const codexBlock = action.slice(codexStart, action.indexOf('- name: Record structured Codex fallback evidence'));
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
+    expect(installBlock).toContain('npm_config_prefix="$codex_prefix"');
+    expect(installBlock).toContain('codex_path="$codex_prefix/bin/codex"');
+    expect(installBlock).toContain('case "$codex_path" in');
+    expect(installBlock).toContain('codex_version="$("$codex_path" --version 2>/dev/null || true)"');
+    expect(installBlock).toContain("[ \"$codex_version\" != 'codex-cli 0.153.4' ]");
+    expect(installBlock).not.toContain('command -v codex');
     expect(installBlock).not.toMatch(/^\s+CODEX_HOME:/m);
     expect(installBlock).not.toMatch(/^\s+CODEX_GH_AUTH:/m);
     expect(codexBlock).not.toContain('npm install --global');
@@ -439,6 +463,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('chmod 700 "$bridge_dir"');
     expect(action).toContain('if: always()');
     expect(action).toContain('chmod 600 "$CODEX_HOME/auth.json"');
+    expect(action).toContain('Cleanup ephemeral Codex CLI install');
     expect(action).toContain('fs.rmSync(process.argv[1], {recursive:true, force:true})');
     expect(action).toContain('Never mark this Codex run rate-limited or refunded');
     expect(action).not.toContain('--dangerously-bypass-approvals-and-sandbox');
@@ -457,6 +482,12 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('MAX_ACTIVE_CONNECTIONS');
     expect(ghBridge).toContain('SOCKET_TIMEOUT_MS');
     expect(ghBridge).toContain('CHILD_TIMEOUT_MS');
+    expect(ghBridge).toContain('SHUTDOWN_TIMEOUT_MS');
+    expect(ghBridge).toContain('const clients = new Set()');
+    expect(ghBridge).toContain('clients.add(client)');
+    expect(ghBridge).toContain('for (const client of clients) client.destroy()');
+    expect(ghBridge).toContain('hardExitTimer');
+    expect(ghBridge).not.toContain('child.killed');
     expect(ghBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(ghBridge).toContain("terminateChild('client-disconnected')");
     expect(ghBridge).toContain('requestChildTermination(child)');
@@ -472,6 +503,12 @@ describe('copertura workflow diretti', () => {
     expect(gitBridge).toContain("terminateChild('client-disconnected')");
     expect(gitBridge).toContain('requestChildTermination(child)');
     expect(gitBridge).toContain('MAX_REQUEST_BYTES');
+    expect(gitBridge).toContain('SHUTDOWN_TIMEOUT_MS');
+    expect(gitBridge).toContain('const clients = new Set()');
+    expect(gitBridge).toContain('clients.add(client)');
+    expect(gitBridge).toContain('for (const client of clients) client.destroy()');
+    expect(gitBridge).toContain('hardExitTimer');
+    expect(gitBridge).not.toContain('child.killed');
     expect(gitSanitizer).toContain('parseNullRecords');
     expect(gitSanitizer).toContain('http.extraheader');
   });

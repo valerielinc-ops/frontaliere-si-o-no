@@ -17,6 +17,7 @@ export const MAX_ACTIVE_CONNECTIONS = 8;
 export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
+export const SHUTDOWN_TIMEOUT_MS = FORCE_KILL_GRACE_MS + 500;
 
 const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run', 'search']);
 const allowedSubcommands = new Map([
@@ -27,10 +28,11 @@ const allowedSubcommands = new Map([
   ['search', new Set(['issues'])],
 ]);
 const operationValueFlags = new Set([
-  '--repo', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
+  '--repo', '-R', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
   '--body-file', '--body', '--title', '--label', '--add-label', '--remove-label',
   '--color', '--description', '--json', '--jq', '--limit', '--state', '--match',
   '--workflow', '--branch', '--status', '--name', '--head', '--base', '--field',
+  '--search', '--comment', '--milestone', '--assignee', '--project',
   '-F', '-f', '--raw-field',
 ]);
 const blockedMutationFlags = new Set([
@@ -49,8 +51,10 @@ const blockedFlags = new Set([
 ]);
 const fileFlags = new Set(['--body-file', '--input', '--template']);
 const fieldFlags = new Set(['-F', '--field', '-f', '--raw-field']);
+const apiBodyFlags = new Set(['--input', '-F', '--field', '-f', '--raw-field']);
+const absoluteUrlPattern = /^(?:[a-z][a-z0-9+.-]*:\/\/|\/\/)/i;
 const apiEndpointValueFlags = new Set([
-  '--method', '-X', '--header', '-H', '--hostname', '--repo',
+  '--method', '-X', '--header', '-H', '--hostname', '--repo', '-R',
   '--input', '--template', '-F', '--field', '-f', '--raw-field',
 ]);
 
@@ -61,7 +65,7 @@ function realRoot(value) {
 function commandIndexFor(args) {
   let index = 0;
   while (index < args.length && args[index].startsWith('-')) {
-    if (args[index] === '--repo' || args[index] === '--hostname') index += 2;
+    if (args[index] === '--repo' || args[index] === '-R' || args[index] === '--hostname') index += 2;
     else index += 1;
   }
   return index;
@@ -115,22 +119,41 @@ function hasExplicitOption(args, name) {
   return args.some((arg) => arg === name || arg.startsWith(`${name}=`));
 }
 
+function isApiBodyFlag(arg) {
+  if (apiBodyFlags.has(arg)) return true;
+  return arg.startsWith('--input=')
+    || arg.startsWith('--field=')
+    || arg.startsWith('--raw-field=')
+    || (arg.startsWith('-F') && arg.length > 2)
+    || (arg.startsWith('-f') && arg.length > 2);
+}
+
 function apiMethodError(args, start) {
   let method = 'GET';
+  let explicitMethod = false;
+  let hasBody = false;
   for (let index = start; index < args.length; index += 1) {
     const arg = args[index];
+    if (isApiBodyFlag(arg)) hasBody = true;
     let value = null;
     if (arg === '--method' || arg === '-X') {
       value = args[index + 1] || '';
       index += 1;
+      explicitMethod = true;
     } else if (arg.startsWith('--method=')) {
       value = arg.slice('--method='.length);
+      explicitMethod = true;
     } else if (arg.startsWith('-X=')) {
       value = arg.slice(3);
+      explicitMethod = true;
     } else if (arg.startsWith('-X') && arg.length > 2) {
       value = arg.slice(2);
+      explicitMethod = true;
     }
     if (value !== null) method = value.toUpperCase();
+  }
+  if (hasBody && (!explicitMethod || method !== 'GET')) {
+    return 'gh api body flags require an explicit GET method in the Codex fallback bridge';
   }
   return method === 'GET' ? '' : 'gh api mutations are not permitted by the Codex fallback bridge';
 }
@@ -141,7 +164,7 @@ function validateOperation(args, commandIndex, command, repository) {
   if (!allowedSubcommands.get(command)?.has(operation)) {
     return `gh ${command} operation is not permitted by the Codex fallback bridge: ${operation || '<missing>'}`;
   }
-  if (command === 'search' && (!hasExplicitOption(args, '--repo') || !repository)) {
+  if (command === 'search' && ((!hasExplicitOption(args, '--repo') && !hasExplicitOption(args, '-R')) || !repository)) {
     return 'gh search requires an explicit current-repository --repo';
   }
   for (const arg of args.slice(commandIndex + 1)) {
@@ -158,7 +181,7 @@ function validateRepositoryAndHost(args, { repository, host } = {}) {
   if (!expectedRepository || !expectedHost) return 'Codex GitHub bridge context is missing a valid repository/host';
 
   for (let index = 0; index < args.length; index += 1) {
-    const repoOption = optionValue(args, index, '--repo');
+    const repoOption = optionValue(args, index, '--repo') || optionValue(args, index, '-R');
     if (repoOption) {
       if (!repoOption.value || repoOption.value !== expectedRepository) {
         return `gh --repo is restricted to ${expectedRepository}`;
@@ -172,6 +195,33 @@ function validateRepositoryAndHost(args, { repository, host } = {}) {
         return `gh --hostname is restricted to ${expectedHost}`;
       }
       index += hostOption.consumed;
+    }
+  }
+  return '';
+}
+
+function positionalUrlError(args, commandIndex) {
+  let operationSeen = false;
+  for (let index = commandIndex + 1; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === '--') {
+      for (const positional of args.slice(index + 1)) {
+        if (absoluteUrlPattern.test(positional)) {
+          return 'gh positional URLs are not permitted by the Codex fallback bridge';
+        }
+      }
+      return '';
+    }
+    if (arg.startsWith('-')) {
+      if (!arg.includes('=') && operationValueFlags.has(arg)) index += 1;
+      continue;
+    }
+    if (!operationSeen) {
+      operationSeen = true;
+      continue;
+    }
+    if (absoluteUrlPattern.test(arg)) {
+      return 'gh positional URLs are not permitted by the Codex fallback bridge';
     }
   }
   return '';
@@ -219,6 +269,16 @@ function fieldFileError(value, context) {
   return candidate ? fileError('gh field input', candidate, context) : '';
 }
 
+function fieldArgumentValue(arg) {
+  for (const flag of fieldFlags) {
+    if (arg.startsWith(`${flag}=`)) return arg.slice(flag.length + 1);
+    if ((flag === '-F' || flag === '-f') && arg.startsWith(flag) && arg.length > flag.length) {
+      return arg.slice(flag.length);
+    }
+  }
+  return null;
+}
+
 function fileArgumentError(flag, value, context) {
   if (flag === '--template' && value && !value.startsWith('@')) return '';
   const candidate = flag === '--template' ? value?.slice(1) : value;
@@ -258,6 +318,8 @@ export function validateGhArgs(args, {
   if (scopeError) return scopeError;
   const operationError = validateOperation(args, commandIndex, command, repository);
   if (operationError) return operationError;
+  const positionalUrlErrorMessage = positionalUrlError(args, commandIndex);
+  if (positionalUrlErrorMessage) return positionalUrlErrorMessage;
   const context = { cwd: cwd || process.cwd(), allowedRoots };
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
@@ -276,9 +338,9 @@ export function validateGhArgs(args, {
       if (error) return error;
       index += 1;
     } else {
-      const flag = [...fieldFlags].find((candidate) => arg.startsWith(`${candidate}=`));
-      if (flag) {
-        const error = fieldFileError(arg.slice(flag.length + 1), context);
+      const value = fieldArgumentValue(arg);
+      if (value !== null) {
+        const error = fieldFileError(value, context);
         if (error) return error;
       }
     }
@@ -315,7 +377,15 @@ function main() {
   };
   let activeConnections = 0;
   const children = new Set();
+  const clients = new Set();
+  let shuttingDown = false;
+  let shutdownFinalized = false;
+  let shutdownTimer = null;
+  let hardExitTimer = null;
+  let exitStarted = false;
   const server = net.createServer({ allowHalfOpen: true }, (client) => {
+    clients.add(client);
+    client.once('close', () => clients.delete(client));
     if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
       responseFor(client, { code: 2, stderr: 'Codex GitHub bridge is busy; retry later\n' });
       return;
@@ -419,6 +489,7 @@ function main() {
         childExited = true;
         children.delete(child);
         finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+        if (shuttingDown && children.size === 0) finalizeShutdown();
       });
       child.on('close', (code) => {
         childExited = true;
@@ -428,16 +499,41 @@ function main() {
           ? `${stderr}Codex GitHub bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
         finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
+        if (shuttingDown && children.size === 0) finalizeShutdown();
       });
     });
   });
   server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
+  const exitProcess = (code) => {
+    if (exitStarted) return;
+    exitStarted = true;
+    if (hardExitTimer) clearTimeout(hardExitTimer);
+    process.exit(code);
+  };
+  function finalizeShutdown() {
+    if (shutdownFinalized) return;
+    shutdownFinalized = true;
+    if (shutdownTimer) clearTimeout(shutdownTimer);
+    hardExitTimer = setTimeout(() => exitProcess(1), 500);
+    hardExitTimer.unref?.();
+    if (server.listening) server.close(() => exitProcess(0));
+    else exitProcess(0);
+  }
   const shutdown = () => {
+    if (shuttingDown) return;
+    shuttingDown = true;
+    for (const client of clients) client.destroy();
     for (const child of children) {
       if (isChildRunning(child)) requestChildTermination(child);
     }
-    server.close(() => process.exit(0));
+    shutdownTimer = setTimeout(() => {
+      for (const child of children) {
+        if (isChildRunning(child)) child.kill('SIGKILL');
+      }
+      finalizeShutdown();
+    }, SHUTDOWN_TIMEOUT_MS);
+    if (children.size === 0) finalizeShutdown();
   };
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);
