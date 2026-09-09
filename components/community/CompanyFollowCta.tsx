@@ -67,6 +67,7 @@ export type CompanyFollowSurface =
   | 'company_follow_orphan'
   | 'company_follow_expired'
   | 'company_follow_city'
+  | 'company_follow_hub'
   | 'company_follow_suggestion';
 
 export interface CompanyFollowCtaProps {

@@ -70,6 +70,7 @@ import {
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mjs';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
+import { resolveHubCompanyKey } from '../build-plugins/shared/companyFollowIdentity';
 import {
   buildRecipientSections,
   DEDUP_CHUNK_SIZE,
@@ -1355,6 +1356,78 @@ describe('cadence per followed company (#5012 fase 2 — frequenze)', () => {
       expect(src.split(`${key}:`).length - 1, `${key} is not in all four locales`).toBe(5);
       expect(src, `${key} missing from PageStrings`).toContain(`${key}: string;`);
     }
+  });
+});
+
+describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
+  it('does not choose an arbitrary first job when a hub group has divergent company keys', () => {
+    const companyJobs = [
+      { companyKey: 'brand-alias' },
+      { companyKey: 'brand-canonical' },
+      { companyKey: 'brand-canonical' },
+    ];
+
+    // This is the exact class of collision the profile generator resolves by
+    // its dominant companyKey: the array's first element is not authoritative.
+    expect(companyJobs.find((job) => String(job.companyKey || '').trim())?.companyKey)
+      .toBe('brand-alias');
+    expect(resolveHubCompanyKey('brand-canonical', { companyKey: 'brand-canonical' }))
+      .toBe('brand-canonical');
+  });
+
+  it('keeps the hub island after the existing heading/intro content', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+
+    const tiBodyStart = plugin.indexOf('const companyBodyHtml =');
+    const tiStart = plugin.lastIndexOf('const companyFollowHtml =', tiBodyStart);
+    const tiEnd = plugin.indexOf('const companyHtml =', tiBodyStart);
+    const tiBlock = plugin.slice(tiStart, tiEnd);
+    expect(tiBlock.indexOf('${companyFollowHtml}')).toBeGreaterThan(tiBlock.indexOf('<h1>'));
+
+    const cantonStart = plugin.indexOf(
+      'for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany)',
+    );
+    const cantonBodyStart = plugin.indexOf('const bodyHtml =', cantonStart);
+    const cantonBodyEnd = plugin.indexOf('// Use buildSeoPageHtml', cantonBodyStart);
+    const cantonBlock = plugin.slice(cantonBodyStart, cantonBodyEnd);
+    const islandIndex = cantonBlock.indexOf('${companyFollowHtml}');
+    expect(islandIndex).toBeGreaterThan(cantonBlock.indexOf('${intro}'));
+    expect(islandIndex).toBeLessThan(cantonBlock.indexOf('<ul class="s-0WjlyL">'));
+  });
+
+  it('emits the hydration island from both company-hub SSG emitters', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(plugin).toContain("import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder'");
+    const tiBodyStart = plugin.indexOf('const companyBodyHtml =');
+    const tiStart = plugin.lastIndexOf('const companyFollowHtml =', tiBodyStart);
+    const tiEnd = plugin.indexOf('const companyHtml =', tiBodyStart);
+    expect(plugin.slice(tiStart, tiEnd)).toContain("surface: 'employer_hub'");
+    expect(plugin.slice(tiStart, tiEnd)).toContain('popupEligible: true');
+
+    const cantonStart = plugin.indexOf(
+      'for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany)',
+    );
+    const cantonEnd = plugin.indexOf('// Use buildSeoPageHtml', cantonStart);
+    expect(plugin.slice(cantonStart, cantonEnd)).toContain("surface: 'employer_hub'");
+    expect(plugin.slice(cantonStart, cantonEnd)).toContain('popupEligible: true');
+  });
+
+  it('reuses the profile emitter companyKey resolution for both hub emitters', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(plugin).toContain('const emittedEmployerProfilesBySlug = new Map<string, EmittedEmployerProfile>();');
+    expect(plugin.match(/resolveHubCompanyKey\(cSlug, emittedEmployerProfilesBySlug\.get\(cSlug\)\)/g) || [])
+      .toHaveLength(2);
+    expect(readRepoFile('build-plugins/shared/buildSignals.ts'))
+      .toContain('readonly companyKey: string | null;');
+    expect(readRepoFile('build-plugins/employerProfilePagesPlugin.ts'))
+      .toContain('companyKey: profile.companyKey ?? null');
+  });
+
+  it('maps the hub surface end to end instead of falling back to profile analytics', () => {
+    expect(readRepoFile('components/community/CompanyFollowMount.tsx'))
+      .toContain("employer_hub: 'company_follow_hub'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx')).toContain("'company_follow_hub'");
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_hub'");
   });
 });
 

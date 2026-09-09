@@ -93,6 +93,8 @@ export interface EmittedEmployerProfile {
   readonly locale: 'it' | 'en' | 'de' | 'fr';
   readonly path: string;
   readonly label: string;
+  /** The same dominant companyKey used by the profile CTA, or null. */
+  readonly companyKey: string | null;
 }
 
 const employerProfilesSignal = makeValueSignal<readonly EmittedEmployerProfile[]>();

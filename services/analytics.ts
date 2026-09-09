@@ -2241,7 +2241,8 @@ export const Analytics = {
  // views where following is the only conversion left, 'company_follow_profile'
  // the SSG employer page, 'company_follow_below_floor' its thin
  // under-MIN_ACTIVE_JOBS variant and 'company_follow_city' the per-employer
- // «aziende che assumono» city hub. The union is mirrored by CompanyFollowSurface
+ // «aziende che assumono» city hub and 'company_follow_hub' the static
+ // company-employer hub. The union is mirrored by CompanyFollowSurface
  // in components/community/CompanyFollowCta.tsx.
  //
  // 'company_follow_suggestion' (fase 3) is the «altre aziende da seguire» block
@@ -2251,7 +2252,7 @@ export const Analytics = {
  // services/employerSuggestions.ts, whose entire input is how many ads an
  // employer has open and whether you already follow it — folding it into
  // 'company_follow_button' would leave that criterion unmeasurable.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_suggestion',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
