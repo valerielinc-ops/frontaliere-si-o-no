@@ -227,14 +227,7 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
  */
 export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot, variant = 'control' } = {}) {
   const campaignId = campaign || 'recommended';
-  const params = new URLSearchParams();
-  params.set('utm_source', 'newsletter');
-  params.set('utm_medium', 'email');
-  params.set('utm_campaign', campaignId);
-  params.set('utm_content', rec.id);
-  params.set(PLACEMENT_PARAM, placement || `${campaignId}-${rec.id}`);
   const safeAcquisitionSource = safeAffiliateToken(acquisitionSource);
-  if (safeAcquisitionSource) params.set('as', safeAcquisitionSource);
 
   if (rec.kind === 'affiliate' && rec.goId) {
     // Placement slot, same shape family as the newsletter partner rows
@@ -267,6 +260,13 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
   }
   // Sponsor: append utm to the (external) signed URL without breaking it.
   try {
+    const params = new URLSearchParams();
+    params.set('utm_source', 'newsletter');
+    params.set('utm_medium', 'email');
+    params.set('utm_campaign', campaignId);
+    params.set('utm_content', rec.id);
+    params.set(PLACEMENT_PARAM, placement || `${campaignId}-${rec.id}`);
+    if (safeAcquisitionSource) params.set('as', safeAcquisitionSource);
     const u = new URL(rec.url);
     for (const [k, v] of params) u.searchParams.set(k, v);
     return u.toString();

@@ -17,7 +17,17 @@ describe('affiliate link attribution', () => {
       position: 'exchange-1',
       campaign: 'g4-contextual',
       variant: 'v1',
-    })).toBe('web-exchange-1-g4-contextual-v1-wise');
+    })).toBe('wise-v1-web-exchange-1-g4-contextual');
+
+    const longPubref = buildAffiliatePubref({
+      partnerId: 'creditagricole',
+      surface: 'web',
+      position: 'partner-page-banking-n',
+      campaign: 'g4-contextual',
+      variant: 'v1',
+    });
+    expect(longPubref).toHaveLength(48);
+    expect(longPubref.startsWith('creditagricole-v1-web-')).toBe(true);
 
     const href = buildAffiliateLinkHref({ id: 'wise' }, {
       surface: 'web',
@@ -98,5 +108,23 @@ describe('affiliate revenue reconciliation', () => {
       amount: '2,50',
       transaction_date: '2026-09-04',
     }]);
+  });
+
+  it('parses network exports with thousands and decimal separators', () => {
+    expect(normalizeAffiliateTransaction({
+      transaction_id: 'tx-large-us',
+      status: 'approved',
+      currency: 'USD',
+      amount: '1,234.56',
+      transaction_date: '2026-09-04',
+    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234.56 }) }));
+
+    expect(normalizeAffiliateTransaction({
+      transaction_id: 'tx-large-eu',
+      status: 'approved',
+      currency: 'EUR',
+      amount: '1.234,56',
+      transaction_date: '2026-09-04',
+    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234.56 }) }));
   });
 });

@@ -52,11 +52,11 @@ export function sanitizeAffiliatePubref(raw) {
  */
 export function buildAffiliatePubref({ partnerId, surface, position, campaign, variant = '' } = {}) {
   return sanitizeAffiliatePubref([
+    partnerId,
+    variant,
     surface,
     position,
     campaign,
-    variant,
-    partnerId,
   ].map((value) => safeAffiliateToken(value)).filter(Boolean).join('-'));
 }
 

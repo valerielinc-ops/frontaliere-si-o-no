@@ -49,7 +49,19 @@ function asIsoDate(raw) {
 
 function asMoney(raw) {
   if (typeof raw === 'number') return Number.isFinite(raw) ? raw : null;
-  const value = Number(String(raw ?? '').replace(/[^0-9,.-]/g, '').replace(',', '.'));
+  const compact = String(raw ?? '').replace(/[^0-9,.-]/g, '');
+  const comma = compact.lastIndexOf(',');
+  const dot = compact.lastIndexOf('.');
+  let normalized = compact;
+  if (comma !== -1 && dot !== -1) {
+    // The last separator is decimal; the other one is a thousands separator.
+    const decimal = comma > dot ? ',' : '.';
+    const thousands = decimal === ',' ? /\./g : /,/g;
+    normalized = compact.replace(thousands, '').replace(decimal, '.');
+  } else if (comma !== -1) {
+    normalized = compact.replace(',', '.');
+  }
+  const value = Number(normalized);
   return Number.isFinite(value) ? value : null;
 }
 
