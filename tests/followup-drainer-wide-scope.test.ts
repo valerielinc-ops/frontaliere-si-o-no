@@ -25,6 +25,11 @@ import {
   WIDE_SCOPE_MIN_ITEMS,
   AGGREGATE_ITEMS_RE,
   detectMalformedBody,
+  issueGroupingKey,
+  groupIssueQueue,
+  issueGroupLabel,
+  ISSUE_GROUP_LABEL_PATTERN,
+  ISSUE_GROUP_MAX_SIZE,
 } from '../scripts/ci/followup-drainer.mjs';
 
 /** Verbatim: titolo di sito#6421. */
@@ -139,5 +144,117 @@ describe('AGGREGATE_ITEMS_RE — una sola definizione, due letture', () => {
     const body = 'a'.repeat(60); // >50 char ma senza struttura FOLLOWUP.md
     expect(detectMalformedBody(title, body)).toBe(true);
     expect(detectMalformedBody(title, body)).toBe(true); // idempotente call-to-call
+  });
+});
+
+describe('groupIssueQueue — gruppi di issue con punto di riparazione certo', () => {
+  const targetBody = (file: string) => [
+    '## Root cause',
+    'Il difetto è riprodotto e circoscritto.',
+    `- Suggested action: correggere la guardia in \`${file}\`.`,
+  ].join('\n');
+
+  const issue = (number: number, file: string, title = `follow-up(#${number}): fix`) => ({
+    number,
+    title,
+    body: targetBody(file),
+    labels: [{ name: 'agent:fix-queued' }],
+    createdAt: `2026-09-${String(number).padStart(2, '0')}T00:00:00Z`,
+  });
+
+  it('usa il file esplicito della Suggested action come chiave e non una label', () => {
+    const a = issue(1, 'scripts/lib/shared.mjs');
+    const b = issue(2, 'scripts/lib/shared.mjs');
+    expect(issueGroupingKey(a)).toBe(issueGroupingKey(b));
+    expect(issueGroupingKey(a)).toMatch(/^target-file:/);
+    expect(issueGroupingKey({ ...b, labels: [{ name: 'follow-up' }] })).toBe(issueGroupingKey(b));
+  });
+
+  it('raggruppa le issue con la stessa chiave in un solo gruppo entro il tetto', () => {
+    const groups = groupIssueQueue([
+      issue(1, 'scripts/lib/shared.mjs'),
+      issue(2, 'scripts/lib/shared.mjs'),
+      issue(3, 'scripts/lib/shared.mjs'),
+    ]);
+    expect(groups).toHaveLength(1);
+    expect(groups[0].issues.map((i) => i.number)).toEqual([1, 2, 3]);
+    expect(groups[0].issues.length).toBeLessThanOrEqual(ISSUE_GROUP_MAX_SIZE);
+  });
+
+  it('lascia fuori una issue senza chiave risolvibile', () => {
+    const groups = groupIssueQueue([
+      issue(1, 'scripts/lib/shared.mjs'),
+      { ...issue(2, 'scripts/lib/other.mjs'), body: 'la stessa label non basta' },
+    ]);
+    expect(groups).toHaveLength(0);
+    expect(groups.flatMap((g) => g.issues.map((i) => i.number))).not.toContain(2);
+  });
+
+  it('spezza un bucket oltre il tetto invece di farlo crescere', () => {
+    const groups = groupIssueQueue(
+      [1, 2, 3, 4, 5].map((n) => issue(n, 'scripts/lib/shared.mjs')),
+      { maxSize: 3 },
+    );
+    expect(groups.map((g) => g.issues.map((i) => i.number))).toEqual([[1, 2, 3], [4, 5]]);
+    expect(groups.every((g) => g.issues.length <= 3)).toBe(true);
+  });
+
+  it('usa la firma strutturata del titolo automatico solo con prova di apertura automatica', () => {
+    const body = '**Workflow:** Crawler Group 11\n\nIssue aperta automaticamente da `scan-failed-runs.mjs`.';
+    const a = { number: 1, title: 'Workflow Failure: Crawler Group 11 (sparse cross-repo execution) — run 100', body };
+    const b = { number: 2, title: 'Workflow Failure: Crawler Group 11 (sparse cross-repo execution) — run 101', body };
+    const c = { number: 3, title: 'Workflow Failure: Crawler Group 11 (sparse cross-repo execution) — run 102', body: 'testo umano' };
+    expect(issueGroupingKey(a)).toBe(issueGroupingKey(b));
+    expect(issueGroupingKey(a)).toMatch(/^auto-title:/);
+    expect(issueGroupingKey(c)).toBeNull();
+  });
+
+  it('include i fallimenti di validazione dist/live nella firma automatica', () => {
+    const body = '**Workflow:** Post-deploy Validate Dist\n\n## Job falliti\n- validate-dist';
+    const a = { number: 4, title: 'Validation Failure (dist): audit:all — ' + 'x'.repeat(40) + ' run 100', body };
+    const b = { number: 5, title: 'Validation Failure (dist): audit:all — ' + 'x'.repeat(40) + ' run 101', body };
+    expect(issueGroupingKey(a)).toBe(issueGroupingKey(b));
+    expect(issueGroupingKey(a)).toMatch(/^auto-title:/);
+  });
+
+  it('non fonde la stessa firma con un sottosistema automatico diverso', () => {
+    const a = {
+      number: 10,
+      title: 'CI Failure (build): Deploy to GitHub Pages — ' + 'x'.repeat(40) + ' run 100',
+      body: '**Workflow:** Deploy to GitHub Pages\n**Job:** build-locale (en)\n\nIssue aperta automaticamente.',
+    };
+    const b = {
+      number: 11,
+      title: 'CI Failure (build): Deploy to GitHub Pages — ' + 'x'.repeat(40) + ' run 101',
+      body: '**Workflow:** Deploy to GitHub Pages\n**Job:** deploy (production)\n\nIssue aperta automaticamente.',
+    };
+    expect(issueGroupingKey(a)).not.toBe(issueGroupingKey(b));
+  });
+
+  it('non fonde la stessa firma automatica quando il punto di riparazione dichiarato cambia', () => {
+    const base = 'Validation Failure (dist): audit:all — ' + 'x'.repeat(40);
+    const a = {
+      number: 14,
+      title: `${base} run 100`,
+      body: '**Workflow:** Post-deploy Validate Dist\n\nSuggested action: correggere `scripts/ci/validate-dist.mjs`.\n\nIssue aperta automaticamente.',
+    };
+    const b = {
+      number: 15,
+      title: `${base} run 101`,
+      body: '**Workflow:** Post-deploy Validate Dist\n\nSuggested action: correggere `scripts/ci/validate-source.mjs`.\n\nIssue aperta automaticamente.',
+    };
+    expect(issueGroupingKey(a)).not.toBe(issueGroupingKey(b));
+  });
+
+  it('non fonde la stessa destinazione dichiarata fra repository diversi', () => {
+    const body = targetBody('scripts/lib/shared.mjs');
+    const a = { number: 12, title: 'follow-up(#12): fix', body, repository: 'owner/site' };
+    const b = { number: 13, title: 'follow-up(#13): fix', body, repository: 'owner/corpus' };
+    expect(issueGroupingKey(a)).not.toBe(issueGroupingKey(b));
+  });
+
+  it('esporta il matcher della label che i consumer usano per validare il gruppo', () => {
+    const label = issueGroupLabel('target-file:owner/site:scripts/lib/shared.mjs', 42);
+    expect(label).toMatch(new RegExp(ISSUE_GROUP_LABEL_PATTERN));
   });
 });
