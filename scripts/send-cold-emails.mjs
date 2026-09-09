@@ -37,7 +37,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildSequence, OPTOUT_EMAIL } from './generate-cold-emails.mjs';
+import { buildSequence, OPTOUT_EMAIL, selectOutreachMetric } from './generate-cold-emails.mjs';
 import { bodyToHtml } from './lib/cold-email-sequence.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
@@ -356,10 +356,16 @@ async function run() {
   const topExplicit = process.argv.includes('--top');
   let targets = report.employers.slice(0, top);
   if (onlyCompany && onlyCompany !== true) targets = report.employers.filter((e) => (e.key || '') === onlyCompany);
-  // Guard: a target without a usable candidate count would render "candidati: undefined".
-  const skipped = targets.filter((e) => !Number.isFinite(e?.candidates) || e.candidates <= 0);
-  if (skipped.length) console.warn(`↷ ${skipped.length} target senza candidati validi saltati: ${skipped.map((e) => e.name).join(', ').slice(0, 120)}`);
-  targets = targets.filter((e) => Number.isFinite(e?.candidates) && e.candidates > 0);
+  // Guard: a target without a usable outreach metric gets no numeric claim.
+  const skipped = targets.filter((e) => {
+    const metric = selectOutreachMetric(e);
+    return !metric || metric.value <= 0;
+  });
+  if (skipped.length) console.warn(`↷ ${skipped.length} target senza metrica valida saltati: ${skipped.map((e) => e.name).join(', ').slice(0, 120)}`);
+  targets = targets.filter((e) => {
+    const metric = selectOutreachMetric(e);
+    return metric && metric.value > 0;
+  });
   if (!targets.length) { console.error('nessun target valido (controlla --company / --report)'); process.exit(1); }
   // Safety: in --test/--send without an explicit --company or --top, don't fan
   // out to all `top` targets by surprise — limit to 1 (one preview / one send).
@@ -371,7 +377,16 @@ async function run() {
   // Costruisci i messaggi (touch richiesto) per ogni target.
   const messages = targets.map((e) => {
     const c = contacts[e.key] || contacts[e.name] || {};
-    const seq = buildSequence({ company: e.name, candidates: e.candidates, periodLabel, contactName: c.contactName, topRole: c.topRole });
+    const metric = selectOutreachMetric(e);
+    const seq = buildSequence({
+      company: e.name,
+      candidates: e.candidates,
+      metricValue: metric?.value,
+      metricLabel: metric?.label,
+      periodLabel,
+      contactName: c.contactName,
+      topRole: c.topRole,
+    });
     const m = seq.find((x) => x.touch === touch) || seq[0];
     return { company: e.name, key: e.key, sector: c.sector || classifySector(e.name),
       realEmail: c.email || '', inferred: c.emailInferred || '', contactName: c.contactName || '',
