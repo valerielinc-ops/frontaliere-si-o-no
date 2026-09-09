@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-09T13:44:46.881Z",
+  "assembledAt": "2026-09-09T23:03:11.739Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:40.979Z",
+      "crawledAt": "2026-09-09T23:03:05.000Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:40.678Z",
+      "crawledAt": "2026-09-09T23:03:04.698Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -143,6 +143,7 @@
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -156,8 +157,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "jsafrasarasin-9c72c25f05c4",
@@ -190,7 +190,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:40.376Z",
+      "crawledAt": "2026-09-09T23:03:04.396Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:40.074Z",
+      "crawledAt": "2026-09-09T23:03:04.094Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:39.771Z",
+      "crawledAt": "2026-09-09T23:03:03.791Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:39.468Z",
+      "crawledAt": "2026-09-09T23:03:03.489Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -505,7 +505,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:44:39.166Z",
+      "crawledAt": "2026-09-09T23:03:03.186Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -625,7 +625,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
