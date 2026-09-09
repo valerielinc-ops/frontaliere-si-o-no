@@ -99,7 +99,10 @@ jobs:
       # reached only after every free-tier model has failed. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       - name: Generate parser proposal
         env:
@@ -113,7 +116,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: node scripts/generate-company-parser.mjs
 
       - name: Check for changes
@@ -138,7 +141,7 @@ jobs:
           # --regenerate-cmd below re-invokes generate-company-parser.mjs on
           # rebase-conflict retry — same auth needed as the step above.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -151,4 +154,3 @@ jobs:
           # parser generator on the new base.
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/generate-company-parser.mjs && git add data/jobs-crawler-parser-proposals.json data/jobs-crawler-config.json"
-

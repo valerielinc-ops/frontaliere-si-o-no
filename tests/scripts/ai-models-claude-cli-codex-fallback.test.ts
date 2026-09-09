@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -26,7 +27,7 @@ type SpawnOptions = { env?: Record<string, string | undefined>; cwd?: string };
 const ENV_KEYS = [
   'ENABLE_HAIKU_ARTICLE_FALLBACK',
   'CLAUDE_CODE_OAUTH_TOKEN',
-  'CODEX_AUTH_JSON',
+  'CODEX_AUTH_BROKER_SOCKET',
   'CODEX_CLI_TIMEOUT_MS',
   'LOCAL_LLM_ENABLED',
   'AI_COMPETING_TIERS',
@@ -40,19 +41,23 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
   const saved: Record<string, string | undefined> = {};
   const originalFetch = globalThis.fetch;
   let markerRoot = '';
+  let authServer: net.Server | null = null;
+  let authConsumed = false;
+  let brokerResult = 'CODEX-FALLBACK-RESULT';
+  let brokerError = '';
+  let brokerRequests: Array<Record<string, unknown>> = [];
   let runNumber = 0;
 
   beforeAll(() => {
     __installScoreStoreForTests(null);
   });
 
-  beforeEach(() => {
+  beforeEach(async () => {
     resetState();
     spawnMock.mockReset();
     for (const key of ENV_KEYS) saved[key] = process.env[key];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';
     process.env.CLAUDE_CODE_OAUTH_TOKEN = 'test-claude-oauth-token';
-    process.env.CODEX_AUTH_JSON = '{"access_token":"TOP-SECRET-CODEX-AUTH"}';
     process.env.CODEX_CLI_TIMEOUT_MS = '15000';
     delete process.env.LOCAL_LLM_ENABLED;
     delete process.env.AI_COMPETING_TIERS;
@@ -61,10 +66,52 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     process.env.RUNNER_TEMP = markerRoot;
     process.env.GITHUB_RUN_ID = `test-${process.pid}-${runNumber++}`;
     process.env.GITHUB_RUN_ATTEMPT = '1';
+    authConsumed = false;
+    brokerResult = 'CODEX-FALLBACK-RESULT';
+    brokerError = '';
+    brokerRequests = [];
+    const authSocket = path.join(markerRoot, 'auth.sock');
+    authServer = net.createServer((client) => {
+      let request = '';
+      client.setEncoding('utf8');
+      client.on('data', (chunk) => {
+        request += chunk;
+        const newline = request.indexOf('\n');
+        if (newline < 0) return;
+        let parsed;
+        try { parsed = JSON.parse(request.slice(0, newline)); } catch { parsed = null; }
+        if (parsed?.op !== 'exec') {
+          client.end(`${JSON.stringify({ ok: false, error: 'unsupported request' })}\n`);
+          return;
+        }
+        if (authConsumed) {
+          client.end(`${JSON.stringify({ ok: false, error: 'already consumed' })}\n`);
+          return;
+        }
+        authConsumed = true;
+        brokerRequests.push(parsed);
+        if (brokerError) {
+          client.end(`${JSON.stringify({ ok: false, error: brokerError })}\n`);
+          return;
+        }
+        client.end(`${JSON.stringify({ ok: true, result: brokerResult })}\n`);
+      });
+      client.on('error', () => {});
+    });
+    await new Promise<void>((resolve, reject) => {
+      authServer!.once('error', reject);
+      authServer!.listen(authSocket, () => resolve());
+    });
+    fs.chmodSync(authSocket, 0o600);
+    process.env.CODEX_AUTH_BROKER_SOCKET = authSocket;
   });
 
-  afterEach(() => {
+  afterEach(async () => {
     globalThis.fetch = originalFetch;
+    if (authServer) {
+      await new Promise<void>((resolve) => authServer!.close(() => resolve()));
+      authServer = null;
+    }
     for (const key of ENV_KEYS) {
       if (saved[key] === undefined) delete process.env[key];
       else process.env[key] = saved[key];
@@ -164,6 +211,8 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     codexCode?: number;
     onCodexStart?: (args: string[], options: SpawnOptions) => void;
   }) {
+    brokerResult = codexResult;
+    brokerError = codexCode === 0 ? '' : `Codex CLI exited with code ${codexCode}`;
     spawnMock.mockImplementation((bin: string, args: string[], options: SpawnOptions) => fakeChild({
       bin,
       args,
@@ -183,10 +232,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     { role: 'user', content: 'Write the article body.' },
   ];
 
-  it('uses gpt-5.6-luna at medium effort, preserves output/schema, and cleans auth', async () => {
-    let codexHome = '';
-    let codexArgs: string[] = [];
-    let codexEnv: Record<string, string | undefined> = {};
+  it('uses gpt-5.6-luna at medium effort, preserves output/schema, and keeps auth in the broker', async () => {
     const schema = {
       name: 'article',
       schema: {
@@ -200,21 +246,6 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     installClaudeThenCodex({
       claudeResult: 'Claude HTTP 429 usage limit',
       codexResult: '{"body":"from-codex"}',
-      onCodexStart: (args, options) => {
-        codexArgs = args;
-        codexEnv = options.env || {};
-        codexHome = codexEnv.CODEX_HOME || '';
-        expect(fs.statSync(path.join(codexHome, 'auth.json')).mode & 0o777).toBe(0o600);
-        expect(fs.readFileSync(path.join(codexHome, 'auth.json'), 'utf8')).toBe(process.env.CODEX_AUTH_JSON);
-        expect(fs.statSync(path.join(codexHome, 'claude-haiku-fallback.config.toml')).mode & 0o777).toBe(0o600);
-        const profile = fs.readFileSync(path.join(codexHome, 'claude-haiku-fallback.config.toml'), 'utf8');
-        expect(profile).toContain('extends = ":read-only"');
-        expect(profile).toContain('":root" = "deny"');
-        expect(profile).toContain('":minimal" = "read"');
-        expect(profile).toContain('enabled = false');
-        expect(options.cwd).toBeTruthy();
-        expect(fs.readdirSync(options.cwd || '')).toEqual([]);
-      },
     });
 
     const result = await callLLM(messages, {
@@ -224,40 +255,20 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     });
 
     expect(result).toBe('{"body":"from-codex"}');
-    expect(spawnMock).toHaveBeenCalledTimes(2);
+    expect(spawnMock).toHaveBeenCalledTimes(1);
     expect(getStats().consecutive429s[AI_MODELS.CLAUDE_CLI_HAIKU]).toBe(1);
     expect(getStats().scoreBoard.find((entry) => entry.model === AI_MODELS.CLAUDE_CLI_HAIKU)?.failures).toBe(1);
     expect(getStats().scoreBoard.find((entry) => entry.model === CODEX_FALLBACK_MODEL)?.successes).toBe(1);
     const claudeEnv = (spawnMock.mock.calls[0] as [string, string[], SpawnOptions])[2].env || {};
-    expect(claudeEnv.CODEX_AUTH_JSON).toBeUndefined();
-    expect(codexArgs).toEqual(expect.arrayContaining([
-      'exec',
-      '--ephemeral',
-      '--strict-config',
-      '--ignore-rules',
-      '--profile', 'claude-haiku-fallback',
-      '--cd', expect.any(String),
-      '--skip-git-repo-check',
-      '--model', CODEX_FALLBACK_MODEL,
-      '-c', `model_reasoning_effort=${CODEX_INDIRECT_FALLBACK_EFFORT}`,
-      '--output-schema',
-    ]));
-    expect(codexArgs).toContain('-c');
-    expect(codexArgs).toContain('shell_environment_policy.inherit=none');
-    expect(codexArgs).toContain('shell_environment_policy.include_only=["PATH","LANG","LC_ALL","TERM"]');
-    expect(codexArgs).not.toContain('--ignore-user-config');
-    expect(codexArgs).not.toContain('--sandbox');
-    expect(codexArgs).not.toContain('model_reasoning_effort=max');
-    expect(codexArgs[codexArgs.indexOf('--output-schema') + 1]).toMatch(/output-schema\.json$/);
-    expect(codexEnv.CODEX_AUTH_JSON).toBeUndefined();
-    expect(codexEnv.OPENAI_API_KEY).toBeUndefined();
-    expect(codexEnv.CODEX_HOME).toBe(codexHome);
-    expect(Object.keys(codexEnv).sort()).toEqual(expect.arrayContaining(['CODEX_HOME', 'PATH', 'TMPDIR']));
-    expect(Object.keys(codexEnv).every((key) => ['CODEX_HOME', 'LANG', 'LC_ALL', 'PATH', 'TERM', 'TMPDIR'].includes(key))).toBe(true);
-    expect(codexEnv.HOME).toBeUndefined();
-    expect(codexEnv.GITHUB_TOKEN).toBeUndefined();
-    expect(fs.existsSync(codexHome)).toBe(false);
-    expect(JSON.stringify(spawnMock.mock.calls[1])).not.toContain('TOP-SECRET-CODEX-AUTH');
+    expect(claudeEnv.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
+    expect(authConsumed).toBe(true);
+    expect(brokerRequests).toHaveLength(1);
+    expect(brokerRequests[0]).toMatchObject({
+      op: 'exec',
+      schema: schema.schema,
+      prompt: expect.stringContaining('Return exactly one valid JSON object'),
+    });
+    expect(brokerRequests[0].prompt).not.toContain('TOP-SECRET-CODEX-AUTH');
   });
 
   it('gives Codex priority over a salvageable Claude payload after HTTP 429', async () => {
@@ -271,8 +282,8 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       model: AI_MODELS.CLAUDE_CLI_HAIKU,
       chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
     })).resolves.toBe('COMPLETE-FROM-CODEX');
-    expect(spawnMock).toHaveBeenCalledTimes(2);
-    expect((spawnMock.mock.calls[1] as [string])[0]).toBe('codex');
+    expect(spawnMock).toHaveBeenCalledTimes(1);
+    expect(brokerRequests).toHaveLength(1);
   });
 
   it.each([
@@ -300,8 +311,8 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
     })).resolves.toBe('EVENT-FALLBACK-RESULT');
 
-    expect(spawnMock).toHaveBeenCalledTimes(2);
-    expect((spawnMock.mock.calls[1] as [string])[0]).toBe('codex');
+    expect(spawnMock).toHaveBeenCalledTimes(1);
+    expect(brokerRequests).toHaveLength(1);
   });
 
   it('keeps the normal subsequent chain when the one Codex attempt fails', async () => {
@@ -321,9 +332,8 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     });
 
     expect(result).toBe('NORMAL-CHAIN-RESULT');
-    expect(spawnMock).toHaveBeenCalledTimes(2);
-    expect((spawnMock.mock.calls[1] as [string])[0]).toBe('codex');
     expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(brokerRequests).toHaveLength(1);
   });
 
   it('attributes a successful replacement to Codex through modelUsedRef', async () => {
@@ -360,9 +370,8 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       jsonMode: true,
     })).resolves.toBe('{"ok":true}');
 
-    const codexArgs = (spawnMock.mock.calls[1] as [string, string[], SpawnOptions])[1];
-    expect(codexArgs).toContain('--output-schema');
-    expect(JSON.parse(schemaContents)).toEqual({ type: 'object' });
+    expect(brokerRequests[0].schema).toEqual({ type: 'object' });
+    expect(JSON.parse(JSON.stringify(brokerRequests[0].schema))).toEqual({ type: 'object' });
   });
 
   it('honors AI_MODELS_SCHEMA_MODE=off while still validating JSON-mode output', async () => {
@@ -375,8 +384,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       jsonMode: true,
     })).resolves.toBe('{"killSwitch":true}');
 
-    const codexArgs = (spawnMock.mock.calls[1] as [string, string[], SpawnOptions])[1];
-    expect(codexArgs).not.toContain('--output-schema');
+    expect(brokerRequests[0].schema).toBeNull();
   });
 
   it('rejects non-JSON Codex output in jsonMode and continues the normal chain', async () => {
@@ -388,7 +396,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
       chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
       jsonMode: true,
     })).rejects.toThrow(/All AI models failed/);
-    expect(spawnMock).toHaveBeenCalledTimes(2);
+    expect(spawnMock).toHaveBeenCalledTimes(1);
   });
 
   it('never extends a near-expiry caller deadline for Codex', () => {
@@ -407,10 +415,10 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     await expect(callLLM(messages, options)).rejects.toThrow();
     await expect(callLLM(messages, options)).rejects.toThrow();
 
-    expect(spawnMock).toHaveBeenCalledTimes(3);
+    expect(spawnMock).toHaveBeenCalledTimes(2);
     expect((spawnMock.mock.calls[0] as [string])[0]).toBe('claude');
-    expect((spawnMock.mock.calls[1] as [string])[0]).toBe('codex');
-    expect((spawnMock.mock.calls[2] as [string])[0]).toBe('claude');
+    expect((spawnMock.mock.calls[1] as [string])[0]).toBe('claude');
+    expect(brokerRequests).toHaveLength(1);
   });
 
   it('keeps medium effort for the indirect path while direct workflow fallback remains max', () => {

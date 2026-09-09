@@ -12,13 +12,20 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"');
   });
 
-  it('materializes auth only inside the action and exports a non-secret file path', () => {
+  it('keeps auth inside a one-shot broker and exposes its socket only as an action output', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     expect(action).toContain('codex_auth_json:');
+    expect(action).toContain('codex_auth_broker_socket:');
     expect(action).toContain('CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}');
-    expect(action).toContain('printf \'%s\' "$CODEX_AUTH_JSON" > "$auth_file"');
-    expect(action).toContain('chmod 600 "$auth_file"');
-    expect(action).toContain("printf 'CODEX_AUTH_FILE=%s\\n' \"$auth_file\" >> \"$GITHUB_ENV\"");
+    expect(action).toContain('codex-auth-broker.mjs');
+    expect(action).toContain('mkfifo "$auth_fifo"');
+    expect(action).toContain('printf \'%s\' "$CODEX_AUTH_JSON" > "$auth_fifo"');
+    expect(action).toContain('chmod 700 "$auth_dir"');
+    expect(action).toContain('chmod 600 "$broker_socket"');
+    expect(action).toContain("printf 'socket=%s\\n' \"$broker_socket\" >> \"$GITHUB_OUTPUT\"");
+    expect(action).toContain('env -i PATH="$PATH"');
+    expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
+    expect(action).not.toContain('CODEX_AUTH_FILE=');
     expect(action).not.toContain('CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}');
   });
 });

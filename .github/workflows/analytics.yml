@@ -95,7 +95,10 @@ jobs:
       # reached only after every free-tier model has failed. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       - name: Run Analytics Report
         env:
@@ -105,7 +108,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ inputs.days || '30' }}
           INPUT_SECTIONS: ${{ inputs.sections || 'all' }}

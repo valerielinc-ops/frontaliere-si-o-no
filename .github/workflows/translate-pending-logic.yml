@@ -177,7 +177,8 @@ jobs:
           echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
 
       # ── Claude CLI Haiku fallback (ON by default, kill-switch '0') ──────
-      - uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+      - id: setup_claude_haiku_fallback
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
@@ -318,6 +319,7 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           AI_MODELS_PREFER: claude-cli/haiku
           CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}

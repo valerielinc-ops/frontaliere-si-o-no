@@ -100,7 +100,8 @@ jobs:
           node scripts/load-rc-env.mjs
           echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
       - uses: ./.github/actions/setup-omniroute
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
       - name: Run spital-emmental
@@ -117,6 +118,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: spital-emmental
           JOBS_SLICE_FILE: data/jobs/by-crawler/spital-emmental.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -176,6 +178,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: swisslog
           JOBS_SLICE_FILE: data/jobs/by-crawler/swisslog.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -235,6 +238,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: temenos
           JOBS_SLICE_FILE: data/jobs/by-crawler/temenos.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -294,6 +298,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: stiftung-diaconis
           JOBS_SLICE_FILE: data/jobs/by-crawler/stiftung-diaconis.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -353,6 +358,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: svar-spitalverbund-ar
           JOBS_SLICE_FILE: data/jobs/by-crawler/svar-spitalverbund-ar.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -412,6 +418,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: kzu
           JOBS_SLICE_FILE: data/jobs/by-crawler/kzu.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -471,6 +478,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: psgn
           JOBS_SLICE_FILE: data/jobs/by-crawler/psgn.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -530,6 +538,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: trafigura
           JOBS_SLICE_FILE: data/jobs/by-crawler/trafigura.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -589,6 +598,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: vf-international-the-north-face-timberland
           JOBS_SLICE_FILE: data/jobs/by-crawler/vf-international-the-north-face-timberland.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -648,6 +658,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: sobi
           JOBS_SLICE_FILE: data/jobs/by-crawler/sobi.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -708,6 +719,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: therapiezentrum-meggen
           JOBS_SLICE_FILE: data/jobs/by-crawler/therapiezentrum-meggen.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -768,6 +780,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: villa-im-park
           JOBS_SLICE_FILE: data/jobs/by-crawler/villa-im-park.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -827,6 +840,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: vaudoise
           JOBS_SLICE_FILE: data/jobs/by-crawler/vaudoise.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -886,6 +900,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: riveneuve
           JOBS_SLICE_FILE: data/jobs/by-crawler/riveneuve.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -945,6 +960,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: guess-europe
           JOBS_SLICE_FILE: data/jobs/by-crawler/guess-europe.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1004,6 +1020,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: moncucco
           JOBS_SLICE_FILE: data/jobs/by-crawler/moncucco.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1063,6 +1080,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: fnz
           JOBS_SLICE_FILE: data/jobs/by-crawler/fnz.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1122,6 +1140,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: gesundheitszentrum-fricktal
           JOBS_SLICE_FILE: data/jobs/by-crawler/gesundheitszentrum-fricktal.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1181,6 +1200,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: medtronic
           JOBS_SLICE_FILE: data/jobs/by-crawler/medtronic.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1240,6 +1260,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: groupe-mutuel
           JOBS_SLICE_FILE: data/jobs/by-crawler/groupe-mutuel.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1299,6 +1320,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: clinique-de-valere
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinique-de-valere.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1358,6 +1380,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: citta-di-locarno
           JOBS_SLICE_FILE: data/jobs/by-crawler/citta-di-locarno.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1417,6 +1440,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: deloitte
           JOBS_SLICE_FILE: data/jobs/by-crawler/deloitte.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1477,6 +1501,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: clinica-varini
           JOBS_SLICE_FILE: data/jobs/by-crawler/clinica-varini.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1536,6 +1561,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: citta-di-lugano
           JOBS_SLICE_FILE: data/jobs/by-crawler/citta-di-lugano.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1595,6 +1621,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: anker-swiss
           JOBS_SLICE_FILE: data/jobs/by-crawler/anker-swiss.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e
@@ -1654,6 +1681,7 @@ jobs:
           JOBS_HOUSEKEEPING_SCOPE: guggerbach
           JOBS_SLICE_FILE: data/jobs/by-crawler/guggerbach.json
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |-
           set -uo pipefail
           set +e

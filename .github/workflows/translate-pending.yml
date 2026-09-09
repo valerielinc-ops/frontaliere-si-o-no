@@ -153,7 +153,10 @@ jobs:
       # score instead of being reached only after every free-tier model has
       # failed. See .github/actions/setup-claude-haiku-fallback/action.yml
       # for the full rationale + incident history.
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
       # Runs BEFORE translations so we don't waste AI quota on dead jobs.
@@ -335,7 +338,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           # ── More Haiku (#5650) ────────────────────────────────────────────
           # Being ELIGIBLE was never the problem. claude-cli has been tier-0
           # (AI_COMPETING_TIERS) since 2026-07-29, and promotion only removes

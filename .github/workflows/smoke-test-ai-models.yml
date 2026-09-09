@@ -88,12 +88,15 @@ jobs:
       # tier instead of silently no-op'ing on it. See
       # .github/actions/setup-claude-haiku-fallback/action.yml for the full
       # rationale + incident history.
-      - uses: ./.github/actions/setup-claude-haiku-fallback
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
 
       - name: Run smoke-test (one ping per model)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
         run: |
           mkdir -p .tmp
           node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log

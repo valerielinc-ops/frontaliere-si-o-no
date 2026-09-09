@@ -814,9 +814,14 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
   // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
   // the subscription secret here would expose it to every one of those
-  // processes. The setup action materializes a 0600 file and exports only its
-  // non-secret path as CODEX_AUTH_FILE for the later fallback consumer.
+  // processes. The setup action receives the raw secret only on its bootstrap
+  // step and exposes a private broker endpoint as an action output. Never put
+  // the raw credential in this background step's env map.
   delete merged.CODEX_AUTH_JSON;
+  // Force the endpoint to the setup action output after merging manifest env
+  // maps, so a crawler cannot accidentally replace the capability reference
+  // with a job-wide variable or a user-controlled value.
+  merged.CODEX_AUTH_BROKER_SOCKET = '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}';
   return merged;
 }
 
@@ -1002,11 +1007,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
   // time for every background step to inherit it.
   steps.push({
+    id: 'setup_claude_haiku_fallback',
     uses: './.github/actions/setup-claude-haiku-fallback',
     // Keep the Codex secret on the setup action's process only. That action
-    // writes a private 0600 auth file and exposes only CODEX_AUTH_FILE through
-    // GITHUB_ENV; background crawler/post-step processes never inherit the
-    // secret value itself.
+    // keeps it in a one-shot broker and exposes only a socket output to the
+    // individual crawler AI steps; no raw secret enters any crawler step.
     with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
   });
 

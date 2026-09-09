@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { CODEX_FALLBACK_MODEL } from '../ci/claude-codex-fallback.mjs';
@@ -774,10 +775,8 @@ function hasClaudeCodeOauthToken() {
   return !!(process.env.CLAUDE_CODE_OAUTH_TOKEN || '').trim();
 }
 const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
-const CODEX_CLI_BIN = (process.env.CODEX_CLI_BIN || 'codex').trim();
 const CODEX_CLI_MAX_TIMEOUT_MS = 600_000;
 const CODEX_CLI_MIN_TIMEOUT_MS = 15_000;
-const CODEX_FALLBACK_PERMISSION_PROFILE = 'claude-haiku-fallback';
 const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
 // Indirect provider fallback is deliberately lighter than the workflow-agent
 // fallback (which uses effort=max): this path replaces a single content call,
@@ -5464,22 +5463,67 @@ export function __claimCodexFallbackForTests() {
 }
 
 /**
- * Environment used by the Codex client. CODEX_AUTH_JSON is consumed by this
- * parent process to materialize CODEX_HOME/auth.json and is never inherited by
- * the model process. `env -i` semantics are represented explicitly here: only
- * runtime values required by the client are copied, with no HOME, repository
- * metadata, provider keys, GitHub tokens, or arbitrary runner variables.
+ * Ask the action-owned host broker to execute one Codex request. The broker is
+ * the only cross-step hand-off; it keeps the raw credential in memory and
+ * destroys its private Unix socket after one successful request. There is
+ * intentionally no CODEX_AUTH_JSON/CODEX_AUTH_FILE process-env fallback:
+ * those would expose the credential to every background crawler. Raw auth
+ * never crosses this socket; only Codex's result does.
  */
-function _codexCliChildEnv(codexHome, tmpDir) {
-  const env = {
-    PATH: process.env.PATH || '/usr/bin:/bin',
-    CODEX_HOME: codexHome,
-    TMPDIR: tmpDir,
-  };
-  for (const key of ['LANG', 'LC_ALL', 'TERM']) {
-    if (process.env[key]) env[key] = process.env[key];
-  }
-  return env;
+function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
+  const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
+  if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
+  const remaining = Number(deadlineMs) > 0 ? Number(deadlineMs) - Date.now() : Infinity;
+  if (remaining <= 0) return Promise.reject(new Error('Codex fallback skipped: caller deadline already expired'));
+
+  return new Promise((resolve, reject) => {
+    let response = '';
+    let settled = false;
+    let client;
+    try {
+      client = net.createConnection(socketPath);
+    } catch (error) {
+      reject(error);
+      return;
+    }
+    const finish = (error, value) => {
+      if (settled) return;
+      settled = true;
+      client.destroy();
+      if (error) reject(error);
+      else resolve(value);
+    };
+    client.setEncoding('utf8');
+    // A short caller deadline wins over the normal broker grace period. The
+    // fallback must not keep the process alive past opts.deadlineMs merely
+    // because the Unix socket is waiting for a timed-out Codex child.
+    const normalSocketTimeoutMs = Math.max(5000, Number(timeoutMs) + 10_000);
+    const socketTimeoutMs = Number.isFinite(remaining)
+      ? Math.max(1, Math.min(normalSocketTimeoutMs, remaining))
+      : normalSocketTimeoutMs;
+    client.setTimeout(socketTimeoutMs, () => finish(new Error('Codex auth broker socket timed out')));
+    client.on('error', (error) => finish(error));
+    client.on('data', (chunk) => {
+      response += chunk;
+      if (Buffer.byteLength(response) > 256 * 1024) {
+        finish(new Error('Codex auth broker response exceeds its limit'));
+        return;
+      }
+      const newline = response.indexOf('\n');
+      if (newline < 0) return;
+      let parsed;
+      try { parsed = JSON.parse(response.slice(0, newline)); } catch {
+        finish(new Error('Codex auth broker returned invalid JSON'));
+        return;
+      }
+      if (!parsed?.ok || typeof parsed.result !== 'string') {
+        finish(new Error(`Codex auth broker rejected the request: ${String(parsed?.error || 'unknown error')}`));
+        return;
+      }
+      finish(null, parsed.result);
+    });
+    client.on('connect', () => client.end(`${JSON.stringify({ op: 'exec', prompt, timeoutMs, schema: schema ?? null })}\n`));
+  });
 }
 
 function _codexPrompt(messages, { jsonOnly = false } = {}) {
@@ -5492,27 +5536,6 @@ function _codexPrompt(messages, { jsonOnly = false } = {}) {
   return jsonOnly
     ? `${prompt}\n\nReturn exactly one valid JSON object and no Markdown fences or commentary.`
     : prompt;
-}
-
-function _codexFallbackPermissionConfig() {
-  return `default_permissions = "${CODEX_FALLBACK_PERMISSION_PROFILE}"
-
-[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}]
-description = "Read-only Codex fallback in an empty temporary workspace"
-extends = ":read-only"
-
-[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.network]
-enabled = false
-
-[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.filesystem]
-":root" = "deny"
-":minimal" = "read"
-":tmpdir" = "deny"
-":slash_tmp" = "deny"
-
-[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.filesystem.":workspace_roots"]
-"." = "read"
-`;
 }
 
 function _codexFallbackJsonRequest(opts = {}) {
@@ -5551,134 +5574,28 @@ function _validateCodexCliResult(result, { wantsJson, schemaApplied }) {
 }
 
 /**
- * One-shot Codex CLI subscription fallback. The auth JSON is materialized in
- * a private temporary CODEX_HOME only for this invocation and removed in the
- * finally block, including spawn/timeout/output failures.
+ * One-shot Codex CLI subscription fallback. The action-owned broker
+ * materializes auth in a private temporary CODEX_HOME only for this invocation
+ * and removes it in its finally block, including timeout/output failures.
  */
 async function _callCodexCli(messages, opts = {}) {
-  const authJson = String(process.env.CODEX_AUTH_JSON || '');
-  if (!authJson.trim()) throw new Error('CODEX_AUTH_JSON is not configured');
-
-  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-haiku-fallback-'));
-  const codexHome = path.join(runtimeRoot, 'home');
-  const codexWorkspace = path.join(runtimeRoot, 'workspace');
-  const codexTmp = path.join(runtimeRoot, 'tmp');
-  const authPath = path.join(codexHome, 'auth.json');
-  // `--profile NAME` loads CODEX_HOME/NAME.config.toml. Keep the profile
-  // separate from any user config (there is none in this temporary home), so
-  // strict parsing cannot accidentally inherit a runner/project setting.
-  const configPath = path.join(codexHome, `${CODEX_FALLBACK_PERMISSION_PROFILE}.config.toml`);
-  const outputPath = path.join(codexHome, 'last-message.txt');
-  const schemaPath = path.join(codexHome, 'output-schema.json');
-  try {
-    fs.mkdirSync(codexHome, { mode: 0o700 });
-    fs.mkdirSync(codexWorkspace, { mode: 0o700 });
-    fs.mkdirSync(codexTmp, { mode: 0o700 });
-    fs.writeFileSync(authPath, authJson, { encoding: 'utf8', mode: 0o600 });
-    fs.chmodSync(authPath, 0o600);
-    fs.writeFileSync(configPath, _codexFallbackPermissionConfig(), { encoding: 'utf8', mode: 0o600 });
-    fs.chmodSync(configPath, 0o600);
-    // Pre-create files with restrictive permissions; Codex then truncates and
-    // rewrites them without widening the mode under the runner's umask.
-    fs.writeFileSync(outputPath, '', { encoding: 'utf8', mode: 0o600 });
-    fs.chmodSync(outputPath, 0o600);
-
-    const jsonRequest = _codexFallbackJsonRequest(opts);
-    const args = [
-      'exec',
-      '--ephemeral',
-      '--strict-config',
-      '--ignore-rules',
-      '--profile', CODEX_FALLBACK_PERMISSION_PROFILE,
-      '--cd', codexWorkspace,
-      '--skip-git-repo-check',
-      '--model', CODEX_FALLBACK_MODEL,
-      '-c', `model_reasoning_effort=${CODEX_INDIRECT_FALLBACK_EFFORT}`,
-      // The model gets no credentials or repository metadata even if it asks
-      // a shell subprocess to print its environment.
-      '-c', 'shell_environment_policy.ignore_default_excludes=false',
-      '-c', 'shell_environment_policy.inherit=none',
-      '-c', 'shell_environment_policy.include_only=["PATH","LANG","LC_ALL","TERM"]',
-      '--output-last-message', outputPath,
-    ];
-
-    if (jsonRequest.schema) {
-      fs.writeFileSync(schemaPath, JSON.stringify(jsonRequest.schema), { encoding: 'utf8', mode: 0o600 });
-      fs.chmodSync(schemaPath, 0o600);
-      args.push('--output-schema', schemaPath);
-    }
-    args.push('-');
-
-    const { spawn } = await _getChildProcessModule();
-    await _runCodexCliProcess({
-      spawn,
-      args,
-      prompt: _codexPrompt(messages, { jsonOnly: jsonRequest.wantsJson }),
-      env: _codexCliChildEnv(codexHome, codexTmp),
-      cwd: codexWorkspace,
-      timeoutMs: _codexFallbackTimeoutMs(opts),
-    });
-
-    const result = fs.readFileSync(outputPath, 'utf8').trim();
-    if (!result) throw new Error('Codex CLI returned an empty last message');
-    return _validateCodexCliResult(result, jsonRequest);
-  } finally {
-    // The auth file and schema are ephemeral even when the CLI exits non-zero
-    // or a caller aborts the attempt. Never print the secret or its contents.
-    fs.rmSync(runtimeRoot, { recursive: true, force: true });
-  }
-}
-
-async function _runCodexCliProcess({ spawn, args, prompt, env, cwd, timeoutMs }) {
-  return new Promise((resolve, reject) => {
-    let child;
-    try {
-      child = spawn(CODEX_CLI_BIN, args, { stdio: ['pipe', 'ignore', 'pipe'], env, cwd });
-    } catch (err) {
-      reject(err);
-      return;
-    }
-    let stderr = '';
-    let settled = false;
-    const timer = setTimeout(() => {
-      if (settled) return;
-      settled = true;
-      child.kill?.('SIGKILL');
-      const err = new Error(`Codex CLI timed out after ${timeoutMs}ms${stderr ? ` — stderr: ${stderr.slice(0, 300)}` : ''}`);
-      err.name = 'TimeoutError';
-      reject(err);
-    }, timeoutMs);
-    timer.unref?.();
-    child.stderr?.on?.('data', (d) => { stderr += String(d); });
-    child.on('error', (err) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      reject(err);
-    });
-    child.on('close', (code) => {
-      if (settled) return;
-      settled = true;
-      clearTimeout(timer);
-      if (code === 0) resolve({ code, stderr });
-      else reject(new Error(`Codex CLI exited with code ${code}${stderr ? ` — stderr: ${stderr.slice(0, 300)}` : ''}`));
-    });
-    try {
-      if (child.stdin?.end) child.stdin.end(prompt);
-    } catch (err) {
-      if (!settled) {
-        settled = true;
-        clearTimeout(timer);
-        reject(err);
-      }
-    }
+  const jsonRequest = _codexFallbackJsonRequest(opts);
+  const result = await _requestCodexExecution({
+    prompt: _codexPrompt(messages, { jsonOnly: jsonRequest.wantsJson }),
+    timeoutMs: _codexFallbackTimeoutMs(opts),
+    schema: jsonRequest.schema,
+    deadlineMs: opts.deadlineMs,
   });
+  if (opts.deadlineMs && Date.now() >= opts.deadlineMs) {
+    throw new Error('Codex fallback skipped: caller deadline expired during execution');
+  }
+  return _validateCodexCliResult(result, jsonRequest);
 }
 
 async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError, claudeModel) {
   if (!claudeError?.claudeCliUsageLimit) return null;
-  if (!String(process.env.CODEX_AUTH_JSON || '').trim()) {
-    console.warn('⚠️ Claude CLI usage limit detected, but CODEX_AUTH_JSON is not configured — continuing normal fallback chain');
+  if (!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim()) {
+    console.warn('⚠️ Claude CLI usage limit detected, but CODEX_AUTH_BROKER_SOCKET is not configured — continuing normal fallback chain');
     return null;
   }
 
@@ -6257,14 +6174,13 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
  * dall'esterno senza spawnare un `claude` vero.
  */
 export function claudeCliChildEnv(base = process.env) {
-  const hasCodexAuth = Object.prototype.hasOwnProperty.call(base, 'CODEX_AUTH_JSON');
+  const hasCodexBroker = Object.prototype.hasOwnProperty.call(base, 'CODEX_AUTH_BROKER_SOCKET');
   if (CLAUDE_CLI_MAX_THINKING_TOKENS === null
-      && !hasCodexAuth) return base;
+      && !hasCodexBroker) return base;
   const env = { ...base };
-  // The Claude subprocess has no need for the Codex subscription secret. Do
-  // not let it inherit the JSON that the parent may materialize for a later
-  // usage-limit fallback.
-  delete env.CODEX_AUTH_JSON;
+  // Claude has no need for the Codex broker endpoint. Do not let it inherit a
+  // capability that is reserved for the parent fallback path.
+  delete env.CODEX_AUTH_BROKER_SOCKET;
   if (CLAUDE_CLI_MAX_THINKING_TOKENS !== null
       && (base.MAX_THINKING_TOKENS === undefined || String(base.MAX_THINKING_TOKENS).trim() === '')) {
     env.MAX_THINKING_TOKENS = String(CLAUDE_CLI_MAX_THINKING_TOKENS);

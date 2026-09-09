@@ -23,8 +23,8 @@ description: >-
   indirect Codex CLI attempt using CODEX_AUTH_JSON from a temporary
   CODEX_HOME/auth.json; this action installs the pinned CLI needed for that
   path. Callers pass the optional secret through the codex_auth_json input;
-  only the materialization step receives it, writes a 0600 file, and exports
-  the non-secret CODEX_AUTH_FILE path for the later fallback consumer.
+  only the broker bootstrap step receives it, keeps it in broker memory, and
+  exports a private Unix-socket path for the later fallback consumer.
   CORRECTED CLAIM (was wrong in this file since generate-article.yml run
   29676088799, propagated into setup-omniroute/action.yml via PR #4816):
   env.* is NOT immune to the null/unset->0 coercion previously blamed only
@@ -40,9 +40,16 @@ description: >-
 inputs:
   codex_auth_json:
     description: >-
-      Optional CODEX_AUTH_JSON secret. It is consumed only while writing the
-      0600 auth file; it is never exported to the job environment.
+      Optional CODEX_AUTH_JSON secret. It is consumed only while bootstrapping
+      the private broker; it is never exported to the job environment.
     required: false
+outputs:
+  codex_auth_broker_socket:
+    description: >-
+      Short-lived private Unix-socket endpoint for the one-shot Codex fallback.
+      The endpoint is exposed only as an action output, never through
+      GITHUB_ENV.
+    value: ${{ steps.start_codex_auth_broker.outputs.socket }}
 runs:
   using: "composite"
   steps:
@@ -53,27 +60,6 @@ runs:
     - name: Resolve Claude CLI Haiku fallback gate
       shell: bash
       run: echo "HAIKU_FALLBACK_GATE=${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}" >> "$GITHUB_ENV"
-
-    # Keep the subscription secret on this one action step. The background
-    # crawler/translation processes inherit only CODEX_AUTH_FILE from
-    # GITHUB_ENV; ai-models.mjs consumes and removes the file when the
-    # usage-limit fallback is actually attempted.
-    - name: Materialize Codex auth for the indirect fallback
-      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
-      shell: bash
-      env:
-        CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
-      run: |
-        set -euo pipefail
-        auth_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
-        auth_dir="$(mktemp -d "$auth_tmp/claude-haiku-codex-auth.XXXXXX")"
-        chmod 700 "$auth_dir"
-        auth_file="$auth_dir/auth.json"
-        umask 077
-        printf '%s' "$CODEX_AUTH_JSON" > "$auth_file"
-        chmod 600 "$auth_file"
-        printf 'CODEX_AUTH_FILE=%s\n' "$auth_file" >> "$GITHUB_ENV"
-        unset CODEX_AUTH_JSON
 
     - name: Setup Claude CLI Haiku fallback
       if: env.HAIKU_FALLBACK_GATE != '0'
@@ -88,6 +74,70 @@ runs:
           echo "::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available"
         fi
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
+
+    # Keep the subscription secret on this one action step. Only an explicit
+    # AI consumer step receives the output socket path; unrelated housekeeping
+    # steps do not inherit a broker capability.
+    - name: Start Codex auth broker for the indirect fallback
+      id: start_codex_auth_broker
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      shell: bash
+      env:
+        CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+      run: |
+        set +e
+        auth_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+        auth_dir="$(mktemp -d "$auth_tmp/claude-haiku-codex-broker.XXXXXX")"
+        if [ -z "$auth_dir" ] || [ ! -d "$auth_dir" ]; then
+          echo "::warning::Codex auth broker could not allocate private runner temp space; Claude and the normal fallback cascade remain available"
+          exit 0
+        fi
+        chmod 700 "$auth_dir"
+        broker_socket="$auth_dir/auth.sock"
+        auth_fifo="$auth_dir/auth.in"
+        if ! mkfifo "$auth_fifo" || ! chmod 600 "$auth_fifo"; then
+          echo "::warning::Codex auth broker could not allocate its private input channel; Claude and the normal fallback cascade remain available"
+          rm -rf -- "$auth_dir"
+          exit 0
+        fi
+        node_bin="$(command -v node || true)"
+        if [ -z "$node_bin" ]; then
+          echo "::warning::Codex auth broker could not find node; Claude and the normal fallback cascade remain available"
+          rm -f -- "$auth_fifo"
+          rmdir -- "$auth_dir" 2>/dev/null || true
+          exit 0
+        fi
+        # The broker receives the credential only through the FIFO. Start it
+        # with an empty environment so CODEX_AUTH_JSON from this step cannot
+        # leak into the long-lived broker process or any diagnostics.
+        nohup env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
+          --socket "$broker_socket" --ttl-ms 25200000 \
+          < "$auth_fifo" > /dev/null 2>&1 &
+        broker_pid=$!
+        if ! printf '%s' "$CODEX_AUTH_JSON" > "$auth_fifo"; then
+          echo "::warning::Codex auth broker could not receive its credential; Claude and the normal fallback cascade remain available"
+          kill "$broker_pid" 2>/dev/null || true
+          rm -f -- "$auth_fifo" "$broker_socket"
+          rmdir -- "$auth_dir" 2>/dev/null || true
+          exit 0
+        fi
+        rm -f -- "$auth_fifo"
+        broker_ready=0
+        for _ in $(seq 1 50); do
+          if [ -S "$broker_socket" ]; then broker_ready=1; break; fi
+          if ! kill -0 "$broker_pid" 2>/dev/null; then break; fi
+          sleep 0.1
+        done
+        if [ "$broker_ready" -ne 1 ]; then
+          echo "::warning::Codex auth broker did not become ready; Claude and the normal fallback cascade remain available"
+          kill "$broker_pid" 2>/dev/null || true
+          rm -f -- "$auth_fifo" "$broker_socket"
+          rmdir -- "$auth_dir" 2>/dev/null || true
+          exit 0
+        fi
+        chmod 600 "$broker_socket"
+        printf 'socket=%s\n' "$broker_socket" >> "$GITHUB_OUTPUT"
+        unset CODEX_AUTH_JSON
 
     # Unconditional (no `if:`) so it also fires when the step above got
     # skipped — surfaces flag/binary desync directly in this run's log

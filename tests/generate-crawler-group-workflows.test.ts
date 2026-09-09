@@ -1498,26 +1498,35 @@ describe('cross-repo crawler execution artifacts', () => {
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
 
+    expect(setupStep?.id).toBe('setup_claude_haiku_fallback');
     expect(setupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
     expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
+    expect(crawlerSteps.every((step: any) => step.env?.CODEX_AUTH_BROKER_SOCKET
+      === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
     expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
     const logicSetupStep = Object.values(logic.jobs)[0].steps.find(
       (step: any) => step.uses?.endsWith('/.github/actions/setup-claude-haiku-fallback@main'),
     );
+    expect(logicSetupStep?.id).toBe('setup_claude_haiku_fallback');
     expect(logicSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
     expect(Object.values(logic.jobs)[0].steps
       .filter((step: any) => step.background === true)
-      .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined)).toBe(true);
+      .every((step: any) => step.env?.CODEX_AUTH_JSON === undefined
+        && step.env?.CODEX_AUTH_BROKER_SOCKET
+          === '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}')).toBe(true);
 
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
+    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
     expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
     const translationStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
     );
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
+    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
+      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
   });
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
