@@ -2434,7 +2434,7 @@ export function parsePath(pathname: string): ParseResult {
  {
    const pharmacyPath = parsePharmacyPath(pathname);
    if (pharmacyPath) {
-     return { route: { activeTab: 'vita', pharmacyPath }, locale: pharmacyPath.locale };
+     return { route: { activeTab: 'vita', pharmacyPath, staticOverlay: false }, locale: pharmacyPath.locale };
    }
 
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
