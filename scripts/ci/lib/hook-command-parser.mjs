@@ -54,7 +54,7 @@ const VALUE_FLAGS = new Set([
  * Read the hook payload without making malformed input fatal.
  *
  * @param {NodeJS.ReadableStream} [stream]
- * @returns {Promise<{ok:boolean, command:string}>}
+ * @returns {Promise<{ok:boolean, command:string, cwd?:string}>}
  */
 export async function readHookCommand(stream = process.stdin) {
   try {
