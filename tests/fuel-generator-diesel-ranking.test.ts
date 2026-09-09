@@ -66,6 +66,7 @@ describe('generate-fuel-prices-dataset diesel ranking', () => {
     expect(swiss.cheapestDieselStation.id).not.toBe(swiss.cheapestStation.id);
     expect(swiss.minDieselPriceEur).toBe(1.8);
     expect(swiss.minDieselPriceChf).toBe(1.8);
+    expect(swiss.dieselOptionCount).toBe(6);
   });
 
   it('yields a null diesel verdict when no candidate has a diesel price', () => {
@@ -78,5 +79,6 @@ describe('generate-fuel-prices-dataset diesel ranking', () => {
     expect(swiss.cheapestDieselStation).toBeNull();
     expect(swiss.minDieselPriceEur).toBeNull();
     expect(swiss.minDieselPriceChf).toBeNull();
+    expect(swiss.dieselOptionCount).toBe(0);
   });
 });
