@@ -125,20 +125,18 @@ function listTestFiles(dir = path.join(ROOT, 'tests'), acc = []) {
   return acc;
 }
 
-const sourceTextCache = new Map();
+// Nessuna cache di testo o di AST: `analyzeFile()` e' memoizzato per file, quindi
+// ogni sorgente veniva gia' letto e parsato una volta sola — le cache tenevano
+// solo in vita ~70 MB di sorgenti e i relativi AST fino a fine processo, e il GC
+// che ne seguiva era la voce di costo piu' grande del predicato.
 function readSource(file) {
-  if (sourceTextCache.has(file)) return sourceTextCache.get(file);
-  let src = '';
   try {
-    src = fs.readFileSync(file, 'utf-8');
+    return fs.readFileSync(file, 'utf-8');
   } catch {
-    src = '';
+    return '';
   }
-  sourceTextCache.set(file, src);
-  return src;
 }
 
-const astCache = new Map();
 const fileAnalysisCache = new Map();
 
 function scriptKindFor(file) {
@@ -149,7 +147,6 @@ function scriptKindFor(file) {
 }
 
 function parseSource(file) {
-  if (astCache.has(file)) return astCache.get(file);
   let parsed = null;
   try {
     if (!fs.statSync(file).isFile()) throw new Error('not a file: ' + file);
@@ -157,7 +154,9 @@ function parseSource(file) {
       file,
       readSource(file),
       ts.ScriptTarget.Latest,
-      true,
+      // I parent non servono a nessuna visita qui sotto, e `fixupParentReferences`
+      // su ~70 MB di sorgenti costa quanto il parse stesso.
+      false,
       scriptKindFor(file),
     );
     if (parsed.parseDiagnostics.length > 0) parsed = null;
@@ -166,40 +165,25 @@ function parseSource(file) {
     // sul ramo required finché il file non è analizzabile.
     parsed = null;
   }
-  astCache.set(file, parsed);
   return parsed;
 }
 
-function isFunctionLike(node) {
-  return ts.isFunctionDeclaration(node)
-    || ts.isFunctionExpression(node)
-    || ts.isArrowFunction(node)
-    || ts.isMethodDeclaration(node)
-    || ts.isGetAccessor(node)
-    || ts.isSetAccessor(node);
-}
+const FUNCTION_LIKE_KINDS = new Set([
+  ts.SyntaxKind.FunctionDeclaration,
+  ts.SyntaxKind.FunctionExpression,
+  ts.SyntaxKind.ArrowFunction,
+  ts.SyntaxKind.MethodDeclaration,
+  ts.SyntaxKind.GetAccessor,
+  ts.SyntaxKind.SetAccessor,
+]);
 
-// Visita il codice runtime sotto root senza entrare nei callback annidati.
-function visitRuntime(node, visit, root = node) {
-  visit(node);
-  ts.forEachChild(node, (child) => {
-    if (child !== root && isFunctionLike(child)) return;
-    visitRuntime(child, visit, root);
-  });
+function isFunctionLike(node) {
+  return FUNCTION_LIKE_KINDS.has(node.kind);
 }
 
 function visitAll(node, visit) {
   visit(node);
   ts.forEachChild(node, (child) => visitAll(child, visit));
-}
-
-function isInsideImportDeclaration(node) {
-  let current = node.parent;
-  while (current) {
-    if (ts.isImportDeclaration(current)) return true;
-    current = current.parent;
-  }
-  return false;
 }
 
 function expressionName(expression) {
@@ -218,6 +202,13 @@ function outputBindings(sourceFile) {
     if (OUTPUT_RE.test(node.initializer.getText(sourceFile))) bindings.add(node.name.text);
   });
   return bindings;
+}
+
+// Un solo alternato compilato per file: `callReadsDataset` gira su ogni nodo
+// del grafo, e ricompilare una regex per binding a ogni chiamata dominava.
+function bindingsPattern(bindings) {
+  if (bindings.size === 0) return null;
+  return new RegExp('\\b(?:' + [...bindings].map((b) => b.replace(/[$]/g, '\\$&')).join('|') + ')\\b');
 }
 
 function importedDatasetCallNames(sourceFile) {
@@ -246,8 +237,7 @@ function callReadsDataset(node, bindings, sourceFile, { readCallNames, readerNam
   if (readerNames.has(name)) return true;
   if (!readCallNames.has(name)) return false;
   const call = node.getText(sourceFile);
-  return OUTPUT_RE.test(call)
-    || [...bindings].some((binding) => new RegExp('\\b' + binding.replace(/[$]/g, '\\$&') + '\\b').test(call));
+  return OUTPUT_RE.test(call) || (bindings !== null && bindings.test(call));
 }
 
 function functionName(node, parent, fallback) {
@@ -257,26 +247,23 @@ function functionName(node, parent, fallback) {
   return fallback;
 }
 
-function functionInfo(node, name, bindings, sourceFile, datasetCallNames) {
-  const calls = new Set();
-  const usedIdentifiers = new Set();
-  const namespaceProperties = new Map();
-  let direct = false;
-  visitRuntime(node, (child) => {
-    if (callReadsDataset(child, bindings, sourceFile, datasetCallNames)) direct = true;
-    if (ts.isCallExpression(child)) {
-      const called = expressionName(child.expression);
-      if (called) calls.add(called);
-    }
-    if (ts.isIdentifier(child)) usedIdentifiers.add(child.text);
-    if (ts.isPropertyAccessExpression(child)
-      && ts.isIdentifier(child.expression)
-      && ts.isIdentifier(child.name)) {
-      if (!namespaceProperties.has(child.expression.text)) namespaceProperties.set(child.expression.text, new Set());
-      namespaceProperties.get(child.expression.text).add(child.name.text);
-    }
-  });
-  return { node, name, calls, usedIdentifiers, namespaceProperties, direct };
+function functionInfo(node, name) {
+  return {
+    node,
+    name,
+    calls: new Set(),
+    usedIdentifiers: new Set(),
+    namespaceProperties: new Map(),
+    direct: false,
+  };
+}
+
+function noteNamespaceProperty(target, node) {
+  if (!ts.isPropertyAccessExpression(node)
+    || !ts.isIdentifier(node.expression)
+    || !ts.isIdentifier(node.name)) return;
+  if (!target.has(node.expression.text)) target.set(node.expression.text, new Set());
+  target.get(node.expression.text).add(node.name.text);
 }
 
 // Estrae solo binding ed effetti necessari a seguire una lettura runtime.
@@ -299,15 +286,20 @@ function analyzeFile(file) {
     return unknown;
   }
 
-  const bindings = outputBindings(sourceFile);
+  const bindings = OUTPUT_RE.test(sourceFile.text)
+    ? bindingsPattern(outputBindings(sourceFile))
+    : null;
   const datasetCallNames = importedDatasetCallNames(sourceFile);
   const imports = [];
   const allImports = [];
   const exports = new Map();
   const functions = new Map();
+  const infoByNode = new Map();
   const registerFunction = (node, parent, fallback) => {
     const name = functionName(node, parent, fallback);
-    functions.set(name, functionInfo(node, name, bindings, sourceFile, datasetCallNames));
+    const info = functionInfo(node, name);
+    functions.set(name, info);
+    infoByNode.set(node, info);
     return name;
   };
 
@@ -394,51 +386,62 @@ function analyzeFile(file) {
     }
   }
 
-  // Mantieni nel grafo anche gli archi runtime non espressi da un import
-  // statico: il vecchio parser li seguiva con `import()` e `require()`.
-  visitAll(sourceFile, (node) => {
-    if (!ts.isCallExpression(node) || node.arguments.length === 0) return;
-    const isDynamicImport = node.expression.kind === ts.SyntaxKind.ImportKeyword;
-    const isRequire = ts.isIdentifier(node.expression) && node.expression.text === 'require';
-    const argument = node.arguments[0];
-    if ((isDynamicImport || isRequire) && ts.isStringLiteral(argument)) {
-      imports.push({ spec: argument.text, side: true });
-      allImports.push({ spec: argument.text });
-    }
-  });
-
+  // Una sola traversata per tutto cio' che dipende dai nodi: `topDirect`,
+  // `allDirect`, gli identificatori usati, gli archi `import()`/`require()` e
+  // gli effetti per funzione. Erano quattro visite complete dello stesso AST
+  // per ognuno dei ~3'900 file del grafo.
+  //
+  // `fnDepth` riproduce il vecchio `visitRuntime`: un effetto conta come
+  // top-level solo fuori da ogni funzione, e `ctx` e' la funzione registrata
+  // che lo eredita — nessuna, se in mezzo c'e' un callback annidato, esattamente
+  // come quando la visita per funzione non ci scendeva.
   let topDirect = false;
+  let allDirect = false;
   const usedIdentifiers = new Set();
   const namespaceProperties = new Map();
-  for (const statement of sourceFile.statements) {
-    if (ts.isImportDeclaration(statement) || isFunctionLike(statement)) continue;
-    visitRuntime(statement, (node) => {
-      if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) topDirect = true;
-      if (ts.isIdentifier(node)) usedIdentifiers.add(node.text);
-      if (ts.isPropertyAccessExpression(node)
-        && ts.isIdentifier(node.expression)
-        && ts.isIdentifier(node.name)) {
-        if (!namespaceProperties.has(node.expression.text)) namespaceProperties.set(node.expression.text, new Set());
-        namespaceProperties.get(node.expression.text).add(node.name.text);
+
+  const walk = (node, ctx, fnDepth) => {
+    if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) {
+      allDirect = true;
+      if (fnDepth === 0) topDirect = true;
+      if (ctx) ctx.direct = true;
+    }
+    if (ts.isIdentifier(node)) {
+      usedIdentifiers.add(node.text);
+      if (ctx) ctx.usedIdentifiers.add(node.text);
+    } else if (ts.isPropertyAccessExpression(node)) {
+      noteNamespaceProperty(namespaceProperties, node);
+      if (ctx) noteNamespaceProperty(ctx.namespaceProperties, node);
+    } else if (ts.isCallExpression(node)) {
+      if (ctx) {
+        const called = expressionName(node.expression);
+        if (called) ctx.calls.add(called);
+      }
+      // Mantieni nel grafo anche gli archi runtime non espressi da un import
+      // statico: il vecchio parser li seguiva con `import()` e `require()`.
+      if (node.arguments.length > 0) {
+        const isDynamicImport = node.expression.kind === ts.SyntaxKind.ImportKeyword;
+        const isRequire = ts.isIdentifier(node.expression) && node.expression.text === 'require';
+        const argument = node.arguments[0];
+        if ((isDynamicImport || isRequire) && ts.isStringLiteral(argument)) {
+          imports.push({ spec: argument.text, side: true });
+          allImports.push({ spec: argument.text });
+        }
+      }
+    }
+    ts.forEachChild(node, (child) => {
+      if (ts.isImportDeclaration(child)) return;
+      if (isFunctionLike(child)) {
+        walk(child, infoByNode.get(child) || null, fnDepth + 1);
+      } else {
+        walk(child, ctx, fnDepth);
       }
     });
-  }
-  let allDirect = false;
-  visitAll(sourceFile, (node) => {
-    if (isInsideImportDeclaration(node)) return;
-    if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) allDirect = true;
-    if (ts.isIdentifier(node)) usedIdentifiers.add(node.text);
-    if (ts.isPropertyAccessExpression(node)
-      && ts.isIdentifier(node.expression)
-      && ts.isIdentifier(node.name)) {
-      if (!namespaceProperties.has(node.expression.text)) namespaceProperties.set(node.expression.text, new Set());
-      namespaceProperties.get(node.expression.text).add(node.name.text);
-    }
-  });
+  };
+  walk(sourceFile, null, 0);
 
   const analysis = {
     unknown: false,
-    sourceFile,
     imports,
     allImports,
     exports,
@@ -537,6 +540,7 @@ export function localImports(file) {
  * convergono naturalmente e l'esito non dipende dall'ordine di visita.
  */
 let taintedCache = null;
+let testFilesByRelPath = null;
 const datasetEffectCache = new Map();
 
 function rememberDatasetEffect(key, result, state) {
@@ -676,6 +680,25 @@ function taintedFiles() {
 
 const toPosixRel = (f) => path.relative(ROOT, f).split(path.sep).join('/');
 
+/**
+ * True per un singolo file di test che, da solo, richiede l'assemble.
+ *
+ * Stessa relazione di `listDatasetDependentTests()` — `listTestFiles()` per
+ * l'appartenenza alla suite, il fixed-point per l'effetto — ma valutata sul
+ * file richiesto invece che su tutti e ~2'100. Serve a chi deve solo decidere
+ * se una SELEZIONE contiene un dipendente: costruire la partizione completa
+ * significa leggere e parsare l'intero grafo (~3'900 file, ~70 MB di sorgenti)
+ * per rispondere a una domanda di appartenenza su una manciata di path, e su
+ * una selezione vuota per non guardare nemmeno il risultato.
+ */
+function isDatasetDependentTestPath(file) {
+  if (testFilesByRelPath === null) {
+    testFilesByRelPath = new Map(listTestFiles().map((f) => [toPosixRel(f), f]));
+  }
+  const absolute = testFilesByRelPath.get(normalizeDecisionPath(file));
+  return absolute !== undefined && testReadsDataset(absolute);
+}
+
 /** Path POSIX relativi alla root, ordinati — dei test che richiedono l'assemble. */
 export function listDatasetDependentTests() {
   const tainted = taintedFiles();
@@ -750,9 +773,9 @@ export function shouldAssembleForRelatedTests({
     return { required: true, degraded: true, reason: 'related graph contains unreadable tracked files' };
   }
 
-  let dependentTests;
+  let selectionIsDependent;
   try {
-    dependentTests = new Set(listDatasetDependentTests());
+    selectionIsDependent = selectedTests.some(isDatasetDependentTestPath);
   } catch (error) {
     return {
       required: true,
@@ -761,7 +784,7 @@ export function shouldAssembleForRelatedTests({
     };
   }
 
-  if (selectedTests.some((file) => dependentTests.has(normalizeDecisionPath(file)))) {
+  if (selectionIsDependent) {
     return { required: true, reason: 'related selection includes a dataset-dependent test' };
   }
   if (changedPaths.some(isDirectAssembleInput)) {
