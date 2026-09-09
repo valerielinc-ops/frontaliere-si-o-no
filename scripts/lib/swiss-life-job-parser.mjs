@@ -26,6 +26,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isCantonRelevant } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -263,9 +264,7 @@ async function fetchJobDetail(externalPath) {
  * Handles "N Locations" format by returning empty string.
  */
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  return cleaned.split(/\s*[,\-–]\s*/)[0].trim();
+  return firstLocationSegment(locText).split(/\s*,\s*/)[0].trim();
 }
 
 /**

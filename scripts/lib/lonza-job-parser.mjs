@@ -12,6 +12,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -179,12 +180,7 @@ async function fetchJobDetail(externalPath) {
 /* ── Location & canton ─────────────────────────────────────── */
 
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  // Workday sometimes returns just the country code (e.g. "CH", "UK") — not useful as a city
-  if (/^[A-Z]{2}$/.test(cleaned)) return '';
-  const parts = cleaned.split(/\s*-\s*/);
-  return parts.length > 0 ? parts[0].trim() : cleaned;
+  return firstLocationSegment(locText);
 }
 
 function inferCanton(location = '') {

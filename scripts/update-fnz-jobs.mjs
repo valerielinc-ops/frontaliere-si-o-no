@@ -51,6 +51,7 @@ import { isSwissLocationText, inferAnyCanton } from './lib/target-swiss-location
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -258,11 +259,7 @@ async function fetchJobDetail(externalPath) {
 /* ── Location & canton mapping ─────────────────────────────── */
 
 function parseWorkdayLocation(locText = '') {
-  const cleaned = String(locText || '').trim();
-  // Format: "Chiasso - Switzerland" or "2 Locations"
-  if (/\d+\s+location/i.test(cleaned)) return '';
-  const parts = cleaned.split(/\s*-\s*/);
-  return parts.length > 0 ? parts[0].trim() : cleaned;
+  return firstLocationSegment(locText);
 }
 
 function inferCanton(location = '') {
