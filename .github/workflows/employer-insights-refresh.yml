@@ -1,0 +1,226 @@
+name: Refresh Employer Insights
+
+# GA4 is the source of truth for employer metrics.
+# The schedule is intentionally disabled until the builder has a complete GA4
+# employer-identity feed; manual dispatch remains available for controlled
+# source-specific runs.
+on:
+  # schedule:
+  #   - cron: '15 5 * * *' # DISABLED: enable when the builder source is GA4.
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Analytics source to query; every payload declares it.
+        required: true
+        default: ga4
+        type: choice
+        options:
+          - posthog
+          - ga4
+
+permissions:
+  contents: read
+
+concurrency:
+  group: employer-insights-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      INSIGHTS_SOURCE: ${{ inputs.source || 'ga4' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # The builder needs the complete job identity catalog. Keep the
+          # heavy unrelated trees out, but deliberately retain data/jobs/.
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Validate selected source
+        run: |
+          set -euo pipefail
+          case "$INSIGHTS_SOURCE" in
+            posthog) ;;
+            ga4)
+              echo "::error::source=ga4 is selected, but the employer builder has no complete GA4 identity feed yet; refusing to query PostHog under a GA4 label"
+              exit 1
+              ;;
+            *)
+              echo "::error::source must be posthog or ga4"
+              exit 1
+              ;;
+          esac
+          echo "Selected employer-insights source: $INSIGHTS_SOURCE"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load analytics and Firebase settings from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Verify selected source settings are present
+        run: |
+          set -euo pipefail
+          case "$INSIGHTS_SOURCE" in
+            posthog)
+              if [ -z "${POSTHOG_PERSONAL_API_KEY:-}" ] || [ -z "${POSTHOG_PROJECT_ID:-}" ]; then
+                echo "::error::PostHog credentials are missing after Remote Config load"
+                exit 1
+              fi
+              ;;
+            ga4)
+              if [ -z "${GA4_PROPERTY_ID:-}" ]; then
+                echo "::error::GA4_PROPERTY_ID is missing after Remote Config load"
+                exit 1
+              fi
+              ;;
+          esac
+
+      - name: Count current employer snapshots
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { getFirestoreDb } from './scripts/lib/firestore-admin.mjs';
+
+          const db = await getFirestoreDb();
+          const snapshot = await db.collection('employer_insights').get();
+          if (snapshot.empty) throw new Error('employer_insights is empty; refusing a first write without a baseline');
+          const ids = snapshot.docs.map((doc) => doc.id).sort();
+          fs.writeFileSync('/tmp/employer-insights-current.json', JSON.stringify({ count: ids.length, ids }, null, 2) + '\n');
+          console.log(`Current employer_insights documents: ${ids.length}`);
+          NODE
+
+      - name: Build complete dry-run payload (no Firestore write)
+        run: |
+          set -euo pipefail
+          node scripts/build-employer-insights.mjs \
+            --source "$INSIGHTS_SOURCE" \
+            --json-out /tmp/employer-insights-dry-run.json \
+            | tee /tmp/employer-insights-builder.log
+          test -s /tmp/employer-insights-dry-run.json
+
+      - name: Validate payload fail-closed
+        run: |
+          set -euo pipefail
+          node scripts/ci/validate-employer-insights-payload.mjs \
+            --payload /tmp/employer-insights-dry-run.json \
+            --current /tmp/employer-insights-current.json \
+            --source "$INSIGHTS_SOURCE" \
+            --gate-out /tmp/employer-insights-gate.json
+
+      - name: Write exactly the validated payload with rollback guard
+        env:
+          PAYLOAD_PATH: /tmp/employer-insights-dry-run.json
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { FieldValue } from 'firebase-admin/firestore';
+          import { getFirestoreDb } from './scripts/lib/firestore-admin.mjs';
+          import { commitInChunks } from './scripts/lib/firestore-batch.mjs';
+
+          const payload = JSON.parse(fs.readFileSync(process.env.PAYLOAD_PATH, 'utf8'));
+          const expectedSource = process.env.INSIGHTS_SOURCE;
+          if (!expectedSource || payload.source !== expectedSource || payload.coverage?.source !== expectedSource) {
+            throw new Error('validated payload source is missing or does not match the selected source');
+          }
+          const expected = payload.documents;
+          const db = await getFirestoreDb();
+          const collection = db.collection('employer_insights');
+          const beforeSnapshot = await collection.get();
+          const before = new Map(beforeSnapshot.docs.map((doc) => [doc.id, doc.data()]));
+
+          async function applyItems(items) {
+            return commitInChunks(db, items, (batch, item) => {
+              const ref = collection.doc(item.id);
+              if (item.operation === 'delete') batch.delete(ref);
+              else batch.set(ref, item.data);
+            }, { chunkSize: 400, maxBatchOps: 400 });
+          }
+
+          async function rollback() {
+            const afterSnapshot = await collection.get();
+            const restore = [...before.entries()].map(([id, data]) => ({ id, operation: 'set', data }));
+            for (const doc of afterSnapshot.docs) {
+              if (!before.has(doc.id)) restore.push({ id: doc.id, operation: 'delete' });
+            }
+            await applyItems(restore);
+          }
+
+          try {
+            const items = expected.map((document) => ({
+              id: document.companyKey,
+              operation: 'set',
+              data: { ...document, updatedAt: FieldValue.serverTimestamp() },
+            }));
+            const written = await applyItems(items);
+            if (written !== expected.length) throw new Error(`writer committed ${written}/${expected.length} documents`);
+
+            const afterSnapshot = await collection.get();
+            const missing = expected.filter((document) => {
+              const stored = afterSnapshot.docs.find((doc) => doc.id === document.companyKey)?.data();
+              return !stored
+                || stored.source !== expectedSource
+                || stored.provenance?.snapshotId !== document.provenance?.snapshotId
+                || stored.window?.from !== document.window?.from
+                || stored.window?.to !== document.window?.to
+                || stored.window?.timezone !== document.window?.timezone;
+            }).map((document) => document.companyKey);
+            if (missing.length) throw new Error(`post-write verification missing ${missing.length} validated documents`);
+            console.log(`Committed and verified ${written} employer_insights documents; existing collection count is ${afterSnapshot.size}.`);
+          } catch (error) {
+            try {
+              await rollback();
+              console.error('Write failed; previous employer_insights snapshot restored.');
+            } catch (rollbackError) {
+              throw new Error(`write failed and rollback failed: ${error.message}; rollback: ${rollbackError.message}`);
+            }
+            throw error;
+          }
+          NODE
+
+      - name: Cleanup temporary credentials and payloads
+        if: always()
+        run: rm -f /tmp/firebase-sa.json /tmp/employer-insights-current.json /tmp/employer-insights-dry-run.json /tmp/employer-insights-builder.log /tmp/employer-insights-gate.json
