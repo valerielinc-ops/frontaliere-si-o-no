@@ -1,4 +1,5 @@
 import { getSiteShell } from './siteShell';
+import { normalizeArticleMarkdown } from './shared/normalizeArticleMarkdown';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -109,7 +110,7 @@ const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
 const buildArticleBodyBlocks = (text: string): string[] => {
- const lines = text.replace(/\r\n/g, '\n').split('\n');
+ const lines = normalizeArticleMarkdown(text).split('\n');
  const out: string[] = [];
  let paragraphBuf: string[] = [];
 
@@ -190,6 +191,13 @@ const buildArticleBodyBlocks = (text: string): string[] => {
 const stripTags = (html: string): string => html.replace(/<[^>]+>/g, '');
 const HEADING_BLOCK_RX = /^<h[2-6]>/;
 
+const truncatePlainText = (value: string, maxChars: number): string => {
+ const trimmed = value.trim();
+ if (trimmed.length <= maxChars) return trimmed;
+ const cut = trimmed.slice(0, Math.max(1, maxChars - 1)).replace(/\s+\S*$/, '').trim();
+ return `${cut || trimmed.slice(0, Math.max(1, maxChars - 1)).trim()}…`;
+};
+
 // Renders full markdown to HTML, then truncates at whole-block boundaries (never mid-tag/mid-list-item)
 // once the rendered plain-text length crosses maxChars — keeps the same effective content budget as
 // the old plain-text truncation without cutting HTML mid-element or dropping a heading's own content.
@@ -204,8 +212,24 @@ const renderArticleBodyHtml = (text: string, maxChars = 1800): string => {
  if (!kept.length) {
  kept.push(block);
  } else {
- if (HEADING_BLOCK_RX.test(kept[kept.length - 1])) kept.pop();
- if (kept.length) kept.push('<p>…</p>');
+ const lastKept = kept[kept.length - 1];
+ let keptOnlyHeading = false;
+ if (HEADING_BLOCK_RX.test(lastKept)) {
+ kept.pop();
+ // A normalized long section can have a heading followed by one paragraph
+ // larger than the budget. Keep the short heading instead of dropping the
+ // whole section from the static page.
+ if (!kept.length) {
+ kept.push(lastKept);
+ keptOnlyHeading = true;
+ const contentBudget = maxChars - stripTags(lastKept).length;
+ if (contentBudget > 20 && block.startsWith('<p>')) {
+ kept.push(`<p>${truncatePlainText(stripTags(block), contentBudget)}</p>`);
+ }
+ }
+ }
+ if (kept.length && keptOnlyHeading && kept.length === 1) kept.push('<p>…</p>');
+ else if (kept.length && !keptOnlyHeading) kept.push('<p>…</p>');
  }
  return kept.join('');
  }
