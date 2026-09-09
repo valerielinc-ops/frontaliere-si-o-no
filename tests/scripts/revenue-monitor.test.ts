@@ -129,6 +129,36 @@ describe('revenue-monitor / buildComparisonRows() CLS + CTR', () => {
     const rows = buildComparisonRows(current);
     expect(rows.some((r: any) => r.metric === 'PostHog CLS' && r.verdict === '⚪ auth missing')).toBe(true);
   });
+
+  it('reports affiliate rates per denominator without mixing web and email', () => {
+    const current = {
+      adsense: null,
+      gsc: null,
+      posthog: null,
+      affiliate: {
+        status: 'measurable',
+        byCurrency: {
+          CHF: { approvedPer1000Exposures: { web: 1.2, email: 2.4 } },
+        },
+      },
+    };
+    const rows = buildComparisonRows(current);
+    expect(rows.find((r: any) => r.metric === 'Affiliate approved / 1,000 web exposures (CHF)')?.current).toBe(1.2);
+    expect(rows.find((r: any) => r.metric === 'Affiliate approved / 1,000 email delivered (CHF)')?.current).toBe(2.4);
+  });
+
+  it('keeps absent affiliate commercial data explicitly unmeasurable', () => {
+    const rows = buildComparisonRows({
+      adsense: null,
+      gsc: null,
+      posthog: null,
+      affiliate: { status: 'unmeasurable', reason: 'missing export' },
+    });
+    expect(rows.find((r: any) => r.metric === 'Affiliate commissions')).toMatchObject({
+      current: 'unmeasurable',
+      verdict: '⚪ unmeasurable',
+    });
+  });
 });
 
 describe('revenue-monitor / fetchPostHogCls()', () => {
@@ -280,6 +310,30 @@ describe('revenue-monitor / buildHistoryEntry()', () => {
     expect(entry.adsense).toBeNull();
     expect(entry.gsc).toBeNull();
     expect(entry.posthog).toBeNull();
+  });
+
+  it('persists the affiliate reconciliation summary without raw recipient data', () => {
+    const current = {
+      adsense: null,
+      gsc: null,
+      posthog: null,
+      affiliate: {
+        status: 'measurable',
+        reason: null,
+        period: { from: '2026-09-01', to: '2026-09-07' },
+        invalidRows: 0,
+        deduplicatedTransactions: 2,
+        exposures: { web: 1000, email: 500 },
+        byCurrency: { CHF: { approved: 2, pending: 0, reversed: 0 } },
+      },
+    };
+    const entry = buildHistoryEntry(current, buildComparisonRows(current), '2026-09-07');
+    expect(entry.affiliate).toMatchObject({
+      status: 'measurable',
+      deduplicatedTransactions: 2,
+      exposures: { web: 1000, email: 500 },
+    });
+    expect(JSON.stringify(entry)).not.toContain('@');
   });
 
   it('lists regressed/warning metrics by name', () => {

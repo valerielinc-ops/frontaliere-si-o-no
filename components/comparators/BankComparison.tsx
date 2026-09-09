@@ -5,7 +5,7 @@ import { Building2, CreditCard, Euro, TrendingDown, AlertCircle, CheckCircle2, X
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
-import { isGoIdEnabled, resolveGoHref } from '@/services/affiliateService';
+import { isGoIdEnabled, resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -286,15 +286,16 @@ const BankComparison: React.FC = () => {
  </div>
 
  <div className="grid md:grid-cols-2 gap-6">
- {filtered.map((bank) => {
+ {filtered.map((bank, index) => {
  const CardWrapper = bank.website ? 'a' : 'div';
+ const attribution: AffiliateLinkAttribution = { surface: 'web', position: `banks-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'v1' };
  const cardProps = bank.website ? {
- href: resolveGoHref(bank.goId, bank.website),
+ href: resolveGoHref(bank.goId, bank.website, attribution),
  target: '_blank',
  rel: isGoIdEnabled(bank.goId) ? 'noopener noreferrer sponsored' : 'noopener noreferrer',
  onClick: () => {
  Analytics.trackBankComparison('link_click', bank.name, bank.country);
- if (bank.goId) Analytics.trackAffiliateClick(bank.goId, 'banks');
+ if (bank.goId) Analytics.trackAffiliateClick(bank.goId, 'banks', attribution);
  },
  className: `block bg-surface rounded-stripe border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
  } : {
