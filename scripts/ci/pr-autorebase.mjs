@@ -62,10 +62,14 @@
  */
 import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { VITEST_CHECK_NAME, isReviewerBot } from './lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  VITEST_EXECUTION_JOB_NAME,
+  isReviewerBot,
+} from './lib/constants.mjs';
 import {
   latestCompletedVitestConclusion,
-  latestCompletedVitestRun,
+  latestCompletedVitestExecutionRun,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
   vitestFailureIsReviewGate,
@@ -582,7 +586,7 @@ function mainTestsRuns() {
 const _vitestJobSteps = new Map();
 function vitestJobSteps(head) {
   if (_vitestJobSteps.has(head)) return _vitestJobSteps.get(head);
-  const last = latestCompletedVitestRun(checkRunsOf(head));
+  const last = latestCompletedVitestExecutionRun(checkRunsOf(head));
   const m = /\/job\/(\d+)/.exec((last && last.details_url) || '');
   if (!m) {
     _vitestJobSteps.set(head, []);
@@ -622,7 +626,7 @@ function hasCommentMarker(num, marker) {
 
 /** C'è una review Claude ANCORA in volo sull'head (Jobs API: lo step `Run Claude
  * review` è `queued`/`in_progress`)? Dal 2026-08-26 la review vive dentro il
- * check `vitest (unit + integration)`: cercare un check-run chiamato `review`
+ * job `vitest execution`: cercare un check-run chiamato `review`
  * è quindi un segnale morto. Il push del rebase si autentica via
  * App/PAT (x-access-token) e quindi RI-TRIGGERA `pull_request` → `pr-review-loop`
  * ha `cancel-in-progress: true` → il nostro push CANCELLA la review in corso e ne
@@ -636,7 +640,7 @@ function hasCommentMarker(num, marker) {
 function reviewInProgress(head) {
   const checks = checkRunsOf(head);
   const activeVitest = checks.filter(
-    (check) => check?.name === VITEST_CHECK_NAME &&
+    (check) => check?.name === VITEST_EXECUTION_JOB_NAME &&
       ['queued', 'in_progress'].includes(String(check.status || '')),
   );
   for (const check of activeVitest) {

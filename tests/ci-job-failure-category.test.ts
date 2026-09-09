@@ -146,7 +146,7 @@ describe('i nomi di step classificati esistono davvero in tests.yml', () => {
 
   it('lo slice isola davvero il job `vitest` e ne trova gli step', () => {
     expect(jobStart).toBeGreaterThan(-1);
-    expect(JOB_BODY).toContain('name: vitest (unit + integration)');
+    expect(JOB_BODY).toContain('name: vitest execution');
     expect(declaredStepNames.length).toBeGreaterThan(30);
   });
 

@@ -2,11 +2,12 @@
  * jobFailureCategory.mjs — di che cosa e' fatto il rosso del check richiesto.
  *
  * ── PERCHE' ESISTE ────────────────────────────────────────────────────────
- * Il check richiesto dal ruleset si chiama `vitest (unit + integration)`, ma il
- * job che lo produce porta ~43 step: il contratto del body della PR, i lint, i
- * source guard, `tsc`, i test, e in fondo il verdetto della Claude review. Uno
- * qualunque di quegli step tinge di rosso un check che si chiama «vitest», e
- * ogni lettore — umano o agente — conclude che i test siano rotti.
+ * Il check richiesto dal ruleset si chiama `vitest (unit + integration)`; il
+ * wrapper required pubblica il risultato del job di esecuzione, che porta ~43
+ * step: il contratto del body della PR, i lint, i source guard, `tsc`, i test,
+ * e in fondo il verdetto della Claude review. Uno qualunque di quegli step
+ * tinge di rosso il check «vitest», e ogni lettore — umano o agente — conclude
+ * che i test siano rotti.
  *
  * Non e' un'ipotesi: `vitestCheck.mjs` esiste in buona parte per questo, e il
  * suo `vitestFailureIsReviewGate` e' esattamente il predicato «quel rosso NON
@@ -195,7 +196,7 @@ export function formatJobFailureSummary(verdict, checkName) {
     'Step rossi:',
     ...verdict.failedSteps.map((name) => `- \`${name}\``),
     '',
-    `_Il check richiesto si chiama \`${checkName}\` ma porta l'intero job: contratto del body, source guard, lint, typecheck, test e il verdetto della Claude review. Il suo nome non dice quale famiglia ha ceduto; questa riga sì._`,
+    `_Il check richiesto si chiama \`${checkName}\`; il job di esecuzione collegato porta contratto del body, source guard, lint, typecheck, test e il verdetto della Claude review. Il suo nome non dice quale famiglia ha ceduto; questa riga sì._`,
     '',
   ];
   return lines.join('\n');

@@ -4,7 +4,11 @@ import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import YAML from 'yaml';
-import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  VITEST_EXECUTION_JOB_NAME,
+  VITEST_SHARD_NAME_RE,
+} from '../scripts/ci/lib/constants.mjs';
 import { isGraphSourceFile } from '../scripts/ci/lib/related-graph-scope.mjs';
 
 /**
@@ -204,12 +208,19 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
 });
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
-  it('matcha byte-per-byte il name: del job vitest in tests.yml', () => {
-    // Estrae il `name:` del job `vitest:` (può essere quotato o no).
+  it('matcha byte-per-byte il name: del wrapper required in tests.yml', () => {
+    // Estrae il `name:` del wrapper `vitest-required:` (può essere quotato o no).
+    const m = TESTS_YML.match(/^[ \t]*vitest-required:\s*\n\s*name:\s*(.+?)\s*$/m);
+    expect(m, 'job `vitest-required:` con `name:` non trovato in tests.yml').toBeTruthy();
+    const jobName = (m![1] || '').replace(/^['"]|['"]$/g, '');
+    expect(jobName).toBe(VITEST_CHECK_NAME);
+  });
+
+  it('tiene distinto il nome del job che esegue il percorso pesante', () => {
     const m = TESTS_YML.match(/^\s*vitest:\s*\n\s*name:\s*(.+?)\s*$/m);
     expect(m, 'job `vitest:` con `name:` non trovato in tests.yml').toBeTruthy();
     const jobName = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(jobName).toBe(VITEST_CHECK_NAME);
+    expect(jobName).toBe(VITEST_EXECUTION_JOB_NAME);
   });
 
   it('è il valore atteso (cattura un rename involontario della const stessa)', () => {
@@ -262,9 +273,9 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
 
 /**
  * Contratto single-job post de-sharding (#2882): il percorso pesante di
- * tests.yml esegue UN solo job `vitest (unit + integration)` — non esiste più
- * un job `vitest-shard:` con matrice. Il companion body-only ha un check
- * distinto e non contiene la suite. `VITEST_SHARD_NAME_RE` e
+ * tests.yml esegue UN solo job `vitest execution` più il wrapper required —
+ * non esiste più un job `vitest-shard:` con matrice. Il companion body-only ha
+ * un check distinto e non contiene la suite. `VITEST_SHARD_NAME_RE` e
  * `vitestVerdictIsTransientCancellation` RESTANO in scripts/ci/lib (dormienti):
  * senza check-run shard l'heal ritorna `false`, che è il comportamento CORRETTO
  * nel nuovo mondo — un vitest=failure sull'HEAD è sempre un fail reale, mai un
@@ -340,8 +351,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // min. Cosi' le PR restano INDIPENDENTI: nessun mutex globale che accodi la
   // suite di una PR dietro quella di tutte le altre, e nessuna ✗ da run
   // sfrattato. `contract` e `typecheck` restano qui e restano bloccanti.
-  it('tests.yml ha un solo job pesante, un companion body-only e nessun lock di job', () => {
-    expect(jobKeys).toEqual(['vitest', 'body-contract']);
+  it('tests.yml ha un job pesante, un wrapper required, un companion body-only e nessun lock di job', () => {
+    expect(jobKeys).toEqual(['vitest', 'vitest-required', 'body-contract']);
     expect(
       /^ {4}concurrency:/m.test(jobsBody),
       'un `concurrency:` di JOB e\' tornato in tests.yml: un gruppo globale ' +

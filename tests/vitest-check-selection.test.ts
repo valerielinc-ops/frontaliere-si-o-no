@@ -13,12 +13,16 @@
 import { describe, it, expect } from 'vitest';
 import {
   latestCompletedVitestConclusion,
+  latestCompletedVitestExecutionRun,
   latestCompletedRunByName,
   latestCompletedConclusionByName,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
 } from '../scripts/ci/lib/vitestCheck.mjs';
-import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  VITEST_EXECUTION_JOB_NAME,
+} from '../scripts/ci/lib/constants.mjs';
 
 const vitest = (conclusion: string | null, completed_at: string | null, status = 'completed') => ({
   name: VITEST_CHECK_NAME,
@@ -70,6 +74,21 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
 
   it('un job skipped da solo non produce un verdetto', () => {
     expect(latestCompletedVitestConclusion([vitest('skipped', '2026-06-17T08:30:00Z')])).toBe('');
+  });
+
+  it('separa il check required dal job di esecuzione che porta gli step', () => {
+    const runs = [
+      vitest('success', '2026-06-17T08:30:00Z'),
+      {
+        name: VITEST_EXECUTION_JOB_NAME,
+        status: 'completed',
+        conclusion: 'success',
+        completed_at: '2026-06-17T08:29:00Z',
+        details_url: 'https://github.com/owner/repo/actions/runs/1/job/2',
+      },
+    ];
+    expect(latestCompletedVitestExecutionRun(runs)?.details_url).toContain('/job/2');
+    expect(latestCompletedVitestConclusion(runs)).toBe('success');
   });
 
   it('nessun vitest concluso (solo pending) → "" (gate attende, invariante #1454)', () => {

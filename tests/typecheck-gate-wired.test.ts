@@ -90,16 +90,16 @@ describe('typecheck gate wiring (#5540)', () => {
     const jobs = topLevelJobKeys(workflow);
     expect(
       jobs,
-      'il job `vitest` deve restare il check-run gating; il companion body-only ' +
+      'il wrapper `vitest-required` deve restare il check-run gating; il companion body-only ' +
         'può esistere solo per rivalidare `edited`. `contract` e `typecheck` DEVONO ' +
-        "restare nel job che produce il check-run gating (e' la fusione a " +
+        "restare nel job di esecuzione collegato al check-run gating (e' la fusione a " +
         'renderli bloccanti, issue #5552). Il detector di collisioni invece e\' ' +
         'uscito del tutto da questo workflow: e\' uno sweeper repo-wide, vive su ' +
         'cron in pr-collision-detector.yml, e tenerlo qui significava o un lock ' +
         'globale che accodava la suite di ogni PR dietro quella di tutte le ' +
         'altre, o una ✗ falsa da run sfrattato. Non aggiungere job qui senza la ' +
         'stessa analisi.',
-    ).toEqual(['vitest', 'body-contract']);
+    ).toEqual(['vitest', 'vitest-required', 'body-contract']);
     expect(workflow).toContain(`name: ${VITEST_JOB_NAME}`);
   });
 

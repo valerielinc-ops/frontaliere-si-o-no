@@ -4,6 +4,7 @@ import {
   followupIssueBody,
   followupItemsFromBody,
   importantFindings,
+  runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
 const DIFF_FILES = ['src/changed.mjs'];
@@ -11,6 +12,14 @@ const TREE_FILES = ['src/changed.mjs', 'scripts/legacy.mjs', 'scripts/other.mjs'
 
 const reviewFor = (path: string, prose: string) =>
   `## Findings (Important: 1, Nit: 0)\n\n\`${path}:L12\`: 🔴 Important: ${prose}\n\n## LGTM`;
+
+const HEAD_SHA = 'a'.repeat(40);
+const PRIOR_SHA = 'b'.repeat(40);
+const approvingBotReview = {
+  user: { type: 'Bot', login: 'claude[bot]' },
+  body: '## Findings (Important: 0, Nit: 0)\n\n## LGTM',
+  commit_id: PRIOR_SHA,
+};
 
 describe('review gate: scope classification is fail-closed', () => {
   it('blocks when the file list is incomplete', () => {
@@ -240,5 +249,36 @@ describe('review gate: scope classification is fail-closed', () => {
 
     expect(result.blocking).toBe(true);
     expect(result.unresolved[0]?.reason).toMatch(/ambiguo/i);
+  });
+});
+
+describe('review gate: unresolvable head verdicts are blocking', () => {
+  it('blocks with zero bot reviews on the HEAD and no carry-forward', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[]],
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/nessuna review Claude/i);
+  });
+
+  it('approves an identical-fingerprint review from a previous SHA', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview]],
+      fingerprintFn: () => 'same-contribution',
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({
+      approved: true,
+      reviewCommit: PRIOR_SHA,
+    });
   });
 });

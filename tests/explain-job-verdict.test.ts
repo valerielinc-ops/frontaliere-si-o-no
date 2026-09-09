@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { VITEST_EXECUTION_JOB_NAME } from '../scripts/ci/lib/constants.mjs';
 
 const execFileSync = vi.fn();
 const appendFileSync = vi.fn();
@@ -32,8 +33,8 @@ describe('explain-job-verdict — selezione del job corrente', () => {
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const { selectCurrentJob } = await import('../scripts/ci/explain-job-verdict.mjs');
     const selected = selectCurrentJob([
-      { id: 10, name: 'vitest (unit + integration)', started_at: '2026-09-08T10:00:00Z' },
-      { id: 11, name: 'vitest (unit + integration)', started_at: '2026-09-08T10:01:00Z' },
+      { id: 10, name: VITEST_EXECUTION_JOB_NAME, started_at: '2026-09-08T10:00:00Z' },
+      { id: 11, name: VITEST_EXECUTION_JOB_NAME, started_at: '2026-09-08T10:01:00Z' },
     ]);
 
     expect(selected?.id).toBe(11);
@@ -43,8 +44,8 @@ describe('explain-job-verdict — selezione del job corrente', () => {
   it('preferisce il job omonimo sul runner corrente', async () => {
     const { selectCurrentJob } = await import('../scripts/ci/explain-job-verdict.mjs');
     const selected = selectCurrentJob([
-      { id: 10, name: 'vitest (unit + integration)', runner_name: 'runner-current', started_at: '2026-09-08T10:00:00Z' },
-      { id: 11, name: 'vitest (unit + integration)', runner_name: 'runner-other', started_at: '2026-09-08T10:01:00Z' },
+      { id: 10, name: VITEST_EXECUTION_JOB_NAME, runner_name: 'runner-current', started_at: '2026-09-08T10:00:00Z' },
+      { id: 11, name: VITEST_EXECUTION_JOB_NAME, runner_name: 'runner-other', started_at: '2026-09-08T10:01:00Z' },
     ], { runnerName: 'runner-current' });
 
     expect(selected?.id).toBe(10);
