@@ -2096,6 +2096,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'opportunita-lavoro-federale': { it: 'opportunita-lavoro-federale', en: 'federal-employment-opportunities', de: 'chancen-bundesverwaltung', fr: 'opportunites-emploi-federale' },
  'cantone-comuni-fisco-riforma-arp': { it: 'cantone-comuni-fisco-riforma-arp', en: 'canton-municipalities-fiscal-reform-arp', de: 'kanton-gemeinden-fiskale-reform-arp', fr: 'canton-communes-fiscal-autorites-protection' },
  'zimmer-biomet-svizzera-unia': { it: 'zimmer-biomet-svizzera-unia', en: 'zimmer-biomet-switzerland-unia', de: 'zimmer-biomet-schweiz-unia', fr: 'zimmer-biomet-suisse-unia' },
+ 'banda-larga-consiglio-federale': { it: 'banda-larga-consiglio-federale', en: 'broadband-expansion-2030-2037', de: 'breitband-bundesrat-programm', fr: 'haut-debit-conseil-federal-2030' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

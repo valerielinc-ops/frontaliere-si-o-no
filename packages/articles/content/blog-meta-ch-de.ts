@@ -6211,6 +6211,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet schneidet in Winterthur, Unia auf dem Feld',
     'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 Stellen auf 730 Stellen bei Zimmer Biomet (Winterthur). Die Gewerkschaft Unia protestiert: Die Arbeitnehmer müssen nicht für die Bereicherung der Aktionäre bezahlen.',
     'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur, wo 580 von 730 Arbeitsplätzen abgebaut werden',
+    'blog.article.banda-larga-consiglio-federale.title': 'Ländliches Breitband: das Bundesprogramm 2030-2037',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'Der Bundesrat genehmigt am 9. September 2026 das Breitband-Förderprogramm. Investition von 365 Mio. CHF des Bundes, um schnelles Internet in ländliche Gebiete zu bringen.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Techniker installiert Glasfaserkabel auf einem Schweizer Landhaus und symbolisiert die Breitbandexpansion in abgelegenen Gebieten.',
 };
 
 export default blogMetaChDe;

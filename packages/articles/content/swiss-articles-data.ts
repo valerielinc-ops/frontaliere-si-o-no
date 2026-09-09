@@ -18631,6 +18631,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'banda-larga-consiglio-federale',
+    category: 'novita',
+    date: '2026-09-09T18:15:37.666Z',
+    image: '/images/blog/banda-larga-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
