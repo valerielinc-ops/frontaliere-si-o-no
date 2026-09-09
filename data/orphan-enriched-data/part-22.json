@@ -29836,10 +29836,10 @@
         "fr": "gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
-        "en": "/en/find-jobs-ticino/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
-        "de": "/de/jobs-im-tessin/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
-        "fr": "/fr/trouver-emploi-tessin/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl"
+        "it": "/cerca-lavoro-argovia/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
+        "en": "/en/find-jobs-aargau/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
+        "de": "/de/jobs-im-aargau/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl",
+        "fr": "/fr/trouver-emploi-argovie/gestionnaire-d-unite-d-exploitation-pour-les-systemes-d-automatisation-des-stations-europe-hitachi-energy-baden-switzerl"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -33443,9 +33443,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "industrial-ingegnere-for-gis-production-80-100-f-m-d-hitachi-energy-zurich",
-        "en": "industrial-ingegnere-for-gis-production-80-100-f-m-d-hitachi-energy-zurich",
-        "de": "industrial-ingegnere-for-gis-production-80-100-f-m-d-hitachi-energy-zurich",
-        "fr": "industrial-ingegnere-for-gis-production-80-100-f-m-d-hitachi-energy-zurich"
+        "en": "industrial-engineer-for-gis-production-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "de": "industrial-ingenieur-for-gis-production-80-100-f-m-d-hitachi-energy-zurich",
+        "fr": "industrial-ingenieur-for-gis-production-80-100-f-m-d-hitachi-energy-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/industrial-ingegnere-for-gis-production-80-100-f-m-d-hitachi-energy-zurich",
@@ -33460,6 +33460,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -38518,6 +38519,64 @@
         "en": "/en/find-jobs-ticino/leiter-des-f-e-teams-fur-halbleiter-bipolare-gerate-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "de": "/de/jobs-im-tessin/leiter-des-f-e-teams-fur-halbleiter-bipolare-gerate-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "fr": "/fr/trouver-emploi-tessin/leiter-des-f-e-teams-fur-halbleiter-bipolare-gerate-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+      "locale": "de",
+      "path": "/de/jobs-in-solothurn/lernender-detailhandel-m-w-d-aldi-suisse-biberist/",
+      "observedPaths": {
+        "de": "/de/jobs-in-solothurn/lernender-detailhandel-m-w-d-aldi-suisse-biberist/"
+      },
+      "queries": [
+        {
+          "query": "aldi biberist",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "aldi biberist",
+      "title": "Lernender detailhandel biberist",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "en": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "de": "lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "fr": "lernender-detailhandel-m-w-d-aldi-suisse-biberist"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "en": "/en/find-jobs-solothurn/lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "de": "/de/jobs-im-solothurn/lernender-detailhandel-m-w-d-aldi-suisse-biberist",
+        "fr": "/fr/trouver-emploi-soleure/lernender-detailhandel-m-w-d-aldi-suisse-biberist"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -46780,7 +46839,7 @@
           "impressions": 5
         }
       ],
-      "totalImpressions": 590,
+      "totalImpressions": 598,
       "totalClicks": 15,
       "topQuery": "offerte di lavoro canton ticino per frontalieri",
       "title": "Operatori socio sanitari",
@@ -49251,6 +49310,69 @@
         "en": "/en/find-jobs-ticino/polsterung-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "de": "/de/jobs-im-tessin/polsterung-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "/fr/trouver-emploi-tessin/polsterung-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+      "locale": "it",
+      "path": "/cerca-lavoro-turgovia/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-turgovia/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld/"
+      },
+      "queries": [
+        {
+          "query": "cnc dreher schweiz",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cnc dreher zürich",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "cnc dreher schweiz",
+      "title": "Polymechaniker in cnc fertigung frasen fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Frauenfeld",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "en": "polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "de": "polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "fr": "polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "en": "/en/find-jobs-thurgau/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "de": "/de/jobs-im-thurgau/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld",
+        "fr": "/fr/trouver-emploi-thurgovie/polymechaniker-in-cnc-fertigung-frasen-fachkraft-ch-gmbh-frauenfeld"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -57188,9 +57310,7 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "sales-agent-lugano-60-100-sunrise-lugano",
-        "en": "sales-agent-lugano-60-100-sunrise-lugano",
-        "de": "sales-agent-lugano-60-100-sunrise-lugano",
-        "fr": "sales-agent-lugano-60-100-sunrise-lugano"
+        "de": "verkaufsagent-lugano-60-100-sunrise-communications-ag-lugano"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/sales-agent-lugano-60-100-sunrise-lugano",
@@ -57204,6 +57324,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -65276,10 +65397,10 @@
         "fr": "specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
-        "en": "/en/find-jobs-ticino/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
-        "de": "/de/jobs-im-tessin/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
-        "fr": "/fr/trouver-emploi-tessin/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c"
+        "it": "/cerca-lavoro-zurigo/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
+        "en": "/en/find-jobs-zurich/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
+        "de": "/de/jobs-in-zurich/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c",
+        "fr": "/fr/trouver-emploi-zurich/specialiste-de-la-viande-coop-genossenschaft-zurich-716f3c"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77254,7 +77375,7 @@
       "slugByLocale": {
         "it": "venditore-in-food-coop-genossenschaft-seuzach",
         "en": "seller-in-food-coop-genossenschaft-seuzach",
-        "de": "verkaufer-in-food-coop-seuzach-zurich-iyijsb",
+        "de": "verkaufer-in-food-coop-seuzach-zurich-6xwdrd",
         "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-seuzach"
       },
       "localePaths": {
@@ -77418,10 +77539,10 @@
         "it": "venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
-        "en": "/en/find-jobs-bern/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
+        "it": "/cerca-lavoro-grigioni/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
+        "en": "/en/find-jobs-graubunden/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
         "de": "/de/jobs-im-luzern/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus",
-        "fr": "/fr/trouver-emploi-berne/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus"
+        "fr": "/fr/trouver-emploi-grisons/venditore-in-prodotti-freschi-frutteti-e-verdure-coop-genossenschaft-klosters-serneus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
