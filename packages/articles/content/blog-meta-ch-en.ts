@@ -6139,6 +6139,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uri-franchigie-modelli-sussidio.title': 'Uri sick fund: deductibles, models and reduction',
     'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'In Canton Uri, LAMal premiums vary by deductible and insurance model. Discover the bands available (CHF 300–2500), the coverage models and how to access the cantonal subsidy.',
     'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Modern healthcare office in Switzerland with professionals consulting health insurance documents',
+    'blog.article.permesso-c-canton-uri-richiesta.title': 'Permit C canton Uri: years and procedure',
+    'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Federal and cantonal requirements to obtain residence permit C in Canton Uri: 10 years of residence, integration and language skills.',
+    'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Cantonal government office building responsible for residence permits and foreign citizen integration.',
 };
 
 export default blogMetaChEn;

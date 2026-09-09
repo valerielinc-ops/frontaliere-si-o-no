@@ -6139,6 +6139,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.uri-franchigie-modelli-sussidio.title': 'Cassa malati Uri: franchigie, modelli e riduzione',
     'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'Nel Canton Uri, i premi LAMal variano per franchigia e modello assicurativo. Scopri le fasce disponibili (CHF 300–2500), i modelli di copertura e come accedere al sussidio cantonale.',
     'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Studio medico moderno in Svizzera con operatori che consultano documenti di assicurazione malattia',
+    'blog.article.permesso-c-canton-uri-richiesta.title': 'Permesso C canton Uri: anni e procedura',
+    'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Requisiti federali e cantonali per ottenere il permesso di domicilio C nel Cantone Uri: 10 anni di residenza, integrazione e conoscenze linguistiche.',
+    'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Edificio dell\'amministrazione cantonale per la gestione dei permessi di domicilio e dell\'integrazione dei cittadini stranieri.',
 };
 
 export default blogMetaChIt;

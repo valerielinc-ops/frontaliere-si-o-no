@@ -6139,6 +6139,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uri-franchigie-modelli-sussidio.title': 'URI-Krankenkasse: Selbstbehalte, Modelle und Reduktion',
     'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'Im Kanton Uri variieren die KVG-Prämien je nach Franchise und Versicherungsmodell. Entdecken Sie die verfügbaren Spannen (CHF 300–2500), die Deckungsmodelle und wie Sie auf den Kantonsbeitrag zugreifen können.',
     'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Modernes Gesundheitsbüro in der Schweiz mit Fachleuten, die Versicherungsdokumente konsultieren',
+    'blog.article.permesso-c-canton-uri-richiesta.title': 'Ausweis C Kanton Uri: Jahre und Verfahren',
+    'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Eidgenössische und kantonale Voraussetzungen für die Niederlassungsbewilligung C im Kanton Uri: 10 Jahre Aufenthalt, Integration und Sprachkenntnisse.',
+    'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Kantonale Behördengebäude für die Verwaltung von Aufenthaltserlaubnissen und Integration ausländischer Bürger.',
 };
 
 export default blogMetaChDe;

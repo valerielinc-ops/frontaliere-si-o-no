@@ -6139,6 +6139,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uri-franchigie-modelli-sussidio.title': 'Caisse maladie URI : franchises, modèles et réduction',
     'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'Dans le canton d\'Uri, les primes LAMal varient selon la franchise et le modèle d\'assurance. Découvrez les tranches disponibles (CHF 300–2500), les modèles de couverture et comment accéder à l\'allocation cantonale.',
     'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Bureau de santé moderne en Suisse avec des professionnels consultant des documents d\'assurance maladie',
+    'blog.article.permesso-c-canton-uri-richiesta.title': 'Permis C canton URI : années et procédure',
+    'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Conditions fédérales et cantonales pour obtenir le permis de séjour C dans le canton d\'Uri : 10 ans de résidence, d\'intégration et de connaissances linguistiques.',
+    'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Bâtiment administratif cantonal responsable des permis de résidence et de l\'intégration des citoyens étrangers.',
 };
 
 export default blogMetaChFr;
