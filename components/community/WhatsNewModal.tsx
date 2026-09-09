@@ -35,6 +35,19 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.96.2',
+    date: '2026-09-09',
+    titleKey: 'whatsNew.v3962.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3962.fuelCompare.title',
+        descKey: 'whatsNew.v3962.fuelCompare.desc',
+        link: { tab: 'stats', subTab: 'fuel-prices' },
+      },
+    ],
+  },
+  {
     version: '3.96.1',
     date: '2026-09-03',
     titleKey: 'whatsNew.v3961.title',

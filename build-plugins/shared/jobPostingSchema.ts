@@ -125,6 +125,7 @@ export interface JobInput {
   readonly category?: string | null;
 
   readonly url?: string | null;
+  readonly applyUrl?: string | null;
 
   readonly isRemote?: boolean | null;
 }
@@ -741,7 +742,7 @@ export function buildJobPostingSchema(
     baseSalary,
     url: opts.url,
     validThrough,
-    directApply: Boolean(job.url),
+    directApply: Boolean(job.applyUrl || job.url),
     ...(job.id || job.slug
       ? {
           identifier: {
