@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-08T23:26:20.261Z",
-  "total": 12,
+  "generatedAt": "2026-09-09T13:50:24.471Z",
+  "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5085,
-  "avgDurationMs": 5085,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4849,
+  "avgDurationMs": 4849,
   "durationHistory": [
-    5085
+    4849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -422,8 +422,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Koch, 20-30%",
       "slug": "cucina-20-30-berit-klinik-speicher",
@@ -457,7 +456,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -466,5 +464,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
