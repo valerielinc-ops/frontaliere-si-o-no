@@ -36,20 +36,6 @@ const bodyJob = jobs['body-contract'];
 const contractStep = (job: WorkflowJob | undefined) =>
   job?.steps?.find((step) => step.name?.startsWith('PR-body completeness + multi-issue Closes'));
 
-/** Extract the action predicate that controls whether a job is reachable. */
-function actionPredicate(condition: string | undefined): 'edited' | 'not-edited' | null {
-  const match = String(condition ?? '').match(/github\.event\.action\s*(==|!=)\s*'edited'/);
-  if (!match) return null;
-  return match[1] === '==' ? 'edited' : 'not-edited';
-}
-
-function runsForAction(condition: string | undefined, action: 'edited' | 'synchronize'): boolean {
-  const predicate = actionPredicate(condition);
-  if (predicate === 'edited') return action === 'edited';
-  if (predicate === 'not-edited') return action !== 'edited';
-  return false;
-}
-
 describe('tests.yml: body edit isolation', () => {
   it('keeps edited reachable and partitions its concurrency from synchronize', () => {
     const types = workflowText.match(/^[ \t]+types:\s*\[([^\]]+)\]/m)?.[1]
@@ -60,32 +46,32 @@ describe('tests.yml: body edit isolation', () => {
 
     const group = workflow.concurrency?.group ?? '';
     const lane = group.match(
-      /\$\{\{\s*github\.event\.action\s*==\s*'edited'\s*&&\s*'([^']+)'\s*\|\|\s*'([^']+)'\s*\}\}/,
+      /\$\{\{\s*github\.event\.action\s*==\s*'edited'\s*&&\s*'([^']+)'\s*\|\|\s*github\.event\.action\s*==\s*'labeled'\s*&&\s*'([^']+)'\s*\|\|\s*'([^']+)'\s*\}\}/,
     );
-    expect(lane, 'concurrency.group must assign edited and code events to different lanes').toBeTruthy();
+    expect(lane, 'concurrency.group must assign metadata and code events to different lanes').toBeTruthy();
     if (!lane) return;
 
-    const renderGroup = (action: 'edited' | 'synchronize') =>
-      group.replace(lane[0], action === 'edited' ? lane[1] : lane[2]);
+    const renderGroup = (action: 'edited' | 'labeled' | 'synchronize') =>
+      group.replace(lane[0], action === 'edited' ? lane[1] : action === 'labeled' ? lane[2] : lane[3]);
     expect(lane[1]).toBe('body');
-    expect(lane[2]).toBe('code');
+    expect(lane[2]).toBe('label');
+    expect(lane[3]).toBe('code');
     expect(renderGroup('edited')).not.toBe(renderGroup('synchronize'));
+    expect(renderGroup('labeled')).not.toBe(renderGroup('synchronize'));
+    expect(renderGroup('edited')).not.toBe(renderGroup('labeled'));
   });
 
-  it('routes edited to the contract-only job and synchronize to the heavy job', () => {
+  it('keeps edited body isolation while the required wrapper checks prior code verdicts', () => {
     expect(codeJob?.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(requiredJob?.name).toBe(VITEST_CHECK_NAME);
     expect(bodyJob?.name).toBe('PR body contract');
     expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
 
-    expect(runsForAction(codeJob?.if, 'edited')).toBe(false);
-    expect(runsForAction(codeJob?.if, 'synchronize')).toBe(true);
-    expect(runsForAction(bodyJob?.if, 'edited')).toBe(true);
-    expect(runsForAction(bodyJob?.if, 'synchronize')).toBe(false);
-    expect(bodyJob?.if).toContain("github.event_name == 'pull_request'");
-    expect(codeJob?.if).toMatch(
-      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
+    expect(String(codeJob?.if).replace(/\s+/g, '')).toBe(
+      "${{github.event.action!='edited'&&(github.event.action!='labeled'||contains(github.event.pull_request.labels.*.name,'stale-review'))}}",
     );
+    expect(bodyJob?.if).toContain("github.event_name == 'pull_request'");
+    expect(bodyJob?.if).toContain("github.event.action == 'edited'");
 
     const heavyContract = contractStep(codeJob);
     const editedContract = contractStep(bodyJob);
@@ -97,17 +83,17 @@ describe('tests.yml: body edit isolation', () => {
     expect(bodyJob?.steps?.[0]?.if).toContain('github.event_name ==');
     expect(bodyJob?.steps?.[0]?.if).not.toContain("github.event.action != 'edited'");
 
-    expect(requiredJob?.if).toContain('always()');
+    expect(String(requiredJob?.if).replace(/\s+/g, '')).toBe('${{always()}}');
     expect(requiredJob?.needs).toEqual(['vitest']);
 
-    // Il wrapper deve saltare esattamente dove salta l'esecuzione: altrimenti
-    // su `edited` e sulle label di routine pubblica `failure` sul nome
-    // required e blocca l'auto-merge di una PR sana fino al push successivo.
-    expect(runsForAction(requiredJob?.if, 'edited')).toBe(false);
-    expect(runsForAction(requiredJob?.if, 'synchronize')).toBe(true);
-    expect(requiredJob?.if).toMatch(
-      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
-    );
+    // Il wrapper required non deve fidarsi dello skip: sui percorsi body-only
+    // deve verificare lo storico dei check-run dello SHA corrente.
+    const requiredRun = requiredJob?.steps?.find(
+      (step) => step.name === 'Require vitest execution job to complete',
+    )?.run;
+    expect(requiredRun).toContain('gh api --paginate --slurp');
+    expect(requiredRun).toContain('vitest execution');
+    expect(requiredRun).toContain('latest_execution');
 
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
     const skippedReviewGuard = codeJob?.steps?.find(
@@ -121,7 +107,7 @@ describe('tests.yml: body edit isolation', () => {
     expect(codeJob?.steps?.some((step) => step.name === 'Rebase near-merge PRs after review or stale rescue')).toBe(true);
   });
 
-  it('rende bloccanti skipped, failure e cancelled del job che pubblica il check required', () => {
+  it('rende bloccanti skip/cancel senza un precedente execution success', () => {
     const requiredStep = requiredJob?.steps?.find(
       (step) => step.name === 'Require vitest execution job to complete',
     );
@@ -129,18 +115,39 @@ describe('tests.yml: body edit isolation', () => {
     expect(requiredStep?.run).toContain('EXECUTION_RESULT');
     expect(requiredStep?.run).toContain('exit 1');
 
-    const runRequiredCheck = (executionResult: string) => execFileSync(
+    const runRequiredCheck = (executionResult: string, conclusions: string[] = []) => execFileSync(
       'bash',
       ['-euo', 'pipefail', '-c', requiredStep?.run ?? ''],
       {
-        env: { ...process.env, EXECUTION_RESULT: executionResult },
+        env: {
+          ...process.env,
+          EXECUTION_RESULT: executionResult,
+          HEAD_SHA: 'head-sha-fixture',
+          REPO: 'owner/repo',
+          CHECK_RUNS_JSON: JSON.stringify([
+            {
+              check_runs: conclusions.map((conclusion, index) => ({
+                name: 'vitest execution',
+                status: 'completed',
+                conclusion,
+                completed_at: `2026-09-08T08:2${index}:00Z`,
+              })),
+            },
+          ]),
+        },
         stdio: 'ignore',
       },
     );
 
-    for (const result of ['skipped', 'failure', 'cancelled']) {
-      expect(() => runRequiredCheck(result), `execution result=${result} deve bloccare`).toThrow();
-    }
+    expect(() => runRequiredCheck('failure'), 'failure deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped'), 'skip senza storico deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['failure']), 'skip dopo failure deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['success', 'failure']), 'un rosso successivo deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['failure', 'success']), 'un verde successivo può soddisfare').not.toThrow();
+    expect(() => runRequiredCheck('cancelled', ['cancelled']), 'cancel dopo cancel deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['skipped']), 'skip storico non è un verdetto').toThrow();
+    expect(() => runRequiredCheck('skipped', ['success'])).not.toThrow();
+    expect(() => runRequiredCheck('cancelled', ['success'])).not.toThrow();
     expect(() => runRequiredCheck('success')).not.toThrow();
   });
 
