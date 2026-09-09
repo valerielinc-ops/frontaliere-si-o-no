@@ -290,7 +290,10 @@ function changedAssetsFromDiff() {
     }
     try {
       const fields = execFileSync('git', [
-        'diff', '--name-status', '--find-renames', '-z', base, '--', '.github', 'tests',
+        // This consumer needs only the set of asset paths. `R old new` and
+        // `D old` + `A new` therefore produce the same entries; rename
+        // detection would otherwise lazy-fetch base blobs under `blob:none`.
+        'diff', '--name-status', '--no-renames', '-z', base, '--', '.github', 'tests',
       ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\0').filter(Boolean);
       const assets = [];
       for (let i = 0; i < fields.length;) {
