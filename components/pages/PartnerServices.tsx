@@ -9,7 +9,7 @@
 import React, { useMemo } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getAllPartners, buildGoPath, partnerRelAttr, type AffiliatePartner } from '@/services/affiliateService';
+import { getAllPartners, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 const CATEGORIES = [
@@ -19,17 +19,19 @@ const CATEGORIES = [
  { key: 'transport', labelKey: 'partners.category.transport', emoji: '🚆', contexts: ['transport', 'traffic'] },
 ] as const;
 
-const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }) => {
+const PartnerServiceCard: React.FC<{ partner: AffiliatePartner; position: string }> = ({ partner, position }) => {
  const { t } = useTranslation();
+ const attribution = { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const href = buildAffiliateLinkHref(partner, attribution);
 
  const handleClick = () => {
- Analytics.trackExternalLink(partner.url, `partner_page_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, 'partner_page');
+ Analytics.trackExternalLink(href, `partner_page_${partner.id}`);
+ Analytics.trackAffiliateClick(partner.id, 'partner_page', attribution);
  };
 
  return (
  <a
- href={buildGoPath(partner)}
+ href={href}
  target="_blank"
  rel={partnerRelAttr(partner)}
  onClick={handleClick}
@@ -102,8 +104,12 @@ const PartnerServices: React.FC = () => {
  {t(cat.labelKey)}
  </h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
- {categoryPartners.map(partner => (
- <PartnerServiceCard key={`${cat.key}-${partner.id}`} partner={partner} />
+ {categoryPartners.map((partner, index) => (
+ <PartnerServiceCard
+ key={`${cat.key}-${partner.id}`}
+ partner={partner}
+ position={`partner-page-${cat.key}-${index + 1}`}
+ />
  ))}
  </div>
  </div>

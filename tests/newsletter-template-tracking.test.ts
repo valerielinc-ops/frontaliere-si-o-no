@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/newsletter-template.mjs');
 const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT, decayFactor } = await import('@/services/newsletter-content.mjs');
+const { PARTNERS_REGISTRY } = await import('@/functions/src/lib/affiliatePartnersRegistry.js');
 const { NEWSLETTER_JOB_LIMIT } = await import('@/functions/src/lib/jobEmailRankingLinks.js');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
@@ -421,6 +422,22 @@ describe('affiliate partner rows carry their position', () => {
       expect(params.get('utm_source')).toBe('newsletter');
       expect(params.get('utm_medium')).toBe('email');
       expect(params.get('utm_campaign')).toMatch(/^weekly_\d{4}-\d{2}-\d{2}$/);
+    }
+  });
+
+  it('omits a disabled partner row instead of emitting a dead link', async () => {
+    const fineco = PARTNERS_REGISTRY.find((partner) => partner.id === 'fineco');
+    expect(fineco).toBeDefined();
+    const wasEnabled = fineco.enabled;
+    fineco.enabled = false;
+
+    try {
+      const html = await buildPartnerNewsletter();
+      expect(html).not.toContain('Fineco Bank');
+      expect(html).not.toContain('/go/fineco/');
+      expect(goHrefs(html)).toHaveLength(2);
+    } finally {
+      fineco.enabled = wasEnabled;
     }
   });
 });

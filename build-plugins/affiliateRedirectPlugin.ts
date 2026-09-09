@@ -12,6 +12,9 @@ import path from 'node:path';
 import type { Plugin } from 'vite';
 import {
  PARTNERS,
+ PUBREF_HASH_LEN,
+ PUBREF_HASH_MULTIPLIER,
+ PUBREF_HASH_SEED,
  PUBREF_INVALID_RE,
  PUBREF_MAX_LEN,
  buildAffiliateUrl,
@@ -83,7 +86,8 @@ export function buildRedirectPage(partner: typeof PARTNERS[number]): string {
 var q=new URLSearchParams(location.search);
 var raw=q.get(${JSON.stringify(PLACEMENT_PARAM)})||q.get('utm_content')||q.get('utm_campaign')||'';
 if(!raw&&document.referrer){try{var r=new URL(document.referrer);raw=r.origin===location.origin?'ref-'+(r.pathname.split('/')[1]||'home'):'ref-ext';}catch(e){}}
-var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INVALID_RE.source)},'g'),'-').replace(/^-+|-+$/g,'').slice(0,${PUBREF_MAX_LEN}).replace(/-+$/,'');
+var ref=String(raw).toLowerCase().replace(new RegExp(${JSON.stringify(PUBREF_INVALID_RE.source)},'g'),'-').replace(/^-+|-+$/g,'');
+if(ref.length>${PUBREF_MAX_LEN}){var h=${PUBREF_HASH_SEED};for(var i=0;i<ref.length;i+=1)h=Math.imul(h^ref.charCodeAt(i),${PUBREF_HASH_MULTIPLIER});var s='_'+(h>>>0).toString(36).padStart(${PUBREF_HASH_LEN},'0');ref=ref.slice(0,${PUBREF_MAX_LEN}-s.length).replace(/[-_]+$/,'')+s;}
 if(ref){var t=new URL(u);t.searchParams.set('pubref',ref);u=t.toString();
 var patch=function(){var a=document.getElementById('go-link');if(a)a.setAttribute('href',u);};
 if(document.readyState!=='loading')patch();else document.addEventListener('DOMContentLoaded',patch);}

@@ -31,13 +31,13 @@
  */
 
 import {
-  goPathFromId,
   getEnabledPartner,
 } from './affiliatePartnersRegistry.js';
 import {
   PLACEMENT_PARAM,
   newsletterRecommendedPlacement,
 } from './newsletterPlacements.js';
+import { buildAffiliateHref, safeAffiliateToken } from './affiliateLinks.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -222,17 +222,12 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
  * the parameter and the sponsor reports on the same key.
  *
  * @param {{ kind: string, goId?: string, url?: string, id: string }} rec
- * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [opts]
+ * @param {{ acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number, variant?: string }} [opts]
  * @returns {string}
  */
-export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot } = {}) {
-  const params = new URLSearchParams();
-  params.set('utm_source', 'newsletter');
-  params.set('utm_medium', 'email');
-  params.set('utm_campaign', campaign || 'recommended');
-  params.set('utm_content', rec.id);
-  params.set(PLACEMENT_PARAM, placement || `${campaign || 'recommended'}-${rec.id}`);
-  if (acquisitionSource) params.set('as', String(acquisitionSource));
+export function buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot, variant = 'control' } = {}) {
+  const campaignId = campaign || 'recommended';
+  const safeAcquisitionSource = safeAffiliateToken(acquisitionSource);
 
   if (rec.kind === 'affiliate' && rec.goId) {
     // Placement slot, same shape family as the newsletter partner rows
@@ -250,14 +245,28 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
     // indice quelle due righe hanno campagna e goId identici, tornano con lo
     // stesso `pos` e restano indistinguibili — l'ambiguita' che le righe
     // partner evitano da sempre con `nl-partner-<n>-<id>`.
-    if (!placement) {
-      params.set(PLACEMENT_PARAM, newsletterRecommendedPlacement(campaign, rec.goId, slot));
-    }
-    // goPathFromId already carries the canonical trailing slash before the query.
-    return `${BASE_URL}${goPathFromId(rec.goId)}?${params.toString()}`;
+    const trackedHref = buildAffiliateHref({
+      partnerId: rec.goId,
+      surface: 'newsletter',
+      position: `recommended-${Number.isFinite(Number(slot)) && Number(slot) > 0 ? Math.floor(Number(slot)) : 1}`,
+      campaign: campaignId,
+      variant,
+      placement: placement || newsletterRecommendedPlacement(campaignId, rec.goId, slot),
+      acquisitionSource: safeAcquisitionSource,
+      source: 'newsletter',
+      medium: 'email',
+    });
+    return trackedHref;
   }
   // Sponsor: append utm to the (external) signed URL without breaking it.
   try {
+    const params = new URLSearchParams();
+    params.set('utm_source', 'newsletter');
+    params.set('utm_medium', 'email');
+    params.set('utm_campaign', campaignId);
+    params.set('utm_content', rec.id);
+    params.set(PLACEMENT_PARAM, placement || `${campaignId}-${rec.id}`);
+    if (safeAcquisitionSource) params.set('as', safeAcquisitionSource);
     const u = new URL(rec.url);
     for (const [k, v] of params) u.searchParams.set(k, v);
     return u.toString();

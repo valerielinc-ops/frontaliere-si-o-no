@@ -17,7 +17,7 @@ import {
  FINECO_REFERRAL_URL,
  CREDIT_AGRICOLE_IT_REFERRAL_URL,
 } from '@/services/exchangePartners';
-import { resolveGoHref } from '@/services/affiliateService';
+import { resolveGoHref, type AffiliateLinkAttribution } from '@/services/affiliateService';
 
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = lazyRetry(() =>
@@ -86,8 +86,12 @@ interface ExchangeProvider {
 }
 
 /** /go/-routed href for a referral provider (falls back to the direct URL). */
-function providerGoHref(provider: ExchangeProvider): string {
- return resolveGoHref(provider.goId, provider.referralUrl);
+function providerAttribution(position: string): AffiliateLinkAttribution {
+ return { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' };
+}
+
+function providerGoHref(provider: ExchangeProvider, position: string): string {
+ return resolveGoHref(provider.goId, provider.referralUrl, providerAttribution(position));
 }
 
 const providers: ExchangeProvider[] = [
@@ -460,10 +464,10 @@ const CurrencyExchange: React.FC = () => {
  {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
  {topAffiliate && (
  <a
- href={providerGoHref(topAffiliate.provider)}
+ href={providerGoHref(topAffiliate.provider, 'exchange-best-offer')}
  target="_blank"
  rel="noopener noreferrer"
- onClick={() => { Analytics.trackExternalLink(topAffiliate.provider.referralUrl!, topAffiliate.provider.name); Analytics.trackAffiliateClick(topAffiliate.provider.name, 'exchange'); }}
+ onClick={() => { Analytics.trackExternalLink(providerGoHref(topAffiliate.provider, 'exchange-best-offer'), topAffiliate.provider.name); Analytics.trackAffiliateClick(topAffiliate.provider.goId || topAffiliate.provider.name, 'exchange', providerAttribution('exchange-best-offer')); }}
  aria-label={`${t('currency.best_offer_cta')} — ${topAffiliate.provider.name}`}
  className="block rounded-2xl border-2 border-success bg-gradient-to-r from-success-subtle to-info-subtle p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-success-strong transition-all"
  >
@@ -588,10 +592,10 @@ const CurrencyExchange: React.FC = () => {
  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
  {best.provider.referralUrl ? (
  <a
- href={providerGoHref(best.provider)}
+ href={providerGoHref(best.provider, 'exchange-best-summary')}
  target="_blank"
  rel="noopener noreferrer"
- onClick={() => { Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name); Analytics.trackAffiliateClick(best.provider.name, 'exchange'); }}
+ onClick={() => { Analytics.trackExternalLink(providerGoHref(best.provider, 'exchange-best-summary'), best.provider.name); Analytics.trackAffiliateClick(best.provider.goId || best.provider.name, 'exchange', providerAttribution('exchange-best-summary')); }}
  className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5 hover:shadow-md hover:border-success transition-[color,background-color,border-color,box-shadow] cursor-pointer"
  >
  <div className="flex items-center gap-2 mb-2">
@@ -669,13 +673,14 @@ const CurrencyExchange: React.FC = () => {
  {results.map((result, idx) => {
  const isBest = idx === 0;
  const isWorst = idx === results.length - 1;
+ const position = `exchange-comparison-${idx + 1}`;
  
  const CardWrapper = result.provider.referralUrl ? 'a' : 'div';
  const cardProps = result.provider.referralUrl ? {
- href: providerGoHref(result.provider),
+ href: providerGoHref(result.provider, position),
  target: '_blank',
  rel: 'noopener noreferrer',
- onClick: () => { Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name); Analytics.trackAffiliateClick(result.provider.name, 'exchange'); },
+ onClick: () => { Analytics.trackExternalLink(providerGoHref(result.provider, position), result.provider.name); Analytics.trackAffiliateClick(result.provider.goId || result.provider.name, 'exchange', providerAttribution(position)); },
  'aria-label': result.provider.name,
  className: `block min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  isBest ? 'border-success ring-2 ring-success/20 hover:ring-success/40' : isWorst ? 'border-danger ring-2 ring-danger/20' : 'border-edge hover:border-success'

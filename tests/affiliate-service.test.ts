@@ -15,6 +15,8 @@ import {
   getPartnersForContext,
   getAllPartners,
   buildGoPath,
+  resolveGoHref,
+  resolveAffiliateExperimentVariant,
   partnerRelAttr,
   buildAffiliateUrl,
   sanitizePubref,
@@ -44,6 +46,29 @@ describe('affiliateService config gates', () => {
       expect(path).toBe(`/go/${p.id}/`);
       expect(path.endsWith('/')).toBe(true);
     }
+  });
+
+  it('routes component-local goIds through the canonical attributed builder', () => {
+    const href = resolveGoHref('wise', 'https://example.test/fallback', {
+      surface: 'web',
+      position: 'banks-comparison-1',
+      campaign: 'g4-contextual',
+      variant: 'v1',
+    });
+    const url = new URL(href);
+    expect(url.pathname).toBe('/go/wise/');
+    expect(url.searchParams.get('pos')).toContain('banks-comparison-1');
+    expect(url.searchParams.get('utm_campaign')).toBe('g4-contextual');
+    expect(resolveGoHref('disabled-or-unknown', 'https://example.test/fallback')).toBe(
+      'https://example.test/fallback',
+    );
+  });
+
+  it('keeps the G4 experiment bounded to the approved web contexts', () => {
+    expect(resolveAffiliateExperimentVariant('exchange', 'email')).toBe('control');
+    expect(resolveAffiliateExperimentVariant('jobs', 'web')).toBe('control');
+    // Node/SSR has no session bucket, so the safe fallback is explicit control.
+    expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe('control');
   });
 
   it('marks paid programs sponsored and institutional links plain', () => {

@@ -217,6 +217,7 @@
     "validate:blog-meta-placeholders": "node scripts/validate-blog-meta-placeholders.mjs",
     "newsletter:preview": "node scripts/send-newsletter.mjs --preview",
     "newsletter:analyze": "node scripts/send-newsletter.mjs --analyze",
+    "affiliate:revenue-report": "node scripts/affiliate-revenue-report.mjs",
     "newsletter:resend-check": "node scripts/check-resend-domain.mjs",
     "seo:serp-autopilot": "node scripts/seo-serp-autopilot.mjs",
     "adsense:prereview": "node scripts/adsense-prereview-audit.mjs --save --strict",

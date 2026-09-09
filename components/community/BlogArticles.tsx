@@ -35,7 +35,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { PARTNERS, buildGoPath, partnerRelAttr, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
+import { PARTNERS, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -2150,13 +2150,15 @@ function BlogArticles({
 
  /** Compact vertical card for desktop side rails */
  const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
+ const attribution = { surface: 'web', position: `article-rail-${article.category}-${idx + 1}`, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const href = buildAffiliateLinkHref(partner, attribution);
  const handleAffClick = () => {
- Analytics.trackExternalLink(partner.url, `affiliate_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, `blog_${article.category}`);
+ Analytics.trackExternalLink(href, `affiliate_${partner.id}`);
+ Analytics.trackAffiliateClick(partner.id, `blog_${article.category}`, attribution);
  };
  return (
  <a
- href={buildGoPath(partner)}
+ href={href}
  target="_blank"
  rel={partnerRelAttr(partner)}
  onClick={handleAffClick}
