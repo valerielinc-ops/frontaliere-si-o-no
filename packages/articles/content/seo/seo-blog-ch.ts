@@ -80828,6 +80828,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-svitto-guida': {
+    title: 'Assegni familiari canton Svitto: come funzionano e come richiederli',
+    description: 'Guida pratica agli assegni familiari nel Canton Svitto: come funziona il sistema, chi ha diritto, importi mensili e come presentare domanda alla cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, canton, svitto',
+    ogTitle: 'Assegni familiari canton Svitto: guida completa',
+    ogDescription: 'Nel Canton Svitto gli assegni familiari sono un diritto riconosciuto a genitori con figli. Scopri come funziona il sistema, gli importi, le procedure e dove presentare domanda.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-svitto-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari canton Svitto: come funzionano e come richiederli",
+      "description": "Guida pratica agli assegni familiari nel Canton Svitto: come funziona il sistema, chi ha diritto, importi mensili e come presentare domanda alla cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-svitto-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che consulta documenti relativi agli assegni familiari a casa"
+      },
+      "datePublished": "2026-09-09T20:08:57+00:00",
+      "dateModified": "2026-09-09T20:08:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-svitto-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6226,6 +6226,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Aeroporto Zurigo: shuttle autonomi senza autista',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Due navette elettriche completamente autonome all\'aeroporto di Zurigo a partire da settembre. Primo progetto di livello 4, oltre 15mila chilometri testati.',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Navette autonome all\'aeroporto di Zurigo: shuttle elettrici senza conducente in operazione',
+    'blog.article.assegni-familiari-svitto-guida.title': 'Assegni familiari canton Svitto: come funzionano e come richiederli',
+    'blog.article.assegni-familiari-svitto-guida.excerpt': 'Nel Canton Svitto ogni genitore con figli ha diritto a assegni familiari mensili. Ecco procedure di domanda, competenze amministrative e dove verificare gli importi aggiornati.',
+    'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Famiglia svizzera che consulta documenti relativi agli assegni familiari a casa',
 };
 
 export default blogMetaChIt;
