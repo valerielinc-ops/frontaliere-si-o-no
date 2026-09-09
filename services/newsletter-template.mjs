@@ -18,7 +18,13 @@ export { nlNormLocale, directUrl, localizedUrl };
 // Data-controller identity for the footer (#5675) — see that file's header
 // for why the canonical home is functions/src/lib/, not services/.
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
-import { appendJobRankingParams, stableJobId } from '../functions/src/lib/jobEmailRanking.js';
+// Entrambi arrivano dal modulo senza dipendenze Node: questo template e'
+// raggiungibile dal bundle del browser (App.tsx -> AdminPanel.tsx ->
+// services/newsletterPreview.ts) e un import NOMINALE di un builtin Node da un
+// modulo raggiungibile di li' e' un errore fatale di rollup, non un warning.
+// `stableJobId` qui copre il ramo diretto (id/slug dalla fonte); il fallback su
+// hash serve crypto e lo passa il chiamante Node in `data.rankingStableJobId`.
+import { appendJobRankingParams, stableJobId } from '../functions/src/lib/jobEmailRankingLinks.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -512,7 +518,7 @@ function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
     let jobUrl = directUrl(job.url);
     if (rankingContext && jobUrl) {
       jobUrl = appendJobRankingParams(jobUrl, {
-        jobId: stableJobId(job),
+        jobId: (rankingContext.stableJobId || stableJobId)(job),
         surface: 'newsletter',
         surfaceId: rankingContext.surfaceId || 'newsletter_weekly',
         deliveryId: rankingContext.deliveryId,
@@ -767,6 +773,7 @@ export function buildNewsletter(data) {
       <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
     </td></tr>`;
     html += renderJobs(data.matchedJobs, locale, totalJobs, data.rankingDeliveryId ? {
+      stableJobId: data.rankingStableJobId || null,
       deliveryId: data.rankingDeliveryId,
       variant: data.rankingVariant || 'control',
       surfaceId: data.rankingSurfaceId || 'newsletter_weekly',
