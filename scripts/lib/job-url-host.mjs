@@ -1,4 +1,20 @@
-import { domainToASCII } from 'node:url';
+/**
+ * Punycode a host with the platform URL parser. This module is imported by
+ * both Node-side crawlers and the browser build through jobDataNormalization;
+ * `node:url` cannot be bundled for the latter because Vite externalizes it
+ * without exporting `domainToASCII`.
+ */
+function domainToASCII(rawHost) {
+  // `new URL()` accepts an authority prefix and silently treats the rest as
+  // userinfo, a port, or a path. Reject authority delimiters before parsing so
+  // a different raw identity cannot become a trusted hostname by truncation.
+  if (/[/\\?#@:\s]/.test(rawHost)) return '';
+  try {
+    return new URL(`https://${rawHost}`).hostname;
+  } catch {
+    return '';
+  }
+}
 
 /**
  * Canonical ASCII form of a host — the ONE spelling every host comparison in
@@ -14,11 +30,12 @@ import { domainToASCII } from 'node:url';
  * layer up. Putting both sides through this function makes the two spellings
  * one key.
  *
- * `domainToASCII()` returns `''` for an input it cannot map (an empty label, a
- * host with a `/`): that is a REJECTION of a host identity, not a canonical
- * form, so the lowercased input is kept instead — a comparison that stays on
- * the raw spelling is no worse than today, while `''` would make two unrelated
- * unmappable hosts compare EQUAL to each other.
+ * The browser-compatible `domainToASCII()` shim rejects authority delimiters
+ * before parsing instead of letting `new URL()` truncate a raw host identity
+ * into another hostname. That is a REJECTION of a host identity, not a
+ * canonical form, so the lowercased input is kept instead — a comparison that
+ * stays on the raw spelling cannot collide with the trusted truncated host,
+ * while `''` would make two unrelated unmappable hosts compare EQUAL.
  *
  * @param {string} rawHost
  * @returns {string} lowercase punycoded host, or the lowercased input.

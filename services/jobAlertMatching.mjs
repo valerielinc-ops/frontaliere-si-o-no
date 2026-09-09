@@ -33,7 +33,7 @@
  */
 
 import { extractKeywords } from './newsletter-content.mjs';
-import { baseCompanySlug, canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { locTokenHit } from './locToken.mjs';
 import { municipalityToCantons } from './provinceCantonAffinity.ts';
 
@@ -125,24 +125,19 @@ export function freshnessBoost(job, nowMs) {
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
 
 /**
- * Normalize a company display name / key into a compact, comparable token:
- * lowercased, accent-stripped, alphanumerics only. This reconciles the two
- * shapes we compare — the newsletter `job_company` display name ("Board
- * International") and the job's `companyKey` slug ("board-international") both
- * collapse to "boardinternational".
+ * Normalize a company display name / key into a compact, canonical token:
+ * lowercased, accent-stripped, alphanumerics only, with declared brand aliases
+ * folded by the shared company profile slug. This reconciles the two shapes we
+ * compare — the newsletter `job_company` display name ("Board International")
+ * and the job's `companyKey` slug ("board-international") both collapse to
+ * "boardinternational" — without turning identity matching into containment.
  * Returns '' for values too short to be a reliable signal (avoids matching on
  * stray 1-2 char fragments like legal-form suffixes).
  * @param {string} value
  * @returns {string}
  */
 function normalizeCompanyToken(value) {
-  // DERIVED from the one shared company slug (#5012) instead of re-implementing
-  // the normalisation: the matcher compares a separator-free token (so
-  // `board-international` still matches `boardinternational`), but the
-  // slugification that produces it must be the SAME one CompanyAlert persists,
-  // or a pinned alert would round-trip through two different normalisations and
-  // silently never fire.
-  const t = baseCompanySlug(value, value).replace(/-/g, '');
+  const t = canonicalCompanyProfileSlug(value, value).replace(/-/g, '');
   return t.length >= 3 ? t : '';
 }
 
@@ -150,10 +145,9 @@ function normalizeCompanyToken(value) {
  * Company token for the PINNED-employer comparison, with declared brand aliases folded
  * onto their canonical.
  *
- * Separate from {@link normalizeCompanyToken} because the pin is the one comparison where
- * the fold is mandatory on BOTH sides. CompanyAlert persists the canonical
- * (`canonicalCompanyProfileSlug`), while a job carries whatever legal-entity name the
- * crawler saw; the pin test then compared a folded string against an unfolded one.
+ * Alias for {@link normalizeCompanyToken}, kept at the pinned call site so
+ * the hard path stays explicit. Both paths use the same canonical slug; the
+ * pinned comparison below is equality, never substring containment.
  *
  * It survived review twice because the two brands under test hide it: Lidl folds every
  * variant to `lidl` on both sides, and `migros-ticino` happens to CONTAIN `migros`, so the
@@ -166,8 +160,25 @@ function normalizeCompanyToken(value) {
  * @returns {string}
  */
 function canonicalCompanyToken(value) {
-  const t = canonicalCompanyProfileSlug(value, value).replace(/-/g, '');
-  return t.length >= 3 ? t : '';
+  return normalizeCompanyToken(value);
+}
+
+/**
+ * Explain why a job cannot safely enter a company-pinned comparison.
+ *
+ * A job-specific pin may rely on its stable job id alone. A company pin,
+ * however, needs a resolvable canonical company identity; an absent/garbled
+ * key is quarantined by the sender rather than guessed from display text.
+ *
+ * @param {object|null|undefined} job
+ * @param {AlertProfile|null|undefined} profile
+ * @returns {string|null}
+ */
+export function jobCompanyIdentityQuarantineReason(job, profile) {
+  if (!profile?.specificCompanyKey) return null;
+  return canonicalCompanyToken(job?.companyKey || job?.company)
+    ? null
+    : 'unresolved-job-company-key';
 }
 
 /**
@@ -422,12 +433,13 @@ export function scoreJobForAlert(job, profile, locale) {
   const pinnedJobs = profile.specificJobIds || [];
   const pinnedCompany = profile.specificCompanyKey || '';
   if (pinnedJobs.length > 0 || pinnedCompany) {
-    // Both sides folded onto the canonical brand so an alias-named job still matches.
+    // Both sides are folded onto the canonical brand, then compared exactly.
+    // Prefix/suffix containment is unsafe: `Acme` must never select `Acme
+    // Holdings`, and a missing identity must never be inferred from prose.
     const jobCompanyKey = canonicalCompanyToken(job.companyKey || job.company);
     const idHit = pinnedJobs.includes(String(job.id || ''))
       || pinnedJobs.includes(String(job.publisherJobId || ''));
-    const companyHit = Boolean(pinnedCompany && jobCompanyKey
-      && (jobCompanyKey.includes(pinnedCompany) || pinnedCompany.includes(jobCompanyKey)));
+    const companyHit = Boolean(pinnedCompany && jobCompanyKey && jobCompanyKey === pinnedCompany);
     return (idHit || companyHit) ? 10 : 0;
   }
 
@@ -460,10 +472,7 @@ export function scoreJobForAlert(job, profile, locale) {
   }
 
   // Company affinity (strong signal — same employer).
-  const companyMatch = Boolean(
-    profile.company && jobCompany &&
-    (jobCompany.includes(profile.company) || profile.company.includes(jobCompany)),
-  );
+  const companyMatch = Boolean(profile.company && jobCompany && jobCompany === profile.company);
   if (companyMatch) score += 4;
 
   // Soft keyword overlap (tokenized, proportional, capped).

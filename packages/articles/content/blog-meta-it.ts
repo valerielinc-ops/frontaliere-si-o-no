@@ -11618,6 +11618,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mesenzana-lavorare-ticino.title': 'Vivere a Mesenzana e lavorare in Ticino',
     'blog.article.mesenzana-lavorare-ticino.excerpt': 'Scopri come vivere a Mesenzana e lavorare in Ticino da frontaliere: permessi, fiscalità, trasporti, costo della vita e procedimenti. Guida pratica.',
     'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Paesaggio del confine Ticino-Italia presso il valico di Brogeda, con colline Alpi sullo sfondo',
+    'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, il ritardo sulle riforme: l\'allarme di Economiesuisse',
+    'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, presidente uscente Economiesuisse, critica il governo: discussione sull\'età pensionabile rinviata, rischi per la sostenibilità del sistema.',
+    'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professionista esamina documenti di previdenza pensionistica con vista sul confine Ticino-Svizzera',
 };
 
 export default blogMetaIt;

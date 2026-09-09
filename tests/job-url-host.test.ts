@@ -1,5 +1,7 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { jobUrlHost, absoluteJobUrl, canonicalJobHost } from '../scripts/lib/job-url-host.mjs';
 import { isIpersonalJob } from '../scripts/lib/ipersonal-job-parser.mjs';
 import { isMedIpersonalJob } from '../scripts/lib/med-ipersonal-job-parser.mjs';
@@ -11,6 +13,14 @@ import { KSGL_COMPANY_DOMAIN } from '../scripts/lib/ksgl-job-parser.mjs';
 import { LUPS_COMPANY_DOMAIN } from '../scripts/lib/lups-job-parser.mjs';
 import { normalizeSourceHost } from '../scripts/lib/crawler-source-hosts.mjs';
 import { normalizeHost } from '../scripts/lib/prospector/registrable.mjs';
+
+const jobUrlHostSource = readFileSync(resolve(__dirname, '../scripts/lib/job-url-host.mjs'), 'utf8');
+
+describe('job-url-host browser boundary', () => {
+  it('does not import the Node-only URL module', () => {
+    expect(jobUrlHostSource).not.toMatch(/['"]node:url['"]/);
+  });
+});
 
 describe('jobUrlHost', () => {
   it('reads the host of a scheme-less URL instead of throwing', () => {
@@ -168,6 +178,13 @@ describe('canonicalJobHost', () => {
     expect(canonicalJobHost('münchen-jobs.ch')).toBe('xn--mnchen-jobs-thb.ch');
     expect(canonicalJobHost('xn--mnchen-jobs-thb.ch')).toBe('xn--mnchen-jobs-thb.ch');
     expect(canonicalJobHost('MÜNCHEN-jobs.CH.')).toBe('xn--mnchen-jobs-thb.ch');
+  });
+
+  it('does not truncate a raw host identity into a trusted hostname', () => {
+    expect(canonicalJobHost('evil.com/med-ipersonal.ch')).toBe('evil.com/med-ipersonal.ch');
+    expect(canonicalJobHost('evil.com\\med-ipersonal.ch')).toBe('evil.com\\med-ipersonal.ch');
+    expect(canonicalJobHost('x@med-ipersonal.ch')).toBe('x@med-ipersonal.ch');
+    expect(canonicalJobHost('med-ipersonal.ch:8080')).toBe('med-ipersonal.ch:8080');
   });
 
   it('keeps the raw spelling when the host cannot be mapped', () => {
