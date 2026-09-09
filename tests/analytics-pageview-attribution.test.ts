@@ -39,6 +39,32 @@ describe('GA4 page_view employer attribution', () => {
     });
   });
 
+  it('does not use a non-Italian slug as the canonical job identity', async () => {
+    const { buildPageViewAttributionParams, resolveAnalyticsJobIdentity } = await loadAnalyticsHelpers();
+    const identity = resolveAnalyticsJobIdentity({
+      slug: 'flat-locale-slug',
+      slugByLocale: { en: 'localized-role-en' },
+      companyKey: 'canonical-employer',
+    });
+
+    expect(identity).toBeNull();
+    expect(
+      buildPageViewAttributionParams('/en/find-jobs-ticino/flat-locale-slug', identity),
+    ).toEqual({});
+  });
+
+  it('keeps only the safe employer key when job_apply lacks the Italian slug', async () => {
+    const { buildJobApplyAttributionParams } = await loadAnalyticsHelpers();
+
+    expect(
+      buildJobApplyAttributionParams({
+        slug: 'flat-locale-slug',
+        slugByLocale: { en: 'localized-role-en' },
+        companyKey: 'canonical-employer',
+      }),
+    ).toEqual({ employer_key: 'canonical-employer', job_slug: '' });
+  });
+
   it('attributes a localized company hub without inventing a job slug', async () => {
     const { buildPageViewAttributionParams, resolveAnalyticsCompanyHubKey } = await loadAnalyticsHelpers();
     expect(resolveAnalyticsCompanyHubKey(['canonical-employer', 'canonical-employer'])).toBe(
@@ -76,6 +102,9 @@ describe('GA4 page_view employer attribution', () => {
       "const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;",
     );
     expect(jobBoardSource).toContain('}, [pageViewIdentity, pageViewPath]);');
+    expect(jobBoardSource).toContain("if (!pageViewPath) return;");
+    expect(jobBoardSource).toContain("pageTemplate !== 'job_detail'");
+    expect(jobBoardSource).not.toContain('if (!pageViewIdentity || !pageViewPath) return;');
     expect(uiStateSource).toMatch(
       /if \(!deferAttributionPageView\(initialPath\)\) Analytics\.trackPageView\(initialPath\)/,
     );
@@ -89,9 +118,8 @@ describe('GA4 page_view employer attribution', () => {
       /const trackPublisherApplySignals = \(job: JobListing[\s\S]*?return eventId;/,
     );
     expect(applyBlock).not.toBeNull();
-    expect(applyBlock![0]).toMatch(/const identity = resolveAnalyticsJobIdentity\(job\)/);
-    expect(applyBlock![0]).toMatch(/employer_key: identity\?\.employerKey \|\| 'unknown'/);
-    expect(applyBlock![0]).toMatch(/job_slug: identity\?\.jobSlug \|\| job\.slug \|\| job\.id/);
+    expect(applyBlock![0]).toMatch(/\.\.\.buildJobApplyAttributionParams\(job\)/);
+    expect(applyBlock![0]).not.toMatch(/job\.slug \|\| job\.id/);
     expect(applyBlock![0]).not.toMatch(/employer_key: canonicalCompanyRouteSlug/);
   });
 });

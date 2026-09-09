@@ -120,16 +120,34 @@ export type AnalyticsJobIdentitySource = {
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
  * The caller must already have resolved route aliases/locales to the current
- * job record; this helper deliberately never derives an employer key from its
- * display name.
+ * job record; this helper deliberately accepts only the Italian canonical slug
+ * and never derives an employer key from its display name. A locale-flattened
+ * `slug` is not an attribution fallback: returning null keeps the page_view
+ * observable without assigning it to an uncertain job.
  */
 export function resolveAnalyticsJobIdentity(
  job: AnalyticsJobIdentitySource,
 ): AnalyticsPageViewIdentity | null {
- const jobSlug = String(job.slugByLocale?.it || job.slug || '').trim();
+ const jobSlug = String(job.slugByLocale?.it || '').trim();
  const employerKey = String(job.companyKey || '').trim();
  if (!jobSlug || !employerKey) return null;
  return { jobSlug, employerKey };
+}
+
+/**
+ * Build the stable attribution fields for a job_apply event. The employer key
+ * is safe to retain independently because it is the dataset companyKey; the
+ * job slug is emitted only when the canonical Italian slug is present.
+ */
+export function buildJobApplyAttributionParams(
+ job: AnalyticsJobIdentitySource,
+): Record<string, string> {
+ const identity = resolveAnalyticsJobIdentity(job);
+ const employerKey = identity?.employerKey || String(job.companyKey || '').trim();
+ return {
+  employer_key: employerKey || 'unknown',
+  job_slug: identity?.jobSlug || '',
+ };
 }
 
 /**
