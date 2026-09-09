@@ -32,7 +32,7 @@ name: tests
 # `pr-body-contract.yml`), `typecheck` e `vitest` erano quattro JOB. Ora sono
 # quattro FAMIGLIE DI STEP dentro il job pesante, e la fase comune — checkout +
 # `actions/setup-node` + `npm ci` — si paga UNA volta invece di quattro. Il
-# solo evento `edited` usa il companion body-only in fondo al file.
+# companion body-only in fondo al file resta un check distinto per `edited`.
 #
 # Cosa cambiava prima e cosa cambia adesso: la PR #6534 aveva fattorizzato
 # setup-node+npm-ci in `.github/actions/ci-npm-setup`, ma una composite action
@@ -405,8 +405,8 @@ jobs:
       # paralleli, e va conservata ora che sono step (vedi «Conseguenza #2»).
       # Gira su ogni evento `pull_request` del job pesante; su `edited` il
       # companion body-only in fondo al file esegue la stessa copia verificata
-      # dello step. Il body viene quindi rivalidato senza riaprire il percorso
-      # pesante.
+      # dello step come check distinto. Il body viene quindi rivalidato due
+      # volte, senza sostituire il verdetto del percorso pesante.
       # ══════════════════════════════════════════════════════════════════════
       - name: PR-body completeness + multi-issue Closes (no checkout, all events)
         if: ${{ !cancelled() && github.event_name == 'pull_request' }}

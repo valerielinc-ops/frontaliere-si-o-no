@@ -27,7 +27,7 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toBeGreaterThanOrEqual(0);
     expect(autorebase).toBeGreaterThan(reviewGate);
     expect(pullRequestTypes).toContain('labeled');
-    expect(workflow).toContain(
+    expect(workflow).not.toContain(
       "if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}",
     );
 
