@@ -21,9 +21,8 @@
  *                    che la policy vieta esplicitamente di pubblicare.
  *
  * NON pubblica nulla e non tocca pagine: è un osservatore interno. I dataset
- * dei turni non esistono ancora (pipeline #6750): la loro assenza è uno stato
- * ATTESO, riportato come tale e non come problema — altrimenti il monitor
- * nascerebbe rosso e verrebbe ignorato.
+ * dei turni arrivano da `data/pharmacy-duties-<canton>.json`; un dataset
+ * mancante per una fonte `active` o oltre lo SLA è un problema osservabile.
  *
  * Exit code: 0 se sano, 1 se degradato. Il report machine-readable finisce in
  * `data/pharmacy-data-health-report.json` per il workflow che apre l'issue.
