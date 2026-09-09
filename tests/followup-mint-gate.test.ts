@@ -87,8 +87,8 @@ function runFakeGate({ batchPrs, issue, summaryPath }: { batchPrs: string; issue
   const fakeGh = `#!/usr/bin/env node
 const args = process.argv.slice(2);
 const issue = ${JSON.stringify(issueWithMetadata)};
-if (args[0] === 'issue' && args[1] === 'list') {
-  process.stdout.write(JSON.stringify(issue ? [{ number: issue.number, title: issue.title, createdAt: issue.createdAt }] : []));
+if (args[0] === 'api') {
+  process.stdout.write(JSON.stringify([issue ? [{ number: issue.number, title: issue.title, created_at: issue.createdAt }] : []]));
 } else if (args[0] === 'issue' && args[1] === 'view') {
   process.stdout.write(JSON.stringify(issue));
 }
@@ -104,6 +104,7 @@ if (args[0] === 'issue' && args[1] === 'list') {
       GH_REPO: 'o/r',
       GITHUB_STEP_SUMMARY: summaryPath,
       DRY_RUN: '0',
+      COLLECTION_OK: 'true',
     },
   });
   let summary = '';
@@ -270,7 +271,19 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(wf).toContain('triage_complete=$complete');
     expect(wf).toContain('BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}');
     expect(wf).toContain('contains("## Post-merge follow-up triage")');
+    expect(src).toContain("process.env.COLLECTION_OK === 'true'");
+    expect(wf).toContain('bucket_persisted_for_pr');
+    expect(wf).toContain('persistence_ok=$persistence_ok');
     expect(wf).not.toContain("steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome");
+  });
+
+  it('PIN: le scritture ottimistiche verificano titolo oltre al body', () => {
+    const gate = readFileSync(GATE_SRC, 'utf-8');
+    const reconcile = readFileSync(fileURLToPath(new URL('../scripts/ci/reconcile-followups.mjs', import.meta.url)), 'utf-8');
+    expect(gate).toContain('sameIssueSnapshot');
+    expect(gate).toContain("String(actual.title || '') === String(expected?.title || '')");
+    expect(reconcile).toContain("String(latest.title || '') !== String(iss.title || '')");
+    expect(reconcile).toContain("'--json', 'title,body'");
   });
 
   it('PIN: il gate verifica anche le issue del corpus e commenta la PR sul sito', () => {

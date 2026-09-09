@@ -14,6 +14,10 @@ import {
   parseMergedPRPages,
   parseMergedPRs,
   hasTriageComment,
+  latestTriageCommentBody,
+  persistedBucketIssueMatches,
+  triageMarkerPersistenceExpectation,
+  verifyTriageMarkerPersistence,
   canonicalLogin,
   maxTurnsFor,
   shouldTriageAfterCandidateGate,
@@ -115,9 +119,22 @@ describe('collector fail-closed parsing', () => {
 
   it('does not use the fallback watermark for a malformed successful-run response', () => {
     expect(parseSuccessfulRunList('[]')).toEqual([]);
-    expect(parseSuccessfulRunList(JSON.stringify([{ startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
+    expect(parseSuccessfulRunList(JSON.stringify([{ event: 'schedule', startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
     expect(parseSuccessfulRunList(JSON.stringify([{}]))).toBeNull();
     expect(parseSuccessfulRunList('not-json')).toBeNull();
+  });
+
+  it('usa solo l\'ultima run success schedulata: un dispatch non avanza il watermark', () => {
+    const runs = parseSuccessfulRunList(JSON.stringify([
+      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
+      { event: 'schedule', startedAt: '2026-09-09T09:00:00Z' },
+    ]));
+    expect(runs).toHaveLength(1);
+    expect(runs?.[0].event).toBe('schedule');
+    expect(computeWatermarkISO(JSON.stringify(runs))).toBe('2026-09-09T09:00:00.000Z');
+    expect(parseSuccessfulRunList(JSON.stringify([
+      { event: 'workflow_dispatch', startedAt: '2026-09-09T12:00:00Z' },
+    ]))).toEqual([]);
   });
 });
 
@@ -175,6 +192,31 @@ describe('hasTriageComment (idempotency)', () => {
   it('returns false on parse error (proceed-safe: NOT deduped → triage runs)', () => {
     expect(hasTriageComment('not json')).toBe(false);
     expect(hasTriageComment('')).toBe(false);
+  });
+});
+
+describe('marker idempotency requires durable bucket/item evidence', () => {
+  const marker = '## Post-merge follow-up triage\nCreated/updated: daily bucket #42 `follow-up(daily:2026-09-09)` con 1 item';
+  const persisted = {
+    number: 42,
+    title: 'follow-up(daily:2026-09-09): 1 item — owner/repo',
+    body: '### FU-2026-09-09-001 — item\n- Sources: PR #8101\n',
+  };
+
+  it('does not skip a marker whose bucket read failed or lacks the source item', () => {
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => null)).toBeNull();
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => ({ ...persisted, body: '### FU-2026-09-09-001 — item' }))).toBe(false);
+  });
+
+  it('accepts only a bucket/item persisted for the same PR and recognizes no-issue markers', () => {
+    expect(verifyTriageMarkerPersistence(marker, 8101, () => persisted)).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 8102, () => persisted)).toBe(false);
+    expect(verifyTriageMarkerPersistence('## Post-merge follow-up triage: zero outstanding items.', 8101, () => {
+      throw new Error('must not read a bucket');
+    })).toBe(true);
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [42], requiresBucket: true });
+    expect(latestTriageCommentBody(JSON.stringify({ comments: [{ body: marker }] }))).toBe(marker);
+    expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
   });
 });
 

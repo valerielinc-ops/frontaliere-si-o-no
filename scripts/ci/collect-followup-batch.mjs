@@ -44,7 +44,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { dailyKeyZurich } from './followup-resolution-match.mjs';
+import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs';
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
@@ -86,7 +86,7 @@ export function canonicalLogin(login) {
  * Watermark = start of the LAST SUCCESSFUL run of this workflow. A failed run does
  * NOT advance it → the window is re-covered next time (no follow-up lost). Prefers
  * `startedAt`, falls back to `createdAt`, then to now − FALLBACK_HOURS.
- * @param {string} runListJson  output of `gh run list ... --json createdAt,startedAt`
+ * @param {string} runListJson  output of `gh run list ... --json createdAt,startedAt,event`
  * @param {number} [nowMs]
  * @param {number} [fallbackHours]
  * @returns {string} ISO8601
@@ -111,7 +111,7 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
  * collector instead of silently falling back to now-minus-six-hours.
  *
  * @param {string} runListJson
- * @returns {Array<{createdAt?:string,startedAt?:string}>|null}
+ * @returns {Array<{createdAt?:string,startedAt?:string,event:string}>|null}
  */
 export function parseSuccessfulRunList(runListJson) {
   let runs;
@@ -122,11 +122,20 @@ export function parseSuccessfulRunList(runListJson) {
   }
   if (!Array.isArray(runs)) return null;
   if (!runs.length) return runs;
-  const first = runs[0];
-  if (!first || typeof first !== 'object' || Array.isArray(first)) return null;
-  const timestamp = first.startedAt || first.createdAt;
-  if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
-  return runs;
+  const scheduled = [];
+  for (const run of runs) {
+    if (!run || typeof run !== 'object' || Array.isArray(run)) return null;
+    if (typeof run.event !== 'string' || !run.event.trim()) return null;
+    // `workflow_dispatch` can be a successful run immediately before the cron.
+    // It is deliberately not a watermark: only the scheduled cadence owns the
+    // automatic collection window.  Filter before looking at timestamps so a
+    // malformed/manual run cannot become a false checkpoint.
+    if (run.event !== 'schedule') continue;
+    const timestamp = run.startedAt || run.createdAt;
+    if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
+    scheduled.push(run);
+  }
+  return scheduled;
 }
 
 /**
@@ -211,6 +220,70 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
   }
   const comments = Array.isArray(data) ? data : data && Array.isArray(data.comments) ? data.comments : [];
   return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
+}
+
+/** Return the latest follow-up marker body, or null when comments are unreadable. */
+export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
+  let data;
+  try {
+    data = JSON.parse(commentsJson || '');
+  } catch {
+    return null;
+  }
+  const comments = Array.isArray(data)
+    ? data
+    : data && Array.isArray(data.comments) ? data.comments : null;
+  if (!comments) return null;
+  const bodies = comments
+    .map((comment) => typeof comment?.body === 'string' ? comment.body : '')
+    .filter((body) => body.trimStart().startsWith(prefix));
+  return bodies.length ? bodies[bodies.length - 1] : null;
+}
+
+/**
+ * Extract the persistence claim from a marker.  A zero-result/backfill marker
+ * intentionally needs no bucket; every other successful marker must name one or
+ * more daily issues.  This is only an expectation parser — the issue bodies are
+ * checked by `verifyTriageMarkerPersistence` before idempotency skips a PR.
+ */
+export function triageMarkerPersistenceExpectation(markerBody) {
+  const body = String(markerBody || '');
+  const buckets = [...body.matchAll(/\bbucket\s+#([1-9]\d*)\b/gi)]
+    .map((match) => Number(match[1]));
+  const uniqueBuckets = [...new Set(buckets)];
+  const noBucketExpected = /zero outstanding items|backfill skipped|Created:\s*0 issue\s*\(solo live-verification batchata\)/i.test(body);
+  return {
+    buckets: uniqueBuckets,
+    requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
+  };
+}
+
+/** Prove one persisted daily bucket contains a live item sourced by this PR. */
+export function persistedBucketIssueMatches(issue, prNumber) {
+  const info = dailyBucketInfo(issue?.title || '');
+  const body = String(issue?.body || '');
+  const pr = String(Number(prNumber));
+  return !!info
+    && /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
+    && new RegExp(`^\\s*-\\s+Sources?:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
+}
+
+/**
+ * Check marker idempotency against durable bucket/item evidence.
+ * `readIssue` returns an issue object, `null` for an unavailable read, and may be
+ * injected in tests. Unknown is deliberately returned as `null`, so a transient
+ * API failure keeps the PR in the next batch instead of skipping it forever.
+ */
+export function verifyTriageMarkerPersistence(markerBody, prNumber, readIssue) {
+  const expectation = triageMarkerPersistenceExpectation(markerBody);
+  if (!expectation.requiresBucket) return true;
+  if (!expectation.buckets.length || typeof readIssue !== 'function') return false;
+  for (const number of expectation.buckets) {
+    const issue = readIssue(number);
+    if (issue === null || issue === undefined) return null;
+    if (Number(issue.number) !== number || !persistedBucketIssueMatches(issue, prNumber)) return false;
+  }
+  return true;
 }
 
 /**
@@ -310,12 +383,15 @@ export function main() {
   // 1. Watermark = start of the last SUCCESSFUL run (failed run → re-covered later).
   const runListRaw = gh([
     'run', 'list', `--workflow=${WORKFLOW}`, '--status', 'success',
-    '--json', 'createdAt,startedAt', '--limit', '1', ...repoArgs,
+    '--event', 'schedule', '--json', 'createdAt,startedAt,event', '--limit', '1', ...repoArgs,
   ]);
   if (runListRaw === null) throw new Error('gh run list non riuscita: watermark non verificabile');
   const successfulRuns = parseSuccessfulRunList(runListRaw);
   if (!successfulRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
-  const watermark = computeWatermarkISO(runListRaw);
+  // Use the already-filtered schedule-only response.  Keeping the raw response
+  // here would let a dispatch run advance the watermark despite `--event` being
+  // removed/ignored by an older gh version or a mocked runner.
+  const watermark = computeWatermarkISO(JSON.stringify(successfulRuns));
   console.log(`Watermark (last successful run start, fallback now-${FALLBACK_HOURS}h): ${watermark}`);
 
   // 2. Merged PRs since the watermark, eligible authors only.
@@ -346,8 +422,22 @@ export function main() {
       throw new Error(`commenti PR #${n} non parsabili: raccolta incompleta`);
     }
     if (hasTriageComment(commentsRaw)) {
-      console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' comment → skip (idempotent).`);
-      continue;
+      const markerBody = latestTriageCommentBody(commentsRaw);
+      const persistence = verifyTriageMarkerPersistence(markerBody, n, (bucket) => {
+        const bucketRaw = gh(['issue', 'view', String(bucket), ...repoArgs, '--json', 'number,title,body']);
+        if (bucketRaw === null) return null;
+        try {
+          const issue = JSON.parse(bucketRaw);
+          return issue && typeof issue === 'object' && !Array.isArray(issue) ? issue : false;
+        } catch {
+          return false;
+        }
+      });
+      if (persistence === true) {
+        console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' plus persisted bucket/item evidence → skip (idempotent).`);
+        continue;
+      }
+      console.log(`PR #${n}: marker presente ma bucket/item non provato (${persistence === null ? 'lettura indisponibile' : 'evidenza assente/invalida'}) → resta nel batch per retry.`);
     }
 
     // Gate 1: grandchild-suppression. true → it's a follow-up fix → skip.

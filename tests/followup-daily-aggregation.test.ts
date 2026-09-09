@@ -25,6 +25,7 @@ import {
   decideDailyMintGate,
   decideMintGate,
   mergeDailyBucketBodies,
+  parseOpenFollowupPages,
   retitleDailyBucket,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
@@ -129,6 +130,19 @@ describe('daily follow-up identity and dedup', () => {
     expect(dailyBucketIdentity(issues[0].title)).toBe(`${DAY}|owner/repo`);
     expect(canonicalDailyBuckets(issues).get(`${DAY}|owner/repo`)?.number).toBe(9);
     expect(canonicalDailyBuckets(issues).get(`${DAY}|other/repo`)?.number).toBe(3);
+  });
+
+  it('richiede una lista follow-up REST completa e distingue PR da issue', () => {
+    const parsed = parseOpenFollowupPages(JSON.stringify([
+      [{ number: 10, title: dailyBucketTitle(DAY, 'owner/repo', 1), state: 'open' }],
+      [{ number: 11, title: 'pull request label', pull_request: { url: 'https://example.test/pr/11' } }],
+    ]));
+    expect(parsed?.map((entry) => entry.number)).toEqual([10]);
+    expect(parseOpenFollowupPages(JSON.stringify([
+      [{ number: 10, title: 'x' }],
+      [{ number: 10, title: 'duplicate' }],
+    ]))).toBeNull();
+    expect(parseOpenFollowupPages('not-json')).toBeNull();
   });
 
   it('recupera un collecting storico solo con Sources e marker per ogni PR', () => {
@@ -376,6 +390,26 @@ describe('daily mint gate and reconciliation', () => {
     });
     expect(queueAfter.eligible).toBe(true);
     expect(queueAfter.item?.id).toBe(`FU-${DAY}-001`);
+  });
+
+  it('blocca queue e close quando il conteggio nel titolo non coincide col body', () => {
+    const source = body(item(`FU-${DAY}-001`)).replace('- State: collecting', '- State: sealed');
+    const issue = { title: dailyBucketTitle(DAY, 'owner/repo', 2), body: source };
+    expect(dailyBucketQueueDecision(issue)).toMatchObject({
+      eligible: false,
+      reason: 'mismatched-item-count',
+    });
+    expect(dailyBucketCloseGate(
+      source,
+      resolvedIo,
+      DAY,
+      'owner/repo',
+      2,
+    )).toMatchObject({ blocks: true, reason: 'mismatched-item-count' });
+    expect(reconcileDailyItems(source, resolvedIo, DAY, 'owner/repo', 2)).toMatchObject({
+      changed: false,
+      reason: 'mismatched-item-count',
+    });
   });
 
   it('permits a late retry to seal a daily bucket after the legacy freshness window', () => {

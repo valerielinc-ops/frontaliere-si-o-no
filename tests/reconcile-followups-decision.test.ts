@@ -112,4 +112,11 @@ describe('decideReconcileAction — two-tier, double-confirm-across-time', () =>
     expect(guard?.[1]).toContain('hasPriorFlag === null');
     expect(guard?.[1]).not.toContain('continue;');
   });
+
+  it('mantiene distinto un edit fallito e confronta anche il titolo prima del write', () => {
+    const source = fs.readFileSync(path.resolve(process.cwd(), 'scripts/ci/reconcile-followups.mjs'), 'utf8');
+    expect(source).toContain('if (allowFail) return null;');
+    expect(source).toContain('if (edited === null)');
+    expect(source).toContain("String(latest.title || '') !== String(iss.title || '')");
+  });
 });

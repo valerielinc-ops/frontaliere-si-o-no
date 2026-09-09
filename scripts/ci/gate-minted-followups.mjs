@@ -98,8 +98,7 @@ const TRIAGE_COMPLETE = process.env.TRIAGE_COMPLETE === 'true';
 // The workflow exposes collection_ok separately from triage_complete. A failed
 // collector must not trigger historical recovery, but sealed buckets may still be
 // repaired independently because they no longer depend on collection completeness.
-const COLLECTION_OK = process.env.COLLECTION_OK !== 'false';
-const OPEN_FOLLOWUP_LIMIT = 1000;
+const COLLECTION_OK = process.env.COLLECTION_OK === 'true';
 // Non esportato di proposito: è una firma per chi legge i commenti, non un'affordance di
 // idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione FINCHE' LE
 // SCRITTURE RIESCONO: dopo una demozione riuscita gli item rimasti sono tutti validi,
@@ -507,6 +506,61 @@ export function parseIssueJson(raw) {
 }
 
 /**
+ * Compare the complete issue snapshot used for an optimistic write.  The title
+ * carries the daily item count/identity, so a body-only comparison can overwrite
+ * a concurrent retitle and silently desynchronise the queue.
+ */
+function sameIssueSnapshot(expected, actual) {
+  return !!actual
+    && String(actual.title || '') === String(expected?.title || '')
+    && String(actual.body || '') === String(expected?.body || '');
+}
+
+/**
+ * Parse the complete open follow-up listing returned by
+ * `gh api --paginate --slurp`.  REST pagination has no useful `--limit` signal
+ * here; a malformed page or duplicate number is an unavailable proof, never an
+ * empty queue. Pull requests carrying the label are excluded exactly as
+ * `gh issue list` did.
+ *
+ * @param {string|null} raw
+ * @returns {Array<{number:number,title:string,createdAt?:string}>|null}
+ */
+export function parseOpenFollowupPages(raw) {
+  let pages;
+  try {
+    pages = JSON.parse(raw || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(pages)) return null;
+  const rows = [];
+  for (const page of pages) {
+    if (Array.isArray(page)) rows.push(...page);
+    else if (page && typeof page === 'object') rows.push(page);
+    else return null;
+  }
+  const seen = new Set();
+  const issues = [];
+  for (const row of rows) {
+    if (!row || typeof row !== 'object' || Array.isArray(row)) return null;
+    // `/issues` also returns pull requests. A PR is not a bucket and must not
+    // affect canonical ownership or lifecycle decisions.
+    if (row.pull_request) continue;
+    const number = Number(row.number);
+    const title = row.title;
+    const createdAt = row.created_at ?? row.createdAt;
+    if (!Number.isInteger(number) || number <= 0 || typeof title !== 'string' || !title.trim()
+        || (row.state !== undefined && row.state !== 'open')
+        || (createdAt !== undefined && (typeof createdAt !== 'string' || Number.isNaN(Date.parse(createdAt))))
+        || seen.has(number)) return null;
+    seen.add(number);
+    issues.push({ number, title, ...(createdAt === undefined ? {} : { createdAt }) });
+  }
+  return issues;
+}
+
+/**
  * Il blocco che finisce nel commento della PR: il testo INTEGRALE di ogni item demoto,
  * non il suo titolo. Nel ramo `demote` il corpo della issue viene riscritto senza quegli
  * item, quindi questo blocco è l'unica copia che resta di `Source`, `Stato dichiarato
@@ -539,6 +593,17 @@ function gh(args, { allowFail = false } = {}) {
     }
     throw e;
   }
+}
+
+/** Read every open follow-up issue through REST pagination, fail-closed. */
+function listOpenFollowupIssues(repoArgs) {
+  const repository = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+  if (!repository) return null;
+  const raw = gh([
+    'api', `repos/${repository}/issues?state=open&labels=follow-up&per_page=100`,
+    '--paginate', '--slurp', ...repoArgs,
+  ], { allowFail: true });
+  return parseOpenFollowupPages(raw);
 }
 
 function writeBodyFile(text) {
@@ -603,22 +668,27 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
     members.sort((a, b) => Number(a.number) - Number(b.number));
     const sourcePrs = [];
     let readable = true;
+    let hasCollecting = false;
     for (const member of members) {
       const issue = parseIssueJson(gh(['issue', 'view', String(member.number), ...repoArgs,
         '--json', 'number,title,body,createdAt'], { allowFail: true }));
       const actualIdentity = dailyBucketIdentity(issue?.title || '');
       const info = dailyBucketInfo(issue?.title || '');
+      const state = issue ? bucketState(issue.body || '') : null;
       if (!issue || actualIdentity !== identity || !info || typeof issue.body !== 'string'
           || hasUnterminatedMarkdownFence(issue.body)
           || !hasDailyBucketRepositoryConsistency(issue.body, info.targetRepository)
-          || bucketState(issue.body) !== 'collecting') {
+          || !['collecting', 'sealed'].includes(state)) {
         readable = false;
         console.log(`⚠️ daily ${identity}: prova storica incompleta/illeggibile su #${member.number} → nessun sealing da recovery.`);
         break;
       }
+      if (state === 'collecting') hasCollecting = true;
       sourcePrs.push(...dailyBucketSourcePrNumbers(issue.body));
     }
-    if (!readable) continue;
+    // A group made only of sealed buckets needs queue repair, not historical
+    // recovery. Mixed groups may be consolidated and sealed again after proof.
+    if (!readable || !hasCollecting) continue;
     const triagedPrs = [];
     let scanOk = true;
     for (const number of positivePrNumbers(sourcePrs)) {
@@ -654,7 +724,7 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
  */
 function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
   const blocked = new Set();
-  if (!(recoverable instanceof Set && recoverable.size)) return blocked;
+  const recovered = recoverable instanceof Set ? recoverable : new Set();
   const groups = new Map();
   for (const issue of Array.isArray(open) ? open : []) {
     const identity = dailyBucketIdentity(issue?.title || '');
@@ -664,7 +734,6 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
   }
   for (const [identity, members] of groups) {
     if (members.length < 2) continue;
-    if (!recoverable.has(identity)) continue;
     members.sort((a, b) => Number(a.number) - Number(b.number));
     const canonicalMeta = members[0];
     let canonical = parseIssueJson(gh(['issue', 'view', String(canonicalMeta.number), ...repoArgs,
@@ -672,6 +741,12 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
     if (!canonical) {
       blocked.add(identity);
       console.log(`⚠️ daily ${identity}: owner canonico #${canonicalMeta.number} illeggibile → nessun bucket viene sigillato/accodato.`);
+      continue;
+    }
+    let hasCollecting = bucketState(canonical.body || '') === 'collecting';
+    if (!bucketState(canonical.body || '')) {
+      blocked.add(identity);
+      console.log(`⚠️ daily ${identity}: stato owner #${canonicalMeta.number} ambiguo → nessun consolidamento.`);
       continue;
     }
     const duplicateRecords = [];
@@ -685,6 +760,13 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
         console.log(`⚠️ daily ${identity}: duplicato #${duplicateMeta.number} illeggibile → lascio entrambi aperti e rinvio il sealing.`);
         break;
       }
+      const duplicateState = bucketState(duplicate.body || '');
+      if (!duplicateState) {
+        mergeFailed = true;
+        console.log(`⚠️ daily ${identity}: stato duplicato #${duplicateMeta.number} ambiguo → lascio entrambi aperti.`);
+        break;
+      }
+      if (duplicateState === 'collecting') hasCollecting = true;
       const merged = mergeDailyBucketBodies({ ...canonical, body: mergedBody }, duplicate);
       if (!merged) {
         mergeFailed = true;
@@ -698,9 +780,13 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
       blocked.add(identity);
       continue;
     }
+    // Do not unseal an all-sealed duplicate set. Mixed sealed+collecting groups
+    // must be merged even before historical marker proof, otherwise Sources in
+    // the collecting duplicate remain stranded forever.
+    if (!hasCollecting && !recovered.has(identity)) continue;
     const latestCanonical = parseIssueJson(gh(['issue', 'view', String(canonicalMeta.number), ...repoArgs,
       '--json', 'number,title,body,createdAt'], { allowFail: true }));
-    if (!latestCanonical || String(latestCanonical.body || '') !== String(canonical.body || '')) {
+    if (!latestCanonical || !sameIssueSnapshot(canonical, latestCanonical)) {
       blocked.add(identity);
       console.log(`⚠️ daily ${identity}: owner #${canonicalMeta.number} cambiato durante il merge → retry senza overwrite.`);
       continue;
@@ -724,7 +810,7 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
     for (const duplicate of duplicateRecords) {
       const latestDuplicate = parseIssueJson(gh(['issue', 'view', String(duplicate.number), ...repoArgs,
         '--json', 'number,title,body,createdAt'], { allowFail: true }));
-      if (!latestDuplicate || String(latestDuplicate.body || '') !== String(duplicate.body || '')) {
+      if (!latestDuplicate || !sameIssueSnapshot(duplicate, latestDuplicate)) {
         closeFailed = true;
         console.log(`⚠️ daily ${identity}: duplicato #${duplicate.number} cambiato/illeggibile → non lo chiudo; retry idempotente.`);
         continue;
@@ -766,14 +852,13 @@ function main() {
   // esiste. La `list` REST e' immediatamente consistente. Niente `body` qui: con ~170
   // issue follow-up il dump e' emoji-heavy e grosso — i corpi si leggono uno per uno,
   // solo per le poche issue che il filtro sul titolo seleziona davvero.
-  const openRaw = gh(['issue', 'list', ...repoArgs, '--label', 'follow-up', '--state', 'open',
-    '--limit', String(OPEN_FOLLOWUP_LIMIT), '--json', 'number,title,createdAt'], { allowFail: true });
-  let open = [];
-  try { open = JSON.parse(openRaw || '[]') || []; } catch { open = []; }
-  // Al tetto la lista e' potenzialmente troncata: «issue non trovata» diventa ambiguo fra
-  // «il conio non ne ha creata nessuna» e «c'e' ma non l'ho vista». Dirlo, invece di
-  // lasciare che il no-op sembri una conferma.
-  if (open.length >= OPEN_FOLLOWUP_LIMIT) console.log(`⚠️ lista al tetto (${open.length}): una issue coniata potrebbe non comparire — il limite GitHub è stato raggiunto, retry necessario.`);
+  const open = listOpenFollowupIssues(repoArgs);
+  if (open === null) {
+    // A failed/incomplete listing is not an empty queue: continuing would make
+    // a missing bucket look like a successful no-op and could strand a marker.
+    console.log('⚠️ elenco issue follow-up non leggibile/completo → gate senza mutazioni, retry necessario.');
+    return;
+  }
   // The label/list endpoint does not enforce the daily identity constraint.  Pick
   // one canonical issue per (daily key, target repository) before the lifecycle
   // loop; a duplicate must never independently seal or enter the fixer queue.
@@ -865,7 +950,7 @@ function main() {
           }
           const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs,
             '--json', 'number,title,body,createdAt'], { allowFail: true }));
-          if (!latest || String(latest.body || '') !== String(iss.body || '')) {
+          if (!latest || !sameIssueSnapshot(iss, latest)) {
             console.log(`#${iss.number}: body cambiato/non leggibile prima del sealing → lascio collecting, retry con lettura nuova.`);
             report.push(`- ⚠️ #${iss.number} sealing rinviato per baseline concorrente/illeggibile`);
             continue;
@@ -892,7 +977,7 @@ function main() {
         // that fresh body instead of overwriting it with a stale baseline.
         const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs,
           '--json', 'number,title,body,createdAt'], { allowFail: true }));
-        if (!latest || String(latest.body || '') !== String(iss.body || '')) {
+        if (!latest || !sameIssueSnapshot(iss, latest)) {
           if (!latest) {
             console.log(`⚠️ #${iss.number}: body baseline non leggibile prima della riscrittura → lascio collecting/intatta.`);
             report.push(`- ⚠️ #${iss.number} body baseline illeggibile, nessuna riscrittura`);

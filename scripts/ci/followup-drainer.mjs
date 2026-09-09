@@ -74,6 +74,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   followupItemMarkers,
+  parseFollowupItems,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
 
@@ -108,6 +109,10 @@ export function dailyBucketQueueDecision(issue) {
   }
   if (!hasDailyBucketRepositoryConsistency(issue?.body || '', info.targetRepository)) {
     return { eligible: false, reason: 'mismatched-target-repository', item: null };
+  }
+  const items = parseFollowupItems(issue?.body || '');
+  if (info.itemCount !== items.length) {
+    return { eligible: false, reason: 'mismatched-item-count', item: null };
   }
   if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
   if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {

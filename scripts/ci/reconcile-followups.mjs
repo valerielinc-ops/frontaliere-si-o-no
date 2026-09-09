@@ -306,12 +306,24 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
  * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
  * A single unresolved/ambiguous/weak item vetoes the whole issue.
  */
-export function dailyBucketCloseGate(body, io, expectedDailyKey = null, expectedTargetRepository = null) {
+export function dailyBucketCloseGate(
+  body,
+  io,
+  expectedDailyKey = null,
+  expectedTargetRepository = null,
+  expectedItemCount = null,
+) {
   if (hasUnterminatedMarkdownFence(body)) {
     return { blocks: true, reason: 'unterminated-markdown-fence', validItems: [], unresolvedItems: [] };
   }
   const items = parseFollowupItems(body);
   if (!items.length) return { blocks: true, reason: 'aggregate-unparsed', validItems: [], unresolvedItems: [] };
+  if (expectedItemCount !== null
+      && (!Number.isInteger(Number(expectedItemCount))
+        || Number(expectedItemCount) < 1
+        || Number(expectedItemCount) !== items.length)) {
+    return { blocks: true, reason: 'mismatched-item-count', validItems: items, unresolvedItems: items };
+  }
   if (!hasStableItemIds(body)) return { blocks: true, reason: 'missing-stable-item-id', validItems: [], unresolvedItems: items };
   const bodyDailyKey = dailyKeyFromBucketBody(body);
   if (!bodyDailyKey) return { blocks: true, reason: 'missing-daily-key', validItems: items, unresolvedItems: items };
@@ -348,7 +360,13 @@ export function dailyBucketCloseGate(body, io, expectedDailyKey = null, expected
 }
 
 /** Mark only token-confirmed daily items as done; never infer completion from prose. */
-export function reconcileDailyItems(body, io, expectedDailyKey = null, expectedTargetRepository = null) {
+export function reconcileDailyItems(
+  body,
+  io,
+  expectedDailyKey = null,
+  expectedTargetRepository = null,
+  expectedItemCount = null,
+) {
   const source = String(body || '');
   if (hasUnterminatedMarkdownFence(source)) {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'unterminated-markdown-fence' };
@@ -356,6 +374,12 @@ export function reconcileDailyItems(body, io, expectedDailyKey = null, expectedT
   const items = parseFollowupItems(source);
   if (!items.length || !hasStableItemIds(source)) {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-stable-item-id' };
+  }
+  if (expectedItemCount !== null
+      && (!Number.isInteger(Number(expectedItemCount))
+        || Number(expectedItemCount) < 1
+        || Number(expectedItemCount) !== items.length)) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-item-count' };
   }
   const bodyDailyKey = dailyKeyFromBucketBody(source);
   if (!bodyDailyKey) {
@@ -460,7 +484,10 @@ function gh(args, { allowFail = false } = {}) {
   try {
     return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
   } catch (e) {
-    if (allowFail) return '';
+    // Empty stdout is a valid result for some read/write commands.  A distinct
+    // sentinel is required by the daily lifecycle: an edit failure must not be
+    // mistaken for a successful empty response and followed by audit/close.
+    if (allowFail) return null;
     throw e;
   }
 }
@@ -595,15 +622,23 @@ function main() {
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
-      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, daily.dailyKey, daily.targetRepository);
+      const itemReconciliation = reconcileDailyItems(
+        iss.body || '',
+        diskIo,
+        daily.dailyKey,
+        daily.targetRepository,
+        daily.itemCount,
+      );
       let reconciledBody = itemReconciliation.body;
       if (itemReconciliation.changed) {
         if (DRY_RUN) {
           console.log(`#${iss.number}: ${itemReconciliation.changes.length} item già provati → dry-run, body non riscritto.`);
         } else {
-          const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs, '--json', 'body'], { allowFail: true }));
-          if (!latest || String(latest.body || '') !== String(iss.body || '')) {
-            console.log(`#${iss.number}: body cambiato/non leggibile durante la riconciliazione → skip, nessun overwrite.`);
+          const latest = parseIssueJson(gh(['issue', 'view', String(iss.number), ...repoArgs, '--json', 'title,body'], { allowFail: true }));
+          if (!latest
+              || String(latest.title || '') !== String(iss.title || '')
+              || String(latest.body || '') !== String(iss.body || '')) {
+            console.log(`#${iss.number}: titolo/body cambiato/non leggibile durante la riconciliazione → skip, nessun overwrite.`);
             continue;
           }
           const bodyFile = writeBodyFile(reconciledBody);
@@ -620,7 +655,13 @@ function main() {
           }
         }
       }
-      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo, daily.dailyKey, daily.targetRepository);
+      const bucketGate = dailyBucketCloseGate(
+        reconciledBody,
+        diskIo,
+        daily.dailyKey,
+        daily.targetRepository,
+        daily.itemCount,
+      );
       if (bucketGate.blocks) {
         console.log(`#${iss.number} daily:${daily.dailyKey}: bucket aperto (${bucketGate.reason}), item non ancora tutti provati.`);
         continue;
@@ -650,7 +691,13 @@ function main() {
       : { blocks: false, reason: null };
     if (isDailyBucketTitle(iss.title || '')) {
       const dailyInfo = dailyBucketInfo(iss.title || '');
-      aggGate = dailyBucketCloseGate(iss.body || '', diskIo, dailyInfo?.dailyKey, dailyInfo?.targetRepository);
+      aggGate = dailyBucketCloseGate(
+        iss.body || '',
+        diskIo,
+        dailyInfo?.dailyKey,
+        dailyInfo?.targetRepository,
+        dailyInfo?.itemCount,
+      );
     }
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
