@@ -2415,9 +2415,23 @@ jobs:
   # da `success` in un fallimento reale: GitHub non può più promuovere
   # `skipped` a check soddisfatto. Non legge il rollup del workflow: usa il
   # risultato diretto del job che pubblica il verdetto applicativo.
+  #
+  # L'`if:` ripete ALLA LETTERA le due esenzioni dell'esecuzione (`edited` e
+  # `labeled` senza `stale-review`). Non è ridondanza: senza, il wrapper
+  # girerebbe su quei due percorsi con `needs.vitest.result == 'skipped'` e
+  # pubblicherebbe `failure` sul nome required. Quel rosso sarebbe l'ultimo run
+  # completato per `latestCompletedVitestConclusion`, quindi bloccherebbe
+  # `auto-merge-eval` gate 3 senza recupero: `vitestFailureIsReviewGate` legge
+  # gli step di `latestCompletedVitestExecutionRun` e non vede il wrapper, e
+  # `stale-pr-rescuer.yml` scarta solo `skipped` e lo leggerebbe come classe C.
+  # Ogni label di routine dei bot (`agent:fix`, `needs-human`, recycle,
+  # redflag-fixer) e ogni edit del body basterebbe a rendere rossa una PR sana
+  # fino al push successivo. Sui due percorsi esenti il wrapper resta quindi
+  # `skipped` — che `latestCompletedRunByName` scarta, lasciando in piedi il
+  # `success` precedente — e il fail-closed vale per gli skip NON previsti.
   vitest-required:
     name: vitest (unit + integration)
-    if: ${{ always() }}
+    if: ${{ always() && github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
     needs: [vitest]
     runs-on: ubuntu-latest
     steps:
@@ -2434,10 +2448,10 @@ jobs:
           echo "Required vitest check satisfied by a successful execution job."
 
   # `edited` deve rivalidare il body ma non deve sostituire una verifica del
-  # codice in corso. Il check è distinto dal nome required: su `edited` il job
-  # `vitest` viene saltato, il wrapper required fallisce esplicitamente e
-  # `PR body contract` rende visibile l'esito del contratto senza poter
-  # diventare un verdetto del codice.
+  # codice in corso. Il check è distinto dal nome required: su `edited` sia il
+  # job `vitest` sia il wrapper required restano `skipped` — il verdetto del
+  # codice precedente resta in piedi — e `PR body contract` rende visibile
+  # l'esito del contratto senza poter diventare un verdetto del codice.
   body-contract:
     name: PR body contract
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}

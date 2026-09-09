@@ -100,6 +100,15 @@ describe('tests.yml: body edit isolation', () => {
     expect(requiredJob?.if).toContain('always()');
     expect(requiredJob?.needs).toEqual(['vitest']);
 
+    // Il wrapper deve saltare esattamente dove salta l'esecuzione: altrimenti
+    // su `edited` e sulle label di routine pubblica `failure` sul nome
+    // required e blocca l'auto-merge di una PR sana fino al push successivo.
+    expect(runsForAction(requiredJob?.if, 'edited')).toBe(false);
+    expect(runsForAction(requiredJob?.if, 'synchronize')).toBe(true);
+    expect(requiredJob?.if).toMatch(
+      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
+    );
+
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
     const skippedReviewGuard = codeJob?.steps?.find(
       (step) => step.name === 'Fail when required review gate is skipped',
