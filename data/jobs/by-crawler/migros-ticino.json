@@ -17416,6 +17416,8 @@
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "previousSlugsByLocale": {
         "it": [
           "istruttore-di-fitness-f-m-d-activ-fitness-zofingen-94e4f2",
@@ -17426,9 +17428,7 @@
         "istruttore-di-fitness-f-m-d-activ-fitness-zofingen-94e4f2",
         "fitness-instructor-m-w-d-activ-fitness-zofingen"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000
+      "needsRetranslation": true
     },
     {
       "id": "company-8b1a40",
@@ -19411,9 +19411,9 @@
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 94500,
-      "salaryMax": 143000
+      "salaryMax": 143000,
+      "needsRetranslation": true
     },
     {
       "id": "company-wbhqqc",
@@ -26748,8 +26748,7 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-migros-restaurant-stafa",
-          "cuoco-cuoca-migros-restaurant-stafa",
-          "cuoco-a-migros-restaurant-stafa"
+          "cuoco-cuoca-migros-restaurant-stafa"
         ],
         "fr": [
           "koch-kochin-migros-restaurant-stafa-cd2cys"
@@ -26763,9 +26762,9 @@
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3523,
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-epjky5",
@@ -45772,9 +45771,9 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-h8nqm2",
@@ -48304,9 +48303,9 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1xo1zx",
@@ -55763,9 +55762,9 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-90qrga",
@@ -59458,7 +59457,7 @@
       },
       "slugByLocale": {
         "it": "istruttore-di-fitness-di-gruppo-m-f-d-geneve-maunoir-rodano-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ",
-        "en": "group-fitness-instructor-m-w-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf-xuo6x1",
+        "en": "group-fitness-instructor-f-m-d-geneva-activ-fitness-genf",
         "de": "gruppe-fitness-instructor-e-h-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf-xuo6x1",
         "fr": "group-fitness-instructor-m-w-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf-xuo6x1"
       },
@@ -59481,6 +59480,9 @@
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-m-w-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf",
+          "group-fitness-instructor-m-w-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf-xuo6x1"
+        ],
+        "en": [
           "group-fitness-instructor-m-w-d-geneve-maunoir-rhone-charmilles-plan-les-ouates-eaux-vives-pont-rouge-activ-fitness-genf-xuo6x1"
         ]
       },
@@ -64569,9 +64571,9 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gasi2",
@@ -66275,8 +66277,7 @@
           "kuchenchef-in-genossenschaft-migros-zurich-aganso",
           "kuchenchef-in-genossenschaft-migros-zurich",
           "fachleiter-in-metzgerei-genossenschaft-migros-zurich",
-          "specialist-manager-in-butchery-genossenschaft-migros-zurich",
-          "chefmetzger-in-genossenschaft-migros-zurich"
+          "specialist-manager-in-butchery-genossenschaft-migros-zurich"
         ],
         "en": [
           "head-of-butchery-genossenschaft-migros-zurich-zurich"
@@ -68700,9 +68701,9 @@
         "fitness-instructor-m-w-d-activ-fitness-aarau"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-rhd880",
@@ -70518,9 +70519,9 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-2ndjc9",
@@ -78644,9 +78645,9 @@
       },
       "slugByLocale": {
         "it": "autista-autista-ce-genossenschaft-migros-zurich-zurich",
-        "en": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
+        "en": "driver-ce-genossenschaft-migros-zurich-zurich",
         "de": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l",
-        "fr": "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
+        "fr": "chauffeur-ce-genossenschaft-migros-zurich-zurich"
       },
       "requirementsByLocale": {
         "it": [],
@@ -78667,6 +78668,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich",
+          "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
+        ],
+        "en": [
+          "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
+        ],
+        "fr": [
           "chauffeur-chauffeurin-ce-genossenschaft-migros-zurich-g17p7l"
         ]
       },
@@ -78912,9 +78919,9 @@
         "fitness-instructor-m-w-d-activ-fitness-kloten"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-to9qs",
@@ -87199,9 +87206,9 @@
       "postalCode": "9000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-p0sfii",

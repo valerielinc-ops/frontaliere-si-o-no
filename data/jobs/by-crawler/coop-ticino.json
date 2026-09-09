@@ -10356,7 +10356,7 @@
     },
     {
       "id": "company-kc3u9c",
-      "slug": "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c",
+      "slug": "capo-del-settore-non-alimentare-coop-genossenschaft-burgdorf-bern",
       "company": "Coop Genossenschaft",
       "title": "Stv. Rayonleiter:in Non Food",
       "location": "Burgdorf, Bern",
@@ -10404,8 +10404,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c",
-        "en": "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c",
+        "it": "capo-del-settore-non-alimentare-coop-genossenschaft-burgdorf-bern",
+        "en": "head-of-the-sector-for-non-food-coop-genossenschaft-burgdorf-bern",
         "de": "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c",
         "fr": "stv-rayonleiter-en-non-alimentation-coop-burgdorf-bern-kc3u9c"
       },
@@ -10428,10 +10428,14 @@
         "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "stv-rayonleiter-in-non-food-coop-burgdorf-bern"
-        ],
         "fr": [
+          "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c"
+        ],
+        "it": [
+          "stv-rayonleiter-in-non-food-coop-burgdorf-bern",
+          "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c"
+        ],
+        "en": [
           "stv-rayonleiter-in-non-food-coop-burgdorf-bern-kc3u9c"
         ]
       },
@@ -11052,7 +11056,7 @@
     },
     {
       "id": "company-5qxqix",
-      "slug": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix",
+      "slug": "responsabile-di-reparto-casse-servizi-f-h-d-coop-genossenschaft-crissier-vaud",
       "company": "Coop Genossenschaft",
       "title": "Cheffe / Chef de rayon Caisse/Services (f/h/d)",
       "location": "Crissier, Vaud",
@@ -11100,7 +11104,7 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix",
+        "it": "responsabile-di-reparto-casse-servizi-f-h-d-coop-genossenschaft-crissier-vaud",
         "en": "head-head-of-department-caisse-services-m-f-d-coop-genossenschaft-crissier",
         "de": "leiter-abteilungsleiter-caisse-services-m-w-d-coop-genossenschaft-crissier",
         "fr": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix"
@@ -11121,13 +11125,14 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud"
-        ],
         "en": [
           "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix"
         ],
         "de": [
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix"
+        ],
+        "it": [
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud",
           "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-5qxqix"
         ]
       },
@@ -19395,7 +19400,7 @@
     },
     {
       "id": "company-i41pb9",
-      "slug": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9",
+      "slug": "macellaio-macellaio-macellaio-carminatore-macellaio-macellaio-m-f-d-coop-genossenschaft-la-tour-de-peilz-vaud",
       "company": "Coop Genossenschaft",
       "title": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
       "location": "La Tour-de-Peilz, Vaud",
@@ -19441,8 +19446,8 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9",
-        "en": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9",
+        "it": "macellaio-macellaio-macellaio-carminatore-macellaio-macellaio-m-f-d-coop-genossenschaft-la-tour-de-peilz-vaud",
+        "en": "butcher-butcher-charcutier-charcutier-m-f-d-coop-genossenschaft-la-tour-de-peilz-vaud",
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
       },
@@ -19462,11 +19467,16 @@
         }
       },
       "previousSlugs": [
-        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud"
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud",
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud"
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud",
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
+        ],
+        "en": [
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
         ]
       },
       "salaryMin": 60500,
@@ -21070,9 +21080,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "panettiera-pasticciera-confettiera-panettiere-pasticciere-confettiere-afc-coop-castione-w5jh6e",
-        "en": "panettiera-pasticciera-confettiera-panettiere-pasticciere-confettiere-afc-coop-castione-w5jh6e",
-        "de": "panettiera-pasticciera-confettiera-panettiere-pasticciere-confettiere-afc-coop-castione-w5jh6e",
-        "fr": "panettiera-pasticciera-confettiera-panettiere-pasticciere-confettiere-afc-coop-castione-w5jh6e"
+        "en": "baker-pastry-chef-confectioner-afc-coop-castione",
+        "de": "backerin-konditorin-confiseurin-backer-konditor-confiseur-afc-coop-castione",
+        "fr": "boulangere-patissiere-confiseuse-boulanger-patissier-confiseur-cfc-coop-castione"
       },
       "addressLocality": "Castione",
       "addressRegion": "TI",
@@ -24010,9 +24020,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "panettiera-panettiere-pasticciera-pasticciere-m-w-d-coop-tenero-ticino-wm1wv1",
-        "en": "panettiera-panettiere-pasticciera-pasticciere-m-w-d-coop-tenero-ticino-wm1wv1",
+        "en": "baker-pastry-chef-f-m-d-coop-genossenschaft-tenero-ticino",
         "de": "panettiera-panettiere-pasticciera-pasticciere-m-w-d-coop-tenero-ticino-wm1wv1",
-        "fr": "panettiera-panettiere-pasticciera-pasticciere-m-w-d-coop-tenero-ticino-wm1wv1"
+        "fr": "boulanger-ere-patissier-ere-h-f-d-coop-genossenschaft-tenero-ticino"
       },
       "addressLocality": "Tenero",
       "addressRegion": "TI",
@@ -28216,7 +28226,7 @@
     },
     {
       "id": "company-rqmzio",
-      "slug": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio",
+      "slug": "macellaio-a-addetto-a-alla-salumeria-f-h-d-coop-genossenschaft-montagny-pres-yverdon-vaud",
       "company": "Coop Genossenschaft",
       "title": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
       "location": "Montagny-près-Yverdon, Vaud",
@@ -28262,8 +28272,8 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio",
-        "en": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio",
+        "it": "macellaio-a-addetto-a-alla-salumeria-f-h-d-coop-genossenschaft-montagny-pres-yverdon-vaud",
+        "en": "butcher-butchery-clerk-f-h-d-coop-genossenschaft-montagny-pres-yverdon-vaud",
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
       },
@@ -28283,11 +28293,16 @@
         }
       },
       "previousSlugs": [
-        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud"
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud",
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud"
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud",
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
+        ],
+        "en": [
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
         ]
       },
       "salaryMin": 60500,
@@ -29873,7 +29888,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "aspirant-in-stv-management-regione-di-basilea-land-coop-genossenschaft-basel-land",
-        "en": "aspirant-in-stv-geschaftsfuhrung-region-basel-land-coop-basel-land-basel-landschaft-cxplq7",
+        "en": "aspiring-deputy-manager-basel-land-region-coop-genossenschaft-basel-land-basel-landschaft",
         "de": "aspirant-in-stv-geschaftsfuhrung-region-basel-land-coop-basel-land-basel-landschaft-cxplq7",
         "fr": "aspirant-dans-stv-management-region-de-bale-land-coop-genossenschaft-basel-land"
       },
@@ -29898,6 +29913,9 @@
           "aspirant-in-stv-geschaftsfuhrung-region-basel-land-coop-basel-land-basel-landschaft"
         ],
         "fr": [
+          "aspirant-in-stv-geschaftsfuhrung-region-basel-land-coop-basel-land-basel-landschaft-cxplq7"
+        ],
+        "en": [
           "aspirant-in-stv-geschaftsfuhrung-region-basel-land-coop-basel-land-basel-landschaft-cxplq7"
         ]
       },
