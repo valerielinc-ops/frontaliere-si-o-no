@@ -348,7 +348,7 @@ function normalizeEventRow(source) {
   const clicksValue = field(source, 'clicks', 14);
   return {
     eventKey: normalizeText(read(['eventKey', 'event_key', '$insert_id', 'insert_id', 'eventId', 'uuid'], 0)),
-    emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 13)),
+    emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
     timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
@@ -380,7 +380,33 @@ function eventSignature(row) {
     itemId: row.itemId,
     contentType: row.contentType,
     emissionId: row.emissionId,
+    observed: row.observed,
+    persons: row.persons,
+    sessions: row.sessions,
+    views: row.views,
+    clicks: row.clicks,
   });
+}
+
+function technicalDuplicateIdentityRank(row) {
+  return [
+    row.jobId ? 1 : 0,
+    row.providerId ? 1 : 0,
+    row.jobSlug ? 1 : 0,
+    row.employerKey ? 1 : 0,
+    row.event === 'job_apply' ? 1 : 0,
+  ];
+}
+
+function compareTechnicalDuplicateRows(candidate, current) {
+  const candidateRank = technicalDuplicateIdentityRank(candidate);
+  const currentRank = technicalDuplicateIdentityRank(current);
+  for (let index = 0; index < candidateRank.length; index += 1) {
+    if (candidateRank[index] !== currentRank[index]) return candidateRank[index] - currentRank[index];
+  }
+  const candidateSignature = eventSignature(candidate);
+  const currentSignature = eventSignature(current);
+  return candidateSignature < currentSignature ? -1 : candidateSignature > currentSignature ? 1 : 0;
 }
 
 /**
@@ -391,7 +417,7 @@ function eventSignature(row) {
  */
 export function collapseTechnicalDuplicates(inputRows = []) {
   const rows = inputRows.map(normalizeEventRow);
-  const seen = new Set();
+  const keptByKey = new Map();
   const kept = [];
   let rawObserved = 0;
   let observed = 0;
@@ -409,15 +435,24 @@ export function collapseTechnicalDuplicates(inputRows = []) {
       observed += count;
       continue;
     }
-    if (!seen.has(dedupKey)) {
-      seen.add(dedupKey);
-      const retained = count > 0 ? 1 : 0;
-      kept.push({ ...row, observed: retained });
+    const retained = count > 0 ? 1 : 0;
+    const candidate = { ...row, observed: retained };
+    const existing = keptByKey.get(dedupKey);
+    if (!existing) {
+      const entry = { row: candidate, index: kept.length };
+      keptByKey.set(dedupKey, entry);
+      kept.push(candidate);
       observed += retained;
       removed += Math.max(0, count - retained);
       continue;
     }
+
     removed += count;
+    if (compareTechnicalDuplicateRows(candidate, existing.row) > 0) {
+      kept[existing.index] = candidate;
+      observed += retained - existing.row.observed;
+      existing.row = candidate;
+    }
   }
   return { rows: kept, rawObserved, observed, removed };
 }
@@ -945,12 +980,51 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
-function eventSelect(window) {
+const EVENT_KEY_EXPRESSION = "coalesce(toString(properties.$insert_id), toString(properties.$event_id), toString(uuid), '')";
+const EVENT_CURSOR_TIMESTAMP_INDEX = 16;
+
+function hogqlString(value) {
+  return "'" + String(value).replaceAll('\\', '\\\\').replaceAll("'", "\\'") + "'";
+}
+
+function hogqlTimestamp(value) {
+  const raw = String(value ?? '')
+    .trim()
+    .replace('T', ' ')
+    .replace(/(?:Z|[+-]\d\d:\d\d)$/, '');
+  const [whole, fraction = ''] = raw.split('.', 2);
+  return whole + '.' + fraction.slice(0, 6).padEnd(6, '0');
+}
+
+function eventCursorFromRow(row) {
+  const timestamp = Array.isArray(row)
+    ? row[EVENT_CURSOR_TIMESTAMP_INDEX]
+    : row?.cursorTimestamp ?? row?.cursor_timestamp ?? row?.timestamp;
+  const eventKey = Array.isArray(row)
+    ? row[0]
+    : row?.eventKey ?? row?.event_key;
+  if (timestamp == null || timestamp === '' || eventKey == null) return null;
+  return { timestamp: String(timestamp), eventKey: String(eventKey) };
+}
+
+function eventCursorSortKey(cursor) {
+  return hogqlTimestamp(cursor.timestamp) + '\u0000' + cursor.eventKey;
+}
+
+function eventSelect(window, cursor = null) {
   const from = hogqlDate(window.from);
   const to = hogqlDate(window.to);
+  const cursorTimestamp = cursor
+    ? 'toDateTime64(' + hogqlString(hogqlTimestamp(cursor.timestamp)) + ', 6)'
+    : null;
+  const cursorFilter = cursor
+    ? '\n      AND (\n        timestamp > ' + cursorTimestamp
+      + '\n        OR (timestamp = ' + cursorTimestamp
+      + ' AND ' + EVENT_KEY_EXPRESSION + ' > ' + hogqlString(cursor.eventKey) + ')\n      )'
+    : '';
   return `
     SELECT
-      coalesce(toString(properties.$insert_id), toString(properties.$event_id), toString(uuid), '') AS event_key,
+      ${EVENT_KEY_EXPRESSION} AS event_key,
       event,
       toString(toStartOfWeek(timestamp)) AS week,
       properties.$pathname AS path,
@@ -963,12 +1037,15 @@ function eventSelect(window) {
       count() AS observed,
       count(DISTINCT person_id) AS persons,
       count(DISTINCT properties.$session_id) AS sessions,
-      coalesce(toString(properties.emission_id), '') AS emission_id
+      countIf(event IN ('$pageview', 'pageview')) AS views,
+      countIf(event = 'job_apply' OR (event = 'select_content' AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title'))) AS clicks,
+      coalesce(toString(properties.emission_id), '') AS emission_id,
+      toString(timestamp) AS cursor_timestamp
     FROM events
-    WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')
+    WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
     GROUP BY event_key, event, week, path, job_slug, job_id, provider_id,
-             employer_key, item_id, content_type, emission_id
-    ORDER BY week, event_key
+             employer_key, item_id, content_type, emission_id, timestamp
+    ORDER BY cursor_timestamp, event_key
   `.trim();
 }
 
@@ -981,37 +1058,45 @@ function eventCountSelect(window) {
   `.trim();
 }
 
-async function queryEventRows(window) {
+export async function queryEventRows(window, { query: runQuery = hogql, pageSize = EVENT_QUERY_PAGE_SIZE } = {}) {
   const baseQuery = eventSelect(window);
   const queryHash = sha256(baseQuery);
   const [countRows, sourceCountRows] = await Promise.all([
-    hogql(`SELECT count() AS total FROM (${baseQuery})`),
-    hogql(eventCountSelect(window)),
+    runQuery('SELECT count() AS total FROM (' + baseQuery + ')'),
+    runQuery(eventCountSelect(window)),
   ]);
   const groupedRowsBeforeCut = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total, 0)));
   const sourceObserved = Math.max(0, Math.trunc(numberOr(sourceCountRows?.[0]?.[0] ?? sourceCountRows?.[0]?.total, 0)));
   const rows = [];
-  let page = 0;
-  for (let offset = 0; offset < groupedRowsBeforeCut || (groupedRowsBeforeCut === 0 && page === 0); offset += EVENT_QUERY_PAGE_SIZE) {
-    const pageRows = await hogql(`${baseQuery} LIMIT ${EVENT_QUERY_PAGE_SIZE} OFFSET ${offset}`);
+  let pages = 0;
+  let cursor = null;
+  while (true) {
+    const pageRows = await runQuery(eventSelect(window, cursor) + ' LIMIT ' + pageSize);
     rows.push(...pageRows);
-    page += 1;
-    if (pageRows.length < EVENT_QUERY_PAGE_SIZE) break;
-    if (page > Math.ceil(Math.max(groupedRowsBeforeCut, 1) / EVENT_QUERY_PAGE_SIZE) + 1) break;
+    pages += 1;
+    if (!pageRows.length) break;
+    const nextCursor = eventCursorFromRow(pageRows.at(-1));
+    if (!nextCursor) throw new Error('posthog page missing keyset cursor');
+    if (cursor && eventCursorSortKey(nextCursor) <= eventCursorSortKey(cursor)) {
+      throw new Error('posthog keyset cursor did not advance');
+    }
+    cursor = nextCursor;
+    if (groupedRowsBeforeCut > 0 && rows.length >= groupedRowsBeforeCut) break;
+    if (groupedRowsBeforeCut === 0 && pageRows.length < pageSize) break;
   }
   const truncated = rows.length < groupedRowsBeforeCut;
   const returnedObserved = rows.reduce((sum, row) => sum + Math.max(0, numberOr(Array.isArray(row) ? row[10] : row.observed, 1)), 0);
   return {
     rows,
     coverage: {
-      pageSize: EVENT_QUERY_PAGE_SIZE,
+      pageSize,
       totalRows: groupedRowsBeforeCut,
       groupRowsBeforeCut: groupedRowsBeforeCut,
       totalBeforeCut: sourceObserved,
       rowsReturned: rows.length,
       returned: returnedObserved,
       returnedRows: rows.length,
-      pages: page,
+      pages,
       truncated,
       queryHash,
       snapshotId: sha256(`${queryHash}:${window.from}:${window.to}`),
