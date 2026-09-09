@@ -7001,7 +7001,7 @@ export async function callLLM(messages, opts = {}) {
       }
 
       if (i > 0) {
-        console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
+        console.warn(`✅ Fallback to ${servedModel} succeeded (score → ${_modelScores.get(servedModel) || 0})`);
       }
       // Surface the model used to the caller (out-param) so downstream
       // validation can penalize this specific model if the payload turns
