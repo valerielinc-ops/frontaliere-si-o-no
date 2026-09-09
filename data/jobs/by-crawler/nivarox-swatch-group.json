@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nivarox-swatch-group",
-  "assembledAt": "2026-09-08T23:31:07.815Z",
+  "assembledAt": "2026-09-09T13:54:39.212Z",
   "jobs": [
     {
       "id": "company-7ubj4j",
@@ -74,7 +74,7 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage Praticien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "company-7ubj4i",
@@ -148,7 +148,8 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "company-7ubj4h",
@@ -224,7 +225,8 @@
       "addressLocality": "0200 Français Rechercher Rechercher Apprentissage mécanicien",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }
