@@ -18622,6 +18622,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'zimmer-biomet-svizzera-unia',
+    category: 'novita',
+    date: '2026-09-09T17:53:18.608Z',
+    image: '/images/blog/zimmer-biomet-svizzera-unia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
