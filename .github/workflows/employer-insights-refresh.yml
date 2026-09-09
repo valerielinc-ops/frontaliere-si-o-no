@@ -1,12 +1,12 @@
 name: Refresh Employer Insights
 
 # GA4 is the source of truth for employer metrics.
-# The schedule is intentionally disabled until the builder has a complete GA4
-# employer-identity feed; manual dispatch remains available for controlled
-# source-specific runs.
+# The periodic trigger is intentionally disabled until the builder has a
+# complete GA4 employer-identity feed; manual dispatch remains available for
+# controlled source-specific runs.
 on:
-  # schedule:
-  #   - cron: '15 5 * * *' # DISABLED: enable when the builder source is GA4.
+  # Disabled periodic trigger; restore the `schedule` key under `on` when the
+  # builder source is GA4: `15 5 * * *`.
   workflow_dispatch:
     inputs:
       source:
