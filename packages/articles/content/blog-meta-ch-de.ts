@@ -6241,6 +6241,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-san-gallo-riduzione.title': 'Krankenkassenprämien St. Gallen: Reduktion und Modelle',
     'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'Obligatorisches KVG in der Schweiz: Franchisen CHF 300–2500, alternative Modelle und kantonales Beitragsverfahren. So beantragen Sie die Kürzung und Fristen.',
     'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Person mit LAMal Versicherungsdokumenten und Prämiareduktionsformular, Schweizer Verwaltungsbüro',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Bundesrat reorganisiert ausserparlamentarische Kommissionen',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Der Bundesrat verabschiedet die Botschaft zur Reorganisation der ausserparlamentarischen Kommissionen: 3 aufgelöst, 7 fusioniert in 2 Strukturen; Einsparungen ab 2028 ~100 \'000 CHF jährlich.',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Sitzungssaal der Schweizer Bundesverwaltung mit offiziellen Dokumenten',
 };
 
 export default blogMetaChDe;

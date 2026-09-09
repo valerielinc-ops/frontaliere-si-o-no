@@ -6241,6 +6241,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-san-gallo-riduzione.title': 'St Gallen sick pay premiums: reduction and models',
     'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'Mandatory LAMal in Switzerland: CHF 300–2500 deductibles, alternative models and cantonal procedure for the subsidy. How to request the reduction and deadlines.',
     'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Person reviewing LAMal mandatory health insurance documents and premium reduction application, Swiss administrative office',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Federal Council reorganises extra-parliamentary committees',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'The Federal Council adopts the message on the reorganization of extra-parliamentary committees: 3 dissolved, 7 merged into 2 structures; savings ~ CHF 100,000 per year from 2028.',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Swiss federal government meeting room with official documents and Swiss flag',
 };
 
 export default blogMetaChEn;
