@@ -1,4 +1,16 @@
-import { domainToASCII } from 'node:url';
+/**
+ * Punycode a host with the platform URL parser. This module is imported by
+ * both Node-side crawlers and the browser build through jobDataNormalization;
+ * `node:url` cannot be bundled for the latter because Vite externalizes it
+ * without exporting `domainToASCII`.
+ */
+function domainToASCII(rawHost) {
+  try {
+    return new URL(`https://${rawHost}`).hostname;
+  } catch {
+    return '';
+  }
+}
 
 /**
  * Canonical ASCII form of a host — the ONE spelling every host comparison in
