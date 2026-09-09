@@ -5,6 +5,11 @@
  * without exporting `domainToASCII`.
  */
 function domainToASCII(rawHost) {
+  // `new URL()` accepts an authority prefix and silently treats the rest as
+  // userinfo, a port, or a path. `node:url`'s domainToASCII() rejects those
+  // raw host identities, and canonicalJobHost() relies on that rejection to
+  // avoid turning a different identity into a trusted hostname.
+  if (/[/?#@:\s]/.test(rawHost)) return '';
   try {
     return new URL(`https://${rawHost}`).hostname;
   } catch {

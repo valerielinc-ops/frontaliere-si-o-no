@@ -18,7 +18,7 @@ const jobUrlHostSource = readFileSync(resolve(__dirname, '../scripts/lib/job-url
 
 describe('job-url-host browser boundary', () => {
   it('does not import the Node-only URL module', () => {
-    expect(jobUrlHostSource).not.toMatch(/from ['"]node:url['"]/);
+    expect(jobUrlHostSource).not.toMatch(/['"]node:url['"]/);
   });
 });
 
@@ -178,6 +178,12 @@ describe('canonicalJobHost', () => {
     expect(canonicalJobHost('münchen-jobs.ch')).toBe('xn--mnchen-jobs-thb.ch');
     expect(canonicalJobHost('xn--mnchen-jobs-thb.ch')).toBe('xn--mnchen-jobs-thb.ch');
     expect(canonicalJobHost('MÜNCHEN-jobs.CH.')).toBe('xn--mnchen-jobs-thb.ch');
+  });
+
+  it('does not truncate a raw host identity into a trusted hostname', () => {
+    expect(canonicalJobHost('evil.com/med-ipersonal.ch')).toBe('evil.com/med-ipersonal.ch');
+    expect(canonicalJobHost('x@med-ipersonal.ch')).toBe('x@med-ipersonal.ch');
+    expect(canonicalJobHost('med-ipersonal.ch:8080')).toBe('med-ipersonal.ch:8080');
   });
 
   it('keeps the raw spelling when the host cannot be mapped', () => {
