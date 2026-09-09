@@ -6175,6 +6175,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.internet-banda-larga-svizzera.title': 'Internet veloce in tutta la Svizzera: piano federale',
     'blog.article.internet-banda-larga-svizzera.excerpt': 'Consiglio federale adotta programma da 730 milioni CHF per banda larga nelle zone poco popolate. Obiettivo: 1 Gb/s entro il 2030.',
     'blog.article.internet-banda-larga-svizzera.imageAlt': 'Villaggio alpino svizzero con infrastrutture digitali: fibra ottica in zone rurali',
+    'blog.article.giornata-informativa-esercito-donne.title': 'Giornata informativa obbligatoria per le donne svizzere',
+    'blog.article.giornata-informativa-esercito-donne.excerpt': 'Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull\'esercito e la protezione civile. Votazione popolare nel 2028, implementazione inizio 2030.',
+    'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Palazzo istituzionale svizzero con bandiera nazionale, simbolo dell\'amministrazione federale e delle decisioni politiche del Consiglio federale',
 };
 
 export default blogMetaChIt;

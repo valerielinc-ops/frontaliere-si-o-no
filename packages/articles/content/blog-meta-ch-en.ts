@@ -6175,6 +6175,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.internet-banda-larga-svizzera.title': 'Fast internet throughout Switzerland: federal plan',
     'blog.article.internet-banda-larga-svizzera.excerpt': 'Federal Council adopts CHF 730 million programme for broadband in sparsely populated areas. Target: 1 Gb/s by 2030.',
     'blog.article.internet-banda-larga-svizzera.imageAlt': 'Swiss Alpine village with modern fiber optic infrastructure in rural mountains',
+    'blog.article.giornata-informativa-esercito-donne.title': 'Compulsory Information Day for Swiss Women',
+    'blog.article.giornata-informativa-esercito-donne.excerpt': 'The Federal Council approves the message for a mandatory information day on the army and civil protection. Popular vote in 2028, implementation early 2030.',
+    'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Swiss institutional government building with national flag, representing federal administration and policy decisions',
 };
 
 export default blogMetaChEn;
