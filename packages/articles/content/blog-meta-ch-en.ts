@@ -6145,6 +6145,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestle monitors consumer AI searches',
     'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'The Swiss group monitors how language models access its sites and analyzes consumer questions about AI to tailor marketing.',
     'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Nestlé headquarters in Vevey: Swiss company monitors AI access to its websites',
+    'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Bern and USA: no fixed price agreed',
+    'blog.article.f35-caccia-commissione-amherd.excerpt': 'Report of the Supervisory Commission denies Amherd: there was no agreement on a fixed price with the US. Additional credit of CHF 394 million and reduction to 30 fighters.',
+    'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Swiss Federal Parliament in Bern, symbol of administrative oversight on defense projects',
 };
 
 export default blogMetaChEn;
