@@ -6217,6 +6217,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Caisses de pension suisses : +0,7% en août',
     'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Actions étrangères en hausse (+14%) : UBS analyse le rendement du mois d\'août. Fonds de prévoyance vers 3,3 % par an en moyenne depuis 2006.',
     'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Paysage de Lugano avec bâtiments financiers et lac en Suisse',
+    'blog.article.assegni-familiari-svitto-richiesta.title': 'Allocations familiales à Schwyz : comment les demander',
+    'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Dans le canton de Schwyz, les allocations familiales sont une contribution publique pour les parents avec enfants. Découvrez qui a le droit, comment postuler et quels documents sont nécessaires.',
+    'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Famille suisse examinant les documents des allocations familiales auprès d\'un bureau cantonal',
 };
 
 export default blogMetaChFr;

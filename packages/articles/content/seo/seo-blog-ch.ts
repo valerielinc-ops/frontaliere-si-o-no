@@ -80711,6 +80711,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-assegni-familiari-svitto-richiesta': {
+    title: 'Assegni familiari in Svitto: come richiederli | Frontaliere Ticino',
+    description: 'Come richiedere gli assegni familiari nel Canton Svitto: condizioni di diritto, procedure di domanda, documentazione necessaria e contatti della cassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, svitto, richiederli',
+    ogTitle: 'Assegni familiari in Svitto: come richiederli',
+    ogDescription: 'Nel Cantone di Svitto gli assegni familiari sono un contributo pubblico per genitori con figli. Scopri chi ha diritto, come fare domanda, quali documenti servono e dove contactare la cassa di compensazione locale.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-svitto-richiesta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari in Svitto: come richiederli",
+      "description": "Come richiedere gli assegni familiari nel Canton Svitto: condizioni di diritto, procedure di domanda, documentazione necessaria e contatti della cassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-svitto-richiesta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che esamina documenti degli assegni familiari presso uno sportello amministrativo cantonale"
+      },
+      "datePublished": "2026-09-09T19:02:56+00:00",
+      "dateModified": "2026-09-09T19:02:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-svitto-richiesta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

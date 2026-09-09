@@ -18649,6 +18649,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'assegni-familiari-svitto-richiesta',
+    category: 'pratico',
+    date: '2026-09-09T19:02:56.700Z',
+    image: '/images/blog/assegni-familiari-svitto-richiesta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

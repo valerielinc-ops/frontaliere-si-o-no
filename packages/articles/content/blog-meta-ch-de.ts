@@ -6217,6 +6217,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Schweizer Pensionskassen: +0,7% im August',
     'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Ausländische Aktien im Aufwind (+14%): UBS analysiert die August-Rendite. Vorsorgefonds in Richtung der durchschnittlichen jährlichen 3,3% seit 2006.',
     'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Lugano Skyline mit Finanzgebäuden und Seen in der Schweiz',
+    'blog.article.assegni-familiari-svitto-richiesta.title': 'Familienzulagen in Schwyz: So beantragen Sie sie',
+    'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Im Kanton Schwyz ist die Familienzulage ein öffentlicher Beitrag für Eltern mit Kindern. Finden Sie heraus, wer berechtigt ist, wie Sie sich bewerben und welche Dokumente Sie benötigen.',
+    'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Schweizer Familie, die Unterlagen zu Familienausgleichen bei einer kantonalen Behörde einsieht',
 };
 
 export default blogMetaChDe;

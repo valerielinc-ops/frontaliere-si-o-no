@@ -2098,6 +2098,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zimmer-biomet-svizzera-unia': { it: 'zimmer-biomet-svizzera-unia', en: 'zimmer-biomet-switzerland-unia', de: 'zimmer-biomet-schweiz-unia', fr: 'zimmer-biomet-suisse-unia' },
  'banda-larga-consiglio-federale': { it: 'banda-larga-consiglio-federale', en: 'broadband-expansion-2030-2037', de: 'breitband-bundesrat-programm', fr: 'haut-debit-conseil-federal-2030' },
  'previdenza-agosto-rendimenti-positivi': { it: 'previdenza-agosto-rendimenti-positivi', en: 'pension-august-positive-returns', de: 'altersvorsorge-august-positive-renditen', fr: 'retraite-aout-rendements-positifs' },
+ 'assegni-familiari-svitto-richiesta': { it: 'assegni-familiari-svitto-richiesta', en: 'family-allowances-canton-schwyz-how-to-apply', de: 'familienausgleiche-kanton-schwyz-antrag', fr: 'allocations-familiales-canton-schwyz-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
