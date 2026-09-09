@@ -1834,8 +1834,13 @@ function readSalaryRangeFromUrl(): { min: number | null; max: number | null } {
  }
 }
 
-/** Update URL query params without pushing to history (avoids bloating back stack). */
-function syncQueryParamsToUrl(updates: Record<string, string | null>) {
+/** Update URL query params, optionally creating a navigable search entry. */
+type QueryHistoryMode = 'replace' | 'push';
+
+function syncQueryParamsToUrl(
+ updates: Record<string, string | null>,
+ mode: QueryHistoryMode = 'replace',
+) {
  if (typeof window === 'undefined') return;
  try {
  const params = new URLSearchParams(window.location.search || '');
@@ -1846,7 +1851,8 @@ function syncQueryParamsToUrl(updates: Record<string, string | null>) {
  const qs = params.toString();
  const newUrl = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
  if (newUrl !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
- window.history.replaceState(window.history.state, '', newUrl);
+ if (mode === 'push') window.history.pushState(window.history.state, '', newUrl);
+ else window.history.replaceState(window.history.state, '', newUrl);
  }
  } catch { /* non-critical */ }
 }
@@ -2664,7 +2670,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const isDesktopXl = useMediaQuery('(min-width: 1280px)'); // xl breakpoint
 
  // --- List state preservation across detail navigation ---
- const savedListState = useRef<{ page: number; scrollY: number } | null>(null);
+ const savedListState = useRef<{ page: number; scrollY: number; query: string } | null>(null);
  const skipPageReset = useRef(false);
  const prevSlugRef = useRef(initialJobSlug);
 
@@ -2673,9 +2679,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const shouldRestore = shouldRestoreJobBoardListState(prevSlugRef.current, initialJobSlug);
  prevSlugRef.current = initialJobSlug;
  if (shouldRestore && savedListState.current) {
- const { page: savedPage, scrollY } = savedListState.current;
+ const { page: savedPage, scrollY, query } = savedListState.current;
  skipPageReset.current = true;
  setPage(savedPage);
+ applySearchQuery(query);
+ syncQueryParamsToUrl({ q: query || null });
  savedListState.current = null;
  requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' }));
  }
@@ -5038,12 +5046,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {
  if (!deferredSearchQuery.trim()) {
- syncQueryParamsToUrl({ q: null });
+ syncQueryParamsToUrl({ q: null }, 'push');
  return;
  }
  // Only sync if query didn't come from a slug route (avoid overwriting /ricerca-X URLs)
  if (!searchSlugFilter) {
- syncQueryParamsToUrl({ q: deferredSearchQuery.trim() });
+ syncQueryParamsToUrl({ q: deferredSearchQuery.trim() }, 'push');
  }
  Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
  }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
@@ -5281,7 +5289,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
  },
  },
- directApply: Boolean(job.url),
+ directApply: Boolean(job.applyUrl || job.url),
  url: canonicalUrl,
  };
  if (isRemote) {
@@ -5861,7 +5869,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Always navigate to the detail page — the inline auth gate handles
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
- savedListState.current = { page, scrollY: window.scrollY };
+ savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
@@ -6296,8 +6304,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
  trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
- if (job.url) {
- window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
+ const applyDestination = job.applyUrl || job.url;
+ if (applyDestination) {
+ window.open(buildReferralUrl(applyDestination, job), '_blank', 'noopener,noreferrer');
  // Mutate the page in the same tick as the hand-off — the confirmation is the
  // user-visible receipt AND the DOM change that makes this click non-dead.
  setAppliedJobId(job.id);

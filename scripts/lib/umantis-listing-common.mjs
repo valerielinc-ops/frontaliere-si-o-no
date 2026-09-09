@@ -275,8 +275,8 @@ function parseSwissDate(raw = '') {
 /**
  * Extract rich description content from an Umantis detail page.
  *
- * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li class="customdatablock"
- * id="customdatablock_NNNN">…</li>` pairs:
+ * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li>` or `<p
+ * class="customdatablock" id="customdatablock_NNNN">…</li>` pairs:
  *   - Header item: contains the section name as plain text (e.g. "Ihre Aufgaben")
  *   - Body item: contains the bullet list inside an inner <ul><li>...</li></ul>
  *
@@ -287,12 +287,21 @@ function parseSwissDate(raw = '') {
  */
 export function extractUmantisDetailContent(html) {
   if (!html || typeof html !== 'string') return '';
-  // First try the newer-UI customdatablock pattern
+  // First try the newer-UI customdatablock pattern. GZF and other tenants
+  // emit the same blocks as <p> elements, sometimes with a malformed closing
+  // tag (e.g. `</p`), so use the next block/container as the boundary instead
+  // of requiring a specific element's closing tag.
   const blocks = [];
-  const dataBlockRx = /<li class="customdatablock"[^>]*id="customdatablock_\d+"[^>]*>([\s\S]*?)<\/li\s*>/g;
-  let m;
-  while ((m = dataBlockRx.exec(html))) {
-    let text = m[1]
+  const dataBlockOpenRx = /<(?:li|p)\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bcustomdatablock\b[^"']*["'])(?=[^>]*\bid\s*=\s*["']customdatablock_\d+["'])[^>]*>/gi;
+  const starts = [...html.matchAll(dataBlockOpenRx)];
+  for (let i = 0; i < starts.length; i += 1) {
+    const opening = starts[i][0];
+    const start = (starts[i].index ?? 0) + opening.length;
+    const nextStart = i + 1 < starts.length ? (starts[i + 1].index ?? html.length) : html.length;
+    const chunk = html.slice(start, nextStart);
+    const containerEnd = chunk.search(/<\/(?:article|main|body)\b/i);
+    const end = containerEnd >= 0 ? start + containerEnd : nextStart;
+    let text = html.slice(start, end)
       .replace(/<ul[^>]*>/gi, '')
       .replace(/<\/ul\s*>/gi, '')
       .replace(/<li[^>]*>/gi, '\n• ')
