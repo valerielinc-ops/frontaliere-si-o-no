@@ -6232,6 +6232,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, UBS platform for financial education',
     'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS launches YUMO, a free platform to teach young people how to manage money, savings and investments. Available in 4 languages in Switzerland.',
     'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Young people learning about finance and economics on a digital platform in Switzerland',
+    'blog.article.opportunita-lavoro-seco.title': 'Working at SECO: apprenticeship and internship opportunities',
+    'blog.article.opportunita-lavoro-seco.excerpt': 'SECO, a federal agency with over 900 employees, offers AFC apprenticeships, SMC internships and university internships. Discover the profiles you are looking for and how to apply.',
+    'blog.article.opportunita-lavoro-seco.imageAlt': 'Modern workspace in a Swiss federal administration office with employees collaborating in bright contemporary offices',
 };
 
 export default blogMetaChEn;
