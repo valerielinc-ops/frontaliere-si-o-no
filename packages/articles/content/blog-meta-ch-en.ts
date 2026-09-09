@@ -6151,6 +6151,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Open internal Appenzello company: guide',
     'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Internal Appenzello company registration: minimum capital from CHF 0 (company) to CHF 100,000 (SA), AVS contributions 5.3%+5.3%, registration 2-4 weeks',
     'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Swiss municipal office with wooden desks and official business registration documents and registers',
+    'blog.article.avs-prestazioni-complementari-ginevra.title': 'AVS and complementary services Canton Geneva',
+    'blog.article.avs-prestazioni-complementari-ginevra.excerpt': 'How the AVS works in the Canton of Geneva: compensation fund, pension calculation, contribution gaps and supplementary benefits for the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-ginevra.imageAlt': 'Cantonal administration office desk with AVS pension documents and complementary benefits, modern professional workplace.',
 };
 
 export default blogMetaChEn;

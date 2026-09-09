@@ -6151,6 +6151,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Unternehmen öffnen Appenzell Innerrhoden: Leitfaden',
     'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Firmenregistrierung Appenzell Innerrhoden: Mindestkapital von CHF 0 (Firma) bis CHF 100\'000 (AG), AHV-Beiträge 5.3%+5.3%, Anmeldung 2-4 Wochen',
     'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Schweizer Gemeindeamt mit Holzscreibtischen und offiziellen Geschäftsregistrierungsdokumenten',
+    'blog.article.avs-prestazioni-complementari-ginevra.title': 'AHV und Ergänzungsleistungen Kanton Genf',
+    'blog.article.avs-prestazioni-complementari-ginevra.excerpt': 'Wie die AHV im Kanton Genf funktioniert: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Existenzminimum.',
+    'blog.article.avs-prestazioni-complementari-ginevra.imageAlt': 'Verwaltungsschreibtisch mit Rentenunterlagen und Ergaenzungsleistungsdokumenten, professionelle Bueroumgebung.',
 };
 
 export default blogMetaChDe;
