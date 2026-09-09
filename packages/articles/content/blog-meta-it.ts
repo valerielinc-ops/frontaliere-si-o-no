@@ -11621,6 +11621,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, il ritardo sulle riforme: l\'allarme di Economiesuisse',
     'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, presidente uscente Economiesuisse, critica il governo: discussione sull\'età pensionabile rinviata, rischi per la sostenibilità del sistema.',
     'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professionista esamina documenti di previdenza pensionistica con vista sul confine Ticino-Svizzera',
+    'blog.article.casnate-bernate-trasferimento.title': 'Vivere a Casnate, lavorare in Ticino',
+    'blog.article.casnate-bernate-trasferimento.excerpt': 'Trasferirsi a Casnate e lavorare in Ticino: imposta alla fonte, AVS/LPP e procedure per frontalieri dal 2024.',
+    'blog.article.casnate-bernate-trasferimento.imageAlt': 'Veduta di Mendrisio al tramonto, Ticino, vicino al confine con l\'Italia',
 };
 
 export default blogMetaIt;
