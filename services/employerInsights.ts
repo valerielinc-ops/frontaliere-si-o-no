@@ -1,6 +1,6 @@
 /**
  * employerInsights — typed data contract + fetch stub for the per-company
- * "wow" traffic report (cold-outreach conversion centrepiece).
+ * "wow" traffic report (cold-outreach insights centrepiece).
  *
  * The data lives in Firestore `employer_insights/{companyKey}` and is served
  * through a Cloud Function (token-gated, per-company). This module is the SPA
@@ -14,42 +14,91 @@
 
 import { FUNCTIONS_BASE } from './functionsBase';
 
-/** A single live ad row for the employer. `lost` = interested visitors who did NOT apply. */
+export interface EmployerInsightsWindow {
+  from: string;
+  to: string;
+  timezone?: string;
+  kind?: string;
+  inclusive?: string;
+}
+
+/** A single ad row for the employer. */
 export interface EmployerAd {
+  jobId?: string;
   slug: string;
   title: string;
   path: string;
   views: number;
   visitors: number;
-  applies: number;
-  lost: number;
+  applyClicks: number;
+  applications: number | null;
+  applicationsStatus?: string;
+  eventsObserved?: number;
+  eventTypes?: Record<string, number>;
+  forwardedAt?: string | null;
+  delivery?: string | null;
+  trend?: { week: string; views: number }[];
 }
 
 /** Aggregate totals across all of the company's ads for the report window. */
 export interface EmployerInsightsTotals {
   views: number;
   visitors: number;
-  candidates: number;
+  profileViews?: number | null;
+  profileVisitors?: number | null;
+  applyClicks?: number | null;
+  applications?: number | null;
+  applicationsStatus?: string;
   adsCount: number;
-  /** Interested visitors who did NOT become candidates (the loss-aversion hook). */
-  lost: number;
-  /** Fraction (0–1), e.g. 0.0138 = 1.38%. */
-  conversionRate: number;
+  forwardedAt?: string | null;
+  delivery?: string | null;
+}
+
+export interface EmployerApplicationsCoverage {
+  source?: string | null;
+  status?: string;
+  available?: boolean;
+  observed?: number;
+  attributed?: number;
+  residuals?: Record<string, number>;
+  residualTotal?: number;
+  technicalDuplicatesRemoved?: number;
+  retentionDays?: number;
+  window?: EmployerInsightsWindow | null;
+  invariant?: boolean;
+}
+
+export interface EmployerInsightsWindowSummary {
+  window: EmployerInsightsWindow;
+  totals: EmployerInsightsTotals;
+  trend: { week: string; views: number }[];
+  coverage?: Record<string, unknown>;
+  limits?: Record<string, unknown>;
 }
 
 /** The full per-company report payload. */
 export interface EmployerInsights {
+  schemaVersion?: number;
   companyKey: string;
   companyName: string;
   /** ISO timestamp the report was generated. */
   generatedAt: string;
-  periodDays: number;
+  source?: string | null;
+  window?: EmployerInsightsWindow | null;
   totals: EmployerInsightsTotals;
   topAd: { slug: string; title: string; views: number } | null;
-  /** Sorted by views desc, up to 100. */
+  /** Sorted by views desc. */
   ads: EmployerAd[];
   /** Weekly buckets, oldest → newest. */
   trend: { week: string; views: number }[];
+  profileTrend?: { week: string; views: number }[];
+  applicationsCoverage?: EmployerApplicationsCoverage;
+  provenance?: {
+    source?: string | null;
+    window?: EmployerInsightsWindow | null;
+    [key: string]: unknown;
+  };
+  additionalWindows?: Record<string, EmployerInsightsWindowSummary>;
 }
 
 /**
