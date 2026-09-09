@@ -115,6 +115,8 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'audit quindicinale: 336h = il suo periodo.',
   'scripts/ci/report-validate-dist-failure.mjs:6':
     'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
+  'scripts/ci/review-gate.mjs:0':
+    'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',
 };
 
 type Site = { file: string; line: number; hours: number | null; raw: string };
