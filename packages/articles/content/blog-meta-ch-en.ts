@@ -6205,6 +6205,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Job opportunities in the Federal Administration',
     'blog.article.opportunita-lavoro-federale.excerpt': 'The Federal Administration offers internships for recent graduates, 50 professional trainings and flexibility benefits. Find out how to apply.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Modern federal administration office with professionals collaborating on innovative projects.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton and Municipalities discuss tax and ARP reform',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Cantone-Comuni dialogue on tax, Ticino 2020 and ARP reform. At center: abolition of federal rental value and secondary residence tax',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, seat of the Ticino Cantonal Administration, during Canton-Municipalities dialogue on fiscal and administrative reforms',
 };
 
 export default blogMetaChEn;

@@ -6205,6 +6205,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Stellenangebote in der Bundesverwaltung',
     'blog.article.opportunita-lavoro-federale.excerpt': 'Die Bundesverwaltung bietet Praktika für Hochschulabsolventen, 50 Berufsausbildungen und Flexibilitätsvorteile. Erfahren Sie, wie Sie sich bewerben können.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Modernes Büro der Bundesverwaltung mit Fachleuten, die an innovativen Projekten zusammenarbeiten.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Kanton und Gemeinden tauschen sich über Steuern und ARP-Reform aus',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Dialog Kanton-Gemeinden über Steuern, Tessin 2020 und ARP-Reform. Im Zentrum: Abschaffung des Bundesmietwerts und Besteuerung von Zweitwohnungen',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, Sitz der Kantonsadministration während Dialog Kanton-Gemeinden zu Fiskalpolitik und Reformen',
 };
 
 export default blogMetaChDe;

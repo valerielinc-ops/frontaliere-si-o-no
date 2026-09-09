@@ -6205,6 +6205,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Opportunités de travail dans l\'administration fédérale',
     'blog.article.opportunita-lavoro-federale.excerpt': 'L\'Administration fédérale offre des stages pour jeunes diplômés, 50 formations professionnelles et des avantages de flexibilité. Découvrez comment postuler.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Bureau moderne de l\'administration fédérale avec des professionnels collaborant sur des projets innovants.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton et communes se confrontent sur la fiscalité et la réforme de l\'ARP',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzone, dialogue cantonal-commun sur le fisc, Tessin 2020 et réforme de l\'ARP. Au centre : abolition de la valeur locative fédérale et de l\'impôt sur les résidences secondaires',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, siège de l\'Administration cantonale, lors du dialogue Kanton-Communes sur la fiscalité et réformes',
 };
 
 export default blogMetaChFr;
