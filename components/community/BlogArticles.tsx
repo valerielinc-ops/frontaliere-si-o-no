@@ -8,6 +8,7 @@ import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
+import { normalizeArticleMarkdown } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
@@ -445,9 +446,11 @@ export function renderFormattedContent(
  onH2Boundary?: (outcome: H2BoundaryOutcome, key: string) => void,
 ): ReactElement {
  // Auto-link keywords if navigators provided
- const processed = navigators ? autoLinkKeywords(text, navigators) : text;
+ const normalizedText = normalizeArticleMarkdown(text);
+ const processed = navigators ? autoLinkKeywords(normalizedText, navigators) : normalizedText;
 
  const renderedBlocks: ReactElement[] = [];
+ const usedHeadingIds = new Set<string>();
 
  // Section-aware ad gating: emit an ad before each H2 boundary (so the ad sits
  // between section A's end and section B's H2) and once at end-of-segment,
@@ -539,7 +542,7 @@ export function renderFormattedContent(
  const lines = trimmed.split('\n');
  const heading = lines[0].replace(/^####\s+/, '').trim();
  const inlineBody = lines.slice(1).join('\n').trim();
- const headingId = generateHeadingSlug(heading);
+ const headingId = takeUniqueHeadingId(heading, usedHeadingIds);
  renderedBlocks.push(
  <div key={`h4-${idx}`} className="space-y-1.5">
  <h4 id={headingId} className="text-base font-semibold text-strong mt-3 mb-1 scroll-mt-20">
@@ -557,7 +560,7 @@ export function renderFormattedContent(
  const lines = trimmed.split('\n');
  const heading = lines[0].replace(/^###\s+/, '').trim();
  const inlineBody = lines.slice(1).join('\n').trim();
- const headingId = generateHeadingSlug(heading);
+ const headingId = takeUniqueHeadingId(heading, usedHeadingIds);
  renderedBlocks.push(
  <div key={`h3-${idx}`} className="space-y-1.5">
  <h3 id={headingId} className="text-lg font-semibold font-display text-strong mt-4 mb-1 scroll-mt-20">
@@ -636,7 +639,7 @@ export function renderFormattedContent(
 
  renderedBlocks.push(
  <div key={`heading-${idx}`} className="space-y-2">
- <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold font-display text-heading mt-8 mb-3 scroll-mt-20">
+ <h2 id={takeUniqueHeadingId(heading, usedHeadingIds)} className="text-xl font-bold font-display text-heading mt-8 mb-3 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h2>
  {renderInlineBodyContent(inlineBody, `h2-${idx}`, navigators)}
@@ -780,6 +783,17 @@ function generateHeadingSlug(text: string): string {
  .slice(0, 60);
 }
 
+function takeUniqueHeadingId(text: string, usedIds: Set<string>): string {
+ let id = generateHeadingSlug(text);
+ if (usedIds.has(id)) {
+ let i = 2;
+ while (usedIds.has(`${id}-${i}`)) i++;
+ id = `${id}-${i}`;
+ }
+ usedIds.add(id);
+ return id;
+}
+
 interface TocHeading {
  id: string;
  text: string;
@@ -787,12 +801,12 @@ interface TocHeading {
 }
 
 /** Extract H2/H3 headings from markdown body text segments */
-function extractHeadings(bodySegments: string[]): TocHeading[] {
+export function extractHeadings(bodySegments: string[]): TocHeading[] {
  const headings: TocHeading[] = [];
  const usedIds = new Set<string>();
  for (const body of bodySegments) {
  if (!body || body.startsWith('blog.article.')) continue;
- const blocks = body.split('\n\n');
+ const blocks = normalizeArticleMarkdown(body).split('\n\n');
  for (const block of blocks) {
  const trimmed = block.trim();
  let level: 2 | 3 | null = null;
@@ -809,14 +823,7 @@ function extractHeadings(bodySegments: string[]): TocHeading[] {
  if (level && raw) {
  // Strip markdown formatting for display text
  const text = raw.replace(/\*\*/g, '').replace(/\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
- let id = generateHeadingSlug(raw);
- // Deduplicate IDs
- if (usedIds.has(id)) {
- let i = 2;
- while (usedIds.has(`${id}-${i}`)) i++;
- id = `${id}-${i}`;
- }
- usedIds.add(id);
+ const id = takeUniqueHeadingId(raw, usedIds);
  headings.push({ id, text, level });
  }
  }
@@ -880,7 +887,7 @@ function collectBodyParts(articleId: string, t: (key: string) => string): string
  const key = `blog.article.${articleId}.body${i}`;
  const val = t(key);
  if (val === key) break;
- parts.push(val);
+ parts.push(normalizeArticleMarkdown(val));
  }
  return parts;
 }

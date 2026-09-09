@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { buildArticleSeoSections, cleanupArticleBodySections } from '@/build-plugins/articleSeoFallback';
+import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from './fixtures/flattenedArticleBodies';
 
 const wordCount = (value: string) => value.split(/\s+/).filter(Boolean).length;
 
@@ -57,6 +58,39 @@ describe('article SEO fallback builder', () => {
       '<h3>Titolo</h3><p><strong>Testo</strong> con <a href="https://example.com">link</a> e <code>code</code></p>',
       '<ul><li>punto uno</li><li>punto due</li></ul>',
     ]);
+  });
+
+  it('recovers flattened headings instead of emitting a long heading block', () => {
+    const [section] = cleanupArticleBodySections(keyed([
+      '## In short - Point one - Point two ## Key facts - What: value - When: today ## Accident Details The medical emergency continued ## Additional information For more details, consult the official source.',
+    ]));
+
+    expect(section.html).toContain('<h3>In short</h3><ul><li>Point one</li><li>Point two</li></ul>');
+    expect(section.html).toContain('<h3>Key facts</h3>');
+    expect(section.html).toContain('<h3>Accident Details</h3><p>The medical emergency continued</p>');
+    expect(section.html).toContain('<h3>Additional information</h3><p>For more details');
+    expect(section.html).not.toMatch(/<h3>[^<]{121}/);
+  });
+
+  it('recovers the headings from the reported Swiss flight article', () => {
+    const [section] = cleanupArticleBodySections([{ key: 'body1', text: flattenedSwissBody1 }]);
+    const headings = [...section.html.matchAll(/<h[2-6]>([^<]*)<\/h[2-6]>/g)].map((match) => match[1]);
+
+    expect(headings).toEqual(['In short', 'Key facts', 'Accident Details', 'Additional information']);
+    expect(headings.every((heading) => heading.length <= 120)).toBe(true);
+  });
+
+  it('keeps every body section of the reported article within heading length limits', () => {
+    const sections = cleanupArticleBodySections(
+      flattenedSwissBodies.map((text, index) => ({ key: `body${index + 1}`, text })),
+    );
+    const headings = sections.flatMap((section) =>
+      [...section.html.matchAll(/<h[2-6]>([^<]*)<\/h[2-6]>/g)].map((match) => match[1]),
+    );
+
+    expect(headings).toContain('Medical emergency: Swiss flight back over the Atlantic');
+    expect(headings.every((heading) => heading.length <= 120)).toBe(true);
+    expect(cleanupArticleBodySections([{ key: 'body3', text: flattenedSwissBody3 }])[0].html).toContain('For passengers involved');
   });
 
   it('escapes HTML-special characters in body markdown before adding markup', () => {
