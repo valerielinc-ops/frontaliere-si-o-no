@@ -90,6 +90,39 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain('writeJson(slicePath, sliceData)');
   });
 
+  it('bounds Phase 2d from the shared clock and persists the current slice before stopping', () => {
+    const source: any = YAML.parse(workflow);
+    const timeoutMs = source.jobs.translate['timeout-minutes'] * 60 * 1000;
+    expect(timeoutMs - 16_800_000, 'translation deadline must leave 70min for the queue')
+      .toBe(70 * 60 * 1000);
+    expect(timeoutMs - 18_000_000, 'title-fix deadline must leave 50min for the final queue')
+      .toBe(50 * 60 * 1000);
+
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const steps = parseTranslationSteps(document);
+      const mopup = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
+      const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
+      expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
+      });
+      expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
+        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' },
+      });
+    }
+
+    expect(titleFixScript).toContain("import { readRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(titleFixScript).toMatch(/const RUN_START_MS = readRunStartMs\(\) \?\? Date\.now\(\);/);
+    expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
+
+    const loop = titleFixScript.slice(titleFixScript.indexOf('for (const file of files)'));
+    expect(loop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
+    expect(titleFixScript).toContain('let deadlineReached = false;');
+    const persisted = loop.indexOf('writeJson(slicePath, sliceData)');
+    const stopAfterPersist = loop.indexOf('if (deadlineReached) break;', persisted);
+    expect(persisted).toBeGreaterThanOrEqual(0);
+    expect(stopAfterPersist).toBeGreaterThan(persisted);
+  });
+
   it('remains parseable and leaves the translation engine/dispatch commands unchanged', () => {
     const doc: any = YAML.parse(workflow);
     const runs = doc.jobs.translate.steps.map((step: any) => step.run || '').join('\n');

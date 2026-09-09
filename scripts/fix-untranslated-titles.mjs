@@ -10,6 +10,11 @@
  *
  * Usage:
  *   DEEPL_API_KEY=xxx DEEPL_API_KEY_2=yyy node scripts/fix-untranslated-titles.mjs [--dry-run]
+ *
+ * Env:
+ *   UNTRANSLATED_TITLE_FIX_DEADLINE_MS — run-wide wall-clock deadline measured
+ *     from the translate-pending run marker (default 300*60*1000). Standalone
+ *     runs without a marker fall back to this process's start time.
  */
 
 import fs from 'node:fs';
@@ -18,12 +23,18 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import { readRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DRY_RUN = process.argv.includes('--dry-run');
+// Run-wide deadline measured from the shared translate-pending start marker.
+// Standalone invocations have no marker, so they get the same budget from now.
+const TITLE_FIX_DEADLINE_MS = Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)
+  || 300 * 60 * 1000;
+const RUN_START_MS = readRunStartMs() ?? Date.now();
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 
@@ -33,11 +44,17 @@ async function main() {
   let totalSkipped = 0;
   let totalFailed = 0;
   let slicesChanged = 0;
+  const budgetOk = () => (Date.now() - RUN_START_MS) < TITLE_FIX_DEADLINE_MS;
+  let deadlineReached = false;
 
   console.log(`🔧 Fixing untranslated titles across ${files.length} slices...`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)\n');
 
   for (const file of files) {
+    if (!budgetOk()) {
+      deadlineReached = true;
+      break;
+    }
     const slicePath = path.join(BY_CRAWLER_DIR, file);
     const sliceData = readJson(slicePath);
     const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
@@ -46,6 +63,10 @@ async function main() {
     let sliceChanged = false;
 
     for (const job of jobs) {
+      if (!budgetOk()) {
+        deadlineReached = true;
+        break;
+      }
       const sl = job.sourceLang || 'it';
       const sourceTitle = (job.title || '').trim();
       // No floor on sourceTitle length here: titleLooksUntranslated() below is
@@ -58,6 +79,10 @@ async function main() {
       const tbl = job.titleByLocale || {};
 
       for (const locale of LOCALES) {
+        if (!budgetOk()) {
+          deadlineReached = true;
+          break;
+        }
         if (locale === sl) continue;
         const existing = (tbl[locale] || '').trim();
         if (!existing) continue;
@@ -104,6 +129,8 @@ async function main() {
           totalFailed++;
         }
       }
+
+      if (deadlineReached) break;
     }
 
     if (sliceChanged && !DRY_RUN) {
@@ -111,6 +138,13 @@ async function main() {
       slicesChanged++;
       console.log(`  ✅ ${file.replace('.json', '')}`);
     }
+
+    if (deadlineReached) break;
+  }
+
+  if (deadlineReached) {
+    const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
+    console.log(`\n⏰ Title-fix deadline reached after ~${elapsedMin}min — completed work was persisted; remaining slices stay queued for the next run.`);
   }
 
   // "skipped" no longer means "international title": the escape hatch that used
