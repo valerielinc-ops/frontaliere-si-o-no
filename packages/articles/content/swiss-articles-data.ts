@@ -18469,6 +18469,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'regola-3-30-300-verde-citta',
+    category: 'novita',
+    date: '2026-09-09T05:21:41.488Z',
+    image: '/images/blog/regola-3-30-300-verde-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

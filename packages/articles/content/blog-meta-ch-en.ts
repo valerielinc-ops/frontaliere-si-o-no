@@ -6157,6 +6157,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-appenzello-interno-aliquote.title': 'Inner Appenzello succession tax: rates and exemptions',
     'blog.article.imposta-successione-appenzello-interno-aliquote.excerpt': 'Guide to inheritance taxation in Inner Appenzell: how rates work by degree of kinship, spouse and children exemptions, declaration procedure.',
     'blog.article.imposta-successione-appenzello-interno-aliquote.imageAlt': 'Traditional Appenzell Innerrhoden landscape with Swiss Alpine architecture',
+    'blog.article.regola-3-30-300-verde-citta.title': 'Urban green: the 3-30-300 rule for cool cities',
+    'blog.article.regola-3-30-300-verde-citta.excerpt': 'European study of 862 cities: 28% of the Swiss population lives in green neighbourhoods. Rule 3-30-300 points the way to cooler cities',
+    'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole in Bellinzona with buildings and minimal vegetation, example of urban heat island',
 };
 
 export default blogMetaChEn;

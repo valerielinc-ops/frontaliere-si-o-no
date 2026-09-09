@@ -79931,6 +79931,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regola-3-30-300-verde-citta': {
+    title: 'Verde urbano: la regola 3-30-300 per città fresche',
+    description: 'Studio europeo rivela: solo il 28% degli abitanti svizzeri vive in zone verdi. Scopri la regola 3-30-300 per città più fresche. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, verde, urbano, regola, 3-30-300',
+    ogTitle: 'Verde urbano: la regola 3-30-300 per città fresche',
+    ogDescription: 'Le isole di calore rendono le città insopportabili. Studio europeo del JRC su 862 città: solo il 28% della popolazione svizzera vive in zone verdi. La regola 3-30-300 indica come rigenerare lo spazio urbano con tre criteri concreti.',
+    canonicalPath: '/articoli-svizzera/regola-3-30-300-verde-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verde urbano: la regola 3-30-300 per città fresche",
+      "description": "Studio europeo rivela: solo il 28% degli abitanti svizzeri vive in zone verdi. Scopri la regola 3-30-300 per città più fresche. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/regola-3-30-300-verde-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza del Sole a Bellinzona con edifici e poca vegetazione, esempio di isola di calore urbano"
+      },
+      "datePublished": "2026-09-09T05:21:41+00:00",
+      "dateModified": "2026-09-09T05:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regola-3-30-300-verde-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
