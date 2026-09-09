@@ -129,6 +129,9 @@ function ratePerThousand(amount, denominator) {
  *
  * `exposures.web` and `exposures.email` are deliberately independent. The
  * caller must provide the denominator; absent data stays null/unmeasurable.
+ * @param {{ rows?: object[], from?: string|null, to?: string|null,
+ *   exposures?: { web?: number|null, email?: number|null } }} [args]
+ * @returns {object}
  */
 export function reconcileAffiliateTransactions({ rows, from = null, to = null, exposures = {} } = {}) {
   const sourceRows = Array.isArray(rows) ? rows : null;
@@ -243,4 +246,3 @@ export function parseAffiliateExport(raw, { webExposures = null, emailExposures 
   }
   return { rows: [], exposures: { web: webExposures, email: emailExposures } };
 }
-

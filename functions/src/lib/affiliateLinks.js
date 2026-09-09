@@ -46,6 +46,9 @@ export function sanitizeAffiliatePubref(raw) {
  *
  * All five dimensions are bounded, categorical identifiers. No email,
  * autologin code, token, or user identifier is accepted by safeAffiliateToken.
+ * @param {{ partnerId?: string, surface?: string, position?: string,
+ *   campaign?: string, variant?: string }} [args]
+ * @returns {string}
  */
 export function buildAffiliatePubref({ partnerId, surface, position, campaign, variant = '' } = {}) {
   return sanitizeAffiliatePubref([
@@ -105,4 +108,3 @@ export function buildAffiliateHref({
   if (safeAcquisitionSource) url.searchParams.set('as', safeAcquisitionSource);
   return url.toString();
 }
-

@@ -103,6 +103,7 @@ import {
  isOriginRedactedThirdPartyStack,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
+import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -908,12 +909,31 @@ export const Analytics = {
  /**
  * Affiliate click — tracks partner clicks with context for revenue attribution
  */
- trackAffiliateClick: (partnerId: string, context: string) => {
+ trackAffiliateClick: (
+  partnerId: string,
+  context: string,
+  attribution?: {
+   surface?: string;
+   position?: string;
+   campaign?: string;
+   variant?: string;
+  },
+ ) => {
+ const safePartnerId = safeAffiliateToken(partnerId, 'unknown');
+ const safeContext = safeAffiliateToken(context, 'unknown');
+ const surface = safeAffiliateToken(attribution?.surface, 'web');
+ const position = safeAffiliateToken(attribution?.position, safeContext);
+ const campaign = safeAffiliateToken(attribution?.campaign, 'affiliate');
+ const variant = safeAffiliateToken(attribution?.variant, 'control');
  log('affiliate_click', {
- partner_id: partnerId,
- context,
+ partner_id: safePartnerId,
+ context: safeContext,
+ surface,
+ position,
+ campaign,
+ variant,
  content_type: 'affiliate',
- item_id: `${partnerId}_${context}`,
+ item_id: `${safePartnerId}_${surface}_${position}_${campaign}_${variant}`,
  });
  },
 
