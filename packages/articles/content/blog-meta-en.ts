@@ -11617,6 +11617,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mesenzana-lavorare-ticino.title': 'Living in Mesenzana and working in Ticino',
     'blog.article.mesenzana-lavorare-ticino.excerpt': 'Learn how to live in Mesenzana and work in Ticino as a border worker: permits, taxation, transport, cost of living and procedures. Practical guide.',
     'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Scenic view of the Switzerland-Italy border crossing at Brogeda with Alpine hills in the background',
+    'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, the delay on reforms: Economiesuisse\'s alarm',
+    'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, outgoing President Economiesuisse, criticizes the government: discussion on the postponed retirement age, risks to the sustainability of the system.',
+    'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professional reviews pension documents with view of Ticino-Switzerland border region',
 };
 
 export default blogMetaEn;
