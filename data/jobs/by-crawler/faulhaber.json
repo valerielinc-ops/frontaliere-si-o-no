@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-08T23:20:13.428Z",
+  "assembledAt": "2026-09-09T13:44:51.515Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -46,15 +46,20 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:20:08.600Z",
+      "crawledAt": "2026-09-09T13:44:45.124Z",
       "previousSlugs": [
         "spontaneous-application-faulhaber-croglio",
         "spontananwendung-faulhaber-croglio",
         "demande-spontanee-faulhaber-croglio",
         "candidatura-spontanea-croglio-faulhaber",
+        "candidatura-faulhaber-croglio",
         "candidatura-spontanea-faulhaber-croglio"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "candidatura-spontanea-croglio-faulhaber",
+          "candidatura-faulhaber-croglio"
+        ],
         "en": [
           "spontaneous-application-faulhaber-croglio"
         ],
@@ -65,9 +70,6 @@
         "fr": [
           "demande-spontanee-faulhaber-croglio",
           "candidatura-spontanea-faulhaber-croglio"
-        ],
-        "it": [
-          "candidatura-spontanea-croglio-faulhaber"
         ]
       },
       "needsRetranslation": true,
@@ -131,7 +133,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:19:55.554Z",
+      "crawledAt": "2026-09-09T13:44:34.159Z",
       "previousSlugs": [
         "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
         "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
@@ -206,7 +208,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-08T23:19:43.698Z",
+      "crawledAt": "2026-09-09T13:44:21.984Z",
       "previousSlugs": [
         "junior-logistica-specialista-faulhaber-croglio",
         "junior-logistics-specialist-croglio-faulhaber"
@@ -284,7 +286,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:19:30.848Z",
+      "crawledAt": "2026-09-09T13:44:09.317Z",
       "previousSlugs": [
         "technicien-di-misura-faulhaber-croglio"
       ],
