@@ -8,7 +8,7 @@ import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
-import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerOutreachStatus } from '@/services/adminInsights';
+import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerInsightsWindow, type EmployerOutreachStatus } from '@/services/adminInsights';
 import { fetchJournalistGrants, setJournalistRole, type JournalistGrant } from '@/services/journalistAdminService';
 import { fetchRedazioneAdminData, updateAuthorProfile, reassignArticleAuthor, type RedazioneAdminData } from '@/services/redazioneAdminService';
 import type { AuthorProfilePatch } from '@/services/authorProfileService';
@@ -31,11 +31,26 @@ import {
 } from '../../scripts/lib/githubWorkflowDispatch.mjs';
 import {
  Shield, Copy, Check, ExternalLink,
- AlertTriangle, CheckCircle2, Eye,
+ AlertTriangle, CheckCircle2, Eye, MousePointerClick,
  Mail, Users, Send, RefreshCw, ToggleLeft, ToggleRight, Database, Activity, Calendar, Terminal,
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
- Building2, TrendingDown, UserCheck, Pencil, Save, X, Newspaper
+ Building2, UserCheck, Pencil, Save, X, Newspaper
 } from 'lucide-react';
+
+type EmployerSequenceInput = {
+ company: string;
+ metricValue?: number | null;
+ metricLabel?: string;
+ periodLabel: string;
+ contactName?: string;
+ topRole?: string;
+};
+
+// The declaration file still describes the pre-contract input shape; keep this
+// adapter local until that unowned declaration can be updated by its owner.
+const buildAdminEmailSequence = buildSequence as unknown as (
+ args: EmployerSequenceInput,
+) => ReturnType<typeof buildSequence>;
 
 /* ─── Types ─── */
 
@@ -142,7 +157,28 @@ interface CrawlerSummaryRow {
 }
 
 type CrawlerSortColumn = 'title' | 'schedule' | 'lastRun' | 'total' | 'newCount' | 'updatedCount' | 'removedCount' | 'unchangedCount' | 'duration' | 'status' | 'quality';
-type InsightsSortColumn = 'companyName' | 'views' | 'candidates' | 'lost' | 'adsCount' | 'conversionRate' | 'generatedAt';
+type InsightsSortColumn = 'companyName' | 'views' | 'applyClicks' | 'applications' | 'profileViews' | 'adsObserved' | 'generatedAt' | 'window';
+
+function compareInsightNumbers(a: number | null, b: number | null): number {
+ if (a === null && b === null) return 0;
+ if (a === null) return 1;
+ if (b === null) return -1;
+ return a - b;
+}
+
+function formatInsightMetric(value: number | null): string {
+ return value === null ? 'non disponibile' : value.toLocaleString('it-IT');
+}
+
+function formatInsightWindow(window: EmployerInsightsWindow | null): string {
+ return window
+ ? window.from + ' → ' + window.to + (window.timezone ? ' (' + window.timezone + ')' : '')
+ : 'finestra non disponibile';
+}
+
+function insightWindowKey(window: EmployerInsightsWindow | null): string {
+ return window ? window.from + '|' + window.to + '|' + (window.timezone || '') : '';
+}
 
 /**
  * Compact cold-email outreach status for the Insights Aziende dashboard: which
@@ -858,10 +894,13 @@ export default function AdminPanel() {
  // the live drafts (so editing name/role updates the preview instantly).
  const contactPreviewTouches = useMemo(() => {
  if (!contactModalRow) return [];
- const touches = buildSequence({
+ const touches = buildAdminEmailSequence({
  company: contactModalRow.companyName,
- candidates: contactModalRow.totals.candidates,
- periodLabel: 'Negli ultimi 3 mesi',
+ metricValue: contactModalRow.totals.applyClicks,
+ metricLabel: 'click per candidarsi',
+ periodLabel: contactModalRow.window
+ ? contactModalRow.window.from + ' → ' + contactModalRow.window.to
+ : '',
  contactName: contactNameDraft,
  topRole: contactRoleDraft,
  });
@@ -3255,16 +3294,18 @@ export default function AdminPanel() {
  return a.companyName.localeCompare(b.companyName) * dir;
  case 'generatedAt':
  return String(a.generatedAt || '').localeCompare(String(b.generatedAt || '')) * dir;
+ case 'window':
+ return insightWindowKey(a.window).localeCompare(insightWindowKey(b.window)) * dir;
  case 'views':
- return (a.totals.views - b.totals.views) * dir;
- case 'candidates':
- return (a.totals.candidates - b.totals.candidates) * dir;
- case 'lost':
- return (a.totals.lost - b.totals.lost) * dir;
- case 'adsCount':
- return (a.totals.adsCount - b.totals.adsCount) * dir;
- case 'conversionRate':
- return (a.totals.conversionRate - b.totals.conversionRate) * dir;
+ return compareInsightNumbers(a.totals.views, b.totals.views) * dir;
+ case 'applyClicks':
+ return compareInsightNumbers(a.totals.applyClicks, b.totals.applyClicks) * dir;
+ case 'applications':
+ return compareInsightNumbers(a.totals.applications, b.totals.applications) * dir;
+ case 'profileViews':
+ return compareInsightNumbers(a.totals.profileViews, b.totals.profileViews) * dir;
+ case 'adsObserved':
+ return compareInsightNumbers(a.totals.adsObserved, b.totals.adsObserved) * dir;
  default:
  return 0;
  }
@@ -3272,15 +3313,27 @@ export default function AdminPanel() {
  return sorted;
  }, [insightsRows, insightsFilter, insightsSort]);
 
- const insightsTotals = useMemo(() => insightsRows.reduce(
- (acc, r) => {
- acc.views += r.totals.views;
- acc.candidates += r.totals.candidates;
- acc.lost += r.totals.lost;
- return acc;
- },
- { views: 0, candidates: 0, lost: 0 },
- ), [insightsRows]);
+ const insightsTotals = useMemo(() => {
+ const firstSource = insightsRows[0]?.source || null;
+ const commonSource = firstSource && insightsRows.every(r => r.source === firstSource)
+ ? firstSource
+ : null;
+ const firstWindow = insightsRows[0]?.window || null;
+ const commonWindow = commonSource && firstWindow && insightsRows.every(r => insightWindowKey(r.window) === insightWindowKey(firstWindow))
+ ? firstWindow
+ : null;
+ const sum = (get: (row: EmployerInsightsRow) => number | null): number | null => {
+ if (!commonSource || !commonWindow || insightsRows.some(r => get(r) === null)) return null;
+ return insightsRows.reduce((total, row) => total + (get(row) || 0), 0);
+ };
+ return {
+ source: commonSource,
+ window: commonWindow,
+ views: sum(r => r.totals.views),
+ applyClicks: sum(r => r.totals.applyClicks),
+ applications: sum(r => r.totals.applications),
+ };
+ }, [insightsRows]);
 
  const formatInsightsDate = (iso: string | null): string => {
  if (!iso) return '—';
@@ -3537,30 +3590,40 @@ export default function AdminPanel() {
  </div>
  )}
 
- {/* Totals overview */}
+ {/* Totals overview — aggregate only when every row declares the same source and window. */}
+ <div className="bg-surface rounded-xl border border-edge px-4 py-2">
+ <p className="text-[11px] text-muted">
+ Sorgente/finestra aggregati:{' '}
+ {insightsRows.length === 0
+ ? 'non disponibile'
+ : insightsTotals.window && insightsTotals.source
+ ? insightsTotals.source + ' · ' + formatInsightWindow(insightsTotals.window)
+ : 'non aggregabile (fonti/finestre diverse o non disponibili)'}
+ </p>
+ </div>
  <div className="grid grid-cols-3 gap-3">
  <div className="bg-surface rounded-xl border border-edge p-4">
  <div className="flex items-center gap-2 text-subtle text-sm mb-1">
- <Eye size={16} /> Visualizzazioni
+ <Eye size={16} /> Visualizzazioni annuncio
  </div>
  <div className="text-2xl font-bold text-strong">
- {insightsLoading ? '…' : insightsTotals.views.toLocaleString('it-IT')}
+ {insightsLoading ? '…' : formatInsightMetric(insightsTotals.views)}
  </div>
  </div>
  <div className="bg-surface rounded-xl border border-edge p-4">
  <div className="flex items-center gap-2 text-subtle text-sm mb-1">
- <UserCheck size={16} /> Candidati
+ <MousePointerClick size={16} /> Click candidatura
  </div>
  <div className="text-2xl font-bold text-strong">
- {insightsLoading ? '…' : insightsTotals.candidates.toLocaleString('it-IT')}
+ {insightsLoading ? '…' : formatInsightMetric(insightsTotals.applyClicks)}
  </div>
  </div>
  <div className="bg-surface rounded-xl border border-edge p-4">
  <div className="flex items-center gap-2 text-subtle text-sm mb-1">
- <TrendingDown size={16} /> Persi
+ <FileText size={16} /> Candidature inviate
  </div>
  <div className="text-2xl font-bold text-strong">
- {insightsLoading ? '…' : insightsTotals.lost.toLocaleString('it-IT')}
+ {insightsLoading ? '…' : formatInsightMetric(insightsTotals.applications)}
  </div>
  </div>
  </div>
@@ -3592,12 +3655,13 @@ export default function AdminPanel() {
  <tr>
  {([
  { col: 'companyName' as const, label: 'Azienda', align: 'left' },
- { col: 'views' as const, label: 'Visualizzazioni', align: 'right' },
- { col: 'candidates' as const, label: 'Candidati', align: 'right' },
- { col: 'lost' as const, label: 'Persi', align: 'right' },
- { col: 'adsCount' as const, label: '#Annunci', align: 'right' },
- { col: 'conversionRate' as const, label: 'Conversione', align: 'right' },
+ { col: 'views' as const, label: 'Visualizzazioni annuncio', align: 'right' },
+ { col: 'applyClicks' as const, label: 'Click candidatura', align: 'right' },
+ { col: 'applications' as const, label: 'Candidature inviate', align: 'right' },
+ { col: 'profileViews' as const, label: 'Visite profilo', align: 'right' },
+ { col: 'adsObserved' as const, label: 'Annunci osservati', align: 'right' },
  { col: 'generatedAt' as const, label: 'Data', align: 'right' },
+ { col: 'window' as const, label: 'Finestra', align: 'right' },
  ]).map(h => (
  <th
  key={h.col}
@@ -3637,12 +3701,13 @@ export default function AdminPanel() {
  : <span className="text-muted italic">contatto mancante</span>}
  </div>
  </td>
- <td className="px-3 py-2 text-right text-body">{row.totals.views.toLocaleString('it-IT')}</td>
- <td className="px-3 py-2 text-right text-body">{row.totals.candidates.toLocaleString('it-IT')}</td>
- <td className="px-3 py-2 text-right text-body">{row.totals.lost.toLocaleString('it-IT')}</td>
- <td className="px-3 py-2 text-right text-body">{row.totals.adsCount.toLocaleString('it-IT')}</td>
- <td className="px-3 py-2 text-right text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.views)}</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.applyClicks)}</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.applications)}</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.profileViews)}</td>
+ <td className="px-3 py-2 text-right text-body">{formatInsightMetric(row.totals.adsObserved)}</td>
  <td className="px-3 py-2 text-right text-muted whitespace-nowrap">{formatInsightsDate(row.generatedAt)}</td>
+ <td className="px-3 py-2 text-right text-muted whitespace-nowrap">{formatInsightWindow(row.window)}</td>
  <td className="px-3 py-2 text-left whitespace-nowrap"><OutreachStatusBadge outreach={row.outreach} /></td>
  <td className="px-3 py-2 text-right whitespace-nowrap">
  <div className="inline-flex items-center gap-1.5">
@@ -3669,7 +3734,7 @@ export default function AdminPanel() {
  ))}
  {!insightsLoading && insightsFiltered.length === 0 && (
  <tr>
- <td colSpan={9} className="px-3 py-6 text-center text-muted">
+ <td colSpan={10} className="px-3 py-6 text-center text-muted">
  Nessuna azienda trovata.
  </td>
  </tr>
@@ -3692,12 +3757,13 @@ export default function AdminPanel() {
  : <span className="text-muted italic">contatto mancante</span>}
  </div>
  <div className="grid grid-cols-3 gap-2 text-xs">
- <div><span className="block text-muted">Views</span><span className="text-body">{row.totals.views.toLocaleString('it-IT')}</span></div>
- <div><span className="block text-muted">Candidati</span><span className="text-body">{row.totals.candidates.toLocaleString('it-IT')}</span></div>
- <div><span className="block text-muted">Persi</span><span className="text-body">{row.totals.lost.toLocaleString('it-IT')}</span></div>
- <div><span className="block text-muted">#Annunci</span><span className="text-body">{row.totals.adsCount.toLocaleString('it-IT')}</span></div>
- <div><span className="block text-muted">Conv.</span><span className="text-body">{(row.totals.conversionRate * 100).toFixed(1)}%</span></div>
+ <div><span className="block text-muted">Visualizzazioni</span><span className="text-body">{formatInsightMetric(row.totals.views)}</span></div>
+ <div><span className="block text-muted">Click candidatura</span><span className="text-body">{formatInsightMetric(row.totals.applyClicks)}</span></div>
+ <div><span className="block text-muted">Candidature inviate</span><span className="text-body">{formatInsightMetric(row.totals.applications)}</span></div>
+ <div><span className="block text-muted">Visite profilo</span><span className="text-body">{formatInsightMetric(row.totals.profileViews)}</span></div>
+ <div><span className="block text-muted">Annunci osservati</span><span className="text-body">{formatInsightMetric(row.totals.adsObserved)}</span></div>
  <div><span className="block text-muted">Data</span><span className="text-body">{formatInsightsDate(row.generatedAt)}</span></div>
+ <div className="col-span-3"><span className="block text-muted">Finestra</span><span className="text-body">{formatInsightWindow(row.window)}</span></div>
  </div>
  <div className="flex items-center gap-1.5 text-xs">
  <span className="text-muted">Outreach:</span>
@@ -3749,7 +3815,12 @@ export default function AdminPanel() {
  <Building2 size={18} className="text-accent shrink-0" aria-hidden="true" />
  {contactModalRow.companyName}
  </h3>
- <p className="text-xs text-muted">{contactModalRow.totals.candidates.toLocaleString('it-IT')} candidati · {contactModalRow.totals.views.toLocaleString('it-IT')} visite</p>
+ <p className="text-xs text-muted">
+ {formatInsightMetric(contactModalRow.totals.applyClicks)} click candidatura · {formatInsightMetric(contactModalRow.totals.views)} visualizzazioni
+ </p>
+ <p className="text-[11px] text-muted">
+ Finestra: {formatInsightWindow(contactModalRow.window)} · Sorgente: {contactModalRow.source || 'non disponibile'}
+ </p>
  <div className="mt-1.5 flex items-center gap-1.5 text-xs">
  <span className="text-muted">Outreach:</span>
  <OutreachStatusBadge outreach={contactModalRow.outreach} />

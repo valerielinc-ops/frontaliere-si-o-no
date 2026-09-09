@@ -27,7 +27,7 @@ export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
  * metrica dichiarata di interazione + RUOLO più cliccato, connessi al problema
  * del passaggio finale. Tono da pari, una sola call-to-action a basso attrito per touch.
  */
-export function buildSequence({ company, candidates, metricValue, metricLabel, periodLabel, contactName, topRole }) {
+export function buildSequence({ company, metricValue, metricLabel, periodLabel, contactName, topRole }) {
   // Solo il nome di battesimo nel saluto ("Ciao Denise,"), non nome+cognome.
   const firstName = (contactName || '').trim().split(/\s+/)[0];
   const hi = firstName ? `Ciao ${firstName},` : 'Buongiorno,';
@@ -37,7 +37,7 @@ export function buildSequence({ company, candidates, metricValue, metricLabel, p
   const GENERIC_ROLE = /lavora con noi|lavorare con noi|concors|careers?|^jobs?$|offerte di lavoro|posizioni aperte|unsolicited|spontane/i;
   const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
   const providedMetric = metricValue !== undefined && metricValue !== null && metricValue !== '';
-  const value = Number(providedMetric ? metricValue : candidates);
+  const value = Number(providedMetric ? metricValue : NaN);
   const count = Number.isFinite(value) ? Math.trunc(value) : null;
   const metric = count !== null && count > 0
     ? {

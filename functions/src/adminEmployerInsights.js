@@ -46,6 +46,41 @@ const SENDS_COLLECTION = 'employer_outreach_sends';
 const REPLIES_COLLECTION = 'employer_outreach_replies';
 const SUPPRESSION_COLLECTION = 'employer_outreach_suppression';
 
+function nonNegativeNumberOrNull(value) {
+  if (value === undefined || value === null || value === '') return null;
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? number : null;
+}
+
+function normalizeInsightWindow(value) {
+  if (!value || typeof value !== 'object') return null;
+  const from = typeof value.from === 'string' ? value.from : '';
+  const to = typeof value.to === 'string' ? value.to : '';
+  if (!from || !to) return null;
+  return {
+    from,
+    to,
+    ...(typeof value.kind === 'string' ? { kind: value.kind } : {}),
+    ...(typeof value.timezone === 'string' ? { timezone: value.timezone } : {}),
+    ...(typeof value.inclusive === 'string' ? { inclusive: value.inclusive } : {}),
+  };
+}
+
+export function serializeEmployerInsightsTotals(totals = {}, window = null) {
+  const t = totals && typeof totals === 'object' ? totals : {};
+  const hasWindow = !!window && typeof window === 'object' && window.from && window.to;
+  const scopedNumber = (value) => hasWindow ? nonNegativeNumberOrNull(value) : null;
+  return {
+    views: scopedNumber(t.views),
+    visitors: scopedNumber(t.visitors),
+    profileViews: scopedNumber(t.profileViews),
+    applyClicks: scopedNumber(t.applyClicks),
+    applications: scopedNumber(t.applications),
+    applicationsStatus: typeof t.applicationsStatus === 'string' ? t.applicationsStatus : null,
+    adsObserved: scopedNumber(t.adsObserved ?? t.adsCount),
+  };
+}
+
 /** Build the tokenized "open as company" URL (trailing slash, canonical). */
 function buildInsightsUrl(companyKey, secret) {
   const token = generateInsightsToken(companyKey, secret);
@@ -154,18 +189,14 @@ async function handleList(db, newsletterSecret) {
     const companyKey = String(d.companyKey || doc.id);
     const t = d.totals || {};
     const c = contacts.get(companyKey) || {};
+    const window = normalizeInsightWindow(d.window);
     return {
       companyKey,
       companyName: String(d.companyName || companyKey),
       generatedAt: d.generatedAt ? String(d.generatedAt) : null,
-      totals: {
-        views: Number(t.views || 0),
-        visitors: Number(t.visitors || 0),
-        candidates: Number(t.candidates || 0),
-        adsCount: Number(t.adsCount || 0),
-        lost: Number(t.lost || 0),
-        conversionRate: Number(t.conversionRate || 0),
-      },
+      source: typeof d.source === 'string' && d.source.trim() ? d.source : null,
+      window,
+      totals: serializeEmployerInsightsTotals(t, window),
       insightsUrl: buildInsightsUrl(companyKey, newsletterSecret),
       contactEmail: c.email || '',
       contactEmailInferred: c.emailInferred || '',
@@ -180,7 +211,7 @@ async function handleList(db, newsletterSecret) {
     };
   });
 
-  insights.sort((a, b) => b.totals.views - a.totals.views);
+  insights.sort((a, b) => (b.totals.views ?? -1) - (a.totals.views ?? -1));
   return { status: 200, body: { ok: true, insights } };
 }
 
