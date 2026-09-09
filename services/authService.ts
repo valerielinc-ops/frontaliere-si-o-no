@@ -954,6 +954,9 @@ export function useAuth(): AuthState & {
  const [loading, setLoading] = useState(() => {
  // Only block UI rendering for flows that REQUIRE auth before showing content.
  // All other cases (authToken, confirm_newsletter) run auth in background.
+ // A persisted Firebase session is also auth-dependent: until the listener
+ // resolves, rendering the anonymous UI causes a visible gate/login flash.
+ if (hasPersistedAuthSession()) return true;
  if (sessionStorage.getItem('auth_redirect_provider')) return true;
  if (typeof window !== 'undefined') {
  if (window.location.pathname.includes('/gestione-contenuti-xk9mp2q')) return true;
