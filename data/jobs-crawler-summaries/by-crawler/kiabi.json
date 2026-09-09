@@ -1,23 +1,24 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-09-09T13:49:26.169Z",
-  "total": 3,
+  "generatedAt": "2026-09-09T23:06:29.465Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11087,
-  "avgDurationMs": 11087,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10858,
+  "avgDurationMs": 10858,
   "durationHistory": [
-    11087
+    10858
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kiabi-3cfb6d601da6",
       "slug": "conseiller-de-vente-kiabi-aigle-h-f-nb-kiabi-aigle",
@@ -30,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000148425508-conseiller-de-vente-kiabi-aigle-h-f-nb-?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T13:49:18.048Z",
+      "crawledAt": "2026-09-09T23:06:21.987Z",
       "addressLocality": "Aigle",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -47,16 +48,16 @@
       "postedDate": "2026-09-09",
       "applyUrl": "https://jobs.smartrecruiters.com/KIABI/744000148425508-conseiller-de-vente-kiabi-aigle-h-f-nb-?oga=true",
       "jobReqId": "744000148425508",
-      "_qualityScore": 56,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-09T13:49:18.048Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kiabi-19aa5a82e347",
       "slug": "conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f",
@@ -69,7 +70,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000134785679-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-09T13:49:18.051Z",
+      "crawledAt": "2026-09-09T23:06:21.990Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -96,8 +97,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kiabi-f605d48f4b56",
       "slug": "team-support-sales-advisor-call-contract-cdi-studente-part-time-h-f-nb-kiabi-suisse-marin-epanier",
@@ -132,6 +132,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T13:40:14.946Z",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -140,5 +141,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

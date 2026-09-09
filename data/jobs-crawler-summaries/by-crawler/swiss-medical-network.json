@@ -1,71 +1,40 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-09T13:50:02.649Z",
-  "total": 61,
-  "newCount": 5,
-  "updatedCount": 54,
-  "removedCount": 1,
-  "unchangedCount": 2,
-  "durationMs": 45327,
-  "avgDurationMs": 45327,
+  "generatedAt": "2026-09-09T23:07:04.574Z",
+  "total": 60,
+  "newCount": 4,
+  "updatedCount": 55,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 44136,
+  "avgDurationMs": 44136,
   "durationHistory": [
-    45327
+    44136
   ],
   "newJobs": [
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm?oga=true",
-      "title": "Assistant(e) médical(e) à 80% - CDM",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "assistant-e-medical-e-a-80-cdm-swiss-medical-network",
-      "category": "admin",
-      "datePosted": "2026-09-09",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Genève"
-      },
-      "sourceLang": "fr",
-      "_qualityScore": 53,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838054-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838054-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838710-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838710-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
       "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Beromünster",
-      "addressLocality": "Beromünster",
-      "addressRegion": "LU",
-      "canton": "LU",
+      "location": "Stein am Rhein",
+      "addressLocality": "Stein am Rhein",
+      "addressRegion": "SH",
+      "canton": "SH",
       "country": "CH",
-      "postalCode": "6222",
+      "postalCode": "8260",
       "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
       "datePosted": "2026-09-09",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "LU",
-        "location": "Beromünster"
+        "canton": "SH",
+        "location": "Stein am Rhein"
       },
       "sourceLang": "de",
       "_qualityScore": 56,
@@ -77,17 +46,17 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Grindelwald",
-      "addressLocality": "Grindelwald",
+      "location": "Wengen",
+      "addressLocality": "Wengen",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3818",
+      "postalCode": "3823",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
       "datePosted": "2026-09-09",
@@ -97,7 +66,7 @@
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Grindelwald"
+        "location": "Wengen"
       },
       "sourceLang": "de",
       "_qualityScore": 56,
@@ -109,27 +78,27 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Argovia",
-      "addressLocality": "Argovia",
-      "addressRegion": "AG",
-      "canton": "AG",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
       "country": "CH",
-      "postalCode": "5734",
+      "postalCode": "6222",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
       "datePosted": "2026-09-09",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "AG",
-        "location": "Reinach"
+        "canton": "LU",
+        "location": "Beromünster"
       },
       "sourceLang": "de",
       "_qualityScore": 61,
@@ -174,6 +143,38 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm?oga=true",
+      "title": "Assistant(e) médical(e) à 80% - CDM",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "canton": "GE",
+      "country": "CH",
+      "slug": "assistant-e-medical-e-a-80-cdm-swiss-medical-network",
+      "category": "admin",
+      "datePosted": "2026-09-09",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Genève"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-09-09T13:49:57.083Z",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148193639-referent-physiotherapeute-h-f-motionlab-genolier-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148193639-referent-physiotherapeute-h-f-motionlab-genolier-?oga=true",
@@ -340,35 +341,35 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838710-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838710-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838054-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147838054-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
       "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Stein am Rhein",
-      "addressLocality": "Stein am Rhein",
-      "addressRegion": "SH",
-      "canton": "SH",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "canton": "LU",
       "country": "CH",
-      "postalCode": "8260",
+      "postalCode": "6222",
       "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-09-08",
+      "datePosted": "2026-09-09",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "SH",
-        "location": "Stein am Rhein"
+        "canton": "LU",
+        "location": "Beromünster"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-09-08T23:25:55.703Z",
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-09-09T13:49:57.083Z",
+      "_qualityScore": 56,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 6,
         "completeness": 12
       }
     },
@@ -571,39 +572,6 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärzt/-in Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Wengen",
-      "addressLocality": "Wengen",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "3823",
-      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-09-08",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Wengen"
-      },
-      "sourceLang": "de",
-      "firstSeenAt": "2026-09-08T23:25:55.703Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 12
-      }
-    },
-    {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145523419-allgemeinmediziner-in-50-bis-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145523419-allgemeinmediziner-in-50-bis-100-?oga=true",
       "title": "Allgemeinmediziner/-in (50 bis 100 %)",
@@ -699,6 +667,39 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Grindelwald",
+      "addressLocality": "Grindelwald",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3818",
+      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-09",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Grindelwald"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-09T13:49:57.083Z",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
         "completeness": 12
       }
     },
@@ -1130,81 +1131,9 @@
         "translation": 21,
         "completeness": 12
       }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143840635-allgemeinmediziner-in-40-bis-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143840635-allgemeinmediziner-in-40-bis-100-?oga=true",
-      "title": "Allgemeinmediziner/-in (40 bis 100 %)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Ittigen",
-      "addressLocality": "Ittigen",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "3063",
-      "slug": "allgemeinmediziner-in-40-bis-100-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-17",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Ittigen"
-      },
-      "sourceLang": "de",
-      "firstSeenAt": "2026-08-17T21:31:00.265Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 12
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "title": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Rothrist",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "canton": "AG",
-      "country": "CH",
-      "postalCode": "4852",
-      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-swiss-medical-network-rothrist",
-      "category": "nursing",
-      "datePosted": "2026-09-07",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Rothrist"
-      },
-      "sourceLang": "de",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-07T23:31:33.194Z",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146993998-assistente-di-studio-medico",
@@ -1234,49 +1163,12 @@
       "salaryMax": 98500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 23,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144710179-assistant-e-medical-e-a-80-cdm",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144710179-assistant-e-medical-e-a-80-cdm?oga=true",
-      "title": "Assistant(e) médical(e) à 80 % - CDM",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "assistant-e-medical-e-a-80-cdm-swiss-medical-network",
-      "category": "admin",
-      "datePosted": "2026-08-21",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Genève"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-08-21T09:47:06.124Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
         "completeness": 14
       }
     }
