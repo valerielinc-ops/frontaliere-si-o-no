@@ -9,10 +9,8 @@
  *   const html = buildNewsletter({ exchangeRate, topArticles, weeklyFact, latestArticle, featuredTool, unsubscribeUrl, locale });
  */
 
-import {
-  PLACEMENT_PARAM,
-  newsletterPartnerPlacement,
-} from '../functions/src/lib/newsletterPlacements.js';
+import { newsletterPartnerPlacement } from '../functions/src/lib/newsletterPlacements.js';
+import { buildAffiliateHref } from '../functions/src/lib/affiliateLinks.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_BLUE = '#2563EB';
@@ -508,20 +506,15 @@ function renderJobSection({ jobs, campaign, locale }) {
 // ─── Affiliate partners section ─────────────────────────────
 
 const AFFILIATE_PARTNERS_NL = [
-  // Niente bonus di benvenuto in questa riga: `goUrl` porta al deeplink
+  // Niente bonus di benvenuto in questa riga: `partnerId` porta al deeplink
   // affiliato Partnerize, che atterra su wise.com senza offerta. La promessa
   // «carta gratuita / zero commissioni fino a CHF 600» valeva solo per il
   // vecchio invito personale ed e' stata tolta anche da
   // `affiliate.wise.description` e da `currency.feature_wise_referral_bonus`.
-  { emoji: '💸', name: 'Wise', desc: { it: 'Tasso di cambio reale, commissioni trasparenti', en: 'Real exchange rate, transparent fees', de: 'Echter Wechselkurs, transparente Gebühren', fr: 'Taux de change réel, frais transparents' }, goUrl: '/go/wise/' },
-  { emoji: '🇮🇹', name: 'Fineco Bank', desc: { it: 'Codice AA8381747 — bonus 50€', en: 'Code AA8381747 — €50 bonus', de: 'Code AA8381747 — 50€ Bonus', fr: 'Code AA8381747 — bonus 50€' }, goUrl: '/go/fineco/' },
-  { emoji: '🏦', name: 'Crédit Agricole', desc: { it: 'Buono Amazon 50€ con invito', en: '€50 Amazon voucher with invite', de: '50€ Amazon-Gutschein mit Einladung', fr: 'Bon Amazon 50€ avec invitation' }, goUrl: '/go/creditagricole/' },
+  { emoji: '💸', name: 'Wise', desc: { it: 'Tasso di cambio reale, commissioni trasparenti', en: 'Real exchange rate, transparent fees', de: 'Echter Wechselkurs, transparente Gebühren', fr: 'Taux de change réel, frais transparents' }, partnerId: 'wise' },
+  { emoji: '🇮🇹', name: 'Fineco Bank', desc: { it: 'Codice AA8381747 — bonus 50€', en: 'Code AA8381747 — €50 bonus', de: 'Code AA8381747 — 50€ Bonus', fr: 'Code AA8381747 — bonus 50€' }, partnerId: 'fineco' },
+  { emoji: '🏦', name: 'Crédit Agricole', desc: { it: 'Buono Amazon 50€ con invito', en: '€50 Amazon voucher with invite', de: '50€ Amazon-Gutschein mit Einladung', fr: 'Bon Amazon 50€ avec invitation' }, partnerId: 'creditagricole' },
 ];
-
-/** `/go/wise/` → `wise` — id stabile del partner per il parametro di posizione. */
-function goIdFromPath(goUrl) {
-  return String(goUrl).replace(/^\/+go\/+/, '').replace(/\/+$/, '') || 'unknown';
-}
 
 function renderAffiliatePartners({ campaign, locale }) {
   const rows = AFFILIATE_PARTNERS_NL.map((p, i) => {
@@ -531,13 +524,23 @@ function renderAffiliatePartners({ campaign, locale }) {
     // in cui le righe compaiono nell'email, quindi lo slot resta identificabile
     // anche se il partner che lo occupa cambia. La forma NON e' composta qui:
     // la produce newsletterPlacements.js, l'unica sorgente condivisa con la
-    // pagina /go/{id}/ che la trasforma in `pubref` — scriverla a mano la fa
-    // divergere in silenzio, cioe' con un pubref vuoto e nessun rosso.
-    const pos = newsletterPartnerPlacement(i + 1, goIdFromPath(p.goUrl));
+    // pagina /go/{id}/ che la trasforma in `pubref`; il builder centrale
+    // conserva quella forma senza ricomporre il link a mano.
+    const pos = newsletterPartnerPlacement(i + 1, p.partnerId);
+    const href = buildAffiliateHref({
+      partnerId: p.partnerId,
+      surface: 'newsletter',
+      position: `partner-${i + 1}`,
+      campaign,
+      variant: 'control',
+      placement: pos,
+      source: 'newsletter',
+      medium: 'email',
+    });
     return `
       <tr>
         <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
-          <a target="_blank" rel="noopener noreferrer" href="${utmUrl(p.goUrl, campaign, { [PLACEMENT_PARAM]: pos })}" style="text-decoration:none;">
+          <a target="_blank" rel="noopener noreferrer" href="${href}" style="text-decoration:none;">
             <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
             <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
           </a>
