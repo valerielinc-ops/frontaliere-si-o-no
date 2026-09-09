@@ -34,7 +34,7 @@ const missingSnapshot = (id: string) => ({
 
 describe('employer insights surface semantics', () => {
   it('does not present proxy metrics as candidates, published ads, or lost applications', () => {
-    expect(employerPage).toContain('Click sul pulsante candidatura');
+    expect(employerPage).toContain('Click per candidarsi');
     expect(employerPage).toContain('Annunci con visualizzazioni');
     expect(employerPage).toContain('Tasso di intento');
 
