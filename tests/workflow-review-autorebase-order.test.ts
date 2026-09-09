@@ -1,7 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
 
 const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+const workflowJobs = (YAML.parse(workflow) as { jobs?: Record<string, { if?: string }> }).jobs ?? {};
 const reviewGate = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
 const staleRescuer = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
 const autorebase = readFileSync(new URL('../scripts/ci/pr-autorebase.mjs', import.meta.url), 'utf8');
@@ -27,8 +29,8 @@ describe('review → autorebase ordering', () => {
     expect(reviewGate).toBeGreaterThanOrEqual(0);
     expect(autorebase).toBeGreaterThan(reviewGate);
     expect(pullRequestTypes).toContain('labeled');
-    expect(workflow).not.toContain(
-      "if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}",
+    expect(workflowJobs.vitest?.if).toBe(
+      "${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}",
     );
 
     const autorebaseBlock = workflow.slice(autorebase, workflow.indexOf('\n      - name:', autorebase + 1));

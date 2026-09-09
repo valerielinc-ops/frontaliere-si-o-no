@@ -123,11 +123,12 @@ name: tests
 # wrapper può osservare il suo risultato senza lasciare che GitHub interpreti
 # `skipped` come soddisfatto.
 #
-# L'evento `edited` resta l'unica eccezione al percorso pesante: il job di
+# L'evento `edited` resta un percorso body-only per il job pesante: il job di
 # esecuzione viene saltato e il companion `body-contract` esegue lo stesso
-# contratto con un check distinto. Il wrapper required gira comunque e fallisce
-# esplicitamente su `needs.vitest.result == skipped`; il successo del companion
-# non può diventare un verdetto del codice.
+# contratto con un check distinto. Il wrapper required gira comunque, ma per
+# `skipped`/`cancelled` interroga i check-run dello SHA e accetta solo l'ultimo
+# `vitest execution` completato con `success`; un rosso o l'assenza del run
+# precedente resta bloccante.
 on:
   pull_request:
     branches: [main]
@@ -156,6 +157,7 @@ on:
 # `issues: write` (the more permissive of `write`/`read`) covers both.
 permissions:
   contents: read
+  checks: read
   pull-requests: write
   issues: write
   id-token: write
@@ -192,11 +194,11 @@ jobs:
   # check-run che il ruleset già richiede.
   vitest:
     name: vitest execution
-    # Il job gira su OGNI evento PR. Il ruleset richiede il wrapper sotto e un
-    # job pesante saltato per `edited`/`labeled` produrrebbe `SKIPPED`, che
-    # GitHub tratta come soddisfatto: il wrapper avrebbe allora solo un
-    # risultato sintetico da promuovere o rifiutare. Eseguendo sempre il job,
-    # `needs.vitest.result` è invece un verdetto reale sullo SHA corrente.
+    # `edited` usa il companion body-contract qui sotto: non pagare il job
+    # pesante per una modifica che non ha cambiato il codice. `labeled` è stato
+    # aggiunto solo per il rescue: non pagare l'intero job per label estranee
+    # (`agent:fix`, `needs-human`, recycle, redflag-fixer).
+    if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -2439,13 +2441,16 @@ jobs:
         run: node scripts/ci/explain-job-verdict.mjs
 
   # Il ruleset richiede questo nome esatto. Il wrapper gira sempre e converte
-  # ogni risultato diverso da `success` in un fallimento reale. Non legge il
-  # rollup del workflow: usa il risultato diretto del job che pubblica il
-  # verdetto applicativo.
+  # ogni risultato diverso da `success` in un fallimento reale. Sui percorsi
+  # body-only in cui `vitest` è deliberatamente saltato, accetta il run solo se
+  # i check-run dello stesso SHA dimostrano un `vitest execution` completato
+  # con `success`; un vecchio `failure`, `cancelled` o nessun run blocca.
+  # Non legge il rollup del workflow: usa il risultato diretto del job e la
+  # storia dei check-run che pubblicano il verdetto applicativo.
   #
   # `always()` è necessario per poter osservare anche failure/cancelled del job
-  # pesante; poiché `vitest` non ha più una guardia di evento, `skipped` non è
-  # più un percorso normale per il check required.
+  # pesante; il fallback non promuove un vecchio verde se esiste un verdetto
+  # completato più recente diverso da `success`.
   vitest-required:
     name: vitest (unit + integration)
     if: ${{ always() }}
@@ -2456,17 +2461,42 @@ jobs:
         if: ${{ always() }}
         env:
           EXECUTION_RESULT: ${{ needs.vitest.result }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           set -euo pipefail
-          if [ "${EXECUTION_RESULT}" != "success" ]; then
-            echo "::error::Required vitest check cannot be satisfied: vitest execution result=${EXECUTION_RESULT}; skipped, failure, and cancelled executions are blocking."
-            exit 1
+          if [ "${EXECUTION_RESULT}" = "success" ]; then
+            echo "Required vitest check satisfied by a successful execution job."
+            exit 0
           fi
-          echo "Required vitest check satisfied by a successful execution job."
+
+          if [ "${EXECUTION_RESULT}" = "skipped" ] || [ "${EXECUTION_RESULT}" = "cancelled" ]; then
+            check_runs="${CHECK_RUNS_JSON:-}"
+            if [ -z "${check_runs}" ]; then
+              check_runs="$(gh api --paginate --slurp "repos/${REPO}/commits/${HEAD_SHA}/check-runs?per_page=100")"
+            fi
+            latest_execution="$(printf '%s' "${check_runs}" | jq -r '
+              [.[].check_runs[]?
+                | select(.name == "vitest execution")
+                | select(.status == "completed" and .completed_at != null)
+                | select(.conclusion != "skipped")]
+              | sort_by(.completed_at)
+              | last
+              | .conclusion // ""
+            ')"
+            if [ "${latest_execution}" = "success" ]; then
+              echo "Required vitest check satisfied by the latest successful execution on ${HEAD_SHA}."
+              exit 0
+            fi
+          fi
+
+          echo "::error::Required vitest check cannot be satisfied: vitest execution result=${EXECUTION_RESULT}; no latest successful execution verdict exists for ${HEAD_SHA}."
+          exit 1
 
   # `edited` rivalida il body in un check distinto senza sostituire la verifica
-  # del codice: il job pesante gira comunque e il wrapper required conserva il
-  # verdetto del codice sullo SHA corrente.
+  # del codice: il wrapper required conserva il verdetto precedente dello SHA
+  # solo quando i check-run lo dimostrano esplicitamente.
   body-contract:
     name: PR body contract
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}

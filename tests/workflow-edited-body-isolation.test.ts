@@ -58,13 +58,15 @@ describe('tests.yml: body edit isolation', () => {
     expect(renderGroup('edited')).not.toBe(renderGroup('synchronize'));
   });
 
-  it('runs the heavy job on edited and synchronize, with a separate body check', () => {
+  it('keeps edited body isolation while the required wrapper checks prior code verdicts', () => {
     expect(codeJob?.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(requiredJob?.name).toBe(VITEST_CHECK_NAME);
     expect(bodyJob?.name).toBe('PR body contract');
     expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
 
-    expect(codeJob?.if).toBeUndefined();
+    expect(String(codeJob?.if).replace(/\s+/g, '')).toBe(
+      "${{github.event.action!='edited'&&(github.event.action!='labeled'||contains(github.event.pull_request.labels.*.name,'stale-review'))}}",
+    );
     expect(bodyJob?.if).toContain("github.event_name == 'pull_request'");
     expect(bodyJob?.if).toContain("github.event.action == 'edited'");
 
@@ -81,9 +83,14 @@ describe('tests.yml: body edit isolation', () => {
     expect(String(requiredJob?.if).replace(/\s+/g, '')).toBe('${{always()}}');
     expect(requiredJob?.needs).toEqual(['vitest']);
 
-    // Il wrapper required deve ricevere un verdetto reale dal job pesante su
-    // ogni evento: GitHub tratta un job required saltato come soddisfatto.
-    expect(codeJob?.if).toBeUndefined();
+    // Il wrapper required non deve fidarsi dello skip: sui percorsi body-only
+    // deve verificare lo storico dei check-run dello SHA corrente.
+    const requiredRun = requiredJob?.steps?.find(
+      (step) => step.name === 'Require vitest execution job to complete',
+    )?.run;
+    expect(requiredRun).toContain('gh api --paginate --slurp');
+    expect(requiredRun).toContain('vitest execution');
+    expect(requiredRun).toContain('latest_execution');
 
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
     const skippedReviewGuard = codeJob?.steps?.find(
@@ -97,7 +104,7 @@ describe('tests.yml: body edit isolation', () => {
     expect(codeJob?.steps?.some((step) => step.name === 'Rebase near-merge PRs after review or stale rescue')).toBe(true);
   });
 
-  it('rende bloccanti skipped, failure e cancelled del job che pubblica il check required', () => {
+  it('rende bloccanti skip/cancel senza un precedente execution success', () => {
     const requiredStep = requiredJob?.steps?.find(
       (step) => step.name === 'Require vitest execution job to complete',
     );
@@ -105,18 +112,37 @@ describe('tests.yml: body edit isolation', () => {
     expect(requiredStep?.run).toContain('EXECUTION_RESULT');
     expect(requiredStep?.run).toContain('exit 1');
 
-    const runRequiredCheck = (executionResult: string) => execFileSync(
+    const runRequiredCheck = (executionResult: string, conclusions: string[] = []) => execFileSync(
       'bash',
       ['-euo', 'pipefail', '-c', requiredStep?.run ?? ''],
       {
-        env: { ...process.env, EXECUTION_RESULT: executionResult },
+        env: {
+          ...process.env,
+          EXECUTION_RESULT: executionResult,
+          HEAD_SHA: 'head-sha-fixture',
+          REPO: 'owner/repo',
+          CHECK_RUNS_JSON: JSON.stringify([
+            {
+              check_runs: conclusions.map((conclusion, index) => ({
+                name: 'vitest execution',
+                status: 'completed',
+                conclusion,
+                completed_at: `2026-09-08T08:2${index}:00Z`,
+              })),
+            },
+          ]),
+        },
         stdio: 'ignore',
       },
     );
 
-    for (const result of ['skipped', 'failure', 'cancelled']) {
-      expect(() => runRequiredCheck(result), `execution result=${result} deve bloccare`).toThrow();
-    }
+    expect(() => runRequiredCheck('failure'), 'failure deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped'), 'skip senza storico deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['failure']), 'skip dopo failure deve bloccare').toThrow();
+    expect(() => runRequiredCheck('cancelled', ['cancelled']), 'cancel dopo cancel deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['skipped']), 'skip storico non è un verdetto').toThrow();
+    expect(() => runRequiredCheck('skipped', ['success'])).not.toThrow();
+    expect(() => runRequiredCheck('cancelled', ['success'])).not.toThrow();
     expect(() => runRequiredCheck('success')).not.toThrow();
   });
 
