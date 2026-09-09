@@ -320,7 +320,6 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  stgag: 'spital-thurgau',
  'bewerbermanagement-stellen': 'tschuggen',
  'burgenstock-collection': 'buergenstock-hotels',
- gkb: 'gkb',
  'gkb-jobservice': 'gkb',
  'bewerbungsmanagement-spital-davos': 'spital-davos',
  'kzu-recruiting': 'kzu',
