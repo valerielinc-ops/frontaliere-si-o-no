@@ -11613,6 +11613,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.libro-boom-frontalieri-svizzera.title': 'Das Buch zum Grenzgängerboom in der Schweiz',
     'blog.article.libro-boom-frontalieri-svizzera.excerpt': 'Neues akademisches Buch erklärt, wie die Schweiz 400 \'000 Grenzgänger zählt. Von 84.000 im Jahr 1978 bis zum Boom nach dem Jahr 2000. Fokus auf Löhne, Steuern, Transport.',
     'blog.article.libro-boom-frontalieri-svizzera.imageAlt': 'Tessin-Grenzlandschaft, Symbol des grenzüberschreitenden Arbeitsmarktes.',
+    'blog.article.mesenzana-lavorare-ticino.title': 'Leben in Mesenzana und Arbeiten im Tessin',
+    'blog.article.mesenzana-lavorare-ticino.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in Mesenzana leben und im Tessin arbeiten können: Genehmigungen, Steuern, Transport, Lebenshaltungskosten und Verfahren. Praktischer Leitfaden.',
+    'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Blick auf den Grenzübergang Brogeda zwischen Schweiz und Italien mit Alpenlandschaft',
 };
 
 export default blogMetaDe;

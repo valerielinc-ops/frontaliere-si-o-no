@@ -11614,6 +11614,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.libro-boom-frontalieri-svizzera.title': 'The book about the border worker boom in Switzerland',
     'blog.article.libro-boom-frontalieri-svizzera.excerpt': 'New academic book explains how Switzerland has 400,000 frontier workers. From 84,000 in 1978 to the boom after 2000. Focus on wages, taxation, transport.',
     'blog.article.libro-boom-frontalieri-svizzera.imageAlt': 'Ticino region landscape at the Swiss-Italian border, symbolizing the cross-border labor market.',
+    'blog.article.mesenzana-lavorare-ticino.title': 'Living in Mesenzana and working in Ticino',
+    'blog.article.mesenzana-lavorare-ticino.excerpt': 'Learn how to live in Mesenzana and work in Ticino as a border worker: permits, taxation, transport, cost of living and procedures. Practical guide.',
+    'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Scenic view of the Switzerland-Italy border crossing at Brogeda with Alpine hills in the background',
 };
 
 export default blogMetaEn;
