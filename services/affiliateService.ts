@@ -20,6 +20,14 @@ import {
   goPathFromId,
   isGoIdEnabled as isGoIdEnabledRegistry,
 } from './affiliatePartnersRegistry.mjs';
+import {
+ buildAffiliateHref as buildAffiliateHrefRuntime,
+ buildAffiliatePubref,
+ safeAffiliateToken,
+ sanitizeAffiliatePubref,
+ PUBREF_INVALID_RE as PUBREF_INVALID_RE_RUNTIME,
+ PUBREF_MAX_LEN as PUBREF_MAX_LEN_RUNTIME,
+} from '../functions/src/lib/affiliateLinks.js';
 
 export type ComparatorContext =
  | 'exchange'
@@ -68,6 +76,25 @@ export interface AffiliatePartner {
   * official FOPH premium comparator) which must NOT claim sponsorship.
   */
  sponsored: boolean;
+}
+
+export interface AffiliateLinkAttribution {
+ /** Stable surface family, e.g. `web` or `newsletter`. */
+ surface: string;
+ /** Stable slot inside the surface, never a URL, email, or user id. */
+ position: string;
+ /** Campaign identifier owned by the sender/experiment. */
+ campaign: string;
+ /** Experiment variant; defaults to `control`. */
+ variant?: string;
+ /** Existing email contracts may provide their already-observed `pos` shape. */
+ placement?: string;
+ /** Optional categorical acquisition source, never recipient data. */
+ acquisitionSource?: string | null;
+ /** UTM source override for email-compatible senders. */
+ source?: string;
+ /** UTM medium override for email-compatible senders. */
+ medium?: string;
 }
 
 /**
@@ -138,9 +165,9 @@ export function partnerRelAttr(partner: Pick<AffiliatePartner, 'sponsored'>): st
  * Exported because the /go/ redirect page has to apply the same rule inline in
  * the browser (build-plugins/affiliateRedirectPlugin.ts): one definition.
  */
-export const PUBREF_INVALID_RE = /[^a-z0-9_-]+/g;
+export const PUBREF_INVALID_RE = PUBREF_INVALID_RE_RUNTIME;
 /** Partnerize truncates long publisher references; keep them short by design. */
-export const PUBREF_MAX_LEN = 48;
+export const PUBREF_MAX_LEN = PUBREF_MAX_LEN_RUNTIME;
 
 /** True for Partnerize tracking deeplinks (the paid destination is the redirect). */
 export function isPartnerizeUrl(url: string): boolean {
@@ -149,13 +176,19 @@ export function isPartnerizeUrl(url: string): boolean {
 
 /** Normalise an arbitrary placement label into a Partnerize-safe `pubref`. */
 export function sanitizePubref(raw: string): string {
- return String(raw ?? '')
- .toLowerCase()
- .replace(PUBREF_INVALID_RE, '-')
- .replace(/^-+|-+$/g, '')
- .slice(0, PUBREF_MAX_LEN)
- .replace(/-+$/, '');
+ return sanitizeAffiliatePubref(raw);
 }
+
+/** Build a PII-free /go/ href with one attribution contract for every surface. */
+export function buildAffiliateLinkHref(
+ partner: Pick<AffiliatePartner, 'id'>,
+ attribution: AffiliateLinkAttribution,
+): string {
+ return buildAffiliateHrefRuntime({ partnerId: partner.id, ...attribution });
+}
+
+/** Build the Partnerize pubref for tests and event payloads without URL parsing. */
+export { buildAffiliatePubref, safeAffiliateToken };
 
 /**
  * Build the full affiliate URL with optional tracking params.

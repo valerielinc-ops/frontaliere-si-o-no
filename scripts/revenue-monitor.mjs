@@ -54,6 +54,7 @@ import {
   hasSignificantOtherBucket,
   weightedQuantile,
 } from './lib/ga4-service-account.mjs';
+import { parseAffiliateCsv, parseAffiliateExport, reconcileAffiliateTransactions } from './lib/affiliateRevenue.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -61,6 +62,9 @@ const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // committed here instead so the trend has somewhere to persist across weekly
 // runs (mirrors data/ai-visibility-history.jsonl — see PR #2736 / issue #2741).
 const HISTORY_FILE = resolve(__dirname, '..', 'data', 'revenue-monitor-history.jsonl');
+const AFFILIATE_EXPORT_FILE = process.env.AFFILIATE_REVENUE_EXPORT_FILE
+  ? resolve(process.env.AFFILIATE_REVENUE_EXPORT_FILE)
+  : null;
 
 // ── Baseline captured Apr 6-19 2026 (see docs/revenue-optimization-remaining.md) ──
 // CTR baselines by URL bucket derived from GSC 28-day query bucketed by path prefix
@@ -548,6 +552,38 @@ export function buildComparisonRows(current, baseline = BASELINE) {
     rows.push({ metric: 'Publisher est. MRR (CHF)', baseline: null, current: p.estMrrCHF, ...compare(p.estMrrCHF, null) });
   }
 
+  // Affiliate commissions are deliberately additive and fail-soft. The
+  // Partnerize export is an authorised, owner-provided input; no API write or
+  // purchase simulation happens here. Missing commercial data remains
+  // `unmeasurable`, never zero.
+  if (current.affiliate) {
+    if (current.affiliate.status === 'measurable') {
+      for (const [currency, values] of Object.entries(current.affiliate.byCurrency || {})) {
+        rows.push({
+          metric: `Affiliate approved / 1,000 web exposures (${currency})`,
+          baseline: null,
+          current: values.approvedPer1000Exposures.web,
+          ...compare(values.approvedPer1000Exposures.web, null),
+        });
+        rows.push({
+          metric: `Affiliate approved / 1,000 email delivered (${currency})`,
+          baseline: null,
+          current: values.approvedPer1000Exposures.email,
+          ...compare(values.approvedPer1000Exposures.email, null),
+        });
+      }
+    } else {
+      rows.push({
+        metric: 'Affiliate commissions',
+        baseline: null,
+        current: 'unmeasurable',
+        delta: null,
+        deltaPct: null,
+        verdict: '⚪ unmeasurable',
+      });
+    }
+  }
+
   return rows;
 }
 
@@ -683,6 +719,17 @@ export function buildHistoryEntry(current, rows, dateStr) {
           ctrPct: current.gscNews.ctrPct ?? null,
         }
       : null,
+    affiliate: current.affiliate
+      ? {
+          status: current.affiliate.status ?? 'unmeasurable',
+          reason: current.affiliate.reason ?? null,
+          period: current.affiliate.period ?? null,
+          invalidRows: current.affiliate.invalidRows ?? null,
+          deduplicatedTransactions: current.affiliate.deduplicatedTransactions ?? null,
+          exposures: current.affiliate.exposures ?? null,
+          byCurrency: current.affiliate.byCurrency ?? null,
+        }
+      : null,
     regressions,
   };
 }
@@ -704,7 +751,49 @@ function loadLatestPosthogBaseline(file, source) {
 
 // ── Main ────────────────────────────────────────────────────
 async function main() {
-  const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, posthog: null, publisher: null, errors: [], warnings: [] };
+  const current = { adsense: null, gsc: null, gscDiscover: null, gscNews: null, posthog: null, publisher: null, affiliate: null, errors: [], warnings: [] };
+
+  const affiliateWindow = last7Days();
+  if (!AFFILIATE_EXPORT_FILE) {
+    current.affiliate = {
+      status: 'unmeasurable',
+      reason: 'AFFILIATE_REVENUE_EXPORT_FILE is not configured',
+      period: { from: affiliateWindow.start, to: affiliateWindow.end },
+      invalidRows: 0,
+      deduplicatedTransactions: 0,
+      exposures: { web: null, email: null },
+      byCurrency: {},
+    };
+    log('⚪', 'Affiliate commissions unmeasurable (no authorised export configured)');
+  } else {
+    try {
+      const rawText = readFileSync(AFFILIATE_EXPORT_FILE, 'utf8');
+      const raw = AFFILIATE_EXPORT_FILE.toLowerCase().endsWith('.csv')
+        ? parseAffiliateCsv(rawText)
+        : JSON.parse(rawText);
+      const parsed = parseAffiliateExport(raw);
+      current.affiliate = reconcileAffiliateTransactions({
+        rows: parsed.rows,
+        from: affiliateWindow.start,
+        to: affiliateWindow.end,
+        exposures: parsed.exposures,
+      });
+      log(current.affiliate.status === 'measurable' ? '💰' : '⚪',
+        `Affiliate commissions: ${current.affiliate.status} (${current.affiliate.deduplicatedTransactions} deduplicated transactions)`);
+    } catch (e) {
+      current.affiliate = {
+        status: 'unmeasurable',
+        reason: `affiliate export failed: ${e.message}`,
+        period: { from: affiliateWindow.start, to: affiliateWindow.end },
+        invalidRows: 0,
+        deduplicatedTransactions: 0,
+        exposures: { web: null, email: null },
+        byCurrency: {},
+      };
+      current.warnings.push(current.affiliate.reason);
+      log('⚪', `Affiliate commissions unmeasurable: ${e.message}`);
+    }
+  }
 
   // Publisher stream (issue #4448) — purely local read, no network/auth. Fail-soft
   // like every other source: a broken/missing slice file only adds a warning.
