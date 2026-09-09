@@ -80516,6 +80516,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-opportunita-lavoro-federale': {
+    title: 'Opportunità di lavoro nell\'Amministrazione federale',
+    description: 'L\'Amministrazione federale svizzera offre praticantati, formazioni e opportunità di carriera con benefici flessibili e remunerazione competitiva.',
+    keywords: 'frontalieri, ticino, svizzera, italia, opportunità, lavoro, nell, amministrazione',
+    ogTitle: 'Opportunità di lavoro nell\'Amministrazione federale',
+    ogDescription: 'Scopri come candidarti per praticantati, formazioni professionali e carriere presso l\'Amministrazione federale svizzera. Ambienti innovativi, benefici flessibili e crescita professionale garantita. Metti il tuo talento al servizio della Svizzera.',
+    canonicalPath: '/articoli-svizzera/opportunita-lavoro-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Opportunità di lavoro nell'Amministrazione federale",
+      "description": "L'Amministrazione federale svizzera offre praticantati, formazioni e opportunità di carriera con benefici flessibili e remunerazione competitiva.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/opportunita-lavoro-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno dell'Amministrazione federale con professionisti che collaborano a progetti innovativi."
+      },
+      "datePublished": "2026-09-09T17:14:57+00:00",
+      "dateModified": "2026-09-09T17:14:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/opportunita-lavoro-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantone-comuni-fisco-riforma-arp': {
+    title: 'Cantone e Comuni si confrontano su fisco e riforma ARP',
+    description: 'Dialogo Cantone-Comuni su fisco post abolizione valore locativo, imposta residenze secondarie, Ticino 2020 e riforma Preture di protezione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantone, comuni, confrontano, fisco',
+    ogTitle: 'Cantone e Comuni si confrontano su fisco e riforma ARP',
+    ogDescription: 'La Piattaforma di dialogo Cantone-Comuni in Bellinzona discute adattamenti fiscali dopo abolizione valore locativo, nuova imposta residenze secondarie, Ticino 2020 e riforma ARP/Preture di protezione',
+    canonicalPath: '/articoli-svizzera/cantone-comuni-fisco-riforma-arp/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantone e Comuni si confrontano su fisco e riforma ARP",
+      "description": "Dialogo Cantone-Comuni su fisco post abolizione valore locativo, imposta residenze secondarie, Ticino 2020 e riforma Preture di protezione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantone-comuni-fisco-riforma-arp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, sede dell'Amministrazione cantonale, durante il dialogo Cantone-Comuni su fisco e riforme"
+      },
+      "datePublished": "2026-09-09T17:32:52+00:00",
+      "dateModified": "2026-09-09T17:32:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cantone-comuni-fisco-riforma-arp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zimmer-biomet-svizzera-unia': {
+    title: 'Zimmer Biomet taglia a Winterthur, Unia in campo',
+    description: '580 tagli su 730 posti a Zimmer Biomet (Winterthur). Il sindacato Unia protesta: i lavoratori non devono pagare per l\'arricchimento degli azionisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zimmer, biomet, taglia, winterthur',
+    ogTitle: 'Zimmer Biomet taglia a Winterthur, Unia in campo',
+    ogDescription: 'Zimmer Biomet annuncia 580 tagli su 730 posti a Winterthur. Il sindacato Unia chiede di preservare il nucleo aziendale e il marchio \'Swiss Made\'. Elezioni cantonali in primavera 2027: i politici verranno valutati.',
+    canonicalPath: '/articoli-svizzera/zimmer-biomet-svizzera-unia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zimmer Biomet taglia a Winterthur, Unia in campo",
+      "description": "580 tagli su 730 posti a Zimmer Biomet (Winterthur). Il sindacato Unia protesta: i lavoratori non devono pagare per l'arricchimento degli azionisti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zimmer-biomet-svizzera-unia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento di produzione Zimmer Biomet a Winterthur, dove sono previsti 580 tagli su 730 posti di lavoro"
+      },
+      "datePublished": "2026-09-09T17:53:18+00:00",
+      "dateModified": "2026-09-09T17:53:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zimmer-biomet-svizzera-unia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-banda-larga-consiglio-federale': {
+    title: 'Banda larga rurale: il programma federale 2030-2037',
+    description: 'Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali fino al 2037.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banda, larga, rurale, programma',
+    ogTitle: 'Banda larga in Svizzera: il programma del Consiglio federale',
+    ogDescription: 'Il Consiglio federale lancia un programma di 730 milioni CHF per portare Internet veloce (1 Gbps) nelle zone rurali svizzere. Fibra ottica e radiocomunicazione per comuni con bassa redditività dal 2030.',
+    canonicalPath: '/articoli-svizzera/banda-larga-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banda larga rurale: il programma federale 2030-2037",
+      "description": "Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali fino al 2037.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banda-larga-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tecnico che installa cavi in fibra ottica su una casa di campagna svizzera, simbolo dell'espansione della banda larga nelle zone rurali."
+      },
+      "datePublished": "2026-09-09T18:15:37+00:00",
+      "dateModified": "2026-09-09T18:15:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banda-larga-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

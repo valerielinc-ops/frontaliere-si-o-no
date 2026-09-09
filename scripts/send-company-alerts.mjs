@@ -158,10 +158,15 @@ const CLOSED_JOB_STATUSES = new Set([
   'removed',
 ]);
 
-// These are the states written by the two consent containers. Anything else,
-// including `pending` and a missing document, is unknown and therefore
-// fail-closed in the sender.
+// These are the states written by the two consent containers. `subscribed` is
+// a known reactivation state, but not sendable here: the preferences-link
+// writer does not establish double-opt-in proof, and company-follow consent
+// is a separate gate. Anything else, including `pending` and a missing
+// document, is unknown and therefore fail-closed in the sender.
 const NEWSLETTER_SENDABLE_STATUS = 'confirmed';
+const NEWSLETTER_NON_SENDABLE_STATUS_REASONS = Object.freeze({
+  subscribed: 'newsletter-consent-resubscribe-status',
+});
 const JOB_ALERT_SENDABLE_STATUS = 'active';
 
 /**
@@ -374,6 +379,15 @@ export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
   }
 
   const newsletterStatus = String(newsletter.status || '').trim().toLowerCase();
+  const knownNonSendableReason = Object.hasOwn(
+    NEWSLETTER_NON_SENDABLE_STATUS_REASONS,
+    newsletterStatus,
+  )
+    ? NEWSLETTER_NON_SENDABLE_STATUS_REASONS[newsletterStatus]
+    : null;
+  if (knownNonSendableReason) {
+    return { action: 'defer', reason: knownNonSendableReason };
+  }
   if (newsletterStatus !== NEWSLETTER_SENDABLE_STATUS) {
     return { action: 'defer', reason: 'newsletter-consent-status-unknown' };
   }
