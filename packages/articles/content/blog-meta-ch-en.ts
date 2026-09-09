@@ -6196,6 +6196,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tour-operator-calo-conflitti.title': 'Swiss tour operators in difficulty: 5-10% drop in turnover',
     'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV estimates a 5-10% contraction in 2026 due to geopolitics, summer heat and the collapse of US visitors. Additional costs 2.3m CHF for emergency returns.',
     'blog.article.tour-operator-calo-conflitti.imageAlt': 'View of Lugano, popular Swiss tourism destination for international travelers',
+    'blog.article.banda-larga-zone-rurali.title': 'Broadband in rural areas: CHF 730 million',
+    'blog.article.banda-larga-zone-rurali.excerpt': 'The Federal Council approves a CHF 730 million programme for fast internet connections in rural areas. Involved cantons and municipalities from 2030 to 2037 with fibre optics and radio communication.',
+    'blog.article.banda-larga-zone-rurali.imageAlt': 'Swiss rural village in green landscape with modern fiber optic infrastructure',
 };
 
 export default blogMetaChEn;

@@ -6196,6 +6196,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tour-operator-calo-conflitti.title': 'Schweizer Reiseveranstalter in Schwierigkeiten: Umsatzrückgang 5-10%',
     'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV schätzt einen Rückgang von 5-10% im Jahr 2026 aufgrund von Geopolitik, Sommerhitze und Einbruch der US-Besucher. Mehrkosten 2.3M CHF für Notfallrückführungen.',
     'blog.article.tour-operator-calo-conflitti.imageAlt': 'Blick auf Lugano, beliebtes Schweizer Touristenziel für internationale Reisende',
+    'blog.article.banda-larga-zone-rurali.title': 'Breitband im ländlichen Raum: CHF 730 Mio.',
+    'blog.article.banda-larga-zone-rurali.excerpt': 'Der Bundesrat genehmigt ein 730-Millionen-Franken-Programm für schnelle Internetanschlüsse im ländlichen Raum. Betroffen sind Kantone und Gemeinden von 2030 bis 2037 mit Glasfaser und Funk.',
+    'blog.article.banda-larga-zone-rurali.imageAlt': 'Schweizer Landgemeinde in grüner Landschaft mit modernen Glasfaseranlagen',
 };
 
 export default blogMetaChDe;
