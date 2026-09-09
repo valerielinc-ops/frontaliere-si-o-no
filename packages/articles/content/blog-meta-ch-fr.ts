@@ -6175,6 +6175,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.internet-banda-larga-svizzera.title': 'Internet rapide dans toute la Suisse : plan fédéral',
     'blog.article.internet-banda-larga-svizzera.excerpt': 'Le Conseil fédéral adopte un programme de 730 millions de CHF pour le haut débit dans les zones faiblement peuplées. Objectif : 1 Gbit/s d\'ici 2030.',
     'blog.article.internet-banda-larga-svizzera.imageAlt': 'Village alpin suisse avec infrastructure fibre optique en zones rurales',
+    'blog.article.giornata-informativa-esercito-donne.title': 'Journée d\'information obligatoire pour les femmes suisses',
+    'blog.article.giornata-informativa-esercito-donne.excerpt': 'Le Conseil fédéral approuve le message relatif à la journée d’information obligatoire sur la défense militaire et civile. Un référendum aura lieu en 2028, et la mise en œuvre est prévue pour début 2030.',
+    'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Bâtiment institutionnel suisse avec drapeau national, symbole de l\'administration fédérale et des décisions politiques',
 };
 
 export default blogMetaChFr;

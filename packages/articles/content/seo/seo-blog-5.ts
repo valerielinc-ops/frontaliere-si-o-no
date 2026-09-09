@@ -89032,6 +89032,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-casnate-bernate-trasferimento': {
+    title: 'Vivere a Casnate, lavorare in Ticino | Frontaliere Ticino',
+    description: 'Guida per frontalieri italiani a Casnate con Bernate che lavorano in Ticino. Fiscalità, permesso G, LAMal, imposta alla fonte e procedure dal 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, casnate, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Casnate, lavorare in Ticino',
+    ogDescription: 'Ti trasferisci a Casnate per lavorare in Ticino? Scopri fiscalità, permesso G, contributi AVS/LPP e LAMal secondo il Nuovo Accordo Frontalieri 2024. Procedura step-by-step.',
+    canonicalPath: '/articoli-frontaliere/casnate-bernate-trasferimento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Casnate, lavorare in Ticino",
+      "description": "Guida per frontalieri italiani a Casnate con Bernate che lavorano in Ticino. Fiscalità, permesso G, LAMal, imposta alla fonte e procedure dal 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/casnate-bernate-trasferimento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Mendrisio al tramonto, Ticino, vicino al confine con l'Italia"
+      },
+      "datePublished": "2026-09-09T13:14:22+00:00",
+      "dateModified": "2026-09-09T13:14:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casnate-bernate-trasferimento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

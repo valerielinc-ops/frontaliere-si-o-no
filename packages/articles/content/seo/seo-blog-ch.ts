@@ -80165,6 +80165,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giornata-informativa-esercito-donne': {
+    title: 'Giornata informativa obbligatoria per le donne svizzere',
+    description: 'Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull\'esercito e protezione civile per le donne. Votazione nel 2028',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornata, informativa, obbligatoria, donne',
+    ogTitle: 'Consiglio federale approva giornata informativa per donne',
+    ogDescription: 'Il Consiglio federale ha approvato il 9 settembre 2026 il messaggio per una giornata informativa obbligatoria sull\'esercito e la protezione civile per le cittadine svizzere. Richiede modifiche costituzionali e una votazione popolare nel 2028',
+    canonicalPath: '/articoli-svizzera/giornata-informativa-esercito-donne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giornata informativa obbligatoria per le donne svizzere",
+      "description": "Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull'esercito e protezione civile per le donne. Votazione nel 2028",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giornata-informativa-esercito-donne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo istituzionale svizzero con bandiera nazionale, simbolo dell'amministrazione federale e delle decisioni politiche del Consiglio federale"
+      },
+      "datePublished": "2026-09-09T13:28:14+00:00",
+      "dateModified": "2026-09-09T13:28:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giornata-informativa-esercito-donne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

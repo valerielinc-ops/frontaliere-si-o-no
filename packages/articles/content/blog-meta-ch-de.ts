@@ -6175,6 +6175,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.internet-banda-larga-svizzera.title': 'Schnelles Internet in der ganzen Schweiz: Bundesplan',
     'blog.article.internet-banda-larga-svizzera.excerpt': 'Der Bundesrat verabschiedet ein Breitbandprogramm über CHF 730 Mio. in dünn besiedelten Gebieten. Ziel: 1 Gb/s bis 2030.',
     'blog.article.internet-banda-larga-svizzera.imageAlt': 'Schweizer Alpendorf mit Glasfaser-Infrastruktur in ländlichen Gebieten',
+    'blog.article.giornata-informativa-esercito-donne.title': 'Obligatorischer Informationstag für Schweizerinnen',
+    'blog.article.giornata-informativa-esercito-donne.excerpt': 'Der Bundesrat verabschiedet die Botschaft für einen obligatorischen Informationstag über Armee und Zivilschutz. Volksabstimmung 2028, Umsetzung Anfang 2030.',
+    'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Schweizer Verwaltungsgebäude mit Schweizer Flagge, Symbol der Bundesverwaltung und politischen Entscheidungen',
 };
 
 export default blogMetaChDe;

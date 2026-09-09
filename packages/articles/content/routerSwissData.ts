@@ -2084,6 +2084,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'stablecoin-franco-fase-operativa': { it: 'stablecoin-franco-fase-operativa', en: 'stablecoin-franc-operational-phase', de: 'stablecoin-franken-operativ-phase', fr: 'stablecoin-franc-phase-operative' },
  'accordo-clima-commercio-consultazione': { it: 'accordo-clima-commercio-consultazione', en: 'climate-commerce-agreement-consultation', de: 'klima-handels-vereinbarung-konsultation', fr: 'accord-climat-commerce-consultation' },
  'internet-banda-larga-svizzera': { it: 'internet-banda-larga-svizzera', en: 'fast-internet-broadband-switzerland', de: 'schnelles-internet-breitband-schweiz', fr: 'internet-rapide-haut-debit-suisse' },
+ 'giornata-informativa-esercito-donne': { it: 'giornata-informativa-esercito-donne', en: 'mandatory-information-day-military-women', de: 'obligatorischer-informationstag-militar-frauen', fr: 'journee-information-obligatoire-armee-femmes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

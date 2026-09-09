@@ -18523,6 +18523,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'giornata-informativa-esercito-donne',
+    category: 'novita',
+    date: '2026-09-09T13:28:14.224Z',
+    image: '/images/blog/giornata-informativa-esercito-donne.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
