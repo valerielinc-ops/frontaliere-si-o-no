@@ -1,8 +1,20 @@
 /**
- * Health-premium landing page data: slug maps, age brackets, path builders.
+ * Health-premium landing pages: slug maps, age brackets, path builders.
+ *
+ * PRIVO DI DIPENDENZE NODE — deliberatamente (#8125). Questo e' il modulo che
+ * il bundle del browser raggiunge: `App.tsx`, `services/router.ts` e i
+ * componenti stats hanno bisogno dei costruttori di path e della tabella di
+ * route perche' la forma degli URL abbia UNA sola sorgente condivisa fra
+ * l'emettitore SSG e il router della SPA. Il lettore di dataset che legge da
+ * disco vive in `build-plugins/healthPremiumsData.ts`, che importa DA qui e
+ * ri-esporta questi simboli per i consumatori Node.
+ *
+ * Il verso conta: rollup risolve `node:fs` a `__vite-browser-external`, che
+ * non ha export nominati, quindi un builtin Node dentro un modulo raggiungibile
+ * dal browser fa fallire il link della build — dopo ~80 minuti. Non aggiungere
+ * qui import Node, nemmeno in forma namespace.
  *
  * F2 — LAMal evergreen SEO moat.
- *
  * GSC evidence: ~10 imp/month on "premi cassa malati ticino 2026",
  * "lamal preise tessin", "primes lamal 2026". Low-volume but evergreen with
  * annual refresh + long-tail compounding. Generates 183 pages per locale
@@ -98,6 +110,7 @@ export interface HealthPremiumAgeDef {
   /** Inclusive max age (null = open-ended) */
   max: number | null;
 }
+
 export const HEALTH_PREMIUM_LOCALES: readonly HealthPremiumLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
 /**
@@ -633,3 +646,4 @@ export function isHealthPremiumsPath(pathname: string): boolean {
   const normalised = leading.endsWith('/') ? leading : `${leading}/`;
   return HEALTH_PREMIUMS_ROUTE_SET.has(normalised);
 }
+

@@ -7,7 +7,7 @@ import {
  buildBriefingPrompt,
  buildSubjectPrompt,
  FALLBACK_SUBJECT,
-} from '@/services/newsletter-content.mjs';
+} from '@/services/newsletter-content-core.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 

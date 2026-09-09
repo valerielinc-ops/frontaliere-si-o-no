@@ -78,7 +78,7 @@ import {
   type HealthPremiumLocale,
   type HealthPremiumCanton,
   type HealthPremiumAgeBracket,
-} from '../healthPremiumsLinks';
+} from './healthPremiumsPaths';
 import {
   buildOggiPath as buildBorderOggiPath,
   buildRootHubPath as buildBorderRootHubPath,

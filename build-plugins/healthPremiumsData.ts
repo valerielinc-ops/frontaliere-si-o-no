@@ -1,17 +1,27 @@
 /**
- * Node-backed health-premium loaders and YoY helpers.
+ * Health-premium dataset reader + YoY computation (F2 A3): la parte che legge
+ * da disco.
  *
- * URL tables, path builders and route predicates live in
- * `healthPremiumsLinks.ts`, which is safe for browser consumers.
+ * Le slug map, i bracket di eta' e i costruttori di path stanno in
+ * `./shared/healthPremiumsPaths.ts`, che e' PRIVO di dipendenze Node, e sono
+ * ri-esportati qui sotto: i consumatori Node (plugin, script, test) importano
+ * questo modulo come prima, i consumatori del bundle browser importano il
+ * modulo puro.
+ *
+ * Il verso e' quello e non l'inverso (#8125): se un componente SPA importasse
+ * un costruttore di path DA QUI, questo modulo rientrerebbe nel grafo del
+ * browser con il suo `node:fs`, rollup lo risolverebbe a
+ * `__vite-browser-external` e il link della build morirebbe — non per l'uso,
+ * ma per la risoluzione del binding.
  */
-export * from './healthPremiumsLinks';
+export * from './shared/healthPremiumsPaths';
 
 import {
   HEALTH_PREMIUM_AGE_BRACKETS,
   HEALTH_PREMIUM_BRACKET_RISK_CLASS,
   type HealthPremiumAgeBracket,
   type HealthPremiumRiskClass,
-} from './healthPremiumsLinks';
+} from './shared/healthPremiumsPaths';
 
 // ── Multi-year loader + YoY computation (F2 A3) ────────────────
 //

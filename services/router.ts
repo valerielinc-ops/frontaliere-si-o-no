@@ -30,7 +30,7 @@ import {
  SECTOR_HUB_KEYS,
  SECTOR_HUB_SLUG,
  type SectorHubKey,
-} from '../build-plugins/jobSectorLanding';
+} from '../build-plugins/shared/jobSectorPaths';
 import {
  buildJobCareVariantLandingModel,
  buildJobLocationLandingModel,
@@ -49,7 +49,7 @@ import {
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
-import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsLinks';
+import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/shared/healthPremiumsPaths';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
 import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';

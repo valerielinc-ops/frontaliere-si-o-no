@@ -214,7 +214,7 @@ import type { Article } from '@/data/blog-articles-data';
 // Layer 2D — Internal linking: cross-feature SEO page builders (sidebar "Strumenti correlati").
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
-import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsLinks';
+import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import {
  buildJobCareVariantLandingModel,
