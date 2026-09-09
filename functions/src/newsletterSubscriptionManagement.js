@@ -37,7 +37,7 @@
  * instead of one.
  */
 
-import { timingSafeEqual } from 'node:crypto';
+import { createHash, timingSafeEqual } from 'node:crypto';
 import admin from 'firebase-admin';
 import { ensureAdminApp, getAdminDb } from './newsletterResendWebhookCore.js';
 import { t, htmlLang, normalizeLocale } from './emailI18n.js';
@@ -290,12 +290,44 @@ function normalizeBool(value) {
  * MUST stay byte-equivalent to `baseCompanySlug`
  * (build-plugins/shared/companyProfileSlug.mjs) — the Cloud Functions bundle
  * cannot import anything outside `functions/`, so this is a deliberate,
- * pinned mirror rather than a fourth independent normalisation. Parity is
- * asserted by tests/company-alert.test.ts. The brand-alias fold is NOT
- * mirrored: the token API stores what the client canonicalised, and a key that
- * arrives already folded passes through unchanged.
+ * pinned deployment-boundary mirror rather than a second policy. Parity is
+ * asserted by tests/company-alert.test.ts, including the brand aliases.
  */
-function normalizeCompanyAlertKey(value) {
+// The Functions bundle is deployed from `functions/` and cannot import the
+// build-plugin tree. Keep the deployment-boundary mirror explicit and parity
+// tested against build-plugins/shared/brandCanonicalMap.mjs; this is the same
+// canonical map, not a second policy.
+const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
+ guess: 'guess-europe-sagl',
+ 'guess-europe': 'guess-europe-sagl',
+ 'guess-sagl': 'guess-europe-sagl',
+ 'guess-europe-switzerland': 'guess-europe-sagl',
+ 'guess-ticino': 'guess-europe-sagl',
+ 'migros-ticino': 'migros',
+ 'gruppo-migros': 'migros',
+ medacta: 'medacta-international-sa',
+ 'medacta-international': 'medacta-international-sa',
+ 'medacta-sa': 'medacta-international-sa',
+ 'medacta-italia': 'medacta-international-sa',
+ 'medacta-rancate': 'medacta-international-sa',
+ casale: 'casale-sa',
+ 'casale-lugano': 'casale-sa',
+ 'casale-chemical': 'casale-sa',
+ 'casale-group': 'casale-sa',
+ 'solothurner-spitaeler': 'soh-solothurner-spitaeler',
+ kssg: 'hoch-health',
+ spz: 'paraplegie',
+ stgag: 'spital-thurgau',
+ 'bewerbermanagement-stellen': 'tschuggen',
+ 'burgenstock-collection': 'buergenstock-hotels',
+ gkb: 'gkb',
+ 'gkb-jobservice': 'gkb',
+ 'bewerbungsmanagement-spital-davos': 'spital-davos',
+ 'kzu-recruiting': 'kzu',
+ 'diakoniewerk-neumuenster': 'spital-zollikerberg',
+});
+
+export function normalizeCompanyAlertKey(value) {
  const norm = (x) => String(x || '')
  .toLowerCase()
  .normalize('NFD')
@@ -305,7 +337,33 @@ function normalizeCompanyAlertKey(value) {
  const n = norm(value);
  if (!n) return '';
  if (n.includes('lidl')) return 'lidl';
- return n.replace(/\s+/g, '-');
+ const slug = n.replace(/\s+/g, '-');
+ return BRAND_ALIAS_TO_CANONICAL[slug] || slug;
+}
+
+function alertIdempotencyKey({ email, keywords, locations, sectors, frequency, companyPin, jobPin }) {
+ const material = JSON.stringify({
+  version: 1,
+  email,
+  keywords: [...keywords].sort(),
+  locations: [...locations].sort(),
+  sectors: [...sectors].sort(),
+  frequency,
+  companyPin: companyPin || null,
+  jobPin: jobPin || null,
+ });
+ return `v1_${createHash('sha256').update(material).digest('hex').slice(0, 32)}`;
+}
+
+function safeFollowupPath(value) {
+ const raw = String(value || '').trim();
+ if (!raw.startsWith('/') || raw.startsWith('//')) return null;
+ try {
+  const parsed = new URL(raw, BASE_URL);
+  return parsed.origin === BASE_URL ? parsed.pathname || '/' : null;
+ } catch {
+  return null;
+ }
 }
 
 function serializeAlertDoc(id, data) {
@@ -843,8 +901,14 @@ export async function handleSubscriptionManagement({ action, email, token, local
  locations: Array.isArray(a.locations) ? a.locations : [],
  sectors: Array.isArray(a.sectors) ? a.sectors : [],
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
- frequencyOverride: a.frequencyOverride === true,
- active: true,
+   frequencyOverride: a.frequencyOverride === true,
+   specificCompanyKey: typeof a.specificCompanyKey === 'string' && a.specificCompanyKey
+   ? a.specificCompanyKey
+   : null,
+   specificJobId: typeof a.specificJobId === 'string' && a.specificJobId
+   ? a.specificJobId
+   : null,
+   active: true,
  paused: a.paused === true,
  createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
@@ -1034,7 +1098,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'invalid_alert_id' } };
  }
  try {
- await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id).delete();
+ // Disiscrizione = stato, non rimozione: keep the child as the suppression and
+ // audit record so sender/cap queries cannot resurrect a deleted follow and an
+ // audit can still prove when/why the user left.
+ await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id).set({
+  active: false,
+  unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+  unsubscribe_source: 'preferences_link',
+  updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: 'job_alert_deleted',
@@ -1157,14 +1230,43 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  try {
- const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
- // Enforce the cap of the KIND being created (count active docs). Two budgets:
+  const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
+  const idempotencyKey = alertIdempotencyKey({
+   email: normalizedEmail,
+   keywords: kw,
+   locations: loc,
+   sectors: sec,
+   frequency: freq,
+   companyPin,
+   jobPin,
+  });
+  const deterministicRef = alertsCol.doc(`intent_${idempotencyKey}`);
+  const deterministicSnap = await deterministicRef.get();
+  if (deterministicSnap.exists && deterministicSnap.data()?.active !== false) {
+   return {
+    status: 200,
+    json: { success: true, alert: serializeAlertDoc(deterministicRef.id, deterministicSnap.data() || {}) },
+   };
+  }
+  // Enforce the cap of the KIND being created (count active docs). Two budgets:
  // following employers must not consume the keyword-alert allowance, or the
  // feature that asks users to follow ten companies breaks the next saved search
  // with a message that names neither cause nor fix.
  const creatingCompanyPin = Boolean(companyPin);
- const existing = await alertsCol.get();
- let activeCount = 0;
+  const existing = await alertsCol.get();
+  const existingIdempotent = [];
+  existing.forEach((d) => {
+   const data = d.data() || {};
+   if (data.idempotency_key === idempotencyKey && data.active !== false) existingIdempotent.push(d);
+  });
+  if (existingIdempotent.length > 0) {
+   const existingDoc = existingIdempotent[0];
+   return {
+    status: 200,
+    json: { success: true, alert: serializeAlertDoc(existingDoc.id, existingDoc.data() || {}) },
+   };
+  }
+  let activeCount = 0;
  existing.forEach((d) => {
  const data = d.data() || {};
  if (data.active === false) return;
@@ -1200,11 +1302,25 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // FrequencyToggle in the preferences UI) — the pick is a manual pin
  // from the start, same as components/community/JobAlertForm.tsx.
  frequencyOverride: true,
- active: true,
- email: normalizedEmail,
- createdAt: admin.firestore.FieldValue.serverTimestamp(),
+  active: true,
+  email: normalizedEmail,
+  idempotency_key: idempotencyKey,
+  ...(companyPin ? {
+   consent_purpose: 'companyFollow',
+   consent_act: 'company_follow_activation',
+   consent_recorded_at: admin.firestore.FieldValue.serverTimestamp(),
+  } : {}),
+  createdAt: admin.firestore.FieldValue.serverTimestamp(),
  };
- const newRef = await alertsCol.add(docData);
+ let newRef;
+ if (deterministicSnap.exists) {
+  // The deterministic id is a soft-deleted tombstone. A fresh explicit follow
+  // gets a new child; the old suppression remains untouched.
+  newRef = await alertsCol.add(docData);
+ } else {
+  await deterministicRef.set(docData);
+  newRef = deterministicRef;
+ }
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
@@ -1282,37 +1398,57 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  if (action === 'confirm') {
- const subscriberDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
- let alreadyConfirmed = false;
+  const subscriberDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
+  const subscriberData = subscriberDoc.exists ? (subscriberDoc.data() || {}) : {};
+  const companyFollowPending = subscriberData.company_follow_followup_pending === true
+   || subscriberData.source_channel === 'company_follow_button';
+  const companyFollowOnly = subscriberData.company_follow_only === true;
+  let alreadyConfirmed = false;
 
- if (subscriberDoc.exists && subscriberDoc.data()?.status === 'confirmed') {
- alreadyConfirmed = true;
- }
+  if (subscriberDoc.exists && (
+   subscriberData.status === 'confirmed'
+   // This proof is purpose-scoped: a later newsletter opt-in clears
+   // `company_follow_only` but keeps the historical follow-confirmation stamp.
+   || (subscriberData.company_follow_confirmed_at && companyFollowOnly)
+  )) {
+   alreadyConfirmed = true;
+  }
 
- if (!alreadyConfirmed) {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
- email: normalizedEmail,
- status: 'confirmed',
- isActive: true,
- active: true,
- confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
- confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
- account_deleted_at: admin.firestore.FieldValue.delete(),
- // A double opt-in confirmation click IS the explicit act that lifts an
- // earlier opt-out — without something recording that, the confirmation
- // said "sei iscritto" while scripts/send-newsletter.mjs kept dropping
- // the row on the stale stamp, the silent dead end for anyone who
- // unsubscribed and later signed up again (#5673).
- //
- // It used to be recorded by DELETING the opt-out stamps. It is now
- // recorded by stamping the re-opt-in beside them (#5711): the senders
- // compare the two and the newer one wins, so the lift still happens and
- // the evidence of the original opt-out survives it.
- resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
- resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
- }, { merge: true });
+  if (!alreadyConfirmed) {
+  const confirmationFields = companyFollowOnly
+   ? {
+    email: normalizedEmail,
+    // A company-follow address has not opted into the other newsletter
+    // purposes. Keep the proof of the email click, but suppress broadcast
+    // delivery until the explicit company action creates the CompanyAlert.
+    status: 'suppressed',
+    isActive: false,
+    active: false,
+    company_follow_confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    company_follow_followup_pending: true,
+    account_deleted_at: admin.firestore.FieldValue.delete(),
+    updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   }
+   : {
+    email: normalizedEmail,
+    status: 'confirmed',
+    isActive: true,
+    active: true,
+    confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
+    confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
+    account_deleted_at: admin.firestore.FieldValue.delete(),
+    // A double opt-in confirmation click IS the explicit act that lifts an
+    // earlier opt-out. The original opt-out stamps remain as evidence; the
+    // newer re-opt-in stamp is what the shared predicate compares.
+    resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+    resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   };
+  await db.collection('newsletter_subscribers').doc(normalizedEmail).set(confirmationFields, { merge: true });
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
@@ -1337,11 +1473,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // way, and the nightly cron / presigned-link endpoint remain as fallback
  // sends. Lazy import to keep this action's cold-start path unchanged when
  // the subscriber was already confirmed (the common re-click case).
- try {
- const { sendNewsletterWelcomeEmail } = await import('./newsletterWelcomeEmail.js');
- await sendNewsletterWelcomeEmail({ email: normalizedEmail, locale: lang, db, trigger: 'confirm' });
- } catch (welcomeErr) {
- console.warn('[newsletterManage] Welcome email dispatch failed (non-fatal):', welcomeErr?.message || welcomeErr);
+ if (!companyFollowOnly) {
+  try {
+   const { sendNewsletterWelcomeEmail } = await import('./newsletterWelcomeEmail.js');
+   await sendNewsletterWelcomeEmail({ email: normalizedEmail, locale: lang, db, trigger: 'confirm' });
+  } catch (welcomeErr) {
+   console.warn('[newsletterManage] Welcome email dispatch failed (non-fatal):', welcomeErr?.message || welcomeErr);
+  }
  }
  }
 
@@ -1372,10 +1510,17 @@ export async function handleSubscriptionManagement({ action, email, token, local
  : `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageResubscribeNote')}`;
 
  return {
- status: 200,
- authToken,
- alreadyConfirmed,
- html: buildResponseHtml({
+  status: 200,
+  authToken,
+  alreadyConfirmed,
+  ...(companyFollowPending ? {
+   companyFollowFollowup: {
+    required: true,
+    sourcePath: safeFollowupPath(subscriberData.source_page),
+    newsletterActive: !companyFollowOnly,
+   },
+  } : {}),
+  html: buildResponseHtml({
  title: confirmTitle,
  message: confirmMessage,
  showResubscribe: false,

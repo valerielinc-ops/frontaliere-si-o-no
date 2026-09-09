@@ -161,6 +161,8 @@ export type NewsletterUpsertInput = {
  consentTextDisplayed?: boolean;
  /** What the person physically did: authentication / typed_email_submit / email_link_click. */
  consentAct?: string | null;
+ /** Purpose of the act; kept separate from the existing consent phrase. */
+ consentPurpose?: string | null;
  /**
   * Network provenance of the consent, ALREADY TRUNCATED (/24 IPv4, /48 IPv6).
   *
@@ -227,6 +229,24 @@ const DEFAULT_PREFERENCES: NewsletterPreferences = {
  traffic: true,
  taxUpdates: true,
  tips: false,
+};
+
+const COMPANY_FOLLOW_ONLY_PREFERENCES: NewsletterPreferences = {
+ exchangeRate: false,
+ traffic: false,
+ taxUpdates: false,
+ tips: false,
+ jobs: false,
+ tax: false,
+ general: false,
+ sanita: false,
+ finanza: false,
+ apprendistato: false,
+ stage: false,
+ lugano: false,
+ bellinzona: false,
+ mendrisio: false,
+ chiasso: false,
 };
 
 const CONFIRMED_NEWSLETTER_SOURCES = new Set([
@@ -301,6 +321,43 @@ function normalizeSourceChannel(input: NewsletterUpsertInput): NewsletterSourceC
  if (source.includes('resubscribe')) return 'resubscribe_link';
  if (source.includes('unsubscribe')) return 'unsubscribe_link';
  return source;
+}
+
+/**
+ * The explicit event that ends the company-follow-only purpose.
+ *
+ * A company-follow capture may carry a preference-shaped payload because it
+ * shares the capture contract with newsletter forms, but that payload is not
+ * a newsletter opt-in. A non-follow capture that selects at least one
+ * newsletter preference, asserts affirmative consent, or carries an explicit
+ * re-consent is the writer that changes the purpose; every other write
+ * preserves the prior purpose.
+ */
+function isExplicitNewsletterOptInCapture(
+ input: NewsletterUpsertInput,
+ sourceChannel: NewsletterSourceChannel,
+): boolean {
+ if (sourceChannel === 'company_follow_button') return false;
+ return (
+  (input.preferences !== undefined
+   && input.preferences !== null
+   && Object.values(input.preferences).some((value) => value === true))
+  || input.consentGiven === true
+  || input.reconsent === true
+ );
+}
+
+function resolveCompanyFollowOnlyPurpose(
+ input: NewsletterUpsertInput,
+ sourceChannel: NewsletterSourceChannel,
+ hasExistingSubscriber: boolean,
+ existingCompanyFollowOnly: boolean,
+): boolean {
+ if (sourceChannel === 'company_follow_button') {
+  return !hasExistingSubscriber || existingCompanyFollowOnly;
+ }
+ if (isExplicitNewsletterOptInCapture(input, sourceChannel)) return false;
+ return existingCompanyFollowOnly;
 }
 
 function parseUtmFromWindow(): NewsletterUtm | null {
@@ -929,10 +986,25 @@ export async function captureNewsletterSubscriber(
  const optedOut = optOutBinding && !reOptInGranted;
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
+ const isCompanyFollowSource = sourceChannel === 'company_follow_button';
+ // A new company-follow capture authorises only the company-follow purpose.
+ // Existing newsletter subscribers keep the preferences they already chose;
+ // this write must not turn a follow click into three unrelated opt-ins.
+ const companyFollowOnly = resolveCompanyFollowOnlyPurpose(
+  input,
+  sourceChannel,
+  existing.exists(),
+  existingData?.company_follow_only === true,
+ );
+ const resolvedPreferences = isCompanyFollowSource
+  ? (existingData?.company_follow_only === true
+   ? COMPANY_FOLLOW_ONLY_PREFERENCES
+   : (existingData?.preferences || COMPANY_FOLLOW_ONLY_PREFERENCES))
+  : defaultPreferences(input.preferences || existingData?.preferences);
  const jobContext = input.jobContext || {};
  const interests = dedupeStrings([
  ...(input.interests || []),
- ...(Object.entries(defaultPreferences(input.preferences))
+ ...(Object.entries(resolvedPreferences)
  .filter(([, enabled]) => Boolean(enabled))
  .map(([key]) => key)),
  sanitizeString(input.locationInterest),
@@ -948,6 +1020,14 @@ export async function captureNewsletterSubscriber(
  (existingData?.status === 'confirmed' || existingData?.isActive === true || existingData?.active === true);
 
  const now = nowIso();
+ const existingConsentSourceUrl = sanitizeString(existingData?.consent_source_url);
+ const existingConsentUserAgent = sanitizeString(existingData?.consent_user_agent);
+ const existingConsentIp = sanitizeString(existingData?.consent_ip);
+ const consentPurpose = isCompanyFollowSource
+  ? (companyFollowOnly
+   ? 'companyFollow'
+   : sanitizeString(existingData?.consent_purpose) || 'companyFollow')
+  : sanitizeString(input.consentPurpose) || sanitizeString(existingData?.consent_purpose);
  const mergedData = {
  email,
  user_id: sanitizeString(input.userId) || sanitizeString(existingData?.user_id),
@@ -965,7 +1045,7 @@ export async function captureNewsletterSubscriber(
  last_seen_locale: sanitizeString(input.lastSeenLocale) || sanitizeString(existingData?.last_seen_locale) || resolved.lastSeenLocale,
  type: sanitizeString(input.type) || sanitizeString(existingData?.type),
  leadMagnet: sanitizeString(input.leadMagnet) || sanitizeString(existingData?.leadMagnet),
- preferences: defaultPreferences(input.preferences || existingData?.preferences),
+ preferences: resolvedPreferences,
  interests,
  location_interest: sanitizeString(input.locationInterest) || sanitizeString(existingData?.location_interest),
  sector_interest: sanitizeString(input.sectorInterest) || sanitizeString(existingData?.sector_interest),
@@ -996,18 +1076,35 @@ export async function captureNewsletterSubscriber(
  ? input.consentTextDisplayed
  : (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null),
  consent_act: sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act),
+ consent_purpose: consentPurpose,
  consent_method: sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
- consent_source_url: sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || sanitizeString(existingData?.consent_source_url),
- consent_user_agent: sanitizeString(input.consentUserAgent) || sanitizeString(existingData?.consent_user_agent) || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
+ // Company-follow proof is purpose-scoped: keep an older newsletter proof if
+ // one exists, but do not attach this follow's URL/UA/IP to the record.
+ consent_source_url: isCompanyFollowSource
+  ? existingConsentSourceUrl
+  : sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || existingConsentSourceUrl,
+ consent_user_agent: isCompanyFollowSource
+  ? existingConsentUserAgent
+  : sanitizeString(input.consentUserAgent) || existingConsentUserAgent || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
  // EXISTING VALUE WINS — the inverse of every other field here, and
  // deliberate. `consent_ip` must be the network the consent came from, not
  // the network of whatever write happened last. A sign-in six months later
  // from an office IP would otherwise overwrite the address that actually
  // proves the subscription, which is the one an art. 25 request asks for.
- consent_ip: sanitizeString(existingData?.consent_ip) || sanitizeString(input.consentIp),
- consent_ip_recorded_at: sanitizeString(existingData?.consent_ip)
- ? (sanitizeString(existingData?.consent_ip_recorded_at) || null)
- : (sanitizeString(input.consentIp) ? now : sanitizeString(existingData?.consent_ip_recorded_at)),
+ consent_ip: isCompanyFollowSource
+  ? existingConsentIp
+  : existingConsentIp || sanitizeString(input.consentIp),
+ consent_ip_recorded_at: isCompanyFollowSource
+  ? (existingConsentIp ? (sanitizeString(existingData?.consent_ip_recorded_at) || null) : null)
+  : existingConsentIp
+  ? (sanitizeString(existingData?.consent_ip_recorded_at) || null)
+  : (sanitizeString(input.consentIp) ? now : sanitizeString(existingData?.consent_ip_recorded_at)),
+ ...(isCompanyFollowSource || existingData?.company_follow_only !== undefined
+  ? { company_follow_only: companyFollowOnly }
+  : {}),
+ ...(isCompanyFollowSource || existingData?.company_follow_followup_pending !== undefined
+  ? { company_follow_followup_pending: isCompanyFollowSource || existingData?.company_follow_followup_pending === true }
+  : {}),
  subscribedAt: existingData?.subscribedAt || serverTimestamp(),
  subscribed_at: existingData?.subscribed_at || serverTimestamp(),
  created_at: existingData?.created_at || serverTimestamp(),
@@ -1326,11 +1423,15 @@ export async function upsertNewsletterSubscriber(
  // at the send point (functions/src/newsletterConfirmationEmail.js), where
  // every caller passes.
  if (result.status === 'pending' && !result.hadConfirmationProof) {
+ const confirmation = await requestConfirmationEmail(input.email);
+ if (!confirmation.success) {
+  // Do not mark the UI as "email sent" when the endpoint returned a refusal.
+  // The caller can retry explicitly; no local pending state is a false promise.
+  const error = new Error('newsletter/confirmation-email-failed');
+  reportCaughtError(error, 'newsletter.requestConfirmationEmail');
+  throw error;
+ }
  markNewsletterPendingLocally(input.email);
- requestConfirmationEmail(input.email).catch((err) => {
- console.warn('[newsletter] Confirmation email request failed (non-blocking):', err?.message || err);
- reportCaughtError(err, 'newsletter.requestConfirmationEmail');
- });
  }
 
  // Welcome email for new PRE-CONFIRMED subscribers (Google One Tap,
@@ -1409,10 +1510,18 @@ export async function requestConfirmationEmail(
  }),
  });
  const data = await resp.json();
- return data as { success: boolean; error?: string };
+ const result = {
+  success: resp.ok && data?.success === true,
+  ...(data?.error ? { error: String(data.error) } : {}),
+ } as { success: boolean; error?: string };
+ if (!result.success && purpose === 'login') {
+  throw new Error(result.error || 'confirmation-email-failed');
+ }
+ return result;
  } catch (error: any) {
  console.warn('[newsletter] Failed to request confirmation email:', error?.message);
  reportCaughtError(error, 'newsletter.sendConfirmation');
+ if (purpose === 'login') throw error;
  return { success: false, error: error?.message || 'unknown_error' };
  }
 }
@@ -1487,7 +1596,13 @@ function postManageSubscription(action: string, payload: Record<string, unknown>
 export async function confirmNewsletterSubscription(
  email: string,
  token: string,
-): Promise<{ success: boolean; error?: string; alreadyConfirmed?: boolean; authToken?: string }> {
+): Promise<{
+ success: boolean;
+ error?: string;
+ alreadyConfirmed?: boolean;
+ authToken?: string;
+ companyFollowFollowup?: { required: true; sourcePath: string | null; newsletterActive?: boolean };
+}> {
  try {
  const { getLocale } = await import('@/services/i18n');
  const locale = getLocale();
@@ -1499,6 +1614,7 @@ export async function confirmNewsletterSubscription(
  success: true,
  alreadyConfirmed: data.alreadyConfirmed || false,
  authToken: data.authToken || undefined,
+ companyFollowFollowup: data.companyFollowFollowup || undefined,
  };
  }
  return { success: false, error: 'confirmation_failed' };

@@ -6163,6 +6163,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.carburanti-record-prezzi-2026.title': 'Kraftstoffe auf Jahreshöchststand: Diesel zu 2,30 Franken',
     'blog.article.carburanti-record-prezzi-2026.excerpt': 'Benzin zu 2,05-2,16 Franken, Diesel zu 2,30. Innerhalb von neun Monaten stiegen die Preise zwischen 24 und 29% und näherten sich dem Höchststand von 2022.',
     'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Benzinpumpe an einer Schweizer Tankstelle mit Preisanzeige',
+    'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Verwaltete Preise: Auswirkungen auf Wettbewerb und Macht',
+    'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'Der Bundesrat verabschiedet am 9. September 2026 einen Bericht über die in der Schweiz verwalteten Preise. Der Anteil von weniger als 10% am Haushaltsbudget ähnelt dem europäischen Durchschnitt, hängt aber stark von der Branche ab.',
+    'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Sitzungssaal des Schweizer Bundesrates während Sitzung zur Analyse von regulierten Preisen und Wirtschaftspolitik',
+    'blog.article.stablecoin-franco-fase-operativa.title': 'Stablecoin in Franken: Projekt geht in Betrieb',
+    'blog.article.stablecoin-franco-fase-operativa.excerpt': 'Das CHFD-Projekt für eine digitale Währung, die an den Schweizer Franken gekoppelt ist, befindet sich in der Testphase. Neun Schweizer Finanzpartner experimentieren bis Ende 2026 mit konkreten Verwendungen der Stablecoin.',
+    'blog.article.stablecoin-franco-fase-operativa.imageAlt': 'Modernes Schweizer Fintech-Büro mit Finanzfachleuten, die Blockchain- und Stablecoin-Technologie auf digitalen Bildschirmen verwalten',
 };
 
 export default blogMetaChDe;
