@@ -61,7 +61,7 @@ const CLOSED_LABEL = 'fu-resolved-auto';
 export const UNCLASSIFIABLE_LABEL = 'reconcile-unclassifiable';
 export const UNCLASSIFIABLE_MARKER_PREFIX = '<!-- reconcile-unclassifiable';
 export const UNCLASSIFIABLE_MARKER_SCHEMA = 1;
-export const UNCLASSIFIABLE_MARKER_RE = /<!-- reconcile-unclassifiable schema=(\d+) classifier=([0-9a-f]{64}) commit=([0-9a-f]{40}) fingerprint=([0-9a-f]{64}) -->/;
+export const UNCLASSIFIABLE_MARKER_RE = /<!-- reconcile-unclassifiable schema=(\d+) classifier=([0-9a-f]{64}) fingerprint=([0-9a-f]{64}) -->/;
 
 function classifierVersion() {
   const source = [
@@ -218,24 +218,8 @@ export function unclassifiableIssueFingerprint(issue, comments) {
   return createHash('sha256').update(input).digest('hex');
 }
 
-let cachedCurrentCommit;
-
-function currentCommit() {
-  if (cachedCurrentCommit !== undefined) return cachedCurrentCommit;
-  let candidate = String(process.env.GITHUB_SHA || '').trim();
-  if (!candidate) {
-    try {
-      candidate = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-    } catch {
-      candidate = '';
-    }
-  }
-  cachedCurrentCommit = /^[0-9a-f]{40}$/i.test(candidate) ? candidate.toLowerCase() : null;
-  return cachedCurrentCommit;
-}
-
 function markerCommentOrder(comment, index) {
-  return `${commentField(comment, 'createdAt', 'created_at')}\0${comment?.id || ''}\0${index}`;
+  return `${commentField(comment, 'createdAt', 'created_at')}\0${commentField(comment, 'updatedAt', 'updated_at')}\0${String(index).padStart(8, '0')}`;
 }
 
 function latestUnclassifiableMarker(comments) {
@@ -248,8 +232,7 @@ function latestUnclassifiableMarker(comments) {
 
   const { comment } = candidates[candidates.length - 1];
   const body = String(comment?.body || '');
-  const matches = body.match(new RegExp(UNCLASSIFIABLE_MARKER_RE.source, 'g')) || [];
-  if (matches.length !== 1 || body.indexOf(UNCLASSIFIABLE_MARKER_PREFIX) !== body.lastIndexOf(UNCLASSIFIABLE_MARKER_PREFIX)) {
+  if (body.indexOf(UNCLASSIFIABLE_MARKER_PREFIX) !== body.lastIndexOf(UNCLASSIFIABLE_MARKER_PREFIX)) {
     return { valid: false };
   }
   const match = UNCLASSIFIABLE_MARKER_RE.exec(body);
@@ -258,8 +241,7 @@ function latestUnclassifiableMarker(comments) {
     valid: true,
     schema: Number(match[1]),
     classifierVersion: match[2],
-    commit: match[3],
-    fingerprint: match[4],
+    fingerprint: match[3],
   };
 }
 
@@ -269,34 +251,29 @@ export function isUnclassifiableAggregate(title = '', body = '') {
 
 export function unclassifiableMarker(issue, comments, {
   classifierVersion: expectedClassifierVersion = RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION,
-  commit = currentCommit(),
 } = {}) {
   if (!isUnclassifiableAggregate(issue?.title, issue?.body)) return null;
   const fingerprint = unclassifiableIssueFingerprint(issue, comments);
-  const normalizedCommit = String(commit || '').toLowerCase();
   const normalizedClassifier = String(expectedClassifierVersion || '').toLowerCase();
-  if (!fingerprint || !/^[0-9a-f]{40}$/.test(normalizedCommit) || !/^[0-9a-f]{64}$/.test(normalizedClassifier)) {
+  if (!fingerprint || !/^[0-9a-f]{64}$/.test(normalizedClassifier)) {
     return null;
   }
-  return `${UNCLASSIFIABLE_MARKER_PREFIX} schema=${UNCLASSIFIABLE_MARKER_SCHEMA} classifier=${normalizedClassifier} commit=${normalizedCommit} fingerprint=${fingerprint} -->`;
+  return `${UNCLASSIFIABLE_MARKER_PREFIX} schema=${UNCLASSIFIABLE_MARKER_SCHEMA} classifier=${normalizedClassifier} fingerprint=${fingerprint} -->`;
 }
 
 export function isCurrentUnclassifiable(issue, comments, {
   classifierVersion: expectedClassifierVersion = RECONCILE_UNCLASSIFIABLE_CLASSIFIER_VERSION,
-  commit = currentCommit(),
 } = {}) {
   const labels = (issue?.labels || []).map(labelName);
   if (!labels.includes(UNCLASSIFIABLE_LABEL) || !isUnclassifiableAggregate(issue?.title, issue?.body)) return false;
   const expectedFingerprint = unclassifiableIssueFingerprint(issue, comments);
-  const expectedCommit = String(commit || '').toLowerCase();
   const expectedClassifier = String(expectedClassifierVersion || '').toLowerCase();
-  if (!expectedFingerprint || !/^[0-9a-f]{40}$/.test(expectedCommit) || !/^[0-9a-f]{64}$/.test(expectedClassifier)) return false;
+  if (!expectedFingerprint || !/^[0-9a-f]{64}$/.test(expectedClassifier)) return false;
   const marker = latestUnclassifiableMarker(comments);
   return !!marker
     && marker.valid
     && marker.schema === UNCLASSIFIABLE_MARKER_SCHEMA
     && marker.classifierVersion === expectedClassifier
-    && marker.commit === expectedCommit
     && marker.fingerprint === expectedFingerprint;
 }
 
@@ -537,7 +514,7 @@ function main() {
   // `follow-up`, and remains visible; this label/comment pair is a reread cache,
   // not a resolution state.
   for (const c of unclassifiableCandidates) {
-    const comment = `🔎 **Reconcile cache**: questa aggregata è stata esaminata ma il corpo non contiene una struttura a item classificabile. Resta aperta e visibile; un cambiamento alla issue, al commit o al classificatore farà scattare un nuovo riesame.
+    const comment = `🔎 **Reconcile cache**: questa aggregata è stata esaminata ma il corpo non contiene una struttura a item classificabile. Resta aperta e visibile; un cambiamento alla issue o alla versione del classificatore farà scattare un nuovo riesame.
 
 ${c.marker}`;
     console.log(`#${c.number} "${c.title}" → cache non classificabile`);

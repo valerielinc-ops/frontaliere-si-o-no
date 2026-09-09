@@ -115,7 +115,6 @@ describe('il gate dell\'aggregata', () => {
 });
 
 describe('cache delle aggregate non classificabili', () => {
-  const commit = 'a'.repeat(40);
   const classifierVersion = 'b'.repeat(64);
   const humanComments = [{
     id: 'human-1',
@@ -128,50 +127,44 @@ describe('cache delle aggregate non classificabili', () => {
     body: 'prosa libera senza sezioni a item',
     labels: [{ name: 'follow-up' }, { name: UNCLASSIFIABLE_LABEL }],
   };
-  const markerComment = (marker = unclassifiableMarker(issue, humanComments, { commit, classifierVersion })) => ({
+  const markerComment = (marker = unclassifiableMarker(issue, humanComments, { classifierVersion })) => ({
     id: 'marker-1',
     body: marker,
     createdAt: '2026-09-08T08:01:00Z',
   });
 
   it('una issue marcata e invariata è saltata dalla passata', () => {
-    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(true);
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment()], { classifierVersion })).toBe(true);
   });
 
   it('una modifica alla issue rimette in coda anche se resta non classificabile', () => {
     const changed = { ...issue, body: 'prosa libera senza sezioni a item, aggiornata dal proprietario' };
-    expect(isCurrentUnclassifiable(changed, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(changed, [...humanComments, markerComment()], { classifierVersion })).toBe(false);
   });
 
   it('una modifica al titolo, a una label o ai commenti umani rimette in coda', () => {
     const comments = [...humanComments, markerComment()];
-    expect(isCurrentUnclassifiable({ ...issue, title: 'follow-up(#7556): 4 items deferred — decisione ancora aperta' }, comments, { commit, classifierVersion })).toBe(false);
-    expect(isCurrentUnclassifiable({ ...issue, labels: [...issue.labels, { name: 'keep-open' }] }, comments, { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable({ ...issue, title: 'follow-up(#7556): 4 items deferred — decisione ancora aperta' }, comments, { classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable({ ...issue, labels: [...issue.labels, { name: 'keep-open' }] }, comments, { classifierVersion })).toBe(false);
     expect(isCurrentUnclassifiable(issue, [...comments, {
       id: 'human-2',
       body: 'Nuovo contesto aggiunto.',
       createdAt: '2026-09-09T08:00:00Z',
-    }], { commit, classifierVersion })).toBe(false);
+    }], { classifierVersion })).toBe(false);
   });
 
-  it('una marcatura riferita a commit o classificatore precedenti rimette in coda', () => {
-    const oldCommitMarker = unclassifiableMarker(issue, humanComments, {
-      commit: 'c'.repeat(40),
-      classifierVersion,
-    });
+  it('una marcatura riferita a un classificatore precedente rimette in coda', () => {
     const oldClassifierMarker = unclassifiableMarker(issue, humanComments, {
-      commit,
       classifierVersion: 'd'.repeat(64),
     });
-    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(oldCommitMarker)], { commit, classifierVersion })).toBe(false);
-    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(oldClassifierMarker)], { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(oldClassifierMarker)], { classifierVersion })).toBe(false);
   });
 
   it('marker illeggibile, label assente o commenti illeggibili non autorizzano lo skip', () => {
     const malformed = '<!-- reconcile-unclassifiable schema=1 broken -->';
-    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(malformed)], { commit, classifierVersion })).toBe(false);
-    expect(isCurrentUnclassifiable({ ...issue, labels: [{ name: 'follow-up' }] }, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(false);
-    expect(isCurrentUnclassifiable(issue, null, { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(malformed)], { classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable({ ...issue, labels: [{ name: 'follow-up' }] }, [...humanComments, markerComment()], { classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, null, { classifierVersion })).toBe(false);
   });
 });
 
