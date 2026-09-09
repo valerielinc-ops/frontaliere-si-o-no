@@ -10,6 +10,7 @@ import {
 } from '../scripts/build-employer-insights.mjs';
 import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
 import {
+  appendApplyClickEmissionId,
   decideApplyClickDedup,
 } from '../services/publisherAnalyticsService';
 
@@ -419,6 +420,12 @@ describe('employer insights technical deduplication', () => {
     expect(result.dedupUnavailable).toBe(3);
   });
 
+  it('does not use provider identifiers as a query cursor or emission fallback', () => {
+    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(
+      /EVENT_KEY_EXPRESSION|\$insert_id|\$event_id|\b(?:uuid|eventId|insert_id)\b/,
+    );
+  });
+
   it('keeps views and clicks separate from the emission id in grouped rows', () => {
     const result = collapseTechnicalDuplicates([[
       'pageview-event',
@@ -452,9 +459,9 @@ describe('employer insights technical deduplication', () => {
     expect(fromPostHogSource).not.toContain('OFFSET');
   });
 
-  it('advances event pages with a timestamp and event-key cursor', async () => {
-    const groupedRow = (eventKey: string, timestamp: string) => [
-      eventKey,
+  it('advances event pages with a timestamp and grouped-field cursor', async () => {
+    const groupedRow = (unusedSlot: string, timestamp: string) => [
+      unusedSlot,
       'scroll_depth',
       '2026-09-01',
       '',
@@ -471,11 +478,22 @@ describe('employer insights technical deduplication', () => {
       0,
       '',
       timestamp,
+      'scroll_depth',
+      '2026-09-01',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
     ];
     const pageRows = [
-      groupedRow('event-a', '2026-09-01 12:00:00.000000'),
-      groupedRow('event-b', '2026-09-01 12:00:01.000000'),
-      groupedRow('event-c', '2026-09-01 12:00:02.000000'),
+      groupedRow('slot-a', '2026-09-01 12:00:00.000000'),
+      groupedRow('slot-b', '2026-09-01 12:00:01.000000'),
+      groupedRow('slot-c', '2026-09-01 12:00:02.000000'),
     ];
     const queries: string[] = [];
     const runQuery = async (query: string) => {
@@ -490,11 +508,11 @@ describe('employer insights technical deduplication', () => {
     const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 3 });
     const pageQueries = queries.filter((query) => query.includes(' LIMIT 3'));
 
-    expect(result.rows.map((row) => row[0])).toEqual(['event-a', 'event-b', 'event-c']);
+    expect(result.rows.map((row) => row[0])).toEqual(['slot-a', 'slot-b', 'slot-c']);
     expect(result.coverage).toMatchObject({ pages: 2, rowsReturned: 3, truncated: false });
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
-    expect(pageQueries[1]).toContain("event-b");
+    expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
   });
 });
 
@@ -520,6 +538,16 @@ describe('publisher apply-click deduplication', () => {
       status: 'dedup non disponibile',
       reason: 'dedup_unavailable',
     });
+  });
+
+  it('bounds the publisher emission ledger and marks overflow unavailable', () => {
+    const existing = Array.from({ length: 64 }, (_, index) => `click-${index + 1}`);
+    const next = appendApplyClickEmissionId(existing, 'click-65');
+
+    expect(next).toMatchObject({ unavailable: 1 });
+    expect(next.emissionIds).toHaveLength(64);
+    expect(next.emissionIds[0]).toBe('click-2');
+    expect(next.emissionIds.at(-1)).toBe('click-65');
   });
 
   it('passes a stable emission id at every publisher apply callsite', () => {

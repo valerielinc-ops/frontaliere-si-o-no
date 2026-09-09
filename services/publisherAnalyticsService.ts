@@ -35,6 +35,32 @@ export interface ApplyClickDedupDecision {
   reason?: 'technical_duplicate' | 'dedup_unavailable';
 }
 
+/** Keep the auditable ledger bounded; overflow remains counted as unavailable. */
+export const MAX_APPLY_CLICK_EMISSION_IDS = 64;
+
+export interface ApplyClickEmissionLedgerUpdate {
+  emissionIds: string[];
+  unavailable: number;
+}
+
+/** Append one emission id without allowing the Firestore document to grow forever. */
+export function appendApplyClickEmissionId(
+  seenEventIds: readonly (string | null | undefined)[],
+  eventId?: string | null,
+): ApplyClickEmissionLedgerUpdate {
+  const normalizedIds = seenEventIds
+    .map((value) => String(value || '').trim())
+    .filter(Boolean);
+  const normalizedEventId = String(eventId || '').trim();
+  if (!normalizedEventId || normalizedIds.includes(normalizedEventId)) {
+    return { emissionIds: normalizedIds.slice(-MAX_APPLY_CLICK_EMISSION_IDS), unavailable: 0 };
+  }
+  return {
+    emissionIds: [...normalizedIds, normalizedEventId].slice(-MAX_APPLY_CLICK_EMISSION_IDS),
+    unavailable: normalizedIds.length >= MAX_APPLY_CLICK_EMISSION_IDS ? 1 : 0,
+  };
+}
+
 /**
  * Pure decision for the only apply-click collapse we permit: the same
  * explicit emission id arriving again. Missing ids remain counted and are
@@ -99,9 +125,10 @@ export function createPublisherApplyEventId(): string {
 }
 
 /**
- * Transactional apply-click increment. The emission-id ledger and removal counter live
- * beside the counter, making the deduplication decision auditable without
- * persisting an event payload or a browser session marker.
+ * Transactional apply-click increment. The bounded emission-id ledger and removal
+ * counter live beside the counter, making the deduplication decision auditable
+ * without persisting an event payload or a browser session marker. Once the
+ * ledger is full, new ids are still counted and marked dedup-unavailable.
  */
 async function incrementApplyClick(eventDocId: string, eventId: string): Promise<void> {
   if (!eventDocId) return;
@@ -123,8 +150,13 @@ async function incrementApplyClick(eventDocId: string, eventId: string): Promise
         ? data.applyClickEmissionIds.map((value: unknown) => String(value || '').trim()).filter(Boolean)
         : [];
       const decision = decideApplyClickDedup({ eventId, seenEventIds });
+      const ledgerUpdate = appendApplyClickEmissionId(
+        seenEventIds,
+        decision.record ? eventId : null,
+      );
+      const unavailable = decision.unavailable + ledgerUpdate.unavailable;
       const previousUnavailable = Math.max(0, Number(data.applyClicksDedupUnavailable) || 0);
-      const dedupUnavailable = previousUnavailable + decision.unavailable;
+      const dedupUnavailable = previousUnavailable + unavailable;
       const update: Record<string, unknown> = {
         jobId: eventDocId,
         updatedAt: new Date(nowMs),
@@ -135,10 +167,8 @@ async function incrementApplyClick(eventDocId: string, eventId: string): Promise
           unavailableCount: dedupUnavailable,
         },
         applyClicksTechnicalDuplicatesRemoved: fsIncrement(decision.removed),
-        applyClicksDedupUnavailable: fsIncrement(decision.unavailable),
-        applyClickEmissionIds: decision.record && eventId
-          ? [...seenEventIds, eventId]
-          : seenEventIds,
+        applyClicksDedupUnavailable: fsIncrement(unavailable),
+        applyClickEmissionIds: ledgerUpdate.emissionIds,
       };
       if (decision.record) {
         update.applyClicks = fsIncrement(1);

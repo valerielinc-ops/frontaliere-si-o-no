@@ -196,6 +196,20 @@ export function createAnalyticsEmissionId(): string {
  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+export interface AnalyticsPageViewEmission {
+ path: string;
+ emissionId: string;
+}
+
+/** Reuse the emission id while the SPA remains on the same physical route. */
+export function getPageViewEmissionId(
+ path: string,
+ current: AnalyticsPageViewEmission | null,
+): string {
+ if (current?.path === path && current.emissionId) return current.emissionId;
+ return createAnalyticsEmissionId();
+}
+
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
 // Clarity's JS API: clarity('set', key, value) and clarity('event', name).
@@ -393,6 +407,7 @@ let currentScreen = '/';
 let previousScreen = '';
 let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
+let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
@@ -983,7 +998,8 @@ export const Analytics = {
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = createAnalyticsEmissionId();
+ const emissionId = getPageViewEmissionId(path, currentPageViewEmission);
+ currentPageViewEmission = { path, emissionId };
  log('page_view', {
  page_path: path,
  page_title: title || path,
