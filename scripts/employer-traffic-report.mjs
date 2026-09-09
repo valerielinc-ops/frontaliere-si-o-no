@@ -1,100 +1,165 @@
 #!/usr/bin/env node
 /**
- * Employer traffic report — "candidati inviati per azienda".
+ * Employer traffic report for the publisher surface.
  *
- * Conta i candidati che mandiamo (gratis) verso il sito di ogni azienda, cioè
- * i click "Candidati" sugli annunci SOLO gratuiti — lo sponsorizzato arriva
- * già diretto al datore (copy box dashboard), va escluso dalla pitch.
- * È il dato che alimenta sia la prova in-prodotto sia l'outreach commerciale
- * ("vi abbiamo mandato N candidati il mese scorso, gratis").
- *
- * DUE SORGENTI (i touchpoint emettono entrambi gli eventi via analytics.ts):
- *
- *   --source ga4  (PRODUZIONE, cron employer-traffic-refresh.yml) — interroga
- *       l'evento pulito `job_apply` (employer_key + is_sponsored, custom
- *       dimension registrate). Unica sorgente che sa DAVVERO distinguere
- *       sponsorizzato da gratuito (aggregateGa4Rows esclude sponsored dal
- *       conteggio) — niente stima, split esatto. Solo dati POST-deploy (le
- *       custom dimension GA4 non sono retroattive).
- *
- *   --source posthog  (DEFAULT CLI, solo backfill manuale/storico) —
- *       interroga lo STORICO via HogQL su PostHog. Aggrega `select_content`
- *       con content_type IN (job_board_apply, job_board_apply_header_logo,
- *       job_board_apply_header_title). Azienda estratta dalla label
- *       `item_id = "<company>_<title>"`, che NON porta il flag sponsored →
- *       impossibile escluderlo, il numero include sponsorizzato+gratuito
- *       insieme (mai usarlo per il cron di produzione: gonfia la pitch "free"
- *       e la quota API PostHog non è affidabile per un cron giornaliero).
- *       Vantaggio: dati RETROATTIVI, niente custom dimension richieste.
- *
- * Metrica per la pitch (`candidates`) = MIN(persone distinte, sessioni distinte),
- * non i click grezzi: un candidato che clicca logo+titolo+bottone è UNA persona,
- * non tre. Si usa il MINIMO perché `person_id` può GONFIARE per il traffico
- * anonimo (reset cookie / cross-device / identity-merge non configurata) → la
- * pitch ("vi abbiamo mandato N candidati") non deve mai sovrastimare (#2384).
- * Il report mostra anche persone e sessioni separate + il rapporto P/S come
- * segnale di stabilità (P/S ~1.0 = stabile; >>1 = person_id frammentato).
- *
- * Auth: stessa Firebase SA / PostHog key caricate da scripts/load-rc-env.mjs:
- *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=/path/sa.json node scripts/load-rc-env.mjs)"
- *   node scripts/employer-traffic-report.mjs --days 90
- *
- * Flags:
- *   --source posthog|ga4   sorgente dati (default posthog)
- *   --days N               finestra in giorni (default 90)
- *   --min N                soglia minima candidati per comparire (default 1)
- *   --json PATH            scrive il report completo come JSON
+ * This report is a click-proxy report, not a candidature report. PostHog and
+ * GA4 are alternative sources and are never added together. The payload says
+ * which source was used, which window was queried, and how pagination covered
+ * every returned group.
  */
 
 import fs from 'node:fs';
-import path from 'node:path';
 import os from 'node:os';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { baseCompanySlug, canonicalCompanyProfileSlug, rawCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+
+export const REPORT_SCHEMA_VERSION = 2;
+export const REPORT_PAGE_SIZE = 1_000;
+export const DELIVERY_UNAVAILABLE = 'non disponibile';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-function arg(name, def) {
-  const i = process.argv.indexOf(name);
-  return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : def;
+function resolveBuildSha() {
+  const configured = process.env.GITHUB_SHA || process.env.BUILD_SHA || process.env.SITE_BUILD_SHA;
+  if (configured) return configured;
+  try {
+    return execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd: path.resolve(__dirname, '..'),
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim() || null;
+  } catch {
+    return null;
+  }
 }
 
-/** Slug normalizer (loose match to canonicalCompanyRouteSlug for display join). */
-function slugify(s) {
-  return String(s || '')
+const BUILD_SHA = resolveBuildSha();
+
+const argv = process.argv.slice(2);
+
+function arg(name, fallback = undefined) {
+  const index = argv.indexOf(name);
+  return index >= 0 && argv[index + 1] ? argv[index + 1] : fallback;
+}
+
+function numberOr(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function normalize(value) {
+  return String(value ?? '')
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
-/** Load crawled-employer registry for display name + careers URL enrichment. */
+function toIso(value) {
+  const date = value instanceof Date ? value : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+
+function makeWindow({ days = null, from = null, to = new Date().toISOString() } = {}) {
+  const toIsoValue = toIso(to);
+  const fromIso = from
+    ? toIso(from)
+    : days != null
+      ? toIso(new Date(Date.parse(toIsoValue) - Number(days) * 86_400_000))
+    : '1970-01-01T00:00:00.000Z';
+  if (!fromIso || !toIsoValue || Date.parse(fromIso) >= Date.parse(toIsoValue)) throw new Error('invalid report window');
+  return {
+    from: fromIso,
+    to: toIsoValue,
+    kind: days == null && !from ? 'cumulative' : days != null ? `days:${days}` : 'explicit',
+    timezone: 'UTC',
+    inclusive: '[from,to)',
+  };
+}
+
 function loadCompanies() {
   const out = new Map();
   const file = path.join(__dirname, '..', 'data', 'crawler-companies-auto.json');
   try {
     const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-    const list = Array.isArray(raw) ? raw : Array.isArray(raw.companies) ? raw.companies : Object.values(raw);
-    for (const c of list) {
-      if (!c || typeof c !== 'object') continue;
-      const key = slugify(c.key || c.name);
-      if (key) out.set(key, { name: c.name || c.key, careersUrl: c.careersUrl || c.website || '' });
+    const list = Array.isArray(raw) ? raw : Array.isArray(raw?.companies) ? raw.companies : Object.values(raw || {});
+    for (const company of list) {
+      if (!company || typeof company !== 'object') continue;
+      const key = normalize(company.key || company.companyKey || company.name);
+      if (!key) continue;
+      const name = String(company.name || company.key || key);
+      const historicalAliases = [
+        ...(Array.isArray(company.previousSlugs) ? company.previousSlugs : []),
+        ...(Array.isArray(company.aliases) ? company.aliases : []),
+        ...Object.values(company.previousSlugsByLocale || {}).flatMap((values) => Array.isArray(values) ? values : []),
+      ];
+      const aliases = new Set([
+        key,
+        normalize(name),
+        normalize(baseCompanySlug(name, key)),
+        normalize(rawCompanySlug(name)),
+        normalize(canonicalCompanyProfileSlug(name, key)),
+        ...historicalAliases.map(normalize),
+      ].filter(Boolean));
+      const previous = out.get(key) || { key, name, careersUrl: '', aliases: new Set() };
+      previous.name = previous.name || name;
+      previous.careersUrl = previous.careersUrl || company.careersUrl || company.website || '';
+      for (const alias of aliases) previous.aliases.add(alias);
+      out.set(key, previous);
     }
-  } catch { /* registry optional */ }
+  } catch { /* registry optional; unknown groups stay residual */ }
   return out;
 }
 
-// ───────────────────────── PostHog (HogQL, historical) ─────────────────────────
-async function fromPostHog(days) {
+function identityIndex(companies) {
+  const aliasToKeys = new Map();
+  for (const [key, company] of companies || []) {
+    const aliases = company?.aliases instanceof Set
+      ? company.aliases
+      : new Set([key, company?.name].map(normalize).filter(Boolean));
+    for (const alias of aliases) {
+      if (!aliasToKeys.has(alias)) aliasToKeys.set(alias, new Set());
+      aliasToKeys.get(alias).add(key);
+    }
+  }
+  return aliasToKeys;
+}
+
+function resolveCompany(value, aliasToKeys) {
+  const alias = normalize(value);
+  const keys = aliasToKeys.get(alias);
+  if (!keys) return { key: null, reason: 'unknown_company_alias' };
+  if (keys.size !== 1) return { key: null, reason: 'ambiguous_company_alias' };
+  return { key: [...keys][0], reason: null };
+}
+
+function postHogAuth() {
   const apiKey = process.env.POSTHOG_PERSONAL_API_KEY;
   const projectId = process.env.POSTHOG_PROJECT_ID;
   const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/$/, '');
   if (!apiKey || !projectId) throw new Error('no POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID');
-  // Conta DUE metriche di unicità (#2384): persone distinte e SESSIONI distinte.
-  // Per il traffico anonimo `person_id` può essere INSTABILE (reset cookie,
-  // cross-device, identity-merge non configurata) → tende a GONFIARE il conteggio
-  // persone rispetto agli umani reali. `$session_id` è il floor per-sessione
-  // (≥ persone reali, ≤ persone gonfiate). Il numero usato nella pitch
-  // (`candidates`) è il MINIMO dei due → mai sovrastima il claim "vi abbiamo
-  // mandato N candidati". Il report mostra entrambi + il rapporto come segnale.
-  const query = `
+  return { apiKey, projectId, host };
+}
+
+async function postHogQuery(query) {
+  const { apiKey, projectId, host } = postHogAuth();
+  const response = await fetch(`${host}/api/projects/${projectId}/query/`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
+  });
+  if (!response.ok) throw new Error(`posthog ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  return (await response.json()).results || [];
+}
+
+function hogqlDate(iso) {
+  return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
+}
+
+function postHogBaseQuery(window) {
+  return `
     SELECT splitByChar('_', coalesce(toString(properties.item_id), ''))[1] AS company,
            count(DISTINCT person_id) AS persons,
            count(DISTINCT properties.$session_id) AS sessions,
@@ -103,143 +168,361 @@ async function fromPostHog(days) {
     WHERE event = 'select_content'
       AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title')
       AND coalesce(toString(properties.item_id), '') != ''
-      AND timestamp >= now() - interval ${days} day
+      AND timestamp >= toDateTime('${hogqlDate(window.from)}')
+      AND timestamp < toDateTime('${hogqlDate(window.to)}')
     GROUP BY company
     ORDER BY persons DESC
-    LIMIT 1000`.trim();
-  const r = await fetch(`${host}/api/projects/${projectId}/query/`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: { kind: 'HogQLQuery', query } }),
-  });
-  if (!r.ok) throw new Error(`posthog ${r.status}: ${(await r.text()).slice(0, 200)}`);
-  const rows = (await r.json()).results || [];
-  // PostHog non distingue sponsored vs free dalla label item_id → sponsored=0.
-  return rows.map(([company, persons, sessions, clicks]) => {
-    const p = Number(persons) || 0;
-    const s = Number(sessions) || 0;
-    // Numero per la pitch = conservativo (min). Se 0 sessioni (proprietà assente
-    // su eventi vecchi), ricade su persone per non azzerare il report.
-    const candidates = s > 0 ? Math.min(p, s) : p;
-    return {
-      key: slugify(company), displayFromData: company,
-      candidates, persons: p, sessions: s,
-      clicks: Number(clicks) || 0, sponsored: 0,
-    };
-  });
+  `.trim();
 }
 
-// ───────────────────────── GA4 (job_apply, post-deploy) ─────────────────────────
-async function fromGa4(days) {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
-    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
-  }
-  const prop = process.env.GA4_PROPERTY_ID;
-  if (!prop) throw new Error('no GA4_PROPERTY_ID');
-  const property = prop.startsWith('properties/') ? prop : `properties/${prop}`;
-  const { GoogleAuth } = await import('google-auth-library');
-  const auth = new GoogleAuth({ scopes: ['https://www.googleapis.com/auth/analytics.readonly'] });
-  const { token } = await (await auth.getClient()).getAccessToken();
-  const r = await fetch(`https://analyticsdata.googleapis.com/v1beta/${property}:runReport`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      dateRanges: [{ startDate: `${days}daysAgo`, endDate: 'yesterday' }],
-      dimensions: [{ name: 'customEvent:employer_key' }, { name: 'customEvent:is_sponsored' }],
-      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }, { name: 'eventCount' }],
-      dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'job_apply' } } },
-      orderBys: [{ metric: { metricName: 'totalUsers' }, desc: true }],
-      limit: 1000,
-    }),
-  });
-  const j = await r.json();
-  if (j.error) throw new Error(`GA4: ${JSON.stringify(j.error).slice(0, 200)}`);
-  return aggregateGa4Rows(j.rows || []);
+function proxyFor(persons, sessions) {
+  const p = numberOr(persons);
+  const s = numberOr(sessions);
+  return s > 0 ? Math.min(p, s) : p;
+}
+
+function buildCoverage({ source, observed, attributed, residuals, pageSize, totalRows, rowsReturned, pages, queryHash, snapshotId, window }) {
+  const residualTotal = Object.values(residuals).reduce((sum, value) => sum + value, 0);
+  return {
+    source,
+    observed,
+    attributed,
+    residuals,
+    residualTotal,
+    invariant: observed === attributed + residualTotal,
+    technicalDuplicatesRemoved: 0,
+    limits: {
+      groups: {
+        limit: pageSize,
+        pageSize,
+        totalBeforeCut: totalRows,
+        returned: rowsReturned,
+        pages,
+        truncated: rowsReturned < totalRows,
+      },
+    },
+    provenance: {
+      queryHash,
+      snapshotId,
+      buildSha: BUILD_SHA,
+      window,
+    },
+  };
 }
 
 /**
- * Pure aggregator GA4 rows → per-employer conteggi (unit-testable, no fetch).
- * La pitch "candidati inviati dagli annunci gratuiti" DEVE escludere lo
- * sponsorizzato (con sponsorizzato le candidature arrivano già diretto al
- * datore, copy box dashboard) — persons/sessions/clicks qui sono free-only,
- * lo sponsored va solo nel campo `sponsored` (non sommato al resto).
+ * Pure PostHog result normalizer. Company labels are joined through the
+ * explicit registry aliases; a label that cannot be resolved is residual.
  */
+export function aggregatePostHogRows(rows, companies = new Map()) {
+  const aliasToKeys = identityIndex(companies);
+  const employers = new Map();
+  const residuals = Object.create(null);
+  let observed = 0;
+  let attributed = 0;
+  for (const row of rows || []) {
+    const companyLabel = Array.isArray(row) ? row[0] : row.company;
+    const persons = numberOr(Array.isArray(row) ? row[1] : row.persons);
+    const sessions = numberOr(Array.isArray(row) ? row[2] : row.sessions);
+    const clicks = numberOr(Array.isArray(row) ? row[3] : row.clicks);
+    const sourceObserved = Math.max(0, numberOr(Array.isArray(row) ? row[4] : row.observed, clicks));
+    observed += sourceObserved;
+    const resolved = resolveCompany(companyLabel, aliasToKeys);
+    if (!resolved.key) {
+      residuals[resolved.reason] = (residuals[resolved.reason] || 0) + sourceObserved;
+      continue;
+    }
+    attributed += sourceObserved;
+    const current = employers.get(resolved.key) || {
+      key: resolved.key,
+      displayFromData: companyLabel,
+      persons: 0,
+      sessions: 0,
+      clicks: 0,
+      applyClicks: 0,
+      applyClickProxy: 0,
+      sponsored: 0,
+      observed: 0,
+    };
+    current.persons += persons;
+    current.sessions += sessions;
+    current.clicks += clicks;
+    current.applyClicks += clicks;
+    current.applyClickProxy = proxyFor(current.persons, current.sessions);
+    current.observed += sourceObserved;
+    employers.set(resolved.key, current);
+  }
+  return {
+    employers: [...employers.values()].map((row) => ({ ...row, candidates: row.applyClickProxy })),
+    observed,
+    attributed,
+    residuals,
+  };
+}
+
+async function fromPostHog(window, companies) {
+  const baseQuery = postHogBaseQuery(window);
+  const queryHash = crypto.createHash('sha256').update(baseQuery).digest('hex');
+  const countRows = await postHogQuery(`SELECT count() AS total FROM (${baseQuery})`);
+  const totalRows = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total)));
+  const rawRows = [];
+  let pages = 0;
+  for (let offset = 0; offset < totalRows || (totalRows === 0 && pages === 0); offset += REPORT_PAGE_SIZE) {
+    const page = await postHogQuery(`${baseQuery} LIMIT ${REPORT_PAGE_SIZE} OFFSET ${offset}`);
+    rawRows.push(...page);
+    pages += 1;
+    if (page.length < REPORT_PAGE_SIZE) break;
+  }
+  const aggregated = aggregatePostHogRows(rawRows, companies);
+  return {
+    ...aggregated,
+    coverage: buildCoverage({
+      source: 'posthog',
+      observed: aggregated.observed,
+      attributed: aggregated.attributed,
+      residuals: aggregated.residuals,
+      pageSize: REPORT_PAGE_SIZE,
+      totalRows,
+      rowsReturned: rawRows.length,
+      pages,
+      queryHash,
+      snapshotId: crypto.createHash('sha256').update(`${queryHash}:${window.from}:${window.to}`).digest('hex'),
+      window,
+    }),
+  };
+}
+
+async function postHogSourceFrom() {
+  const rows = await postHogQuery('SELECT min(timestamp) AS source_from FROM events');
+  return toIso(rows?.[0]?.[0] ?? rows?.[0]?.source_from);
+}
+
+function ga4Date(iso) {
+  const date = new Date(Date.parse(iso) - 86_400_000);
+  return date.toISOString().slice(0, 10);
+}
+
+function ga4Request(window, offset) {
+  return {
+    dateRanges: [{ startDate: window.from.slice(0, 10), endDate: ga4Date(window.to) }],
+    dimensions: [{ name: 'customEvent:employer_key' }, { name: 'customEvent:is_sponsored' }],
+    metrics: [{ name: 'totalUsers' }, { name: 'sessions' }, { name: 'eventCount' }],
+    dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'job_apply' } } },
+    orderBys: [{ metric: { metricName: 'totalUsers' }, desc: true }],
+    limit: REPORT_PAGE_SIZE,
+    offset: String(offset),
+  };
+}
+
+/** Pure GA4 rows → free click proxy, with sponsored traffic kept separate. */
 export function aggregateGa4Rows(rows) {
   const byKey = new Map();
-  for (const row of (rows || [])) {
-    const key = row.dimensionValues[0].value;
-    const sponsored = row.dimensionValues[1].value === 'sponsored';
-    const users = Number(row.metricValues[0].value) || 0;
-    const sessions = Number(row.metricValues[1].value) || 0;
-    const clicks = Number(row.metricValues[2].value) || 0;
-    const e = byKey.get(key) || { key, persons: 0, sessions: 0, clicks: 0, sponsored: 0 };
+  for (const row of rows || []) {
+    const dimensions = row.dimensionValues || [];
+    const metrics = row.metricValues || [];
+    const key = String(dimensions[0]?.value || '');
+    const sponsored = dimensions[1]?.value === 'sponsored';
+    const users = numberOr(metrics[0]?.value);
+    const sessions = numberOr(metrics[1]?.value);
+    const clicks = numberOr(metrics[2]?.value);
+    const e = byKey.get(key) || { key, persons: 0, sessions: 0, clicks: 0, applyClicks: 0, sponsored: 0, observed: 0 };
     if (sponsored) {
       e.sponsored += users;
     } else {
-      e.persons += users; e.sessions += sessions; e.clicks += clicks;
+      e.persons += users;
+      e.sessions += sessions;
+      e.clicks += clicks;
+      e.applyClicks += clicks;
+      e.observed += clicks;
     }
     byKey.set(key, e);
   }
-  // Stesso numero conservativo del path PostHog (#2384): pitch = min(persone, sessioni).
-  return [...byKey.values()].map(e => ({
-    ...e, candidates: e.sessions > 0 ? Math.min(e.persons, e.sessions) : e.persons,
+  return [...byKey.values()].map((entry) => ({
+    ...entry,
+    applyClickProxy: proxyFor(entry.persons, entry.sessions),
+    candidates: proxyFor(entry.persons, entry.sessions),
   }));
+}
+
+function resolveGa4Employers(rows, companies) {
+  const aliasToKeys = identityIndex(companies);
+  const employers = new Map();
+  const residuals = Object.create(null);
+  let observed = 0;
+  let attributed = 0;
+  for (const row of rows || []) {
+    const sourceObserved = Math.max(0, numberOr(row.observed, row.clicks));
+    observed += sourceObserved;
+    if (!sourceObserved) continue;
+    const resolved = resolveCompany(row.key, aliasToKeys);
+    if (!resolved.key) {
+      residuals[resolved.reason] = (residuals[resolved.reason] || 0) + sourceObserved;
+      continue;
+    }
+    attributed += sourceObserved;
+    const current = employers.get(resolved.key) || {
+      key: resolved.key,
+      displayFromData: row.key,
+      persons: 0,
+      sessions: 0,
+      clicks: 0,
+      applyClicks: 0,
+      applyClickProxy: 0,
+      sponsored: 0,
+      observed: 0,
+    };
+    current.persons += numberOr(row.persons);
+    current.sessions += numberOr(row.sessions);
+    current.clicks += numberOr(row.clicks);
+    current.applyClicks += numberOr(row.applyClicks || row.clicks);
+    current.sponsored += numberOr(row.sponsored);
+    current.observed += sourceObserved;
+    current.applyClickProxy = proxyFor(current.persons, current.sessions);
+    employers.set(resolved.key, current);
+  }
+  return {
+    employers: [...employers.values()].map((row) => ({ ...row, candidates: row.applyClickProxy })),
+    observed,
+    attributed,
+    residuals,
+  };
+}
+
+async function fromGa4(window) {
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    const temporaryPath = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
+    fs.writeFileSync(temporaryPath, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = temporaryPath;
+  }
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  if (!propertyId) throw new Error('no GA4_PROPERTY_ID');
+  const property = propertyId.startsWith('properties/') ? propertyId : `properties/${propertyId}`;
+  const { GoogleAuth } = await import('google-auth-library');
+  const auth = new GoogleAuth({ scopes: ['https://www.googleapis.com/auth/analytics.readonly'] });
+  const { token } = await (await auth.getClient()).getAccessToken();
+  const rows = [];
+  let rowCount = 0;
+  let offset = 0;
+  let pages = 0;
+  while (offset === 0 || offset < rowCount) {
+    const response = await fetch(`https://analyticsdata.googleapis.com/v1beta/${property}:runReport`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(ga4Request(window, offset)),
+    });
+    const payload = await response.json();
+    if (!response.ok || payload.error) throw new Error(`GA4: ${JSON.stringify(payload.error || {}).slice(0, 200)}`);
+    rowCount = numberOr(payload.rowCount, payload.rows?.length || 0);
+    rows.push(...(payload.rows || []));
+    pages += 1;
+    offset += REPORT_PAGE_SIZE;
+    if ((payload.rows || []).length < REPORT_PAGE_SIZE) break;
+  }
+  const aggregated = resolveGa4Employers(aggregateGa4Rows(rows), loadCompanies());
+  return {
+    employers: aggregated.employers,
+    coverage: buildCoverage({
+      source: 'ga4',
+      observed: aggregated.observed,
+      attributed: aggregated.attributed,
+      residuals: aggregated.residuals,
+      pageSize: REPORT_PAGE_SIZE,
+      totalRows: rowCount,
+      rowsReturned: rows.length,
+      pages,
+      queryHash: null,
+      snapshotId: null,
+      window,
+    }),
+  };
+}
+
+function reportPayload({ source, window, data, rows, min, days }) {
+  const filtered = rows
+    .filter((entry) => numberOr(entry.applyClickProxy) >= min)
+    .sort((a, b) => b.applyClickProxy - a.applyClickProxy || a.key.localeCompare(b.key));
+  const totals = filtered.reduce((total, entry) => ({
+    applyClickProxy: total.applyClickProxy + numberOr(entry.applyClickProxy),
+    applyClicks: total.applyClicks + numberOr(entry.applyClicks || entry.clicks),
+    persons: total.persons + numberOr(entry.persons),
+    sessions: total.sessions + numberOr(entry.sessions),
+    clicks: total.clicks + numberOr(entry.clicks),
+    sponsored: total.sponsored + numberOr(entry.sponsored),
+  }), { applyClickProxy: 0, applyClicks: 0, persons: 0, sessions: 0, clicks: 0, sponsored: 0 });
+  const companies = loadCompanies();
+  const employers = filtered.map((entry) => {
+    const meta = companies.get(entry.key) || {};
+    return {
+      ...entry,
+      name: entry.displayFromData || meta.name || entry.key,
+      careersUrl: meta.careersUrl || '',
+      applications: null,
+      applicationsStatus: 'source_unavailable',
+      forwardedAt: null,
+      delivery: DELIVERY_UNAVAILABLE,
+    };
+  });
+  return {
+    schemaVersion: REPORT_SCHEMA_VERSION,
+    buildSha: BUILD_SHA,
+    source,
+    days: days == null ? null : Number(days),
+    window,
+    metric: {
+      name: 'apply_click_proxy',
+      definition: 'min(distinct_persons, distinct_sessions), fallback to persons when sessions is unavailable',
+      status: 'proxy_not_application',
+    },
+    applications: { value: null, status: 'source_unavailable', proof: 'not queried by this report' },
+    forwardedAt: null,
+    delivery: DELIVERY_UNAVAILABLE,
+    sourceSeparation: {
+      selected: source,
+      ga4EmployerCrawledTraffic: { included: false, summed: false, reason: 'alternative source, never added to the selected source' },
+    },
+    coverage: data.coverage,
+    limits: data.coverage.limits,
+    totals: {
+      ...totals,
+      candidates: totals.applyClickProxy,
+      candidatesMeaning: 'legacy compatibility alias for applyClickProxy; not an application count',
+      personsToSessionsRatio: totals.sessions > 0 ? Number((totals.persons / totals.sessions).toFixed(3)) : 0,
+    },
+    employers,
+  };
 }
 
 async function run() {
   const source = arg('--source', 'posthog');
-  const days = Number(arg('--days', '90'));
-  const min = Number(arg('--min', '1'));
-  const jsonPath = arg('--json', '');
-
-  const raw = source === 'ga4' ? await fromGa4(days) : await fromPostHog(days);
-  const companies = loadCompanies();
-  const rows = raw
-    .map(e => {
-      const meta = companies.get(e.key) || {};
-      return { ...e, name: e.displayFromData || meta.name || e.key, careersUrl: meta.careersUrl || '' };
-    })
-    .filter(e => e.candidates >= min)
-    .sort((a, b) => b.candidates - a.candidates);
-
-  const totCand = rows.reduce((s, e) => s + e.candidates, 0);
-  const totPers = rows.reduce((s, e) => s + (e.persons || 0), 0);
-  const totSess = rows.reduce((s, e) => s + (e.sessions || 0), 0);
-  const totClick = rows.reduce((s, e) => s + e.clicks, 0);
-  // Rapporto persone/sessioni: ~1.0 = stabile; >>1 = person_id frammentato
-  // (cookie reset / anonimo) → il conteggio persone gonfia. Segnale per l'owner.
-  const ratio = totSess > 0 ? (totPers / totSess) : 0;
-
-  console.log(`\n📊 Candidati inviati per azienda — sorgente ${source}, ultimi ${days} giorni`);
-  console.log(`   ${rows.length} aziende · ${totCand} candidati (pitch, conservativo) · ${totClick} click totali`);
-  console.log(`   persone distinte: ${totPers} · sessioni distinte: ${totSess}${ratio ? ` · rapporto P/S: ${ratio.toFixed(2)}` : ''}`);
-  if (ratio > 1.3) {
-    console.log(`   ⚠️  person_id sembra instabile (P/S ${ratio.toFixed(2)} > 1.3): il conteggio PERSONE è gonfiato`);
-    console.log(`       per il traffico anonimo. La pitch usa già il MINIMO (sessioni) — non sovrastima.`);
+  if (!['posthog', 'ga4'].includes(source)) throw new Error('--source must be posthog or ga4');
+  const days = arg('--days', null);
+  if (days != null && (!Number.isFinite(Number(days)) || Number(days) <= 0)) throw new Error('--days must be a positive number');
+  const explicitFrom = arg('--from', null);
+  const to = arg('--to', new Date().toISOString());
+  let window = makeWindow({ days, from: explicitFrom, to });
+  if (source === 'posthog' && days == null && !explicitFrom) {
+    const sourceFrom = await postHogSourceFrom();
+    if (sourceFrom) window = { ...makeWindow({ from: sourceFrom, to }), kind: 'cumulative' };
   }
-  console.log(`   ℹ️  "candidati" nella pitch = min(persone, sessioni): mai sovrastima il claim.\n`);
-  console.log('  #  CAND  PERS  SESS  CLICK  AZIENDA');
-  rows.forEach((e, i) => {
-    console.log(`${String(i + 1).padStart(3)}  ${String(e.candidates).padStart(4)}  ${String(e.persons ?? '').padStart(4)}  ${String(e.sessions ?? '').padStart(4)}  ${String(e.clicks).padStart(5)}  ${e.name}${e.careersUrl ? '  ' + e.careersUrl : ''}`);
-  });
-  if (!rows.length) console.log('  (nessun dato per questa sorgente/finestra)');
-
+  const companies = loadCompanies();
+  const data = source === 'ga4' ? await fromGa4(window) : await fromPostHog(window, companies);
+  const payload = reportPayload({ source, window, data, rows: data.employers, min: numberOr(arg('--min', '1'), 1), days });
+  const ratio = payload.totals.personsToSessionsRatio;
+  console.log(`\nEmployer apply-click proxy — source ${source}, ${window.from} → ${window.to}`);
+  console.log(`   ${payload.employers.length} aziende · ${payload.totals.applyClickProxy} proxy · ${payload.totals.applyClicks} click`);
+  console.log(`   persone distinte: ${payload.totals.persons} · sessioni distinte: ${payload.totals.sessions}${ratio ? ` · rapporto P/S: ${ratio.toFixed(2)}` : ''}`);
+  console.log(`   coverage: observed ${payload.coverage.observed} · attributed ${payload.coverage.attributed} · residual ${payload.coverage.residualTotal}`);
+  if (payload.employers.length) {
+    console.log('  #  PROXY  PERS  SESS  CLICK  AZIENDA');
+    payload.employers.forEach((entry, index) => console.log(`${String(index + 1).padStart(3)}  ${String(entry.applyClickProxy).padStart(5)}  ${String(entry.persons).padStart(4)}  ${String(entry.sessions).padStart(4)}  ${String(entry.clicks).padStart(5)}  ${entry.name}${entry.careersUrl ? `  ${entry.careersUrl}` : ''}`));
+  } else console.log('  (nessun dato per questa sorgente/finestra)');
+  const jsonPath = arg('--json', '');
   if (jsonPath) {
-    fs.writeFileSync(jsonPath, JSON.stringify({
-      source, days,
-      // Disclaimer machine-readable per i consumer a valle (generate-cold-emails).
-      candidatesMetric: 'min(distinct_persons, distinct_sessions)',
-      identityNote: 'candidates è conservativo: min(persone, sessioni). person_id può gonfiare per traffico anonimo (reset cookie / cross-device); usare il numero così com\'è nella pitch non sovrastima.',
-      totals: { candidates: totCand, persons: totPers, sessions: totSess, clicks: totClick, personsToSessionsRatio: Number(ratio.toFixed(3)) },
-      employers: rows,
-    }, null, 2));
-    console.log(`\n💾 JSON → ${jsonPath}`);
+    fs.writeFileSync(jsonPath, JSON.stringify(payload, null, 2));
+    console.log(`\nJSON → ${jsonPath}`);
   }
 }
 
-// Esegui solo se invocato direttamente (aggregateGa4Rows resta importabile per i test).
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
-  run().catch(e => { console.error(e.message || e); process.exit(1); });
+  run().catch((error) => { console.error(error.message || error); process.exit(1); });
 }
