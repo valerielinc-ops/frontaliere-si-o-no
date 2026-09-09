@@ -28,6 +28,7 @@ interface QueueEntry {
 
 let queue: QueueEntry[] = [];
 let activeId: string | null = null;
+let promotionTimer: ReturnType<typeof setTimeout> | null = null;
 const listeners = new Set<Listener>();
 
 function notify() {
@@ -37,13 +38,18 @@ function notify() {
 }
 
 function promoteNext() {
+ if (promotionTimer !== null) {
+ clearTimeout(promotionTimer);
+ promotionTimer = null;
+ }
  if (queue.length === 0) {
  activeId = null;
  notify();
  return;
  }
  // Brief delay so the previous popup's exit doesn't visually collide with the next
- setTimeout(() => {
+ promotionTimer = setTimeout(() => {
+ promotionTimer = null;
  if (queue.length === 0) {
  activeId = null;
  notify();
@@ -146,6 +152,9 @@ export function subscribe(listener: Listener): () => void {
  *    value, no new subscription, so it yields to both asks above.
  *  · JOB_ALERT_STICKY — scroll-depth only. It knows nothing about intent and is
  *    the one that should wait.
+ *  · COMPANY_FOLLOW_PROMPT — the URL names exactly one employer, so this is
+ *    more relevant than a category prompt (55), but still an unsolicited ask:
+ *    it yields to cookie/consent (85) and auth gates (80+).
  *
  * All four are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
  * banner or a sign-in gate is not an offer that can be postponed.
@@ -158,6 +167,7 @@ export const POPUP_PRIORITY = {
  COOKIE_CONSENT: 85,
  AUTH_GATE: 80,
  GUIDE_BANNER: 60,
+ COMPANY_FOLLOW_PROMPT: 60,
  JOB_DETAIL_PROMPT: 55,
  SAVED_JOBS_NUDGE: 50,
  PROFILE_ENRICHMENT: 45,
