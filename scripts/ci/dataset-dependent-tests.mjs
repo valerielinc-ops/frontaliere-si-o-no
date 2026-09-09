@@ -28,6 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -82,19 +83,27 @@ const OUTPUT_RE = new RegExp(
  * dipendenti (46%) — inclusi casi assurdi come `AdBlockGate.test.tsx`, la cui
  * catena è AdBlockGate → NavigationContext → router → jobSlugShards.
  *
- * Conta solo chi LEGGE il file dal filesystem: un fetch di un URL pubblico non
- * ha bisogno che l'assemble sia finito, una readFileSync sì.
+ * L'AST conta solo una chiamata di lettura del filesystem che riceve l'output
+ * (o un binding che lo contiene): un `fetch` di un URL pubblico non ha bisogno
+ * che l'assemble sia finito, una `readFileSync` sì. Un file non analizzabile
+ * resta sconosciuto e quindi conserva il comportamento fail-safe.
  */
-const FS_READ_RE =
-  /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson|readAllKnownJobSlugs|readOrphanEnriched)\b/;
-
-/** true se il sorgente legge un output dell'assemble dal filesystem. */
-function readsDatasetFromDisk(src) {
-  return OUTPUT_RE.test(src) && FS_READ_RE.test(src);
-}
-
 const TEST_EXTS = ['.test.ts', '.test.tsx', '.spec.ts', '.spec.tsx'];
 const RESOLVE_EXTS = ['', '.ts', '.tsx', '.mjs', '.js', '.mts', '/index.ts', '/index.tsx', '/index.mjs'];
+const DATASET_READ_CALLS = new Set([
+  'readFileSync',
+  'readFile',
+  'existsSync',
+  'statSync',
+  'createReadStream',
+  'readJson',
+  'loadJson',
+]);
+const DATASET_READER_EXPORTS = new Set([
+  'readJobsDataset',
+  'readAllKnownJobSlugs',
+  'readOrphanEnriched',
+]);
 
 /** Tutti i file di test sotto tests/, ricorsivo. */
 function listTestFiles(dir = path.join(ROOT, 'tests'), acc = []) {
@@ -116,20 +125,335 @@ function listTestFiles(dir = path.join(ROOT, 'tests'), acc = []) {
   return acc;
 }
 
-const sourceTextCache = new Map();
+// Nessuna cache di testo o di AST: `analyzeFile()` e' memoizzato per file, quindi
+// ogni sorgente veniva gia' letto e parsato una volta sola — le cache tenevano
+// solo in vita ~70 MB di sorgenti e i relativi AST fino a fine processo, e il GC
+// che ne seguiva era la voce di costo piu' grande del predicato.
 function readSource(file) {
-  if (sourceTextCache.has(file)) return sourceTextCache.get(file);
-  let src = '';
   try {
-    src = fs.readFileSync(file, 'utf-8');
+    return fs.readFileSync(file, 'utf-8');
   } catch {
-    src = '';
+    return '';
   }
-  sourceTextCache.set(file, src);
-  return src;
 }
 
-const IMPORT_RE = /(?:from\s+|import\s*\(\s*|require\s*\(\s*)['"]([^'"]+)['"]/g;
+const fileAnalysisCache = new Map();
+
+function scriptKindFor(file) {
+  if (file.endsWith('.tsx')) return ts.ScriptKind.TSX;
+  if (file.endsWith('.ts') || file.endsWith('.mts')) return ts.ScriptKind.TS;
+  if (file.endsWith('.jsx')) return ts.ScriptKind.JSX;
+  return ts.ScriptKind.JS;
+}
+
+function parseSource(file) {
+  let parsed = null;
+  try {
+    if (!fs.statSync(file).isFile()) throw new Error('not a file: ' + file);
+    parsed = ts.createSourceFile(
+      file,
+      readSource(file),
+      ts.ScriptTarget.Latest,
+      // I parent non servono a nessuna visita qui sotto, e `fixupParentReferences`
+      // su ~70 MB di sorgenti costa quanto il parse stesso.
+      false,
+      scriptKindFor(file),
+    );
+    if (parsed.parseDiagnostics.length > 0) parsed = null;
+  } catch {
+    // L'incertezza non è evidenza di indipendenza: il chiamante deve restare
+    // sul ramo required finché il file non è analizzabile.
+    parsed = null;
+  }
+  return parsed;
+}
+
+const FUNCTION_LIKE_KINDS = new Set([
+  ts.SyntaxKind.FunctionDeclaration,
+  ts.SyntaxKind.FunctionExpression,
+  ts.SyntaxKind.ArrowFunction,
+  ts.SyntaxKind.MethodDeclaration,
+  ts.SyntaxKind.GetAccessor,
+  ts.SyntaxKind.SetAccessor,
+]);
+
+function isFunctionLike(node) {
+  return FUNCTION_LIKE_KINDS.has(node.kind);
+}
+
+function visitAll(node, visit) {
+  visit(node);
+  ts.forEachChild(node, (child) => visitAll(child, visit));
+}
+
+function expressionName(expression) {
+  if (ts.isIdentifier(expression)) return expression.text;
+  if (ts.isPropertyAccessExpression(expression)) return expression.name.text;
+  if (ts.isElementAccessExpression(expression) && ts.isStringLiteral(expression.argumentExpression)) {
+    return expression.argumentExpression.text;
+  }
+  return null;
+}
+
+function outputBindings(sourceFile) {
+  const bindings = new Set();
+  visitAll(sourceFile, (node) => {
+    if (!ts.isVariableDeclaration(node) || !ts.isIdentifier(node.name) || !node.initializer) return;
+    if (OUTPUT_RE.test(node.initializer.getText(sourceFile))) bindings.add(node.name.text);
+  });
+  return bindings;
+}
+
+// Un solo alternato compilato per file: `callReadsDataset` gira su ogni nodo
+// del grafo, e ricompilare una regex per binding a ogni chiamata dominava.
+function bindingsPattern(bindings) {
+  if (bindings.size === 0) return null;
+  return new RegExp('\\b(?:' + [...bindings].map((b) => b.replace(/[$]/g, '\\$&')).join('|') + ')\\b');
+}
+
+function importedDatasetCallNames(sourceFile) {
+  const readCallNames = new Set(DATASET_READ_CALLS);
+  const readerNames = new Set(DATASET_READER_EXPORTS);
+  for (const statement of sourceFile.statements) {
+    if (!ts.isImportDeclaration(statement) || !statement.importClause || statement.importClause.isTypeOnly) continue;
+    const named = statement.importClause.namedBindings;
+    if (!named || !ts.isNamedImports(named)) continue;
+    for (const element of named.elements) {
+      if (element.isTypeOnly) continue;
+      const imported = element.propertyName?.text || element.name.text;
+      if (DATASET_READ_CALLS.has(imported)) readCallNames.add(element.name.text);
+      if (DATASET_READER_EXPORTS.has(imported)) readerNames.add(element.name.text);
+    }
+  }
+  return { readCallNames, readerNames };
+}
+
+function callReadsDataset(node, bindings, sourceFile, { readCallNames, readerNames } = {
+  readCallNames: DATASET_READ_CALLS,
+  readerNames: DATASET_READER_EXPORTS,
+}) {
+  if (!ts.isCallExpression(node)) return false;
+  const name = expressionName(node.expression);
+  if (readerNames.has(name)) return true;
+  if (!readCallNames.has(name)) return false;
+  const call = node.getText(sourceFile);
+  return OUTPUT_RE.test(call) || (bindings !== null && bindings.test(call));
+}
+
+function functionName(node, parent, fallback) {
+  if (node.name && ts.isIdentifier(node.name)) return node.name.text;
+  if (parent && ts.isVariableDeclaration(parent) && ts.isIdentifier(parent.name)) return parent.name.text;
+  if (parent && ts.isPropertyAssignment(parent) && ts.isIdentifier(parent.name)) return parent.name.text;
+  return fallback;
+}
+
+function functionInfo(node, name) {
+  return {
+    node,
+    name,
+    calls: new Set(),
+    usedIdentifiers: new Set(),
+    namespaceProperties: new Map(),
+    direct: false,
+  };
+}
+
+function noteNamespaceProperty(target, node) {
+  if (!ts.isPropertyAccessExpression(node)
+    || !ts.isIdentifier(node.expression)
+    || !ts.isIdentifier(node.name)) return;
+  if (!target.has(node.expression.text)) target.set(node.expression.text, new Set());
+  target.get(node.expression.text).add(node.name.text);
+}
+
+// Estrae solo binding ed effetti necessari a seguire una lettura runtime.
+function analyzeFile(file) {
+  if (fileAnalysisCache.has(file)) return fileAnalysisCache.get(file);
+  const sourceFile = parseSource(file);
+  if (!sourceFile) {
+    const unknown = {
+      unknown: true,
+      imports: [],
+      allImports: [],
+      exports: new Map(),
+      functions: new Map(),
+      topDirect: true,
+      allDirect: true,
+      usedIdentifiers: new Set(),
+      namespaceProperties: new Map(),
+    };
+    fileAnalysisCache.set(file, unknown);
+    return unknown;
+  }
+
+  const bindings = OUTPUT_RE.test(sourceFile.text)
+    ? bindingsPattern(outputBindings(sourceFile))
+    : null;
+  const datasetCallNames = importedDatasetCallNames(sourceFile);
+  const imports = [];
+  const allImports = [];
+  const exports = new Map();
+  const functions = new Map();
+  const infoByNode = new Map();
+  const registerFunction = (node, parent, fallback) => {
+    const name = functionName(node, parent, fallback);
+    const info = functionInfo(node, name);
+    functions.set(name, info);
+    infoByNode.set(node, info);
+    return name;
+  };
+
+  for (const statement of sourceFile.statements) {
+    if (ts.isImportDeclaration(statement)) {
+      const spec = ts.isStringLiteral(statement.moduleSpecifier) ? statement.moduleSpecifier.text : null;
+      if (!spec) continue;
+      allImports.push({ spec });
+      const clause = statement.importClause;
+      if (!clause) {
+        imports.push({ spec, side: true });
+        continue;
+      }
+      if (clause.isTypeOnly) continue;
+      if (clause.name) imports.push({ spec, local: clause.name.text, imported: 'default' });
+      if (clause.namedBindings) {
+        if (ts.isNamespaceImport(clause.namedBindings)) {
+          imports.push({ spec, namespace: clause.namedBindings.name.text });
+        } else {
+          for (const element of clause.namedBindings.elements) {
+            if (element.isTypeOnly) continue;
+            imports.push({
+              spec,
+              local: element.name.text,
+              imported: element.propertyName?.text || element.name.text,
+            });
+          }
+        }
+      }
+      continue;
+    }
+
+    if (ts.isFunctionDeclaration(statement)) {
+      const name = registerFunction(statement, sourceFile, '__default_function__');
+      const isExported = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+      if (isExported) {
+        const isDefault = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.DefaultKeyword);
+        exports.set(isDefault ? 'default' : name, { local: name });
+      }
+      continue;
+    }
+
+    if (ts.isVariableStatement(statement)) {
+      const isExported = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+      for (const declaration of statement.declarationList.declarations) {
+        if (!ts.isIdentifier(declaration.name) || !declaration.initializer) continue;
+        if (isFunctionLike(declaration.initializer)) {
+          const name = registerFunction(declaration.initializer, declaration, declaration.name.text);
+          if (isExported) exports.set(declaration.name.text, { local: name });
+        } else if (isExported) {
+          exports.set(declaration.name.text, { value: true });
+        }
+      }
+      continue;
+    }
+
+    if (ts.isExportAssignment(statement)) {
+      if (ts.isIdentifier(statement.expression)) {
+        exports.set('default', { local: statement.expression.text });
+      } else if (isFunctionLike(statement.expression)) {
+        const name = registerFunction(statement.expression, statement, '__default_expression__');
+        exports.set('default', { local: name });
+      }
+      continue;
+    }
+
+    if (ts.isExportDeclaration(statement)) {
+      const spec = statement.moduleSpecifier && ts.isStringLiteral(statement.moduleSpecifier)
+        ? statement.moduleSpecifier.text
+        : null;
+      if (spec) allImports.push({ spec });
+      if (!statement.exportClause) {
+        if (spec) exports.set('*', { spec, star: true });
+        continue;
+      }
+      if (!ts.isNamedExports(statement.exportClause)) continue;
+      for (const element of statement.exportClause.elements) {
+        if (element.isTypeOnly) continue;
+        const local = element.propertyName?.text || element.name.text;
+        exports.set(element.name.text, spec
+          ? { spec, imported: local, reexport: true }
+          : { local });
+      }
+    }
+  }
+
+  // Una sola traversata per tutto cio' che dipende dai nodi: `topDirect`,
+  // `allDirect`, gli identificatori usati, gli archi `import()`/`require()` e
+  // gli effetti per funzione. Erano quattro visite complete dello stesso AST
+  // per ognuno dei ~3'900 file del grafo.
+  //
+  // `fnDepth` riproduce il vecchio `visitRuntime`: un effetto conta come
+  // top-level solo fuori da ogni funzione, e `ctx` e' la funzione registrata
+  // che lo eredita — nessuna, se in mezzo c'e' un callback annidato, esattamente
+  // come quando la visita per funzione non ci scendeva.
+  let topDirect = false;
+  let allDirect = false;
+  const usedIdentifiers = new Set();
+  const namespaceProperties = new Map();
+
+  const walk = (node, ctx, fnDepth) => {
+    if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) {
+      allDirect = true;
+      if (fnDepth === 0) topDirect = true;
+      if (ctx) ctx.direct = true;
+    }
+    if (ts.isIdentifier(node)) {
+      usedIdentifiers.add(node.text);
+      if (ctx) ctx.usedIdentifiers.add(node.text);
+    } else if (ts.isPropertyAccessExpression(node)) {
+      noteNamespaceProperty(namespaceProperties, node);
+      if (ctx) noteNamespaceProperty(ctx.namespaceProperties, node);
+    } else if (ts.isCallExpression(node)) {
+      if (ctx) {
+        const called = expressionName(node.expression);
+        if (called) ctx.calls.add(called);
+      }
+      // Mantieni nel grafo anche gli archi runtime non espressi da un import
+      // statico: il vecchio parser li seguiva con `import()` e `require()`.
+      if (node.arguments.length > 0) {
+        const isDynamicImport = node.expression.kind === ts.SyntaxKind.ImportKeyword;
+        const isRequire = ts.isIdentifier(node.expression) && node.expression.text === 'require';
+        const argument = node.arguments[0];
+        if ((isDynamicImport || isRequire) && ts.isStringLiteral(argument)) {
+          imports.push({ spec: argument.text, side: true });
+          allImports.push({ spec: argument.text });
+        }
+      }
+    }
+    ts.forEachChild(node, (child) => {
+      if (ts.isImportDeclaration(child)) return;
+      if (isFunctionLike(child)) {
+        walk(child, infoByNode.get(child) || null, fnDepth + 1);
+      } else {
+        walk(child, ctx, fnDepth);
+      }
+    });
+  };
+  walk(sourceFile, null, 0);
+
+  const analysis = {
+    unknown: false,
+    imports,
+    allImports,
+    exports,
+    functions,
+    topDirect,
+    allDirect,
+    usedIdentifiers,
+    namespaceProperties,
+  };
+  fileAnalysisCache.set(file, analysis);
+  return analysis;
+}
 
 /** Risolve uno specifier locale (relativo o alias `@/`) a un file reale. */
 function resolveSpecifier(spec, fromFile) {
@@ -159,18 +483,30 @@ function resolveSpecifier(spec, fromFile) {
  * ESPORTATA per `scripts/ci/corpus-wide-tests.mjs`, che deve sapere quali file
  * sorgente un test corpus-wide raggiunge per decidere se il diff di una PR lo
  * rende ancora bloccante. Riscrivere lì la stessa risoluzione (RESOLVE_EXTS +
- * alias `@/` + IMPORT_RE) creerebbe due copie della stessa regola destinate a
- * divergere (AGENTS.md #6), e la divergenza si presenterebbe nel modo peggiore
+ * alias `@/` + parser AST degli import) creerebbe due copie della stessa regola
+ * destinate a divergere (AGENTS.md #6), e la divergenza si presenterebbe nel
+ * modo peggiore
  * possibile: un gate che smette di scattare senza che niente diventi rosso.
  * Nessun cambio di comportamento per i chiamanti esistenti — solo `export`.
  */
 const importsCache = new Map();
+const runtimeImportsCache = new Map();
+
+function runtimeImports(file) {
+  if (runtimeImportsCache.has(file)) return runtimeImportsCache.get(file);
+  const entries = analyzeFile(file).imports.map((entry) => ({
+    ...entry,
+    to: resolveSpecifier(entry.spec, file),
+  }));
+  runtimeImportsCache.set(file, entries);
+  return entries;
+}
 export function localImports(file) {
   const cached = importsCache.get(file);
   if (cached) return cached;
   const out = [];
-  for (const m of readSource(file).matchAll(IMPORT_RE)) {
-    const resolved = resolveSpecifier(m[1], file);
+  for (const entry of analyzeFile(file).allImports) {
+    const resolved = resolveSpecifier(entry.spec, file);
     if (resolved) out.push(resolved);
   }
   importsCache.set(file, out);
@@ -179,6 +515,12 @@ export function localImports(file) {
 
 /**
  * Classificazione a FIXED-POINT, calcolata una volta sola.
+ *
+ * Il fixed-point segue gli effetti runtime, non la semplice presenza di un
+ * nome o di un arco nel grafo: un import type è ignorato, una funzione pura
+ * non eredita la lettura di un'altra export dello stesso modulo e un helper
+ * che chiama davvero un reader resta dipendente. Il ramo sconosciuto resta
+ * conservativo: viene considerato dipendente.
  *
  * Un primo tentativo usava una DFS con memoizzazione dei soli risultati
  * positivi più un set `seen` per spezzare i cicli di import. Non era
@@ -191,47 +533,171 @@ export function localImports(file) {
  * file per strada (copertura persa in silenzio, vedi
  * tests/dataset-test-partition.test.ts).
  *
- * Il fixed-point non ha quel difetto: si parte dai file che leggono davvero il
- * dataset e si propaga all'indietro lungo gli archi di import finché nulla
- * cambia. I cicli convergono naturalmente e l'esito non dipende dall'ordine di
- * visita.
+ * Il fixed-point non ha quel difetto: per ogni test si parte dalle chiamate che
+ * leggono davvero il dataset e si propaga attraverso gli effetti runtime degli
+ * import e delle funzioni esportate finché non resta un percorso da risolvere.
+ * Gli archi type-only e i binding inutilizzati non partecipano; i cicli
+ * convergono naturalmente e l'esito non dipende dall'ordine di visita.
  */
 let taintedCache = null;
+let testFilesByRelPath = null;
+const datasetEffectCache = new Map();
+
+function rememberDatasetEffect(key, result, state) {
+  // Un ciclo può far vedere un falso negativo prima che un altro ramo trovi
+  // il seed. I risultati positivi sono monotoni; una risposta negativa si
+  // memorizza solo quando la visita è aciclica.
+  if (result || !state.cyclic) datasetEffectCache.set(key, result);
+  return result;
+}
+
+function moduleHasTopLevelDatasetRead(file) {
+  const analysis = analyzeFile(file);
+  return analysis.unknown || analysis.topDirect;
+}
+
+function exportReadsDataset(file, name, stack = new Set(), state = { cyclic: false }) {
+  const key = 'export:' + file + ':' + name;
+  if (datasetEffectCache.has(key)) return datasetEffectCache.get(key);
+  if (stack.has(key)) {
+    state.cyclic = true;
+    return false;
+  }
+  const nextStack = new Set(stack).add(key);
+  const analysis = analyzeFile(file);
+  if (analysis.unknown || analysis.topDirect || DATASET_READER_EXPORTS.has(name)) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  const binding = analysis.exports.get(name);
+  if (!binding) {
+    const star = analysis.exports.get('*');
+    if (!star) {
+      return rememberDatasetEffect(key, false, state);
+    }
+    const target = resolveSpecifier(star.spec, file);
+    const result = target ? exportReadsDataset(target, name, nextStack, state) : true;
+    return rememberDatasetEffect(key, result, state);
+  }
+  if (binding.reexport) {
+    const target = resolveSpecifier(binding.spec, file);
+    const result = target
+      ? exportReadsDataset(target, binding.imported, nextStack, state)
+      : true;
+    return rememberDatasetEffect(key, result, state);
+  }
+  const result = binding.local
+    ? functionReadsDataset(file, binding.local, nextStack, state)
+    : false;
+  return rememberDatasetEffect(key, result, state);
+}
+
+function functionReadsDataset(file, name, stack = new Set(), state = { cyclic: false }) {
+  const key = 'function:' + file + ':' + name;
+  if (datasetEffectCache.has(key)) return datasetEffectCache.get(key);
+  if (stack.has(key)) {
+    state.cyclic = true;
+    return false;
+  }
+  const nextStack = new Set(stack).add(key);
+  if (DATASET_READER_EXPORTS.has(name)) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  const analysis = analyzeFile(file);
+  const info = analysis.functions.get(name);
+  if (!info) {
+    // Un export di valore non è una funzione lettore: la sua presenza nel
+    // modulo non basta.
+    return rememberDatasetEffect(key, false, state);
+  }
+  if (info.direct) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  for (const called of info.calls) {
+    if (analysis.functions.has(called)
+      && functionReadsDataset(file, called, nextStack, state)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+  }
+  for (const entry of runtimeImports(file)) {
+    if (!entry.to) continue;
+    const used = entry.namespace
+      ? info.usedIdentifiers.has(entry.namespace)
+      : info.usedIdentifiers.has(entry.local);
+    if (!used) continue;
+    if (moduleHasTopLevelDatasetRead(entry.to)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+    if (entry.namespace) {
+      const properties = info.namespaceProperties.get(entry.namespace) || new Set();
+      if ([...properties].some((property) => exportReadsDataset(entry.to, property, nextStack, state))) {
+        datasetEffectCache.set(key, true);
+        return true;
+      }
+    } else if (exportReadsDataset(entry.to, entry.imported, nextStack, state)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+  }
+  return rememberDatasetEffect(key, false, state);
+}
+
+function testReadsDataset(file) {
+  const analysis = analyzeFile(file);
+  if (analysis.unknown || analysis.allDirect) return true;
+  for (const entry of runtimeImports(file)) {
+    if (!entry.to) continue;
+    const used = entry.side || (entry.namespace
+      ? analysis.usedIdentifiers.has(entry.namespace)
+      : analysis.usedIdentifiers.has(entry.local));
+    if (!used) continue;
+    if (moduleHasTopLevelDatasetRead(entry.to)) return true;
+    if (entry.side) continue;
+    if (entry.namespace) {
+      const properties = analysis.namespaceProperties.get(entry.namespace) || new Set();
+      if ([...properties].some((property) => exportReadsDataset(entry.to, property))) return true;
+    } else if (exportReadsDataset(entry.to, entry.imported)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function taintedFiles() {
   if (taintedCache) return taintedCache;
 
-  // 1. Raccogli tutti i file raggiungibili dai test (chiusura degli import).
-  const all = new Set();
-  const queue = listTestFiles();
-  while (queue.length) {
-    const f = queue.pop();
-    if (all.has(f)) continue;
-    all.add(f);
-    for (const dep of localImports(f)) if (!all.has(dep)) queue.push(dep);
-  }
-
-  // 2. Seed: chi legge un output dell'assemble dal filesystem.
-  const tainted = new Set();
-  for (const f of all) if (readsDatasetFromDisk(readSource(f))) tainted.add(f);
-
-  // 3. Propaga: importare un file tainted rende tainted anche l'importatore.
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const f of all) {
-      if (tainted.has(f)) continue;
-      if (localImports(f).some((dep) => tainted.has(dep))) {
-        tainted.add(f);
-        changed = true;
-      }
-    }
-  }
+  // Il fixed-point è sugli effetti runtime; la lista finale contiene solo
+  // test, non ogni modulo intermedio che espone un lettore.
+  const tainted = new Set(listTestFiles().filter(testReadsDataset));
 
   taintedCache = tainted;
   return tainted;
 }
 
 const toPosixRel = (f) => path.relative(ROOT, f).split(path.sep).join('/');
+
+/**
+ * True per un singolo file di test che, da solo, richiede l'assemble.
+ *
+ * Stessa relazione di `listDatasetDependentTests()` — `listTestFiles()` per
+ * l'appartenenza alla suite, il fixed-point per l'effetto — ma valutata sul
+ * file richiesto invece che su tutti e ~2'100. Serve a chi deve solo decidere
+ * se una SELEZIONE contiene un dipendente: costruire la partizione completa
+ * significa leggere e parsare l'intero grafo (~3'900 file, ~70 MB di sorgenti)
+ * per rispondere a una domanda di appartenenza su una manciata di path, e su
+ * una selezione vuota per non guardare nemmeno il risultato.
+ */
+function isDatasetDependentTestPath(file) {
+  if (testFilesByRelPath === null) {
+    testFilesByRelPath = new Map(listTestFiles().map((f) => [toPosixRel(f), f]));
+  }
+  const absolute = testFilesByRelPath.get(normalizeDecisionPath(file));
+  return absolute !== undefined && testReadsDataset(absolute);
+}
 
 /** Path POSIX relativi alla root, ordinati — dei test che richiedono l'assemble. */
 export function listDatasetDependentTests() {
@@ -307,9 +773,9 @@ export function shouldAssembleForRelatedTests({
     return { required: true, degraded: true, reason: 'related graph contains unreadable tracked files' };
   }
 
-  let dependentTests;
+  let selectionIsDependent;
   try {
-    dependentTests = new Set(listDatasetDependentTests());
+    selectionIsDependent = selectedTests.some(isDatasetDependentTestPath);
   } catch (error) {
     return {
       required: true,
@@ -318,7 +784,7 @@ export function shouldAssembleForRelatedTests({
     };
   }
 
-  if (selectedTests.some((file) => dependentTests.has(normalizeDecisionPath(file)))) {
+  if (selectionIsDependent) {
     return { required: true, reason: 'related selection includes a dataset-dependent test' };
   }
   if (changedPaths.some(isDirectAssembleInput)) {
