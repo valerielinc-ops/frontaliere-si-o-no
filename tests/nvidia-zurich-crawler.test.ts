@@ -68,6 +68,13 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
           { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
         ],
       })).toBe(true);
+
+      expect(hasNvidiaSwissLocation({
+        location: 'Berlin, Germany',
+        additionalLocations: [
+          { descriptor: 'Berlin, Germany', country: { code: 'CH-WID' } },
+        ],
+      })).toBe(false);
     });
   });
 

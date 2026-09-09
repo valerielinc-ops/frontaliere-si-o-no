@@ -78,8 +78,13 @@ function normalizeSpace(s = '') {
 }
 
 function isSwissLocationCandidate(locationText) {
-  return /\b(?:ch|switzerland|schweiz|suisse|svizzera)\b/i.test(locationText)
-    || isSwissLocationText(locationText);
+  const text = String(locationText || '');
+  const hasSwissCountryCode = text
+    .split(/[\s,;|/]+/)
+    .some((token) => /^(?:ch|che|756)$/i.test(token));
+  return /\b(?:switzerland|schweiz|suisse|svizzera)\b/i.test(text)
+    || hasSwissCountryCode
+    || isSwissLocationText(text);
 }
 
 export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {

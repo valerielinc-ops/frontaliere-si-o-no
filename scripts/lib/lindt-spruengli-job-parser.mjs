@@ -211,7 +211,7 @@ export function extractCityFromLocationText(raw = '') {
 
   if (cleaned.includes(',')) {
     const first = cleaned.split(',')[0].trim();
-    if (first && !/^[a-z]{2}$/i.test(first)) return first;
+    if (first && !/^[a-z]{2}$/i.test(first) && !/\s+-\s+/.test(first)) return first;
   }
 
   const dashParts = cleaned.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);

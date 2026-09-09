@@ -129,6 +129,14 @@ describe('Lindt & Sprüngli crawler parser', () => {
       expect(resolveLindtLocationText({
         location: 'Kilchberg, Switzerland',
       }, '2 Locations')).toBe('Kilchberg, Switzerland');
+
+      const hierarchy = resolveLindtLocationText({
+        location: {
+          descriptor: 'LCH - CHE - Plant - Kilchberg - Plant',
+          country: { descriptor: 'Switzerland' },
+        },
+      }, '2 Locations');
+      expect(extractCityFromLocationText(hierarchy)).toBe('Kilchberg');
     });
   });
 
