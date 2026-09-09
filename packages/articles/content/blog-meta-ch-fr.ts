@@ -6235,6 +6235,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.opportunita-lavoro-seco.title': 'Travailler au SECO : opportunités d\'apprentissage et de stage',
     'blog.article.opportunita-lavoro-seco.excerpt': 'Le SECO, agence fédérale comptant plus de 900 salariés, propose des apprentissages AFC, des stages SMC et des stages universitaires. Découvrez les profils recherchés et comment postuler.',
     'blog.article.opportunita-lavoro-seco.imageAlt': 'Environnement de travail moderne dans un bureau fédéral suisse avec des employés collaborant dans des bureaux lumineux et contemporains',
+    'blog.article.svitto-guida-aprire-impresa-costi.title': 'Comment ouvrir une entreprise à Schwyz : guide des coûts',
+    'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Inscription au registre du commerce, formes juridiques, capital minimum et obligations d\'assurance : tout ce dont vous avez besoin pour démarrer une entreprise dans le canton de Schwyz.',
+    'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Entrepreneur suisse examinant les documents d\'enregistrement commercial avec calculatrice au bureau moderne.',
 };
 
 export default blogMetaChFr;

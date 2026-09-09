@@ -6235,6 +6235,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.opportunita-lavoro-seco.title': 'Arbeiten beim SECO: Lehrstellen und Praktika',
     'blog.article.opportunita-lavoro-seco.excerpt': 'Das SECO, eine Bundesagentur mit über 900 Mitarbeitenden, bietet EFZ-Lehrstellen, SMC-Praktika und Hochschulpraktika an. Entdecken Sie die gesuchten Profile und wie Sie sich bewerben können.',
     'blog.article.opportunita-lavoro-seco.imageAlt': 'Moderner Arbeitsplatz in einem Schweizer Bundesamt mit Mitarbeitern, die in hellen, zeitgenössischen Büros zusammenarbeiten',
+    'blog.article.svitto-guida-aprire-impresa-costi.title': 'So eröffnen Sie ein Geschäft in Schwyz: Kostenleitfaden',
+    'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Handelsregistereintrag, Rechtsformen, Mindestkapital und Versicherungspflichten - alles, was Sie brauchen, um ein Unternehmen im Kanton Schwyz zu gründen.',
+    'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Schweizer Unternehmer überprüft Geschäftsregistrierungsdokumente mit Taschenrechner auf Schreibtisch im modernen Büro.',
 };
 
 export default blogMetaChDe;

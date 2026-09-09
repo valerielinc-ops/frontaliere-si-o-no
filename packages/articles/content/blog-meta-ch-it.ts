@@ -6235,6 +6235,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.opportunita-lavoro-seco.title': 'Lavorare alla SECO: opportunità di apprendistato e stage',
     'blog.article.opportunita-lavoro-seco.excerpt': 'La SECO, agenzia federale con oltre 900 dipendenti, offre apprendistati AFC, tirocini SMC e stage universitari. Scopri i profili ricercati e come candidarsi.',
     'blog.article.opportunita-lavoro-seco.imageAlt': 'Ambiente di lavoro moderno presso una sede amministrativa federale svizzera con persone che collaborano in uffici luminosi',
+    'blog.article.svitto-guida-aprire-impresa-costi.title': 'Come aprire un\'attività in Svitto: guida ai costi',
+    'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Iscrizione al registro di commercio, forme giuridiche, capitale minimo e obblighi assicurativi: tutto ciò che serve per avviare un\'impresa nel cantone Svitto.',
+    'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Imprenditore svizzero consulta documenti di iscrizione commerciale con calcolatrice su scrivania in ufficio moderno.',
 };
 
 export default blogMetaChIt;

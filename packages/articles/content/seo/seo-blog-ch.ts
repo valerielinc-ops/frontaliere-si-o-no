@@ -80945,6 +80945,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svitto-guida-aprire-impresa-costi': {
+    title: 'Come aprire un\'attività in Svitto: guida ai costi',
+    description: 'Iscrizione al registro di commercio, forme giuridiche, capitale minimo e obblighi assicurativi: tutto ciò che serve per avviare un\'impresa nel cantone Svitto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, svitto, costi',
+    ogTitle: 'Come aprire un\'attività in Svitto: guida ai costi',
+    ogDescription: 'Iscrizione al registro di commercio, forme giuridiche, capitale minimo e obblighi assicurativi: tutto ciò che serve per avviare un\'impresa nel cantone Svitto.',
+    canonicalPath: '/articoli-svizzera/svitto-guida-aprire-impresa-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come aprire un'attività in Svitto: guida ai costi",
+      "description": "Iscrizione al registro di commercio, forme giuridiche, capitale minimo e obblighi assicurativi: tutto ciò che serve per avviare un'impresa nel cantone Svitto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svitto-guida-aprire-impresa-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imprenditore svizzero consulta documenti di iscrizione commerciale con calcolatrice su scrivania in ufficio moderno."
+      },
+      "datePublished": "2026-09-09T21:48:30+00:00",
+      "dateModified": "2026-09-09T21:48:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svitto-guida-aprire-impresa-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
