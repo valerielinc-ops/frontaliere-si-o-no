@@ -395,8 +395,34 @@ export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
  * @returns {boolean}
  */
 export function hasDeferredCompanyAlertWork(alerts) {
-  return (alerts || []).some((alert) => Object.values(normalizeDeliveryLedger(alert?.deliveryLedger))
-    .some((entry) => entry.state === DELIVERY_STATES.DEFERRED));
+  return (alerts || []).some((alert) => {
+    const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
+    const state = deferredStateForAlert(alert);
+    if (isDeferredExhausted(alert, ledger)) return false;
+    return state === DELIVERY_STATES.DEFERRED
+      || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
+  });
+}
+
+function deferredStateForAlert(alert) {
+  return String(alert?.deliveryDeferredState || '').trim().toLowerCase();
+}
+
+function deferredAttemptsForAlert(alert, ledger) {
+  const storedAttempts = Number(alert?.deliveryDeferredAttempts);
+  if (Number.isInteger(storedAttempts) && storedAttempts > 0) return storedAttempts;
+  return Object.values(ledger || {}).reduce((max, entry) => {
+    if (entry.state !== DELIVERY_STATES.DEFERRED
+      && entry.state !== DELIVERY_STATES.DEFERRED_EXHAUSTED) return max;
+    const attempts = Number(entry.attempts);
+    return Number.isInteger(attempts) && attempts > max ? attempts : max;
+  }, 0);
+}
+
+function isDeferredExhausted(alert, ledger) {
+  return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED_EXHAUSTED
+    || Object.values(ledger || {}).some((entry) => entry.state === DELIVERY_STATES.DEFERRED_EXHAUSTED)
+    || deferredAttemptsForAlert(alert, ledger) >= DEFERRED_MAX_ATTEMPTS;
 }
 
 function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
@@ -412,11 +438,13 @@ function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
   };
   for (const job of newJobs || []) add(job);
 
-  const deferredKeys = new Set(
-    Object.entries(normalizeDeliveryLedger(alert?.deliveryLedger))
+  const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
+  const alertDeferredExhausted = isDeferredExhausted(alert, ledger);
+  const deferredKeys = alertDeferredExhausted
+    ? new Set()
+    : new Set(Object.entries(ledger)
       .filter(([, entry]) => entry.state === DELIVERY_STATES.DEFERRED)
-      .map(([key]) => key),
-  );
+      .map(([key]) => key));
   if (deferredKeys.size > 0) {
     for (const job of allJobs || []) {
       if (deferredKeys.has(jobDedupKey(job))) add(job);
@@ -520,34 +548,45 @@ export function buildRecipientSections(
 }
 
 /**
- * Build a durable backlog write for jobs omitted by the per-run/card cap.
+ * Build a durable backlog write for one deferred alert.
  *
  * The job key is stored, not the rendered email: the next run rehydrates the
- * same job from the full dataset and re-runs the open/matching guards. This
- * makes a capped recipient recoverable even while fresh work keeps arriving.
+ * same job from the full dataset and re-runs the open/matching guards. The
+ * attempt counter is deliberately alert-level, because a consent defer can
+ * happen with no current job key (or with a different job key on each run).
  *
  * @param {object[]} sections
  * @param {number} nowMs
  * @param {string} reason
- * @returns {Array<{ref: object, deliveryLedger: object, reason: string, at: number}>}
+ * @returns {Array<{ref: object, deliveryLedger: object, deliveryDeferredAttempts: number, deliveryDeferredState: string, reason: string, at: number}>}
  */
 export function planDeferredDeliveryWrites(sections, nowMs, reason) {
   const normalizedReason = String(reason || '').trim() || 'deferred';
   return (sections || [])
-    .filter((section) => section?.alert?.ref && (section.jobs || []).length > 0)
+    .filter((section) => section?.alert?.ref)
     .map((section) => {
       let deliveryLedger = normalizeDeliveryLedger(section.alert.deliveryLedger);
-      for (const job of section.jobs) {
+      const previousAttempts = deferredAttemptsForAlert(section.alert, deliveryLedger);
+      const alreadyExhausted = isDeferredExhausted(section.alert, deliveryLedger);
+      const attempts = alreadyExhausted
+        ? Math.max(previousAttempts, DEFERRED_MAX_ATTEMPTS)
+        : previousAttempts + 1;
+      const state = alreadyExhausted || attempts >= DEFERRED_MAX_ATTEMPTS
+        ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+        : DELIVERY_STATES.DEFERRED;
+
+      if (state === DELIVERY_STATES.DEFERRED_EXHAUSTED) {
+        deliveryLedger = Object.fromEntries(Object.entries(deliveryLedger).map(([key, entry]) => (
+          entry.state === DELIVERY_STATES.DEFERRED
+            ? [key, { ...entry, state, attempts }]
+            : [key, entry]
+        )));
+      }
+      for (const job of section.jobs || []) {
         const key = jobDedupKey(job);
         if (!key) continue;
         const previous = deliveryLedger[key];
         if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-        const attempts = previous?.state === DELIVERY_STATES.DEFERRED
-          ? (Number(previous.attempts) || 0) + 1
-          : 1;
-        const state = attempts >= DEFERRED_MAX_ATTEMPTS
-          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
-          : DELIVERY_STATES.DEFERRED;
         deliveryLedger = mergeDeliveryLedger(
           deliveryLedger,
           [job],
@@ -559,6 +598,8 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
       return {
         ref: section.alert.ref,
         deliveryLedger,
+        deliveryDeferredAttempts: attempts,
+        deliveryDeferredState: state,
         reason: normalizedReason,
         at: nowMs,
       };
@@ -572,10 +613,15 @@ function coalesceDeliveryWrites(writes) {
     const key = write.ref.path || write.ref.id || write.ref;
     const prior = byRef.get(key);
     if (!prior) {
-      byRef.set(key, { ...write, deliveryLedger: { ...write.deliveryLedger } });
+      byRef.set(key, {
+        ...write,
+        deliveryLedger: { ...write.deliveryLedger },
+      });
       continue;
     }
     prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
+    prior.deliveryDeferredAttempts = write.deliveryDeferredAttempts;
+    prior.deliveryDeferredState = write.deliveryDeferredState;
     prior.reason = write.reason || prior.reason;
     prior.at = Math.max(prior.at || 0, write.at || 0);
   }
@@ -613,18 +659,38 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
         const write = chunk[index];
         const snapshot = snapshots[index];
         if (!snapshot?.exists) continue;
-        const current = normalizeDeliveryLedger(snapshot.data()?.deliveryLedger);
+        const currentData = snapshot.data() || {};
+        const current = normalizeDeliveryLedger(currentData.deliveryLedger);
+        const priorAttempts = deferredAttemptsForAlert(currentData, current);
+        const currentExhausted = isDeferredExhausted(currentData, current);
+        const plannedAttempts = Number(write.deliveryDeferredAttempts) || 0;
+        const deferredAttempts = currentExhausted
+          ? Math.max(priorAttempts, DEFERRED_MAX_ATTEMPTS)
+          : Math.max(priorAttempts + 1, plannedAttempts);
+        const deferredState = currentExhausted || deferredAttempts >= DEFERRED_MAX_ATTEMPTS
+          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+          : DELIVERY_STATES.DEFERRED;
         const desired = normalizeDeliveryLedger(write.deliveryLedger);
         const next = { ...current };
         for (const [key, entry] of Object.entries(desired)) {
+          if (currentExhausted && entry.state === DELIVERY_STATES.DEFERRED) continue;
           // A concurrent sender may have claimed or marked the same job after
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
           next[key] = entry;
         }
+        if (deferredState === DELIVERY_STATES.DEFERRED_EXHAUSTED) {
+          for (const [key, entry] of Object.entries(next)) {
+            if (entry.state === DELIVERY_STATES.DEFERRED) {
+              next[key] = { ...entry, state: deferredState, attempts: deferredAttempts };
+            }
+          }
+        }
         tx.update(write.ref, {
           deliveryLedger: next,
+          deliveryDeferredAttempts: deferredAttempts,
+          deliveryDeferredState: deferredState,
           deliveryLastDeferredReason: write.reason,
           deliveryLastDeferredAt: write.at,
         });
@@ -1239,7 +1305,11 @@ async function main() {
   }
   for (const { alert, reason } of consentDeferredAlerts) {
     const sections = buildRecipientSections([alert], newJobs, now, DEDUP_WINDOW_MS, allJobs);
-    deferredDeliveryWrites.push(...planDeferredDeliveryWrites(sections, now, reason));
+    deferredDeliveryWrites.push(...planDeferredDeliveryWrites(
+      sections.length > 0 ? sections : [{ alert, jobs: [] }],
+      now,
+      reason,
+    ));
   }
   if (beforeConsentFilter !== alerts.length && alerts.length === 0) {
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
