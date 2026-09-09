@@ -6202,6 +6202,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.emissione-prestiti-federali-2026.title': 'Issuance of federal loans: CHF 368.6 billion',
     'blog.article.emissione-prestiti-federali-2026.excerpt': 'The Swiss Confederation issued two federal loans on 9 September 2026: CHF 161.240 million at 0.875% until June 2041, and CHF 207.390 million at 0.5% until May 2058. Total volume of CHF 368.630 million.',
     'blog.article.emissione-prestiti-federali-2026.imageAlt': 'Swiss trading room with financial terminals and Swiss francs representing federal economic management',
+    'blog.article.opportunita-lavoro-federale.title': 'Job opportunities in the Federal Administration',
+    'blog.article.opportunita-lavoro-federale.excerpt': 'The Federal Administration offers internships for recent graduates, 50 professional trainings and flexibility benefits. Find out how to apply.',
+    'blog.article.opportunita-lavoro-federale.imageAlt': 'Modern federal administration office with professionals collaborating on innovative projects.',
 };
 
 export default blogMetaChEn;

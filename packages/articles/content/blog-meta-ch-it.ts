@@ -6202,6 +6202,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.emissione-prestiti-federali-2026.title': 'Emissione prestiti federali: CHF 368,6 miliardi',
     'blog.article.emissione-prestiti-federali-2026.excerpt': 'Confederazione svizzera ha emesso il 9 settembre 2026 due prestiti federali: CHF 161,240 milioni al 0,875% fino a giugno 2041, e CHF 207,390 milioni al 0,5% fino a maggio 2058. Volume totale di CHF 368,630 milioni.',
     'blog.article.emissione-prestiti-federali-2026.imageAlt': 'Sala di trading svizzera con terminali finanziari e franchi svizzeri che rappresentano l\'economia federale',
+    'blog.article.opportunita-lavoro-federale.title': 'Opportunità di lavoro nell\'Amministrazione federale',
+    'blog.article.opportunita-lavoro-federale.excerpt': 'L\'Amministrazione federale offre praticantati per neolaureati, 50 formazioni professionali e benefici di flessibilità. Scopri come candidarsi.',
+    'blog.article.opportunita-lavoro-federale.imageAlt': 'Ufficio moderno dell\'Amministrazione federale con professionisti che collaborano a progetti innovativi.',
 };
 
 export default blogMetaChIt;
