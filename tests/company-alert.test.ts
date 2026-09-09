@@ -1006,10 +1006,10 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // …and again in the unlocked detail that follows it.
     expect(unlockedCta).toBeGreaterThan(gateCta);
 
-    // ONE definition feeding both surfaces, and it is the SHARED component:
-    // a second <CompanyFollowButton> literal in this file would be a second set
-    // of analytics/cache callbacks free to drift from the other three surfaces.
-    expect(board.split('<CompanyFollowCta').length - 1).toBe(1);
+    // ONE definition feeds the job-detail surfaces and the hub surface: a
+    // second <CompanyFollowButton> literal in this file would be a second set
+    // of analytics/cache callbacks free to drift from the shared component.
+    expect(board.split('<CompanyFollowCta').length - 1).toBe(2);
     expect(board.includes('<CompanyFollowButton')).toBe(false);
 
     // The surfaces must stay separable in analytics — the gated CTA competes
@@ -1146,6 +1146,27 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
   it('an unknown locale falls back instead of emitting an empty label', () => {
     const html = companyFollowMountPlaceholder({ company: 'Acme', locale: 'xx', surface: 'employer_profile' });
     expect(html).toContain('Segui questa azienda');
+  });
+
+  it('keeps the inline CTA on excluded SSG surfaces but gates the popup explicitly', () => {
+    const profile = companyFollowMountPlaceholder({ company: 'Acme', locale: 'it', surface: 'employer_profile' });
+    const excluded = companyFollowMountPlaceholder({
+      company: 'Acme',
+      locale: 'it',
+      surface: 'employer_below_floor',
+      popupEligible: false,
+    });
+    expect(profile).toContain('data-popup-eligible="true"');
+    expect(excluded).toContain('data-popup-eligible="false"');
+
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    expect(mount).toContain("popupEligible: el.dataset.popupEligible === 'true'");
+    expect(mount).toContain('{t.props.popupEligible && (');
+
+    const weekly = readRepoFile('build-plugins/weeklyEmployersPlugin.ts');
+    expect(weekly).toContain('popupEligible: variant === \'current\'');
+    expect(readRepoFile('build-plugins/employerProfilePagesPlugin.ts'))
+      .toContain("surface: 'employer_below_floor', popupEligible: false");
   });
 
   it('the placeholder\'s data-surface reaches analytics instead of being dropped', () => {
@@ -1355,6 +1376,12 @@ describe('CTA on the per-employer city hubs /aziende-che-assumono/ (#5012)', () 
     const router = readRepoFile('services/router.ts');
     expect(router).toContain('const companyCityMatch = parseCompanyCityPath(pathname)');
     expect(router).toContain("route: { activeTab: 'job-board', staticOverlay: true }");
+  });
+
+  it('never chooses the first job as an arbitrary company on the hub', () => {
+    const board = readRepoFile('components/community/JobBoard.tsx');
+    expect(board).toContain('return companyFollowJob?.company ?? employerBrand?.name ?? null;');
+    expect(board).not.toContain('return filteredJobs[0]?.company ?? companyFollowJob?.company');
   });
 });
 

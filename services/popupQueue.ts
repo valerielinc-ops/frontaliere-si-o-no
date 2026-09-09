@@ -139,7 +139,7 @@ export function subscribe(listener: Listener): () => void {
 /**
  * Priority constants.
  *
- * The four `*_PROMPT`/`*_NUDGE`/`*_BANNER` values below are the bottom-anchored
+ * The bottom-anchored `*_PROMPT`/`*_NUDGE`/`*_BANNER` values below are the
  * job/alert family (components/shared/BottomPromptShell.tsx). They sit between
  * the guide banner and the newsletter popup, and they are ordered by how much
  * the visitor's CURRENT action justifies the interruption:
@@ -156,7 +156,7 @@ export function subscribe(listener: Listener): () => void {
  *    more relevant than a category prompt (55), but still an unsolicited ask:
  *    it yields to cookie/consent (85) and auth gates (80+).
  *
- * All four are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
+ * All bottom prompts are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
  * banner or a sign-in gate is not an offer that can be postponed.
  */
 export const POPUP_PRIORITY = {

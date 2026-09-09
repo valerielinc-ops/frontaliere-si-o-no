@@ -19,7 +19,6 @@ const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobD
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
 const CompanyFollowPopup = lazyRetry(() => import('@/components/community/CompanyFollowCta').then((m) => ({ default: m.CompanyFollowPopup })));
-const CompanyFollowHubCta = CompanyFollowCta;
 // Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
@@ -4753,8 +4752,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // use the same job that supplies the canonical follow key.
  const companyDisplayName = useMemo(() => {
  if (!companySlugFilter) return null;
- return filteredJobs[0]?.company ?? companyFollowJob?.company ?? employerBrand?.name ?? null;
- }, [companyFollowJob, companySlugFilter, employerBrand, filteredJobs]);
+ return companyFollowJob?.company ?? employerBrand?.name ?? null;
+ }, [companyFollowJob, companySlugFilter, employerBrand]);
 
  // Resolve the display name of the location when a location slug filter is active
  const locationDisplayName = useMemo(() => {
@@ -9452,7 +9451,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  className="rounded-xl border border-accent-border bg-accent-subtle/40 p-3 sm:p-4"
  >
  <Suspense fallback={<CompanyFollowPlaceholder />}>
- <CompanyFollowHubCta
+ <CompanyFollowCta
  company={companyDisplayName}
  companyKey={companyFollowJob?.companyKey ?? null}
  locale={locale}

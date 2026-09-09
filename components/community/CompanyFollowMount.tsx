@@ -30,7 +30,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import type { Locale } from '@/services/i18n';
-import { getLocale, useLocale } from '@/services/i18n';
+import { getLocale } from '@/services/i18n';
 import { companyAlertKey } from '@/services/jobAlertService';
 import { useHydrationIslands } from '@/hooks/useHydrationIslands';
 import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta';
@@ -41,6 +41,7 @@ interface CompanyFollowMountProps {
   companyKey: string | null;
   locale: Locale;
   surface: CompanyFollowSurface;
+  popupEligible: boolean;
 }
 
 const VALID_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
@@ -101,7 +102,6 @@ const ANALYTICS_SURFACE: Record<string, CompanyFollowSurface> = {
 };
 
 const CompanyFollowMount: React.FC = () => {
-  const [activeLocale] = useLocale();
   const targets = useHydrationIslands<CompanyFollowMountProps>({
     attribute: 'data-company-follow-mount',
     mountedAttribute: 'data-company-follow-mounted',
@@ -119,6 +119,7 @@ const CompanyFollowMount: React.FC = () => {
         // Italian-locale alert.
         locale: (VALID_LOCALES.includes(raw) ? raw : getLocale()) as Locale,
         surface: ANALYTICS_SURFACE[el.dataset.surface || ''] || 'company_follow_profile',
+        popupEligible: el.dataset.popupEligible === 'true',
       };
     },
   });
@@ -159,15 +160,17 @@ const CompanyFollowMount: React.FC = () => {
                 <CompanyFollowCta
                   company={t.props.company}
                   companyKey={t.props.companyKey}
-                  locale={activeLocale}
+                  locale={t.props.locale}
                   surface={t.props.surface}
                 />
-                <CompanyFollowPopup
-                  company={t.props.company}
-                  companyKey={t.props.companyKey}
-                  locale={activeLocale}
-                  surface={t.props.surface}
-                />
+                {t.props.popupEligible && (
+                  <CompanyFollowPopup
+                    company={t.props.company}
+                    companyKey={t.props.companyKey}
+                    locale={t.props.locale}
+                    surface={t.props.surface}
+                  />
+                )}
               </React.Fragment>,
               t.el,
               `company-follow-mount-${i}`,
