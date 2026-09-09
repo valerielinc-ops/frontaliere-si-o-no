@@ -594,7 +594,7 @@ const PublisherDashboardPage: React.FC = () => {
   // reaper) has pendingPaymentAt set. Offer a one-click re-checkout CTA.
   const isReapedDraft = (r: DashboardRow) => r.status === 'draft' && r.pendingPaymentAt != null;
   const crawledTrafficPanelClass =
-    crawledTraffic.status === 'available' || crawledTraffic.status === 'zero'
+    crawledTraffic.status === 'available'
       ? 'bg-success-subtle'
       : 'bg-surface-alt';
 
