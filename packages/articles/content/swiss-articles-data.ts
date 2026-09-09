@@ -18577,6 +18577,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tour-operator-calo-conflitti',
+    category: 'novita',
+    date: '2026-09-09T16:03:44.922Z',
+    image: '/images/blog/tour-operator-calo-conflitti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

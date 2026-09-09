@@ -80399,6 +80399,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tour-operator-calo-conflitti': {
+    title: 'Tour operator svizzeri in difficoltà: calo fatturato 5-10%',
+    description: 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tour, operator, svizzeri, difficoltà',
+    ogTitle: 'Tour operator svizzeri in difficoltà: calo fatturato',
+    ogDescription: 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza.',
+    canonicalPath: '/articoli-svizzera/tour-operator-calo-conflitti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tour operator svizzeri in difficoltà: calo fatturato 5-10%",
+      "description": "FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d'emergenza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tour-operator-calo-conflitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano, destinazione turistica svizzera popolare tra i viaggiatori internazionali"
+      },
+      "datePublished": "2026-09-09T16:03:44+00:00",
+      "dateModified": "2026-09-09T16:03:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tour-operator-calo-conflitti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

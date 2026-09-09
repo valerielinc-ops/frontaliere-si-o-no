@@ -6193,6 +6193,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.alleanza-energia-elettrica-svizzera.title': 'Alliance de l\'énergie : la Suisse au cœur du réseau de l\'UE',
     'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'Une nouvelle alliance d\'acteurs économiques soutient l\'accord sur l\'énergie avec l\'UE. La Suisse dépend des importations hivernales et exporte en été.',
     'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Centre de contrôle de distribution d\'électricité suisse avec techniciens surveillant le réseau énergétique européen',
+    'blog.article.tour-operator-calo-conflitti.title': 'Tour-opérateurs suisses en difficulté : baisse du chiffre d\'affaires de 5 à 10 %',
+    'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV estime une contraction de 5 à 10% en 2026 en raison de la géopolitique, de la chaleur estivale et de l\'effondrement des visiteurs américains. Frais supplémentaires 2,3 M CHF pour les rapatriements d\'urgence.',
+    'blog.article.tour-operator-calo-conflitti.imageAlt': 'Vue de Lugano, destination touristique suisse populaire auprès des voyageurs internationaux',
 };
 
 export default blogMetaChFr;

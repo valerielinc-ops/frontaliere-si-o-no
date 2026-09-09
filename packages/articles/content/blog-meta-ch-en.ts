@@ -6193,6 +6193,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.alleanza-energia-elettrica-svizzera.title': 'Energy Alliance: Switzerland at the heart of the EU network',
     'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'A new alliance of economic actors supports the energy agreement with the EU. Switzerland depends on winter imports and exports in summer.',
     'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Swiss power distribution control center with technicians monitoring electricity across Europe\'s interconnected network',
+    'blog.article.tour-operator-calo-conflitti.title': 'Swiss tour operators in difficulty: 5-10% drop in turnover',
+    'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV estimates a 5-10% contraction in 2026 due to geopolitics, summer heat and the collapse of US visitors. Additional costs 2.3m CHF for emergency returns.',
+    'blog.article.tour-operator-calo-conflitti.imageAlt': 'View of Lugano, popular Swiss tourism destination for international travelers',
 };
 
 export default blogMetaChEn;
