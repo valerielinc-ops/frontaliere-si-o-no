@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-09T13:48:38.915Z",
+  "generatedAt": "2026-09-09T23:07:52.619Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7184,
-  "avgDurationMs": 7184,
+  "durationMs": 8953,
+  "avgDurationMs": 8953,
   "durationHistory": [
-    7184
+    8953
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -387,6 +387,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T23:23:15.400Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
