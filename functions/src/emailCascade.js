@@ -884,7 +884,9 @@ async function fetchOrTagAmbiguous(url, opts) {
  * @returns {{ messageId: string|null, provider: string, ack: 'identified'|'unidentifiable' }}
  */
 function providerAck(provider, rawMessageId) {
-  const messageId = rawMessageId == null ? '' : String(rawMessageId).trim();
+  const messageId = typeof rawMessageId === 'string'
+    ? rawMessageId.trim()
+    : Number.isFinite(rawMessageId) ? String(rawMessageId) : '';
   return {
     messageId: messageId || null,
     provider,
