@@ -2100,6 +2100,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'previdenza-agosto-rendimenti-positivi': { it: 'previdenza-agosto-rendimenti-positivi', en: 'pension-august-positive-returns', de: 'altersvorsorge-august-positive-renditen', fr: 'retraite-aout-rendements-positifs' },
  'assegni-familiari-svitto-richiesta': { it: 'assegni-familiari-svitto-richiesta', en: 'family-allowances-canton-schwyz-how-to-apply', de: 'familienausgleiche-kanton-schwyz-antrag', fr: 'allocations-familiales-canton-schwyz-demande' },
  'divieto-oro-sudan-consiglio-federale': { it: 'divieto-oro-sudan-consiglio-federale', en: 'sudan-gold-import-ban-switzerland-2026', de: 'sudan-gold-verbot-schweiz-2026', fr: 'embargo-or-soudan-suisse-2026' },
+ 'aeroporto-zurigo-shuttle-autonomi': { it: 'aeroporto-zurigo-shuttle-autonomi', en: 'zurich-airport-autonomous-shuttles', de: 'flughafen-zurich-autonome-shuttles', fr: 'aeroport-zurich-navettes-autonomes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
