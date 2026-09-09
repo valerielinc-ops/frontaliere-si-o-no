@@ -313,7 +313,7 @@ async function recordSendToFirestore(key, touchNum, subject, result) {
         touch: touchNum,
         sentAt,
         provider: result?.provider || '',
-        messageId: result?.messageId || '',
+        messageId: result?.ack === 'identified' ? result.messageId : null,
         subject: String(subject || '').slice(0, 200),
       }),
       updatedAt: FieldValue.serverTimestamp(),
@@ -495,7 +495,7 @@ async function run() {
       touch: item._touch,
       sentAt: new Date().toISOString(),
       provider: result.provider,
-      messageId: result?.messageId || null,
+      messageId: result?.ack === 'identified' ? result.messageId : null,
     });
     saveSendLog(logPath, sendLog);
     // Mirror to Firestore (best-effort, non-blocking) so the admin dashboard
@@ -504,8 +504,8 @@ async function run() {
   } : undefined;
 
   import('./lib/email-cascade.mjs').then(async ({ sendEmailCascade, logProviderSummary }) => {
-    const { sent, failed } = await sendEmailCascade(queue, { concurrency: 1, delayMs: 1200, onSent });
-    console.log(`\n✅ inviate ${sent.length}, ❌ fallite ${failed.length}`);
+    const { sent, accepted, ambiguous, failed } = await sendEmailCascade(queue, { concurrency: 1, delayMs: 1200, onSent });
+    console.log(`\n✅ inviate ${sent.length} (identificate ${accepted.length}), ⚠️ non identificabili ${ambiguous.length}, ❌ fallite ${failed.length}`);
     if (isSend && sent.length > 0) console.log(`   Log aggiornato: ${path.relative(ROOT, path.resolve(logPath))}`);
     logProviderSummary();
     if (failed.length) process.exitCode = 1; // segnala invii falliti al chiamante

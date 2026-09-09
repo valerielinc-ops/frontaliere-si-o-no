@@ -24,7 +24,7 @@
  *   import { sendEmailCascade, getProviderStats } from './lib/email-cascade.mjs';
  * Usage (functions/src/*.js):
  *   import { sendEmailCascade } from './emailCascade.js';
- *   const { sent, failed } = await sendEmailCascade(emails);
+ *   const { accepted, ambiguous, failed } = await sendEmailCascade(emails);
  *
  * Email format (same as Resend):
  *   { from, to: [string], subject, html, headers?, tags?: [{name, value}], replyTo?: string, attachments?: [{filename, content}], scheduledAt?: string }
@@ -1523,7 +1523,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   additive backoff for explicit 408/425/429/5xx responses. Starts at delayMs,
  *   retries the rejected message and never exceeds maxDelayMs.
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
- * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
+ * @param {Function} [opts.onSent] - Called after each provider-accepted send, including ambiguous ack: (item, result) => void
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
  *   the provider is chosen: (payload, providerId) => void. May mutate the payload
  *   (e.g. swap the subject for that provider). Must not throw.
@@ -1531,11 +1531,13 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   call so a caller with its own hang budget (e.g. a post-deploy live-check
  *   script) can bound the whole send. Omitted by default (no change for
  *   existing callers) — the cascade itself has no built-in timeout.
- * @returns {{ sent: Array, failed: Array, adaptiveThrottle?: Object }}
+ * @returns {{ sent: Array, accepted: Array, ambiguous: Array, failed: Array, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
   const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, forceProvider, onSent, finalizeForProvider, signal } = opts;
   const sent = [];
+  const accepted = [];
+  const ambiguous = [];
   const failed = [];
 
   // Sync counters with real provider usage before sending
@@ -1545,7 +1547,7 @@ export async function sendEmailCascade(emails, opts = {}) {
   const available = PROVIDERS.filter(p => isProviderConfigured(p.id));
   if (available.length === 0) {
     console.error('❌ No email providers configured. Set at least one API key.');
-    return { sent: [], failed: emails };
+    return { sent: [], accepted: [], ambiguous: [], failed: emails };
   }
 
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
@@ -1565,7 +1567,20 @@ export async function sendEmailCascade(emails, opts = {}) {
       const item = emails[i];
       try {
         const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle);
-        sent.push({ ...item, ...result });
+        const outcome = { ...item, ...result };
+        sent.push(outcome);
+        if (result?.ack === 'unidentifiable') {
+          // A provider accepted the request but supplied no durable identifier.
+          // Keep this outcome separate from both accepted and failed: it must
+          // never be retried, and callers need to quarantine it rather than
+          // marking a provider-identified delivery as confirmed.
+          ambiguous.push(outcome);
+        } else {
+          accepted.push(outcome);
+        }
+        // Both identified and unidentifiable 2xx responses are terminal sends.
+        // Persisting the latter is what prevents a later run from retrying an
+        // email whose provider accepted it but returned no usable identifier.
         if (onSent) await onSent(item, result);
       } catch (err) {
         // ambiguousDelivery (#4911): the message may have already gone out
@@ -1585,7 +1600,7 @@ export async function sendEmailCascade(emails, opts = {}) {
   for (const s of sent) {
     providerBreakdown[s.provider] = (providerBreakdown[s.provider] || 0) + 1;
   }
-  console.log(`✅ Sent: ${sent.length}, Failed: ${failed.length}`);
+  console.log(`✅ Sent: ${sent.length} (identified=${accepted.length}, ambiguous=${ambiguous.length}), Failed: ${failed.length}`);
   if (Object.keys(providerBreakdown).length > 0) {
     console.log(`   Breakdown: ${Object.entries(providerBreakdown).map(([k, v]) => `${k}=${v}`).join(', ')}`);
   }
@@ -1596,8 +1611,8 @@ export async function sendEmailCascade(emails, opts = {}) {
   console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
   return adaptiveThrottle
-    ? { sent, failed, adaptiveThrottle: adaptiveThrottle.snapshot() }
-    : { sent, failed };
+    ? { sent, accepted, ambiguous, failed, adaptiveThrottle: adaptiveThrottle.snapshot() }
+    : { sent, accepted, ambiguous, failed };
 }
 
 // ── Stats ────────────────────────────────────────────────────

@@ -801,7 +801,8 @@ async function main() {
   }
 
   const result = await sendBatch(emailsToSend);
-  console.log(`   ✅ Sent ${result.sent.length} · ❌ failed ${result.failed.length}`);
+  const ambiguousItems = result.ambiguous || [];
+  console.log(`   ✅ Sent ${result.sent.length} · ⚠️ ambiguous ${ambiguousItems.length} · ❌ failed ${result.failed.length}`);
 
   // Persist the dedup map + counters, per alert, for the sends that went out —
   // see selectPersistableSends for the failure semantics (ambiguous delivery
@@ -809,7 +810,10 @@ async function main() {
   // on each alert, because "already sent" belongs to the subscription, not to
   // whichever email happened to carry it.
   const { FieldValue } = await import('firebase-admin/firestore');
-  const persistable = selectPersistableSends(emailsToSend, result.failed);
+  // An unidentifiable provider ack is a terminal send, but not proof that the
+  // delivery can be safely marked in the per-alert dedup map. Quarantine it
+  // with transport ambiguity so the next run cannot resend it blindly.
+  const persistable = selectPersistableSends(emailsToSend, [...result.failed, ...ambiguousItems]);
   const persistableRecipients = new Set(persistable.map((e) => String(e.to || '').toLowerCase().trim()));
   const ambiguousRecipients = new Set(
     (result.failed || [])
@@ -817,6 +821,10 @@ async function main() {
       .map((f) => String(f?.recipient?.email || f?.to || '').toLowerCase().trim())
       .filter(Boolean),
   );
+  for (const item of ambiguousItems) {
+    const recipient = String(item?.recipient?.email || item?.to || '').toLowerCase().trim();
+    if (recipient) ambiguousRecipients.add(recipient);
+  }
   // A provider success without a durable sentJobIds writeback is just as
   // ambiguous as a missing provider acknowledgement: the next run cannot
   // prove the message was delivered and would resend it blindly. Production
@@ -840,9 +848,13 @@ async function main() {
         const ambiguousFailure = result.failed.find((f) => (
           f?.ambiguousDelivery
           && String(f?.recipient?.email || f?.to || '').toLowerCase().trim() === recipient
+        )) || ambiguousItems.find((f) => (
+          String(f?.recipient?.email || f?.to || '').toLowerCase().trim() === recipient
         ));
         const reason = ambiguousFailure?.error || (
-          missingWritebackRecipients.has(recipient)
+          ambiguousFailure?.ack === 'unidentifiable'
+            ? `provider acknowledgement unavailable (${ambiguousFailure.provider || 'unknown provider'})`
+            : missingWritebackRecipients.has(recipient)
             ? 'sent email has no durable alert writeback'
             : 'provider acknowledgement unavailable'
         );

@@ -129,9 +129,67 @@ describe('email cascade provider ack contract', () => {
     }], { delayMs: 0 });
 
     expect(result.failed).toHaveLength(0);
-    expect(result.sent).toHaveLength(1);
-    expect(result.sent[0]).toMatchObject({ messageId: null, provider: 'mailgun', ack: 'unidentifiable' });
+    expect(result.accepted).toHaveLength(0);
+    expect(result.ambiguous).toHaveLength(1);
+    expect(result.ambiguous[0]).toMatchObject({ messageId: null, provider: 'mailgun', ack: 'unidentifiable' });
     expect(mailgunSends).toBe(1);
     expect(mailjetSends).toBe(0);
+  });
+
+  it('E-NEG-13-2xx-without-id-not-accepted', async () => {
+    Object.assign(process.env, {
+      MAILGUN_API_KEY: 'key',
+      MAILGUN_DOMAIN: 'example.com',
+    });
+    globalThis.fetch = async () => response({});
+
+    const result = await sendEmailCascade([{
+      payload,
+      recipient: { email: 'recipient@example.com' },
+      meta: {},
+    }], { forceProvider: 'mailgun', delayMs: 0 });
+
+    expect(result.accepted).toHaveLength(0);
+    expect(result.failed).toHaveLength(0);
+  });
+
+  it('E-NEG-13-2xx-without-id-is-ambiguous', async () => {
+    Object.assign(process.env, {
+      MAILGUN_API_KEY: 'key',
+      MAILGUN_DOMAIN: 'example.com',
+    });
+    globalThis.fetch = async () => response({});
+
+    const result = await sendEmailCascade([{
+      payload,
+      recipient: { email: 'recipient@example.com' },
+      meta: {},
+    }], { forceProvider: 'mailgun', delayMs: 0 });
+
+    expect(result.ambiguous).toHaveLength(1);
+    expect(result.ambiguous[0]).toMatchObject({
+      messageId: null,
+      provider: 'mailgun',
+      ack: 'unidentifiable',
+    });
+    expect(result.failed).toHaveLength(0);
+  });
+
+  it('E-NEG-13-no-synthetic-id-in-accepted', async () => {
+    Object.assign(process.env, {
+      MAILGUN_API_KEY: 'key',
+      MAILGUN_DOMAIN: 'example.com',
+    });
+    globalThis.fetch = async () => response({});
+
+    const result = await sendEmailCascade([{
+      payload,
+      recipient: { email: 'recipient@example.com' },
+      meta: {},
+    }], { forceProvider: 'mailgun', delayMs: 0 });
+
+    expect(result.accepted).toEqual([]);
+    expect(result.ambiguous[0]?.messageId).toBeNull();
+    expect(JSON.stringify(result)).not.toMatch(/mg-\d+/);
   });
 });
