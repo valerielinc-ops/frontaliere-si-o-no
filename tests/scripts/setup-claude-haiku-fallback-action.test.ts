@@ -24,6 +24,8 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('chmod 600 "$broker_socket"');
     expect(action).toContain("printf 'socket=%s\\n' \"$broker_socket\" >> \"$GITHUB_OUTPUT\"");
     expect(action).toContain('env -i PATH="$PATH"');
+    expect(action).toContain('--ttl-ms 1800000');
+    expect(action).not.toContain('--ttl-ms 25200000');
     expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
     expect(action).not.toContain('CODEX_AUTH_FILE=');
     expect(action).not.toContain('CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}');

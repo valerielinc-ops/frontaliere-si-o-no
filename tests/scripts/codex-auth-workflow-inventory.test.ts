@@ -61,6 +61,13 @@ describe('indirect Codex auth workflow inventory', () => {
       for (const step of aiSteps) {
         expect(step.env?.CODEX_AUTH_BROKER_SOCKET, name).toBe(codexBrokerOutputExpression);
       }
+
+      const cleanupSteps = jobs.flatMap((job) => job.steps ?? [])
+        .filter((step) => step.name === 'Cleanup Codex auth broker');
+      expect(cleanupSteps, name).toHaveLength(1);
+      expect(cleanupSteps[0].if, name).toBe('always()');
+      expect(cleanupSteps[0].env?.CODEX_AUTH_BROKER_SOCKET, name).toBe(codexBrokerOutputExpression);
+      expect(cleanupSteps[0].run, name).toContain('--cleanup --socket "$CODEX_AUTH_BROKER_SOCKET"');
     }
   });
 });

@@ -111,7 +111,7 @@ runs:
         # with an empty environment so CODEX_AUTH_JSON from this step cannot
         # leak into the long-lived broker process or any diagnostics.
         nohup env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
-          --socket "$broker_socket" --ttl-ms 25200000 \
+          --socket "$broker_socket" --ttl-ms 1800000 \
           < "$auth_fifo" > /dev/null 2>&1 &
         broker_pid=$!
         if ! printf '%s' "$CODEX_AUTH_JSON" > "$auth_fifo"; then

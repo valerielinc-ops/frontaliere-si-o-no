@@ -5388,7 +5388,13 @@ function _isClaudeCliUsageLimit({ parsed = null, trace = null, text = '' } = {})
 
 function _codexFallbackTimeoutMs(opts = {}) {
   const raw = Number.parseInt((process.env.CODEX_CLI_TIMEOUT_MS || '').trim(), 10);
-  const configured = Number.isFinite(raw) && raw > 0 ? raw : CODEX_CLI_MAX_TIMEOUT_MS;
+  // Keep the client-side contract in lockstep with the broker's validation:
+  // a workflow override must never send a timeout larger than the Codex
+  // process ceiling, even before a caller deadline is applied.
+  const configured = Math.min(
+    Number.isFinite(raw) && raw > 0 ? raw : CODEX_CLI_MAX_TIMEOUT_MS,
+    CODEX_CLI_MAX_TIMEOUT_MS,
+  );
   if (!opts.deadlineMs) return configured;
   const remaining = opts.deadlineMs - Date.now();
   if (remaining <= 0) throw new Error('Codex fallback skipped: caller deadline already expired');
@@ -5475,6 +5481,10 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
   if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
   const remaining = Number(deadlineMs) > 0 ? Number(deadlineMs) - Date.now() : Infinity;
   if (remaining <= 0) return Promise.reject(new Error('Codex fallback skipped: caller deadline already expired'));
+  const requestTimeoutMs = Math.min(
+    Math.max(1, Number.isFinite(Number(timeoutMs)) ? Number(timeoutMs) : CODEX_CLI_MAX_TIMEOUT_MS),
+    CODEX_CLI_MAX_TIMEOUT_MS,
+  );
 
   return new Promise((resolve, reject) => {
     let response = '';
@@ -5497,14 +5507,21 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
     // A short caller deadline wins over the normal broker grace period. The
     // fallback must not keep the process alive past opts.deadlineMs merely
     // because the Unix socket is waiting for a timed-out Codex child.
-    const normalSocketTimeoutMs = Math.max(5000, Number(timeoutMs) + 10_000);
+    const normalSocketTimeoutMs = Math.max(5000, requestTimeoutMs + 10_000);
     const socketTimeoutMs = Number.isFinite(remaining)
       ? Math.max(1, Math.min(normalSocketTimeoutMs, remaining))
       : normalSocketTimeoutMs;
     client.setTimeout(socketTimeoutMs, () => finish(new Error('Codex auth broker socket timed out')));
     client.on('error', (error) => finish(error));
     client.on('data', (chunk) => {
-      response += chunk;
+      // The broker probes a normal request half-close with one NUL byte so it
+      // can distinguish it from a reset/disconnect while keeping the socket
+      // open for the eventual Codex response. Strip only that leading probe;
+      // a NUL anywhere in the JSON response remains invalid as intended.
+      let data = String(chunk);
+      if (response.length === 0 && data.startsWith('\0')) data = data.slice(1);
+      if (!data) return;
+      response += data;
       if (Buffer.byteLength(response) > 256 * 1024) {
         finish(new Error('Codex auth broker response exceeds its limit'));
         return;
@@ -5522,7 +5539,32 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
       }
       finish(null, parsed.result);
     });
-    client.on('connect', () => client.end(`${JSON.stringify({ op: 'exec', prompt, timeoutMs, schema: schema ?? null })}\n`));
+    // The client half-closes its write side after sending the request. That is
+    // expected with the broker's allowHalfOpen server and must not settle the
+    // promise. A remote EOF, however, means the broker closed without a
+    // complete response; reject immediately instead of waiting for the socket
+    // timeout. The close listener is the final backstop for an abrupt broker
+    // disconnect (or a client-side reset).
+    client.on('end', () => {
+      if (!settled) finish(new Error('Codex auth broker closed without a response'));
+    });
+    client.on('close', (hadError) => {
+      if (!settled) finish(new Error(`Codex auth broker connection closed before a response${hadError ? ' with an error' : ''}`));
+    });
+    client.on('connect', () => {
+      let request;
+      try {
+        request = `${JSON.stringify({ op: 'exec', prompt, timeoutMs: requestTimeoutMs, schema: schema ?? null })}\n`;
+      } catch (error) {
+        finish(error);
+        return;
+      }
+      try {
+        client.end(request);
+      } catch (error) {
+        finish(error);
+      }
+    });
   });
 }
 

@@ -1741,6 +1741,14 @@ jobs:
             exit 0
           fi
           exit "$git_commit_exit"
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
       - name: Finalize crawler generation manifest (shadow)
         id: crawler-generation-finalizer
         if: always()

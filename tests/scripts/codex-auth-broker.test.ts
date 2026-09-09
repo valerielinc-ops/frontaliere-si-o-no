@@ -30,7 +30,6 @@ function waitForSocket(socketPath: string, child: ReturnType<typeof spawn>) {
         reject(new Error(`Codex auth broker did not become ready (exit ${child.exitCode})`));
       }
     }, 10);
-    timer.unref?.();
   });
 }
 
@@ -41,7 +40,11 @@ function request(socketPath: string, payload: unknown) {
     client.setEncoding('utf8');
     client.setTimeout(5000, () => reject(new Error('broker request timed out')));
     client.on('error', reject);
-    client.on('data', (chunk) => { response += chunk; });
+    client.on('data', (chunk) => {
+      let data = String(chunk);
+      if (response.length === 0 && data.startsWith('\0')) data = data.slice(1);
+      response += data;
+    });
     client.on('end', () => {
       try { resolve(JSON.parse(response)); } catch (error) { reject(error); }
     });
@@ -62,6 +65,46 @@ function writeFakeCodex(root: string) {
   `);
   fs.chmodSync(fake, 0o700);
   return fake;
+}
+
+function writeHangingCodex(root: string) {
+  const fake = path.join(root, 'hanging-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    import path from 'node:path';
+    const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
+    const runtimeRoot = path.dirname(path.dirname(output));
+    fs.writeFileSync(path.join(runtimeRoot, 'started'), String(process.pid));
+    setInterval(() => {}, 1000);
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
+function brokerTempRoots() {
+  return [...new Set([os.tmpdir(), '/tmp'])];
+}
+
+function waitForBrokerRuntime(existing: Set<string>) {
+  return new Promise<string>((resolve, reject) => {
+    const deadline = Date.now() + 5000;
+    const timer = setInterval(() => {
+      for (const tempRoot of brokerTempRoots()) {
+        const candidates = fs.readdirSync(tempRoot)
+          .filter((name) => name.startsWith('codex-haiku-broker-') && !existing.has(`${tempRoot}/${name}`));
+        const runtime = candidates.find((name) => fs.existsSync(path.join(tempRoot, name, 'started')));
+        if (runtime) {
+          clearInterval(timer);
+          resolve(path.join(tempRoot, runtime));
+          return;
+        }
+      }
+      if (Date.now() >= deadline) {
+        clearInterval(timer);
+        reject(new Error('hanging Codex test process did not start'));
+      }
+    }, 10);
+  });
 }
 
 const profileConfig = `model_reasoning_effort = "medium"
@@ -122,9 +165,10 @@ describe('Codex auth broker runtime contract', () => {
       '--cd', workspace,
       '--skip-git-repo-check',
       '--model', 'definitely-not-a-real-model',
-      // The smoke intentionally supplies a fake key and bypasses the host
-      // sandbox so it can stop after startup without making model calls.
-      '--dangerously-bypass-approvals-and-sandbox',
+      // Exercise the real read-only profile/sandbox path. The fake key and
+      // invalid model make the process stop during startup without a model
+      // completion; no danger bypass is allowed in this smoke.
+      '--sandbox', 'read-only',
       '--output-last-message', path.join(root, 'last-message.txt'),
       '-',
     ], {
@@ -184,6 +228,89 @@ describe('Codex auth broker runtime contract', () => {
     expect(fs.readdirSync(root)).toEqual(['fake-codex.mjs']);
   });
 
+  it('kills Codex and removes its private auth runtime when the client disconnects', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const hangingCodex = writeHangingCodex(root);
+    const existingRuntimes = new Set(
+      brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
+        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .map((name) => `${tempRoot}/${name}`)),
+    );
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"disconnect-only"}');
+    await waitForSocket(socketPath, child);
+
+    const client = net.createConnection(socketPath);
+    client.on('error', () => {});
+    await new Promise<void>((resolve, reject) => {
+      client.once('error', reject);
+      client.once('connect', () => {
+        client.removeListener('error', reject);
+        client.write('{"op":"exec","prompt":"hang","timeoutMs":600000,"schema":null}\n');
+        resolve();
+      });
+    });
+    const runtimeRoot = await waitForBrokerRuntime(existingRuntimes);
+    const clientClosed = once(client, 'close');
+    client.destroy();
+    await Promise.race([
+      clientClosed,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('test client did not close')), 1000)),
+    ]);
+
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error(
+        `broker did not clean up after disconnect (exit=${child.exitCode}, runtime=${fs.existsSync(runtimeRoot)}, socket=${fs.existsSync(socketPath)})`,
+      )), 2000)),
+    ]);
+    expect(fs.existsSync(runtimeRoot)).toBe(false);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  it('kills a hung Codex child and cleans its auth runtime on timeout', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const hangingCodex = writeHangingCodex(root);
+    const existingRuntimes = new Set(
+      brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
+        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .map((name) => `${tempRoot}/${name}`)),
+    );
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"timeout-only"}');
+    await waitForSocket(socketPath, child);
+
+    const runtimePromise = waitForBrokerRuntime(existingRuntimes);
+    const response = await request(socketPath, {
+      op: 'exec',
+      prompt: 'hang until the broker timeout',
+      timeoutMs: 500,
+      schema: null,
+    });
+    const runtimeRoot = await runtimePromise;
+    expect(response).toMatchObject({ ok: false, error: expect.stringContaining('timed out') });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after Codex timeout')), 2000)),
+    ]);
+    expect(fs.existsSync(runtimeRoot)).toBe(false);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
   it('does not consume auth on malformed or unsupported requests', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
     fs.chmodSync(root, 0o700);
@@ -207,5 +334,27 @@ describe('Codex auth broker runtime contract', () => {
       schema: null,
     });
     expect(response.ok, JSON.stringify(response)).toBe(true);
+  });
+
+  it('supports explicit cleanup before the one-shot request is consumed', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const fakeCodex = writeFakeCodex(root);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: fakeCodex },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"cleanup-only"}');
+    await waitForSocket(socketPath, child);
+
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after explicit cleanup')), 2000)),
+    ]);
+    expect(fs.existsSync(socketPath)).toBe(false);
   });
 });

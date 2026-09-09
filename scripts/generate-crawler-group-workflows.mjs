@@ -902,6 +902,27 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
   ];
 }
 
+/**
+ * The broker normally exits immediately after its one-shot request. Keep an
+ * explicit always-run cleanup at the end of the job as well: this covers runs
+ * that never reach Claude/Codex and persistent runners where the short broker
+ * TTL should remain only a backstop, not the normal lifecycle.
+ */
+function codexAuthBrokerCleanupStep() {
+  return {
+    name: 'Cleanup Codex auth broker',
+    if: 'always()',
+    'continue-on-error': true,
+    env: {
+      CODEX_AUTH_BROKER_SOCKET: '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}',
+    },
+    run: [
+      'if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi',
+      'node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"',
+    ].join('\n'),
+  };
+}
+
 /** Gli script di package.json servono all'analizzatore per risolvere `npm run <x>`. */
 let PKG_SCRIPTS = null;
 function npmScriptsForAnalyzer() {
@@ -1063,6 +1084,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       'exit "$git_commit_exit"',
     ].join('\n'),
   });
+  steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
 
   return {

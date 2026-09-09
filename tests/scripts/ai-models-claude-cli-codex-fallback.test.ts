@@ -45,6 +45,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
   let authConsumed = false;
   let brokerResult = 'CODEX-FALLBACK-RESULT';
   let brokerError = '';
+  let brokerBehavior = 'normal';
   let brokerRequests: Array<Record<string, unknown>> = [];
   let runNumber = 0;
 
@@ -69,6 +70,7 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     authConsumed = false;
     brokerResult = 'CODEX-FALLBACK-RESULT';
     brokerError = '';
+    brokerBehavior = 'normal';
     brokerRequests = [];
     const authSocket = path.join(markerRoot, 'auth.sock');
     authServer = net.createServer((client) => {
@@ -90,6 +92,14 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
         }
         authConsumed = true;
         brokerRequests.push(parsed);
+        if (brokerBehavior === 'close-without-response') {
+          client.end();
+          return;
+        }
+        if (brokerBehavior === 'disconnect-without-response') {
+          client.destroy();
+          return;
+        }
         if (brokerError) {
           client.end(`${JSON.stringify({ ok: false, error: brokerError })}\n`);
           return;
@@ -407,6 +417,35 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
     expect(timeout).toBeLessThanOrEqual(5000);
     expect(__codexFallbackTimeoutForTests({ deadlineMs: Date.now() + 15000 })).toBeLessThanOrEqual(15000);
   });
+
+  it('clamps an oversized workflow timeout before sending the broker request', async () => {
+    process.env.CODEX_CLI_TIMEOUT_MS = '900000';
+    installClaudeThenCodex({ claudeResult: 'HTTP 429 usage limit', codexResult: 'CLAMPED-CODEX' });
+
+    await expect(callLLM(messages, {
+      model: AI_MODELS.CLAUDE_CLI_HAIKU,
+      chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
+    })).resolves.toBe('CLAMPED-CODEX');
+
+    expect(brokerRequests[0].timeoutMs).toBe(600_000);
+  });
+
+  it.each(['close-without-response', 'disconnect-without-response'])
+    ('settles promptly when the broker %s', async (behavior) => {
+      brokerBehavior = behavior;
+      installClaudeThenCodex({ claudeResult: 'HTTP 429 usage limit' });
+      const startedAt = Date.now();
+
+      await expect(callLLM(messages, {
+        model: AI_MODELS.CLAUDE_CLI_HAIKU,
+        chain: [AI_MODELS.CLAUDE_CLI_HAIKU],
+      })).rejects.toThrow(/All AI models failed/);
+
+      // The broker test double closes immediately; waiting for its 15s model
+      // timeout would make a broken `end`/`close` handler obvious here.
+      expect(Date.now() - startedAt).toBeLessThan(1000);
+      expect(brokerRequests).toHaveLength(1);
+    });
 
   it('consumes the indirect Codex fallback at most once per process', async () => {
     installClaudeThenCodex({ claudeResult: 'usage limit HTTP 429', codexCode: 1 });

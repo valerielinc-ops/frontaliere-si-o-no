@@ -12,7 +12,9 @@
  * The socket is deliberately the only job-wide hand-off. Its parent directory
  * is 0700 and the socket is 0600, and the broker removes both after the first
  * request, on expiry, or on termination. A malformed request never receives
- * auth and does not consume the one-shot slot.
+ * auth and does not consume the one-shot slot. The short idle TTL is a backstop
+ * for persistent runners; callers should still invoke the explicit cleanup
+ * operation at the end of a job.
  */
 
 import fs from 'node:fs';
@@ -27,8 +29,9 @@ const CODEX_PROFILE = 'claude-haiku-fallback';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const MAX_AUTH_BYTES = 256 * 1024;
-const DEFAULT_TTL_MS = 7 * 60 * 60 * 1000;
+const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const MAX_TIMEOUT_MS = 600_000;
+const CLIENT_LIVENESS_PROBE = '\0';
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);
@@ -239,6 +242,7 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
 }
 
 function validateRequest(request) {
+  if (request?.op === 'cleanup') return '';
   if (!request || request.op !== 'exec') return 'unsupported request';
   if (typeof request.prompt !== 'string' || !request.prompt.trim()) return 'prompt is required';
   const timeoutMs = Number(request.timeoutMs);
@@ -285,9 +289,39 @@ function handleClient(client) {
   let request = '';
   let bytes = 0;
   let handled = false;
+  let requestAccepted = false;
+  let responseStarted = false;
   client.setEncoding('utf8');
   client.setTimeout(5000, () => client.destroy());
-  client.on('error', () => {});
+  const cancelOnDisconnect = () => {
+    // `end` is handled below as a request EOF. `close`/`error` means the peer
+    // really disappeared; once this one-shot request was accepted, terminate
+    // Codex and remove its private auth runtime rather than waiting for the
+    // child timeout/TTL.
+    if (requestAccepted && !responseStarted) cleanup();
+  };
+  client.on('error', cancelOnDisconnect);
+  client.on('close', cancelOnDisconnect);
+  client.on('end', () => {
+    // An accepted request has already consumed the client's request line and
+    // may half-close here while Codex is still running. Probe the writable
+    // side to distinguish that normal request EOF from a peer that destroyed
+    // the connection: a normal half-close accepts the byte, while a reset
+    // reports EPIPE/ECONNRESET and triggers cleanup. The client strips this
+    // private probe before parsing the eventual JSON response.
+    if (!handled) {
+      handled = true;
+      responseFor(client, { ok: false, error: 'request must end with a JSON line' }, () => {});
+      return;
+    }
+    if (requestAccepted && !responseStarted && !closed) {
+      client.write(CLIENT_LIVENESS_PROBE, (error) => {
+        if (!error || closed) return;
+        cleanup();
+        client.destroy();
+      });
+    }
+  });
   client.on('data', (chunk) => {
     if (handled) return;
     bytes += Buffer.byteLength(chunk);
@@ -310,11 +344,17 @@ function handleClient(client) {
       responseFor(client, { ok: false, error: validationError }, () => {});
       return;
     }
+    if (parsed?.op === 'cleanup') {
+      responseStarted = true;
+      responseFor(client, { ok: true, cleaned: true });
+      return;
+    }
     if (consumed) {
       responseFor(client, { ok: false, error: 'already consumed' }, () => {});
       return;
     }
     consumed = true;
+    requestAccepted = true;
     client.setTimeout(Math.max(5000, Number(parsed.timeoutMs) + 10_000), () => {
       activeChild?.kill?.('SIGKILL');
       client.destroy();
@@ -329,11 +369,70 @@ function handleClient(client) {
       timeoutMs: Number(parsed.timeoutMs),
       schema: parsed.schema ?? null,
     }).then(
-      (result) => responseFor(client, { ok: true, result }),
-      (error) => responseFor(client, { ok: false, error: String(error?.message || error).slice(0, 300) }),
+      (result) => {
+        responseStarted = true;
+        responseFor(client, { ok: true, result });
+      },
+      (error) => {
+        responseStarted = true;
+        responseFor(client, { ok: false, error: String(error?.message || error).slice(0, 300) });
+      },
     ).finally(() => { activeChild = null; });
     // `runCodex` receives the credential through this request-local binding,
     // never from process.env. Malformed requests cannot force an auth operation.
+  });
+}
+
+/**
+ * Ask a running broker to terminate itself. This mode never reads stdin, so
+ * the cleanup step can use the action output socket without receiving or
+ * exporting CODEX_AUTH_JSON.
+ */
+function requestCleanup() {
+  return new Promise((resolve, reject) => {
+    let response = '';
+    let settled = false;
+    let client;
+    try {
+      client = net.createConnection(socketPath);
+    } catch (error) {
+      reject(error);
+      return;
+    }
+    const finish = (error, value) => {
+      if (settled) return;
+      settled = true;
+      client.destroy();
+      if (error) reject(error);
+      else resolve(value);
+    };
+    client.setEncoding('utf8');
+    client.setTimeout(5000, () => finish(new Error('Codex auth broker cleanup timed out')));
+    client.on('error', (error) => finish(error));
+    client.on('data', (chunk) => {
+      response += chunk;
+      const newline = response.indexOf('\n');
+      if (newline < 0) return;
+      let parsed;
+      try { parsed = JSON.parse(response.slice(0, newline)); } catch {
+        finish(new Error('Codex auth broker cleanup returned invalid JSON'));
+        return;
+      }
+      if (!parsed?.ok) {
+        finish(new Error(String(parsed?.error || 'Codex auth broker cleanup rejected')));
+        return;
+      }
+      finish(null, parsed);
+    });
+    client.on('end', () => {
+      if (!settled) finish(new Error('Codex auth broker cleanup closed without a response'));
+    });
+    client.on('close', (hadError) => {
+      if (!settled) finish(new Error(`Codex auth broker cleanup connection closed${hadError ? ' with an error' : ''}`));
+    });
+    client.on('connect', () => {
+      try { client.end('{"op":"cleanup"}\n'); } catch (error) { finish(error); }
+    });
   });
 }
 
@@ -354,13 +453,20 @@ function start(auth) {
   });
 }
 
-readStdin().then((auth) => {
-  if (!auth.trim()) throw new Error('Codex auth broker received an empty credential');
-  start(auth);
-}).catch((error) => {
-  console.error(`Codex auth broker unavailable: ${error.message}`);
-  process.exitCode = 1;
-});
+if (process.argv.includes('--cleanup')) {
+  requestCleanup().catch((error) => {
+    console.error(`Codex auth broker cleanup unavailable: ${error.message}`);
+    process.exitCode = 1;
+  });
+} else {
+  readStdin().then((auth) => {
+    if (!auth.trim()) throw new Error('Codex auth broker received an empty credential');
+    start(auth);
+  }).catch((error) => {
+    console.error(`Codex auth broker unavailable: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
 
 process.once('SIGTERM', () => { cleanup(); process.exit(0); });
 process.once('SIGINT', () => { cleanup(); process.exit(0); });

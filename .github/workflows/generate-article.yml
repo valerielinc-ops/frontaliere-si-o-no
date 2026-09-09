@@ -1116,6 +1116,19 @@ jobs:
       # CHI CHIUDE: close-recovered-failure-issues.mjs sul primo run verde
       # successivo — il titolo `Workflow Failure: <name:>` è il suo pattern, e
       # `name:` combacia, quindi `gh run list -w` risolve il run.
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
+
       - name: Report failure to GitHub Issues
         if: failure()
         uses: ./.github/actions/report-failure
