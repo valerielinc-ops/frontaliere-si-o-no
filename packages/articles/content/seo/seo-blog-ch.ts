@@ -79892,6 +79892,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-appenzello-interno-aliquote': {
+    title: 'Imposta successione Appenzello Interno: aliquote ed esenzioni',
+    description: 'Guida alla tassazione successoria in Appenzello Interno: come funzionano aliquote per grado di parentela, esenzioni coniuge e figli, procedura dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, appenzello, interno',
+    ogTitle: 'Imposta successione Appenzello Interno: aliquote',
+    ogDescription: 'Guida alla tassazione successoria in Appenzello Interno: come funzionano aliquote per grado di parentela, esenzioni coniuge e figli, procedura dichiarazione.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-appenzello-interno-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta successione Appenzello Interno: aliquote ed esenzioni",
+      "description": "Guida alla tassazione successoria in Appenzello Interno: come funzionano aliquote per grado di parentela, esenzioni coniuge e figli, procedura dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-appenzello-interno-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio tradizionale del cantone Appenzello Interno con architettura alpina svizzera"
+      },
+      "datePublished": "2026-09-09T04:27:23+00:00",
+      "dateModified": "2026-09-09T04:27:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-appenzello-interno-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
