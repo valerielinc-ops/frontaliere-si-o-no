@@ -1,23 +1,61 @@
 {
   "key": "evam-vaud",
   "label": "EVAM – Établissement vaudois de l'accueil des migrants",
-  "generatedAt": "2026-09-08T23:32:18.246Z",
+  "generatedAt": "2026-09-09T13:57:19.476Z",
   "total": 14,
   "discovered": null,
-  "parsed": 13,
+  "parsed": 14,
   "lastFetchOutcome": null,
   "written": 14,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 13,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6054,
-  "avgDurationMs": 6054,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 9741,
+  "avgDurationMs": 9741,
   "durationHistory": [
-    6054
+    9741
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "evam-vaud-8350787",
+      "slug": "assistant-e-social-e-80-cdi-evam-vaud-ch",
+      "company": "EVAM",
+      "companyKey": "evam-vaud",
+      "companyDomain": "evam.ch",
+      "title": "Assistant.e Social.e (80%) - CDI",
+      "location": "Lucens",
+      "streetAddress": "Rte d'Yvonand 4",
+      "postalCode": "1522",
+      "addressLocality": "Lucens",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "url": "https://emploi.evam.ch/jobs/8350787-assistant-e-social-e-80-cdi",
+      "source": "EVAM Dedicated Parser",
+      "sourceLang": "fr",
+      "postedDate": "2026-09-09",
+      "datePosted": "2026-09-09",
+      "crawledAt": "2026-09-09T13:57:01.183Z",
+      "category": "Sociale",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "employmentType": "FULL_TIME",
+      "contract": "full-time",
+      "contractType": "permanent",
+      "currency": "CHF",
+      "hiringOrganizationName": "EVAM",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "evam-vaud-8323461",
@@ -39,7 +77,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-09-04",
       "datePosted": "2026-09-04",
-      "crawledAt": "2026-09-08T23:32:04.981Z",
+      "crawledAt": "2026-09-09T13:57:01.261Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -48,7 +86,6 @@
       "contractType": "permanent",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:42:22.856Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -78,7 +115,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-08-28",
       "datePosted": "2026-08-28",
-      "crawledAt": "2026-09-08T23:32:05.016Z",
+      "crawledAt": "2026-09-09T13:57:01.328Z",
       "category": "Risorse Umane",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -87,7 +124,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T00:46:22.380Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -117,7 +153,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-08-26",
       "datePosted": "2026-08-26",
-      "crawledAt": "2026-09-08T23:32:05.051Z",
+      "crawledAt": "2026-09-09T13:57:01.350Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -156,7 +192,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-24",
       "datePosted": "2026-07-24",
-      "crawledAt": "2026-09-08T23:32:05.085Z",
+      "crawledAt": "2026-09-09T13:57:01.433Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -194,7 +230,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-08",
       "datePosted": "2026-07-08",
-      "crawledAt": "2026-09-08T23:32:05.123Z",
+      "crawledAt": "2026-09-09T13:57:01.476Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -203,7 +239,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T00:46:22.519Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -233,7 +268,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-07-03",
       "datePosted": "2026-07-03",
-      "crawledAt": "2026-09-08T23:32:05.154Z",
+      "crawledAt": "2026-09-09T13:57:01.495Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -242,7 +277,6 @@
       "contractType": "permanent",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:58:13.051Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -272,7 +306,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-06-17",
       "datePosted": "2026-06-17",
-      "crawledAt": "2026-09-08T23:32:05.175Z",
+      "crawledAt": "2026-09-09T13:57:01.543Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -281,7 +315,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:58:13.137Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -311,7 +344,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-05-07",
       "datePosted": "2026-05-07",
-      "crawledAt": "2026-09-08T23:32:05.213Z",
+      "crawledAt": "2026-09-09T13:57:01.616Z",
       "category": "Sociale",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -320,7 +353,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T10:33:13.007Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -350,7 +382,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-25",
       "datePosted": "2026-04-25",
-      "crawledAt": "2026-09-08T23:32:05.267Z",
+      "crawledAt": "2026-09-09T13:57:01.671Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "senior",
       "sector": "Amministrazione Pubblica",
@@ -359,7 +391,6 @@
       "contractType": "permanent",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T00:46:22.655Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -389,7 +420,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-09",
       "datePosted": "2026-04-09",
-      "crawledAt": "2026-09-08T23:32:05.287Z",
+      "crawledAt": "2026-09-09T13:57:01.729Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -398,7 +429,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T22:18:15.824Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -428,7 +458,7 @@
       "sourceLang": "fr",
       "postedDate": "2026-04-01",
       "datePosted": "2026-04-01",
-      "crawledAt": "2026-09-08T23:32:05.317Z",
+      "crawledAt": "2026-09-09T13:57:01.803Z",
       "category": "Amministrazione",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -437,7 +467,6 @@
       "contractType": "temporary",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:58:13.308Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -467,7 +496,7 @@
       "sourceLang": "fr",
       "postedDate": "2025-12-15",
       "datePosted": "2025-12-15",
-      "crawledAt": "2026-09-08T23:32:05.341Z",
+      "crawledAt": "2026-09-09T13:57:01.841Z",
       "category": "Sociale",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -505,7 +534,7 @@
       "sourceLang": "fr",
       "postedDate": "2025-10-17",
       "datePosted": "2025-10-17",
-      "crawledAt": "2026-09-08T23:32:05.364Z",
+      "crawledAt": "2026-09-09T13:57:01.887Z",
       "category": "Amministrazione Pubblica",
       "experienceLevel": "mid",
       "sector": "Amministrazione Pubblica",
@@ -514,7 +543,6 @@
       "contractType": "permanent",
       "currency": "CHF",
       "hiringOrganizationName": "EVAM",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T14:31:53.389Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -525,8 +553,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "evam-vaud-8226531",
       "slug": "social-assistant-90-csd-evam-gland",
@@ -561,7 +588,6 @@
       "salaryMax": 82400,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -570,5 +596,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
