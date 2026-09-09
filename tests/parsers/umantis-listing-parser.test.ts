@@ -26,6 +26,7 @@ import {
   parseOlderUiListing,
   decodeEntities,
   parseSwissDate,
+  extractUmantisDetailContent,
 } from '../../scripts/lib/umantis-listing-common.mjs';
 import {
   BETHESDA_SPITAL_KEY,
@@ -241,6 +242,28 @@ describe('parseUmantisListing — UI detection', () => {
     // "Taverne" for job 222 too.
     expect(entries[1].id).toBe('222');
     expect(entries[1].location).toBe('');
+  });
+});
+
+describe('extractUmantisDetailContent — custom data blocks', () => {
+  it('closes a list block before footer and script content', () => {
+    const html = `
+      <main>
+        <li class="customdatablock" id="customdatablock_1234">
+          <strong>Ihre Aufgaben</strong>
+          <ul><li>Pflege und Betreuung der Bewohnerinnen und Bewohner</li></ul>
+        </li>
+        <footer>FOOTER LEAK MARKER</footer>
+        <script>const leak = 'SCRIPT LEAK MARKER';</script>
+      </main>
+    `;
+
+    const content = extractUmantisDetailContent(html);
+
+    expect(content).toContain('Ihre Aufgaben');
+    expect(content).toContain('Pflege und Betreuung');
+    expect(content).not.toContain('FOOTER LEAK MARKER');
+    expect(content).not.toContain('SCRIPT LEAK MARKER');
   });
 });
 

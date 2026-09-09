@@ -396,6 +396,7 @@ export function buildDataset({
       swiss: {
         searchRadiusKm: SWISS_SEARCH_RADIUS_KM,
         optionCount: swissCandidates.length,
+        dieselOptionCount: dieselCandidates.length,
         cheapestStation: cheapestSwiss,
         nearbyStations: swissCandidates.slice(0, TOP_SWISS_OPTIONS),
         minPriceChf: cheapestSwiss ? round(cheapestSwiss.sp95PriceChf) : null,

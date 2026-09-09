@@ -12,6 +12,7 @@ export interface FuelStationItaly {
  lat: number | null;
  lng: number | null;
  priceEur: number;
+ dieselPriceEur?: number | null;
  isSelf: boolean;
  updatedAt: string | null;
 }
@@ -24,6 +25,10 @@ export interface FuelStationSwitzerland {
  lat: number;
  lng: number;
  sp95PriceChf: number;
+ dieselPriceChf?: number | null;
+ dieselPriceEur?: number | null;
+ dieselSource?: 'api' | 'derived' | 'unknown' | null;
+ dieselUpdatedAt?: string | null;
  sp95PriceEur: number;
  updatedAt: string | null;
  nearestMunicipality: string | null;
@@ -44,7 +49,10 @@ export interface MunicipalityFuelRow {
  avgPriceEur: number | null;
  maxPriceEur: number | null;
  minSelfPriceEur: number | null;
- minServedPriceEur: number | null;
+  minServedPriceEur: number | null;
+  minDieselPriceEur?: number | null;
+  avgDieselPriceEur?: number | null;
+  dieselStationCount?: number;
  cheapestStation: FuelStationItaly | null;
  stations: FuelStationItaly[];
  };
@@ -55,6 +63,10 @@ export interface MunicipalityFuelRow {
  nearbyStations: FuelStationSwitzerland[];
  minPriceChf: number | null;
  minPriceEur: number | null;
+ dieselOptionCount?: number;
+  minDieselPriceChf?: number | null;
+  minDieselPriceEur?: number | null;
+  cheapestDieselStation?: FuelStationSwitzerland | null;
  };
  comparison: {
  cheaperCountry: FuelComparisonCountry;
@@ -63,11 +75,21 @@ export interface MunicipalityFuelRow {
  };
 }
 
+export type FuelPricesFetchSource = 'firestore' | 'static-json' | 'memory-cache';
+
+export interface FuelPricesFetchStatus {
+ source: FuelPricesFetchSource;
+ checkedAt: string;
+ /** A recoverable upstream error; the dataset itself may still be usable. */
+ lastError?: string;
+}
+
 export interface FuelPricesDataset {
  generatedAt: string;
+ fetchStatus?: FuelPricesFetchStatus;
  sources: {
  italy: { provider: string; priceSnapshotDate: string | null; stationsUrl: string; pricesUrl: string; };
- switzerland: { provider: string; providerUrl: string; stationCount: number; latestObservedUpdate: string | null; };
+ switzerland: { provider: string; providerUrl: string; stationCount: number; latestObservedUpdate: string | null; dieselStationCount?: number; dieselCoveragePct?: number; };
  exchangeRate: { provider: string; sourceUrl: string; chfPerEur: number; eurPerChf: number; };
  };
  summary: {
@@ -124,6 +146,27 @@ let fetchPromise: Promise<FuelPricesDataset> | null = null;
 
 function isCacheFresh(): boolean {
  return cache !== null && (Date.now() - cacheTimestamp) < CACHE_TTL_MS;
+}
+
+function withFetchStatus(
+ dataset: FuelPricesDataset,
+ source: FuelPricesFetchSource,
+ lastError?: unknown,
+): FuelPricesDataset {
+ const errorText = lastError instanceof Error ? lastError.message : lastError == null ? undefined : String(lastError);
+ return {
+  ...dataset,
+  fetchStatus: {
+   source,
+   checkedAt: new Date().toISOString(),
+   ...(errorText ? { lastError: errorText } : {}),
+  },
+ };
+}
+
+function describeFetchError(error: unknown): string | undefined {
+ const text = error instanceof Error ? error.message : error == null ? undefined : String(error);
+ return text?.trim() || undefined;
 }
 
 async function fetchFromFirestore(): Promise<FuelPricesDataset> {
@@ -200,20 +243,24 @@ export async function fetchFuelPrices(forceRefresh = false): Promise<FuelPricesD
  if (!fetchPromise) {
  fetchPromise = (async () => {
  try {
- const dataset = await fetchFromFirestore();
+ const dataset = withFetchStatus(await fetchFromFirestore(), 'firestore');
  cache = dataset;
  cacheTimestamp = Date.now();
  return dataset;
  } catch (firestoreErr) {
  reportCaughtError(firestoreErr, 'fuelPrices.firestoreRead');
  try {
- const dataset = await fetchFromStaticJson(forceRefresh);
+ const dataset = withFetchStatus(await fetchFromStaticJson(forceRefresh), 'static-json', firestoreErr);
  cache = dataset;
  cacheTimestamp = Date.now();
  return dataset;
- } catch {
- if (cache) return cache;
- throw firestoreErr;
+ } catch (staticErr) {
+ const combinedError = [
+ describeFetchError(firestoreErr) && `Firestore: ${describeFetchError(firestoreErr)}`,
+ describeFetchError(staticErr) && `snapshot statico: ${describeFetchError(staticErr)}`,
+ ].filter(Boolean).join('; ');
+ if (cache) return withFetchStatus(cache, 'memory-cache', combinedError);
+ throw staticErr;
  }
  }
  })().finally(() => {

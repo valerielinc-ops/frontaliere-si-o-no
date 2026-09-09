@@ -36,6 +36,21 @@ function decodeEntities(s = '') {
     .replace(/&apos;/g, "'");
 }
 
+/**
+ * Remove non-content markup that Umantis pages commonly embed around the job
+ * body before any text extraction takes place.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function stripUmantisNonContent(html = '') {
+  return String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<footer\b[\s\S]*?<\/footer\s*>/gi, ' ');
+}
+
 function pause(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
@@ -176,12 +191,9 @@ export async function fetchUmantisDetailHtml(baseUrl, vacancyId, opts = {}) {
 export function extractUmantisDetailContent(html = '') {
   if (!html || typeof html !== 'string' || html.length < 200) return '';
 
-  // Strip <script>/<style>/comments first — pages embed JS that would otherwise
-  // leak into the extracted text.
-  const cleaned = html
-    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
-    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ')
-    .replace(/<!--[\s\S]*?-->/g, ' ');
+  // Strip non-content markup first — pages embed JS that would otherwise leak
+  // into the extracted text.
+  const cleaned = stripUmantisNonContent(html);
 
   const sections = [];
 

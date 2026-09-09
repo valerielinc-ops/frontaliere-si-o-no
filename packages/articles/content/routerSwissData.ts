@@ -2087,6 +2087,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'giornata-informativa-esercito-donne': { it: 'giornata-informativa-esercito-donne', en: 'mandatory-information-day-military-women', de: 'obligatorischer-informationstag-militar-frauen', fr: 'journee-information-obligatoire-armee-femmes' },
  'legge-militare-struttura-condotta-2026': { it: 'legge-militare-struttura-condotta-2026', en: 'military-law-command-structure-2026', de: 'militaergesetz-kommandostruktur-2026', fr: 'loi-militaire-structure-commandement-2026' },
  'consiglio-federale-ruag-mro': { it: 'consiglio-federale-ruag-mro', en: 'federal-council-ruag-mro', de: 'bundesrat-ruag-mro', fr: 'conseil-federal-ruag-mro' },
+ 'zimmer-biomet-tagli-impieghi': { it: 'zimmer-biomet-tagli-impieghi', en: 'zimmer-biomet-job-cuts', de: 'zimmer-biomet-stellenabbau', fr: 'zimmer-biomet-suppressions-emplois' },
+ 'ubs-yumo-educazione-finanziaria': { it: 'ubs-yumo-educazione-finanziaria', en: 'ubs-yumo-financial-education', de: 'ubs-yumo-finanzbildung', fr: 'ubs-yumo-education-financiere' },
+ 'alleanza-energia-elettrica-svizzera': { it: 'alleanza-energia-elettrica-svizzera', en: 'alliance-electricity-switzerland-eu', de: 'allianz-strom-schweiz-eu', fr: 'alliance-energie-electrique-suisse' },
+ 'tour-operator-calo-conflitti': { it: 'tour-operator-calo-conflitti', en: 'tour-operators-decline-conflicts', de: 'reiseveranstalter-rueckgang-konflikte', fr: 'operateurs-tourisme-baisse-conflits' },
+ 'banda-larga-zone-rurali': { it: 'banda-larga-zone-rurali', en: 'broadband-rural-areas-switzerland', de: 'breitband-laendliche-gebiete', fr: 'haut-debit-zones-rurales-suisse' },
+ 'emissione-prestiti-federali-2026': { it: 'emissione-prestiti-federali-2026', en: 'federal-loan-emission-september-2026', de: 'emission-bundesanleihen-september-2026', fr: 'emission-emprunts-federaux-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
