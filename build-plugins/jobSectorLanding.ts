@@ -18,8 +18,8 @@
  *   - Educatori   (educators / socio-pedagogical)
  */
 
-import type { JobBoardLocale } from './jobBoardSeo';
-import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokens';
+import type { JobBoardLocale } from './jobBoardSeoPure';
+import { clampSiteSuffix, formatSeoH1, formatSeoTitle } from './shared/seoContentTokensPure';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { assertLocaleTablesComplete, findMissingLocaleTableEntries } from './shared/localeTableCompleteness';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
