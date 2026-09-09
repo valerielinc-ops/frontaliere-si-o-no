@@ -79814,6 +79814,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avviare-impresa-canton-appenzello-interno': {
+    title: 'Aprire impresa Appenzello interno: guida | Frontaliere Ticino',
+    description: 'Come registrare impresa Appenzello Interno: forme giuridiche, capitali, contributi AVS e procedure di iscrizione presso il registro commercio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, impresa, appenzello, interno',
+    ogTitle: 'Aprire impresa Appenzello Interno: guida',
+    ogDescription: 'Guida completa per registrare un\'impresa nel Canton Appenzello Interno. Forme giuridiche, capitali minimi CHF 0-100\'000, contributi AVS 5.3%+5.3%, iscrizione 2-4 settimane presso l\'Ufficio commercio del cantone.',
+    canonicalPath: '/articoli-svizzera/avviare-impresa-canton-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire impresa Appenzello interno: guida",
+      "description": "Come registrare impresa Appenzello Interno: forme giuridiche, capitali, contributi AVS e procedure di iscrizione presso il registro commercio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-impresa-canton-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio comunale svizzero con scrivanie in legno e registri ufficiali per l'iscrizione di attività commerciali"
+      },
+      "datePublished": "2026-09-09T02:59:32+00:00",
+      "dateModified": "2026-09-09T02:59:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-impresa-canton-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

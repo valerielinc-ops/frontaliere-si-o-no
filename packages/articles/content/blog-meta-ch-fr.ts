@@ -6148,6 +6148,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Berne et USA : pas de prix fixe convenu',
     'blog.article.f35-caccia-commissione-amherd.excerpt': 'Le rapport de la Commission de surveillance dément Amherd : il n\'y avait pas d\'accord sur un prix fixe avec les États-Unis. Crédit supplémentaire de 394 millions de CHF et réduction à 30 chasseurs.',
     'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Parlement fédéral suisse à Berne, symbole de la surveillance administrative des projets de défense',
+    'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Ouvrir entreprise Appenzell interne : guide',
+    'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Enregistrement de l\'entreprise Appenzell Interne : capital minimum de CHF 0 (entreprise) à CHF 100\'000 (SA), cotisations AVS 5.3%+5.3%, inscription 2-4 semaines',
+    'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Bureau municipal suisse avec bureaux en bois et documents officiels d\'immatriculation commerciale',
 };
 
 export default blogMetaChFr;

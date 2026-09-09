@@ -6148,6 +6148,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Bern und USA: kein Festpreis vereinbart',
     'blog.article.f35-caccia-commissione-amherd.excerpt': 'Bericht der Aufsichtskommission dementiert Amherd: Es gab keine Festpreisvereinbarung mit den USA. Zusatzkredit von CHF 394 Mio. und Reduktion auf 30 Jagdflugzeuge.',
     'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Schweizer Bundesparlament in Bern, Symbol der Verwaltungsaufsicht über Verteidigungsprojekte',
+    'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Unternehmen öffnen Appenzell Innerrhoden: Leitfaden',
+    'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Firmenregistrierung Appenzell Innerrhoden: Mindestkapital von CHF 0 (Firma) bis CHF 100\'000 (AG), AHV-Beiträge 5.3%+5.3%, Anmeldung 2-4 Wochen',
+    'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Schweizer Gemeindeamt mit Holzscreibtischen und offiziellen Geschäftsregistrierungsdokumenten',
 };
 
 export default blogMetaChDe;

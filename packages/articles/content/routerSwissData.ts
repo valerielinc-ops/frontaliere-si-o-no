@@ -2075,6 +2075,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-canton-uri-richiesta': { it: 'permesso-c-canton-uri-richiesta', en: 'permit-c-canton-uri-request', de: 'aufenthaltserlaubnis-c-kanton-uri-antrag', fr: 'permis-c-canton-uri-demande' },
  'nestle-ai-consumatori-ricerca': { it: 'nestle-ai-consumatori-ricerca', en: 'nestle-ai-consumer-research', de: 'nestle-ai-konsumenten-forschung', fr: 'nestle-ia-recherche-consommateurs' },
  'f35-caccia-commissione-amherd': { it: 'f35-caccia-commissione-amherd', en: 'f35-fighter-jets-commission-amherd', de: 'f35-kampfflugzeuge-kommission-amherd', fr: 'f35-chasseurs-commission-amherd' },
+ 'avviare-impresa-canton-appenzello-interno': { it: 'avviare-impresa-canton-appenzello-interno', en: 'start-business-appenzell-canton-guide', de: 'unternehmen-appenzell-kanton-anmelden', fr: 'demarrer-entreprise-canton-appenzell' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
