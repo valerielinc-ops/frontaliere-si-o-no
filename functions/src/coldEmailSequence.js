@@ -24,10 +24,10 @@ export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
 
 /**
  * Le 4 email della sequenza. Personalizzazione Livello 4 (skill cold-email):
- * numero REALE di candidati + RUOLO più cliccato, connessi al problema (i click
- * si perdono). Tono da pari, una sola call-to-action a basso attrito per touch.
+ * metrica dichiarata di interazione + RUOLO più cliccato, connessi al problema
+ * del passaggio finale. Tono da pari, una sola call-to-action a basso attrito per touch.
  */
-export function buildSequence({ company, candidates, periodLabel, contactName, topRole }) {
+export function buildSequence({ company, candidates, metricValue, metricLabel, periodLabel, contactName, topRole }) {
   // Solo il nome di battesimo nel saluto ("Ciao Denise,"), non nome+cognome.
   const firstName = (contactName || '').trim().split(/\s+/)[0];
   const hi = firstName ? `Ciao ${firstName},` : 'Buongiorno,';
@@ -36,6 +36,24 @@ export function buildSequence({ company, candidates, periodLabel, contactName, t
   const role = (topRole || '').replace(/\s+/g, ' ').trim();
   const GENERIC_ROLE = /lavora con noi|lavorare con noi|concors|careers?|^jobs?$|offerte di lavoro|posizioni aperte|unsolicited|spontane/i;
   const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
+  const providedMetric = metricValue !== undefined && metricValue !== null && metricValue !== '';
+  const value = Number(providedMetric ? metricValue : candidates);
+  const count = Number.isFinite(value) ? Math.trunc(value) : null;
+  const metric = count !== null && count > 0
+    ? {
+        value: count,
+        label: metricLabel === 'click per candidarsi' || metricLabel === 'segnali di interesse'
+          ? metricLabel
+          : 'segnali di interesse',
+      }
+    : null;
+  const period = String(periodLabel || '').trim();
+  const metricSentence = metric && period
+    ? `${period} abbiamo registrato ${metric.value} ${metric.label} sugli annunci che pubblichiamo per voi su frontaliereticino.ch.`
+    : '';
+  const metricFollowup = metric && period
+    ? `Di quei ${metric.value} ${metric.label} registrati ${period}, quanti hanno completato la candidatura sul vostro sito?`
+    : '';
   // Opt-out obbligatorio su ogni touch (norma cold-email B2B + deliverability).
   // Footer leggibile dall'umano; l'header List-Unsubscribe lo aggiunge il sender.
   // One-click opt-out link ({{UNSUB_URL}}) is substituted at send time by the
@@ -45,14 +63,14 @@ export function buildSequence({ company, candidates, periodLabel, contactName, t
   const footer = `\n\n—\nPer non ricevere più queste email: {{UNSUB_URL}}\nIn alternativa rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
   const seq = [
     {
-      touch: 1, gapDays: 0, subject: 'candidati inviati',
+      touch: 1, gapDays: 0, subject: 'interazioni candidatura',
       body: `${hi}
 
-${periodLabel} vi abbiamo mandato ${candidates} persone alla vostra ${pagina} da frontaliereticino.ch — gratis, dagli annunci che pubblichiamo per voi.
+${metricSentence ? `${metricSentence}\n\n` : ''}Abbiamo generato interesse per la vostra ${pagina} da frontaliereticino.ch — gratis, dagli annunci che pubblichiamo per voi.
 
-Il punto è che quei click arrivano sul vostro sito e spesso si perdono. Possiamo farveli arrivare come candidature dirette, CV incluso, nella vostra casella.
+Il passaggio finale avviene sul vostro sito. Possiamo portare il CV direttamente nella vostra casella con l'annuncio sponsorizzato.
 
-Ho preparato i vostri dati reali (annunci, visite, candidati) qui: {{INSIGHTS_URL}}
+Ho preparato il riepilogo verificabile delle interazioni con i vostri annunci qui: {{INSIGHTS_URL}}
 
 Valerie`,
     },
@@ -60,9 +78,7 @@ Valerie`,
       touch: 2, gapDays: 4, subject: 'di quei click',
       body: `${hi}
 
-Di quei ${candidates} candidati che vi abbiamo mandato ${periodLabel}, quanti si sono poi candidati davvero da voi?
-
-Con l'annuncio sponsorizzato la candidatura arriva diretta nella vostra casella — niente form esterni, niente dispersione. Vi mando un esempio reale?
+${metricFollowup ? `${metricFollowup}\n\n` : ''}Con l'annuncio sponsorizzato il CV può essere raccolto direttamente nella vostra casella — niente form esterni, niente dispersione. Vi mando un esempio reale?
 
 Valerie`,
     },
@@ -80,7 +96,7 @@ Valerie`,
       touch: 4, gapDays: 7, subject: 'chiudo',
       body: `${hi}
 
-Non vi disturbo oltre. In ogni caso vi lascio il riepilogo dei candidati che vi abbiamo mandato finora — usatelo come volete.
+Non vi disturbo oltre. In ogni caso vi lascio il riepilogo delle interazioni registrate con i vostri annunci — usatelo come volete.
 
 Se più avanti volete amplificarlo, sapete dove trovarmi.
 

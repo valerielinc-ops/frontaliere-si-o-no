@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-09-08T10:14:34.850Z",
+  "assembledAt": "2026-09-09T10:15:57.206Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -1168,47 +1168,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AvUgpBe.jpg"
-    },
-    {
-      "id": "guidle:AehnqZc",
-      "title": "anaïs",
-      "titleByLocale": {
-        "it": "anaïs",
-        "en": "anaïs",
-        "de": "anaïs",
-        "fr": "anaïs"
-      },
-      "description": "<b>Anaïs bringt die «extrawünsche tour» nach Zürich</b>",
-      "descriptionByLocale": {
-        "it": "<b>Anaïs bringt die «extrawünsche tour» nach Zürich</b>",
-        "en": "<b>Anaïs bringt die «extrawünsche tour» nach Zürich</b>",
-        "de": "<b>Anaïs bringt die «extrawünsche tour» nach Zürich</b>",
-        "fr": "<b>Anaïs bringt die «extrawünsche tour» nach Zürich</b>"
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "20:00",
-      "category": "Pop generalmente",
-      "venue": "EXIL",
-      "canton": "ZH",
-      "url": "https://www.guidle.com/it/veranstaltungen/alternativ/zuerich/anais_AehnqZc",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 41.8,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Hardstrasse 245",
-        "postalCode": "8005"
-      },
-      "geo": {
-        "lat": 47.3882889,
-        "lng": 8.5193377
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AehnqZc.jpg"
     },
     {
       "id": "guidle:A2xXy5Q",
@@ -12359,46 +12318,6 @@
       "imageUrl": "/images/events/guidle-AfjJdrE.jpg"
     },
     {
-      "id": "guidle:AickMNc",
-      "title": "Aquarell Doodles 2026",
-      "titleByLocale": {
-        "it": "Scarabocchi Aquarell",
-        "en": "Aquarell Doodles",
-        "de": "Aquarell-Doodles",
-        "fr": "Gribouillis Aquarell"
-      },
-      "description": "In diesem Kreativ Workshop lassen wir die Farben fliessen und gestalten Aquarell Doodles mit Aquarellfarben und Fineliner.",
-      "descriptionByLocale": {
-        "it": "In questo laboratorio creativo lasciamo fluire i colori e creiamo scarabocchi ad acquerello con acquerelli e fineliner.",
-        "en": "In this creative workshop we let the colors flow and create watercolor doodles with watercolors and fineliner.",
-        "de": "In diesem Kreativ-Workshop lassen wir die Farben fließen und kreieren Aquarell-Doodles mit Aquarellen und Fineliner.",
-        "fr": "Dans cet atelier créatif, nous laissons les couleurs s'écouler et créons des griffonnages à l'aquarelle avec des aquarelles et du fineliner."
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "18:00",
-      "category": "L'arte in generale",
-      "venue": "Atelier Geringer",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/events/this-that/ringgenberg-be/aquarell-doodles_AickMNc",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 5,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "postalCode": "3852"
-      },
-      "geo": {
-        "lat": 46.707435,
-        "lng": 7.910291
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AickMNc.jpg"
-    },
-    {
       "id": "guidle:ACwiHUL",
       "title": "Swiss Chamber Music Festival 2026",
       "titleByLocale": {
@@ -14421,90 +14340,6 @@
       "imageUrl": "/images/events/guidle-AMNj7ay.webp"
     },
     {
-      "id": "guidle:A52hFqL",
-      "title": "Summer-Festival: Debut Mared Pugh Evans",
-      "titleByLocale": {
-        "it": "Summer-Festival: Debut Mared Pugh Evans",
-        "en": "Summer-Festival: Debut Mared Pugh Evans",
-        "de": "Summer-Festival: Debut Mared Pugh Evans",
-        "fr": "Summer-Festival: Debut Mared Pugh Evans"
-      },
-      "description": "Mared Pugh-Evans | Joana Mallwitz | Fauré, Rota, Britten u.a.",
-      "descriptionByLocale": {
-        "it": "Mared Pugh-Evans | Joana Mallwitz | Fauré, Rota, Britten u.a.",
-        "en": "Mared Pugh-Evans | Fauré, Rota, Britten et al.",
-        "de": "Mared Pugh-Evans | Joana Mallwitz | Fauré, Rota, Britten u.a.",
-        "fr": "Mared Pugh-Evans | Joana Mallwitz | Fauré, Rota, Britten u.a."
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "12:15",
-      "category": "Musica romantica",
-      "venue": "Lukaskirche Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/summer-festival-debut-mared-pugh-evans_A52hFqL",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Morgartenstrasse 16",
-        "postalCode": "6003"
-      },
-      "geo": {
-        "lat": 47.0479131,
-        "lng": 8.3088718
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A52hFqL.webp"
-    },
-    {
-      "id": "guidle:AJDHsgf",
-      "title": "Summer-Festival: Tschechische Philharmonie",
-      "titleByLocale": {
-        "it": "Summer-Festival: Tschechische Philharmonie",
-        "en": "Summer-Festival: Czech Philharmonic",
-        "de": "Summer-Festival: Tschechische Philharmonie",
-        "fr": "Summer-Festival: Tschechische Philharmonie"
-      },
-      "description": "Tschechische Philharmonie | Semyon Bychkov | Yunchan Lim | Smetana | Ravel | Dvořák",
-      "descriptionByLocale": {
-        "it": "Tschechische Philharmonie | Semyon Bychkov | Yunchan Lim | Smetana | Ravel | Dvořák",
-        "en": "Czech Philharmonic | Semyon Bychkov | Yunchan Lim | Smetana | Ravel | Dvořák",
-        "de": "Tschechische Philharmonie | Semyon Bychkov | Yunchan Lim | Smetana | Ravel | Dvořák",
-        "fr": "Tschechische Philharmonie | Semyon Bychkov | Yunchan Lim | Smetana | Ravel | Dvořák"
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "19:30",
-      "category": "Musica per piano / organo",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/events/classical/lucerne/summer-festival-czech-philharmonic_AJDHsgf",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AJDHsgf.webp"
-    },
-    {
       "id": "guidle:AnX8543",
       "title": "Summer-Festival: Mahler Chamber Orchestra",
       "titleByLocale": {
@@ -16214,47 +16049,6 @@
       },
       "recurring": true,
       "imageUrl": "/images/events/guidle-AYYMHVG.webp"
-    },
-    {
-      "id": "guidle:AaQuhq7",
-      "title": "«Carmina Latina» Erasmus klingt! – Festival Lab",
-      "titleByLocale": {
-        "it": "«Carmina Latina» Erasmus klingt! – Festival Lab",
-        "en": "«Carmina Latina» Erasmus klingt! – Festival Lab",
-        "de": "«Carmina Latina» Erasmus klingt! – Festival Lab",
-        "fr": "«Carmina Latina» Erasmus klingt! – Festival Lab"
-      },
-      "description": "Die Cappella Mediterranea, Chœur de chambre Namur und Leonardo García-Alarcón präsentieren sakrale und weltliche Musik von kolonialistischen Komponisten des barocken Lateinamerikas.",
-      "descriptionByLocale": {
-        "it": "Die Cappella Mediterranea, Chœur de chambre Namur und Leonardo García-Alarcón präsentieren sakrale und weltliche Musik von kolonialistischen Komponisten des barocken Lateinamerikas.",
-        "en": "Die Cappella Mediterranea, Chœur de chambre Namur und Leonardo García-Alarcón präsentieren sakrale und weltliche Musik von kolonialistischen Komponisten des barocken Lateinamerikas.",
-        "de": "Die Cappella Mediterranea, Chœur de chambre Namur und Leonardo García-Alarcón präsentieren sakrale und weltliche Musik von kolonialistischen Komponisten des barocken Lateinamerikas.",
-        "fr": "Die Cappella Mediterranea, Chœur de chambre Namur und Leonardo García-Alarcón präsentieren sakrale und weltliche Musik von kolonialistischen Komponisten des barocken Lateinamerikas."
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "20:00",
-      "category": "Barocco",
-      "venue": "Evang.-ref. Peterskirche",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/carmina-latina-erasmus-klingt-festival-lab_AaQuhq7",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 1,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Peterskirchplatz 4",
-        "postalCode": "4051"
-      },
-      "geo": {
-        "lat": 47.5590699,
-        "lng": 7.5858628
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AaQuhq7.webp"
     },
     {
       "id": "guidle:ANuYbVE",
@@ -29710,48 +29504,6 @@
       "imageUrl": "/images/events/guidle-A3LJfLU.webp"
     },
     {
-      "id": "guidle:Aybypc6",
-      "title": "Der Wettlauf um die Arktis",
-      "titleByLocale": {
-        "it": "Der Wettlauf um die Arktis",
-        "en": "Der Wettlauf um die Arktis",
-        "de": "Der Wettlauf um die Arktis",
-        "fr": "Der Wettlauf um die Arktis"
-      },
-      "description": "Entdecken Sie die Geheimnisse um die Eroberung der Arktis.",
-      "descriptionByLocale": {
-        "it": "Entdecken Sie die Geheimnisse um die Eroberung der Arktis.",
-        "en": "Entdecken Sie die Geheimnisse um die Eroberung der Arktis.",
-        "de": "Entdecken Sie die Geheimnisse um die Eroberung der Arktis.",
-        "fr": "Entdecken Sie die Geheimnisse um die Eroberung der Arktis."
-      },
-      "startDate": "2026-09-08",
-      "endDate": "2026-09-08",
-      "startTime": "18:30",
-      "category": "Astronomia",
-      "venue": "Volkshochschule Solothurn",
-      "comune": "Solothurn",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/wissen/solothurn/der-wettlauf-um-die-arktis_Aybypc6",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 47.6,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Hauptbahnhofstrasse 8",
-        "postalCode": "4500"
-      },
-      "geo": {
-        "lat": 47.2046977,
-        "lng": 7.5412039
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-Aybypc6.webp"
-    },
-    {
       "id": "guidle:AdcRiHk",
       "title": "6. Energy Future Days und Messe \"Bauen, Wohnen, Energie\"",
       "titleByLocale": {
@@ -32556,6 +32308,1547 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-A89yAFN.webp"
+    },
+    {
+      "id": "guidle:AS3hddW",
+      "title": "Vortrag «Bahnen und Strom – Wie die SBB elektrifiziert wurde»",
+      "titleByLocale": {
+        "it": "Vortrag «Bahnen und Strom – Wie die SBB elektrifiziert wurde»",
+        "en": "Vortrag \" Bahnen und Strom-die",
+        "de": "Vortrag \" Bahn und Strom-die SBB elektrifiziert die SBB»",
+        "fr": "Vortrag « Bahnen und Strom – Wie die SBB elektrifiziert wurde »"
+      },
+      "description": "Was hat es eigentlich mit der Elektrifizierung des Eisenbahnnetzwerkes der SBB auf sich? Erfahren Sie dies bei einem Vortrag von Kilian T. Elsasser, dem Leiter der Museumsfabrik Göschenen.",
+      "descriptionByLocale": {
+        "it": "Was hat es eigentlich mit der Elektrifizierung des Eisenbahnnetzwerkes der SBB auf sich? Erfahren Sie dies bei einem Vortrag von Kilian T. Elsasser, dem Leiter der Museumsfabrik Göschenen.",
+        "en": "Was it easy with the Elektrifizierung des Eisenbahnnetzwerkes der SBB auf sich? Erfahren Sie dies bei einem Vortrag von Kilian T. Elsasser, dem Leiter der Museumsfabrik Göschenen.",
+        "de": "Was hat es eigentlich mit der Elektrifizierung des Eisenbahnnetzwerks der SBB auf sich? Erfahren Sie dies bei einem Vortrag von Kilian T. Elsasser, dem Leiter der Museumsfabrik Göschenen.",
+        "fr": "Est-ce que cela a été facile avec l'Elektrifizierung des Eisenbahnnetzwerkes der CFF auf sich ? Erfahren Sie décède par un Vortrag de Kilian T. Elsasser, du Leiter der Museumsfabrik Göschenen."
+      },
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-26",
+      "startTime": "19:30",
+      "category": "Lezione",
+      "venue": "Haus der Museen",
+      "comune": "Olten",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/olten/vortrag-bahnen-und-strom-wie-die-sbb-elektrifiziert-wurde_AS3hddW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Konradstrasse 7",
+        "postalCode": "4600"
+      },
+      "geo": {
+        "lat": 47.3504983,
+        "lng": 7.9010432
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AS3hddW.webp"
+    },
+    {
+      "id": "guidle:AvZFDS7",
+      "title": "Repair Café Wittnau",
+      "titleByLocale": {
+        "it": "Repair Café Wittnau",
+        "en": "Repair Café Wittnau",
+        "de": "Repair Café Wittnau",
+        "fr": "Repair Café Wittnau"
+      },
+      "description": "Im Repair Café reparieren Sie mit Hilfe von Profis kostenlos Ihre Lieblingsobjekte und -Geräte.",
+      "descriptionByLocale": {
+        "it": "Im Repair Café reparieren Sie mit Hilfe von Profis kostenlos Ihre Lieblingsobjekte und -Geräte.",
+        "en": "Im Repair Café reparieren Sie mit Hilfe von Profis kostenlos Ihre Lieblingsobjekte und -Geräte.",
+        "de": "Im Repair Café reparieren Sie mit Hilfe von Profis kostenlos Ihre Lieblingsobjekte und -Geräte.",
+        "fr": "Im Repair Café reparieren Sie mit Hilfe von Profis kostenlos Ihre Lieblingsobjekte und -Geräte."
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "10:00",
+      "category": "Altra arte",
+      "venue": "Mehrzweckgebäude",
+      "comune": "Wittnau",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/wittnau/repair-cafe-wittnau_AvZFDS7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Schulstrasse 294",
+        "postalCode": "5064"
+      },
+      "geo": {
+        "lat": 47.4802112,
+        "lng": 7.9725758
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AvZFDS7.webp"
+    },
+    {
+      "id": "guidle:AXBsQCr",
+      "title": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+      "titleByLocale": {
+        "it": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "en": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "de": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag",
+        "fr": "Bedrohung durch Drohnen- und hybride Kriegsführung. Panta rhei-Vortrag"
+      },
+      "description": "Vortrag von Ivo Capaul, Center for Security Studies (CSS), ETH Zurich, zur wachsender Bedrohung durch die immer weiter entwickelte Rüstungstechnik und hybride Kriegsführung.",
+      "descriptionByLocale": {
+        "it": "Vortrag von Ivo Capaul, Center for Security Studies (CSS), ETH Zurich, zur wachsender Bedrohung durch die immer weiter entwickelte Rüstungstechnik und hybride Kriegsführung.",
+        "en": "Vortrag von Ivo Capaul, Center for Security Studies (CSS), ETH Zurich, zur wachsender Bedrohung durch die immer weiter entwickelte Rüstungstechnik und hybride Kriegsführung.",
+        "de": "Vortrag von Ivo Capaul, Center for Security Studies (CSS), ETH Zurich, zur wachsender Bedrohung durch die immer weiter entwickelte Rüstungstechnik und hybride Kriegsführung.",
+        "fr": "Vortrag von Ivo Capaul, Center for Security Studies (CSS), ETH Zurich, zur wachsender Bedrohung durch die immer weiter entwickelte Rüstungstechnik und hybride Kriegsführung."
+      },
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-01",
+      "startTime": "18:00",
+      "category": "Domande di società",
+      "venue": "Hans Erni Museum",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/luzern/bedrohung-durch-drohnen-und-hybride-kriegsfuehrung-panta-rhei-vortrag_AXBsQCr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Haldenstrasse 44",
+        "postalCode": "6006"
+      },
+      "geo": {
+        "lat": 47.05191142600734,
+        "lng": 8.336775537573255
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AXBsQCr.webp"
+    },
+    {
+      "id": "guidle:AW4nx7v",
+      "title": "Solar & Storage Live",
+      "titleByLocale": {
+        "it": "Solar & Storage Live",
+        "de": "Solar & Storage Live",
+        "fr": "Solar & Storage Live"
+      },
+      "description": "Ausstellung für erneuerbare Energien",
+      "descriptionByLocale": {
+        "it": "Ausstellung für erneuerbare Energien",
+        "de": "Ausstellung für erneuerbare Energien",
+        "fr": "Ausstellung für erneuerbare Energien"
+      },
+      "startDate": "2026-09-16",
+      "endDate": "2026-09-17",
+      "startTime": "00:00",
+      "category": "Fiera commerciale",
+      "venue": "Messe Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/knowledge/zurich/solar-und-storage-live_AW4nx7v",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Wallisellenstrasse 49",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4115042,
+        "lng": 8.5533713
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AW4nx7v.webp"
+    },
+    {
+      "id": "guidle:A386JQr",
+      "title": "ZNZ Symposium",
+      "titleByLocale": {
+        "it": "ZNZ Symposium",
+        "en": "ZNZ Symposium",
+        "de": "ZNZ Symposium",
+        "fr": "ZNZ Symposium"
+      },
+      "description": "The Symposium features the Volker-Henn Lecture, short talks by new members, poster session, workshops and the presentation of the Best PhD Award 2026.",
+      "descriptionByLocale": {
+        "it": "The Symposium features the Volker-Henn Lecture, short talks by new members, poster session, workshops and the presentation of the Best PhD Award 2026.",
+        "en": "The Symposium features the Volker-Henn Lecture, short talks by new members, poster session, workshops and the presentation of the Best PhD Award 2026.",
+        "de": "The Symposium features the Volker-Henn Lecture, short talks by new members, poster session, workshops and the presentation of the Best PhD Award 2026.",
+        "fr": "The Symposium features the Volker-Henn Lecture, short talks by new members, poster session, workshops and the presentation of the Best PhD Award 2026."
+      },
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-10",
+      "startTime": "00:00",
+      "category": "Congresso: Biologia / Chimica",
+      "venue": "ETH Hauptgebäude",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/znz-symposium_A386JQr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rämistrasse 101",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3765374,
+        "lng": 8.5480861
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A386JQr.webp"
+    },
+    {
+      "id": "guidle:Ai1HwM5",
+      "title": "Risk Day 2026",
+      "titleByLocale": {
+        "it": "Risk Day 2026",
+        "en": "Risk Day 2026",
+        "de": "Risk Day 2026",
+        "fr": "Risk Day 2026"
+      },
+      "description": "Mini-Conference on current topics of risk management in banking, investing and insurance.",
+      "descriptionByLocale": {
+        "it": "Mini-Conference on current topics of risk management in banking, investing and insurance.",
+        "en": "Mini-Conference on current topics of risk management in banking, investing and insurance.",
+        "de": "Mini-Conference on current topics of risk management in banking, investing and insurance.",
+        "fr": "Mini-Conference on current topics of risk management in banking, investing and insurance."
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-11",
+      "startTime": "14:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "ETH Hauptgebäude",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/risk-day-2026_Ai1HwM5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rämistrasse 101",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3765374,
+        "lng": 8.5480861
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ai1HwM5.webp"
+    },
+    {
+      "id": "guidle:A51xAqi",
+      "title": "Gendermedizintag 2026",
+      "titleByLocale": {
+        "it": "Gendermedizintag 2026",
+        "en": "Gendermedizintag 2026",
+        "de": "Gendermedizintag 2026",
+        "fr": "Gendermedizintag 2026"
+      },
+      "description": "Medizin für alle: Gendermedizin zwischen Technologie, Lehre und Praxis.",
+      "descriptionByLocale": {
+        "it": "Medizin für alle: Gendermedizin zwischen Technologie, Lehre und Praxis.",
+        "en": "Medizin für alle: Gendermedizin zwischen Technologie, Lehre und Praxis.",
+        "de": "Medizin für alle: Gendermedizin zwischen Technologie, Lehre und Praxis.",
+        "fr": "Medizin für alle: Gendermedizin zwischen Technologie, Lehre und Praxis."
+      },
+      "startDate": "2026-09-26",
+      "endDate": "2026-09-26",
+      "startTime": "09:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "ETH Hauptgebäude",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/gendermedizintag-2026_A51xAqi",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rämistrasse 101",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3765374,
+        "lng": 8.5480861
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A51xAqi.webp"
+    },
+    {
+      "id": "guidle:A2TQMCj",
+      "title": "Swiss Systems Engineering Day - SWISSED26",
+      "titleByLocale": {
+        "it": "Swiss Systems Engineering Day - SWISSED26",
+        "en": "Swiss Systems Engineering Day - SWISSED26",
+        "de": "Swiss Systems Engineering Day - SWISSED26",
+        "fr": "Swiss Systems Engineering Day - SWISSED26"
+      },
+      "description": "The Conference brings together first class presenters and practitioners, to share knowledge and experience on how to plan, develop and manage systems in an efficient and successful way.",
+      "descriptionByLocale": {
+        "it": "The Conference brings together first class presenters and practitioners, to share knowledge and experience on how to plan, develop and manage systems in an efficient and successful way.",
+        "en": "The Conference brings together first class presenters and practitioners, to share knowledge and experience on how to plan, develop and manage systems in an efficient and successful way.",
+        "de": "The Conference brings together first class presenters and practitioners, to share knowledge and experience on how to plan, develop and manage systems in an efficient and successful way.",
+        "fr": "The Conference brings together first class presenters and practitioners, to share knowledge and experience on how to plan, develop and manage systems in an efficient and successful way."
+      },
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-21",
+      "startTime": "08:00",
+      "category": "Congresso: Industria",
+      "venue": "Lake Side",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/swiss-systems-engineering-day-swissed26_A2TQMCj",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bellerivestrasse 170",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3528379,
+        "lng": 8.5538205
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A2TQMCj.webp"
+    },
+    {
+      "id": "guidle:ADStMSK",
+      "title": "SFI - SSF Conference",
+      "titleByLocale": {
+        "it": "SFI - SSF Conference",
+        "en": "SFI - SSF Conference",
+        "de": "SFI - SSF Conference",
+        "fr": "SFI - SSF Conference"
+      },
+      "description": "Sustainable Finance",
+      "descriptionByLocale": {
+        "it": "Sustainable Finance",
+        "en": "Sustainable Finance",
+        "de": "Sustainable Finance",
+        "fr": "Sustainable Finance"
+      },
+      "startDate": "2026-09-24",
+      "endDate": "2026-09-24",
+      "startTime": "13:15",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Lake Side",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/sfi-ssf-conference_ADStMSK",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bellerivestrasse 170",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3528379,
+        "lng": 8.5538205
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ADStMSK.webp"
+    },
+    {
+      "id": "guidle:A77Z7NC",
+      "title": "#wetechtogether Conference 2026",
+      "titleByLocale": {
+        "it": "#wetechtogether Conference 2026",
+        "en": "#wetechtogether Conference 2026",
+        "de": "#wetechtogether Conference 2026",
+        "fr": "#wetechtogether Conference 2026"
+      },
+      "description": "Join Switzerland’s leading conference driving diversity and inclusion in tech.",
+      "descriptionByLocale": {
+        "it": "Join Switzerland’s leading conference driving diversity and inclusion in tech.",
+        "en": "Join Switzerland’s leading conference driving diversity and inclusion in tech.",
+        "de": "Join Switzerland’s leading conference driving diversity and inclusion in tech.",
+        "fr": "Join Switzerland’s leading conference driving diversity and inclusion in tech."
+      },
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-26",
+      "startTime": "00:00",
+      "category": "Congresso: IT / Internet / Elettronica",
+      "venue": "Technopark Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/wetechtogether-conference-2026_A77Z7NC",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Technoparkstrasse 1",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3895819,
+        "lng": 8.5160203
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A77Z7NC.webp"
+    },
+    {
+      "id": "guidle:A5nrBDZ",
+      "title": "CV SUMMIT 2026 - Switzerland's Biggest Blockchain & AI Conference",
+      "titleByLocale": {
+        "it": "CV SUMMIT 2026 - Switzerland's Biggest Blockchain & AI Conference",
+        "en": "CV SUMMIT 2026 - Switzerland's Biggest Blockchain & AI Conference",
+        "de": "CV SUMMIT 2026 - Switzerland's Biggest Blockchain & AI Conference",
+        "fr": "CV SUMMIT 2026 - Switzerland's Biggest Blockchain & AI Conference"
+      },
+      "description": "Switzerland’s Largest Blockchain, AI & Digital Assets Conference.",
+      "descriptionByLocale": {
+        "it": "Switzerland’s Largest Blockchain, AI & Digital Assets Conference.",
+        "en": "Switzerland’s Largest Blockchain, AI & Digital Assets Conference.",
+        "de": "Switzerland’s Largest Blockchain, AI & Digital Assets Conference.",
+        "fr": "Switzerland’s Largest Blockchain, AI & Digital Assets Conference."
+      },
+      "startDate": "2026-09-29",
+      "endDate": "2026-09-30",
+      "startTime": "13:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Kongresshaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/cv-summit-2026-switzerlands-biggest-blockchain-und-ai-conference_A5nrBDZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Claridenstrasse 5",
+        "postalCode": "8002"
+      },
+      "geo": {
+        "lat": 47.3659761,
+        "lng": 8.5382272
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A5nrBDZ.webp"
+    },
+    {
+      "id": "guidle:ABwsLHx",
+      "title": "CCCZ Oncology Symposium: Lung Cancer",
+      "titleByLocale": {
+        "it": "CCCZ Oncology Symposium: Lung Cancer",
+        "en": "CCCZ Oncology Symposium: Lung Cancer",
+        "de": "CCCZ Oncology Symposium: Lung Cancer",
+        "fr": "CCCZ Oncology Symposium: Lung Cancer"
+      },
+      "description": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+      "descriptionByLocale": {
+        "it": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "en": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "de": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "fr": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers."
+      },
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-02",
+      "startTime": "16:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "Universitätsspital Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/cccz-oncology-symposium-lung-cancer_ABwsLHx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Rämistrasse 100",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.376657,
+        "lng": 8.54927
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ABwsLHx.webp"
+    },
+    {
+      "id": "guidle:AA6KDtr",
+      "title": "Alternative Investments Forum 2026",
+      "titleByLocale": {
+        "it": "Alternative Investments Forum 2026",
+        "en": "Alternative Investments Forum 2026",
+        "de": "Alternative Investments Forum 2026",
+        "fr": "Alternative Investments Forum 2026"
+      },
+      "description": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+      "descriptionByLocale": {
+        "it": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "en": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "de": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "fr": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten."
+      },
+      "startDate": "2026-10-20",
+      "endDate": "2026-10-20",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Zürich Marriott Hotel",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/alternative-investments-forum-2026_AA6KDtr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Neumühlequai 42",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3824367,
+        "lng": 8.5406401
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AA6KDtr.webp"
+    },
+    {
+      "id": "guidle:Ajd8YTV",
+      "title": "GenerationSummit 2026",
+      "titleByLocale": {
+        "it": "GenerationSummit 2026",
+        "en": "GenerationSummit 2026",
+        "de": "GenerationSummit 2026",
+        "fr": "GenerationSummit 2026"
+      },
+      "description": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+      "descriptionByLocale": {
+        "it": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "en": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "de": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "fr": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten."
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTime": "13:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Papiersaal",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/generationsummit-2026_Ajd8YTV",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kalanderplatz 6 (Sihlcity)",
+        "postalCode": "8045"
+      },
+      "geo": {
+        "lat": 47.358213,
+        "lng": 8.5226492
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Ajd8YTV.webp"
+    },
+    {
+      "id": "guidle:AtkK4GW",
+      "title": "N-Conference Zurich: Failure is not an option",
+      "titleByLocale": {
+        "it": "N-Conference Zurich: Failure is not an option",
+        "en": "Negotiation Conference",
+        "de": "N-Conference Zurich: Failure is not an option",
+        "fr": "N-Conference Zurich: Failure is not an option"
+      },
+      "description": "THE WORLD'S LEADING FORUM FOR NEGOTIATIONS",
+      "descriptionByLocale": {
+        "it": "THE WORLD'S LEADING FORUM FOR NEGOTIATIONS",
+        "en": "Managing Risks",
+        "de": "THE WORLD'S LEADING FORUM FOR NEGOTIATIONS",
+        "fr": "THE WORLD'S LEADING FORUM FOR NEGOTIATIONS"
+      },
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-23",
+      "startTime": "10:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "Kunsthaus Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/knowledge/zurich/negotiation-conference_AtkK4GW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 3000,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Heimplatz 1/5",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3710978,
+        "lng": 8.5490786
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AtkK4GW.webp"
+    },
+    {
+      "id": "guidle:Adgnk2u",
+      "title": "RetailTech Innovation 2026",
+      "titleByLocale": {
+        "it": "RetailTech Innovation 2026",
+        "en": "RetailTech Innovation 2026",
+        "de": "RetailTech Innovation 2026",
+        "fr": "RetailTech Innovation 2026"
+      },
+      "description": "RETAIL. BUILT FOR DISRUPTORS.",
+      "descriptionByLocale": {
+        "it": "RETAIL. BUILT FOR DISRUPTORS.",
+        "en": "RETAIL. BUILT FOR DISRUPTORS.",
+        "de": "RETAIL. BUILT FOR DISRUPTORS.",
+        "fr": "RETAIL. BUILT FOR DISRUPTORS."
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTime": "00:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "Google EURF",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/retailtech-innovation-2026_Adgnk2u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Europaallee 36",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3790513,
+        "lng": 8.5325538
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-Adgnk2u.webp"
+    },
+    {
+      "id": "guidle:AASjBiG",
+      "title": "State of Asia Address 2026",
+      "titleByLocale": {
+        "it": "State of Asia Address 2026",
+        "en": "State of Asia Address 2026",
+        "de": "State of Asia Address 2026",
+        "fr": "State of Asia Address 2026"
+      },
+      "description": "Conference 2026",
+      "descriptionByLocale": {
+        "it": "Conference 2026",
+        "en": "Conference 2026",
+        "de": "Conference 2026",
+        "fr": "Conference 2026"
+      },
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "startTime": "06:00",
+      "category": "Congresso: Cultura",
+      "venue": "Universität Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/state-of-asia-address-2026_AASjBiG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rämistrasse 71",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3745896,
+        "lng": 8.5486629
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AASjBiG.webp"
+    },
+    {
+      "id": "guidle:APUQmBW",
+      "title": "Agile Unconference 2026",
+      "titleByLocale": {
+        "it": "Agile Unconference 2026",
+        "en": "Agile Unconference 2026",
+        "de": "Agile Unconference 2026",
+        "fr": "Agile Unconference 2026"
+      },
+      "description": "Am 5. November 2026 steigt bereits die 13. Agile Unconference!",
+      "descriptionByLocale": {
+        "it": "Am 5. November 2026 steigt bereits die 13. Agile Unconference!",
+        "en": "Am 5. November 2026 steigt bereits die 13. Agile Unconference!",
+        "de": "Am 5. November 2026 steigt bereits die 13. Agile Unconference!",
+        "fr": "Am 5. November 2026 steigt bereits die 13. Agile Unconference!"
+      },
+      "startDate": "2026-11-05",
+      "endDate": "2026-11-05",
+      "startTime": "09:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "Zentrum Karl der Grosse",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/agile-unconference-2026_APUQmBW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 3,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kirchgasse 14",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.369758,
+        "lng": 8.5446454
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-APUQmBW.webp"
+    },
+    {
+      "id": "guidle:Any1ALn",
+      "title": "The 10th HNHCP Educational Conference",
+      "titleByLocale": {
+        "it": "The 10th HNHCP Educational Conference",
+        "en": "The 10th HNHCP Educational Conference",
+        "de": "The 10th HNHCP Educational Conference",
+        "fr": "The 10th HNHCP Educational Conference"
+      },
+      "description": "An Educational Conference for Nurses & Allied Healthcare Professionals in Zürich (Switzerland).",
+      "descriptionByLocale": {
+        "it": "An Educational Conference for Nurses & Allied Healthcare Professionals in Zürich (Switzerland).",
+        "en": "An Educational Conference for Nurses & Allied Healthcare Professionals in Zürich (Switzerland).",
+        "de": "An Educational Conference for Nurses & Allied Healthcare Professionals in Zürich (Switzerland).",
+        "fr": "An Educational Conference for Nurses & Allied Healthcare Professionals in Zürich (Switzerland)."
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-07",
+      "startTime": "00:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "Universität Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/the-10th-hnhcp-educational-conference_Any1ALn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rämistrasse 71",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3745896,
+        "lng": 8.5486629
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Any1ALn.webp"
+    },
+    {
+      "id": "guidle:AM1ssPg",
+      "title": "CCCZ Oncology Symposium: Prostate Cancer",
+      "titleByLocale": {
+        "it": "CCCZ Oncology Symposium: Prostate Cancer",
+        "en": "CCCZ Oncology Symposium: Prostate Cancer",
+        "de": "CCCZ Oncology Symposium: Prostate Cancer",
+        "fr": "CCCZ Oncology Symposium: Prostate Cancer"
+      },
+      "description": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+      "descriptionByLocale": {
+        "it": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "en": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "de": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "fr": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers."
+      },
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-09",
+      "startTime": "16:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "Universitätsspital Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/cccz-oncology-symposium-prostate-cancer_AM1ssPg",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Rämistrasse 100",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.376657,
+        "lng": 8.54927
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AM1ssPg.webp"
+    },
+    {
+      "id": "guidle:AwPsZwt",
+      "title": "CCCZ Oncology Symposium: Liver Cancer",
+      "titleByLocale": {
+        "it": "CCCZ Oncology Symposium: Liver Cancer",
+        "en": "CCCZ Oncology Symposium: Liver Cancer",
+        "de": "CCCZ Oncology Symposium: Liver Cancer",
+        "fr": "CCCZ Oncology Symposium: Liver Cancer"
+      },
+      "description": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+      "descriptionByLocale": {
+        "it": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "en": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "de": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers.",
+        "fr": "The primary focus is educational, featuring lectures on topics such as diagnostics, therapy, clinical trials and research, delivered by CCCZ experts and distinguished guest speakers."
+      },
+      "startDate": "2026-12-07",
+      "endDate": "2026-12-07",
+      "startTime": "16:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "Universitätsspital Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/cccz-oncology-symposium-liver-cancer_AwPsZwt",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Rämistrasse 100",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.376657,
+        "lng": 8.54927
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AwPsZwt.webp"
+    },
+    {
+      "id": "guidle:AacKXSx",
+      "title": "Precious Metals Summit Zurich",
+      "titleByLocale": {
+        "it": "Precious Metals Summit Zurich",
+        "en": "Precious Metals Summit Zurich",
+        "de": "Precious Metals Summit Zurich",
+        "fr": "Precious Metals Summit Zurich"
+      },
+      "description": "The Precious Metals Summit Zurich is the premier Swiss-based independent investment conference focused on explorers, developers and emerging producers of gold, silver and platinum group metals.",
+      "descriptionByLocale": {
+        "it": "The Precious Metals Summit Zurich is the premier Swiss-based independent investment conference focused on explorers, developers and emerging producers of gold, silver and platinum group metals.",
+        "en": "The Precious Metals Summit Zurich is the premier Swiss-based independent investment conference focused on explorers, developers and emerging producers of gold, silver and platinum group metals.",
+        "de": "The Precious Metals Summit Zurich is the premier Swiss-based independent investment conference focused on explorers, developers and emerging producers of gold, silver and platinum group metals.",
+        "fr": "The Precious Metals Summit Zurich is the premier Swiss-based independent investment conference focused on explorers, developers and emerging producers of gold, silver and platinum group metals."
+      },
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Park Hyatt Zürich Hotel",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/precious-metals-summit-zurich_AacKXSx",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Beethovenstrasse 21",
+        "postalCode": "8002"
+      },
+      "geo": {
+        "lat": 47.366386,
+        "lng": 8.5361218
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AacKXSx.webp"
+    },
+    {
+      "id": "guidle:AMkADEk",
+      "title": "Opportunities 2027",
+      "titleByLocale": {
+        "it": "Opportunities 2027",
+        "en": "Opportunities 2027",
+        "de": "Opportunities 2027",
+        "fr": "Opportunities 2027"
+      },
+      "description": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+      "descriptionByLocale": {
+        "it": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "en": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "de": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten.",
+        "fr": "Interessante Vorträge und Paneldiskussionen von Expert:innen, Workshops und Networking-Gelegenheiten."
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "HWZ Hochschule für Wirtschaft Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/opportunities-2027_AMkADEk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 100,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Lagerstrasse 5",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3767886,
+        "lng": 8.5338216
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AMkADEk.webp"
+    },
+    {
+      "id": "guidle:AD6Kq4y",
+      "title": "Family Office Forum 2026",
+      "titleByLocale": {
+        "it": "Family Office Forum 2026",
+        "en": "Family Office Forum 2026",
+        "de": "Family Office Forum 2026",
+        "fr": "Family Office Forum 2026"
+      },
+      "description": "The 13th Family Office Forum Zurich is a truly global gathering of 100+ Single Family Offices and UHNWIs designed to accelerate family success",
+      "descriptionByLocale": {
+        "it": "The 13th Family Office Forum Zurich is a truly global gathering of 100+ Single Family Offices and UHNWIs designed to accelerate family success",
+        "en": "The 13th Family Office Forum Zurich is a truly global gathering of 100+ Single Family Offices and UHNWIs designed to accelerate family success",
+        "de": "The 13th Family Office Forum Zurich is a truly global gathering of 100+ Single Family Offices and UHNWIs designed to accelerate family success",
+        "fr": "The 13th Family Office Forum Zurich is a truly global gathering of 100+ Single Family Offices and UHNWIs designed to accelerate family success"
+      },
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-11",
+      "startTime": "00:00",
+      "category": "Congresso: Affari / Amministrazione",
+      "venue": "The Dolder Grand",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/family-office-forum-2026_AD6Kq4y",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Kurhausstrasse 65",
+        "postalCode": "8032"
+      },
+      "geo": {
+        "lat": 47.3727837,
+        "lng": 8.573351
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AD6Kq4y.webp"
+    },
+    {
+      "id": "guidle:A7dFNbQ",
+      "title": "MODERNES&#160;&#160;HOCHSCHULMANAGEMENT",
+      "titleByLocale": {
+        "it": "MODERNES&#160;&#160;HOCHSCHULMANAGEMENT",
+        "en": "MODERNES&#160;&#160;HOCHSCHULMANAGEMENT",
+        "de": "MODERNES&#160;&#160;HOCHSCHULMANAGEMENT",
+        "fr": "MODERNES&#160;&#160;HOCHSCHULMANAGEMENT"
+      },
+      "description": "Adaption betriebswirtschaftlicher Konzepte in Universitäten und Hochschulen - sinnvoll und möglich?",
+      "descriptionByLocale": {
+        "it": "Adaption betriebswirtschaftlicher Konzepte in Universitäten und Hochschulen - sinnvoll und möglich?",
+        "en": "Adaption betriebswirtschaftlicher Konzepte in Universitäten und Hochschulen - sinnvoll und möglich?",
+        "de": "Adaption betriebswirtschaftlicher Konzepte in Universitäten und Hochschulen - sinnvoll und möglich?",
+        "fr": "Adaption betriebswirtschaftlicher Konzepte in Universitäten und Hochschulen - sinnvoll und möglich?"
+      },
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-11",
+      "startTime": "00:00",
+      "category": "Congresso: Formazione",
+      "venue": "Careum",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/modernes-hochschulmanagement_A7dFNbQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Pestalozzistrasse 11",
+        "postalCode": "8032"
+      },
+      "geo": {
+        "lat": 47.3746707,
+        "lng": 8.5543263
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7dFNbQ.webp"
+    },
+    {
+      "id": "guidle:ADNjYm2",
+      "title": "21st Annual Meeting of SFI",
+      "titleByLocale": {
+        "it": "21st Annual Meeting of SFI",
+        "en": "21st Annual Meeting of SFI",
+        "de": "21st Annual Meeting of SFI",
+        "fr": "21st Annual Meeting of SFI"
+      },
+      "description": "The Annual Meeting of the Swiss Finance Institute (SFI) is one of the leading events in the Swiss financial community’s calendar and an exclusive discussion platform.",
+      "descriptionByLocale": {
+        "it": "The Annual Meeting of the Swiss Finance Institute (SFI) is one of the leading events in the Swiss financial community’s calendar and an exclusive discussion platform.",
+        "en": "The Annual Meeting of the Swiss Finance Institute (SFI) is one of the leading events in the Swiss financial community’s calendar and an exclusive discussion platform.",
+        "de": "The Annual Meeting of the Swiss Finance Institute (SFI) is one of the leading events in the Swiss financial community’s calendar and an exclusive discussion platform.",
+        "fr": "The Annual Meeting of the Swiss Finance Institute (SFI) is one of the leading events in the Swiss financial community’s calendar and an exclusive discussion platform."
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "13:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Lake Side",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/annual-meeting-of-sfi_ADNjYm2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Bellerivestrasse 170",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3528379,
+        "lng": 8.5538205
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ADNjYm2.webp"
+    },
+    {
+      "id": "guidle:AnyLk2f",
+      "title": "Swiss Robotics Day 2026",
+      "titleByLocale": {
+        "it": "Swiss Robotics Day 2026",
+        "en": "Swiss Robotics Day 2026",
+        "de": "Swiss Robotics Day 2026",
+        "fr": "Swiss Robotics Day 2026"
+      },
+      "description": "A national meeting point for robotics. A platform uniting academia, industry, policymakers, and innovators. Organized by the Swiss Robotics Association and ETHZ RobotX.",
+      "descriptionByLocale": {
+        "it": "A national meeting point for robotics. A platform uniting academia, industry, policymakers, and innovators. Organized by the Swiss Robotics Association and ETHZ RobotX.",
+        "en": "A national meeting point for robotics. A platform uniting academia, industry, policymakers, and innovators. Organized by the Swiss Robotics Association and ETHZ RobotX.",
+        "de": "A national meeting point for robotics. A platform uniting academia, industry, policymakers, and innovators. Organized by the Swiss Robotics Association and ETHZ RobotX.",
+        "fr": "A national meeting point for robotics. A platform uniting academia, industry, policymakers, and innovators. Organized by the Swiss Robotics Association and ETHZ RobotX."
+      },
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "startTime": "00:00",
+      "category": "Congresso: IT / Internet / Elettronica",
+      "venue": "StageOne Event & Convention Hall",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/swiss-robotics-day-2026_AnyLk2f",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Elias-Canetti-Strasse 146",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.4114975,
+        "lng": 8.5391106
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AnyLk2f.webp"
+    },
+    {
+      "id": "guidle:A39nq1k",
+      "title": "Pharmaceutical Automation and Digitalisation Congress 2026",
+      "titleByLocale": {
+        "it": "Pharmaceutical Automation and Digitalisation Congress 2026",
+        "en": "Pharmaceutical Automation and Digitalisation Congress 2026",
+        "de": "Pharmaceutical Automation and Digitalisation Congress 2026",
+        "fr": "Pharmaceutical Automation and Digitalisation Congress 2026"
+      },
+      "description": "RIDE THE DIGITAL WAVE",
+      "descriptionByLocale": {
+        "it": "RIDE THE DIGITAL WAVE",
+        "en": "RIDE THE DIGITAL WAVE",
+        "de": "RIDE THE DIGITAL WAVE",
+        "fr": "RIDE THE DIGITAL WAVE"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-17",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Mövenpick Hotel Zürich-Regensdorf",
+      "comune": "Regensdorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/regensdorf/pharmaceutical-automation-and-digitalisation-congress-2026_A39nq1k",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Zentrum 2",
+        "postalCode": "8105"
+      },
+      "geo": {
+        "lat": 47.431241,
+        "lng": 8.467551
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-A39nq1k.webp"
+    },
+    {
+      "id": "guidle:Ap34E6e",
+      "title": "Swiss Payment Forum 2026",
+      "titleByLocale": {
+        "it": "Swiss Payment Forum 2026",
+        "en": "Swiss Payment Forum 2026",
+        "de": "Swiss Payment Forum 2026",
+        "fr": "Swiss Payment Forum 2026"
+      },
+      "description": "The Swiss Payment Forum 2026 is a leading industry event dedicated to the future of payments, transaction technologies, and financial innovation in Switzerland and Europe.",
+      "descriptionByLocale": {
+        "it": "The Swiss Payment Forum 2026 is a leading industry event dedicated to the future of payments, transaction technologies, and financial innovation in Switzerland and Europe.",
+        "en": "The Swiss Payment Forum 2026 is a leading industry event dedicated to the future of payments, transaction technologies, and financial innovation in Switzerland and Europe.",
+        "de": "The Swiss Payment Forum 2026 is a leading industry event dedicated to the future of payments, transaction technologies, and financial innovation in Switzerland and Europe.",
+        "fr": "The Swiss Payment Forum 2026 is a leading industry event dedicated to the future of payments, transaction technologies, and financial innovation in Switzerland and Europe."
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-17",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "Zürich Marriott Hotel",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/swiss-payment-forum-2026_Ap34E6e",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Neumühlequai 42",
+        "postalCode": "8006"
+      },
+      "geo": {
+        "lat": 47.3824367,
+        "lng": 8.5406401
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Ap34E6e.webp"
+    },
+    {
+      "id": "guidle:Au4K5ep",
+      "title": "SWISS MINING INSTITUTE",
+      "titleByLocale": {
+        "it": "SWISS MINING INSTITUTE",
+        "en": "SWISS MINING INSTITUTE",
+        "de": "SWISS MINING INSTITUTE",
+        "fr": "SWISS MINING INSTITUTE"
+      },
+      "description": "Swiss Mining Institute (SMI) presents two major annual investment conferences per year in Switzerland.",
+      "descriptionByLocale": {
+        "it": "Swiss Mining Institute (SMI) presents two major annual investment conferences per year in Switzerland.",
+        "en": "Swiss Mining Institute (SMI) presents two major annual investment conferences per year in Switzerland.",
+        "de": "Swiss Mining Institute (SMI) presents two major annual investment conferences per year in Switzerland.",
+        "fr": "Swiss Mining Institute (SMI) presents two major annual investment conferences per year in Switzerland."
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-19",
+      "startTime": "00:00",
+      "category": "Congresso: Finanza / Economia",
+      "venue": "The Dolder Grand",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/swiss-mining-institute_Au4K5ep",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kurhausstrasse 65",
+        "postalCode": "8032"
+      },
+      "geo": {
+        "lat": 47.3727837,
+        "lng": 8.573351
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Au4K5ep.webp"
+    },
+    {
+      "id": "guidle:AiqLPJB",
+      "title": "Pubquiz im gemütlichen Kulturbistro",
+      "titleByLocale": {
+        "it": "Pubquiz im gemütlichen Kulturbistro",
+        "en": "Pubquiz im gemütlichen Kulturbistro",
+        "de": "Pubquiz im gemütlichen Kulturbistro",
+        "fr": "Pubquiz im gemütlichen Kulturbistro"
+      },
+      "description": "Rätseln Sie mit uns mit vielen Fragen rund ums Allgemeinwissen!",
+      "descriptionByLocale": {
+        "it": "Rätseln Sie mit uns mit vielen Fragen rund ums Allgemeinwissen!",
+        "en": "Rätseln Sie mit uns mit vielen Fragen rund ums Allgemeinwissen!",
+        "de": "Rätseln Sie mit uns mit vielen Fragen rund ums Allgemeinwissen!",
+        "fr": "Rätseln Sie mit uns mit vielen Fragen rund ums Allgemeinwissen!"
+      },
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-23",
+      "startTime": "19:00",
+      "category": "Giochi da tavolo",
+      "venue": "KulturBistro Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/solothurn/pub-quiz-im-gemuetlichen-kulturbistro_AiqLPJB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Hauptbahnhofstrasse 10",
+        "postalCode": "4500"
+      },
+      "geo": {
+        "lat": 47.204519,
+        "lng": 7.541437
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AiqLPJB.webp"
+    },
+    {
+      "id": "guidle:AWMMVbD",
+      "title": "Repair Café 17.10.",
+      "titleByLocale": {
+        "it": "Repair Café 17.10.",
+        "en": "Repair Café 17.10.",
+        "de": "Repair Café 17.10.",
+        "fr": "Repair Café 17.10."
+      },
+      "description": "Reparieren statt wegwerfen! Im Repair Café reparieren ehrenamtliche Profis kostenlos Ihre Lieblingsobjekte.",
+      "descriptionByLocale": {
+        "it": "Reparieren statt wegwerfen! Im Repair Café reparieren ehrenamtliche Profis kostenlos Ihre Lieblingsobjekte.",
+        "en": "Reparieren statt wegwerfen! Im Repair Café reparieren ehrenamtliche Profis kostenlos Ihre Lieblingsobjekte.",
+        "de": "Reparieren statt wegwerfen! Im Repair Café reparieren ehrenamtliche Profis kostenlos Ihre Lieblingsobjekte.",
+        "fr": "Reparieren statt wegwerfen! Im Repair Café reparieren ehrenamtliche Profis kostenlos Ihre Lieblingsobjekte."
+      },
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "startTime": "08:30",
+      "category": "Natura / Ambiente",
+      "venue": "Primarschulhaus",
+      "comune": "Menznau",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/menznau/repair-cafe-1710_AWMMVbD",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Wolhuserstrasse 3a",
+        "postalCode": "6122"
+      },
+      "geo": {
+        "lat": 47.0817229,
+        "lng": 8.0416947
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWMMVbD.webp"
+    },
+    {
+      "id": "guidle:A9MkH5H",
+      "title": "Sternwarte Cheisacher",
+      "titleByLocale": {
+        "it": "Sternwarte Cheisacher",
+        "en": "Sternwarte Cheisacher",
+        "de": "Sternwarte Cheisacher",
+        "fr": "Sternwarte Cheisacher"
+      },
+      "description": "Beobachtungen auf der Sternwarte Cheisacher. Gehen Sie mit dem grossen Teleskop auf Entdeckungsreise.",
+      "descriptionByLocale": {
+        "it": "Beobachtungen auf der Sternwarte Cheisacher. Gehen Sie mit dem grossen Teleskop auf Entdeckungsreise.",
+        "en": "Beobachtungen auf der Sternwarte Cheisacher. Gehen Sie mit dem grossen Teleskop auf Entdeckungsreise.",
+        "de": "Beobachtungen auf der Sternwarte Cheisacher. Gehen Sie mit dem grossen Teleskop auf Entdeckungsreise.",
+        "fr": "Beobachtungen auf der Sternwarte Cheisacher. Gehen Sie mit dem grossen Teleskop auf Entdeckungsreise."
+      },
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "20:00",
+      "category": "Escursione",
+      "venue": "Sternwarte Cheisacher",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/sulz-ag/sternwarte-cheisacher_A9MkH5H",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Cheisacher",
+        "postalCode": "5085"
+      },
+      "geo": {
+        "lat": 47.5248888,
+        "lng": 8.1117638
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A9MkH5H.webp"
+    },
+    {
+      "id": "guidle:AKfg8hW",
+      "title": "KCXL - International Ophthalmology Experts's Meeting 2026",
+      "titleByLocale": {
+        "it": "KCXL - International Ophthalmology Experts's Meeting 2026",
+        "en": "KCXL - International Ophthalmology Experts's Meeting 2026",
+        "de": "KCXL - International Ophthalmology Experts's Meeting 2026",
+        "fr": "KCXL - International Ophthalmology Experts's Meeting 2026"
+      },
+      "description": "KCXL - RIUNIONE INTERNAZIONALE DEGLI ESPERTI DI OFTALMOLOGIA - PUNTO D'INCONTRO - COSTRUIRE L'IMPATTO - FAR PROGREDIRE L'OFTALMOLOGIA - 22° INCONTRO ANNUALE - 25 - 28 NOVEMBRE 2026 - ZURIGO, SVIZZERA",
+      "descriptionByLocale": {
+        "it": "KCXL - RIUNIONE INTERNAZIONALE DEGLI ESPERTI DI OFTALMOLOGIA - PUNTO D'INCONTRO - COSTRUIRE L'IMPATTO - FAR PROGREDIRE L'OFTALMOLOGIA - 22° INCONTRO ANNUALE - 25 - 28 NOVEMBRE 2026 - ZURIGO, SVIZZERA",
+        "en": "KCXL - INTERNATIONAL OPHTHAMOLOGY EXPERTS'S MEETING - GLOBAL MEETING POINT FOR EXCELLENCE - BUILDING IMPACT - ADVANCING OPHTHAMOLOGY - 22ND ANNUAL MEETING - 25 - 28 NOVEMBER 2026 - ZURICH, SWITZERLAND",
+        "de": "KCXL - INTERNATIONAL OPHTHAMOLOGY EXPERTS'S MEETING - GLOBAL MEETING POINT FOR EXCELLENCE - BUILDING IMPACT - ADVANCING OPHTHAMOLOGY - 22ND ANNUAL MEETING - 25 - 28 NOVEMBER 2026 - ZURICH, SWITZERLAND",
+        "fr": "KCXL - INTERNATIONAL OPHTHAMOLOGY EXPERTS'S MEETING - GLOBAL MEETING POINT FOR EXCELLENCE - BUILDING IMPACT - ADVANCING OPHTHAMOLOGY - 22ND ANNUAL MEETING - 25 - 28 NOVEMBER 2026 - ZURICH, SWITZERLAND"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-28",
+      "startTime": "08:00",
+      "category": "Congresso: Salute / Medicina",
+      "venue": "Stadtspital Zürich Triemli",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/zuerich/kcxl-international-ophthalmology-expertss-meeting-2026_AKfg8hW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Birmensdorferstrasse 497",
+        "postalCode": "8004"
+      },
+      "geo": {
+        "lat": 47.3656702,
+        "lng": 8.4990239
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AKfg8hW.webp"
+    },
+    {
+      "id": "guidle:A5ZS2T6",
+      "title": "Wie die Eiszeiten unsere Landschaft prägten",
+      "titleByLocale": {
+        "it": "Wie die Eiszeiten unsere Landschaft prägten",
+        "en": "Wie die Eiszeiten unsere Landschaft prägten",
+        "de": "Wie die Eiszeiten unsere Landschaft prägten",
+        "fr": "Wie die Eiszeiten unsere Landschaft prägten"
+      },
+      "description": "Geologiefortbildung für Lehrpersonen mit fachlichen Inputs durch den Experten und praktische Unterrichtsideen.",
+      "descriptionByLocale": {
+        "it": "Geologiefortbildung für Lehrpersonen mit fachlichen Inputs durch den Experten und praktische Unterrichtsideen.",
+        "en": "Geologiefortbildung für Lehrpersonen mit fachlichen Inputs durch den Experten und praktische Unterrichtsideen.",
+        "de": "Geologiefortbildung für Lehrpersonen mit fachlichen Inputs durch den Experten und praktische Unterrichtsideen.",
+        "fr": "Geologiefortbildung für Lehrpersonen mit fachlichen Inputs durch den Experten und praktische Unterrichtsideen."
+      },
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "startTime": "13:30",
+      "category": "Scienze della terra / Geologia",
+      "venue": "KAGA, Kies AG Aaretal",
+      "comune": "Kiesen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/bildung/kurse/kiesen/wie-die-eiszeiten-unsere-landschaft-praegten_A5ZS2T6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Grauensteinweg 1",
+        "postalCode": "3629"
+      },
+      "geo": {
+        "lat": 46.8044451,
+        "lng": 7.5849719
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A5ZS2T6.webp"
+    },
+    {
+      "id": "guidle:AsJwnLZ",
+      "title": "Gamespace Conference 2026",
+      "titleByLocale": {
+        "it": "Gamespace Conference 2026",
+        "en": "Gamespace Conference 2026",
+        "de": "Gamespace Conference 2026",
+        "fr": "Gamespace Conference 2026"
+      },
+      "description": "Zurich Game Industry Gathering",
+      "descriptionByLocale": {
+        "it": "Zurich Game Industry Gathering",
+        "en": "Zurich Game Industry Gathering",
+        "de": "Zurich Game Industry Gathering",
+        "fr": "Zurich Game Industry Gathering"
+      },
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-09",
+      "startTime": "00:00",
+      "category": "Congresso: IT / Internet / Elettronica",
+      "venue": "Swiss Game Hub",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/events/knowledge/zurich/gamespace-conference-2026_AsJwnLZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Erika-Mann-Strasse 11",
+        "postalCode": "8050"
+      },
+      "geo": {
+        "lat": 47.410912,
+        "lng": 8.539594
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AsJwnLZ.webp"
+    },
+    {
+      "id": "guidle:AHuJg9u",
+      "title": "TRÄUME VON UNIVERSEN",
+      "titleByLocale": {
+        "it": "TRÄUME VON UNIVERSEN",
+        "en": "DREAMS OF THE UNIVERSE",
+        "de": "TRÄUME VON UNIVERSEN",
+        "fr": "REVES D’UNIVERS"
+      },
+      "description": "30 Stunden Astronomie zum 30-jährigen Jubiläum der Sternwarte!",
+      "descriptionByLocale": {
+        "it": "30 Stunden Astronomie zum 30-jährigen Jubiläum der Sternwarte!",
+        "en": "30 hours of astronomy to celebrate the observatory’s 30th anniversary!",
+        "de": "30 Stunden Astronomie zum 30-jährigen Jubiläum der Sternwarte!",
+        "fr": "30 heures d’astronomie pour les 30 ans de l’observatoire !"
+      },
+      "startDate": "2026-09-15",
+      "endDate": "2026-09-19",
+      "startTime": "21:30",
+      "category": "Astronomia",
+      "venue": "Observatoire Arbaz",
+      "comune": "Arbaz",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/evenements/savoir/arbaz/reves-dunivers_AHuJg9u",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "postalCode": "1974"
+      },
+      "geo": {
+        "lat": 46.284896,
+        "lng": 7.382637
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AHuJg9u.webp"
+    },
+    {
+      "id": "guidle:AbydH3B",
+      "title": "Ökum. Gemeindenachmittag 60+",
+      "titleByLocale": {
+        "it": "Ökum. Gemeindenachmittag 60+",
+        "en": "Ökum. Gemeindenachmittag 60+",
+        "de": "Ökum. Gemeindenachmittag 60+",
+        "fr": "Ökum. Gemeindenachmittag 60+"
+      },
+      "description": "zur Ausstellung: „Menschlichkeit im Unfassbaren“",
+      "descriptionByLocale": {
+        "it": "zur Ausstellung: „Menschlichkeit im Unfassbaren“",
+        "en": "zur Ausstellung: „Menschlichkeit im Unfassbaren“",
+        "de": "zur Ausstellung: „Menschlichkeit im Unfassbaren“",
+        "fr": "zur Ausstellung: „Menschlichkeit im Unfassbaren“"
+      },
+      "startDate": "2026-09-09",
+      "endDate": "2026-09-09",
+      "startTime": "15:00",
+      "category": "Lezione",
+      "venue": "Röm.-kath. Pfarreizentrum",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/wissen/davos-platz/oekum-gemeindenachmittag-60_AbydH3B",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Obere Strasse 33",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.7949918,
+        "lng": 9.8191382
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AbydH3B.webp"
+    },
+    {
+      "id": "guidle:AcQt5tE",
+      "title": "Fakt oder Fake?",
+      "titleByLocale": {
+        "it": "Fakt oder Fake?",
+        "en": "Fakt oder Fake?",
+        "de": "Fakt oder Fake?",
+        "fr": "Fakt oder Fake?"
+      },
+      "description": "Vier Perspektiven auf Desinformation im digitalen Zeitalter.",
+      "descriptionByLocale": {
+        "it": "Vier Perspektiven auf Desinformation im digitalen Zeitalter.",
+        "en": "Vier Perspektiven auf Desinformation im digitalen Zeitalter.",
+        "de": "Vier Perspektiven auf Desinformation im digitalen Zeitalter.",
+        "fr": "Vier Perspektiven auf Desinformation im digitalen Zeitalter."
+      },
+      "startDate": "2026-09-23",
+      "endDate": "2026-09-23",
+      "startTime": "19:00",
+      "category": "Informatica / Internet",
+      "venue": "Bibliothek Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zug/fakt-oder-fake_AcQt5tE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "St.-Oswalds-Gasse 21",
+        "postalCode": "6300"
+      },
+      "geo": {
+        "lat": 47.1644884,
+        "lng": 8.5153211
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AcQt5tE.webp"
+    },
+    {
+      "id": "guidle:AABtGkc",
+      "title": "Lugano International Festival Endorfine",
+      "titleByLocale": {
+        "it": "Lugano International Festival Endorfine",
+        "en": "Lugano International Festival Endorfine",
+        "de": "Lugano International Festival Endorfine",
+        "fr": "Lugano International Festival Endorfine"
+      },
+      "description": "Lugano International Festival Endorfine è un festival culturale svizzero dedicato al pensiero e all'attualità promosso dall’Associazione Endorfine Festival, ente senza scopo di lucro composto da",
+      "descriptionByLocale": {
+        "it": "Lugano International Festival Endorfine è un festival culturale svizzero dedicato al pensiero e all'attualità promosso dall’Associazione Endorfine Festival, ente senza scopo di lucro composto da",
+        "en": "Lugano International Festival Endorfine is a cultural Swiss festival dedicated to thought and current affairs sponsored by the Endorfine Festival Association, a nonprofit organization composed of",
+        "de": "Lugano International Festival Endorfine ist ein Schweizer Kulturfestival, das dem Denken und dem Zeitgeschehen gewidmet ist und von der Endorfine Festival Association, einer Non-Profit-Organisation,",
+        "fr": "Lugano International Festival Endorfine est un festival culturel suisse dédié à la pensée et à l'actualité, promu par l'association Endorfine Festival, une organisation à but non lucratif composée"
+      },
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-13",
+      "startTime": "09:00",
+      "category": "Festival / Incontro",
+      "venue": "Palazzo dei Congressi",
+      "comune": "Lugano",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/museums/children/events/lugano/lugano-international-festival-endorfine_AABtGkc",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Piazza dell'Indipendenza 4",
+        "postalCode": "6900"
+      },
+      "geo": {
+        "lat": 46.0049708,
+        "lng": 8.9561164
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-AABtGkc.webp"
     }
   ]
 }

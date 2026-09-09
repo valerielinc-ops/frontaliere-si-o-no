@@ -18487,6 +18487,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzi-amministrati-concorrenza-potere',
+    category: 'novita',
+    date: '2026-09-09T10:57:15.910Z',
+    image: '/images/blog/prezzi-amministrati-concorrenza-potere.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
