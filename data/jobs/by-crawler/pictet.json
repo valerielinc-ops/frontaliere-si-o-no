@@ -51,20 +51,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-tax-reclaim-relief-12-months-pictet-luxembourg",
-        "apprendista-tax-reclaim-relief-12-months-pictet-group-luxembourg"
+        "trainee-tax-reclaim-relief-12-months-pictet-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-tax-reclaim-relief-12-months-pictet-luxembourg",
-          "apprendista-tax-reclaim-relief-12-months-pictet-group-luxembourg"
+          "trainee-tax-reclaim-relief-12-months-pictet-luxembourg"
         ],
         "fr": [
           "trainee-tax-reclaim-relief-12-months-pictet-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:08:15.921Z",
+      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -128,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-analyst-pictet-singapore",
-        "investment-analista-pictet-group-singapore"
+        "investment-analyst-pictet-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-analyst-pictet-singapore",
-          "investment-analista-pictet-group-singapore"
+          "investment-analyst-pictet-singapore"
         ],
         "fr": [
           "investment-analyst-pictet-singapore"
@@ -205,13 +201,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-marketing-manager-germany-pictet-frankfurt",
-        "senior-marketing-manager-germania-pictet-group-frankfurt"
+        "senior-marketing-manager-germany-pictet-frankfurt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-marketing-manager-germany-pictet-frankfurt",
-          "senior-marketing-manager-germania-pictet-group-frankfurt"
+          "senior-marketing-manager-germany-pictet-frankfurt"
         ],
         "de": [
           "senior-marketing-manager-germany-pictet-frankfurt"
@@ -281,13 +275,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fund-analyst-pictet-geneva",
-        "fund-analista-pictet-group-geneva"
+        "fund-analyst-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fund-analyst-pictet-geneva",
-          "fund-analista-pictet-group-geneva"
+          "fund-analyst-pictet-geneva"
         ],
         "de": [
           "fund-analyst-pictet-geneva"
@@ -361,26 +353,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "paralegal-officer-pictet-luxembourg",
-        "parajuriste-pictet-group-luxembourg",
-        "ufficiale-del-paralegal-pictet-group-luxembourg",
-        "paralegal-officer-pictet-group-luxembourg"
+        "parajuriste-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "paralegal-officer-pictet-luxembourg",
-          "ufficiale-del-paralegal-pictet-group-luxembourg"
+          "paralegal-officer-pictet-luxembourg"
         ],
         "de": [
           "paralegal-officer-pictet-luxembourg"
         ],
         "fr": [
           "paralegal-officer-pictet-luxembourg",
-          "parajuriste-pictet-group-luxembourg",
-          "paralegal-officer-pictet-group-luxembourg"
+          "parajuriste-pictet-group-luxembourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:31.605Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -444,13 +432,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-specialist-pictet-geneva",
-        "investment-specialista-pictet-group-geneva"
+        "investment-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-specialist-pictet-geneva",
-          "investment-specialista-pictet-group-geneva"
+          "investment-specialist-pictet-geneva"
         ],
         "de": [
           "investment-specialist-pictet-geneva"
@@ -605,10 +591,10 @@
       "id": "pictet-35d25e54abea",
       "slug": "apprendista-data-management-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "apprendista-data-management-pictet-group-luxembourg",
         "en": "trainee-data-management-pictet-luxembourg",
+        "it": "apprendista-data-management-pictet-group-luxembourg",
         "de": "auszubildender-data-management-pictet-group-luxembourg",
-        "fr": "trainee-data-management-pictet-luxembourg"
+        "fr": "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -677,12 +663,12 @@
     },
     {
       "id": "pictet-ee7c564e6978",
-      "slug": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+      "slug": "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
         "en": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
+        "it": "funzionario-fiscale-imposte-cliente-regolazione-reporting-pictet-group-luxembourg",
         "de": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg",
-        "fr": "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        "fr": "agent-d-impot-operationnel-declaration-des-impots-des-clients-et-des-reglements-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -737,7 +723,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:40:21.827Z"
+      "firstSeenAt": "2026-09-08T13:40:21.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ],
+        "fr": [
+          "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "operational-tax-officer-tax-client-regulatory-reporting-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-95362c5e719b",
@@ -789,8 +786,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg",
-        "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg",
-        "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-group-luxembourg"
+        "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -801,8 +797,7 @@
         ],
         "fr": [
           "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg",
-          "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg",
-          "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-group-luxembourg"
+          "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg"
         ]
       },
       "firstSeenAt": "2026-08-24T10:07:53.980Z",

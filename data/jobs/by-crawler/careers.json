@@ -52,13 +52,11 @@
       "previousSlugs": [
         "praktikant-in-product-manager-convenience-80-100-lepatron-lugano",
         "praktikant-in-product-manager-convenience-80-100-careers-ch",
-        "praktikant-in-product-manager-convenience-80-100-lepatron-bockten",
-        "interno-in-product-manager-convenienza-80-100-lepatron-bockten"
+        "praktikant-in-product-manager-convenience-80-100-lepatron-bockten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-product-manager-convenience-80-100-careers-ch",
-          "interno-in-product-manager-convenienza-80-100-lepatron-bockten"
+          "praktikant-in-product-manager-convenience-80-100-careers-ch"
         ],
         "fr": [
           "praktikant-in-product-manager-convenience-80-100-lepatron-lugano",
@@ -128,32 +126,29 @@
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
-        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-        "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
-        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
-        "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
+          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten"
+        ],
         "it": [
           "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-          "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
-          "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten"
+          "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano"
         ],
         "en": [
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
-        ],
-        "de": [
-          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
-          "betriebsmechaniker-in-instandhaltung-80-100-careers-ch"
         ],
         "fr": [
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
         ]
       },
+      "previousSlugs": [
+        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
+        "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:28:48.595Z",
       "salaryMin": 72500,
@@ -172,12 +167,12 @@
     },
     {
       "id": "careers-60f21094e7fe",
-      "slug": "teamleiter-in-anlagenfuhrer-in-100-careers-ch",
+      "slug": "team-leader-leader-delle-piante-100-lepatron-bockten",
       "slugByLocale": {
-        "it": "teamleiter-in-anlagenfuhrer-in-100-careers-ch",
-        "en": "teamleiter-in-anlagenfuhrer-in-100-careers-ch",
         "de": "teamleiter-in-anlagenfuhrer-in-100-careers-ch",
-        "fr": "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
+        "it": "team-leader-leader-delle-piante-100-lepatron-bockten",
+        "en": "team-leader-plant-leader-100-lepatron-bockten",
+        "fr": "chef-d-equipe-chef-d-usine-100-lepatron-bockten"
       },
       "company": "lepatron",
       "companyKey": "careers",
@@ -230,7 +225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:39:36.514Z"
+      "firstSeenAt": "2026-09-08T13:39:36.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
+        ],
+        "en": [
+          "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
+        ],
+        "fr": [
+          "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-anlagenfuhrer-in-100-careers-ch"
+      ]
     }
   ]
 }

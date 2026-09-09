@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-80669d2c09ff",
-      "slug": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
+      "slug": "personale-ferroviario-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
-        "en": "associate-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
         "de": "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
-        "fr": "collaborateur-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
+        "it": "personale-ferroviario-davos-klosters-bergbahnen-ag-davos",
+        "en": "railway-staff-davos-klosters-bergbahnen-ag-davos",
+        "fr": "personnel-ferroviaire-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -60,12 +60,14 @@
         "en": [
           "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
           "associate-service-davos-klosters-bergbahnen-ag-davos",
-          "associate-it-davos-klosters-bergbahnen-ag-davos"
+          "associate-it-davos-klosters-bergbahnen-ag-davos",
+          "associate-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
         ],
         "fr": [
           "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
           "collaborateur-trice-service-davos-klosters-bergbahnen-ag-davos",
-          "collaborateur-trice-it-davos-klosters-bergbahnen-ag-davos"
+          "collaborateur-trice-it-davos-klosters-bergbahnen-ag-davos",
+          "collaborateur-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
         ],
         "de": [
           "mitarbeiter-in-service-davos-klosters-bergbahnen-ag-davos",
@@ -82,7 +84,9 @@
         "collaboratore-trice-it-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-it-davos-klosters-bergbahnen-ag-davos",
         "associate-it-davos-klosters-bergbahnen-ag-davos",
-        "collaborateur-trice-it-davos-klosters-bergbahnen-ag-davos"
+        "collaborateur-trice-it-davos-klosters-bergbahnen-ag-davos",
+        "associate-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
+        "collaborateur-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -146,15 +150,13 @@
         "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
         "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
         "technischer-leiter-in-davos-klosters-bergbahnen-davos",
-        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos",
-        "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos"
+        "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-davos",
           "technischer-responsabile-davos-klosters-bergbahnen-ag-davos",
-          "technischer-leiter-in-davos-klosters-bergbahnen-davos",
-          "responsabile-del-personale-in-davos-klosters-bergbahnen-ag-davos"
+          "technischer-leiter-in-davos-klosters-bergbahnen-davos"
         ],
         "en": [
           "leitung-kassenmitarbeiter-in-davos-klosters-bergbahnen-ag-davos"
@@ -225,13 +227,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-08T23:31:47.863Z",
       "previousSlugs": [
-        "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-        "cucina-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
+        "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-          "cucina-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
+          "koch-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
         ]
       },
       "firstSeenAt": "2026-09-01T14:19:50.366Z",
@@ -425,13 +425,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-08T23:31:47.069Z",
       "previousSlugs": [
-        "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
-        "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
+        "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
-          "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
+          "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
         ],
         "en": [
           "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
@@ -504,8 +502,7 @@
         "company-carpenter-in-real-estate-maintenance-davos-klosters-bergbahnen-ag-davos",
         "betriebsschreiner-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "societe-charpentier-dans-l-entretien-immobilier-davos-klosters-bergbahnen-ag-davos",
-        "betriebselektriker-in-davos-klosters-bergbahnen-davos",
-        "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos"
+        "betriebselektriker-in-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -514,8 +511,7 @@
           "company-carpenter-in-real-estate-maintenance-davos-klosters-bergbahnen-ag-davos",
           "betriebsschreiner-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
           "societe-charpentier-dans-l-entretien-immobilier-davos-klosters-bergbahnen-ag-davos",
-          "betriebselektriker-in-davos-klosters-bergbahnen-davos",
-          "elettricisti-di-affari-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos"
+          "betriebselektriker-in-davos-klosters-bergbahnen-davos"
         ],
         "en": [
           "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
@@ -588,13 +584,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-08T23:31:46.511Z",
       "previousSlugs": [
-        "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos",
-        "salario-orario-cassiere-davos-klosters-bergbahnen-ag-davos"
+        "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos",
-          "salario-orario-cassiere-davos-klosters-bergbahnen-ag-davos"
+          "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
         ],
         "en": [
           "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
@@ -662,13 +656,11 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-08T23:31:46.255Z",
       "previousSlugs": [
-        "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-        "tuttofare-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
+        "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos",
-          "tuttofare-nel-ristorante-bolgen-plaza-davos-klosters-bergbahnen-ag-davos"
+          "allrounder-in-restaurant-bolgen-plaza-davos-klosters-bergbahnen-davos"
         ]
       },
       "needsRetranslation": true,
