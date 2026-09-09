@@ -6169,6 +6169,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stablecoin-franco-fase-operativa.title': 'Stablecoin en francs : le projet entre en phase opérationnelle',
     'blog.article.stablecoin-franco-fase-operativa.excerpt': 'Le projet CHFD pour une monnaie numérique liée au franc suisse entre dans la phase de test. Neuf partenaires financiers suisses expérimentent des utilisations concrètes du stablecoin jusqu\'à fin 2026.',
     'blog.article.stablecoin-franco-fase-operativa.imageAlt': 'Bureau fintech suisse moderne avec des professionnels de la finance gérant la technologie blockchain et stablecoin sur écrans numériques',
+    'blog.article.accordo-clima-commercio-consultazione.title': 'Accord climatique et commerce : consultation conclue',
+    'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Conseil fédéral conclut consultation ACCTS : 42 voix sur 45. Accord sur le climat, le commerce et la durabilité entre la Suisse, le Costa Rica, l\'Islande et la Nouvelle-Zélande.',
+    'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Chambre fédérale suisse du Parlement, lieu des décisions en matière de politique commerciale',
 };
 
 export default blogMetaChFr;

@@ -80087,6 +80087,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordo-clima-commercio-consultazione': {
+    title: 'Accordo climatico e commercio: consultazione conclusa',
+    description: 'Consiglio federale conclude consultazione ACCTS il 9 settembre: 42 favorevoli su 45. Accordo Svizzera-Costa Rica-Islanda-Nuova Zelanda su clima, commercio',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, climatico, commercio, consultazione',
+    ogTitle: 'ACCTS: conclusa consultazione su clima e commercio',
+    ogDescription: 'Il Consiglio federale ha concluso il 9 settembre la consultazione sull\'Accordo climatico-commerciale (ACCTS) tra Svizzera, Costa Rica, Islanda e Nuova Zelanda. 42 pareri favorevoli su 45. L\'Accordo promuove tecnologie ambientali, regolazioni',
+    canonicalPath: '/articoli-svizzera/accordo-clima-commercio-consultazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordo climatico e commercio: consultazione conclusa",
+      "description": "Consiglio federale conclude consultazione ACCTS il 9 settembre: 42 favorevoli su 45. Accordo Svizzera-Costa Rica-Islanda-Nuova Zelanda su clima, commercio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accordo-clima-commercio-consultazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula parlamentare federale svizzera, sede delle decisioni sulla politica commerciale internazionale"
+      },
+      "datePublished": "2026-09-09T12:32:04+00:00",
+      "dateModified": "2026-09-09T12:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordo-clima-commercio-consultazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
