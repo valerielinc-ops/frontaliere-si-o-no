@@ -569,12 +569,14 @@ function slugifyTitle(text = '', suffix = '') {
   return truncateSlugAtWordBoundary(s, 200);
 }
 
-function firstLocationSegment(locText = '') {
+export function firstLocationSegment(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
-  if (/^[A-Z]{2}$/.test(cleaned)) return ''; // Bare country code is not useful as a city
-  const parts = cleaned.split(/\s*-\s*/);
-  return parts.length > 0 ? parts[0].trim() : cleaned;
+  if (/^[A-Z]{2,3}$/.test(cleaned)) return ''; // Bare country code is not useful as a city
+  const parts = cleaned.split(/\s*-\s*/).map((part) => part.trim()).filter(Boolean);
+  // Some Workday tenants prefix the city with the country code (e.g. "CH - Visp").
+  // Do not publish that prefix as the workplace when selecting the first segment.
+  return parts.find((part) => !/^[A-Z]{2,3}$/.test(part)) || '';
 }
 
 /**
