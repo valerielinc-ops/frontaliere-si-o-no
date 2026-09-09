@@ -6178,6 +6178,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.giornata-informativa-esercito-donne.title': 'Compulsory Information Day for Swiss Women',
     'blog.article.giornata-informativa-esercito-donne.excerpt': 'The Federal Council approves the message for a mandatory information day on the army and civil protection. Popular vote in 2028, implementation early 2030.',
     'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Swiss institutional government building with national flag, representing federal administration and policy decisions',
+    'blog.article.legge-militare-struttura-condotta-2026.title': 'Federal Council: new Swiss army structure',
+    'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'The Federal Council launches consultation on changes to military law: new conduct structure, overseas services for militia servicemen, protection from espionage.',
+    'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Swiss Federal Parliament in Bern, where the Federal Council initiated the consultation on military law reforms',
 };
 
 export default blogMetaChEn;

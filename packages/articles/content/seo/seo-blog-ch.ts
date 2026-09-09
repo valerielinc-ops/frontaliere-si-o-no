@@ -80204,6 +80204,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-legge-militare-struttura-condotta-2026': {
+    title: 'Consiglio federale: nuova struttura esercito svizzero',
+    description: 'Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all\'estero per militari di milizia, protezione',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, nuova, struttura',
+    ogTitle: 'Nuova struttura dell\'esercito svizzero',
+    ogDescription: 'Il Consiglio federale trasforma la struttura dell\'esercito per rafforzare la difesa. Scopri le novità su obblighi militari, protezione da spionaggio e progetti pilota.',
+    canonicalPath: '/articoli-svizzera/legge-militare-struttura-condotta-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: nuova struttura esercito svizzero",
+      "description": "Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all'estero per militari di milizia, protezione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/legge-militare-struttura-condotta-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento federale svizzero a Berna, sede del Consiglio federale che ha avviato la consultazione sulla riforma dell'esercito"
+      },
+      "datePublished": "2026-09-09T13:43:52+00:00",
+      "dateModified": "2026-09-09T13:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/legge-militare-struttura-condotta-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
