@@ -262,7 +262,7 @@ export function aggregatePostHogRows(rows, companies = new Map()) {
     employers.set(resolved.key, current);
   }
   return {
-    employers: [...employers.values()].map((row) => ({ ...row, candidates: row.applyClickProxy })),
+    employers: [...employers.values()],
     observed,
     attributed,
     residuals,
@@ -363,7 +363,6 @@ export function aggregateGa4Rows(rows) {
   return [...byKey.values()].map((entry) => ({
     ...entry,
     applyClickProxy: proxyFor(entry.persons, entry.sessions),
-    candidates: proxyFor(entry.persons, entry.sessions),
   }));
 }
 
@@ -403,7 +402,7 @@ export function resolveGa4Employers(rows, companies) {
     employers.set(resolved.key, current);
   }
   return {
-    employers: [...employers.values()].map((row) => ({ ...row, candidates: row.applyClickProxy })),
+    employers: [...employers.values()],
     observed,
     attributed,
     residuals,
@@ -506,8 +505,6 @@ function reportPayload({ source, window, data, rows, min, days }) {
     limits: data.coverage.limits,
     totals: {
       ...totals,
-      candidates: totals.applyClickProxy,
-      candidatesMeaning: 'legacy compatibility alias for applyClickProxy; not an application count',
       personsToSessionsRatio: totals.sessions > 0 ? Number((totals.persons / totals.sessions).toFixed(3)) : 0,
     },
     employers,

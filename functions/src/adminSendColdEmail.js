@@ -27,10 +27,12 @@ const INSIGHTS_COLLECTION = 'employer_insights';
 const CONTACTS_COLLECTION = 'employer_contacts';
 const SENDS_COLLECTION = 'employer_outreach_sends';
 const SUPPRESSION_COLLECTION = 'employer_outreach_suppression';
-// Matches the CLI default (send-cold-emails.mjs --days-label) so the preview,
-// the CLI send and the web-UI send phrase the period identically.
-const PERIOD_LABEL = 'negli ultimi 3 mesi';
 const VALID_TOUCHES = new Set([1, 2, 3, 4]);
+
+function periodLabelFromWindow(window) {
+  if (!window || typeof window !== 'object' || !window.from || !window.to) return '';
+  return `${window.from} → ${window.to}`;
+}
 
 async function getDoc(db, collection, id) {
   try {
@@ -86,10 +88,12 @@ export async function handleAdminSendColdEmail({ companyKey, touch, force, secre
   }
 
   const totals = insights.totals || {};
+  const periodLabel = periodLabelFromWindow(insights.window);
   const sequence = buildSequence({
     company: insights.companyName || contact.companyName || key,
-    candidates: Number(totals.candidates || 0),
-    periodLabel: PERIOD_LABEL,
+    metricValue: periodLabel ? totals.applyClicks : null,
+    metricLabel: 'click per candidarsi',
+    periodLabel,
     contactName: contact.contactName || '',
     topRole: contact.topRole || '',
   });

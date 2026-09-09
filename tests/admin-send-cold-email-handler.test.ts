@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .js Cloud Function module, no types
 import { handleAdminSendColdEmail } from '../functions/src/adminSendColdEmail.js';
 
 // Web-UI cold-email sender core. Admin gate is enforced by the onRequest wrapper
@@ -47,7 +46,12 @@ function fakeSender() {
   return { sent, sendEmail };
 }
 
-const baseInsights = { companyName: 'Casale SA', totals: { candidates: 49 } };
+const baseInsights = {
+  companyName: 'Casale SA',
+  source: 'posthog',
+  window: { from: '2026-06-10T22:00:00.000Z', to: '2026-09-08T22:00:00.000Z' },
+  totals: { applyClicks: 49, applications: null },
+};
 const baseContact = { email: 'denise@casale.ch', contactName: 'Denise Rossi', topRole: 'Infermiere/a' };
 
 describe('handleAdminSendColdEmail', () => {
@@ -60,7 +64,8 @@ describe('handleAdminSendColdEmail', () => {
     expect(res.body.to).toBe('denise@casale.ch');
     expect(sent).toHaveLength(1);
     expect(sent[0].subject).toBe('interazioni candidatura');
-    expect(sent[0].text).toContain('49 segnali di interesse');
+    expect(sent[0].text).toContain('49 click per candidarsi');
+    expect(sent[0].text).not.toContain('49 candidati');
     // Placeholders replaced with real signed URLs (no leftover template tokens).
     expect(sent[0].text).toContain('https://frontaliereticino.ch/azienda/casale-sa/?t=');
     expect(sent[0].text).not.toContain('{{INSIGHTS_URL}}');
@@ -160,5 +165,31 @@ describe('handleAdminSendColdEmail', () => {
     const res = await handleAdminSendColdEmail({ companyKey: KEY, touch: 1, secret: SECRET, db, sendEmail });
     expect(res.status).toBe(404);
     expect(sent).toHaveLength(0);
+  });
+
+  it('does not send a legacy candidates/lost number as if it were measured', async () => {
+    const db = fakeDb({
+      insights: { companyName: 'Legacy SA', totals: { candidates: 49, lost: 12 } },
+      contact: baseContact,
+    });
+    const { sent, sendEmail } = fakeSender();
+    const res = await handleAdminSendColdEmail({ companyKey: KEY, touch: 1, secret: SECRET, db, sendEmail });
+
+    expect(res.status).toBe(200);
+    expect(sent[0].text).not.toContain('49 segnali di interesse');
+    expect(sent[0].text).not.toMatch(/12 (?:segnali di interesse|click per candidarsi)/);
+    expect(sent[0].text).not.toContain('candidati');
+  });
+
+  it('does not include a measured count when the insights window is absent', async () => {
+    const db = fakeDb({
+      insights: { companyName: 'Unscoped SA', totals: { applyClicks: 49 } },
+      contact: baseContact,
+    });
+    const { sent, sendEmail } = fakeSender();
+    const res = await handleAdminSendColdEmail({ companyKey: KEY, touch: 1, secret: SECRET, db, sendEmail });
+
+    expect(res.status).toBe(200);
+    expect(/49 click per candidarsi/.test(sent[0].text)).toBe(false);
   });
 });

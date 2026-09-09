@@ -1,24 +1,25 @@
 #!/usr/bin/env node
 /**
  * Write per-company crawled-traffic counts to Firestore for the publisher
- * dashboard ("vi abbiamo mandato N candidati dai vostri annunci gratuiti").
+ * dashboard. Values are measured apply clicks, with the explicit proxy as a
+ * fallback signal; neither value is an application count.
  *
  * Input: the JSON produced by employer-traffic-report.mjs --json (employers[]
- * with { key, name, candidates, clicks }). Writes one doc per company to
+ * with { key, name, applyClicks, applyClickProxy }). Writes one doc per company to
  * `employer_crawled_traffic/{key}` (key = slugified company, matches the
  * dashboard's slugify(companyName) lookup). Read-only public collection
  * (firestore.rules); writes happen here via the Admin SDK only.
  *
- * Stale-doc pruning: buildTrafficDocs() only emits rows with candidates > 0
- * (no "0 candidati" noise), so a company that drops OUT of this run's set —
+ * Stale-doc pruning: buildTrafficDocs() emits rows with at least one measured
+ * signal field, including an explicit zero, so a company that drops OUT of this run's set —
  * e.g. its previous count came from a source that couldn't exclude sponsored
- * traffic and the corrected free-only count is now 0 — must not keep its old
+ * traffic and the corrected report no longer contains that company — must not keep its old
  * (now-wrong) doc forever. Any existing `employer_crawled_traffic/{key}` doc
  * whose key is NOT in the current run's key set is deleted, UNLESS that would
  * remove more than PRUNE_FLOOR_PCT (default 50%) of existing docs in one run
  * — a GA4 report that "succeeds" (no fetch error) but is missing rows for a
  * subset of employer/is_sponsored combos (transient API glitch) looks
- * identical to "these companies really have 0 candidates now", so a mass
+ * identical to "these companies really have 0 signals now", so a mass
  * drop is treated as suspect and skipped (logged, not silently dropped)
  * rather than wiping the collection. The one known LEGITIMATE mass-drop is
  * the one-time PostHog→GA4 cutover correction (sponsored-inflated employers
@@ -42,17 +43,28 @@ const PRUNE_FLOOR_PCT = Number(process.env.EMPLOYER_TRAFFIC_PRUNE_FLOOR_PCT) || 
 /** Shape the Firestore docs from a report JSON. Pure → unit-testable. */
 export function buildTrafficDocs(report) {
   if (!report || !Array.isArray(report.employers)) return [];
-  const days = Number(report.days) || 0;
+  const window = report.window;
+  if (!window || typeof window !== 'object' || !window.from || !window.to) return [];
+  const finiteCount = (value) => {
+    if (value === undefined || value === null || value === '') return null;
+    const count = Number(value);
+    return Number.isFinite(count) && count >= 0 ? Math.trunc(count) : null;
+  };
   return report.employers
-    .filter((e) => e && e.key && Number.isFinite(e.candidates) && e.candidates > 0)
     .map((e) => ({
+      e,
+      applyClicks: finiteCount(e?.applyClicks),
+      applyClickProxy: finiteCount(e?.applyClickProxy),
+    }))
+    .filter(({ e, applyClicks, applyClickProxy }) => e && e.key && (applyClicks !== null || applyClickProxy !== null))
+    .map(({ e, applyClicks, applyClickProxy }) => ({
       key: String(e.key),
       data: {
         company: String(e.name || e.key),
-        candidates: Number(e.candidates) || 0,
-        clicks: Number(e.clicks) || 0,
-        windowDays: days,
-        source: String(report.source || 'posthog'),
+        applyClicks,
+        applyClickProxy,
+        window: { ...window },
+        source: report.source ? String(report.source) : null,
       },
     }));
 }
@@ -85,7 +97,7 @@ async function run() {
   catch (e) { console.error(`report illeggibile: ${e.message}`); process.exit(1); }
 
   const docs = buildTrafficDocs(report);
-  if (!docs.length) { console.log('Nessuna azienda con candidati > 0 — niente da scrivere (pruning skippato, report vuoto).'); return; }
+  if (!docs.length) { console.log('Nessuna azienda con campo di segnale misurato — niente da scrivere (pruning skippato, report vuoto).'); return; }
 
   const { db, FieldValue } = await getDb();
   const { commitInChunks } = await import('./lib/firestore-batch.mjs');
@@ -94,8 +106,8 @@ async function run() {
   });
 
   // Prune stale docs (see header comment): delete every existing doc whose key
-  // is NOT in this run's set, so a company that dropped to 0 candidates loses
-  // its old (possibly inflated) doc instead of keeping it forever — unless
+  // is NOT in this run's set, so a company absent from the report loses its
+  // old (possibly inflated) doc instead of keeping it forever — unless
   // that would remove more than PRUNE_FLOOR_PCT of existing docs at once,
   // which looks more like a partial/glitched report than real churn.
   const currentKeys = new Set(docs.map((d) => d.key));
@@ -112,7 +124,7 @@ async function run() {
     deleted = await commitInChunks(db, staleRefs, (batch, ref) => batch.delete(ref));
   }
 
-  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source})${deleted ? `, ${deleted} stale rimosse` : ''}${pruneSkipped ? ' [prune skippato: floor]' : ''}.`);
+  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.window?.from} → ${report.window?.to}, source ${report.source || 'non disponibile'})${deleted ? `, ${deleted} stale rimosse` : ''}${pruneSkipped ? ' [prune skippato: floor]' : ''}.`);
 }
 
 // Esegui solo se invocato direttamente (buildTrafficDocs resta importabile per i test).
