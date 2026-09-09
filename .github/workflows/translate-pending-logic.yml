@@ -239,6 +239,17 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Budget arithmetic, measured from the shared run-start marker:
+          # 350min hard job cap − 280min mop-up deadline = 70min commit queue.
+          # Killed runs: 34030460785 (2026-09-06 13:16:31Z→19:11:32Z),
+          # 34126519779 (2026-09-07 13:17:01Z→19:12:02Z), and
+          # 34223496560 (2026-09-08 13:28:23Z→19:23:24Z), all 355min.
+          # Healthy run 34234173510 used 8min for the initial data commit and
+          # 5min for the observability commit; 70min also covers re-assembles,
+          # the title-fix pass, and artifact uploads.
+          # The two 150min per-step caps below are both bounded by this one
+          # 280min run-wide deadline; they are not additive.
+          LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' # 280 * 60 * 1000; reserve 70min.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
@@ -379,6 +390,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' # same 280min run-wide ceiling; 70min queue margin.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
@@ -404,6 +416,10 @@ jobs:
       # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        env:
+          # 300min from the shared marker leaves 50min before the 350min hard
+          # cap for title commit, final assemble, observability, and uploads.
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '18000000' # 300 * 60 * 1000; 50min remain.
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
