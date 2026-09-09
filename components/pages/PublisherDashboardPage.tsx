@@ -85,12 +85,20 @@ function slugifyCompanyName(s: string): string {
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+export interface CrawledTrafficWindow {
+  from: string;
+  to: string;
+  kind?: string;
+  timezone?: string;
+  inclusive?: string;
+}
+
 export type CrawledTrafficState =
   | { status: 'loading' }
   | { status: 'source-unavailable' }
   | { status: 'data-missing' }
-  | { status: 'zero' }
-  | { status: 'available'; candidates: number };
+  | { status: 'zero'; metric: 'applyClicks' | 'interestSignals'; source: string; window: CrawledTrafficWindow }
+  | { status: 'available'; value: number; metric: 'applyClicks' | 'interestSignals'; source: string; window: CrawledTrafficWindow };
 
 type CrawledTrafficSnapshot = {
   id: string;
@@ -104,11 +112,33 @@ type CrawledTrafficRead =
 
 /**
  * Keep the source states distinct in the UI. A successful lookup without a
- * matching alias is missing coverage, while a matching alias without a
- * candidate record is an observed zero. Missing alias documents are ignored
- * when at least one candidate key resolves, because the lookup intentionally
+ * matching alias is missing coverage, while a matching alias with an explicit
+ * zero value is an observed zero. Missing alias documents are ignored when at
+ * least one lookup key resolves, because the lookup intentionally
  * tries several naming variants.
  */
+function normalizeCrawledTrafficWindow(value: unknown): CrawledTrafficWindow | null {
+  if (!value || typeof value !== 'object') return null;
+  const data = value as Record<string, unknown>;
+  if (typeof data.from !== 'string' || !data.from || typeof data.to !== 'string' || !data.to) return null;
+  return {
+    from: data.from,
+    to: data.to,
+    ...(typeof data.kind === 'string' ? { kind: data.kind } : {}),
+    ...(typeof data.timezone === 'string' ? { timezone: data.timezone } : {}),
+    ...(typeof data.inclusive === 'string' ? { inclusive: data.inclusive } : {}),
+  };
+}
+
+function normalizeCrawledTrafficSource(value: unknown): string | null {
+  return typeof value === 'string' && value.trim() ? value : null;
+}
+
+function normalizedNonNegativeNumber(value: unknown): number | null {
+  if (value === undefined || value === null || value === '') return null;
+  return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+}
+
 export function classifyCrawledTrafficState(
   read: CrawledTrafficRead,
 ): Exclude<CrawledTrafficState, { status: 'loading' }> {
@@ -117,7 +147,10 @@ export function classifyCrawledTrafficState(
   const availableSnapshots = read.snapshots.filter((snapshot) => snapshot.exists());
   if (availableSnapshots.length === 0) return { status: 'data-missing' };
 
-  let candidates = 0;
+  let value = 0;
+  let metric: 'applyClicks' | 'interestSignals' | null = null;
+  let source: string | null = null;
+  let window: CrawledTrafficWindow | null = null;
   let hasUsableValue = false;
   let hasInvalidValue = false;
   for (const snapshot of availableSnapshots) {
@@ -126,19 +159,48 @@ export function classifyCrawledTrafficState(
       hasInvalidValue = true;
       continue;
     }
-    if (!Object.prototype.hasOwnProperty.call(data, 'candidates')) continue;
-
-    const value = (data as Record<string, unknown>).candidates;
-    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+    const record = data as Record<string, unknown>;
+    const hasRaw = Object.prototype.hasOwnProperty.call(record, 'applyClicks');
+    const hasProxy = Object.prototype.hasOwnProperty.call(record, 'applyClickProxy');
+    const raw = normalizedNonNegativeNumber(record.applyClicks);
+    const proxy = normalizedNonNegativeNumber(record.applyClickProxy);
+    const selected = raw !== null
+      ? { value: raw, metric: 'applyClicks' as const }
+      : proxy !== null
+        ? { value: proxy, metric: 'interestSignals' as const }
+        : null;
+    if (!selected) {
+      if (hasRaw || hasProxy) hasInvalidValue = true;
+      continue;
+    }
+    const snapshotSource = normalizeCrawledTrafficSource(record.source);
+    const snapshotWindow = normalizeCrawledTrafficWindow(record.window);
+    if (!snapshotSource || !snapshotWindow) {
       hasInvalidValue = true;
       continue;
     }
+    if (metric && metric !== selected.metric) {
+      hasInvalidValue = true;
+      continue;
+    }
+    if (source && source !== snapshotSource) {
+      hasInvalidValue = true;
+      continue;
+    }
+    if (window && (window.from !== snapshotWindow.from || window.to !== snapshotWindow.to)) {
+      hasInvalidValue = true;
+      continue;
+    }
+    metric = selected.metric;
+    source = snapshotSource;
+    window = snapshotWindow;
     hasUsableValue = true;
-    candidates += value;
+    value += selected.value;
   }
 
-  if (!hasUsableValue && hasInvalidValue) return { status: 'data-missing' };
-  return candidates === 0 ? { status: 'zero' } : { status: 'available', candidates };
+  if (!hasUsableValue || hasInvalidValue || !metric || !source || !window) return { status: 'data-missing' };
+  if (value === 0) return { status: 'zero', metric, source, window };
+  return { status: 'available', value, metric, source, window };
 }
 
 const BILLING_PORTAL_ENDPOINT =
@@ -440,19 +502,19 @@ const PublisherDashboardPage: React.FC = () => {
         }
 
         // Crawled free-listing traffic signal (source status + possible upsell):
-        // Build candidate keys from all publisher job docs to handle naming variants
+        // Build lookup keys from all publisher job docs to handle naming variants
         // (e.g. publisher entered "Migros SA" but PostHog key is "migros"):
         //   1. company.companyKey (pre-computed slug from publisher profile)
         //   2. slugify(company.name) — full slug of the display name
         //   3. legal-suffix-stripped stem (strips -sa/-ag/-gmbh/… from the end)
-        // All unique keys are fetched in parallel; candidates are deduplicated by
+        // All unique keys are fetched in parallel; duplicate records are deduplicated by
         // Firestore doc id before summing so the same doc is never counted twice.
         let nextCrawledTraffic: CrawledTrafficState = classifyCrawledTrafficState({
           source: 'available',
           snapshots: [],
         });
         try {
-          const candidateKeys = Array.from(new Set(
+          const lookupKeys = Array.from(new Set(
             snap.docs.flatMap((d) => {
               const co = (d.data() as Record<string, unknown>)?.company as { name?: string; companyKey?: string } | undefined;
               const keys: string[] = [];
@@ -465,11 +527,11 @@ const PublisherDashboardPage: React.FC = () => {
               }
               return keys;
             }),
-          )).filter(Boolean);
+          )).filter((key): key is string => Boolean(key));
 
-          if (candidateKeys.length) {
+          if (lookupKeys.length) {
             const snapshots = await Promise.all(
-              candidateKeys.map((key) => getDoc(doc(db, 'employer_crawled_traffic', key))),
+              lookupKeys.map((key) => getDoc(doc(db, 'employer_crawled_traffic', key))),
             );
             const seen = new Set<string>();
             const uniqueSnapshots = snapshots.filter((ct) => {
@@ -749,16 +811,22 @@ const PublisherDashboardPage: React.FC = () => {
               {crawledTraffic.status === 'available' && (
                 <>
                   <div className="text-2xl font-extrabold font-display text-strong">
-                    {crawledTraffic.candidates.toLocaleString('it-CH')} {t('publisherDashboard.crawled.unit')}
+                    {crawledTraffic.value.toLocaleString('it-CH')} {crawledTraffic.metric === 'applyClicks' ? 'click per candidarsi' : 'segnali di interesse'}
                   </div>
+                  <p className="mt-1 text-[11px] text-muted">
+                    Finestra: {crawledTraffic.window.from} → {crawledTraffic.window.to} · Sorgente: {crawledTraffic.source}
+                  </p>
                   <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
                 </>
               )}
               {crawledTraffic.status === 'zero' && (
                 <>
                   <div className="text-2xl font-extrabold font-display text-strong">
-                    0 {t('publisherDashboard.crawled.unit')}
+                    0 {crawledTraffic.metric === 'applyClicks' ? 'click per candidarsi' : 'segnali di interesse'}
                   </div>
+                  <p className="mt-1 text-[11px] text-muted">
+                    Finestra: {crawledTraffic.window.from} → {crawledTraffic.window.to} · Sorgente: {crawledTraffic.source}
+                  </p>
                   <p className="mt-1 text-sm font-semibold text-strong">{t('publisherDashboard.crawled.zero')}</p>
                   <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
                 </>

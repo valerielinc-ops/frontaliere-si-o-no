@@ -1,9 +1,16 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .mjs helper, no types
-import { buildSequence, OPTOUT_EMAIL } from '../scripts/generate-cold-emails.mjs';
-// @ts-expect-error — plain .mjs helper, no types
+import { buildSequence as rawBuildSequence, OPTOUT_EMAIL } from '../scripts/generate-cold-emails.mjs';
 import { makeUnsubToken, buildUnsubUrl } from '../scripts/lib/outreach-unsubscribe-token.mjs';
 import { createHmac } from 'node:crypto';
+
+const buildSequence = rawBuildSequence as unknown as (args: {
+  company: string;
+  metricValue?: number | null;
+  metricLabel?: string;
+  periodLabel: string;
+  contactName?: string;
+  topRole?: string;
+}) => ReturnType<typeof rawBuildSequence>;
 
 // Compliance guard: cold B2B outreach MUST carry an opt-out on every touch
 // (Swiss nDSG/GDPR norm + deliverability). Regressing this risks the sending
@@ -11,7 +18,8 @@ import { createHmac } from 'node:crypto';
 describe('cold-email opt-out invariant', () => {
   const seq = buildSequence({
     company: 'Casale SA',
-    candidates: 88,
+    metricValue: 88,
+    metricLabel: 'segnali di interesse',
     periodLabel: 'negli ultimi 3 mesi',
     contactName: 'Denise Rossi',
     topRole: 'Magazziniere',

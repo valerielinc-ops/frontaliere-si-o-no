@@ -12,19 +12,30 @@ const ADMIN_INSIGHTS_ENDPOINT =
 const ADMIN_SEND_COLD_EMAIL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/adminSendColdEmail';
 
+export interface EmployerInsightsWindow {
+  from: string;
+  to: string;
+  kind?: string;
+  timezone?: string;
+  inclusive?: string;
+}
+
 export interface EmployerInsightsTotals {
-  views: number;
-  visitors: number;
-  candidates: number;
-  adsCount: number;
-  lost: number;
-  conversionRate: number;
+  views: number | null;
+  visitors: number | null;
+  profileViews: number | null;
+  applyClicks: number | null;
+  applications: number | null;
+  applicationsStatus: string | null;
+  adsObserved: number | null;
 }
 
 export interface EmployerInsightsRow {
   companyKey: string;
   companyName: string;
   generatedAt: string | null;
+  source: string | null;
+  window: EmployerInsightsWindow | null;
   totals: EmployerInsightsTotals;
   /** Tokenized "open as company" stats-proof URL the company receives. */
   insightsUrl: string;
