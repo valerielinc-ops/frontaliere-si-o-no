@@ -97,6 +97,32 @@ export interface AffiliateLinkAttribution {
  medium?: string;
 }
 
+export type AffiliateExperimentVariant = 'control' | 'benefit';
+
+/**
+ * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
+ * assigned a treatment. Session storage keeps the variant stable without
+ * putting an account, email, or device identifier in the attribution URL.
+ */
+export function resolveAffiliateExperimentVariant(
+ context: ComparatorContext,
+ surface: string,
+): AffiliateExperimentVariant {
+ if (surface !== 'web' || (context !== 'exchange' && context !== 'banks')) return 'control';
+ if (typeof window === 'undefined') return 'control';
+
+ const storageKey = `g4-affiliate-variant-${context}`;
+ try {
+ const stored = window.sessionStorage.getItem(storageKey);
+ if (stored === 'control' || stored === 'benefit') return stored;
+ const assigned: AffiliateExperimentVariant = Math.random() < 0.5 ? 'control' : 'benefit';
+ window.sessionStorage.setItem(storageKey, assigned);
+ return assigned;
+ } catch {
+ return 'control';
+ }
+}
+
 /**
  * Partner/Affiliate database — the records live in
  * affiliatePartnersRegistry.mjs (single source, shared with the Node newsletter

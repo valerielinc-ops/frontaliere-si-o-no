@@ -937,6 +937,23 @@ export const Analytics = {
  });
  },
 
+ /** Bounded G4 affiliate experiment exposure; contains only categorical ids. */
+ trackAffiliateExperimentExposure: (
+  context: string,
+  attribution: {
+   surface?: string;
+   campaign?: string;
+   variant?: string;
+  } = {},
+ ) => {
+  log('affiliate_experiment_exposure', {
+   context: safeAffiliateToken(context, 'unknown'),
+   surface: safeAffiliateToken(attribution.surface, 'web'),
+   campaign: safeAffiliateToken(attribution.campaign, 'affiliate'),
+   variant: safeAffiliateToken(attribution.variant, 'control'),
+  });
+ },
+
  /**
  * select_content — evento raccomandato GA4
  */

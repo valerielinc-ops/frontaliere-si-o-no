@@ -16,6 +16,7 @@ import {
   getAllPartners,
   buildGoPath,
   resolveGoHref,
+  resolveAffiliateExperimentVariant,
   partnerRelAttr,
   buildAffiliateUrl,
   sanitizePubref,
@@ -61,6 +62,13 @@ describe('affiliateService config gates', () => {
     expect(resolveGoHref('disabled-or-unknown', 'https://example.test/fallback')).toBe(
       'https://example.test/fallback',
     );
+  });
+
+  it('keeps the G4 experiment bounded to the approved web contexts', () => {
+    expect(resolveAffiliateExperimentVariant('exchange', 'email')).toBe('control');
+    expect(resolveAffiliateExperimentVariant('jobs', 'web')).toBe('control');
+    // Node/SSR has no session bucket, so the safe fallback is explicit control.
+    expect(resolveAffiliateExperimentVariant('banks', 'web')).toBe('control');
   });
 
   it('marks paid programs sponsored and institutional links plain', () => {

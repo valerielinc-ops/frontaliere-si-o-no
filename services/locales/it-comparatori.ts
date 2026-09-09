@@ -372,6 +372,7 @@ const translations: Record<string, string> = {
  'affiliate.sectionTitle': 'Strumenti consigliati',
  'affiliate.disclosure': 'Alcuni link possono generare una commissione che ci aiuta a mantenere il servizio gratuito.',
  'affiliate.cta': 'Scopri →',
+ 'affiliate.cta.benefit': 'Confronta l\'offerta →',
 
  // AdSense
  'affiliate.badge.recommended': 'Consigliato',
