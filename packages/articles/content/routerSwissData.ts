@@ -2088,6 +2088,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'legge-militare-struttura-condotta-2026': { it: 'legge-militare-struttura-condotta-2026', en: 'military-law-command-structure-2026', de: 'militaergesetz-kommandostruktur-2026', fr: 'loi-militaire-structure-commandement-2026' },
  'consiglio-federale-ruag-mro': { it: 'consiglio-federale-ruag-mro', en: 'federal-council-ruag-mro', de: 'bundesrat-ruag-mro', fr: 'conseil-federal-ruag-mro' },
  'zimmer-biomet-tagli-impieghi': { it: 'zimmer-biomet-tagli-impieghi', en: 'zimmer-biomet-job-cuts', de: 'zimmer-biomet-stellenabbau', fr: 'zimmer-biomet-suppressions-emplois' },
+ 'ubs-yumo-educazione-finanziaria': { it: 'ubs-yumo-educazione-finanziaria', en: 'ubs-yumo-financial-education', de: 'ubs-yumo-finanzbildung', fr: 'ubs-yumo-education-financiere' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

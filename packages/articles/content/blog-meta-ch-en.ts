@@ -6187,6 +6187,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet cuts up to 580 jobs in Winterthur',
     'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'The US giant launches the consultation procedure with workers to reduce staff. Procedures and benefits for affected employees.',
     'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Zimmer Biomet manufacturing facility in Winterthur, canton Zurich, where up to 580 jobs will be cut',
+    'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS launches YUMO: free financial education',
+    'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Free UBS platform to teach young Swiss people how to manage savings, investments and personal finances. Available in Italian, German, French and English.',
+    'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'View of Lugano with lake and mountains, symbolizing modern Switzerland',
 };
 
 export default blogMetaChEn;

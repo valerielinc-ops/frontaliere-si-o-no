@@ -6187,6 +6187,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet coupe jusqu\'à 580 emplois à Winterthour',
     'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Le géant américain entame la procédure de consultation avec les travailleurs pour réduire le personnel. Procédures et avantages pour les employés concernés.',
     'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Usine de fabrication Zimmer Biomet à Winterthour, canton de Zurich, où jusqu\'à 580 emplois seront supprimés',
+    'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS lance YUMO : éducation financière gratuite',
+    'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Plateforme gratuite d\'UBS pour apprendre aux jeunes Suisses à gérer l\'épargne, les investissements et les finances personnelles. Disponible en italien, allemand, français et anglais.',
+    'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'Vue de Lugano avec lac et montagnes, symbole de la Suisse moderne',
 };
 
 export default blogMetaChFr;

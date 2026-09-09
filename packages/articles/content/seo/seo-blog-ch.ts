@@ -80321,6 +80321,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-yumo-educazione-finanziaria': {
+    title: 'UBS lancia YUMO: educazione finanziaria gratuita',
+    description: 'Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese',
+    keywords: 'frontalieri, ticino, svizzera, italia, lancia, yumo, educazione, finanziaria',
+    ogTitle: 'UBS lancia YUMO: educazione finanziaria gratuita per giovani',
+    ogDescription: 'UBS presenta YUMO, la nuova piattaforma digitale gratuita per insegnare ai giovani svizzeri a gestire consapevolmente risparmi, investimenti e denaro personale. Disponibile in italiano, tedesco, francese e inglese.',
+    canonicalPath: '/articoli-svizzera/ubs-yumo-educazione-finanziaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS lancia YUMO: educazione finanziaria gratuita",
+      "description": "Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-yumo-educazione-finanziaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con lago e montagne sullo sfondo, simbolo della Svizzera moderna"
+      },
+      "datePublished": "2026-09-09T14:43:40+00:00",
+      "dateModified": "2026-09-09T14:43:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-yumo-educazione-finanziaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
