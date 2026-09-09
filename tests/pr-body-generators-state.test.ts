@@ -154,15 +154,15 @@ function isPlaceholder(bullet: string): boolean {
 }
 
 /**
- * I blocchi `prompt: |` di un workflow, delimitati per indentazione come vuole
- * lo scalare literal di YAML: il blocco finisce alla prima riga non vuota con
- * indentazione minore o uguale a quella della chiave.
+ * I blocchi multilinea `prompt: |`/`prompt: >` di un workflow, delimitati per
+ * indentazione come vuole lo scalare YAML: il blocco finisce alla prima riga
+ * non vuota con indentazione minore o uguale a quella della chiave.
  */
 function promptBlocks(text: string): string[] {
   const out: string[] = [];
   const lines = text.split('\n');
   for (let i = 0; i < lines.length; i++) {
-    const m = /^(\s*)prompt:\s*\|/.exec(lines[i]);
+    const m = /^(\s*)prompt:\s*[|>](?:[+-]?\d?|\d?[+-]?)(?:\s+#.*)?$/.exec(lines[i]);
     if (!m) continue;
     const indent = m[1].length;
     const buf: string[] = [];
@@ -203,15 +203,33 @@ function emissions(srcs: SourceFile[]): Emission[] {
 // ---------------------------------------------------------------------------
 
 describe('generatori del body PR — sezione dei residui', () => {
-  it('mantiene issue-fix.yml sotto il limite dello scalar prompt di GitHub', async () => {
-    const workflow = sources.find((s) => s.rel === '.github/workflows/issue-fix.yml');
-    expect(workflow, 'issue-fix.yml non trovato').toBeDefined();
-    const prompts = promptBlocks(workflow!.text);
-    expect(prompts, 'issue-fix.yml deve avere un solo prompt').toHaveLength(1);
-    // GitHub rejects an otherwise valid workflow when one step scalar grows
-    // past its server-side limit. Keep headroom below the observed ~21 KiB
-    // ceiling so a small prompt addition cannot recreate a jobs:[] run.
-    expect(prompts[0].length).toBeLessThanOrEqual(20_000);
+  it('mantiene ogni scalar prompt dei workflow sotto il limite che evita workflow invalidi', async () => {
+    const workflowSources = sources.filter((s) => /^\.github\/workflows\/[^/]+\.(?:yml|yaml)$/.test(s.rel));
+    const workflowDir = path.join(REPO, '.github/workflows');
+    const workflowFiles = (await fs.readdir(workflowDir, { withFileTypes: true }))
+      .filter((entry) => entry.isFile() && /\.(?:yml|yaml)$/.test(entry.name))
+      .map((entry) => `.github/workflows/${entry.name}`)
+      .sort();
+    expect(
+      workflowSources.map((s) => s.rel).sort(),
+      'il discovery dei workflow non deve diventare parziale o vuoto',
+    ).toEqual(workflowFiles);
+
+    const offenders: string[] = [];
+    for (const workflow of workflowSources) {
+      for (const [index, prompt] of promptBlocks(workflow.text).entries()) {
+        if (prompt.length > 20_000) {
+          offenders.push(
+            `${workflow.rel} prompt #${index + 1}: ${prompt.length} caratteri; `
+              + 'GitHub può rendere invalido il workflow, avviarlo senza job e fermarne il loop',
+          );
+        }
+      }
+    }
+    // GitHub rejects an otherwise valid workflow when a step scalar grows past
+    // its server-side limit. Keep the existing 20,000-character ratchet and
+    // apply it to every workflow, not just issue-fix.yml.
+    expect(offenders, 'prompt oversize: il workflow diventerebbe invalido e smetterebbe di girare').toEqual([]);
   });
 
   it('trova almeno i generatori noti (il discovery non è vacuo)', async () => {
