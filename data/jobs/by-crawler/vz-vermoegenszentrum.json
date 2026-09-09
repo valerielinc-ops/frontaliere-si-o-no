@@ -1390,7 +1390,6 @@
           "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:36:57.056Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -1405,7 +1404,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2490
     },
     {
       "id": "vz-vermoegenszentrum-19792bf37f89",
