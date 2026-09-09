@@ -11,6 +11,7 @@ export interface BorderWaitCurrentEntry {
   totalCrossingMinutes?: number;
   status?: string;
   source?: string;
+  direction?: 'IT → CH' | 'CH → IT' | 'Entrambi' | null;
   lastUpdate?: string;
 }
 

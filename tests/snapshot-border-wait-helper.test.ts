@@ -22,6 +22,7 @@ interface CurrentDocData {
   totalCrossingMinutes: number | null;
   status: 'green' | 'amber' | 'red' | null;
   source: string;
+  direction?: 'IT → CH' | 'CH → IT' | 'Entrambi' | null;
   lastUpdate: { toDate: () => Date };
 }
 
@@ -102,6 +103,7 @@ describe('snapshotBorderWaitFiles', () => {
           totalCrossingMinutes: 15,
           status: 'amber',
           source: 'tomtom',
+          direction: 'IT → CH',
           lastUpdate: { toDate: () => lastUpdate },
         },
       },
@@ -125,6 +127,7 @@ describe('snapshotBorderWaitFiles', () => {
       totalCrossingMinutes: 15,
       status: 'amber',
       source: 'tomtom',
+      direction: 'IT → CH',
       lastUpdate: lastUpdate.toISOString(),
     });
   });

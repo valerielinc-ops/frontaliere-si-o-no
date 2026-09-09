@@ -82,6 +82,11 @@ import {
 } from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { slugifyCrossingName } from '../services/borderCrossingSlug';
+import {
+  getBorderComparisonCandidates,
+  renderBorderWaitComparison,
+  renderBorderWaitPicker,
+} from './borderWaitComparison';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
@@ -206,6 +211,7 @@ export interface BorderWaitCurrent {
         totalCrossingMinutes?: number;
         status?: 'green' | 'yellow' | 'red';
         source: WaitSource;
+        direction?: 'IT → CH' | 'CH → IT' | 'Entrambi' | null;
         lastUpdate: string;
       }
     >
@@ -1677,11 +1683,10 @@ function renderLeafPage(inp: LeafInputs): string {
   // (Maslianico, Crociale dei Mulini, Clivio-Ligornetto) on the Ticino
   // corridor and nowhere else — see the `faq` field's doc comment.
   const isTicinoCorridor = isTicinoRegion(region);
-  const direction = snapshot?.status === undefined
-    ? `${countryCode}→CH`
-    : new Date().getUTCHours() < 12
-      ? `${countryCode}→CH`
-      : `CH→${countryCode}`;
+  // Direction is a source field, not a build-time guess. A missing direction
+  // is explicitly neutral in the prose; the comparison card keeps it as
+  // unavailable instead of deriving it from UTC or the visitor's clock.
+  const direction = snapshot?.direction ?? 'Entrambi';
   const countryTokens = PARAGRAPH_COUNTRY_TOKENS[locale][countryCode];
 
   const todayBuckets = aggregateToday(crossing, history, inp.today);
@@ -1720,14 +1725,15 @@ function renderLeafPage(inp: LeafInputs): string {
   // source is always one of these (never 'static'/'mock', which are the
   // build-time/SPA fallbacks). Omitting 'static' also keeps the "Dati statistici"
   // string out of the page HTML so it never appears for a live-sourced reading.
-  const sourceLabelMap = JSON.stringify({
+  const sourceLabels = {
     bazg: copy.sourceBazg,
     here: copy.sourceHere,
     tomtom: copy.sourceTomtom,
     google: copy.sourceGoogle,
     'google-maps': copy.sourceGoogle,
     webcam: copy.sourceWebcam,
-  });
+  };
+  const sourceLabelMap = JSON.stringify(sourceLabels);
   const staticBannerHtml = staticFallback
     ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
@@ -1756,6 +1762,12 @@ function renderLeafPage(inp: LeafInputs): string {
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
         <div class="s-iUCmjg" data-bw-field="source" data-bw-source-labels="${esc(sourceLabelMap)}">${esc(sourceText)}</div>
+      </div>
+      <div class="s-Zv0TZw">
+        <div class="s-QHHL-d">${esc(
+          locale === 'it' ? 'Direzione' : locale === 'de' ? 'Richtung' : 'Direction',
+        )}</div>
+        <div class="s-54GADM" data-bw-field="direction">${esc(snapshot?.direction ?? '—')}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
@@ -1829,52 +1841,17 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>`
     : '';
 
-  // B.3 — Alternative routes section: suggest 2-3 nearby crossings per valico
-  // to help users reroute when congested. Brogeda/Chiasso/Gaggiolo get primary
-  // treatment (highest volume). Others get a generic fallback.
-  const ALT_ROUTES: Record<string, BorderCrossingSlug[]> = {
-    'chiasso-brogeda': ['chiasso-strada', 'bizzarone-novazzano', 'crociale-dei-mulini'],
-    'chiasso-centro': ['chiasso-brogeda', 'maslianico-pizzamiglio', 'bizzarone-novazzano'],
-    'chiasso-strada': ['chiasso-brogeda', 'chiasso-centro', 'bizzarone-novazzano'],
-    'gaggiolo': ['san-pietro', 'clivio-ligornetto', 'saltrio-arzo'],
-    'san-pietro': ['gaggiolo', 'clivio-ligornetto', 'rodero-stabio'],
-    'ponte-tresa': ['porto-ceresio-brusino', 'cremenaga-ponte-cremenaga', 'luino-fornasette'],
-    'luino-fornasette': ['cremenaga-ponte-cremenaga', 'ponte-tresa', 'zenna-dirinella'],
-    'maslianico-pizzamiglio': ['chiasso-centro', 'maslianico-roggiana', 'chiasso-brogeda'],
-    'bizzarone-novazzano': ['ronago-novazzano', 'chiasso-brogeda', 'chiasso-strada'],
-    'camedo': ['piaggio-valmara', 'zenna-dirinella', 'biegno-indemini'],
-    'piaggio-valmara': ['camedo', 'zenna-dirinella', 'biegno-indemini'],
-  };
-  const altLabelByLocale: Record<BorderWaitLocale, { h2: string; lead: string }> = {
-    it: { h2: 'Percorsi alternativi', lead: 'Se questo valico è congestionato, questi passaggi vicini sono spesso più fluidi:' },
-    en: { h2: 'Alternative routes', lead: 'If this crossing is congested, these nearby passages are often smoother:' },
-    de: { h2: 'Alternative Routen', lead: 'Wenn dieser Übergang überlastet ist, sind diese nahegelegenen Pässe oft fliessender:' },
-    fr: { h2: 'Itinéraires alternatifs', lead: "Si ce poste est congestionné, ces passages voisins sont souvent plus fluides :" },
-  };
-  const altSlugs = ALT_ROUTES[crossing];
-  const alternativeRoutesHtml = altSlugs && altSlugs.length
-    ? (() => {
-        const { h2, lead } = altLabelByLocale[locale];
-        const items = altSlugs
-          .map((slug) => {
-            const altReg = crossingRegistry(slug);
-            if (!altReg) return '';
-            const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
-            const altDisp = BORDER_CROSSING_DISPLAY[slug];
-            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning ?? 'n.d.')}`;
-            return `<li class="s-card" style="border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
-          })
-          .filter(Boolean)
-          .join('');
-        return items
-          ? `<section class="s-ziawP1" aria-labelledby="altRoutes">
-    <h2 id="altRoutes" style="${H2_STYLE}">${esc(h2)}</h2>
-    <p class="s-sau7he">${esc(lead)}</p>
-    <ul class="s-eeWB4A">${items}</ul>
-  </section>`
-          : '';
-      })()
-    : '';
+  // B.3 — Real alternatives: nearest crossings in the same regional
+  // corridor, using the shared nearest-neighbour calculation.
+  const comparisonCandidates = getBorderComparisonCandidates(crossing);
+  const alternativeRoutesHtml = renderBorderWaitComparison({
+    locale,
+    currentSlug: crossing,
+    current: snapshot,
+    perCrossing: current.perCrossing,
+    regionLabel: regionDisplay,
+    sourceLabels,
+  });
 
   // FAQ
   const faqItems = copy.faq;
@@ -2075,7 +2052,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // without bypassing buildSeoPageHtml's templating.
   const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
   // Border-wait hydration: replaces pre-rendered numbers with fresh
-  // Firestore values once the page is interactive. Vanilla JS, ~2.8 KB.
+  // Firestore values once the page is interactive. Shared external asset.
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
   const bodyHtml = `<article class="s-xzWvwM">
@@ -2109,8 +2086,8 @@ function renderLeafPage(inp: LeafInputs): string {
     crossingDisplay,
     region,
     reg?.peak ?? '',
-    (ALT_ROUTES[crossing] ?? [])
-      .map((s) => BORDER_CROSSING_DISPLAY[s])
+    comparisonCandidates
+      .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
       .filter(Boolean),
   )}
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
@@ -2209,7 +2186,7 @@ function renderHubPage(inp: HubInputs): string {
   const introTagline = taglineByLocale[locale];
 
   // Build live table of all crossings in scope. Each <tr> carries the
-  // data-bw-crossing attribute so the inline hydration IIFE can swap the
+  // data-bw-crossing attribute so the shared hydration asset can swap the
   // pre-rendered minute count AND the source label with the fresh Firestore
   // values at runtime. The source→label map is locale-invariant → build once
   // here, not per row. Live sources only (no 'static' → "Dati statistici" copy
@@ -2228,6 +2205,7 @@ function renderHubPage(inp: HubInputs): string {
     const src: WaitSource = snap?.source ?? 'static';
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
+    const updated = snap?.lastUpdate ? snap.lastUpdate.slice(0, 16).replace('T', ' ') : '—';
     return `<tr data-bw-crossing="${esc(c)}">
       <td class="s-tcl">
         <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
@@ -2235,20 +2213,24 @@ function renderHubPage(inp: HubInputs): string {
       <td class="s-tcl" style="text-align:right">
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
+      <td class="s-tcl" data-bw-field="direction" style="font-size:12px;color:var(--color-subtle)">${esc(snap?.direction ?? '—')}</td>
+      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}</td>
       <td class="s-tcl" data-bw-field="source" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
-  const tableHtml = `<table class="s-tbl" style="font-size:14px">
+  const tableHtml = `<div class="s-card" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
     <thead><tr>
       <th class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
       <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th class="s-thd">${esc(locale === 'it' ? 'Direzione' : locale === 'de' ? 'Richtung' : 'Direction')}</th>
+      <th class="s-thd">${esc(copy.updatedLabel)}</th>
       <th class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody>${rows.join('')}</tbody>
-  </table>`;
+  </table></div>`;
 
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate
@@ -2260,12 +2242,19 @@ function renderHubPage(inp: HubInputs): string {
     waitTimeMinutes:
       current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? 0,
   }));
-  const allZeros = heroInputs.every((c) => c.waitTimeMinutes === 0);
+  const allZeros = heroInputs.length > 0
+    && crossingsInScope.every((c) => current.perCrossing[c]?.totalCrossingMinutes != null || current.perCrossing[c]?.waitTimeMinutes != null)
+    && heroInputs.every((c) => c.waitTimeMinutes === 0);
   const bestBannerHtml = allZeros
     ? renderTrafficFluidBanner(true, locale)
     : renderFastestCrossingCard(heroInputs, locale);
 
   const alternatesHtml = renderHreflangTags(alternates);
+  const pickerHtml = renderBorderWaitPicker({
+    locale,
+    region,
+    crossings: crossingsInScope,
+  });
 
   // JSON-LD
   const breadcrumbItems = [
@@ -2428,18 +2417,20 @@ function renderHubPage(inp: HubInputs): string {
   let statusOk = 0;
   let statusWarn = 0;
   let statusBad = 0;
+  let statusUnknown = 0;
   for (const c of crossingsInScope) {
     const w = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null;
-    if (w === null || w < 5) statusOk += 1;
+    if (w === null) statusUnknown += 1;
+    else if (w < 5) statusOk += 1;
     else if (w < 15) statusWarn += 1;
     else statusBad += 1;
   }
 
-  const hubTileLabels: Record<BorderWaitLocale, { open: string; ok: string; warn: string; bad: string }> = {
-    it: { open: 'Valichi monitorati', ok: 'Scorrevoli', warn: 'Coda moderata', bad: 'Coda lunga' },
-    en: { open: 'Crossings tracked', ok: 'Free-flowing', warn: 'Moderate queue', bad: 'Long queue' },
-    de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange' },
-    fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue' },
+  const hubTileLabels: Record<BorderWaitLocale, { open: string; ok: string; warn: string; bad: string; unknownNotice: string }> = {
+    it: { open: 'Valichi monitorati', ok: 'Scorrevoli', warn: 'Coda moderata', bad: 'Coda lunga', unknownNotice: 'dato non disponibile. Non è una coda pari a zero.' },
+    en: { open: 'Crossings tracked', ok: 'Free-flowing', warn: 'Moderate queue', bad: 'Long queue', unknownNotice: 'data unavailable. This is not a zero-minute queue.' },
+    de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange', unknownNotice: 'Daten nicht verfügbar. Das ist keine Wartezeit von null Minuten.' },
+    fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue', unknownNotice: "donnée indisponible. Il ne s'agit pas d'une file de zéro minute." },
   };
   const hubStatsHtml = `<section class="s-AjDT9y" aria-label="${esc(copy.currentStatusLabel)}">
     <div class="s-SJxWYS">
@@ -2458,6 +2449,7 @@ function renderHubPage(inp: HubInputs): string {
       <div class="s-OYGznH">${esc(hubTileLabels[locale].bad)}</div>
       <div class="s-2B-deU">${statusBad}</div>
     </div>
+    ${statusUnknown > 0 ? `<p class="s-Wnl1Ux">${statusUnknown} · ${esc(hubTileLabels[locale].unknownNotice)}</p>` : ''}
   </section>`;
 
   // Live-badge pre-rendered text (see leaf page for rationale).
@@ -2482,6 +2474,7 @@ function renderHubPage(inp: HubInputs): string {
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
   ${hubStatsHtml}
+  ${pickerHtml}
   ${bestBannerHtml}
   <section class="s-ziawP1" aria-labelledby="crossingTable">
     <h2 id="crossingTable" style="${H2_STYLE}">${esc(

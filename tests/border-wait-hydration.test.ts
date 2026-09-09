@@ -4,9 +4,9 @@
  * static HTML pages emitted by `borderWaitPagesPlugin.ts`.
  *
  * What we cover:
- *   - The minified IIFE is self-contained vanilla JS (no SDK imports).
+ *   - The minified external asset is self-contained vanilla JS (no SDK imports).
  *   - It targets the right Firestore endpoint + collection.
- *   - It stays under the 3 KB hard ceiling (text-to-HTML ratio gate).
+ *   - The HTML reference stays under the 3 KB hard ceiling (text-to-HTML ratio gate).
  *   - The plugin actually injects the `<script>` tag and the
  *     `data-bw-crossing="{slug}"` markers on at least one well-known crossing
  *     row + the per-crossing detail page card.
@@ -71,9 +71,12 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-field');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-hydrated');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-live-badge');
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('pageToken');
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('direction');
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('visibilitychange');
   });
 
-  it('respects the 3 KB hard ceiling (text-to-HTML ratio gate)', () => {
+  it('keeps the HTML script reference under the 3 KB hard ceiling', () => {
     const bytes = Buffer.byteLength(BORDER_WAIT_HYDRATION_SCRIPT_TAG, 'utf8');
     expect(bytes).toBeLessThan(3 * 1024);
   });
@@ -111,6 +114,7 @@ describe('border-wait pages — hydration injection', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
     expect(html).toMatch(/\bdata-bw-field=["']?totalCrossingMinutes["']?/);
+    expect(html).toMatch(/\bdata-bw-field=["']?direction["']?/);
     expect(html).toContain('data-bw-live-badge');
   });
 
@@ -119,6 +123,7 @@ describe('border-wait pages — hydration injection', () => {
     expect(html).toBeDefined();
     // At least the two crossings in our fixture must appear.
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
+    expect(html).toMatch(/\bdata-bw-picker(?:=|=")true/);
     expect(html).toMatch(/\bdata-bw-crossing=["']?gaggiolo["']?/);
     // Every row must carry a total-crossing-minutes field marker (approach +
     // checkpoint queue, aligned with the SPA guide page).
@@ -134,6 +139,7 @@ describe('border-wait pages — hydration injection', () => {
     expect(html).toBeDefined();
     expect(html).toContain('<script src="/border-wait-hydrate.js"');
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
+    expect(html).toMatch(/\bdata-bw-picker(?:=|=")true/);
   });
 
   it('preserves the pre-rendered minute value in the HTML', () => {
@@ -141,5 +147,6 @@ describe('border-wait pages — hydration injection', () => {
     // must remain readable for SEO/bots/zero-JS users.
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('21 min');
+    expect(html).toMatch(/data-bw-comparison(?:=|=")true/);
   });
 });

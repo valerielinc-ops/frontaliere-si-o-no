@@ -107,6 +107,7 @@ async function fetchTrafficCurrent(db) {
       totalCrossingMinutes: data.totalCrossingMinutes ?? null,
       status: data.status ?? null,
       source: data.source ?? 'tomtom',
+      direction: data.direction ?? null,
       lastUpdate: lu,
     };
     if (lu && (!latestUpdate || lu > latestUpdate)) latestUpdate = lu;
