@@ -6154,6 +6154,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-ginevra.title': 'AVS et prestations complémentaires Canton de Genève',
     'blog.article.avs-prestazioni-complementari-ginevra.excerpt': 'Comment fonctionne l\'AVS dans le canton de Genève : caisse de compensation, calcul de la rente, lacunes contributives et prestations complémentaires pour le minimum vital.',
     'blog.article.avs-prestazioni-complementari-ginevra.imageAlt': 'Bureau d\'administration cantonale avec dossiers de rente AVS et prestations complementaires, environnement professionnel.',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.title': 'Impôt succession Appenzell Interne : taux et exonérations',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.excerpt': 'Guide de la fiscalité successorale à Appenzell Interne : comment fonctionnent les taux par degré de parenté, les exemptions du conjoint et des enfants, la procédure de déclaration.',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.imageAlt': 'Paysage traditionnel du canton d\'Appenzell Rhodes-Intérieures avec architecture alpine',
 };
 
 export default blogMetaChFr;
