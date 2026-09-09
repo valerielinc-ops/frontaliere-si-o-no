@@ -80555,6 +80555,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cantone-comuni-fisco-riforma-arp': {
+    title: 'Cantone e Comuni si confrontano su fisco e riforma ARP',
+    description: 'Dialogo Cantone-Comuni su fisco post abolizione valore locativo, imposta residenze secondarie, Ticino 2020 e riforma Preture di protezione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantone, comuni, confrontano, fisco',
+    ogTitle: 'Cantone e Comuni si confrontano su fisco e riforma ARP',
+    ogDescription: 'La Piattaforma di dialogo Cantone-Comuni in Bellinzona discute adattamenti fiscali dopo abolizione valore locativo, nuova imposta residenze secondarie, Ticino 2020 e riforma ARP/Preture di protezione',
+    canonicalPath: '/articoli-svizzera/cantone-comuni-fisco-riforma-arp/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantone e Comuni si confrontano su fisco e riforma ARP",
+      "description": "Dialogo Cantone-Comuni su fisco post abolizione valore locativo, imposta residenze secondarie, Ticino 2020 e riforma Preture di protezione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantone-comuni-fisco-riforma-arp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, sede dell'Amministrazione cantonale, durante il dialogo Cantone-Comuni su fisco e riforme"
+      },
+      "datePublished": "2026-09-09T17:32:52+00:00",
+      "dateModified": "2026-09-09T17:32:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cantone-comuni-fisco-riforma-arp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

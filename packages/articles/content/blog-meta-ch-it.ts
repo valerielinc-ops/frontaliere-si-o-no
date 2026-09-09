@@ -6205,6 +6205,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Opportunità di lavoro nell\'Amministrazione federale',
     'blog.article.opportunita-lavoro-federale.excerpt': 'L\'Amministrazione federale offre praticantati per neolaureati, 50 formazioni professionali e benefici di flessibilità. Scopri come candidarsi.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Ufficio moderno dell\'Amministrazione federale con professionisti che collaborano a progetti innovativi.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Cantone e Comuni si confrontano su fisco e riforma ARP',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, dialogo Cantone-Comuni su fisco, Ticino 2020 e riforma ARP. Al centro: abolizione valore locativo federale e imposta residenze secondarie',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, sede dell\'Amministrazione cantonale, durante il dialogo Cantone-Comuni su fisco e riforme',
 };
 
 export default blogMetaChIt;
