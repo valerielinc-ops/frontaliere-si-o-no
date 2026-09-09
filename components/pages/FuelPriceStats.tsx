@@ -41,7 +41,7 @@ function fuelViewUrl(state: FuelViewState): string | null { if (typeof window ==
 function isFinitePrice(value: unknown): value is number { return typeof value === 'number' && Number.isFinite(value); }
 function italyStationPrice(station: FuelStationItaly, fuelType: FuelType): number | null { const value = fuelType === 'diesel' ? station.dieselPriceEur : station.priceEur; return isFinitePrice(value) ? value : null; }
 function swissStationPrice(station: FuelStationSwitzerland, fuelType: FuelType, currency: 'CHF' | 'EUR'): number | null { const value = fuelType === 'diesel' ? currency === 'CHF' ? station.dieselPriceChf : station.dieselPriceEur : currency === 'CHF' ? station.sp95PriceChf : station.sp95PriceEur; return isFinitePrice(value) ? value : null; }
-function compareFuelPrices(italyPrice: number | null, swissPrice: number | null) {
+function compareFuelPrices(italyPrice: number | null, swissPrice: number | null): FuelRowView['comparison'] {
  if (italyPrice == null || swissPrice == null) return { cheaperCountry: 'NO_DATA', priceDeltaEur: null, saving50LEur: null };
  const priceDeltaEur = italyPrice - swissPrice; if (Math.abs(priceDeltaEur) < 0.0005) return { cheaperCountry: 'SAME', priceDeltaEur: 0, saving50LEur: 0 };
  return { cheaperCountry: priceDeltaEur < 0 ? 'IT' : 'CH', priceDeltaEur, saving50LEur: Math.abs(priceDeltaEur) * 50 };
