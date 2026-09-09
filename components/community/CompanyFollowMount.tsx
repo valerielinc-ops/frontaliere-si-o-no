@@ -34,12 +34,14 @@ import { getLocale } from '@/services/i18n';
 import { companyAlertKey } from '@/services/jobAlertService';
 import { useHydrationIslands } from '@/hooks/useHydrationIslands';
 import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta';
+import { CompanyFollowPopup } from './CompanyFollowCta';
 
 interface CompanyFollowMountProps {
   company: string;
   companyKey: string | null;
   locale: Locale;
   surface: CompanyFollowSurface;
+  popupEligible: boolean;
 }
 
 const VALID_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
@@ -117,6 +119,7 @@ const CompanyFollowMount: React.FC = () => {
         // Italian-locale alert.
         locale: (VALID_LOCALES.includes(raw) ? raw : getLocale()) as Locale,
         surface: ANALYTICS_SURFACE[el.dataset.surface || ''] || 'company_follow_profile',
+        popupEligible: el.dataset.popupEligible === 'true',
       };
     },
   });
@@ -151,16 +154,28 @@ const CompanyFollowMount: React.FC = () => {
   return (
     <>
       {targets.map((t, i) =>
-        createPortal(
-          <CompanyFollowCta
-            company={t.props.company}
-            companyKey={t.props.companyKey}
-            locale={t.props.locale}
-            surface={t.props.surface}
-          />,
-          t.el,
-          `company-follow-mount-${i}`,
-        ),
+        t.el.isConnected
+          ? createPortal(
+              <React.Fragment>
+                <CompanyFollowCta
+                  company={t.props.company}
+                  companyKey={t.props.companyKey}
+                  locale={t.props.locale}
+                  surface={t.props.surface}
+                />
+                {t.props.popupEligible && (
+                  <CompanyFollowPopup
+                    company={t.props.company}
+                    companyKey={t.props.companyKey}
+                    locale={t.props.locale}
+                    surface={t.props.surface}
+                  />
+                )}
+              </React.Fragment>,
+              t.el,
+              `company-follow-mount-${i}`,
+            )
+          : null,
       )}
     </>
   );

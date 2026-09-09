@@ -54,7 +54,7 @@ import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-pl
 import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
 import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
-import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
+import { WEEKLY_EMPLOYERS_ROUTES, buildCompanyCityCurrentPath, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
@@ -3921,6 +3921,29 @@ export function replaceRoute(route: AppRoute): void {
  }
 }
 
+/**
+ * Build the locale sibling for a static public company page.
+ *
+ * Unlike the other static overlays, these pages have a real locale sibling:
+ * the profile plugin emits `/aziende/<slug>/` in all four locales, and the
+ * current company-city plugin does the same. Keeping this narrow is important:
+ * the static overlay early-return below still preserves canonical URLs for
+ * every other SEO family and for company-city archives.
+ */
+export function staticCompanyPathForLocale(pathname: string, newLocale: Locale): string | null {
+  const profileMatch = pathname.match(/^\/(?:en\/|de\/|fr\/)?aziende\/([a-z0-9][a-z0-9-]*)\/?$/i);
+  if (profileMatch) {
+    const localePrefix = newLocale === 'it' ? '' : `/${newLocale}`;
+    return `${localePrefix}/aziende/${profileMatch[1]}/`;
+  }
+
+  const companyCity = parseCompanyCityPath(pathname);
+  if (companyCity?.variant === 'current') {
+    return buildCompanyCityCurrentPath(newLocale, companyCity.city, companyCity.companySlug);
+  }
+  return null;
+}
+
 export function updatePathForLocale(newLocale: Locale): void {
  const currentPath = window.location.pathname;
  const search = window.location.search;
@@ -3932,6 +3955,11 @@ export function updatePathForLocale(newLocale: Locale): void {
  // though the static SEO content is the per-station detail. Preserve the
  // canonical URL; the per-locale alternates are emitted as <link rel="alternate">.
  if (route.staticOverlay) {
+ const companyPath = staticCompanyPathForLocale(currentPath, newLocale);
+ if (companyPath && currentPath !== companyPath) {
+ window.location.assign(companyPath + search + window.location.hash);
+ return;
+ }
  const municipalitySlug = borderMunicipalitySlugFromStaticPath(currentPath);
  if (municipalitySlug) {
  const newPath = buildBorderMunicipalityStaticPath(municipalitySlug, newLocale);

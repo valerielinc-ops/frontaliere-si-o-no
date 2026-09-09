@@ -18,6 +18,7 @@ const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertE
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
+const CompanyFollowPopup = lazyRetry(() => import('@/components/community/CompanyFollowCta').then((m) => ({ default: m.CompanyFollowPopup })));
 // Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
@@ -4714,13 +4715,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && companyBroadeningFallbackJobs.length > 0;
  }, [companySlugFilter, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, companyBroadeningFallbackJobs.length]);
 
- // Resolve the display name of the company when a company slug filter is active
- const companyDisplayName = useMemo(() => {
- if (!companySlugFilter) return null;
- const firstMatch = filteredJobs[0];
- return firstMatch?.company ?? null;
- }, [companySlugFilter, filteredJobs]);
-
  // Resolve the curated employer brand (EOC, …) by canonical slug.
  // Falls back to null for companies without a curated hub page.
  const employerBrand = useMemo(
@@ -4738,6 +4732,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return slugCandidates.has(companySlugFilter);
  });
  }, [employerBrand, companySlugFilter, sortedJobs]);
+
+ // Resolve one canonical job for the follow CTA. The filter can be temporarily
+ // empty while the company-wide fallback is loading, so search the authoritative
+ // pools in the same order as the visible company result instead of guessing a
+ // company key from the URL.
+ const companyFollowJob = useMemo(() => {
+ if (!companySlugFilter) return null;
+ const pools = [filteredJobs, employerBrandJobs, sortedJobs];
+ for (const pool of pools) {
+ const match = pool.find((job) => companyRouteSlugCandidates(job.company, job.companyKey).has(companySlugFilter));
+ if (match) return match;
+ }
+ return null;
+ }, [companySlugFilter, employerBrandJobs, filteredJobs, sortedJobs]);
+
+ // Resolve the display name of the company when a company slug filter is active.
+ // Curated hubs know the legal display name before jobs arrive; non-curated hubs
+ // use the same job that supplies the canonical follow key.
+ const companyDisplayName = useMemo(() => {
+ if (!companySlugFilter) return null;
+ return companyFollowJob?.company ?? employerBrand?.name ?? null;
+ }, [companyFollowJob, companySlugFilter, employerBrand]);
 
  // Resolve the display name of the location when a location slug filter is active
  const locationDisplayName = useMemo(() => {
@@ -9426,6 +9442,36 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  ) : (
  listingHero
+ )}
+
+ {companySlugFilter && companyDisplayName && (
+ <div
+ key={`company-follow-${companySlugFilter}`}
+ data-testid="company-follow-inline-surface"
+ className="rounded-xl border border-accent-border bg-accent-subtle/40 p-3 sm:p-4"
+ >
+ <Suspense fallback={<CompanyFollowPlaceholder />}>
+ <CompanyFollowCta
+ company={companyDisplayName}
+ companyKey={companyFollowJob?.companyKey ?? null}
+ locale={locale}
+ surface="company_follow_profile"
+ userId={userId}
+ email={userEmail}
+ />
+ </Suspense>
+ <Suspense fallback={null}>
+ <CompanyFollowPopup
+ company={companyDisplayName}
+ companyKey={companyFollowJob?.companyKey ?? null}
+ locale={locale}
+ surface="company_follow_profile"
+ userId={userId}
+ email={userEmail}
+ authLoading={authLoading}
+ />
+ </Suspense>
+ </div>
  )}
 
  {/* ─── Search & Filters ─── */}
