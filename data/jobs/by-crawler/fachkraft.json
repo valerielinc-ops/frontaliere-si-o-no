@@ -64064,7 +64064,6 @@
           "polymechaniker-in-con-pikettdienst-fachkraft-ch-gmbh-hochdorf"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T23:22:25.777Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -82617,7 +82616,7 @@
       "slugByLocale": {
         "it": "polimeccanica-assemblaggio-assemblaggi-grande-squadra-obiettivo-impiego-permanente-fachkraft-ch-gmbh-hinwil-zurich",
         "en": "polymechanic-assembly-assemblies-great-team-target-permanent-employment-fachkraft-ch-gmbh-hinwil-zurich",
-        "de": "polymechaniker-in-8211-montage-8211-baugruppen-8211-tolles-team-8211-ziel-festanstellung",
+        "de": "polymechaniker-in-8211-montage-8211-baugruppen-8211-tolles-team-8211-ziel-festanstellung-haqm1b",
         "fr": "polymecanique-assemblage-ensembles-grande-equipe-objectif-emploi-permanent-fachkraft-ch-gmbh-hinwil-zurich"
       },
       "company": "fachkraft.ch GmbH",
@@ -82674,6 +82673,9 @@
         ],
         "fr": [
           "polymechaniker-in-montage-baugruppen-tolles-team-ziel-festanstellung-hinwil-zurich"
+        ],
+        "de": [
+          "polymechaniker-in-8211-montage-8211-baugruppen-8211-tolles-team-8211-ziel-festanstellung"
         ]
       },
       "needsRetranslation": true,
@@ -90717,9 +90719,9 @@
       "id": "fachkraft-7ff149ce7543",
       "slug": "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
       "slugByLocale": {
+        "de": "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen-mm2tte",
         "it": "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
         "en": "polymechanic-cnc-manufacturing-with-programming-fachkraft-ch-gmbh-schaffhausen-schaffhausen",
-        "de": "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
         "fr": "polymecanique-fabrication-cnc-avec-programmation-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
       },
       "company": "fachkraft.ch GmbH",
@@ -90760,23 +90762,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-schaffhausen-dauerstelle-298417/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
-        "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
-          "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
-        ],
-        "en": [
-          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
-        ],
-        "fr": [
-          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:56:28.746Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -90789,7 +90774,27 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-07T23:56:28.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
+          "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-8211-cnc-fertigung-mit-programmierung-schaffhausen-schaffhausen",
+        "polimeccanica-produzione-cnc-con-programmazione-fachkraft-ch-gmbh-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "fachkraft-f84edc6c38dd",
@@ -91278,9 +91283,9 @@
       "id": "fachkraft-ac5d372bf376",
       "slug": "polymechanic-produzione-cnc-con-produzione-di-piccole-serie-precisa-fachkraft-ch-gmbh-weinfelden-thurgau",
       "slugByLocale": {
+        "de": "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden-e9rwqo",
         "it": "polymechanic-produzione-cnc-con-produzione-di-piccole-serie-precisa-fachkraft-ch-gmbh-weinfelden-thurgau",
         "en": "polymechanic-cnc-manufacturing-with-precise-small-series-production-fachkraft-ch-gmbh-weinfelden-thurgau",
-        "de": "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden",
         "fr": "polymecanique-fabrication-cnc-avec-production-precise-en-petite-serie-fachkraft-ch-gmbh-weinfelden-thurgau"
       },
       "company": "fachkraft.ch GmbH",
@@ -91321,11 +91326,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-cnc-fertigung-weinfelden-dauerstelle-298534/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden",
-        "polymechaniker-in-cnc-fertigung-mit-praziser-kleinserienherstellung-fachkraft-ch-gmbh-weinfelden",
-        "polymechanic-produzione-cnc-con-produzione-di-piccole-serie-precisa-fachkraft-ch-gmbh-weinfelden-thurgau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden",
@@ -91337,9 +91337,16 @@
         ],
         "fr": [
           "polymechaniker-in-cnc-fertigung-mit-praziser-kleinserienherstellung-fachkraft-ch-gmbh-weinfelden"
+        ],
+        "de": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden"
         ]
       },
-      "firstSeenAt": "2026-09-07T23:56:28.744Z",
+      "previousSlugs": [
+        "polymechaniker-in-8211-cnc-fertigung-mit-praziser-kleinserienherstellung-weinfelden",
+        "polymechaniker-in-cnc-fertigung-mit-praziser-kleinserienherstellung-fachkraft-ch-gmbh-weinfelden",
+        "polymechanic-produzione-cnc-con-produzione-di-piccole-serie-precisa-fachkraft-ch-gmbh-weinfelden-thurgau"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -91352,7 +91359,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-07T23:56:28.744Z"
     },
     {
       "id": "fachkraft-d4474ae9fd29",
@@ -93036,7 +93044,7 @@
       "slugByLocale": {
         "it": "polymechanic-produzione-cnc-con-tornio-cnc-multiasse-fachkraft-ch-gmbh-sarnen-obwalden",
         "en": "polymechanic-cnc-manufacturing-with-multi-axis-cnc-lathe-fachkraft-ch-gmbh-sarnen-obwalden",
-        "de": "polymechaniker-in-8211-cnc-fertigung-mit-mehrachsiger-cnc-drehmaschine-sarnen-obwalden",
+        "de": "polymechaniker-in-8211-cnc-fertigung-mit-mehrachsiger-cnc-drehmaschine-sarnen-obwalden-d7r59y",
         "fr": "polymecanique-fabrication-cnc-avec-tour-cnc-multi-axes-fachkraft-ch-gmbh-sarnen-obwalden"
       },
       "company": "fachkraft.ch GmbH",
@@ -93092,6 +93100,9 @@
           "polymechaniker-in-8211-cnc-fertigung-mit-mehrachsiger-cnc-drehmaschine-sarnen-obwalden"
         ],
         "fr": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-mehrachsiger-cnc-drehmaschine-sarnen-obwalden"
+        ],
+        "de": [
           "polymechaniker-in-8211-cnc-fertigung-mit-mehrachsiger-cnc-drehmaschine-sarnen-obwalden"
         ]
       },
@@ -95177,7 +95188,7 @@
       "slugByLocale": {
         "it": "polymechanic-produzione-cnc-con-orari-di-lavoro-flessibili-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
         "en": "polymechanic-cnc-manufacturing-with-flexible-working-hours-fachkraft-ch-gmbh-affoltern-am-albis-zurich",
-        "de": "polymechaniker-in-8211-cnc-fertigung-mit-flexiblen-arbeitszeiten-affoltern-am-albis-zurich",
+        "de": "polymechaniker-in-8211-cnc-fertigung-mit-flexiblen-arbeitszeiten-affoltern-am-albis-zurich-mebvtc",
         "fr": "polymecanique-fabrication-cnc-avec-horaires-de-travail-flexibles-fachkraft-ch-gmbh-affoltern-am-albis-zurich"
       },
       "company": "fachkraft.ch GmbH",
@@ -95234,6 +95245,9 @@
         ],
         "fr": [
           "polymechaniker-in-cnc-fertigung-mit-flexiblen-arbeitszeiten-affoltern-am-albis-zurich"
+        ],
+        "de": [
+          "polymechaniker-in-8211-cnc-fertigung-mit-flexiblen-arbeitszeiten-affoltern-am-albis-zurich"
         ]
       },
       "needsRetranslation": true,
