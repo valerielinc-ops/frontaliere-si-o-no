@@ -70,6 +70,18 @@ describe('fuel data freshness', () => {
     expect(datasetFreshness(dataset({ sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: '2026-09-07' } } }), now)).toBe('stale');
   });
 
+  it('keeps a same-day dataset current when the italian snapshot date lags by a day', () => {
+    const lagging = dataset({ sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: '2026-09-08' } } });
+    expect(datasetFreshness(lagging, now)).toBe('current');
+    expect(datasetFreshness(lagging, Date.parse('2026-09-09T23:00:00.000Z'))).toBe('current');
+  });
+
+  it('keeps the tighter window for full timestamps', () => {
+    const sources = dataset().sources;
+    expect(datasetFreshness(dataset({ generatedAt: '2026-09-08T00:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-08T00:00:00.000Z' } } }), now)).toBe('current');
+    expect(datasetFreshness(dataset({ generatedAt: '2026-09-07T23:00:00.000Z', sources: { ...sources, switzerland: { ...sources.switzerland, latestObservedUpdate: '2026-09-07T23:00:00.000Z' } } }), now)).toBe('stale');
+  });
+
   it('returns unknown only when no usable timestamp exists', () => {
     expect(datasetFreshness(dataset({ generatedAt: '', sources: { ...dataset().sources, italy: { ...dataset().sources.italy, priceSnapshotDate: null }, switzerland: { ...dataset().sources.switzerland, latestObservedUpdate: null } } }), now)).toBe('unknown');
   });

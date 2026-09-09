@@ -71,12 +71,21 @@ export function fuelRowView(row: MunicipalityFuelRow, fuelType: FuelType): FuelR
  return { italy: { stationCount: fuelType === 'diesel' && typeof row.italy.dieselStationCount === 'number' ? row.italy.dieselStationCount : italyStations.length, minPriceEur: italyMin, stations: italyStations }, swiss: { optionCount: fuelType === 'diesel' && typeof row.swiss.dieselOptionCount === 'number' ? row.swiss.dieselOptionCount : swissStations.length, minPriceChf: swissMinChf, minPriceEur: swissMinEur, cheapestStation, nearbyStations }, comparison: fuelType === 'benzina' ? row.comparison : compareFuelPrices(italyMin, swissMinEur) };
 }
 export type FuelDataFreshness = 'current' | 'stale' | 'unknown';
+const DATASET_MAX_AGE_MS = 36 * 60 * 60 * 1000;
+// `priceSnapshotDate` e' una data pura (mezzanotte UTC) e il feed MIMIT e' sistematicamente
+// indietro di un giorno: con la soglia dei timestamp pieni un dataset appena rigenerato
+// diventerebbe `stale` a meta' giornata. La data pura ha una tolleranza propria.
+const DATE_ONLY_MAX_AGE_MS = 48 * 60 * 60 * 1000;
+const DATE_ONLY_RE = /^\d{4}-\d{2}-\d{2}$/;
 export function datasetFreshness(data: FuelPricesDataset, now = Date.now()): FuelDataFreshness {
- const timestamps = [data.generatedAt, data.sources.italy.priceSnapshotDate, data.sources.switzerland.latestObservedUpdate]
-  .map((value) => value ? new Date(value).getTime() : NaN).filter(Number.isFinite);
- if (!timestamps.length) return 'unknown';
- const maxAgeMs = 36 * 60 * 60 * 1000;
- return timestamps.every((timestamp) => now - timestamp >= 0 && now - timestamp <= maxAgeMs) ? 'current' : 'stale';
+ const entries = [data.generatedAt, data.sources.italy.priceSnapshotDate, data.sources.switzerland.latestObservedUpdate]
+  .map((value) => ({
+   timestamp: value ? new Date(value).getTime() : NaN,
+   maxAgeMs: value && DATE_ONLY_RE.test(value.trim()) ? DATE_ONLY_MAX_AGE_MS : DATASET_MAX_AGE_MS,
+  }))
+  .filter((entry) => Number.isFinite(entry.timestamp));
+ if (!entries.length) return 'unknown';
+ return entries.every(({ timestamp, maxAgeMs }) => now - timestamp >= 0 && now - timestamp <= maxAgeMs) ? 'current' : 'stale';
 }
 function recommendationToneForCode(code: string) { if (code === 'IT') return 'text-success bg-success-subtle border-success-border'; if (code === 'CH') return 'text-accent bg-accent-subtle border-accent-border'; if (code === 'SAME') return 'text-warning bg-warning-subtle border-warning-border'; return 'text-subtle bg-surface-alt/50 border-edge'; }
 
@@ -536,17 +545,20 @@ export default function FuelPriceStats() {
  .sort((a, b) => a.label.localeCompare(b.label));
  }, [data]);
 
+ // Una sola costruzione della view per comune e per carburante: il comparatore la leggeva a
+ // ogni confronto e l'intero ciclo rigirava a ogni battuta nella casella di ricerca.
+ const viewEntries = useMemo(() => (data?.municipalities || []).map((row) => ({ row, view: fuelRowView(row, fuelType) })), [data, fuelType]);
  const rows = useMemo(() => {
-  const q = search.trim().toLowerCase(); const list = (data?.municipalities || []).filter((row) => { if (province !== 'ALL' && row.province !== province) return false; if (!q) return true; return `${row.municipality} ${row.province}`.toLowerCase().includes(q); });
-  return [...list].sort((a, b) => { const aView = fuelRowView(a, fuelType); const bView = fuelRowView(b, fuelType); if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b)); if (sortKey === 'italy') return (aView.italy.minPriceEur ?? 99) - (bView.italy.minPriceEur ?? 99); if (sortKey === 'swiss') return (aView.swiss.minPriceEur ?? 99) - (bView.swiss.minPriceEur ?? 99); if (sortKey === 'delta') return Math.abs(bView.comparison.priceDeltaEur ?? 0) - Math.abs(aView.comparison.priceDeltaEur ?? 0); return (bView.comparison.saving50LEur ?? -1) - (aView.comparison.saving50LEur ?? -1); });
- }, [data, fuelType, province, search, sortKey]);
+  const q = search.trim().toLowerCase(); const list = viewEntries.filter(({ row }) => { if (province !== 'ALL' && row.province !== province) return false; if (!q) return true; return `${row.municipality} ${row.province}`.toLowerCase().includes(q); });
+  return [...list].sort((a, b) => { if (sortKey === 'name') return municipalityLabel(a.row).localeCompare(municipalityLabel(b.row)); if (sortKey === 'italy') return (a.view.italy.minPriceEur ?? 99) - (b.view.italy.minPriceEur ?? 99); if (sortKey === 'swiss') return (a.view.swiss.minPriceEur ?? 99) - (b.view.swiss.minPriceEur ?? 99); if (sortKey === 'delta') return Math.abs(b.view.comparison.priceDeltaEur ?? 0) - Math.abs(a.view.comparison.priceDeltaEur ?? 0); return (b.view.comparison.saving50LEur ?? -1) - (a.view.comparison.saving50LEur ?? -1); }).map(({ row }) => row);
+ }, [fuelType, province, search, sortKey, viewEntries]);
  const fuelSummary = useMemo(() => {
-  const entries = (data?.municipalities || []).map((row) => ({ row, view: fuelRowView(row, fuelType) }));
+  const entries = viewEntries;
   const cheapestItaly = entries.filter(({ view }) => view.italy.minPriceEur != null).sort((a, b) => (a.view.italy.minPriceEur ?? Infinity) - (b.view.italy.minPriceEur ?? Infinity))[0] || null;
   const cheapestSwiss = entries.filter(({ view }) => view.swiss.cheapestStation && view.swiss.minPriceChf != null).sort((a, b) => (a.view.swiss.minPriceChf ?? Infinity) - (b.view.swiss.minPriceChf ?? Infinity))[0] || null;
   const bestDeals = entries.filter(({ view }) => view.comparison.saving50LEur != null).sort((a, b) => (b.view.comparison.saving50LEur ?? -1) - (a.view.comparison.saving50LEur ?? -1));
   return { cheaperItalyCount: entries.filter(({ view }) => view.comparison.cheaperCountry === 'IT').length, cheaperSwissCount: entries.filter(({ view }) => view.comparison.cheaperCountry === 'CH').length, cheapestItaly, cheapestSwiss, bestDeals };
- }, [data, fuelType]);
+ }, [viewEntries]);
  const selected = useMemo(() => { if (!selectedKey) return null; return rows.find((row) => municipalityKey(row) === selectedKey) || null; }, [rows, selectedKey]);
  const homeMunicipality = useMemo(() => { return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null; }, [data, homeMunicipalityKey]);
  const personalizedRecommendation = useMemo(() => { if (!homeMunicipality) return null; return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur, fuelType); }, [costPerKmEur, fuelType, homeMunicipality, tankLiters]);
