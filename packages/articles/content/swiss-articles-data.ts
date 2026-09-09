@@ -18721,6 +18721,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'commissioni-extraparlamentari-riorganizzazione',
+    category: 'novita',
+    date: '2026-09-09T23:11:29.071Z',
+    image: '/images/blog/commissioni-extraparlamentari-riorganizzazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

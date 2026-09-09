@@ -6241,6 +6241,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-san-gallo-riduzione.title': 'Primes caisse maladie Saint-Gall : réduction et modèles',
     'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'LAMal obligatoire en Suisse : franchises CHF 300–2500, modèles alternatifs et procédure cantonale de subvention. Comment demander la réduction et les délais.',
     'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Personne examinant documents d\'assurance maladie LAMal et formulaire de réduction de prime, bureau administratif suisse',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Conseil fédéral réorganise les commissions extraparlementaires',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Le Conseil fédéral adopte le message sur la réorganisation des commissions extraparlementaires : 3 dissoutes, 7 fusionnées en 2 structures ; économies ~ 100 000 CHF par an à partir de 2028.',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Salle de réunion de l\'Administration fédérale suisse avec documents officiels',
 };
 
 export default blogMetaChFr;

@@ -81023,6 +81023,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissioni-extraparlamentari-riorganizzazione': {
+    title: 'Consiglio federale riorganizza commissioni extraparlamentari',
+    description: 'Il Consiglio federale adotta la riorganizzazione delle commissioni extraparlamentari: scioglimento di 3, fusione di 7 in 2 strutture; risparmi ~100.000 CHF',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, riorganizza, commissioni',
+    ogTitle: 'Commissioni extraparlamentari: riorganizzazione adottata',
+    ogDescription: 'Il Consiglio federale adotta il messaggio sulla riorganizzazione delle commissioni extraparlamentari nel quadro della verifica 2025. Tre commissioni sciolte, sette fuse in due strutture, risparmi circa 100.000 franchi annui a partire dal 1° gennaio',
+    canonicalPath: '/articoli-svizzera/commissioni-extraparlamentari-riorganizzazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale riorganizza commissioni extraparlamentari",
+      "description": "Il Consiglio federale adotta la riorganizzazione delle commissioni extraparlamentari: scioglimento di 3, fusione di 7 in 2 strutture; risparmi ~100.000 CHF",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissioni-extraparlamentari-riorganizzazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala riunioni dell'Amministrazione federale svizzera con documenti ufficiali e bandiera svizzera"
+      },
+      "datePublished": "2026-09-09T23:11:29+00:00",
+      "dateModified": "2026-09-09T23:11:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissioni-extraparlamentari-riorganizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

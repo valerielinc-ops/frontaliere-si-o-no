@@ -6241,6 +6241,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-san-gallo-riduzione.title': 'Premi cassa malati San Gallo: riduzione e modelli',
     'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'LAMal obbligatoria in Svizzera: franchigie CHF 300–2500, modelli alternativi e procedura cantonale per il sussidio. Come richiedere la riduzione e scadenze.',
     'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Persona con documenti di assicurazione malattia LAMal e modulo di riduzione premio, ufficio amministrativo svizzero',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Consiglio federale riorganizza commissioni extraparlamentari',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Il Consiglio federale adotta il messaggio sulla riorganizzazione delle commissioni extraparlamentari: 3 sciolte, 7 fuse in 2 strutture; risparmi ~100.000 CHF annui dal 2028.',
+    'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Sala riunioni dell\'Amministrazione federale svizzera con documenti ufficiali e bandiera svizzera',
 };
 
 export default blogMetaChIt;
