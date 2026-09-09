@@ -777,18 +777,20 @@ const CLAUDE_CLI_BIN = (process.env.CLAUDE_CLI_BIN || 'claude').trim();
 const CODEX_CLI_BIN = (process.env.CODEX_CLI_BIN || 'codex').trim();
 const CODEX_CLI_MAX_TIMEOUT_MS = 600_000;
 const CODEX_CLI_MIN_TIMEOUT_MS = 15_000;
+const CODEX_FALLBACK_PERMISSION_PROFILE = 'claude-haiku-fallback';
+const CODEX_FALLBACK_MARKER_PREFIX = 'claude-haiku-codex-fallback';
 // Indirect provider fallback is deliberately lighter than the workflow-agent
 // fallback (which uses effort=max): this path replaces a single content call,
 // preserves the caller's schema/output contract, and must leave wall-clock
 // budget for the normal model chain if Codex also fails.
 export const CODEX_INDIRECT_FALLBACK_EFFORT = 'medium';
 
-// The Codex subscription fallback is deliberately process-local and one-shot.
-// A Claude usage limit can be observed by several concurrent callers in one
-// crawler/translation process; reserving the attempt before spawning prevents
-// those callers from multiplying the paid/subscription fallback. A failed
-// Codex attempt is not retried and the original Claude error continues through
-// callLLM's normal fallback chain.
+// The Codex subscription fallback is one-shot per GitHub run. The in-process
+// flag is only a fast path for callers outside Actions; workflow processes use
+// the atomic marker in RUNNER_TEMP below so parallel crawler workers cannot
+// multiply the paid/subscription fallback. A failed Codex attempt is not
+// retried and the original Claude error continues through callLLM's normal
+// fallback chain.
 let _codexCliFallbackAttempted = false;
 
 // Flipped true on the first `spawn claude ENOENT` (see the catch block in
@@ -5391,38 +5393,161 @@ function _codexFallbackTimeoutMs(opts = {}) {
   if (!opts.deadlineMs) return configured;
   const remaining = opts.deadlineMs - Date.now();
   if (remaining <= 0) throw new Error('Codex fallback skipped: caller deadline already expired');
-  return Math.max(CODEX_CLI_MIN_TIMEOUT_MS, Math.min(configured, remaining));
+  // The minimum is a useful default, never a reason to run past the caller's
+  // absolute deadline. A near-expiry caller gets the short amount of time
+  // actually left; the normal cascade then remains responsible for deciding
+  // whether another model is still worth trying.
+  if (remaining < CODEX_CLI_MIN_TIMEOUT_MS) return remaining;
+  return Math.min(configured, remaining);
+}
+
+// Small seams for the security/deadline tests. They expose policy decisions,
+// never credentials or a way to invoke the CLI outside the normal call path.
+export function __codexFallbackTimeoutForTests(opts = {}) {
+  return _codexFallbackTimeoutMs(opts);
 }
 
 /**
- * Environment used by Codex itself. CODEX_AUTH_JSON is consumed by the
- * parent process to materialize CODEX_HOME/auth.json and is never inherited by
- * the model process. The explicit shell-environment policy below additionally
- * keeps the runner's default secret exclusions active for model-generated
- * commands.
+ * Resolve the shared one-shot marker. GitHub's run id and attempt are part of
+ * the key so separate workflow runs never consume one another's fallback. Do
+ * not use raw values as path components: a malformed/untrusted value must not
+ * escape RUNNER_TEMP.
  */
-function _codexCliChildEnv(codexHome) {
-  const env = { ...process.env, CODEX_HOME: codexHome };
-  delete env.CODEX_AUTH_JSON;
-  // No API-key mode is supported by this fallback. Removing the common key
-  // names also prevents a model-generated command from receiving unrelated
-  // provider credentials from the caller's environment.
-  for (const key of Object.keys(env)) {
-    if (/(?:API_KEY|_TOKEN$|_SECRET$|PASSWORD|CREDENTIAL|PRIVATE_KEY|AUTH_JSON)/i.test(key)) {
-      delete env[key];
-    }
+function _codexFallbackMarkerPath() {
+  const runId = String(process.env.GITHUB_RUN_ID || '').trim();
+  const runAttempt = String(process.env.GITHUB_RUN_ATTEMPT || '').trim();
+  if (!runId || !runAttempt) return null;
+  const tempRoot = String(process.env.RUNNER_TEMP || os.tmpdir()).trim() || os.tmpdir();
+  const safe = (value) => value.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 160);
+  return path.join(tempRoot, `${CODEX_FALLBACK_MARKER_PREFIX}-${safe(runId)}-${safe(runAttempt)}.claimed`);
+}
+
+export function __codexFallbackMarkerPathForTests() {
+  return _codexFallbackMarkerPath();
+}
+
+/**
+ * Claim the cross-process one-shot slot with O_EXCL. RUNNER_TEMP is owned by
+ * the runner and is intentionally not cleaned up here: another worker may be
+ * racing to observe the marker, and the runner removes its temporary tree at
+ * the end of the job. The local flag avoids repeated syscalls in one process.
+ */
+function _claimCodexCliFallback() {
+  if (_codexCliFallbackAttempted) return false;
+  const markerPath = _codexFallbackMarkerPath();
+  if (!markerPath) {
+    _codexCliFallbackAttempted = true;
+    return true;
   }
-  env.CODEX_HOME = codexHome;
+
+  fs.mkdirSync(path.dirname(markerPath), { recursive: true, mode: 0o700 });
+  try {
+    const fd = fs.openSync(markerPath, 'wx', 0o600);
+    try {
+      fs.writeFileSync(fd, `${JSON.stringify({ claimedAt: Date.now(), pid: process.pid })}\n`);
+    } finally {
+      fs.closeSync(fd);
+    }
+    _codexCliFallbackAttempted = true;
+    return true;
+  } catch (err) {
+    if (err?.code === 'EEXIST') {
+      _codexCliFallbackAttempted = true;
+      return false;
+    }
+    throw err;
+  }
+}
+
+export function __claimCodexFallbackForTests() {
+  return _claimCodexCliFallback();
+}
+
+/**
+ * Environment used by the Codex client. CODEX_AUTH_JSON is consumed by this
+ * parent process to materialize CODEX_HOME/auth.json and is never inherited by
+ * the model process. `env -i` semantics are represented explicitly here: only
+ * runtime values required by the client are copied, with no HOME, repository
+ * metadata, provider keys, GitHub tokens, or arbitrary runner variables.
+ */
+function _codexCliChildEnv(codexHome, tmpDir) {
+  const env = {
+    PATH: process.env.PATH || '/usr/bin:/bin',
+    CODEX_HOME: codexHome,
+    TMPDIR: tmpDir,
+  };
+  for (const key of ['LANG', 'LC_ALL', 'TERM']) {
+    if (process.env[key]) env[key] = process.env[key];
+  }
   return env;
 }
 
-function _codexPrompt(messages) {
+function _codexPrompt(messages, { jsonOnly = false } = {}) {
   const system = messages.filter((m) => m.role === 'system').map((m) => m.content).join('\n\n');
   const user = messages.filter((m) => m.role !== 'system').map((m) => m.content).join('\n\n');
-  return [
+  const prompt = [
     system ? `System instructions:\n${system}` : '',
     user,
   ].filter(Boolean).join('\n\n');
+  return jsonOnly
+    ? `${prompt}\n\nReturn exactly one valid JSON object and no Markdown fences or commentary.`
+    : prompt;
+}
+
+function _codexFallbackPermissionConfig() {
+  return `default_permissions = "${CODEX_FALLBACK_PERMISSION_PROFILE}"
+
+[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}]
+description = "Read-only Codex fallback in an empty temporary workspace"
+extends = ":read-only"
+
+[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.network]
+enabled = false
+
+[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.filesystem]
+":root" = "deny"
+":minimal" = "read"
+":tmpdir" = "deny"
+":slash_tmp" = "deny"
+
+[permissions.${CODEX_FALLBACK_PERMISSION_PROFILE}.filesystem.":workspace_roots"]
+"." = "read"
+`;
+}
+
+function _codexFallbackJsonRequest(opts = {}) {
+  const wantsJson = !!opts.jsonMode || !!opts.jsonSchema;
+  const schemaMode = getSchemaMode();
+  const requestedSchema = opts.jsonSchema?.schema || opts.jsonSchema;
+  const schemaApplied = wantsJson && schemaMode !== 'off';
+  return {
+    wantsJson,
+    schemaApplied,
+    // A schema-less jsonMode call still gets an object schema when the global
+    // switch is on. This keeps Codex's structured-output path and the local
+    // output contract aligned with the other providers.
+    schema: schemaApplied
+      ? (requestedSchema && typeof requestedSchema === 'object'
+        ? requestedSchema
+        : { type: 'object' })
+      : null,
+  };
+}
+
+function _validateCodexCliResult(result, { wantsJson, schemaApplied }) {
+  if (!wantsJson) return result;
+  let parsed;
+  try {
+    parsed = JSON.parse(result);
+  } catch {
+    throw new Error('Codex CLI returned invalid JSON for a JSON-mode request');
+  }
+  // When the kill-switch disables schema mode there is no provider-side shape
+  // guarantee, but jsonMode still promises a JSON object to its caller.
+  if (!schemaApplied && (!parsed || typeof parsed !== 'object' || Array.isArray(parsed))) {
+    throw new Error('Codex CLI returned JSON that is not an object');
+  }
+  return result;
 }
 
 /**
@@ -5434,37 +5559,51 @@ async function _callCodexCli(messages, opts = {}) {
   const authJson = String(process.env.CODEX_AUTH_JSON || '');
   if (!authJson.trim()) throw new Error('CODEX_AUTH_JSON is not configured');
 
-  const codexHome = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-haiku-fallback-'));
+  const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-haiku-fallback-'));
+  const codexHome = path.join(runtimeRoot, 'home');
+  const codexWorkspace = path.join(runtimeRoot, 'workspace');
+  const codexTmp = path.join(runtimeRoot, 'tmp');
   const authPath = path.join(codexHome, 'auth.json');
+  // `--profile NAME` loads CODEX_HOME/NAME.config.toml. Keep the profile
+  // separate from any user config (there is none in this temporary home), so
+  // strict parsing cannot accidentally inherit a runner/project setting.
+  const configPath = path.join(codexHome, `${CODEX_FALLBACK_PERMISSION_PROFILE}.config.toml`);
   const outputPath = path.join(codexHome, 'last-message.txt');
   const schemaPath = path.join(codexHome, 'output-schema.json');
   try {
-    fs.chmodSync(codexHome, 0o700);
+    fs.mkdirSync(codexHome, { mode: 0o700 });
+    fs.mkdirSync(codexWorkspace, { mode: 0o700 });
+    fs.mkdirSync(codexTmp, { mode: 0o700 });
     fs.writeFileSync(authPath, authJson, { encoding: 'utf8', mode: 0o600 });
     fs.chmodSync(authPath, 0o600);
+    fs.writeFileSync(configPath, _codexFallbackPermissionConfig(), { encoding: 'utf8', mode: 0o600 });
+    fs.chmodSync(configPath, 0o600);
     // Pre-create files with restrictive permissions; Codex then truncates and
     // rewrites them without widening the mode under the runner's umask.
     fs.writeFileSync(outputPath, '', { encoding: 'utf8', mode: 0o600 });
     fs.chmodSync(outputPath, 0o600);
 
+    const jsonRequest = _codexFallbackJsonRequest(opts);
     const args = [
       'exec',
       '--ephemeral',
-      '--ignore-user-config',
+      '--strict-config',
       '--ignore-rules',
-      '--sandbox', 'read-only',
+      '--profile', CODEX_FALLBACK_PERMISSION_PROFILE,
+      '--cd', codexWorkspace,
+      '--skip-git-repo-check',
       '--model', CODEX_FALLBACK_MODEL,
       '-c', `model_reasoning_effort=${CODEX_INDIRECT_FALLBACK_EFFORT}`,
-      // Keep Codex's default secret exclusions active for any shell command
-      // the model might attempt while producing the response.
+      // The model gets no credentials or repository metadata even if it asks
+      // a shell subprocess to print its environment.
       '-c', 'shell_environment_policy.ignore_default_excludes=false',
       '-c', 'shell_environment_policy.inherit=none',
+      '-c', 'shell_environment_policy.include_only=["PATH","LANG","LC_ALL","TERM"]',
       '--output-last-message', outputPath,
     ];
 
-    const schema = opts.jsonSchema?.schema || opts.jsonSchema;
-    if (schema && typeof schema === 'object') {
-      fs.writeFileSync(schemaPath, JSON.stringify(schema), { encoding: 'utf8', mode: 0o600 });
+    if (jsonRequest.schema) {
+      fs.writeFileSync(schemaPath, JSON.stringify(jsonRequest.schema), { encoding: 'utf8', mode: 0o600 });
       fs.chmodSync(schemaPath, 0o600);
       args.push('--output-schema', schemaPath);
     }
@@ -5474,26 +5613,27 @@ async function _callCodexCli(messages, opts = {}) {
     await _runCodexCliProcess({
       spawn,
       args,
-      prompt: _codexPrompt(messages),
-      env: _codexCliChildEnv(codexHome),
+      prompt: _codexPrompt(messages, { jsonOnly: jsonRequest.wantsJson }),
+      env: _codexCliChildEnv(codexHome, codexTmp),
+      cwd: codexWorkspace,
       timeoutMs: _codexFallbackTimeoutMs(opts),
     });
 
     const result = fs.readFileSync(outputPath, 'utf8').trim();
     if (!result) throw new Error('Codex CLI returned an empty last message');
-    return result;
+    return _validateCodexCliResult(result, jsonRequest);
   } finally {
     // The auth file and schema are ephemeral even when the CLI exits non-zero
     // or a caller aborts the attempt. Never print the secret or its contents.
-    fs.rmSync(codexHome, { recursive: true, force: true });
+    fs.rmSync(runtimeRoot, { recursive: true, force: true });
   }
 }
 
-async function _runCodexCliProcess({ spawn, args, prompt, env, timeoutMs }) {
+async function _runCodexCliProcess({ spawn, args, prompt, env, cwd, timeoutMs }) {
   return new Promise((resolve, reject) => {
     let child;
     try {
-      child = spawn(CODEX_CLI_BIN, args, { stdio: ['pipe', 'ignore', 'pipe'], env });
+      child = spawn(CODEX_CLI_BIN, args, { stdio: ['pipe', 'ignore', 'pipe'], env, cwd });
     } catch (err) {
       reject(err);
       return;
@@ -5535,8 +5675,8 @@ async function _runCodexCliProcess({ spawn, args, prompt, env, timeoutMs }) {
   });
 }
 
-async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError) {
-  if (!claudeError?.claudeCliUsageLimit || _codexCliFallbackAttempted) return null;
+async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError, claudeModel) {
+  if (!claudeError?.claudeCliUsageLimit) return null;
   if (!String(process.env.CODEX_AUTH_JSON || '').trim()) {
     console.warn('⚠️ Claude CLI usage limit detected, but CODEX_AUTH_JSON is not configured — continuing normal fallback chain');
     return null;
@@ -5544,9 +5684,29 @@ async function _tryCodexCliUsageLimitFallback(messages, opts, claudeError) {
 
   // Reserve before the await so concurrent Claude calls cannot launch two
   // Codex attempts. A failed attempt remains consumed by design (one-shot).
-  _codexCliFallbackAttempted = true;
+  let claimed;
+  try {
+    claimed = _claimCodexCliFallback();
+  } catch (err) {
+    console.warn(`⚠️ Claude CLI usage limit → Codex fallback lock failed: ${String(err?.message || err).slice(0, 300)} — continuing normal fallback chain`);
+    return null;
+  }
+  if (!claimed) return null;
   try {
     const result = await _callCodexCli(messages, opts);
+    // The Claude request really did receive a 429. Keep its consecutive-429
+    // telemetry and failure score attached to Claude; the successful result is
+    // credited to Codex by callLLM through modelUsedRef below.
+    if (claudeModel) {
+      _consecutive429.set(claudeModel, (_consecutive429.get(claudeModel) || 0) + 1);
+      _recordLastResortOutcome(claudeModel, 'failed');
+      if (opts?.recordScore !== false) recordModelFailure(claudeModel);
+    }
+    if (opts?.modelUsedRef && typeof opts.modelUsedRef === 'object') {
+      opts.modelUsedRef.model = CODEX_FALLBACK_MODEL;
+      opts.modelUsedRef.provider = 'codex-cli';
+      opts.modelUsedRef.indirectFallback = true;
+    }
     console.warn(`✅ Claude CLI usage limit → Codex fallback succeeded (${CODEX_FALLBACK_MODEL}, effort=${CODEX_INDIRECT_FALLBACK_EFFORT})`);
     return result;
   } catch (err) {
@@ -5675,7 +5835,7 @@ async function _callClaudeCli(model, messages, opts) {
     // already emitted a salvageable partial payload. Give the subscription
     // replacement its promised first chance; if it is unavailable or fails,
     // retain the pre-existing salvage path below.
-    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, err);
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, err, model);
     if (codex !== null) return codex;
     // Il timeout ha ucciso il processo, ma il contenuto puo' essere gia'
     // arrivato: un `tool_use` di StructuredOutput e' emesso a blocco chiuso,
@@ -5700,7 +5860,7 @@ async function _callClaudeCli(model, messages, opts) {
     // che ha scritto spazzatura.
     const error = new Error(`[${model}] claude CLI senza evento result (exit ${code})${trace.describe()}: ${(stdout || stderr).slice(0, 300)}`);
     error.claudeCliUsageLimit = _isClaudeCliUsageLimit({ trace, text: stderr });
-    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error);
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error, model);
     if (codex !== null) return codex;
     const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `nessun evento result (exit ${code})`);
     if (recovered !== null) return recovered;
@@ -5713,7 +5873,7 @@ async function _callClaudeCli(model, messages, opts) {
     // rifiutato e' un articolo completo, e buttarlo costa quanto il timeout.
     const error = new Error(`[${model}] claude CLI error: ${String(parsed.result || stderr || 'unknown').slice(0, 300)}`);
     error.claudeCliUsageLimit = _isClaudeCliUsageLimit({ parsed, trace, text: stderr });
-    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error);
+    const codex = await _tryCodexCliUsageLimitFallback(messages, opts, error, model);
     if (codex !== null) return codex;
     const recovered = _salvageClaudeCliPayload(model, trace.salvage(), `is_error (exit ${code})`);
     if (recovered !== null) return recovered;
@@ -6818,16 +6978,27 @@ export async function callLLM(messages, opts = {}) {
         console.warn(`🔄 Falling back to ${model} (score: ${_modelScores.get(model) || 0})...`);
       }
 
-      const result = await _callModel(model, messages, o);
+      // Keep the requested model separate from the model that actually
+      // answered. The Claude→Codex path is still entered through Claude's
+      // provider, but a successful replacement must credit Codex and expose
+      // that identity to downstream content validation.
+      const callModelRef = { model, provider };
+      const callOpts = { ...o, modelUsedRef: callModelRef };
+      const result = await _callModel(model, messages, callOpts);
+      const servedModel = callModelRef.model || model;
+      const servedViaCodex = callModelRef.indirectFallback === true
+        && servedModel === CODEX_FALLBACK_MODEL;
 
       // ✅ Success — boost this model's score so it stays near the top
       // (skipped for diagnostic-only callers, see DEFAULT_OPTS.recordScore)
-      if (o.recordScore !== false) recordModelSuccess(model);
-      _consecutive429.delete(model); // FRO-325: reset 429 counter on success
-      _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
-      _recordLastResortOutcome(model, 'served');
-      if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
-      if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
+      if (o.recordScore !== false) recordModelSuccess(servedModel);
+      if (!servedViaCodex) {
+        _consecutive429.delete(model); // FRO-325: reset 429 counter on success
+        _clampedTimeouts.delete(model); // an answer clears the adaptive-ceiling doubt
+        _recordLastResortOutcome(model, 'served');
+        if (provider === PROVIDER.CLAUDE_CLI) _claudeCliConsecutiveTimeouts = 0;
+        if (provider === PROVIDER.OMNIROUTE) _omniRouteConsecutiveFailures = 0;
+      }
 
       if (i > 0) {
         console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
@@ -6836,9 +7007,10 @@ export async function callLLM(messages, opts = {}) {
       // validation can penalize this specific model if the payload turns
       // out to be malformed despite the HTTP 200 response.
       if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
-        o.modelUsedRef.model = model;
+        Object.assign(o.modelUsedRef, callModelRef);
+        o.modelUsedRef.model = servedModel;
       }
-      if (_cacheOn && _cacheKey !== null && !_isLastResortProvider(model)) {
+      if (_cacheOn && _cacheKey !== null && !_isLastResortProvider(servedModel)) {
         if (_responseCache.size >= RESPONSE_CACHE_MAX) {
           const oldest = _responseCache.keys().next().value;
           if (oldest !== undefined) _responseCache.delete(oldest);
@@ -6850,9 +7022,9 @@ export async function callLLM(messages, opts = {}) {
         // model, not the served one, lets a lower-tier fallback's output get
         // silently replayed on a later call with the identical o.model/prompt
         // once the requested model is available again).
-        const storageKey = model === (o.model || null)
+        const storageKey = servedModel === (o.model || null)
           ? _cacheKey
-          : _responseCacheKey(messages, { ...o, model });
+          : _responseCacheKey(messages, { ...o, model: servedModel });
         _responseCache.set(storageKey, result);
       }
       return result;
