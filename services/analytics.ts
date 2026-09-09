@@ -97,7 +97,7 @@
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
-import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
+import { captureEvent as posthogCapture } from './posthog';
 import {
  isBenignErrorMessage,
  isOriginRedactedThirdPartyStack,
@@ -184,6 +184,16 @@ export function buildPageViewAttributionParams(
  }
 
  return {};
+}
+
+/** Create one non-identifying key shared by all provider emissions of one action. */
+export function createAnalyticsEmissionId(): string {
+ try {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+ } catch {
+  // Fall through to a local key when Web Crypto is unavailable.
+ }
+ return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
 // ─── Clarity Bridge ────────────────────────────────────────────
@@ -332,7 +342,12 @@ function _doSetProps(properties: Record<string, string>) {
 const log = (eventName: string, params?: Record<string, any>) => {
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
- posthogPageView(params?.page_path || window.location.pathname, params?.page_title);
+ const pagePath = params?.page_path || window.location.pathname;
+ posthogCapture('$pageview', {
+  $current_url: params?.page_location || window.location.origin + pagePath,
+  title: params?.page_title || document.title,
+  ...(params?.emission_id ? { emission_id: params.emission_id } : {}),
+ });
  } else {
  posthogCapture(eventName, params);
  }
@@ -968,6 +983,7 @@ export const Analytics = {
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
+ const emissionId = createAnalyticsEmissionId();
  log('page_view', {
  page_path: path,
  page_title: title || path,
@@ -979,6 +995,7 @@ export const Analytics = {
  content_locale: pageContext.contentLocale,
  route_family: pageContext.routeFamily,
  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
+ emission_id: emissionId,
  ...buildPageViewAttributionParams(path, identity),
  });
  // Bridge: tag Clarity session with page template for filtering
@@ -1714,7 +1731,13 @@ export const Analytics = {
  * Link esterno cliccato — uses outbound_click (not 'click' which is GA4 reserved)
  */
  trackExternalLink: (url: string, label?: string) => {
- log('outbound_click', { link_url: url, link_text: label || url, outbound: true });
+ const emissionId = createAnalyticsEmissionId();
+ log('outbound_click', {
+  link_url: url,
+  link_text: label || url,
+  outbound: true,
+  emission_id: emissionId,
+ });
  },
 
  /**

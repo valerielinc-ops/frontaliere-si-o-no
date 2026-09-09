@@ -410,10 +410,10 @@ function compareTechnicalDuplicateRows(candidate, current) {
 }
 
 /**
- * Collapse only a technical duplicate proven by a stable emission or event
- * key. Rows without either key retain their full observed count and are never
- * guessed to be duplicates. An emission key is shared by the two analytics
- * signals produced by one UI action; it is not inferred from timing or text.
+ * Collapse only a technical duplicate proven by a stable emission id. Rows
+ * without that id retain their full observed count and are marked as
+ * unavailable for deduplication. The provider event key is a pagination
+ * cursor, not evidence that two user actions are the same.
  */
 export function collapseTechnicalDuplicates(inputRows = []) {
   const rows = inputRows.map(normalizeEventRow);
@@ -422,15 +422,13 @@ export function collapseTechnicalDuplicates(inputRows = []) {
   let rawObserved = 0;
   let observed = 0;
   let removed = 0;
+  let dedupUnavailable = 0;
   for (const row of rows) {
     const count = Math.max(0, numberOr(row.observed, 1));
     rawObserved += count;
-    const dedupKey = row.emissionId
-      ? `emission:${row.emissionId}`
-      : row.eventKey
-        ? `event:${row.eventKey}`
-        : '';
+    const dedupKey = row.emissionId ? `emission:${row.emissionId}` : '';
     if (!dedupKey) {
+      dedupUnavailable += count;
       kept.push({ ...row, observed: count });
       observed += count;
       continue;
@@ -454,7 +452,7 @@ export function collapseTechnicalDuplicates(inputRows = []) {
       existing.row = candidate;
     }
   }
-  return { rows: kept, rawObserved, observed, removed };
+  return { rows: kept, rawObserved, observed, removed, dedupUnavailable };
 }
 
 function pathSegments(pathname) {
@@ -688,6 +686,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     residuals,
     residualTotal,
     technicalDuplicatesRemoved: deduped.removed,
+    dedupUnavailable: deduped.dedupUnavailable,
+    deduplication: {
+      key: 'emission_id',
+      status: deduped.dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
+      unavailableCount: deduped.dedupUnavailable,
+    },
     invariant: attributed + residualTotal === deduped.observed,
     attributedRows: eventRowsAttributed,
   };

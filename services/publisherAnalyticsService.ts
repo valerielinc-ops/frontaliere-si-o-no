@@ -3,7 +3,7 @@
  *
  * Mirrors services/jobViewsService.ts: fire-and-forget Firestore increments,
  * never blocks rendering. Views remain session-debounced; apply clicks use an
- * explicit event key so two real clicks in one session remain two events.
+ * explicit emission id so two real clicks remain two events.
  * Writes to
  * `publisher_job_events/{publisherJobId}` (public increment, see firestore.rules).
  *
@@ -13,6 +13,7 @@
  */
 
 import type { Firestore } from 'firebase/firestore';
+import { createAnalyticsEmissionId } from '@/services/analytics';
 
 let _db: Firestore | null = null;
 let _dbInit = false;
@@ -21,36 +22,40 @@ interface PublisherTrackable {
   publisherJobId?: string | null;
 }
 
-export const APPLY_CLICK_DEDUP_WINDOW_MS = 5_000;
-
 export interface ApplyClickDedupInput {
   eventId?: string | null;
-  previousEventId?: string | null;
-  previousEventAtMs?: number | null;
-  nowMs?: number;
+  seenEventIds?: readonly (string | null | undefined)[];
 }
 
 export interface ApplyClickDedupDecision {
   record: boolean;
   removed: number;
-  reason?: 'technical_duplicate';
+  unavailable: number;
+  status: 'available' | 'dedup non disponibile';
+  reason?: 'technical_duplicate' | 'dedup_unavailable';
 }
 
 /**
  * Pure decision for the only apply-click collapse we permit: the same
- * explicit event key arriving again inside the short technical retry window.
+ * explicit emission id arriving again. Missing ids remain counted and are
+ * reported as unavailable instead of being guessed as duplicates.
  */
 export function decideApplyClickDedup(input: ApplyClickDedupInput = {}): ApplyClickDedupDecision {
-  const eventId = input.eventId ? String(input.eventId) : '';
-  const previousEventId = input.previousEventId ? String(input.previousEventId) : '';
-  const nowMs = Number.isFinite(input.nowMs) ? Number(input.nowMs) : Date.now();
-  const previousEventAtMs = Number(input.previousEventAtMs);
-  const sameKey = Boolean(eventId && previousEventId && eventId === previousEventId);
-  const insideRetryWindow = Number.isFinite(previousEventAtMs)
-    && nowMs >= previousEventAtMs
-    && nowMs - previousEventAtMs <= APPLY_CLICK_DEDUP_WINDOW_MS;
-  if (sameKey && insideRetryWindow) return { record: false, removed: 1, reason: 'technical_duplicate' };
-  return { record: true, removed: 0 };
+  const eventId = String(input.eventId || '').trim();
+  if (!eventId) {
+    return {
+      record: true,
+      removed: 0,
+      unavailable: 1,
+      status: 'dedup non disponibile',
+      reason: 'dedup_unavailable',
+    };
+  }
+  const seenEventIds = new Set((input.seenEventIds || []).map((value) => String(value || '').trim()).filter(Boolean));
+  if (seenEventIds.has(eventId)) {
+    return { record: false, removed: 1, unavailable: 0, status: 'available', reason: 'technical_duplicate' };
+  }
+  return { record: true, removed: 0, unavailable: 0, status: 'available' };
 }
 
 function publisherJobId(job: PublisherTrackable | string): string {
@@ -88,34 +93,13 @@ async function incrementView(eventDocId: string): Promise<void> {
   }
 }
 
-function generatedEventId(): string {
-  try {
-    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
-  } catch {
-    // Fall through to a local, non-identifying key when Web Crypto is absent.
-  }
-  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-}
-
 /** Create one stable key for all telemetry emitted by a single UI action. */
 export function createPublisherApplyEventId(): string {
-  return generatedEventId();
-}
-
-function timestampMillis(value: unknown): number | null {
-  if (typeof value === 'number' && Number.isFinite(value)) return value;
-  if (value instanceof Date && Number.isFinite(value.getTime())) return value.getTime();
-  if (value && typeof value === 'object') {
-    const candidate = value as { toMillis?: () => number; toDate?: () => Date; seconds?: number };
-    if (typeof candidate.toMillis === 'function') return candidate.toMillis();
-    if (typeof candidate.toDate === 'function') return timestampMillis(candidate.toDate());
-    if (typeof candidate.seconds === 'number') return candidate.seconds * 1_000;
-  }
-  return null;
+  return createAnalyticsEmissionId();
 }
 
 /**
- * Transactional apply-click increment. The retry key and removal counter live
+ * Transactional apply-click increment. The emission-id ledger and removal counter live
  * beside the counter, making the deduplication decision auditable without
  * persisting an event payload or a browser session marker.
  */
@@ -135,40 +119,29 @@ async function incrementApplyClick(eventDocId: string, eventId: string): Promise
       const reference = doc(_db!, 'publisher_job_events', eventDocId);
       const snapshot = await transaction.get(reference);
       const data = snapshot.exists() ? snapshot.data() : {};
-      const recentKeys = Array.isArray(data.applyClickDedupRecentKeys)
-        ? data.applyClickDedupRecentKeys
-          .filter((entry: unknown): entry is { key: string; at: number } => {
-            const item = entry as { key?: unknown; at?: unknown };
-            return typeof item.key === 'string' && Number.isFinite(Number(item.at))
-              && nowMs >= Number(item.at)
-              && nowMs - Number(item.at) <= APPLY_CLICK_DEDUP_WINDOW_MS;
-          })
+      const seenEventIds = Array.isArray(data.applyClickEmissionIds)
+        ? data.applyClickEmissionIds.map((value: unknown) => String(value || '').trim()).filter(Boolean)
         : [];
-      const recentMatch = recentKeys.find((entry) => entry.key === eventId);
-      const decision = decideApplyClickDedup({
-        eventId,
-        previousEventId: recentMatch?.key || data.lastApplyClickEventKey,
-        previousEventAtMs: recentMatch?.at || timestampMillis(data.lastApplyClickEventAt),
-        nowMs,
-      });
+      const decision = decideApplyClickDedup({ eventId, seenEventIds });
+      const previousUnavailable = Math.max(0, Number(data.applyClicksDedupUnavailable) || 0);
+      const dedupUnavailable = previousUnavailable + decision.unavailable;
       const update: Record<string, unknown> = {
         jobId: eventDocId,
         updatedAt: new Date(nowMs),
         applyClicksDeduplication: {
-          strategy: 'explicit_event_key',
-          key: 'applyClickDedupRecentKeys',
-          windowMs: APPLY_CLICK_DEDUP_WINDOW_MS,
-          sessionDebounce: false,
+          strategy: 'emission_id_only',
+          key: 'emission_id',
+          status: dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
+          unavailableCount: dedupUnavailable,
         },
         applyClicksTechnicalDuplicatesRemoved: fsIncrement(decision.removed),
-        applyClickDedupRecentKeys: decision.record
-          ? [...recentKeys, { key: eventId, at: nowMs }].slice(-32)
-          : recentKeys,
+        applyClicksDedupUnavailable: fsIncrement(decision.unavailable),
+        applyClickEmissionIds: decision.record && eventId
+          ? [...seenEventIds, eventId]
+          : seenEventIds,
       };
       if (decision.record) {
         update.applyClicks = fsIncrement(1);
-        update.lastApplyClickEventKey = eventId;
-        update.lastApplyClickEventAt = new Date(nowMs);
       }
       transaction.set(reference, update, { merge: true });
     });
@@ -188,5 +161,5 @@ export async function trackPublisherApplyClick(
   options: { eventId?: string } = {},
 ): Promise<void> {
   const eventDocId = publisherJobId(job);
-  return incrementApplyClick(eventDocId, options.eventId || createPublisherApplyEventId());
+  return incrementApplyClick(eventDocId, options.eventId ? String(options.eventId).trim() : '');
 }
