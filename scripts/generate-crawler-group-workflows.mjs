@@ -806,15 +806,17 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
     // are both set. Most crawlers route callLLM through
     // dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
     CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
-    // Auth for the one-shot Claude usage-limit fallback. The runtime consumes
-    // this value into a temporary CODEX_HOME/auth.json and never passes the
-    // secret to a model-generated command.
-    CODEX_AUTH_JSON: '${{ secrets.CODEX_AUTH_JSON }}',
   };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
     Object.assign(merged, step.env || {});
   }
+  // CODEX_AUTH_JSON is deliberately scoped to the setup action below. The
+  // crawler shell is backgrounded and may spawn arbitrary post-steps; putting
+  // the subscription secret here would expose it to every one of those
+  // processes. The setup action materializes a 0600 file and exports only its
+  // non-secret path as CODEX_AUTH_FILE for the later fallback consumer.
+  delete merged.CODEX_AUTH_JSON;
   return merged;
 }
 
@@ -999,7 +1001,14 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   // rationale + incident history. Must run before the per-crawler steps
   // below so ENABLE_HAIKU_ARTICLE_FALLBACK is forced into $GITHUB_ENV in
   // time for every background step to inherit it.
-  steps.push({ uses: './.github/actions/setup-claude-haiku-fallback' });
+  steps.push({
+    uses: './.github/actions/setup-claude-haiku-fallback',
+    // Keep the Codex secret on the setup action's process only. That action
+    // writes a private 0600 auth file and exposes only CODEX_AUTH_FILE through
+    // GITHUB_ENV; background crawler/post-step processes never inherit the
+    // secret value itself.
+    with: { codex_auth_json: '${{ secrets.CODEX_AUTH_JSON }}' },
+  });
 
   for (const crawler of group.members) {
     const stepId = `crawler-${crawler.slug}`;

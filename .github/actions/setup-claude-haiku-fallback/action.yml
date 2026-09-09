@@ -22,7 +22,9 @@ description: >-
   When Claude reports a real usage limit/HTTP 429, ai-models.mjs makes one
   indirect Codex CLI attempt using CODEX_AUTH_JSON from a temporary
   CODEX_HOME/auth.json; this action installs the pinned CLI needed for that
-  path, but never receives or exports the auth secret itself.
+  path. Callers pass the optional secret through the codex_auth_json input;
+  only the materialization step receives it, writes a 0600 file, and exports
+  the non-secret CODEX_AUTH_FILE path for the later fallback consumer.
   CORRECTED CLAIM (was wrong in this file since generate-article.yml run
   29676088799, propagated into setup-omniroute/action.yml via PR #4816):
   env.* is NOT immune to the null/unset->0 coercion previously blamed only
@@ -35,6 +37,12 @@ description: >-
   `1` — before the `if:` expression ever sees it, same pattern as
   setup-omniroute/action.yml and translate-pending.yml's
   TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
+inputs:
+  codex_auth_json:
+    description: >-
+      Optional CODEX_AUTH_JSON secret. It is consumed only while writing the
+      0600 auth file; it is never exported to the job environment.
+    required: false
 runs:
   using: "composite"
   steps:
@@ -45,6 +53,27 @@ runs:
     - name: Resolve Claude CLI Haiku fallback gate
       shell: bash
       run: echo "HAIKU_FALLBACK_GATE=${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}" >> "$GITHUB_ENV"
+
+    # Keep the subscription secret on this one action step. The background
+    # crawler/translation processes inherit only CODEX_AUTH_FILE from
+    # GITHUB_ENV; ai-models.mjs consumes and removes the file when the
+    # usage-limit fallback is actually attempted.
+    - name: Materialize Codex auth for the indirect fallback
+      if: env.HAIKU_FALLBACK_GATE != '0' && inputs.codex_auth_json != ''
+      shell: bash
+      env:
+        CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+      run: |
+        set -euo pipefail
+        auth_tmp="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+        auth_dir="$(mktemp -d "$auth_tmp/claude-haiku-codex-auth.XXXXXX")"
+        chmod 700 "$auth_dir"
+        auth_file="$auth_dir/auth.json"
+        umask 077
+        printf '%s' "$CODEX_AUTH_JSON" > "$auth_file"
+        chmod 600 "$auth_file"
+        printf 'CODEX_AUTH_FILE=%s\n' "$auth_file" >> "$GITHUB_ENV"
+        unset CODEX_AUTH_JSON
 
     - name: Setup Claude CLI Haiku fallback
       if: env.HAIKU_FALLBACK_GATE != '0'

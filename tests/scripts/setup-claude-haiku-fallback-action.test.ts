@@ -11,4 +11,14 @@ describe('Claude Haiku fallback setup action', () => {
     expect(action).toContain('::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available');
     expect(action).toContain('echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"');
   });
+
+  it('materializes auth only inside the action and exports a non-secret file path', () => {
+    const action = fs.readFileSync(actionPath, 'utf8');
+    expect(action).toContain('codex_auth_json:');
+    expect(action).toContain('CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}');
+    expect(action).toContain('printf \'%s\' "$CODEX_AUTH_JSON" > "$auth_file"');
+    expect(action).toContain('chmod 600 "$auth_file"');
+    expect(action).toContain("printf 'CODEX_AUTH_FILE=%s\\n' \"$auth_file\" >> \"$GITHUB_ENV\"");
+    expect(action).not.toContain('CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}');
+  });
 });
