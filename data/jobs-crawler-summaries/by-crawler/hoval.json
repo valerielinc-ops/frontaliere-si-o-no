@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-09T13:46:01.949Z",
-  "total": 14,
+  "generatedAt": "2026-09-09T23:05:42.028Z",
+  "total": 13,
   "newCount": 0,
-  "updatedCount": 14,
-  "removedCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 18351,
-  "avgDurationMs": 18351,
+  "durationMs": 18708,
+  "avgDurationMs": 18708,
   "durationHistory": [
-    18351
+    18708
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,6 +80,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T11:43:47.058Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -411,6 +412,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-07T15:04:04.419Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -457,43 +459,6 @@
       }
     },
     {
-      "title": "Technicien/ne de Vente interne (m/f/d)",
-      "slug": "technicien-ne-de-vente-interne-m-f-d-hoval-crissier",
-      "url": "https://www.hoval.it/it_IT/job/3973",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3973/Application/New/3?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Crissier",
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "technician",
-      "sector": "IT & Digital",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-09-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-3f40d18cefca",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "postalCode": "1003",
-      "firstSeenAt": "2026-06-23T22:30:02.941Z",
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Technischer Verkaufsberater Aussendienst Komfortlüftung & Hallenklima (m/w/d)",
       "slug": "technischer-verkaufsberater-aussendienst-komfortluftung-hallenklima-m-w-d-hoval-feldmeilen-region-nws",
       "url": "https://www.hoval.it/it_IT/job/3994",
@@ -530,6 +495,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Technicien/ne de Vente interne (m/f/d)",
+      "slug": "tecnica-di-vendita-interna-m-f-d-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/3973",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3973/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "technician",
+      "sector": "IT & Digital",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-3f40d18cefca",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-06-23T22:30:02.941Z",
+      "salarySource": "estimated",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }

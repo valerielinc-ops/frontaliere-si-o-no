@@ -1,21 +1,21 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-09-09T13:45:53.033Z",
-  "total": 2,
+  "generatedAt": "2026-09-09T23:05:32.745Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6533,
-  "avgDurationMs": 6533,
+  "unchangedCount": 0,
+  "durationMs": 5196,
+  "avgDurationMs": 5196,
   "durationHistory": [
-    6533
+    5196
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/teamleitung-tagesstruktur-90",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:45:43.770Z",
+      "crawledAt": "2026-09-09T23:05:25.886Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -58,47 +58,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "modellstation-somosa-f22fe242006f",
-      "slug": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur",
-      "company": "Modellstation SOMOSA",
-      "companyKey": "modellstation-somosa",
-      "companyDomain": "somosa.ch",
-      "title": "Praktikum für Studierende Sozialpädagogik (Praxismodul)",
-      "needsRetranslation": false,
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
-      "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:21:11.403Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8400",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
-      "firstSeenAt": "2026-09-07T15:03:51.881Z",
-      "salaryMin": 53500,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
