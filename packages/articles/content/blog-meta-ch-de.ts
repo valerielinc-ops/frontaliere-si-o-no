@@ -6160,6 +6160,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Stadtgrün: Regel 3-30-300 für frische Städte',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'Europäische Studie zu 862 Städten: 28% der Schweizer Bevölkerung leben in grünen Vierteln. Regel 3-30-300 gibt den Weg zu kühleren Städten an',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole in Bellinzona mit Gebäuden und minimaler Begrünung, Beispiel für städtische Wärmeinsel',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Kraftstoffe auf Jahreshöchststand: Diesel zu 2,30 Franken',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Benzin zu 2,05-2,16 Franken, Diesel zu 2,30. Innerhalb von neun Monaten stiegen die Preise zwischen 24 und 29% und näherten sich dem Höchststand von 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Benzinpumpe an einer Schweizer Tankstelle mit Preisanzeige',
 };
 
 export default blogMetaChDe;

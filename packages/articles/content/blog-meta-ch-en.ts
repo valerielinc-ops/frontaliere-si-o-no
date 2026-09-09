@@ -6160,6 +6160,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Urban green: the 3-30-300 rule for cool cities',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'European study of 862 cities: 28% of the Swiss population lives in green neighbourhoods. Rule 3-30-300 points the way to cooler cities',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole in Bellinzona with buildings and minimal vegetation, example of urban heat island',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Fuels at annual highs: diesel at CHF 2.30',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Petrol at 2.05-2.16 francs, diesel at 2.30. In nine months, prices rose between 24 and 29%, approaching the peaks of 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Fuel pump at Swiss gas station showing current prices per liter',
 };
 
 export default blogMetaChEn;

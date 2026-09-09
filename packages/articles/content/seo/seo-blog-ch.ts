@@ -79970,6 +79970,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-record-prezzi-2026': {
+    title: 'Carburanti ai massimi annuali: diesel a 2,30 franchi',
+    description: 'Diesel a 2,30 franchi al litro, benzina a 2,05 CHF/litro. Rincari del 24-29% dal gennaio 2026. TCS: conflitti geopolitici riducono raffinazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, massimi, annuali, diesel',
+    ogTitle: 'Carburanti ai massimi annuali: diesel a 2,30 franchi',
+    ogDescription: 'I carburanti in Svizzera raggiungono i massimi dell\'anno: diesel a 2,30 CHF/litro, benzina 95 a 2,05 CHF/litro. Rincari fra 24% e 29% dal gennaio. Conflitti geopolitici e ridotta raffinazione spingono i prezzi verso i livelli di crisi del 2022.',
+    canonicalPath: '/articoli-svizzera/carburanti-record-prezzi-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti ai massimi annuali: diesel a 2,30 franchi",
+      "description": "Diesel a 2,30 franchi al litro, benzina a 2,05 CHF/litro. Rincari del 24-29% dal gennaio 2026. TCS: conflitti geopolitici riducono raffinazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carburanti-record-prezzi-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina presso distributore svizzero con pannello prezzi alla pompa"
+      },
+      "datePublished": "2026-09-09T10:07:20+00:00",
+      "dateModified": "2026-09-09T10:07:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carburanti-record-prezzi-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
