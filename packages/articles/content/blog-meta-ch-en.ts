@@ -6220,6 +6220,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-richiesta.title': 'Family allowances in Svitto: how to claim them',
     'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'In the Canton of Svitto, family allowances are a public contribution for parents with children. Find out who is entitled, how to apply and what documents they need.',
     'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Swiss family reviewing family allowance documents at a cantonal administrative office',
+    'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Ban on Sudanese gold in Switzerland from 10 September',
+    'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'The Federal Council has blocked the purchase and import of Sudanese gold since 10 September 2026. Alignment with the EU sanctions of 13 July. Impacts for merchants and financial institutions.',
+    'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Compliance documentation and gold bullion on desk in Swiss federal administrative setting',
 };
 
 export default blogMetaChEn;

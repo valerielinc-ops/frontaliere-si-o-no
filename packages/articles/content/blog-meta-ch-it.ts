@@ -6220,6 +6220,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-richiesta.title': 'Assegni familiari in Svitto: come richiederli',
     'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Nel Cantone di Svitto gli assegni familiari sono un contributo pubblico per genitori con figli. Scopri chi ha diritto, come fare domanda e quali documenti servono.',
     'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Famiglia svizzera che esamina documenti degli assegni familiari presso uno sportello amministrativo cantonale',
+    'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Divieto di oro sudanese in Svizzera dal 10 settembre',
+    'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'Il Consiglio federale dal 10 settembre 2026 blocca acquisto e importazione di oro sudanese. Allineamento con le sanzioni UE del 13 luglio. Impatti per commercianti e istituti finanziari.',
+    'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Documentazione di conformità e lingotti di oro su scrivania in contesto amministrativo svizzero federale',
 };
 
 export default blogMetaChIt;

@@ -18658,6 +18658,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'divieto-oro-sudan-consiglio-federale',
+    category: 'novita',
+    date: '2026-09-09T19:24:59.212Z',
+    image: '/images/blog/divieto-oro-sudan-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

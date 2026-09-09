@@ -80750,6 +80750,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divieto-oro-sudan-consiglio-federale': {
+    title: 'Divieto di oro sudanese in Svizzera dal 10 settembre',
+    description: 'Consiglio federale vieta commercio, importazione e transito di oro sudanese dal 10 settembre 2026. Allineamento sanzioni UE, impatti aziendali e procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, divieto, sudanese, settembre, consiglio',
+    ogTitle: 'Svizzera vieta oro sudanese: nuove sanzioni dal 10 settembre 2026',
+    ogDescription: 'Consiglio federale blocca acquisto, importazione e transito di oro sudanese dal 10 settembre 2026. Sanzioni allineate all\'UE. Cosa devono fare commercianti e istituti finanziari svizzeri.',
+    canonicalPath: '/articoli-svizzera/divieto-oro-sudan-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divieto di oro sudanese in Svizzera dal 10 settembre",
+      "description": "Consiglio federale vieta commercio, importazione e transito di oro sudanese dal 10 settembre 2026. Allineamento sanzioni UE, impatti aziendali e procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divieto-oro-sudan-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documentazione di conformità e lingotti di oro su scrivania in contesto amministrativo svizzero federale"
+      },
+      "datePublished": "2026-09-09T19:24:59+00:00",
+      "dateModified": "2026-09-09T19:24:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divieto-oro-sudan-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
