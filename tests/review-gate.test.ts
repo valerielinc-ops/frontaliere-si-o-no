@@ -3,6 +3,7 @@ import {
   classifyReview,
   followupIssueBody,
   followupItemsFromBody,
+  historicalImportantFindings,
   importantFindings,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
@@ -20,6 +21,30 @@ const approvingBotReview = {
   body: '## Findings (Important: 0, Nit: 0)\n\n## LGTM',
   commit_id: PRIOR_SHA,
 };
+
+const historicalImportantReview = {
+  user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  body: reviewFor('src/changed.mjs', 'the unsafe branch is still present'),
+  commit_id: PRIOR_SHA,
+};
+
+const unanchoredImportantReview = {
+  user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  body: '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: process contract remains unresolved\n\n## LGTM',
+  commit_id: PRIOR_SHA,
+};
+
+const alignmentLgtmReview = {
+  user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  body: '## Findings (Important: 0, Nit: 1)\n\nThe alignment changed no cited code.\n\n## LGTM',
+  commit_id: HEAD_SHA,
+};
+
+const classifyCurrentDiff = async (body: string) => classifyReview(body, {
+  files: DIFF_FILES,
+  complete: true,
+  repositoryPaths: TREE_FILES,
+});
 
 describe('review gate: scope classification is fail-closed', () => {
   it('blocks when the file list is incomplete', () => {
@@ -253,6 +278,113 @@ describe('review gate: scope classification is fail-closed', () => {
 });
 
 describe('review gate: unresolvable head verdicts are blocking', () => {
+  it('renders the only previous review as historical context before the next review exists', () => {
+    expect(historicalImportantFindings([[historicalImportantReview]])).toHaveLength(0);
+    expect(historicalImportantFindings([[historicalImportantReview]], { includeLatest: true }))
+      .toHaveLength(1);
+  });
+
+  it('does not let a re-alignment LGTM erase an Important finding on the same code', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, alignmentLgtmReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
+  it('allows the later LGTM only after the cited anchor has an explicit fix confirmation', async () => {
+    const fixedReview = {
+      ...alignmentLgtmReview,
+      body: '## Findings (Important: 0, Nit: 0)\n\nFix di `src/changed.mjs:L12`: ok. Il delta ha corretto il ramo.\n\n## LGTM',
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, fixedReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('does not let a legacy line-only confirmation close an anchor on another file', async () => {
+    const legacyConfirmation = {
+      ...alignmentLgtmReview,
+      body: '## Findings (Important: 0, Nit: 0)\n\nFix di L12: ok.\n\n## LGTM',
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, legacyConfirmation]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
+  it('keeps an Important without a file citation until its text has an explicit confirmation', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, alignmentLgtmReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.classification.unresolved).toHaveLength(1);
+  });
+
+  it('allows an unanchored Important after its normalized text has an explicit confirmation', async () => {
+    const fixedReview = {
+      ...alignmentLgtmReview,
+      body: '## Findings (Important: 0, Nit: 0)\n\nFix di `🔴 Important: process contract remains unresolved`: ok.\n\n## LGTM',
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, fixedReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('reuses the existing outside-diff declassification for inherited findings', async () => {
+    const outsideReview = {
+      ...historicalImportantReview,
+      body: reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe'),
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[outsideReview, alignmentLgtmReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.outside).toHaveLength(1);
+    expect(result.classification.blocking).toBe(false);
+  });
+
   it('blocks with zero bot reviews on the HEAD and no carry-forward', async () => {
     const result = await runReviewGate({
       repo: 'owner/repo',

@@ -1,5 +1,5 @@
 /**
- * EmployerInsightsPage — the cold-outreach conversion centrepiece.
+ * EmployerInsightsPage — the cold-outreach insights centrepiece.
  *
  * A private, per-company "wow" traffic report: we give companies free job-board
  * traffic on frontaliereticino.ch, and this page PROVES it with their real
@@ -16,9 +16,8 @@
  *
  * Styling: semantic Tailwind tokens only (no inline hex, no raw `dark:` color
  * classes), mobile-first, one <h1>. Animations honour prefers-reduced-motion
- * (count-up + reveal both no-op under reduced motion; CSS transitions are
- * globally neutralised by the media query in index.css). No new npm deps:
- * count-up via the shared `useCountUp` hook, charts hand-rolled in SVG/CSS.
+ * (reveal transitions are globally neutralised by the media query in
+ * index.css). No new npm deps; charts are hand-rolled in SVG/CSS.
  *
  * SEO: per-company data is PRIVATE → the page forces `<meta name="robots"
  * content="noindex, nofollow">` (overriding the global indexable meta) for its
@@ -28,21 +27,20 @@
 import React, { useEffect, useState } from 'react';
 import {
   ArrowRight,
+  Building2,
   Eye,
-  Users,
-  Briefcase,
-  TrendingUp,
-  TrendingDown,
-  AlertTriangle,
-  Sparkles,
-  Target,
-  Loader2,
+  FileText,
   Home,
+  Loader2,
+  MousePointerClick,
+  Sparkles,
+  TrendingDown,
+  TrendingUp,
 } from 'lucide-react';
-import { useCountUp } from '@/hooks/useCountUp';
 import {
   fetchInsights,
   type EmployerInsights,
+  type EmployerInsightsWindow,
   type FetchInsightsResult,
 } from '@/services/employerInsights';
 import { useReveal } from '@/components/insights/useReveal';
@@ -57,51 +55,6 @@ const nf = new Intl.NumberFormat('it-IT');
 /* ────────────────────────────────────────────────────────────────────────── */
 /* Small building blocks                                                        */
 /* ────────────────────────────────────────────────────────────────────────── */
-
-/** Animated count-up number that only starts once it scrolls into view. */
-function CountStat({
-  value,
-  decimals = 0,
-  suffix = '',
-}: {
-  value: number;
-  decimals?: number;
-  suffix?: string;
-}): React.ReactElement {
-  const { ref, inView } = useReveal<HTMLSpanElement>();
-  const display = useCountUp(value, { active: inView, decimals, durationMs: 1600 });
-  const text =
-    decimals > 0 ? display.toLocaleString('it-IT', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) : nf.format(Math.round(display));
-  return (
-    <span ref={ref} className="tabular-nums">
-      {text}
-      {suffix}
-    </span>
-  );
-}
-
-/** A hero KPI tile: big animated number + icon + label. */
-function HeroStat({
-  icon,
-  value,
-  label,
-}: {
-  icon: React.ReactNode;
-  value: number;
-  label: string;
-}): React.ReactElement {
-  return (
-    <div className="flex flex-col items-center text-center rounded-2xl border border-edge bg-surface-raised px-4 py-5">
-      <span className="text-accent mb-2" aria-hidden="true">
-        {icon}
-      </span>
-      <span className="text-3xl sm:text-4xl font-bold font-display text-strong">
-        <CountStat value={value} />
-      </span>
-      <span className="text-xs sm:text-sm text-subtle mt-1">{label}</span>
-    </div>
-  );
-}
 
 /** Generic scroll-reveal section wrapper (fade + slide up). */
 function RevealSection({
@@ -125,14 +78,99 @@ function RevealSection({
   );
 }
 
+type MetricValue = number | null | undefined;
+type MetricState = 'observed' | 'zero-observed' | 'data-missing' | 'source-unavailable';
+
+function windowLabel(window: EmployerInsightsWindow | null | undefined): string {
+  if (!window?.from || !window.to) return 'finestra non disponibile';
+  const timezone = window.timezone?.trim() || 'timezone non disponibile';
+  const inclusive = window.inclusive ? ` · ${window.inclusive}` : '';
+  return `${window.from} → ${window.to} · ${timezone}${inclusive}`;
+}
+
+function metricState(
+  value: MetricValue,
+  source: string | null | undefined,
+  window: EmployerInsightsWindow | null | undefined,
+): { display: string; state: MetricState; source: string } {
+  const hasSource = typeof source === 'string' && source.trim().length > 0;
+  const sourceLabel = hasSource ? source.trim() : 'sorgente non disponibile';
+  if (!hasSource) {
+    return { display: 'non disponibile', state: 'source-unavailable', source: sourceLabel };
+  }
+  if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value)) {
+    return { display: 'non disponibile', state: 'data-missing', source: sourceLabel };
+  }
+  if (value === 0) return { display: '0', state: 'zero-observed', source: sourceLabel };
+  return { display: nf.format(value), state: 'observed', source: sourceLabel };
+}
+
+function metricStateLabel(state: MetricState): string {
+  if (state === 'zero-observed') return 'zero osservato';
+  if (state === 'data-missing') return 'dato assente';
+  if (state === 'source-unavailable') return 'sorgente non disponibile';
+  return 'dato osservato';
+}
+
+function MetricCard({
+  icon,
+  label,
+  description,
+  value,
+  source,
+  window,
+  compact = false,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  description: string;
+  value: MetricValue;
+  source: string | null | undefined;
+  window: EmployerInsightsWindow | null | undefined;
+  compact?: boolean;
+}): React.ReactElement {
+  const metric = metricState(value, source, window);
+  const displayWindow = windowLabel(window);
+  return (
+    <div
+      className={`rounded-2xl border border-edge bg-surface-raised ${compact ? 'p-4' : 'px-4 py-5'}`}
+      aria-label={`${label}: ${metric.display}`}
+    >
+      <span className="text-accent mb-2 inline-flex" aria-hidden="true">
+        {icon}
+      </span>
+      <p className={`${compact ? 'text-2xl' : 'text-3xl sm:text-4xl'} font-bold font-display text-strong tabular-nums`}>
+        {metric.display}
+      </p>
+      <p className="text-xs sm:text-sm text-subtle mt-1">{label}</p>
+      <p className="text-xs text-muted mt-2">{metricStateLabel(metric.state)}</p>
+      <dl className="mt-3 space-y-1 text-[0.7rem] leading-snug text-muted">
+        <div>
+          <dt className="inline font-semibold">Finestra: </dt>
+          <dd className="inline">{displayWindow}</dd>
+        </div>
+        <div>
+          <dt className="inline font-semibold">Sorgente: </dt>
+          <dd className="inline">{metric.source}</dd>
+        </div>
+      </dl>
+      <p className="text-xs text-body mt-3">{description}</p>
+    </div>
+  );
+}
+
+function additionalWindowLabel(key: string): string {
+  return key.endsWith('d') ? `${key.slice(0, -1)} giorni` : key;
+}
+
 /* ────────────────────────────────────────────────────────────────────────── */
 /* The report (presentational — takes already-fetched data)                     */
 /* ────────────────────────────────────────────────────────────────────────── */
 
 export function EmployerInsightsReport({ data }: { data: EmployerInsights }): React.ReactElement {
-  const { totals, trend, ads, periodDays } = data;
-
-  const conversionPct = totals.conversionRate * 100;
+  const { totals, trend, ads } = data;
+  const eventSource = data.source;
+  const applicationSource = data.applicationsCoverage?.source;
   const trendUp =
     trend.length >= 2 ? trend[trend.length - 1].views >= trend[0].views : true;
 
@@ -145,57 +183,49 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
           Report gratuito · Frontaliere Ticino
         </span>
         <h1 className="text-3xl sm:text-5xl font-bold font-display text-heading leading-tight text-balance">
-          {data.companyName} è già visibile sui frontalieri
+          Dati di interazione per {data.companyName}
         </h1>
         <p className="mt-3 text-base sm:text-lg text-subtle max-w-xl mx-auto text-pretty">
-          Negli ultimi {periodDays} giorni, <strong className="text-body">gratis</strong>, da
-          frontaliereticino.ch
+          Il periodo principale documentabile è cumulativo. Le viste aggiuntive non sostituiscono
+          questa finestra.
         </p>
+        <p className="mt-2 text-xs text-muted">Finestra principale: {windowLabel(data.window)}</p>
 
-        <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
-          <HeroStat
-            icon={<Users className="w-5 h-5" />}
-            value={totals.candidates}
-            label="candidati inviati"
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <MetricCard
+            icon={<MousePointerClick className="w-5 h-5" />}
+            value={typeof totals.applyClicks === 'number' ? totals.applyClicks : undefined}
+            label="Click per candidarsi"
+            description="Segnale di intento; non è un invio di candidatura."
+            source={eventSource}
+            window={data.window}
           />
-          <HeroStat
+          <MetricCard
+            icon={<FileText className="w-5 h-5" />}
+            value={totals.applications}
+            label="Candidature inviate"
+            description="Invii registrati dalla sorgente delle candidature; non si sommano ai click."
+            source={applicationSource}
+            window={data.window}
+          />
+          <MetricCard
+            icon={<Building2 className="w-5 h-5" />}
+            value={totals.profileViews}
+            label="Visualizzazioni profilo azienda"
+            description="Visite al profilo azienda, separate dalle visualizzazioni annuncio."
+            source={eventSource}
+            window={data.window}
+          />
+          <MetricCard
             icon={<Eye className="w-5 h-5" />}
             value={totals.views}
-            label="visualizzazioni"
-          />
-          <HeroStat
-            icon={<Briefcase className="w-5 h-5" />}
-            value={totals.adsCount}
-            label="annunci pubblicati"
+            label="Visualizzazioni annuncio"
+            description="Eventi di visualizzazione dell'annuncio."
+            source={eventSource}
+            window={data.window}
           />
         </div>
       </header>
-
-      {/* ── Loss-aversion hammer ────────────────────────────────────────── */}
-      <RevealSection
-        ariaLabelledby="insights-loss-heading"
-        className="rounded-3xl border border-danger-border bg-danger-subtle px-5 py-8 sm:px-8 sm:py-10 text-center"
-      >
-        <span
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface text-danger-strong mb-4 mx-auto"
-          aria-hidden="true"
-        >
-          <AlertTriangle className="w-6 h-6" />
-        </span>
-        <p
-          id="insights-loss-heading"
-          className="text-sm sm:text-base font-semibold uppercase tracking-wide text-danger-strong"
-        >
-          Persone interessate che NON sono diventate candidature
-        </p>
-        <p className="mt-3 text-6xl sm:text-7xl font-bold font-display text-danger-strong leading-none">
-          <CountStat value={totals.lost} />
-        </p>
-        <p className="mt-4 text-base text-body max-w-md mx-auto text-pretty">
-          Hanno visto i tuoi annunci ma se ne sono andati senza candidarsi. Sono{' '}
-          <strong>candidati lasciati sul tavolo</strong> — possiamo recuperarli.
-        </p>
-      </RevealSection>
 
       {/* ── Top ads bar chart ───────────────────────────────────────────── */}
       {ads.length > 0 && (
@@ -204,10 +234,13 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             id="insights-topads-heading"
             className="text-xl sm:text-2xl font-bold font-display text-strong mb-1"
           >
-            Gli annunci che lavorano per te
+            Annunci con più visualizzazioni registrate
           </h2>
           <p className="text-sm text-subtle mb-5">
-            I più visti{data.topAd ? `, guidati da «${data.topAd.title}»` : ''}.
+            I primi 10 annunci per visualizzazioni{data.topAd ? `, con «${data.topAd.title}» in testa` : ''}.
+          </p>
+          <p className="text-xs text-muted mb-4">
+            Finestra: {windowLabel(data.window)} · Sorgente: {typeof eventSource === 'string' && eventSource.trim() ? eventSource : 'sorgente non disponibile'}
           </p>
           <TopAdsChart ads={ads} limit={10} />
         </RevealSection>
@@ -227,49 +260,74 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
               id="insights-trend-heading"
               className="text-xl sm:text-2xl font-bold font-display text-strong"
             >
-              Visualizzazioni settimana per settimana
+              Andamento delle visualizzazioni registrate
             </h2>
           </div>
-          <p className="text-sm text-subtle mb-4">
-            {trendUp
-              ? 'Il tuo interesse è in crescita — è il momento di trasformarlo.'
-              : 'C’è un pubblico attivo da riattivare con annunci in evidenza.'}
+          <p className="text-sm text-subtle mb-2">
+            {trendUp ? 'Le visualizzazioni registrate sono in crescita.' : 'Le visualizzazioni registrate sono in calo.'}
+          </p>
+          <p className="text-xs text-muted mb-4">
+            Finestra: {windowLabel(data.window)} · Sorgente: {typeof eventSource === 'string' && eventSource.trim() ? eventSource : 'sorgente non disponibile'}
           </p>
           <TrendSparkline trend={trend} />
         </RevealSection>
       )}
 
-      {/* ── Conversion-rate stat ────────────────────────────────────────── */}
-      <RevealSection
-        ariaLabelledby="insights-conv-heading"
-        className="rounded-3xl border border-accent-border bg-accent-subtle px-5 py-8 sm:px-8 sm:py-10"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-          <div className="flex items-center gap-4">
-            <span
-              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface text-accent shrink-0"
-              aria-hidden="true"
-            >
-              <Target className="w-6 h-6" />
-            </span>
-            <span className="text-5xl sm:text-6xl font-bold font-display text-strong leading-none">
-              <CountStat value={conversionPct} decimals={conversionPct < 10 ? 1 : 0} suffix="%" />
-            </span>
+      {data.additionalWindows && Object.entries(data.additionalWindows).length > 0 && (
+        <RevealSection ariaLabelledby="insights-additional-heading">
+          <h2 id="insights-additional-heading" className="text-xl sm:text-2xl font-bold font-display text-strong mb-1">
+            Viste aggiuntive
+          </h2>
+          <p className="text-sm text-subtle mb-5">
+            Le finestre da 30 e 90 giorni sono confronti aggiuntivi e non sostituiscono il periodo principale.
+          </p>
+          <div className="space-y-6">
+            {Object.entries(data.additionalWindows).map(([key, summary]) => (
+              <div key={key}>
+                <h3 className="text-base font-semibold text-strong mb-3">{additionalWindowLabel(key)}</h3>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  <MetricCard
+                    compact
+                    icon={<MousePointerClick className="w-4 h-4" />}
+                    value={summary.totals.applyClicks}
+                    label="Click per candidarsi"
+                    description="Intento"
+                    source={eventSource}
+                    window={summary.window}
+                  />
+                  <MetricCard
+                    compact
+                    icon={<FileText className="w-4 h-4" />}
+                    value={summary.totals.applications}
+                    label="Candidature inviate"
+                    description="Invii"
+                    source={applicationSource}
+                    window={summary.window}
+                  />
+                  <MetricCard
+                    compact
+                    icon={<Building2 className="w-4 h-4" />}
+                    value={summary.totals.profileViews}
+                    label="Visualizzazioni profilo azienda"
+                    description="Profilo"
+                    source={eventSource}
+                    window={summary.window}
+                  />
+                  <MetricCard
+                    compact
+                    icon={<Eye className="w-4 h-4" />}
+                    value={summary.totals.views}
+                    label="Visualizzazioni annuncio"
+                    description="Annuncio"
+                    source={eventSource}
+                    window={summary.window}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-          <div>
-            <h2
-              id="insights-conv-heading"
-              className="text-lg sm:text-xl font-bold font-display text-strong"
-            >
-              diventa candidatura oggi
-            </h2>
-            <p className="mt-1 text-sm sm:text-base text-body text-pretty">
-              Con annunci in evidenza, newsletter mirata e candidatura diretta possiamo{' '}
-              <strong>alzarlo</strong>. Ogni punto in più sono candidati reali nella tua casella.
-            </p>
-          </div>
-        </div>
-      </RevealSection>
+        </RevealSection>
+      )}
 
       {/* ── CTA ─────────────────────────────────────────────────────────── */}
       <RevealSection
@@ -280,11 +338,11 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
           id="insights-cta-heading"
           className="text-2xl sm:text-3xl font-bold font-display text-on-accent text-balance"
         >
-          Trasforma questi {nf.format(totals.views)} click in candidature dirette
+          Dai seguito ai segnali registrati
         </h2>
         <p className="mt-3 text-sm sm:text-base text-on-accent/80 max-w-md mx-auto text-pretty">
-          Rivendica il profilo di {data.companyName}, metti gli annunci in evidenza e ricevi le
-          candidature direttamente. Setup in pochi minuti.
+          Rivendica il profilo di {data.companyName}, metti gli annunci in evidenza e porta il
+          pubblico verso il tuo processo di candidatura con una misura più chiara. Setup in pochi minuti.
         </p>
         <a
           href={CLAIM_HREF}

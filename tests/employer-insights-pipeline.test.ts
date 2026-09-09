@@ -3,10 +3,12 @@ import { describe, expect, it } from 'vitest';
 import {
   aggregateApplicationEvidence,
   buildIdentityCatalog,
+  buildDryRunPayload,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
   queryEventRows,
 } from '../scripts/build-employer-insights.mjs';
+import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
 import {
   APPLY_CLICK_DEDUP_WINDOW_MS,
   decideApplyClickDedup,
@@ -67,7 +69,122 @@ function build(rows: Array<Record<string, unknown>>, jobs = [job()], application
   });
 }
 
+function gatePayload(overrides: Record<string, unknown> = {}) {
+  const payload = {
+    schemaVersion: 2,
+    generatedAt: WINDOW.to,
+    source: 'posthog',
+    window: WINDOW,
+    coverage: {
+      source: 'posthog',
+      sourceObserved: 100,
+      returned: 100,
+      totalRows: 1,
+      returnedRows: 1,
+      pages: 1,
+      queryHash: 'query-hash',
+      snapshotId: 'snapshot-id',
+      truncated: false,
+    },
+    documents: Array.from({ length: 9 }, (_, index) => ({
+      companyKey: `company-${index}`,
+      source: 'posthog',
+      window: { ...WINDOW, inclusive: '[from,to)' },
+      coverage: { source: 'posthog', observed: 1 },
+      limits: {
+        events: { returned: 100, truncated: false },
+        adsSerialized: { limit: null, truncated: false },
+      },
+      provenance: {
+        source: 'posthog',
+        truncated: false,
+        snapshotId: 'snapshot-id',
+      },
+    })),
+    ...overrides,
+  };
+  return payload;
+}
+
 describe('employer insights event coverage', () => {
+  it('rejects a truncated dry-run payload before write', () => {
+    const result = validateEmployerInsightsPayload(
+      gatePayload({ coverage: { ...gatePayload().coverage, truncated: true } }),
+      { currentDocumentCount: 10, expectedSource: 'posthog' },
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('coverage.truncated must be false');
+  });
+
+  it('rejects coverage below the 90% floor before write', () => {
+    const result = validateEmployerInsightsPayload(
+      gatePayload({ coverage: { ...gatePayload().coverage, returned: 89 } }),
+      { currentDocumentCount: 10, expectedSource: 'posthog' },
+    );
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('coverage returned/sourceObserved is below 90%');
+  });
+
+  it('rejects a payload without a declared source before write', () => {
+    const payload = gatePayload();
+    delete (payload as { source?: string }).source;
+    delete (payload.coverage as { source?: string }).source;
+
+    const result = validateEmployerInsightsPayload(payload, {
+      currentDocumentCount: 10,
+      expectedSource: 'posthog',
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('payload.source must declare the expected source');
+  });
+
+  it('accepts a complete payload at the 90% coverage floor', () => {
+    const result = validateEmployerInsightsPayload(gatePayload(), {
+      currentDocumentCount: 10,
+      expectedSource: 'posthog',
+    });
+
+    expect(result).toMatchObject({ ok: true, coverage: { returned: 100, sourceObserved: 100 } });
+  });
+
+  it('serializes a complete machine-readable dry-run envelope', () => {
+    const [doc] = build([event({ eventKey: 'dry-run-event' })]);
+    const payload = buildDryRunPayload({
+      documents: [doc],
+      generatedAt: WINDOW.to,
+      source: 'posthog',
+      window: WINDOW,
+      queryCoverage: {
+        pageSize: 10_000,
+        sourceObserved: 1,
+        totalRows: 1,
+        returnedRows: 1,
+        returned: 1,
+        pages: 1,
+        truncated: false,
+        queryHash: 'query-hash',
+        snapshotId: 'snapshot-id',
+      },
+    });
+
+    expect(payload).toMatchObject({
+      source: 'posthog',
+      window: WINDOW,
+      coverage: {
+        source: 'posthog',
+        sourceObserved: 1,
+        totalRows: 1,
+        returnedRows: 1,
+        returned: 1,
+        truncated: false,
+      },
+    });
+    expect(payload.documents).toEqual([doc]);
+  });
+
   it('serializes a zero-observed company instead of dropping the source state', () => {
     const [doc] = build([], [job()]);
 

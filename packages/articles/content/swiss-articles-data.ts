@@ -18559,6 +18559,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-yumo-educazione-finanziaria',
+    category: 'novita',
+    date: '2026-09-09T14:43:40.349Z',
+    image: '/images/blog/ubs-yumo-educazione-finanziaria.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'alleanza-energia-elettrica-svizzera',
+    category: 'novita',
+    date: '2026-09-09T15:04:55.366Z',
+    image: '/images/blog/alleanza-energia-elettrica-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'tour-operator-calo-conflitti',
+    category: 'novita',
+    date: '2026-09-09T16:03:44.922Z',
+    image: '/images/blog/tour-operator-calo-conflitti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'banda-larga-zone-rurali',
+    category: 'novita',
+    date: '2026-09-09T16:22:52.145Z',
+    image: '/images/blog/banda-larga-zone-rurali.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
