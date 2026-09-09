@@ -573,8 +573,11 @@ export function firstLocationSegment(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
   if (/^[A-Z]{2,3}$/.test(cleaned)) return ''; // Bare country code is not useful as a city
-  // Feeds mix ASCII hyphen with en/em dash ("Sion – VS"), so split on all three.
-  const parts = cleaned.split(/\s*[-–—]\s*/).map((part) => part.trim()).filter(Boolean);
+  const countryPrefix = cleaned.match(/^[A-Z]{2,3}\s*[-–—]\s*(.+)$/);
+  const locationText = countryPrefix?.[1]?.trim() || cleaned;
+  // Split only on a spaced dash: an unspaced dash belongs to a hyphenated city
+  // such as "Plan-les-Ouates" or "St-Maurice".
+  const parts = locationText.split(/\s+[-–—]\s+/).map((part) => part.trim()).filter(Boolean);
   // Some Workday tenants prefix the city with the country code (e.g. "CH - Visp").
   // Do not publish that prefix as the workplace when selecting the first segment.
   return parts.find((part) => !/^[A-Z]{2,3}$/.test(part)) || '';
