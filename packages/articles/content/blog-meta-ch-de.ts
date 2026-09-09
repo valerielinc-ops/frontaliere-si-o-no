@@ -6136,6 +6136,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pa30-consultazione-agricola.title': 'PA30+: Bundeskonsultation zur Landwirtschaft',
     'blog.article.pa30-consultazione-agricola.excerpt': 'Konsultation PA30+ mit allen Akteuren der Agrar- und Ernährungswirtschaft. Neuigkeiten zur Online-Abstimmung in Neuenburg, zu seltenen Krankheiten und Klimafonds.',
     'blog.article.pa30-consultazione-agricola.imageAlt': 'Schweizer Landwirtschaftslandschaft mit Alpweiden und Wäldern während Hitzewelle',
+    'blog.article.uri-franchigie-modelli-sussidio.title': 'URI-Krankenkasse: Selbstbehalte, Modelle und Reduktion',
+    'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'Im Kanton Uri variieren die KVG-Prämien je nach Franchise und Versicherungsmodell. Entdecken Sie die verfügbaren Spannen (CHF 300–2500), die Deckungsmodelle und wie Sie auf den Kantonsbeitrag zugreifen können.',
+    'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Modernes Gesundheitsbüro in der Schweiz mit Fachleuten, die Versicherungsdokumente konsultieren',
 };
 
 export default blogMetaChDe;
