@@ -1,23 +1,24 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-09-08T13:39:29.265Z",
+  "generatedAt": "2026-09-08T23:27:42.259Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
   "written": 6,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9462,
-  "avgDurationMs": 9462,
+  "durationMs": 10549,
+  "avgDurationMs": 10549,
   "durationHistory": [
-    9462
+    10549
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "staubli-99507b970968",
       "slug": "aussenhandelsspezialist-in-80-100-m-w-d-staubli-sargans-switzerland",
@@ -31,7 +32,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000148155361-aussenhandelsspezialist-in-80-100-m-w-d-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:15.775Z",
+      "crawledAt": "2026-09-08T23:27:27.480Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Grossfeldstrasse 71",
@@ -48,16 +49,15 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000148155361-aussenhandelsspezialist-in-80-100-m-w-d-?oga=true",
       "jobReqId": "744000148155361",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-08T13:39:15.775Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "staubli-6861f7a350ea",
       "slug": "lehre-als-kauffrau-oder-kaufmann-efz-staubli-allschwil-switzerland",
@@ -71,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000146994564-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:15.777Z",
+      "crawledAt": "2026-09-08T23:27:27.525Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -110,7 +110,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T13:39:15.779Z",
+      "crawledAt": "2026-09-08T23:27:27.524Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Tombet",
@@ -149,7 +149,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:15.777Z",
+      "crawledAt": "2026-09-08T23:27:27.482Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -188,7 +188,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000142111489-global-learning-development-lead?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T13:39:15.818Z",
+      "crawledAt": "2026-09-08T23:27:27.522Z",
       "addressLocality": "Pfaffikon",
       "addressRegion": "ZH",
       "streetAddress": "Poststrasse 5",
@@ -227,7 +227,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:15.819Z",
+      "crawledAt": "2026-09-08T23:27:27.526Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -245,11 +245,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "jobReqId": "744000135670729",
       "firstSeenAt": "2026-07-03T23:34:24.710Z",
-      "_qualityScore": 83,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 20
       }
     }

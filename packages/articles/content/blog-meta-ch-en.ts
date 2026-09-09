@@ -6127,6 +6127,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralita-iniziativa-svizzera-freysinger.title': 'Neutrality: Switzerland at the polls for the initiative',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.excerpt': 'Oscar Freysinger calls for a vote in favour of the Neutrality Initiative. Over 300 participants at the Swiss Pro Festival in Lugano.',
     'blog.article.neutralita-iniziativa-svizzera-freysinger.imageAlt': 'Aerial view of Lugano waterfront with Swiss flag and civic buildings',
+    'blog.article.licenza-guida-lucerna-procedura.title': 'Foreign driver\'s license in Lucerne: conversion and exams',
+    'blog.article.licenza-guida-lucerna-procedura.excerpt': 'Complete procedure to convert international driving license in the Canton of Lucerne: requirements, theoretical and practical exam, compulsory courses and times.',
+    'blog.article.licenza-guida-lucerna-procedura.imageAlt': 'Traffic Authority office in Canton Lucerne assisting with driver\'s license conversion procedure.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Open Internal Appenzello activity: costs and registration',
+    'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Complete guide to opening a business in Appenzello Interno: registration, minimum capital and AVS, LPP, LAMal obligations.',
+    'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Swiss administrative office with commercial register documents and official paperwork',
 };
 
 export default blogMetaChEn;

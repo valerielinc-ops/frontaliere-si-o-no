@@ -1,16 +1,16 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-09-08T13:55:03.470Z",
+  "generatedAt": "2026-09-08T23:39:22.816Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15995,
-  "avgDurationMs": 15995,
+  "durationMs": 10706,
+  "avgDurationMs": 10706,
   "durationHistory": [
-    15995
+    10706
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,6 +44,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +124,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -162,7 +162,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -201,7 +200,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:29:24.869Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -240,6 +238,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,

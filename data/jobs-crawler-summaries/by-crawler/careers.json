@@ -1,23 +1,24 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-09-08T13:39:45.599Z",
+  "generatedAt": "2026-09-08T23:27:58.903Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4988,
-  "avgDurationMs": 4988,
+  "durationMs": 4885,
+  "avgDurationMs": 4885,
   "durationHistory": [
-    4988
+    4885
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "careers-60f21094e7fe",
       "slug": "teamleiter-in-anlagenfuhrer-in-100-careers-ch",
@@ -30,7 +31,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:36.514Z",
+      "crawledAt": "2026-09-08T23:27:48.839Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -44,16 +45,16 @@
       "featured": false,
       "postedDate": "2026-09-08",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:39:36.514Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "careers-6445b15a4260",
       "slug": "praktikant-in-product-manager-convenience-80-100-careers-ch",
@@ -66,7 +67,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:36.517Z",
+      "crawledAt": "2026-09-08T23:27:48.861Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -80,7 +81,7 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:12:06.514Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -102,7 +103,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T13:39:36.516Z",
+      "crawledAt": "2026-09-08T23:27:48.859Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
