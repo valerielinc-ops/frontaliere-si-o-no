@@ -220,7 +220,7 @@ describe('matcher pin still fires with the shared normalisation (#5012)', () => 
 
   it('matches a job of the pinned employer and nothing else', () => {
     const profile = alertFor(canonicalCompanyProfileSlug('Board International'));
-    const hit = { id: 'a', title: 'Sviluppatore', company: 'Board International SA', canton: 'TI' };
+    const hit = { id: 'a', title: 'Sviluppatore', company: 'Board International SA', companyKey: 'board-international', canton: 'TI' };
     const miss = { id: 'b', title: 'Sviluppatore', company: 'Medacta International SA', canton: 'TI' };
     expect(scoreJobForAlert(hit, profile)).toBeGreaterThan(0);
     expect(scoreJobForAlert(miss, profile)).toBe(0);
@@ -1404,10 +1404,17 @@ const alertDoc = (id: string, email: string, slug: string, extra: FakeAlert = {}
   specificCompanyKey: slug,
   ...extra,
 });
-const jobDoc = (id: string, company: string, ageHours: number, title = `Ruolo ${id}`) => ({
+const jobDoc = (
+  id: string,
+  company: string,
+  ageHours: number,
+  title = `Ruolo ${id}`,
+  companyKey = canonicalCompanyProfileSlug(company, company),
+) => ({
   id,
   title,
   company,
+  companyKey,
   location: 'Lugano',
   canton: 'TI',
   firstSeenAt: hoursAgo(ageHours),
@@ -1444,7 +1451,7 @@ describe('grouping: one email per recipient (residuo #5283)', () => {
       alertDoc('old', 'a@b.ch', 'board-international'),
       alertDoc('new', 'a@b.ch', 'lidl'),
     ];
-    const jobs = [jobDoc('j-old', 'Board International SA', 5), jobDoc('j-new', 'Lidl Schweiz AG', 1)];
+    const jobs = [jobDoc('j-old', 'Board International SA', 5, undefined, 'board-international'), jobDoc('j-new', 'Lidl Schweiz AG', 1, undefined, 'lidl')];
     const sections = buildRecipientSections(alerts, jobs, NOW);
     expect(sections.map((s) => s.alert.id)).toEqual(['new', 'old']);
     expect(sections.map((s) => s.companyName)).toEqual(['Lidl Schweiz AG', 'Board International SA']);
@@ -1458,7 +1465,7 @@ describe('grouping: one email per recipient (residuo #5283)', () => {
       alertDoc('a1', 'a@b.ch', 'board-international', { sentJobIds: { 'j-board': NOW - 1000 } }),
       alertDoc('a2', 'a@b.ch', 'lidl'),
     ];
-    const jobs = [jobDoc('j-board', 'Board International SA', 2), jobDoc('j-lidl', 'Lidl Schweiz AG', 1)];
+    const jobs = [jobDoc('j-board', 'Board International SA', 2, undefined, 'board-international'), jobDoc('j-lidl', 'Lidl Schweiz AG', 1, undefined, 'lidl')];
     const sections = buildRecipientSections(alerts, jobs, NOW);
     // The Board alert's only match was already sent → no section at all, so it
     // is neither named in the subject nor marked again.
@@ -1468,12 +1475,12 @@ describe('grouping: one email per recipient (residuo #5283)', () => {
 
   it('a section is dropped entirely when every match is already sent', () => {
     const alerts = [alertDoc('a1', 'a@b.ch', 'lidl', { sentJobIds: { 'j1': NOW - 1000 } })];
-    expect(buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1)], NOW)).toEqual([]);
+    expect(buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1, undefined, 'lidl')], NOW)).toEqual([]);
   });
 
   it('re-admits a job sent BEFORE the dedup window, like the digest does', () => {
     const alerts = [alertDoc('a1', 'a@b.ch', 'lidl', { sentJobIds: { 'j1': NOW - 40 * 24 * 3600_000 } })];
-    const sections = buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1)], NOW);
+    const sections = buildRecipientSections(alerts, [jobDoc('j1', 'Lidl Schweiz AG', 1, undefined, 'lidl')], NOW);
     expect(sections).toHaveLength(1);
   });
 
@@ -1505,7 +1512,7 @@ describe('the grouped email: one message, a section per employer (residuo #5283)
     // The regression that would hurt most: following ONE employer is the common
     // case and «Nuova offerta presso X» is the strongest subject this template
     // has. Grouping must not touch it.
-    const job = jobDoc('j1', 'Board International SA', 1);
+    const job = jobDoc('j1', 'Board International SA', 1, undefined, 'board-international');
     const shared = {
       email: 'a@b.ch',
       locale: 'it',
@@ -1702,9 +1709,9 @@ describe('dedup survives grouping (residuo #5283, the non-negotiable)', () => {
       alertDoc('a3', 'a@b.ch', 'migros'),
     ];
     const jobs = [
-      jobDoc('j-board', 'Board International SA', 3),
-      jobDoc('j-lidl', 'Lidl Schweiz AG', 1),
-      jobDoc('j-migros', 'Migros Ticino', 2),
+      jobDoc('j-board', 'Board International SA', 3, undefined, 'board-international'),
+      jobDoc('j-lidl', 'Lidl Schweiz AG', 1, undefined, 'lidl'),
+      jobDoc('j-migros', 'Migros Ticino', 2, undefined, 'migros'),
     ];
     const sections = buildRecipientSections(alerts, jobs, NOW);
     const built = buildCompanyAlertEmail({
@@ -1770,16 +1777,15 @@ describe('dedup survives grouping (residuo #5283, the non-negotiable)', () => {
     expect(persistable.map((e) => e.to)).toEqual(['ok@b.ch']);
   });
 
-  it('treats an AMBIGUOUS delivery as sent — the one case where not marking is worse', () => {
-    // #4911: the provider accepted the message and then failed on the response,
-    // so it may already be in the inbox. Re-sending it produces exactly the
-    // duplicate this whole change exists to remove; the flag was added so
-    // callers could tell "never sent" from "unknown, do not resend blindly".
+  it('does NOT mark an AMBIGUOUS delivery as accepted', () => {
+    // #4911: the provider may have accepted the message and then failed on the
+    // response. The durable delivery ledger owns this state; putting it in
+    // sentJobIds would erase the accepted/ambiguous distinction.
     const persistable = selectPersistableSends(
       [{ to: 'maybe@b.ch' }],
       [{ recipient: { email: 'maybe@b.ch' }, ambiguousDelivery: true }],
     );
-    expect(persistable.map((e) => e.to)).toEqual(['maybe@b.ch']);
+    expect(persistable).toEqual([]);
   });
 
   it('persists everything when nothing failed, and nothing when everything did', () => {

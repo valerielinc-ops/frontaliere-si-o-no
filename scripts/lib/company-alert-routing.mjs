@@ -17,6 +17,8 @@
  * assert the partition is total and disjoint without Firestore.
  */
 
+import { canonicalCompanyProfileSlug } from '../../build-plugins/shared/companyProfileSlug.mjs';
+
 /**
  * The cadence value that routes an alert to the immediate sender.
  *
@@ -26,6 +28,40 @@
  * memory or by the query planner.
  */
 export const IMMEDIATE_FREQUENCY = 'immediate';
+
+/**
+ * Resolve the only company identity an immediate alert may use.
+ *
+ * This delegates to the same canonical slug used by the registration path and
+ * by the matcher. An empty result is not a company called ""; it is an
+ * unresolved identity and must be quarantined by the sender.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function canonicalCompanyAlertKey(value) {
+  const raw = String(value == null ? '' : value).trim();
+  if (!raw) return '';
+  return canonicalCompanyProfileSlug(raw, raw);
+}
+
+/**
+ * Explain why an immediate CompanyAlert cannot safely enter matching.
+ *
+ * The routing predicate intentionally still claims a truthy raw key so an
+ * unresolved record is visible to the immediate sender. This second guard is
+ * where it becomes an explicit quarantine instead of a silent drop or a
+ * similarity match.
+ *
+ * @param {object|null|undefined} alert
+ * @returns {string|null}
+ */
+export function companyAlertQuarantineReason(alert) {
+  if (!isImmediateCompanyAlert(alert)) return null;
+  return canonicalCompanyAlertKey(alert.specificCompanyKey)
+    ? null
+    : 'unresolved-canonical-company-key';
+}
 
 /**
  * True iff this alert belongs to the IMMEDIATE CompanyAlert sender.
