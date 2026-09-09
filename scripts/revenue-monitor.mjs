@@ -559,17 +559,18 @@ export function buildComparisonRows(current, baseline = BASELINE) {
   if (current.affiliate) {
     if (current.affiliate.status === 'measurable') {
       for (const [currency, values] of Object.entries(current.affiliate.byCurrency || {})) {
+        const approvedPer1000Exposures = values.approvedPer1000Exposures || { web: null, email: null };
         rows.push({
           metric: `Affiliate approved / 1,000 web exposures (${currency})`,
           baseline: null,
-          current: values.approvedPer1000Exposures.web,
-          ...compare(values.approvedPer1000Exposures.web, null),
+          current: approvedPer1000Exposures.web,
+          ...compare(approvedPer1000Exposures.web, null),
         });
         rows.push({
           metric: `Affiliate approved / 1,000 email delivered (${currency})`,
           baseline: null,
-          current: values.approvedPer1000Exposures.email,
-          ...compare(values.approvedPer1000Exposures.email, null),
+          current: approvedPer1000Exposures.email,
+          ...compare(approvedPer1000Exposures.email, null),
         });
       }
     } else {

@@ -140,8 +140,17 @@ export function buildGoPath(partner: Pick<AffiliatePartner, 'id'>): string {
  * build-plugins/affiliateRedirectPlugin.ts), so a disabled/unknown id must
  * fall back to the direct URL instead of linking a 404.
  */
-export function resolveGoHref(goId: string | undefined, fallback: string | undefined): string {
- if (isGoIdEnabledRegistry(goId)) return buildGoPath({ id: goId });
+export function resolveGoHref(
+ goId: string | undefined,
+ fallback: string | undefined,
+ attribution: AffiliateLinkAttribution = {
+ surface: 'web',
+ position: 'unknown',
+ campaign: 'affiliate',
+ variant: 'control',
+ },
+): string {
+ if (isGoIdEnabledRegistry(goId)) return buildAffiliateLinkHref({ id: goId }, attribution);
  return fallback || '#';
 }
 
