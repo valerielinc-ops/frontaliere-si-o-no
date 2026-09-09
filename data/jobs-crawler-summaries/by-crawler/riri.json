@@ -1,23 +1,58 @@
 {
   "key": "riri",
   "label": "Riri Group",
-  "generatedAt": "2026-09-09T13:52:24.638Z",
-  "total": 1,
+  "generatedAt": "2026-09-09T23:09:47.583Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 1,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3891,
-  "avgDurationMs": 3891,
+  "durationMs": 6839,
+  "avgDurationMs": 6839,
   "durationHistory": [
-    3891
+    6839
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "riri-b82e4b900fa3",
+      "slug": "receptionist-mendrisio-riri",
+      "company": "Riri Group",
+      "companyKey": "riri",
+      "companyDomain": "riri.com",
+      "title": "Receptionist",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6850",
+      "category": "Altro",
+      "sector": "Manifatturiero / Moda",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "url": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
+      "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
+      "source": "Riri Group Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-09T23:09:36.396Z",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "riri-c04d84002705",
@@ -44,7 +79,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Customer-Service-Specialist-Riri-Zippers-WM-TI-6850/1398158033/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:52:18.417Z",
+      "crawledAt": "2026-09-09T23:09:36.397Z",
       "firstSeenAt": "2026-07-08T11:41:22.541Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-09-09T13:55:36.734Z",
+  "generatedAt": "2026-09-09T23:12:29.290Z",
   "total": 67,
   "newCount": 0,
   "updatedCount": 67,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 161318,
-  "avgDurationMs": 161318,
+  "durationMs": 137596,
+  "avgDurationMs": 137596,
   "durationHistory": [
-    161318
+    137596
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,11 +37,10 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-c75ee7e05ed8",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "firstSeenAt": "2026-09-08T13:42:57.501Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
@@ -151,6 +150,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T13:42:57.501Z",
+      "needsRetranslation": true,
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
@@ -295,6 +295,7 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-08-31T21:09:50.784Z",
+      "needsRetranslation": true,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -368,7 +369,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T21:46:23.162Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -838,7 +838,6 @@
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1101,44 +1100,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Initiativbewerbung Energy",
-      "slug": "candidatura-spontanea-energy-afry-zurich",
-      "url": "https://afry.com/en/career/available-jobs/REF15489B-initiativbewerbung-energy",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000145704658-initiativbewerbung-energy?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-28",
-      "validThrough": "2026-09-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-b5ca28f8d527",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-28T05:31:23.660Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
