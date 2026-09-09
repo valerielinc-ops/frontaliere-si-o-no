@@ -46,16 +46,19 @@ describe('tests.yml: body edit isolation', () => {
 
     const group = workflow.concurrency?.group ?? '';
     const lane = group.match(
-      /\$\{\{\s*github\.event\.action\s*==\s*'edited'\s*&&\s*'([^']+)'\s*\|\|\s*'([^']+)'\s*\}\}/,
+      /\$\{\{\s*github\.event\.action\s*==\s*'edited'\s*&&\s*'([^']+)'\s*\|\|\s*github\.event\.action\s*==\s*'labeled'\s*&&\s*'([^']+)'\s*\|\|\s*'([^']+)'\s*\}\}/,
     );
-    expect(lane, 'concurrency.group must assign edited and code events to different lanes').toBeTruthy();
+    expect(lane, 'concurrency.group must assign metadata and code events to different lanes').toBeTruthy();
     if (!lane) return;
 
-    const renderGroup = (action: 'edited' | 'synchronize') =>
-      group.replace(lane[0], action === 'edited' ? lane[1] : lane[2]);
+    const renderGroup = (action: 'edited' | 'labeled' | 'synchronize') =>
+      group.replace(lane[0], action === 'edited' ? lane[1] : action === 'labeled' ? lane[2] : lane[3]);
     expect(lane[1]).toBe('body');
-    expect(lane[2]).toBe('code');
+    expect(lane[2]).toBe('label');
+    expect(lane[3]).toBe('code');
     expect(renderGroup('edited')).not.toBe(renderGroup('synchronize'));
+    expect(renderGroup('labeled')).not.toBe(renderGroup('synchronize'));
+    expect(renderGroup('edited')).not.toBe(renderGroup('labeled'));
   });
 
   it('keeps edited body isolation while the required wrapper checks prior code verdicts', () => {
@@ -139,6 +142,8 @@ describe('tests.yml: body edit isolation', () => {
     expect(() => runRequiredCheck('failure'), 'failure deve bloccare').toThrow();
     expect(() => runRequiredCheck('skipped'), 'skip senza storico deve bloccare').toThrow();
     expect(() => runRequiredCheck('skipped', ['failure']), 'skip dopo failure deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['success', 'failure']), 'un rosso successivo deve bloccare').toThrow();
+    expect(() => runRequiredCheck('skipped', ['failure', 'success']), 'un verde successivo può soddisfare').not.toThrow();
     expect(() => runRequiredCheck('cancelled', ['cancelled']), 'cancel dopo cancel deve bloccare').toThrow();
     expect(() => runRequiredCheck('skipped', ['skipped']), 'skip storico non è un verdetto').toThrow();
     expect(() => runRequiredCheck('skipped', ['success'])).not.toThrow();

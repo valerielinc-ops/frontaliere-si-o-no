@@ -178,9 +178,10 @@ permissions:
 #   Direct pushes to main and merge queues ask the same question as a PR:
 #   does the tree pass the source gate before it becomes the next main head?
 concurrency:
-  # Body edits have their own newest-wins lane: an edit can cancel only an
-  # earlier edit on the same ref, never a run testing a new commit.
-  group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || 'code' }}
+  # Body edits and labels have their own newest-wins lanes: either metadata
+  # event can cancel only an earlier metadata run on the same ref, never a
+  # run testing a new commit.
+  group: tests-${{ github.workflow }}-${{ github.ref }}-${{ github.event.action == 'edited' && 'body' || github.event.action == 'labeled' && 'label' || 'code' }}
   # PR and workflow_dispatch runs use newest-wins inside their lane. Direct
   # pushes to main and merge queues must not cancel one another: each emitted
   # head needs a completed source-gate verdict before it can become the next
