@@ -6190,6 +6190,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS lanciert YUMO: kostenlose Finanzschulung',
     'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Kostenlose Plattform von UBS, um jungen Schweizerinnen und Schweizern den Umgang mit Ersparnissen, Investitionen und persönlichen Finanzen beizubringen. Erhältlich in Italienisch, Deutsch, Französisch und Englisch.',
     'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'Blick auf Lugano mit See und Bergen, Symbole der modernen Schweiz',
+    'blog.article.alleanza-energia-elettrica-svizzera.title': 'Energieallianz: Schweiz im Zentrum des EU-Netzes',
+    'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'Ein neues Bündnis von Wirtschaftsakteuren unterstützt das Energieabkommen mit der EU. Die Schweiz ist auf Winterimporte angewiesen und exportiert im Sommer.',
+    'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Schweizer Stromverteilungszentrum mit Technikern, die die europäische Stromverteilung überwachen',
 };
 
 export default blogMetaChDe;
