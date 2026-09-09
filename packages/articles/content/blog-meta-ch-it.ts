@@ -6160,6 +6160,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Verde urbano: la regola 3-30-300 per città fresche',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'Studio europeo su 862 città: il 28% della popolazione svizzera vive in quartieri verdi. La regola 3-30-300 indica il percorso verso città più fresche',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole a Bellinzona con edifici e poca vegetazione, esempio di isola di calore urbano',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Carburanti ai massimi annuali: diesel a 2,30 franchi',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Benzina a 2,05-2,16 franchi, diesel a 2,30. In nove mesi, i prezzi sono saliti fra il 24 e il 29%, avvicinandosi ai picchi del 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Pompa di benzina presso distributore svizzero con pannello prezzi alla pompa',
 };
 
 export default blogMetaChIt;
