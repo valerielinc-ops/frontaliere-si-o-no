@@ -57,6 +57,11 @@ describe('GA4 page_view employer attribution', () => {
     expect(resolveAnalyticsCompanyHubKey(['employer-a', 'employer-b'])).toBeNull();
   });
 
+  it('refuses a hub when any matching record lacks the canonical employer key', async () => {
+    const { resolveAnalyticsCompanyHubKey } = await loadAnalyticsHelpers();
+    expect(resolveAnalyticsCompanyHubKey(['canonical-employer', undefined])).toBeNull();
+  });
+
   it('routes page_view through the canonical attribution payload and owner callsites', () => {
     expect(analyticsSource).toMatch(
       /\.\.\.buildPageViewAttributionParams\(path, identity\)/,

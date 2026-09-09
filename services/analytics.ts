@@ -140,11 +140,9 @@ export function resolveAnalyticsJobIdentity(
 export function resolveAnalyticsCompanyHubKey(
  employerKeys: readonly (string | null | undefined)[],
 ): string | null {
- const uniqueKeys = new Set(
-  employerKeys
-   .map((key) => String(key || '').trim())
-   .filter(Boolean),
- );
+ const normalizedKeys = employerKeys.map((key) => String(key || '').trim());
+ if (normalizedKeys.length === 0 || normalizedKeys.some((key) => !key)) return null;
+ const uniqueKeys = new Set(normalizedKeys);
  return uniqueKeys.size === 1 ? [...uniqueKeys][0] : null;
 }
 
