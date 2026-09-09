@@ -335,6 +335,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           # ── More Haiku (#5650) ────────────────────────────────────────────
           # Being ELIGIBLE was never the problem. claude-cli has been tier-0
           # (AI_COMPETING_TIERS) since 2026-07-29, and promotion only removes

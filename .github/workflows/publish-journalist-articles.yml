@@ -95,6 +95,7 @@ jobs:
         id: publish
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: node scripts/publish-journalist-article.mjs
 
       - name: Check live internal links of published journalist articles

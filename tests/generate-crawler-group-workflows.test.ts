@@ -1488,6 +1488,22 @@ describe('cross-repo crawler execution artifacts', () => {
     }
   });
 
+  it('propaga il secret Codex opzionale dai job generati al contratto reusable e alla translation', () => {
+    const { outDir } = generateArtifacts();
+    const generated = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-01.yml'), 'utf8'));
+    const logic = YAML.parse(fs.readFileSync(path.join(workflowsDir, 'crawler-group-01-logic.yml'), 'utf8'));
+    const crawlerStep = Object.values(generated.jobs)[0].steps.find((step: any) => step.background === true);
+
+    expect(crawlerStep.env.CODEX_AUTH_JSON).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(logic.on.workflow_call.secrets.CODEX_AUTH_JSON).toEqual({ required: false });
+
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const translationStep = Object.values(translation.jobs)[0].steps.find(
+      (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
+    );
+    expect(translationStep.env.CODEX_AUTH_JSON).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+  });
+
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
     const { contract, outDir } = generateArtifacts();
     expect(contract.siteRuntimePaths).toContain('scripts/ci/crawler-retry-cmd.sh');

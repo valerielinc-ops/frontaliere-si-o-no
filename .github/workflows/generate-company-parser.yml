@@ -113,6 +113,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: node scripts/generate-company-parser.mjs
 
       - name: Check for changes
@@ -137,6 +138,7 @@ jobs:
           # --regenerate-cmd below re-invokes generate-company-parser.mjs on
           # rebase-conflict retry — same auth needed as the step above.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

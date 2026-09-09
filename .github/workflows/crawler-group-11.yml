@@ -107,6 +107,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-rehab-basel.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_REHAB_BASEL_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -166,6 +167,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-luks.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_LUKS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -225,6 +227,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-swiss-re.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SWISS_RE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -284,6 +287,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spitex-ch.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITEX_CH_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -343,6 +347,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-pictet.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_PICTET_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -402,6 +407,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-nord-anglia.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_NORD_ANGLIA_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -461,6 +467,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-spital-thurgau.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_SPITAL_THURGAU_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -520,6 +527,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-klinik-siloah.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_KLINIK_SILOAH_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -580,6 +588,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tecan.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TECAN_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -639,6 +648,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tsmg.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TSMG_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -698,6 +708,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-novelis.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_NOVELIS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -757,6 +768,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hornbach.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HORNBACH_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -816,6 +828,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-michel-gruppe.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MICHEL_GRUPPE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -875,6 +888,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-tpl-lugano.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_TPL_LUGANO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -934,6 +948,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-jysk.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_JYSK_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -993,6 +1008,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hess-carrosserie.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HESS_CARROSSERIE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1052,6 +1068,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-hilcona.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_HILCONA_STRICT: ${{ github.event.inputs.strict_localization || '0' }}
@@ -1111,6 +1128,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-msc-cargo.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_MSC_CARGO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1170,6 +1188,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-crr-suva-sion.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CRR_SUVA_SION_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1229,6 +1248,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-clienia-ag.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CLIENIA_AG_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1288,6 +1308,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-cnp.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_CNP_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1347,6 +1368,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-igs-bern.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_IGS_BERN_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1407,6 +1429,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-axpo.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AXPO_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1466,6 +1489,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ardentis.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_ARDENTIS_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1525,6 +1549,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-amag.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_AMAG_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1584,6 +1609,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-a-plus-plus-group.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_A_GROUP_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
@@ -1643,6 +1669,7 @@ jobs:
         env:
           SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-stellenpartner.txt
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
           JOBS_STELLENPARTNER_STRICT: ${{ github.event.inputs.strict_localization || '1' }}

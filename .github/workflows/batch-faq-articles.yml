@@ -145,6 +145,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_LIMIT: ${{ inputs.limit || '200' }}
           INPUT_CONCURRENCY: ${{ inputs.concurrency || '1' }}

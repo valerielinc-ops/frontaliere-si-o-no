@@ -806,6 +806,10 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
     // are both set. Most crawlers route callLLM through
     // dedicated-crawler-common.mjs / shared-jobs-crawler.mjs.
     CLAUDE_CODE_OAUTH_TOKEN: '${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}',
+    // Auth for the one-shot Claude usage-limit fallback. The runtime consumes
+    // this value into a temporary CODEX_HOME/auth.json and never passes the
+    // secret to a model-generated command.
+    CODEX_AUTH_JSON: '${{ secrets.CODEX_AUTH_JSON }}',
   };
   Object.assign(merged, crawler.runStep.env || {});
   for (const step of crawler.postSteps) {
@@ -1269,6 +1273,7 @@ export function buildCrawlerLogicWorkflow(generatedWorkflowText, {
       secrets: {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
+        CODEX_AUTH_JSON: { required: false },
       },
     },
   };
@@ -1432,6 +1437,7 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
   const expectedSecrets = {
         FIREBASE_SERVICE_ACCOUNT_JSON: { required: false },
         CLAUDE_CODE_OAUTH_TOKEN: { required: false },
+        CODEX_AUTH_JSON: { required: false },
   };
   const expectedLogicInputs = structuredClone(generatedTrigger.workflow_dispatch.inputs);
   expectedLogicInputs.generation_token = {

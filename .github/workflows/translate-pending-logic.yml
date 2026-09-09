@@ -26,7 +26,7 @@
 # forced the crawler-group pattern doesn't apply here structurally. It is
 # still a reusable workflow (not a composite action) for consistency with the
 # rest of the migration and because composite actions cannot declare a
-# `secrets:` block for `workflow_call` — see the two secrets below.
+# `secrets:` block for `workflow_call` — see the three secrets below.
 #
 # THREE further adaptations beyond the crawler-group pattern, all consequences
 # of the same underlying fact confirmed by the pilot: inside a workflow_call'd
@@ -101,6 +101,8 @@ on:
       FIREBASE_SERVICE_ACCOUNT_JSON:
         required: false
       CLAUDE_CODE_OAUTH_TOKEN:
+        required: false
+      CODEX_AUTH_JSON:
         required: false
 # No concurrency: block here — see the header note (checklist point 3).
 permissions:
@@ -314,6 +316,7 @@ jobs:
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
           AI_MODELS_PREFER: claude-cli/haiku
           CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}

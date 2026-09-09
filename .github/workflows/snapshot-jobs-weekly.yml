@@ -125,6 +125,7 @@ jobs:
           # pass: ai-models.mjs only offers the model when this AND the RC
           # flag are both set.
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
         run: node scripts/enrich-related-search-clusters.mjs --verbose
         continue-on-error: true
         timeout-minutes: 30
