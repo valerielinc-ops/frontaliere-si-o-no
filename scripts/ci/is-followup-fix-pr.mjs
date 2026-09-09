@@ -45,7 +45,12 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { closedIssueRefs, dailyBucketInfo, followupItemMarkers } from './followup-resolution-match.mjs';
+import {
+  closedIssueRefs,
+  dailyBucketInfo,
+  followupItemMarkers,
+  parseFollowupItems,
+} from './followup-resolution-match.mjs';
 
 const PR = process.env.PR_NUMBER;
 const FOLLOWUP_LABEL = process.env.FOLLOWUP_LABEL || 'follow-up';
@@ -154,7 +159,14 @@ function isDailyFollowupParent(n, markerIds = []) {
   if (!issue || !Array.isArray(issue.labels) || !issue.labels.some((label) => label?.name === FOLLOWUP_LABEL)) return false;
   const info = dailyBucketInfo(issue.title || '');
   if (!info) return false;
-  const parentIds = new Set(followupItemMarkerIds(issue.body || ''));
+  // A PR carries `Follow-up item: FU-...`, while the parent bucket carries the
+  // same identity in its stable `### FU-... — ...` heading.  Looking only for
+  // the PR marker made descriptive branches appear organic even when they
+  // explicitly addressed a real daily bucket.
+  const parentIds = new Set([
+    ...followupItemMarkerIds(issue.body || ''),
+    ...parseFollowupItems(issue.body || '').map((item) => item.id).filter(Boolean),
+  ]);
   return markerIds.every((id) => parentIds.has(id));
 }
 
@@ -197,7 +209,21 @@ export function main() {
   const itemMarkers = followupItemMarkerIds(body);
   const addressed = addressedFollowupNumbers(body);
   const partialDailyShape = isPartialDailyFollowupFix(body);
+  // The fixer normally names its parent in `fix/issue-<N>`, but a daily item
+  // may intentionally use a descriptive branch (`fix/daily-seo`).  In that
+  // shape the `Addresses #bucket` + stable item marker is the authoritative
+  // parent signal; resolve it before the organic-branch early return.
+  const partialParent = partialDailyShape
+    ? addressed.find((number) => isDailyFollowupParent(number, itemMarkers))
+    : null;
   if (issueN === null) {
+    if (partialParent) {
+      console.log(
+        `PR #${PR}: partial daily follow-up fix (${itemMarkers.join(', ')}) uses descriptive branch `
+        + `'${branch}' and addresses bucket #${partialParent} without a Closes keyword → grandchild-suppression gate active.`,
+      );
+      return setOutput(true, { partial: true, parentNumbers: [partialParent] });
+    }
     console.log(`PR #${PR}: branch '${branch}' is not a fix/issue-<N> fixer branch — organic PR, run triage.`);
     return setOutput(false);
   }
@@ -211,7 +237,7 @@ export function main() {
       console.log(`PR #${PR}: fixes issue #${issueN} but it is not a follow-up — organic fix, run triage.`);
       return setOutput(false);
     }
-    const parent = addressed.find((number) => isDailyFollowupParent(number, itemMarkers));
+    const parent = partialParent;
     if (!parent) {
       console.log(`PR #${PR}: Follow-up item marker(s) ${itemMarkers.join(', ')} have no readable daily follow-up parent — proceed-safe, run triage.`);
       return setOutput(false);

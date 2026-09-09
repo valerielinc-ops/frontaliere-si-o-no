@@ -661,6 +661,28 @@ jobs:
           fi
           echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
+      # A daily bucket is a one-item circuit.  Without a stable selected ID the
+      # closing-ref step used to emit `Addresses #N` anyway, allowing Claude to
+      # create a broad PR with no item mutex.  Fail before the fixer/action is
+      # reached: no DAILY_ITEM_ID means no PR, and the sealed bucket remains queued
+      # for the next deterministic retry.
+      - name: Validate daily bucket item selection (fail closed)
+        id: daily_item_guard
+        if: steps.tier.outputs.is_daily_bucket == 'true'
+        env:
+          DAILY_ITEM_ID: ${{ steps.tier.outputs.selected_item_id }}
+        run: |
+          set -eu
+          case "${DAILY_ITEM_ID:-}" in
+            FU-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9][0-9])
+              echo "daily item selezionato: ${DAILY_ITEM_ID}"
+              ;;
+            *)
+              echo "::error::daily bucket senza DAILY_ITEM_ID stabile: nessuna PR verrà creata"
+              exit 1
+              ;;
+          esac
+
       - name: Closing keyword for the PR body (zero-Claude)
         id: closing
         if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'

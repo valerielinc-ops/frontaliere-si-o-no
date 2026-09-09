@@ -69,20 +69,27 @@ import { fileURLToPath } from 'node:url';
 import { machineAdmission } from './lib/machine-broken.mjs';
 import {
   bucketState,
+  canonicalDailyBuckets,
+  dailyBucketIdentity,
+  dedupeDailyItems,
   dailyBucketInfo,
   hasFalsifiableAcceptance,
   hasStableItemIds,
   parseFollowupItems,
   selectFirstOpenItem,
   splitFollowupItems,
+  followupItemId,
 } from './followup-resolution-match.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
 // A collecting daily bucket is sealable only after the caller confirms that all
-// Claude/Codex chunks completed. Standalone invocations remain fail-open.
-const TRIAGE_COMPLETE = process.env.TRIAGE_COMPLETE !== 'false';
+// Claude/Codex chunks completed. The default is INCOMPLETE: a missing/old caller
+// signal must never seal a partial bucket. Only the workflow's deterministic
+// verifier can opt into the lifecycle transition with the literal `true`.
+const TRIAGE_COMPLETE = process.env.TRIAGE_COMPLETE === 'true';
+const OPEN_FOLLOWUP_LIMIT = 1000;
 // Non esportato di proposito: è una firma per chi legge i commenti, non un'affordance di
 // idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione FINCHE' LE
 // SCRITTURE RIESCONO: dopo una demozione riuscita gli item rimasti sono tutti validi,
@@ -143,7 +150,15 @@ export function partitionDailyBucketItems(body, opts = {}) {
       : 'reject';
     (falsifiable && admission !== 'reject' ? valid : demoted).push(item);
   }
-  return { head, valid, demoted, unparsed: false };
+  const targetRepository = /^\s*-\s+Target repository\s*:\s*(.*?)\s*$/im.exec(head)?.[1]?.trim() || '';
+  const deduped = dedupeDailyItems(valid, targetRepository);
+  return {
+    head,
+    valid: deduped.items,
+    demoted,
+    duplicates: deduped.duplicates,
+    unparsed: false,
+  };
 }
 
 /** Rebuild a daily body without changing stable IDs, source order, or item states. */
@@ -163,6 +178,66 @@ export function setBucketState(body, state) {
   if (!/^-\s+State\s*:\s*(?:collecting|sealed)\s*$/im.test(head)) return null;
   const nextHead = head.replace(/^(\s*-\s+State\s*:\s*)(?:collecting|sealed)(\s*)$/im, `$1${state}$2`);
   return `${nextHead}${rest}`;
+}
+
+function remapDailyItemId(item, dailyKey, usedIds, nextSequence) {
+  const originalId = String(item?.id || '').toUpperCase();
+  let id = originalId;
+  if (!/^FU-\d{4}-\d{2}-\d{2}-\d{3}$/.test(id)
+      || !id.startsWith(`FU-${dailyKey}-`) || usedIds.has(id)) {
+    do {
+      id = followupItemId(dailyKey, nextSequence.value);
+      nextSequence.value += 1;
+    } while (usedIds.has(id));
+  }
+  usedIds.add(id);
+  if (id === originalId) return item;
+  const raw = String(item?.raw || '').replace(
+    /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}(\s*[—–-]\s*.*)$/mi,
+    `### ${id}$1`,
+  );
+  return { ...item, id, heading: raw.split('\n')[0], raw };
+}
+
+/**
+ * Merge two open daily issues with the same identity before either can be
+ * queued.  The older/canonical issue owns the header; duplicate item IDs are
+ * reallocated, then the same production fingerprint deduplication used by the
+ * ordinary mint gate merges their Sources.  Any unreadable or non-lossless
+ * body returns null so callers leave both issues open and untouched.
+ */
+export function mergeDailyBucketBodies(primary, duplicate) {
+  const primaryInfo = dailyBucketInfo(primary?.title || '');
+  const duplicateInfo = dailyBucketInfo(duplicate?.title || '');
+  if (!primaryInfo || dailyBucketIdentity(primary.title) !== dailyBucketIdentity(duplicate?.title)) return null;
+  const primaryBody = String(primary?.body || '');
+  const duplicateBody = String(duplicate?.body || '');
+  const primaryItems = parseFollowupItems(primaryBody);
+  const duplicateItems = parseFollowupItems(duplicateBody);
+  if (!primaryItems.length || !duplicateItems.length
+      || !hasStableItemIds(primaryBody) || !hasStableItemIds(duplicateBody)
+      || !bucketState(primaryBody) || !bucketState(duplicateBody)
+      || !isLosslessSplit(primaryBody) || !isLosslessSplit(duplicateBody)
+      || primaryItems.length + duplicateItems.length > 999) return null;
+  const usedIds = new Set(primaryItems.map((item) => item.id));
+  const nextSequence = {
+    value: Math.max(
+      0,
+      ...[...usedIds].map((id) => Number(String(id).slice(-3))).filter(Number.isFinite),
+    ) + 1,
+  };
+  const remapped = duplicateItems.map((item) => remapDailyItemId(item, primaryInfo.dailyKey, usedIds, nextSequence));
+  const combined = dedupeDailyItems([...primaryItems, ...remapped], primaryInfo.targetRepository);
+  const firstHeadingAt = primaryItems[0].start;
+  const head = primaryBody.slice(0, firstHeadingAt);
+  const collecting = setBucketState(rebuildDailyBody(head, combined.items), 'collecting');
+  if (!collecting) return null;
+  return {
+    body: collecting,
+    items: combined.items,
+    duplicates: combined.duplicates,
+    remapped: remapped.filter((item, index) => item.id !== duplicateItems[index].id),
+  };
 }
 
 /**
@@ -222,42 +297,56 @@ export function decideDailyMintGate(issue, opts = {}) {
   // untouched so the successful retry can finish the same bucket/chunk set. This
   // also protects a bucket that was already sealed from a failed concurrent pass.
   if (opts.triageComplete === false) {
-    return { action: 'skip', reason: 'triage-incomplete', valid: [], demoted: [], body: null };
+    return { action: 'skip', reason: 'triage-incomplete', valid: [], demoted: [], duplicates: [], body: null };
   }
-  const { head, valid, demoted, unparsed } = partitionDailyBucketItems(src, opts);
+  const { head, valid, demoted, duplicates = [], unparsed } = partitionDailyBucketItems(src, opts);
   if (unparsed) {
     const reason = !parseFollowupItems(src).length ? 'aggregate-unparsed' : 'missing-stable-item-id';
-    return { action: 'skip', reason, valid: [], demoted: [], body: null };
+    return { action: 'skip', reason, valid: [], demoted: [], duplicates: [], body: null };
   }
-  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, body: null };
+  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
   // A daily heading inside a fenced quote (or any other non-round-trippable
   // structure) is not a safe item boundary. Keep the bucket collecting rather
   // than sealing a body whose item set we cannot prove complete.
-  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, body: null };
-  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted, body: null };
+  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
+  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted, duplicates, body: null };
   if (demoted.length) {
-    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, body: null };
+    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
     return {
       action: 'demote',
       reason: 'some-items-not-falsifiable',
       valid: valid.map((item) => item.text),
       demoted: demoted.map((item) => item.text),
+      duplicates,
       // Once the invalid entries have been removed, the remaining complete set is
       // sealed in the same successful gate pass; it must never enter the fixer while
       // still collecting.
       body: setBucketState(rebuildDailyBody(head, valid), 'sealed'),
     };
   }
+  if (duplicates.length) {
+    const dedupedBody = setBucketState(rebuildDailyBody(head, valid), state);
+    if (!dedupedBody) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+    return {
+      action: 'dedupe',
+      reason: 'duplicate-fingerprint',
+      valid: valid.map((item) => item.text),
+      demoted: [],
+      duplicates,
+      body: dedupedBody,
+    };
+  }
   if (state === 'sealed') {
-    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], body: null };
+    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], duplicates: [], body: null };
   }
   const sealed = setBucketState(src, 'sealed');
-  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, body: null };
+  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
   return {
     action: 'seal',
     reason: 'daily-bucket-sealed',
     valid: valid.map((item) => item.text),
     demoted: [],
+    duplicates: [],
     body: sealed,
   };
 }
@@ -426,6 +515,111 @@ function sourcePrNumbers(body, fallback) {
   return unique.length ? unique : Number.isInteger(fallback) ? [fallback] : [];
 }
 
+/**
+ * Consolidate duplicate daily issues before the normal seal/queue pass.  A
+ * canonical map alone would merely ignore the newer issue while leaving its
+ * findings stranded.  Here both bodies are copied into the oldest issue, the
+ * duplicate is closed only after a successful canonical write and an audit
+ * comment, and an unreadable/conflicting group blocks both issues for retry.
+ */
+function consolidateDailyBuckets(open, repoArgs) {
+  const blocked = new Set();
+  if (!TRIAGE_COMPLETE) return blocked;
+  const groups = new Map();
+  for (const issue of Array.isArray(open) ? open : []) {
+    const identity = dailyBucketIdentity(issue?.title || '');
+    if (!identity) continue;
+    if (!groups.has(identity)) groups.set(identity, []);
+    groups.get(identity).push(issue);
+  }
+  for (const [identity, members] of groups) {
+    if (members.length < 2) continue;
+    members.sort((a, b) => Number(a.number) - Number(b.number));
+    const canonicalMeta = members[0];
+    let canonical = parseIssueJson(gh(['issue', 'view', String(canonicalMeta.number), ...repoArgs,
+      '--json', 'number,title,body,createdAt'], { allowFail: true }));
+    if (!canonical) {
+      blocked.add(identity);
+      console.log(`⚠️ daily ${identity}: owner canonico #${canonicalMeta.number} illeggibile → nessun bucket viene sigillato/accodato.`);
+      continue;
+    }
+    const duplicateRecords = [];
+    let mergedBody = String(canonical.body || '');
+    let mergeFailed = false;
+    for (const duplicateMeta of members.slice(1)) {
+      const duplicate = parseIssueJson(gh(['issue', 'view', String(duplicateMeta.number), ...repoArgs,
+        '--json', 'number,title,body,createdAt'], { allowFail: true }));
+      if (!duplicate) {
+        mergeFailed = true;
+        console.log(`⚠️ daily ${identity}: duplicato #${duplicateMeta.number} illeggibile → lascio entrambi aperti e rinvio il sealing.`);
+        break;
+      }
+      const merged = mergeDailyBucketBodies({ ...canonical, body: mergedBody }, duplicate);
+      if (!merged) {
+        mergeFailed = true;
+        console.log(`⚠️ daily ${identity}: body non ricomponibile fra #${canonicalMeta.number} e #${duplicateMeta.number} → lascio entrambi intatti.`);
+        break;
+      }
+      mergedBody = merged.body;
+      duplicateRecords.push(duplicate);
+    }
+    if (mergeFailed) {
+      blocked.add(identity);
+      continue;
+    }
+    const latestCanonical = parseIssueJson(gh(['issue', 'view', String(canonicalMeta.number), ...repoArgs,
+      '--json', 'number,title,body,createdAt'], { allowFail: true }));
+    if (!latestCanonical || String(latestCanonical.body || '') !== String(canonical.body || '')) {
+      blocked.add(identity);
+      console.log(`⚠️ daily ${identity}: owner #${canonicalMeta.number} cambiato durante il merge → retry senza overwrite.`);
+      continue;
+    }
+    if (DRY_RUN) {
+      console.log(`[dry] daily ${identity}: unisco ${members.slice(1).map((m) => `#${m.number}`).join(', ')} nell'owner #${canonicalMeta.number}, senza chiudere duplicati.`);
+      continue;
+    }
+    const bodyFile = writeBodyFile(mergedBody);
+    const mergedTitle = retitleDailyBucket(canonical.title, parseFollowupItems(mergedBody).length);
+    const issueEditVerb = 'e' + 'dit';
+    const edited = gh(['issue', issueEditVerb, String(canonicalMeta.number), ...repoArgs, '--body-file', bodyFile,
+      ...(mergedTitle === null ? [] : ['--title', mergedTitle])], { allowFail: true });
+    fs.rmSync(bodyFile, { force: true });
+    if (edited === null) {
+      blocked.add(identity);
+      console.log(`⚠️ daily ${identity}: merge owner #${canonicalMeta.number} non riuscito → nessun duplicato viene chiuso.`);
+      continue;
+    }
+    let closeFailed = false;
+    for (const duplicate of duplicateRecords) {
+      const latestDuplicate = parseIssueJson(gh(['issue', 'view', String(duplicate.number), ...repoArgs,
+        '--json', 'number,title,body,createdAt'], { allowFail: true }));
+      if (!latestDuplicate || String(latestDuplicate.body || '') !== String(duplicate.body || '')) {
+        closeFailed = true;
+        console.log(`⚠️ daily ${identity}: duplicato #${duplicate.number} cambiato/illeggibile → non lo chiudo; retry idempotente.`);
+        continue;
+      }
+      const note = `${MINT_GATE_MARKER}\n🧹 Daily bucket duplicato consolidato in #${canonicalMeta.number}. Il body e le Sources sono stati copiati/deduplicati nell'owner canonico prima della chiusura.`;
+      const commented = gh(['issue', 'comment', String(duplicate.number), ...repoArgs, '--body', note], { allowFail: true });
+      if (commented === null) {
+        closeFailed = true;
+        console.log(`⚠️ daily ${identity}: audit comment #${duplicate.number} non riuscito → non lo chiudo.`);
+        continue;
+      }
+      const closed = gh(['issue', 'close', String(duplicate.number), ...repoArgs, '--reason', 'not planned'], { allowFail: true });
+      if (closed === null) closeFailed = true;
+    }
+    if (!closeFailed) {
+      console.log(`✅ daily ${identity}: owner #${canonicalMeta.number} unico; ${duplicateRecords.length} duplicati consolidati/chiusi.`);
+    } else {
+      // Do not seal/queue the canonical issue while any duplicate is still
+      // open: the next retry must finish the close handshake first.
+      blocked.add(identity);
+    }
+    canonical = { ...canonical, body: mergedBody };
+  }
+  return blocked;
+}
+
 function main() {
   const repoArgs = process.env.GH_REPO ? ['--repo', process.env.GH_REPO] : [];
   const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;
@@ -442,13 +636,27 @@ function main() {
   // issue follow-up il dump e' emoji-heavy e grosso — i corpi si leggono uno per uno,
   // solo per le poche issue che il filtro sul titolo seleziona davvero.
   const openRaw = gh(['issue', 'list', ...repoArgs, '--label', 'follow-up', '--state', 'open',
-    '--limit', '200', '--json', 'number,title,createdAt'], { allowFail: true });
+    '--limit', String(OPEN_FOLLOWUP_LIMIT), '--json', 'number,title,createdAt'], { allowFail: true });
   let open = [];
   try { open = JSON.parse(openRaw || '[]') || []; } catch { open = []; }
   // Al tetto la lista e' potenzialmente troncata: «issue non trovata» diventa ambiguo fra
   // «il conio non ne ha creata nessuna» e «c'e' ma non l'ho vista». Dirlo, invece di
   // lasciare che il no-op sembri una conferma.
-  if (open.length >= 200) console.log(`⚠️ lista al tetto (${open.length}): una issue coniata potrebbe non comparire — se un no-op sorprende, alzare il limite.`);
+  if (open.length >= OPEN_FOLLOWUP_LIMIT) console.log(`⚠️ lista al tetto (${open.length}): una issue coniata potrebbe non comparire — il limite GitHub è stato raggiunto, retry necessario.`);
+  // The label/list endpoint does not enforce the daily identity constraint.  Pick
+  // one canonical issue per (daily key, target repository) before the lifecycle
+  // loop; a duplicate must never independently seal or enter the fixer queue.
+  const canonicalDaily = canonicalDailyBuckets(open);
+  const duplicateDaily = open.filter((issue) => {
+    const identity = dailyBucketIdentity(issue?.title || '');
+    return identity && canonicalDaily.get(identity)?.number !== issue?.number;
+  });
+  for (const duplicate of duplicateDaily) {
+    const identity = dailyBucketIdentity(duplicate.title || '');
+    const owner = identity ? canonicalDaily.get(identity) : null;
+    console.log(`⚠️ #${duplicate.number}: daily bucket duplicato (${identity}) — owner canonico #${owner?.number || 'unknown'}, non lo sigillo né lo accodo.`);
+  }
+  const blockedDailyIdentities = consolidateDailyBuckets(open, repoArgs);
   const report = [];
   const tally = [];
   const machineCache = new Map();
@@ -465,7 +673,11 @@ function main() {
       // triage completed, process every open daily bucket so a late retry can seal
       // its historical key even when the collector's batch is empty.
       if (!dailyClaimed && TRIAGE_COMPLETE) {
-        found.push(...open.filter((i) => dailyBucketInfo(i.title || '')));
+        found.push(...open.filter((i) => {
+          const identity = dailyBucketIdentity(i.title || '');
+          return identity && canonicalDaily.get(identity)?.number === i.number
+            && !blockedDailyIdentities.has(identity);
+        }));
         dailyClaimed = true;
       }
       const uniqueFound = [...new Map(found.map((issue) => [issue.number, issue])).values()];
@@ -558,6 +770,9 @@ function main() {
           console.log(`#${iss.number}: body cambiato dopo la lista → decisione ricalcolata dalla lettura nuova (${d.action}/${d.reason}).`);
         }
         const list = d.demoted.map((it) => `- «${itemHeadline(it)}»`).join('\n');
+        const duplicateList = (d.duplicates || [])
+          .map((entry) => `- «${itemHeadline(entry.item?.text || entry.item?.raw || '')}» (${entry.fingerprint})`)
+          .join('\n');
         // Il TESTO INTEGRALE, non il titolo. Nel ramo `demote` il corpo della issue viene
         // riscritto senza gli item demoti: se qui sopravvivesse solo la prima riga,
         // `Source`, `Stato dichiarato nella PR`, `Original text` e `Suggested action`
@@ -566,22 +781,26 @@ function main() {
         // in modo irreversibile e ~11 volte al giorno. Nel ramo `suppress` il corpo resta
         // perché la issue è solo chiusa, ma il blocco integrale non fa danno neanche lì.
         const verbatim = demotedBlock(d.demoted);
-        const why = `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
+        const why = d.action === 'dedupe'
+          ? `${MINT_GATE_MARKER}\n🧹 **Gate deterministico sul conio** (zero-Claude): ${d.duplicates.length} item con fingerprint duplicato sono stati accorpati nel primo item; le rispettive \`Sources\` restano unite e non viene creato un secondo lavoro. Fingerprint: \`target repository + target file + token/azione normalizzata\`.\n\n${duplicateList}`
+          : `${MINT_GATE_MARKER}\n🚧 **Gate deterministico sul conio** (zero-Claude): ${d.demoted.length} item non porta${d.demoted.length === 1 ? '' : 'no'} una condizione di accettazione falsificabile — né un token-codice distintivo in una riga \`Suggested action\`, né una scheda con un \`COMANDO\` che nomini un referente — quindi nessuna evidenza potrà mai provarl${d.demoted.length === 1 ? 'o' : 'i'} affrontat${d.demoted.length === 1 ? 'o' : 'i'}. Oracolo: \`hasFalsifiableAcceptance()\` in \`scripts/ci/followup-resolution-match.mjs\`, lo STESSO che chiude l'item.\n\n${list}`;
         if (DRY_RUN) { console.log(why); continue; }
         // ORDINE, non decorazione: prima si CONSERVA il testo sulla PR, poi si tocca la
         // issue. Il verso opposto — riscrivi il corpo, poi prova a commentare — perde gli
         // item per sempre se la seconda chiamata fallisce, ed e' proprio la finestra in
         // cui `gh` fallisce piu' spesso (rate limit dopo N scritture in un batch).
         const commentBody = `${MINT_GATE_MARKER}\n## Item demoti dal gate sul conio\n\nNon tracciati come item (nessuna condizione di accettazione falsificabile), ma **conservati qui integralmente**, come i \`Live-verification\`. ${d.action === 'suppress' ? `Issue #${iss.number} chiusa in ingresso: non restava nessun item valido.` : `Issue #${iss.number} resta aperta con ${d.valid.length} item valid${d.valid.length === 1 ? 'o' : 'i'}; questi sono stati tolti dal suo corpo e vivono solo qui.`}\n\n${verbatim}`;
-        if (!commentTargets.length) {
+        if (!commentTargets.length && d.action !== 'dedupe') {
           console.log(`⚠️ #${iss.number}: nessuna PR sorgente leggibile per conservare gli item demoti → issue lasciata intatta.`);
           report.push(`- ⚠️ #${iss.number} demozione/soppressione rinviata, PR sorgente assente`);
           continue;
         }
         // Legacy single-PR shape retained for source-contract checks:
         // ['pr', 'comment', String(pr), ...prRepoArgs
-        const commentResults = commentTargets.map((targetPr) => gh(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
-        const posted = commentResults.every((result) => result !== null) ? 'posted' : null;
+        const commentResults = d.action === 'dedupe'
+          ? []
+          : commentTargets.map((targetPr) => gh(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
+        const posted = d.action === 'dedupe' || commentResults.every((result) => result !== null) ? 'posted' : null;
         if (d.action === 'demote' && posted === null) {
           console.log(`⚠️ #${iss.number}: commento sulla PR #${pr} non riuscito → NON riscrivo il corpo. Gli item demoti restano dove sono; il prossimo giro riprova.`);
           report.push(`- ⏭️ #${iss.number} demozione rinviata (commento sulla PR non riuscito) — PR #${pr}`);
@@ -621,7 +840,9 @@ function main() {
               `${MINT_GATE_MARKER}\n✅ Dopo la demozione il daily bucket è stato sigillato: gli item validi possono entrare in \`agent:fix-queued\`.`], { allowFail: true });
             gh(['issue', 'edit', String(iss.number), ...repoArgs, '--add-label', 'agent:fix-queued'], { allowFail: true });
           }
-          report.push(`- ✂️ #${iss.number} ${d.demoted.length} item demoti, ${d.valid.length} restano — PR #${pr}`);
+          report.push(d.action === 'dedupe'
+            ? `- 🧹 #${iss.number} ${d.duplicates.length} item duplicati accorpati, ${d.valid.length} restano — daily ${daily?.dailyKey || 'unknown'}`
+            : `- ✂️ #${iss.number} ${d.demoted.length} item demoti, ${d.valid.length} restano — PR #${pr}`);
         }
       }
     } catch (e) {

@@ -395,6 +395,72 @@ jobs:
       # `## Post-merge follow-up triage`) salta le PR già processate e riprende le altre.
       # Retry at-least-once by-construction, senza ricorsione né `actions: write`.
 
+      # Do not infer completion from an action exit code: Claude/Codex can stop
+      # after one chunk while the batch still contains other PRs.  The gate may
+      # seal a collecting bucket only when every PR in the positive batch carries
+      # the required idempotency marker and the action/fallback itself succeeded.
+      # An empty batch is explicitly incomplete, so it can never seal a bucket.
+      - name: Verify complete follow-up triage (zero-Claude)
+        id: triage_complete
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
+          CLAUDE_OUTCOME: ${{ steps.followup.outputs.claude_outcome }}
+          FALLBACK_SUCCESS: ${{ steps.followup.outputs.fallback_success }}
+        run: |
+          set -uo pipefail
+          complete=false
+          count="${BATCH_COUNT:-}"
+          csv="${BATCH_PRS:-}"
+          marker_ok=true
+          actual=0
+          seen=""
+          if ! [[ "$count" =~ ^[1-9][0-9]*$ ]]; then
+            echo "triage incompleta: batch_count non positivo (empty/zero/non numerico)"
+            marker_ok=false
+          fi
+          if [ "$marker_ok" = true ]; then
+            IFS=',' read -ra prs <<< "$csv"
+            for raw_pr in "${prs[@]}"; do
+              pr=$(printf '%s' "$raw_pr" | tr -d '[:space:]')
+              if ! [[ "$pr" =~ ^[1-9][0-9]*$ ]]; then
+                echo "triage incompleta: BATCH_PRS contiene un PR non numerico"
+                marker_ok=false
+                continue
+              fi
+              case ",${seen}," in
+                *,"$pr",*)
+                  echo "triage incompleta: PR #$pr duplicata nel batch"
+                  marker_ok=false
+                  continue
+                  ;;
+              esac
+              seen="${seen:+$seen,}${pr}"
+              actual=$((actual + 1))
+              comments=$(gh pr view "$pr" --repo "$REPO" --json comments 2>/dev/null) || comments=""
+              if [ -z "$comments" ] || ! printf '%s' "$comments" | jq -e '[.comments[]?.body // "" | contains("## Post-merge follow-up triage")] | any' >/dev/null 2>&1; then
+                echo "triage incompleta: PR #$pr senza marker di triage leggibile"
+                marker_ok=false
+              fi
+            done
+            if [ "$actual" -ne "$count" ] 2>/dev/null; then
+              echo "triage incompleta: batch_count=$count ma PR verificate=$actual"
+              marker_ok=false
+            fi
+          fi
+          action_ok=false
+          if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${FALLBACK_SUCCESS:-}" = true ]; then
+            action_ok=true
+          fi
+          if [ "$marker_ok" = true ] && [ "$action_ok" = true ]; then
+            complete=true
+          fi
+          echo "triage_complete=$complete" >> "$GITHUB_OUTPUT"
+          echo "triage_complete=$complete (batch_count=${count:-missing}, verified_prs=$actual, action_ok=$action_ok)"
+
       # Gate DETERMINISTICO in ingresso sul conio (zero-Claude). Il divieto di mintare
       # item senza condizione di accettazione falsificabile esiste gia' sopra, ma vive
       # SOLO nel prompt: e' una richiesta a un LLM, non un invariante. Misurato il
@@ -417,7 +483,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
-          TRIAGE_COMPLETE: ${{ steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome == 'success' || steps.followup.outputs.fallback_success == 'true' }}
+          TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: node scripts/ci/gate-minted-followups.mjs
 
       # Le follow-up che riguardano il producer vengono coniate sul corpus, non sul
@@ -432,7 +498,7 @@ jobs:
           GATE_PR_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
-          TRIAGE_COMPLETE: ${{ steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome == 'success' || steps.followup.outputs.fallback_success == 'true' }}
+          TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then
             echo "::warning::Gate sul conio corpus saltato: GITHUB_PAT_NANAKO/GITHUB_PAT assente; issue lasciate intatte."

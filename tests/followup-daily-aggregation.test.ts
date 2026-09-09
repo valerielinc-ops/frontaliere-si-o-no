@@ -1,9 +1,13 @@
 import { describe, it, expect, afterEach } from 'vitest';
 import {
   bucketState,
+  canonicalDailyBuckets,
+  dailyBucketIdentity,
   dailyBucketInfo,
   dailyBucketTitle,
   dailyKeyZurich,
+  dailyItemFingerprint,
+  dedupeDailyItems,
   followupFingerprint,
   followupItemId,
   hasStableItemIds,
@@ -11,9 +15,9 @@ import {
   selectFirstOpenItem,
   updateFollowupItemState,
 } from '../scripts/ci/followup-resolution-match.mjs';
-import { decideDailyMintGate, decideMintGate, retitleDailyBucket } from '../scripts/ci/gate-minted-followups.mjs';
+import { decideDailyMintGate, decideMintGate, mergeDailyBucketBodies, retitleDailyBucket } from '../scripts/ci/gate-minted-followups.mjs';
 import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
-import { dailyBucketQueueDecision, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
+import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
 import { triageDailyKey } from '../scripts/ci/collect-followup-batch.mjs';
 
 const DAY = '2026-09-09';
@@ -32,6 +36,12 @@ function item(id: string, state = 'open', title = 'Proteggi il comportamento') {
   ].join('\n');
 }
 
+function distinctItem(id: string, state = 'open') {
+  return item(id, state)
+    .replaceAll('firstGuard()', 'thirdGuard()')
+    .replaceAll('secondGuard()', 'fourthGuard()');
+}
+
 function body(...items: string[]) {
   return [
     '## Batch',
@@ -47,7 +57,7 @@ function body(...items: string[]) {
 
 const resolvedIo = {
   fileExists: (path: string) => path === 'scripts/example.mjs',
-  readFile: () => 'firstGuard(); secondGuard();',
+  readFile: () => 'firstGuard(); secondGuard(); thirdGuard(); fourthGuard();',
 };
 
 afterEach(() => {
@@ -83,11 +93,58 @@ describe('daily follow-up identity and dedup', () => {
     expect(followupFingerprint({ targetRepository: 'owner/repo', targetFile: base.targetFile, acceptanceToken: '   ', suggestedAction: 'add `firstGuard()`' }))
       .toBe(followupFingerprint({ targetRepository: 'owner/repo', targetFile: base.targetFile, acceptanceToken: '', suggestedAction: 'add `firstGuard()`' }));
   });
+
+  it('deduplicates equal fingerprints and merges all source PRs into the kept item', () => {
+    const source = body(
+      item(`FU-${DAY}-001`),
+      item(`FU-${DAY}-002`).replace('PR #8101', 'PR #8102'),
+    );
+    const [first, second] = parseFollowupItems(source);
+    const result = dedupeDailyItems([first, second], 'owner/repo');
+    expect(result.items).toHaveLength(1);
+    expect(result.duplicates).toHaveLength(1);
+    expect(result.items[0].id).toBe(`FU-${DAY}-001`);
+    expect(result.items[0].text).toContain('PR #8101');
+    expect(result.items[0].text).toContain('PR #8102');
+    expect(result.duplicates[0].fingerprint).toBe(dailyItemFingerprint(result.items[0], 'owner/repo'));
+  });
+
+  it('canonicalizza un solo owner per chiave giornaliera e repository', () => {
+    const issues = [
+      { number: 12, title: dailyBucketTitle(DAY, 'owner/repo', 1) },
+      { number: 9, title: dailyBucketTitle(DAY, 'owner/repo', 2) },
+      { number: 3, title: dailyBucketTitle(DAY, 'other/repo', 1) },
+    ];
+    expect(dailyBucketIdentity(issues[0].title)).toBe(`${DAY}|owner/repo`);
+    expect(canonicalDailyBuckets(issues).get(`${DAY}|owner/repo`)?.number).toBe(9);
+    expect(canonicalDailyBuckets(issues).get(`${DAY}|other/repo`)?.number).toBe(3);
+  });
+
+  it('consolida i bucket duplicati, rimappa ID collidenti e deduplica le Sources', () => {
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    const merged = mergeDailyBucketBodies(
+      { title, body: body(item(`FU-${DAY}-001`)) },
+      { title, body: body(item(`FU-${DAY}-001`).replace('PR #8101', 'PR #8102')) },
+    );
+    expect(merged?.body).toContain('- State: collecting');
+    expect(parseFollowupItems(merged?.body || '')).toHaveLength(1);
+    expect(merged?.body).toContain('PR #8101');
+    expect(merged?.body).toContain('PR #8102');
+
+    const distinct = mergeDailyBucketBodies(
+      { title, body: body(item(`FU-${DAY}-001`)) },
+      { title, body: body(distinctItem(`FU-${DAY}-001`)) },
+    );
+    expect(parseFollowupItems(distinct?.body || '').map((entry) => entry.id)).toEqual([
+      `FU-${DAY}-001`,
+      `FU-${DAY}-002`,
+    ]);
+  });
 });
 
 describe('daily item parsing and lifecycle', () => {
   it('selects and updates only the first open item without renumbering IDs', () => {
-    const sealed = body(item(`FU-${DAY}-001`, 'done'), item(`FU-${DAY}-002`));
+    const sealed = body(item(`FU-${DAY}-001`, 'done'), distinctItem(`FU-${DAY}-002`));
     const first = selectFirstOpenItem(sealed);
     expect(first?.id).toBe(`FU-${DAY}-002`);
     expect(parseFollowupItems(sealed)).toHaveLength(2);
@@ -97,11 +154,27 @@ describe('daily item parsing and lifecycle', () => {
     expect(updated).toContain(`### FU-${DAY}-002 — Proteggi il comportamento\n- State: in-progress`);
     expect(updated).toContain(`### FU-${DAY}-001 — Proteggi il comportamento\n- State: done`);
   });
+
+  it('rifiuta State duplicati/conflicting live ma ignora esempi in fence e quote', () => {
+    const valid = body(item(`FU-${DAY}-001`)).replace(
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
+      '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`\n```md\n- State: done\n```\n> - State: blocked',
+    );
+    expect(parseFollowupItems(valid)).toHaveLength(1);
+    const conflicting = body(item(`FU-${DAY}-001`).replace('- State: open', '- State: open\n- State: done'));
+    expect(parseFollowupItems(conflicting)).toEqual([]);
+    expect(bucketState(conflicting)).toBeNull();
+    const duplicateBucketState = body(item(`FU-${DAY}-001`)).replace(
+      '- State: collecting',
+      '- State: collecting\n- State: sealed',
+    );
+    expect(bucketState(duplicateBucketState)).toBeNull();
+  });
 });
 
 describe('daily mint gate and reconciliation', () => {
   it('seals a complete collecting bucket and never queues it before sealing', () => {
-    const source = body(item(`FU-${DAY}-001`), item(`FU-${DAY}-002`));
+    const source = body(item(`FU-${DAY}-001`), distinctItem(`FU-${DAY}-002`));
     const queueBefore = dailyBucketQueueDecision({
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
       body: source,
@@ -163,8 +236,25 @@ describe('daily mint gate and reconciliation', () => {
     expect(decision.body).not.toContain(`FU-${DAY}-002`);
   });
 
+  it('applica il fingerprint nel gate di produzione, non solo come helper', () => {
+    const duplicateBody = body(
+      item(`FU-${DAY}-001`),
+      item(`FU-${DAY}-002`).replace('PR #8101', 'PR #8102'),
+    );
+    const decision = decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 2),
+      body: duplicateBody,
+    });
+    expect(decision.action).toBe('dedupe');
+    expect(decision.reason).toBe('duplicate-fingerprint');
+    expect(decision.duplicates).toHaveLength(1);
+    expect(decision.body).toContain('PR #8101');
+    expect(decision.body).toContain('PR #8102');
+    expect(parseFollowupItems(decision.body || '')).toHaveLength(1);
+  });
+
   it('marks resolved open items done but blocks closure until every item is done', () => {
-    const source = body(item(`FU-${DAY}-001`), item(`FU-${DAY}-002`, 'open'))
+    const source = body(item(`FU-${DAY}-001`), distinctItem(`FU-${DAY}-002`, 'open'))
       .replace('- State: collecting', '- State: sealed');
     const reconciled = reconcileDailyItems(source, resolvedIo);
     expect(reconciled.changed).toBe(true);
@@ -207,6 +297,21 @@ describe('daily drainer item mutex', () => {
       ...pr,
       body: `Addresses #9\nFollow-up item: ${id}`,
     });
+  });
+
+  it('distingue una scansione open-PR fallita da una lista vuota e pagina tutte le risposte', () => {
+    const id = `FU-${DAY}-001`;
+    expect(dailyMutexDecision(id, { ok: false, prs: [] })).toMatchObject({
+      eligible: false,
+      reason: 'open-pr-scan-unavailable',
+    });
+    expect(dailyMutexDecision(id, { ok: true, prs: [] })).toMatchObject({ eligible: true, reason: null });
+    expect(dailyMutexDecision(id, {
+      ok: true,
+      prs: [{ number: 77, body: `Follow-up item: ${id}` }],
+    })).toMatchObject({ eligible: false, reason: 'item-pr-open' });
+    expect(flattenPaginatedOpenPrs([[{ number: 1 }], [{ number: 2 }]])).toEqual([{ number: 1 }, { number: 2 }]);
+    expect(flattenPaginatedOpenPrs('not-json' as unknown as unknown[])).toBeNull();
   });
 });
 

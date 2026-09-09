@@ -104,6 +104,40 @@ export function followupFingerprint({
 }
 
 /**
+ * Return the identity shared by daily buckets.  The repository is part of the
+ * key deliberately: a site finding and a corpus finding can have the same
+ * day/file/token shape without belonging to the same issue.
+ */
+export function dailyBucketIdentity(title = '') {
+  const info = dailyBucketInfo(title);
+  if (!info) return null;
+  return `${info.dailyKey}|${normalizeFingerprintPart(info.targetRepository)}`;
+}
+
+/**
+ * Choose one deterministic owner for every daily bucket identity.  GitHub issue
+ * search/list results are not a uniqueness constraint, so callers must apply this
+ * map before creating, queueing, or sealing a bucket.  The oldest issue wins;
+ * ties are resolved by the numeric issue number.
+ */
+export function canonicalDailyBuckets(issues) {
+  const canonical = new Map();
+  for (const issue of Array.isArray(issues) ? issues : []) {
+    const identity = dailyBucketIdentity(issue?.title || '');
+    if (!identity) continue;
+    const number = Number(issue?.number);
+    const current = canonical.get(identity);
+    if (!current || (
+      Number.isInteger(number) && number > 0
+      && (!Number.isInteger(Number(current.number)) || number < Number(current.number))
+    )) {
+      canonical.set(identity, issue);
+    }
+  }
+  return canonical;
+}
+
+/**
  * A token qualifies only if it carries CODE PUNCTUATION (paren/brace/quote/backtick,
  * dot-member, `::`, `=>`, comparison/assignment operator, `:digit`). Bare prose words
  * AND bare identifiers — `previousSlugs`, `mergedCount`, `getList`, `markStale` on their
@@ -423,9 +457,46 @@ export function hasFalsifiableAcceptance(itemText) {
  */
 const FOLLOWUP_ITEM_HEADING_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/gmi;
 
+/**
+ * Read State fields only from real Markdown lines.  A quoted/fenced example is
+ * evidence, not metadata; conversely two live State lines are ambiguous even
+ * when they happen to carry the same value.  The latter must not be reduced to
+ * "take the first one": a later writer could otherwise smuggle a conflicting
+ * state past the queue/close gates.
+ */
+function stateFieldValuesOutsideMarkdownProtection(text) {
+  const values = [];
+  let fence = null;
+  for (const line of String(text || '').split('\n')) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    // Block quotes can contain an apparently valid `- State:` example.  The
+    // leading `>` keeps it outside the item metadata grammar.
+    if (/^\s*>/.test(line)) continue;
+    const match = /^\s*-\s+State\s*:\s*(.*?)\s*$/i.exec(line);
+    if (match) values.push(match[1].trim().toLowerCase());
+  }
+  return values;
+}
+
 function itemStateFromText(text) {
-  const m = String(text || '').match(/^\s*-\s+State\s*:\s*(open|in-progress|done|blocked)\s*$/im);
-  return m ? m[1].toLowerCase() : null;
+  const values = stateFieldValuesOutsideMarkdownProtection(text);
+  if (values.length !== 1) return null;
+  return /^(open|in-progress|done|blocked)$/i.test(values[0]) ? values[0] : null;
+}
+
+function hasDuplicateItemState(text) {
+  return stateFieldValuesOutsideMarkdownProtection(text).length > 1;
 }
 
 function itemFieldFromText(text, field) {
@@ -441,13 +512,13 @@ function itemFieldFromText(text, field) {
  *
  * @param {string} body
  * @returns {Array<{id:string|null, number:number|null, title:string, heading:string,
- *                  text:string, raw:string, state:string|null, targetFile:string,
- *                  acceptanceToken:string, suggestedAction:string}>}
+ *                  text:string, raw:string, state:string|null, targetRepository:string,
+ *                  targetFile:string, acceptanceToken:string, suggestedAction:string}>}
  */
 export function parseFollowupItems(body) {
   const source = String(body || '');
   const matches = [...source.matchAll(FOLLOWUP_ITEM_HEADING_RE)];
-  return matches.map((match, index) => {
+  const parsed = matches.map((match, index) => {
     const heading = match[0];
     const start = match.index ?? 0;
     const end = matches[index + 1]?.index ?? source.length;
@@ -471,11 +542,137 @@ export function parseFollowupItems(body) {
       text,
       raw: source.slice(start, end),
       state: itemStateFromText(text),
+      targetRepository: itemFieldFromText(text, 'Target repository'),
       targetFile: itemFieldFromText(text, 'Target file'),
       acceptanceToken: itemFieldFromText(text, 'Acceptance token'),
       suggestedAction: itemFieldFromText(text, 'Suggested action'),
+      stateConflict: hasDuplicateItemState(text),
     };
   });
+  // A duplicate/conflicting live State makes the whole parse unusable.  Returning
+  // no items is intentional: every caller already treats an empty parse as
+  // unparsed/unsafe and therefore leaves the issue untouched (no queue/close or
+  // destructive rewrite).  State examples inside quotes/fences are ignored by
+  // `hasDuplicateItemState` and cannot poison a valid item.
+  return parsed.some((item) => item.stateConflict) ? [] : parsed;
+}
+
+function sourceValuesFromText(text) {
+  const values = [];
+  let fence = null;
+  for (const line of String(text || '').split('\n')) {
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*>/.test(line)) continue;
+    const match = /^\s*-\s+Sources?\s*:\s*(.*?)\s*$/i.exec(line);
+    if (!match) continue;
+    values.push(...match[1].split(/\s*;\s*/).map((value) => value.trim()).filter(Boolean));
+  }
+  return values;
+}
+
+function withMergedSources(text, sources) {
+  const source = String(text || '');
+  const merged = [...new Set((sources || []).map((value) => String(value).trim()).filter(Boolean))];
+  if (!merged.length) return source;
+  const lines = source.split('\n');
+  let fence = null;
+  let replaced = false;
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    if (fence) {
+      if (marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+      continue;
+    }
+    if (marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+      continue;
+    }
+    if (/^\s*>/.test(line)) continue;
+    const match = /^(\s*-\s+Sources?\s*:\s*).*$/i.exec(line);
+    if (!match) continue;
+    lines[index] = `${match[1]}${merged.join('; ')}`;
+    replaced = true;
+    break;
+  }
+  if (!replaced) {
+    const trimmed = source.replace(/\s+$/, '');
+    return `${trimmed}${trimmed ? '\n' : ''}- Sources: ${merged.join('; ')}\n`;
+  }
+  return lines.join('\n');
+}
+
+/** Fingerprint one parsed item, or null when the item lacks a usable identity. */
+export function dailyItemFingerprint(item, bucketTargetRepository = '') {
+  const text = typeof item === 'string' ? item : item?.text || item?.raw || '';
+  const targetRepository = String(
+    (typeof item === 'object' && item?.targetRepository) || itemFieldFromText(text, 'Target repository') || bucketTargetRepository,
+  ).trim();
+  const targetFile = String(
+    (typeof item === 'object' && item?.targetFile) || itemFieldFromText(text, 'Target file'),
+  ).trim();
+  const acceptanceToken = String(
+    (typeof item === 'object' && item?.acceptanceToken) || itemFieldFromText(text, 'Acceptance token'),
+  ).trim();
+  const suggestedAction = String(
+    (typeof item === 'object' && item?.suggestedAction) || itemFieldFromText(text, 'Suggested action'),
+  ).trim();
+  if (!targetRepository || !targetFile || (!acceptanceToken && !suggestedAction)) return null;
+  return followupFingerprint({ targetRepository, targetFile, acceptanceToken, suggestedAction });
+}
+
+/** Merge source provenance when two item records share the same fingerprint. */
+export function mergeDailyItemSources(primary, duplicate) {
+  const first = primary || {};
+  const second = duplicate || {};
+  const sources = [...new Set([
+    ...sourceValuesFromText(first.text || first.raw || ''),
+    ...sourceValuesFromText(second.text || second.raw || ''),
+  ])];
+  if (!sources.length) return first;
+  return {
+    ...first,
+    text: withMergedSources(first.text || '', sources),
+    raw: withMergedSources(first.raw || first.text || '', sources),
+    sources: sources.join('; '),
+  };
+}
+
+/**
+ * Deduplicate parsed daily items in production.  Items with no complete
+ * fingerprint are retained: the caller must let the acceptance/state gates deal
+ * with them rather than silently dropping work on an incomplete record.
+ */
+export function dedupeDailyItems(items, bucketTargetRepository = '') {
+  const unique = [];
+  const duplicates = [];
+  const byFingerprint = new Map();
+  for (const item of Array.isArray(items) ? items : []) {
+    const fingerprint = dailyItemFingerprint(item, bucketTargetRepository);
+    if (!fingerprint || !byFingerprint.has(fingerprint)) {
+      if (fingerprint) byFingerprint.set(fingerprint, unique.length);
+      unique.push(item);
+      continue;
+    }
+    const index = byFingerprint.get(fingerprint);
+    unique[index] = mergeDailyItemSources(unique[index], item);
+    duplicates.push({ item, fingerprint, kept: unique[index] });
+  }
+  return { items: unique, duplicates };
 }
 
 /**
@@ -501,8 +698,9 @@ export function bucketState(body) {
   // The bucket state belongs to the Batch header. Do not mistake a quoted
   // `- State: collecting` inside an item's Original text/code fence for it.
   const head = source.slice(0, firstItem?.start ?? source.length);
-  const m = head.match(/^\s*-\s+State\s*:\s*(collecting|sealed)\s*$/im);
-  return m ? m[1].toLowerCase() : null;
+  const values = stateFieldValuesOutsideMarkdownProtection(head);
+  if (values.length !== 1 || !/^(collecting|sealed)$/i.test(values[0])) return null;
+  return values[0].toLowerCase();
 }
 
 /** The first stable item explicitly waiting for a fixer. */

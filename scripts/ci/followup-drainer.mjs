@@ -120,6 +120,31 @@ export function openPrForDailyItem(itemId, openPrs) {
   ) || null;
 }
 
+/**
+ * Flatten the shape returned by `gh api --paginate --slurp`.  A successful empty
+ * listing is an empty array; malformed output is *not* an empty listing, because
+ * treating an API/parser failure as "no mutex PR" would allow two fix PRs for one
+ * daily item.
+ */
+export function flattenPaginatedOpenPrs(raw) {
+  if (!Array.isArray(raw)) return null;
+  const flattened = raw.flat(Infinity);
+  return flattened.every((pr) => pr && typeof pr === 'object' && !Array.isArray(pr))
+    ? flattened
+    : null;
+}
+
+/** Fail-closed decision for the daily item-level PR mutex. */
+export function dailyMutexDecision(itemId, scan) {
+  if (!scan || scan.ok !== true || !Array.isArray(scan.prs)) {
+    return { eligible: false, reason: 'open-pr-scan-unavailable', pr: null };
+  }
+  const pr = openPrForDailyItem(itemId, scan.prs);
+  return pr
+    ? { eligible: false, reason: 'item-pr-open', pr }
+    : { eligible: true, reason: null, pr: null };
+}
+
 // --- BUDGET DI RUN (#5162) ---------------------------------------------------
 // Il job `drain` ha 6 minuti per SETUP + LAVORO, e il setup non è una costante:
 // `actions/checkout` su questo repo (10,5 GB) costa ~113s nel caso normale ma ha
@@ -1835,6 +1860,29 @@ export function isRetryCooldownElapsed(iss, comments, { now, cooldownDays }) {
 function gh(args, { json = true } = {}) {
   const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return json ? JSON.parse(out) : out;
+}
+
+/**
+ * Complete, paginated open-PR scan used only for the daily item mutex.  This is
+ * intentionally separate from the historical overlap map: that map is
+ * fail-open for a transient diff failure, while a daily item must never be
+ * promoted when we cannot prove that no claiming PR exists.
+ */
+function loadOpenPrsForDailyMutex() {
+  try {
+    const raw = gh([
+      'api', `repos/${REPO}/pulls?state=open&per_page=100`,
+      '--paginate', '--slurp',
+    ]);
+    const prs = flattenPaginatedOpenPrs(raw);
+    if (!prs || !prs.every((pr) => Number.isInteger(Number(pr.number)) && Number(pr.number) > 0
+      && typeof pr.title === 'string' && (typeof pr.body === 'string' || pr.body === null))) {
+      return { ok: false, prs: [] };
+    }
+    return { ok: true, prs };
+  } catch {
+    return { ok: false, prs: [] };
+  }
 }
 
 /** Quante run issue-fix sono in volo (queued|in_progress). 0 = slot libero. */
@@ -3735,6 +3783,7 @@ export function runDrain() {
 
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
+  let dailyOpenPrScan = null; // complete/paginated scan; null means not needed yet
 
   // --- GROUPING (B19): pianifica prima, arma solo il leader ------------------
   // Il planner legge la stessa coda ma con i body. Un errore nella lettura è
@@ -3891,10 +3940,14 @@ export function runDrain() {
       continue;
     }
     if (dailyQueue.item) {
-      if (prFilesMap === null) prFilesMap = loadOpenPrFilesMap();
-      const itemPr = openPrForDailyItem(dailyQueue.item.id, [...prFilesMap.entries()].map(([number, pr]) => ({ number, ...pr })));
-      if (itemPr) {
-        console.log(`SKIP #${cand.number} (${dailyQueue.item.id} già dichiarato nella PR #${itemPr.number}) → item in volo, resta in coda`);
+      if (dailyOpenPrScan === null) dailyOpenPrScan = loadOpenPrsForDailyMutex();
+      const mutex = dailyMutexDecision(dailyQueue.item.id, dailyOpenPrScan);
+      if (!mutex.eligible) {
+        if (mutex.reason === 'item-pr-open') {
+          console.log(`SKIP #${cand.number} (${dailyQueue.item.id} già dichiarato nella PR #${mutex.pr?.number}) → item in volo, resta in coda`);
+        } else {
+          console.log(`SKIP #${cand.number} (${dailyQueue.item.id} mutex PR illeggibile) → scansione open PR fail-closed, resta in coda`);
+        }
         continue;
       }
     }

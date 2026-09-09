@@ -262,6 +262,17 @@ describe('gate sul conio — la demozione non perde il testo', () => {
 });
 
 describe('gate sul conio — pin sul sorgente', () => {
+  it('PIN: il sealing richiede triage_complete verificato su ogni PR, mai batch vuoto/solo exit 0', () => {
+    const src = readFileSync(GATE_SRC, 'utf-8');
+    const wf = readFileSync(WORKFLOW, 'utf-8');
+    expect(src).toContain("process.env.TRIAGE_COMPLETE === 'true'");
+    expect(wf).toContain('Verify complete follow-up triage');
+    expect(wf).toContain('triage_complete=$complete');
+    expect(wf).toContain('BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}');
+    expect(wf).toContain('contains("## Post-merge follow-up triage")');
+    expect(wf).not.toContain("steps.collect.outputs.batch_count == '0' || steps.followup.outputs.claude_outcome");
+  });
+
   it('PIN: il gate verifica anche le issue del corpus e commenta la PR sul sito', () => {
     const src = readFileSync(GATE_SRC, 'utf-8');
     const wf = readFileSync(WORKFLOW, 'utf-8');
