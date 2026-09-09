@@ -6199,6 +6199,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banda-larga-zone-rurali.title': 'Broadband in rural areas: CHF 730 million',
     'blog.article.banda-larga-zone-rurali.excerpt': 'The Federal Council approves a CHF 730 million programme for fast internet connections in rural areas. Involved cantons and municipalities from 2030 to 2037 with fibre optics and radio communication.',
     'blog.article.banda-larga-zone-rurali.imageAlt': 'Swiss rural village in green landscape with modern fiber optic infrastructure',
+    'blog.article.emissione-prestiti-federali-2026.title': 'Issuance of federal loans: CHF 368.6 billion',
+    'blog.article.emissione-prestiti-federali-2026.excerpt': 'The Swiss Confederation issued two federal loans on 9 September 2026: CHF 161.240 million at 0.875% until June 2041, and CHF 207.390 million at 0.5% until May 2058. Total volume of CHF 368.630 million.',
+    'blog.article.emissione-prestiti-federali-2026.imageAlt': 'Swiss trading room with financial terminals and Swiss francs representing federal economic management',
 };
 
 export default blogMetaChEn;
