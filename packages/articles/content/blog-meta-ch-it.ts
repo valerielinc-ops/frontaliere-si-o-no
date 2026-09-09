@@ -6199,6 +6199,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banda-larga-zone-rurali.title': 'Banda larga nelle zone rurali: 730 milioni CHF',
     'blog.article.banda-larga-zone-rurali.excerpt': 'Il Consiglio federale approva un programma da 730 milioni CHF per connessioni internet veloci nelle zone rurali. Coinvolti cantoni e comuni dal 2030 al 2037 con fibra ottica e radiocomunicazione.',
     'blog.article.banda-larga-zone-rurali.imageAlt': 'Villaggio rurale svizzero in paesaggio verde con infrastrutture di fibra ottica moderne',
+    'blog.article.emissione-prestiti-federali-2026.title': 'Emissione prestiti federali: CHF 368,6 miliardi',
+    'blog.article.emissione-prestiti-federali-2026.excerpt': 'Confederazione svizzera ha emesso il 9 settembre 2026 due prestiti federali: CHF 161,240 milioni al 0,875% fino a giugno 2041, e CHF 207,390 milioni al 0,5% fino a maggio 2058. Volume totale di CHF 368,630 milioni.',
+    'blog.article.emissione-prestiti-federali-2026.imageAlt': 'Sala di trading svizzera con terminali finanziari e franchi svizzeri che rappresentano l\'economia federale',
 };
 
 export default blogMetaChIt;

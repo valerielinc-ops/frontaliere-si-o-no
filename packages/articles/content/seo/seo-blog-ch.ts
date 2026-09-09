@@ -80477,6 +80477,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emissione-prestiti-federali-2026': {
+    title: 'Emissione prestiti federali: CHF 368,6 miliardi',
+    description: 'Confederazione svizzera emette il 9 settembre 2026 due prestiti federali: CHF 161,240 milioni al 0,875% e CHF 207,390 milioni al 0,5%. Liberazione 23 settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, emissione, prestiti, federali, miliardi',
+    ogTitle: 'Emissione prestiti federali: CHF 368,6 miliardi',
+    ogDescription: 'La Confederazione ha emesso prestiti per CHF 368,630 miliardi il 9 settembre 2026. Primo: CHF 161,240 milioni al 0,875% fino a giugno 2041. Secondo: CHF 207,390 milioni al 0,5% fino a maggio 2058. Forte domanda: copertura 138% e 168%.',
+    canonicalPath: '/articoli-svizzera/emissione-prestiti-federali-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emissione prestiti federali: CHF 368,6 miliardi",
+      "description": "Confederazione svizzera emette il 9 settembre 2026 due prestiti federali: CHF 161,240 milioni al 0,875% e CHF 207,390 milioni al 0,5%. Liberazione 23 settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emissione-prestiti-federali-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala di trading svizzera con terminali finanziari e franchi svizzeri che rappresentano l'economia federale"
+      },
+      "datePublished": "2026-09-09T16:49:45+00:00",
+      "dateModified": "2026-09-09T16:49:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/emissione-prestiti-federali-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

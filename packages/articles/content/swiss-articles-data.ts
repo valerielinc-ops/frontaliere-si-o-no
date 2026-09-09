@@ -18595,6 +18595,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'emissione-prestiti-federali-2026',
+    category: 'novita',
+    date: '2026-09-09T16:49:45.146Z',
+    image: '/images/blog/emissione-prestiti-federali-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

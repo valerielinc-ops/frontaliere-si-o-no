@@ -6199,6 +6199,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.banda-larga-zone-rurali.title': 'Breitband im ländlichen Raum: CHF 730 Mio.',
     'blog.article.banda-larga-zone-rurali.excerpt': 'Der Bundesrat genehmigt ein 730-Millionen-Franken-Programm für schnelle Internetanschlüsse im ländlichen Raum. Betroffen sind Kantone und Gemeinden von 2030 bis 2037 mit Glasfaser und Funk.',
     'blog.article.banda-larga-zone-rurali.imageAlt': 'Schweizer Landgemeinde in grüner Landschaft mit modernen Glasfaseranlagen',
+    'blog.article.emissione-prestiti-federali-2026.title': 'Ausgabe von Bundesanleihen: CHF 368,6 Milliarden',
+    'blog.article.emissione-prestiti-federali-2026.excerpt': 'Die Schweizerische Eidgenossenschaft emittierte am 9. September 2026 zwei Bundesanleihen: CHF 161.240 Mio. zu 0,875% bis Juni 2041 und CHF 207.390 Mio. zu 0,5% bis Mai 2058. Gesamtvolumen von CHF 368.630 Mio.',
+    'blog.article.emissione-prestiti-federali-2026.imageAlt': 'Schweizer Handelsraum mit Finanzterminals und Schweizer Franken, der die Bundeskasse darstellt',
 };
 
 export default blogMetaChDe;
