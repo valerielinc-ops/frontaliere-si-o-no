@@ -83,7 +83,7 @@ import { borderWaitPagesPlugin } from './build-plugins/borderWaitPagesPlugin';
 import { marketReportPlugin } from './build-plugins/marketReportPlugin';
 import { selfCertificationFormsPlugin } from './build-plugins/selfCertificationFormsPlugin';
 import { communicationsPagePlugin } from './build-plugins/communicationsPagePlugin';
-import { pharmacyHubPlugin } from './build-plugins/pharmacyHubPlugin';
+import { pharmacyDirectoryPagesPlugin } from './build-plugins/pharmacyDirectoryPagesPlugin';
 import { annualReportPlugin } from './build-plugins/annualReportPlugin';
 import { borderWaitMapPlugin } from './build-plugins/borderWaitMapPlugin';
 import { borderMunicipalityPagesPlugin } from './build-plugins/borderMunicipalityPagesPlugin';
@@ -243,9 +243,10 @@ export default defineConfig(({ mode }) => {
  marketReportPlugin(__dirname),
  selfCertificationFormsPlugin(__dirname),
  communicationsPagePlugin(__dirname),
- // National pharmacy-duty coverage hub (#6399, sub-issue of #6173 Fase 1) —
- // /farmacie/ + locale twins, reads data/pharmacy-sources-registry.json.
- pharmacyHubPlugin(__dirname),
+ // Ticino directory, city pages and duty pages (#6748–#6752). This plugin
+ // supersedes the registry-only coverage hub so the hydrated and no-JS views
+ // expose the same canonical URLs.
+ pharmacyDirectoryPagesPlugin(__dirname),
  // Sprint 5.1 — annual salary report. Must run AFTER jobMarketSnapshotPlugin
  // so the job-market hub HTML is already on disk when we patch it with a
  // callout linking to the annual report.

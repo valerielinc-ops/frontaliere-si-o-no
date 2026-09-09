@@ -115,6 +115,7 @@ const PressKit = lazyRetry(() => import('@/components/pages/PressKit'));
 const JobBoard = lazyRetry(() => import('@/components/community/JobBoard'));
 const FooterWeather = lazyRetry(() => import('@/components/shared/FooterWeather'));
 const MorningDashboard = lazyRetry(() => import('@/components/vita/MorningDashboard'));
+const PharmacyDirectory = lazyRetry(() => import('@/components/pages/PharmacyDirectory'));
 // UserProfile component is lazy-loaded; utility functions loaded on demand
 const UserProfile = lazyRetry(() => import('@/components/pages/UserProfile'));
 const BlogArticles = lazyRetry(() => {
@@ -339,7 +340,7 @@ const App: React.FC = () => {
  // Navigation state: tabs, sub-tabs, deep links, popstate, SEO effects, etc.
  const {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
- guidaSubTab, vitaSubTab, statsSubTab,
+ guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
  jobBoardFilterParams, staticOverlay,
@@ -2951,7 +2952,7 @@ const App: React.FC = () => {
  ) : activeTab === 'guida' ? (
  <GuidaTabContent />
  ) : activeTab === 'vita' ? (
- <VitaTabContent />
+ pharmacyPath ? <PharmacyDirectory page={pharmacyPath} /> : <VitaTabContent />
  ) : activeTab === 'stats' ? (
  <StatsTabContent />
  ) : activeTab === 'blog' ? (

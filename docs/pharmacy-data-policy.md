@@ -2,9 +2,9 @@
 
 Fonti, SLA, validazione, disclaimer e policy di pubblicazione per la
 verticale farmacie/farmacie-di-turno. Copre lo stato implementato a oggi
-(registry fonti #6397 + import anagrafica Ticino #6400) e fissa le regole
-che il resto della pipeline (turni, evergreen, editoriale) deve rispettare
-quando verrà costruita.
+(registry fonti #6397 + import anagrafica Ticino #6400) e la pipeline turni
+Ticino (#6750) già presente. Fissa anche le regole che il resto della
+pipeline (evergreen, editoriale) deve rispettare quando verrà valutato.
 
 ## Fonti
 
@@ -36,9 +36,9 @@ ancora `unverified`.
   dominio/template separato), è stata verificata di rete in #6740
   (accessibile via HTML statico, nessun JS/API, nessun `robots.txt`) ma
   **resta fuori dal connettore**: struttura dati diversa (nessuna
-  anagrafica pubblicata, tabella turni senza indirizzo/CAP) richiede un
-  parser dedicato non ancora scritto — nessun dato pubblicato per
-  quell'area finché non lo sarà. Vedi
+  anagrafica pubblicata, tabella turni senza indirizzo/CAP) non consente di
+  validare una scheda pharmacy completa. Nessun dato di Locarnese è quindi
+  pubblicato nel directory o attribuito a una farmacia. Vedi
   `docs/data-sources/farmacie-turno-ticino.md`.
 - `robots.txt` dichiara `crawl-delay: 10`: rispettato da
   `scripts/import-pharmacies-ticino.mjs` (10s fra un fetch di regione e il
@@ -51,9 +51,9 @@ ancora `unverified`.
   Oggi l'import (`scripts/import-pharmacies-ticino.mjs`) è one-shot, non
   ancora schedulato — schedulazione ricorrente è scope della pipeline turni
   (non ancora costruita, vedi issue #6400).
-- **Turni**: almeno giornaliero una volta costruita la pipeline dedicata
-  (`fetchFrequency: "P1D"` già dichiarato per Ticino nel registry, in
-  attesa dello scraper turni). Un fetch fallito o dati in conflitto non
+- **Turni**: giornaliero tramite `scripts/sync-pharmacy-duties.mjs` e
+  `.github/workflows/sync-pharmacy-duties.yml` (`fetchFrequency: "P1D"` nel
+  registry). Un fetch fallito o dati in conflitto non
   estendono artificialmente la validità di un turno: il dato resta
   all'ultimo stato valido solo fino alla sua scadenza dichiarata, poi va
   marcato `expired`, mai mostrato come attivo oltre `endsAt`.
@@ -68,7 +68,7 @@ CAP, città, cantone, `country: "CH"`, `sourceUrl`, `sourceType`,
 `lastVerifiedAt`. Un record che fallisce la validazione non viene
 pubblicato.
 
-Per i turni (`PharmacyDuty`, non ancora implementati), lo stato
+Per i turni (`PharmacyDuty`), lo stato
 (`verified` / `pending_review` / `expired` / `conflicting`) è parte del
 modello dati fin dalla progettazione (#6173 → "Modello dati proposto") e
 deve riflettere l'esito della validazione, non solo la presenza del dato:
@@ -83,14 +83,14 @@ come `verified`.
   riportare fonte, timestamp dell'ultimo aggiornamento e un disclaimer che
   invita a verificare telefonicamente in caso di emergenza — i dati
   derivano da scraping di terze parti, non da un'API garantita.
-- Nessuna pubblicazione automatica di contenuto editoriale (pagina
-  evergreen giornaliera, articolo weekend) finché dati, fonti e UX non sono
-  validati (#6173 → "Fase 1 — Ticino"): oggi solo l'anagrafica esiste,
-  quindi né l'evergreen né l'editoriale weekend sono ancora in scope
-  pubblicabile.
-- Un'area/comune senza fonte `active` per i turni non pubblica una pagina
-  `di-turno` per quell'area: mostra al più l'anagrafica (se disponibile) e
-  mai un dato di turno inventato o dedotto.
+- Nessuna pubblicazione automatica di contenuto editoriale (pagina evergreen
+  giornaliera, articolo weekend) o alert: il vertical pubblica solo hub,
+  directory e intervalli regionali verificati.
+- Le pagine `di-turno` indicano sempre la copertura regionale. Non dichiarano
+  "aperta ora", "24h" o un turno comunale quando la fonte non lo espone.
+  L'UI rivaluta `endsAt` mentre resta aperta e nasconde intervalli scaduti;
+  un fetch fallito conserva il record precedente senza rinnovare
+  `_fetchedAt`.
 
 ## Osservabilità (dashboard interna)
 
@@ -105,15 +105,14 @@ lo SLA — mensile per l'anagrafica, `fetchFrequency` × 2 per i turni),
 `.github/workflows/pharmacy-data-health-monitor.yml` lo gira settimanalmente e
 apre/chiude una issue `content-quality` di conseguenza.
 
-L'assenza dei dataset dei turni è uno stato **atteso** finché la pipeline
-(#6750) non esiste, e non conta come guasto: la dashboard la riporta come tale.
-Quando la pipeline arriverà, lo SLA giornaliero già dichiarato nel registry
-diventa vincolante e la cadenza del monitor va stretta di conseguenza.
+Il dataset turni corrente è `data/pharmacy-duties-ticino.json`; il suo report
+operativo separato è `data/pharmacy-duties-ticino-status.json`. Un'assenza del
+dataset o un `_fetchedAt` oltre due volte `P1D` è un degrado osservabile, non
+uno stato atteso da ignorare.
 
 ## Ambito non ancora coperto
 
-Pipeline turni, scheduler (`scripts/sync-pharmacy-duties.*` +
-`.github/workflows/sync-pharmacy-duties.yml`), pagine cantone/città/turno,
-generatore evergreen e articolo editoriale weekend restano da costruire
-(scope residuo di #6400): questo documento fissa la policy a cui dovranno
-attenersi quando saranno implementati, non ne anticipa il comportamento.
+Restano fuori scope il parser dedicato per Locarnese, le pagine evergreen,
+l'articolo editoriale weekend e gli alert. Il connettore e le pagine della
+directory Ticino già emesse non deducono dati mancanti e restano limitati alle
+quattro regioni OFCT con anagrafica compatibile.

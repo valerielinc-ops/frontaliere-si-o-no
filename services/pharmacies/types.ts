@@ -54,6 +54,17 @@ export interface PharmacyDuty {
   verifiedAt?: string;
 }
 
+export interface PharmacyDutiesDataset {
+  _source: string;
+  _sourceRegions: string[];
+  _fetchedAt: string | null;
+  _lastSuccessfulFetchAt?: string | null;
+  _errors: string[];
+  _warnings: string[];
+  _preservedRegions?: string[];
+  duties: PharmacyDuty[];
+}
+
 export type PharmacySourceAccessMethod = 'html-scrape' | 'json-api' | 'pdf' | 'rss' | 'manual';
 
 export type PharmacySourceStatus = 'unverified' | 'active' | 'blocked' | 'degraded';
@@ -205,6 +216,88 @@ export function validatePharmacyList(pharmacies: unknown): string[] {
       seenIds.add(id);
     }
   });
+  return errors;
+}
+
+const REQUIRED_DUTY_STRING_FIELDS: readonly (keyof PharmacyDuty)[] = [
+  'id',
+  'pharmacyId',
+  'coverageType',
+  'coverageName',
+  'startsAt',
+  'endsAt',
+  'dutyType',
+  'status',
+  'sourceUrl',
+  'sourceType',
+  'fetchedAt',
+];
+const DUTY_COVERAGE_TYPES: readonly PharmacyDutyCoverageType[] = ['city', 'district', 'region', 'canton'];
+const DUTY_TYPES: readonly PharmacyDutyType[] = ['day', 'night', 'weekend', 'holiday', '24h'];
+const DUTY_STATUSES: readonly PharmacyDutyStatus[] = ['verified', 'pending_review', 'expired', 'conflicting'];
+const DUTY_SOURCE_TYPES: readonly PharmacyDutySourceType[] = ['official', 'association', 'pharmacy', 'verified_partner'];
+
+export function validatePharmacyDuty(index: number | string, entry: unknown): string[] {
+  const errors: string[] = [];
+  if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
+    return [`duty[${index}]: entry is not an object`];
+  }
+  const e = entry as Record<string, unknown>;
+  for (const field of REQUIRED_DUTY_STRING_FIELDS) {
+    if (typeof e[field] !== 'string' || (e[field] as string).trim() === '') {
+      errors.push(`duty[${index}]: missing or empty required field "${field}"`);
+    }
+  }
+  if (typeof e.coverageType === 'string' && !DUTY_COVERAGE_TYPES.includes(e.coverageType as PharmacyDutyCoverageType)) {
+    errors.push(`duty[${index}]: invalid coverageType "${e.coverageType}"`);
+  }
+  if (typeof e.dutyType === 'string' && !DUTY_TYPES.includes(e.dutyType as PharmacyDutyType)) {
+    errors.push(`duty[${index}]: invalid dutyType "${e.dutyType}"`);
+  }
+  if (typeof e.status === 'string' && !DUTY_STATUSES.includes(e.status as PharmacyDutyStatus)) {
+    errors.push(`duty[${index}]: invalid status "${e.status}"`);
+  }
+  if (typeof e.sourceType === 'string' && !DUTY_SOURCE_TYPES.includes(e.sourceType as PharmacyDutySourceType)) {
+    errors.push(`duty[${index}]: invalid sourceType "${e.sourceType}"`);
+  }
+  const starts = typeof e.startsAt === 'string' ? Date.parse(e.startsAt) : NaN;
+  const ends = typeof e.endsAt === 'string' ? Date.parse(e.endsAt) : NaN;
+  if (!Number.isFinite(starts)) errors.push(`duty[${index}]: invalid startsAt`);
+  if (!Number.isFinite(ends)) errors.push(`duty[${index}]: invalid endsAt`);
+  if (Number.isFinite(starts) && Number.isFinite(ends) && ends <= starts) {
+    errors.push(`duty[${index}]: endsAt must be after startsAt`);
+  }
+  return errors;
+}
+
+export function validatePharmacyDutyList(duties: unknown): string[] {
+  if (!Array.isArray(duties)) return ['duties: expected an array'];
+  const errors: string[] = [];
+  const seenIds = new Set<string>();
+  duties.forEach((entry, index) => {
+    errors.push(...validatePharmacyDuty(index, entry));
+    const id = (entry as Record<string, unknown> | null)?.id;
+    if (typeof id === 'string' && id) {
+      if (seenIds.has(id)) errors.push(`duty[${index}]: duplicate id "${id}"`);
+      seenIds.add(id);
+    }
+  });
+  return errors;
+}
+
+export function validatePharmacyDutiesDataset(dataset: unknown): string[] {
+  if (typeof dataset !== 'object' || dataset === null || Array.isArray(dataset)) {
+    return ['dataset is not an object'];
+  }
+  const d = dataset as Record<string, unknown>;
+  const errors: string[] = [];
+  for (const field of ['_source', '_errors', '_warnings', 'duties'] as const) {
+    if (!(field in d)) errors.push(`dataset: missing "${field}"`);
+  }
+  if (typeof d._source !== 'string' || d._source.trim() === '') errors.push('dataset: invalid "_source"');
+  if (!Array.isArray(d._errors)) errors.push('dataset: "_errors" must be an array');
+  if (!Array.isArray(d._warnings)) errors.push('dataset: "_warnings" must be an array');
+  errors.push(...validatePharmacyDutyList(d.duties));
   return errors;
 }
 
