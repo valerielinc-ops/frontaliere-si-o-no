@@ -1,7 +1,7 @@
 {
   "key": "arxada",
   "label": "Arxada",
-  "generatedAt": "2026-09-09T13:59:43.466Z",
+  "generatedAt": "2026-09-09T23:20:48.971Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,10 +12,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12322,
-  "avgDurationMs": 12322,
+  "durationMs": 11491,
+  "avgDurationMs": 11491,
   "durationHistory": [
-    12322
+    11491
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,7 +43,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53897-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:36.178Z",
+      "crawledAt": "2026-09-09T23:20:39.477Z",
       "jobReqId": "R53897",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T10:26:04.099Z",
@@ -79,9 +79,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:37.614Z",
+      "crawledAt": "2026-09-09T23:20:40.702Z",
       "jobReqId": "R50117",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-02T10:34:06.281Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Manufacturing-Manager---Production-Engineering_R53702",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:35.513Z",
+      "crawledAt": "2026-09-09T23:20:38.543Z",
       "jobReqId": "R53702",
       "firstSeenAt": "2026-07-01T11:10:50.624Z",
       "_qualityScore": 84,
@@ -150,14 +150,15 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R53576",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:34.843Z",
+      "crawledAt": "2026-09-09T23:20:37.933Z",
       "jobReqId": "R53576",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
-      "_qualityScore": 82,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -185,8 +186,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:34.172Z",
+      "crawledAt": "2026-09-09T23:20:37.310Z",
       "jobReqId": "R53358",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -220,9 +222,9 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:59:36.851Z",
+      "crawledAt": "2026-09-09T23:20:40.104Z",
       "jobReqId": "R52966",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
