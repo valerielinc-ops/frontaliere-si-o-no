@@ -6244,6 +6244,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Consiglio federale riorganizza commissioni extraparlamentari',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Il Consiglio federale adotta il messaggio sulla riorganizzazione delle commissioni extraparlamentari: 3 sciolte, 7 fuse in 2 strutture; risparmi ~100.000 CHF annui dal 2028.',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Sala riunioni dell\'Amministrazione federale svizzera con documenti ufficiali e bandiera svizzera',
+    'blog.article.svizzera-corruzione-restituzione-banche.title': 'Denaro da corruzione: il dilemma svizzero',
+    'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Restituzione di fondi illeciti: un processo lungo e complesso. Perché la Svizzera non obbliga le banche a versare direttamente agli Stati lesi?',
+    'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Sede della regolamentazione bancaria federale svizzera che supervisiona il sistema di restituzione dei fondi illeciti',
 };
 
 export default blogMetaChIt;

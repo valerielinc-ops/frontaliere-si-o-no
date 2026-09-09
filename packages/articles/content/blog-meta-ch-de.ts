@@ -6244,6 +6244,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Bundesrat reorganisiert ausserparlamentarische Kommissionen',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Der Bundesrat verabschiedet die Botschaft zur Reorganisation der ausserparlamentarischen Kommissionen: 3 aufgelöst, 7 fusioniert in 2 Strukturen; Einsparungen ab 2028 ~100 \'000 CHF jährlich.',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Sitzungssaal der Schweizer Bundesverwaltung mit offiziellen Dokumenten',
+    'blog.article.svizzera-corruzione-restituzione-banche.title': 'Korruptionsgeld: Das Schweizer Dilemma',
+    'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Rückzahlung rechtswidriger Gelder: ein langwieriger und komplexer Prozess. Warum verpflichtet die Schweiz die Banken nicht, direkt an die geschädigten Staaten zu zahlen?',
+    'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Schweizer Bundesbankbehörde überwacht Rückgabeverfahren für rechtswidrige Gelder',
 };
 
 export default blogMetaChDe;

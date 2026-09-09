@@ -6244,6 +6244,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Federal Council reorganises extra-parliamentary committees',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'The Federal Council adopts the message on the reorganization of extra-parliamentary committees: 3 dissolved, 7 merged into 2 structures; savings ~ CHF 100,000 per year from 2028.',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Swiss federal government meeting room with official documents and Swiss flag',
+    'blog.article.svizzera-corruzione-restituzione-banche.title': 'Bribery money: the Swiss dilemma',
+    'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Return of illicit funds: a long and complex process. Why does Switzerland not oblige banks to pay directly to the injured states?',
+    'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Swiss federal banking authority headquarters overseeing illicit fund restitution procedures',
 };
 
 export default blogMetaChEn;
