@@ -42,6 +42,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
 import {
   CODE_PATH_RE,
@@ -1361,6 +1362,183 @@ export function extractCodePaths(text) {
   return [...out];
 }
 
+// --- ISSUE GROUPING (B19) ---------------------------------------------------
+// Il gruppo nasce solo da una firma che nomina il punto di riparazione. Le
+// label/categorie restano routing, non sono una chiave: `crawler`, `follow-up`
+// e `other` possono contenere difetti diversi. Un bucket oltre il tetto viene
+// spezzato in chunk consecutivi; l'ultimo chunk di un solo elemento resta nella
+// coda normale, perché non è un gruppo.
+// Tetto deliberatamente numerico e non configurabile: il consumer del gruppo
+// (`issue-fix.yml`) deve poter validare lo stesso contratto senza duplicare la
+// lettura di un env. Tre issue è il massimo già indicato dal backlog del sito
+// per una PR recensibile; il quarto elemento apre un nuovo gruppo.
+export const ISSUE_GROUP_MAX_SIZE = 3;
+export const ISSUE_GROUP_LABEL_PREFIX = 'agent:fix-group:';
+// Contratto consumato dai workflow di entrambi i repo: la forma della label
+// non va ricopiata in YAML, altrimenti il producer può accettare un gruppo che
+// il consumer non riconosce (o viceversa).
+export const ISSUE_GROUP_LABEL_PATTERN = '^agent:fix-group:[0-9a-f]{12}-[0-9]+$';
+const ISSUE_GROUP_LABEL_RE = new RegExp(ISSUE_GROUP_LABEL_PATTERN);
+const AUTO_TITLE_PREFIX_LENGTH = 60;
+const AUTO_TITLE_RE = /^(?:Crawler Failure:|Workflow Failure:|CI Failure(?:\s*\([^)]*\))?:|Validation Failure(?:\s*\([^)]*\))?:|Campaign goal FAILED:)\s*/i;
+const AUTO_BODY_RE = /(?:^|\n)\s*(?:\*\*(?:Workflow|Crawler fallito|Goal id):\*\*|##\s+(?:Workflow fallito|Build fallito|Crawler fallito|Job falliti)\b|Issue aperta automaticamente\b)/i;
+const TARGET_REPOSITORY_RE = /^\s*Target repository\s*:\s*`?([^`\n]+?)`?\s*$/im;
+const TARGET_LINE_RE = /^\s*(?:[-*]\s*)?(?:Target files?|File target|Target path)\s*:/i;
+const SUGGESTED_ACTION_LINE_RE = /^\s*(?:[-*]\s*)?Suggested action\s*:/i;
+// La lista è deliberatamente chiusa: non prende `data/**`, `public/**` o una
+// parola qualunque con estensione. `.github/workflows/**` resta riconoscibile
+// come punto di riparazione, ma il capability gate esistente decide se può
+// essere promosso.
+const GROUP_PATH_RE = /(?<![\w./-])(?:\.github\/workflows|scripts|build-plugins|services|components|packages|generator|content|tests)(?:\/[\w.@+()[\]{}-]+)+\.[A-Za-z0-9]+/g;
+
+function normalizeGroupingText(value) {
+  return String(value || '').trim().replace(/\s+/g, ' ').toLocaleLowerCase('en-US');
+}
+
+function repositoryScope(issue, repository) {
+  const declared = TARGET_REPOSITORY_RE.exec(String(issue?.body || ''))?.[1];
+  const candidate = declared
+    || (typeof issue?.repository === 'string' ? issue.repository : '')
+    || (typeof issue?.repo === 'string' ? issue.repo : '')
+    || repository;
+  return normalizeGroupingText(candidate) || 'unspecified';
+}
+
+function canonicalGroupingPaths(paths) {
+  const unique = [...new Set(paths.map((p) => String(p).replace(/^\/+|[),.;:]+$/g, '')))]
+    .filter(Boolean);
+  // `extractCodePaths()` emits the full site form and its repo-relative tail.
+  // Keep the most specific form when both are present, otherwise the same
+  // issue would get two keys depending only on how its URL was written.
+  return unique.filter((p) => !unique.some((q) => q !== p && q.endsWith(`/${p}`))).sort();
+}
+
+function actionTargetPaths(body) {
+  const lines = String(body || '').split('\n');
+  const targetLines = lines.filter((line) => TARGET_LINE_RE.test(line));
+  const source = targetLines.length
+    ? targetLines
+    : lines.filter((line) => SUGGESTED_ACTION_LINE_RE.test(line));
+  const paths = [];
+  for (const line of source) {
+    paths.push(...(String(line).match(GROUP_PATH_RE) || []));
+    paths.push(...extractCodePaths(line));
+  }
+  return canonicalGroupingPaths(paths);
+}
+
+function autoBodyScope(body) {
+  const text = String(body || '');
+  const job = /^(?:\s*[-*]\s*)?\*\*Job:\*\*\s*(.+)$/im.exec(text);
+  if (job?.[1]) return normalizeGroupingText(job[1]);
+  const heading = /^(?:\s*[-*]\s*)?(?:\*\*Job falliti\*\*|#{2,6}\s+Job falliti)\s*:?\s*$/im.exec(text);
+  if (heading) {
+    const after = text.slice(heading.index + heading[0].length);
+    const jobs = after.split('\n')
+      .slice(0, 8)
+      .filter((line) => /^\s*[-*]\s+/.test(line))
+      .map((line) => line.replace(/^\s*[-*]\s+/, '').trim())
+      .filter(Boolean);
+    if (jobs.length) return normalizeGroupingText(jobs.join(' | '));
+  }
+  const direct = /^(?:\s*[-*]\s*)?\*\*(?:Workflow|Crawler fallito|Goal id):\*\*\s*(.+)$/im.exec(text);
+  if (direct?.[1]) return normalizeGroupingText(direct[1]);
+  return null;
+}
+
+function autoTitleGroupingKey(issue, repository = '') {
+  const title = String(issue?.title || '');
+  const body = String(issue?.body || '');
+  if (!AUTO_TITLE_RE.test(title) || !AUTO_BODY_RE.test(body)) return null;
+  const prefix = normalizeGroupingText(title.slice(0, AUTO_TITLE_PREFIX_LENGTH));
+  if (!prefix) return null;
+  const targetPaths = actionTargetPaths(body);
+  // La firma del monitor è sufficiente quando non dichiara un sottosistema;
+  // quando invece dichiara più target non si può provare un punto comune.
+  if (targetPaths.length > 1) return null;
+  const scope = targetPaths[0] || autoBodyScope(body) || prefix;
+  return `auto-title:${repositoryScope(issue, repository)}:${prefix}:scope:${normalizeGroupingText(scope)}`;
+}
+
+/**
+ * Chiave di raggruppamento deterministica, o null quando il testo non prova
+ * un punto di riparazione comune. La firma dei titoli automatici usa gli
+ * stessi primi 60 caratteri che il creator usa per la dedup; in alternativa
+ * serve una sola destinazione esplicita nella riga Target/Suggested action.
+ * Pura → testabile.
+ *
+ * @param {{number?: number, title?: string, body?: string, repository?: string, repo?: string}} issue
+ * @param {{repository?: string}} [opts]
+ * @returns {string|null}
+ */
+export function issueGroupingKey(issue, { repository = '' } = {}) {
+  const auto = autoTitleGroupingKey(issue, repository);
+  if (auto) return auto;
+  const paths = actionTargetPaths(issue?.body);
+  if (paths.length !== 1) return null;
+  return `target-file:${repositoryScope(issue, repository)}:${normalizeGroupingText(paths[0])}`;
+}
+
+/** Digest corto usato solo nel nome della label di istanza del gruppo. */
+export function issueGroupDigest(key) {
+  if (typeof key !== 'string' || !key) return null;
+  return createHash('sha256').update(key).digest('hex').slice(0, 12);
+}
+
+/**
+ * Label per una singola istanza di gruppo. Il digest identifica la chiave; il
+ * numero del leader separa chunk successivi dello stesso bucket, evitando che
+ * l'etichetta storica faccia superare il tetto alla query del fixer.
+ */
+export function issueGroupLabel(key, leaderNumber) {
+  const digest = issueGroupDigest(key);
+  const number = Number(leaderNumber);
+  if (!digest || !Number.isInteger(number) || number <= 0) return null;
+  return `${ISSUE_GROUP_LABEL_PREFIX}${digest}-${number}`;
+}
+
+/**
+ * Partiziona la coda in soli gruppi di almeno due issue. Issue senza chiave,
+ * numeri illeggibili e chunk singoli sono omessi: rimangono candidati singoli
+ * e il chiamante li tratta con il flusso già esistente.
+ *
+ * @param {Array<object>} issues coda già filtrata dai predicati di ammissione
+ * @param {{maxSize?: number, repository?: string}} [opts]
+ * @returns {Array<{key: string, source: string, issues: object[], size: number}>}
+ */
+export function groupIssueQueue(issues, {
+  maxSize = ISSUE_GROUP_MAX_SIZE,
+  repository = '',
+} = {}) {
+  if (!Number.isInteger(maxSize) || maxSize < 2) return [];
+  const buckets = new Map();
+  const seenNumbers = new Set();
+  for (const issue of Array.isArray(issues) ? issues : []) {
+    const number = Number(issue?.number);
+    if (!Number.isInteger(number) || number <= 0 || seenNumbers.has(number)) continue;
+    const key = issueGroupingKey(issue, { repository });
+    if (!key) continue;
+    seenNumbers.add(number);
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push(issue);
+  }
+
+  const groups = [];
+  for (const [key, bucket] of buckets) {
+    for (let offset = 0; offset < bucket.length; offset += maxSize) {
+      const chunk = bucket.slice(offset, offset + maxSize);
+      if (chunk.length < 2) continue;
+      groups.push({
+        key,
+        source: key.startsWith('auto-title:') ? 'auto-title' : 'target-file',
+        issues: chunk,
+        size: chunk.length,
+      });
+    }
+  }
+  return groups;
+}
+
 /**
  * Dato l'array di path del candidato e una mappa PR→files (pre-caricata),
  * ritorna il PRIMO overlap trovato {prNumber, prTitle, file} o null se nessuno.
@@ -1718,6 +1896,27 @@ function listIssues(label) {
   ], `issue aperte con label \`${label}\``);
 }
 
+/** Elenco della coda con body, usato solo dal planner dei gruppi. `null` è
+ * diverso da una coda vuota: su errore di lettura non si prende alcuna
+ * decisione di raggruppamento e il flusso singolo resta il fallback sicuro. */
+function listIssuesWithBodies(label) {
+  try {
+    const out = gh([
+      'issue', 'list', '--repo', REPO, '--state', 'open', '--label', label,
+      '--json', 'number,title,body,labels,createdAt,updatedAt',
+      '--limit', String(ISSUE_LIST_LIMIT),
+    ]);
+    const rows = Array.isArray(out) ? out : [];
+    if (rows.length >= ISSUE_LIST_LIMIT) {
+      console.log(`::warning::listing issue raggruppabili al tetto di ${ISSUE_LIST_LIMIT}: planner parziale, nessun gruppo oltre la vista (no silent cap).`);
+    }
+    return rows;
+  } catch (e) {
+    console.log(`::warning::lettura body della coda per il grouping fallita: ${String(e).slice(0, 160)} — nessun raggruppamento deciso.`);
+    return null;
+  }
+}
+
 /** Quante run issue-decompose sono in volo (queued|in_progress). Gemello di
  * `inFlightFixCount` per lo stadio di decomposizione: serve al rescue per non
  * yankare `agent:decompose` da una run VIVA (una run planner può durare
@@ -2031,6 +2230,38 @@ export function isCapabilityScoped(iss, {
   } catch { return true; }
 }
 
+/**
+ * Una issue può entrare in un gruppo solo se passerebbe anche i pre-flight
+ * deterministici già eseguiti dal DRAIN. Non sostituisce quei pre-flight (che
+ * restano il giudice della promozione singola): serve a non togliere dalla
+ * coda un membro che il fixer non potrebbe lavorare insieme agli altri.
+ * Pura → testabile.
+ */
+export function isIssueGroupable(issue, {
+  repository = REPO,
+  canPushWorkflows: workflowCapability = canPushWorkflows(),
+} = {}) {
+  const title = String(issue?.title || '');
+  const body = String(issue?.body || '');
+  if (!issueGroupingKey(issue, { repository })) return false;
+  if (isFixerExempt(names(issue))) return false;
+  if (has(issue, LBL_FIX) || has(issue, LBL_PARKED) || has(issue, 'needs-human')) return false;
+  if (isDecomposedParent(issue) || has(issue, LBL_DECOMP_QUEUED) || has(issue, LBL_DECOMP)) return false;
+  if (detectCompressContractDocsRatchet(title) || detectMalformedBody(title, body)) return false;
+  if (detectEpicTracker(title, body) || detectBacklogTracker(title, body)) return false;
+  if (detectDataPending(title, body)) return false;
+  if (AGGREGATE_ITEMS_RE.test(title)) {
+    const count = Number(AGGREGATE_ITEMS_RE.exec(title)?.[1] || 0);
+    if (count >= 2) return false;
+  }
+  if (detectWideScopeAggregate(title, body)) return false;
+  if (!workflowCapability && detectWorkflowScoped(`${title}\n${body}`, {
+    title,
+    labels: issue?.labels,
+  })) return false;
+  return true;
+}
+
 /** `gh issue edit --add-label` FALLISCE se la label non esiste nel repo, e
  * `edit()` inghiotte l'errore in un `::warning::` — cioè una label nuova non
  * verrebbe mai applicata e nessuno se ne accorgerebbe. Le label introdotte da
@@ -2053,6 +2284,53 @@ function edit(num, { add = [], remove = [] }) {
   if (DRY) { console.log(`[dry] edit #${num} +[${add}] -[${remove}]`); return; }
   try { gh(args, { json: false }); }
   catch (e) { console.log(`::warning::edit #${num} fallito: ${String(e).slice(0, 120)}`); }
+}
+
+/** Variante strict per la transizione di un gruppo: se una label non si può
+ * applicare, il leader non viene promosso e nessun membro viene perso dalla
+ * coda. `edit()` resta best-effort per i pass storici già esistenti. */
+function editChecked(num, { add = [], remove = [] }) {
+  const args = ['issue', 'edit', String(num), '--repo', REPO];
+  for (const l of add) args.push('--add-label', l);
+  for (const l of remove) args.push('--remove-label', l);
+  if (DRY) { console.log(`[dry] edit checked #${num} +[${add}] -[${remove}]`); return true; }
+  try {
+    gh(args, { json: false });
+    return true;
+  } catch (e) {
+    console.log(`::warning::edit checked #${num} fallito: ${String(e).slice(0, 160)}`);
+    return false;
+  }
+}
+
+function groupDigestFromLabel(label) {
+  const rest = String(label || '').slice(ISSUE_GROUP_LABEL_PREFIX.length);
+  return /^([0-9a-f]{12})-\d+$/.exec(rest)?.[1] || null;
+}
+
+function activeGroupDigests(issues) {
+  const digests = new Set();
+  for (const issue of issues || []) {
+    for (const label of names(issue).filter((n) => ISSUE_GROUP_LABEL_RE.test(n))) {
+      const digest = groupDigestFromLabel(label);
+      if (digest) digests.add(digest);
+    }
+  }
+  return digests;
+}
+
+/** Applica il marker di istanza a tutti i membri prima di armare il leader. */
+function prepareIssueGroup(group) {
+  const leader = group?.issues?.[0]?.number;
+  const label = issueGroupLabel(group?.key, leader);
+  if (!label || !Array.isArray(group?.issues) || group.issues.length < 2) return null;
+  ensureLabel(label, '5319e7', `Gruppo issue B19: chiave condivisa, massimo ${ISSUE_GROUP_MAX_SIZE} issue nella PR`);
+  for (const issue of group.issues) {
+    const stale = names(issue)
+      .filter((name) => name.startsWith(ISSUE_GROUP_LABEL_PREFIX) && name !== label);
+    if (!editChecked(issue.number, { add: [label], remove: stale })) return null;
+  }
+  return label;
 }
 
 /** Instrada una issue allo stadio di decomposizione: commento esplicativo +
@@ -3463,6 +3741,66 @@ export function runDrain() {
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
 
+  // --- GROUPING (B19): pianifica prima, arma solo il leader ------------------
+  // Il planner legge la stessa coda ma con i body. Un errore nella lettura è
+  // fail-closed per il grouping: la coda singola sotto resta il fallback. Un
+  // gruppo non sostituisce i pre-flight del drain; li anticipa solo per evitare
+  // di mescolare un candidato non lavorabile con membri sani.
+  const queuedNumbers = new Set(queued.map((i) => Number(i.number)));
+  const activeGroupDigestsSet = activeGroupDigests(allFix);
+  const groupsByMember = new Map();
+  const groupStates = new Map();
+  const queuedWithBodies = listIssuesWithBodies(LBL_QUEUED);
+  if (queuedWithBodies !== null) {
+    const groupable = queuedWithBodies
+      .filter((i) => queuedNumbers.has(Number(i.number)))
+      .filter((i) => isIssueGroupable(i, { repository: REPO }))
+      .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
+    const plannedGroups = groupIssueQueue(groupable, {
+      maxSize: ISSUE_GROUP_MAX_SIZE,
+      repository: REPO,
+    });
+    let active = 0;
+    let planned = 0;
+    for (const group of plannedGroups) {
+      const digest = issueGroupDigest(group.key);
+      if (digest && activeGroupDigestsSet.has(digest)) {
+        active++;
+        console.log(`GROUP-SKIP ${digest}: gruppo già armato in agent:fix, membri lasciati in coda fino all'esito della PR.`);
+        continue;
+      }
+
+      // L'overlap è transitorio. Se un membro punta a un file già in una PR
+      // aperta, non lo si forza nel gruppo: gli altri membri possono comunque
+      // formare un gruppo omogeneo, mentre questo resta lavorabile singolarmente
+      // al tick successivo.
+      const safeMembers = [];
+      for (const issue of group.issues) {
+        const paths = extractCodePaths(`${issue.title || ''}\n${issue.body || ''}`);
+        if (paths.length > 0) {
+          if (prFilesMap === null) prFilesMap = loadOpenPrFilesMap();
+          const overlap = findOverlapFile(paths, prFilesMap);
+          if (overlap) {
+            console.log(`GROUP-MEMBER-SKIP #${issue.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber}) → il gruppo non ingloba il membro transitorio`);
+            continue;
+          }
+        }
+        safeMembers.push(issue);
+      }
+      if (safeMembers.length < 2) continue;
+
+      const safeGroup = { ...group, issues: safeMembers, size: safeMembers.length };
+      const label = issueGroupLabel(safeGroup.key, safeMembers[0].number);
+      if (!label) continue;
+      groupStates.set(label, 'pending');
+      for (const issue of safeMembers) groupsByMember.set(Number(issue.number), { ...safeGroup, label });
+      planned++;
+    }
+    if (planned || active) {
+      console.log(`issue grouping: ${planned} gruppo/i pianificato/i (2–${ISSUE_GROUP_MAX_SIZE} issue, chiave certa); ${active} già attivo/i.`);
+    }
+  }
+
   // Quante promozioni sono gia' state fatte in questo tick, e il tetto.
   // `promoteBudget` NON e' `freeSlots`: in `--dry-run` a slot pieni `freeSlots`
   // e' 0 ma la preview deve mostrare almeno un candidato — e' l'unico motivo
@@ -3477,6 +3815,31 @@ export function runDrain() {
   // Park preemptivo = stesso esito del NON_RETRYABLE post-hoc, senza il run. Il
   // body serve solo per i candidati realmente considerati → fetch lazy, 1 alla volta.
   for (const cand of queued) {
+    const plannedGroup = groupsByMember.get(Number(cand.number));
+    const candidateGroupDigests = names(cand)
+      .filter((name) => name.startsWith(ISSUE_GROUP_LABEL_PREFIX))
+      .map(groupDigestFromLabel)
+      .filter(Boolean);
+    if (candidateGroupDigests.some((digest) => activeGroupDigestsSet.has(digest))) {
+      console.log(`GROUP-SKIP #${cand.number}: membro di un gruppo già armato → nessuna promozione singola.`);
+      continue;
+    }
+    if (plannedGroup) {
+      const leaderNumber = Number(plannedGroup.issues[0]?.number);
+      const state = groupStates.get(plannedGroup.label);
+      if (Number(cand.number) !== leaderNumber && state !== 'failed') {
+        console.log(`GROUP-SKIP #${cand.number}: leader #${leaderNumber} già gestito (${state || 'stato ignoto'}, ${plannedGroup.label}) → nessuna promozione singola.`);
+        continue;
+      }
+      // Se il leader fallisce un pre-flight, `failed` lascia il membro al
+      // flusso singolo già esistente. Se arriva alla promozione di gruppo, lo
+      // stato passa a `promoted` e gli altri membri vengono saltati per questo
+      // tick, senza creare run concorrenti. In ogni altro stato il leader è
+      // ancora in attesa o il gruppo è stato abortito: non si crea un fixer
+      // concorrente per un suo membro.
+      if (Number(cand.number) === leaderNumber) groupStates.set(plannedGroup.label, 'failed');
+    }
+
     // Valutare un candidato costa una `gh issue view` (body) e può finire in
     // comment+edit di park. Senza tempo per la coppia si esce: la coda resta
     // intatta e il tick successivo riparte dallo stesso primo candidato.
@@ -3717,8 +4080,25 @@ export function runDrain() {
       }
     }
 
-    console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [${promoted + 1}/${promoteBudget}]`);
-    edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+    if (plannedGroup
+      && Number(cand.number) === Number(plannedGroup.issues[0]?.number)
+      && groupStates.get(plannedGroup.label) === 'failed') {
+      const groupLabel = prepareIssueGroup(plannedGroup);
+      if (!groupLabel) {
+        console.log(`::warning::GROUP-SKIP #${cand.number}: applicazione della label di gruppo fallita, membri lasciati in coda per il retry; nessuna promozione parziale.`);
+        continue;
+      }
+      if (!editChecked(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] })) {
+        console.log(`::warning::GROUP-SKIP #${cand.number}: promozione del leader fallita, membri lasciati in coda.`);
+        groupStates.set(groupLabel, 'failed');
+        continue;
+      }
+      groupStates.set(groupLabel, 'promoted');
+      console.log(`PROMUOVO GRUPPO ${groupLabel} (${plannedGroup.issues.length} issue, chiave ${plannedGroup.source}) → leader #${cand.number} [${promoted + 1}/${promoteBudget}]`);
+    } else {
+      console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [${promoted + 1}/${promoteBudget}]`);
+      edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+    }
     promoted += 1;
     // Si riempiono gli slot liberi calcolati in cima, non uno solo. Il conteggio
     // in volo non viene ri-letto qui: `inFlightFixCount()` non vedrebbe le run
