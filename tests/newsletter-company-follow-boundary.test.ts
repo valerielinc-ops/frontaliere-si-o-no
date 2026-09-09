@@ -116,7 +116,7 @@ describe('company-follow/newsletter purpose boundary', () => {
       sourceChannel: 'newsletter_page',
       preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
       consentText: 'formula newsletter',
-      consentGiven: true,
+      consentGiven: false,
       consentPurpose: 'communications',
       status: 'pending',
       isActive: false,
@@ -133,6 +133,49 @@ describe('company-follow/newsletter purpose boundary', () => {
       email,
       trigger: 'confirm',
     }));
+  });
+
+  it('newsletter opt-in after a confirmed follow starts a new newsletter confirmation', async () => {
+    const email = 'confirmed-follow-then-newsletter@example.com';
+
+    await captureNewsletterSubscriber({} as any, {
+      email,
+      source: 'company_follow_button',
+      sourceChannel: 'company_follow_button',
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
+      consentText: 'formula follow',
+      consentGiven: false,
+    });
+
+    const followConfirmation = await confirm(email, subscriber as Subscriber);
+    subscriber = followConfirmation.db.docs[`newsletter_subscribers/${email}`];
+
+    await captureNewsletterSubscriber({} as any, {
+      email,
+      source: 'web_app',
+      sourceChannel: 'newsletter_page',
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true },
+      consentText: 'formula newsletter',
+      consentGiven: true,
+      consentPurpose: 'communications',
+      status: 'pending',
+      isActive: false,
+    });
+
+    const newsletterConfirmation = await confirm(email, subscriber as Subscriber);
+    const confirmed = newsletterConfirmation.db.docs[`newsletter_subscribers/${email}`];
+
+    expect(newsletterConfirmation.result.alreadyConfirmed).toBe(false);
+    expect(confirmed.company_follow_only).toBe(false);
+    expect(confirmed.status).toBe('confirmed');
+    expect(confirmed.isActive).toBe(true);
+    expect(confirmed.active).toBe(true);
+    expect(newsletterConfirmation.result.companyFollowFollowup).toEqual({
+      required: true,
+      sourcePath: null,
+      newsletterActive: true,
+    });
+    expect(mocks.welcome).toHaveBeenCalledTimes(1);
   });
 
   it('company follow alone confirms suppressed and keeps every newsletter preference false', async () => {
@@ -211,6 +254,7 @@ describe('company-follow/newsletter purpose boundary', () => {
       email: 'company-follow-metadata@example.com',
       source: 'newsletter_page',
       sourceChannel: 'newsletter_page',
+      preferences: { exchangeRate: false, traffic: false, taxUpdates: false, tips: false },
       consentText: 'formula follow',
       consentGiven: false,
     });

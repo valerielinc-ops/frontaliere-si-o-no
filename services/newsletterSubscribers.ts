@@ -328,9 +328,10 @@ function normalizeSourceChannel(input: NewsletterUpsertInput): NewsletterSourceC
  *
  * A company-follow capture may carry a preference-shaped payload because it
  * shares the capture contract with newsletter forms, but that payload is not
- * a newsletter opt-in. A non-follow capture that supplies newsletter
- * preferences or affirmative newsletter consent is the writer that explicitly
- * changes the purpose; every other write preserves the prior purpose.
+ * a newsletter opt-in. A non-follow capture that selects at least one
+ * newsletter preference, asserts affirmative consent, or carries an explicit
+ * re-consent is the writer that changes the purpose; every other write
+ * preserves the prior purpose.
  */
 function isExplicitNewsletterOptInCapture(
  input: NewsletterUpsertInput,
@@ -338,9 +339,25 @@ function isExplicitNewsletterOptInCapture(
 ): boolean {
  if (sourceChannel === 'company_follow_button') return false;
  return (
-  (input.preferences !== undefined && input.preferences !== null)
+  (input.preferences !== undefined
+   && input.preferences !== null
+   && Object.values(input.preferences).some((value) => value === true))
   || input.consentGiven === true
+  || input.reconsent === true
  );
+}
+
+function resolveCompanyFollowOnlyPurpose(
+ input: NewsletterUpsertInput,
+ sourceChannel: NewsletterSourceChannel,
+ hasExistingSubscriber: boolean,
+ existingCompanyFollowOnly: boolean,
+): boolean {
+ if (sourceChannel === 'company_follow_button') {
+  return !hasExistingSubscriber || existingCompanyFollowOnly;
+ }
+ if (isExplicitNewsletterOptInCapture(input, sourceChannel)) return false;
+ return existingCompanyFollowOnly;
 }
 
 function parseUtmFromWindow(): NewsletterUtm | null {
@@ -970,15 +987,15 @@ export async function captureNewsletterSubscriber(
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
  const isCompanyFollowSource = sourceChannel === 'company_follow_button';
- const endsCompanyFollowOnly = isExplicitNewsletterOptInCapture(input, sourceChannel);
  // A new company-follow capture authorises only the company-follow purpose.
  // Existing newsletter subscribers keep the preferences they already chose;
  // this write must not turn a follow click into three unrelated opt-ins.
- const companyFollowOnly = isCompanyFollowSource
-  ? (!existing.exists() || existingData?.company_follow_only === true)
-  : endsCompanyFollowOnly
-  ? false
-  : existingData?.company_follow_only === true;
+ const companyFollowOnly = resolveCompanyFollowOnlyPurpose(
+  input,
+  sourceChannel,
+  existing.exists(),
+  existingData?.company_follow_only === true,
+ );
  const resolvedPreferences = isCompanyFollowSource
   ? (existingData?.company_follow_only === true
    ? COMPANY_FOLLOW_ONLY_PREFERENCES
