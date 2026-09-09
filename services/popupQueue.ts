@@ -29,6 +29,7 @@ interface QueueEntry {
 let queue: QueueEntry[] = [];
 let activeId: string | null = null;
 const listeners = new Set<Listener>();
+let promotionTimer: ReturnType<typeof setTimeout> | null = null;
 
 function notify() {
  listeners.forEach((fn) => {
@@ -36,14 +37,22 @@ function notify() {
  });
 }
 
+function cancelPromotionTimer() {
+ if (promotionTimer === null) return;
+ clearTimeout(promotionTimer);
+ promotionTimer = null;
+}
+
 function promoteNext() {
+ cancelPromotionTimer();
  if (queue.length === 0) {
  activeId = null;
  notify();
  return;
  }
  // Brief delay so the previous popup's exit doesn't visually collide with the next
- setTimeout(() => {
+ promotionTimer = setTimeout(() => {
+ promotionTimer = null;
  if (queue.length === 0) {
  activeId = null;
  notify();
@@ -103,7 +112,11 @@ export function requestSlot(id: string, priority: number): boolean {
 export function releaseSlot(id: string) {
  queue = queue.filter((e) => e.id !== id);
  if (activeId === id) {
- promoteNext();
+  promoteNext();
+ } else if (queue.length === 0 && promotionTimer !== null) {
+  cancelPromotionTimer();
+  activeId = null;
+  notify();
  }
 }
 

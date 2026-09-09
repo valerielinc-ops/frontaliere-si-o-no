@@ -33,6 +33,10 @@ export const DEDUP_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 // remains retry-blocking until a provider result or reconciliation resolves it.
 export const CLAIM_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
 
+// A deferred job may be retried twice; the third deferred outcome is terminal
+// so an unresolved lookup or a permanently capped backlog cannot loop forever.
+export const DEFERRED_MAX_ATTEMPTS = 3;
+
 // Hard cap on retained entries per alert (most-recent kept). 500 × ~40 bytes ≈
 // 20 KB, comfortably under the Firestore doc limit even with the rest of the
 // alert config.
@@ -52,13 +56,15 @@ export const SENT_JOBS_CAP = 500;
  * `ambiguous` before the provider call; if the final writeback cannot prove
  * what happened, that durable state stays reserved instead of being sent
  * again. `deferred` is observable backlog work and remains eligible for a
- * later run. `accepted` is retained only as a legacy read shape; the current
- * finalizer removes it after updating `sentJobIds`.
+ * later run until `DEFERRED_MAX_ATTEMPTS`; `deferred-exhausted` is terminal and
+ * retry-blocking. `accepted` is retained only as a legacy read shape; the
+ * current finalizer removes it after updating `sentJobIds`.
  */
 export const DELIVERY_STATES = Object.freeze({
   CLAIMED: 'claimed',
   AMBIGUOUS: 'ambiguous',
   DEFERRED: 'deferred',
+  DEFERRED_EXHAUSTED: 'deferred-exhausted',
   FAILED: 'failed',
 });
 
@@ -114,7 +120,7 @@ export function normalizeSentMap(raw) {
  * provider response bodies or recipient data into an alert document.
  *
  * @param {unknown} raw
- * @returns {Record<string, {state: string, at: number, reason?: string, claimId?: string, provider?: string, messageId?: string}>}
+ * @returns {Record<string, {state: string, at: number, attempts?: number, reason?: string, claimId?: string, provider?: string, messageId?: string}>}
  */
 export function normalizeDeliveryLedger(raw) {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
@@ -124,6 +130,8 @@ export function normalizeDeliveryLedger(raw) {
     const state = String(value.state || '').trim().toLowerCase();
     if (!DELIVERY_STATE_SET.has(state)) continue;
     const entry = { state, at: coerceMillis(value.at) };
+    const attempts = Number(value.attempts);
+    if (Number.isInteger(attempts) && attempts > 0) entry.attempts = attempts;
     for (const field of ['reason', 'claimId', 'provider', 'messageId']) {
       const text = String(value[field] || '').trim();
       if (text) entry[field] = text;
@@ -137,7 +145,7 @@ export function normalizeDeliveryLedger(raw) {
  * Return the durable entry for a job, if it has a stable identity.
  * @param {Record<string, object>|unknown} rawLedger
  * @param {object} job
- * @returns {{state: string, at: number, reason?: string, claimId?: string, provider?: string, messageId?: string}|null}
+ * @returns {{state: string, at: number, attempts?: number, reason?: string, claimId?: string, provider?: string, messageId?: string}|null}
  */
 export function deliveryLedgerEntryForJob(rawLedger, job) {
   const key = jobDedupKey(job);
@@ -177,7 +185,9 @@ export function deliveryEntryBlocksRetry(entry, nowMs = Date.now()) {
     // than guessing that an old hand-edited entry never reached the provider.
     return !at || !Number.isFinite(nowMs) || nowMs - at < CLAIM_TTL_MS;
   }
-  return state === DELIVERY_STATES.AMBIGUOUS || state === 'accepted';
+  return state === DELIVERY_STATES.AMBIGUOUS
+    || state === DELIVERY_STATES.DEFERRED_EXHAUSTED
+    || state === 'accepted';
 }
 
 /**
@@ -200,6 +210,8 @@ export function mergeDeliveryLedger(rawLedger, jobs, nowMs, state, details = {})
     const key = jobDedupKey(job);
     if (!key) continue;
     const entry = { state: normalizedState, at: nowMs };
+    const attempts = Number(details?.attempts);
+    if (Number.isInteger(attempts) && attempts > 0) entry.attempts = attempts;
     for (const field of ['reason', 'claimId', 'provider', 'messageId']) {
       const text = String(details?.[field] || '').trim();
       if (text) entry[field] = text;
