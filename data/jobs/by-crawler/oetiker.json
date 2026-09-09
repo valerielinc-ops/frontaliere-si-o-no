@@ -54,14 +54,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland",
-        "specialista-in-gestione-dei-servizi-it-emea-oetiker-horgen-zh-switzerland",
-        "it-service-management-specialista-emea-all-oetiker-horgen"
+        "specialista-in-gestione-dei-servizi-it-emea-oetiker-horgen-zh-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland",
-          "specialista-in-gestione-dei-servizi-it-emea-oetiker-horgen-zh-switzerland",
-          "it-service-management-specialista-emea-all-oetiker-horgen"
+          "specialista-in-gestione-dei-servizi-it-emea-oetiker-horgen-zh-switzerland"
         ],
         "fr": [
           "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland"
@@ -133,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland",
-        "head-r-d-project-automatic-assembly-tools-oetiker-group-tutti-oetiker-horgen"
+        "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland",
-          "head-r-d-project-automatic-assembly-tools-oetiker-group-tutti-oetiker-horgen"
+          "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -209,13 +205,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland",
-        "junior-firmware-ingegnere-embedded-systems-c-c-all-oetiker-horgen"
+        "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland",
-          "junior-firmware-ingegnere-embedded-systems-c-c-all-oetiker-horgen"
+          "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland"
         ],
         "fr": [
           "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland"
@@ -239,12 +233,12 @@
     },
     {
       "id": "oetiker-46f560444b90",
-      "slug": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland",
+      "slug": "amministratore-delegato-80-100-tutti-oetiker-horgen-zh-switzerland",
       "slugByLocale": {
         "de": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland",
-        "it": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland",
+        "it": "amministratore-delegato-80-100-tutti-oetiker-horgen-zh-switzerland",
         "en": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland",
-        "fr": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland"
+        "fr": "directeur-general-adjoint-80-100-tous-oetiker-horgen-zh-switzerland"
       },
       "company": "Oetiker",
       "companyKey": "oetiker",
@@ -302,7 +296,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:23:26.040Z"
+      "firstSeenAt": "2026-09-08T23:23:26.040Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland"
+        ],
+        "fr": [
+          "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland"
+      ]
     }
   ]
 }

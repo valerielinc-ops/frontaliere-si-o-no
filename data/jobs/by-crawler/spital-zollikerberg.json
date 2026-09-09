@@ -56,8 +56,7 @@
         "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-diakoniewerk-neumuenster",
         "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-spital-zollikerberg",
-        "specialist-health-station-surgery-and-gynecology-spital-zollikerberg-zollikerberg",
-        "chirurgia-professionale-salute-e-ginecologia-spital-zollikerberg-zollikerberg"
+        "specialist-health-station-surgery-and-gynecology-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,8 +64,7 @@
           "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
           "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-diakoniewerk-neumuenster",
           "fachfrau-fachmann-gesundheit-station-chirurgie-e-gynakologie-spital-zollikerberg",
-          "specialist-health-station-surgery-and-gynecology-spital-zollikerberg-zollikerberg",
-          "chirurgia-professionale-salute-e-ginecologia-spital-zollikerberg-zollikerberg"
+          "specialist-health-station-surgery-and-gynecology-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg"
@@ -139,13 +137,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexperte-pflegeexpertin-apn-palliative-care-spital-zollikerberg-zollikerberg",
-        "esperto-di-cura-apn-palliative-care-spital-zollikerberg-zollikerberg"
+        "pflegeexperte-pflegeexpertin-apn-palliative-care-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexperte-pflegeexpertin-apn-palliative-care-spital-zollikerberg-zollikerberg",
-          "esperto-di-cura-apn-palliative-care-spital-zollikerberg-zollikerberg"
+          "pflegeexperte-pflegeexpertin-apn-palliative-care-spital-zollikerberg-zollikerberg"
         ],
         "fr": [
           "pflegeexperte-pflegeexpertin-apn-palliative-care-spital-zollikerberg-zollikerberg"
@@ -216,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie",
-        "dipl-specialista-di-radiologia-dipl-specialista-di-radiologia-con-focus-sulla-mammografia-spital-zollikerberg"
+        "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie",
-          "dipl-specialista-di-radiologia-dipl-specialista-di-radiologia-con-focus-sulla-mammografia-spital-zollikerberg"
+          "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie"
         ],
         "en": [
           "dipl-radiologiefachfrau-dipl-radiologiefachmann-mit-schwerpunkt-mammographie"
@@ -248,12 +242,12 @@
     },
     {
       "id": "spital-zollikerberg-53946a191d80",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diventa-una-parte-della-medicina-interna-spital",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-diventa-una-parte-della-medicina-interna-spital",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-become-a-part-of-internal-medicine-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-devenez-membre-de-la-medecine-interne"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -307,7 +301,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-werde-ein-teil-der-inneren-medizin-spital"
+      ]
     },
     {
       "id": "spital-zollikerberg-ed34f14c254a",
@@ -316,7 +324,7 @@
         "it": "gastronomie-neumunster-park-mitarbeiterin-collaboratore-trice-restaurants-events-gastronomie-spital-zollikerberg",
         "en": "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
         "de": "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
-        "fr": "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
+        "fr": "gastronomie-parc-neumunster-employe-employe-restaurants-et-evenements-gastronomie-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -359,13 +367,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
-        "gastronomie-neumunster-park-mitarbeiterin-collaboratore-trice-restaurants-events-gastronomie-spital-zollikerberg"
+        "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
-          "gastronomie-neumunster-park-mitarbeiterin-collaboratore-trice-restaurants-events-gastronomie-spital-zollikerberg"
+          "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
+        ],
+        "fr": [
+          "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -385,12 +394,12 @@
     },
     {
       "id": "spital-zollikerberg-f6485ea28377",
-      "slug": "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg",
+      "slug": "supporto-e-amministrazione-per-la-cura-del-centro-di-emergenza-di-mpa-o-fage-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg",
-        "en": "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
+        "it": "supporto-e-amministrazione-per-la-cura-del-centro-di-emergenza-di-mpa-o-fage-spital-zollikerberg-zollikerberg",
+        "en": "mpa-or-fage-emergency-center-care-support-and-administration-spital-zollikerberg-zollikerberg",
         "de": "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
-        "fr": "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg"
+        "fr": "mpa-ou-fage-emergency-center-soutien-et-administration-des-soins-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -432,10 +441,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg"
+        "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
+        "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
+          "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg"
+        ],
+        "en": [
+          "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg"
+        ],
+        "fr": [
           "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg"
         ]
       },

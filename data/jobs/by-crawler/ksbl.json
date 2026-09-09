@@ -1630,8 +1630,7 @@
         "mitarbeiterin-collaboratore-trice-verpflegungs-service-bettenstation-a-kantonsspital-baselland-ksbl-liestal",
         "employee-catering-service-bed-station-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-mitarbeiter-verpflegungs-service-bettenstation-a-ksbl-liestal",
-        "station-service-de-traiteur-pour-employes-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-verpflegungsservice-bettenstation-a-kantonsspital-baselland-ksbl-liestal"
+        "station-service-de-traiteur-pour-employes-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1639,8 +1638,7 @@
           "mitarbeiterin-collaboratore-trice-verpflegungs-service-bettenstation-a-kantonsspital-baselland-ksbl-liestal",
           "employee-catering-service-bed-station-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-mitarbeiter-verpflegungs-service-bettenstation-a-ksbl-liestal",
-          "station-service-de-traiteur-pour-employes-a-kantonsspital-baselland-ksbl-liestal",
-          "mitarbeiterin-collaboratore-trice-verpflegungsservice-bettenstation-a-kantonsspital-baselland-ksbl-liestal"
+          "station-service-de-traiteur-pour-employes-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verpflegungsservice-bettenstation-a-ksbl-liestal",
@@ -3259,8 +3257,6 @@
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-9p2nll",
         "dipl-pflegesfachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
-        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
-        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal",
         "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
         "infermiera-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -3754,7 +3750,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -3803,8 +3799,7 @@
         "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3814,8 +3809,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -7844,12 +7838,12 @@
     },
     {
       "id": "ksbl-9a849318791b",
-      "slug": "fage-akutgeriatrie-a-ksbl-liestal",
+      "slug": "fage-acute-care-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fage-akutgeriatrie-a-ksbl-liestal",
-        "it": "fage-akutgeriatrie-a-ksbl-liestal",
+        "it": "fage-acute-care-a-kantonsspital-baselland-ksbl-liestal",
         "en": "fage-akutgeriatrie-a-ksbl-liestal",
-        "fr": "fage-akutgeriatrie-a-ksbl-liestal"
+        "fr": "soins-aigus-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7905,7 +7899,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:41:16.273Z"
+      "firstSeenAt": "2026-09-08T23:41:16.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fage-akutgeriatrie-a-ksbl-liestal"
+        ],
+        "fr": [
+          "fage-akutgeriatrie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fage-akutgeriatrie-a-ksbl-liestal"
+      ]
     }
   ]
 }

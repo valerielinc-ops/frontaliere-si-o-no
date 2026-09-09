@@ -24,12 +24,12 @@
         "en": "Production staff Interior service",
         "fr": "Personnel de production Service intérieur"
       },
-      "slug": "produktionsmitarbeiter-in-innendienst-post",
+      "slug": "personale-di-produzione-servizio-interno-die-schweizerische-post-hinwil",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-in-innendienst-post",
-        "en": "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil",
+        "it": "personale-di-produzione-servizio-interno-die-schweizerische-post-hinwil",
+        "en": "production-staff-interior-service-die-schweizerische-post-hinwil",
         "de": "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil",
-        "fr": "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil"
+        "fr": "personnel-de-production-service-interieur-die-schweizerische-post-hinwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -63,7 +63,22 @@
       },
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-08T23:29:22.759Z"
+      "firstSeenAt": "2026-09-08T23:29:22.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-innendienst-post"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-innendienst-post",
+        "produktionsmitarbeiter-in-innendienst-die-schweizerische-post-hinwil"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74755-de_DE",
@@ -87,12 +102,12 @@
         "en": "Delivery letters and packages",
         "fr": "Lettres de livraison et colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-rapperswil-sg",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-rapperswil-sg",
+        "en": "delivery-letters-and-packages-die-schweizerische-post-rapperswil-sg",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "lettres-de-livraison-et-colis-die-schweizerische-post-rapperswil-sg"
       },
       "sourceLang": "de",
       "department": "",
@@ -126,7 +141,21 @@
       },
       "addressLocality": "Rapperswil SG",
       "addressRegion": "SG",
-      "firstSeenAt": "2026-09-08T23:29:22.759Z"
+      "firstSeenAt": "2026-09-08T23:29:22.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Senior-Projektleiterin-Strategie-&-Transformation-Medien-und-Werbemarkt/74587-de_DE",
@@ -150,12 +179,12 @@
         "en": "Senior Project Manager Strategy & Transformation Media and Advertising Market",
         "fr": "Gestionnaire de projet principal Stratégie et transformation Médias et publicité"
       },
-      "slug": "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post",
+      "slug": "senior-project-manager-strategy-transformation-media-and-advertising-market-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post",
+        "it": "senior-project-manager-strategy-transformation-media-and-advertising-market-die-schweizerische-post-bern",
         "en": "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post",
         "de": "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post",
-        "fr": "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post"
+        "fr": "gestionnaire-de-projet-principal-strategie-et-transformation-medias-et-publicite-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -189,7 +218,18 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-08T23:29:22.759Z"
+      "firstSeenAt": "2026-09-08T23:29:22.759Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post"
+        ],
+        "fr": [
+          "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post"
+        ]
+      },
+      "previousSlugs": [
+        "senior-projektleiter-in-strategie-transformation-medien-und-werbemarkt-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Teamleaderin-Sortierung-Paketzentrum/74418-de_DE",
@@ -1892,7 +1932,6 @@
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-bern"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-1at680",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -3738,9 +3777,9 @@
         "de": "Lehre als Kaufmann/-frau EFZ Dienstleistung und Administration",
         "fr": "Enseignement en tant que marchand EFZ Service et Administration"
       },
-      "slug": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
+      "slug": "apprendistato-come-commerciante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen",
+        "it": "apprendistato-come-commerciante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen",
         "en": "teaching-as-a-merchant-efz-service-and-administration-die-schweizerische-post-niederurnen",
         "de": "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
         "fr": "enseignement-en-tant-que-marchand-efz-service-et-administration-die-schweizerische-post-niederurnen"
@@ -3781,7 +3820,8 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-          "insegnamento-come-mercante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen"
+          "insegnamento-come-mercante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen",
+          "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen"
         ],
         "en": [
           "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post"
@@ -3792,7 +3832,8 @@
       },
       "previousSlugs": [
         "lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post",
-        "insegnamento-come-mercante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen"
+        "insegnamento-come-mercante-efz-servizio-e-amministrazione-die-schweizerische-post-niederurnen",
+        "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-niederurnen"
       ]
     },
     {
@@ -5407,7 +5448,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-cjp6ma",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -5471,7 +5511,6 @@
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-belp"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-ddl401",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -5957,7 +5996,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-apzwv4",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -14047,12 +14085,12 @@
         "en": "Teaching as a logistician EFZ Distribution mixed delivery (letters and packages)",
         "fr": "Enseignement en tant que logisticien EFZ Distribution livraison mixte (lettres et paquets)"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-1efb7b",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-1efb7b",
+        "en": "teaching-as-a-logistician-efz-distribution-mixed-delivery-letters-and-packages-die-schweizerische-post-sirnach",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-efz-distribution-livraison-mixte-lettres-et-paquets-die-schweizerische-post-sirnach"
       },
       "sourceLang": "de",
       "department": "",
@@ -14071,11 +14109,19 @@
       "crawledAt": "",
       "previousSlugsByLocale": {
         "it": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-1b6d409d043a",
       "salaryMin": 48000,

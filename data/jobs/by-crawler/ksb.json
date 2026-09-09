@@ -7766,8 +7766,8 @@
       "slug": "specialista-in-sicurezza-del-paziente-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "fachspezialist-in-patientensicherheit-80-ksb-ch",
-        "en": "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-kantonsspital-baden-ksb-baden",
-        "fr": "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-kantonsspital-baden-ksb-baden",
+        "en": "patient-safety-specialist-80-kantonsspital-baden-ksb-baden",
+        "fr": "specialiste-en-securite-du-patient-80-kantonsspital-baden-ksb-baden",
         "it": "specialista-in-sicurezza-del-paziente-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -7819,16 +7819,15 @@
           "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-ksb-ch"
         ],
         "en": [
-          "patient-safety-specialist-80-kantonsspital-baden-ksb-baden"
+          "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
-          "specialiste-en-securite-du-patient-80-kantonsspital-baden-ksb-baden"
+          "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
         "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-ksb-ch",
-        "patient-safety-specialist-80-kantonsspital-baden-ksb-baden",
-        "specialiste-en-securite-du-patient-80-kantonsspital-baden-ksb-baden"
+        "fachexpert-in-qualitatsentwicklung-und-patientensicherheit-80-100-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7847,11 +7846,11 @@
     },
     {
       "id": "ksb-ee5bc2e6ac61",
-      "slug": "mpa-nephrologie-40-ksb-ch",
+      "slug": "nefrologia-mpa-40-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "mpa-nephrologie-40-ksb-ch",
-        "it": "mpa-nephrologie-40-ksb-ch",
-        "en": "mpa-nephrologie-40-ksb-ch",
+        "it": "nefrologia-mpa-40-kantonsspital-baden-ksb-baden",
+        "en": "mpa-nephrology-40-kantonsspital-baden-ksb-baden",
         "fr": "mpa-nephrologie-40-ksb-ch"
       },
       "company": "Kantonsspital Baden (KSB)",
@@ -7908,16 +7907,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:35:12.891Z"
+      "firstSeenAt": "2026-09-08T23:35:12.891Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-nephrologie-40-ksb-ch"
+        ],
+        "en": [
+          "mpa-nephrologie-40-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-nephrologie-40-ksb-ch"
+      ]
     },
     {
       "id": "ksb-e5105e909006",
-      "slug": "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch",
+      "slug": "ags-allattamento-srk-in-servizio-tardivo-su-chirurgia-50-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch",
-        "it": "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch",
-        "en": "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch",
-        "fr": "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch"
+        "it": "ags-allattamento-srk-in-servizio-tardivo-su-chirurgia-50-kantonsspital-baden-ksb-baden",
+        "en": "ags-nursing-aid-srk-in-late-service-on-surgery-50-kantonsspital-baden-ksb-baden",
+        "fr": "ags-soins-infirmiers-srk-en-service-tardif-en-chirurgie-50-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7973,14 +7983,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:35:12.146Z"
+      "firstSeenAt": "2026-09-08T23:35:12.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch"
+        ],
+        "en": [
+          "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch"
+        ],
+        "fr": [
+          "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ags-pflegehilfe-srk-im-spatdienst-auf-der-chirurgie-50-ksb-ch"
+      ]
     },
     {
       "id": "ksb-31e6ad0ba6c0",
       "slug": "assistente-di-stazione-in-50-80-di-stazione-chirurgica-privata-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "stationsassistent-in-80-100-privatstation-chirurgie-ksb-ch",
-        "en": "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden",
+        "en": "station-assistant-50-80-private-surgery-station-kantonsspital-baden-ksb-baden",
         "fr": "assistant-de-station-dans-50-80-chirurgie-de-station-privee-kantonsspital-baden-ksb-baden",
         "it": "assistente-di-stazione-in-50-80-di-stazione-chirurgica-privata-kantonsspital-baden-ksb-baden"
       },
@@ -8034,13 +8058,14 @@
           "stationsassistent-in-50-80-chirurgie-ksb-ch"
         ],
         "en": [
-          "station-assistant-50-80-private-surgery-station-kantonsspital-baden-ksb-baden"
+          "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
         "stationsassistent-in-50-80-chirurgie-ksb-ch",
         "station-assistant-50-80-private-surgery-station-kantonsspital-baden-ksb-baden",
-        "stationsassistent-in-50-80-privatstation-chirurgie-kantonsspital-baden-ksb-baden"
+        "stationsassistent-in-50-80-privatstation-chirurgie-kantonsspital-baden-ksb-baden",
+        "stationsassistent-in-50-80-chirurgie-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 70400,
       "salaryMax": 98400,

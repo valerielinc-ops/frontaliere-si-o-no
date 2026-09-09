@@ -52,13 +52,11 @@
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
-        "technologie-de-mesure-de-l-ingenieur-essais-electriques-et-physiques-des-plastiques-huntsman-corporation-basel",
-        "tecnologia-di-misura-dell-ingegnere-prova-elettrica-e-fisica-delle-materie-plastiche-huntsman-corporation-basel"
+        "technologie-de-mesure-de-l-ingenieur-essais-electriques-et-physiques-des-plastiques-huntsman-corporation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch",
-          "tecnologia-di-misura-dell-ingegnere-prova-elettrica-e-fisica-delle-materie-plastiche-huntsman-corporation-basel"
+          "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
         ],
         "fr": [
           "technologie-de-mesure-de-l-ingenieur-essais-electriques-et-physiques-des-plastiques-huntsman-corporation-basel",
@@ -130,13 +128,11 @@
       "crawledAt": "2026-09-08T23:39:29.561Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
-        "electricien-ou-automaticien-metrologie-huntsman-ch",
-        "elettricista-o-automatico-metrologia-huntsman-corporation-monthey"
+        "electricien-ou-automaticien-metrologie-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "electricien-ou-automaticien-metrologie-huntsman-ch",
-          "elettricista-o-automatico-metrologia-huntsman-corporation-monthey"
+          "electricien-ou-automaticien-metrologie-huntsman-ch"
         ],
         "en": [
           "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -209,13 +205,11 @@
       "crawledAt": "2026-09-08T23:39:28.989Z",
       "jobReqId": "J-020112",
       "previousSlugs": [
-        "material-scientist-pcb-materials-huntsman-ch",
-        "scienziato-materiale-materiali-pcb-huntsman-corporation-basel"
+        "material-scientist-pcb-materials-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "material-scientist-pcb-materials-huntsman-ch",
-          "scienziato-materiale-materiali-pcb-huntsman-corporation-basel"
+          "material-scientist-pcb-materials-huntsman-ch"
         ],
         "de": [
           "material-scientist-pcb-materials-huntsman-ch"
@@ -288,13 +282,11 @@
       "crawledAt": "2026-09-08T23:39:28.439Z",
       "jobReqId": "J-020110",
       "previousSlugs": [
-        "laboratory-technician-pcb-materials-huntsman-ch",
-        "laboratorio-tecnico-materiali-pcb-huntsman-corporation-basel"
+        "laboratory-technician-pcb-materials-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-technician-pcb-materials-huntsman-ch",
-          "laboratorio-tecnico-materiali-pcb-huntsman-corporation-basel"
+          "laboratory-technician-pcb-materials-huntsman-ch"
         ],
         "de": [
           "laboratory-technician-pcb-materials-huntsman-ch"
@@ -368,14 +360,12 @@
       "jobReqId": "J-020117",
       "previousSlugs": [
         "tirocinante-digital-ingegnere-huntsman-corporation-basel",
-        "intern-digital-engineer-huntsman-ch",
-        "tirocinante-digital-ingegnere-huntsman-corporation-monthey"
+        "intern-digital-engineer-huntsman-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tirocinante-digital-ingegnere-huntsman-corporation-basel",
-          "intern-digital-engineer-huntsman-ch",
-          "tirocinante-digital-ingegnere-huntsman-corporation-monthey"
+          "intern-digital-engineer-huntsman-ch"
         ],
         "de": [
           "intern-digital-engineer-huntsman-ch"
@@ -450,14 +440,12 @@
       "jobReqId": "J-020290",
       "previousSlugs": [
         "senior-ecotoxicologist-huntsman-ch",
-        "senior-ecotoxicologist-huntsman-corporation-basel",
-        "ecotossico-senior-huntsman-corporation-basel"
+        "senior-ecotoxicologist-huntsman-corporation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-ecotoxicologist-huntsman-ch",
-          "senior-ecotoxicologist-huntsman-corporation-basel",
-          "ecotossico-senior-huntsman-corporation-basel"
+          "senior-ecotoxicologist-huntsman-corporation-basel"
         ],
         "de": [
           "senior-ecotoxicologist-huntsman-ch"
@@ -484,12 +472,12 @@
     },
     {
       "id": "huntsman-44c7f12fdf02",
-      "slug": "operateur-pilote-huntsman-ch",
+      "slug": "pilot-operatore-huntsman-corporation-monthey",
       "slugByLocale": {
         "fr": "operateur-pilote-huntsman-ch",
-        "it": "operateur-pilote-huntsman-ch",
-        "en": "operateur-pilote-huntsman-ch",
-        "de": "operateur-pilote-huntsman-ch"
+        "it": "pilot-operatore-huntsman-corporation-monthey",
+        "en": "pilot-operator-huntsman-corporation-monthey",
+        "de": "pilotbetreiber-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -545,7 +533,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-08T23:39:26.585Z"
+      "firstSeenAt": "2026-09-08T23:39:26.585Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-pilote-huntsman-ch"
+        ],
+        "en": [
+          "operateur-pilote-huntsman-ch"
+        ],
+        "de": [
+          "operateur-pilote-huntsman-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-pilote-huntsman-ch"
+      ]
     }
   ]
 }

@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "falegname-a-ebanista-di-laboratorio-pemsa-geneve",
-        "en": "falegname-a-ebanista-di-laboratorio-pemsa-geneve",
-        "de": "falegname-a-ebanista-di-laboratorio-pemsa-geneve",
-        "fr": "falegname-a-ebanista-di-laboratorio-pemsa-geneve"
+        "en": "laboratory-carpenter-a-workshop-pemsa-geneve",
+        "de": "labortischler-werkstatt-pemsa-geneve",
+        "fr": "charpentier-de-laboratoire-atelier-pemsa-geneve"
       },
       "id": "pemsa-bd2fd1263f4c",
       "needsRetranslation": true,
@@ -98,9 +98,9 @@
       },
       "slugByLocale": {
         "it": "falegname-a-e-arredatore-a-pemsa-geneve",
-        "en": "falegname-a-e-arredatore-a-pemsa-geneve",
-        "de": "falegname-a-e-arredatore-a-pemsa-geneve",
-        "fr": "falegname-a-e-arredatore-a-pemsa-geneve"
+        "en": "carpenter-a-and-furniture-pemsa-geneve",
+        "de": "carpenter-a-und-mobel-pemsa-geneve",
+        "fr": "menuiserie-et-mobilier-pemsa-geneve"
       },
       "id": "pemsa-fef6b15e6a42",
       "needsRetranslation": true,
@@ -157,9 +157,9 @@
       },
       "slugByLocale": {
         "it": "caldaista-pemsa-plan-les-ouates",
-        "en": "caldaista-pemsa-plan-les-ouates",
+        "en": "caldalist-pemsa-plan-les-ouates",
         "de": "caldaista-pemsa-plan-les-ouates",
-        "fr": "caldaista-pemsa-plan-les-ouates"
+        "fr": "caldaliste-pemsa-plan-les-ouates"
       },
       "id": "pemsa-abb7f1a693e4",
       "needsRetranslation": true,
@@ -216,9 +216,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-con-attestato-federale-di-formazione-professionale-cfc-con-esperienza-pemsa-martigny",
-        "en": "carpentiere-con-attestato-federale-di-formazione-professionale-cfc-con-esperienza-pemsa-martigny",
-        "de": "carpentiere-con-attestato-federale-di-formazione-professionale-cfc-con-esperienza-pemsa-martigny",
-        "fr": "carpentiere-con-attestato-federale-di-formazione-professionale-cfc-con-esperienza-pemsa-martigny"
+        "en": "carpenter-with-federal-certificate-of-vocational-training-cfc-experienced-pemsa-martigny",
+        "de": "zimmermann-mit-bundeszertifikat-fur-berufsausbildung-cfc-erfahren-pemsa-martigny",
+        "fr": "charpentier-avec-certificat-federal-de-formation-professionnelle-cfc-experience-pemsa-martigny"
       },
       "id": "pemsa-2f95b3c64aa2",
       "needsRetranslation": true,
@@ -334,9 +334,9 @@
       },
       "slugByLocale": {
         "it": "progettista-venditore-venditrice-di-cucine-pemsa-payerne",
-        "en": "progettista-venditore-venditrice-di-cucine-pemsa-payerne",
-        "de": "progettista-venditore-venditrice-di-cucine-pemsa-payerne",
-        "fr": "progettista-venditore-venditrice-di-cucine-pemsa-payerne"
+        "en": "designer-salesman-kitchen-seller-pemsa-payerne",
+        "de": "designer-verkaufer-kuchenverkaufer-pemsa-payerne",
+        "fr": "designer-vendeur-vendeur-de-cuisine-pemsa-payerne"
       },
       "id": "pemsa-9e54506068fa",
       "needsRetranslation": true,
@@ -393,9 +393,9 @@
       },
       "slugByLocale": {
         "it": "installatore-di-impianti-di-ventilazione-pemsa-sion",
-        "en": "installatore-di-impianti-di-ventilazione-pemsa-sion",
-        "de": "installatore-di-impianti-di-ventilazione-pemsa-sion",
-        "fr": "installatore-di-impianti-di-ventilazione-pemsa-sion"
+        "en": "installation-of-ventilation-systems-pemsa-sion",
+        "de": "installation-von-luftungssystemen-pemsa-sion",
+        "fr": "installation-des-systemes-de-ventilation-pemsa-sion"
       },
       "id": "pemsa-b3de38ebb1b3",
       "needsRetranslation": true,
@@ -919,7 +919,7 @@
       "slugByLocale": {
         "it": "perforatore-aiuto-perforatore-con-esperienza-pemsa-lausanne",
         "en": "perforator-experienced-drilling-aid-pemsa-lausanne",
-        "de": "bohrmeister-erfahrener-bohrgehilfe-pemsa-lausanne",
+        "de": "perforator-erfahrene-bohrhilfe-pemsa-lausanne",
         "fr": "perforateur-aide-au-forage-experimente-pemsa-lausanne"
       },
       "id": "pemsa-13fee9fe0002",
@@ -940,11 +940,11 @@
       "firstSeenAt": "2026-09-07T23:33:22.022Z",
       "previousSlugsByLocale": {
         "de": [
-          "perforator-erfahrene-bohrhilfe-pemsa-lausanne"
+          "bohrmeister-erfahrener-bohrgehilfe-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "perforator-erfahrene-bohrhilfe-pemsa-lausanne"
+        "bohrmeister-erfahrener-bohrgehilfe-pemsa-lausanne"
       ]
     },
     {
@@ -1043,7 +1043,7 @@
       "slugByLocale": {
         "it": "operatore-di-macchine-m1-e-m2-pemsa-lausanne",
         "en": "machine-operator-m1-and-m2-pemsa-lausanne",
-        "de": "bedienungsperson-fur-m1-und-m2-maschinen-pemsa-lausanne",
+        "de": "maschinenbediener-m1-und-m2-pemsa-lausanne",
         "fr": "operateur-de-machine-m1-et-m2-pemsa-lausanne"
       },
       "id": "pemsa-b39005780af8",
@@ -1064,11 +1064,11 @@
       "firstSeenAt": "2026-09-07T23:33:22.022Z",
       "previousSlugsByLocale": {
         "de": [
-          "maschinenbediener-m1-und-m2-pemsa-lausanne"
+          "bedienungsperson-fur-m1-und-m2-maschinen-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "maschinenbediener-m1-und-m2-pemsa-lausanne"
+        "bedienungsperson-fur-m1-und-m2-maschinen-pemsa-lausanne"
       ]
     },
     {
@@ -1341,7 +1341,7 @@
       "slugByLocale": {
         "it": "operatore-di-macchina-m6-operatori-di-finitrici-per-asfalto-pemsa-lausanne",
         "en": "machine-operator-m6-asphalt-finishing-operators-pemsa-lausanne",
-        "de": "m6-maschinenfuhrer-stra-enwalzenfuhrer-pemsa-lausanne",
+        "de": "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne",
         "fr": "operateur-de-machine-m6-operateurs-de-finition-d-asphalte-pemsa-lausanne"
       },
       "id": "pemsa-a242d1a32d34",
@@ -1362,11 +1362,11 @@
       "firstSeenAt": "2026-09-07T23:33:22.022Z",
       "previousSlugsByLocale": {
         "de": [
-          "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne"
+          "m6-maschinenfuhrer-stra-enwalzenfuhrer-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "maschinenbediener-m6-asphaltveredelungsbediener-pemsa-lausanne"
+        "m6-maschinenfuhrer-stra-enwalzenfuhrer-pemsa-lausanne"
       ]
     },
     {
@@ -1407,7 +1407,7 @@
       "slugByLocale": {
         "it": "operatore-di-macchinari-m2-con-esperienza-pemsa-lausanne",
         "en": "m2-machine-operator-with-experience-pemsa-lausanne",
-        "de": "erfahrener-maschinenfuhrer-m2-pemsa-lausanne",
+        "de": "m2-maschinenbediener-mit-erfahrung-pemsa-lausanne",
         "fr": "operateur-de-machine-m2-avec-experience-pemsa-lausanne"
       },
       "id": "pemsa-4b006bd38554",
@@ -1428,11 +1428,11 @@
       "firstSeenAt": "2026-09-07T23:33:22.022Z",
       "previousSlugsByLocale": {
         "de": [
-          "m2-maschinenbediener-mit-erfahrung-pemsa-lausanne"
+          "erfahrener-maschinenfuhrer-m2-pemsa-lausanne"
         ]
       },
       "previousSlugs": [
-        "m2-maschinenbediener-mit-erfahrung-pemsa-lausanne"
+        "erfahrener-maschinenfuhrer-m2-pemsa-lausanne"
       ]
     },
     {
@@ -1666,9 +1666,9 @@
       },
       "slugByLocale": {
         "it": "rullista-stradale-pemsa-locarno",
-        "en": "road-roller-operator-pemsa-locarno",
-        "de": "stra-enwalzenfuhrer-pemsa-locarno",
-        "fr": "operateur-de-cylindre-routier-pemsa-locarno"
+        "en": "stradal-rullist-pemsa-locarno",
+        "de": "stradalrulliste-pemsa-locarno",
+        "fr": "rulliste-stradal-pemsa-locarno"
       },
       "id": "pemsa-576f345df216",
       "salaryMin": 61000,
@@ -1688,19 +1688,19 @@
       "firstSeenAt": "2026-09-07T23:33:22.022Z",
       "previousSlugsByLocale": {
         "en": [
-          "stradal-rullist-pemsa-locarno"
+          "road-roller-operator-pemsa-locarno"
         ],
         "de": [
-          "stradalrulliste-pemsa-locarno"
+          "stra-enwalzenfuhrer-pemsa-locarno"
         ],
         "fr": [
-          "rulliste-stradal-pemsa-locarno"
+          "operateur-de-cylindre-routier-pemsa-locarno"
         ]
       },
       "previousSlugs": [
-        "stradal-rullist-pemsa-locarno",
-        "stradalrulliste-pemsa-locarno",
-        "rulliste-stradal-pemsa-locarno"
+        "road-roller-operator-pemsa-locarno",
+        "stra-enwalzenfuhrer-pemsa-locarno",
+        "operateur-de-cylindre-routier-pemsa-locarno"
       ]
     },
     {
@@ -2917,8 +2917,8 @@
       },
       "slugByLocale": {
         "it": "contabile-pemsa-bellinzona",
-        "en": "accountant-pemsa-bellinzona",
-        "de": "buchhalter-pemsa-bellinzona",
+        "en": "accounting-pemsa-bellinzona",
+        "de": "buchfuhrung-pemsa-bellinzona",
         "fr": "accountant-pemsa-bellinzona"
       },
       "id": "pemsa-98c311b290ef",
@@ -2945,17 +2945,16 @@
           "accountant-pemsa-bellinzona"
         ],
         "en": [
-          "accounting-pemsa-bellinzona"
+          "accountant-pemsa-bellinzona"
         ],
         "de": [
-          "buchfuhrung-pemsa-bellinzona"
+          "buchhalter-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
         "comptabilite-pemsa-bellinzona",
         "accountant-pemsa-bellinzona",
-        "accounting-pemsa-bellinzona",
-        "buchfuhrung-pemsa-bellinzona"
+        "buchhalter-pemsa-bellinzona"
       ],
       "needsRetranslation": true
     },
@@ -7736,12 +7735,10 @@
       "previousSlugsByLocale": {
         "en": [
           "building-carpenter-pemsa-chiasso",
-          "bricklayer-pemsa-chiasso",
-          "construction-carpenters-pemsa-chiasso"
+          "bricklayer-pemsa-chiasso"
         ],
         "fr": [
           "charpentier-de-batiment-pemsa-chiasso",
-          "charpentiers-de-construction-pemsa-chiasso",
           "macon-pemsa-chiasso",
           "charpentier-du-batiment-pemsa-chiasso"
         ],
@@ -7753,10 +7750,8 @@
         "building-carpenter-pemsa-chiasso",
         "charpentier-de-batiment-pemsa-chiasso",
         "bautischler-pemsa-chiasso",
-        "charpentiers-de-construction-pemsa-chiasso",
         "bricklayer-pemsa-chiasso",
         "macon-pemsa-chiasso",
-        "construction-carpenters-pemsa-chiasso",
         "charpentier-du-batiment-pemsa-chiasso"
       ]
     },
@@ -12498,9 +12493,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "en": "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
+        "en": "team-leader-industrial-infrastructure-railway-electrical-lines-pemsa-lausanne",
         "de": "verantwortlicher-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
-        "fr": "responsable-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+        "fr": "chef-d-equipe-infrastructures-industrielles-lignes-electriques-ferroviaires-pemsa-lausanne"
       },
       "id": "pemsa-a6ecbb753c7b",
       "salaryMin": 100000,
@@ -12517,7 +12512,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:26:45.635Z"
+      "firstSeenAt": "2026-09-08T23:26:45.635Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+        ],
+        "fr": [
+          "responsable-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "manager-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne",
+        "responsable-di-squadra-infrastrutture-industriali-linee-elettriche-ferroviarie-pemsa-lausanne"
+      ]
     },
     {
       "title": "Installatore elettricista AFC",

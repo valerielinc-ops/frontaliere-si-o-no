@@ -8580,12 +8580,12 @@
     },
     {
       "id": "eth-zurich-8c385675e5f6",
-      "slug": "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
+      "slug": "posizione-dottorale-in-basso-fissaggio-cardiac-risonanza-magnetica-imaging-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
-        "it": "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
-        "de": "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch",
-        "fr": "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+        "it": "posizione-dottorale-in-basso-fissaggio-cardiac-risonanza-magnetica-imaging-eth-zurich-zurich",
+        "de": "doktorandenposition-in-der-kardiovaskularen-magnetresonanzbildgebung-im-unteren-feld-eth-zurich-zurich",
+        "fr": "position-au-doctorat-dans-l-imagerie-de-resonance-magnetique-cardiaque-en-champ-inferieur-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8640,7 +8640,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-08T23:39:35.568Z"
+      "firstSeenAt": "2026-09-08T23:39:35.568Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-lower-field-cardiac-magnetic-resonance-imaging-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-300c3662fdef",
@@ -8840,8 +8854,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-it-w-m-d-eth-zurich-ch",
-          "responsabile-di-progetto-it-m-w-d-eth-zurich"
+          "projektleiter-in-it-w-m-d-eth-zurich-ch"
         ],
         "en": [
           "projektleiter-in-it-w-m-d-eth-zurich-ch"
@@ -8851,8 +8864,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-it-w-m-d-eth-zurich-ch",
-        "responsabile-di-progetto-it-m-w-d-eth-zurich"
+        "projektleiter-in-it-w-m-d-eth-zurich-ch"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,

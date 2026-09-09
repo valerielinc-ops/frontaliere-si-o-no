@@ -1888,8 +1888,7 @@
         "apprendistato-automatiker-in-alle-bkw-winterthur",
         "automatic-apprenticeship-in-all-bkw-winterthur",
         "lehrstelle-automatiker-in-alle-bkw-ch",
-        "apprentissage-automatique-en-tous-bkw-winterthur",
-        "apprendistato-automatiker-in-cfc-alle-bkw-murten"
+        "apprentissage-automatique-en-tous-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1897,8 +1896,7 @@
           "apprendistato-automatiker-in-alle-bkw-winterthur",
           "automatic-apprenticeship-in-all-bkw-winterthur",
           "lehrstelle-automatiker-in-alle-bkw-ch",
-          "apprentissage-automatique-en-tous-bkw-winterthur",
-          "apprendistato-automatiker-in-cfc-alle-bkw-murten"
+          "apprentissage-automatique-en-tous-bkw-winterthur"
         ],
         "en": [
           "lehrstelle-automatiker-in-efz-alle-bkw-ch",
@@ -20059,7 +20057,6 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-9",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-aarau",
           "apprenticeship-electrical-installer-in-efz-all-bkw-aarau",
           "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-aarau",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8",
@@ -20087,7 +20084,6 @@
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-9",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-aarau",
         "apprenticeship-electrical-installer-in-efz-all-bkw-aarau",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-aarau",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8",
@@ -20171,7 +20167,6 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-mann-efz-alle-bkw-ch",
-          "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur",
           "apprendistato-come-kauffrau-mann-cfc-alle-bkw-winterthur",
           "apprenticeship-as-a-merchant-efz-all-bkw-winterthur",
           "lehrstelle-als-kauffrau-mann-efz-alle-bkw-ch",
@@ -20189,7 +20184,6 @@
       },
       "previousSlugs": [
         "lehrstelle-kauffrau-mann-efz-alle-bkw-ch",
-        "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur",
         "apprendistato-come-kauffrau-mann-cfc-alle-bkw-winterthur",
         "apprenticeship-as-a-merchant-efz-all-bkw-winterthur",
         "lehrstelle-als-kauffrau-mann-efz-alle-bkw-ch",
@@ -20371,12 +20365,12 @@
     },
     {
       "id": "bkw-2d7514fd4cc0",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-rothrist",
+      "slug": "apprendistato-electrician-efz-tutti-bkw-rothrist",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-rothrist",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
+        "it": "apprendistato-electrician-efz-tutti-bkw-rothrist",
+        "en": "apprenticeship-electrician-efz-all-bkw-rothrist",
+        "fr": "apprentissage-electricien-efz-tous-bkw-rothrist"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20423,12 +20417,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-rothrist"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
+        ],
+        "fr": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7"
         ]
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-7",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-rothrist"
       ],
       "salaryMin": 50000,
       "salaryMax": 76000,
@@ -20451,8 +20453,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-langenthal",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10"
+        "en": "apprenticeship-electrical-installer-efz-all-bkw-langenthal",
+        "fr": "apprentissage-installateur-electrique-efz-tous-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20500,6 +20502,12 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10"
         ]
       },
       "previousSlugs": [
@@ -20527,8 +20535,8 @@
       "slugByLocale": {
         "de": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-rothrist",
-        "en": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11",
-        "fr": "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11"
+        "en": "apprenticeship-electrical-installer-efz-all-bkw-rothrist",
+        "fr": "apprentissage-installateur-electrique-efz-tous-bkw-rothrist"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20576,6 +20584,12 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11"
+        ],
+        "fr": [
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-11"
         ]
       },
       "previousSlugs": [
@@ -20599,12 +20613,12 @@
     },
     {
       "id": "bkw-f542dca5c723",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-matzendorf",
+      "slug": "apprendistato-electrician-efz-tutti-bkw-matzendorf",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-matzendorf",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8"
+        "it": "apprendistato-electrician-efz-tutti-bkw-matzendorf",
+        "en": "apprenticeship-electrician-efz-all-bkw-matzendorf",
+        "fr": "apprentissage-electricien-efz-tous-bkw-matzendorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20651,12 +20665,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-matzendorf"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8"
+        ],
+        "fr": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8"
         ]
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-8",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-matzendorf"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -20675,12 +20697,12 @@
     },
     {
       "id": "bkw-3f53bae3f9fe",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal",
+      "slug": "apprendistato-electrician-efz-tutti-bkw-langenthal",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9"
+        "it": "apprendistato-electrician-efz-tutti-bkw-langenthal",
+        "en": "apprenticeship-electrician-efz-all-bkw-langenthal",
+        "fr": "apprentissage-electricien-efz-tous-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20727,12 +20749,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9"
+        ],
+        "fr": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9"
         ]
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-9",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-langenthal"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -20751,12 +20781,12 @@
     },
     {
       "id": "bkw-cffc4ceba447",
-      "slug": "apprendistato-montage-elektriker-in-cfc-alle-bkw-aarau",
+      "slug": "apprendistato-electrician-efz-tutti-bkw-aarau",
       "slugByLocale": {
         "de": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "it": "apprendistato-montage-elektriker-in-cfc-alle-bkw-aarau",
-        "en": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10",
-        "fr": "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10"
+        "it": "apprendistato-electrician-efz-tutti-bkw-aarau",
+        "en": "apprenticeship-electrician-efz-all-bkw-aarau",
+        "fr": "apprentissage-electricien-efz-tous-bkw-aarau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -20803,12 +20833,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+          "apprendistato-montage-elektriker-in-cfc-alle-bkw-aarau"
+        ],
+        "en": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10"
+        ],
+        "fr": [
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10"
         ]
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-10",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
+        "apprendistato-montage-elektriker-in-cfc-alle-bkw-aarau"
       ],
       "salaryMin": 50000,
       "salaryMax": 76000,
@@ -23668,12 +23706,12 @@
     },
     {
       "id": "bkw-1c31451280f6",
-      "slug": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch",
+      "slug": "griglia-elettricista-sovrastante-costruzione-media-tensione-tutti-bkw-luterbach",
       "slugByLocale": {
         "de": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch",
-        "it": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch",
-        "en": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch",
-        "fr": "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
+        "it": "griglia-elettricista-sovrastante-costruzione-media-tensione-tutti-bkw-luterbach",
+        "en": "grid-electrician-overhead-line-construction-medium-voltage-all-bkw-luterbach",
+        "fr": "grille-electrique-ligne-aerienne-construction-moyenne-tension-tous-bkw-luterbach"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23735,19 +23773,23 @@
         "it": [
           "elettricista-griglia-in-linea-superiore-costruzione-media-tensione-tutti-bkw-luterbach",
           "grid-electrician-in-overhead-line-construction-medium-voltage-all-bkw-luterbach",
-          "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach"
+          "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach",
+          "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
         ],
         "en": [
-          "grid-electrician-in-overhead-line-construction-medium-voltage-all-bkw-luterbach"
+          "grid-electrician-in-overhead-line-construction-medium-voltage-all-bkw-luterbach",
+          "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
         ],
         "fr": [
-          "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach"
+          "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach",
+          "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
         "elettricista-griglia-in-linea-superiore-costruzione-media-tensione-tutti-bkw-luterbach",
         "grid-electrician-in-overhead-line-construction-medium-voltage-all-bkw-luterbach",
-        "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach"
+        "electricien-reseau-en-construction-de-ligne-aerienne-moyenne-tension-tous-bkw-luterbach",
+        "netzelektriker-in-freileitungsbau-mittelspannung-alle-bkw-ch"
       ]
     },
     {
@@ -26598,12 +26640,12 @@
     },
     {
       "id": "bkw-c12507ba160a",
-      "slug": "quereinstieg-netzelektriker-in-alle-bkw-ch",
+      "slug": "elettricista-a-griglia-tutti-bkw-bern",
       "slugByLocale": {
         "de": "quereinstieg-netzelektriker-in-alle-bkw-ch",
-        "it": "quereinstieg-netzelektriker-in-alle-bkw-ch",
-        "en": "quereinstieg-netzelektriker-in-alle-bkw-ch",
-        "fr": "quereinstieg-netzelektriker-in-alle-bkw-ch"
+        "it": "elettricista-a-griglia-tutti-bkw-bern",
+        "en": "cross-entry-grid-electrician-all-bkw-bern",
+        "fr": "electricien-reseau-d-entree-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26665,19 +26707,23 @@
         "it": [
           "cambio-carriera-netzelektriker-in-alle-bkw-bern",
           "cross-entry-grid-electrician-in-all-bkw-bern",
-          "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern"
+          "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern",
+          "quereinstieg-netzelektriker-in-alle-bkw-ch"
         ],
         "en": [
-          "cross-entry-grid-electrician-in-all-bkw-bern"
+          "cross-entry-grid-electrician-in-all-bkw-bern",
+          "quereinstieg-netzelektriker-in-alle-bkw-ch"
         ],
         "fr": [
-          "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern"
+          "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern",
+          "quereinstieg-netzelektriker-in-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
         "cambio-carriera-netzelektriker-in-alle-bkw-bern",
         "cross-entry-grid-electrician-in-all-bkw-bern",
-        "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern"
+        "electricien-du-reseau-d-entree-croisee-en-tous-bkw-bern",
+        "quereinstieg-netzelektriker-in-alle-bkw-ch"
       ]
     },
     {

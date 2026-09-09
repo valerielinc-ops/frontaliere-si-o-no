@@ -81,18 +81,14 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "bauingenieur-in-fhgr-ch",
-          "bauingenieur-in-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ],
         "it": [
-          "bauingenieur-in-fhgr-ch",
-          "ingegnere-civile-fachhochschule-graubunden-chur"
+          "bauingenieur-in-fhgr-ch"
         ]
       },
       "previousSlugs": [
-        "bauingenieur-in-fhgr-ch",
-        "bauingenieur-in-fachhochschule-graubunden-chur",
-        "ingegnere-civile-fachhochschule-graubunden-chur"
+        "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "salaryMin": 48500,
@@ -161,14 +157,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-        "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+        "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-verwaltungsdirektion-fhgr-ch",
-          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur",
-          "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur"
+          "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
         ],
         "en": [
           "projektleiter-in-verwaltungsdirektion-fachhochschule-graubunden-chur"
@@ -195,12 +189,12 @@
     },
     {
       "id": "fhgr-b9a11e45c5e0",
-      "slug": "hr-assistent-in-fhgr-ch",
+      "slug": "assistente-hr-fachhochschule-graubunden-chur",
       "slugByLocale": {
         "de": "hr-assistent-in-fhgr-ch",
-        "it": "hr-assistent-in-fhgr-ch",
-        "en": "hr-assistent-in-fhgr-ch",
-        "fr": "hr-assistent-in-fhgr-ch"
+        "it": "assistente-hr-fachhochschule-graubunden-chur",
+        "en": "hr-assistant-fachhochschule-graubunden-chur",
+        "fr": "assistant-rh-fachhochschule-graubunden-chur"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -258,7 +252,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-08T23:31:09.494Z"
+      "firstSeenAt": "2026-09-08T23:31:09.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-in-fhgr-ch"
+        ],
+        "en": [
+          "hr-assistent-in-fhgr-ch"
+        ],
+        "fr": [
+          "hr-assistent-in-fhgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-in-fhgr-ch"
+      ]
     }
   ]
 }
