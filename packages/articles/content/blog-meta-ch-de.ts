@@ -6229,6 +6229,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-guida.title': 'Familienzulagen Kanton Schwyz: Funktionsweise und Beantragung',
     'blog.article.assegni-familiari-svitto-guida.excerpt': 'Im Kanton Schwyz hat jeder Elternteil mit Kindern Anspruch auf monatliche Familienzulagen. Hier finden Sie Antragsverfahren, Verwaltungsbefugnisse und wo Sie die aktualisierten Beträge überprüfen können.',
     'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Schweizer Familie überprüft Familienbeihilfedokumente zu Hause',
+    'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, UBS-Plattform für Finanzbildung',
+    'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS lanciert YUMO, eine kostenlose Plattform, um jungen Menschen den Umgang mit Geld, Ersparnissen und Investitionen beizubringen. Erhältlich in 4 Sprachen in der Schweiz.',
+    'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Junge Menschen lernen Finanzen und Wirtschaft auf einer digitalen Plattform in der Schweiz',
 };
 
 export default blogMetaChDe;

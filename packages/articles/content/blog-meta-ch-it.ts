@@ -6229,6 +6229,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-guida.title': 'Assegni familiari canton Svitto: come funzionano e come richiederli',
     'blog.article.assegni-familiari-svitto-guida.excerpt': 'Nel Canton Svitto ogni genitore con figli ha diritto a assegni familiari mensili. Ecco procedure di domanda, competenze amministrative e dove verificare gli importi aggiornati.',
     'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Famiglia svizzera che consulta documenti relativi agli assegni familiari a casa',
+    'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, piattaforma UBS per educazione finanziaria',
+    'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS lancia YUMO, piattaforma gratuita per insegnare ai giovani come gestire denaro, risparmi e investimenti. Disponibile in 4 lingue in Svizzera.',
+    'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Giovani che imparano finanza ed economia su una piattaforma digitale in Svizzera',
 };
 
 export default blogMetaChIt;

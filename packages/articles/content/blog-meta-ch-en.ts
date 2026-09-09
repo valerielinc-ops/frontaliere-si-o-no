@@ -6229,6 +6229,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-guida.title': 'Canton Svitto family allowances: how they work and how to claim them',
     'blog.article.assegni-familiari-svitto-guida.excerpt': 'In the canton of Swift, every parent with children is entitled to monthly family allowances. Here are application procedures, administrative skills, and where to check for updated amounts.',
     'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Swiss family reviewing family allowance documents at home',
+    'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, UBS platform for financial education',
+    'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS launches YUMO, a free platform to teach young people how to manage money, savings and investments. Available in 4 languages in Switzerland.',
+    'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Young people learning about finance and economics on a digital platform in Switzerland',
 };
 
 export default blogMetaChEn;
