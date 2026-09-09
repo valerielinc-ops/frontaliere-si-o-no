@@ -36,21 +36,6 @@ const bodyJob = jobs['body-contract'];
 const contractStep = (job: WorkflowJob | undefined) =>
   job?.steps?.find((step) => step.name?.startsWith('PR-body completeness + multi-issue Closes'));
 
-/** Extract the action predicate that controls whether a job is reachable. */
-function actionPredicate(condition: string | undefined): 'edited' | 'not-edited' | null {
-  const match = String(condition ?? '').match(/github\.event\.action\s*(==|!=)\s*'edited'/);
-  if (!match) return null;
-  return match[1] === '==' ? 'edited' : 'not-edited';
-}
-
-function runsForAction(condition: string | undefined, action: 'edited' | 'synchronize'): boolean {
-  const predicate = actionPredicate(condition);
-  if (!predicate) return true;
-  if (predicate === 'edited') return action === 'edited';
-  if (predicate === 'not-edited') return action !== 'edited';
-  return true;
-}
-
 describe('tests.yml: body edit isolation', () => {
   it('keeps edited reachable and partitions its concurrency from synchronize', () => {
     const types = workflowText.match(/^[ \t]+types:\s*\[([^\]]+)\]/m)?.[1]
@@ -73,20 +58,15 @@ describe('tests.yml: body edit isolation', () => {
     expect(renderGroup('edited')).not.toBe(renderGroup('synchronize'));
   });
 
-  it('routes edited to the contract-only job and synchronize to the heavy job', () => {
+  it('runs the heavy job on edited and synchronize, with a separate body check', () => {
     expect(codeJob?.name).toBe(VITEST_EXECUTION_JOB_NAME);
     expect(requiredJob?.name).toBe(VITEST_CHECK_NAME);
     expect(bodyJob?.name).toBe('PR body contract');
     expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
 
-    expect(runsForAction(codeJob?.if, 'edited')).toBe(false);
-    expect(runsForAction(codeJob?.if, 'synchronize')).toBe(true);
-    expect(runsForAction(bodyJob?.if, 'edited')).toBe(true);
-    expect(runsForAction(bodyJob?.if, 'synchronize')).toBe(false);
+    expect(codeJob?.if).toBeUndefined();
     expect(bodyJob?.if).toContain("github.event_name == 'pull_request'");
-    expect(codeJob?.if).toMatch(
-      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
-    );
+    expect(bodyJob?.if).toContain("github.event.action == 'edited'");
 
     const heavyContract = contractStep(codeJob);
     const editedContract = contractStep(bodyJob);
@@ -98,15 +78,12 @@ describe('tests.yml: body edit isolation', () => {
     expect(bodyJob?.steps?.[0]?.if).toContain('github.event_name ==');
     expect(bodyJob?.steps?.[0]?.if).not.toContain("github.event.action != 'edited'");
 
-    expect(requiredJob?.if).toContain('always()');
+    expect(String(requiredJob?.if).replace(/\s+/g, '')).toBe('${{always()}}');
     expect(requiredJob?.needs).toEqual(['vitest']);
 
-    // Il wrapper required deve girare anche quando l'esecuzione pesante salta:
-    // GitHub tratta un job required saltato come soddisfatto nel ruleset.
-    expect(runsForAction(requiredJob?.if, 'edited')).toBe(true);
-    expect(runsForAction(requiredJob?.if, 'synchronize')).toBe(true);
-    expect(requiredJob?.if).not.toContain("github.event.action != 'edited'");
-    expect(requiredJob?.if).not.toContain("github.event.action != 'labeled'");
+    // Il wrapper required deve ricevere un verdetto reale dal job pesante su
+    // ogni evento: GitHub tratta un job required saltato come soddisfatto.
+    expect(codeJob?.if).toBeUndefined();
 
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
     const skippedReviewGuard = codeJob?.steps?.find(

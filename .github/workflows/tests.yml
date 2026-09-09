@@ -192,11 +192,11 @@ jobs:
   # check-run che il ruleset già richiede.
   vitest:
     name: vitest execution
-    # `edited` usa il companion body-contract qui sotto: non pagare il job
-    # pesante per una modifica che non ha cambiato il codice. `labeled` è stato
-    # aggiunto solo per il rescue: non pagare l'intero job per label estranee
-    # (`agent:fix`, `needs-human`, recycle, redflag-fixer).
-    if: ${{ github.event.action != 'edited' && (github.event.action != 'labeled' || contains(github.event.pull_request.labels.*.name, 'stale-review')) }}
+    # Il job gira su OGNI evento PR. Il ruleset richiede il wrapper sotto e un
+    # job pesante saltato per `edited`/`labeled` produrrebbe `SKIPPED`, che
+    # GitHub tratta come soddisfatto: il wrapper avrebbe allora solo un
+    # risultato sintetico da promuovere o rifiutare. Eseguendo sempre il job,
+    # `needs.vitest.result` è invece un verdetto reale sullo SHA corrente.
     runs-on: ubuntu-latest
     # 60 min. NON è il vecchio 30 lasciato lì: il job fuso paga in SERIE ciò che
     # quattro job pagavano in parallelo. Somma dei massimi osservati citati in
@@ -2438,19 +2438,14 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
 
-  # Il ruleset richiede questo nome esatto. Il wrapper gira anche quando il
-  # job di esecuzione è saltato da un `if:` e converte ogni risultato diverso
-  # da `success` in un fallimento reale: GitHub non può più promuovere
-  # `skipped` a check soddisfatto. Non legge il rollup del workflow: usa il
-  # risultato diretto del job che pubblica il verdetto applicativo.
+  # Il ruleset richiede questo nome esatto. Il wrapper gira sempre e converte
+  # ogni risultato diverso da `success` in un fallimento reale. Non legge il
+  # rollup del workflow: usa il risultato diretto del job che pubblica il
+  # verdetto applicativo.
   #
-  # Il wrapper deve girare su OGNI evento. GitHub tratta un job required saltato
-  # da una guardia `if:` come soddisfatto nel ruleset: se il wrapper ripetesse
-  # le esenzioni del job pesante, un `edited` o una label di routine potrebbe
-  # depositare `skipped` sul contesto required e sostituire un rosso precedente.
-  # `always()` forza invece il verdetto esplicito sotto: qualsiasi risultato
-  # diverso da `success` dell'esecuzione resta bloccante, anche quando il job
-  # pesante è stato deliberatamente saltato per il body-only path.
+  # `always()` è necessario per poter osservare anche failure/cancelled del job
+  # pesante; poiché `vitest` non ha più una guardia di evento, `skipped` non è
+  # più un percorso normale per il check required.
   vitest-required:
     name: vitest (unit + integration)
     if: ${{ always() }}
@@ -2469,11 +2464,9 @@ jobs:
           fi
           echo "Required vitest check satisfied by a successful execution job."
 
-  # `edited` deve rivalidare il body ma non deve sostituire una verifica del
-  # codice in corso. Il check è distinto dal nome required: su `edited` il job
-  # `vitest` resta `skipped`, il wrapper required pubblica il rosso fail-closed
-  # e `PR body contract` rende visibile l'esito del contratto senza poterlo
-  # trasformare in un verdetto del codice.
+  # `edited` rivalida il body in un check distinto senza sostituire la verifica
+  # del codice: il job pesante gira comunque e il wrapper required conserva il
+  # verdetto del codice sullo SHA corrente.
   body-contract:
     name: PR body contract
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'edited' }}
