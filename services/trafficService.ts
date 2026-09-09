@@ -220,10 +220,17 @@ class TrafficService {
  const snapshotUpdate = BORDER_WAIT_SNAPSHOT.updatedAt;
  return BORDER_CROSSINGS.flatMap(({ name }) => {
  const entry = perCrossing[slugifyCrossingName(name)];
- if (!entry || typeof entry.waitTimeMinutes !== 'number') return [];
+ // La precedenza dichiarata in tutta la catena e' totalCrossingMinutes ->
+ // waitTimeMinutes (vedi effectiveWait() in borderWaitComparison.ts):
+ // scartare qui sul solo waitTimeMinutes faceva sparire dal fallback le
+ // entry che portano solo il totale, che sono letture valide.
+ const fallbackWait = typeof entry?.totalCrossingMinutes === 'number'
+   ? entry.totalCrossingMinutes
+   : entry?.waitTimeMinutes;
+ if (!entry || typeof fallbackWait !== 'number') return [];
  return {
  crossingName: name,
- waitTimeMinutes: entry.waitTimeMinutes,
+ waitTimeMinutes: fallbackWait,
  status: (entry?.status as TrafficData['status']) ?? 'green',
  lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
  source: 'mock',

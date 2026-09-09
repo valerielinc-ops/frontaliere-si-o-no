@@ -414,6 +414,44 @@ export function renderTrafficFluidBanner(
      </div>`;
 }
 
+/**
+ * Banner di dato non disponibile per l'hero dell'hub.
+ *
+ * Esiste perche' l'invariante dichiarata sopra il blocco hero — «o l'hero o il
+ * fallback, mai entrambi e mai spazio vuoto» — non regge da sola quando le
+ * letture assenti vengono scartate invece di essere contate come zero: se
+ * nessun valico ha una lettura, o se le letture presenti sono tutte a zero ma
+ * non coprono tutti i valichi in scope, «traffico fluido» sarebbe
+ * un'affermazione su valichi che non abbiamo misurato. Assenza di dato e coda
+ * pari a zero sono cose diverse e la copy le tiene separate.
+ */
+export function renderBorderWaitUnavailableBanner(
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  const copy = {
+    it: {
+      title: 'Tempi di attesa non disponibili',
+      body: 'In questo momento non abbiamo una lettura per i valichi di questa zona. Non e\u0027 una coda pari a zero: e\u0027 un dato mancante. I tempi si aggiornano ogni 15 minuti.',
+    },
+    en: {
+      title: 'Wait times unavailable',
+      body: 'We have no reading for the crossings in this area right now. This is not a zero-minute queue: the data is missing. Wait times refresh every 15 minutes.',
+    },
+    de: {
+      title: 'Wartezeiten nicht verfuegbar',
+      body: 'Fuer die Uebergaenge in diesem Gebiet liegt derzeit keine Messung vor. Das ist keine Wartezeit von null Minuten, sondern ein fehlender Wert. Aktualisierung alle 15 Minuten.',
+    },
+    fr: {
+      title: "Temps d'attente indisponibles",
+      body: "Nous n'avons aucune mesure pour les passages de cette zone actuellement. Il ne s'agit pas d'une file de zero minute : la donnee est manquante. Mise a jour toutes les 15 minutes.",
+    },
+  }[locale];
+  return `<div class="s-7IQhM5">
+       <p class="s-m0_4f0">${esc(copy.title)}</p>
+       <p class="s-Dpu_t7">${esc(copy.body)}</p>
+     </div>`;
+}
+
 /** Look up crossing static metadata from the registry (matches on slug). */
 function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined {
   return borderCrossings.find(
@@ -2222,19 +2260,31 @@ function renderHubPage(inp: HubInputs): string {
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate
   // case — either unmeasured or perfectly fluid). Either the hero OR the
-  // fallback renders; never both and never empty space.
+  // fallback renders; never both and never empty space. Tre casi, non due:
+  // copertura piena a zero => banner «fluido»; almeno una coda => hero;
+  // nessuna lettura, o letture a zero su copertura parziale => banner di dato
+  // non disponibile, che NON e' la stessa affermazione di «fluido».
   const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c) => {
     const waitTimeMinutes = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes;
     return waitTimeMinutes == null
       ? []
       : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
   });
+  // Copertura piena e tutte le letture a zero: «fluido» e' un'affermazione
+  // che possiamo fare, perche' abbiamo misurato ogni valico in scope.
   const allZeros = heroInputs.length > 0
     && heroInputs.length === crossingsInScope.length
     && heroInputs.every((c) => c.waitTimeMinutes === 0);
+  // `renderFastestCrossingCard` rende '' quando nessuna lettura e' > 0, e
+  // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
+  // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
+  // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
+  const hasPositiveWait = heroInputs.some((c) => c.waitTimeMinutes > 0);
   const bestBannerHtml = allZeros
     ? renderTrafficFluidBanner(true, locale)
-    : renderFastestCrossingCard(heroInputs, locale);
+    : hasPositiveWait
+      ? renderFastestCrossingCard(heroInputs, locale)
+      : renderBorderWaitUnavailableBanner(locale);
 
   const alternatesHtml = renderHreflangTags(alternates);
   const pickerHtml = renderBorderWaitPicker({
