@@ -21,7 +21,7 @@ inputs:
     required: false
     default: ""
   github_token:
-    description: "Token passed to the primary Claude action."
+    description: "Token passed to Claude and to the controlled Codex gh bridge."
     required: false
     default: ""
   allowed_bots:
@@ -88,7 +88,7 @@ runs:
       id: claude
       if: steps.preflight.outputs.fallback != 'true'
       continue-on-error: true
-      uses: anthropics/claude-code-action@v1
+      uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
       with:
         claude_code_oauth_token: ${{ inputs.claude_code_oauth_token }}
         github_token: ${{ inputs.github_token }}
@@ -142,29 +142,397 @@ runs:
       shell: bash
       env:
         CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        CODEX_GH_AUTH: ${{ inputs.github_token }}
+        CODEX_ACTION_PATH: ${{ github.action_path }}
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
-        set -uo pipefail
+        set -euo pipefail
         # Keep the install pinned and local to this fallback step. No API key
         # or CODEX_AUTH_JSON is exported here; Codex reads only CODEX_HOME/auth.json.
         npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+
+        # `shell_environment_policy.ignore_default_excludes=false` deliberately
+        # strips GH_TOKEN/GITHUB_TOKEN from model-generated subprocesses. Keep
+        # the caller's credential in a host-side Unix-socket bridge instead: the
+        # model can request the already-authorized `gh` operation, but its child
+        # environment never contains the credential. The reduced env below also
+        # contains no auth.json, Claude token, API key, or other inherited secret.
+        # Never print CODEX_GH_AUTH.
+        codex_github_auth="${CODEX_GH_AUTH:-}"
+        if [ -z "$codex_github_auth" ]; then
+          echo "::error::The Codex fallback requires the caller's explicit github_token input."
+          exit 1
+        fi
+
+        # Keep all Codex-owned scratch/output files below the ephemeral home.
+        # The permission profile denies the runner's generic /tmp and reopens
+        # only this exact directory, so model-generated commands cannot browse
+        # unrelated runner files.
+        scratch_dir="$CODEX_HOME/scratch"
+        mkdir -p "$scratch_dir"
+        chmod 700 "$scratch_dir"
+        scratch_home="$scratch_dir/home"
+        mkdir -p "$scratch_home"
+        chmod 700 "$scratch_home"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        codex_output_destination="${CODEX_OUTPUT:-$runner_temp/codex-fallback-${GITHUB_RUN_ID:-local}-${GITHUB_RUN_ATTEMPT:-1}.txt}"
+        CODEX_OUTPUT="$scratch_dir/codex-last-message.txt"
+
+        # The bridge itself lives in the explicitly reopened scratch tree. Its
+        # client contains no token; a host-side server reads the token only in
+        # its own process and launches the real gh with GH_TOKEN set there.
+        bridge_dir="$scratch_dir/bin"
+        mkdir -p "$bridge_dir"
+        chmod 700 "$bridge_dir"
+        real_gh="$(command -v gh || true)"
+        case "$real_gh" in
+          ''|"$bridge_dir/gh")
+            echo "::error::The GitHub CLI is required for the Codex fallback."
+            exit 1
+            ;;
+        esac
+        real_git="$(command -v git || true)"
+        case "$real_git" in
+          ''|"$bridge_dir/git")
+            echo "::error::The Git CLI is required for the Codex fallback."
+            exit 1
+            ;;
+        esac
+
+        # Keep the bridge implementation reviewable and testable. Copy only
+        # these immutable action-owned files into the exact scratch tree that
+        # the Codex profile reopens; the host-side servers are never loaded by
+        # model-generated commands with a token-bearing environment.
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        copy_bridge_file() {
+          local source="$1" target="$2"
+          if [ ! -f "$action_path/$source" ]; then
+            echo "::error::Missing Codex bridge implementation: $source"
+            exit 1
+          fi
+          cp -- "$action_path/$source" "$bridge_dir/$target"
+          chmod 700 "$bridge_dir/$target"
+        }
+        copy_bridge_file gh-bridge.sh gh
+        copy_bridge_file gh-bridge-client.mjs gh-client.mjs
+        copy_bridge_file gh-bridge-server.mjs gh-server.mjs
+        copy_bridge_file git-bridge.sh git
+        copy_bridge_file git-bridge-client.mjs git-client.mjs
+        copy_bridge_file git-bridge-server.mjs git-server.mjs
+        if [ ! -f "$action_path/sanitize-git-config.mjs" ]; then
+          echo '::error::Missing Git config sanitizer implementation.'
+          exit 1
+        fi
+        node "$action_path/sanitize-git-config.mjs"
+        codex_git_remote="$(git config --local --get remote.origin.url 2>/dev/null || true)"
+        case "$codex_git_remote" in
+          ''|*$'\n'*|*$'\r'*)
+            echo '::error::A clean origin remote is required for the Codex Git bridge.'
+            exit 1
+            ;;
+        esac
+
+        # Copy only the deterministic inputs that callers intentionally staged
+        # under runner.temp. The prompt is rewritten to these copies before the
+        # child receives it; no broad runner-temp read is granted to Codex.
+        copy_temp_dir() {
+          local name="$1" source="$runner_temp/$1" target="$scratch_dir/$1"
+          if [ -d "$source" ]; then
+            mkdir -p "$target"
+            cp -R -- "$source/." "$target/"
+          fi
+        }
+        for name in review-ctx issue-fix-ctx followup-ctx redflag redcheck pr-body-gate-bin; do
+          copy_temp_dir "$name"
+        done
+        if [ -n "${GITHUB_EVENT_PATH:-}" ] && [ -f "$GITHUB_EVENT_PATH" ]; then
+          cp -- "$GITHUB_EVENT_PATH" "$scratch_dir/github-event.json"
+          chmod 600 "$scratch_dir/github-event.json"
+          GITHUB_EVENT_PATH="$scratch_dir/github-event.json"
+        fi
+        if [ -n "${BODY_FILE:-}" ] && [ -f "$BODY_FILE" ] && [ "$BODY_FILE" != "$scratch_dir/body-file.md" ]; then
+          cp -- "$BODY_FILE" "$scratch_dir/body-file.md"
+          chmod 600 "$scratch_dir/body-file.md"
+          BODY_FILE="$scratch_dir/body-file.md"
+        fi
+        for name in CTX_DIR PR_BODY_GATE_BIN; do
+          if [ -n "${!name+x}" ] && [ -n "${!name}" ]; then
+            value="${!name}"
+            if [[ "$runner_temp" == /tmp/* ]]; then
+              value="${value//\/tmp\//$scratch_dir/}"
+            else
+              value="${value//"$runner_temp"/"$scratch_dir"}"
+            fi
+            printf -v "$name" '%s' "$value"
+          fi
+        done
+
         prompt="$CODEX_PROMPT"
+        if [[ "$runner_temp" == /tmp/* ]]; then
+          prompt="${prompt//\/tmp\//$scratch_dir/}"
+        else
+          prompt="${prompt//"$runner_temp"/"$scratch_dir"}"
+          prompt="${prompt//\/tmp\//$scratch_dir/}"
+        fi
         prompt="$prompt"$'\n\nFallback accounting contract: the Claude usage limit is only the trigger for this one-shot replacement. Never mark this Codex run rate-limited or refunded; on success preserve the task\x27s normal output and marker contract.'
         if [ -n "${CODEX_REVIEW_MARKER:-}" ]; then
           prompt="$prompt"$'\n\nFallback review contract: include the exact marker '"$CODEX_REVIEW_MARKER"' in the review body you post.'
         fi
-        printf '%s' "$prompt" | codex exec \
+
+        # The built-in workspace profile intentionally protects .git. A linked
+        # worktree also resolves .git to a worktree gitdir plus a shared common
+        # dir, so grant only the Git metadata subtrees needed for commit/push.
+        # Keep hooks/config read-only; never use the global danger-full-access
+        # bypass. The auth file is denied to model-generated commands even though
+        # Codex itself reads it before running the task.
+        git_dir="$(git rev-parse --git-dir)"
+        common_git_dir="$(git rev-parse --git-common-dir)"
+        unset CDPATH
+        git_dir="$(cd -- "$git_dir" && pwd -P)"
+        common_git_dir="$(cd -- "$common_git_dir" && pwd -P)"
+        case "$git_dir$common_git_dir" in
+          *$'\n'*|*$'\r'*)
+            echo "::error::Unexpected newline in resolved Git metadata path."
+            exit 1
+            ;;
+        esac
+        auth_file="$CODEX_HOME/auth.json"
+        toml_quote_path() {
+          local value="$1"
+          value="${value//\\/\\\\}"
+          value="${value//\"/\\\"}"
+          printf '%s' "$value"
+        }
+        git_dir_toml="$(toml_quote_path "$git_dir")"
+        common_git_dir_toml="$(toml_quote_path "$common_git_dir")"
+        auth_file_toml="$(toml_quote_path "$auth_file")"
+        config_file="$CODEX_HOME/config.toml"
+        scratch_dir_toml="$(toml_quote_path "$scratch_dir")"
+        bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
+        gh_socket="$scratch_dir/gh.sock"
+        git_socket="$scratch_dir/git.sock"
+        gh_socket_toml="$(toml_quote_path "$gh_socket")"
+        git_socket_toml="$(toml_quote_path "$git_socket")"
+        cat > "$config_file" <<EOF
+        default_permissions = "codex-fallback"
+
+        [permissions.codex-fallback]
+        description = "Codex fallback with scoped Git metadata access"
+        extends = ":workspace"
+
+        [permissions.codex-fallback.network]
+        enabled = false
+        [permissions.codex-fallback.network.unix_sockets]
+        "$gh_socket_toml" = "allow"
+        "$git_socket_toml" = "allow"
+
+        [permissions.codex-fallback.filesystem]
+        ":root" = "deny"
+        ":minimal" = "read"
+        ":tmpdir" = "deny"
+        ":slash_tmp" = "deny"
+        "$auth_file_toml" = "deny"
+        [permissions.codex-fallback.filesystem.":workspace_roots"]
+        "." = "write"
+        [permissions.codex-fallback.filesystem."$scratch_dir_toml"]
+        "." = "write"
+        [permissions.codex-fallback.filesystem."$bridge_dir_toml"]
+        "." = "read"
+        EOF
+        if [ "$git_dir" = "$common_git_dir" ]; then
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$git_dir_toml"]
+        "." = "write"
+        "hooks" = "read"
+        "config" = "read"
+        EOF
+        else
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$git_dir_toml"]
+        "." = "write"
+        "hooks" = "read"
+        "config" = "read"
+
+        [permissions.codex-fallback.filesystem."$common_git_dir_toml"]
+        "." = "read"
+        "objects" = "write"
+        "refs" = "write"
+        "logs" = "write"
+        "packed-refs" = "write"
+        "hooks" = "read"
+        "config" = "read"
+        EOF
+        fi
+        chmod 600 "$config_file"
+
+        # 0.153.4 strict mode also validates the checked-out project config;
+        # this repository still carries legacy MCP keys that that CLI rejects.
+        # Keep the generated file as the profile source/smoke target, then pass
+        # the same policy as explicit CLI TOML while ignoring project config.
+        # `--ignore-user-config` does not disable CODEX_HOME/auth.json loading.
+        git_filesystem_rules='{"."="write","hooks"="read","config"="read"}'
+        common_filesystem_rules='{"."="read","objects"="write","refs"="write","logs"="write","packed-refs"="write","hooks"="read","config"="read"}'
+        base_filesystem_rules='{":root"="deny",":minimal"="read",":tmpdir"="deny",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
+        if [ "$git_dir" = "$common_git_dir" ]; then
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},\"$git_dir_toml\"=$git_filesystem_rules}"
+        else
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
+        fi
+        codex_unix_sockets="{\"$gh_socket_toml\"=\"allow\",\"$git_socket_toml\"=\"allow\"}"
+
+        env -i \
+          CODEX_GH_AUTH="$codex_github_auth" \
+          CODEX_GH_SOCKET="$gh_socket" \
+          CODEX_REAL_GH="$real_gh" \
+          CODEX_GH_CWD="${PWD:-$(pwd)}" \
+          CODEX_GH_WORKSPACE="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}" \
+          CODEX_GH_SCRATCH="$scratch_dir" \
+          PATH="$PATH" \
+          HOME="$scratch_home" \
+          node "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
+        gh_server_pid=$!
+        stop_gh_bridge() {
+          kill "$gh_server_pid" 2>/dev/null || true
+          wait "$gh_server_pid" 2>/dev/null || true
+        }
+        trap stop_gh_bridge EXIT
+        for _ in $(seq 1 50); do
+          [ -S "$gh_socket" ] && break
+          kill -0 "$gh_server_pid" 2>/dev/null || break
+          sleep 0.1
+        done
+        if [ ! -S "$gh_socket" ]; then
+          echo "::error::The Codex GitHub bridge did not start."
+          exit 1
+        fi
+        env -i \
+          CODEX_GIT_AUTH="$codex_github_auth" \
+          CODEX_GIT_SOCKET="$git_socket" \
+          CODEX_REAL_GIT="$real_git" \
+          CODEX_GIT_CWD="${PWD:-$(pwd)}" \
+          CODEX_GIT_REMOTE="$codex_git_remote" \
+          PATH="$PATH" \
+          HOME="$scratch_home" \
+          node "$bridge_dir/git-server.mjs" >/dev/null 2>&1 &
+        git_server_pid=$!
+        stop_bridge() {
+          kill "$gh_server_pid" "$git_server_pid" 2>/dev/null || true
+          wait "$gh_server_pid" "$git_server_pid" 2>/dev/null || true
+        }
+        outside_probe="$runner_temp/codex-fallback-outside-probe.$$"
+        printf probe > "$outside_probe"
+        cleanup_bridge() {
+          rm -f -- "$outside_probe"
+          stop_bridge
+        }
+        trap cleanup_bridge EXIT
+        for _ in $(seq 1 50); do
+          [ -S "$gh_socket" ] && [ -S "$git_socket" ] && break
+          kill -0 "$gh_server_pid" 2>/dev/null || break
+          kill -0 "$git_server_pid" 2>/dev/null || break
+          sleep 0.1
+        done
+        if [ ! -S "$git_socket" ]; then
+          echo "::error::The Codex Git bridge did not start."
+          exit 1
+        fi
+        # Do not let the token remain in the environment inherited by Codex;
+        # only the host-side bridge process received it above.
+        unset CODEX_GH_AUTH
+        RUNNER_TEMP="$scratch_dir"
+
+        # This no-op applies the generated profile before the authenticated
+        # request. It catches malformed/unsupported permission TOML early and
+        # uses real file operations: the explicit gitdir/common overrides must
+        # create/read/remove probes, while hooks/auth/runner files stay denied.
+        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_GH_REAL="$real_gh" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$real_git" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" codex sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+          git_dir="$(git rev-parse --git-dir)"
+          common_git_dir="$(git rev-parse --git-common-dir)"
+          probe="$git_dir/codex-fallback-probe.$$"
+          printf probe > "$probe"
+          test "$(dd if="$probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$probe"
+          common_probe="$common_git_dir/objects/codex-fallback-probe.$$"
+          printf probe > "$common_probe"
+          test "$(dd if="$common_probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$common_probe"
+          ! touch "$common_git_dir/hooks/codex-fallback-probe.$$" 2>/dev/null
+          ! dd if="$CODEX_HOME/auth.json" of=/dev/null bs=1 count=1 2>/dev/null
+          tmp_probe="$TMPDIR/codex-fallback-tmp-probe.$$"
+          printf probe > "$tmp_probe"
+          test "$(dd if="$tmp_probe" bs=16 count=1 2>/dev/null)" = probe
+          rm -f "$tmp_probe"
+          ! dd if="$CODEX_OUTSIDE_PROBE" of=/dev/null bs=1 count=1 2>/dev/null
+          gh --version >/dev/null
+          auth_status=0
+          auth_output="$(gh auth token 2>/dev/null)" || auth_status=$?
+          test "$auth_status" -ne 0
+          test -z "$auth_output"
+          if git remote -v | grep -Eiq "x-access-token:|oauth2:|://[^/@[:space:]]+@"; then exit 1; fi
+          if git config --local --get-regexp "^http\\..*\\.extraheader$" >/dev/null 2>&1; then exit 1; fi
+          if git config --local --get http.extraheader >/dev/null 2>&1; then exit 1; fi
+        ' >/dev/null
+
+        # Pass only runtime metadata plus bridge paths to Codex. The credential
+        # itself stays in the host-side bridge processes. The include_only
+        # policy is repeated inside Codex so model-generated commands cannot
+        # recover anything that was present in the runner shell.
+        metadata_vars=(
+          GITHUB_REPOSITORY GITHUB_RUN_ID GITHUB_RUN_ATTEMPT GITHUB_WORKFLOW
+          GITHUB_EVENT_NAME GITHUB_SHA GITHUB_REF GITHUB_REF_NAME GITHUB_HEAD_REF
+          GITHUB_BASE_REF GITHUB_SERVER_URL GITHUB_API_URL GITHUB_GRAPHQL_URL
+          GITHUB_WORKSPACE GITHUB_ACTOR GITHUB_TRIGGERING_ACTOR GITHUB_EVENT_PATH
+          RUNNER_TEMP CTX_DIR PR_BODY_GATE_BIN REPO ISSUE_NUMBER ISSUE_TITLE ISSUE_GROUP ISSUE_GROUP_LABEL
+          ISSUE_GROUP_NUMBERS PR_NUMBER PR_TITLE HEAD_SHA REVIEW_TIER INCREMENTAL_BASE
+          FIX_TIER FIX_ROUND BATCH_PRS BATCH_COUNT TRIAGE_DAILY_KEY EVENT_NAME BODY_FILE
+        )
+        codex_env=(
+          "CODEX_HOME=$CODEX_HOME"
+          "PATH=$bridge_dir:$PATH"
+          "HOME=$scratch_home"
+          "TMPDIR=$scratch_dir"
+          "CODEX_GH_SOCKET=$gh_socket"
+          "CODEX_GH_CLIENT=$bridge_dir/gh-client.mjs"
+          "CODEX_GH_REAL=$real_gh"
+          "CODEX_GIT_SOCKET=$git_socket"
+          "CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs"
+          "CODEX_GIT_REAL=$real_git"
+          "PWD=${PWD:-$(pwd)}"
+          "SHELL=${SHELL:-/bin/bash}"
+          "USER=${USER:-runner}"
+          "LOGNAME=${LOGNAME:-runner}"
+          "LANG=${LANG:-C.UTF-8}"
+          "CI=${CI:-true}"
+        )
+        for name in "${metadata_vars[@]}"; do
+          if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
+        done
+        codex_env_patterns='["PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+
+        set +e
+        printf '%s' "$prompt" | env -i "${codex_env[@]}" codex exec \
           --ephemeral \
+          --strict-config \
+          --ignore-user-config \
           --model gpt-5.6-luna \
+          -c 'default_permissions="codex-fallback"' \
+          -c 'permissions.codex-fallback.extends=":workspace"' \
+          -c 'permissions.codex-fallback.network.enabled=false' \
+          -c "permissions.codex-fallback.network.unix_sockets=$codex_unix_sockets" \
+          -c "permissions.codex-fallback.filesystem=$codex_filesystem" \
           -c model_reasoning_effort=max \
           -c shell_environment_policy.ignore_default_excludes=false \
+          -c "shell_environment_policy.include_only=$codex_env_patterns" \
           --output-last-message "$CODEX_OUTPUT" \
           -
-        status=$?
-        printf 'codex_output=%s\n' "$CODEX_OUTPUT" >> "$GITHUB_OUTPUT"
-        exit "$status"
+        codex_status=$?
+        if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
+          cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
+        fi
+        printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
+        exit "$codex_status"
 
     - name: Record structured Codex fallback evidence
       id: finalize
@@ -228,7 +596,12 @@ runs:
       run: |
         set +e
         case "$CODEX_HOME" in
-          "${RUNNER_TEMP:-/tmp}"/codex-home.*) rm -f "$CODEX_HOME/auth.json"; rmdir "$CODEX_HOME" 2>/dev/null || true ;;
+          "${RUNNER_TEMP:-/tmp}"/codex-home.*)
+            # This is the exact mktemp directory created by the auth step;
+            # remove it recursively only after the guarded path check so no
+            # runner-wide path can ever be selected here.
+            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_HOME"
+            ;;
           *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
         esac
 
