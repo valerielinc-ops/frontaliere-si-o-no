@@ -181,10 +181,16 @@ async function fetchJobDetail(externalPath) {
 function parseWorkdayLocation(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
-  // Workday sometimes returns just the country code (e.g. "CH", "UK") — not useful as a city
-  if (/^[A-Z]{2}$/.test(cleaned)) return '';
   const parts = cleaned.split(/\s*-\s*/);
-  return parts.length > 0 ? parts[0].trim() : cleaned;
+  // Workday sometimes prefixes the city with a country code (e.g. "CH -
+  // Visp"). The old first-segment rule persisted "CH" as the city, losing
+  // the real workplace and causing the source-detail audit to flag every
+  // sampled Lonza posting. Drop country-only segments before selecting the
+  // most specific remaining value.
+  const usefulParts = parts
+    .map((part) => part.trim())
+    .filter((part) => part && !/^[A-Z]{2}$/.test(part));
+  return usefulParts[0] || '';
 }
 
 function inferCanton(location = '') {
