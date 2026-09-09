@@ -35,7 +35,10 @@ describe('loadDashboardMetrics', () => {
   });
 
   it('newsletter-content.mjs exports loadDashboardMetrics', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content.mjs'), 'utf-8');
+    // L'implementazione sta nel core privo di dipendenze Node (#8125);
+    // `newsletter-content.mjs` e' la facciata che la ri-esporta ai consumatori
+    // Node dopo aver installato il lettore dei dataset.
+    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content-core.mjs'), 'utf-8');
     expect(content).toContain('export function loadDashboardMetrics');
   });
 
@@ -95,7 +98,7 @@ describe('newsletter job selection defaults', () => {
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content.mjs'), 'utf-8');
+    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content-core.mjs'), 'utf-8');
     expect(content).toContain('120');
     expect(content).toContain('passesQualityGate');
   });

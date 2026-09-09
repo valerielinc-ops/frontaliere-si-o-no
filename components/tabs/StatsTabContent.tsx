@@ -5,7 +5,7 @@ import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { buildFuelTodayPath } from '@/build-plugins/fuelDailyData';
-import { buildHealthPremiumsCantonPath } from '@/build-plugins/healthPremiumsData';
+import { buildHealthPremiumsCantonPath } from '@/build-plugins/shared/healthPremiumsPaths';
 import { buildHubPath as buildJobMarketHubPath } from '@/build-plugins/jobMarketSnapshotData';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 

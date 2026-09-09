@@ -219,56 +219,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
-    "title": "Anlagenführer:in MixMatic",
-    "titleByLocale": {
-      "it": "Operatore di impianto MixMatic",
-      "en": "System Manager: in MixMatic",
-      "de": "Anlagenführer:in MixMatic",
-      "fr": "Gestionnaire de système: dans MixMatic"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Ostermundigen, Bern",
-    "addressLocality": "Ostermundigen",
-    "descriptionByLocale": {
-      "it": "• Siete responsabili del funzionamento indipendente dell'impianto di miscelazione.\n• Fornisci le miscele per le farciture del reparto gelateria nonché per varie bevande al latte miscelate (es. Acqua Alta Proteica, Comella Drink, ecc.).\n• Conservate i resoconti di produzione in modo affidabile e corretto e trasmettete tutte le informazioni importanti al turno successivo.\n• Rispettate in modo affidabile le norme igieniche e di sicurezza affinché sia ​​sempre garantita la perfetta qualità dei nostri prodotti.\n• Istruisci il personale di linea che ti è stato assegnato in materia di qualità, igiene, sicurezza e ambiente.\n• Hai completato una formazione professionale nel settore alimentare (tecnologo del latte, panettiere, macellaio, cuoco, ecc.).\n• Hai una forte conoscenza tecnica e hai molta familiarità con SAP e MES.\n• Hai diversi anni di esperienza professionale in un ruolo simile.\n• Sei mobile e flessibile per lavorare su 3 turni.\n• Parli fluentemente il tedesco.",
-      "en": "• You are responsible for the independent operation of the mixing plant.\n• You provide the mixtures for the ice cream department's fillings as well as for various mixed milk drinks (e.g. High Protein Water, Comella Drink, etc.).\n• You keep the production reports reliably and properly and pass on all important information to the next shift.\n• You reliably adhere to the hygiene and safety regulations so that the perfect quality of our products can always be ensured.\n• You instruct the line staff assigned to you regarding quality, hygiene, safety and the environment.\n• You have completed vocational training in the food sector (milk technologist, baker, butcher, cook, etc.).\n• You have a strong technical understanding and are very familiar with SAP and MES.\n• You have several years of professional experience in a similar role.\n• You are mobile and flexible to work in 3 shifts.\n• You speak German fluently.",
-      "de": "• Du bist verantwortlich für die selbstständige Bedienung der Mischerei.\n\n• Du stellst die Mischungen für die Abfüllungen der Glace-Abteilung sowie für unterschiedliche Milchmischgetränke (z.B. High Protein Water, Comella Drink, etc.) bereit.\n\n• Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• Du instruierst das dir zugeteilte Personal an der Linie im Bezug auf Qualität, Hygiene, Sicherheit und Umwelt.\n\n• Du verfügst über eine abgeschlossene Berufsausbildung im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n• Du bringst ausgeprägtes technisches Verständnis mit und kennst dich mit SAP sowie MES bestens aus.\n\n• Du verfügst über mehrjährige Berufserfahrung in einer ähnlichen Funktion.\n\n• Du bist mobil und flexibel im 3-Schichtbetrieb zu arbeiten.\n\n• Du sprichst fliessend Deutsch.",
-      "fr": "• Vous êtes responsable de l'exploitation indépendante de la centrale de malaxage.\n• Vous fournissez les mélanges pour les garnitures du rayon glaces ainsi que pour diverses boissons lactées mélangées (par exemple Eau hyperprotéinée, Comella Drink, etc.).\n• Vous conservez les rapports de production de manière fiable et correcte et transmettez toutes les informations importantes à l'équipe suivante.\n• Vous respectez de manière fiable les règles d'hygiène et de sécurité afin que la qualité parfaite de nos produits puisse toujours être garantie.\n• Vous instruisez le personnel opérationnel qui vous est affecté en matière de qualité, d'hygiène, de sécurité et d'environnement.\n• Vous avez suivi une formation professionnelle dans le secteur alimentaire (technologue laitier, boulanger, boucher, cuisinier, etc.).\n• Vous avez une solide compréhension technique et êtes très familier avec SAP et MES.\n• Vous disposez de plusieurs années d'expérience professionnelle dans un rôle similaire.\n• Vous êtes mobile et flexible pour travailler en 3 équipes.\n• Vous parlez couramment l'allemand."
-    },
-    "slugByLocale": {
-      "it": "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
-      "en": "system-manager-in-mixmatic-emmi-ostermundigen-bern",
-      "de": "anlagenfuhrer-in-mixmatic-emmi-ch",
-      "fr": "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-09-01T10:19:41.290Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-mixmatic-emmi-ch",
-      "system-manager-in-mixmatic-emmi-ostermundigen"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "anlagenfuhrer-in-mixmatic-emmi-ch"
-      ],
-      "en": [
-        "anlagenfuhrer-in-mixmatic-emmi-ch",
-        "system-manager-in-mixmatic-emmi-ostermundigen"
-      ],
-      "fr": [
-        "anlagenfuhrer-in-mixmatic-emmi-ch"
-      ]
-    },
-    "postalCode": "3072",
-    "streetAddress": "Milchstrasse 9",
-    "salaryMin": 94500,
-    "salaryMax": 143000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "domanda-di-pianificazione-aziendale-integrata-emmi-luzern-luzern",
     "title": "Integrated Business Planner Demand",
     "titleByLocale": {
@@ -308,75 +258,6 @@
     },
     "postalCode": "6005",
     "streetAddress": "Landenbergstrasse 1",
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
-    "title": "Anlagenführer:in Käsekonfektionierung",
-    "titleByLocale": {
-      "it": "Operatore di sistema: nella preparazione del formaggio",
-      "en": "System operator:in cheese preparation",
-      "de": "Anlagenführer:in Käsekonfektionierung",
-      "fr": "Opérateur du système:dans la préparation du fromage"
-    },
-    "company": "Emmi",
-    "companyKey": "emmi",
-    "location": "Emmen, Luzern",
-    "addressLocality": "Emmen",
-    "descriptionByLocale": {
-      "it": "• Potrai supervisionare e servire i nostri moderni impianti di confezionamento e produzione nella lavorazione del formaggio e garantire un processo di produzione regolare.\n• Durante la produzione, monitora continuamente le piante e rileva deviazioni o guasti in una fase iniziale.\n• Analizzi le interruzioni minori in modo indipendente e prendi misure appropriate per mantenere le interruzioni il più breve possibile.\n• Garantisci costantemente il rispetto degli standard di qualità, igiene e sicurezza nella produzione quotidiana.\n• Inoltre, effettui lavori di pulizia sulle piante e controlli attentamente gli ordini di produzione.\n• Hai completato la formazione EFZ come gestore di impianti o hai esperienza in un ambiente di produzione paragonabile.\n• La comprensione tecnica e il godimento di lavorare con impianti di produzione ti distinguono.\n• Un modo di lavorare affidabile, attento e sicuro di qualità è una questione ovviamente per voi.\n• Buona conoscenza del tedesco ti aiuta a comprendere i processi, la documentazione e le istruzioni di lavoro in modo sicuro.\n• Lavorare in 3 turni non è un problema per voi.",
-      "en": "• You will supervise and serve our modern packaging and production facilities in cheese processing and ensure a smooth production process.\n• During production, you continuously monitor the plants and detect deviations or faults at an early stage.\n• You analyze minor disruptions independently and take appropriate measures to keep interruptions as short as possible.\n• You consistently ensure compliance with quality, hygiene and safety standards in everyday production.\n• In addition, you carry out cleaning work on the plants and carefully control the production orders.\n• You have completed EFZ training as a plant manager or have experience in a comparable production environment.\n• Technical understanding and enjoyment of working with production facilities distinguish you.\n• A reliable, careful and quality-conscious way of working is a matter of course for you.\n• Good knowledge of German helps you to understand processes, documentation and work instructions safely.\n• Working in 3-shift operation is no problem for you.",
-      "de": "• Du betreust und bedienst unsere modernen Abpack- und Produktionsanlagen in der Käsekonfektionierung und sorgst für einen reibungslosen Produktionsablauf.\n\n• Während der Produktion überwachst du laufend die Anlagen und erkennst Abweichungen oder Störungen frühzeitig.\n\n• Kleinere Störungen analysierst du selbstständig und leitest passende Massnahmen ein, um Unterbrüche möglichst kurz zu halten.\n\n• Die Einhaltung der Qualitäts-, Hygiene- und Sicherheitsstandards stellst du im Produktionsalltag konsequent sicher.\n\n• Zusätzlich führst du Reinigungsarbeiten an den Anlagen durch und kontrollierst die Produktionsaufträge sorgfältig.\n\n• Du hast eine abgeschlossene Ausbildung EFZ als Anlagenführer oder bringst Erfahrung in einer vergleichbaren Produktionsumgebung mit.\n\n• Technisches Verständnis sowie Freude an der Arbeit mit Produktionsanlagen zeichnen dich aus.\n\n• Eine zuverlässige, sorgfältige und qualitätsbewusste Arbeitsweise ist für dich selbstverständlich.\n\n• Gute Deutschkenntnisse helfen dir, Prozesse, Dokumentationen und Arbeitsanweisungen sicher zu verstehen.\n\n• Die Arbeit im 3-Schichtbetrieb ist für dich kein Problem.",
-      "fr": "• Vous superviserez et servirez nos installations modernes d'emballage et de production dans le traitement du fromage et assurerez un processus de production fluide.\n• Pendant la production, vous surveillez en permanence les plantes et détectez les déviations ou les défauts à un stade précoce.\n• Vous analysez les perturbations mineures de manière indépendante et prenez les mesures appropriées pour garder les interruptions aussi courtes que possible.\n• Vous veillez constamment au respect des normes de qualité, d'hygiène et de sécurité dans la production quotidienne.\n• En outre, vous effectuez des travaux de nettoyage sur les usines et contrôlez soigneusement les commandes de production.\n• Vous avez suivi une formation EFZ en tant que gestionnaire d'usine ou avez une expérience dans un environnement de production comparable.\n• La compréhension technique et la jouissance de travailler avec les installations de production vous distinguent.\n• Une façon de travailler fiable, prudente et soucieuse de la qualité est bien sûr une question pour vous.\n• Une bonne connaissance de l'allemand vous aide à comprendre les processus, la documentation et les instructions de travail en toute sécurité.\n• Travailler en 3 équipes ne pose aucun problème pour vous."
-    },
-    "slugByLocale": {
-      "it": "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
-      "en": "system-operator-in-cheese-preparation-emmi-emmen-luzern",
-      "de": "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-      "fr": "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern"
-    },
-    "sector": "Food & Beverage (dairy)",
-    "expiredAt": "2026-09-01T02:27:03.345Z",
-    "previousSlugs": [
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs",
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-      "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3",
-      "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-2",
-      "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
-      "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
-      "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen-j1jqxs",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-        "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern-4913c3",
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-ch-2",
-        "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
-        "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
-        "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-      ],
-      "en": [
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-        "system-operator-in-cheese-preparation-emmi-emmen-luzern-4913c3",
-        "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-      ],
-      "fr": [
-        "anlagenfuhrer-in-kasekonfektionierung-emmi-emmen",
-        "operateur-du-systeme-dans-la-preparation-du-fromage-emmi-emmen-luzern-4913c3",
-        "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-      ],
-      "de": [
-        "anlagenfuhrer-in-kasekonfektionierung-100-emmi-ch"
-      ]
-    },
-    "postalCode": "6032",
-    "streetAddress": "Seetalstrasse 200",
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
