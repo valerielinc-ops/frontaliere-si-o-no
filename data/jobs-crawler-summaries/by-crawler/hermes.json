@@ -1,21 +1,21 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-09-08T23:17:19.516Z",
-  "total": 6,
+  "generatedAt": "2026-09-09T13:45:12.253Z",
+  "total": 4,
   "discovered": null,
   "parsed": 4,
   "lastFetchOutcome": null,
-  "written": 6,
+  "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15263,
-  "avgDurationMs": 15263,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 19337,
+  "avgDurationMs": 19337,
   "durationHistory": [
-    15263
+    19337
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:17:11.466Z",
+      "crawledAt": "2026-09-09T13:45:02.717Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -45,7 +45,6 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -67,7 +66,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:17:12.038Z",
+      "crawledAt": "2026-09-09T13:45:03.397Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -103,7 +102,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:17:12.589Z",
+      "crawledAt": "2026-09-09T13:45:04.075Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -139,7 +138,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:17:13.191Z",
+      "crawledAt": "2026-09-09T13:45:04.728Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +152,6 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -164,8 +162,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hermes-da512457b984",
       "slug": "cdi-coordinatore-commerciale-m-f-hermes-brugg-be-bern-switzerland",
@@ -246,5 +243,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
