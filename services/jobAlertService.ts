@@ -74,6 +74,10 @@ export interface JobAlertConfig {
    */
   specificJobId?: string | null;
   specificCompanyKey?: string | null;
+  /** Purpose of the consent that authorises this alert, when specialised. */
+  consentPurpose?: string | null;
+  /** Physical act that created this alert, when specialised. */
+  consentAct?: string | null;
   /**
    * Desired minimum monthly NET salary (CHF), prefilled from the calculator
    * simulation when the alert is created from the results view (issue #4469 —
@@ -172,6 +176,83 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
+function stableAlertIdempotencyKey(
+  userId: string,
+  email: string,
+  config: JobAlertConfig,
+  canonicalCompanyKey: string | null,
+): string {
+  const material = JSON.stringify({
+    version: 1,
+    userId,
+    email,
+    keywords: [...(config.keywords || [])].map(String).sort(),
+    locations: [...(config.locations || [])].map(String).sort(),
+    contractTypes: [...(config.contractTypes || [])].map(String).sort(),
+    sectors: [...(config.sectors || [])].map(String).sort(),
+    cantonFilter: normalizeCantonFilter(config.cantonFilter),
+    frequency: config.frequency,
+    frequencyOverride: config.frequencyOverride === true,
+    locale: config.locale || 'it',
+    specificJobId: config.specificJobId || null,
+    specificCompanyKey: canonicalCompanyKey,
+    minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
+  });
+  // A short non-PII Firestore-safe key is enough: the source fields remain in
+  // the document, while the idempotency marker cannot expose an address.
+  let hash = 2166136261;
+  for (let i = 0; i < material.length; i += 1) {
+    hash ^= material.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `v1_${(hash >>> 0).toString(16).padStart(8, '0')}`;
+}
+
+function dateFromAlertValue(value: unknown, fallback: Date): Date {
+  if (value && typeof (value as { toDate?: unknown }).toDate === 'function') {
+    return (value as { toDate: () => Date }).toDate();
+  }
+  if (value instanceof Date) return value;
+  if (typeof value === 'string' || typeof value === 'number') {
+    const parsed = new Date(value);
+    if (!Number.isNaN(parsed.getTime())) return parsed;
+  }
+  return fallback;
+}
+
+function alertFromStoredData(
+  id: string,
+  data: Record<string, any>,
+  fallback: { userId: string; email: string; config: JobAlertConfig },
+): JobAlert {
+  const createdAt = dateFromAlertValue(data.createdAt, new Date());
+  return {
+    id,
+    userId: data.userId || fallback.userId,
+    email: data.email || fallback.email,
+    keywords: Array.isArray(data.keywords) ? data.keywords : fallback.config.keywords,
+    locations: Array.isArray(data.locations) ? data.locations : fallback.config.locations,
+    contractTypes: Array.isArray(data.contractTypes) ? data.contractTypes : fallback.config.contractTypes,
+    sectors: Array.isArray(data.sectors) ? data.sectors : fallback.config.sectors,
+    cantonFilter: normalizeCantonFilter(data.cantonFilter),
+    frequency: data.frequency || fallback.config.frequency,
+    frequencyOverride: data.frequencyOverride === true,
+    locale: data.locale || fallback.config.locale,
+    specificJobId: data.specificJobId ?? null,
+    specificCompanyKey: data.specificCompanyKey ?? null,
+    sourceJobSlug: data.sourceJobSlug ?? null,
+    sourceJobUrl: data.sourceJobUrl ?? null,
+    sourceJobTitle: data.sourceJobTitle ?? null,
+    minNetMonthlyCHF: normalizeMinNet(data.minNetMonthlyCHF),
+    consentPurpose: data.consent_purpose ?? fallback.config.consentPurpose ?? null,
+    consentAct: data.consent_act ?? fallback.config.consentAct ?? null,
+    active: data.active !== false,
+    createdAt,
+    lastMatchedAt: data.lastMatchedAt ? dateFromAlertValue(data.lastMatchedAt, createdAt) : null,
+    matchCount: Number(data.matchCount || 0),
+  };
+}
+
 /**
  * Normalise the canton filter for Firestore storage and matching:
  *  - `null` / `undefined` / empty array → `null` (= "all cantons").
@@ -216,6 +297,7 @@ export async function createAlert(
     collection,
     addDoc,
     doc,
+    getDoc,
     setDoc,
     query,
     where,
@@ -226,6 +308,23 @@ export async function createAlert(
   } = await import('firebase/firestore');
 
   const normalizedEmail = normalizeEmail(email);
+  const canonicalSpecificCompanyKey = config.specificCompanyKey
+    ? companyAlertKey(config.specificCompanyKey)
+    : null;
+  const idempotencyKey = stableAlertIdempotencyKey(
+    userId,
+    normalizedEmail,
+    config,
+    canonicalSpecificCompanyKey,
+  );
+  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
+  const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
+  const deterministicRef = doc(alertsRef, `intent_${idempotencyKey}`);
+  const deterministicSnap = await getDoc(deterministicRef);
+  const fallback = { userId, email: normalizedEmail, config };
+  if (deterministicSnap.exists() && deterministicSnap.data()?.active !== false) {
+    return alertFromStoredData(deterministicRef.id, deterministicSnap.data() as Record<string, any>, fallback);
+  }
 
   // Enforce per-user limit across all subscriber docs.
   // NOTE: the `orderBy('createdAt', 'desc')` is REQUIRED, not cosmetic — it makes
@@ -244,6 +343,13 @@ export async function createAlert(
     orderBy('createdAt', 'desc'),
   );
   const existing = await getDocs(existingQ);
+  const existingIdempotent = existing.docs.find((d) => {
+    const data = d.data() as { idempotency_key?: string; active?: boolean };
+    return data.idempotency_key === idempotencyKey && data.active !== false;
+  });
+  if (existingIdempotent) {
+    return alertFromStoredData(existingIdempotent.id, existingIdempotent.data() as Record<string, any>, fallback);
+  }
   // Two budgets, counted apart — see MAX_COMPANY_ALERTS_PER_USER. The read is
   // the same one document set either way, so this costs nothing extra.
   const isCompanyPin = Boolean(config.specificCompanyKey);
@@ -260,7 +366,6 @@ export async function createAlert(
   }
 
   // Ensure the parent subscriber doc exists.
-  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
   await setDoc(
     subscriberRef,
     {
@@ -280,8 +385,6 @@ export async function createAlert(
     { merge: true },
   );
 
-  // Write the alert as a subdocument.
-  const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
   const cantonFilter = normalizeCantonFilter(config.cantonFilter);
   const docData = {
     // Denormalized fields needed for collectionGroup queries + security rules.
@@ -307,9 +410,11 @@ export async function createAlert(
     specificJobId: config.specificJobId ?? null,
     // Canonicalised on the ONE write path (#5012) so no caller can persist a
     // raw company name the matcher would never match.
-    specificCompanyKey: config.specificCompanyKey
-      ? companyAlertKey(config.specificCompanyKey)
-      : null,
+    specificCompanyKey: canonicalSpecificCompanyKey,
+    idempotency_key: idempotencyKey,
+    ...(config.consentPurpose ? { consent_purpose: config.consentPurpose } : {}),
+    ...(config.consentAct ? { consent_act: config.consentAct } : {}),
+    ...(config.consentPurpose ? { consent_recorded_at: serverTimestamp() } : {}),
     // Salary expectation prefilled from the calculator (issue #4469).
     minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
     // State.
@@ -318,7 +423,16 @@ export async function createAlert(
     lastMatchedAt: null,
     matchCount: 0,
   };
-  const ref = await addDoc(alertsRef, docData);
+  // A deterministic document closes the double-tab/retry case. If that key
+  // already names a soft-deleted tombstone, create a fresh document instead:
+  // an explicit re-follow is a new transition and must never reactivate the
+  // old one.
+  let ref: { id: string } = deterministicRef;
+  if (deterministicSnap.exists()) {
+    ref = await addDoc(alertsRef, docData);
+  } else {
+    await setDoc(deterministicRef, docData);
+  }
 
   // GA4 user-scoped `is_job_alert_subscriber` custom dimension (analytics
   // Stage 1, revenue-per-user segmentation). Fired on every genuine new
@@ -328,19 +442,7 @@ export async function createAlert(
     Analytics.setUserSegmentFlags({ isJobAlertSubscriber: true });
   }).catch(() => {});
 
-  return {
-    id: ref.id,
-    userId,
-    email: normalizedEmail,
-    ...config,
-    cantonFilter,
-    frequencyOverride: config.frequencyOverride === true,
-    minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
-    active: true,
-    createdAt: new Date(),
-    lastMatchedAt: null,
-    matchCount: 0,
-  };
+  return alertFromStoredData(ref.id, docData, fallback);
 }
 
 /**
@@ -756,6 +858,8 @@ export async function subscribeCompanyAlert(
     locale,
     specificJobId: null,
     specificCompanyKey: key,
+    consentPurpose: 'companyFollow',
+    consentAct: 'company_follow_activation',
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
