@@ -28,6 +28,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -82,19 +83,27 @@ const OUTPUT_RE = new RegExp(
  * dipendenti (46%) — inclusi casi assurdi come `AdBlockGate.test.tsx`, la cui
  * catena è AdBlockGate → NavigationContext → router → jobSlugShards.
  *
- * Conta solo chi LEGGE il file dal filesystem: un fetch di un URL pubblico non
- * ha bisogno che l'assemble sia finito, una readFileSync sì.
+ * L'AST conta solo una chiamata di lettura del filesystem che riceve l'output
+ * (o un binding che lo contiene): un `fetch` di un URL pubblico non ha bisogno
+ * che l'assemble sia finito, una `readFileSync` sì. Un file non analizzabile
+ * resta sconosciuto e quindi conserva il comportamento fail-safe.
  */
-const FS_READ_RE =
-  /\b(readFileSync|readFile|existsSync|statSync|createReadStream|readJson|loadJson|readAllKnownJobSlugs|readOrphanEnriched)\b/;
-
-/** true se il sorgente legge un output dell'assemble dal filesystem. */
-function readsDatasetFromDisk(src) {
-  return OUTPUT_RE.test(src) && FS_READ_RE.test(src);
-}
-
 const TEST_EXTS = ['.test.ts', '.test.tsx', '.spec.ts', '.spec.tsx'];
 const RESOLVE_EXTS = ['', '.ts', '.tsx', '.mjs', '.js', '.mts', '/index.ts', '/index.tsx', '/index.mjs'];
+const DATASET_READ_CALLS = new Set([
+  'readFileSync',
+  'readFile',
+  'existsSync',
+  'statSync',
+  'createReadStream',
+  'readJson',
+  'loadJson',
+]);
+const DATASET_READER_EXPORTS = new Set([
+  'readJobsDataset',
+  'readAllKnownJobSlugs',
+  'readOrphanEnriched',
+]);
 
 /** Tutti i file di test sotto tests/, ricorsivo. */
 function listTestFiles(dir = path.join(ROOT, 'tests'), acc = []) {
@@ -129,7 +138,319 @@ function readSource(file) {
   return src;
 }
 
-const IMPORT_RE = /(?:from\s+|import\s*\(\s*|require\s*\(\s*)['"]([^'"]+)['"]/g;
+const astCache = new Map();
+const fileAnalysisCache = new Map();
+
+function scriptKindFor(file) {
+  if (file.endsWith('.tsx')) return ts.ScriptKind.TSX;
+  if (file.endsWith('.ts') || file.endsWith('.mts')) return ts.ScriptKind.TS;
+  if (file.endsWith('.jsx')) return ts.ScriptKind.JSX;
+  return ts.ScriptKind.JS;
+}
+
+function parseSource(file) {
+  if (astCache.has(file)) return astCache.get(file);
+  let parsed = null;
+  try {
+    if (!fs.statSync(file).isFile()) throw new Error('not a file: ' + file);
+    parsed = ts.createSourceFile(
+      file,
+      readSource(file),
+      ts.ScriptTarget.Latest,
+      true,
+      scriptKindFor(file),
+    );
+    if (parsed.parseDiagnostics.length > 0) parsed = null;
+  } catch {
+    // L'incertezza non è evidenza di indipendenza: il chiamante deve restare
+    // sul ramo required finché il file non è analizzabile.
+    parsed = null;
+  }
+  astCache.set(file, parsed);
+  return parsed;
+}
+
+function isFunctionLike(node) {
+  return ts.isFunctionDeclaration(node)
+    || ts.isFunctionExpression(node)
+    || ts.isArrowFunction(node)
+    || ts.isMethodDeclaration(node)
+    || ts.isGetAccessor(node)
+    || ts.isSetAccessor(node);
+}
+
+// Visita il codice runtime sotto root senza entrare nei callback annidati.
+function visitRuntime(node, visit, root = node) {
+  visit(node);
+  ts.forEachChild(node, (child) => {
+    if (child !== root && isFunctionLike(child)) return;
+    visitRuntime(child, visit, root);
+  });
+}
+
+function visitAll(node, visit) {
+  visit(node);
+  ts.forEachChild(node, (child) => visitAll(child, visit));
+}
+
+function isInsideImportDeclaration(node) {
+  let current = node.parent;
+  while (current) {
+    if (ts.isImportDeclaration(current)) return true;
+    current = current.parent;
+  }
+  return false;
+}
+
+function expressionName(expression) {
+  if (ts.isIdentifier(expression)) return expression.text;
+  if (ts.isPropertyAccessExpression(expression)) return expression.name.text;
+  if (ts.isElementAccessExpression(expression) && ts.isStringLiteral(expression.argumentExpression)) {
+    return expression.argumentExpression.text;
+  }
+  return null;
+}
+
+function outputBindings(sourceFile) {
+  const bindings = new Set();
+  visitAll(sourceFile, (node) => {
+    if (!ts.isVariableDeclaration(node) || !ts.isIdentifier(node.name) || !node.initializer) return;
+    if (OUTPUT_RE.test(node.initializer.getText(sourceFile))) bindings.add(node.name.text);
+  });
+  return bindings;
+}
+
+function importedDatasetCallNames(sourceFile) {
+  const readCallNames = new Set(DATASET_READ_CALLS);
+  const readerNames = new Set(DATASET_READER_EXPORTS);
+  for (const statement of sourceFile.statements) {
+    if (!ts.isImportDeclaration(statement) || !statement.importClause || statement.importClause.isTypeOnly) continue;
+    const named = statement.importClause.namedBindings;
+    if (!named || !ts.isNamedImports(named)) continue;
+    for (const element of named.elements) {
+      if (element.isTypeOnly) continue;
+      const imported = element.propertyName?.text || element.name.text;
+      if (DATASET_READ_CALLS.has(imported)) readCallNames.add(element.name.text);
+      if (DATASET_READER_EXPORTS.has(imported)) readerNames.add(element.name.text);
+    }
+  }
+  return { readCallNames, readerNames };
+}
+
+function callReadsDataset(node, bindings, sourceFile, { readCallNames, readerNames } = {
+  readCallNames: DATASET_READ_CALLS,
+  readerNames: DATASET_READER_EXPORTS,
+}) {
+  if (!ts.isCallExpression(node)) return false;
+  const name = expressionName(node.expression);
+  if (readerNames.has(name)) return true;
+  if (!readCallNames.has(name)) return false;
+  const call = node.getText(sourceFile);
+  return OUTPUT_RE.test(call)
+    || [...bindings].some((binding) => new RegExp('\\b' + binding.replace(/[$]/g, '\\$&') + '\\b').test(call));
+}
+
+function functionName(node, parent, fallback) {
+  if (node.name && ts.isIdentifier(node.name)) return node.name.text;
+  if (parent && ts.isVariableDeclaration(parent) && ts.isIdentifier(parent.name)) return parent.name.text;
+  if (parent && ts.isPropertyAssignment(parent) && ts.isIdentifier(parent.name)) return parent.name.text;
+  return fallback;
+}
+
+function functionInfo(node, name, bindings, sourceFile, datasetCallNames) {
+  const calls = new Set();
+  const usedIdentifiers = new Set();
+  const namespaceProperties = new Map();
+  let direct = false;
+  visitRuntime(node, (child) => {
+    if (callReadsDataset(child, bindings, sourceFile, datasetCallNames)) direct = true;
+    if (ts.isCallExpression(child)) {
+      const called = expressionName(child.expression);
+      if (called) calls.add(called);
+    }
+    if (ts.isIdentifier(child)) usedIdentifiers.add(child.text);
+    if (ts.isPropertyAccessExpression(child)
+      && ts.isIdentifier(child.expression)
+      && ts.isIdentifier(child.name)) {
+      if (!namespaceProperties.has(child.expression.text)) namespaceProperties.set(child.expression.text, new Set());
+      namespaceProperties.get(child.expression.text).add(child.name.text);
+    }
+  });
+  return { node, name, calls, usedIdentifiers, namespaceProperties, direct };
+}
+
+// Estrae solo binding ed effetti necessari a seguire una lettura runtime.
+function analyzeFile(file) {
+  if (fileAnalysisCache.has(file)) return fileAnalysisCache.get(file);
+  const sourceFile = parseSource(file);
+  if (!sourceFile) {
+    const unknown = {
+      unknown: true,
+      imports: [],
+      allImports: [],
+      exports: new Map(),
+      functions: new Map(),
+      topDirect: true,
+      allDirect: true,
+      usedIdentifiers: new Set(),
+      namespaceProperties: new Map(),
+    };
+    fileAnalysisCache.set(file, unknown);
+    return unknown;
+  }
+
+  const bindings = outputBindings(sourceFile);
+  const datasetCallNames = importedDatasetCallNames(sourceFile);
+  const imports = [];
+  const allImports = [];
+  const exports = new Map();
+  const functions = new Map();
+  const registerFunction = (node, parent, fallback) => {
+    const name = functionName(node, parent, fallback);
+    functions.set(name, functionInfo(node, name, bindings, sourceFile, datasetCallNames));
+    return name;
+  };
+
+  for (const statement of sourceFile.statements) {
+    if (ts.isImportDeclaration(statement)) {
+      const spec = ts.isStringLiteral(statement.moduleSpecifier) ? statement.moduleSpecifier.text : null;
+      if (!spec) continue;
+      allImports.push({ spec });
+      const clause = statement.importClause;
+      if (!clause) {
+        imports.push({ spec, side: true });
+        continue;
+      }
+      if (clause.isTypeOnly) continue;
+      if (clause.name) imports.push({ spec, local: clause.name.text, imported: 'default' });
+      if (clause.namedBindings) {
+        if (ts.isNamespaceImport(clause.namedBindings)) {
+          imports.push({ spec, namespace: clause.namedBindings.name.text });
+        } else {
+          for (const element of clause.namedBindings.elements) {
+            if (element.isTypeOnly) continue;
+            imports.push({
+              spec,
+              local: element.name.text,
+              imported: element.propertyName?.text || element.name.text,
+            });
+          }
+        }
+      }
+      continue;
+    }
+
+    if (ts.isFunctionDeclaration(statement)) {
+      const name = registerFunction(statement, sourceFile, '__default_function__');
+      const isExported = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+      if (isExported) {
+        const isDefault = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.DefaultKeyword);
+        exports.set(isDefault ? 'default' : name, { local: name });
+      }
+      continue;
+    }
+
+    if (ts.isVariableStatement(statement)) {
+      const isExported = statement.modifiers?.some((m) => m.kind === ts.SyntaxKind.ExportKeyword);
+      for (const declaration of statement.declarationList.declarations) {
+        if (!ts.isIdentifier(declaration.name) || !declaration.initializer) continue;
+        if (isFunctionLike(declaration.initializer)) {
+          const name = registerFunction(declaration.initializer, declaration, declaration.name.text);
+          if (isExported) exports.set(declaration.name.text, { local: name });
+        } else if (isExported) {
+          exports.set(declaration.name.text, { value: true });
+        }
+      }
+      continue;
+    }
+
+    if (ts.isExportAssignment(statement)) {
+      if (ts.isIdentifier(statement.expression)) {
+        exports.set('default', { local: statement.expression.text });
+      } else if (isFunctionLike(statement.expression)) {
+        const name = registerFunction(statement.expression, statement, '__default_expression__');
+        exports.set('default', { local: name });
+      }
+      continue;
+    }
+
+    if (ts.isExportDeclaration(statement)) {
+      const spec = statement.moduleSpecifier && ts.isStringLiteral(statement.moduleSpecifier)
+        ? statement.moduleSpecifier.text
+        : null;
+      if (spec) allImports.push({ spec });
+      if (!statement.exportClause) {
+        if (spec) exports.set('*', { spec, star: true });
+        continue;
+      }
+      if (!ts.isNamedExports(statement.exportClause)) continue;
+      for (const element of statement.exportClause.elements) {
+        if (element.isTypeOnly) continue;
+        const local = element.propertyName?.text || element.name.text;
+        exports.set(element.name.text, spec
+          ? { spec, imported: local, reexport: true }
+          : { local });
+      }
+    }
+  }
+
+  // Mantieni nel grafo anche gli archi runtime non espressi da un import
+  // statico: il vecchio parser li seguiva con `import()` e `require()`.
+  visitAll(sourceFile, (node) => {
+    if (!ts.isCallExpression(node) || node.arguments.length === 0) return;
+    const isDynamicImport = node.expression.kind === ts.SyntaxKind.ImportKeyword;
+    const isRequire = ts.isIdentifier(node.expression) && node.expression.text === 'require';
+    const argument = node.arguments[0];
+    if ((isDynamicImport || isRequire) && ts.isStringLiteral(argument)) {
+      imports.push({ spec: argument.text, side: true });
+      allImports.push({ spec: argument.text });
+    }
+  });
+
+  let topDirect = false;
+  const usedIdentifiers = new Set();
+  const namespaceProperties = new Map();
+  for (const statement of sourceFile.statements) {
+    if (ts.isImportDeclaration(statement) || isFunctionLike(statement)) continue;
+    visitRuntime(statement, (node) => {
+      if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) topDirect = true;
+      if (ts.isIdentifier(node)) usedIdentifiers.add(node.text);
+      if (ts.isPropertyAccessExpression(node)
+        && ts.isIdentifier(node.expression)
+        && ts.isIdentifier(node.name)) {
+        if (!namespaceProperties.has(node.expression.text)) namespaceProperties.set(node.expression.text, new Set());
+        namespaceProperties.get(node.expression.text).add(node.name.text);
+      }
+    });
+  }
+  let allDirect = false;
+  visitAll(sourceFile, (node) => {
+    if (isInsideImportDeclaration(node)) return;
+    if (callReadsDataset(node, bindings, sourceFile, datasetCallNames)) allDirect = true;
+    if (ts.isIdentifier(node)) usedIdentifiers.add(node.text);
+    if (ts.isPropertyAccessExpression(node)
+      && ts.isIdentifier(node.expression)
+      && ts.isIdentifier(node.name)) {
+      if (!namespaceProperties.has(node.expression.text)) namespaceProperties.set(node.expression.text, new Set());
+      namespaceProperties.get(node.expression.text).add(node.name.text);
+    }
+  });
+
+  const analysis = {
+    unknown: false,
+    sourceFile,
+    imports,
+    allImports,
+    exports,
+    functions,
+    topDirect,
+    allDirect,
+    usedIdentifiers,
+    namespaceProperties,
+  };
+  fileAnalysisCache.set(file, analysis);
+  return analysis;
+}
 
 /** Risolve uno specifier locale (relativo o alias `@/`) a un file reale. */
 function resolveSpecifier(spec, fromFile) {
@@ -159,18 +480,30 @@ function resolveSpecifier(spec, fromFile) {
  * ESPORTATA per `scripts/ci/corpus-wide-tests.mjs`, che deve sapere quali file
  * sorgente un test corpus-wide raggiunge per decidere se il diff di una PR lo
  * rende ancora bloccante. Riscrivere lì la stessa risoluzione (RESOLVE_EXTS +
- * alias `@/` + IMPORT_RE) creerebbe due copie della stessa regola destinate a
- * divergere (AGENTS.md #6), e la divergenza si presenterebbe nel modo peggiore
+ * alias `@/` + parser AST degli import) creerebbe due copie della stessa regola
+ * destinate a divergere (AGENTS.md #6), e la divergenza si presenterebbe nel
+ * modo peggiore
  * possibile: un gate che smette di scattare senza che niente diventi rosso.
  * Nessun cambio di comportamento per i chiamanti esistenti — solo `export`.
  */
 const importsCache = new Map();
+const runtimeImportsCache = new Map();
+
+function runtimeImports(file) {
+  if (runtimeImportsCache.has(file)) return runtimeImportsCache.get(file);
+  const entries = analyzeFile(file).imports.map((entry) => ({
+    ...entry,
+    to: resolveSpecifier(entry.spec, file),
+  }));
+  runtimeImportsCache.set(file, entries);
+  return entries;
+}
 export function localImports(file) {
   const cached = importsCache.get(file);
   if (cached) return cached;
   const out = [];
-  for (const m of readSource(file).matchAll(IMPORT_RE)) {
-    const resolved = resolveSpecifier(m[1], file);
+  for (const entry of analyzeFile(file).allImports) {
+    const resolved = resolveSpecifier(entry.spec, file);
     if (resolved) out.push(resolved);
   }
   importsCache.set(file, out);
@@ -179,6 +512,12 @@ export function localImports(file) {
 
 /**
  * Classificazione a FIXED-POINT, calcolata una volta sola.
+ *
+ * Il fixed-point segue gli effetti runtime, non la semplice presenza di un
+ * nome o di un arco nel grafo: un import type è ignorato, una funzione pura
+ * non eredita la lettura di un'altra export dello stesso modulo e un helper
+ * che chiama davvero un reader resta dipendente. Il ramo sconosciuto resta
+ * conservativo: viene considerato dipendente.
  *
  * Un primo tentativo usava una DFS con memoizzazione dei soli risultati
  * positivi più un set `seen` per spezzare i cicli di import. Non era
@@ -191,41 +530,145 @@ export function localImports(file) {
  * file per strada (copertura persa in silenzio, vedi
  * tests/dataset-test-partition.test.ts).
  *
- * Il fixed-point non ha quel difetto: si parte dai file che leggono davvero il
- * dataset e si propaga all'indietro lungo gli archi di import finché nulla
- * cambia. I cicli convergono naturalmente e l'esito non dipende dall'ordine di
- * visita.
+ * Il fixed-point non ha quel difetto: per ogni test si parte dalle chiamate che
+ * leggono davvero il dataset e si propaga attraverso gli effetti runtime degli
+ * import e delle funzioni esportate finché non resta un percorso da risolvere.
+ * Gli archi type-only e i binding inutilizzati non partecipano; i cicli
+ * convergono naturalmente e l'esito non dipende dall'ordine di visita.
  */
 let taintedCache = null;
+const datasetEffectCache = new Map();
+
+function rememberDatasetEffect(key, result, state) {
+  // Un ciclo può far vedere un falso negativo prima che un altro ramo trovi
+  // il seed. I risultati positivi sono monotoni; una risposta negativa si
+  // memorizza solo quando la visita è aciclica.
+  if (result || !state.cyclic) datasetEffectCache.set(key, result);
+  return result;
+}
+
+function moduleHasTopLevelDatasetRead(file) {
+  const analysis = analyzeFile(file);
+  return analysis.unknown || analysis.topDirect;
+}
+
+function exportReadsDataset(file, name, stack = new Set(), state = { cyclic: false }) {
+  const key = 'export:' + file + ':' + name;
+  if (datasetEffectCache.has(key)) return datasetEffectCache.get(key);
+  if (stack.has(key)) {
+    state.cyclic = true;
+    return false;
+  }
+  const nextStack = new Set(stack).add(key);
+  const analysis = analyzeFile(file);
+  if (analysis.unknown || analysis.topDirect || DATASET_READER_EXPORTS.has(name)) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  const binding = analysis.exports.get(name);
+  if (!binding) {
+    const star = analysis.exports.get('*');
+    if (!star) {
+      return rememberDatasetEffect(key, false, state);
+    }
+    const target = resolveSpecifier(star.spec, file);
+    const result = target ? exportReadsDataset(target, name, nextStack, state) : true;
+    return rememberDatasetEffect(key, result, state);
+  }
+  if (binding.reexport) {
+    const target = resolveSpecifier(binding.spec, file);
+    const result = target
+      ? exportReadsDataset(target, binding.imported, nextStack, state)
+      : true;
+    return rememberDatasetEffect(key, result, state);
+  }
+  const result = binding.local
+    ? functionReadsDataset(file, binding.local, nextStack, state)
+    : false;
+  return rememberDatasetEffect(key, result, state);
+}
+
+function functionReadsDataset(file, name, stack = new Set(), state = { cyclic: false }) {
+  const key = 'function:' + file + ':' + name;
+  if (datasetEffectCache.has(key)) return datasetEffectCache.get(key);
+  if (stack.has(key)) {
+    state.cyclic = true;
+    return false;
+  }
+  const nextStack = new Set(stack).add(key);
+  if (DATASET_READER_EXPORTS.has(name)) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  const analysis = analyzeFile(file);
+  const info = analysis.functions.get(name);
+  if (!info) {
+    // Un export di valore non è una funzione lettore: la sua presenza nel
+    // modulo non basta.
+    return rememberDatasetEffect(key, false, state);
+  }
+  if (info.direct) {
+    datasetEffectCache.set(key, true);
+    return true;
+  }
+  for (const called of info.calls) {
+    if (analysis.functions.has(called)
+      && functionReadsDataset(file, called, nextStack, state)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+  }
+  for (const entry of runtimeImports(file)) {
+    if (!entry.to) continue;
+    const used = entry.namespace
+      ? info.usedIdentifiers.has(entry.namespace)
+      : info.usedIdentifiers.has(entry.local);
+    if (!used) continue;
+    if (moduleHasTopLevelDatasetRead(entry.to)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+    if (entry.namespace) {
+      const properties = info.namespaceProperties.get(entry.namespace) || new Set();
+      if ([...properties].some((property) => exportReadsDataset(entry.to, property, nextStack, state))) {
+        datasetEffectCache.set(key, true);
+        return true;
+      }
+    } else if (exportReadsDataset(entry.to, entry.imported, nextStack, state)) {
+      datasetEffectCache.set(key, true);
+      return true;
+    }
+  }
+  return rememberDatasetEffect(key, false, state);
+}
+
+function testReadsDataset(file) {
+  const analysis = analyzeFile(file);
+  if (analysis.unknown || analysis.allDirect) return true;
+  for (const entry of runtimeImports(file)) {
+    if (!entry.to) continue;
+    const used = entry.side || (entry.namespace
+      ? analysis.usedIdentifiers.has(entry.namespace)
+      : analysis.usedIdentifiers.has(entry.local));
+    if (!used) continue;
+    if (moduleHasTopLevelDatasetRead(entry.to)) return true;
+    if (entry.side) continue;
+    if (entry.namespace) {
+      const properties = analysis.namespaceProperties.get(entry.namespace) || new Set();
+      if ([...properties].some((property) => exportReadsDataset(entry.to, property))) return true;
+    } else if (exportReadsDataset(entry.to, entry.imported)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function taintedFiles() {
   if (taintedCache) return taintedCache;
 
-  // 1. Raccogli tutti i file raggiungibili dai test (chiusura degli import).
-  const all = new Set();
-  const queue = listTestFiles();
-  while (queue.length) {
-    const f = queue.pop();
-    if (all.has(f)) continue;
-    all.add(f);
-    for (const dep of localImports(f)) if (!all.has(dep)) queue.push(dep);
-  }
-
-  // 2. Seed: chi legge un output dell'assemble dal filesystem.
-  const tainted = new Set();
-  for (const f of all) if (readsDatasetFromDisk(readSource(f))) tainted.add(f);
-
-  // 3. Propaga: importare un file tainted rende tainted anche l'importatore.
-  let changed = true;
-  while (changed) {
-    changed = false;
-    for (const f of all) {
-      if (tainted.has(f)) continue;
-      if (localImports(f).some((dep) => tainted.has(dep))) {
-        tainted.add(f);
-        changed = true;
-      }
-    }
-  }
+  // Il fixed-point è sugli effetti runtime; la lista finale contiene solo
+  // test, non ogni modulo intermedio che espone un lettore.
+  const tainted = new Set(listTestFiles().filter(testReadsDataset));
 
   taintedCache = tainted;
   return tainted;

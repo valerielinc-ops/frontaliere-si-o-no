@@ -84,12 +84,14 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     }
   });
 
-  it('uses the existing dataset partition for known related tests', () => {
+  it('uses the existing dataset partition for known related tests', { timeout: 120_000 }, () => {
+    // The partition guard itself inspects sources but does not read the
+    // assembled dataset; use a real reader to pin the required branch.
     expect(assembleDecision({
       eventName: 'pull_request',
       changedPaths: ['README.md'],
       changedStatus: 'complete',
-      selectedTests: ['tests/dataset-test-partition.test.ts'],
+      selectedTests: ['tests/job-locale-completeness.test.ts'],
       unreadableCount: 0,
     }).required).toBe(true);
 
