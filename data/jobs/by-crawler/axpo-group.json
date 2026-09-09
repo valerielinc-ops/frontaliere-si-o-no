@@ -559,7 +559,7 @@
       },
       "slugByLocale": {
         "it": "contabile-energiehandel-w-m-d-axpo-group-baden",
-        "en": "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561",
+        "en": "accountant-energy-trading-m-f-d-axpo-group-baden",
         "de": "accountant-energiehandel-w-m-d-axpo-group-baden",
         "fr": "comptable-energiehandel-w-m-d-axpo-group-baden"
       },
@@ -586,6 +586,9 @@
           "accountant-m-d-axpo-group-baden"
         ],
         "fr": [
+          "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561"
+        ],
+        "en": [
           "accountant-energiehandel-w-m-d-27429b83-f073-42ac-9851-ca46618eb561"
         ]
       },
@@ -1381,19 +1384,26 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-interne-logistik-zutrittsservice-m-w-d-axpo-group-baden",
-        "en": "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden",
+        "en": "employees-internal-logistics-access-service-m-f-d-axpo-group-baden",
         "de": "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden",
-        "fr": "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden"
+        "fr": "employes-service-de-logistique-interne-et-d-acces-h-f-d-axpo-group-baden"
       },
       "crawledAt": "2026-09-08T23:25:42.122Z",
       "id": "axpo-group-db1e0bbf8288",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-interne-logistik-amp-zutrittsservice-w-m-d-0b937db7-fd10-4c96-97d7-01ad2d9056b7"
+        ],
+        "en": [
+          "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden"
+        ],
+        "fr": [
+          "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-interne-logistik-amp-zutrittsservice-w-m-d-0b937db7-fd10-4c96-97d7-01ad2d9056b7"
+        "mitarbeiter-in-interne-logistik-amp-zutrittsservice-w-m-d-0b937db7-fd10-4c96-97d7-01ad2d9056b7",
+        "mitarbeiter-in-interne-logistik-zutrittsservice-w-m-d-axpo-group-baden"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -3007,8 +3017,7 @@
       "firstSeenAt": "2026-08-14T21:39:09.999Z",
       "previousSlugsByLocale": {
         "fr": [
-          "powerhour-du-stage-ckw-ckw-emmen",
-          "traineeship-powerhour-ckw-ckw-emmen"
+          "powerhour-du-stage-ckw-ckw-emmen"
         ],
         "it": [
           "traineeship-powerhour-ckw-9371d4bd-e262-4dc1-ac02-133e6381aa9c"

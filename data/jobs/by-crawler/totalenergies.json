@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdd-tgi-comptable-polyvalent-totalenergies-geneve",
-        "cdd-tgi-contabile-polivalente-totalenergies-geneve"
+        "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdd-tgi-comptable-polyvalent-totalenergies-geneve",
-          "cdd-tgi-contabile-polivalente-totalenergies-geneve"
+          "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
         ],
         "en": [
           "cdd-tgi-comptable-polyvalent-totalenergies-geneve"
@@ -136,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tech-lead-advanced-analytics-totalenergies-geneve",
-        "tech-lead-analisi-avanzata-totalenergies-geneve"
+        "tech-lead-advanced-analytics-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tech-lead-advanced-analytics-totalenergies-geneve",
-          "tech-lead-analisi-avanzata-totalenergies-geneve"
+          "tech-lead-advanced-analytics-totalenergies-geneve"
         ],
         "fr": [
           "tech-lead-advanced-analytics-totalenergies-geneve"
@@ -171,7 +167,7 @@
         "it": "corporate-compliance-officer-totalenergies-geneve",
         "en": "corporate-compliance-officer-totalenergies-geneve",
         "de": "corporate-compliance-officer-totalenergies-geneve",
-        "fr": "corporate-compliance-officer-totalenergies-geneve"
+        "fr": "agent-de-conformite-de-l-organisation-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -216,13 +212,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fonctionnaire-charge-de-la-conformite-totalenergies-geneve",
-        "agent-de-conformite-de-l-organisation-totalenergies-geneve"
+        "fonctionnaire-charge-de-la-conformite-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "fonctionnaire-charge-de-la-conformite-totalenergies-geneve",
-          "agent-de-conformite-de-l-organisation-totalenergies-geneve"
+          "fonctionnaire-charge-de-la-conformite-totalenergies-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -245,9 +239,9 @@
       "id": "totalenergies-e254c5d86a0e",
       "slug": "operatore-commerciale-totalenergies-geneve",
       "slugByLocale": {
-        "it": "operatore-commerciale-totalenergies-geneve",
         "en": "trading-operator-totalenergies-geneve",
-        "de": "trading-operator-totalenergies-geneve",
+        "it": "operatore-commerciale-totalenergies-geneve",
+        "de": "handelsunternehmen-totalenergies-geneve",
         "fr": "trading-operateur-totalenergies-geneve"
       },
       "company": "TotalEnergies",
@@ -298,7 +292,7 @@
           "operatore-commerciale-totalenergies-geneve"
         ],
         "de": [
-          "handelsunternehmen-totalenergies-geneve"
+          "trading-operator-totalenergies-geneve"
         ]
       },
       "previousSlugs": [
@@ -439,13 +433,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
-        "apprendimento-della-macchina-per-l-internamento-di-stima-del-patrimonio-eolico-e-solare-totalenergies-geneve"
+        "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
-          "apprendimento-della-macchina-per-l-internamento-di-stima-del-patrimonio-eolico-e-solare-totalenergies-geneve"
+          "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
         ],
         "fr": [
           "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve"
@@ -519,13 +511,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "structured-origination-finance-junior-analyst-intern-totalenergies-geneve",
-        "structured-origination-finanza-junior-analista-tirocinante-totalenergies-geneve"
+        "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "structured-origination-finance-junior-analyst-intern-totalenergies-geneve",
-          "structured-origination-finanza-junior-analista-tirocinante-totalenergies-geneve"
+          "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
         ],
         "de": [
           "structured-origination-finance-junior-analyst-intern-totalenergies-geneve"
@@ -681,20 +671,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrative-assistant-fixed-term-contract-totalenergies-geneve",
-        "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve"
+        "administrative-assistant-fixed-term-contract-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrative-assistant-fixed-term-contract-totalenergies-geneve",
-          "assistente-amministrativo-contratto-a-termine-fisso-totalenergies-geneve"
+          "administrative-assistant-fixed-term-contract-totalenergies-geneve"
         ],
         "fr": [
           "administrative-assistant-fixed-term-contract-totalenergies-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:09:17.503Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -761,13 +749,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-analyst-finance-shared-services-totalenergies-geneve",
-        "business-analista-finanza-shared-services-totalenergies-geneve"
+        "business-analyst-finance-shared-services-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analyst-finance-shared-services-totalenergies-geneve",
-          "business-analista-finanza-shared-services-totalenergies-geneve"
+          "business-analyst-finance-shared-services-totalenergies-geneve"
         ]
       },
       "firstSeenAt": "2026-07-04T12:38:28.341Z",
