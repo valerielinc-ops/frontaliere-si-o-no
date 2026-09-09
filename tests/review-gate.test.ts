@@ -3,6 +3,7 @@ import {
   classifyReview,
   followupIssueBody,
   followupItemsFromBody,
+  extractFileCitations,
   historicalImportantFindings,
   importantFindings,
   runReviewGate,
@@ -412,5 +413,45 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       approved: true,
       reviewCommit: PRIOR_SHA,
     });
+  });
+});
+
+describe('review gate: citazioni e conferme', () => {
+  const bot = (body: string) => ({ user: { type: 'Bot', login: 'claude[bot]' }, body, commit_id: 'c'.repeat(40) });
+
+  it('non tronca le estensioni piu lunghe di un prefisso valido', () => {
+    // `ts` viene prima di `tsx` nell'alternanza: senza il lookahead il path
+    // citato diventava un file che non esiste, e un path non risolvibile e'
+    // bloccante per progetto.
+    expect(extractFileCitations('`components/pages/Foo.tsx:L107`')).toEqual([
+      { path: 'components/pages/Foo.tsx', line: 107 },
+    ]);
+    expect(extractFileCitations('`cfg/app.json`')).toEqual([{ path: 'cfg/app.json', line: null }]);
+    expect(extractFileCitations('`x/Bar.jsx:L3`')).toEqual([{ path: 'x/Bar.jsx', line: 3 }]);
+    // le estensioni corte restano intatte
+    expect(extractFileCitations('`y/z.ts:L9`')).toEqual([{ path: 'y/z.ts', line: 9 }]);
+    expect(extractFileCitations('`w/v.mjs`')).toEqual([{ path: 'w/v.mjs', line: null }]);
+  });
+
+  it('una conferma col path completo chiude un finding che citava il nome nudo', () => {
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`helper.mjs:L7`: 🔴 Important: rotto.\n');
+    const confirmed = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L7`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
+  it('NON chiude un finding diverso sullo stesso file a un altra riga', () => {
+    // Il caso negativo: la riga resta un uguaglianza esatta, altrimenti una
+    // conferma su un difetto chiuderebbe anche il difetto accanto.
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`scripts/lib/helper.mjs:L7`: 🔴 Important: rotto.\n');
+    const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `scripts/lib/helper.mjs:L99`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
+  });
+
+  it('NON chiude un finding se la conferma cita un file omonimo in un altra cartella', () => {
+    // NB: non usare `a/` e `b/` come cartelle — sono i prefissi di diff che
+    // normalizePath rimuove per progetto, quindi collasserebbero sullo stesso path.
+    const opened = bot('## Findings (Important: 1, Nit: 0)\n\n`src/dup.mjs:L4`: 🔴 Important: rotto.\n');
+    const other = bot('## Findings (Important: 0, Nit: 0)\n\nFix di `lib/dup.mjs:L4`: ok.\n\n## LGTM');
+    expect(historicalImportantFindings([opened, other], { includeLatest: true })).toHaveLength(1);
   });
 });

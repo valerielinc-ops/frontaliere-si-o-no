@@ -27,7 +27,13 @@ const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
-const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+// L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
+// `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
+// path che non esiste (`Foo.tsx:L107` -> `Foo.ts`). Un path non risolvibile e'
+// bloccante per progetto, quindi il refuso teneva aperto per sempre un finding
+// gia' confermato risolto. Il lookahead impone che l'estensione finisca davvero
+// li', e rende l'ordine delle alternative irrilevante.
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9]))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
  * Normalize a review citation without turning an unsafe/ambiguous path into a
@@ -427,9 +433,20 @@ function fixConfirmations(body) {
   return confirmations;
 }
 
+// Una conferma aggancia una citazione quando denotano lo stesso file e la riga
+// coincide in modo stretto. Il path puo' differire in specificita' — una review
+// cita spesso il nome nudo (`foo.js`) e la conferma il path completo
+// (`dir/foo.js`) — e quello e' lo stesso suffix-matching che `resolveCitedPath`
+// usa gia'. La RIGA invece resta un'uguaglianza esatta, entrambe presenti o
+// entrambe assenti: senza quel vincolo una conferma su un file chiuderebbe
+// anche un finding DIVERSO sullo stesso file a un'altra riga, che e' proprio la
+// scorciatoia che questo gate esiste per impedire.
 function citationConfirmed(citation, confirmations) {
   return confirmations.some((confirmation) => confirmation.citations.some((candidate) =>
-    candidate.line === citation.line && candidate.path === citation.path,
+    candidate.line === citation.line
+    && (candidate.path === citation.path
+      || suffixMatches(candidate.path, citation.path)
+      || suffixMatches(citation.path, candidate.path)),
   ));
 }
 
