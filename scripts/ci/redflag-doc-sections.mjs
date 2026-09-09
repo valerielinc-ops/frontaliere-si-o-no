@@ -99,7 +99,7 @@ export function extractSectionByHeading(markdown, heading) {
 }
 
 /**
- * Build the document fragment embedded in redflag-bundle.md.
+ * Build the document fragment injected into an automated fixer's prompt.
  *
  * @param {{ read?: (file: string) => string }} [options]
  * @returns {string}
