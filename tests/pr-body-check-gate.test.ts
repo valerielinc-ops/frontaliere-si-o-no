@@ -21,6 +21,8 @@ import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
 const ROOT = resolve(import.meta.dirname, '..');
 const GATE = resolve(ROOT, 'scripts/ci/pr-body-check-gate.mjs');
 const SHIM = resolve(ROOT, 'scripts/gh-pr-body-check.mjs');
+const RUN_MUTATION_GATE = resolve(ROOT, 'scripts/ci/run-mutation-gate.mjs');
+const BODY_WRITE_GATE = resolve(ROOT, 'scripts/ci/pr-body-write-gate.mjs');
 
 const BOTH_HEADERS = '## Implementato\n\nfoo\n\n## Non implementato (ancora)\n\nNessuno';
 const MISSING_NON = '## Implementato\n\nfoo bar baz';
@@ -30,6 +32,20 @@ const MISSING_BOTH = '## Summary\n\nfoo\n\n## Test plan\n\nbar';
 function runGate(command: string, extraPayload: Record<string, unknown> = {}) {
   const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
   return spawnSync('node', [GATE], { input: payload, encoding: 'utf8' });
+}
+
+function runReviewGate(
+  gate: string,
+  command: string,
+  env: Record<string, string> = {},
+  extraPayload: Record<string, unknown> = {},
+) {
+  const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
+  return spawnSync(process.execPath, [gate], {
+    input: payload,
+    encoding: 'utf8',
+    env: { ...process.env, ...env },
+  });
 }
 
 describe('extractPrBody', () => {
@@ -332,6 +348,107 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
     const cmd = 'gh pr create --title "x" --body-file body.md';
     const res = runGate(cmd); // no cwd in payload
+    expect(res.status).toBe(0);
+  });
+});
+
+describe('B22 review-efficiency gates — process invariants', () => {
+  const createdDirs: string[] = [];
+
+  afterEach(() => {
+    while (createdDirs.length) rmSync(createdDirs.pop()!, { recursive: true, force: true });
+  });
+
+  function stateDir() {
+    const dir = mkdtempSync(join(tmpdir(), 'b22-hook-state-'));
+    createdDirs.push(dir);
+    return dir;
+  }
+
+  it('blocks `gh run rerun` without an explicit authorization reason', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toContain('384.354');
+    expect(res.stderr).toMatch(/log|verde/i);
+    expect(res.stderr).toContain('FRONTALIERE_RUN_MUTATION_REASON');
+  });
+
+  it('allows one authorized run mutation, then blocks above the per-run cap', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    };
+    const first = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123', env);
+    const second = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123', env);
+
+    expect(first.status).toBe(0);
+    expect(second.status).toBe(EXIT_BLOCK);
+    expect(second.stderr).toMatch(/tetto|cap/i);
+  });
+
+  it.each([
+    ['quoted data', `printf '%s' 'gh run rerun 123'`],
+    ['heredoc data', "cat <<'EOF'\ngh run rerun 123\nEOF"],
+    ['comment data', "# gh run rerun 123\nprintf '%s' ok"],
+  ])('passes when rerun words are %s, not an executed command', (_label, command) => {
+    const res = runReviewGate(RUN_MUTATION_GATE, command);
+    expect(res.status).toBe(0);
+  });
+
+  it('passes when mutation state is unreadable (fail-safe)', () => {
+    const parent = mkdtempSync(join(tmpdir(), 'b22-hook-state-error-'));
+    createdDirs.push(parent);
+    const statePath = join(parent, 'state-file');
+    writeFileSync(statePath, 'not a directory', 'utf8');
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run cancel 456', {
+      FRONTALIERE_HOOK_STATE_DIR: statePath,
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    });
+    expect(res.status).toBe(0);
+  });
+
+  it('allows the first body write for a PR and blocks the second', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const command = 'gh pr edit 8076 --body-file /tmp/body.md';
+    const first = runReviewGate(BODY_WRITE_GATE, command, env);
+    const second = runReviewGate(BODY_WRITE_GATE, command, env);
+
+    expect(first.status).toBe(0);
+    expect(second.status).toBe(EXIT_BLOCK);
+    expect(second.stderr).toMatch(/seconda|second|riscrittura/i);
+    expect(second.stderr).toContain('FRONTALIERE_ALLOW_PR_BODY_REWRITE_REASON');
+  });
+
+  it('allows an explicitly authorized body correction after the first write', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const command = 'gh pr edit 8076 --body-file /tmp/body.md';
+    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(0);
+    const override = runReviewGate(BODY_WRITE_GATE, command, {
+      ...env,
+      FRONTALIERE_ALLOW_PR_BODY_REWRITE_REASON: 'correzione richiesta dal gate del body',
+    });
+
+    expect(override.status).toBe(0);
+    expect(override.stderr).toContain('correzione richiesta dal gate del body');
+  });
+
+  it('keeps body state separate per PR and ignores non-body edits', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --add-label needs-human', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8077 --body "first"', env).status).toBe(0);
+  });
+
+  it('passes on an unparseable command instead of blocking it', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run "rerun 123');
+    expect(res.status).toBe(0);
+  });
+
+  it('passes when the hook payload itself is malformed', () => {
+    const res = spawnSync(process.execPath, [RUN_MUTATION_GATE], {
+      input: 'not-json: gh run rerun 123',
+      encoding: 'utf8',
+    });
     expect(res.status).toBe(0);
   });
 });
