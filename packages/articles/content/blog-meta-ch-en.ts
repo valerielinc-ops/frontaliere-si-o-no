@@ -6235,6 +6235,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opportunita-lavoro-seco.title': 'Working at SECO: apprenticeship and internship opportunities',
     'blog.article.opportunita-lavoro-seco.excerpt': 'SECO, a federal agency with over 900 employees, offers AFC apprenticeships, SMC internships and university internships. Discover the profiles you are looking for and how to apply.',
     'blog.article.opportunita-lavoro-seco.imageAlt': 'Modern workspace in a Swiss federal administration office with employees collaborating in bright contemporary offices',
+    'blog.article.svitto-guida-aprire-impresa-costi.title': 'How to open a business in Svitto: cost guide',
+    'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Registration in the trade register, legal forms, minimum capital and insurance obligations: everything you need to start a business in the canton of Schwyz.',
+    'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Swiss entrepreneur reviewing business registration documents with calculator on desk in modern office.',
 };
 
 export default blogMetaChEn;
