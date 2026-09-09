@@ -37,7 +37,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import type { JobBoardLocale } from './jobBoardSeo';
+import type { JobBoardLocale } from './jobBoardSeoPure';
 import {
   SECTOR_HUB_DISPLAY,
   buildSectorHubPath,

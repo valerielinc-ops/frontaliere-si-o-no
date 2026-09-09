@@ -50,7 +50,7 @@ import {
 } from './shared/jobCardHtml';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import type { JobBoardLocale } from './jobBoardSeo';
+import type { JobBoardLocale } from './jobBoardSeoPure';
 import {
   SECTOR_HUB_KEYS,
   SECTOR_HUB_SLUG,

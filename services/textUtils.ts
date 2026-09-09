@@ -46,7 +46,14 @@ export function buildStemmedHaystack(text: string): string {
 
 /**
  * Stop words for keyword extraction.
- * Duplicated from newsletter-content.mjs:163 (Node-only .mjs, not importable by browser TS).
+ * Stesso insieme di `SLUG_STOP_WORDS` in services/newsletter-content-core.mjs,
+ * dove filtra i token di uno slug azienda. La copia nasceva da un vincolo che
+ * dal 2026-09-09 non esiste piu' — quel modulo era `.mjs` con `import fs from
+ * 'node:fs'`, quindi non importabile dal browser; #8125 ne ha scorporato la
+ * parte pura, che ora la SPA importa. Le due liste restano separate di
+ * proposito: unificarle accoppierebbe l'estrazione di keyword dell'app al
+ * matching degli slug della newsletter, cosi' un tuning dell'una cambierebbe in
+ * silenzio l'altra.
  */
 const STOP_WORDS = new Set([
  // IT connectives

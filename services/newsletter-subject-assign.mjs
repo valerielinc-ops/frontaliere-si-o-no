@@ -3,7 +3,7 @@
  *
  * Split out of newsletter-subject-variants.mjs because it is the ONLY part that
  * needs `node:crypto`. The variants module is reachable from the SPA client
- * bundle (services/newsletterPreview.ts → services/newsletter-content.mjs →
+ * bundle (services/newsletterPreview.ts → services/newsletter-content-core.mjs →
  * getVariantStyleDirective), and a static `node:crypto` import there makes the
  * whole client build fail hard ("createHash is not exported by
  * __vite-browser-external"). Keeping the hash here — imported only by the send /

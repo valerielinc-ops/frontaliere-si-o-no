@@ -22,8 +22,10 @@
  */
 
 // NOTE: this module is browser-safe by construction — it is reachable from the
-// SPA client bundle (services/newsletterPreview.ts → services/newsletter-content.mjs
-// → getVariantStyleDirective). It must therefore NOT import any `node:` builtin.
+// SPA client bundle (services/newsletterPreview.ts →
+// services/newsletter-content-core.mjs → getVariantStyleDirective; il core e' la
+// parte priva di dipendenze Node scorporata in #8125). It must therefore NOT
+// import any `node:` builtin.
 // The lone crypto-dependent helper (`assignSubjectVariant`, server-only: send +
 // A/B report) lives in ./newsletter-subject-assign.mjs so `node:crypto` never
 // leaks into the SPA graph (a static `node:crypto` import here makes rollup fail

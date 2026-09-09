@@ -12,7 +12,7 @@
  * clean URL to resolve GSC cannibalization.
  */
 
-import type { JobBoardLocale } from './jobBoardSeo';
+import type { JobBoardLocale } from './jobBoardSeoPure';
 import { buildCityHubTitle } from '../services/seo/job-board-titles';
 import { buildCityHubMeta } from '../services/seo/meta-descriptions';
 import { getCantonCities, normalizeCitySlug, getCityCanton } from './shared/cantonCities';
