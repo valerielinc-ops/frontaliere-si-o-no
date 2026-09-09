@@ -8528,6 +8528,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sector: selectedJob.sector,
  category: selectedJob.category,
  url: selectedJob.url,
+ applyUrl: selectedJob.applyUrl,
  };
  const faqIsRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
  `${selectedJobTitle} ${detailDescription} ${selectedJob.location || ''}`

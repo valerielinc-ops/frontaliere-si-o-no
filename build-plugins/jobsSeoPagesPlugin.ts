@@ -3244,6 +3244,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  sector: job.category,
  category: job.category,
  url: job.url,
+ applyUrl: job.applyUrl,
  isRemote,
  };
  const canonicalSchema = buildJobPostingSchema(canonicalJobInput, {
