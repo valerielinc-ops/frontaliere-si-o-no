@@ -4631,19 +4631,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (companyHubEmployerKey) return { employerKey: companyHubEmployerKey };
   return null;
  }, [selectedJob, companyHubEmployerKey]);
+ const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;
  const pageViewTrackedKey = useRef<string | null>(null);
 
  // The central route tracker deliberately defers job-detail/company-hub
  // page_views to this point, where the existing alias/locale/company resolver
  // has produced a canonical identity.
  useEffect(() => {
-  if (!pageViewIdentity || typeof window === 'undefined') return;
-  const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (!pageViewIdentity || !pageViewPath) return;
+  const path = pageViewPath;
   const key = `${path}|${pageViewIdentity.jobSlug || ''}|${pageViewIdentity.employerKey || ''}`;
   if (pageViewTrackedKey.current === key) return;
   pageViewTrackedKey.current = key;
   Analytics.trackPageView(path, undefined, pageViewIdentity);
- }, [pageViewIdentity]);
+ }, [pageViewIdentity, pageViewPath]);
 
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being

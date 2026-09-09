@@ -67,6 +67,10 @@ describe('GA4 page_view employer attribution', () => {
     expect(jobBoardSource).toMatch(
       /companyRouteSlugCandidates\(job\.company, job\.companyKey\)/,
     );
+    expect(jobBoardSource).toContain(
+      "const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;",
+    );
+    expect(jobBoardSource).toContain('}, [pageViewIdentity, pageViewPath]);');
     expect(uiStateSource).toMatch(
       /if \(!deferAttributionPageView\(initialPath\)\) Analytics\.trackPageView\(initialPath\)/,
     );
