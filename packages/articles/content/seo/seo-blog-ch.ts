@@ -80906,6 +80906,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-opportunita-lavoro-seco': {
+    title: 'Lavorare alla SECO: opportunità di apprendistato e stage',
+    description: 'La SECO offre apprendistati AFC, tirocini SMC e stage universitari. Scopri i profili ricercati, l\'ambiente di lavoro e come candidarsi all\'agenzia federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, alla, seco, opportunità',
+    ogTitle: 'Lavorare alla SECO: opportunità di apprendistato e stage',
+    ogDescription: 'La SECO con 900+ dipendenti offre apprendistati AFC per commercio, business digitale e IT, tirocini SMC e stage universitari in ambienti stimolanti. Scopri come candidarsi e qual è il ruolo strategico di questa agenzia federale nella politica',
+    canonicalPath: '/articoli-svizzera/opportunita-lavoro-seco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare alla SECO: opportunità di apprendistato e stage",
+      "description": "La SECO offre apprendistati AFC, tirocini SMC e stage universitari. Scopri i profili ricercati, l'ambiente di lavoro e come candidarsi all'agenzia federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/opportunita-lavoro-seco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro moderno presso una sede amministrativa federale svizzera con persone che collaborano in uffici luminosi"
+      },
+      "datePublished": "2026-09-09T21:16:43+00:00",
+      "dateModified": "2026-09-09T21:16:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/opportunita-lavoro-seco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

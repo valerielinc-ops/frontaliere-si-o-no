@@ -6232,6 +6232,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, piattaforma UBS per educazione finanziaria',
     'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS lancia YUMO, piattaforma gratuita per insegnare ai giovani come gestire denaro, risparmi e investimenti. Disponibile in 4 lingue in Svizzera.',
     'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Giovani che imparano finanza ed economia su una piattaforma digitale in Svizzera',
+    'blog.article.opportunita-lavoro-seco.title': 'Lavorare alla SECO: opportunità di apprendistato e stage',
+    'blog.article.opportunita-lavoro-seco.excerpt': 'La SECO, agenzia federale con oltre 900 dipendenti, offre apprendistati AFC, tirocini SMC e stage universitari. Scopri i profili ricercati e come candidarsi.',
+    'blog.article.opportunita-lavoro-seco.imageAlt': 'Ambiente di lavoro moderno presso una sede amministrativa federale svizzera con persone che collaborano in uffici luminosi',
 };
 
 export default blogMetaChIt;

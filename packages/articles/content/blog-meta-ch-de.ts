@@ -6232,6 +6232,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, UBS-Plattform für Finanzbildung',
     'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS lanciert YUMO, eine kostenlose Plattform, um jungen Menschen den Umgang mit Geld, Ersparnissen und Investitionen beizubringen. Erhältlich in 4 Sprachen in der Schweiz.',
     'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Junge Menschen lernen Finanzen und Wirtschaft auf einer digitalen Plattform in der Schweiz',
+    'blog.article.opportunita-lavoro-seco.title': 'Arbeiten beim SECO: Lehrstellen und Praktika',
+    'blog.article.opportunita-lavoro-seco.excerpt': 'Das SECO, eine Bundesagentur mit über 900 Mitarbeitenden, bietet EFZ-Lehrstellen, SMC-Praktika und Hochschulpraktika an. Entdecken Sie die gesuchten Profile und wie Sie sich bewerben können.',
+    'blog.article.opportunita-lavoro-seco.imageAlt': 'Moderner Arbeitsplatz in einem Schweizer Bundesamt mit Mitarbeitern, die in hellen, zeitgenössischen Büros zusammenarbeiten',
 };
 
 export default blogMetaChDe;
