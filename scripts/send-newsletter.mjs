@@ -51,6 +51,7 @@ import {
   readJobEmailRankingConfig,
   stableJobId,
 } from '../functions/src/lib/jobEmailRanking.js';
+import { NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
   loadNewsletterRankingStats,
   recordJobEmailImpressions,
@@ -138,7 +139,7 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
   || process.env.RUN_ID
   || `${process.pid}_${Date.now()}`;
 
-export const NEWSLETTER_JOB_LIMIT = 4;
+export { NEWSLETTER_JOB_LIMIT };
 
 export function getNewsletterCandidateLimit(rankingVariant) {
   return rankingVariant === 'treatment' ? 12 : NEWSLETTER_JOB_LIMIT;

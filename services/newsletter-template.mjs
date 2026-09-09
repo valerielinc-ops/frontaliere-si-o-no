@@ -24,7 +24,11 @@ import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIde
 // modulo raggiungibile di li' e' un errore fatale di rollup, non un warning.
 // `stableJobId` qui copre il ramo diretto (id/slug dalla fonte); il fallback su
 // hash serve crypto e lo passa il chiamante Node in `data.rankingStableJobId`.
-import { appendJobRankingParams, stableJobId } from '../functions/src/lib/jobEmailRankingLinks.js';
+import {
+  appendJobRankingParams,
+  NEWSLETTER_JOB_LIMIT,
+  stableJobId,
+} from '../functions/src/lib/jobEmailRankingLinks.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
@@ -504,7 +508,7 @@ function renderDivider() {
 function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
   if (!matchedJobs || matchedJobs.length === 0) return '';
   const jobCount = totalJobs || matchedJobs.length;
-  const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
+  const jobCards = matchedJobs.slice(0, NEWSLETTER_JOB_LIMIT).map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
     // NonEmpty: this is the card's only label — a `''` refusal (#5452, a job
     // title whose first token alone passes 55 chars, e.g. a German compound)
