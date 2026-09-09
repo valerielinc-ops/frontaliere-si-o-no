@@ -11619,6 +11619,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mesenzana-lavorare-ticino.title': 'Vivre à Mesenzana et travailler au Tessin',
     'blog.article.mesenzana-lavorare-ticino.excerpt': 'Découvrez comment vivre à Mesenzana et travailler au Tessin en tant que frontalier : permis, fiscalité, transports, coût de la vie et procédures. Guide pratique.',
     'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Vue du passage frontalier de Brogeda entre la Suisse et l\'Italie avec les montagnes des Alpes en arrière-plan',
+    'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, le retard sur les réformes : l\'alarme d\'Economiesuisse',
+    'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, président sortant Economiesuisse, critique le gouvernement : discussion sur l\'âge de départ à la retraite reporté, risques pour la durabilité du système.',
+    'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professionnel examine des documents de retraite avec vue sur la région frontalière Tessin-Suisse',
 };
 
 export default blogMetaFr;

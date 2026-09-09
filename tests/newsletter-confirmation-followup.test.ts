@@ -910,8 +910,16 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
     setDocMock.mockClear();
     addDocMock.mockClear();
     getDocMock.mockReset();
-    vi.stubGlobal('window', { location: { pathname: '/', href: 'https://frontaliereticino.ch/' } });
-    fetchMock = vi.fn(async () => ({ json: async () => ({ success: true }) }));
+    const localStore = new Map<string, string>();
+    vi.stubGlobal('window', {
+      location: { pathname: '/', href: 'https://frontaliereticino.ch/' },
+      localStorage: {
+        getItem: (key: string) => localStore.get(key) ?? null,
+        setItem: (key: string, value: string) => { localStore.set(key, value); },
+        removeItem: (key: string) => { localStore.delete(key); },
+      },
+    });
+    fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({ success: true }) }));
     vi.stubGlobal('fetch', fetchMock);
   });
 
@@ -932,6 +940,95 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
       expect(merged().confirmation_attempts).toBe(0);
       expect(merged().confirmation_cycle_started_at).toBe('__server_timestamp__');
     });
+  });
+
+  it('company follow records its own purpose without broadening newsletter preferences or PII proof', async () => {
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
+    vi.stubGlobal('navigator', { userAgent: 'controlled-test-user-agent' });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'follow@example.com',
+      source: 'company_follow_button',
+      sourceChannel: 'company_follow_button',
+      sourcePage: '/lavoro/azienda/',
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+      consentText: 'formula di prova',
+      consentUserAgent: 'controlled-test-user-agent',
+      consentGiven: false,
+      consentAct: 'email_submit',
+    });
+
+    const data = merged();
+    expect(data.preferences).toMatchObject({
+      exchangeRate: false,
+      traffic: false,
+      taxUpdates: false,
+      tips: false,
+    });
+    expect(data.interests).not.toEqual(expect.arrayContaining(['exchangeRate', 'traffic', 'taxUpdates']));
+    expect(data.consent_purpose).toBe('companyFollow');
+    expect(data.company_follow_only).toBe(true);
+    expect(data.consent_given).toBe(false);
+    expect(data.consent_source_url).toBeNull();
+    expect(data.consent_user_agent).toBeNull();
+    expect(data.consent_ip).toBeNull();
+  });
+
+  it('does not invent newsletter defaults when an existing subscriber has no preference record', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'existing@example.com',
+        status: 'confirmed',
+        isActive: true,
+        consent_text: 'formula newsletter preesistente',
+        consent_purpose: 'communications',
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'existing@example.com',
+      source: 'company_follow_button',
+      sourceChannel: 'company_follow_button',
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+      consentText: 'formula di prova',
+    });
+
+    const data = merged();
+    expect(data.preferences).toMatchObject({
+      exchangeRate: false,
+      traffic: false,
+      taxUpdates: false,
+      tips: false,
+    });
+    expect(Object.values(data.preferences).every((value) => value === false)).toBe(true);
+    expect(data.consent_purpose).toBe('communications');
+  });
+
+  it('repairs legacy company-only preferences instead of carrying broad opt-ins forward', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'legacy-follow@example.com',
+        status: 'pending',
+        company_follow_only: true,
+        preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: true },
+        consent_text: 'formula di prova',
+        consent_purpose: 'companyFollow',
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'legacy-follow@example.com',
+      source: 'company_follow_button',
+      sourceChannel: 'company_follow_button',
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: true },
+      consentText: 'formula di prova',
+    });
+
+    const data = merged();
+    expect(Object.values(data.preferences).every((value) => value === false)).toBe(true);
+    expect(data.company_follow_only).toBe(true);
   });
 
   it('a signup on an EXPIRED document restarts the cycle instead of inheriting its cap', async () => {
@@ -990,11 +1087,22 @@ describe('the write that starts a cycle, and the one that stops asking', () => {
 
     expect(result.status).toBe('pending');
     expect(result.existed).toBe(true);
-    // `requestConfirmationEmail` is fired non-awaited and dynamically imports
-    // services/i18n first, so the fetch lands after this function resolves —
-    // poll for it, with room for that first module load.
-    await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 5000 });
+    // The confirmation request is awaited now: a failed `{success:false}` must
+    // not leave the caller claiming that an email was sent.
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     expect((fetchMock.mock.calls[0] as any[])[0]).toBe(`${FUNCTIONS_BASE}/newsletterSendConfirmation`);
+  });
+
+  it('does not mark a pending signup locally when the confirmation request is refused', async () => {
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
+    fetchMock.mockResolvedValue({ ok: false, json: async () => ({ success: false, error: 'cooldown_active' }) });
+
+    await expect(upsertNewsletterSubscriber({} as any, {
+      email: 'refused@example.com',
+      source: 'popup',
+      consentText: 'formula di prova',
+    })).rejects.toThrow('confirmation-email-failed');
+    expect(window.localStorage.getItem('newsletter_pending_email')).toBeNull();
   });
 
   it('does NOT ask somebody who already confirmed, even when the write lands on `pending`', async () => {

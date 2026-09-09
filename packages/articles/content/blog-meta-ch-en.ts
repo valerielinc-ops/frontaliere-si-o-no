@@ -6160,6 +6160,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Urban green: the 3-30-300 rule for cool cities',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'European study of 862 cities: 28% of the Swiss population lives in green neighbourhoods. Rule 3-30-300 points the way to cooler cities',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole in Bellinzona with buildings and minimal vegetation, example of urban heat island',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Fuels at annual highs: diesel at CHF 2.30',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Petrol at 2.05-2.16 francs, diesel at 2.30. In nine months, prices rose between 24 and 29%, approaching the peaks of 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Fuel pump at Swiss gas station showing current prices per liter',
+    'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Administered prices: effects on competition and power',
+    'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'On 9 September 2026, the Federal Council adopted a report on administered prices in Switzerland. The share of less than 10% on the domestic budget is similar to the European average, but much depends on the sector.',
+    'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Swiss Federal Council meeting room during session analyzing administered prices and economic policy impacts on purchasing power',
 };
 
 export default blogMetaChEn;

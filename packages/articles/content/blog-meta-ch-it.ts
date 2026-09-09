@@ -6160,6 +6160,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Verde urbano: la regola 3-30-300 per città fresche',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'Studio europeo su 862 città: il 28% della popolazione svizzera vive in quartieri verdi. La regola 3-30-300 indica il percorso verso città più fresche',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole a Bellinzona con edifici e poca vegetazione, esempio di isola di calore urbano',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Carburanti ai massimi annuali: diesel a 2,30 franchi',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Benzina a 2,05-2,16 franchi, diesel a 2,30. In nove mesi, i prezzi sono saliti fra il 24 e il 29%, avvicinandosi ai picchi del 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Pompa di benzina presso distributore svizzero con pannello prezzi alla pompa',
+    'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Prezzi amministrati: effetti su concorrenza e potere',
+    'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile alla media europea, ma molto dipende dal settore.',
+    'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Sala riunioni del Consiglio federale svizzero durante sessione di analisi economia e politica dei prezzi amministrati in Svizzera',
 };
 
 export default blogMetaChIt;

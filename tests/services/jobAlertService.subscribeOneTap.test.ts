@@ -16,6 +16,9 @@ const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async 
   id: 'alert-id',
 }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
+const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; data: () => unknown }>>(
+  async () => ({ exists: () => false, data: () => undefined }),
+);
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
@@ -24,7 +27,8 @@ vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
   collection: vi.fn(() => ({})),
   addDoc: (...args: unknown[]) => addDocMock(...args),
-  doc: vi.fn(() => ({})),
+  doc: vi.fn((...args: unknown[]) => ({ id: String(args[args.length - 1] || 'doc-id') })),
+  getDoc: (...args: unknown[]) => getDocMock(...args),
   setDoc: (...args: unknown[]) => setDocMock(...args),
   updateDoc: vi.fn(async () => undefined),
   query: vi.fn(() => ({})),
@@ -126,6 +130,8 @@ describe('subscribeJobAlertOneTap', () => {
   beforeEach(() => {
     addDocMock.mockClear();
     setDocMock.mockClear();
+    getDocMock.mockReset();
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     getDocsMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
   });
@@ -134,7 +140,7 @@ describe('subscribeJobAlertOneTap', () => {
     const result = await subscribeJobAlertOneTap('user-1', 'Foo@Example.COM', 'Sanità', 'it');
 
     // The parent subscriber doc is upserted with normalised email.
-    expect(setDocMock).toHaveBeenCalledTimes(1);
+    expect(setDocMock).toHaveBeenCalledTimes(2);
     const subscriberPayload = (setDocMock.mock.calls[0] as unknown[])[1];
     expect(subscriberPayload).toMatchObject({
       email: 'foo@example.com',
@@ -144,8 +150,8 @@ describe('subscribeJobAlertOneTap', () => {
     });
 
     // The alert subdoc carries the canonical 1-tap shape.
-    expect(addDocMock).toHaveBeenCalledTimes(1);
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1];
+    expect(setDocMock).toHaveBeenCalledTimes(2);
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1];
     expect(alertPayload).toMatchObject({
       email: 'foo@example.com',
       userId: 'user-1',
@@ -163,13 +169,13 @@ describe('subscribeJobAlertOneTap', () => {
       lastMatchedAt: null,
     });
 
-    expect(result.id).toBe('alert-id');
+    expect(result.id).toMatch(/^intent_v1_/);
     expect(result.frequency).toBe('weekly');
   });
 
   it('trims whitespace from the category and forwards locale', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', '  Marketing  ', 'en');
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       keywords: string[];
       locale: string;
     };
@@ -179,7 +185,7 @@ describe('subscribeJobAlertOneTap', () => {
 
   it('strips the leading emoji from the stored keyword (so it can match job text)', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it');
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as { keywords: string[] };
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as { keywords: string[] };
     expect(alertPayload.keywords).toEqual(['Tecnologia']);
   });
 
@@ -189,7 +195,7 @@ describe('subscribeJobAlertOneTap', () => {
       url: 'https://frontaliereticino.ch/cerca-lavoro-ticino/ingegnere-software-duferco-lugano/',
       title: 'Ingegnere di software senior',
     });
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       sourceJobSlug: string | null;
       sourceJobUrl: string | null;
       sourceJobTitle: string | null;
@@ -201,7 +207,7 @@ describe('subscribeJobAlertOneTap', () => {
 
   it('defaults source provenance to null when omitted', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       sourceJobSlug: string | null;
       sourceJobUrl: string | null;
       sourceJobTitle: string | null;
@@ -244,7 +250,7 @@ describe('subscribeJobAlertOneTap', () => {
     await expect(
       subscribeJobAlertOneTap('user-1', 'a@b.com', 'Sanità', 'it'),
     ).resolves.toBeTruthy();
-    expect(addDocMock).toHaveBeenCalled();
+    expect(setDocMock).toHaveBeenCalledTimes(2);
   });
 
   // Issue #3650 — the job-match profile CTA pre-fills the alert's canton from
@@ -252,7 +258,7 @@ describe('subscribeJobAlertOneTap', () => {
   // optional arg, hard-scoping the alert instead of covering all cantons.
   it('sets cantonFilter from the optional cantonCode argument', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', '💻 Tecnologia', 'it', undefined, 'TI');
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };
     expect(alertPayload.cantonFilter).toEqual(['TI']);
@@ -260,7 +266,7 @@ describe('subscribeJobAlertOneTap', () => {
 
   it('defaults cantonFilter to null when cantonCode is omitted', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it');
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };
     expect(alertPayload.cantonFilter).toBeNull();
@@ -268,7 +274,7 @@ describe('subscribeJobAlertOneTap', () => {
 
   it('defaults cantonFilter to null when cantonCode is explicitly null', async () => {
     await subscribeJobAlertOneTap('u', 'e@x.com', 'Marketing', 'it', undefined, null);
-    const alertPayload = (addDocMock.mock.calls[0] as unknown[])[1] as {
+    const alertPayload = (setDocMock.mock.calls[1] as unknown[])[1] as {
       cantonFilter: string[] | null;
     };
     expect(alertPayload.cantonFilter).toBeNull();

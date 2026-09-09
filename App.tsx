@@ -259,8 +259,71 @@ import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide,
 const LazyFallback = () => <SkeletonFallback />;
 const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
 
+type CompanyFollowFollowup = {
+ required: true;
+ sourcePath: string | null;
+ newsletterActive?: boolean;
+};
+
+const COMPANY_FOLLOWUP_COPY: Record<string, {
+ title: string;
+ body: string;
+ retryBody: string;
+ action: string;
+ retry: string;
+ close: string;
+}> = {
+ it: {
+  title: 'Seguito aziendale da completare',
+  body: 'Il tuo indirizzo è confermato, ma il seguito dell’azienda richiede ancora un’azione. Torna alla pagina di partenza per completarlo.',
+  retryBody: 'Il seguito non è ancora stato salvato. Puoi riprovare ora oppure tornare alla pagina di partenza per completarlo.',
+  action: 'Torna alla pagina e completa il seguito',
+  retry: 'Riprova a salvare il seguito',
+  close: 'Chiudi',
+ },
+ en: {
+  title: 'Company follow-up to complete',
+  body: 'Your address is confirmed, but the company follow-up still needs an action. Return to the source page to complete it.',
+  retryBody: 'The follow-up has not been saved yet. You can retry now or return to the source page to complete it.',
+  action: 'Return to the page and complete it',
+  retry: 'Retry saving the follow-up',
+  close: 'Close',
+ },
+ de: {
+  title: 'Unternehmens-Follow-up abschliessen',
+  body: 'Deine Adresse ist bestätigt, aber das Folgen dieses Unternehmens braucht noch eine Aktion. Kehre zur Ausgangsseite zurück.',
+  retryBody: 'Das Follow-up wurde noch nicht gespeichert. Du kannst es erneut versuchen oder zur Ausgangsseite zurückkehren.',
+  action: 'Zur Seite zurück und abschliessen',
+  retry: 'Follow-up erneut speichern',
+  close: 'Schliessen',
+ },
+ fr: {
+  title: 'Suivi de l’entreprise à terminer',
+  body: 'Votre adresse est confirmée, mais le suivi de l’entreprise nécessite encore une action. Retournez à la page d’origine.',
+  retryBody: 'Le suivi n’est pas encore enregistré. Vous pouvez réessayer ou retourner à la page d’origine.',
+  action: 'Retourner à la page et terminer',
+  retry: 'Réessayer d’enregistrer le suivi',
+  close: 'Fermer',
+ },
+};
+
+/** Only local paths may be returned to from a server or local-storage marker. */
+function safeCompanyFollowPath(value: unknown): string | null {
+ const raw = String(value || '').trim();
+ if (!raw) return null;
+ if (raw.startsWith('/') && !raw.startsWith('//')) return raw;
+ if (typeof window === 'undefined') return null;
+ try {
+  const parsed = new URL(raw, window.location.origin);
+  return parsed.origin === window.location.origin ? parsed.pathname || '/' : null;
+ } catch {
+  return null;
+ }
+}
+
 const App: React.FC = () => {
  const { t, locale } = useTranslation();
+ const companyFollowupCopy = COMPANY_FOLLOWUP_COPY[locale] || COMPANY_FOLLOWUP_COPY.it;
  const {
  user: authUser,
  loading: authLoading,
@@ -843,6 +906,9 @@ const App: React.FC = () => {
  const [unsubscribeMsg, setUnsubscribeMsg] = useState<string | null>(null);
  const [newsletterActionEmail, setNewsletterActionEmail] = useState<string | null>(null);
  const [showNewsletterWelcome, setShowNewsletterWelcome] = useState(false);
+ const [companyFollowFollowup, setCompanyFollowFollowup] = useState<CompanyFollowFollowup | null>(null);
+ const [companyFollowRetry, setCompanyFollowRetry] = useState<null | (() => Promise<void>)>(null);
+ const [companyFollowRetrying, setCompanyFollowRetrying] = useState(false);
  const [newsletterActionType, setNewsletterActionType] = useState<'unsubscribe' | 'resubscribe' | null>(null);
  // The SPA half of #5711's asymmetry. Leaving happens on the request; COMING
  // BACK waits for a real gesture, and this holds the already-authenticated
@@ -866,8 +932,57 @@ const App: React.FC = () => {
  const result = await confirmNewsletterSubscription(email, token);
  if (result.success) {
  clearNewsletterPendingLocally();
- markNewsletterSubscribedLocally();
- localStorage.setItem('newsletter_subscribed', 'true');
+
+ // The confirmation response is the backend's authoritative signal that a
+ // company follow still needs an explicit completion step. The local queue is
+ // only an optimisation: a confirmation opened on another device has no
+ // company payload here, so the server marker must still surface an action.
+ let followIntentApi: typeof import('@/services/companyFollowIntent') | null = null;
+ let localCompanyFollows: Array<{ email: string; sourceJobUrl?: string | null }> = [];
+ try {
+  followIntentApi = await import('@/services/companyFollowIntent');
+  const normalizedEmail = normalizeNewsletterEmail(email);
+  localCompanyFollows = followIntentApi.readPendingCompanyFollows()
+   .filter((intent) => intent.email === normalizedEmail);
+ } catch (followIntentErr) {
+  // The explicit server marker remains usable even if the optional local
+  // queue chunk cannot be loaded.
+  reportCaughtError(followIntentErr, 'app.companyFollowIntentRead');
+ }
+ const localCompanyFollowPath = safeCompanyFollowPath(localCompanyFollows[0]?.sourceJobUrl);
+ const serverFollowup = result.companyFollowFollowup;
+ const companyOnlyFollowup = serverFollowup?.newsletterActive === false
+  || (!serverFollowup && localCompanyFollows.length > 0);
+ const followupForUi: CompanyFollowFollowup | null = serverFollowup || localCompanyFollows.length > 0
+  ? {
+   required: true,
+   sourcePath: safeCompanyFollowPath(serverFollowup?.sourcePath) || localCompanyFollowPath,
+   ...(companyOnlyFollowup
+    ? { newsletterActive: false }
+    : {}),
+  }
+  : null;
+
+ // A company-only confirmation is intentionally suppressed for the generic
+ // newsletter. Do not leave a stale client flag claiming the broader signup
+ // succeeded; an existing newsletter subscriber keeps its active flag.
+ try {
+  if (companyOnlyFollowup) {
+   window.localStorage.removeItem('newsletter_subscribed');
+  } else {
+   markNewsletterSubscribedLocally();
+   window.localStorage.setItem('newsletter_subscribed', 'true');
+  }
+ } catch {
+  // localStorage is only a view cache; Firestore/backend state is authoritative.
+ }
+
+ if (followupForUi) {
+  setCompanyFollowFollowup(followupForUi);
+  setCompanyFollowRetry(null);
+  setShowNewsletterWelcome(false);
+  setUnsubscribeMsg(null);
+ }
 
  // Auto-login with the auth token returned by the Cloud Function
  let confirmedUser: { uid?: string } | null = null;
@@ -885,24 +1000,47 @@ const App: React.FC = () => {
  // tapped "Segui questa azienda" had their follow PARKED, not written —
  // no alert exists for an unconfirmed address. This is the moment the
  // consent arrives and a uid exists, so the parked intent becomes a real
- // alert here. Lazy-imported so the chunk only loads for a visitor who
- // actually parked one, and best-effort: a failure must never break the
- // confirmation itself, which is the half that matters legally.
- if (confirmedUser?.uid) {
- try {
- const { flushPendingCompanyFollows } = await import('@/services/companyFollowIntent');
- const created = await flushPendingCompanyFollows(confirmedUser.uid, email);
- if (created.length > 0) {
- Analytics.trackUIInteraction('company_alert', 'double_optin_flush', String(created.length));
- }
- } catch (followErr) {
- reportCaughtError(followErr, 'app.companyFollowFlush');
- }
+ // alert here. A failed replay remains in the queue and installs an explicit
+ // retry action; it is never silently discarded.
+ if (confirmedUser?.uid && followIntentApi && localCompanyFollows.length > 0) {
+  const followIntentModule = followIntentApi;
+  const runCompanyFollowFlush = async (): Promise<void> => {
+   setCompanyFollowRetrying(true);
+   try {
+    const outcome = await followIntentModule.flushPendingCompanyFollows(confirmedUser!.uid as string, email);
+    if (outcome.created.length > 0) {
+     Analytics.trackUIInteraction('company_alert', 'double_optin_flush', String(outcome.created.length));
+    }
+    if (outcome.pending === 0) {
+     setCompanyFollowFollowup(null);
+     setCompanyFollowRetry(null);
+    } else {
+     setCompanyFollowFollowup(followupForUi || {
+      required: true,
+      sourcePath: localCompanyFollowPath,
+      newsletterActive: false,
+     });
+     setCompanyFollowRetry(() => runCompanyFollowFlush);
+    }
+   } catch (followErr) {
+    reportCaughtError(followErr, 'app.companyFollowFlush');
+    setCompanyFollowFollowup(followupForUi || {
+     required: true,
+     sourcePath: localCompanyFollowPath,
+     newsletterActive: false,
+    });
+    setCompanyFollowRetry(() => runCompanyFollowFlush);
+   } finally {
+    setCompanyFollowRetrying(false);
+   }
+  };
+  setCompanyFollowRetry(() => runCompanyFollowFlush);
+  await runCompanyFollowFlush();
  }
 
- if (result.alreadyConfirmed) {
+ if (!followupForUi && result.alreadyConfirmed) {
  setUnsubscribeMsg(t('newsletter.alreadyConfirmed'));
- } else {
+ } else if (!followupForUi) {
  setShowNewsletterWelcome(true);
  }
  } else if (result.error === 'invalid_token') {
@@ -2157,6 +2295,58 @@ const App: React.FC = () => {
  Torna alla home
  </a>
  )}
+ </div>
+ </div>
+ )}
+
+ {/* CompanyAlert confirmation follow-up. The backend marker is explicit
+     recovery for another-device/storage/auth failures; this is deliberately
+     separate from the generic newsletter welcome. */}
+ {companyFollowFollowup?.required && (
+ <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
+ <div
+  className="bg-surface rounded-2xl shadow-2xl p-8 max-w-lg mx-4 text-center border border-edge"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="company-followup-title"
+ >
+  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-warning-subtle mb-4">
+   <span className="text-3xl" aria-hidden="true">🔔</span>
+  </div>
+  <h2 id="company-followup-title" className="text-2xl font-bold text-heading mb-2">
+   {companyFollowupCopy.title}
+  </h2>
+  <p className="text-subtle mb-6">
+   {companyFollowRetry ? companyFollowupCopy.retryBody : companyFollowupCopy.body}
+  </p>
+  <div className="space-y-3">
+   {companyFollowRetry && (
+   <button
+    type="button"
+    disabled={companyFollowRetrying}
+    onClick={() => {
+     const retry = companyFollowRetry;
+     if (retry) void retry();
+    }}
+    className="w-full px-6 py-3 bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent font-medium rounded-xl transition-colors"
+   >
+    {companyFollowRetrying ? '…' : companyFollowupCopy.retry}
+   </button>
+   )}
+   <a
+    href={companyFollowFollowup.sourcePath || '/'}
+    className="w-full inline-flex items-center justify-center px-6 py-3 border border-edge text-body hover:bg-surface-alt font-medium rounded-xl transition-colors"
+   >
+    {companyFollowupCopy.action}
+   </a>
+   <button
+    type="button"
+    onClick={() => setCompanyFollowFollowup(null)}
+    className="text-sm text-subtle hover:text-body underline"
+   >
+    {companyFollowupCopy.close}
+   </button>
+  </div>
  </div>
  </div>
  )}

@@ -6160,6 +6160,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.regola-3-30-300-verde-citta.title': 'Vert urbain : la règle 3-30-300 pour les villes fraîches',
     'blog.article.regola-3-30-300-verde-citta.excerpt': 'Étude européenne sur 862 villes : 28% de la population suisse vit dans des quartiers verts. La règle 3-30-300 indique le chemin vers des villes plus fraîches',
     'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole à Bellinzona avec bâtiments et peu de végétation, exemple d\'îlot de chaleur urbain',
+    'blog.article.carburanti-record-prezzi-2026.title': 'Carburants au plus haut annuel : diesel à 2,30 francs',
+    'blog.article.carburanti-record-prezzi-2026.excerpt': 'Essence à 2,05-2,16 francs, diesel à 2,30. En neuf mois, les prix ont augmenté de 24 à 29 %, se rapprochant des pics de 2022.',
+    'blog.article.carburanti-record-prezzi-2026.imageAlt': 'Pompe à essence à une station-service suisse affichant les prix au litre',
+    'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Prix administrés : effets sur la concurrence et le pouvoir',
+    'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'Le Conseil fédéral adopte le 9 septembre 2026 un rapport sur les prix administrés en Suisse. La part inférieure à 10 % du budget des ménages est similaire à la moyenne européenne, mais beaucoup dépend du secteur.',
+    'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Salle de réunion du Conseil fédéral suisse lors d\'une session analysant les prix administrés et la politique économique',
 };
 
 export default blogMetaChFr;
