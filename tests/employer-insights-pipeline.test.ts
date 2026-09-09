@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   aggregateApplicationEvidence,
@@ -22,6 +23,8 @@ const WINDOW = {
 };
 const IN_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() + 60 * 60 * 1000).toISOString();
 const OUTSIDE_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() - 1).toISOString();
+const JOB_BOARD_SOURCE = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
+const PUBLISHER_APPLY_FORM_SOURCE = readFileSync(new URL('../components/community/PublisherApplyForm.tsx', import.meta.url), 'utf8');
 
 function job(overrides: Record<string, unknown> = {}) {
   return {
@@ -62,6 +65,25 @@ function build(rows: Array<Record<string, unknown>>, jobs = [job()], application
 }
 
 describe('employer insights event coverage', () => {
+  it('serializes a zero-observed company instead of dropping the source state', () => {
+    const [doc] = build([], [job()]);
+
+    expect(doc).toMatchObject({
+      companyKey: 'acme',
+      coverage: { status: 'zero_observed', observed: 0, residualTotal: 0 },
+      totals: { views: 0, applyClicks: 0, adsCount: 0 },
+    });
+    expect(doc.ads).toEqual([]);
+  });
+
+  it('keeps a keyed event with value zero as an observed event identity', () => {
+    const [doc] = build([event({ eventKey: 'zero-event', observed: 0, clicks: 0 })]);
+
+    expect(doc.coverage.observed).toBe(0);
+    expect(doc.ads).toHaveLength(1);
+    expect(doc.ads[0]).toMatchObject({ eventsObserved: 0, applyClicks: 0 });
+  });
+
   it('creates an ad from an apply event even when no pageview exists', () => {
     const [doc] = build([event({ jobSlug: 'role-en' })]);
 
@@ -110,8 +132,22 @@ describe('employer insights event coverage', () => {
   it('resolves the historical prefixed company hub as an explicit alias', () => {
     const [doc] = build([event({ event: '$pageview', jobSlug: '', path: '/cerca-lavoro-ticino/azienda-acme/' })]);
 
-    expect(doc).toMatchObject({ companyKey: 'acme', totals: { views: 1, adsCount: 0 } });
+    expect(doc).toMatchObject({
+      companyKey: 'acme',
+      totals: { views: 0, profileViews: 1, profileVisitors: 1, adsCount: 0 },
+    });
     expect(doc.coverage.attributed).toBe(1);
+  });
+
+  it('counts a select_content/job_apply pair once when they share an emission id', () => {
+    const [doc] = build([
+      event({ event: 'job_apply', eventKey: 'job-event', emissionId: 'action-1' }),
+      event({ event: 'select_content', eventKey: 'select-event', emissionId: 'action-1', contentType: 'job_board_apply' }),
+    ]);
+
+    expect(doc.totals.applyClicks).toBe(1);
+    expect(doc.ads[0].applyClicks).toBe(1);
+    expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
   });
 
   it('does not pick a company by substring when an explicit alias is ambiguous', () => {
@@ -188,5 +224,18 @@ describe('publisher apply-click deduplication', () => {
     expect(first.record).toBe(true);
     expect(second.record).toBe(true);
     expect(retry).toMatchObject({ record: false, removed: 1, reason: 'technical_duplicate' });
+  });
+
+  it('passes a stable emission id at every publisher apply callsite', () => {
+    const jobBoardCalls = [...JOB_BOARD_SOURCE.matchAll(/trackPublisherApplyClick\(([\s\S]*?)\)/g)].map((match) => match[1]);
+
+    expect(jobBoardCalls).toHaveLength(5);
+    expect(jobBoardCalls.every((call) => /\{\s*eventId\s*:/.test(call))).toBe(true);
+    expect(PUBLISHER_APPLY_FORM_SOURCE).toMatch(/trackPublisherApplyClick\([\s\S]*?\{\s*eventId\s*:/);
+  });
+
+  it('uses one emission id for both employer apply signals', () => {
+    expect(JOB_BOARD_SOURCE).toContain('createPublisherApplyEventId');
+    expect(JOB_BOARD_SOURCE.match(/emission_id: eventId/g)).toHaveLength(2);
   });
 });
