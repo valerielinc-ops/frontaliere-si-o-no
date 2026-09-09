@@ -31,6 +31,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import type { Locale } from '@/services/i18n';
 import { getLocale } from '@/services/i18n';
+import { companyAlertKey } from '@/services/jobAlertService';
 import { useHydrationIslands } from '@/hooks/useHydrationIslands';
 import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta';
 
@@ -42,6 +43,41 @@ interface CompanyFollowMountProps {
 }
 
 const VALID_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
+const COMPANY_FILTER_PREFIXES = ['azienda-', 'company-', 'unternehmen-', 'entreprise-'] as const;
+
+/**
+ * Return the bare canonical candidate from a public company-filter URL.
+ *
+ * The static page and the SPA agree on the company-filter shape, but the
+ * browser can re-enter an older static page through history without fetching
+ * the new HTML. Keeping this parser local to the hydration bridge makes the
+ * identity check independent from the SPA navigation hook (and keeps the
+ * private `/azienda/<key>/?t=…` insights route out of this guard).
+ */
+export function companyFilterSlugFromPath(pathname: string): string | null {
+  const leaf = pathname.split('/').filter(Boolean).pop()?.toLowerCase() || '';
+  const prefix = COMPANY_FILTER_PREFIXES.find((candidate) => leaf.startsWith(candidate));
+  if (!prefix) return null;
+  const slug = leaf.slice(prefix.length).trim();
+  return slug || null;
+}
+
+/**
+ * A static employer page is safe to reuse only for the same company.
+ *
+ * `mountedCompanyKeys.size === 0` is intentional: a direct arrival on a
+ * company-filter page has no profile island yet and must be allowed to render
+ * its own static HTML. The guard activates only after a real company island
+ * was mounted, which is the exact client-side profile → filter → back/forward
+ * sequence that previously left company A under company B's URL.
+ */
+export function shouldReloadForCompanyFilter(
+  pathname: string,
+  mountedCompanyKeys: ReadonlySet<string>,
+): boolean {
+  const target = companyFilterSlugFromPath(pathname);
+  return Boolean(target && mountedCompanyKeys.size > 0 && !mountedCompanyKeys.has(target));
+}
 
 /**
  * Placeholder `data-surface` → analytics CTA surface.
@@ -84,6 +120,32 @@ const CompanyFollowMount: React.FC = () => {
       };
     },
   });
+
+  // C1b: `useNavigationState` quite correctly keeps company-filter pages as
+  // static overlays because their build-time HTML is the SEO source. Its
+  // generic re-entry guard used only "is there a <main>?"; after A → B → back →
+  // forward that main was A, so the URL became B while the body stayed A.
+  // On the only event that can re-enter a different history document without
+  // a network request (`popstate`), compare the target leaf with the mounted
+  // island's canonical key and let the browser fetch B when they differ.
+  const mountedCompanyKeys = React.useMemo(() => {
+    const keys = new Set<string>();
+    for (const target of targets) {
+      const key = companyAlertKey(target.props.company, target.props.companyKey || undefined);
+      if (key) keys.add(key);
+    }
+    return keys;
+  }, [targets]);
+
+  React.useEffect(() => {
+    if (mountedCompanyKeys.size === 0) return undefined;
+    const onPopState = () => {
+      if (!shouldReloadForCompanyFilter(window.location.pathname, mountedCompanyKeys)) return;
+      window.location.reload();
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [mountedCompanyKeys]);
 
   if (targets.length === 0) return null;
   return (
