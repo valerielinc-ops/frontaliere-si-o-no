@@ -15,7 +15,8 @@
 import { describe, it, expect } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { renderFormattedContent, isTableBlock, isAdStraddleBlock } from '@/components/community/BlogArticles';
+import { extractHeadings, renderFormattedContent, isTableBlock, isAdStraddleBlock } from '@/components/community/BlogArticles';
+import { flattenedSwissBody1, flattenedSwissBody3, flattenedSwissBodies } from '../fixtures/flattenedArticleBodies';
 
 const AD_MARKER = 'data-testid="inline-ad"';
 const adRenderer = (keyPrefix: string) => <div key={keyPrefix} data-testid="inline-ad" />;
@@ -55,6 +56,63 @@ describe('isTableBlock', () => {
     expect(isTableBlock('Il valore | la soglia sono diversi.')).toBe(false);
     expect(isTableBlock('| Voce | Valore |\n|---|---|')).toBe(false);
     expect(isTableBlock('| solo | una | riga |')).toBe(false);
+  });
+});
+
+describe('flattened article headings', () => {
+  const malformed = '## In short - Point one - Point two ## Key facts - What: value - When: today ## Accident Details The medical emergency continued ## Additional information For more details, consult the official source.';
+
+  it('keeps the TOC labels short and distinct', () => {
+    expect(extractHeadings([malformed]).map((heading) => heading.text)).toEqual([
+      'In short',
+      'Key facts',
+      'Accident Details',
+      'Additional information',
+    ]);
+  });
+
+  it('does not split a legitimate long heading at an arbitrary capitalized word', () => {
+    const heading = 'Quanto costa l\'assicurazione malattia per un frontaliere che lavora in Ticino e risiede in Italia nel 2026 secondo il proprio profilo familiare';
+    const [extracted] = extractHeadings([`## ${heading}`]);
+
+    expect(heading.length).toBeGreaterThan(120);
+    expect(extracted.text).toBe(heading);
+  });
+
+  it('keeps the reported article out of the long-label TOC failure mode', () => {
+    const headings = extractHeadings([flattenedSwissBody1]);
+
+    expect(headings.map((heading) => heading.text)).toEqual([
+      'In short',
+      'Key facts',
+      'Accident Details',
+      'Additional information',
+    ]);
+    expect(headings.every((heading) => heading.text.length <= 120)).toBe(true);
+  });
+
+  it('keeps every body section of the reported article out of the long-label failure mode', () => {
+    const headings = flattenedSwissBodies.flatMap((body) => extractHeadings([body]));
+
+    expect(headings).toContainEqual(expect.objectContaining({ text: 'Medical emergency: Swiss flight back over the Atlantic' }));
+    expect(headings.every((heading) => heading.text.length <= 120)).toBe(true);
+  });
+
+  it('renders recovered headings as separate semantic blocks', () => {
+    const html = renderToStaticMarkup(renderFormattedContent(malformed));
+    expect(html).toContain('<h2');
+    expect(html).toContain('>In short</h2>');
+    expect(html).toContain('>Key facts</h2>');
+    expect(html).not.toMatch(/<h2[^>]*>[^<]{121}/);
+  });
+
+  it('keeps rendered heading IDs aligned with deduplicated TOC IDs', () => {
+    const html = renderToStaticMarkup(renderFormattedContent(flattenedSwissBody3));
+    const renderedIds = [...html.matchAll(/<h[2-4][^>]* id="([^"]+)"/g)].map((match) => match[1]);
+    const tocIds = extractHeadings([flattenedSwissBody3]).map((heading) => heading.id);
+
+    expect(new Set(renderedIds).size).toBe(renderedIds.length);
+    expect(renderedIds).toEqual(tocIds);
   });
 });
 
