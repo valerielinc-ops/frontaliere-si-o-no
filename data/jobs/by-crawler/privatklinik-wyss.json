@@ -272,12 +272,12 @@
     },
     {
       "id": "privatklinik-wyss-bd7fc7a545bb",
-      "slug": "collaboratore-trice-in-tierpark-m-w-d-privatklinik-wyss-munchenbuchsee",
+      "slug": "dipendente-tierpark-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch",
-        "it": "collaboratore-trice-in-tierpark-m-w-d-privatklinik-wyss-munchenbuchsee",
-        "en": "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch",
-        "fr": "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch"
+        "it": "dipendente-tierpark-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "en": "employee-tierpark-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "employe-tierpark-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -324,11 +324,19 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch",
+          "collaboratore-trice-in-tierpark-m-w-d-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch"
+        "mitarbeiter-in-tierpark-m-w-d-privatklinik-wyss-ch",
+        "collaboratore-trice-in-tierpark-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

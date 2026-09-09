@@ -2866,8 +2866,7 @@
         "stv-leiterin-leiter-kommunikation-kantonale-verwaltung-basel-landschaft-liestal",
         "stv-head-of-communication-kantonale-verwaltung-basel-landschaft-liestal",
         "stv-leiterin-leiter-kommunikation-kanton-basel-landschaft-liestal",
-        "chef-de-la-communication-kantonale-verwaltung-basel-landschaft-liestal",
-        "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal"
+        "chef-de-la-communication-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2880,8 +2879,7 @@
           "stv-leiterin-leiter-kommunikation-kantonale-verwaltung-basel-landschaft-liestal",
           "stv-head-of-communication-kantonale-verwaltung-basel-landschaft-liestal",
           "stv-leiterin-leiter-kommunikation-kanton-basel-landschaft-liestal",
-          "chef-de-la-communication-kantonale-verwaltung-basel-landschaft-liestal",
-          "corte-di-giustizia-kantonale-verwaltung-basel-landschaft-liestal"
+          "chef-de-la-communication-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
           "gerichtsschreiberin-gerichtsschreiber-kantonale-verwaltung-basel-landschaft-liestal",
@@ -5286,12 +5284,12 @@
     },
     {
       "id": "kanton-basel-landschaft-c692175a9d4f",
-      "slug": "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil",
+      "slug": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-reigoldswil",
       "slugByLocale": {
         "de": "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil",
-        "it": "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil",
-        "en": "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-reigoldswil",
-        "fr": "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil"
+        "it": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-reigoldswil",
+        "en": "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-reigoldswil",
+        "fr": "enseignant-2e-classe-kantonale-verwaltung-basel-landschaft-reigoldswil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5348,7 +5346,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:16:48.398Z"
+      "firstSeenAt": "2026-09-08T23:16:48.398Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil"
+        ],
+        "en": [
+          "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-reigoldswil"
+        ],
+        "fr": [
+          "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-2-klasse-kanton-basel-landschaft-reigoldswil",
+        "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-reigoldswil"
+      ]
     }
   ]
 }

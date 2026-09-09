@@ -52,13 +52,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R568814",
       "previousSlugs": [
-        "berufsbildner-m-w-d-stryker-ch",
-        "formazione-professionale-m-f-d-stryker-selzach"
+        "berufsbildner-m-w-d-stryker-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-m-w-d-stryker-ch",
-          "formazione-professionale-m-f-d-stryker-selzach"
+          "berufsbildner-m-w-d-stryker-ch"
         ],
         "en": [
           "berufsbildner-m-w-d-stryker-ch"
@@ -131,13 +129,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R566531",
       "previousSlugs": [
-        "lean-specialist-m-w-d-process-improvement-stryker-ch",
-        "lean-specialista-m-w-d-process-improvement-stryker-selzach"
+        "lean-specialist-m-w-d-process-improvement-stryker-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lean-specialist-m-w-d-process-improvement-stryker-ch",
-          "lean-specialista-m-w-d-process-improvement-stryker-selzach"
+          "lean-specialist-m-w-d-process-improvement-stryker-ch"
         ],
         "fr": [
           "lean-specialist-m-w-d-process-improvement-stryker-ch"
@@ -208,13 +204,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R568484",
       "previousSlugs": [
-        "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch",
-        "rappresentante-di-vendita-junior-m-f-d-joint-ricambio-regione-berna-mittelland-stryker-bern"
+        "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch",
-          "rappresentante-di-vendita-junior-m-f-d-joint-ricambio-regione-berna-mittelland-stryker-bern"
+          "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch"
         ],
         "fr": [
           "junior-sales-representative-m-w-d-joint-replacement-region-bern-mittelland-stryker-ch"
@@ -288,16 +282,14 @@
         "regional-sales-manager-peripheral-vascular-switzerland-austria-stryker-ch",
         "regional-sales-manager-m-f-d-endoscopia-svizzera-stryker-selzach",
         "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
-        "directeur-regional-des-ventes-m-f-d-endoscopie-suisse-stryker-selzach",
-        "regional-sales-manager-peripheral-vascular-svizzera-austria-stryker-selzach"
+        "directeur-regional-des-ventes-m-f-d-endoscopie-suisse-stryker-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "regional-sales-manager-peripheral-vascular-switzerland-austria-stryker-ch",
           "regional-sales-manager-m-f-d-endoscopia-svizzera-stryker-selzach",
           "regional-sales-manager-m-w-d-endoscopy-schweiz-stryker-ch",
-          "directeur-regional-des-ventes-m-f-d-endoscopie-suisse-stryker-selzach",
-          "regional-sales-manager-peripheral-vascular-svizzera-austria-stryker-selzach"
+          "directeur-regional-des-ventes-m-f-d-endoscopie-suisse-stryker-selzach"
         ],
         "de": [
           "regional-sales-manager-peripheral-vascular-switzerland-austria-stryker-ch",
@@ -402,12 +394,12 @@
     },
     {
       "id": "stryker-2636fa728ff0",
-      "slug": "apprentice-manufacturing-stryker-ch",
+      "slug": "produzione-di-apprendisti-stryker-selzach",
       "slugByLocale": {
         "de": "apprentice-manufacturing-stryker-ch",
-        "it": "apprentice-manufacturing-stryker-ch",
+        "it": "produzione-di-apprendisti-stryker-selzach",
         "en": "apprentice-manufacturing-stryker-selzach",
-        "fr": "apprentice-manufacturing-stryker-ch"
+        "fr": "fabrication-d-apprentis-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -464,7 +456,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:34:49.375Z"
+      "firstSeenAt": "2026-09-08T23:34:49.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-manufacturing-stryker-ch"
+        ],
+        "fr": [
+          "apprentice-manufacturing-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprentice-manufacturing-stryker-ch"
+      ]
     },
     {
       "id": "stryker-033b78e8983f",
@@ -515,13 +518,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R561546",
       "previousSlugs": [
-        "regulatory-affairs-specialist-stryker-ch",
-        "regulatory-affairs-specialista-stryker-biberist"
+        "regulatory-affairs-specialist-stryker-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regulatory-affairs-specialist-stryker-ch",
-          "regulatory-affairs-specialista-stryker-biberist"
+          "regulatory-affairs-specialist-stryker-ch"
         ],
         "de": [
           "regulatory-affairs-specialist-stryker-ch"

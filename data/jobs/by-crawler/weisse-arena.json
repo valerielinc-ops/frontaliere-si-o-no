@@ -1744,8 +1744,8 @@
       "slugByLocale": {
         "de": "servicemitarbeiter-in-weisse-arena-ch",
         "it": "personale-di-servizio-in-weisse-arena-gruppe-laax",
-        "en": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "fr": "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        "en": "service-staff-in-weisse-arena-gruppe-laax",
+        "fr": "personnel-des-services-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1800,9 +1800,7 @@
         "service-staff-weisse-arena-gruppe-laax",
         "addetto-al-servizio-weisse-arena-gruppe-laax",
         "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "servicemitarbeiter-in-weisse-arena-ch",
-        "service-staff-in-weisse-arena-gruppe-laax",
-        "personnel-des-services-weisse-arena-gruppe-laax"
+        "servicemitarbeiter-in-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1819,7 +1817,7 @@
         "en": [
           "breakfast-service-attendant-weisse-arena-gruppe-laax",
           "service-staff-weisse-arena-gruppe-laax",
-          "service-staff-in-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ],
         "de": [
           "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch"
@@ -1827,7 +1825,7 @@
         "fr": [
           "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
           "personnel-de-service-weisse-arena-gruppe-laax",
-          "personnel-des-services-weisse-arena-gruppe-laax"
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "salaryMin": 62000,
@@ -2717,12 +2715,12 @@
     },
     {
       "id": "weisse-arena-f28155d8a8f5",
-      "slug": "allrounder-in-restauration-weisse-arena-ch",
+      "slug": "restauro-integrale-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "allrounder-in-restauration-weisse-arena-ch",
-        "it": "allrounder-in-restauration-weisse-arena-ch",
-        "en": "allrounder-in-restauration-weisse-arena-ch",
-        "fr": "allrounder-in-restauration-weisse-arena-ch"
+        "it": "restauro-integrale-weisse-arena-gruppe-laax",
+        "en": "all-rounder-restoration-weisse-arena-gruppe-laax",
+        "fr": "restauration-complete-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2770,17 +2768,21 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
-        "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e"
+        "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e",
+        "allrounder-in-restauration-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e"
+          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
+          "allrounder-in-restauration-weisse-arena-ch"
         ],
         "en": [
-          "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e"
+          "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e",
+          "allrounder-in-restauration-weisse-arena-ch"
         ],
         "fr": [
-          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e"
+          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
+          "allrounder-in-restauration-weisse-arena-ch"
         ]
       },
       "salaryMin": 62000,

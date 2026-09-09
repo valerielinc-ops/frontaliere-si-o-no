@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "tecan-06a8f344fdbd",
-      "slug": "sr-materials-planner-tecan-united-states",
+      "slug": "sr-materiali-planner-tecan-united-states",
       "slugByLocale": {
-        "it": "sr-materials-planner-tecan-united-states",
+        "it": "sr-materiali-planner-tecan-united-states",
         "en": "sr-materials-planner-tecan-united-states",
         "de": "sr-materialplaner-tecan-united-states",
         "fr": "planificateur-de-materiaux-sr-tecan-united-states"
@@ -51,12 +51,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sr-materiali-planner-tecan-united-states",
         "sr-materials-planner-tecan-united-states"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-materiali-planner-tecan-united-states",
           "sr-materials-planner-tecan-united-states"
         ],
         "de": [
@@ -248,10 +246,10 @@
     },
     {
       "id": "tecan-ba37249018ba",
-      "slug": "ict-test-technician-tecan-united-states",
+      "slug": "tecnico-di-prova-ict-tecan-united-states",
       "slugByLocale": {
         "en": "ict-test-technician-tecan-united-states",
-        "it": "ict-test-technician-tecan-united-states",
+        "it": "tecnico-di-prova-ict-tecan-united-states",
         "de": "ict-test-technician-tecan-united-states",
         "fr": "ict-test-technician-tecan-united-states"
       },
@@ -309,7 +307,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:25:08.500Z"
+      "firstSeenAt": "2026-09-08T23:25:08.500Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-test-technician-tecan-united-states"
+        ]
+      },
+      "previousSlugs": [
+        "ict-test-technician-tecan-united-states"
+      ]
     },
     {
       "id": "tecan-158c2f68281e",
@@ -568,18 +574,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-          "head-software-product-management-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
         ],
         "it": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-          "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
-        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
-        "head-software-product-management-tecan-mannedorf",
-        "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
+        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-08-04T11:54:53.348Z",
       "salaryMin": 121500,
@@ -1368,10 +1370,10 @@
     },
     {
       "id": "tecan-fd7b08b15b06",
-      "slug": "vp-commercial-operations-emea-tecan-mannedorf",
+      "slug": "operazioni-commerciali-vp-emea-tecan-mannedorf",
       "slugByLocale": {
         "en": "vp-commercial-operations-emea-tecan-mannedorf",
-        "it": "vp-commercial-operations-emea-tecan-mannedorf",
+        "it": "operazioni-commerciali-vp-emea-tecan-mannedorf",
         "de": "vp-commercial-operations-emea-tecan-mannedorf",
         "fr": "vp-commercial-operations-emea-tecan-mannedorf"
       },
@@ -1430,7 +1432,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:25:00.620Z"
+      "firstSeenAt": "2026-09-08T23:25:00.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-commercial-operations-emea-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "vp-commercial-operations-emea-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-c7aa3258a651",

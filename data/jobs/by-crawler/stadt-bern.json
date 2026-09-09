@@ -2272,12 +2272,12 @@
     },
     {
       "id": "stadt-bern-8a8416a0698d",
-      "slug": "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1",
+      "slug": "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
-        "it": "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1",
-        "en": "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
-        "fr": "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1"
+        "it": "apprendistato-come-specialista-mann-business-maintenance-efz-stadt-bern-1",
+        "en": "apprenticeship-as-a-specialist-mann-business-maintenance-efz-stadt-bern-1",
+        "fr": "apprentissage-en-tant-que-specialiste-mann-business-maintenance-efz-stadt-bern-1"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2323,11 +2323,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
+          "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1"
+        "lehrstelle-als-fachfrau-mann-betriebsunterhalt-efz-stadt-bern-1",
+        "apprendistato-come-fachfrau-mann-betriebsunterhalt-cfc-stadt-bern-1"
       ],
       "salaryMin": 76000,
       "salaryMax": 106000,

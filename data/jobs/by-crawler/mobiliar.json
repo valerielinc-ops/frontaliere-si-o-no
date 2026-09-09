@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-864f4c3c94a8",
-      "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
+      "slug": "avvocato-vivente-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "it": "avvocato-vivente-m-f-d-die-mobiliar-bern",
+        "en": "lawyer-living-m-f-d-die-mobiliar-bern",
+        "fr": "avocat-vivant-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -68,11 +68,19 @@
       "sfJobId": "1165407755",
       "previousSlugsByLocale": {
         "it": [
+          "jurist-wohnen-w-m-d-mobiliar-ch",
+          "jurist-wohnen-w-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "jurist-wohnen-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "jurist-wohnen-w-m-d-mobiliar-ch"
+        "jurist-wohnen-w-m-d-mobiliar-ch",
+        "jurist-wohnen-w-m-d-die-mobiliar-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -154,13 +162,11 @@
       "sfJobId": "1164623355",
       "previousSlugsByLocale": {
         "it": [
-          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch",
-          "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
+          "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch",
-        "kv-apprendistato-cfc-2027-m-w-d-agenzia-generale-biel-die-mobiliar-biel"
+        "kv-lehrstelle-efz-2027-w-m-d-generalagentur-biel-mobiliar-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

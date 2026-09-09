@@ -53,15 +53,11 @@
       "department": "Klinik für Gastroenterologie/Hepatologie",
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-ksw-ch",
-          "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+          "pflegefachfrau-pflegefachmann-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-ksw-ch",
-        "nursing-professional-nursing-professional-kantonsspital-winterthur-ksw-winterthur",
-        "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-winterthur-ksw-winterthur",
-        "pflegefachfrau-pflegefachmann-kantonsspital-winterthur-ksw-winterthur"
+        "pflegefachfrau-pflegefachmann-ksw-ch"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -2908,12 +2904,12 @@
     },
     {
       "id": "ksw-2e0ef76afbcb",
-      "slug": "leiterin-leiter-marketing-e-kommunikation-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "responsabile-marketing-e-comunicazione-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "leiterin-leiter-marketing-und-kommunikation-ksw-ch",
-        "it": "leiterin-leiter-marketing-e-kommunikation-kantonsspital-winterthur-ksw-winterthur",
-        "en": "leiterin-leiter-marketing-und-kommunikation-ksw-ch",
-        "fr": "leiterin-leiter-marketing-und-kommunikation-ksw-ch"
+        "it": "responsabile-marketing-e-comunicazione-kantonsspital-winterthur-ksw-winterthur",
+        "en": "head-head-of-marketing-and-communication-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "responsable-responsable-marketing-et-communication-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2959,11 +2955,19 @@
       "department": "Direktionsstab",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-marketing-und-kommunikation-ksw-ch",
+          "leiterin-leiter-marketing-e-kommunikation-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-marketing-und-kommunikation-ksw-ch"
+        ],
+        "fr": [
           "leiterin-leiter-marketing-und-kommunikation-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-marketing-und-kommunikation-ksw-ch"
+        "leiterin-leiter-marketing-und-kommunikation-ksw-ch",
+        "leiterin-leiter-marketing-e-kommunikation-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,

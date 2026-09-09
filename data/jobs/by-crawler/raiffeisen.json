@@ -3970,7 +3970,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistent-privatkundenberatung-a-raiffeisen-chur",
-        "assistente-consulenza-clienti-privati-a-raiffeisen-chur",
         "assistente-consulenza-clienti-privati-m-f-d-raiffeisen-niedergosgen",
         "assistant-private-client-consultancy-m-f-d-raiffeisen-niedergosgen",
         "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
@@ -3979,7 +3978,6 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-privatkundenberatung-a-raiffeisen-chur",
-          "assistente-consulenza-clienti-privati-a-raiffeisen-chur",
           "assistente-consulenza-clienti-privati-m-f-d-raiffeisen-niedergosgen",
           "assistant-private-client-consultancy-m-f-d-raiffeisen-niedergosgen",
           "assistent-privatkundenberatung-w-m-d-raiffeisen-niedergosgen",
@@ -4146,16 +4144,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "individualkundenberater-in-raiffeisen-alle-standorte",
-        "consulente-cliente-individuale-in-raiffeisen-alle-standorte",
-        "conseiller-client-individuel-in-raiffeisen-alle-standorte",
-        "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte",
         "conseillers-individuels-raiffeisen-alle-standorte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individualkundenberater-in-raiffeisen-alle-standorte",
-          "consulente-cliente-individuale-in-raiffeisen-alle-standorte",
-          "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
+          "individualkundenberater-in-raiffeisen-alle-standorte"
         ],
         "en": [
           "individualkundenberater-in-raiffeisen-alle-standorte"
@@ -8659,7 +8652,6 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2k3uzb",
         "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-niederrohrdorf",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-othtdd",
-        "apprendistato-come-donna-d-affari-uomo-d-affari-efz-branche-bank-apprendistato-inizio-agosto-2027-raiffeisen",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i"
       ],
       "previousSlugsByLocale": {
@@ -8680,7 +8672,6 @@
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2k3uzb",
           "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-niederrohrdorf",
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-othtdd",
-          "apprendistato-come-donna-d-affari-uomo-d-affari-efz-branche-bank-apprendistato-inizio-agosto-2027-raiffeisen",
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-2iv14i"
         ],
         "en": [
@@ -12038,12 +12029,12 @@
     },
     {
       "id": "raiffeisen-e56f078092dc",
-      "slug": "finanzplaner-w-m-d-raiffeisen-winterthur",
+      "slug": "pianificatore-finanziario-m-f-d-raiffeisen-winterthur",
       "slugByLocale": {
         "de": "finanzplaner-w-m-d-raiffeisen-winterthur",
-        "it": "finanzplaner-w-m-d-raiffeisen-winterthur",
-        "en": "finanzplaner-w-m-d-raiffeisen-winterthur",
-        "fr": "finanzplaner-w-m-d-raiffeisen-winterthur"
+        "it": "pianificatore-finanziario-m-f-d-raiffeisen-winterthur",
+        "en": "financial-planner-m-f-d-raiffeisen-winterthur",
+        "fr": "planificateur-financier-h-f-d-raiffeisen-winterthur"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12100,16 +12091,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:26:22.512Z"
+      "firstSeenAt": "2026-09-08T23:26:22.512Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finanzplaner-w-m-d-raiffeisen-winterthur"
+        ],
+        "en": [
+          "finanzplaner-w-m-d-raiffeisen-winterthur"
+        ],
+        "fr": [
+          "finanzplaner-w-m-d-raiffeisen-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "finanzplaner-w-m-d-raiffeisen-winterthur"
+      ]
     },
     {
       "id": "raiffeisen-cd80c4f835b0",
-      "slug": "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
+      "slug": "consulente-finanziario-mortgage-raiffeisen-carouge",
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
-        "it": "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
-        "en": "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge",
-        "de": "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
+        "it": "consulente-finanziario-mortgage-raiffeisen-carouge",
+        "en": "mortgage-finance-advisor-raiffeisen-carouge",
+        "de": "hypothekenfinanzberater-raiffeisen-carouge"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12166,7 +12171,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:26:22.510Z"
+      "firstSeenAt": "2026-09-08T23:26:22.510Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
+        ],
+        "en": [
+          "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
+        ],
+        "de": [
+          "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-en-financement-hypothecaire-raiffeisen-carouge"
+      ]
     },
     {
       "id": "raiffeisen-7e3b554d4cd3",
@@ -12406,12 +12425,12 @@
     },
     {
       "id": "raiffeisen-c09d75475231",
-      "slug": "responsabile-geschaftsstelle-raiffeisen-neunkirch",
+      "slug": "responsabile-amministrazione-raiffeisen-neunkirch",
       "slugByLocale": {
         "de": "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
-        "it": "responsabile-geschaftsstelle-raiffeisen-neunkirch",
-        "en": "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
-        "fr": "leiter-in-geschaftsstelle-raiffeisen-neunkirch"
+        "it": "responsabile-amministrazione-raiffeisen-neunkirch",
+        "en": "head-of-administration-raiffeisen-neunkirch",
+        "fr": "chef-de-l-administration-raiffeisen-neunkirch"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12457,11 +12476,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
+          "responsabile-geschaftsstelle-raiffeisen-neunkirch"
+        ],
+        "en": [
+          "leiter-in-geschaftsstelle-raiffeisen-neunkirch"
+        ],
+        "fr": [
           "leiter-in-geschaftsstelle-raiffeisen-neunkirch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-geschaftsstelle-raiffeisen-neunkirch"
+        "leiter-in-geschaftsstelle-raiffeisen-neunkirch",
+        "responsabile-geschaftsstelle-raiffeisen-neunkirch"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -12480,12 +12507,12 @@
     },
     {
       "id": "raiffeisen-7b085e2b3632",
-      "slug": "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
+      "slug": "consulenti-individuali-dei-clienti-raiffeisen-schaffhausen",
       "slugByLocale": {
         "de": "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
-        "it": "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
-        "en": "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen",
-        "fr": "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
+        "it": "consulenti-individuali-dei-clienti-raiffeisen-schaffhausen",
+        "en": "individual-client-advisors-raiffeisen-schaffhausen",
+        "fr": "conseillers-individuels-raiffeisen-schaffhausen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12542,7 +12569,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:26:22.477Z"
+      "firstSeenAt": "2026-09-08T23:26:22.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
+        ],
+        "en": [
+          "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
+        ],
+        "fr": [
+          "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-individualkunden-raiffeisen-schaffhausen"
+      ]
     },
     {
       "id": "raiffeisen-a65abdacecf0",

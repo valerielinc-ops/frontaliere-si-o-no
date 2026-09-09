@@ -1844,12 +1844,12 @@
     },
     {
       "id": "nestle-1434936533",
-      "slug": "senior-technician-nestle-ch",
+      "slug": "tecnico-senior-nestle-lausanne",
       "slugByLocale": {
         "en": "senior-technician-nestle-ch",
-        "it": "senior-technician-nestle-ch",
-        "de": "senior-technician-nestle-ch",
-        "fr": "senior-technician-nestle-ch"
+        "it": "tecnico-senior-nestle-lausanne",
+        "de": "senior-techniker-nestle-lausanne",
+        "fr": "senior-technicien-nestle-lausanne"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -1904,15 +1904,29 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-08T23:41:52.616Z"
+      "firstSeenAt": "2026-09-08T23:41:52.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-technician-nestle-ch"
+        ],
+        "de": [
+          "senior-technician-nestle-ch"
+        ],
+        "fr": [
+          "senior-technician-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-technician-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1434940233",
-      "slug": "head-of-gbs-finance-nestle-ch",
+      "slug": "responsabile-gbs-finanza-nestle-vevey",
       "slugByLocale": {
         "en": "head-of-gbs-finance-nestle-ch",
-        "it": "head-of-gbs-finance-nestle-ch",
-        "de": "head-of-gbs-finance-nestle-ch",
+        "it": "responsabile-gbs-finanza-nestle-vevey",
+        "de": "leiter-gbs-finanzen-nestle-vevey",
         "fr": "head-of-gbs-finance-nestle-ch"
       },
       "company": "Nestlé",
@@ -1968,7 +1982,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-08T23:41:51.935Z"
+      "firstSeenAt": "2026-09-08T23:41:51.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-gbs-finance-nestle-ch"
+        ],
+        "de": [
+          "head-of-gbs-finance-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-gbs-finance-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1409872133",
@@ -2465,7 +2490,6 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-quality-specialist-nestle-ch",
-          "senior-quality-specialista-nestle-orbe-ch",
           "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
           "senior-qualitat-spezialist-nestle-orbe-ch",
           "senior-qualite-specialiste-nestle-orbe-ch",
@@ -2480,7 +2504,6 @@
       },
       "previousSlugs": [
         "senior-quality-specialist-nestle-ch",
-        "senior-quality-specialista-nestle-orbe-ch",
         "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
         "senior-qualitat-spezialist-nestle-orbe-ch",
         "senior-qualite-specialiste-nestle-orbe-ch",
@@ -5462,7 +5485,7 @@
         "it": "corporate-paralegal-nestle-ch",
         "en": "corporate-paralegal-nestle-ch",
         "de": "corporate-paralegal-nestle-ch",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -5502,11 +5525,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "societe-parajuridique-nestle-vevey"
+        "corporate-paralegal-nestle-vevey"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "societe-parajuridique-nestle-vevey"
+          "corporate-paralegal-nestle-vevey"
         ]
       },
       "needsRetranslation": true,

@@ -642,12 +642,12 @@
     },
     {
       "id": "zfv-unternehmungen-033a25d4df65",
-      "slug": "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich",
+      "slug": "gestori-della-caffetteria-r-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich",
-        "it": "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich",
-        "en": "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich",
-        "fr": "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich"
+        "it": "gestori-della-caffetteria-r-zfv-unternehmungen-zurich",
+        "en": "cafeteria-managers-r-zfv-unternehmungen-zurich",
+        "fr": "gestionnaires-de-cafeteria-r-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -704,7 +704,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T23:28:32.574Z"
+      "firstSeenAt": "2026-09-08T23:28:32.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "cafeteria-verantwortliche-r-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-81707c7800f1",
@@ -1958,7 +1972,7 @@
         "de": "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich",
         "it": "gastronomie-event-impiegata-impiegato-in-logistica-zfv-unternehmungen-zurich",
         "en": "gastronomic-event-logistics-specialist-in-zfv-unternehmungen-zurich",
-        "fr": "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich"
+        "fr": "specialiste-de-la-logistique-des-evenements-gastronomiques-in-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2006,12 +2020,11 @@
           "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "specialiste-de-la-logistique-des-evenements-gastronomiques-in-zfv-unternehmungen-zurich"
+          "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich"
         ]
       },
       "previousSlugs": [
-        "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich",
-        "specialiste-de-la-logistique-des-evenements-gastronomiques-in-zfv-unternehmungen-zurich"
+        "gastronomie-event-logistiker-in-zfv-unternehmungen-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6221,8 +6234,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurant-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
-        "specialiste-des-restaurants-efz-apprentissage-2027-zfv-unternehmungen-zurich",
         "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
         "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
       ],
@@ -6476,8 +6487,7 @@
         "service-collaboratore-trice-60-zfv-unternehmungen-zurich",
         "service-associate-60-zfv-unternehmungen-zurich",
         "service-mitarbeiter-in-60-zfv-unternehmungen-zurich",
-        "service-collaborateur-trice-60-zfv-unternehmungen-zurich",
-        "service-collaboratore-trice-zfv-unternehmungen-zurich"
+        "service-collaborateur-trice-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6498,8 +6508,7 @@
           "service-collaboratore-trice-60-zfv-unternehmungen-zurich",
           "service-associate-60-zfv-unternehmungen-zurich",
           "service-mitarbeiter-in-60-zfv-unternehmungen-zurich",
-          "service-collaborateur-trice-60-zfv-unternehmungen-zurich",
-          "service-collaboratore-trice-zfv-unternehmungen-zurich"
+          "service-collaborateur-trice-60-zfv-unternehmungen-zurich"
         ],
         "en": [
           "service-associate-zfv-unternehmungen-bern",
