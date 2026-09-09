@@ -1,24 +1,26 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-08T23:33:27.766Z",
-  "total": 49,
+  "generatedAt": "2026-09-09T13:55:09.833Z",
+  "total": 54,
   "discovered": null,
-  "parsed": 44,
+  "parsed": 49,
   "lastFetchOutcome": null,
-  "written": 49,
+  "written": 54,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 26244,
-  "avgDurationMs": 26244,
+  "unchangedCount": 1,
+  "durationMs": 28311,
+  "avgDurationMs": 28311,
   "durationHistory": [
-    26244
+    28311
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5775",
       "slug": "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-vevey",
@@ -51,7 +53,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +62,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
