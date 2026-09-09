@@ -182,6 +182,7 @@ describe('canonicalJobHost', () => {
 
   it('does not truncate a raw host identity into a trusted hostname', () => {
     expect(canonicalJobHost('evil.com/med-ipersonal.ch')).toBe('evil.com/med-ipersonal.ch');
+    expect(canonicalJobHost('evil.com\\med-ipersonal.ch')).toBe('evil.com\\med-ipersonal.ch');
     expect(canonicalJobHost('x@med-ipersonal.ch')).toBe('x@med-ipersonal.ch');
     expect(canonicalJobHost('med-ipersonal.ch:8080')).toBe('med-ipersonal.ch:8080');
   });
