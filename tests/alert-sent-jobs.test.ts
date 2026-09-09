@@ -6,6 +6,10 @@ import {
   mergeSentJobs,
   DEDUP_WINDOW_MS,
   SENT_JOBS_CAP,
+  jobIdentityQuarantineReason,
+  mergeDeliveryLedger,
+  deliveryEntryBlocksRetry,
+  DELIVERY_STATES,
 } from '../scripts/lib/alert-sent-jobs.mjs';
 
 const NOW = 1_700_000_000_000;
@@ -61,8 +65,37 @@ describe('filterUnsentJobs', () => {
     expect(filterUnsentJobs(jobs, {}, NOW)).toHaveLength(3);
   });
 
-  it('lets an id-less job through (cannot dedup it)', () => {
-    expect(filterUnsentJobs([{ slug: '' } as never], {}, NOW)).toHaveLength(1);
+  it('quarantines an id-less job instead of sending it on every retry', () => {
+    const idless = { slug: '' } as never;
+    expect(jobIdentityQuarantineReason(idless)).toBe('missing-stable-job-identity');
+    expect(filterUnsentJobs([idless], {}, NOW)).toHaveLength(0);
+  });
+});
+
+describe('delivery ledger', () => {
+  it('blocks a retry after an ambiguous provider outcome', () => {
+    const ledger = mergeDeliveryLedger(
+      {},
+      [{ id: 'ambiguous-job' }],
+      NOW,
+      DELIVERY_STATES.AMBIGUOUS,
+      { reason: 'provider-outcome-ambiguous' },
+    );
+    expect(deliveryEntryBlocksRetry(ledger['ambiguous-job'])).toBe(true);
+    expect(filterUnsentJobs([{ id: 'ambiguous-job' }], {}, NOW, DEDUP_WINDOW_MS, ledger)).toEqual([]);
+    expect(ledger['ambiguous-job']).toMatchObject({ state: 'ambiguous', reason: 'provider-outcome-ambiguous' });
+  });
+
+  it('keeps a cap-deferred job eligible and identifiable for recovery', () => {
+    const ledger = mergeDeliveryLedger(
+      {},
+      [{ id: 'deferred-job' }],
+      NOW,
+      DELIVERY_STATES.DEFERRED,
+      { reason: 'per-run-cap' },
+    );
+    expect(deliveryEntryBlocksRetry(ledger['deferred-job'])).toBe(false);
+    expect(filterUnsentJobs([{ id: 'deferred-job' }], {}, NOW, DEDUP_WINDOW_MS, ledger)).toHaveLength(1);
   });
 });
 

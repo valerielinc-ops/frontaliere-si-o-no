@@ -34,6 +34,39 @@ export const DEDUP_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 export const SENT_JOBS_CAP = 500;
 
 /**
+ * Durable sender outcomes kept beside `sentJobIds` on the alert document.
+ *
+ * `sentJobIds` is the compact, successful-delivery view used by the existing
+ * digest.  It is not enough for an immediate sender: a provider can accept a
+ * message while the process is still before the writeback, and two workflow
+ * runs can both observe the same empty map.  The immediate sender therefore
+ * writes a small per-job ledger before handing the email to the provider.
+ *
+ * `claimed` is deliberately retry-blocking.  If the final writeback cannot
+ * prove what happened, the job stays reserved instead of being sent again.
+ * The sender may move it to `ambiguous`, `deferred` or `failed` only after a
+ * provider outcome is available.  `deferred` is observable backlog work and
+ * remains eligible for a later run.  `accepted` is retained only as a
+ * legacy read shape; the current finalizer removes it after updating
+ * `sentJobIds`.
+ */
+export const DELIVERY_STATES = Object.freeze({
+  CLAIMED: 'claimed',
+  AMBIGUOUS: 'ambiguous',
+  DEFERRED: 'deferred',
+  FAILED: 'failed',
+});
+
+const DELIVERY_STATE_SET = new Set([...Object.values(DELIVERY_STATES), 'accepted']);
+
+function coerceMillis(value) {
+  if (typeof value === 'number') return value;
+  if (value && typeof value.toMillis === 'function') return value.toMillis();
+  const parsed = new Date(value).getTime();
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+/**
  * Stable de-dup key for a job. Prefers the crawler-assigned `id` (present on
  * every job in data/jobs.json and what the pinned-alert matcher already keys
  * on), then the URL-derived stable id, then the slug. Returns '' when a job has
@@ -70,19 +103,141 @@ export function normalizeSentMap(raw) {
 }
 
 /**
+ * Coerce the durable delivery ledger into a JSON-safe shape.
+ *
+ * Only fields the sender owns are copied.  In particular, this avoids carrying
+ * provider response bodies or recipient data into an alert document.
+ *
+ * @param {unknown} raw
+ * @returns {Record<string, {state: string, at: number, reason?: string, claimId?: string, provider?: string, messageId?: string}>}
+ */
+export function normalizeDeliveryLedger(raw) {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const out = {};
+  for (const [key, value] of Object.entries(raw)) {
+    if (!key || !value || typeof value !== 'object' || Array.isArray(value)) continue;
+    const state = String(value.state || '').trim().toLowerCase();
+    if (!DELIVERY_STATE_SET.has(state)) continue;
+    const entry = { state, at: coerceMillis(value.at) };
+    for (const field of ['reason', 'claimId', 'provider', 'messageId']) {
+      const text = String(value[field] || '').trim();
+      if (text) entry[field] = text;
+    }
+    out[String(key)] = entry;
+  }
+  return out;
+}
+
+/**
+ * Return the durable entry for a job, if it has a stable identity.
+ * @param {Record<string, object>|unknown} rawLedger
+ * @param {object} job
+ * @returns {{state: string, at: number, reason?: string, claimId?: string, provider?: string, messageId?: string}|null}
+ */
+export function deliveryLedgerEntryForJob(rawLedger, job) {
+  const key = jobDedupKey(job);
+  if (!key) return null;
+  return normalizeDeliveryLedger(rawLedger)[key] || null;
+}
+
+/**
+ * A job without a stable identity cannot be made idempotent.  It is therefore
+ * quarantined with an explicit reason rather than silently entering the send
+ * path on every run.
+ *
+ * @param {object} job
+ * @returns {string|null}
+ */
+export function jobIdentityQuarantineReason(job) {
+  return jobDedupKey(job) ? null : 'missing-stable-job-identity';
+}
+
+/**
+ * Whether a persisted delivery outcome must block a blind retry.
+ *
+ * `accepted`, if encountered in a legacy/hand-edited document, is treated as
+ * blocking too.  The current sender removes that transient state after it
+ * updates `sentJobIds`; the conservative fallback prevents duplicates when it
+ * reads an older ledger shape.
+ *
+ * @param {object|null|undefined} entry
+ * @returns {boolean}
+ */
+export function deliveryEntryBlocksRetry(entry) {
+  const state = String(entry?.state || '').trim().toLowerCase();
+  return state === DELIVERY_STATES.CLAIMED
+    || state === DELIVERY_STATES.AMBIGUOUS
+    || state === 'accepted';
+}
+
+/**
+ * Add/update delivery outcomes for the jobs in a ledger.
+ *
+ * @param {unknown} rawLedger
+ * @param {object[]} jobs
+ * @param {number} nowMs
+ * @param {string} state
+ * @param {Record<string, unknown>} [details]
+ * @returns {Record<string, object>}
+ */
+export function mergeDeliveryLedger(rawLedger, jobs, nowMs, state, details = {}) {
+  const normalizedState = String(state || '').trim().toLowerCase();
+  if (!DELIVERY_STATE_SET.has(normalizedState)) {
+    throw new Error(`Unsupported delivery ledger state: ${state}`);
+  }
+  const next = normalizeDeliveryLedger(rawLedger);
+  for (const job of jobs || []) {
+    const key = jobDedupKey(job);
+    if (!key) continue;
+    const entry = { state: normalizedState, at: nowMs };
+    for (const field of ['reason', 'claimId', 'provider', 'messageId']) {
+      const text = String(details?.[field] || '').trim();
+      if (text) entry[field] = text;
+    }
+    next[key] = entry;
+  }
+  return next;
+}
+
+/**
+ * Remove delivery entries for jobs whose outcome is now terminal elsewhere
+ * (successful `sentJobIds` writeback or a definite provider failure).
+ * @param {unknown} rawLedger
+ * @param {object[]} jobs
+ * @returns {Record<string, object>}
+ */
+export function removeDeliveryLedgerJobs(rawLedger, jobs) {
+  const next = normalizeDeliveryLedger(rawLedger);
+  for (const job of jobs || []) {
+    const key = jobDedupKey(job);
+    if (key) delete next[key];
+  }
+  return next;
+}
+
+/**
  * Drop jobs already sent to this alert inside the dedup window.
  *
  * @param {object[]} jobs        Candidate jobs (already scored + sorted).
  * @param {Record<string, number>} sentMap Normalized `{ key: sentAtMs }`.
  * @param {number} nowMs
  * @param {number} [windowMs=DEDUP_WINDOW_MS]
+ * @param {Record<string, object>} [deliveryLedger] Durable sender outcomes.
  * @returns {object[]} jobs not yet sent (or sent before the window).
  */
-export function filterUnsentJobs(jobs, sentMap, nowMs, windowMs = DEDUP_WINDOW_MS) {
+export function filterUnsentJobs(
+  jobs,
+  sentMap,
+  nowMs,
+  windowMs = DEDUP_WINDOW_MS,
+  deliveryLedger = {},
+) {
   const map = sentMap || {};
+  const ledger = normalizeDeliveryLedger(deliveryLedger);
   return (jobs || []).filter((job) => {
     const key = jobDedupKey(job);
-    if (!key) return true; // can't dedup an id-less job — let it through
+    if (!key) return false; // cannot make an id-less send idempotent: quarantine it
+    if (deliveryEntryBlocksRetry(ledger[key])) return false;
     const sentAt = map[key];
     if (!Number.isFinite(sentAt)) return true; // never sent
     return nowMs - sentAt >= windowMs; // sent, but outside the window
