@@ -6187,6 +6187,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet streicht bis zu 580 Stellen in Winterthur',
     'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Der US-Riese leitet das Konsultationsverfahren mit den Arbeitnehmern ein, um das Personal zu reduzieren. Verfahren und Leistungen für die betroffenen Mitarbeiter.',
     'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur im Kanton Zürich, wo bis zu 580 Arbeitsplätze abgebaut werden',
+    'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS lanciert YUMO: kostenlose Finanzschulung',
+    'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Kostenlose Plattform von UBS, um jungen Schweizerinnen und Schweizern den Umgang mit Ersparnissen, Investitionen und persönlichen Finanzen beizubringen. Erhältlich in Italienisch, Deutsch, Französisch und Englisch.',
+    'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'Blick auf Lugano mit See und Bergen, Symbole der modernen Schweiz',
 };
 
 export default blogMetaChDe;
