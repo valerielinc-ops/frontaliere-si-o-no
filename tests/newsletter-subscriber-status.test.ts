@@ -26,6 +26,30 @@ describe('inferNewsletterSubscriptionState', () => {
     });
   });
 
+  it('does not promote a subscribed reactivation from active flags alone', () => {
+    expect(
+      inferNewsletterSubscriptionState(
+        { email: 'user@example.com', source: 'signup', isActive: true },
+        { status: 'subscribed', isActive: true, active: true },
+      ),
+    ).toEqual({
+      status: 'subscribed',
+      isActive: true,
+    });
+  });
+
+  it('treats an explicit subscribed status as active, not confirmed', () => {
+    expect(
+      inferNewsletterSubscriptionState(
+        { email: 'user@example.com', status: 'subscribed' },
+        undefined,
+      ),
+    ).toEqual({
+      status: 'subscribed',
+      isActive: true,
+    });
+  });
+
   it('preserves an already confirmed subscriber', () => {
     expect(
       inferNewsletterSubscriptionState({

@@ -551,15 +551,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // `autologin_revoked_before` watermark — so revocation costs no extra read.
  let optedOut = false;
  let revokedBefore = null;
- let accountDeleted = false;
  try {
  const subDoc = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  if (subDoc.exists) {
  const data = subDoc.data() || {};
- accountDeleted = Boolean(
- data.account_deleted_at
- || String(data.status || '').trim().toLowerCase() === 'account_deleted',
- );
  optedOut = data.autologin_enabled === false;
  revokedBefore = revokedBeforeMs(data.autologin_revoked_before);
  }
@@ -614,26 +609,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  uid = newUser.uid;
  }
  if (uid) {
- // Account deletion leaves an address-level tombstone so ordinary delivery
- // paths cannot accidentally recreate the old cycle. A successful, authenticated
- // autologin is itself a new registration method: restore the subscriber before
- // handing the session to the browser. Historical opt-out stamps remain as
- // evidence; only the deletion marker is removed.
- if (accountDeleted) {
- await db.collection('newsletter_subscribers').doc(normalizedEmail).set({
- email: normalizedEmail,
- status: 'confirmed',
- isActive: true,
- active: true,
- account_deleted_at: admin.firestore.FieldValue.delete(),
- confirmed_at: admin.firestore.FieldValue.serverTimestamp(),
- confirmedAt: admin.firestore.FieldValue.serverTimestamp(),
- resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
- resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
- updated_at: admin.firestore.FieldValue.serverTimestamp(),
- updatedAt: admin.firestore.FieldValue.serverTimestamp(),
- }, { merge: true });
- }
+ // Autologin authenticates the session; it does not witness a newsletter
+ // consent action. Account-deletion tombstones stay in place until the
+ // authenticated app reaches its ordinary, explicit registration path.
  const authToken = await admin.auth().createCustomToken(uid);
  // AFTER the token is actually minted, not before: the metric counts sessions
  // that were really handed out, so a `createCustomToken` failure lands in the
