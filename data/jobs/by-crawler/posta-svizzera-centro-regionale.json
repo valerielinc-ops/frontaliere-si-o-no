@@ -4315,9 +4315,9 @@
         "de": "Business Account Manager:in",
         "fr": "Gestionnaire de comptes d'entreprise :"
       },
-      "slug": "business-account-manager-in-post",
+      "slug": "gestione-account-aziendale-die-schweizerische-post-zurich",
       "slugByLocale": {
-        "it": "business-account-manager-in-post",
+        "it": "gestione-account-aziendale-die-schweizerische-post-zurich",
         "en": "business-account-manager-in-post",
         "de": "business-account-manager-in-post",
         "fr": "gestionnaire-de-comptes-d-entreprise-die-schweizerische-post-zurich"
@@ -4355,7 +4355,15 @@
       "addressRegion": "BE",
       "firstSeenAt": "2026-08-27T20:05:14.310Z",
       "salarySource": "reported",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "business-account-manager-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "business-account-manager-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/74625-de_DE",
