@@ -6142,6 +6142,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-canton-uri-richiesta.title': 'Permesso C canton Uri: anni e procedura',
     'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Requisiti federali e cantonali per ottenere il permesso di domicilio C nel Cantone Uri: 10 anni di residenza, integrazione e conoscenze linguistiche.',
     'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Edificio dell\'amministrazione cantonale per la gestione dei permessi di domicilio e dell\'integrazione dei cittadini stranieri.',
+    'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestle monitora le ricerche AI dei consumatori',
+    'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'Il gruppo svizzero monitora come i modelli linguistici accedono ai suoi siti e analizza le domande dei consumatori all\'IA per adattare il marketing.',
+    'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Sede di Nestlé a Vevey: l\'azienda svizzera monitora l\'accesso dell\'intelligenza artificiale ai suoi siti',
 };
 
 export default blogMetaChIt;

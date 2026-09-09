@@ -6142,6 +6142,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-canton-uri-richiesta.title': 'Permit C canton Uri: years and procedure',
     'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Federal and cantonal requirements to obtain residence permit C in Canton Uri: 10 years of residence, integration and language skills.',
     'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Cantonal government office building responsible for residence permits and foreign citizen integration.',
+    'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestle monitors consumer AI searches',
+    'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'The Swiss group monitors how language models access its sites and analyzes consumer questions about AI to tailor marketing.',
+    'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Nestlé headquarters in Vevey: Swiss company monitors AI access to its websites',
 };
 
 export default blogMetaChEn;

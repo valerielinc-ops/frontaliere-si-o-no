@@ -6142,6 +6142,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-canton-uri-richiesta.title': 'Ausweis C Kanton Uri: Jahre und Verfahren',
     'blog.article.permesso-c-canton-uri-richiesta.excerpt': 'Eidgenössische und kantonale Voraussetzungen für die Niederlassungsbewilligung C im Kanton Uri: 10 Jahre Aufenthalt, Integration und Sprachkenntnisse.',
     'blog.article.permesso-c-canton-uri-richiesta.imageAlt': 'Kantonale Behördengebäude für die Verwaltung von Aufenthaltserlaubnissen und Integration ausländischer Bürger.',
+    'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestle überwacht die KI-Suche der Verbraucher',
+    'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'Die Schweizer Gruppe überwacht, wie Sprachmodelle auf ihre Websites zugreifen und analysiert die Nachfrage der Konsumenten nach KI, um das Marketing anzupassen.',
+    'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Nestlé-Zentrale in Vevey: Schweizer Unternehmen überwacht AI-Zugriff auf ihre Websites',
 };
 
 export default blogMetaChDe;
