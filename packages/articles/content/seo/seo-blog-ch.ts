@@ -80048,6 +80048,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stablecoin-franco-fase-operativa': {
+    title: 'Stablecoin in franchi: il progetto entra in fase operativa',
+    description: 'Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, stablecoin, franchi, progetto, entra',
+    ogTitle: 'Stablecoin in franchi: il progetto entra in fase',
+    ogDescription: 'Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi della stablecoin fino a fine 2026.',
+    canonicalPath: '/articoli-svizzera/stablecoin-franco-fase-operativa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stablecoin in franchi: il progetto entra in fase operativa",
+      "description": "Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stablecoin-franco-fase-operativa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio fintech svizzero con professionisti che gestiscono stablecoin e blockchain su schermi digitali"
+      },
+      "datePublished": "2026-09-09T11:48:44+00:00",
+      "dateModified": "2026-09-09T11:48:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stablecoin-franco-fase-operativa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
