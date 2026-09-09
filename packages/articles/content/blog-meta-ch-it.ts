@@ -6223,6 +6223,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Divieto di oro sudanese in Svizzera dal 10 settembre',
     'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'Il Consiglio federale dal 10 settembre 2026 blocca acquisto e importazione di oro sudanese. Allineamento con le sanzioni UE del 13 luglio. Impatti per commercianti e istituti finanziari.',
     'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Documentazione di conformità e lingotti di oro su scrivania in contesto amministrativo svizzero federale',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Aeroporto Zurigo: shuttle autonomi senza autista',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Due navette elettriche completamente autonome all\'aeroporto di Zurigo a partire da settembre. Primo progetto di livello 4, oltre 15mila chilometri testati.',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Navette autonome all\'aeroporto di Zurigo: shuttle elettrici senza conducente in operazione',
 };
 
 export default blogMetaChIt;

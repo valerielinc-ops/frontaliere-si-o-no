@@ -6223,6 +6223,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divieto-oro-sudan-consiglio-federale.title': 'Sudanesisches Goldverbot in der Schweiz ab 10. September',
     'blog.article.divieto-oro-sudan-consiglio-federale.excerpt': 'Der Bundesrat blockiert seit dem 10. September 2026 den Kauf und Import von sudanesischem Gold. Anpassung an die EU-Sanktionen vom 13. Juli. Auswirkungen für Händler und Finanzinstitute.',
     'blog.article.divieto-oro-sudan-consiglio-federale.imageAlt': 'Compliance-Dokumentation und Goldbarren auf Schreibtisch im Schweizer Bundesverwaltungskontext',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Flughafen Zürich: Selbstfahrende Shuttles ohne Fahrer',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Zwei voll autonome Elektro-Shuttles am Flughafen Zürich ab September. Erstes Level-4-Projekt, über 15.000 getestete Kilometer.',
+    'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Autonome Shuttles am Flughafen Zürich: fahrerlose Elektrobusse im Betrieb',
 };
 
 export default blogMetaChDe;
