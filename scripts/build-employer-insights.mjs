@@ -9,10 +9,9 @@
  * remains in the residual ledger instead of silently disappearing.
  *
  * Usage:
- *   node scripts/build-employer-insights.mjs
- *   node scripts/build-employer-insights.mjs --days 30
- *   node scripts/build-employer-insights.mjs --company <companyKey>
- *   node scripts/build-employer-insights.mjs --apply
+ *   node scripts/build-employer-insights.mjs --source posthog --days 30
+ *   node scripts/build-employer-insights.mjs --source posthog --company <companyKey>
+ *   node scripts/build-employer-insights.mjs --source posthog --apply
  */
 
 import crypto from 'node:crypto';
@@ -21,6 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import {
@@ -622,7 +622,7 @@ function addResidual(residuals, reason, amount) {
 }
 
 /** Aggregate the event union and return both metrics and the coverage ledger. */
-export function aggregateEmployerEvents(inputRows = [], { catalog, window } = {}) {
+export function aggregateEmployerEvents(inputRows = [], { catalog, window, source = 'posthog' } = {}) {
   catalog ||= buildIdentityCatalog();
   const effectiveWindow = window || { from: '1970-01-01T00:00:00.000Z', to: '9999-01-01T00:00:00.000Z' };
   const windowRows = inputRows
@@ -680,7 +680,7 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window } = {}
 
   const residualTotal = Object.values(residuals).reduce((sum, value) => sum + value, 0);
   const coverage = {
-    source: 'posthog',
+    source,
     status: deduped.observed > 0 ? 'observed' : 'zero_observed',
     rawObserved: deduped.rawObserved,
     observed: deduped.observed,
@@ -772,7 +772,7 @@ function queryCoverageOrDefault(queryCoverage, coverage, window) {
     pageSize,
     totalBeforeCut: query.totalBeforeCut ?? query.sourceObserved ?? coverage.rawObserved,
     groupRowsBeforeCut: query.groupRowsBeforeCut ?? query.totalRows ?? null,
-    returned: query.returned ?? query.returnedObserved ?? coverage.rawObserved,
+    returned: query.returned ?? coverage.rawObserved,
     returnedRows: query.returnedRows ?? query.rowsReturned ?? null,
     pages: query.pages ?? null,
     truncated: Boolean(query.truncated),
@@ -781,6 +781,41 @@ function queryCoverageOrDefault(queryCoverage, coverage, window) {
     sourceObserved: query.sourceObserved ?? coverage.rawObserved,
     from: window.from,
     to: window.to,
+  };
+}
+
+/**
+ * Serialize a complete dry-run envelope without changing the calculation.
+ * The workflow validates this envelope before it is allowed to call --apply.
+ */
+export function buildDryRunPayload({
+  documents = [],
+  generatedAt,
+  source,
+  window,
+  queryCoverage = {},
+} = {}) {
+  if (!Array.isArray(documents)) throw new Error('dry-run documents must be an array');
+  if (!window?.from || !window?.to || !window?.timezone) throw new Error('dry-run window must include from, to and timezone');
+  assertEmployerInsightsSource(source);
+  return {
+    schemaVersion: INSIGHTS_SCHEMA_VERSION,
+    generatedAt,
+    source,
+    window,
+    coverage: {
+      source,
+      sourceObserved: queryCoverage.sourceObserved ?? null,
+      totalRows: queryCoverage.totalRows ?? null,
+      returnedRows: queryCoverage.returnedRows ?? null,
+      returned: queryCoverage.returned ?? null,
+      pages: queryCoverage.pages ?? null,
+      pageSize: queryCoverage.pageSize ?? EVENT_QUERY_PAGE_SIZE,
+      truncated: Boolean(queryCoverage.truncated),
+      queryHash: queryCoverage.queryHash || null,
+      snapshotId: queryCoverage.snapshotId || null,
+    },
+    documents,
   };
 }
 
@@ -830,13 +865,15 @@ export function buildInsightsDocuments({
   window,
   applicationEvidence,
   generatedAt = new Date().toISOString(),
+  source = 'posthog',
   queryCoverage,
   onlyCompanyKey = null,
   additionalWindows = {},
 } = {}) {
   if (!catalog) throw new Error('identity catalog required');
   if (!window?.from || !window?.to) throw new Error('explicit window required');
-  const aggregate = aggregateEmployerEvents(eventRows, { catalog, window });
+  assertEmployerInsightsSource(source);
+  const aggregate = aggregateEmployerEvents(eventRows, { catalog, window, source });
   const evidence = Array.isArray(applicationEvidence)
     ? aggregateApplicationEvidence(applicationEvidence, { catalog, window })
     : applicationEvidence || emptyApplicationEvidence();
@@ -898,7 +935,7 @@ export function buildInsightsDocuments({
       companyKey,
       companyName: state.companyName || catalog.companyNameByKey.get(companyKey) || companyKey,
       generatedAt,
-      source: 'posthog',
+      source,
       window: { ...window, inclusive: '[from,to)' },
       totals: {
         views: state.views,
@@ -939,14 +976,14 @@ export function buildInsightsDocuments({
         events: eventLimits,
       },
       provenance: {
-        source: 'posthog',
+        source,
         buildSha: BUILD_SHA,
         snapshotId: eventLimits.snapshotId,
         queryHash: eventLimits.queryHash,
         identityCatalogSha: catalog.identityCatalogSha,
         window: { ...window },
         rowsReturned: eventLimits.returnedRows,
-        returnedObserved: eventLimits.returned,
+        returned: eventLimits.returned,
         totalRows: eventLimits.totalBeforeCut,
         sourceObserved: eventLimits.sourceObserved,
         groupedRowsBeforeCut: eventLimits.groupRowsBeforeCut,
@@ -1150,6 +1187,12 @@ async function writeDocuments(docs) {
 }
 
 async function main() {
+  const source = arg('--source', null);
+  if (!source) throw new Error('--source is required (posthog or ga4)');
+  assertEmployerInsightsSource(source);
+  if (source !== 'posthog') {
+    throw new Error('source=ga4 is not yet supported by this builder; refusing to query PostHog under a GA4 label');
+  }
   const now = new Date().toISOString();
   const explicitTo = arg('--to', now);
   const requestedDays = arg('--days', null);
@@ -1194,6 +1237,7 @@ async function main() {
       window,
       applicationEvidence: evidence,
       generatedAt: now,
+      source,
       queryCoverage: queried.coverage,
       onlyCompanyKey: arg('--company', null),
     });
@@ -1208,12 +1252,33 @@ async function main() {
     window: primary.window,
     applicationEvidence: primary.evidence,
     generatedAt: now,
+    source,
     queryCoverage: primary.queried.coverage,
     onlyCompanyKey: arg('--company', null),
   });
   for (const document of docs) {
     const views = additionalByCompany.get(document.companyKey);
     if (views && Object.keys(views).length) document.additionalWindows = views;
+  }
+
+  const jsonOutputPath = arg('--json-out', null);
+  if (jsonOutputPath) {
+    const payload = buildDryRunPayload({
+      documents: docs,
+      generatedAt: now,
+      source,
+      window: primary.window,
+      queryCoverage: primary.queried.coverage,
+    });
+    const temporaryPath = `${jsonOutputPath}.${process.pid}.tmp`;
+    try {
+      fs.writeFileSync(temporaryPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+      fs.renameSync(temporaryPath, jsonOutputPath);
+    } catch (error) {
+      try { fs.unlinkSync(temporaryPath); } catch { /* preserve the original error */ }
+      throw error;
+    }
+    console.log(`Dry-run JSON written to ${jsonOutputPath}.`);
   }
 
   console.log(`Built insights for ${docs.length} companies (window ${primary.window.from} → ${primary.window.to}).`);
