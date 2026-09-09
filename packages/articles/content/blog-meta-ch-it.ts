@@ -6181,6 +6181,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.legge-militare-struttura-condotta-2026.title': 'Consiglio federale: nuova struttura esercito svizzero',
     'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all\'estero per militari di milizia, protezione da spionaggio.',
     'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Parlamento federale svizzero a Berna, sede del Consiglio federale che ha avviato la consultazione sulla riforma dell\'esercito',
+    'blog.article.consiglio-federale-ruag-mro.title': 'Consiglio federale: RUAG MRO diventa società pubblica',
+    'blog.article.consiglio-federale-ruag-mro.excerpt': 'Il Consiglio federale adotta il messaggio per trasformare RUAG MRO da società privata a società pubblica con legge speciale. Governance più trasparente e controllo federale rafforzato.',
+    'blog.article.consiglio-federale-ruag-mro.imageAlt': 'Veduta di Bellinzona, capitale del Ticino e rappresentante della Svizzera',
+    'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet taglia fino a 580 impieghi a Winterthur',
+    'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Il colosso statunitense avvia la procedura di consultazione con i lavoratori per ridurre il personale. Procedure e benefici per i dipendenti colpiti.',
+    'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Stabilimento produttivo di Zimmer Biomet a Winterthur nel cantone Zurigo, dove saranno tagliati fino a 580 posti di lavoro',
 };
 
 export default blogMetaChIt;
