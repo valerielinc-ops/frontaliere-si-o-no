@@ -452,9 +452,21 @@ describe('B22 review-efficiency gates — process invariants', () => {
 
   it('recognizes gh global options before the pr subcommand', () => {
     const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
-    const command = 'gh --repo owner/repo pr edit 8076 --body-file /tmp/body.md';
-    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(0);
-    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(EXIT_BLOCK);
+    const first = 'gh --repo owner/one pr edit 8076 --body-file /tmp/body.md';
+    const second = 'gh --repo owner/two pr edit 8076 --body-file /tmp/body.md';
+    expect(runReviewGate(BODY_WRITE_GATE, first, env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, second, env).status).toBe(0);
+  });
+
+  it('normalizes explicit and environment repository identities to one marker', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      GITHUB_REPOSITORY: 'owner/repo',
+    };
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
+    expect(
+      runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/repo --body "second"', env).status,
+    ).toBe(EXIT_BLOCK);
   });
 
   it('passes on an unparseable command instead of blocking it', () => {

@@ -140,8 +140,9 @@ export function findGhRunMutation(input) {
     const words = executableWords(segment);
     if (words[0] !== 'gh') continue;
 
-    let index = skipGhGlobalOptions(words, 1);
-    if (index < 0) continue;
+    const globalOptions = skipGhGlobalOptions(words, 1);
+    if (globalOptions.index < 0) continue;
+    const index = globalOptions.index;
     if (words[index] !== 'run' || !['rerun', 'cancel'].includes(words[index + 1])) continue;
 
     const action = words[index + 1];
@@ -167,7 +168,8 @@ export function findPrBodyWrite(input, env = process.env) {
   for (const segment of parsed.commands) {
     const words = executableWords(segment);
     if (words[0] !== 'gh') continue;
-    const ghCommandIndex = skipGhGlobalOptions(words, 1);
+    const globalOptions = skipGhGlobalOptions(words, 1);
+    const ghCommandIndex = globalOptions.index;
     if (
       ghCommandIndex < 0 ||
       words[ghCommandIndex] !== 'pr' ||
@@ -178,7 +180,7 @@ export function findPrBodyWrite(input, env = process.env) {
 
     let bodyFlag;
     let prNumber;
-    let repo;
+    let repo = globalOptions.repo;
     for (let index = ghCommandIndex + 2; index < words.length; index += 1) {
       const word = words[index];
       if (BODY_FLAGS.has(word)) {
@@ -220,7 +222,7 @@ export function findPrBodyWrite(input, env = process.env) {
     const envRecord = env && typeof env === 'object' ? env : {};
     prNumber ??= firstNumericEnv(envRecord, ['FRONTALIERE_PR_NUMBER', 'PR_NUMBER', 'GITHUB_PR_NUMBER']);
     repo ??= firstStringEnv(envRecord, ['GITHUB_REPOSITORY', 'GH_REPO']);
-    if (repo && /[$`]/.test(repo)) repo = undefined;
+    repo = normalizeRepository(repo);
     return { prNumber, repo, bodyFlag };
   }
   return null;
@@ -293,18 +295,27 @@ function skipGhGlobalOptions(words, index) {
   const takesValue = new Set(['--repo', '-R', '--hostname']);
   const noValue = new Set(['--debug', '--verbose']);
   let cursor = index;
+  let repo;
   while (cursor < words.length && words[cursor].startsWith('-')) {
     const option = words[cursor];
-    if (option === '--help' || option === '-h') return -1;
-    if (option.startsWith('--repo=') || option.startsWith('--hostname=')) {
+    if (option === '--help' || option === '-h') return { index: -1 };
+    if (option.startsWith('--repo=')) {
+      repo = option.slice('--repo='.length);
       cursor += 1;
       continue;
     }
-    if (!takesValue.has(option) && !noValue.has(option)) return -1;
+    if (option.startsWith('--hostname=')) {
+      cursor += 1;
+      continue;
+    }
+    if (!takesValue.has(option) && !noValue.has(option)) return { index: -1 };
     cursor += 1;
-    if (takesValue.has(option)) cursor += 1;
+    if (takesValue.has(option)) {
+      if (option === '--repo' || option === '-R') repo = words[cursor];
+      cursor += 1;
+    }
   }
-  return cursor;
+  return { index: cursor, repo };
 }
 
 function firstNumericEnv(env, names) {
@@ -321,6 +332,13 @@ function firstStringEnv(env, names) {
     if (typeof value === 'string' && value.trim()) return value.trim();
   }
   return undefined;
+}
+
+function normalizeRepository(value) {
+  if (typeof value !== 'string') return undefined;
+  const normalized = value.trim();
+  if (!normalized || /[$`]/.test(normalized)) return undefined;
+  return normalized;
 }
 
 function repoFromPullUrl(url) {

@@ -108,7 +108,7 @@ export function resolveHookRepositoryScope(candidate = process.cwd()) {
     const commonGitDir = resolveCommonGitDir(join(current, '.git'));
     if (commonGitDir) {
       const remote = readOriginRepository(commonGitDir);
-      return remote ? `repo:${remote}` : `git:${commonGitDir}`;
+      return remote ?? `git:${commonGitDir}`;
     }
     const parent = resolve(current, '..');
     if (parent === current) break;
@@ -147,7 +147,10 @@ function resolveCommonGitDir(gitEntry) {
     if (!pointer) return undefined;
     const gitDir = resolve(join(gitEntry, '..'), pointer[1]);
     const commondir = readSmallFile(join(gitDir, 'commondir'))?.trim();
-    return commondir ? resolve(gitDir, commondir) : resolve(gitDir, '..', '..');
+    // A standard linked worktree has `commondir`; without it, do not guess a
+    // parent (a submodule's `.git` pointer would otherwise collapse onto the
+    // superproject). A unique gitdir is still a safe local namespace.
+    return commondir ? resolve(gitDir, commondir) : resolve(gitDir);
   } catch {
     return undefined;
   }
@@ -157,7 +160,7 @@ function readOriginRepository(commonGitDir) {
   const config = readSmallFile(join(commonGitDir, 'config'));
   if (!config) return undefined;
 
-  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n\[|$)/gi);
+  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n[ \t]*\[|$)/gim);
   for (const section of sections) {
     if (section[1] !== 'origin') continue;
     const url = section[2].match(/^\s*url\s*=\s*(\S+)\s*$/im)?.[1];
