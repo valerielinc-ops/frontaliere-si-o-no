@@ -80672,6 +80672,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-previdenza-agosto-rendimenti-positivi': {
+    title: 'Casse pensioni svizzere: +0,7% ad agosto | Frontaliere Ticino',
+    description: 'Casse pensioni svizzere in positivo: rendimento di +0,7% ad agosto 2026, trainato da azioni estere a +14%. Analisi UBS e performance storica dal 2006.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, pensioni, svizzere, agosto',
+    ogTitle: 'Casse pensioni svizzere: +0,7% ad agosto',
+    ogDescription: 'Le casse pensioni svizzere hanno chiuso agosto in territorio positivo con rendimento dello 0,7% netto spese. Azioni estere brillano a +14%, supportate da utili societari e investimenti nell\'IA. Scopri come il tuo portafoglio pensionistico è impattato',
+    canonicalPath: '/articoli-svizzera/previdenza-agosto-rendimenti-positivi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse pensioni svizzere: +0,7% ad agosto",
+      "description": "Casse pensioni svizzere in positivo: rendimento di +0,7% ad agosto 2026, trainato da azioni estere a +14%. Analisi UBS e performance storica dal 2006.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/previdenza-agosto-rendimenti-positivi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con edifici finanziari e paesaggio lacustre, contesto economico svizzero"
+      },
+      "datePublished": "2026-09-09T18:43:10+00:00",
+      "dateModified": "2026-09-09T18:43:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/previdenza-agosto-rendimenti-positivi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

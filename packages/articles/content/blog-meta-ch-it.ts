@@ -6214,6 +6214,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.banda-larga-consiglio-federale.title': 'Banda larga rurale: il programma federale 2030-2037',
     'blog.article.banda-larga-consiglio-federale.excerpt': 'Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali per portare Internet veloce in zone rurali.',
     'blog.article.banda-larga-consiglio-federale.imageAlt': 'Tecnico che installa cavi in fibra ottica su una casa di campagna svizzera, simbolo dell\'espansione della banda larga nelle zone rurali.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Casse pensioni svizzere: +0,7% ad agosto',
+    'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Azioni estere in spinta (+14%): UBS analizza il rendimento di agosto. Fondi previdenziali verso il 3,3% annuale medio dal 2006.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Panorama di Lugano con edifici finanziari e paesaggio lacustre, contesto economico svizzero',
 };
 
 export default blogMetaChIt;
