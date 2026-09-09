@@ -6214,6 +6214,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.banda-larga-consiglio-federale.title': 'Rural Broadband: The Federal 2030-2037 Program',
     'blog.article.banda-larga-consiglio-federale.excerpt': 'The Federal Council approves the broadband support programme on 9 September 2026. Investment of 365 million federal CHF to bring fast internet to rural areas.',
     'blog.article.banda-larga-consiglio-federale.imageAlt': 'Technician installing fiber optic cables on a Swiss countryside house, symbolizing rural broadband expansion in remote areas.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Swiss pension funds: +0.7% in August',
+    'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Foreign shares boosted (+14%): UBS analyzes August performance. Social security funds up to 3.3% per year on average since 2006.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Lugano skyline with financial buildings and lake landscape in Switzerland',
 };
 
 export default blogMetaChEn;

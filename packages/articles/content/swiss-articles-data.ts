@@ -18640,6 +18640,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'previdenza-agosto-rendimenti-positivi',
+    category: 'pensione',
+    date: '2026-09-09T18:43:10.310Z',
+    image: '/images/blog/previdenza-agosto-rendimenti-positivi.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
