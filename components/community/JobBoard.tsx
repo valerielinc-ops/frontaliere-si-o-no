@@ -132,7 +132,13 @@ import {
 } from 'lucide-react';
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
-import { Analytics } from '@/services/analytics';
+import {
+ Analytics,
+ buildJobApplyAttributionParams,
+ resolveAnalyticsCompanyHubKey,
+ resolveAnalyticsJobIdentity,
+} from '@/services/analytics';
+import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 // Type-only: jobAlertService itself is always dynamically imported below (code
 // splitting) — this import is erased at build time, no bundle/runtime impact.
 import type { JobAlert } from '@/services/jobAlertService';
@@ -4624,6 +4630,40 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
+ // Resolve the hub identity from the same company-route candidates that drive
+ // the visible filter. A display-name collision is intentionally not guessed:
+ // only one canonical companyKey may be sent to GA4.
+ const companyHubEmployerKey = useMemo(() => {
+  if (!companySlugFilter) return null;
+  const candidateJobs = [...jobs, ...unscopedJobs, ...crossLocaleJobs, ...filteredJobs];
+  const matchingKeys = candidateJobs
+   .filter((job) => companyRouteSlugCandidates(job.company, job.companyKey).has(companySlugFilter))
+   .map((job) => job.companyKey);
+  return resolveAnalyticsCompanyHubKey(matchingKeys);
+ }, [companySlugFilter, jobs, unscopedJobs, crossLocaleJobs, filteredJobs]);
+
+ const pageViewIdentity = useMemo(() => {
+  if (selectedJob) return resolveAnalyticsJobIdentity(selectedJob);
+  if (companyHubEmployerKey) return { employerKey: companyHubEmployerKey };
+  return null;
+ }, [selectedJob, companyHubEmployerKey]);
+ const pageViewPath = typeof window === 'undefined' ? '' : `${window.location.pathname}${window.location.search}${window.location.hash}`;
+ const pageViewTrackedKey = useRef<string | null>(null);
+
+ // The central route tracker deliberately defers job-detail/company-hub
+ // page_views to this point. The event is still emitted when identity is
+ // unavailable; buildPageViewAttributionParams then leaves attribution empty.
+ useEffect(() => {
+  if (!pageViewPath) return;
+  const { pageTemplate } = deriveAnalyticsPageContext(pageViewPath);
+  if (pageTemplate !== 'job_detail' && pageTemplate !== 'jobs_company') return;
+  const path = pageViewPath;
+  const key = `${path}|${pageViewIdentity?.jobSlug || ''}|${pageViewIdentity?.employerKey || ''}`;
+  if (pageViewTrackedKey.current === key) return;
+  pageViewTrackedKey.current = key;
+  Analytics.trackPageView(path, undefined, pageViewIdentity);
+ }, [pageViewIdentity, pageViewPath]);
+
  // A search/company view momentarily shows a non-authoritative `filteredJobs`:
  // either empty while the lazy broaden / cross-locale pools are still being
  // fetched, OR a misleading provisional count from the first-page slim paint
@@ -6286,9 +6326,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  emission_id: eventId,
  });
  Analytics.trackEvent('job_apply', {
- employer_key: canonicalCompanyRouteSlug(job.company, job.companyKey),
+ ...buildJobApplyAttributionParams(job),
  is_sponsored: job.featured ? 'sponsored' : 'free',
- job_slug: job.slug || job.id,
  emission_id: eventId,
  });
  return eventId;
