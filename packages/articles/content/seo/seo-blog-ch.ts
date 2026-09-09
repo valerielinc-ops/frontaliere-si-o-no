@@ -79775,6 +79775,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-f35-caccia-commissione-amherd': {
+    title: 'F-35, Berna e USA: nessun prezzo fisso concordato',
+    description: 'Rapporto della Commissione di vigilanza smentisce Amherd: non c\'era accordo su prezzo fisso con gli USA per i F-35A. Credito aggiuntivo di 394 milioni CHF.',
+    keywords: 'frontalieri, ticino, svizzera, italia, f-35, berna, nessun, prezzo',
+    ogTitle: 'F-35, Berna e USA: nessun prezzo fisso concordato',
+    ogDescription: 'La Commissione di vigilanza del Consiglio nazionale critica la gestione dei negoziati per i caccia F-35. Nessun prezzo fisso era stato concordato con Washington. La Svizzera avrà 30 F-35 invece di 36 e dovrà aggiungere 394 milioni CHF al bilancio',
+    canonicalPath: '/articoli-svizzera/f35-caccia-commissione-amherd/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "F-35, Berna e USA: nessun prezzo fisso concordato",
+      "description": "Rapporto della Commissione di vigilanza smentisce Amherd: non c'era accordo su prezzo fisso con gli USA per i F-35A. Credito aggiuntivo di 394 milioni CHF.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/f35-caccia-commissione-amherd.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento federale svizzero a Berna, simbolo della vigilanza amministrativa sui progetti di difesa della Confederazione"
+      },
+      "datePublished": "2026-09-09T02:21:06+00:00",
+      "dateModified": "2026-09-09T02:21:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/f35-caccia-commissione-amherd/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

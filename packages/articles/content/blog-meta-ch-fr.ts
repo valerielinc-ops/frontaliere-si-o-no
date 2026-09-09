@@ -6145,6 +6145,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestlé surveille les recherches des consommateurs',
     'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'Le groupe suisse surveille comment les modèles linguistiques accèdent à ses sites et analyse les demandes des consommateurs à l\'IA pour adapter le marketing.',
     'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Siège de Nestlé à Vevey: l\'entreprise suisse surveille l\'accès de l\'IA à ses sites',
+    'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Berne et USA : pas de prix fixe convenu',
+    'blog.article.f35-caccia-commissione-amherd.excerpt': 'Le rapport de la Commission de surveillance dément Amherd : il n\'y avait pas d\'accord sur un prix fixe avec les États-Unis. Crédit supplémentaire de 394 millions de CHF et réduction à 30 chasseurs.',
+    'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Parlement fédéral suisse à Berne, symbole de la surveillance administrative des projets de défense',
 };
 
 export default blogMetaChFr;

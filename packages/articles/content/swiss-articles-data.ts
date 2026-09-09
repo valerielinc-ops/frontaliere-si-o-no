@@ -18433,6 +18433,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'f35-caccia-commissione-amherd',
+    category: 'novita',
+    date: '2026-09-09T02:21:06.079Z',
+    image: '/images/blog/f35-caccia-commissione-amherd.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

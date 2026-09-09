@@ -6145,6 +6145,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nestle-ai-consumatori-ricerca.title': 'Nestle monitora le ricerche AI dei consumatori',
     'blog.article.nestle-ai-consumatori-ricerca.excerpt': 'Il gruppo svizzero monitora come i modelli linguistici accedono ai suoi siti e analizza le domande dei consumatori all\'IA per adattare il marketing.',
     'blog.article.nestle-ai-consumatori-ricerca.imageAlt': 'Sede di Nestlé a Vevey: l\'azienda svizzera monitora l\'accesso dell\'intelligenza artificiale ai suoi siti',
+    'blog.article.f35-caccia-commissione-amherd.title': 'F-35, Berna e USA: nessun prezzo fisso concordato',
+    'blog.article.f35-caccia-commissione-amherd.excerpt': 'Rapporto della Commissione di vigilanza smentisce Amherd: non c\'era accordo su prezzo fisso con gli USA. Credito aggiuntivo di 394 milioni CHF e riduzione a 30 caccia.',
+    'blog.article.f35-caccia-commissione-amherd.imageAlt': 'Parlamento federale svizzero a Berna, simbolo della vigilanza amministrativa sui progetti di difesa della Confederazione',
 };
 
 export default blogMetaChIt;

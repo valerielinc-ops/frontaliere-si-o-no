@@ -2074,6 +2074,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'uri-franchigie-modelli-sussidio': { it: 'uri-franchigie-modelli-sussidio', en: 'uri-franchises-models-subsidy', de: 'uri-franchisen-modelle-subvention', fr: 'uri-franchises-modeles-subsides' },
  'permesso-c-canton-uri-richiesta': { it: 'permesso-c-canton-uri-richiesta', en: 'permit-c-canton-uri-request', de: 'aufenthaltserlaubnis-c-kanton-uri-antrag', fr: 'permis-c-canton-uri-demande' },
  'nestle-ai-consumatori-ricerca': { it: 'nestle-ai-consumatori-ricerca', en: 'nestle-ai-consumer-research', de: 'nestle-ai-konsumenten-forschung', fr: 'nestle-ia-recherche-consommateurs' },
+ 'f35-caccia-commissione-amherd': { it: 'f35-caccia-commissione-amherd', en: 'f35-fighter-jets-commission-amherd', de: 'f35-kampfflugzeuge-kommission-amherd', fr: 'f35-chasseurs-commission-amherd' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
