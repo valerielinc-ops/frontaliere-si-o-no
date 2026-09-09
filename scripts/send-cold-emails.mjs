@@ -313,7 +313,10 @@ async function recordSendToFirestore(key, touchNum, subject, result) {
         touch: touchNum,
         sentAt,
         provider: result?.provider || '',
-        messageId: result?.messageId || '',
+        // Un ack senza id del provider non produce un identificatore: la stringa
+        // vuota diceva «inviato e non identificabile» con la stessa forma di un id
+        // mancante per errore. Ora l'assenza resta assenza.
+        messageId: result?.ack === 'identified' ? result.messageId : null,
         subject: String(subject || '').slice(0, 200),
       }),
       updatedAt: FieldValue.serverTimestamp(),
@@ -516,7 +519,7 @@ async function run() {
       touch: item._touch,
       sentAt: new Date().toISOString(),
       provider: result.provider,
-      messageId: result.messageId,
+      messageId: result?.ack === 'identified' ? result.messageId : null,
     });
     saveSendLog(logPath, sendLog);
     // Mirror to Firestore (best-effort, non-blocking) so the admin dashboard
