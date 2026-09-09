@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-09-09T13:58:09.418Z",
+  "assembledAt": "2026-09-09T23:18:01.732Z",
   "jobs": [
     {
       "title": "Polymechaniker (w/m/d)",
@@ -46,20 +46,6 @@
       },
       "id": "agie-charmilles-0852c2cbfb49",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
-        ],
-        "en": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
-        ],
-        "fr": [
-          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
-      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
@@ -74,7 +60,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T13:53:49.097Z"
+      "firstSeenAt": "2026-09-09T13:53:49.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
+          "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-w-m-d-agie-charmilles-biel-bienne"
+      ]
     },
     {
       "title": "Automatiker EFZ (w/m/d)",
@@ -119,20 +119,6 @@
         "fr": "efz-automatique-h-f-d-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-a702ffc69725",
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
-        ],
-        "en": [
-          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
-        ],
-        "fr": [
-          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
-      ],
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
@@ -147,8 +133,22 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-09T13:53:49.097Z"
+      "firstSeenAt": "2026-09-09T13:53:49.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
+          "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-efz-w-m-d-agie-charmilles-biel-bienne"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Mechanical Designer",
@@ -461,8 +461,8 @@
         "diagnose-ingegnere-agie-charmilles-sa-biel-bienne",
         "diagnose-engineer-80-100-agie-charmilles-biel-bienne",
         "diagnose-engineer-agie-charmilles-berne",
-        "diagnose-engineer-80-100-agie-charmilles-berne",
         "diagnose-engineer-80-100-agie-charmilles-sa-biel-bienne",
+        "diagnose-engineer-80-100-agie-charmilles-berne",
         "diagnose-engineer-80-100-agie-charmilles-sa-berne"
       ],
       "salarySource": "estimated"
@@ -1190,7 +1190,7 @@
     },
     {
       "title": "Automatiker EFZ",
-      "slug": "automatiker-efz-agie-charmilles-bienne",
+      "slug": "automatiker-cfc-agie-charmilles-sa-bienne",
       "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-automatiker-efz/",
       "applyUrl": "https://tracking.jobchannel.ch/redirect/e6473b50da2b76a296b8160b2c0a13f27b0767bed6e04005f5a39de4e2e2e4ba2abcac025c175b03399cc84ed565c3b11c7157a3bb1e445d96fbf7f6e38087",
       "company": "AGIE Charmilles SA",
@@ -1225,7 +1225,7 @@
         "fr": "Automatiker EFZ — AGIE Charmilles SA (GF Machining Solutions), Bienne (BE).\n\nAutomatiker EFZ (w/m/d)\nPensum: 80-100%\nArbeitsort: Biel\nAnstellungsart: Unbefristet\n## Ihre Aufgaben\n- Sie werden als Profi im Bereich Verdrahtung und/oder Inbetriebnahme unserer komplexen 3- und 5-Achs\n- Hochgeschwindigkeits-Fräsmaschinen eingesetzt. Dafür steht Ihnen eine moderne Infrastruktur zur Verfügung. Hier können\n- Sie Ihre fachlichen Fähigkeiten weiterentwickeln.\n- Sie sind verantwortlich für die termingerechte Inbetriebnahme der CNC- Maschinen (Sinumerik oder Heidenhain) und deren\n- Peripheriegeräte unter Einhaltung der Qualitätsrichtlinien.\n- Ausserdem verantworten Sie die Wartung der Betriebsmittel und Einrichtungen in Ihrem Bereich.\n## Ihr Profil\n- Sie verfügen über eine abgeschlossene elektrische Grundbildung (EFZ), idealerweise zum Automatiker, Automatikmonteur,\n- Elektromechaniker, Elektroniker oder Elektriker mit Elektronik-/Informatikerfahrung.\n- Von Vorteil bringen Sie bereits Erfahrung im Maschinen- und Apparatebau mit.\n- Lösungsorientiertes Denken, technisches Flair und ausgeprägte Diagnosefähigkeiten gehören zu ihren Stärken.\n- Sie weisen sehr gute Deutschkenntnisse aus, Englisch ist von Vorteil.\n- Ein hohes Qualitätsbewusstsein zeichnet Sie aus und Sie sind gewohnt, selbständig und exakt zu arbeiten. Es macht\n- Ihnen Freude, Verantwortung zu übernehmen und Sie wollen sich stetig weiterentwickeln. In unserem internationalen\n- Konzern stehen Ihnen spannende Entwicklungsmöglichkeiten offen.\n- MIKRON MILL ist einer der weltweiten Experten für vertikales Fräsen und Erfinder des Hochgeschwindigkeitsfräsens. Die\n- automatisierungsfähigen Maschinen sind bekannt für dynamische Präzision und Freiformgenauigkeit und liefern\n- Spitzenleistungen bei komplexen Anwendungen. MIKRON MILL steht für Innovation, Agilität und nachhaltigen Mehrwert.\n## Wir bieten\n- Ausgezeichnete Karrierechancen: UNITED MACHINING bietet viele Möglichkeiten zur Karriereentwicklung. Wir bieten einen\n- Talentmanagementprozess (MyNextBigStep), um Ihre Karriere zu fördern.\n- Ausgezeichnete Schulungsinstrumente: Bei UNITED MACHINING bieten wir Entwicklungsmöglichkeiten für alle. Wir bieten\n- globale Lerntools sowie Schulungen und spezialisierte Kurse.\n- Fokus auf Nachhaltigkeit und Innovation: Wir haben hohe Nachhaltigkeits- und Innovationsziele. Lassen Sie uns\n- gemeinsam auf eine nachhaltige Zukunft hinarbeiten.\n- Über uns\n- UNITED MACHINING ist einer der weltweit führenden Anbieter von Komplettlösungen für Hersteller von\n- Präzisionskomponenten und Werkzeugen sowie für den Formenbau. Das Portfolio umfasst Maschinen für das Fräsen, die\n- Funkenerosion, die Laserstrukturierung, die Lasermikrobearbeitung und die additive Fertigung. Darüber hinaus bietet der\n- Geschäftsbereich Spindeln, Automatisierungslösungen, Werkzeuge und digitalisierte Lösungen, die durch einen\n- unübertroffenen Kundenservice und Support unterstützt werden.\n- Zu UNITED MACHINING gehören die Marken AGIE CHARMILLES, CHARMILLES, MIKRON MILL, LIECHTI, STEP TEC und SYSTEM 3R.\n- UNITED MACHINING hat seinen Hauptsitz in Biel, Schweiz, und beschäftigt derzeit über 3'000 Mitarbeitende an mehr als\n- 50 Standorten weltweit.\n## Ihre Kontaktperson\nChristine Steiner\nHR Business Partner\n+41 32 366 11 11\nWeb\nUnited Machining Mill AG\nRoger-Federer-Allee 7\n2504 Biel\nSchweiz\nDirektbewerbungen werden bevorzugt."
       },
       "slugByLocale": {
-        "it": "automatiker-efz-agie-charmilles-bienne",
+        "it": "automatiker-cfc-agie-charmilles-sa-bienne",
         "en": "automatiker-efz-agie-charmilles-bienne",
         "de": "automatiker-efz-agie-charmilles-bienne",
         "fr": "automatiker-efz-agie-charmilles-bienne"
@@ -1245,12 +1245,20 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-09T13:53:49.097Z"
+      "firstSeenAt": "2026-09-09T13:53:49.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-efz-agie-charmilles-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-efz-agie-charmilles-bienne"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Electronics Engineer",
-      "slug": "electronics-engineer-agie-charmilles-losone",
+      "slug": "electronics-ingegnere-agie-charmilles-sa-losone",
       "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-electronics-engineer/",
       "applyUrl": "https://tracking.jobchannel.ch/redirect/dd4d110d919f77f0816e67c9a936e5af6f115ac3438ca637f3d5493382eb7611661ee1b141eb111ffc00b114e1208af0b1b21a90fef47a294e07fac70bc383",
       "company": "AGIE Charmilles SA",
@@ -1285,10 +1293,10 @@
         "fr": "Electronics Engineer — AGIE Charmilles SA (GF Machining Solutions), Losone (TI).\n\n100%WorkloadLosoneLocation Apply now\nYour tasks\n- Ensure quality control of PCBA production processes (THT, wave soldering, selective soldering, mixed technology) and\nmaintain control plans and acceptance criteria.\n- Support production teams in troubleshooting electronic failures and lead structured problem-solving activities (8D,\n5 Why, root cause analysis).\n- Ensure reliability of electronic test systems (SPEA, Flying Probe, functional test benches) and implement corrective\nactions on test failures.\n- Drive continuous improvement initiatives to reduce internal defects and support New Product Introduction (NPI) with\nrobust manufacturing and test processes.\n- Support supplier quality activities, define incoming inspection requirements, and contribute to the analysis of\nassemblies returned from the field.\nYour profile\n- Degree in Electronics or equivalent technical background; 5 years of experience in electronics manufacturing,\nquality, or test engineering.\n- Knowledge of PCB assembly technologies, soldering processes, and solder joint quality; experience with electronic\ntest systems (SPEA, Flying Probe, ICT or similar) is a strong advantage.\n- Structured problem-solving mindset (8D, 5 Why) with hands-on, pragmatic approach and strong technical curiosity.\n- Ability to work cross-functionally with production, R&D, and supplier teams; clear and effective communication with\ntechnical stakeholders.\n- Fluent in Italian; English B2 or higher required.\nAGIE CHARMILLES, inventor of EDM (Electrical Discharge Machining), is known as a premium brand and innovation leader\nin wire, die-sinking, and hole-drilling EDM. Its automation-ready solutions are used in mold making and the production\nof high-end components, offering Swiss precision, reliability, and performance. Learn more..."
       },
       "slugByLocale": {
-        "it": "electronics-engineer-agie-charmilles-losone",
+        "it": "electronics-ingegnere-agie-charmilles-sa-losone",
         "en": "electronics-engineer-agie-charmilles-losone",
-        "de": "electronics-engineer-agie-charmilles-losone",
-        "fr": "electronics-engineer-agie-charmilles-losone"
+        "de": "electronics-ingenieur-agie-charmilles-sa-losone",
+        "fr": "electronics-ingenieur-agie-charmilles-sa-losone"
       },
       "id": "agie-charmilles-f4cb17cfcea1",
       "salaryMin": 58000,
@@ -1307,7 +1315,21 @@
       },
       "streetAddress": "Via Goldau 7",
       "postalCode": "6616",
-      "firstSeenAt": "2026-09-09T13:53:49.097Z"
+      "firstSeenAt": "2026-09-09T13:53:49.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electronics-engineer-agie-charmilles-losone"
+        ],
+        "de": [
+          "electronics-engineer-agie-charmilles-losone"
+        ],
+        "fr": [
+          "electronics-engineer-agie-charmilles-losone"
+        ]
+      },
+      "previousSlugs": [
+        "electronics-engineer-agie-charmilles-losone"
+      ]
     },
     {
       "title": "CAM Software Engineer",
