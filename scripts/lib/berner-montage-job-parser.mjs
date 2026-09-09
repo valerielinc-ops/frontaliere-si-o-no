@@ -45,6 +45,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -95,6 +96,14 @@ function cityFromLocationText(raw = '') {
   const cleaned = normalizeSpace(raw);
   if (!cleaned || /^\d+\s+location/i.test(cleaned)) return '';
   return cleaned.split(',')[0].trim();
+}
+
+export function resolveBernerLocation(info = {}, listingLocation = '') {
+  const candidates = getWorkdayLocationCandidates(info, listingLocation)
+    .filter((candidate) => cityFromLocationText(candidate));
+  return candidates.find((candidate) => !isLocationExplicitlyForeign(candidate))
+    || candidates[0]
+    || '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -286,14 +295,16 @@ export async function fetchAllBernerMontageJobs() {
     // Be polite to the Workday tenant between per-job detail fetches.
     await new Promise((r) => setTimeout(r, 400));
 
-    const rawLocation = cityFromLocationText(detail?.jobPostingInfo?.location || '') || listing.location || '';
+    const info = detail?.jobPostingInfo || {};
+    const rawLocation = resolveBernerLocation(info, listing.location);
     if (isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️ Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
 
-    const { city, postalCode, streetAddress } = resolveAddress(rawLocation);
-    const location = rawLocation || city || HQ.city;
+    const resolvedCity = cityFromLocationText(rawLocation);
+    const { city, postalCode, streetAddress } = resolveAddress(resolvedCity);
+    const location = resolvedCity || city || HQ.city;
     const canton = inferSwissTargetCanton(location) || inferSwissTargetCanton(city) || HQ.canton;
 
     const descriptionHtml = String(detail?.jobPostingInfo?.jobDescription || '').trim();

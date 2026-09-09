@@ -491,6 +491,55 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function normalizeWorkdayLocationField(value) {
+  if (typeof value === 'string' || typeof value === 'number') {
+    return normalizeSpace(value);
+  }
+  if (!value || typeof value !== 'object') return '';
+  return normalizeSpace(value.descriptor || value.name || '');
+}
+
+/**
+ * Convert the string/object shapes used by Workday location fields to text.
+ * Detail payloads commonly put the country in a nested object and use
+ * `descriptor` for the human-readable location; String(object) loses both.
+ */
+export function normalizeWorkdayLocationCandidate(candidate) {
+  if (typeof candidate === 'string' || typeof candidate === 'number') {
+    return normalizeSpace(candidate);
+  }
+  if (!candidate || typeof candidate !== 'object') return '';
+
+  const parts = [
+    candidate.descriptor,
+    candidate.location,
+    candidate.city,
+    candidate.cityName,
+    candidate.region,
+    candidate.country,
+    candidate.country?.descriptor,
+    candidate.country?.name,
+    candidate.country?.alpha2Code,
+    candidate.country?.code,
+  ].map(normalizeWorkdayLocationField).filter(Boolean);
+
+  return [...new Set(parts)].join(', ');
+}
+
+/**
+ * Return all location candidates from a Workday detail plus its listing.
+ * Keep the source order: primary detail, additional detail locations,
+ * requisition location, then listing summary.
+ */
+export function getWorkdayLocationCandidates(info = {}, listingLocation = '') {
+  return [
+    info?.location,
+    ...(Array.isArray(info?.additionalLocations) ? info.additionalLocations : []),
+    info?.jobRequisitionLocation,
+    listingLocation,
+  ].map(normalizeWorkdayLocationCandidate).filter(Boolean);
+}
+
 /**
  * Parse Workday's `postedOn` field into an ISO `YYYY-MM-DD` string.
  *

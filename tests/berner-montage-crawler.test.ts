@@ -4,6 +4,7 @@ import {
   BERNER_MONTAGE_COMPANY_NAME,
   isBernerMontageJob,
   isTrustedDomain,
+  resolveBernerLocation,
 } from '../scripts/lib/berner-montage-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,15 @@ describe('Montagetechnik BERNER AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('detail location resolution', () => {
+    it('chooses a Swiss additional location when the primary is foreign', () => {
+      expect(resolveBernerLocation({
+        location: 'Berlin, Germany',
+        additionalLocations: [{ descriptor: 'Reinach, Switzerland' }],
+      }, 'N Locations')).toBe('Reinach, Switzerland');
     });
   });
 
