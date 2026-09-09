@@ -203,6 +203,17 @@ function emissions(srcs: SourceFile[]): Emission[] {
 // ---------------------------------------------------------------------------
 
 describe('generatori del body PR — sezione dei residui', () => {
+  it('mantiene issue-fix.yml sotto il limite dello scalar prompt di GitHub', async () => {
+    const workflow = sources.find((s) => s.rel === '.github/workflows/issue-fix.yml');
+    expect(workflow, 'issue-fix.yml non trovato').toBeDefined();
+    const prompts = promptBlocks(workflow!.text);
+    expect(prompts, 'issue-fix.yml deve avere un solo prompt').toHaveLength(1);
+    // GitHub rejects an otherwise valid workflow when one step scalar grows
+    // past its server-side limit. Keep headroom below the observed ~21 KiB
+    // ceiling so a small prompt addition cannot recreate a jobs:[] run.
+    expect(prompts[0].length).toBeLessThanOrEqual(20_000);
+  });
+
   it('trova almeno i generatori noti (il discovery non è vacuo)', async () => {
     const found = new Set(emissions(sources).map((e) => e.rel));
     // Se il discovery si rompe, ogni altro test qui sotto diventa verde a vuoto
