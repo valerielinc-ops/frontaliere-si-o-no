@@ -80009,6 +80009,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-amministrati-concorrenza-potere': {
+    title: 'Prezzi amministrati: effetti su concorrenza e potere',
+    description: 'Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, amministrati, effetti, concorrenza',
+    ogTitle: 'Prezzi amministrati: effetti su concorrenza e potere',
+    ogDescription: 'Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile alla media europea, ma molto dipende dal settore.',
+    canonicalPath: '/articoli-svizzera/prezzi-amministrati-concorrenza-potere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi amministrati: effetti su concorrenza e potere",
+      "description": "Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-amministrati-concorrenza-potere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala riunioni del Consiglio federale svizzero durante sessione di analisi economia e politica dei prezzi amministrati in Svizzera"
+      },
+      "datePublished": "2026-09-09T10:57:15+00:00",
+      "dateModified": "2026-09-09T10:57:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-amministrati-concorrenza-potere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
