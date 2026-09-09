@@ -24,7 +24,7 @@ import {
   isAgeOutEligible,
 } from '../scripts/ci/followup-drainer.mjs';
 import { formatRateLimitComment, maxQuotaResetsAt } from '../scripts/ci/claude-rate-limit.mjs';
-import { beaconCandidates } from '../scripts/ci/check-quota-backoff.mjs';
+import { beaconCandidates, quotaFallbackDecision } from '../scripts/ci/check-quota-backoff.mjs';
 
 type Comment = { body?: string; createdAt?: string };
 const nowSec = () => Math.floor(Date.now() / 1000);
@@ -172,5 +172,32 @@ describe('beaconCandidates — la ricerca del beacon resta bounded', () => {
   it('date illeggibili → issue ignorata, mai un crash del gate', () => {
     const out = beaconCandidates([[{ number: 1, updatedAt: 'non-una-data' }, iss(2, 1)]], { now, lookbackH: 24, max: 5 });
     expect(out).toEqual([2]);
+  });
+});
+
+describe('quota preflight projection — Codex fallback is opt-in and non-mutating', () => {
+  const nowSec = 1_800_000_000;
+
+  it('keeps the historical blocking output when Codex mode is off', () => {
+    expect(quotaFallbackDecision({
+      resetsAt: nowSec + 600,
+      nowSec,
+      codexFallbackMode: false,
+    })).toEqual({ active: true, quotaBlocked: true, codexFallback: false });
+  });
+
+  it('projects an active beacon to one Codex fallback without blocking', () => {
+    expect(quotaFallbackDecision({
+      resetsAt: nowSec + 600,
+      nowSec,
+      codexFallbackMode: true,
+    })).toEqual({ active: true, quotaBlocked: false, codexFallback: true });
+  });
+
+  it('does not trigger fallback after reset or for an absent beacon', () => {
+    expect(quotaFallbackDecision({ resetsAt: nowSec - 1, nowSec, codexFallbackMode: true }))
+      .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
+    expect(quotaFallbackDecision({ resetsAt: null, nowSec, codexFallbackMode: true }))
+      .toEqual({ active: false, quotaBlocked: false, codexFallback: false });
   });
 });

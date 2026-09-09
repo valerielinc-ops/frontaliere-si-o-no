@@ -6,6 +6,7 @@ import {
   extractFileCitations,
   historicalImportantFindings,
   importantFindings,
+  CODEX_REVIEW_MARKER,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
 
@@ -413,6 +414,64 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       approved: true,
       reviewCommit: PRIOR_SHA,
     });
+  });
+
+  it('accepts a Codex review only with strict evidence, marker and exact HEAD', async () => {
+    const codexReview = {
+      user: { type: 'Bot', login: 'github-actions[bot]' },
+      body: `${CODEX_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      commit_id: HEAD_SHA,
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[codexReview]],
+      codexEvidence: {
+        provider: 'codex',
+        model: 'gpt-5.6-luna',
+        effort: 'max',
+        trigger: 'runtime-429',
+        status: 'success',
+      },
+      mutate: false,
+    });
+
+    expect(result).toMatchObject({ approved: true, reviewCommit: HEAD_SHA });
+  });
+
+  it('fails closed when Codex evidence is requested but the marked review is absent', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview]],
+      codexEvidence: {
+        provider: 'codex',
+        model: 'gpt-5.6-luna',
+        effort: 'max',
+        trigger: 'preflight-quota',
+        status: 'success',
+      },
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/review Codex marcata/i);
+  });
+
+  it('fails closed when a caller supplies only a Codex success status', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[approvingBotReview]],
+      codexEvidence: { status: 'success' },
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.reason).toMatch(/evidenza Codex assente/i);
   });
 });
 

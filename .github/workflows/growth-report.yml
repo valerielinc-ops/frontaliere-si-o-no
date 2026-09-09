@@ -87,6 +87,15 @@ jobs:
       - name: Setup Headroom compression proxy
         uses: ./.github/actions/setup-headroom
 
+      - name: Pre-flight — Claude quota beacon for Codex fallback
+        id: quota
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
+        run: node scripts/ci/check-quota-backoff.mjs
+
       - name: Run Claude growth report
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (90min) e la run ci moriva `cancelled` — che NON fa scattare
@@ -97,11 +106,13 @@ jobs:
         timeout-minutes: 80
         id: claude_growth
         continue-on-error: true
-        uses: anthropics/claude-code-action@v1
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         with:
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ env.APP_TOKEN }}
           show_full_output: true
@@ -139,7 +150,7 @@ jobs:
             **Chiusura (sempre):** posta un commento sull'issue "Loop health report" (se esiste, altrimenti crea un'issue `📈 Growth report` con label `automation,agent:no-age-out`) con: le 2-0 proposte filate (numeri), i 3 gap principali osservati con le misure, e in fondo su riga propria: `<!-- GROWTH_OUTCOME: proposals=<n> -->`.
 
       - name: Claude usage metrics
-        if: always()
+        if: always() && steps.claude_growth.outputs.fallback_used != 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_growth.outputs.execution_file }}" "growth-report"
 
       - name: Classify outcome (work-done, not CLI exit)

@@ -14,11 +14,16 @@
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
  */
 import { execFileSync } from 'node:child_process';
-import { realpathSync, appendFileSync } from 'node:fs';
+import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  isValidCodexFallbackEvidence,
+  parseCodexFallbackEvidence,
+  FALLBACK_STATUS,
+} from './claude-codex-fallback.mjs';
 
 export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
 const MAX_FOLLOWUP_BODY_LEN = 60_000;
@@ -26,6 +31,11 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
+// This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
+// together with a validated Codex evidence file plus an exact HEAD commit and
+// review marker. It does not broaden ordinary Claude reviewer identity.
+const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
+export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
 const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 // L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
 // `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
@@ -520,6 +530,27 @@ function latestReviewer(reviews) {
   return bots.length ? bots[bots.length - 1] : null;
 }
 
+function latestCodexReviewer(reviews, headSha) {
+  const list = reviewerList(reviews);
+  for (let index = list.length - 1; index >= 0; index -= 1) {
+    const review = list[index];
+    if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (String(review.commit_id || '') !== String(headSha || '')) continue;
+    if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
+    return review;
+  }
+  return null;
+}
+
+function readCodexEvidenceFile(file) {
+  if (!file) return null;
+  try {
+    return parseCodexFallbackEvidence(readFileSync(realpathSync(file), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
 function fetchRepositoryPaths(repo, pr) {
   try {
     const base = String(gh([
@@ -720,6 +751,8 @@ export async function runReviewGate({
   prUrl,
   mutate = true,
   reviews,
+  codexEvidence,
+  codexEvidenceFile,
   fingerprintFn = fingerprint,
   classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
@@ -728,7 +761,21 @@ export async function runReviewGate({
   }
 
   const reviewHistory = reviews ?? readReviews(repo, pr);
-  const latest = latestReviewer(reviewHistory);
+  const structuredCodexEvidence = codexEvidence
+    || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  if (codexEvidenceRequested
+      && (!isValidCodexFallbackEvidence(structuredCodexEvidence)
+        || structuredCodexEvidence.status !== FALLBACK_STATUS.SUCCESS)) {
+    return { approved: false, reason: 'evidenza Codex assente, non valida o fallita' };
+  }
+  const codexReview = structuredCodexEvidence?.status === FALLBACK_STATUS.SUCCESS
+    ? latestCodexReviewer(reviewHistory, headSha)
+    : null;
+  if (codexEvidenceRequested && !codexReview) {
+    return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
+  }
+  const latest = codexReview || latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
   const body = String(latest.body || '');
   const historical = historicalImportantFindings(reviewHistory);

@@ -2179,6 +2179,16 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      - name: Pre-flight — Claude quota beacon for Codex fallback
+        id: quota
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
+        run: node scripts/ci/check-quota-backoff.mjs
+
       - name: Run Claude review
         # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
         # morte `cancelled` che nessun `if: failure()` vede). Qui il cap del job
@@ -2192,7 +2202,7 @@ jobs:
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
-        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2206,6 +2216,9 @@ jobs:
           # and therefore is not byte-identical to the version on main.
           # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
           github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
           # claude-code-action aborta ("non-human actor"). Whitelist esplicita
@@ -2249,7 +2262,7 @@ jobs:
         # claude-code-action installs/resolves the CLI at runtime and adds its
         # bin directory to GITHUB_PATH. Invoke that exact binary in the next
         # step so an unsupported flag cannot silently downgrade the review.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outcome == 'success' && steps.claude_review.outputs.fallback_used != 'true'
         shell: bash
         run: |
           set -o pipefail
@@ -2302,11 +2315,16 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
           EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+          CODEX_FALLBACK_USED: ${{ steps.claude_review.outputs.fallback_used }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           REVIEW_MAX_TURNS: ${{ steps.tier.outputs.max_turns }}
         run: |
           set -uo pipefail
+          if [ "${CODEX_FALLBACK_USED:-false}" = 'true' ]; then
+            echo "Codex fallback già eseguito: il runtime Claude 429 resta solo la causa del fallback e non viene marcato come esito della run Codex."
+            exit 0
+          fi
           # max_turns FIRST — see rationale above. Must win over the 429 regex.
           if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
              && grep -qE '"terminal_reason"[[:space:]]*:[[:space:]]*"max_turns"' "${EXEC_FILE}"; then
@@ -2324,11 +2342,10 @@ jobs:
             echo "::error::Claude review hit max-turns (tier=${REVIEW_TIER:-?}, cap=${REVIEW_MAX_TURNS:-?}, turns=${NUM_TURNS:-?}) without posting a review — re-run this job, or split the PR if this recurs."
             exit 1
           fi
-          # 429 / rate-limit: even if outcome=failure, a 429 must NOT fail the
+          # 429 / rate-limit: use the central detector; even if outcome=failure, a 429 must NOT fail the
           # job (Tier-2 lever: avoids re-run amplification of the shared Max quota).
-          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ] \
-             && grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
-             && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*429|"type"[[:space:]]*:[[:space:]]*"rate_limit_error"|rate[ _-]?limit|too many requests' "${EXEC_FILE}"; then
+          DECISION=$(GITHUB_OUTPUT=/dev/null EXEC_FILE="${EXEC_FILE:-}" PREFLIGHT_BLOCKED=false FALLBACK_ATTEMPTED=false node scripts/ci/claude-codex-fallback.mjs 2>/dev/null || true)
+          if printf '%s\n' "$DECISION" | grep -q '^rate_limited=true$'; then
             echo "::warning::Claude review aborted on a 429 (quota/rate-limit). NOT failing — avoids re-run amplification of the shared Max quota. PR has no ## LGTM (won't auto-merge); it will be re-reviewed on the next push or by the stale-PR rescuer once quota recovers."
             exit 0
           fi
@@ -2358,6 +2375,7 @@ jobs:
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CODEX_FALLBACK_EVIDENCE_FILE: ${{ steps.claude_review.outputs.fallback_evidence_file }}
         run: |
           set -euo pipefail
           # Il gate autorevole resta questo step required; la decisione è
@@ -2413,7 +2431,7 @@ jobs:
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.claude_review.outputs.fallback_used != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.

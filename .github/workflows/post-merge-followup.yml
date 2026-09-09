@@ -113,6 +113,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
         # Senza ISSUE_NUMBER lo script è in sola RILEVAZIONE: legge il beacon
         # `<!-- QUOTA_RESETS_AT: … -->` lasciato sulle issue della coda issue-fix
         # (stessa quota, stesso account) e non modifica nessuna label.
@@ -128,7 +129,7 @@ jobs:
         # perderebbe per sempre il batch di PR non triagiate. Fallire è il
         # comportamento CORRETTO e identico a quello odierno (la run moriva
         # comunque sul 429); l'unica differenza è che non spendiamo la chiamata.
-        if: steps.quota.outputs.quota_blocked == 'true'
+        if: steps.quota.outputs.quota_blocked == 'true' && steps.quota.outputs.codex_fallback != 'true'
         run: |
           echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
           exit 1
@@ -233,7 +234,7 @@ jobs:
         # ridondante (lo step di skip sopra esce 1 e GitHub salta già il resto) ma
         # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
         if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
-        uses: anthropics/claude-code-action@v1
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
@@ -242,6 +243,8 @@ jobs:
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # `allowed_non_write_users` (sotto) funziona SOLO con `github_token` esplicito,
           # non con la sola GitHub App auth di `claude_code_oauth_token` (docs/security.md
@@ -415,7 +418,7 @@ jobs:
           node scripts/ci/gate-minted-followups.mjs
 
       - name: Claude usage metrics
-        if: always()
+        if: always() && steps.followup.outputs.fallback_used != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
         # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"

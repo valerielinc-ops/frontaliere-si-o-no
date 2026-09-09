@@ -32,12 +32,18 @@
  * regime normale la coda tiene 1-2 issue con quelle label, quindi il gate costa
  * 2 list + ≤1 view.
  *
- * Output (GITHUB_OUTPUT): `quota_blocked=true|false`, `resets_at=<epoch|''>`.
+ * Output (GITHUB_OUTPUT): `quota_blocked=true|false`,
+ * `codex_fallback=true|false`, `resets_at=<epoch|''>`.
  *   - true  → finestra aperta: la issue viene RI-ACCODATA (`agent:fix` →
  *             `agent:fix-queued`) e il workflow salta ogni step Claude. Nessun
  *             tentativo consumato: la run non ha letto la issue, non è un
  *             fallimento del fixer.
  *   - false → nessuna finestra attiva → il fixer gira invariato.
+ *
+ * CODEX_FALLBACK_MODE=1 cambia soltanto il ramo con beacon attivo: non
+ * ri-accoda/commenta la issue e pubblica `quota_blocked=false` più
+ * `codex_fallback=true`, lasciando partire l'action locale che decide una sola
+ * esecuzione Codex. Il comportamento predefinito resta il backoff storico.
  *
  * PROCEED-SAFE (stesso contratto di check-issue-already-resolved.mjs /
  * check-workflows-scope.mjs / claim-issue-in-flight.mjs): qualunque errore
@@ -65,6 +71,7 @@ import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
+const CODEX_FALLBACK_MODE = process.env.CODEX_FALLBACK_MODE === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
 const LOOKBACK_H = intFromEnv('QUOTA_BEACON_LOOKBACK_H', 24);
 const MAX_ISSUES = intFromEnv('QUOTA_BEACON_MAX_ISSUES', 12);
@@ -93,12 +100,12 @@ function gh(args, { allowFail = true } = {}) {
   }
 }
 
-function setOutput(blocked, resetsAt) {
-  console.log(`quota_blocked=${blocked} resets_at=${resetsAt || ''}`);
+function setOutput(blocked, resetsAt, codexFallback = false) {
+  console.log(`quota_blocked=${blocked} codex_fallback=${codexFallback} resets_at=${resetsAt || ''}`);
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `quota_blocked=${blocked}\nresets_at=${resetsAt || ''}\n`
+      `quota_blocked=${blocked}\ncodex_fallback=${codexFallback}\nresets_at=${resetsAt || ''}\n`
     );
   }
 }
@@ -123,6 +130,23 @@ export function beaconCandidates(lists, { now, lookbackH, max }) {
     }
   }
   return [...seen.values()].sort((a, b) => b.t - a.t).slice(0, max).map((x) => x.number);
+}
+
+/**
+ * Proietta un beacon attivo sull'output del preflight. In modalità normale il
+ * beacon mantiene il vecchio `quota_blocked=true`; in modalità Codex lascia
+ * passare il job e alza soltanto il segnale provider-neutral. Pura per testare
+ * il contratto senza chiamare GitHub.
+ * @param {{resetsAt?: number|null, nowSec: number, codexFallbackMode?: boolean}}
+ */
+export function quotaFallbackDecision({ resetsAt = null, nowSec, codexFallbackMode = false } = {}) {
+  const active = Number.isFinite(Number(resetsAt))
+    && isBackoffActive(Number(resetsAt), Number(nowSec));
+  return {
+    active,
+    quotaBlocked: active && !codexFallbackMode,
+    codexFallback: active && codexFallbackMode,
+  };
 }
 
 // Stesso tetto dichiarato di `followup-drainer.mjs`, e per lo stesso motivo:
@@ -199,6 +223,17 @@ function main() {
   const minutes = Math.max(1, Math.round((resetsAt - nowSec) / 60));
   console.log(`::warning::Quota Claude esaurita fino alle ${when} (~${minutes} min) — salto il fixer PRIMA di spendere la chiamata Claude.`);
 
+  const projection = quotaFallbackDecision({
+    resetsAt,
+    nowSec,
+    codexFallbackMode: CODEX_FALLBACK_MODE,
+  });
+  if (projection.codexFallback) {
+    console.log('Fallback Codex abilitato: nessuna ri-accodatura, l’action provider-neutral tenterà una sola esecuzione.');
+    setOutput(false, resetsAt, true);
+    return;
+  }
+
   // Ri-accoda questa issue senza consumare un tentativo: la run non ha letto la
   // issue, non è un fallimento dell'agente. Label attiva → label di coda (per
   // default `agent:fix` → `agent:fix-queued`; per lo stadio di decomposizione
@@ -221,7 +256,7 @@ function main() {
     gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LBL_REQUEUE, '--remove-label', LBL_ACTIVE]);
   }
 
-  setOutput(true, resetsAt);
+  setOutput(true, resetsAt, false);
 }
 
 // TOTAL / PROCEED-SAFE: un throw non gestito non deve mai lasciare la issue

@@ -180,6 +180,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CODEX_FALLBACK_MODE: '1'
         # STRUCTURAL fix per l'escalation misurata sul tracker #1951 (failure-rate
         # issue-fix acceso da ≥7 report settimanali consecutivi). Scaricando i log
         # di TUTTE e 61 le run fallite della finestra 7gg (2026-07-29 → 08-05):
@@ -848,7 +849,7 @@ jobs:
         # 'failure' (pre-continue-on-error) → i due step di telemetria sotto
         # (Mark error_max_turns / FIX_OUTCOME backstop) continuano a firare.
         continue-on-error: true
-        uses: anthropics/claude-code-action@v1
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
@@ -859,6 +860,8 @@ jobs:
           ISSUE_GROUP_LABEL: ${{ steps.group.outputs.group_label }}
           ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
         with:
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
           # (la App `claude`, cioè `claude[bot]`) e con quello RI-SCRIVE il remote:
@@ -1057,7 +1060,7 @@ jobs:
 
       - name: Claude usage metrics
         # Skip when the pre-flight short-circuited (Claude never ran → no execution file).
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outputs.fallback_used != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
@@ -1088,7 +1091,7 @@ jobs:
         # Gli altri failure (5xx transienti, crash infra) restano SENZA marker →
         # legittimamente ri-tentabili dal rescue. Nessuna falsa escalation.
         # Best-effort, mai fa fallire il job.
-        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        if: always() && steps.quota.outputs.quota_blocked != 'true' && steps.claude_review.outputs.fallback_used != 'true' && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}

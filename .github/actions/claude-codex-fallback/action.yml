@@ -1,0 +1,247 @@
+name: "Claude review with Codex usage-limit fallback"
+description: >-
+  Runs the existing Claude Code action and, only for an explicit Claude usage
+  limit (preflight beacon or runtime HTTP 429), runs exactly one ephemeral Codex
+  CLI attempt with ChatGPT subscription auth. The fallback has no API-key mode.
+
+inputs:
+  preflight_blocked:
+    description: "Read-only quota beacon result from the caller's preflight."
+    required: false
+    default: "false"
+  execution_file:
+    description: "Claude execution file, when the caller already has one."
+    required: false
+    default: ""
+  claude_code_oauth_token:
+    description: "Existing Claude subscription OAuth token for the primary action."
+    required: true
+  codex_auth_json:
+    description: "ChatGPT-managed Codex auth.json supplied only to the fallback setup step."
+    required: false
+    default: ""
+  github_token:
+    description: "Token passed to the primary Claude action."
+    required: false
+    default: ""
+  allowed_bots:
+    description: "Bot allow-list passed to the primary Claude action."
+    required: false
+    default: ""
+  allowed_non_write_users:
+    description: "Non-write actor allow-list passed to the primary Claude action."
+    required: false
+    default: ""
+  show_full_output:
+    description: "show_full_output value for the primary Claude action."
+    required: false
+    default: "true"
+  claude_args:
+    description: "claude_args value for the primary Claude action."
+    required: false
+    default: ""
+  prompt:
+    description: "The unchanged task prompt used by the primary action."
+    required: true
+  review_marker:
+    description: "Optional marker required in a Codex review body before a review gate accepts it."
+    required: false
+    default: ""
+
+outputs:
+  execution_file:
+    description: "Claude execution file, if Claude ran."
+    value: ${{ steps.finalize.outputs.execution_file }}
+  fallback_used:
+    description: "true when the one-shot Codex fallback was attempted."
+    value: ${{ steps.finalize.outputs.fallback_used }}
+  fallback_success:
+    description: "true when the Codex CLI process exited successfully."
+    value: ${{ steps.finalize.outputs.fallback_success }}
+  fallback_trigger:
+    description: "preflight-quota or runtime-429, or empty."
+    value: ${{ steps.finalize.outputs.fallback_trigger }}
+  fallback_evidence_file:
+    description: "Ephemeral structured evidence file for review gates."
+    value: ${{ steps.finalize.outputs.fallback_evidence_file }}
+  codex_output_file:
+    description: "Ephemeral last-message file written by Codex, if attempted."
+    value: ${{ steps.finalize.outputs.codex_output_file }}
+  claude_outcome:
+    description: "Outcome of the primary Claude action."
+    value: ${{ steps.finalize.outputs.claude_outcome }}
+
+runs:
+  using: composite
+  steps:
+    - name: Decide Claude usage-limit fallback (preflight)
+      id: preflight
+      shell: bash
+      env:
+        PREFLIGHT_BLOCKED: ${{ inputs.preflight_blocked }}
+        FALLBACK_ATTEMPTED: "false"
+      run: |
+        set -euo pipefail
+        node scripts/ci/claude-codex-fallback.mjs
+
+    - name: Run Claude primary
+      id: claude
+      if: steps.preflight.outputs.fallback != 'true'
+      continue-on-error: true
+      uses: anthropics/claude-code-action@v1
+      with:
+        claude_code_oauth_token: ${{ inputs.claude_code_oauth_token }}
+        github_token: ${{ inputs.github_token }}
+        allowed_bots: ${{ inputs.allowed_bots }}
+        allowed_non_write_users: ${{ inputs.allowed_non_write_users }}
+        show_full_output: ${{ inputs.show_full_output }}
+        claude_args: ${{ inputs.claude_args }}
+        prompt: ${{ inputs.prompt }}
+
+    - name: Decide Claude usage-limit fallback (runtime)
+      id: runtime
+      if: always()
+      shell: bash
+      env:
+        PREFLIGHT_BLOCKED: "false"
+        FALLBACK_ATTEMPTED: ${{ steps.preflight.outputs.fallback }}
+        EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+      run: |
+        set -euo pipefail
+        node scripts/ci/claude-codex-fallback.mjs
+
+    - name: Prepare ephemeral Codex subscription auth
+      id: codex_auth
+      if: steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true'
+      shell: bash
+      env:
+        CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
+      run: |
+        set -euo pipefail
+        umask 077
+        CODEX_HOME="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-home.XXXXXX")"
+        chmod 700 "$CODEX_HOME"
+        # Publish the path before writing the secret so the always() cleanup
+        # still removes the directory if validation or the write fails.
+        printf 'codex_home=%s\n' "$CODEX_HOME" >> "$GITHUB_OUTPUT"
+        if [ -z "${CODEX_AUTH_JSON:-}" ]; then
+          echo "::error::CODEX_AUTH_JSON is required for a Claude usage-limit fallback."
+          exit 1
+        fi
+        printf '%s' "$CODEX_AUTH_JSON" > "$CODEX_HOME/auth.json"
+        chmod 600 "$CODEX_HOME/auth.json"
+        # Keep this home for the whole fallback: Codex may refresh auth.json in
+        # place during the run. Only the path crosses step boundaries; the
+        # secret itself never does. The runner is ephemeral, so a refresh is
+        # not expected to persist to the next run.
+
+    - name: Run one Codex subscription fallback
+      id: codex
+      if: (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true') && steps.codex_auth.outcome == 'success'
+      continue-on-error: true
+      shell: bash
+      env:
+        CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        CODEX_PROMPT: ${{ inputs.prompt }}
+        CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
+        CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
+      run: |
+        set -uo pipefail
+        # Keep the install pinned and local to this fallback step. No API key
+        # or CODEX_AUTH_JSON is exported here; Codex reads only CODEX_HOME/auth.json.
+        npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+        prompt="$CODEX_PROMPT"
+        prompt="$prompt"$'\n\nFallback accounting contract: the Claude usage limit is only the trigger for this one-shot replacement. Never mark this Codex run rate-limited or refunded; on success preserve the task\x27s normal output and marker contract.'
+        if [ -n "${CODEX_REVIEW_MARKER:-}" ]; then
+          prompt="$prompt"$'\n\nFallback review contract: include the exact marker '"$CODEX_REVIEW_MARKER"' in the review body you post.'
+        fi
+        printf '%s' "$prompt" | codex exec \
+          --ephemeral \
+          --model gpt-5.6-luna \
+          -c model_reasoning_effort=max \
+          -c shell_environment_policy.ignore_default_excludes=false \
+          --output-last-message "$CODEX_OUTPUT" \
+          -
+        status=$?
+        printf 'codex_output=%s\n' "$CODEX_OUTPUT" >> "$GITHUB_OUTPUT"
+        exit "$status"
+
+    - name: Record structured Codex fallback evidence
+      id: finalize
+      if: always()
+      shell: bash
+      env:
+        PREFLIGHT_FALLBACK: ${{ steps.preflight.outputs.fallback }}
+        PREFLIGHT_TRIGGER: ${{ steps.preflight.outputs.trigger }}
+        RUNTIME_FALLBACK: ${{ steps.runtime.outputs.fallback }}
+        RUNTIME_TRIGGER: ${{ steps.runtime.outputs.trigger }}
+        CODEX_OUTCOME: ${{ steps.codex.outcome }}
+        CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
+        CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
+        EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        EVIDENCE_FILE: ${{ runner.temp }}/codex-fallback-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
+      run: |
+        set -uo pipefail
+        fallback=false
+        trigger=''
+        if [ "$PREFLIGHT_FALLBACK" = 'true' ]; then
+          fallback=true
+          trigger="$PREFLIGHT_TRIGGER"
+        elif [ "$RUNTIME_FALLBACK" = 'true' ]; then
+          fallback=true
+          trigger="$RUNTIME_TRIGGER"
+        fi
+        success=false
+        if [ "$fallback" = 'true' ] && [ "$CODEX_OUTCOME" = 'success' ]; then
+          success=true
+        fi
+        if [ "$fallback" = 'true' ]; then
+          status='failure'
+          [ "$success" = 'true' ] && status='success'
+          preflight_for_evidence=false
+          [ "$trigger" = 'preflight-quota' ] && preflight_for_evidence=true
+          FALLBACK_STATUS="$status" \
+          FALLBACK_DETAIL="codex-cli exit=$CODEX_OUTCOME" \
+          EVIDENCE_FILE="$EVIDENCE_FILE" \
+          GITHUB_OUTPUT=/dev/null \
+          PREFLIGHT_BLOCKED="$preflight_for_evidence" \
+          EXEC_FILE="$EXEC_FILE" \
+          FALLBACK_ATTEMPTED=false \
+          node scripts/ci/claude-codex-fallback.mjs >/dev/null
+          if [ -f "$EVIDENCE_FILE" ]; then
+            cat "$EVIDENCE_FILE" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            printf 'fallback_evidence_file=%s\n' "$EVIDENCE_FILE" >> "$GITHUB_OUTPUT"
+          fi
+        fi
+        printf 'fallback_used=%s\n' "$fallback" >> "$GITHUB_OUTPUT"
+        printf 'fallback_success=%s\n' "$success" >> "$GITHUB_OUTPUT"
+        printf 'fallback_trigger=%s\n' "$trigger" >> "$GITHUB_OUTPUT"
+        printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
+        printf 'execution_file=%s\n' "${EXEC_FILE:-}" >> "$GITHUB_OUTPUT"
+        printf 'claude_outcome=%s\n' "${CLAUDE_OUTCOME:-skipped}" >> "$GITHUB_OUTPUT"
+
+    - name: Cleanup ephemeral Codex subscription auth
+      if: always() && steps.codex_auth.outputs.codex_home != ''
+      shell: bash
+      env:
+        CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+      run: |
+        set +e
+        case "$CODEX_HOME" in
+          "${RUNNER_TEMP:-/tmp}"/codex-home.*) rm -f "$CODEX_HOME/auth.json"; rmdir "$CODEX_HOME" 2>/dev/null || true ;;
+          *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
+        esac
+
+    - name: Preserve primary/fallback outcome
+      if: always()
+      shell: bash
+      run: |
+        set -uo pipefail
+        if [ "${{ steps.finalize.outputs.fallback_used }}" = 'true' ]; then
+          if [ "${{ steps.finalize.outputs.fallback_success }}" = 'true' ]; then
+            exit 0
+          fi
+          exit 1
+        fi
+        if [ "${{ steps.claude.outcome }}" = 'failure' ]; then exit 1; fi
+        exit 0

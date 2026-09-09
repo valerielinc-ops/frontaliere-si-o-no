@@ -504,6 +504,16 @@ jobs:
           echo "$gate_dir" >> "$GITHUB_PATH"
           echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
 
+      - name: Pre-flight — Claude quota beacon for Codex fallback
+        id: quota
+        if: steps.guard.outputs.proceed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CODEX_FALLBACK_MODE: '1'
+        run: node scripts/ci/check-quota-backoff.mjs
+
       - name: Run Claude ❌-check-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'
@@ -526,7 +536,7 @@ jobs:
         # fallimento del round. I fail genuini (nessun push) vengono ri-marcati RED
         # dal classify → il segnale "non-progress" resta visibile nel loop-health.
         continue-on-error: true
-        uses: anthropics/claude-code-action@v1
+        uses: ./.github/actions/claude-codex-fallback
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
@@ -535,6 +545,8 @@ jobs:
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         with:
+          preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Stessa identità dello step `Configure push remote (App token / PAT)` qui sopra,
@@ -602,7 +614,7 @@ jobs:
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Claude usage metrics
-        if: always() && steps.guard.outputs.proceed == 'true'
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claude_review.outputs.fallback_used != 'true'
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-redcheck-fixer"
 
       - name: Cleanup Firebase credentials
