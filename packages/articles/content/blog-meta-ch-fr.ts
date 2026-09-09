@@ -6151,6 +6151,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-impresa-canton-appenzello-interno.title': 'Ouvrir entreprise Appenzell interne : guide',
     'blog.article.avviare-impresa-canton-appenzello-interno.excerpt': 'Enregistrement de l\'entreprise Appenzell Interne : capital minimum de CHF 0 (entreprise) à CHF 100\'000 (SA), cotisations AVS 5.3%+5.3%, inscription 2-4 semaines',
     'blog.article.avviare-impresa-canton-appenzello-interno.imageAlt': 'Bureau municipal suisse avec bureaux en bois et documents officiels d\'immatriculation commerciale',
+    'blog.article.avs-prestazioni-complementari-ginevra.title': 'AVS et prestations complémentaires Canton de Genève',
+    'blog.article.avs-prestazioni-complementari-ginevra.excerpt': 'Comment fonctionne l\'AVS dans le canton de Genève : caisse de compensation, calcul de la rente, lacunes contributives et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-ginevra.imageAlt': 'Bureau d\'administration cantonale avec dossiers de rente AVS et prestations complementaires, environnement professionnel.',
 };
 
 export default blogMetaChFr;

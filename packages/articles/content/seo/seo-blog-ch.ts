@@ -79853,6 +79853,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-ginevra': {
+    title: 'AVS e prestazioni complementari Canton Ginevra',
+    description: 'Sistema AVS nel Canton Ginevra: cassa di compensazione cantonale, calcolo rendita, lacune contributive e prestazioni complementari per il minimo vitale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, ginevra',
+    ogTitle: 'AVS e prestazioni complementari Canton Ginevra',
+    ogDescription: 'Guida completa ad AVS e prestazioni complementari nel Canton Ginevra: come funziona la cassa di compensazione cantonale, il calcolo della rendita, il trattamento delle lacune contributive e l\'accesso alle prestazioni complementari per coprire',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-ginevra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari Canton Ginevra",
+      "description": "Sistema AVS nel Canton Ginevra: cassa di compensazione cantonale, calcolo rendita, lacune contributive e prestazioni complementari per il minimo vitale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-ginevra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania di ufficio amministrativo cantonale con documenti di rendita AVS e prestazioni complementari, ambiente di lavoro professionale."
+      },
+      "datePublished": "2026-09-09T03:45:44+00:00",
+      "dateModified": "2026-09-09T03:45:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-ginevra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
