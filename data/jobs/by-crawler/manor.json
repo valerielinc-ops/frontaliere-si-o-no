@@ -1294,9 +1294,9 @@
       "slug": "manor-collaborateur-trice-vente-accessoires-40-morges-collaborateurtrice-vente-accessoires",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-vente-accessoires-40-morges-collaborateurtrice-vente-accessoires",
-        "en": "manor-collaborateur-trice-vente-accessoires-40-morges-collaborateurtrice-vente-accessoires",
-        "de": "manor-collaborateur-trice-vente-accessoires-40-morges-collaborateurtrice-vente-accessoires",
-        "fr": "manor-collaborateur-trice-vente-accessoires-40-morges-collaborateurtrice-vente-accessoires"
+        "en": "worker-accessaires-40-manor-ag-morges-collaborateurtrice-vente-accessoires",
+        "de": "arbeitnehmer-accessaires-40-manor-ag-morges-collaborateurtrice-vente-accessoires",
+        "fr": "travailleurs-accessaires-40-manor-ag-morges-collaborateurtrice-vente-accessoires"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice vente (Accessoires) 40%",
@@ -4684,7 +4684,6 @@
       },
       "firstSeenAt": "2026-08-25T22:08:10.423Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -4701,7 +4700,8 @@
       },
       "addressLocality": "Genève 1 Collaborateurtrice logistique",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Kasse Parfümerie 40%",
@@ -5377,7 +5377,6 @@
       },
       "firstSeenAt": "2026-08-24T22:01:54.783Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 13100,
       "salaryMax": 16500,
       "currency": "CHF",
@@ -5394,7 +5393,8 @@
       },
       "addressLocality": "Genève 1 Cuisinierère (Manora)",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -5529,7 +5529,6 @@
       },
       "firstSeenAt": "2026-08-21T09:59:16.015Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 31100,
       "salaryMax": 38900,
       "currency": "CHF",
@@ -5546,7 +5545,8 @@
       },
       "addressLocality": "Emmen Mitarbeiterin Service 45",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent*in Restaurant 100%",
@@ -5805,7 +5805,6 @@
       },
       "firstSeenAt": "2026-08-21T09:59:16.015Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 69000,
       "salaryMax": 86500,
       "currency": "CHF",
@@ -5822,7 +5821,8 @@
       },
       "addressLocality": "Luzern Mitarbeiterin Service 100",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf 60%",
@@ -6742,7 +6742,6 @@
       },
       "firstSeenAt": "2026-08-18T22:03:33.834Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 54800,
       "salaryMax": 84000,
       "currency": "CHF",
@@ -6759,7 +6758,8 @@
       },
       "addressLocality": "Chur Mitarbeiterin Supermarkt 80",
       "addressRegion": "GR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf Fashion 40%",
@@ -6879,7 +6879,6 @@
       },
       "firstSeenAt": "2026-08-17T22:02:51.026Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 29400,
       "salaryMax": 44600,
       "currency": "CHF",
@@ -6896,7 +6895,8 @@
       },
       "addressLocality": "Zürich Mitarbeiterin Merchandising 40",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Logistic/Wareneingang 80%",
