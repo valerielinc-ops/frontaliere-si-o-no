@@ -406,7 +406,11 @@
         "it": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
           "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r"
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-5d8h26",
+          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-3",
+          "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-gn9ino",
+          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2"
         ],
         "de": [
           "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
@@ -422,7 +426,11 @@
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
         "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg",
-        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r"
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-ocnp1r",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-5d8h26",
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-3",
+        "assistenzpsychologin-assistenzpsychologe-psychiatrie-st-gallen-wil-sg-gn9ino",
+        "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg-2"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -490,7 +498,11 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg-5ndyra",
+          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg-2",
+          "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg",
+          "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
@@ -505,7 +517,11 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg-5ndyra",
+        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg-2",
+        "dipl-infermiera-hf-fh-servizio-notturno-psychiatrie-st-gallen-wil-sg",
+        "dipl-infirmiere-hf-service-de-nuit-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -721,7 +737,7 @@
       "title": "Ergotherapeutin / Ergotherapeut",
       "titleByLocale": {
         "it": "terapeuta del lavoro",
-        "en": "Ergotherapeutin / Ergotherapeut",
+        "en": "Occupational therapist",
         "de": "Ergotherapeutin / Ergotherapeut",
         "fr": "ergothérapeute"
       },
@@ -860,8 +876,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "psgn-abec714c79d2",
