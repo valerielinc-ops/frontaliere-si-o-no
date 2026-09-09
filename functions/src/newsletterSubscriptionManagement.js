@@ -1407,7 +1407,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
   if (subscriberDoc.exists && (
    subscriberData.status === 'confirmed'
-   || subscriberData.company_follow_confirmed_at
+   // This proof is purpose-scoped: a later newsletter opt-in clears
+   // `company_follow_only` but keeps the historical follow-confirmation stamp.
+   || (subscriberData.company_follow_confirmed_at && companyFollowOnly)
   )) {
    alreadyConfirmed = true;
   }
