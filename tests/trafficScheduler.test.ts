@@ -139,6 +139,29 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     expect(data[0].approachMinutes).toBe(3);
     expect(data[0].totalCrossingMinutes).toBe(15);
     expect(data[0].lastUpdate).toBeInstanceOf(Date);
+    expect(data[0]).not.toHaveProperty('direction');
+  });
+
+  it('does not turn a Firestore reading without a timestamp into a current reading', async () => {
+    const incompleteDocs = [
+      {
+        id: 'chiasso-centro',
+        data: () => ({
+          crossingName: 'Chiasso Centro (Ponte Chiasso)',
+          waitTimeMinutes: 12,
+          status: 'yellow',
+          source: 'tomtom',
+        }),
+      },
+    ];
+
+    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
+      empty: false,
+      forEach: (cb: (doc: (typeof incompleteDocs)[0]) => void) => incompleteDocs.forEach(cb),
+    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+
+    const data = await trafficService.getTrafficData();
+    expect(data.every((item) => item.source === 'mock')).toBe(true);
   });
 
   it('falls back to mock data when Firestore collection is empty', async () => {

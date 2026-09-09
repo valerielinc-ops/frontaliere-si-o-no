@@ -414,6 +414,7 @@ describe('resolveTrafficProvider', () => {
     expect(usedHere).toBe(false);
     expect(usedTomTom).toBe(true);
     expect(result.source).toBe('tomtom');
+    expect(result).not.toHaveProperty('direction');
   });
 
   it('uses TomTom when only tomtomApiKey is provided', async () => {

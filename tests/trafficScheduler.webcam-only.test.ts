@@ -107,7 +107,6 @@ interface CrossingResult {
   approachMinutes: number;
   totalCrossingMinutes: number;
   status: string;
-  direction: string;
   source: string;
 }
 
@@ -179,6 +178,7 @@ describe('runWebcamOnlyCollection', () => {
       expect(r.source).toBe('webcam');
       expect(r.approachMinutes).toBe(0);
       expect(r.totalCrossingMinutes).toBe(r.waitTimeMinutes);
+      expect(r).not.toHaveProperty('direction');
     }
 
     const byName = new Map(saved.map((r) => [r.crossingName, r]));

@@ -122,4 +122,20 @@ describe('TrafficHistory', () => {
       expect(screen.getByText(/modello statistico/i)).toBeInTheDocument();
     }, { timeout: 5000 });
   });
+
+  it('does not turn snapshots without a wait reading into zero-minute history', async () => {
+    const docs = Array.from({ length: 20 }, (_, index) => ({
+      dayOfWeek: 1,
+      hour: 7 + (index % 2),
+      lastUpdate: { toDate: () => new Date() },
+    }));
+    mockGetDocs.mockResolvedValue(fakeSnapshot(docs));
+
+    render(<TrafficHistory />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/modello statistico/i)).toBeInTheDocument();
+    }, { timeout: 5000 });
+    expect(screen.queryByText(/^0 min$/)).not.toBeInTheDocument();
+  });
 });

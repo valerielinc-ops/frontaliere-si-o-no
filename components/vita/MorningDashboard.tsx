@@ -408,9 +408,6 @@ const MorningDashboard: React.FC = () => {
  <Navigation className="w-4 h-4 text-accent" />
  {t('morning.traffic.title')}
  </h3>
- <span className="text-sm text-muted">
- {new Date().getHours() < 12 ? 'IT → CH' : 'CH → IT'}
- </span>
  </div>
 
  {trafficLoading ? (

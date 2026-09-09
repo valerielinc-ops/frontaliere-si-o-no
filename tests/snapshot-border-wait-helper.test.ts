@@ -22,6 +22,7 @@ interface CurrentDocData {
   totalCrossingMinutes: number | null;
   status: 'green' | 'amber' | 'red' | null;
   source: string;
+  direction?: 'IT → CH' | 'CH → IT' | 'Entrambi' | null;
   lastUpdate: { toDate: () => Date };
 }
 
@@ -102,6 +103,9 @@ describe('snapshotBorderWaitFiles', () => {
           totalCrossingMinutes: 15,
           status: 'amber',
           source: 'tomtom',
+          // Legacy Firestore documents may still carry the former derived
+          // field; the mirror must not preserve or expose it.
+          direction: 'IT → CH',
           lastUpdate: { toDate: () => lastUpdate },
         },
       },
@@ -127,6 +131,7 @@ describe('snapshotBorderWaitFiles', () => {
       source: 'tomtom',
       lastUpdate: lastUpdate.toISOString(),
     });
+    expect(current.perCrossing['chiasso-brogeda']).not.toHaveProperty('direction');
   });
 
   it('writes today\'s history file with 24 hour buckets per crossing', async () => {

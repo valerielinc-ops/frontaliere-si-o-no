@@ -26,7 +26,6 @@ function makeItem(source: TrafficData['source']): TrafficData {
     approachMinutes: 0,
     totalCrossingMinutes: 5,
     status: 'green',
-    direction: 'IT → CH',
     source,
     lastUpdate: new Date(),
   };
@@ -90,6 +89,7 @@ describe('trafficService mock fallback', () => {
 
     const data = await trafficService.getTrafficData();
     expect(data.length).toBeGreaterThan(0);
+    expect(data.every((item) => !Object.prototype.hasOwnProperty.call(item, 'direction'))).toBe(true);
     for (const item of data) {
       expect(item.source).toBe('mock');
     }
