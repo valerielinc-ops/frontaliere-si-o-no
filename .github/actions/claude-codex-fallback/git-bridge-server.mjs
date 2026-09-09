@@ -2,6 +2,13 @@ import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import {
+  FORCE_KILL_GRACE_MS,
+  isChildRunning,
+  requestChildTermination,
+} from './child-lifecycle.mjs';
+
+export { FORCE_KILL_GRACE_MS };
 
 export const MAX_REQUEST_BYTES = 64 * 1024;
 export const MAX_OUTPUT_BYTES = 1024 * 1024;
@@ -193,31 +200,44 @@ function main() {
       return;
     }
     activeConnections += 1;
-    let released = false;
-    const release = () => {
-      if (released) return;
-      released = true;
+    let slotReleased = false;
+    const releaseSlot = () => {
+      if (slotReleased) return;
+      slotReleased = true;
       activeConnections -= 1;
     };
-    client.once('close', release);
     let request = '';
     let requestBytes = 0;
     let requestTooLarge = false;
     let child = null;
+    let childExited = true;
     let childTimer = null;
-    let forceKillTimer = null;
+    let childTerminationTimer = null;
+    let terminationRequested = false;
     let responseSent = false;
     let timedOut = false;
+    const terminateChild = (reason) => {
+      if (!child || childExited) return;
+      if (reason === 'child-timeout' || reason === 'socket-timeout') timedOut = true;
+      if (terminationRequested) return;
+      terminationRequested = true;
+      childTerminationTimer = requestChildTermination(child);
+    };
+    client.once('close', () => {
+      if (child && !childExited) terminateChild('client-disconnected');
+      if (childExited) releaseSlot();
+    });
     const finish = (result) => {
       if (responseSent) return;
       responseSent = true;
       if (childTimer) clearTimeout(childTimer);
-      if (forceKillTimer) clearTimeout(forceKillTimer);
+      if (childTerminationTimer) clearTimeout(childTerminationTimer);
+      if (childExited) releaseSlot();
       responseFor(client, result);
     };
     const timeoutClient = () => {
       timedOut = true;
-      if (child && !child.killed) child.kill('SIGTERM');
+      terminateChild('socket-timeout');
       client.destroy();
     };
     client.setTimeout(SOCKET_TIMEOUT_MS, timeoutClient);
@@ -253,14 +273,9 @@ function main() {
         return;
       }
       child = spawn(realGit, childArgs, { cwd, env: baseEnv });
+      childExited = false;
       children.add(child);
-      childTimer = setTimeout(() => {
-        timedOut = true;
-        if (!child.killed) child.kill('SIGTERM');
-        forceKillTimer = setTimeout(() => {
-          if (!child.killed) child.kill('SIGKILL');
-        }, 2_000);
-      }, CHILD_TIMEOUT_MS);
+      childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);
       let stdout = '';
       let stderr = '';
       let outputTooLarge = false;
@@ -278,18 +293,21 @@ function main() {
       child.stderr.setEncoding('utf8');
       child.stdout.on('data', (chunk) => {
         stdout = append(stdout, chunk);
-        if (outputTooLarge) child.kill('SIGTERM');
+        if (outputTooLarge) terminateChild('output-limit');
       });
       child.stderr.on('data', (chunk) => {
         stderr = append(stderr, chunk);
-        if (outputTooLarge) child.kill('SIGTERM');
+        if (outputTooLarge) terminateChild('output-limit');
       });
       child.on('error', (error) => {
+        childExited = true;
         children.delete(child);
         finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
       });
       child.on('close', (code) => {
+        childExited = true;
         children.delete(child);
+        releaseSlot();
         const detail = timedOut
           ? `${stderr}Codex Git bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
@@ -300,7 +318,9 @@ function main() {
   server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
   const shutdown = () => {
-    for (const child of children) child.kill('SIGTERM');
+    for (const child of children) {
+      if (isChildRunning(child)) requestChildTermination(child);
+    }
     server.close(() => {
       fs.rmSync(shadowCommonDir, { recursive: true, force: true });
       process.exit(0);

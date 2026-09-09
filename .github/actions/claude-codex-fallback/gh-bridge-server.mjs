@@ -2,6 +2,13 @@ import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import {
+  FORCE_KILL_GRACE_MS,
+  isChildRunning,
+  requestChildTermination,
+} from './child-lifecycle.mjs';
+
+export { FORCE_KILL_GRACE_MS };
 
 export const MAX_REQUEST_BYTES = 64 * 1024;
 export const MAX_OUTPUT_BYTES = 1024 * 1024;
@@ -11,9 +18,26 @@ export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 
-// Global search is intentionally unavailable: it cannot be scoped to the
-// current repository without turning the bridge into a broad read oracle.
-const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run']);
+const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run', 'search']);
+const allowedSubcommands = new Map([
+  ['issue', new Set(['view', 'list', 'create', 'comment', 'edit'])],
+  ['label', new Set(['list', 'create'])],
+  ['pr', new Set(['view', 'list', 'diff', 'comment', 'create', 'edit', 'review'])],
+  ['run', new Set(['list', 'view'])],
+  ['search', new Set(['issues'])],
+]);
+const operationValueFlags = new Set([
+  '--repo', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
+  '--body-file', '--body', '--title', '--label', '--add-label', '--remove-label',
+  '--color', '--description', '--json', '--jq', '--limit', '--state', '--match',
+  '--workflow', '--branch', '--status', '--name', '--head', '--base', '--field',
+  '-F', '-f', '--raw-field',
+]);
+const blockedMutationFlags = new Set([
+  '--close', '--reopen', '--lock', '--unlock', '--delete', '--delete-branch',
+  '--reason', '--admin', '--merge', '--squash', '--rebase', '--approve',
+  '--request-changes', '--dismiss', '--cancel',
+]);
 const blockedCommands = new Set([
   'auth', 'config', 'alias', 'extension', 'secret', 'secrets', 'variable',
   'variables', 'ssh-key', 'ssh-keys', 'gpg-key', 'gpg-keys', 'gist',
@@ -73,6 +97,57 @@ function apiEndpoint(args, start) {
     if (arg === '--') return args[index + 1] || '';
     if (!arg.startsWith('-')) return arg;
     if (!arg.includes('=') && apiEndpointValueFlags.has(arg)) index += 1;
+  }
+  return '';
+}
+
+function firstOperationArg(args, start) {
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === '--') return args[index + 1] || '';
+    if (!arg.startsWith('-')) return arg;
+    if (!arg.includes('=') && operationValueFlags.has(arg)) index += 1;
+  }
+  return '';
+}
+
+function hasExplicitOption(args, name) {
+  return args.some((arg) => arg === name || arg.startsWith(`${name}=`));
+}
+
+function apiMethodError(args, start) {
+  let method = 'GET';
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    let value = null;
+    if (arg === '--method' || arg === '-X') {
+      value = args[index + 1] || '';
+      index += 1;
+    } else if (arg.startsWith('--method=')) {
+      value = arg.slice('--method='.length);
+    } else if (arg.startsWith('-X=')) {
+      value = arg.slice(3);
+    } else if (arg.startsWith('-X') && arg.length > 2) {
+      value = arg.slice(2);
+    }
+    if (value !== null) method = value.toUpperCase();
+  }
+  return method === 'GET' ? '' : 'gh api mutations are not permitted by the Codex fallback bridge';
+}
+
+function validateOperation(args, commandIndex, command, repository) {
+  if (command === 'api') return apiMethodError(args, commandIndex + 1);
+  const operation = firstOperationArg(args, commandIndex + 1);
+  if (!allowedSubcommands.get(command)?.has(operation)) {
+    return `gh ${command} operation is not permitted by the Codex fallback bridge: ${operation || '<missing>'}`;
+  }
+  if (command === 'search' && (!hasExplicitOption(args, '--repo') || !repository)) {
+    return 'gh search requires an explicit current-repository --repo';
+  }
+  for (const arg of args.slice(commandIndex + 1)) {
+    if (blockedMutationFlags.has(arg) || [...blockedMutationFlags].some((flag) => arg.startsWith(`${flag}=`))) {
+      return `gh mutation flag is not permitted by the Codex fallback bridge: ${arg}`;
+    }
   }
   return '';
 }
@@ -181,6 +256,8 @@ export function validateGhArgs(args, {
   }
   const scopeError = validateRepositoryAndHost(args, { repository, host });
   if (scopeError) return scopeError;
+  const operationError = validateOperation(args, commandIndex, command, repository);
+  if (operationError) return operationError;
   const context = { cwd: cwd || process.cwd(), allowedRoots };
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
@@ -244,31 +321,44 @@ function main() {
       return;
     }
     activeConnections += 1;
-    let released = false;
-    const release = () => {
-      if (released) return;
-      released = true;
+    let slotReleased = false;
+    const releaseSlot = () => {
+      if (slotReleased) return;
+      slotReleased = true;
       activeConnections -= 1;
     };
-    client.once('close', release);
     let request = '';
     let requestBytes = 0;
     let requestTooLarge = false;
     let child = null;
+    let childExited = true;
     let childTimer = null;
-    let forceKillTimer = null;
+    let childTerminationTimer = null;
+    let terminationRequested = false;
     let responseSent = false;
     let timedOut = false;
+    const terminateChild = (reason) => {
+      if (!child || childExited) return;
+      if (reason === 'child-timeout' || reason === 'socket-timeout') timedOut = true;
+      if (terminationRequested) return;
+      terminationRequested = true;
+      childTerminationTimer = requestChildTermination(child);
+    };
+    client.once('close', () => {
+      if (child && !childExited) terminateChild('client-disconnected');
+      if (childExited) releaseSlot();
+    });
     const finish = (result) => {
       if (responseSent) return;
       responseSent = true;
       if (childTimer) clearTimeout(childTimer);
-      if (forceKillTimer) clearTimeout(forceKillTimer);
+      if (childTerminationTimer) clearTimeout(childTerminationTimer);
+      if (childExited) releaseSlot();
       responseFor(client, result);
     };
     const timeoutClient = () => {
       timedOut = true;
-      if (child && !child.killed) child.kill('SIGTERM');
+      terminateChild('socket-timeout');
       client.destroy();
     };
     client.setTimeout(SOCKET_TIMEOUT_MS, timeoutClient);
@@ -299,14 +389,9 @@ function main() {
       }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
       child = spawn(realGh, args, { cwd, env: baseEnv });
+      childExited = false;
       children.add(child);
-      childTimer = setTimeout(() => {
-        timedOut = true;
-        if (!child.killed) child.kill('SIGTERM');
-        forceKillTimer = setTimeout(() => {
-          if (!child.killed) child.kill('SIGKILL');
-        }, 2_000);
-      }, CHILD_TIMEOUT_MS);
+      childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);
       let stdout = '';
       let stderr = '';
       let outputTooLarge = false;
@@ -324,18 +409,21 @@ function main() {
       child.stderr.setEncoding('utf8');
       child.stdout.on('data', (chunk) => {
         stdout = append(stdout, chunk);
-        if (outputTooLarge) child.kill('SIGTERM');
+        if (outputTooLarge) terminateChild('output-limit');
       });
       child.stderr.on('data', (chunk) => {
         stderr = append(stderr, chunk);
-        if (outputTooLarge) child.kill('SIGTERM');
+        if (outputTooLarge) terminateChild('output-limit');
       });
       child.on('error', (error) => {
+        childExited = true;
         children.delete(child);
         finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
       });
       child.on('close', (code) => {
+        childExited = true;
         children.delete(child);
+        releaseSlot();
         const detail = timedOut
           ? `${stderr}Codex GitHub bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
@@ -346,7 +434,9 @@ function main() {
   server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
   const shutdown = () => {
-    for (const child of children) child.kill('SIGTERM');
+    for (const child of children) {
+      if (isChildRunning(child)) requestChildTermination(child);
+    }
     server.close(() => process.exit(0));
   };
   process.on('SIGTERM', shutdown);

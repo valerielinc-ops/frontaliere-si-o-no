@@ -28,6 +28,7 @@ import {
   MAX_ACTIVE_CONNECTIONS as GH_MAX_ACTIVE_CONNECTIONS,
   SOCKET_TIMEOUT_MS as GH_SOCKET_TIMEOUT_MS,
   CHILD_TIMEOUT_MS as GH_CHILD_TIMEOUT_MS,
+  FORCE_KILL_GRACE_MS as GH_FORCE_KILL_GRACE_MS,
   validateGhArgs,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
@@ -36,10 +37,15 @@ import {
   MAX_ACTIVE_CONNECTIONS as GIT_MAX_ACTIVE_CONNECTIONS,
   SOCKET_TIMEOUT_MS as GIT_SOCKET_TIMEOUT_MS,
   CHILD_TIMEOUT_MS as GIT_CHILD_TIMEOUT_MS,
+  FORCE_KILL_GRACE_MS as GIT_FORCE_KILL_GRACE_MS,
   buildGitNetworkArgs,
   canonicalGitRemote,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
+import {
+  isChildRunning,
+  requestChildTermination,
+} from '../.github/actions/claude-codex-fallback/child-lifecycle.mjs';
 import { sanitizeGitConfig } from '../.github/actions/claude-codex-fallback/sanitize-git-config.mjs';
 
 const runtime429 = JSON.stringify([
@@ -222,7 +228,15 @@ describe('validator dei bridge host-side', () => {
       expect(validateGhArgs(['api', 'repos/owner/repo/%2e%2e/other'], context)).toMatch(/percent-encoded/);
       expect(validateGhArgs(['api', 'repos%2Fowner%2Frepo/issues'], context)).toMatch(/percent-encoded/);
       expect(validateGhArgs(['search', 'code', 'secret'], context)).toMatch(/not permitted/);
+      expect(validateGhArgs(['search', 'issues'], context)).toMatch(/explicit current-repository/);
+      expect(validateGhArgs(['search', 'issues', '--repo', 'owner/repo'], context)).toBe('');
       expect(validateGhArgs(['run', 'download', '123', '--dir', outsideAuth], context)).toMatch(/download/);
+      expect(validateGhArgs(['run', 'cancel', '123'], context)).toMatch(/operation is not permitted/);
+      expect(validateGhArgs(['label', 'delete', 'needs-human'], context)).toMatch(/operation is not permitted/);
+      expect(validateGhArgs(['issue', 'close', '123'], context)).toMatch(/operation is not permitted/);
+      expect(validateGhArgs(['pr', 'merge', '123'], context)).toMatch(/operation is not permitted/);
+      expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'DELETE'], context)).toMatch(/mutations/);
+      expect(validateGhArgs(['api', 'repos/owner/repo/issues', '-XPOST'], context)).toMatch(/mutations/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -256,11 +270,30 @@ describe('validator dei bridge host-side', () => {
     expect(GH_MAX_ACTIVE_CONNECTIONS).toBe(8);
     expect(GH_SOCKET_TIMEOUT_MS).toBe(30_000);
     expect(GH_CHILD_TIMEOUT_MS).toBe(120_000);
+    expect(GH_FORCE_KILL_GRACE_MS).toBe(2_000);
     expect(GIT_MAX_REQUEST_BYTES).toBe(64 * 1024);
     expect(GIT_MAX_OUTPUT_BYTES).toBe(1024 * 1024);
     expect(GIT_MAX_ACTIVE_CONNECTIONS).toBe(8);
     expect(GIT_SOCKET_TIMEOUT_MS).toBe(30_000);
     expect(GIT_CHILD_TIMEOUT_MS).toBe(120_000);
+    expect(GIT_FORCE_KILL_GRACE_MS).toBe(2_000);
+  });
+
+  it('forza un child stubborn dopo SIGTERM e non uccide un child già terminato', async () => {
+    const signals = [];
+    const stubborn = {
+      exitCode: null,
+      signalCode: null,
+      kill(signal) { signals.push(signal); },
+    };
+    expect(isChildRunning(stubborn)).toBe(true);
+    const timer = requestChildTermination(stubborn, { graceMs: 5 });
+    await new Promise((resolve) => setTimeout(resolve, 20));
+    clearTimeout(timer);
+    expect(signals).toEqual(['SIGTERM', 'SIGKILL']);
+    stubborn.exitCode = 0;
+    expect(isChildRunning(stubborn)).toBe(false);
+    expect(requestChildTermination(stubborn, { graceMs: 1 })).toBeNull();
   });
 });
 
@@ -316,6 +349,7 @@ describe('copertura workflow diretti', () => {
     const actionDir = resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback');
     const ghBridge = readFileSync(resolve(actionDir, 'gh-bridge-server.mjs'), 'utf8');
     const gitBridge = readFileSync(resolve(actionDir, 'git-bridge-server.mjs'), 'utf8');
+    const lifecycle = readFileSync(resolve(actionDir, 'child-lifecycle.mjs'), 'utf8');
     const ghClient = readFileSync(resolve(actionDir, 'gh-bridge-client.mjs'), 'utf8');
     const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
     const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
@@ -332,11 +366,28 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('CODEX_ACTION_PATH: ${{ github.action_path }}');
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
+    expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
+    const installStart = action.indexOf('- name: Install pinned Codex CLI');
+    const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth');
+    const codexStart = action.indexOf('- name: Run one Codex subscription fallback');
+    expect(installStart).toBeGreaterThan(-1);
+    expect(installStart).toBeLessThan(authStart);
+    expect(authStart).toBeLessThan(codexStart);
+    const installBlock = action.slice(installStart, authStart);
+    const codexBlock = action.slice(codexStart, action.indexOf('- name: Record structured Codex fallback evidence'));
+    expect(installBlock).toContain('env -i');
+    expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
+    expect(installBlock).not.toMatch(/^\s+CODEX_HOME:/m);
+    expect(installBlock).not.toMatch(/^\s+CODEX_GH_AUTH:/m);
+    expect(codexBlock).not.toContain('npm install --global');
+    expect(codexBlock).toContain('"$codex_bin" sandbox');
+    expect(codexBlock).toContain('"$codex_bin" exec');
+    expect(codexBlock).toContain('"$CODEX_BIN" --version');
     expect(action).toContain('node "$action_path/sanitize-git-config.mjs"');
     expect(action).toContain('git rev-parse --git-dir');
     expect(action).toContain('git rev-parse --git-common-dir');
     expect(action).toContain('"$auth_file_toml" = "deny"');
-    expect(action).toContain('codex sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c');
+    expect(action).toContain('"$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c');
     expect(action).toContain('printf probe > "$probe"');
     expect(action).toContain('test "$(dd if="$probe" bs=16 count=1 2>/dev/null)" = probe');
     expect(action).toContain('printf probe > "$common_probe"');
@@ -364,7 +415,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('-c \'default_permissions="codex-fallback"\'');
     expect(action).toContain('-c shell_environment_policy.ignore_default_excludes=false');
     expect(action).toContain('-c "shell_environment_policy.include_only=$codex_env_patterns"');
-    expect(action).toContain('env -i "${codex_env[@]}" codex exec');
+    expect(action).toContain('env -i "${codex_env[@]}" "$codex_bin" exec');
     expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.codex_github_token }}');
     expect(action).toContain('codex_github_token:');
     expect(action).toContain('CODEX_GH_REPOSITORY="$codex_github_repository"');
@@ -407,6 +458,9 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('SOCKET_TIMEOUT_MS');
     expect(ghBridge).toContain('CHILD_TIMEOUT_MS');
     expect(ghBridge).toContain('net.createServer({ allowHalfOpen: true }');
+    expect(ghBridge).toContain("terminateChild('client-disconnected')");
+    expect(ghBridge).toContain('requestChildTermination(child)');
+    expect(lifecycle).toContain("child.kill('SIGKILL')");
     expect(ghBridge).toContain('GH_HOST: host');
     expect(ghBridge).toContain('GH_REPO: repository');
     expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
@@ -415,6 +469,8 @@ describe('copertura workflow diretti', () => {
     expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote)');
     expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
     expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
+    expect(gitBridge).toContain("terminateChild('client-disconnected')");
+    expect(gitBridge).toContain('requestChildTermination(child)');
     expect(gitBridge).toContain('MAX_REQUEST_BYTES');
     expect(gitSanitizer).toContain('parseNullRecords');
     expect(gitSanitizer).toContain('http.extraheader');

@@ -114,6 +114,43 @@ runs:
         set -euo pipefail
         node scripts/ci/claude-codex-fallback.mjs
 
+    - name: Install pinned Codex CLI (without fallback credentials)
+      id: codex_cli
+      if: steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true'
+      shell: bash
+      env:
+        NPM_CONFIG_USERCONFIG: /dev/null
+      run: |
+        set -euo pipefail
+        install_home="$(mktemp -d "${RUNNER_TEMP:-/tmp}/codex-cli-install.XXXXXX")"
+        chmod 700 "$install_home"
+        # This step intentionally has neither CODEX_HOME/auth.json nor any
+        # bridge token. Keep npm's cache/user config in the throw-away home.
+        env -i \
+          PATH="$PATH" \
+          HOME="$install_home" \
+          CI="true" \
+          NPM_CONFIG_USERCONFIG=/dev/null \
+          npm_config_cache="$install_home/cache" \
+          npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+        codex_path="$(command -v codex || true)"
+        if [ -z "$codex_path" ] || [ ! -x "$codex_path" ]; then
+          echo '::error::Pinned Codex CLI was not installed on PATH.'
+          exit 1
+        fi
+        codex_realpath="$(realpath "$codex_path")"
+        codex_launcher_dir="$(dirname "$codex_realpath")"
+        codex_runtime_root="$(dirname "$codex_realpath")"
+        codex_npm_root="$(env -i PATH="$PATH" HOME="$install_home" NPM_CONFIG_USERCONFIG=/dev/null npm_config_cache="$install_home/cache" npm root --global)"
+        if [ -d "$codex_npm_root/@openai/codex" ]; then
+          codex_runtime_root="$codex_npm_root/@openai/codex"
+        fi
+        printf 'codex_path=%s\n' "$codex_path" >> "$GITHUB_OUTPUT"
+        printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
+        printf 'codex_launcher_dir=%s\n' "$codex_launcher_dir" >> "$GITHUB_OUTPUT"
+        printf 'codex_runtime_root=%s\n' "$codex_runtime_root" >> "$GITHUB_OUTPUT"
+        node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$install_home"
+
     - name: Prepare ephemeral Codex subscription auth
       id: codex_auth
       if: steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true'
@@ -146,6 +183,10 @@ runs:
       shell: bash
       env:
         CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        CODEX_BIN: ${{ steps.codex_cli.outputs.codex_path }}
+        CODEX_REALPATH: ${{ steps.codex_cli.outputs.codex_realpath }}
+        CODEX_LAUNCHER_DIR: ${{ steps.codex_cli.outputs.codex_launcher_dir }}
+        CODEX_RUNTIME_ROOT: ${{ steps.codex_cli.outputs.codex_runtime_root }}
         CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
         CODEX_ACTION_PATH: ${{ github.action_path }}
         CODEX_PROMPT: ${{ inputs.prompt }}
@@ -153,9 +194,12 @@ runs:
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
-        # Keep the install pinned and local to this fallback step. No API key
-        # or CODEX_AUTH_JSON is exported here; Codex reads only CODEX_HOME/auth.json.
-        npm install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+        # The pinned CLI was installed in a separate, credential-free step.
+        codex_bin="${CODEX_BIN:?Pinned Codex CLI path unavailable}"
+        codex_realpath="${CODEX_REALPATH:?Pinned Codex CLI realpath unavailable}"
+        codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
+        codex_runtime_root="${CODEX_RUNTIME_ROOT:?Codex runtime directory unavailable}"
+        [ -x "$codex_realpath" ] || { echo '::error::Pinned Codex CLI realpath is not executable.'; exit 1; }
 
         # `shell_environment_policy.ignore_default_excludes=false` deliberately
         # strips GH_TOKEN/GITHUB_TOKEN from model-generated subprocesses. Keep
@@ -228,6 +272,7 @@ runs:
         copy_bridge_file gh-bridge.sh gh
         copy_bridge_file gh-bridge-client.mjs gh-client.mjs
         copy_bridge_file gh-bridge-server.mjs gh-server.mjs
+        copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs
         copy_bridge_file git-bridge.sh git
         copy_bridge_file git-bridge-client.mjs git-client.mjs
         copy_bridge_file git-bridge-server.mjs git-server.mjs
@@ -323,6 +368,9 @@ runs:
         config_file="$CODEX_HOME/config.toml"
         scratch_dir_toml="$(toml_quote_path "$scratch_dir")"
         bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
+        codex_realpath_toml="$(toml_quote_path "$codex_realpath")"
+        codex_launcher_dir_toml="$(toml_quote_path "$codex_launcher_dir")"
+        codex_runtime_root_toml="$(toml_quote_path "$codex_runtime_root")"
         gh_socket="$scratch_dir/gh.sock"
         git_socket="$scratch_dir/git.sock"
         # This directory is host-only. The Codex profile never reopens it; the
@@ -357,6 +405,18 @@ runs:
         [permissions.codex-fallback.filesystem."$bridge_dir_toml"]
         "." = "read"
         EOF
+        cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$codex_realpath_toml"]
+        "." = "read"
+        [permissions.codex-fallback.filesystem."$codex_launcher_dir_toml"]
+        "." = "read"
+        EOF
+        if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
+          cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$codex_runtime_root_toml"]
+        "." = "read"
+        EOF
+        fi
         if [ "$git_dir" = "$common_git_dir" ]; then
           cat >> "$config_file" <<EOF
         [permissions.codex-fallback.filesystem."$git_dir_toml"]
@@ -391,10 +451,14 @@ runs:
         git_filesystem_rules='{"."="write","hooks"="read","config"="read"}'
         common_filesystem_rules='{"."="read","objects"="write","refs"="write","logs"="write","packed-refs"="write","hooks"="read","config"="read"}'
         base_filesystem_rules='{":root"="deny",":minimal"="read",":tmpdir"="deny",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
+        codex_filesystem_rules="\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
+        if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
+          codex_filesystem_rules="$codex_filesystem_rules,\"$codex_runtime_root_toml\"={\".\"=\"read\"}"
+        fi
         if [ "$git_dir" = "$common_git_dir" ]; then
-          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},\"$git_dir_toml\"=$git_filesystem_rules}"
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules}"
         else
-          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
+          codex_filesystem="${base_filesystem_rules},\"$auth_file_toml\"={\".\"=\"deny\"},\"$scratch_dir_toml\"={\".\"=\"write\"},\"$bridge_dir_toml\"={\".\"=\"read\"},$codex_filesystem_rules,\"$git_dir_toml\"=$git_filesystem_rules,\"$common_git_dir_toml\"=$common_filesystem_rules}"
         fi
         codex_unix_sockets="{\"$gh_socket_toml\"=\"allow\",\"$git_socket_toml\"=\"allow\"}"
 
@@ -473,7 +537,9 @@ runs:
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_GH_REAL="$real_gh" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$real_git" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" codex sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_GH_REAL="$real_gh" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$real_git" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+          test -x "$CODEX_REALPATH"
+          "$CODEX_BIN" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
           common_git_dir="$(git rev-parse --git-common-dir)"
           probe="$git_dir/codex-fallback-probe.$$"
@@ -538,7 +604,7 @@ runs:
         codex_env_patterns='["PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
 
         set +e
-        printf '%s' "$prompt" | env -i "${codex_env[@]}" codex exec \
+        printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_bin" exec \
           --ephemeral \
           --strict-config \
           --ignore-user-config \
