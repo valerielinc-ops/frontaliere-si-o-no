@@ -2804,6 +2804,9 @@ Règles :
  'consultingCta.article.button': 'Réserver une consultation',
 
  // v3.71.0 — calculateur boosté
+ 'whatsNew.v3962.title': 'Comparaison des carburants plus claire',
+ 'whatsNew.v3962.fuelCompare.title': 'Essence et diesel, commune par commune',
+ 'whatsNew.v3962.fuelCompare.desc': 'Choisissez le carburant, filtrez les communes frontalières, comparez les prix et les stations, puis partagez la vue — la source et la fraîcheur des données restent visibles.',
  'whatsNew.v3961.title': 'Mises à jour pour une meilleure expérience utilisateur',
  'whatsNew.v3961.seo.title': 'Nom de l\'auteur de l\'article corrigé',
  'whatsNew.v3961.seo.desc': 'Vous verrez désormais le nom correct de l\'auteur de l\'article, et non plus \'Redazione\'. Cela améliore la clarté et la transparence.',

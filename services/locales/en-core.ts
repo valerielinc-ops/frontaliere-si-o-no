@@ -2801,6 +2801,9 @@ Rules:
  'consultingCta.article.button': 'Book a consultation',
 
  // v3.71.0 — calculator boost
+ 'whatsNew.v3962.title': 'A clearer fuel comparison',
+ 'whatsNew.v3962.fuelCompare.title': 'Petrol and diesel, municipality by municipality',
+ 'whatsNew.v3962.fuelCompare.desc': 'Choose the fuel, filter border municipalities, compare prices and stations, then share the view — the data source and freshness are always visible.',
  'whatsNew.v3961.title': 'Updates for a better user experience',
  'whatsNew.v3961.seo.title': 'Fixed article author name',
  'whatsNew.v3961.seo.desc': 'You will now see the correct name of the article\'s author, not \'Redazione\'. This improves clarity and transparency.',

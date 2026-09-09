@@ -2804,6 +2804,9 @@ Regeln:
  'consultingCta.article.button': 'Beratung buchen',
 
  // v3.71.0 — Rechner-Upgrade
+ 'whatsNew.v3962.title': 'Klarerer Kraftstoffvergleich',
+ 'whatsNew.v3962.fuelCompare.title': 'Benzin und Diesel für jede Gemeinde',
+ 'whatsNew.v3962.fuelCompare.desc': 'Wähle den Kraftstoff, filtere Grenzgemeinden, vergleiche Preise und Tankstellen und teile die Ansicht — Quelle und Aktualität der Daten bleiben sichtbar.',
  'whatsNew.v3961.title': 'Aktualisierungen für eine bessere Benutzererfahrung',
  'whatsNew.v3961.seo.title': 'Autorname des Artikels korrigiert',
  'whatsNew.v3961.seo.desc': 'Sie sehen nun den korrekten Namen des Autors des Artikels, nicht mehr \'Redazione\'. Dies verbessert Klarheit und Transparenz.',

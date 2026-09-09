@@ -2891,6 +2891,9 @@ Regole:
  'consultingCta.article.button': 'Prenota una consulenza',
 
  // v3.71.0 — potenziamento calcolatore
+ 'whatsNew.v3962.title': 'Confronto carburanti più utile',
+ 'whatsNew.v3962.fuelCompare.title': 'Benzina e diesel, comune per comune',
+ 'whatsNew.v3962.fuelCompare.desc': 'Scegli il carburante, filtra i comuni di confine, confronta prezzi e stazioni, poi condividi la vista: fonte e freschezza dei dati sono sempre visibili.',
  'whatsNew.v3961.title': 'Aggiornamenti per una migliore esperienza utente',
  'whatsNew.v3961.seo.title': 'Corretto nome autore articolo',
  'whatsNew.v3961.seo.desc': 'Ora vedrai il nome corretto dell\'autore dell\'articolo, non più \'Redazione\'. Questo migliora la chiarezza e la trasparenza.',
