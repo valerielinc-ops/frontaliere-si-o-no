@@ -1,5 +1,5 @@
 /**
- * EmployerInsightsPage — the cold-outreach conversion centrepiece.
+ * EmployerInsightsPage — the cold-outreach employer-insights centrepiece.
  *
  * A private, per-company "wow" traffic report: we give companies free job-board
  * traffic on frontaliereticino.ch, and this page PROVES it with their real
@@ -33,7 +33,6 @@ import {
   Briefcase,
   TrendingUp,
   TrendingDown,
-  AlertTriangle,
   Sparkles,
   Target,
   Loader2,
@@ -132,7 +131,7 @@ function RevealSection({
 export function EmployerInsightsReport({ data }: { data: EmployerInsights }): React.ReactElement {
   const { totals, trend, ads, periodDays } = data;
 
-  const conversionPct = totals.conversionRate * 100;
+  const intentPct = totals.conversionRate * 100;
   const trendUp =
     trend.length >= 2 ? trend[trend.length - 1].views >= trend[0].views : true;
 
@@ -156,7 +155,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
           <HeroStat
             icon={<Users className="w-5 h-5" />}
             value={totals.candidates}
-            label="candidati inviati"
+            label="Click sul pulsante candidatura"
           />
           <HeroStat
             icon={<Eye className="w-5 h-5" />}
@@ -166,36 +165,10 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
           <HeroStat
             icon={<Briefcase className="w-5 h-5" />}
             value={totals.adsCount}
-            label="annunci pubblicati"
+            label="Annunci con visualizzazioni"
           />
         </div>
       </header>
-
-      {/* ── Loss-aversion hammer ────────────────────────────────────────── */}
-      <RevealSection
-        ariaLabelledby="insights-loss-heading"
-        className="rounded-3xl border border-danger-border bg-danger-subtle px-5 py-8 sm:px-8 sm:py-10 text-center"
-      >
-        <span
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface text-danger-strong mb-4 mx-auto"
-          aria-hidden="true"
-        >
-          <AlertTriangle className="w-6 h-6" />
-        </span>
-        <p
-          id="insights-loss-heading"
-          className="text-sm sm:text-base font-semibold uppercase tracking-wide text-danger-strong"
-        >
-          Persone interessate che NON sono diventate candidature
-        </p>
-        <p className="mt-3 text-6xl sm:text-7xl font-bold font-display text-danger-strong leading-none">
-          <CountStat value={totals.lost} />
-        </p>
-        <p className="mt-4 text-base text-body max-w-md mx-auto text-pretty">
-          Hanno visto i tuoi annunci ma se ne sono andati senza candidarsi. Sono{' '}
-          <strong>candidati lasciati sul tavolo</strong> — possiamo recuperarli.
-        </p>
-      </RevealSection>
 
       {/* ── Top ads bar chart ───────────────────────────────────────────── */}
       {ads.length > 0 && (
@@ -204,10 +177,10 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
             id="insights-topads-heading"
             className="text-xl sm:text-2xl font-bold font-display text-strong mb-1"
           >
-            Gli annunci che lavorano per te
+            Annunci con più visualizzazioni registrate
           </h2>
           <p className="text-sm text-subtle mb-5">
-            I più visti{data.topAd ? `, guidati da «${data.topAd.title}»` : ''}.
+            I primi 10 annunci per visualizzazioni{data.topAd ? `, con «${data.topAd.title}» in testa` : ''}.
           </p>
           <TopAdsChart ads={ads} limit={10} />
         </RevealSection>
@@ -227,21 +200,21 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
               id="insights-trend-heading"
               className="text-xl sm:text-2xl font-bold font-display text-strong"
             >
-              Visualizzazioni settimana per settimana
+              Andamento delle visualizzazioni registrate
             </h2>
           </div>
           <p className="text-sm text-subtle mb-4">
             {trendUp
-              ? 'Il tuo interesse è in crescita — è il momento di trasformarlo.'
-              : 'C’è un pubblico attivo da riattivare con annunci in evidenza.'}
+              ? 'Le visualizzazioni registrate mostrano un andamento in crescita.'
+              : 'Le visualizzazioni registrate mostrano un andamento in calo.'}
           </p>
           <TrendSparkline trend={trend} />
         </RevealSection>
       )}
 
-      {/* ── Conversion-rate stat ────────────────────────────────────────── */}
+      {/* ── Intent-rate stat ─────────────────────────────────────────────── */}
       <RevealSection
-        ariaLabelledby="insights-conv-heading"
+        ariaLabelledby="insights-intent-heading"
         className="rounded-3xl border border-accent-border bg-accent-subtle px-5 py-8 sm:px-8 sm:py-10"
       >
         <div className="flex flex-col sm:flex-row sm:items-center gap-5">
@@ -253,19 +226,19 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
               <Target className="w-6 h-6" />
             </span>
             <span className="text-5xl sm:text-6xl font-bold font-display text-strong leading-none">
-              <CountStat value={conversionPct} decimals={conversionPct < 10 ? 1 : 0} suffix="%" />
+              <CountStat value={intentPct} decimals={intentPct < 10 ? 1 : 0} suffix="%" />
             </span>
           </div>
           <div>
             <h2
-              id="insights-conv-heading"
+              id="insights-intent-heading"
               className="text-lg sm:text-xl font-bold font-display text-strong"
             >
-              diventa candidatura oggi
+              Tasso di intento
             </h2>
             <p className="mt-1 text-sm sm:text-base text-body text-pretty">
-              Con annunci in evidenza, newsletter mirata e candidatura diretta possiamo{' '}
-              <strong>alzarlo</strong>. Ogni punto in più sono candidati reali nella tua casella.
+              Rapporto tra i segnali di interesse per la candidatura e le visualizzazioni registrate.
+              È un indicatore di intento: non misura candidature inviate.
             </p>
           </div>
         </div>
@@ -280,11 +253,12 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
           id="insights-cta-heading"
           className="text-2xl sm:text-3xl font-bold font-display text-on-accent text-balance"
         >
-          Trasforma questi {nf.format(totals.views)} click in candidature dirette
+          Trasforma le visualizzazioni in candidature
         </h2>
         <p className="mt-3 text-sm sm:text-base text-on-accent/80 max-w-md mx-auto text-pretty">
-          Rivendica il profilo di {data.companyName}, metti gli annunci in evidenza e ricevi le
-          candidature direttamente. Setup in pochi minuti.
+          Le {nf.format(totals.views)} visualizzazioni registrate mostrano un pubblico da raggiungere.
+          Rivendica il profilo di {data.companyName}, metti gli annunci in evidenza e porta questo
+          pubblico verso il tuo processo di candidatura. Setup in pochi minuti.
         </p>
         <a
           href={CLAIM_HREF}
