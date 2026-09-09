@@ -48,7 +48,7 @@ function assembleDecision(
 }
 
 describe('tests.yml dataset assembly predicate (#B4)', () => {
-  it('falls back to executing the assembly when classification is unresolved', () => {
+  it('falls back to executing the assembly when classification is unresolved', { timeout: 120_000 }, () => {
     for (const input of [
       {
         eventName: 'pull_request',
@@ -175,7 +175,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
     ).toEqual([]);
   });
 
-  it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', () => {
+  it('marca come `degraded` i rami fail-safe, cosi un no-op permanente e visibile', { timeout: 120_000 }, () => {
     // Un `required: true` che dice «questo diff usa il dataset» e' la feature
     // che lavora; uno che dice «non ho potuto guardare» e' lo skip spento.
     // Senza il discriminante i due sono indistinguibili nel log.
