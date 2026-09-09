@@ -2605,9 +2605,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "abteilungsleiter-in-con-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua",
-        "en": "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua",
+        "en": "head-of-department-with-additional-function-genossenschaft-migros-ostschweiz-steckborn",
         "de": "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua",
-        "fr": "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua"
+        "fr": "chef-de-departement-avec-fonction-supplementaire-genossenschaft-migros-ostschweiz-steckborn"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2623,10 +2623,17 @@
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn"
+        ],
+        "en": [
+          "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua"
+        ],
+        "fr": [
+          "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn"
+        "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn",
+        "abteilungsleiter-in-mit-zusatzfunktion-stv-filialleitung-genossenschaft-migros-ostschweiz-steckborn-nk15ua"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9737,7 +9744,6 @@
         "allrounder-in-verkauf-genossenschaft-migros-luzern-hitzkirch",
         "allrounder-in-vendita-genossenschaft-migros-luzern-5yufxl",
         "allrounder-in-sale-genossenschaft-migros-luzern-luzern",
-        "all-rounder-sale-genossenschaft-migros-luzern-luzern",
         "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern"
       ],
       "salarySource": "estimated",

@@ -8550,10 +8550,10 @@
     },
     {
       "id": "richemont-efb919656dbb",
-      "slug": "horloger-hh-richemont-neuchatel",
+      "slug": "orologiaio-hh-panerai-neuchatel",
       "slugByLocale": {
         "en": "horloger-hh-richemont-neuchatel",
-        "it": "horloger-hh-richemont-neuchatel",
+        "it": "orologiaio-hh-panerai-neuchatel",
         "de": "horloge-hh-panerai-neuchatel",
         "fr": "horloger-hh-richemont-neuchatel"
       },
@@ -8609,7 +8609,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-08T13:49:32.485Z"
+      "firstSeenAt": "2026-09-08T13:49:32.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "horloger-hh-richemont-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "horloger-hh-richemont-neuchatel"
+      ]
     },
     {
       "id": "richemont-d9ae9b21c800",
@@ -9118,11 +9126,11 @@
     },
     {
       "id": "richemont-ce49d01748a4",
-      "slug": "boutique-manager-richemont-geneva",
+      "slug": "responsabile-negozio-panerai-geneva",
       "slugByLocale": {
-        "it": "boutique-manager-richemont-geneva",
+        "it": "responsabile-negozio-panerai-geneva",
         "en": "boutique-manager-panerai-geneva",
-        "de": "boutique-manager-richemont-geneva",
+        "de": "shopmanager-panerai-geneva",
         "fr": "boutique-manager-richemont-geneva"
       },
       "company": "Panerai",
@@ -9165,11 +9173,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-de-boutiques-panerai-geneva"
+        "gestionnaire-de-boutiques-panerai-geneva",
+        "boutique-manager-richemont-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "gestionnaire-de-boutiques-panerai-geneva"
+        ],
+        "it": [
+          "boutique-manager-richemont-geneva"
+        ],
+        "de": [
+          "boutique-manager-richemont-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -11335,6 +11350,14 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3089,
       "retranslationAttempts": 8,
@@ -11351,15 +11374,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ]
+      }
     },
     {
       "id": "richemont-beb532d93689",

@@ -60118,10 +60118,10 @@
     },
     {
       "id": "roche-a92eade5dc11",
-      "slug": "area-lead-roche-ch",
+      "slug": "roche-basel-b67b04",
       "slugByLocale": {
         "en": "area-lead-roche-ch",
-        "it": "area-lead-roche-ch",
+        "it": "roche-basel-b67b04",
         "de": "area-lead-roche-ch",
         "fr": "zone-de-plomb-roche-basel"
       },
@@ -60179,7 +60179,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-08T23:24:55.611Z"
+      "firstSeenAt": "2026-09-08T23:24:55.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "area-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "area-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-1623614472fb",
@@ -88013,10 +88021,10 @@
     },
     {
       "id": "roche-b0d03262f244",
-      "slug": "marketing-lead-breast-gyne-roche-ch",
+      "slug": "marketing-piombo-seno-gyne-roche-madrid",
       "slugByLocale": {
         "en": "marketing-lead-breast-gyne-roche-ch",
-        "it": "marketing-lead-breast-gyne-roche-ch",
+        "it": "marketing-piombo-seno-gyne-roche-madrid",
         "de": "marketing-lead-breast-gyne-roche-ch",
         "fr": "commercialisation-de-plomb-sein-et-gyne-roche-madrid"
       },
@@ -88072,7 +88080,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-08T13:34:10.092Z"
+      "firstSeenAt": "2026-09-08T13:34:10.092Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-lead-breast-gyne-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-lead-breast-gyne-roche-ch"
+      ]
     },
     {
       "id": "roche-b082093a7dd3",
