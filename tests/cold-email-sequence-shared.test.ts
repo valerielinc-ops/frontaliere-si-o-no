@@ -20,14 +20,30 @@ describe('cold-email sequence: single shared source (no drift)', () => {
     expect(seq.map((t: { touch: number }) => t.touch)).toEqual([1, 2, 3, 4]);
   });
 
-  it('personalizes touch-1 with real candidate count + tokenized placeholders + opt-out footer', () => {
+  it('personalizes touch-1 with a clearly-labelled proxy + tokenized placeholders + opt-out footer', () => {
     const [t1] = fromShared({ company: 'Casale SA', candidates: 49, periodLabel: 'Negli ultimi 3 mesi', contactName: 'Denise Rossi', topRole: 'Infermiere/a' });
     expect(t1.body).toContain('Ciao Denise,'); // first name only, no surname
-    expect(t1.body).toContain('49 persone');
+    expect(t1.body).toContain('49 segnali di interesse');
+    expect(t1.body).not.toContain('49 persone');
+    expect(t1.body).not.toContain('49 candidati');
     expect(t1.body).toContain('pagina di "Infermiere/a"');
     expect(t1.body).toContain('{{INSIGHTS_URL}}'); // substituted at send/preview time
     expect(t1.body).toContain('{{UNSUB_URL}}');
     expect(t1.body).toContain(OPTOUT_EMAIL);
+  });
+
+  it('uses an explicitly supplied raw click metric before the legacy proxy', () => {
+    const [t1, t2] = fromShared({
+      company: 'Casale SA',
+      candidates: 7,
+      metricValue: 23,
+      metricLabel: 'click per candidarsi',
+      periodLabel: 'Negli ultimi 90 giorni',
+    });
+    expect(t1.body).toContain('Negli ultimi 90 giorni abbiamo registrato 23 click per candidarsi');
+    expect(t2.body).toContain('Di quei 23 click per candidarsi registrati Negli ultimi 90 giorni');
+    expect(t1.body).not.toContain('7 persone');
+    expect(t1.body).not.toContain('7 candidati');
   });
 
   it('falls back to a neutral greeting + generic page label for missing/generic inputs', () => {

@@ -59,7 +59,8 @@ describe('handleAdminSendColdEmail', () => {
     expect(res.body.ok).toBe(true);
     expect(res.body.to).toBe('denise@casale.ch');
     expect(sent).toHaveLength(1);
-    expect(sent[0].subject).toBe('candidati inviati');
+    expect(sent[0].subject).toBe('interazioni candidatura');
+    expect(sent[0].text).toContain('49 segnali di interesse');
     // Placeholders replaced with real signed URLs (no leftover template tokens).
     expect(sent[0].text).toContain('https://frontaliereticino.ch/azienda/casale-sa/?t=');
     expect(sent[0].text).not.toContain('{{INSIGHTS_URL}}');
