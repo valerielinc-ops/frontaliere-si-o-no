@@ -2047,6 +2047,31 @@ jobs:
             || echo '{}' > "$CTX_DIR/pr.json"
           gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
             > "$CTX_DIR/files.txt" 2>/dev/null || : > "$CTX_DIR/files.txt"
+          # A re-review must see open Important findings from the whole bot-review
+          # history, not only the immediately previous body. The gate persists the
+          # same path+line anchors; this zero-Claude render gives the reviewer the
+          # state it must carry forward before it can write `## LGTM`.
+          gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp \
+            > "$CTX_DIR/reviews.json" 2>/dev/null || echo '[]' > "$CTX_DIR/reviews.json"
+          node --input-type=module - "$CTX_DIR/reviews.json" > "$CTX_DIR/inherited-findings.md" <<'NODE' || echo 'Sezione storica non disponibile.' > "$CTX_DIR/inherited-findings.md"
+          import { readFileSync } from 'node:fs';
+          import { historicalImportantFindings } from './scripts/ci/review-gate.mjs';
+
+          const pages = JSON.parse(readFileSync(process.argv[2], 'utf8'));
+          const findings = historicalImportantFindings(pages, { includeLatest: true });
+          if (findings.length === 0) {
+            console.log('Nessun finding Important storico ancora aperto.');
+          } else {
+            for (const finding of findings) {
+              const anchors = finding.citations.map((citation) =>
+                `${citation.path}${citation.line ? `:L${citation.line}` : ''}`,
+              ).join(', ');
+              console.log(`- Open Important (${anchors || 'anchor non risolvibile'}):`);
+              console.log(finding.text);
+              console.log('');
+            }
+          }
+          NODE
           # `minimal` = PR data/docs-only, ZERO code: il diff esce vuoto per
           # costruzione (gli `--exclude` coprono proprio quei path) e il fetch
           # su una PR da migliaia di file dati non e' gratis. Il file esiste
@@ -2123,6 +2148,9 @@ jobs:
             echo
             echo "## PR metadata"
             cat "$CTX_DIR/pr.json"
+            echo
+            echo "## Historical open Important findings"
+            cat "$CTX_DIR/inherited-findings.md"
             echo
             echo "## Changed code-file list"
             cat "$CTX_DIR/review-code-files.txt"
@@ -2203,9 +2231,9 @@ jobs:
 
             Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
 
-            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
+            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, historical open Important findings with their path+line anchors, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. The sibling signal may be intentionally compact or omitted on incremental runs. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions, but do not treat the prior Claude review as permission to erase an open Important finding. The bundle's historical section is authoritative: if a cited anchor is unchanged or the delta is only a base alignment, carry that finding into this review with the same path and line and do not append `## LGTM`; if the cited code was actually fixed, write `Fix di \`path:L<line>\`: ok.` for every cited anchor before allowing `Important: 0` and `## LGTM`. For an Important without a file citation, carry it unless it is explicitly resolved with `Fix di \`<normalized finding text>\`: ok.` (omit inner backticks). A merge-only delta can never resolve a prior Important by silence. If the bundle says the code contribution is unchanged, post a short review only when the historical section has no open Important findings.
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
