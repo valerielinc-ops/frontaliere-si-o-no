@@ -338,6 +338,19 @@ describe('Workday shared client compatibility', () => {
     }).location).toBe('Lugano');
   });
 
+  it('splits on en/em dash so cantonal suffixes stay out of the city', () => {
+    expect(extractWorkdayJobIdentity({
+      title: 'Conseiller clientèle',
+      externalPath: '/job/Sion/321',
+      locationsText: 'Sion \u2013 VS',
+    }).location).toBe('Sion');
+    expect(extractWorkdayJobIdentity({
+      title: 'Conseiller clientèle',
+      externalPath: '/job/Sion/322',
+      locationsText: 'CH \u2014 Sion',
+    }).location).toBe('Sion');
+  });
+
   it('caps long shared output at a deterministic token boundary', () => {
     const posting = {
       title: `${'enterprise platform engineering '.repeat(12)}architect`,
