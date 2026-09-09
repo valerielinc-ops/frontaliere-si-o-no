@@ -344,6 +344,70 @@ jobs:
         # vince, l'altro vede la label e si ferma prima di spendere turni.
         run: node scripts/ci/claim-issue-in-flight.mjs
 
+      - name: Load issue group context (B19, zero-Claude)
+        id: group
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+        run: |
+          set -euo pipefail
+          mkdir -p "$CTX_DIR"
+          : > "$CTX_DIR/group.json"
+          {
+            echo "is_group=false"
+            echo "group_label="
+            echo "group_numbers="
+          } >> "$GITHUB_OUTPUT"
+
+          if ! leader=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels); then
+            echo "::warning::impossibile leggere le label della issue #$ISSUE_NUMBER → fallback alla issue singola"
+            exit 0
+          fi
+          group_label=$(printf '%s' "$leader" | jq -r '[.labels[].name | select(test("^agent:fix-group:[0-9a-f]{12}-[0-9]+$"))] | .[0] // empty')
+          if [ -z "$group_label" ]; then
+            echo "issue #$ISSUE_NUMBER: nessun gruppo B19 → flusso singolo"
+            exit 0
+          fi
+
+          if ! GROUP_MAX_SIZE=$(node --input-type=module -e "import('./scripts/ci/followup-drainer.mjs').then(({ ISSUE_GROUP_MAX_SIZE }) => process.stdout.write(String(ISSUE_GROUP_MAX_SIZE)))"); then
+            echo "::warning::impossibile leggere il tetto del raggruppatore → fallback alla issue #$ISSUE_NUMBER"
+            exit 0
+          fi
+          case "$GROUP_MAX_SIZE" in
+            [2-9]|[1-9][0-9]*) ;;
+            *) echo "::warning::tetto B19 non valido ($GROUP_MAX_SIZE) → fallback alla issue #$ISSUE_NUMBER"; exit 0 ;;
+          esac
+
+          if ! members=$(gh issue list --repo "$REPO" --state open --label "$group_label" \
+            --json number,title,body,labels,createdAt,updatedAt --limit 10); then
+            echo "::warning::impossibile leggere i membri di $group_label → fallback alla issue #$ISSUE_NUMBER"
+            exit 0
+          fi
+          if ! valid=$(printf '%s' "$members" | jq -r --arg label "$group_label" --arg leader "$ISSUE_NUMBER" --argjson max "$GROUP_MAX_SIZE" \
+            'length >= 2 and length <= $max
+             and ([.[].number | tostring] | index($leader) != null)
+             and all(.[]; any(.labels[]?; .name == $label))'); then
+            echo "::warning::impossibile validare $group_label → fallback alla issue #$ISSUE_NUMBER"
+            exit 0
+          fi
+          if [ "$valid" != true ]; then
+            echo "::warning::gruppo $group_label non valido o oltre il tetto → fallback alla issue #$ISSUE_NUMBER"
+            exit 0
+          fi
+
+          printf '%s' "$members" | jq --arg leader "$ISSUE_NUMBER" \
+            'sort_by(if (.number | tostring) == $leader then 0 else 1 end, .createdAt, .number)' > "$CTX_DIR/group.json"
+          numbers=$(jq -r '[.[].number] | join(",")' "$CTX_DIR/group.json")
+          {
+            echo "is_group=true"
+            echo "group_label=$group_label"
+            echo "group_numbers=$numbers"
+          } >> "$GITHUB_OUTPUT"
+          echo "issue #$ISSUE_NUMBER: gruppo B19 $group_label → membri #$numbers"
+
       - name: Determine fix tier
         id: tier
         if: steps.quota.outputs.quota_blocked != 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
@@ -351,6 +415,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+          IS_GROUP: ${{ steps.group.outputs.is_group }}
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
         # Tier high (claude-opus-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
@@ -384,7 +449,11 @@ jobs:
           # `gh issue view` invece di due, zero costo qui, un turno risparmiato là.
           mkdir -p "$CTX_DIR"
           gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
-          body=$(jq -r '.title + "\n" + .body + "\n" + (.labels[].name)' "$CTX_DIR/issue.json")
+          if [ "${IS_GROUP:-false}" = true ] && [ -s "$CTX_DIR/group.json" ]; then
+            body=$(jq -r '.[] | (.title + "\n" + (.body // "") + "\n" + ([.labels[]?.name] | join("\n")))' "$CTX_DIR/group.json")
+          else
+            body=$(jq -r '.title + "\n" + (.body // "") + "\n" + ([.labels[]?.name] | join("\n"))' "$CTX_DIR/issue.json")
+          fi
           # Decision registry prefetch: il fixer deve ricevere le decisioni senza
           # spendere un turno per una lettura che può arrivare troncata. Il cap
           # è intenzionale: se il registro cresce oltre 12 KiB il run fallisce
@@ -523,6 +592,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+          IS_GROUP: ${{ steps.group.outputs.is_group }}
         # Il prompt scriveva `Closes #$ISSUE_NUMBER` INCONDIZIONATAMENTE. Su una
         # follow-up aggregata multi-item quella riga è esattamente ciò che
         # `pr-body-contract.yml` fallisce (blocco «Closes #N targeting a
@@ -544,6 +615,23 @@ jobs:
         # legittima in una issue che resta aperta per sempre.
         run: |
           set -uo pipefail
+          if [ "${IS_GROUP:-false}" = true ] && [ -s "$CTX_DIR/group.json" ]; then
+            expected=$(jq 'length' "$CTX_DIR/group.json" 2>/dev/null || echo 0)
+            refs=$(while IFS= read -r item; do
+              printf '%s\n' "$item" | node scripts/lib/pr-body-generator-contract.mjs --closing-ref 2>/dev/null || true
+            done < <(jq -c '.[]' "$CTX_DIR/group.json" 2>/dev/null))
+            actual=$(printf '%s\n' "$refs" | sed '/^[[:space:]]*$/d' | wc -l | tr -d ' ')
+            if [ "$expected" -ge 2 ] && [ "$actual" = "$expected" ]; then
+              {
+                echo "closing_ref<<CLOSING_REF_EOF"
+                printf '%s\n' "$refs"
+                echo "CLOSING_REF_EOF"
+              } >> "$GITHUB_OUTPUT"
+              echo "Closing refs per gruppo ($actual issue): $refs"
+              exit 0
+            fi
+            echo "::warning::closing refs di gruppo incompleti ($actual/$expected) → fallback alla issue leader"
+          fi
           ref=$(gh issue view "$ISSUE_NUMBER" --json number,title,body,labels 2>/dev/null \
                 | node scripts/lib/pr-body-generator-contract.mjs --closing-ref 2>/dev/null) || ref=""
           if [ -z "$ref" ]; then
@@ -671,6 +759,9 @@ jobs:
           ISSUE_TITLE: ${{ github.event.issue.title }}
           REPO: ${{ github.repository }}
           FIX_TIER: ${{ steps.tier.outputs.tier }}
+          ISSUE_GROUP: ${{ steps.group.outputs.is_group }}
+          ISSUE_GROUP_LABEL: ${{ steps.group.outputs.group_label }}
+          ISSUE_GROUP_NUMBERS: ${{ steps.group.outputs.group_numbers }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # L'IDENTITÀ DI PUSH DEL FIXER. Senza questo input la action ne conia uno suo
@@ -711,6 +802,8 @@ jobs:
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
+            **Raggruppamento B19:** `group=${{ steps.group.outputs.is_group }}`, membri `${{ steps.group.outputs.group_numbers }}`. Se `group=true`, carica `${{ runner.temp }}/issue-fix-ctx/group.json`: contiene tutte le issue della stessa PR, già verificate dal drainer con una firma e un punto di riparazione comuni, entro il tetto numerico definito da `ISSUE_GROUP_MAX_SIZE`. Diagnostica ogni membro e risolvi tutti i membri nella stessa PR; non prendere lavoro esterno al gruppo. Nel body della PR usa una riga di chiusura per ogni membro, una keyword per riga, usando le righe pre-calcolate dallo step `closing`. Se un membro non è confermabile o non è riparabile con certezza, non forzarlo: lascialo senza keyword di chiusura e dichiaralo in `## Non implementato (ancora)` con uno stato letterale. Se `group=false`, il flusso resta quello della issue singola.
+
             **Contratto vincolante di `AGENTS.md` (prefetch zero-Claude):**
             Il workflow ha già iniettato qui sotto le sezioni `Non-Negotiables` e `Privacy` dal checkout corrente. Sono la fonte vincolante per questo run: non spendere un turno per rileggerle e TERMINA se il blocco manca o appare incompleto.
             ${{ steps.tier.outputs.agents_contract }}
@@ -723,7 +816,7 @@ jobs:
 
             ### Registro delle decisioni del proprietario (iniettato dal workflow)
             ${{ steps.tier.outputs.decision_registry }}
-            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
+            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`. Se `group=true`, leggi anche `${{ runner.temp }}/issue-fix-ctx/group.json` e tratta ogni record come una issue da chiudere nella stessa PR: la diagnosi deve confermare il punto di riparazione comune, non limitarsi alla label.
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
