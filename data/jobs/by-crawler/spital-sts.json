@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-09-08T23:23:54.128Z",
+  "assembledAt": "2026-09-09T13:48:20.904Z",
   "jobs": [
     {
       "id": "spital-sts-758caf44a350",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:42.700Z",
+      "crawledAt": "2026-09-09T13:48:10.292Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
@@ -106,12 +108,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là.\n\nParmi vos tâches principales sont la réception du patient, le fonctionnement du téléphone, l'organisation des heures de bureau, la rédaction des rapports des heures de bureau de la dictée, l'assistance des heures de bureau incl. Soins des plaies, divers changements d'habillage (y compris l'habillage d'ACC), échantillons de sang, documentation sur les plaies, y compris : Comptabilité et gestion du matériel.\n\nEntrée par arrangement\n\nÇa vous attend.\n\n• Travail varié en combinaison de soins et d'administration\n\n• Mettre en place une petite équipe MPA\n\n• Coopération étroite avec le personnel médical\n\n• Climat de travail collégial et apprécié\n\n• Coopération interdisciplinaire avec d'autres spécialistes en interne\n\n• Heures de travail régulières, pas de service le week-end\n\n• Modèle attrayant de flex vacances\n\nDevenez membre de notre équipe\n\n• L'éducation en tant que Med. Assistant pratique/\n\n• Expérience en chirurgie (entretien des plaies, enlèvement des fils, petites interventions)\n\n• Bonne connaissance de l'allemand\n\n• Connaissance de la terminologie médicale (chirurgie)\n\n• Connaissance de la gestion des plaies"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:42.308Z",
+      "crawledAt": "2026-09-09T13:48:09.890Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -145,7 +148,8 @@
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
         "assistant-medical-en-urologie-spital-sts-thun",
-        "med-praxisassistent-in-chirurgie-spital-sts-thun"
+        "med-praxisassistent-in-chirurgie-spital-sts-thun",
+        "med-assistente-pratico-surgeon-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -165,7 +169,8 @@
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
           "assistant-medical-en-urologie-spital-sts-thun",
-          "med-praxisassistent-in-chirurgie-spital-sts-thun"
+          "med-praxisassistent-in-chirurgie-spital-sts-thun",
+          "med-assistente-pratico-surgeon-spital-sts-thun"
         ],
         "en": [
           "med-practice-assistant-in-cardiology-spital-sts-thun",
@@ -220,12 +225,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Mitarbeiter/in unseres Applikationsmanagement-Teams bist du für den stabilen Betrieb von medizinischen und nicht-medizinischen Applikationen verantwortlich, welche in der Spital STS AG betrieben werden. Du berätst und unterstützt die Anwendenden in den Bereichen Applikations- und Prozesshandhabung. Durch die Aufnahme von Fachanforderungen koordinierst du Weiterentwicklungen von Applikationen und hilfst bei Projekten mit. Du arbeitest bei Spezifikation, Test und Rollout zum Implementieren von applikatorischen Releases mit.\nApplikatorische Störungen und Fehler, werden durch dich analysiert und bearbeitet. Bei komplexen Störungen koordinierst du zwischen Second- und Third Level Support (Lieferanten).\nAls Nebenaufgabe unterstützt du an einzelnen Tagen im Quartal den Service Desk und übernimmst Pikett-Dienste (ca. drei Wochen pro Jahr).\nDas Erstellen, Aktualisieren und Verwalten der notwendigen Dokumentationen gehört auch zu deinem Aufgabengebiet.\nEintritt nach Vereinbarung.\n\nDas wartet auf dich\n\n• Eine sinnstiftende und abwechslungsreiche IT-Aufgabe in einem vielseitigen Spitalumfeld\n\n• Flexibel wählbares Ferien- und Pensionskassen-Modell\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Informatiker (EFZ) oder gleichwertige Ausbildung\n\n• Erfahrungen als Applikationsmanager, idealerweise im Gesundheitswesen oder Erfahrung als Medizininformatiker/in\n\n• Selbstständige und zuverlässige Arbeitsweise, flexibel und kommunikative/r Teamplayer\n\n• Gewandt in deutscher Sprache (mündlich und schriftlich)\n\n• Hohe Servicebereitschaft sowie die Motivation, Kundinnen und Kunden mit Qualität und Engagement zu überzeugen.",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nEn tant qu'employé de notre équipe de gestion des applications, vous êtes responsable du fonctionnement stable des applications médicales et non médicales de Spital STS AG. Vous conseillez et aidez les utilisateurs dans les domaines de la gestion des applications et des processus. En incluant les besoins des spécialistes, vous coordonnez les développements des applications et aidez les projets. Vous serez impliqué dans les spécifications, les tests et le déploiement pour mettre en œuvre les versions d'application.\nLes perturbations et les erreurs d'application sont analysées et traitées par vous. En cas de perturbations complexes, coordonner le soutien de deuxième et troisième niveaux (fournisseurs).\nEn parallèle, vous soutenez le bureau de service les jours individuels du trimestre et prenez en charge les services Pikett (environ trois semaines par année).\nCréer, mettre à jour et gérer la documentation nécessaire fait également partie de votre travail.\nEntrée par arrangement.\n\nÇa vous attend.\n\n• Une tâche informatique significative et variée dans un environnement hospitalier polyvalent\n\n• Modèle flexible de fonds de vacances et de retraite\n\nDevenez membre de notre équipe\n\n• Formation complète en informatique (EFZ) ou équivalent\n\n• Expérience en tant que gestionnaire d'application, idéalement en soins de santé ou en tant qu'informaticien médical\n\n• Méthode de travail indépendante et fiable, flexible et communicative\n\n• Appliqué en allemand (verbal et écrit)\n\n• Haute volonté de service et la motivation pour convaincre les clients avec la qualité et l'engagement."
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/ef097c63-0366-45fd-829c-ad48b2eac151/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:41.881Z",
+      "crawledAt": "2026-09-09T13:48:09.451Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -244,11 +250,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
-        "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun"
+        "gestionnaire-d-applications-tic-in-informaticien-medical-in-spital-sts-thun",
+        "ict-application-manager-in-informaticista-medico-in-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
+          "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun",
+          "ict-application-manager-in-informaticista-medico-in-spital-sts-thun"
         ],
         "en": [
           "ict-applikations-manager-in-medizininformatiker-in-spital-sts-thun"
@@ -305,7 +313,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/4a5e872a-75e2-44df-85ca-24f2d03af648/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:41.465Z",
+      "crawledAt": "2026-09-09T13:48:09.041Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,11 +331,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-system-spezialist-spital-sts-thun"
+        "ict-system-spezialist-spital-sts-thun",
+        "specialista-del-sistema-ict-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-system-spezialist-spital-sts-thun"
+          "ict-system-spezialist-spital-sts-thun",
+          "specialista-del-sistema-ict-spital-sts-thun"
         ],
         "fr": [
           "ict-system-spezialist-spital-sts-thun"
@@ -380,7 +390,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c6125f64-2b40-499e-9bc6-2890e9d2ecb5/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:40.986Z",
+      "crawledAt": "2026-09-09T13:48:08.567Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -398,11 +408,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+        "dipl-hebamme-im-gebarsaal-spital-sts-thun",
+        "dipl-ostetrica-nella-camera-di-nascita-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-hebamme-im-gebarsaal-spital-sts-thun"
+          "dipl-hebamme-im-gebarsaal-spital-sts-thun",
+          "dipl-ostetrica-nella-camera-di-nascita-spital-sts-thun"
         ],
         "en": [
           "dipl-hebamme-im-gebarsaal-spital-sts-thun"
@@ -440,7 +452,7 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
       "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale (temporanea)",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
         "en": "Dipl. Nursing professional / Dipl. Nursing professional (temporary)",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann (befristet)",
         "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers (temporaires)"
@@ -452,12 +464,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu wirst auf einer urologischen Schwerpunktstation arbeiten, auf welcher aber auch Patienten aus anderen chirurgischen Bereichen betreut werden. In der modernisierten Bettenstation wird grossen Wert auf die interdisziplinäre Zusammenarbeit mit flachen Hierarchien gelegt. Du arbeitest in einem jungen und innovativen Team von Pflegenden und Ärzten. Durch die Integration im Gesamtteam der Urologie erfolgt eine enge Zusammenarbeit auf Augenhöhe über alle Fachgruppen hinaus um eine erstklassige Betreuung der Patienten zu gewährleisten. Wir bieten grosse Flexibilität beim Arbeitsplan und gehen gerne auf individuelle Wünsche ein, falls dies betrieblich möglich ist.\n\nEintritt per 1. November 2026 befristet bis zum 28. Februar 2027 (mit Option auf Verlängerung)\n\nDas wartet auf dich\n\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als Dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Urologie\n• Inspirierend, engagiert, verantwortungsvoll und professionell - Unsere Spital STS-Werte, die uns wichtig sind",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous travaillerez sur un centre urologique de gravité, mais les patients d'autres zones chirurgicales seront également soignés. Dans la station de lit modernisée, l'accent est mis sur la coopération interdisciplinaire avec les hiérarchies plates. Vous travaillez dans une équipe jeune et innovante d'infirmières et de médecins. Grâce à l'intégration dans l'ensemble de l'équipe d'urologie, une coopération étroite s'opère au-delà de tous les groupes spécialisés afin d'assurer des soins de première qualité aux patients. Nous offrons une grande flexibilité dans le plan de travail et sommes heureux de répondre aux souhaits individuels, si cela est possible sur le plan opérationnel.\n\nEntrée par 1. Jusqu'au 28 novembre 2026. Février 2027 (avec option de prolongation)\n\nÇa vous attend.\n\n• Des défis passionnants avec leur propre domaine de responsabilité\n• Bonne coopération avec l'équipe et la direction de la station\n• Possibilité d'achat de vacances supplémentaires, conditions d'emploi attrayantes\n\nDevenez membre de notre équipe\n\n• Diplôme de diplômé. Infirmière praticienne\n• Expérience professionnelle de préférence en urologie\n• Inspirant, engagé, responsable et professionnel, notre hôpital STS valeurs qui sont importantes pour nous"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/e3b9ec4f-9c75-49f9-a2ae-95eed3456ca7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:40.578Z",
+      "crawledAt": "2026-09-09T13:48:08.119Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -475,11 +488,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-temporanea-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-befristet-spital-sts-thun"
@@ -510,7 +525,7 @@
         "it": "hr-business-partner-spital-sts-thun",
         "en": "hr-business-partner-spital-sts-thun",
         "de": "hr-business-partner-spital-sts-thun",
-        "fr": "partenaire-d-affaires-rh-spital-sts-thun"
+        "fr": "hr-business-partner-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -520,7 +535,7 @@
         "it": "Risorse Umane Business Partner",
         "en": "HR Business Partner",
         "de": "Personalwesen Business Partner",
-        "fr": "Partenaire d'affaires RH"
+        "fr": "HR Business Partner"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
       "descriptionByLocale": {
@@ -529,12 +544,13 @@
         "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls komptente:r Sparringpartner stellst du die proaktive operative und teilweise strategische Beratung und Begleitung der Vorgesetzten bereichsübergreifend und unter Berücksichtigung der Unternehmens- und HR-Strategie sicher. Du gestaltest als Mitglied des HR-Leitungsteams die Weiterentwicklung des HR der Spital STS AG mit, arbeitest in Projekten, begleitest z.B. Peer- Coachings, nimmst Referententätigkeiten im Rahmen von internen Seminaren wahr und kümmerst dich um vielfältige HR-Themen.\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Inspirierende und verantwortungsvolle Aufgabe mit hoher Selbständigkeit\n\n• Abwechslungsreiche Tätigkeit, bei der die eigenen Ideen eingebracht werden können und aktiv Prozesse modernisiert werden können\n\n• Engagiertes, professionelles und cooles HR BP-Team\n\n• Administrative Unterstützung durch das Team HR-Services\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitaktivitäten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Fachausweis Personalfachfrau-/mann und idealerweise mit einer spezifischen Weiterbildung im HR auf Stufe CAS, MAS oder EMBA oder ein betriebswirtschaftliches Studium mit der Vertiefung HRM im Major\n\n• Umfassende und langjährige Erfahrung in der Beratung und Begleitung der Vorgesetzten (arbeitsrechtliche sowie alle HR-relevanten Themen)\n\n• Initiative, flexible und proaktive Persönlichkeit mit unternehmerischem Denken\n\n• Hohe Lern- und Veränderungsbereitschaft\n\n• Ausgeprägte Umsetzungsstärke und Gestaltungswille\n\n• Affinität zu den Themen Personalentwicklung, HR-Controlling und Projektmanagement\n\n• Begeisterung an Trends und deren Umsetzung im HR\n\n• Erfahrung im Gesundheitswesen von Vorteil",
         "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nEn tant que partenaire compétent, vous assurez la consultation et le soutien opérationnels proactifs et en partie stratégiques des supérieurs dans tous les ministères et en tenant compte de la stratégie ministérielle et des RH. En tant que membre de l'équipe de gestion des RH, vous contribuez au développement des RH de Spital STS AG, travaillez dans des projets, accompagnez par exemple un coaching par les pairs, participez aux activités des conférenciers dans le cadre de séminaires internes et prenez soin d'un large éventail de sujets des RH.\n\nAdmission immédiate ou par arrangement.\n\nÇa vous attend.\n\n• Inspiration et responsabilité avec une grande indépendance\n\n• Activité variée, dans laquelle les idées propres peuvent être introduites et les processus actifs peuvent être modernisés\n\n• Équipe dédiée, professionnelle et cool HR BP\n\n• Appui administratif de l ' équipe des services des ressources humaines\n\n• Modèle flexible de fonds de vacances et de retraite\n\n• Activités de loisirs attractives dans les régions de mer et de montagne\n\nDevenez membre de notre équipe\n\n• Spécialiste du personnel et idéalement avec une formation complémentaire spécifique en RH au niveau CAS, MAS ou EMBA ou une étude d'entreprise avec une spécialisation HRM dans la majeure\n\n• De nombreuses années d'expérience dans le conseil et le soutien des superviseurs (droit du travail ainsi que tous les sujets liés aux RH)\n\n• Initiative, personnalité flexible et proactive avec pensée entrepreneuriale\n\n• Haute volonté d'apprendre et de changer\n\n• Forte force de mise en œuvre et volonté de façonner\n\n• Affinité pour le perfectionnement du personnel, le contrôle des RH et la gestion de projet\n\n• Enthousiasme sur les tendances et leur mise en œuvre en RH\n\n• L'expérience en santé est bénéfique"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/9378e829-2288-4254-a9dd-4b7059b675e7/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:40.189Z",
+      "crawledAt": "2026-09-09T13:48:07.699Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -551,15 +567,17 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/9378e829-2288-4254-a9dd-4b7059b675e7",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-07T15:08:34.531Z",
+      "previousSlugs": [
+        "partenaire-operationnel-rh-spital-sts-thun",
+        "partenaire-d-affaires-rh-spital-sts-thun"
+      ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-operationnel-rh-spital-sts-thun"
+          "partenaire-operationnel-rh-spital-sts-thun",
+          "partenaire-d-affaires-rh-spital-sts-thun"
         ]
       },
-      "previousSlugs": [
-        "partenaire-operationnel-rh-spital-sts-thun"
-      ],
+      "firstSeenAt": "2026-09-07T15:08:34.531Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -578,26 +596,26 @@
       "id": "spital-sts-4091536added",
       "slug": "dipl-nutrizionista-in-temporale-spital-sts-thun",
       "slugByLocale": {
-        "de": "dipl-ernahrungsberater-in-befristet-spital-sts-thun",
         "it": "dipl-nutrizionista-in-temporale-spital-sts-thun",
         "en": "dipl-nutritionist-in-temporary-spital-sts-thun",
+        "de": "dipl-ernahrungsberater-in-befristet-spital-sts-thun",
         "fr": "dipl-nutritionniste-en-temporaire-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
       "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Ernährungsberater: in (befristet)",
+      "title": "Dipl. Ernährungsberater:in (befristet)",
       "titleByLocale": {
-        "de": "Dipl. Ernährungsberater: in (befristet)",
         "it": "Dipl. Nutrizionista: in (temporale)",
         "en": "Dipl. Nutritionist: in (temporary)",
+        "de": "Dipl. Ernährungsberater:in (befristet)",
         "fr": "Dipl. Nutritionniste: en (temporaire)"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu führst primär ambulante Ernährungsberatungen in den Fachbereichen Innere Medizin, Chirurgie, Onkologie inkl. Palliative Care sowie Gynäkologie durch. Dabei arbeitest du eng mit der Ärzteschaft, Pflegepersonal, Diabetesberatung und der Gastroenterologie zusammen. Die aktive Mitarbeit an Projekten, Rapporten und Weiterbildungen rundet diese spannende Stelle ab.\n\nEintritt per sofort befristet bis 30.09.2027 (mit Option auf Verlängerung)\n\nDas wartet auf dich\n\n• Dynamisches und humorvolles Team\n\n• Vielseitige Tätigkeit und gute Einarbeitungszeit\n\n• Motivierendes und spannendes Arbeitsumfeld\n\n• Familiäre Arbeitsatmosphäre\n\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind\n\nSo wirst du Teil unseres Teams\n\n• Du verfügst über einen Hochschulabschluss (BSc) in Ernährung und Diätetik oder einem äquivalenten Abschluss in klinischer Ernährung mit Berufserfahrung in klinischer Ernährung\n\n• Du hast Freude an akutmedizinischer Arbeit in interdisziplinären Teams\n\n• Du bist eine interessierte und begeisterungsfähige Persönlichkeit, die gerne Eigenverantwortung übernimmt\n\n• Zudem hast du ein hohes Qualitätsbewusstsein und arbeitest gerne teamorientiert",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu führst primär ambulante Ernährungsberatungen in den Fachbereichen Innere Medizin, Chirurgie, Onkologie inkl. Palliative Care sowie Gynäkologie durch. Dabei arbeitest du eng mit der Ärzteschaft, Pflegepersonal, Diabetesberatung und der Gastroenterologie zusammen. Die aktive Mitarbeit an Projekten, Rapporten und Weiterbildungen rundet diese spannende Stelle ab.\n\nEintritt per sofort befristet bis 30.09.2027 (mit Option auf Verlängerung)\n\nDas wartet auf dich\n\n• Dynamisches und humorvolles Team\n\n• Vielseitige Tätigkeit und gute Einarbeitungszeit\n\n• Motivierendes und spannendes Arbeitsumfeld\n\n• Familiäre Arbeitsatmosphäre\n\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind\n\nSo wirst du Teil unseres Teams\n\n• Du verfügst über einen Hochschulabschluss (BSc) in Ernährung und Diätetik oder einem äquivalenten Abschluss in klinischer Ernährung mit Berufserfahrung in klinischer Ernährung\n\n• Du hast Freude an akutmedizinischer Arbeit in interdisziplinären Teams\n\n• Du bist eine interessierte und begeisterungsfähige Persönlichkeit, die gerne Eigenverantwortung übernimmt\n\n• Zudem hast du ein hohes Qualitätsbewusstsein und arbeitest gerne teamorientiert",
         "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nSi effettuano principalmente consultazioni nutrizionali ambulatoriale nei campi della medicina interna, chirurgia, oncologia incl. Palliative Care e Ginecologia. Lavorate a stretto contatto con la professione medica, il personale di cura, la consulenza per il diabete e la gastroenterologia. La partecipazione attiva ai progetti, ai rapporti e all'istruzione completa questa posizione emozionante.\n\nIngresso per termine immediato fino al 30.09.2027 (con opzione per estensione)\n\nQuesto ti aspetta\n\n• Squadra dinamica e umoristica\n\n• Attività versatile e buon tempo di allenamento\n\n• Ambiente di lavoro stimolante ed emozionante\n\n• Ambiente di lavoro familiare\n\n• Ispirante, Commesso, Responsabile e Professionale – I nostri valori STS dell'ospedale che si oppongono a noi\n\nDiventa parte del nostro team\n\n• Hai una laurea (BSc) in nutrizione e dietetica o un grado equivalente nella nutrizione clinica con esperienza professionale nella nutrizione clinica\n\n• Ti piace il lavoro di medicina acuta in team interdisciplinari\n\n• Sei una personalità interessata ed entusiasta che ama assumersi la responsabilità personale\n\n• Inoltre, si ha una consapevolezza di alta qualità e come lavorare team-oriented",
         "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nYou primarily conduct outpatient nutrition consultations in the fields of internal medicine, surgery, oncology incl. Palliative Care and Gynecology. You work closely with the medical profession, nursing staff, diabetes counselling and gastroenterology. Active participation in projects, reports and further education rounds off this exciting position.\n\nEntry for immediate term until 30.09.2027 (with option for extension)\n\nThis is waiting for you\n\n• Dynamic and humorous team\n\n• Versatile activity and good training time\n\n• Motivating and exciting working environment\n\n• Family working atmosphere\n\n• Inspiring, Committed, Responsible and Professional – Our Hospital STS Values That Matter to Us\n\nBecome part of our team\n\n• You have a university degree (BSc) in nutrition and dietetics or an equivalent degree in clinical nutrition with professional experience in clinical nutrition\n\n• You enjoy acute medicine work in interdisciplinary teams\n\n• You are an interested and enthusiastic personality who likes to take on personal responsibility\n\n• In addition, you have a high quality awareness and like to work team-oriented",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu führst primär ambulante Ernährungsberatungen in den Fachbereichen Innere Medizin, Chirurgie, Onkologie inkl. Palliative Care sowie Gynäkologie durch. Dabei arbeitest du eng mit der Ärzteschaft, Pflegepersonal, Diabetesberatung und der Gastroenterologie zusammen. Die aktive Mitarbeit an Projekten, Rapporten und Weiterbildungen rundet diese spannende Stelle ab.\n\nEintritt per sofort befristet bis 30.09.2027 (mit Option auf Verlängerung)\n\nDas wartet auf dich\n\n• Dynamisches und humorvolles Team\n\n• Vielseitige Tätigkeit und gute Einarbeitungszeit\n\n• Motivierendes und spannendes Arbeitsumfeld\n\n• Familiäre Arbeitsatmosphäre\n\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind\n\nSo wirst du Teil unseres Teams\n\n• Du verfügst über einen Hochschulabschluss (BSc) in Ernährung und Diätetik oder einem äquivalenten Abschluss in klinischer Ernährung mit Berufserfahrung in klinischer Ernährung\n\n• Du hast Freude an akutmedizinischer Arbeit in interdisziplinären Teams\n\n• Du bist eine interessierte und begeisterungsfähige Persönlichkeit, die gerne Eigenverantwortung übernimmt\n\n• Zudem hast du ein hohes Qualitätsbewusstsein und arbeitest gerne teamorientiert",
         "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nVous effectuez principalement des consultations nutritionnelles externes dans les domaines de la médecine interne, de la chirurgie, de l'oncologie, y compris. Soins palliatifs et gynécologie. Vous travaillez en étroite collaboration avec la profession médicale, le personnel infirmier, le counseling sur le diabète et la gastroentérologie. La participation active à des projets, à des rapports et à des activités de formation continue complète cette position passionnante.\n\nEntrée pour une durée immédiate jusqu'au 30.09.2027 (avec possibilité de prolongation)\n\nÇa vous attend.\n\n• Équipe dynamique et humoristique\n\n• Activité polyvalente et bonne formation\n\n• Environnement de travail stimulant et stimulant\n\n• Ambiance de travail familiale\n\n• Inspirant, engagé, responsable et professionnel – Notre hôpital STS valeurs qui nous importe\n\nDevenez membre de notre équipe\n\n• Vous avez un diplôme universitaire (BSc) en nutrition et diététique ou un diplôme équivalent en nutrition clinique avec une expérience professionnelle en nutrition clinique\n\n• Vous appréciez le travail de médecine aiguë dans les équipes interdisciplinaires\n\n• Vous êtes une personnalité intéressée et enthousiaste qui aime assumer sa responsabilité personnelle\n\n• En outre, vous avez une sensibilisation de haute qualité et aimez travailler en équipe"
       },
       "needsRetranslation": true,
@@ -606,7 +624,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1cfaa927-c56f-41d4-98b5-a90c9031cc90/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:39.753Z",
+      "crawledAt": "2026-09-09T13:48:07.198Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -623,6 +641,23 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1cfaa927-c56f-41d4-98b5-a90c9031cc90",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-ernahrungsberater-in-befristet-spital-sts-thun",
+        "dipl-nutrizionista-in-temporale-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ernahrungsberater-in-befristet-spital-sts-thun",
+          "dipl-nutrizionista-in-temporale-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:40:05.991Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -635,30 +670,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:40:05.991Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-ernahrungsberater-in-befristet-spital-sts-thun"
-      ]
+      }
     },
     {
       "id": "spital-sts-383c1c35c376",
       "slug": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
       "slugByLocale": {
-        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
         "it": "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen",
         "en": "service-doctor-service-doctor-medicine-spital-sts-zweisimmen",
+        "de": "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
         "fr": "medecin-de-service-medecin-de-service-medecine-spital-sts-zweisimmen"
       },
       "company": "Spital STS",
@@ -666,24 +686,25 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Dienstärztin / Dienstarzt Medizin",
       "titleByLocale": {
-        "de": "Dienstärztin / Dienstarzt Medizin",
         "it": "medico di servizio / medicina di servizio",
         "en": "Service doctor / Service doctor Medicine",
+        "de": "Dienstärztin / Dienstarzt Medizin",
         "fr": "Médecin de service / Médecin de service Médecine"
       },
       "description": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nIn der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.\nSie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.\n\nAngepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Familiäres Team mit interdisziplinärer Zusammenarbeit\n\n• Kollegiale Arbeitsatmosphäre mit flachen Hierarchien\n\n• Eigenverantwortung in definiertem Bereich\n\n• Enge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n\n• Anwendung verschiedener Sprachkenntnisse\n\n• Freizeit- und Naturerlebnisse in direkter Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Schweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit respektive Medizinalberufekommission MEBEKO)\n\n• Facharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin, interdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nIn der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.\nSie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.\n\nAngepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Familiäres Team mit interdisziplinärer Zusammenarbeit\n\n• Kollegiale Arbeitsatmosphäre mit flachen Hierarchien\n\n• Eigenverantwortung in definiertem Bereich\n\n• Enge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n\n• Anwendung verschiedener Sprachkenntnisse\n\n• Freizeit- und Naturerlebnisse in direkter Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Schweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit respektive Medizinalberufekommission MEBEKO)\n\n• Facharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin, interdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil",
         "it": "Un lavoro con prospettive: Oltre ad un lavoro versatile nell'ambiente familiare, l'Ospedale Zweisimmen offre anche la possibilità di svago flessibile nella natura circostante e nella regione montana. Sei alla ricerca di significato, ma anche di correttezza? Allora sei qui.\n\nNella funzione di medico di servizio, si è responsabili per la cura dei pazienti inpatici e per la valutazione iniziale dei pazienti nella nostra emergenza all'avanguardia nell'offerta di servizio (pacchetto base / assistenza di base) di notte e nei giorni di fine settimana definiti.\nEssi sono responsabili della valutazione iniziale e del trattamento dei pazienti internisti e chirurgici in collaborazione con il team medico internista Zweisimmen e i colleghi chirurgici presso la sede ospedaliera Thun. La stretta integrazione dell'emergenza, dell'inpatia e della medicina consiliare assicura la cura continua e di alta qualità dell'intero percorso di trattamento.\n\nAdattato alle vostre idee personali e alla vostra situazione di vita individuale, offriamo modelli di tempo di lavoro estremamente flessibili e possibilità di applicazione. Nello sviluppo professionale, i medici di cadre esperti sono ovviamente al fianco. È richiesta la partecipazione ai servizi di fondo specializzati ben pagati (pronta di chiamata).\n\nEntrata per accordo\n\nQuesto ti aspetta\n\n• Gruppo familiare con cooperazione interdisciplinare\n\n• Atmosfera funzionale con gerarchie piatte\n\n• Responsabilità personale in un settore definito\n\n• Una stretta collaborazione con medici e ospedali di riferimento\n\n• Applicazione delle diverse competenze linguistiche\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\nDiventa parte del nostro team\n\n• Diploma svizzero o equivalente riconosciuto come medico (riconoscimento da parte dell'Ufficio federale della sanità o della professione medica Commissione MEBEKO)\n\n• Titolo specializzato in Medicina Interna Generale (Svizzera o UE/EFTA) con esperienza in medicina clinica di emergenza, focus interdisciplinare \"Clinical Emergency Medicine SGNOR\" auspicabile\n\n• Gioia e interesse per un'attività versatile in una vasta gamma di trattamenti\n\n• Esperienza clinica nel trattamento di emergenza di eventi medici e chirurgici acuti e subacuti\n\n• Alta abilità sociali, abilità di lavoro di squadra e un aspetto professionale\n\n• Molto buone competenze tedesche nella parola e nella scrittura (minimo C1), le competenze linguistiche straniere sono un vantaggio",
         "en": "A job with prospects: In addition to a versatile work in the family environment, the Hospital Zweisimmen also offers you the possibility of flexible leisure in the surrounding nature and mountain region. Are you looking for meaningfulness, but also fairness? Then you are right here.\n\nIn the function as a service physician, you are responsible for the care of the inpatient patients and for the initial assessment of the patients in our state-of-the-art emergency within the service offer (basic package / basic care) at night and on defined weekend days.\nThey are responsible for the initial assessment and treatment of internist and surgical patients in cooperation with the internist medical team Zweisimmen and the surgical colleagues at the hospital location Thun. The close integration of emergency, inpatient and consiliary medicine ensures continuous, high-quality care of the entire treatment pathway.\n\nAdapted to your personal ideas and your individual life situation, we offer extremely flexible working time models and application possibilities. In the professional development, the experienced cadre doctors are of course at the side. Participation in the well-paid specialist background services (readiness to call) is required.\n\nEntry by arrangement\n\nThis is waiting for you\n\n• Family team with interdisciplinary cooperation\n\n• Collegial working atmosphere with flat hierarchies\n\n• Personal responsibility in a defined area\n\n• Close cooperation with referring doctors and hospitals\n\n• Application of different language skills\n\n• Leisure and nature experiences in the immediate vicinity\n\nBecome part of our team\n\n• Swiss diploma or recognised equivalent as a doctor (recognition by the Federal Office of Health or Medical Profession Commission MEBEKO)\n\n• Specialist title for General Internal Medicine (Switzerland or EU/EFTA) with experience in clinical emergency medicine, interdisciplinary focus \"Clinical emergency medicine SGNOR\" desirable\n\n• Joy and interest in a versatile activity in a wide range of treatments\n\n• Clinical experience in emergency treatment of acute and subacute medical and surgical events\n\n• High social skills, teamwork skills and a professional appearance\n\n• Very good German skills in word and writing (minimum C1), foreign language skills are an advantage",
+        "de": "Ein Job mit Aussichten: Im Spital Zweisimmen erwartet Sie nebst einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Bergregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nIn der Funktion als Dienstärztin / Dienstarzt sind Sie für die Betreuung der stationären Patientinnen und Patienten zuständig und für die Ersteinschätzung der Patientinnen und Patienten in unserem topmodernen Notfall innerhalb des Leistungsangebotes (Basispaket/Grundversorgung) in der Nacht und an definierten Wochenend-Tagen.\nSie verantworten die Ersteinschätzung und Anbehandlung von internistischen als auch chirurgischen Patienten in Zusammenarbeit mit dem internistischen Kaderarztteam Zweisimmen bzw. den chirurgischen Kollegen am Spitalstandort Thun. Die enge Verzahnung von Notfall-, stationärer und konsiliarischer Medizin gewährleistet eine kontinuierliche, hochwertige Versorgung des gesamten Behandlungspfads.\n\nAngepasst an Ihre persönlichen Vorstellungen und Ihre individuellen Lebenssituation bieten wir äusserst flexible Arbeitszeitmodelle und Einsatzmöglichkeiten. Bei der fachlichen Weiterentwicklung stehen die erfahrenen Kaderärzte selbstverständlich zur Seite. Die Teilnahme an den gut vergüteten fachärztlichen Hintergrunddiensten (Rufbereitschaft) wird vorausgesetzt.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Familiäres Team mit interdisziplinärer Zusammenarbeit\n\n• Kollegiale Arbeitsatmosphäre mit flachen Hierarchien\n\n• Eigenverantwortung in definiertem Bereich\n\n• Enge Zusammenarbeit mit zuweisenden Ärzten und Spitälern\n\n• Anwendung verschiedener Sprachkenntnisse\n\n• Freizeit- und Naturerlebnisse in direkter Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Schweizer Diplom oder anerkanntes Äquivalent als Ärztin/Arzt (Anerkennung durch das Bundesamt für Gesundheit respektive Medizinalberufekommission MEBEKO)\n\n• Facharzttitel für Allgemeine Innere Medizin (Schweiz oder EU/EFTA) mit Erfahrung in klinischer Notfallmedizin, interdisziplinärer Schwerpunkt \"Klinische Notfallmedizin SGNOR\" wünschenswert\n\n• Freude und Interesse an einer vielseitigen Tätigkeit in einem breiten Behandlungsspektrum\n\n• Klinische Erfahrung in der Notfallbehandlung akuter und subakuter medizinischer und chirurgischer Ereignisse\n\n• Hohe Sozialkompetenz, Teamfähigkeit und ein professionelles Auftreten\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mind. C1), Fremdsprachenkenntnisse sind von Vorteil",
         "fr": "Un travail avec des perspectives: En plus d'un travail polyvalent dans l'environnement familial, l'Hôpital Zweisimmen vous offre également la possibilité de loisirs flexibles dans la nature environnante et la région de montagne. Cherchez-vous le sens, mais aussi l'équité? Alors vous êtes là.\n\nDans la fonction de médecin de service, vous êtes responsable des soins des patients hospitalisés et de l'évaluation initiale des patients dans notre urgence de pointe dans l'offre de service (paquet de base / soins de base) la nuit et les jours de fin de semaine définis.\nIls sont responsables de l'évaluation initiale et du traitement des patients internés et chirurgicaux en coopération avec l'équipe médicale interniste Zweisimmen et les collègues chirurgicaux de l'hôpital de Thun. L'intégration étroite de la médecine d'urgence, des malades hospitalisés et de la médecine consiliaire assure des soins continus et de haute qualité sur l'ensemble de la voie de traitement.\n\nAdapté à vos idées personnelles et à votre situation personnelle, nous offrons des modèles de temps de travail extrêmement flexibles et des possibilités d'application. Dans le développement professionnel, les médecins cadres expérimentés sont bien sûr à côté. Il est nécessaire de participer aux services de formation spécialisés bien rémunérés (préparation à l'appel).\n\nEntrée par arrangement\n\nÇa vous attend.\n\n• Équipe familiale avec coopération interdisciplinaire\n\n• Ambiance de travail collégiale avec hiérarchies plates\n\n• Responsabilité personnelle dans un domaine défini\n\n• Coopération étroite avec les médecins et les hôpitaux de référence\n\n• Application de différentes compétences linguistiques\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Diplôme suisse ou équivalent reconnu comme médecin (reconnaissance par l'Office fédéral de la santé ou de la profession médicale Commission MEBEKO)\n\n• Titre de spécialiste pour la médecine interne générale (Suisse ou UE/AELE) avec une expérience en médecine clinique d'urgence, focalisation interdisciplinaire \"Médecine clinique d'urgence SGNOR\" souhaitable\n\n• Joy et intérêt pour une activité polyvalente dans un large éventail de traitements\n\n• Expérience clinique dans le traitement d'urgence d'événements médicaux et chirurgicaux aigus et subaigus\n\n• Compétences sociales élevées, travail d'équipe et apparence professionnelle\n\n• Très bonnes compétences en allemand en paroles et en écriture (minimum C1), compétences en langues étrangères sont un avantage"
       },
+      "needsRetranslation": true,
       "location": "Zweisimmen",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:39.354Z",
+      "crawledAt": "2026-09-09T13:48:06.782Z",
       "addressLocality": "Zweisimmen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -700,6 +721,23 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/45ab28a8-55ed-4e1f-b55c-d66a4e6476cc",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
+        "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen",
+          "medico-di-servizio-medicina-di-servizio-spital-sts-zweisimmen"
+        ],
+        "en": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+        ],
+        "fr": [
+          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:40:05.508Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -712,30 +750,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:40:05.508Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ],
-        "en": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ],
-        "fr": [
-          "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-        ]
-      },
-      "previousSlugs": [
-        "dienstarztin-dienstarzt-medizin-spital-sts-zweisimmen"
-      ]
+      }
     },
     {
       "id": "spital-sts-9d1a00acea99",
       "slug": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
       "slugByLocale": {
-        "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "it": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "en": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
+        "de": "psycholog-in-fsp-sbap-triage-ambulatorium-spital-sts-thun",
         "fr": "psychologue-fsp-sbap-triage-ambulatoire-spital-sts-thun"
       },
       "company": "Spital STS",
@@ -743,24 +766,25 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
       "titleByLocale": {
-        "de": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
         "it": "Psicologo FSP/SBAP Triage/Ambulatorium",
         "en": "Psychologist FSP/SBAP Triage/Ambulatorium",
+        "de": "Psycholog:in FSP/SBAP Triage / Ambulatorium",
         "fr": "Psychologue FSP/SBAP Triage/Ambulatoire"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
         "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nInsieme a infermieri e psicologi, guidano l'ufficio centrale di triage del PDT. Questo assicura un semplice telefono o chiarificazione personale e il monitoraggio delle prossime fasi di trattamento nell'ambientazione ambulatoria, semistazione o visita per tutti i ricercatori durante il giorno. Come persona aperta e orientata al servizio, sono la persona di contatto per i pazienti e gli arbitri. Offrono anche interventi di crisi psicoterapeutica. Nella squadra di triage, elaborano le registrazioni e la distribuzione dei casi per l'imboscatario psichiatrico generale e di età.\nInoltre, lavorano in uno dei nostri laboratori ambulatoriale e assumono i trattamenti psicoterapeutici di pazienti provenienti da tutto lo spettro diagnostico (compresa la diagnosi, la pianificazione della terapia e la corrispondenza a terzi come referenti e assicuratori).\nIngresso al 1° gennaio 2027 o per accordo.\n\nQuesto ti aspetta\n\n• Cooperazione aperta e orientata ai dipendenti in tutte le aree\n\n• Ambito d'azione\n\n• Ambiente di lavoro costruttivo\n\n• Modello gratuito per le vacanze e i fondi pensione\n\n• Buone opportunità di formazione, istruzione e formazione\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\nDiventa parte del nostro team\n\n• Laurea in psicologia clinica e formazione psicoterapeutica avanzata o già completata\n\n• Alta competenza sociale e resilienza, personalità decisionale\n\n• Gioia dei trattamenti di emergenza\n\n• Interessi in stretta collaborazione con le varie istituzioni sociali e sanitarie\n\n• Gioia della cooperazione interdisciplinare\n\n• Gioia di adattare le proprie conoscenze e competenze alla situazione di trattamento individuale e utilizzarle proficuamente",
         "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nTogether with nurses and psychologists, they lead the central triage office of the PDT. This ensures uncomplicated telephone or personal clarification and tracking of the next treatment steps in the ambulatory, semi-stationary or visiting setting for all seekers during the day. As an open and service-oriented person, they are the contact person for patients and referees. They also offer psychotherapeutic crisis interventions. In the triage team, they process the registrations and the case distribution for the general and age psychiatric ambulatories.\nIn addition, they work in one of our outpatient laboratories and take over the psychotherapeutic treatments of patients from the entire diagnostic spectrum (including diagnosis, therapy planning and correspondence to third parties such as referees and insurers).\nEntry as of January 1, 2027 or by arrangement.\n\nThis is waiting for you\n\n• Open patient- and employee-oriented cooperation across all areas\n\n• Broad scope for action\n\n• Constructive working atmosphere\n\n• Freely selectable holiday and pension fund model\n\n• Good training, education and training opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\nBecome part of our team\n\n• Degree in clinical psychology and advanced or already completed psychotherapeutic training\n\n• High social competence and resilience, decision-making personality\n\n• Joy of Emergency Treatments\n\n• Interest in close cooperation with the various social and health institutions\n\n• Joy of interdisciplinary cooperation\n\n• Joy of adapting your own knowledge and skills to the individual treatment situation and using them profitably",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nSie führen gemeinsam mit Pflegenden und Psycholog:innen die zentrale Triagestelle der PDT. Diese gewährleistet unkompliziert für alle Hilfesuchenden tagsüber eine telefonische oder persönliche Abklärung und Aufgleisung der nächsten Behandlungsschritte im ambulanten, teilstationären oder aufsuchenden Setting. Als eine offene und dienstleistungsorientierte Person sind sie Kontaktperson für Patient:innen und Zuweisende. Weiter bieten sie psychotherapeutische Kriseninterventionen an. Im Triageteam bearbeiten sie die Anmeldungen und die Fallverteilung für die allgemein- und alterspsychiatrischen Ambulatorien.\nDarüber hinaus sind sie in einem unserer Ambulatorien tätig und übernehmen fallführend die psychotherapeutischen Behandlungen von Patient:innen aus dem gesamten Diagnosespektrum (inkl. Diagnostik, Therapieplanung und Schriftverkehr an Dritte wie Zuweisende und Versicherer).\nEintritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Offene patienten- und mitarbeiterorientierte Zusammenarbeit über alle Bereiche\n\n• Breiter Handlungsspielraum\n\n• Konstruktive Arbeitsatmosphäre\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Gute Aus-, Fort- und Weiterbildungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\nSo werden Sie Teil unseres Teams\n\n• Abschluss in klinischer Psychologie und fortgeschrittene oder bereits abgeschlossene psychotherapeutische Weiterbildung\n\n• Hohe Sozialkompetenz und Belastbarkeit, entscheidungsfreudige Persönlichkeit\n\n• Freude an Notfallbehandlungen\n\n• Interesse an einer engen Zusammenarbeit mit den verschiedenen Institutionen des Sozial- und Gesundheitswesens\n\n• Freude an interdisziplinärer Zusammenarbeit\n\n• Freude, das eigene Wissen und Können an die individuelle Behandlungssituation anzupassen und gewinnbringend einzusetzen",
         "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nAvec les infirmières et les psychologues, ils dirigent le bureau central de triage de la PDT. Cela permet d'obtenir des éclaircissements téléphoniques ou personnels et de suivre les prochaines étapes de traitement dans le cadre ambulatoire, semi-stationnaire ou de visite pour tous les demandeurs pendant la journée. En tant que personne ouverte et axée sur le service, ils sont la personne-ressource pour les patients et les arbitres. Ils offrent également des interventions de crise psychothérapeutiques. Dans l'équipe de triage, ils traitent les enregistrements et la distribution des cas pour les ambulatoires psychiatriques générales et d'âge.\nDe plus, ils travaillent dans un de nos laboratoires ambulatoires et prennent en charge les traitements psychothérapeutiques des patients de l'ensemble du spectre diagnostique (y compris le diagnostic, la planification thérapeutique et la correspondance à des tiers tels que les arbitres et les assureurs).\nEntrée au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Coopération ouverte axée sur les patients et les employés dans tous les domaines\n\n• Grandes possibilités d'action\n\n• Ambiance de travail constructive\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Bonnes possibilités de formation, d'éducation et de formation\n\n• Loisirs et expériences nature dans les environs immédiats\n\nDevenez membre de notre équipe\n\n• Diplôme en psychologie clinique et formation psychothérapeutique avancée ou déjà achevée\n\n• Haute compétence sociale et résilience, personnalité décisionnelle\n\n• Joy des traitements d'urgence\n\n• Intérêt pour une coopération étroite avec les différentes institutions sociales et sanitaires\n\n• Joy de la coopération interdisciplinaire\n\n• Joy d'adapter vos propres connaissances et compétences à la situation de traitement individuelle et de les utiliser avec profit"
       },
+      "needsRetranslation": true,
       "location": "Thun",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/redirect/b0c03a03-b14d-4f8f-9b06-c1891cfefebe/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:23:38.914Z",
+      "crawledAt": "2026-09-09T13:48:06.346Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -777,6 +801,7 @@
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/b0c03a03-b14d-4f8f-9b06-c1891cfefebe",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-08T13:40:05.038Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -789,267 +814,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-08T13:40:05.038Z"
-    },
-    {
-      "id": "spital-sts-7f9deb32d7b4",
-      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-        "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale / Dipl. Infermieristica professionale",
-        "en": "Dipl. Nursing professional / Dipl. Nursing professional",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "fr": "Dipl. Professionnels des soins infirmiers / Dipl. Professionnels des soins infirmiers"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nSi lavora su un reparto letto chirurgico con un focus su ortopedia / traumatologia, chirurgia spinale e viscerale. Un ambiente di lavoro interessante e vario vi aspetta. Trattare con la documentazione di assistenza elettronica e il sistema di distribuzione della droga è una parte integrata del nostro lavoro quotidiano.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• Un team divertente, giovane e motivato con una buona coesione di squadra\n• Progetto di pianificazione del servizio guidato dai dipendenti\n• sfide emozionanti con la propria area di responsabilità\n• Buona collaborazione con il team e la gestione della stazione\n• Possibilità di acquisto di vacanza supplementare, condizioni di lavoro interessanti\n\nDiventa parte del nostro team\n\n• Completamento come dipl. Infermieristica\n• Esperienza professionale preferibilmente in ortopedia\n• Ispiranti, Commessi, Responsabili e Professionali – I nostri valori STS dell'ospedale che si oppongono a noi",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou work on a surgical bed ward with a focus on orthopaedics / traumatology, spinal and visceral surgery. An interesting and varied working environment awaits you. Dealing with electronic care documentation and the drug distribution system is an integrated part of our daily work.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• A humorous, young, motivated team with good team cohesion\n• Ongoing employee-driven service planning project\n• Exciting challenges with their own area of responsibility\n• Good cooperation with the team and the station management\n• Possibility of additional holiday purchase, attractive employment conditions\n\nBecome part of our team\n\n• Completion as a dipl. Nurse practitioner\n• Preferably professional experience in orthopaedics\n• Inspiring, Committed, Responsible and Professional – Our Hospital STS Values That Matter to Us",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous travaillez sur un service de lit chirurgical avec un accent sur l'orthopédie / traumatologie, la colonne vertébrale et la chirurgie viscérale. Un environnement de travail intéressant et varié vous attend. La documentation sur les soins électroniques et le système de distribution des médicaments font partie intégrante de notre travail quotidien.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Une équipe humoristique, jeune et motivée avec une bonne cohésion d'équipe\n• Projet de planification des services dirigé par les employés\n• Des défis passionnants avec leur propre domaine de responsabilité\n• Bonne coopération avec l'équipe et la direction de la station\n• Possibilité d'achat de vacances supplémentaires, conditions d'emploi attrayantes\n\nDevenez membre de notre équipe\n\n• Achèvement en tant que dipl. Infirmière praticienne\n• Expérience professionnelle de préférence en orthopédie\n• Inspirant, engagé, responsable et professionnel – Notre hôpital STS valeurs qui nous importe"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:30:04.823Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T21:38:08.484Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spital-sts-7a0da6b9787b",
-      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
-        "en": "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
-        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-      "titleByLocale": {
-        "it": "Dipl. Specialista di radiologia / Specialista di radiologia HF",
-        "en": "Dipl. Radiology specialist / Radiology specialist HF",
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-        "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie HF"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nL'area di responsabilità nella radiologia digitale comprende diagnostica convenzionale, tomografia computerizzata e risonanza magnetica. Pianifichi gli appuntamenti del paziente in modo indipendente e completi l'amministrazione del paziente, inclusa la fatturazione. A questo scopo, il nostro sistema di cross-location Ris and Pacs è disponibile. Questo è caratterizzato dall'integrazione completa in tutta l'azienda e garantisce un funzionamento cartaceo e senza film. Sono disponibili anche altri dispositivi moderni come DR, DSI e CT. Siete utilizzati in tutti i servizi (24 ore di funzionamento di emergenza).\n\nAmmissione immediata o per accordo.\n\nTi sta aspettando.\n\n• Cooperazione interdisciplinare con i medici: dentro e altri gruppi professionali\n\n• Squadra forte, professionale ed esperta\n\n• Possibilità di sviluppare uno specialista di radiologia esperto\n\n• Lavoro autonomo in gruppi\n\n• Radiologia digitale\n\n• Modello flessibile per le vacanze e i fondi pensione\n\n• Opportunità di svago attraenti nelle regioni del mare e della montagna\n\nDiventa parte del nostro team\n\n• Formazione completa Dipl. Specialista di radiologia HF con esperienza professionale o laureati:in per una carriera\n\n• Persona orientata al team, flessibile e disponibile",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nThe area of responsibility in digital radiology includes conventional diagnostics, computed tomography and MRI. You plan the patient appointments independently and complete the patient administration, including billing. For this purpose, our cross-location Ris and Pacs system is available. This is characterized by the complete integration into the entire company and guarantees a paper and filmless operation. Other modern devices such as DR, DSI and CT systems are also available. You are used in all services (24-hour emergency operation).\n\nAdmission immediately or by arrangement.\n\nThis is waiting for you\n\n• Interdisciplinary cooperation with doctors: inside and other professional groups\n\n• Strong, professional and experienced team\n\n• Chance to develop into an experienced radiology specialist\n\n• Self-employed working in groups\n\n• Digital radiology\n\n• Flexibly selectable holiday and pension fund model\n\n• Attractive leisure opportunities in the sea and mountain regions\n\nBecome part of our team\n\n• Completed training Dipl. Radiology specialist HF with professional experience or graduates:in for a career\n\n• Team-oriented, flexible and helpful person",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nLe domaine de responsabilité en radiologie numérique comprend le diagnostic conventionnel, la tomographie calculée et l'IRM. Vous planifiez les rendez-vous du patient de façon indépendante et remplissez l'administration du patient, y compris la facturation. Pour ce faire, notre système de localisation croisée Ris et Pacs est disponible. Cela se caractérise par l'intégration complète dans toute l'entreprise et garantit une opération papier et sans film. D'autres appareils modernes comme les systèmes DR, DSI et CT sont également disponibles. Vous êtes utilisé dans tous les services (24 heures d'urgence).\n\nAdmission immédiate ou par arrangement.\n\nÇa vous attend.\n\n• Coopération interdisciplinaire avec les médecins: au sein et dans d'autres groupes professionnels\n\n• Équipe forte, professionnelle et expérimentée\n\n• Possibilité de devenir un spécialiste de radiologie expérimenté\n\n• Travailleurs indépendants travaillant en groupe\n\n• Radiologie numérique\n\n• Modèle flexible de fonds de vacances et de retraite\n\n• Des loisirs attrayants dans les régions de la mer et de la montagne\n\nDevenez membre de notre équipe\n\n• Formation terminée Dipl. Spécialiste de radiologie HF avec expérience professionnelle ou diplômés:in pour une carrière\n\n• Personne orientée vers l'équipe, souple et serviable"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:30:04.390Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/dd98eeeb-12e0-4b44-9f9e-4ace58014df9",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
-        "specialist-in-radiology-spital-sts-thun",
-        "specialista-in-radiologia-spital-sts-thun",
-        "specialiste-en-radiologie-spital-sts-thun",
-        "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
-        "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
-        "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
-          "specialist-in-radiology-spital-sts-thun",
-          "specialista-in-radiologia-spital-sts-thun",
-          "specialiste-en-radiologie-spital-sts-thun",
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-          "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
-          "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-          "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-specialiste-de-radiologie-hf-spital-sts-thun",
-          "specialiste-en-radiologie-spital-sts-thun",
-          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T09:59:57.131Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "spital-sts-6d0bf6370767",
-      "slug": "maestro-nella-cura-spital-sts-thun",
-      "slugByLocale": {
-        "it": "maestro-nella-cura-spital-sts-thun",
-        "en": "training-courses-spital-sts-thun",
-        "de": "ausbildner-in-pflege-spital-sts-thun",
-        "fr": "enseignant-en-soins-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Ausbildner:in Pflege",
-      "titleByLocale": {
-        "it": "Maestro: nella cura",
-        "en": "Training courses",
-        "de": "Ausbildner:in Pflege",
-        "fr": "Enseignant: en soins"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nCome istruttore: in allattamento, accompagni, promuovi e insegni agli studenti e agli studenti di varia educazione alla cura e alla salute (FaGe, specialisti in allattamento HF e FH). Dare gruppo e lezioni individuali (supporto apprendimento, trasferimento coaching FH, lezioni di pratica LTT HF, lezioni di società FaGe) è un elemento di definizione della vostra attività. Siete impegnati nella formazione pratica dei giovani adulti, nonché nella promozione e nel reclutamento dei giovani talenti. Sostenere e accompagnare i formatori professionali: le donne nelle stazioni letto è anche uno dei vostri compiti principali. Inoltre, vi aiuterà con il team Education Care nella progettazione delle strutture educative e lo sviluppo dei documenti di formazione.\n\nEntrata immediata o di accordo\n\nTi sta aspettando.\n\n• Ore lavorative regolari (lunedì-venerdì)\n\n• Un team di formazione innovativo e impegnato\n\n• Strutture educative ben consolidate\n\n• Un campo di lavoro vario ed emozionante\n\n• Un ambiente di lavoro in cui la teoria e la pratica sono strettamente in rete\n\n• Accompagnamento transfer con contatto diretto con paziente\n\nDiventa parte del nostro team\n\n• Laurea in Cura HF o FH\n\n• Diversi anni di esperienza professionale e di formazione nel settore della cura\n\n• Formazione professionale pedagogica e didattica (corso formativo professionale 100 ore, SVEB 1 o formatore con certificato federale) o volontà di completarlo\n\n• Un'immagine positiva dell'uomo - caratterizzata da rispetto, pazienza e fede nella capacità evolutiva di ogni persona\n\n• Gioia nel promuovere i giovani e accompagnarli nel loro sviluppo\n\n• Elevate competenze sociali e di comunicazione\n\n• Il talento organizzativo e il piacere di lavorare in modo indipendente\n\n• Una personalità flessibile, resiliente e responsabile",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nAs an instructor: in nursing, you accompany, promote and teach learners and students of various nursing and health education (FaGe, nursing specialists HF and FH). Giving group and individual lessons (learning support, transfer coaching FH, LTT practice lessons HF, company FaGe lessons) is a defining element of your activity. You are committed to the practical training of young adults as well as to the promotion and recruitment of young talent. Supporting and accompanying the vocational trainers:women on the bed stations is also one of your main tasks. In addition, you will help with the team Education Care in the design of the educational structures and the development of training documents.\n\nEntry by immediate or by agreement\n\nThis is waiting for you\n\n• Regular working hours (Monday-Friday)\n\n• An innovative and committed education team\n\n• Well-established educational structures\n\n• A varied and exciting field of work\n\n• A working environment in which theory and practice are closely networked\n\n• Transfer accompaniments with direct patient contact\n\nBecome part of our team\n\n• Degree in Care HF or FH\n\n• Several years of professional and training experience in the care sector\n\n• Vocational pedagogical and didactic training (vocational trainer course 100 hours, SVEB 1 or trainer with federal certificate) or willingness to complete it\n\n• A positive image of man - characterized by respect, patience and faith in the developmental capacity of every person\n\n• Joy in promoting young people and accompanying them in their development\n\n• High social and communication skills\n\n• Organizational talent and pleasure in working independently\n\n• A flexible, resilient and responsible personality",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nEn tant qu'instructeur : en soins infirmiers, vous accompagnez, promeuvez et enseignez aux apprenants et aux étudiants de diverses formations en soins infirmiers et en santé (FaGe, spécialistes en soins infirmiers HF et FH). Donner des cours collectifs et individuels (soutien à l'apprentissage, coaching de transfert FH, cours de pratique LTT HF, leçons de l'entreprise FaGe) est un élément déterminant de votre activité. Vous êtes engagé dans la formation pratique des jeunes adultes ainsi que dans la promotion et le recrutement de jeunes talents. Le soutien et l'accompagnement des formateurs professionnels: les femmes sur les postes-lits sont également l'une de vos tâches principales. En outre, vous aiderez l'équipe Education Care à concevoir les structures éducatives et à élaborer des documents de formation.\n\nEntrée immédiate ou par accord\n\nÇa vous attend.\n\n• Heures normales de travail (lundi-vendredi)\n\n• Une équipe éducative innovante et engagée\n\n• Structures éducatives bien établies\n\n• Un domaine de travail varié et passionnant\n\n• Un environnement de travail dans lequel la théorie et la pratique sont étroitement mises en réseau\n\n• Transférer les accompagnements avec contact direct avec le patient\n\nDevenez membre de notre équipe\n\n• Degré de soins HF ou FH\n\n• Plusieurs années d'expérience professionnelle et de formation dans le secteur des soins\n\n• Formation pédagogique et didactique professionnelle (cours de formateur professionnel 100 heures, SVEB 1 ou formateur avec certificat fédéral) ou volonté de la compléter\n\n• Une image positive de l'homme - caractérisée par le respect, la patience et la foi dans la capacité de développement de chaque personne\n\n• La joie de promouvoir les jeunes et de les accompagner dans leur développement\n\n• Compétences sociales et de communication élevées\n\n• Compétences organisationnelles et plaisir à travailler de façon indépendante\n\n• Une personnalité flexible, résiliente et responsable"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:30:03.980Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/af91efba-2736-4d8d-b7ac-59fa72006411",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ausbildner-in-pflege-spital-sts-thun",
-        "teacher-in-care-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildner-in-pflege-spital-sts-thun"
-        ],
-        "en": [
-          "ausbildner-in-pflege-spital-sts-thun",
-          "teacher-in-care-spital-sts-thun"
-        ],
-        "fr": [
-          "ausbildner-in-pflege-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T00:40:28.963Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }

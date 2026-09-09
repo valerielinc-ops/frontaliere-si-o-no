@@ -1,23 +1,24 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-09-08T23:39:35.572Z",
+  "generatedAt": "2026-09-09T14:04:20.104Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "written": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 6,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 7,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7577,
-  "avgDurationMs": 7577,
+  "durationMs": 10155,
+  "avgDurationMs": 10155,
   "durationHistory": [
-    7577
+    10155
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "huntsman-44c7f12fdf02",
       "slug": "operateur-pilote-huntsman-ch",
@@ -42,18 +43,17 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/OPERATEUR-PILOTE-_J-019784",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:39:26.585Z",
+      "crawledAt": "2026-09-09T14:04:07.169Z",
       "jobReqId": "J-019784",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-08T23:39:26.585Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "huntsman-e227ebc91502",
       "slug": "senior-ecotoxicologist-huntsman-ch",
@@ -78,9 +78,8 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/UK---Stockton-on-Tees-Wynyard/Senior-Ecotoxicologist_J-020290",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:39:27.199Z",
+      "crawledAt": "2026-09-09T14:04:07.764Z",
       "jobReqId": "J-020290",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-07T15:22:17.051Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -114,7 +113,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern-Digital-Engineer_J-020117",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:39:27.786Z",
+      "crawledAt": "2026-09-09T14:04:08.493Z",
       "jobReqId": "J-020117",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-27T22:22:16.058Z",
@@ -150,7 +149,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:39:28.439Z",
+      "crawledAt": "2026-09-09T14:04:09.220Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "_qualityScore": 84,
@@ -185,7 +184,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:39:28.989Z",
+      "crawledAt": "2026-09-09T14:04:09.919Z",
       "jobReqId": "J-020112",
       "firstSeenAt": "2026-07-24T22:16:40.828Z",
       "_qualityScore": 84,
@@ -220,7 +219,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-08T23:39:29.561Z",
+      "crawledAt": "2026-09-09T14:04:10.603Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "_qualityScore": 82,
@@ -255,7 +254,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-08T23:39:30.097Z",
+      "crawledAt": "2026-09-09T14:04:11.334Z",
       "jobReqId": "J-019405",
       "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
@@ -268,48 +267,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "huntsman-35914ab41961",
-      "slug": "logistician-m-f-huntsman-corporation-monthey",
-      "company": "Huntsman Corporation",
-      "companyKey": "huntsman",
-      "companyDomain": "huntsman.com",
-      "title": "LOGISTICIEN (H/F)",
-      "location": "Monthey",
-      "canton": "VS",
-      "addressLocality": "Monthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Chimica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-20",
-      "url": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/LOGISTICIEN--H-F-_J-020013",
-      "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/LOGISTICIEN--H-F-_J-020013",
-      "source": "Huntsman Corporation Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-07T15:22:19.324Z",
-      "jobReqId": "J-020013",
-      "firstSeenAt": "2026-07-20T12:04:44.172Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

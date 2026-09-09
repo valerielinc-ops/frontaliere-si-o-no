@@ -1,5 +1,392 @@
 [
   {
+    "slug": "devops-ingegnere-m-w-d-coopers-group-ag-bern",
+    "title": "DevOps Engineer (m/w/d)",
+    "titleByLocale": {
+      "it": "DevOps Ingegnere (m/w/d)",
+      "en": "DevOps Engineer (m/f/d)",
+      "de": "DevOps Ingenieur (m/w/d)",
+      "fr": "DevOps Ingénieur (m/w/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (FG97O1)\n\n•\nIT - ERP & Applications\n\n•\nIT - IT Infrastructure & Operations\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.11.2026 - 30.06.2027 (Option auf Verlängerung)\n\nDevOps, CICD, CI / CD, Kubernetes, GitLab, Azure DevOps, VMWare, Nutanix, Proxmox\n\nSounds interesting?\n\nSimply click \"",
+      "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (FG97O1)\n\n•\nIT - ERP & Applications\n\n•\nIT - IT Infrastructure & Operations\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.11.2026 - 30.06.2027 (Option auf Verlängerung)\n\nDevOps, CICD, CI / CD, Kubernetes, GitLab, Azure DevOps, VMWare, Nutanix, Proxmox\n\nSounds interesting?\n\nSimply click \"",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (FG97O1)\n\n•\n\nIT - ERP & Applications\n\nIT - IT Infrastructure & Operations\n\nIT - Software Engineering\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.11.2026 - 30.06.2027 (Option auf Verlängerung)\n\nDevOps, CICD, CI / CD, Kubernetes, GitLab, Azure DevOps, VMWare, Nutanix, Proxmox\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (FG97O1)\n\n•\nIT - ERP & Applications\n\n•\nIT - IT Infrastructure & Operations\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.11.2026 - 30.06.2027 (Option auf Verlängerung)\n\nDevOps, CICD, CI / CD, Kubernetes, GitLab, Azure DevOps, VMWare, Nutanix, Proxmox\n\nSounds interesting?\n\nSimply click \""
+    },
+    "slugByLocale": {
+      "it": "devops-ingegnere-m-w-d-coopers-group-ag-bern",
+      "en": "devops-engineer-m-w-d-coopers-bern",
+      "de": "devops-engineer-m-w-d-coopers-bern",
+      "fr": "devops-ingenieur-m-w-d-coopers-group-ag-bern"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "devops-engineer-m-w-d-coopers-bern",
+      "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+      "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+      "ingenieur-devops-backend-cloud-coopers-group-ag-bern",
+      "ingenieur-devops-nextcloud-coopers-group-ag-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "devops-engineer-m-w-d-coopers-bern",
+        "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
+        "ingegnere-devops-backend-cloud-coopers-group-ag-bern",
+        "ingenieur-devops-backend-cloud-coopers-group-ag-bern",
+        "ingenieur-devops-nextcloud-coopers-group-ag-bern"
+      ],
+      "fr": [
+        "devops-engineer-m-w-d-coopers-bern"
+      ]
+    },
+    "salaryMin": 77000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "embedded-rust-ingegnere-m-f-d-coopers-group-ag-zug",
+    "title": "Embedded Rust Engineer (m/f/d)",
+    "titleByLocale": {
+      "it": "Embedded Rust Ingegnere (m/f/d)",
+      "en": "Embedded Rust Engineer (m/f/d)",
+      "de": "Embedded Rust Ingenieur (m/f/d)",
+      "fr": "Embedded Rust Ingénieur (m/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Zug",
+    "addressLocality": "Zug",
+    "descriptionByLocale": {
+      "it": "positions\n\n•\nEmbedded Rust Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+      "en": "positions\n\n•\nEmbedded Rust Engineer\n\nCandidates\n\n•\n\nCoopers Portal\n\nCoopers Care\n\nSpecialization\n\nPlacements\n\nContracting\n\nPayrolling\n\nRefer a Friend\n\nCompanies\n\nRecruitment\n\nExecutive Search\n\nProject Recruiting\n\nRPO\n\nMSP\n\nConsulting & Solutions\n\nAbout\n\nTeam\n\nJoin us\n\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\nPrivacy policy\n\nImprint\n\nSitemap",
+      "de": "positions\n\n•\nEmbedded Rust Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+      "fr": "positions\n\n•\nEmbedded Rust Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap"
+    },
+    "slugByLocale": {
+      "it": "embedded-rust-ingegnere-m-f-d-coopers-group-ag-zug",
+      "en": "embedded-rust-engineer-m-f-d-coopers-zug",
+      "de": "embedded-rust-ingenieur-m-f-d-coopers-group-ag-zug",
+      "fr": "embedded-rust-ingenieur-m-f-d-coopers-group-ag-zug"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "embedded-rust-engineer-m-f-d-coopers-zug",
+      "rust-software-ingegnere-m-f-d-coopers-group-ag-zug"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "embedded-rust-engineer-m-f-d-coopers-zug",
+        "rust-software-ingegnere-m-f-d-coopers-group-ag-zug"
+      ],
+      "de": [
+        "embedded-rust-engineer-m-f-d-coopers-zug"
+      ],
+      "fr": [
+        "embedded-rust-engineer-m-f-d-coopers-zug"
+      ]
+    },
+    "salaryMin": 78500,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-data-engineer-azure-databricks-airflow-m-w-d-coopers-basel-landschaft",
+    "title": "Senior Data Engineer (Azure Databricks / Airflow) (m/w/d)",
+    "titleByLocale": {
+      "it": "Senior Data Ingegnere (Azure Databricks / Airflow) (m/w/d)",
+      "en": "Senior Data Engineer (Azure Databricks / Airflow) (m/f/d)",
+      "de": "Senior Data Ingenieur (Azure Databricks / Airflow) (m/w/d)",
+      "fr": "Senior Data Ingénieur (Azure Databricks / Airflow) (m/w/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Basel-Landschaft",
+    "addressLocality": "Basel-Landschaft",
+    "descriptionByLocale": {
+      "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8SO7P0)\n\n•\nIT - Data Science / Digital\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort nach Vereinbarung - 24 Monate\n\nAzure DevOps, OpenShift, Apache Airflow, JupyterHub, Acryl DataHub, PostgreSQL , Azure Databricks\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+      "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8SO7P0)\n\n•\nIT - Data Science / Digital\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort nach Vereinbarung - 24 Monate\n\nAzure DevOps, OpenShift, Apache Airflow, JupyterHub, Acryl DataHub, PostgreSQL , Azure Databricks\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8SO7P0)\n\n•\n\nIT - Data Science / Digital\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort nach Vereinbarung - 24 Monate\n\nAzure DevOps, OpenShift, Apache Airflow, JupyterHub, Acryl DataHub, PostgreSQL , Azure Databricks\n\nJob benefits\n\nCompany laptop\n\nCoopers Care\n\nModern workspace\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (8SO7P0)\n\n•\nIT - Data Science / Digital\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nAb sofort nach Vereinbarung - 24 Monate\n\nAzure DevOps, OpenShift, Apache Airflow, JupyterHub, Acryl DataHub, PostgreSQL , Azure Databricks\n\nJob benefits\n\n•\nCompany laptop\n\n•\nCoopers Care\n\n•\nModern workspace\n\nSounds interesting?\n\nSimply click \""
+    },
+    "slugByLocale": {
+      "it": "senior-data-engineer-azure-databricks-airflow-m-w-d-coopers-basel-landschaft",
+      "en": "senior-data-engineer-azure-databricks-airflow-m-w-d-coopers-basel-landschaft",
+      "de": "senior-data-engineer-azure-databricks-airflow-m-w-d-coopers-basel-landschaft",
+      "fr": "senior-data-engineer-azure-databricks-airflow-m-w-d-coopers-basel-landschaft"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-sap-banking-payment-architect-ebics-iso-20022-m-w-d-coopers-basel-landschaft",
+    "title": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
+    "titleByLocale": {
+      "it": "Senior SAP Banking & Payment Architetto (EBICS & ISO 20022) (m/w/d)",
+      "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/f/d)",
+      "de": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
+      "fr": "Senior SAP Banking & Payment Architecte (EBICS & ISO 20022) (m/w/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Basel-Landschaft",
+    "addressLocality": "Basel-Landschaft",
+    "descriptionByLocale": {
+      "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (4BG26A)\n\n•\nIT - ERP & Applicazioni\n\n•\n\nPaesaggio di Basilea\n\nContratti\n\nTempo pieno\n\n01.09.2026 - 31.03.2027\n\nEBICS, SAP FI, Finanza\n\nSembra interessante?\n\nBasta cliccare.",
+      "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (4BG26A)\n\n•\nIT - ERP & Applications\n\n•\n\nBasel Landscape\n\nContracting\n\nFull time\n\n01.09.2026 - 31.03.2027\n\nEBICS, SAP FI, Finance\n\nSounds interesting?\n\nSimply click.",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4BG26A)\n\n•\n\nIT - ERP & Applications\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.03.2027\n\nEBICS, SAP FI, Finance\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (4BG26A)\n\n•\nIT - ERP & Applications\n\n•\n\nPaysage de Bâle\n\nContrats\n\nTemps plein\n\n01.09.2026 - 31.03.2027\n\nEBICS, SAP FI, Finances\n\nÇa semble intéressant ?\n\nCliquez simplement."
+    },
+    "slugByLocale": {
+      "it": "senior-sap-banking-payment-architect-ebics-iso-20022-m-w-d-coopers-basel-landschaft",
+      "en": "senior-sap-banking-payment-architect-ebics-iso-20022-m-w-d-coopers-basel-landschaft",
+      "de": "senior-sap-banking-payment-architect-ebics-iso-20022-m-w-d-coopers-basel-landschaft",
+      "fr": "senior-sap-banking-payment-architect-ebics-iso-20022-m-w-d-coopers-basel-landschaft"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern",
+    "title": "Senior SAP BCS/4HANA Consultant (m/w/d)",
+    "titleByLocale": {
+      "it": "Senior SAP BCS/4HANA Consulente (m/w/d)",
+      "en": "Senior SAP BCS/4HANA Consultant (m/w/d)",
+      "de": "Senior SAP BCS/4HANA Berater (m/w/d)",
+      "fr": "Conseiller principal SAP BCS/4HANA (m/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Genf",
+    "addressLocality": "Genf",
+    "descriptionByLocale": {
+      "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (42QOW9)\n\n•\nIT - Ingegneria del software\n\n•\n\nBerna\n\nContratti\n\nTempo pieno\n\n01.09.2026 - 30.10.2026 ++\n\nSAP BCS, SAP S/4HANA\n\nPrestazioni di lavoro\n\n•\nCoopers Care\n\n•\nHome Ufficio\n\nSembra interessante?\n\nBasta cliccare.",
+      "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (42QOW9)\n\n•\nIT - Software Engineering\n\n•\n\nBern\n\nContracting\n\nFull time\n\n01.09.2026 - 30.10.2026 ++\n\nSAP BCS, SAP S/4HANA\n\nJob benefits\n\n•\nCoopers Care\n\n•\nHome Office\n\nSounds interesting?\n\nSimply click.",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (42QOW9)\n\n•\n\nIT - Software Engineering\n\nGenf\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 30.10.2026 ++\n\nSAP BCS, SAP S/4HANA\n\nJob benefits\n\nCoopers Care\n\nHome Office\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfils d'emploi (42QOW9)\n\n•\nIT - Génie logiciel\n\n•\n\nBelgique\n\nContrats\n\nTemps plein\n\n01.09.2026 - 30.10.2026 ++\n\nSAP BCS, SAP S/4HANA\n\nPrestations d'emploi\n\n•\nCoopers Care\n\n•\nMinistère de l ' intérieur\n\nÇa semble intéressant ?\n\nCliquez simplement."
+    },
+    "slugByLocale": {
+      "it": "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-bern",
+      "en": "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
+      "de": "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
+      "fr": "conseiller-principal-sap-bcs-4hana-m-f-d-coopers-group-ag-bern"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
+      "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
+      "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern",
+        "senior-sap-bcs-4hana-consultant-m-w-d-coopers-genf",
+        "senior-sap-bcs-4hana-consulente-m-w-d-coopers-group-ag-genf"
+      ],
+      "de": [
+        "senior-sap-bcs-4hana-consultant-m-w-d-coopers-bern"
+      ]
+    },
+    "salaryMin": 83500,
+    "salaryMax": 126500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "senior-sap-qm-solution-architect-lims-quality-automation-m-f-d-coopers-basel-landschaft",
+    "title": "Senior SAP QM Solution Architect (LIMS & Quality Automation) (m/f/d)",
+    "titleByLocale": {
+      "it": "Senior SAP QM Solution Architetto (LIMS & Quality Automation) (m/f/d)",
+      "en": "Senior SAP QM Solution Architect (LIMS & Quality Automation) (m/f/d)",
+      "de": "Senior SAP QM Solution Architect (LIMS & Qualität Automation) (m/f/d)",
+      "fr": "Senior SAP QM Solution Architecte (LIMS & Qualité Automation) (m/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Basel-Landschaft",
+    "addressLocality": "Basel-Landschaft",
+    "descriptionByLocale": {
+      "it": "Per il nostro cliente nella regione di Basilea, stiamo cercando un esperto, motivato e open-minded Senior SAP QM Solution Architect (LIMS & Quality Automation) .\n\nNell'ambito di un'iniziativa strategica di trasformazione digitale, si svolgerà un ruolo chiave nella definizione del futuro dell'assicurazione della qualità. In questa posizione, progetti e sviluppi innovativi processi end-to-end per la gestione automatizzata dei test di laboratorio e dei certificati di qualità all'interno dell'ambiente SAP.\n\nLe tue responsabilità:\n\n• Analizzare i processi di gestione della qualità e di laboratorio esistenti e definire i processi di stato futuro per la gestione automatizzata dei lotti di ispezione e dei certificati\n\n• Sviluppare un business completo e un modello IT per l'integrazione di SAP QM con i sistemi di gestione delle informazioni di laboratorio (LIMS) e i laboratori di test esterni\n\n• Processi automatizzati di progettazione per la ricezione, la convalida e l'assegnazione di certificati di qualità digitale (Certificati di analisi / CoA) a lotti di ispezione SAP\n\n• Creare specifiche funzionali e tecniche per interfacce basate su API, EDI, IDocs e Web Services\n\n• Preparare e supportare la fase di implementazione, tra cui SAP QM personalizzazione, supporto allo sviluppo, test di integrazione e test di accettazione degli utenti\n\n• Pianificare e facilitare i workshop con gli stakeholder aziendali, i partner di laboratorio e i team IT in un ambiente internazionale\n\n• Consiglia la leadership del progetto e le principali parti interessate all'architettura delle soluzioni, al design dei processi e alle best practice SAP QM\n\n• Garantire un'architettura di soluzioni sostenibile, scalabile e futura per la garanzia della qualità digitale\n\nIl tuo profilo:\n\n• Diversi anni di esperienza come consulente senior SAP QM , Solution Architect o in un ruolo simile con una forte competenza SAP QM\n\n• Conoscenza approfondita dei processi di ispezione della qualità, gestione del lotto di ispezione, certificati di qualità e processi decisionali di utilizzo\n\n• Esperienza dimostrata nella progettazione e realizzazione di integrazioni tra sistemi SAP QM e LIMS o laboratori di test esterni\n\n• Esperienza pratica con l'automazione dei certificati di qualità (CoA) , tra cui la ricezione, la convalida e l'elaborazione automatizzata all'interno di SAP\n\n• Forte track record nello sviluppo di concetti aziendali, concetti IT, progetti e specifiche esigenze in ambienti SAP\n\n• Eccellente capacità analitiche e concettuali combinate con un approccio strutturato e orientato alla soluzione\n\n• Esperienza nella facilitazione del workshop, gestione degli stakeholder e collaborazione interfunzionale\n\n• Conoscenza delle lingue inglese, sia scritta che parlata, il tedesco è un vantaggio",
+      "en": "For our client in the Basel region, we are looking for an experienced, motivated, and open-minded Senior SAP QM Solution Architect (LIMS & Quality Automation) .\n\nAs part of a strategic digital transformation initiative, you will play a key role in shaping the future of quality assurance. In this position, you will design and develop innovative end-to-end processes for the automated handling of laboratory testing and quality certificates within the SAP environment.\n\nYour responsibilities:\n\n• Analyze existing quality management and laboratory processes and define future-state processes for automated inspection lot and certificate handling\n\n• Develop a comprehensive business and IT blueprint for the integration of SAP QM with Laboratory Information Management Systems (LIMS) and external testing laboratories\n\n• Design automated processes for the receipt, validation and assignment of digital quality certificates (Certificates of Analysis / CoA) to SAP inspection lots\n\n• Create functional and technical specifications for interfaces based on APIs, EDI, IDocs and Web Services\n\n• Prepare and support the implementation phase, including SAP QM customizing, development support, integration testing and user acceptance testing\n\n• Plan and facilitate workshops with business stakeholders, laboratory partners and IT teams in an international environment\n\n• Advise project leadership and key stakeholders on solution architecture, process design and SAP QM best practices\n\n• Ensure a sustainable, scalable and future-proof solution architecture for digital quality assurance\n\nYour profile:\n\n• Several years of experience as a Senior SAP QM Consultant , Solution Architect or in a similar role with strong SAP QM expertise\n\n• In-depth knowledge of quality inspection processes , inspection lot management , quality certificates and usage decision processes\n\n• Proven experience in the design and implementation of integrations between SAP QM and LIMS systems or external testing laboratories\n\n• Hands-on experience with the automation of quality certificates (CoA) , including receipt , validation and automated processing within SAP\n\n• Strong track record in developing business concepts , IT concepts , blueprints and requirements specifications in SAP environments\n\n• Excellent analytical and conceptual skills combined with a structured and solution-oriented approach\n\n• Experience in workshop facilitation , stakeholder management and cross-functional collaboration\n\n• Fluent English language skills , both written and spoken, German is an advantage",
+      "de": "Für unseren Kunden in der Region Basel suchen wir einen erfahrenen, motivierten und aufgeschlossenen Senior SAP QM Solution Architect (LIMS & Quality Automation).\n\nIm Rahmen einer strategischen Initiative zur digitalen Transformation werden Sie die Zukunft der Qualitätssicherung maßgeblich mitgestalten. In dieser Position entwerfen und entwickeln Sie innovative End-to-End-Prozesse für die automatisierte Abwicklung von Laborprüfungen und Qualitätszertifikaten im SAP-Umfeld.\n\nIhre Aufgaben:\n\n• Analysieren Sie bestehende Qualitätsmanagement- und Laborprozesse und definieren Sie zukunftsweisende Prozesse für den automatisierten Lot- und Zertifikatsumschlag\n\n• Entwicklung eines umfassenden Business- und IT-Blueprints für die Integration von SAP QM mit Laborinformationsmanagementsystemen (LIMS) und externen Testlaboren\n\n• Konzipieren Sie automatisierte Prozesse für den Erhalt, die Validierung und die Zuweisung digitaler Qualitätszertifikate (Certificates of Analysis / CoA) an SAP-Prüflose\n\n• Erstellen von funktionalen und technischen Spezifikationen für Schnittstellen basierend auf APIs, EDI, IDocs und Web Services\n\n• Vorbereitung und Unterstützung der Implementierungsphase, einschließlich SAP QM Customizing, Entwicklungssupport, Integrationstests und Benutzerakzeptanztests\n\n• Planen und ermöglichen Sie Workshops mit Geschäftsinteressenten, Laborpartnern und IT-Teams in einem internationalen Umfeld\n\n• Beratung der Projektleitung und wichtiger Stakeholder zu Lösungsarchitektur, Prozessdesign und SAP QM Best Practices\n\n• Gewährleistung einer nachhaltigen, skalierbaren und zukunftssicheren Lösungsarchitektur für die digitale Qualitätssicherung\n\nIhr Profil:\n\n• Mehrjährige Erfahrung als Senior SAP QM Consultant, Solution Architect oder in ähnlicher Funktion mit starker SAP QM Expertise\n\n• Vertiefte Kenntnisse über Qualitätskontrollprozesse, Inspektionslosemanagement, Qualitätszertifikate und Nutzungsentscheidungsprozesse\n\n• Nachgewiesene Erfahrung in der Konzeption und Implementierung von Integrationen zwischen SAP QM- und LIMS-Systemen oder externen Prüflaboren\n\n• Praxiserfahrung mit der Automatisierung von Qualitätszertifikaten (CoA), einschließlich Quittung, Validierung und automatisierter Verarbeitung innerhalb von SAP\n\n• Starke Erfolgsbilanz bei der Entwicklung von Geschäftskonzepten, IT-Konzepten, Blueprints und Anforderungsspezifikationen in SAP-Umgebungen\n\n• Hervorragende analytische und konzeptionelle Fähigkeiten kombiniert mit einem strukturierten und lösungsorientierten Ansatz\n\n• Erfahrung in Workshops, Stakeholder Management und funktionsübergreifender Zusammenarbeit\n\n• Fließende Englischkenntnisse, sowohl geschrieben als auch gesprochen, Deutsch ist von Vorteil",
+      "fr": "Pour notre client de la région de Bâle, nous recherchons une solution senior SAP QM (LIMS & Quality Automation) expérimentée, motivée et ouverte d'esprit.\n\nDans le cadre d'une initiative stratégique de transformation numérique, vous jouerez un rôle clé dans l'élaboration de l'avenir de l'assurance de la qualité. Dans cette position, vous concevrez et développerez des processus de bout en bout novateurs pour la manipulation automatisée des tests de laboratoire et des certificats de qualité dans l'environnement SAP.\n\nVos responsabilités :\n\n• Analyser les processus existants de gestion de la qualité et de laboratoire et définir les processus à venir pour la manipulation automatisée des lots d'inspection et des certificats\n\n• Élaborer un plan d'activités et de TI complet pour l'intégration de SAP QM avec les systèmes de gestion de l'information de laboratoire (SIGI) et les laboratoires d'essais externes\n\n• Concevoir des processus automatisés pour la réception, la validation et l'attribution de certificats de qualité numériques (certificats d'analyse / CoA) aux lots d'inspection SAP\n\n• Créer des spécifications fonctionnelles et techniques pour les interfaces basées sur les API, EDI, IDocs et Web Services\n\n• Préparer et soutenir la phase de mise en œuvre, y compris la personnalisation du SAP QM, le soutien au développement, les tests d'intégration et les tests d'acceptation des utilisateurs\n\n• Planifier et faciliter les ateliers avec les intervenants commerciaux, les partenaires de laboratoire et les équipes informatiques dans un environnement international\n\n• Conseiller le leadership du projet et les principaux intervenants sur l'architecture des solutions, la conception des processus et les meilleures pratiques SAP QM\n\n• Assurer une architecture durable, évolutive et à l'épreuve du futur pour l'assurance qualité numérique\n\nVotre profil:\n\n• Plusieurs années d'expérience en tant que consultant principal SAP QM , architecte de solutions ou dans un rôle similaire avec une solide expertise SAP QM\n\n• Connaissance approfondie des processus d'inspection de la qualité , de la gestion des lots d'inspection , des certificats de qualité et des processus décisionnels d'utilisation\n\n• Expérience éprouvée dans la conception et la mise en œuvre d'intégrations entre les systèmes SAP QM et LIMS ou des laboratoires d'essais externes\n\n• Expérience pratique de l'automatisation des certificats de qualité (CoA), y compris la réception, la validation et le traitement automatisé au sein de SAP\n\n• Forte expérience dans le développement de concepts d'affaires, concepts informatiques, plans et spécifications des exigences dans les environnements SAP\n\n• Excellentes compétences analytiques et conceptuelles associées à une approche structurée et orientée vers la solution\n\n• Expérience de la facilitation des ateliers, de la gestion des parties prenantes et de la collaboration interfonctionnelle\n\n• Compétences linguistiques en anglais, à la fois écrite et parlée, l'allemand est un avantage"
+    },
+    "slugByLocale": {
+      "it": "senior-sap-qm-solution-architect-lims-quality-automation-m-f-d-coopers-basel-landschaft",
+      "en": "senior-sap-qm-solution-architect-lims-quality-automation-m-f-d-coopers-basel-landschaft",
+      "de": "senior-sap-qm-solution-architect-lims-quality-automation-m-f-d-coopers-basel-landschaft",
+      "fr": "senior-sap-qm-solution-architecte-lims-qualite-automation-m-f-d-coopers-group-ag-basel-landschaft"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "supporto-ict-in-m-f-d-coopers-group-ag-bern",
+    "title": "ICT Supporter:in (m/w/d)",
+    "titleByLocale": {
+      "it": "Supporto ICT (m/f/d)",
+      "en": "ICT Supporter (m/f/d)",
+      "de": "ICT Supporter:in (m/w/d)",
+      "fr": "Supporteur TIC (h/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nNel caso di domande via e-mail, il mittente o il mittente accetta che i dati trasmessi saranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfili di lavoro (F26HA4)\n\n•\nIT - Infrastrutture e operazioni IT\n\n•\n\nBerna\n\nContraente\n\nTempo pieno\n\n01.09.2026 - 31.12.2027 (con opzione di estensione)\n\nGestione degli incidenti, M365, Windows 11, Active Directory\n\nSembra interessante?\n\nBasta cliccare.",
+      "en": "Position?\nThen we look forward to full application documents via online form.\n\nIn the case of applications by e-mail, the sender or sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profiles (F26HA4)\n\n•\nIT - IT Infrastructure & Operations\n\n•\n\nBern\n\nContracting\n\nFull time\n\n01.09.2026 - 31.12.2027 (with extension option)\n\nIncident Management, M365, Windows 11, Active Directory\n\nSounds interesting?\n\nSimply click.",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (F26HA4)\n\n•\n\nIT - IT Infrastructure & Operations\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.09.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nIncident Management , M365, Windows 11, Active Directory\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nDans le cas des applications par e-mail, l'expéditeur ou l'expéditeur convient que les données transmises seront utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi peuvent être trouvées ici: coopers.ch\n\nProfils d'emploi (F26HA4)\n\n•\nIT - Infrastructure et opérations de TI\n\n•\n\nBerne\n\nContrats\n\nTemps plein\n\n01.09.2026 - 31.12.2027 (avec option d'extension)\n\nGestion des incidents, M365, Windows 11, Répertoire actif\n\nÇa semble intéressant ?\n\nIl suffit de cliquer."
+    },
+    "slugByLocale": {
+      "it": "supporto-ict-in-m-f-d-coopers-group-ag-bern",
+      "en": "ict-supporter-in-m-w-d-coopers-bern",
+      "de": "ict-supporter-in-m-w-d-coopers-bern",
+      "fr": "supporteur-tic-dans-h-f-d-coopers-group-ag-bern"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "supporto-ict-in-rollout-m-f-d-coopers-group-ag-bern",
+      "ict-supporter-in-rollout-m-w-d-coopers-bern",
+      "soutien-aux-tic-en-deploiement-m-f-d-coopers-group-ag-bern",
+      "ict-supporter-rollout-m-w-d-coopers-bern",
+      "ict-supporter-in-m-w-d-coopers-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "supporto-ict-in-rollout-m-f-d-coopers-group-ag-bern",
+        "ict-supporter-in-rollout-m-w-d-coopers-bern",
+        "soutien-aux-tic-en-deploiement-m-f-d-coopers-group-ag-bern",
+        "ict-supporter-rollout-m-w-d-coopers-bern",
+        "ict-supporter-in-m-w-d-coopers-bern"
+      ],
+      "de": [
+        "ict-supporter-in-rollout-m-w-d-coopers-bern"
+      ],
+      "fr": [
+        "soutien-aux-tic-en-deploiement-m-f-d-coopers-group-ag-bern",
+        "ict-supporter-in-m-w-d-coopers-bern"
+      ]
+    },
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "test-automation-ingegnere-m-f-d-coopers-group-ag-zug",
+    "title": "Test Automation Engineer (m/f/d)",
+    "titleByLocale": {
+      "it": "Test Automation Ingegnere (m/f/d)",
+      "en": "Test Automation Engineer (m/f/d)",
+      "de": "Test Automation Ingenieur (m/f/d)",
+      "fr": "Test Automation Ingénieur (m/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Zug",
+    "addressLocality": "Zug",
+    "descriptionByLocale": {
+      "it": "positions\n\n•\nTest Automation Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+      "en": "positions\n\n•\nTest Automation Engineer\n\nCandidates\n\n•\n\nCoopers Portal\n\nCoopers Care\n\nSpecialization\n\nPlacements\n\nContracting\n\nPayrolling\n\nRefer a Friend\n\nCompanies\n\nRecruitment\n\nExecutive Search\n\nProject Recruiting\n\nRPO\n\nMSP\n\nConsulting & Solutions\n\nAbout\n\nTeam\n\nJoin us\n\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\nPrivacy policy\n\nImprint\n\nSitemap",
+      "de": "positions\n\n•\nTest Automation Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap",
+      "fr": "positions\n\n•\nTest Automation Engineer\n\nCandidates\n\n•\nCoopers Portal\n\n•\nCoopers Care\n\n•\nSpecialization\n\n•\nPlacements\n\n•\nContracting\n\n•\nPayrolling\n\n•\nRefer a Friend\n\nCompanies\n\n•\nRecruitment\n\n•\nExecutive Search\n\n•\nProject Recruiting\n\n•\nRPO\n\n•\nMSP\n\n•\nConsulting & Solutions\n\nAbout\n\n•\nTeam\n\n•\nJoin us\n\n•\nTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\nPrivacy policy\n\n•\nImprint\n\n•\nSitemap"
+    },
+    "slugByLocale": {
+      "it": "test-automation-ingegnere-m-f-d-coopers-group-ag-zug",
+      "en": "test-automation-engineer-m-f-d-coopers-zug",
+      "de": "test-automation-ingenieur-m-f-d-coopers-group-ag-zug",
+      "fr": "test-automation-ingenieur-m-f-d-coopers-group-ag-zug"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "test-automation-engineer-m-f-d-coopers-zug"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "test-automation-engineer-m-f-d-coopers-zug"
+      ],
+      "de": [
+        "test-automation-engineer-m-f-d-coopers-zug"
+      ],
+      "fr": [
+        "test-automation-engineer-m-f-d-coopers-zug"
+      ]
+    },
+    "salaryMin": 78500,
+    "salaryMax": 119000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "test-manager-migrazione-rise-sap-m-f-d-coopers-group-ag-bern",
+    "title": "Test Manager (SAP RISE Migration) (m/w/d)",
+    "titleByLocale": {
+      "it": "Test Manager (Migrazione RISE SAP) (m/f/d)",
+      "en": "Test Manager (SAP RISE Migration) (m/f/d)",
+      "de": "Test Manager (SAP RISE Migration) (m/w/d)",
+      "fr": "Gestionnaire de tests (Migration PAS RISE) (h/f/d)"
+    },
+    "company": "Coopers Group AG",
+    "companyKey": "coopers",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Posizione?\nQuindi non vediamo l'ora di compilare documenti di applicazione tramite modulo online.\n\nPer le applicazioni via e-mail, il mittente o il mittente accetta che i dati trasmessi verranno utilizzati in conformità alla nostra politica di protezione dei dati.\n\nUlteriori offerte sono disponibili qui: coopers.ch\n\nProfilo del lavoro (UC6N58)\n\n•\nIT - Gestione della qualità\n\n•\n\nBerna\n\nContratti\n\nTempo parziale, 50 %\n\n01.09.2026 - 31.05.2027\n\nSAP, SAP Hana, Testing, Quality Assurance\n\nPrestazioni di lavoro\n\n•\nCantina\n\n•\nPosizione centrale\n\n•\nTermini di primo nome\n\n•\nGerarchia piatta\n\n•\nBuona connessione con i trasporti pubblici\n\n•\nHome Ufficio\n\n•\nSpazio di lavoro moderno\n\n•\nBilancia della vita lavorativa\n\nSembra interessante?\n\nBasta cliccare.",
+      "en": "Position?\nThen we look forward to full application documents via online form.\n\nFor applications by e-mail, the sender or the sender agrees that the transmitted data will be used in accordance with our data protection policy.\n\nFurther vacancies can be found here: coopers.ch\n\nJob profile (UC6N58)\n\n•\nIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 50 %\n\n01.09.2026 - 31.05.2027\n\nSAP, SAP Hana, Testing, Quality Assurance\n\nJob benefits\n\n•\nCantine\n\n•\nCentral location\n\n•\nFirst-name terms\n\n•\nFlat hierarchy\n\n•\nGood public transport connection\n\n•\nHome Office\n\n•\nModern workspace\n\n•\nWork-life balance\n\nSounds interesting?\n\nSimply click.",
+      "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (UC6N58)\n\n•\n\nIT - Quality Management\n\nBern\n\nContracting\n\nPart Time, 50%\n\n01.09.2026 - 31.05.2027\n\nSAP, SAP Hana, Testing, Quality Assurance\n\nJob benefits\n\nCantine\n\nCentral location\n\nFirst-name terms\n\nFlat hierarchy\n\nGood public transport connection\n\nHome Office\n\nModern workspace\n\nWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
+      "fr": "Position ?\nEnsuite, nous attendons avec intérêt les documents de candidature complets via formulaire en ligne.\n\nPour les demandes par e-mail, l'expéditeur ou l'expéditeur accepte que les données transmises soient utilisées conformément à notre politique de protection des données.\n\nD'autres offres d'emploi sont disponibles ici : coopers.ch\n\nProfil d'emploi (UC6N58)\n\n•\nIT - Gestion de la qualité\n\n•\n\nBelgique\n\nContrats\n\nTemps partiel, 50 %\n\n01.09.2026 - 31.05.2027\n\nSAP, SAP Hana, test, assurance qualité\n\nPrestations d'emploi\n\n•\nCantine\n\n•\nEmplacement central\n\n•\nTermes de prénom\n\n•\nHiérarchie plate\n\n•\nBonne connexion aux transports publics\n\n•\nMinistère de l ' intérieur\n\n•\nEspace de travail moderne\n\n•\nÉquilibre travail-vie privée\n\nÇa semble intéressant ?\n\nCliquez simplement."
+    },
+    "slugByLocale": {
+      "it": "test-manager-migrazione-rise-sap-m-f-d-coopers-group-ag-bern",
+      "en": "test-manager-sap-rise-migration-m-w-d-coopers-bern",
+      "de": "test-manager-sap-rise-migration-m-w-d-coopers-bern",
+      "fr": "gestionnaire-de-tests-migration-pas-rise-h-f-d-coopers-group-ag-bern"
+    },
+    "sector": "Farmaceutica / Life Sciences",
+    "expiredAt": "2026-09-09T13:53:14.280Z",
+    "previousSlugs": [
+      "test-manager-sap-rise-migration-m-w-d-coopers-bern",
+      "gestionnaire-de-test-migration-pas-rise-h-f-d-coopers-group-ag-bern"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "test-manager-sap-rise-migration-m-w-d-coopers-bern"
+      ],
+      "fr": [
+        "gestionnaire-de-test-migration-pas-rise-h-f-d-coopers-group-ag-bern"
+      ]
+    },
+    "salaryMin": 94500,
+    "salaryMax": 143000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "business-analista-self-service-bi-ssbi-m-w-d-coopers-group-ag-bern",
     "title": "Business Analyst Self-Service BI (SSBI) (m/w/d)",
     "titleByLocale": {
