@@ -6208,6 +6208,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Kanton und Gemeinden tauschen sich über Steuern und ARP-Reform aus',
     'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Dialog Kanton-Gemeinden über Steuern, Tessin 2020 und ARP-Reform. Im Zentrum: Abschaffung des Bundesmietwerts und Besteuerung von Zweitwohnungen',
     'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, Sitz der Kantonsadministration während Dialog Kanton-Gemeinden zu Fiskalpolitik und Reformen',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet schneidet in Winterthur, Unia auf dem Feld',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 Stellen auf 730 Stellen bei Zimmer Biomet (Winterthur). Die Gewerkschaft Unia protestiert: Die Arbeitnehmer müssen nicht für die Bereicherung der Aktionäre bezahlen.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur, wo 580 von 730 Arbeitsplätzen abgebaut werden',
+    'blog.article.banda-larga-consiglio-federale.title': 'Ländliches Breitband: das Bundesprogramm 2030-2037',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'Der Bundesrat genehmigt am 9. September 2026 das Breitband-Förderprogramm. Investition von 365 Mio. CHF des Bundes, um schnelles Internet in ländliche Gebiete zu bringen.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Techniker installiert Glasfaserkabel auf einem Schweizer Landhaus und symbolisiert die Breitbandexpansion in abgelegenen Gebieten.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Schweizer Pensionskassen: +0,7% im August',
+    'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Ausländische Aktien im Aufwind (+14%): UBS analysiert die August-Rendite. Vorsorgefonds in Richtung der durchschnittlichen jährlichen 3,3% seit 2006.',
+    'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Lugano Skyline mit Finanzgebäuden und Seen in der Schweiz',
 };
 
 export default blogMetaChDe;

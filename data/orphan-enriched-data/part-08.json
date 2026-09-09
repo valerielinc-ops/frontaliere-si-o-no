@@ -2277,10 +2277,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "allrounder-in-equans-chur",
         "it": "allrounder-equans-switzerland-chur",
-        "en": "allrounder-equans-switzerland-chur",
-        "de": "allrounder-equans-switzerland-chur",
-        "fr": "allrounder-equans-switzerland-chur"
+        "fr": "tout-autour-dans-equans-switzerland-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/allrounder-equans-switzerland-chur",
@@ -2294,6 +2293,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -11253,10 +11253,10 @@
         "fr": "butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
-        "en": "/en/find-jobs-ticino/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
-        "de": "/de/jobs-im-tessin/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
-        "fr": "/fr/trouver-emploi-tessin/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx"
+        "it": "/cerca-lavoro-zurigo/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
+        "en": "/en/find-jobs-zurich/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
+        "de": "/de/jobs-in-zurich/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx",
+        "fr": "/fr/trouver-emploi-zurich/butcher-meat-specialist-coop-genossenschaft-zurich-ew6xcx"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12139,42 +12139,42 @@
         {
           "query": "case anziani ticino offerte di lavoro",
           "clicks": 91,
-          "impressions": 1019
+          "impressions": 1027
         },
         {
           "query": "offerte lavoro casa di riposo svizzera",
-          "clicks": 54,
-          "impressions": 581
+          "clicks": 55,
+          "impressions": 590
         },
         {
           "query": "offerte di lavoro casa di riposo svizzera",
           "clicks": 53,
-          "impressions": 569
+          "impressions": 575
         },
         {
           "query": "case anziani lugano posti di lavoro",
           "clicks": 26,
-          "impressions": 290
+          "impressions": 297
         },
         {
           "query": "offerte di lavoro casa anziani ticino",
           "clicks": 27,
-          "impressions": 196
+          "impressions": 200
         },
         {
           "query": "casa anziani comunale bellinzona offerte di lavoro",
-          "clicks": 9,
-          "impressions": 169
+          "clicks": 10,
+          "impressions": 171
         },
         {
           "query": "offerte lavoro casa anziani ticino",
           "clicks": 22,
-          "impressions": 157
+          "impressions": 164
         },
         {
           "query": "casa anziani chiasso lavoro",
           "clicks": 19,
-          "impressions": 136
+          "impressions": 138
         },
         {
           "query": "casa anziani paradiso offerta lavoro",
@@ -12184,7 +12184,7 @@
         {
           "query": "case di riposo ticino lavora con noi",
           "clicks": 15,
-          "impressions": 113
+          "impressions": 116
         },
         {
           "query": "casa anziani mendrisio lavoro",
@@ -12194,7 +12194,7 @@
         {
           "query": "casa anziani offerte di lavoro",
           "clicks": 6,
-          "impressions": 81
+          "impressions": 82
         },
         {
           "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
@@ -12209,7 +12209,7 @@
         {
           "query": "offerte lavoro assistente di cura ticino",
           "clicks": 6,
-          "impressions": 55
+          "impressions": 56
         },
         {
           "query": "concorso casa anziani bellinzona",
@@ -12237,8 +12237,8 @@
           "impressions": 14
         }
       ],
-      "totalImpressions": 4109,
-      "totalClicks": 367,
+      "totalImpressions": 4161,
+      "totalClicks": 369,
       "topQuery": "case anziani ticino offerte di lavoro",
       "title": "Case anziani",
       "titleByLocale": {
@@ -23935,10 +23935,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg",
+        "it": "chirurgia-professionale-salute-e-ginecologia-spital-zollikerberg-zollikerberg",
+        "en": "professional-health-station-surgery-and-gynecology-spital-zollikerberg-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg"
+        "fr": "chirurgie-et-gynecologie-professionnelles-sanitaires-spital-zollikerberg-zollikerberg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg",
@@ -23952,6 +23952,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -25037,10 +25038,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-zurich-48c4xs"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-zurich-48c4xs"
+        "it": "/cerca-lavoro-zurigo/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
+        "en": "/en/find-jobs-zurich/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
+        "de": "/de/jobs-in-zurich/food-sales-assistant-coop-genossenschaft-zurich-48c4xs",
+        "fr": "/fr/trouver-emploi-zurich/food-sales-assistant-coop-genossenschaft-zurich-48c4xs"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25091,10 +25092,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-zurich-ixjaym"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-zurich-ixjaym"
+        "it": "/cerca-lavoro-zurigo/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
+        "en": "/en/find-jobs-zurich/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
+        "de": "/de/jobs-in-zurich/food-sales-assistant-coop-genossenschaft-zurich-ixjaym",
+        "fr": "/fr/trouver-emploi-zurich/food-sales-assistant-coop-genossenschaft-zurich-ixjaym"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31853,10 +31854,10 @@
         "fr": "installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
-        "en": "/en/find-jobs-ticino/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
-        "de": "/de/jobs-im-tessin/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
-        "fr": "/fr/trouver-emploi-tessin/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano"
+        "it": "/cerca-lavoro-zurigo/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
+        "en": "/en/find-jobs-zurich/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
+        "de": "/de/jobs-in-zurich/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano",
+        "fr": "/fr/trouver-emploi-zurich/installatore-trice-elettrico-a-in-per-service-e-neuinstallationen-fachkraft-ch-gmbh-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52595,10 +52596,10 @@
         "fr": "retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "en": "/en/find-jobs-bern/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "de": "/de/jobs-in-bern/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
-        "fr": "/fr/trouver-emploi-berne/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
+        "it": "/cerca-lavoro-zurigo/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "en": "/en/find-jobs-zurich/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "de": "/de/jobs-in-zurich/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf",
+        "fr": "/fr/trouver-emploi-zurich/retail-specialist-efz-designing-shopping-experiences-interdiscount-jegenstorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -53986,10 +53987,10 @@
         "fr": "sales-assistant-food-coop-genossenschaft-zurich-a8123e"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
-        "en": "/en/find-jobs-ticino/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
-        "de": "/de/jobs-im-tessin/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
-        "fr": "/fr/trouver-emploi-tessin/sales-assistant-food-coop-genossenschaft-zurich-a8123e"
+        "it": "/cerca-lavoro-zurigo/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
+        "en": "/en/find-jobs-zurich/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
+        "de": "/de/jobs-in-zurich/sales-assistant-food-coop-genossenschaft-zurich-a8123e",
+        "fr": "/fr/trouver-emploi-zurich/sales-assistant-food-coop-genossenschaft-zurich-a8123e"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54040,10 +54041,10 @@
         "fr": "sales-assistant-food-coop-genossenschaft-zurich-cd82ab"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
-        "en": "/en/find-jobs-ticino/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
-        "de": "/de/jobs-im-tessin/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
-        "fr": "/fr/trouver-emploi-tessin/sales-assistant-food-coop-genossenschaft-zurich-cd82ab"
+        "it": "/cerca-lavoro-zurigo/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
+        "en": "/en/find-jobs-zurich/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
+        "de": "/de/jobs-in-zurich/sales-assistant-food-coop-genossenschaft-zurich-cd82ab",
+        "fr": "/fr/trouver-emploi-zurich/sales-assistant-food-coop-genossenschaft-zurich-cd82ab"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60840,10 +60841,10 @@
         "fr": "specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "en": "/en/find-jobs-ticino/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "de": "/de/jobs-im-tessin/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
-        "fr": "/fr/trouver-emploi-tessin/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff"
+        "it": "/cerca-lavoro-zurigo/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "en": "/en/find-jobs-zurich/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "de": "/de/jobs-in-zurich/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff",
+        "fr": "/fr/trouver-emploi-zurich/specialista-in-business-aziendale-a-80-100-helsana-dubendorf-stettbach-homeoff"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71191,10 +71192,10 @@
         "it": "venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen",
-        "en": "/en/find-jobs-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen",
+        "it": "/cerca-lavoro-argovia/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen",
+        "en": "/en/find-jobs-aargau/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen",
         "de": "/de/jobs-im-luzern/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen",
-        "fr": "/fr/trouver-emploi-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen"
+        "fr": "/fr/trouver-emploi-argovie/venditore-di-prodotti-freschi-coop-genossenschaft-diessenhofen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71243,10 +71244,10 @@
         "fr": "venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
-        "en": "/en/find-jobs-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
+        "it": "/cerca-lavoro-argovia/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
+        "en": "/en/find-jobs-aargau/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
         "de": "/de/jobs-im-bern/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen",
-        "fr": "/fr/trouver-emploi-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen"
+        "fr": "/fr/trouver-emploi-argovie/venditore-di-prodotti-freschi-coop-genossenschaft-feuerthalen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71294,10 +71295,10 @@
         "fr": "venditore-di-prodotti-freschi-coop-genossenschaft-murten"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-di-prodotti-freschi-coop-genossenschaft-murten",
-        "en": "/en/find-jobs-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-murten",
+        "it": "/cerca-lavoro-argovia/venditore-di-prodotti-freschi-coop-genossenschaft-murten",
+        "en": "/en/find-jobs-aargau/venditore-di-prodotti-freschi-coop-genossenschaft-murten",
         "de": "/de/jobs-im-luzern/venditore-di-prodotti-freschi-coop-genossenschaft-murten",
-        "fr": "/fr/trouver-emploi-zurich/venditore-di-prodotti-freschi-coop-genossenschaft-murten"
+        "fr": "/fr/trouver-emploi-argovie/venditore-di-prodotti-freschi-coop-genossenschaft-murten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

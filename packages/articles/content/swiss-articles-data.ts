@@ -18622,6 +18622,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'zimmer-biomet-svizzera-unia',
+    category: 'novita',
+    date: '2026-09-09T17:53:18.608Z',
+    image: '/images/blog/zimmer-biomet-svizzera-unia.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'banda-larga-consiglio-federale',
+    category: 'novita',
+    date: '2026-09-09T18:15:37.666Z',
+    image: '/images/blog/banda-larga-consiglio-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'previdenza-agosto-rendimenti-positivi',
+    category: 'pensione',
+    date: '2026-09-09T18:43:10.310Z',
+    image: '/images/blog/previdenza-agosto-rendimenti-positivi.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
