@@ -1,5 +1,7 @@
+import fs from 'node:fs';
 import net from 'node:net';
-import { execFileSync, spawn } from 'node:child_process';
+import path from 'node:path';
+import { spawn } from 'node:child_process';
 
 export const MAX_REQUEST_BYTES = 64 * 1024;
 export const MAX_OUTPUT_BYTES = 1024 * 1024;
@@ -12,6 +14,7 @@ export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
 const safeOptions = new Set(['--all', '--prune', '--tags', '--force', '--force-with-lease', '--set-upstream', '-u', '--rebase', '--no-rebase', '--ff-only', '--no-edit', '--dry-run', '--delete', '-d', '--heads', '--refs', '--mirror', '--verbose', '-v', '--quiet', '-q', '--no-tags']);
+const shadowEntries = ['objects', 'refs', 'logs', 'info', 'hooks', 'packed-refs'];
 
 function responseFor(client, { code, stdout = '', stderr = '' }) {
   if (client.destroyed) return;
@@ -62,13 +65,88 @@ export function validateGitArgs(args, { allowedRemote = 'origin' } = {}) {
   return '';
 }
 
-function currentOrigin(realGit, cwd) {
+function firstPositionalIndex(args) {
+  let separator = false;
+  for (let index = 1; index < args.length; index += 1) {
+    if (!separator && args[index] === '--') {
+      separator = true;
+      continue;
+    }
+    if (!separator && args[index].startsWith('-')) continue;
+    return index;
+  }
+  return -1;
+}
+
+/** Return a canonical, credential-free HTTPS remote for the trusted runner context. */
+export function canonicalGitRemote({ host, repository } = {}) {
+  const rawHost = String(host || '').trim();
+  const rawRepository = String(repository || '').trim();
+  if (!rawHost || !/^[A-Za-z0-9][A-Za-z0-9._-]*\/[A-Za-z0-9][A-Za-z0-9._-]*$/.test(rawRepository) || /[\u0000-\u001f\u007f\s]/.test(rawHost)) return '';
   try {
-    return execFileSync(realGit, ['config', '--local', '--get', 'remote.origin.url'], {
-      cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
-    }).trim();
+    const url = new URL(rawHost.includes('://') ? rawHost : `https://${rawHost}`);
+    if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) return '';
+    return `${url.origin}/${rawRepository}.git`;
   } catch {
     return '';
+  }
+}
+
+function safeExpectedRemote(value) {
+  const raw = String(value || '');
+  if (!raw || /[\u0000-\u001f\u007f\s%\\]/.test(raw)) return '';
+  try {
+    const url = new URL(raw);
+    const segments = url.pathname.split('/').filter(Boolean);
+    if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash || segments.length !== 2 || !segments[1].endsWith('.git')) return '';
+    if (segments.some((segment) => segment === '.' || segment === '..')) return '';
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return '';
+  }
+}
+
+/** Replace the model's mutable `origin` lookup with the host-approved URL. */
+export function buildGitNetworkArgs(args, expectedRemote) {
+  const remote = safeExpectedRemote(expectedRemote);
+  if (!remote) {
+    throw new Error('Git bridge expected remote is invalid');
+  }
+  const result = [...args];
+  const remoteIndex = firstPositionalIndex(result);
+  if (remoteIndex >= 0) result[remoteIndex] = remote;
+  else result.push(remote);
+  return result;
+}
+
+function writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote) {
+  if (!path.isAbsolute(hostScratch) || !path.isAbsolute(commonGitDir)) {
+    throw new Error('Git bridge metadata paths must be absolute');
+  }
+  fs.mkdirSync(hostScratch, { recursive: true, mode: 0o700 });
+  const shadow = fs.mkdtempSync(path.join(hostScratch, 'common-'));
+  try {
+    const config = [
+      '[core]',
+      '\trepositoryformatversion = 0',
+      '\tbare = false',
+      '[remote "origin"]',
+      `\turl = ${expectedRemote}`,
+      '\tfetch = +refs/heads/*:refs/remotes/origin/*',
+      '',
+    ].join('\n');
+    fs.writeFileSync(path.join(shadow, 'config'), config, { mode: 0o600 });
+    for (const entry of shadowEntries) {
+      const source = path.join(commonGitDir, entry);
+      if (!fs.existsSync(source)) continue;
+      const stat = fs.lstatSync(source);
+      if (!stat.isDirectory() && !stat.isFile()) continue;
+      fs.symlinkSync(source, path.join(shadow, entry), stat.isDirectory() ? 'dir' : 'file');
+    }
+    return shadow;
+  } catch (error) {
+    fs.rmSync(shadow, { recursive: true, force: true });
+    throw error;
   }
 }
 
@@ -77,21 +155,39 @@ function main() {
   const token = process.env.CODEX_GIT_AUTH;
   const realGit = process.env.CODEX_REAL_GIT;
   const cwd = process.env.CODEX_GIT_CWD;
-  const expectedRemote = process.env.CODEX_GIT_REMOTE;
-  if (!socketPath || !token || !realGit || !cwd || !expectedRemote || expectedRemote.includes('\n') || expectedRemote.includes('\r')) process.exit(2);
+  const gitDir = process.env.CODEX_GIT_DIR;
+  const commonGitDir = process.env.CODEX_GIT_COMMON_DIR;
+  const hostScratch = process.env.CODEX_GIT_HOST_SCRATCH;
+  const expectedRemote = canonicalGitRemote({
+    host: process.env.CODEX_GIT_HOST,
+    repository: process.env.CODEX_GIT_REPOSITORY,
+  });
+  const configuredRemote = process.env.CODEX_GIT_REMOTE || expectedRemote;
+  if (!socketPath || !token || !realGit || !cwd || !gitDir || !commonGitDir || !hostScratch || !expectedRemote || configuredRemote !== expectedRemote) process.exit(2);
+  let shadowCommonDir;
+  try {
+    shadowCommonDir = writeShadowCommonDir(hostScratch, commonGitDir, expectedRemote);
+  } catch {
+    process.exit(2);
+  }
   const basic = Buffer.from(`x-access-token:${token}`).toString('base64');
   const baseEnv = {
     PATH: process.env.PATH || '/usr/bin:/bin',
     HOME: process.env.HOME || '/tmp',
     GIT_TERMINAL_PROMPT: '0',
     GIT_CONFIG_NOSYSTEM: '1',
+    GIT_CONFIG_GLOBAL: '/dev/null',
+    GIT_CONFIG_SYSTEM: '/dev/null',
+    GIT_DIR: gitDir,
+    GIT_COMMON_DIR: shadowCommonDir,
+    GIT_WORK_TREE: cwd,
     GIT_CONFIG_COUNT: '1',
     GIT_CONFIG_KEY_0: 'http.extraheader',
     GIT_CONFIG_VALUE_0: `AUTHORIZATION: basic ${basic}`,
   };
   let activeConnections = 0;
   const children = new Set();
-  const server = net.createServer((client) => {
+  const server = net.createServer({ allowHalfOpen: true }, (client) => {
     if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
       responseFor(client, { code: 2, stderr: 'Codex Git bridge is busy; retry later\n' });
       return;
@@ -144,13 +240,19 @@ function main() {
         args = JSON.parse(request);
         const validationError = validateGitArgs(args);
         if (validationError) throw new Error(validationError);
-        if (currentOrigin(realGit, cwd) !== expectedRemote) throw new Error('Git origin changed after host-side sanitization');
       } catch (error) {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
-      child = spawn(realGit, args, { cwd, env: baseEnv });
+      let childArgs;
+      try {
+        childArgs = buildGitNetworkArgs(args, expectedRemote);
+      } catch (error) {
+        finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
+        return;
+      }
+      child = spawn(realGit, childArgs, { cwd, env: baseEnv });
       children.add(child);
       childTimer = setTimeout(() => {
         timedOut = true;
@@ -199,7 +301,10 @@ function main() {
   server.listen(socketPath);
   const shutdown = () => {
     for (const child of children) child.kill('SIGTERM');
-    server.close(() => process.exit(0));
+    server.close(() => {
+      fs.rmSync(shadowCommonDir, { recursive: true, force: true });
+      process.exit(0);
+    });
   };
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);

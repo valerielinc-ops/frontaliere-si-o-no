@@ -44,7 +44,7 @@ function parseNullRecords(buffer) {
  */
 export function sanitizeGitConfig({ cwd = process.cwd() } = {}) {
   const remoteRecords = parseNullRecords(gitConfig([
-    'config', '--local', '--null', '--get-regexp', '^remote\\..*\\.(url|pushurl)$',
+    'config', '--local', '--null', '--get-regexp', '^remote\\..*\\.url$',
   ], cwd, { allowMissing: true }));
   for (const { key, value } of remoteRecords) {
     const clean = sanitizeRemoteUrl(value);
@@ -53,6 +53,19 @@ export function sanitizeGitConfig({ cwd = process.cwd() } = {}) {
       gitConfig(['config', '--local', '--unset-all', key], cwd, { allowMissing: true });
       gitConfig(['config', '--local', '--add', key, clean], cwd);
     }
+  }
+
+  // A clean-looking pushurl can still redirect a host-side push. Remove all
+  // pushurl and URL-rewrite entries; the bridge supplies its own fixed remote
+  // and never consults this mutable local config.
+  const rewriteRecords = parseNullRecords(gitConfig([
+    'config', '--local', '--null', '--get-regexp', '^url\\..*\\.',
+  ], cwd, { allowMissing: true })).filter(({ key }) => /\.(?:pushurl|insteadof|pushinsteadof)$/i.test(key));
+  const pushUrlRecords = parseNullRecords(gitConfig([
+    'config', '--local', '--null', '--get-regexp', '^remote\\..*\\.pushurl$',
+  ], cwd, { allowMissing: true }));
+  for (const { key } of [...rewriteRecords, ...pushUrlRecords]) {
+    gitConfig(['config', '--local', '--unset-all', key], cwd, { allowMissing: true });
   }
 
   const headerRecords = parseNullRecords(gitConfig([

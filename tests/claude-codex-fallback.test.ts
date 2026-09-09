@@ -36,6 +36,8 @@ import {
   MAX_ACTIVE_CONNECTIONS as GIT_MAX_ACTIVE_CONNECTIONS,
   SOCKET_TIMEOUT_MS as GIT_SOCKET_TIMEOUT_MS,
   CHILD_TIMEOUT_MS as GIT_CHILD_TIMEOUT_MS,
+  buildGitNetworkArgs,
+  canonicalGitRemote,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import { sanitizeGitConfig } from '../.github/actions/claude-codex-fallback/sanitize-git-config.mjs';
@@ -216,6 +218,11 @@ describe('validator dei bridge host-side', () => {
       expect(validateGhArgs(['api', 'https://evil.example/repos/owner/repo/issues'], context)).toMatch(/relative endpoint/);
       expect(validateGhArgs(['api', 'repos/other/repo/issues'], context)).toMatch(/current repository/);
       expect(validateGhArgs(['api', '/repos/owner/repo/issues'], context)).toBe('');
+      expect(validateGhArgs(['api', 'repos/owner/repo/../other'], context)).toMatch(/dot segments/);
+      expect(validateGhArgs(['api', 'repos/owner/repo/%2e%2e/other'], context)).toMatch(/percent-encoded/);
+      expect(validateGhArgs(['api', 'repos%2Fowner%2Frepo/issues'], context)).toMatch(/percent-encoded/);
+      expect(validateGhArgs(['search', 'code', 'secret'], context)).toMatch(/not permitted/);
+      expect(validateGhArgs(['run', 'download', '123', '--dir', outsideAuth], context)).toMatch(/download/);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -230,6 +237,17 @@ describe('validator dei bridge host-side', () => {
     expect(validateGitArgs(['push', '--force-with-lease', 'origin', 'HEAD:refs/heads/main'])).toBe('');
     expect(validateGitArgs(['fetch', 'origin', 'main'])).toBe('');
     expect(validateGitArgs(['ls-remote', 'origin', 'refs/heads/main'])).toBe('');
+    const expectedRemote = 'https://github.com/owner/repo.git';
+    expect(canonicalGitRemote({ host: 'https://github.com', repository: 'owner/repo' })).toBe(expectedRemote);
+    expect(buildGitNetworkArgs(['push', 'origin', 'HEAD:refs/heads/main'], expectedRemote)).toEqual([
+      'push', expectedRemote, 'HEAD:refs/heads/main',
+    ]);
+    expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
+      'fetch', '--prune', expectedRemote,
+    ]);
+    expect(buildGitNetworkArgs(['push', '--', 'origin', 'main'], expectedRemote)).toEqual([
+      'push', '--', expectedRemote, 'main',
+    ]);
   });
 
   it('mantiene limiti espliciti del protocollo e output dei due broker', () => {
@@ -253,14 +271,17 @@ describe('sanitizzazione git host-side', () => {
       execFileSync('git', ['init', '-q', repo]);
       execFileSync('git', ['-C', repo, 'config', '--local', 'remote.origin.url', 'https://x-access-token:fixture-secret@github.com/owner/repo.git']);
       execFileSync('git', ['-C', repo, 'config', '--local', 'remote.origin.pushurl', 'https://oauth2:fixture-secret@github.com/owner/repo.git']);
+      execFileSync('git', ['-C', repo, 'config', '--local', 'url.evil.insteadOf', 'https://github.com/owner/repo.git']);
+      execFileSync('git', ['-C', repo, 'config', '--local', 'url.evil.pushInsteadOf', 'https://github.com/owner/repo.git']);
       execFileSync('git', ['-C', repo, 'config', '--local', 'http.extraheader', 'AUTHORIZATION: basic fixture-secret']);
       execFileSync('git', ['-C', repo, 'config', '--local', 'http.github.com.extraheader', 'AUTHORIZATION: basic fixture-secret']);
       sanitizeGitConfig({ cwd: repo });
       const cleanConfig = execFileSync('git', ['-C', repo, 'config', '--local', '--list'], { encoding: 'utf8' });
       expect(cleanConfig).not.toContain('fixture-secret');
       expect(cleanConfig).not.toContain('extraheader');
+      expect(cleanConfig).not.toMatch(/(?:pushurl|insteadof)/i);
       expect(cleanConfig).toContain('remote.origin.url=https://github.com/owner/repo.git');
-      expect(cleanConfig).toContain('remote.origin.pushurl=https://github.com/owner/repo.git');
+      expect(cleanConfig).not.toContain('remote.origin.pushurl');
     } finally {
       rmSync(repo, { recursive: true, force: true });
     }
@@ -355,10 +376,12 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('GH_TOKEN="$CODEX_GH_AUTH" exec');
     expect(action).not.toContain('CODEX_GH_AUTH=$CODEX_GH_AUTH');
     expect(action).not.toContain('CODEX_GH_AUTH"]');
-    expect(action).toContain('codex_git_remote="$(git config --local --get remote.origin.url');
+    expect(action).toContain('codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"');
     expect(action).toContain('node "$action_path/sanitize-git-config.mjs"');
     expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
     expect(action).toContain('CODEX_GIT_REMOTE="$codex_git_remote"');
+    expect(action).toContain('CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch"');
+    expect(action).toContain('CODEX_GIT_COMMON_DIR="$common_git_dir"');
     expect(gitBridge).toContain("GIT_CONFIG_KEY_0: 'http.extraheader'");
     expect(action).toContain('git remote -v | grep -Eiq');
     expect(action).toContain('CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs');
@@ -383,11 +406,15 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('MAX_ACTIVE_CONNECTIONS');
     expect(ghBridge).toContain('SOCKET_TIMEOUT_MS');
     expect(ghBridge).toContain('CHILD_TIMEOUT_MS');
+    expect(ghBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(ghBridge).toContain('GH_HOST: host');
     expect(ghBridge).toContain('GH_REPO: repository');
     expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
-    expect(gitBridge).toContain('currentOrigin(realGit, cwd)');
+    expect(gitBridge).not.toContain('currentOrigin(');
+    expect(gitBridge).toContain('buildGitNetworkArgs(args, expectedRemote)');
+    expect(gitBridge).toContain('GIT_COMMON_DIR: shadowCommonDir');
+    expect(gitBridge).toContain('net.createServer({ allowHalfOpen: true }');
     expect(gitBridge).toContain('MAX_REQUEST_BYTES');
     expect(gitSanitizer).toContain('parseNullRecords');
     expect(gitSanitizer).toContain('http.extraheader');

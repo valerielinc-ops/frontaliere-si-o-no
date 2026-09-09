@@ -236,10 +236,12 @@ runs:
           exit 1
         fi
         node "$action_path/sanitize-git-config.mjs"
-        codex_git_remote="$(git config --local --get remote.origin.url 2>/dev/null || true)"
+        # Derive the network target only from trusted runner context. Never
+        # resolve remote.origin.{url,pushurl} after the model can edit .git.
+        codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"
         case "$codex_git_remote" in
-          ''|*$'\n'*|*$'\r'*)
-            echo '::error::A clean origin remote is required for the Codex Git bridge.'
+          ''|*$'\n'*|*$'\r'*|*'@'*)
+            echo '::error::The current GitHub repository cannot produce a safe Codex Git remote.'
             exit 1
             ;;
         esac
@@ -323,6 +325,10 @@ runs:
         bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
         gh_socket="$scratch_dir/gh.sock"
         git_socket="$scratch_dir/git.sock"
+        # This directory is host-only. The Codex profile never reopens it; the
+        # Git server uses it for a sanitized common-dir config shadow.
+        git_bridge_host_scratch="$(mktemp -d "$runner_temp/codex-git-bridge.XXXXXX")"
+        chmod 700 "$git_bridge_host_scratch"
         gh_socket_toml="$(toml_quote_path "$gh_socket")"
         git_socket_toml="$(toml_quote_path "$git_socket")"
         cat > "$config_file" <<EOF
@@ -424,6 +430,11 @@ runs:
           CODEX_GIT_SOCKET="$git_socket" \
           CODEX_REAL_GIT="$real_git" \
           CODEX_GIT_CWD="${PWD:-$(pwd)}" \
+          CODEX_GIT_DIR="$git_dir" \
+          CODEX_GIT_COMMON_DIR="$common_git_dir" \
+          CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch" \
+          CODEX_GIT_HOST="$codex_github_host" \
+          CODEX_GIT_REPOSITORY="$codex_github_repository" \
           CODEX_GIT_REMOTE="$codex_git_remote" \
           PATH="$PATH" \
           HOME="$scratch_home" \
@@ -438,6 +449,9 @@ runs:
         cleanup_bridge() {
           rm -f -- "$outside_probe"
           stop_bridge
+          if [ -d "${git_bridge_host_scratch:-}" ]; then
+            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$git_bridge_host_scratch"
+          fi
         }
         trap cleanup_bridge EXIT
         for _ in $(seq 1 50); do

@@ -11,7 +11,9 @@ export const SOCKET_TIMEOUT_MS = 30_000;
 export const CHILD_TIMEOUT_MS = 120_000;
 export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 
-const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run', 'search']);
+// Global search is intentionally unavailable: it cannot be scoped to the
+// current repository without turning the bridge into a broad read oracle.
+const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run']);
 const blockedCommands = new Set([
   'auth', 'config', 'alias', 'extension', 'secret', 'secrets', 'variable',
   'variables', 'ssh-key', 'ssh-keys', 'gpg-key', 'gpg-keys', 'gist',
@@ -108,7 +110,17 @@ function validateApiEndpoint(args, commandIndex, repository) {
   if (endpoint === '-' || endpoint.includes('://') || endpoint.startsWith('~')) {
     return 'gh api requires a relative endpoint for the current repository';
   }
-  const normalized = endpoint.replace(/^\/+/, '');
+  const pathPart = endpoint.split(/[?#]/, 1)[0];
+  // Do not let encoded separators/dot segments become meaningful after gh or
+  // an upstream URL parser decodes the request. Query encoding is harmless,
+  // so only reject percent escapes in the endpoint path itself.
+  if (pathPart.includes('%')) {
+    return 'gh api endpoint must not contain percent-encoded path data';
+  }
+  if (pathPart.includes('\\') || pathPart.split('/').some((segment) => segment === '.' || segment === '..')) {
+    return 'gh api endpoint must not contain dot segments or backslashes';
+  }
+  const normalized = pathPart.replace(/^\/+/, '');
   const match = /^repos\/([^/]+\/[^/?#]+)(?:[/?#]|$)/i.exec(normalized);
   if (!match || match[1] !== repository) {
     return 'gh api endpoint is restricted to the current repository';
@@ -201,6 +213,9 @@ export function validateGhArgs(args, {
     const endpointError = validateApiEndpoint(args, commandIndex, repository);
     if (endpointError) return endpointError;
   }
+  if (command === 'run' && args.slice(commandIndex + 1).includes('download')) {
+    return 'gh run download is not permitted by the Codex fallback bridge';
+  }
   return '';
 }
 
@@ -223,7 +238,7 @@ function main() {
   };
   let activeConnections = 0;
   const children = new Set();
-  const server = net.createServer((client) => {
+  const server = net.createServer({ allowHalfOpen: true }, (client) => {
     if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
       responseFor(client, { code: 2, stderr: 'Codex GitHub bridge is busy; retry later\n' });
       return;
