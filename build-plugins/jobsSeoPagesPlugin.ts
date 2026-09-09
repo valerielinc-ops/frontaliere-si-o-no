@@ -84,6 +84,7 @@ import { FX_HREF } from './shared/comparatorHref';
 import { formatUpdatedSentence } from './shared/humanDate';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
+import { resolveHubCompanyKey } from './shared/companyFollowIdentity';
 import {
  renderHeroBadges,
  renderMobileActionBlock,
@@ -195,7 +196,11 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+ employerProfilesFlushed,
+ resolveJobsSeoPagesFlushed,
+ type EmittedEmployerProfile,
+} from './shared/buildSignals';
 import { employerTitleCandidates, type EmployerProfileLocale } from './employerProfilePagesPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { forceGc } from './shared/forceGc';
@@ -2725,9 +2730,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // plugin, and tests/build-plugin-order.test.ts derives that constraint from
  // these very imports so the next cross-plugin `await` is covered on sight.
  const emittedEmployerHubs = new Map<string, string>();
+ const emittedEmployerProfilesBySlug = new Map<string, EmittedEmployerProfile>();
  for (const emitted of await employerProfilesFlushed) {
  const m = /^(?:\/(en|de|fr))?\/aziende\/([^/]+)\/$/.exec(emitted.path);
- if (m) emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
+ if (m) {
+ emittedEmployerHubs.set(`${m[1] ?? 'it'}|${m[2]}`, emitted.path);
+ emittedEmployerProfilesBySlug.set(m[2], emitted);
+ }
  }
  console.log(
  `\x1b[36m[jobs-seo-pages]\x1b[0m employer hubs available for internal linking: ${emittedEmployerHubs.size}`,
@@ -4149,7 +4158,7 @@ ${staticAnalyticsHtml}
  const sectionSlug = sectionByLocale[locale];
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
- const companyKey = companyJobs.find((job: any) => String(job.companyKey || '').trim())?.companyKey ?? null;
+ const companyKey = resolveHubCompanyKey(cSlug, emittedEmployerProfilesBySlug.get(cSlug));
  const companyPrimaryCanton = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))][0] || DEFAULT_CANTON;
  const companyDisplayCanton = getCantonDisplayLabel(companyPrimaryCanton, locale);
  const copy = getCompanyCopy(companyPrimaryCanton)[locale];
@@ -4428,7 +4437,6 @@ ${staticAnalyticsHtml}
  });
  const companyBodyHtml = `<div class="s-it71Rt">
  <nav class="s-ZVaIKh"><a class="s-uHD3iY" href="${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}">&larr; ${esc(copy.allJobsLink)}</a></nav>
-${companyFollowHtml}
 ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName))}</h1>\n<p>${esc(description)}</p>\n${companyProfileHtml}\n`}${curatedBodyHtml ? '' : (() => {
  // Collect location info from company jobs
  const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -4598,6 +4606,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  parts.push(`<p class="s-Xxg-ZL">${esc(copy.editorial)}</p>`);
  return parts.join('\n');
  })()}
+${companyFollowHtml}
  ${curatedBodyHtml ? `<p class="s-DhzLIy">${esc(copy.editorial)}</p>` : ''}
  ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: primaryLocation || getCantonDisplayLabel(DEFAULT_CANTON, locale), omitCommute: !primaryLocation }))}
  </div>`;
@@ -8296,7 +8305,7 @@ ${staticAnalyticsHtml}
  const alsoHiringHtml = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
  const faqItems = buildCompanyHubFaqItems(companyName, cDisplay, cappedJobs, locale);
  const { html: faqHtml, ld: faqLd } = renderCompanyHubFaqHtml(faqItems, locale);
- const companyKey = companyJobs.find((job: any) => String(job.companyKey || '').trim())?.companyKey ?? null;
+ const companyKey = resolveHubCompanyKey(cSlug, emittedEmployerProfilesBySlug.get(cSlug));
  const companyFollowHtml = companyFollowMountPlaceholder({
  company: companyName,
  companyKey,
@@ -8304,7 +8313,7 @@ ${staticAnalyticsHtml}
  surface: 'employer_hub',
  popupEligible: true,
  });
- const bodyHtml = `${companyFollowHtml}\n<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n${companyFollowHtml}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
