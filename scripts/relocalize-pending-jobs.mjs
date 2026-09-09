@@ -39,6 +39,7 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import { sourceChangedSinceSuppression } from './lib/source-changed-since-suppression.mjs';
 import {
   addPreviousSlugForLocale,
   captureLostSlugs,
@@ -64,6 +65,8 @@ import {
   runSalt,
   summarizeThinkingAb,
 } from './lib/thinking-ab.mjs';
+
+export { sourceChangedSinceSuppression };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -327,18 +330,6 @@ export function needsTranslation(job) {
 }
 
 /**
- * True if the job's source description length drifted >15% from the snapshot
- * taken when it was suppressed — i.e. a re-crawl rewrote the content, so the
- * give-up no longer applies and we should retry.
- */
-function sourceChangedSinceSuppression(job) {
-  const snap = job.localeMismatchSuppressedLen;
-  if (typeof snap !== 'number') return true; // no snapshot → treat as changed (retry)
-  const now = (job.description || '').trim().length;
-  return Math.abs(now - snap) > snap * 0.15;
-}
-
-/**
  * State machine for the needsRetranslation give-up cycle. Mutates `job` in place
  * and returns the outcome.
  *
@@ -479,14 +470,18 @@ export function buildCompanyExecutionGroups(companyKeys, companyJobCounts) {
 }
 
 // ── Salto per azienda sterile (valerielinc-ops/frontaliere-workspace#24) ───
-// Il freno PER JOB (MAX_RETRANSLATION_ATTEMPTS, :89) non scatta mai: tre vie
-// indipendenti lo disarmano — il contatore avanza solo se l'output e'
+// Il freno PER JOB (MAX_RETRANSLATION_ATTEMPTS, :89) aveva tre vie interne
+// indipendenti che lo disarmavano — il contatore avanza solo se l'output e'
 // CAMBIATO (reconcileRetranslationState esce 'waiting' su `!attempted`), il
 // ri-flag di un job incompleto lo azzera, e il re-crawl riscrive lo slice da
 // zero. Il punto (1) NON va riparato al suo posto: «unchanged ⇒ not
 // attempted» e' la scelta deliberata documentata a :353-359, ed e' il lato
 // sicuro (contare la sola presenza in coda riporterebbe la soppressione di
 // massa della coda mai raggiunta, regressione #5976).
+// La quarta via era il cache-miss nel ramo SKIP_AI_TRANSLATION di
+// dedicated-crawler-common.mjs: senza questa stessa guardia riattivava la coda
+// sui job soppressi. La guardia la chiude; era il vettore che ha prodotto i 41
+// job su 16 crawler misurati nell'incidente workspace#29.
 //
 // Un contatore PER AZIENDA non ha quel problema: e' un'osservazione sul
 // risultato di una `runSharedCrawler` effettivamente avvenuta, non
