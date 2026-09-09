@@ -1,0 +1,22 @@
+{
+  "companyKey": "bodmer-chur",
+  "companyName": "Café Restaurant Alterssiedlung Bodmer",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2397826-im-bodmer"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Assistent/in Gesundheit und Soziales (AGS) EBA, Chur",
+    "Koch/Köchin EFZ, Chur",
+    "Fachmann/-frau Gesundheit (FaGe) EFZ, Chur"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-09T09:08:44.128Z"
+}
