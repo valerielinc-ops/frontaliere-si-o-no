@@ -12271,7 +12271,7 @@
       "slugByLocale": {
         "it": "project-manager-in-confederazione-svizzera-bern",
         "en": "projektleiter-in-confederazione-bern",
-        "de": "projektleiter-in-confederazione-svizzera-bern-vv6wne",
+        "de": "projektleiter-in-confederazione-svizzera-bern",
         "fr": "projektleiter-in-confederazione-bern"
       },
       "id": "confederazione-ticino-135e76b96fa7",
@@ -12282,12 +12282,14 @@
         ],
         "de": [
           "projektleiter-in-confederazione-bern",
-          "projektleiter-in-confederazione-svizzera-bern"
+          "projektleiter-in-confederazione-svizzera-bern",
+          "projektleiter-in-confederazione-svizzera-bern-vv6wne"
         ]
       },
       "previousSlugs": [
         "projektleiter-in-confederazione-svizzera-bern",
-        "projektleiter-in-confederazione-bern"
+        "projektleiter-in-confederazione-bern",
+        "projektleiter-in-confederazione-svizzera-bern-vv6wne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -24814,7 +24816,8 @@
       },
       "firstSeenAt": "2026-07-22T11:19:28.644Z",
       "salarySource": "estimated",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Cyberkriminalität)",

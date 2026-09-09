@@ -1,161 +1,5 @@
 [
   {
-    "timestamp": "2026-08-15T21:59:51.960Z",
-    "label": "before",
-    "total": 26996,
-    "needsRetranslation": 10654,
-    "suppressed": 60,
-    "incomplete": 11550,
-    "complete": 15446,
-    "slotsPresent": 15446,
-    "flaggedAmongSlotsPresent": 378,
-    "verifiedTranslated": 15068,
-    "sourceCopyExcused": 598,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 66,
-      "en": 37,
-      "de": 51,
-      "fr": 53
-    },
-    "queueAge": {
-      "count": 10654,
-      "withTimestamp": 10654,
-      "oldestAgeDays": 124.5,
-      "p50AgeDays": 18,
-      "p90AgeDays": 66.6,
-      "buckets": {
-        "0-7d": 1615,
-        "7-30d": 5163,
-        "30-90d": 3573,
-        "90-180d": 303,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2089
-      },
-      {
-        "company": "Roche",
-        "pending": 557
-      },
-      {
-        "company": "Pizzeria Ristorante Molino",
-        "pending": 486
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 273
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 266
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 263
-      },
-      {
-        "company": "LANDI Aarau-West AG",
-        "pending": 260
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 234
-      },
-      {
-        "company": "BKW",
-        "pending": 222
-      },
-      {
-        "company": "JUMBO",
-        "pending": 187
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-16T00:21:52.023Z",
-    "label": "after",
-    "total": 26996,
-    "needsRetranslation": 10274,
-    "suppressed": 61,
-    "incomplete": 11542,
-    "complete": 15454,
-    "slotsPresent": 15454,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 15454,
-    "sourceCopyExcused": 600,
-    "languageVerified": null,
-    "missingByLocale": {
-      "it": 63,
-      "en": 36,
-      "de": 49,
-      "fr": 53
-    },
-    "queueAge": {
-      "count": 10274,
-      "withTimestamp": 10274,
-      "oldestAgeDays": 124.6,
-      "p50AgeDays": 18,
-      "p90AgeDays": 66.7,
-      "buckets": {
-        "0-7d": 1513,
-        "7-30d": 5011,
-        "30-90d": 3472,
-        "90-180d": 278,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2083
-      },
-      {
-        "company": "Roche",
-        "pending": 557
-      },
-      {
-        "company": "Pizzeria Ristorante Molino",
-        "pending": 486
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 273
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 266
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 263
-      },
-      {
-        "company": "LANDI Aarau-West AG",
-        "pending": 260
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 234
-      },
-      {
-        "company": "BKW",
-        "pending": 222
-      },
-      {
-        "company": "JUMBO",
-        "pending": 187
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-16T04:14:23.541Z",
     "label": "before",
     "total": 27051,
@@ -16472,6 +16316,190 @@
       {
         "company": "Swiss Re",
         "pending": 152
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-09T04:54:24.570Z",
+    "label": "before",
+    "total": 32277,
+    "needsRetranslation": 6368,
+    "suppressed": 149,
+    "incomplete": 6850,
+    "complete": 25427,
+    "slotsPresent": 25427,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 25427,
+    "sourceCopyExcused": 705,
+    "slotsPresentByLength": 32142,
+    "languageVerified": 26410,
+    "missingByLocale": {
+      "it": 60,
+      "en": 54,
+      "de": 80,
+      "fr": 85
+    },
+    "queueAge": {
+      "count": 6368,
+      "withTimestamp": 6368,
+      "oldestAgeDays": 148.8,
+      "p50AgeDays": 12.4,
+      "p90AgeDays": 66.8,
+      "buckets": {
+        "0-1d": 1531,
+        "1-2d": 91,
+        "2-7d": 604,
+        "0-7d": 2226,
+        "7-30d": 2351,
+        "30-90d": 1401,
+        "90-180d": 390,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1313
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 572
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 512
+      },
+      {
+        "company": "Roche",
+        "pending": 469
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 280
+      },
+      {
+        "company": "PEMSA",
+        "pending": 180
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 176
+      },
+      {
+        "company": "Sulzer",
+        "pending": 159
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 144
+      },
+      {
+        "company": "Manor AG",
+        "pending": 100
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-09T06:05:46.136Z",
+    "label": "after",
+    "total": 32277,
+    "needsRetranslation": 6338,
+    "suppressed": 152,
+    "incomplete": 6804,
+    "complete": 25473,
+    "slotsPresent": 25473,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 25473,
+    "sourceCopyExcused": 705,
+    "slotsPresentByLength": 32142,
+    "languageVerified": 26440,
+    "missingByLocale": {
+      "it": 60,
+      "en": 57,
+      "de": 80,
+      "fr": 85
+    },
+    "queueAge": {
+      "count": 6338,
+      "withTimestamp": 6338,
+      "oldestAgeDays": 148.8,
+      "p50AgeDays": 12.4,
+      "p90AgeDays": 66.8,
+      "buckets": {
+        "0-1d": 1515,
+        "1-2d": 91,
+        "2-7d": 602,
+        "0-7d": 2208,
+        "7-30d": 2328,
+        "30-90d": 1417,
+        "90-180d": 385,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 46,
+      "withTimestamp": 46,
+      "oldestAgeDays": 148.3,
+      "p50AgeDays": 13.2,
+      "p90AgeDays": 13.2,
+      "buckets": {
+        "0-1d": 17,
+        "1-2d": 0,
+        "2-7d": 2,
+        "0-7d": 19,
+        "7-30d": 25,
+        "30-90d": 1,
+        "90-180d": 1,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "STA Personal AG",
+        "pending": 1313
+      },
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 544
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 512
+      },
+      {
+        "company": "Roche",
+        "pending": 469
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 280
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 176
+      },
+      {
+        "company": "PEMSA",
+        "pending": 167
+      },
+      {
+        "company": "Sulzer",
+        "pending": 159
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 144
+      },
+      {
+        "company": "Manor AG",
+        "pending": 100
       }
     ]
   }
