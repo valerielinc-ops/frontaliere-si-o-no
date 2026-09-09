@@ -63,6 +63,14 @@ function mint(scope: string, opts: { now?: number; policy?: TokenPolicy } = {}) 
 function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
   const docs: Record<string, Record<string, unknown>> = { ...seed };
   const events: Array<Record<string, unknown>> = [];
+  const childDocs = (collection: string, parentId: string, sub: string) => {
+    const prefix = `${collection}/${parentId}/${sub}/`;
+    return Object.fromEntries(
+      Object.entries(docs)
+        .filter(([key]) => key.startsWith(prefix))
+        .map(([key, value]) => [key.slice(prefix.length), value]),
+    );
+  };
   return {
     docs,
     events,
@@ -74,10 +82,41 @@ function createFakeDb(seed: Record<string, Record<string, unknown>> = {}) {
             set: async (data: Record<string, unknown>) => {
               docs[`${name}/${id}`] = { ...(docs[`${name}/${id}`] || {}), ...data };
             },
-            collection: (sub: string) => ({
-              add: async (data: Record<string, unknown>) => { events.push({ collection: `${name}/${id}/${sub}`, ...data }); },
-              get: async () => ({ forEach: () => {} }),
-            }),
+            collection: (sub: string) => {
+              const prefix = `${name}/${id}/${sub}`;
+              if (sub !== 'alerts') {
+                return {
+                  add: async (data: Record<string, unknown>) => { events.push({ collection: prefix, ...data }); },
+                  get: async () => ({ forEach: () => {} }),
+                };
+              }
+              return {
+                add: async (data: Record<string, unknown>) => {
+                  const childId = `alert-${Object.keys(childDocs(name, id, sub)).length + 1}`;
+                  docs[`${prefix}/${childId}`] = { ...data };
+                  return {
+                    id: childId,
+                    get: async () => ({ exists: true, data: () => docs[`${prefix}/${childId}`] }),
+                    set: async (next: Record<string, unknown>) => { docs[`${prefix}/${childId}`] = { ...docs[`${prefix}/${childId}`], ...next }; },
+                  };
+                },
+                get: async () => ({
+                  forEach: (cb: (doc: { id: string; data: () => Record<string, unknown> }) => void) => {
+                    Object.entries(childDocs(name, id, sub)).forEach(([childId, data]) => cb({ id: childId, data: () => data }));
+                  },
+                }),
+                doc: (childId: string) => ({
+                  id: childId,
+                  get: async () => ({
+                    exists: Boolean(docs[`${prefix}/${childId}`]),
+                    data: () => docs[`${prefix}/${childId}`] || {},
+                  }),
+                  set: async (data: Record<string, unknown>) => {
+                    docs[`${prefix}/${childId}`] = { ...(docs[`${prefix}/${childId}`] || {}), ...data };
+                  },
+                }),
+              };
+            },
           };
         },
         add: async (data: Record<string, unknown>) => { events.push({ collection: name, ...data }); },
@@ -443,6 +482,40 @@ describe('the re-subscribe form on the opt-out page', () => {
 });
 
 describe('the preferences API is gated on the preferences scope', () => {
+  it('makes token create_alert idempotent for a repeated company follow', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': { status: 'confirmed', isActive: true },
+    });
+    const payload = {
+      action: 'create_alert',
+      email: EMAIL,
+      token: mint(TOKEN_SCOPES.PREFERENCES)!,
+      secret: SECRET,
+      locale: 'it',
+      method: 'POST',
+      tokenPolicy: V1,
+      specificCompanyKey: 'Migros Ticino',
+      db: db as never,
+    };
+
+    const first = await handleSubscriptionManagement(payload);
+    const second = await handleSubscriptionManagement(payload);
+
+    expect(first.status).toBe(200);
+    expect(second.status).toBe(200);
+    expect(second.json.alert.id).toBe(first.json.alert.id);
+    const alerts = Object.entries(db.docs).filter(([key]) => key.startsWith('job_alert_subscribers/recipient@example.com/alerts/'));
+    expect(alerts).toHaveLength(1);
+    expect(alerts[0][1]).toMatchObject({
+      specificCompanyKey: 'migros',
+      consent_purpose: 'companyFollow',
+      consent_act: 'company_follow_activation',
+    });
+    expect(alerts[0][1]).not.toHaveProperty('consent_source_url');
+    expect(alerts[0][1]).not.toHaveProperty('consent_user_agent');
+    expect(alerts[0][1]).not.toHaveProperty('consent_ip');
+  });
+
   it('refuses an unsubscribe token on the actions that read and write alerts', async () => {
     for (const action of ['get_full_status', 'create_alert', 'delete_alert', 'toggle_newsletter_subscription', 'revoke_autologin']) {
       const result = await handleSubscriptionManagement({

@@ -12,6 +12,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { baseCompanySlug, canonicalCompanyProfileSlug, rawCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { BRAND_CANONICAL_MAP } from '../build-plugins/shared/brandCanonicalMap.mjs';
 import { canonicalEmployerBrandKey } from '@/services/employerBrands';
 import { canonicalCompanySlug } from '../build-plugins/weeklyEmployersData';
 import { buildAlertProfile, scoreJobForAlert } from '@/services/jobAlertMatching.mjs';
@@ -22,6 +23,9 @@ import { buildAlertProfile, scoreJobForAlert } from '@/services/jobAlertMatching
 // Hoisted by vitest above every import below.
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({ id: 'alert-id' }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
+const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; data: () => any }>>(
+  async () => ({ exists: () => false, data: () => undefined }),
+);
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
@@ -29,7 +33,8 @@ vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
   collection: vi.fn(() => ({})),
   addDoc: (...args: unknown[]) => addDocMock(...args),
-  doc: vi.fn(() => ({})),
+  doc: vi.fn((...args: unknown[]) => ({ id: String(args[args.length - 1] || 'doc-id') })),
+  getDoc: (...args: unknown[]) => getDocMock(...args),
   setDoc: (...args: unknown[]) => setDocMock(...args),
   updateDoc: vi.fn(async () => undefined),
   query: vi.fn(() => ({})),
@@ -258,11 +263,17 @@ describe('token-mode Cloud Function accepts a company-only alert (#5012)', () =>
 
   it('mirrors baseCompanySlug exactly (bundle cannot import outside functions/)', () => {
     const fn = /function normalizeCompanyAlertKey\(value\) \{[\s\S]*?\n\}/.exec(cf)?.[0] || '';
+    const aliases = /const BRAND_ALIAS_TO_CANONICAL = Object\.freeze\(\{[\s\S]*?\n\}\);/.exec(cf)?.[0] || '';
     expect(fn).toBeTruthy();
+    expect(aliases).toBeTruthy();
     // eslint-disable-next-line no-new-func
-    const mirror = new Function(`${fn}; return normalizeCompanyAlertKey;`)() as (v: string) => string;
+    const mirror = new Function(`${aliases}; ${fn}; return normalizeCompanyAlertKey;`)() as (v: string) => string;
     for (const name of ['Board International', 'Bürgenstock Hotels & Resort', 'Lidl Schweiz AG', 'Coop', '']) {
       expect(mirror(name)).toBe(baseCompanySlug(name, name));
+    }
+    for (const brand of Object.values(BRAND_CANONICAL_MAP)) {
+      expect(mirror(brand.canonical)).toBe(brand.canonical);
+      for (const alias of brand.aliases) expect(mirror(alias)).toBe(brand.canonical);
     }
   });
 });
@@ -421,13 +432,18 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
   beforeEach(() => {
     addDocMock.mockClear();
     setDocMock.mockClear();
+    getDocMock.mockReset();
+    getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
     getDocsMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
   });
 
   it('writes frequency:immediate with a sticky override and the canonical key', async () => {
     await subscribeCompanyAlert('user-1', 'Foo@Example.COM', { name: 'Migros Ticino' }, 'it');
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    const payload = (setDocMock.mock.calls.find((call) => {
+      const data = call[1] as Record<string, unknown> | undefined;
+      return data?.specificCompanyKey === 'migros';
+    }) as unknown[])[1] as Record<string, unknown>;
     expect(payload).toMatchObject({
       frequency: 'immediate',
       // Sticky: without it the adaptive-cadence engine
@@ -438,7 +454,49 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
       specificCompanyKey: 'migros',
       keywords: [],
       locations: [],
+      consent_purpose: 'companyFollow',
+      consent_act: 'company_follow_activation',
     });
+    expect(payload).not.toHaveProperty('consent_source_url');
+    expect(payload).not.toHaveProperty('consent_user_agent');
+    expect(payload).not.toHaveProperty('consent_ip');
+  });
+
+  it('uses one idempotent alert transition for two tabs/retries', async () => {
+    const stored = {
+      id: 'intent-existing',
+      userId: 'user-1',
+      email: 'foo@example.com',
+      specificCompanyKey: 'migros',
+      specificJobId: null,
+      keywords: [],
+      locations: [],
+      contractTypes: [],
+      sectors: [],
+      cantonFilter: null,
+      frequency: 'immediate',
+      frequencyOverride: true,
+      locale: 'it',
+      active: true,
+      createdAt: new Date(),
+      lastMatchedAt: null,
+      matchCount: 0,
+    };
+    getDocMock
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => true, data: () => stored });
+    getDocsMock.mockResolvedValue({ size: 0, docs: [] });
+
+    const first = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it');
+    const second = await subscribeCompanyAlert('user-1', 'foo@example.com', { name: 'Migros Ticino' }, 'it');
+
+    expect(first.id).toBe(second.id);
+    const alertWrites = setDocMock.mock.calls.filter((call) => {
+      const data = call[1] as Record<string, unknown> | undefined;
+      return data?.specificCompanyKey === 'migros';
+    });
+    expect(alertWrites).toHaveLength(1);
+    expect(addDocMock).not.toHaveBeenCalled();
   });
 });
 
@@ -849,8 +907,10 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
   it('replays the parked follow once the address is confirmed', async () => {
     savePendingCompanyFollow(intent);
     const subscribe = vi.fn(async () => ({ id: 'created-1' }));
-    const created = await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never);
-    expect(created).toHaveLength(1);
+    const outcome = await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never);
+    expect(outcome.created).toHaveLength(1);
+    expect(outcome.failed).toHaveLength(0);
+    expect(outcome.pending).toBe(0);
     expect(subscribe).toHaveBeenCalledWith(
       'uid-1',
       'anon@example.com',
@@ -869,17 +929,28 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
   it('never replays another visitor\'s parked follow on a shared device', async () => {
     savePendingCompanyFollow(intent);
     const subscribe = vi.fn(async () => ({ id: 'x' }));
-    expect(await flushPendingCompanyFollows('uid-2', 'someone.else@example.com', subscribe as never)).toEqual([]);
+    expect(await flushPendingCompanyFollows('uid-2', 'someone.else@example.com', subscribe as never)).toEqual({
+      created: [],
+      failed: [],
+      pending: 0,
+    });
     expect(subscribe).not.toHaveBeenCalled();
     expect(readPendingCompanyFollows()).toHaveLength(1);
   });
 
-  it('clears the queue even when the write keeps failing', async () => {
+  it('retains a failed intent with a retryable outcome', async () => {
     savePendingCompanyFollow(intent);
     const subscribe = vi.fn(async () => { throw new Error('Maximum 10 active alerts per user.'); });
-    expect(await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never)).toEqual([]);
-    // Otherwise a permanently-failing intent retries on every page load forever.
-    expect(readPendingCompanyFollows()).toHaveLength(0);
+    await expect(
+      flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never),
+    ).resolves.toMatchObject({
+      created: [],
+      failed: [{ company: 'Board International SA' }],
+      pending: 1,
+    });
+    // A transient failure must remain observable and retryable; deleting the
+    // whole email queue loses the user's explicit follow without recovery.
+    expect(readPendingCompanyFollows()).toHaveLength(1);
   });
 
   it('reuses the shared pending-intent store instead of a fourth localStorage helper', () => {
@@ -970,6 +1041,9 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     const app = readRepoFile('App.tsx');
     expect(app).toContain('flushPendingCompanyFollows');
     expect(app).toContain("action === 'confirm_newsletter'");
+    expect(app).toContain('companyFollowFollowup');
+    expect(app).toContain('outcome.pending');
+    expect(app).toContain('Torna alla pagina e completa il seguito');
   });
 });
 

@@ -73,7 +73,7 @@ describe('welcome-email client-side wiring (services/newsletterSubscribers.ts)',
     vi.stubGlobal('window', {
       location: { pathname: '/', href: 'https://frontaliereticino.ch/' },
     });
-    fetchMock = vi.fn(async () => ({ json: async () => ({ success: true }) }));
+    fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({ success: true }) }));
     vi.stubGlobal('fetch', fetchMock);
   });
 

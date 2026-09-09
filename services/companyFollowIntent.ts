@@ -42,10 +42,10 @@
  * localStorage, not a Firestore `pending_follows` collection: a new collection
  * means a new query shape means a new composite index, and
  * `firestore.indexes.json` is NOT applied by CI (see `subscribeCompanyAlert`'s
- * docblock). The cost is that a confirmation opened on a DIFFERENT device loses
- * the parked follow — the subscriber is still created and confirmed, the user
- * simply taps "Segui" again, now signed in. Losing a tap is the correct trade
- * against shipping a query that fails in production.
+ * docblock). A confirmation opened on a DIFFERENT device cannot carry this
+ * local payload. The confirmation endpoint therefore returns an explicit
+ * follow-up marker and App.tsx shows an action to return to the company page.
+ * The local queue is an optimisation, never the only recovery path.
  */
 
 import type { JobAlert } from './jobAlertService';
@@ -74,6 +74,10 @@ export interface PendingCompanyFollow {
   email: string;
   /** ms epoch. */
   savedAt: number;
+  /** Retry metadata; never contains the original error or an email address. */
+  attempts?: number;
+  lastAttemptAt?: number;
+  lastError?: 'subscribe_failed' | 'permission_denied' | 'alert_limit_reached' | 'invalid_company';
 }
 
 function readRaw(): PendingCompanyFollow[] {
@@ -84,9 +88,10 @@ function readRaw(): PendingCompanyFollow[] {
   return Array.isArray(stored) ? stored : [];
 }
 
-function writeRaw(entries: PendingCompanyFollow[]): void {
+function writeRaw(entries: PendingCompanyFollow[]): boolean {
   if (entries.length === 0) clearIntent(KEY);
-  else saveIntent(KEY, entries);
+  else return saveIntent(KEY, entries);
+  return true;
 }
 
 /**
@@ -128,15 +133,29 @@ export function clearPendingCompanyFollows(): void {
  * a `userId` exists. Called from App.tsx's `confirm_newsletter` handler, right
  * after `signInWithCustomAuthToken`.
  *
- * Best-effort by contract: a failure here must never break the confirmation
- * flow (the subscriber IS confirmed, which is the important half). Entries are
- * cleared regardless of per-item outcome so a permanently failing intent — an
- * employer whose slug no longer resolves, or a user already at
- * MAX_ALERTS_PER_USER — cannot retry on every future page load.
+ * A failure here must never break the confirmation flow (the subscriber IS
+ * confirmed), but it also must never erase the user's request. Success removes
+ * only that intent; failure persists a bounded retry marker and is returned to
+ * App.tsx so the state is visible and actionable.
  *
  * @param subscribe Injected for tests; defaults to the real write path.
- * @returns the alerts actually created.
+ * @returns a retryable outcome; `pending` is the number of this email's
+ * intents still stored after the attempt.
  */
+export interface FlushPendingCompanyFollowsOutcome {
+  created: JobAlert[];
+  failed: Array<{ company: string; error: PendingCompanyFollow['lastError'] }>;
+  pending: number;
+}
+
+function classifyFlushError(error: unknown): PendingCompanyFollow['lastError'] {
+  const message = error instanceof Error ? error.message.toLowerCase() : '';
+  if (message.includes('permission') || message.includes('denied')) return 'permission_denied';
+  if (message.includes('maximum') || message.includes('limit')) return 'alert_limit_reached';
+  if (message.includes('empty company') || message.includes('company name')) return 'invalid_company';
+  return 'subscribe_failed';
+}
+
 export async function flushPendingCompanyFollows(
   userId: string,
   email: string,
@@ -147,17 +166,19 @@ export async function flushPendingCompanyFollows(
     locale: 'it' | 'en' | 'de' | 'fr',
     source?: { slug?: string | null; url?: string | null; title?: string | null },
   ) => Promise<JobAlert>,
-): Promise<JobAlert[]> {
+): Promise<FlushPendingCompanyFollowsOutcome> {
   const normalized = String(email || '').trim().toLowerCase();
-  if (!userId || !normalized) return [];
+  if (!userId || !normalized) return { created: [], failed: [], pending: 0 };
   const all = readPendingCompanyFollows();
   const mine = all.filter((e) => e.email === normalized);
-  if (mine.length === 0) return [];
+  if (mine.length === 0) return { created: [], failed: [], pending: 0 };
 
   const write = subscribe
     || (await import('./jobAlertService')).subscribeCompanyAlert;
 
+  let remaining = all;
   const created: JobAlert[] = [];
+  const failed: FlushPendingCompanyFollowsOutcome['failed'] = [];
   for (const intent of mine) {
     try {
       created.push(
@@ -173,11 +194,27 @@ export async function flushPendingCompanyFollows(
           },
         ),
       );
-    } catch {
-      // Swallowed on purpose — see the docblock. The loop continues so one bad
-      // intent cannot block the others.
+      remaining = remaining.filter((candidate) => candidate !== intent);
+      writeRaw(remaining);
+    } catch (error) {
+      // Keep only a bounded classification: thrown provider/Firestore messages
+      // can contain identifiers and must not become localStorage telemetry.
+      const lastError = classifyFlushError(error);
+      failed.push({ company: intent.company, error: lastError });
+      remaining = remaining.map((candidate) => candidate === intent
+        ? {
+          ...candidate,
+          attempts: (candidate.attempts || 0) + 1,
+          lastAttemptAt: Date.now(),
+          lastError,
+        }
+        : candidate);
+      writeRaw(remaining);
     }
   }
-  writeRaw(all.filter((e) => e.email !== normalized));
-  return created;
+  return {
+    created,
+    failed,
+    pending: remaining.filter((entry) => entry.email === normalized).length,
+  };
 }

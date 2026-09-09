@@ -14,13 +14,15 @@ interface StoredIntent<T> {
 
 export const DEFAULT_INTENT_TTL_MS = 15 * 60 * 1000;
 
-export function saveIntent<T>(key: string, value: T): void {
-  if (typeof window === 'undefined') return;
+export function saveIntent<T>(key: string, value: T): boolean {
+  if (typeof window === 'undefined') return false;
   try {
     const payload: StoredIntent<T> = { value, savedAt: Date.now() };
     window.localStorage.setItem(key, JSON.stringify(payload));
+    return true;
   } catch {
-    /* localStorage unavailable (private mode / quota) — degrade to no replay */
+    /* localStorage unavailable (private mode / quota) — caller shows recovery */
+    return false;
   }
 }
 

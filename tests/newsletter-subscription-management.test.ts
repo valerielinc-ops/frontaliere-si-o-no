@@ -1,42 +1,69 @@
 import { describe, expect, it } from 'vitest';
-import { verifyHmacToken, handleSubscriptionManagement } from '../functions/src/newsletterSubscriptionManagement.js';
+import { verifyHmacToken, handleSubscriptionManagement, normalizeCompanyAlertKey } from '../functions/src/newsletterSubscriptionManagement.js';
 import { createHmac } from 'node:crypto';
 
 const TEST_SECRET = 'test-newsletter-secret-key-2026';
 const TEST_EMAIL = 'user@example.com';
 const VALID_TOKEN = createHmac('sha256', TEST_SECRET).update(TEST_EMAIL).digest('hex');
 
-function createFakeDb(
-  existingDocs: Record<string, Record<string, Record<string, unknown>>> = {},
-  // Subcollection docs, e.g. { job_alert_subscribers: { 'user@example.com': { alerts: { alert1: {...} } } } }
-  subcollectionDocs: Record<string, Record<string, Record<string, Record<string, Record<string, unknown>>>>> = {},
-) {
+function createFakeDb(existingDocs: Record<string, any> = {}, subcollectionDocs: Record<string, any> = {}) {
   const sets: Array<{ collection: string; docId: string; data: Record<string, unknown>; options?: unknown }> = [];
   const adds: Array<{ collection: string; data: Record<string, unknown> }> = [];
+  const deletes: Array<{ collection: string; docId: string }> = [];
 
-  const makeCollection = (name: string) => ({
-    doc: (docId: string) => ({
+  const getSubDocs = (name: string, docId: string, subName: string): Record<string, Record<string, unknown>> => {
+    subcollectionDocs[name] ||= {};
+    subcollectionDocs[name][docId] ||= {};
+    subcollectionDocs[name][docId][subName] ||= {};
+    return subcollectionDocs[name][docId][subName];
+  };
+
+  const makeCollection = (name: string): any => ({
+    doc: (docId: string): any => ({
       set: async (data: Record<string, unknown>, options?: unknown) => {
         sets.push({ collection: name, docId, data, options });
+        existingDocs[name] ||= {};
+        existingDocs[name][docId] = { ...(existingDocs[name][docId] || {}), ...data };
       },
       get: async () => {
         const docData = existingDocs[name]?.[docId];
         return { exists: !!docData, data: () => docData || {} };
       },
-      collection: (subName: string) => ({
+      delete: async () => {
+        deletes.push({ collection: name, docId });
+        delete existingDocs[name]?.[docId];
+      },
+      collection: (subName: string): any => ({
         add: async (data: Record<string, unknown>) => {
           adds.push({ collection: `${name}/${docId}/${subName}`, data });
+          const subDocs = getSubDocs(name, docId, subName);
+          const id = `new-${Object.keys(subDocs).length + 1}`;
+          subDocs[id] = { ...data };
           return {
-            id: 'new-alert-1',
-            get: async () => ({ exists: true, data: () => data }),
+            id,
+            get: async () => ({ exists: true, data: () => subDocs[id] }),
           };
         },
         get: async () => {
-          const subDocs: Record<string, Record<string, unknown>> = subcollectionDocs[name]?.[docId]?.[subName] || {};
-          const entries = Object.entries(subDocs);
+          const entries = Object.entries(getSubDocs(name, docId, subName));
           return {
             forEach: (cb: (doc: { id: string; data: () => Record<string, unknown> }) => void) => {
               entries.forEach(([id, data]) => cb({ id, data: () => data }));
+            },
+          };
+        },
+        doc: (childId: string): any => {
+          const subDocs = getSubDocs(name, docId, subName);
+          return {
+            id: childId,
+            set: async (data: Record<string, unknown>, options?: unknown) => {
+              sets.push({ collection: `${name}/${docId}/${subName}`, docId: childId, data, options });
+              subDocs[childId] = options ? { ...(subDocs[childId] || {}), ...data } : { ...data };
+            },
+            get: async () => ({ exists: !!subDocs[childId], data: () => subDocs[childId] || {} }),
+            delete: async () => {
+              deletes.push({ collection: `${name}/${docId}/${subName}`, docId: childId });
+              delete subDocs[childId];
             },
           };
         },
@@ -51,6 +78,8 @@ function createFakeDb(
     collection: (name: string) => makeCollection(name),
     __sets: sets,
     __adds: adds,
+    __deletes: deletes,
+    __subcollectionDocs: subcollectionDocs,
   };
 }
 
@@ -78,6 +107,13 @@ describe('verifyHmacToken', () => {
 });
 
 describe('handleSubscriptionManagement', () => {
+  it('uses the canonical brand aliases at the token boundary', () => {
+    expect(normalizeCompanyAlertKey('Migros Ticino')).toBe('migros');
+    expect(normalizeCompanyAlertKey('gruppo-migros')).toBe('migros');
+    expect(normalizeCompanyAlertKey('Guess Ticino')).toBe('guess-europe-sagl');
+    expect(normalizeCompanyAlertKey('guess-europe-switzerland')).toBe('guess-europe-sagl');
+  });
+
   it('unsubscribes with valid HMAC token', async () => {
     const db = createFakeDb({
       newsletter_subscribers: {
@@ -172,7 +208,112 @@ describe('handleSubscriptionManagement', () => {
       active: true,
     });
     expect(parentSet?.data).toHaveProperty('account_deleted_at');
-    expect(db.__adds.some((a) => a.collection === `job_alert_subscribers/${TEST_EMAIL}/alerts`)).toBe(true);
+    const alertDocs = db.__subcollectionDocs.job_alert_subscribers[TEST_EMAIL].alerts;
+    expect(Object.values(alertDocs).some((data: any) => data.locations?.includes('Lugano'))).toBe(true);
+  });
+
+  it('deletes an alert by state transition and keeps the audit document', async () => {
+    const db = createFakeDb({}, {
+      job_alert_subscribers: {
+        [TEST_EMAIL]: {
+          alerts: {
+            'alert-keep': { keywords: ['Sviluppo'], active: true, createdAt: 'before' },
+          },
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'delete_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      alertId: 'alert-keep',
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(db.__deletes).toHaveLength(0);
+    const transition = db.__sets.find(
+      (s) => s.collection === `job_alert_subscribers/${TEST_EMAIL}/alerts` && s.docId === 'alert-keep',
+    );
+    expect(transition?.data).toMatchObject({ active: false, unsubscribe_source: 'preferences_link' });
+    expect(db.__subcollectionDocs.job_alert_subscribers[TEST_EMAIL].alerts['alert-keep']).toMatchObject({
+      keywords: ['Sviluppo'],
+      active: false,
+    });
+  });
+
+  it('returns a safe followup action after a company-follow confirmation', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'confirmed',
+          isActive: true,
+          active: true,
+          source_channel: 'company_follow_button',
+          source_page: '/lavoro/azienda/',
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect((result as any).companyFollowFollowup).toEqual({
+      required: true,
+      sourcePath: '/lavoro/azienda/',
+      newsletterActive: true,
+    });
+  });
+
+  it('keeps a company-only confirmation suppressed until the alert action completes', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'pending',
+          isActive: false,
+          active: false,
+          source_channel: 'company_follow_button',
+          source_page: '/lavoro/azienda/board/',
+          company_follow_only: true,
+          company_follow_followup_pending: true,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'confirm',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      db: db as any,
+    });
+
+    const subscriberSet = db.__sets.find(
+      (s) => s.collection === 'newsletter_subscribers' && s.docId === TEST_EMAIL,
+    );
+    expect(result.status).toBe(200);
+    expect(subscriberSet?.data).toMatchObject({
+      status: 'suppressed',
+      isActive: false,
+      active: false,
+      company_follow_followup_pending: true,
+    });
+    expect((result as any).companyFollowFollowup).toEqual({
+      required: true,
+      sourcePath: '/lavoro/azienda/board/',
+      newsletterActive: false,
+    });
   });
 
   it('rejects invalid HMAC token', async () => {
@@ -242,7 +383,7 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 follow-u
         job_alert_subscribers: {
           [TEST_EMAIL]: {
             alerts: {
-              'alert-active': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true, paused: false },
+              'alert-active': { keywords: ['Sviluppo'], locations: [], sectors: [], frequency: 'weekly', active: true, paused: false, specificCompanyKey: 'migros', specificJobId: 'job-1' },
               'alert-paused': { keywords: ['Logistica'], locations: [], sectors: [], frequency: 'weekly', active: true, paused: true },
             },
           },
@@ -267,6 +408,8 @@ describe('handleSubscriptionManagement — get_full_status (issue #4298 follow-u
     const paused = result.json.alerts.find((a: any) => a.id === 'alert-paused');
     expect(active.active).toBe(true);
     expect(active.paused).toBe(false);
+    expect(active.specificCompanyKey).toBe('migros');
+    expect(active.specificJobId).toBe('job-1');
     expect(paused).toBeTruthy();
     expect(paused.active).toBe(true);
     expect(paused.paused).toBe(true);

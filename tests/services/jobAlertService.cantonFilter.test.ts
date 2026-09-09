@@ -22,6 +22,9 @@ const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async 
   id: 'alert-id',
 }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
+const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; data: () => unknown }>>(
+  async () => ({ exists: () => false, data: () => undefined }),
+);
 const updateDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
@@ -31,7 +34,8 @@ vi.mock('firebase/firestore', () => ({
   collectionGroup: vi.fn(() => ({})),
   collection: vi.fn(() => ({})),
   addDoc: (...args: unknown[]) => addDocMock(...args),
-  doc: vi.fn(() => ({})),
+  doc: vi.fn((...args: unknown[]) => ({ id: String(args[args.length - 1] || 'doc-id') })),
+  getDoc: (...args: unknown[]) => getDocMock(...args),
   setDoc: (...args: unknown[]) => setDocMock(...args),
   updateDoc: (...args: unknown[]) => updateDocMock(...args),
   query: vi.fn(() => ({})),
@@ -53,6 +57,8 @@ import {
 beforeEach(() => {
   addDocMock.mockClear();
   setDocMock.mockClear();
+  getDocMock.mockReset();
+  getDocMock.mockResolvedValue({ exists: () => false, data: () => undefined });
   updateDocMock.mockClear();
   getDocsMock.mockClear();
   getDocsMock.mockResolvedValue({ size: 0, docs: [] });
@@ -101,31 +107,31 @@ describe('createAlert — cantonFilter persistence', () => {
 
   it('writes a single-canton filter (TI alone)', async () => {
     await createAlert('u1', 'a@b.com', { ...baseConfig, cantonFilter: ['TI'] });
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as { cantonFilter: unknown };
+    const payload = (setDocMock.mock.calls[1] as unknown[])[1] as { cantonFilter: unknown };
     expect(payload.cantonFilter).toEqual(['TI']);
   });
 
   it('writes a sorted multi-canton filter (TI + GE → [GE, TI])', async () => {
     await createAlert('u1', 'a@b.com', { ...baseConfig, cantonFilter: ['TI', 'GE'] });
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as { cantonFilter: unknown };
+    const payload = (setDocMock.mock.calls[1] as unknown[])[1] as { cantonFilter: unknown };
     expect(payload.cantonFilter).toEqual(['GE', 'TI']);
   });
 
   it('writes null when cantonFilter is omitted (all-cantons default)', async () => {
     await createAlert('u1', 'a@b.com', { ...baseConfig });
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as { cantonFilter: unknown };
+    const payload = (setDocMock.mock.calls[1] as unknown[])[1] as { cantonFilter: unknown };
     expect(payload.cantonFilter).toBeNull();
   });
 
   it('writes null when cantonFilter is an empty array', async () => {
     await createAlert('u1', 'a@b.com', { ...baseConfig, cantonFilter: [] });
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as { cantonFilter: unknown };
+    const payload = (setDocMock.mock.calls[1] as unknown[])[1] as { cantonFilter: unknown };
     expect(payload.cantonFilter).toBeNull();
   });
 
   it('writes null when cantonFilter is explicitly null', async () => {
     await createAlert('u1', 'a@b.com', { ...baseConfig, cantonFilter: null });
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as { cantonFilter: unknown };
+    const payload = (setDocMock.mock.calls[1] as unknown[])[1] as { cantonFilter: unknown };
     expect(payload.cantonFilter).toBeNull();
   });
 
