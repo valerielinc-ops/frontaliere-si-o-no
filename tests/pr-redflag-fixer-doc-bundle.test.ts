@@ -32,7 +32,7 @@ function fixerPrompt(): string {
 }
 
 describe('pr-redflag-fixer prefetches its binding document sections', () => {
-  it('puts the real required content in the existing bundle path', () => {
+  it('delivers binding content to the action prompt after a persisted bundle read', () => {
     const run = collectContextRun();
     const prompt = fixerPrompt();
     const result = spawnSync(process.execPath, [SCRIPT], {
@@ -53,14 +53,57 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     expect(run).toContain('git show "origin/main:$doc"');
     expect(run).toContain('REDFLAG_DOC_ROOT="$OUT/canonical-docs"');
     expect(run).toContain('node scripts/ci/redflag-doc-sections.mjs');
-    const bundleAssembly = run.match(/\{\n([\s\S]*?)\n\s*\} > "\$OUT\/redflag-bundle\.md"/)?.[1];
+    expect(run).toMatch(/REDFLAG_DOC_SECTIONS<<[A-Z0-9_]+/);
+    const bundleAssembly = run.match(/(echo "# Redflag-fix bundle[\s\S]*?\n\s*\} > "\$OUT\/redflag-bundle\.md")/)?.[1];
     expect(bundleAssembly, 'the existing bundle assembly is missing').toEqual(expect.any(String));
-    expect(bundleAssembly).toContain('cat "$OUT/redflag-doc-sections.md"');
+    expect(bundleAssembly).not.toContain('cat "$OUT/redflag-doc-sections.md"');
 
-    expect(prompt).toContain('`REVIEW.md` (scopo + severity)');
-    expect(prompt).toContain('`AGENTS.md` (Non-Negotiables + Privacy)');
+    expect(prompt).toContain('${{ env.REDFLAG_DOC_SECTIONS }}');
+    expect(prompt).toContain('sezioni vincolanti sono già dentro questa richiesta');
     expect(prompt).toMatch(/prefetch fallito[\s\S]*bundle incompleto/i);
-    expect(prompt).not.toMatch(/Leggi `REVIEW\.md` \(severity\/scopo\).*`AGENTS\.md`/);
+
+    const sentinel = 'SENTINEL_AFTER_THE_TOOL_PREVIEW_7f2c';
+    const fixtureDocs: Record<string, string> = {
+      'REVIEW.md': [
+        '# Review',
+        '',
+        REQUIRED_SECTIONS[0].heading,
+        '',
+        `${'padding '.repeat(300)}${sentinel}`,
+        '',
+        REQUIRED_SECTIONS[1].heading,
+        '',
+        'severity binding content',
+      ].join('\n'),
+      'AGENTS.md': [
+        '# Agents',
+        '',
+        REQUIRED_SECTIONS[2].heading,
+        '',
+        'non-negotiable binding content',
+        '',
+        REQUIRED_SECTIONS[3].heading,
+        '',
+        'privacy binding content',
+      ].join('\n'),
+    };
+    const injectedSections = buildRedflagDocumentSections({
+      read: (file) => fixtureDocs[file],
+    });
+    const persistedToolOutput = [
+      '<persisted-output>',
+      'Output too large (redflag-bundle.md). Full output saved to: /runner/temp/redflag/redflag-bundle.md',
+      '',
+      'Preview (first 2KB):',
+      injectedSections.slice(0, 2048),
+      '</persisted-output>',
+    ].join('\n');
+    const resolvedPrompt = prompt.replace('${{ env.REDFLAG_DOC_SECTIONS }}', injectedSections);
+
+    expect(injectedSections.indexOf(sentinel)).toBeGreaterThan(2048);
+    expect(persistedToolOutput).not.toContain(sentinel);
+    expect(resolvedPrompt).toContain(sentinel);
+    expect(`${resolvedPrompt}\n${persistedToolOutput}`).toContain(sentinel);
   });
 
   it('extracts by heading and fails when a required heading disappears', () => {
