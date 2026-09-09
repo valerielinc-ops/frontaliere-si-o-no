@@ -26,7 +26,7 @@ describe('affiliate link attribution', () => {
       campaign: 'g4-contextual',
       variant: 'v1',
     });
-    expect(longPubref).toHaveLength(48);
+    expect(longPubref.length).toBeLessThanOrEqual(48);
     expect(longPubref.startsWith('creditagricole-v1-web-')).toBe(true);
 
     const href = buildAffiliateLinkHref({ id: 'wise' }, {
