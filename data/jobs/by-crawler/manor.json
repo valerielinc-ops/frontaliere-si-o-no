@@ -160,7 +160,6 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-a2658c808279",
       "salaryMin": 41400,
       "salaryMax": 51900,
@@ -179,8 +178,7 @@
       "addressLocality": "Emmen Mitarbeiterin Service 60",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-08T13:46:26.073Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-09-08T13:46:26.073Z"
     },
     {
       "title": "Collaboratore/trice vendita (Bigiotteria) 40%",
@@ -5051,7 +5049,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-20-manor-ag-basel-mitarbeiterin-kasse-20",
         "en": "employee-in-cash-register-20-manor-ag-basel-mitarbeiterin-kasse-20",
-        "de": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+        "de": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20-s5hryj",
         "fr": "employe-dans-la-caisse-enregistreuse-20-manor-ag-basel-mitarbeiterin-kasse-20"
       },
       "titleByLocale": {
@@ -7463,11 +7461,10 @@
         "it": "Boucher/ère 70%",
         "en": "Boucher/restaurant 70%",
         "de": "Boucher/Restaurant 70%",
-        "fr": "Boucher/ère 70%"
+        "fr": "Boucher/restaurant 70%"
       },
       "sourceLang": "it",
       "id": "manor-1e7b30c5b1d3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-06T23:02:10.200Z",
       "crawledAt": "",
       "salaryMin": 50400,
