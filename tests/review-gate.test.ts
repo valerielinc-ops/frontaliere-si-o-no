@@ -28,6 +28,12 @@ const historicalImportantReview = {
   commit_id: PRIOR_SHA,
 };
 
+const unanchoredImportantReview = {
+  user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+  body: '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: process contract remains unresolved\n\n## LGTM',
+  commit_id: PRIOR_SHA,
+};
+
 const alignmentLgtmReview = {
   user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
   body: '## Findings (Important: 0, Nit: 1)\n\nThe alignment changed no cited code.\n\n## LGTM',
@@ -302,6 +308,56 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
       pr: 1,
       headSha: HEAD_SHA,
       reviews: [[historicalImportantReview, fixedReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(true);
+    expect(result.classification.findings).toHaveLength(0);
+  });
+
+  it('does not let a legacy line-only confirmation close an anchor on another file', async () => {
+    const legacyConfirmation = {
+      ...alignmentLgtmReview,
+      body: '## Findings (Important: 0, Nit: 0)\n\nFix di L12: ok.\n\n## LGTM',
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[historicalImportantReview, legacyConfirmation]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.classification.inScope).toHaveLength(1);
+  });
+
+  it('keeps an Important without a file citation until its text has an explicit confirmation', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, alignmentLgtmReview]],
+      classifyAndMintReviewFn: classifyCurrentDiff,
+      mutate: false,
+    });
+
+    expect(result.approved).toBe(false);
+    expect(result.classification.unresolved).toHaveLength(1);
+  });
+
+  it('allows an unanchored Important after its normalized text has an explicit confirmation', async () => {
+    const fixedReview = {
+      ...alignmentLgtmReview,
+      body: '## Findings (Important: 0, Nit: 0)\n\nFix di `🔴 Important: process contract remains unresolved`: ok.\n\n## LGTM',
+    };
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD_SHA,
+      reviews: [[unanchoredImportantReview, fixedReview]],
       classifyAndMintReviewFn: classifyCurrentDiff,
       mutate: false,
     });

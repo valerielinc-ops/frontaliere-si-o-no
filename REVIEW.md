@@ -131,8 +131,9 @@ Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
-- Fix di L<linea> già applicato → conferma `Fix di L<linea>: ok.`
-- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: il bundle elenca gli anchor `path:Llinea` ancora aperti. Se l’anchor è ancora presente, riportalo nella review; se è stato corretto, conferma esplicitamente «Fix di `path:Llinea`: ok.» per ogni anchor citato prima di scendere a `Important: 0` + `## LGTM`.
+- Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
+- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: il bundle elenca gli anchor `path:Llinea` ancora aperti. Se l’anchor è ancora presente, riportalo nella review; se è stato corretto, conferma la riga di fix per ogni anchor citato prima di scendere a `Important: 0` + `## LGTM`.
+- 🔴 Important senza citazione di file → non chiuderlo per silenzio: se il rilievo è risolto, conferma «Fix di `<testo normalizzato>`: ok.» usando il testo del finding senza backtick interni.
 - No rilanciare nit già detti.
 
 ## Output format

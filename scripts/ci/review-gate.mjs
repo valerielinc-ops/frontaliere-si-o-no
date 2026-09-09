@@ -7,7 +7,9 @@
  * cita sono risolti nel tree della PR e nessuno appartiene al diff corrente.
  * Le review successive non possono cancellare uno storico Important: resta
  * aperto finche' una review successiva conferma esplicitamente il fix dell'ancora
- * (`Fix di L<linea>: ok.`), oppure il finding viene classificato fuori dal diff.
+ * (`Fix di \`path:L<linea>\`: ok.` oppure, per un finding senza citazioni,
+ * `Fix di \`testo normalizzato\`: ok.`), oppure il finding viene classificato
+ * fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
  */
@@ -24,7 +26,7 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
-const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+(?:`([^`\n]+)`|L(\d+))\s*:\s*ok\b/iu;
+const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
 const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
@@ -405,7 +407,10 @@ function findingKey(finding) {
     .map((citation) => `${normalizePath(citation.path)}:${citation.line || ''}`)
     .sort()
     .join('|');
-  return anchors || String(finding?.text || finding?.line || '').replace(/\s+/gu, ' ').trim();
+  return anchors || String(finding?.text || finding?.line || '')
+    .replace(/`/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 
 function fixConfirmations(body) {
@@ -413,19 +418,26 @@ function fixConfirmations(body) {
   for (const line of String(body || '').split(/\r?\n/u)) {
     const match = line.match(FIX_CONFIRMATION_RE);
     if (!match) continue;
-    if (match[1]) {
-      const citations = extractFileCitations(match[1]);
-      if (citations.length > 0) confirmations.push(...citations);
-    } else {
-      confirmations.push({ path: null, line: Number(match[2]) });
-    }
+    const text = match[1].trim();
+    confirmations.push({
+      citations: extractFileCitations(text),
+      key: findingKey({ citations: [], text }),
+    });
   }
   return confirmations;
 }
 
 function citationConfirmed(citation, confirmations) {
-  return confirmations.some((confirmation) => confirmation.line === citation.line
-    && (!confirmation.path || confirmation.path === citation.path));
+  return confirmations.some((confirmation) => confirmation.citations.some((candidate) =>
+    candidate.line === citation.line && candidate.path === citation.path,
+  ));
+}
+
+function findingConfirmed(finding, confirmations) {
+  if (finding.citations.length === 0) {
+    return confirmations.some((confirmation) => confirmation.key === findingKey(finding));
+  }
+  return finding.citations.every((citation) => citationConfirmed(citation, confirmations));
 }
 
 /**
@@ -445,8 +457,8 @@ export function historicalImportantFindings(reviews, { includeLatest = false } =
   for (const [index, review] of bots.entries()) {
     const confirmations = fixConfirmations(review?.body);
     for (const [key, entry] of open.entries()) {
-      if (entry.reviewIndex >= index || entry.finding.citations.length === 0) continue;
-      if (entry.finding.citations.every((citation) => citationConfirmed(citation, confirmations))) {
+      if (entry.reviewIndex >= index) continue;
+      if (findingConfirmed(entry.finding, confirmations)) {
         open.delete(key);
       }
     }
