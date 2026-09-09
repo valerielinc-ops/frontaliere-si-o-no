@@ -348,6 +348,7 @@ function normalizeEventRow(source) {
   const clicksValue = field(source, 'clicks', 14);
   return {
     eventKey: normalizeText(read(['eventKey', 'event_key', '$insert_id', 'insert_id', 'eventId', 'uuid'], 0)),
+    emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
     timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
@@ -378,13 +379,15 @@ function eventSignature(row) {
     employerKey: row.employerKey,
     itemId: row.itemId,
     contentType: row.contentType,
+    emissionId: row.emissionId,
   });
 }
 
 /**
- * Collapse a provider retry only when a stable event key proves that two
- * source rows are the same event. Rows without that key retain their full
- * observed count and are never guessed to be duplicates.
+ * Collapse only a technical duplicate proven by a stable emission or event
+ * key. Rows without either key retain their full observed count and are never
+ * guessed to be duplicates. An emission key is shared by the two analytics
+ * signals produced by one UI action; it is not inferred from timing or text.
  */
 export function collapseTechnicalDuplicates(inputRows = []) {
   const rows = inputRows.map(normalizeEventRow);
@@ -396,16 +399,22 @@ export function collapseTechnicalDuplicates(inputRows = []) {
   for (const row of rows) {
     const count = Math.max(0, numberOr(row.observed, 1));
     rawObserved += count;
-    if (!row.eventKey) {
+    const dedupKey = row.emissionId
+      ? `emission:${row.emissionId}`
+      : row.eventKey
+        ? `event:${row.eventKey}`
+        : '';
+    if (!dedupKey) {
       kept.push({ ...row, observed: count });
       observed += count;
       continue;
     }
-    if (!seen.has(row.eventKey)) {
-      seen.add(row.eventKey);
-      kept.push({ ...row, observed: 1 });
-      observed += 1;
-      removed += Math.max(0, count - 1);
+    if (!seen.has(dedupKey)) {
+      seen.add(dedupKey);
+      const retained = count > 0 ? 1 : 0;
+      kept.push({ ...row, observed: retained });
+      observed += retained;
+      removed += Math.max(0, count - retained);
       continue;
     }
     removed += count;
@@ -522,10 +531,13 @@ function ensureCompanyState(states, catalog, companyKey) {
       ads: new Map(),
       views: 0,
       visitors: 0,
+      profileViews: 0,
+      profileVisitors: 0,
       applyClicks: 0,
       eventsObserved: 0,
       eventTypes: new Map(),
       trend: new Map(),
+      profileTrend: new Map(),
       companyPaths: new Set(),
     });
   }
@@ -611,10 +623,10 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window } = {}
     const views = pageview ? (sourceRow.views == null ? count : numberOr(sourceRow.views, count)) : 0;
     const visitors = pageview ? numberOr(sourceRow.visitors || sourceRow.persons, 0) : 0;
     const clicks = applyClick ? (sourceRow.clicks == null ? count : numberOr(sourceRow.clicks, count)) : 0;
-    state.views += views;
-    state.visitors += visitors;
     state.applyClicks += clicks;
     if (job) {
+      state.views += views;
+      state.visitors += visitors;
       const ad = ensureAd(state, job);
       ad.eventsObserved += count;
       addMetric(ad.eventTypes, sourceRow.event || 'unknown', count);
@@ -624,8 +636,10 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window } = {}
       const week = sourceRow.week || (pageview ? weekStart(sourceRow.timestamp) : null);
       if (pageview && week) addMetric(ad.trend, week, views);
     } else if (pageview) {
+      state.profileViews += views;
+      state.profileVisitors += visitors;
       const week = sourceRow.week || weekStart(sourceRow.timestamp);
-      if (week) addMetric(state.trend, week, views);
+      if (week) addMetric(state.profileTrend, week, views);
     }
   }
 
@@ -793,6 +807,17 @@ export function buildInsightsDocuments({
     : applicationEvidence || emptyApplicationEvidence();
   const states = aggregate.states;
 
+  // A valid catalog is an observed population when the event query returns
+  // no rows. Keep that state visible as zero_observed instead of conflating it
+  // with a missing company or an unavailable source. A non-empty residual
+  // result remains residual-only, so an ambiguous alias cannot manufacture a
+  // company document.
+  if (aggregate.coverage.observed === 0) {
+    for (const companyKey of catalog.companyNameByKey.keys()) {
+      ensureCompanyState(states, catalog, companyKey);
+    }
+  }
+
   for (const [jobId, app] of (evidence.byJob instanceof Map ? evidence.byJob.entries() : [])) {
     const job = catalog.jobsById.get(jobId);
     if (!job) continue;
@@ -831,6 +856,7 @@ export function buildInsightsDocuments({
     const jobTrend = ads.flatMap((ad) => ad.trend);
     for (const point of jobTrend) addMetric(state.trend, point.week, point.views);
     const trend = serializeTrend(state.trend);
+    const profileTrend = serializeTrend(state.profileTrend);
     const eventLimits = queryCoverageOrDefault(queryCoverage, aggregate.coverage, window);
     const doc = {
       schemaVersion: INSIGHTS_SCHEMA_VERSION,
@@ -842,6 +868,8 @@ export function buildInsightsDocuments({
       totals: {
         views: state.views,
         visitors: state.visitors,
+        profileViews: state.profileViews,
+        profileVisitors: state.profileVisitors,
         applyClicks: state.applyClicks,
         adsCount: ads.length,
         applications: totalsApplications,
@@ -854,6 +882,7 @@ export function buildInsightsDocuments({
       topAd: ads[0] ? { slug: ads[0].slug, title: ads[0].title, views: ads[0].views } : null,
       ads,
       trend,
+      profileTrend,
       coverage: {
         ...aggregate.coverage,
         residuals: { ...aggregate.coverage.residuals },
@@ -931,13 +960,14 @@ function eventSelect(window) {
       coalesce(toString(properties.employer_key), '') AS employer_key,
       coalesce(toString(properties.item_id), '') AS item_id,
       coalesce(toString(properties.content_type), '') AS content_type,
+      coalesce(toString(properties.emission_id), '') AS emission_id,
       count() AS observed,
       count(DISTINCT person_id) AS persons,
       count(DISTINCT properties.$session_id) AS sessions
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')
     GROUP BY event_key, event, week, path, job_slug, job_id, provider_id,
-             employer_key, item_id, content_type
+             employer_key, item_id, content_type, emission_id
     ORDER BY week, event_key
   `.trim();
 }
