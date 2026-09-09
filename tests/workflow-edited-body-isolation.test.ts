@@ -45,9 +45,10 @@ function actionPredicate(condition: string | undefined): 'edited' | 'not-edited'
 
 function runsForAction(condition: string | undefined, action: 'edited' | 'synchronize'): boolean {
   const predicate = actionPredicate(condition);
+  if (!predicate) return true;
   if (predicate === 'edited') return action === 'edited';
   if (predicate === 'not-edited') return action !== 'edited';
-  return false;
+  return true;
 }
 
 describe('tests.yml: body edit isolation', () => {
@@ -100,14 +101,12 @@ describe('tests.yml: body edit isolation', () => {
     expect(requiredJob?.if).toContain('always()');
     expect(requiredJob?.needs).toEqual(['vitest']);
 
-    // Il wrapper deve saltare esattamente dove salta l'esecuzione: altrimenti
-    // su `edited` e sulle label di routine pubblica `failure` sul nome
-    // required e blocca l'auto-merge di una PR sana fino al push successivo.
-    expect(runsForAction(requiredJob?.if, 'edited')).toBe(false);
+    // Il wrapper required deve girare anche quando l'esecuzione pesante salta:
+    // GitHub tratta un job required saltato come soddisfatto nel ruleset.
+    expect(runsForAction(requiredJob?.if, 'edited')).toBe(true);
     expect(runsForAction(requiredJob?.if, 'synchronize')).toBe(true);
-    expect(requiredJob?.if).toMatch(
-      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
-    );
+    expect(requiredJob?.if).not.toContain("github.event.action != 'edited'");
+    expect(requiredJob?.if).not.toContain("github.event.action != 'labeled'");
 
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
     const skippedReviewGuard = codeJob?.steps?.find(
