@@ -18424,6 +18424,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nestle-ai-consumatori-ricerca',
+    category: 'novita',
+    date: '2026-09-09T02:03:59.413Z',
+    image: '/images/blog/nestle-ai-consumatori-ricerca.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
