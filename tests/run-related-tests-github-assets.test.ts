@@ -82,6 +82,81 @@ function runRunnerWithEnv(
   }
 }
 
+function createRenameFixture() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-rename-fixture-'));
+  fs.mkdirSync(path.join(dir, '.github/workflows'), { recursive: true });
+  fs.mkdirSync(path.join(dir, 'tests'), { recursive: true });
+  fs.writeFileSync(path.join(dir, '.github/workflows/old.yml'), 'name: old\n');
+  fs.writeFileSync(
+    path.join(dir, 'tests/consumer.test.ts'),
+    "export const workflowDir = '.github/workflows';\n",
+  );
+  execFileSync('git', ['init', '-q', '-b', 'main'], { cwd: dir });
+  execFileSync('git', ['config', 'user.email', 'test@example.invalid'], { cwd: dir });
+  execFileSync('git', ['config', 'user.name', 'related-assets-test'], { cwd: dir });
+  execFileSync('git', ['add', '.'], { cwd: dir });
+  execFileSync('git', ['commit', '-qm', 'base'], { cwd: dir });
+  const base = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }).trim();
+  execFileSync('git', ['update-ref', 'refs/remotes/origin/main', base], { cwd: dir });
+  fs.renameSync(
+    path.join(dir, '.github/workflows/old.yml'),
+    path.join(dir, '.github/workflows/new.yml'),
+  );
+  fs.appendFileSync(path.join(dir, 'tests/consumer.test.ts'), '\n');
+  execFileSync('git', ['add', '-A'], { cwd: dir });
+  execFileSync('git', ['commit', '-qm', 'rename workflow'], { cwd: dir });
+  return dir;
+}
+
+function createRunnerVariant(source: string) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-rename-runner-'));
+  const ciDir = path.join(dir, 'scripts/ci');
+  const libDir = path.join(ciDir, 'lib');
+  fs.mkdirSync(libDir, { recursive: true });
+  fs.writeFileSync(path.join(ciDir, 'run-related-tests.mjs'), source);
+  for (const file of [
+    'corpus-wide-tests.mjs',
+    'dataset-dependent-tests.mjs',
+  ]) {
+    fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
+  }
+  for (const file of [
+    'orphan-fallback.mjs',
+    'select-max-workers.mjs',
+    'related-graph-scope.mjs',
+  ]) {
+    fs.symlinkSync(path.join(ROOT, 'scripts/ci/lib', file), path.join(libDir, file));
+  }
+  return dir;
+}
+
+function runRunnerInFixture(fixtureDir: string, runnerDir: string, suffix: string) {
+  const changedFile = path.join(fixtureDir, `changed-${suffix}.txt`);
+  const graphFile = path.join(fixtureDir, `graph-${suffix}.json`);
+  fs.writeFileSync(changedFile, 'tests/consumer.test.ts\n');
+  fs.writeFileSync(path.join(fixtureDir, `status-${suffix}.txt`), 'complete\n');
+  const result = spawnSync(
+    process.execPath,
+    [path.join(runnerDir, 'scripts/ci/run-related-tests.mjs')],
+    {
+      cwd: fixtureDir,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+      env: {
+        ...process.env,
+        CHANGED_PATHS_FILE: changedFile,
+        CHANGED_PATHS_STATUS_FILE: path.join(fixtureDir, `status-${suffix}.txt`),
+        VITEST_RELATED_GRAPH: graphFile,
+        VITEST_SKIP_CORPUS_WIDE: 'true',
+        VITEST_RELATED_DRY_RUN: 'true',
+        GITHUB_ACTIONS: '',
+      },
+    },
+  );
+  expect(result.status, result.stderr || result.stdout).toBe(0);
+  return JSON.parse(fs.readFileSync(graphFile, 'utf8'));
+}
+
 describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardiani', () => {
   it('il portable di translate-pending seleziona il test che ne congela il contratto', () => {
     // L'asserzione che #7355 ha rotto vive qui dentro
@@ -186,6 +261,33 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     // entry senza archi e la selezione tornerebbe vuota.
     expect(selectionFor([target], dir)).toContain('tests/crawler-generation-dispatch-workflow.test.ts');
     fs.rmSync(dir, { recursive: true, force: true });
+  }, 120_000);
+
+  it('un rename rende lo stesso insieme di asset con o senza rename detection', () => {
+    const runnerSource = fs.readFileSync(RUNNER, 'utf8');
+    expect(runnerSource).toContain("'--no-renames'");
+    expect(runnerSource).not.toContain("'--find-renames'");
+    const fixtureDir = createRenameFixture();
+    const previousRunnerDir = createRunnerVariant(
+      runnerSource.replace("'--no-renames'", "'--find-renames'"),
+    );
+    const currentRunnerDir = createRunnerVariant(runnerSource);
+    try {
+      const previous = runRunnerInFixture(fixtureDir, previousRunnerDir, 'previous');
+      const current = runRunnerInFixture(fixtureDir, currentRunnerDir, 'current');
+      const previousDeps = previous.files['tests/consumer.test.ts'].deps;
+      const currentDeps = current.files['tests/consumer.test.ts'].deps;
+      expect(current.assets).toBe(previous.assets);
+      expect(currentDeps).toEqual(previousDeps);
+      expect(currentDeps).toEqual([
+        '.github/workflows/new.yml',
+        '.github/workflows/old.yml',
+      ]);
+    } finally {
+      fs.rmSync(fixtureDir, { recursive: true, force: true });
+      fs.rmSync(previousRunnerDir, { recursive: true, force: true });
+      fs.rmSync(currentRunnerDir, { recursive: true, force: true });
+    }
   }, 120_000);
 
   it('un workflow non fa mai ricadere sulla suite intera', () => {
