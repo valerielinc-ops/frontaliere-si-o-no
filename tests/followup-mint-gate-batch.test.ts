@@ -77,4 +77,62 @@ describe('gate sul conio — proceed-safe PER ISSUE, non per PR', () => {
     // ...e il lotto NON è stato abbandonato: è la riga che compariva col difetto.
     expect(out).not.toContain('gate saltato');
   });
+
+  it('recupera e sigilla un bucket storico quando il batch corrente è vuoto', () => {
+    const issue = {
+      number: 501,
+      title: 'follow-up(daily:2026-09-09): 1 item — o/r',
+      body: [
+        '## Batch',
+        '- Daily key: 2026-09-09 (Europe/Zurich)',
+        '- State: collecting',
+        '- Target repository: o/r',
+        '',
+        '## Item',
+        '',
+        '### FU-2026-09-09-001 — proteggi il comportamento',
+        '- State: open',
+        '- Sources: PR #8101',
+        '- Target file: `scripts/example.mjs`',
+        '- Original text:',
+        '  > controllo non sempre applicato',
+        '- Suggested action: aggiungi `firstGuard()` e `secondGuard()`',
+        '- Acceptance token: `firstGuard()`',
+        '',
+      ].join('\n'),
+      createdAt: new Date().toISOString(),
+    };
+    const comments = { comments: [{ body: '## Post-merge follow-up triage: zero outstanding items.' }] };
+    const log = join(binDir, 'recovery-calls.log');
+    writeFileSync(log, '');
+    const fake = `#!/usr/bin/env node
+const fs = require('node:fs');
+const args = process.argv.slice(2);
+fs.appendFileSync(process.env.CALL_LOG, JSON.stringify(args) + '\\n');
+const issue = ${JSON.stringify(issue)};
+const comments = ${JSON.stringify(comments)};
+if (args[0] === 'issue' && args[1] === 'list') process.stdout.write(JSON.stringify([{ number: issue.number, title: issue.title, createdAt: issue.createdAt }]));
+else if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(issue));
+else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(comments));
+`;
+    writeFileSync(join(binDir, 'gh'), fake);
+    chmodSync(join(binDir, 'gh'), 0o755);
+    const out = execFileSync('node', [GATE], {
+      encoding: 'utf-8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH}`,
+        BATCH_PRS: '',
+        TRIAGE_COMPLETE: 'false',
+        DRY_RUN: '0',
+        GH_REPO: 'o/r',
+        CALL_LOG: log,
+      },
+    });
+    const calls = readFileSync(log, 'utf-8');
+    expect(out).toContain('marker storici verificati');
+    expect(out).toContain('→ seal');
+    expect(calls).toContain('"--body-file"');
+    expect(calls).toContain('"--add-label","agent:fix-queued"');
+  });
 });

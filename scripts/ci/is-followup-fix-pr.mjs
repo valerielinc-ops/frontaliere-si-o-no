@@ -48,6 +48,7 @@ import path from 'node:path';
 import {
   closedIssueRefs,
   dailyBucketInfo,
+  followupItemDailyKey,
   followupItemMarkers,
   parseFollowupItems,
 } from './followup-resolution-match.mjs';
@@ -167,7 +168,7 @@ function isDailyFollowupParent(n, markerIds = []) {
     ...followupItemMarkerIds(issue.body || ''),
     ...parseFollowupItems(issue.body || '').map((item) => item.id).filter(Boolean),
   ]);
-  return markerIds.every((id) => parentIds.has(id));
+  return markerIds.every((id) => followupItemDailyKey(id) === info.dailyKey && parentIds.has(id));
 }
 
 /** True if issue #n carries the follow-up label. Proceed-safe: unreadable → false. */

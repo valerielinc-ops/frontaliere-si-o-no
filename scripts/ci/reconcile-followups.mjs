@@ -46,10 +46,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   bucketState,
+  dailyKeyFromBucketBody,
   dailyBucketInfo,
   detectAlreadyResolved,
   hasFalsifiableAcceptance,
   hasStableItemIds,
+  hasStableItemIdsForDailyKey,
   isDailyBucketTitle,
   parseFollowupItems,
   updateFollowupItemState,
@@ -302,10 +304,18 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
  * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
  * A single unresolved/ambiguous/weak item vetoes the whole issue.
  */
-export function dailyBucketCloseGate(body, io) {
+export function dailyBucketCloseGate(body, io, expectedDailyKey = null) {
   const items = parseFollowupItems(body);
   if (!items.length) return { blocks: true, reason: 'aggregate-unparsed', validItems: [], unresolvedItems: [] };
   if (!hasStableItemIds(body)) return { blocks: true, reason: 'missing-stable-item-id', validItems: [], unresolvedItems: items };
+  const bodyDailyKey = dailyKeyFromBucketBody(body);
+  if (!bodyDailyKey) return { blocks: true, reason: 'missing-daily-key', validItems: items, unresolvedItems: items };
+  if (expectedDailyKey && bodyDailyKey !== String(expectedDailyKey).trim()) {
+    return { blocks: true, reason: 'mismatched-daily-key', validItems: items, unresolvedItems: items };
+  }
+  if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) {
+    return { blocks: true, reason: 'mismatched-stable-item-id', validItems: items, unresolvedItems: items };
+  }
   const state = bucketState(body);
   if (!state) return { blocks: true, reason: 'ambiguous-bucket-state', validItems: items, unresolvedItems: items };
   if (state !== 'sealed') return { blocks: true, reason: 'bucket-collecting', validItems: items, unresolvedItems: items };
@@ -330,11 +340,21 @@ export function dailyBucketCloseGate(body, io) {
 }
 
 /** Mark only token-confirmed daily items as done; never infer completion from prose. */
-export function reconcileDailyItems(body, io) {
+export function reconcileDailyItems(body, io, expectedDailyKey = null) {
   const source = String(body || '');
   const items = parseFollowupItems(source);
   if (!items.length || !hasStableItemIds(source)) {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-stable-item-id' };
+  }
+  const bodyDailyKey = dailyKeyFromBucketBody(source);
+  if (!bodyDailyKey) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-daily-key' };
+  }
+  if (expectedDailyKey && bodyDailyKey !== String(expectedDailyKey).trim()) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-daily-key' };
+  }
+  if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-stable-item-id' };
   }
   if (bucketState(source) !== 'sealed') {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'bucket-collecting' };
@@ -560,7 +580,7 @@ function main() {
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
-      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo);
+      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, daily.dailyKey);
       let reconciledBody = itemReconciliation.body;
       if (itemReconciliation.changed) {
         if (DRY_RUN) {
@@ -585,7 +605,7 @@ function main() {
           }
         }
       }
-      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo);
+      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo, daily.dailyKey);
       if (bucketGate.blocks) {
         console.log(`#${iss.number} daily:${daily.dailyKey}: bucket aperto (${bucketGate.reason}), item non ancora tutti provati.`);
         continue;
@@ -613,7 +633,9 @@ function main() {
     let aggGate = isAggregateTitle(iss.title, iss.body || '')
       ? aggregateCloseGate(iss.body || '', diskIo)
       : { blocks: false, reason: null };
-    if (isDailyBucketTitle(iss.title || '')) aggGate = dailyBucketCloseGate(iss.body || '', diskIo);
+    if (isDailyBucketTitle(iss.title || '')) {
+      aggGate = dailyBucketCloseGate(iss.body || '', diskIo, dailyBucketInfo(iss.title || '')?.dailyKey);
+    }
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
     if (hasPriorFlag === null) {

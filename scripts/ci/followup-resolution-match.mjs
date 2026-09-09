@@ -195,11 +195,15 @@ export function mostSpecificToken(tokens) {
  */
 export function citedFiles(body, fileExists) {
   const out = new Set();
-  for (const m of body.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
+  const unprotected = markdownRecords(body)
+    .filter((record) => !record.protected)
+    .map((record) => record.line)
+    .join('\n');
+  for (const m of unprotected.matchAll(/`([\w./-]+\.[a-z]{2,5})(?::L?\d+)?`/gi)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
-  for (const m of body.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
+  for (const m of unprotected.matchAll(/(?:^|\n)\s*(?:[-*]\s*)?Target file:\s*([\w./-]+\.[a-z]{2,5})(?::L?\d+)?\s*$/gim)) {
     const p = m[1];
     if (p.includes('/') && fileExists(p)) out.add(p);
   }
@@ -230,11 +234,15 @@ function isSuggestedActionSectionBreak(line) {
  * predicate, including the sheet branch that does not require `Suggested action`.
  */
 function acceptanceScopeText(body) {
-  const lines = String(body || '').split('\n');
+  const lines = markdownRecords(body);
   const scoped = [];
   let inOriginalText = false;
 
-  for (const line of lines) {
+  for (const { line, protected: protectedLine } of lines) {
+    // Fenced/quoted Markdown is evidence quoted by the item, never a live field
+    // boundary. Drop it from the acceptance scope so a nested `Suggested action`,
+    // `Target file`, or code token cannot become a close signal.
+    if (protectedLine) continue;
     if (/^-\s+Original text\s*:/i.test(line)) {
       inOriginalText = true;
       continue;
@@ -455,7 +463,38 @@ export function hasFalsifiableAcceptance(itemText) {
  * La regex è intenzionalmente ancorata a `###` e a inizio riga: un heading citato dentro
  * un blocco fenced resta materia per il controllo lossless del mint gate.
  */
-const FOLLOWUP_ITEM_HEADING_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/gmi;
+const FOLLOWUP_ITEM_HEADING_LINE_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—–-]\s*(.*?)|(\d+)\.\s*(.*))\s*$/i;
+
+/**
+ * Split Markdown into lines while marking fenced/quoted lines as protected.
+ * Metadata and item headings are meaningful only on unprotected lines: a PR body
+ * often embeds another Markdown document verbatim in `Original text`, and parsing
+ * its headings/fields as live bucket data silently changes the item set.
+ */
+function markdownRecords(text) {
+  const source = String(text || '');
+  const records = [];
+  let fence = null;
+  let offset = 0;
+  for (const line of source.split('\n')) {
+    const start = offset;
+    const end = start + line.length;
+    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+    const quoted = /^\s*>/.test(line);
+    const protectedLine = quoted || !!fence;
+    records.push({ line, start, end, protected: protectedLine });
+    if (fence) {
+      if (!quoted && marker && marker[1][0] === fence.char
+          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
+        fence = null;
+      }
+    } else if (!quoted && marker) {
+      fence = { char: marker[1][0], length: marker[1].length };
+    }
+    offset = end + 1;
+  }
+  return records;
+}
 
 /**
  * Read State fields only from real Markdown lines.  A quoted/fenced example is
@@ -464,29 +503,20 @@ const FOLLOWUP_ITEM_HEADING_RE = /^###\s+(?:(FU-\d{4}-\d{2}-\d{2}-\d{3})\s*[—�
  * "take the first one": a later writer could otherwise smuggle a conflicting
  * state past the queue/close gates.
  */
-function stateFieldValuesOutsideMarkdownProtection(text) {
+function fieldValuesOutsideMarkdownProtection(text, field) {
+  const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`^\\s*-\\s+${escaped}\\s*:\\s*(.*?)\\s*$`, 'i');
   const values = [];
-  let fence = null;
-  for (const line of String(text || '').split('\n')) {
-    const marker = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
-    if (fence) {
-      if (marker && marker[1][0] === fence.char
-          && marker[1].length >= fence.length && /^\s*$/.test(marker[2])) {
-        fence = null;
-      }
-      continue;
-    }
-    if (marker) {
-      fence = { char: marker[1][0], length: marker[1].length };
-      continue;
-    }
-    // Block quotes can contain an apparently valid `- State:` example.  The
-    // leading `>` keeps it outside the item metadata grammar.
-    if (/^\s*>/.test(line)) continue;
-    const match = /^\s*-\s+State\s*:\s*(.*?)\s*$/i.exec(line);
-    if (match) values.push(match[1].trim().toLowerCase());
+  for (const record of markdownRecords(text)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (match) values.push(match[1].trim());
   }
   return values;
+}
+
+function stateFieldValuesOutsideMarkdownProtection(text) {
+  return fieldValuesOutsideMarkdownProtection(text, 'State').map((value) => value.toLowerCase());
 }
 
 function itemStateFromText(text) {
@@ -500,9 +530,21 @@ function hasDuplicateItemState(text) {
 }
 
 function itemFieldFromText(text, field) {
+  return fieldValuesOutsideMarkdownProtection(text, field)[0] || '';
+}
+
+function replaceFirstUnprotectedField(text, field, value) {
   const escaped = String(field).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const m = String(text || '').match(new RegExp(`^\\s*-\\s+${escaped}\\s*:\\s*(.*?)\\s*$`, 'im'));
-  return m ? m[1].trim() : '';
+  const re = new RegExp(`^(\\s*-\\s+${escaped}\\s*:\\s*)(.*?)\\s*$`, 'i');
+  const source = String(text || '');
+  for (const record of markdownRecords(source)) {
+    if (record.protected) continue;
+    const match = re.exec(record.line);
+    if (!match) continue;
+    const replacement = `${match[1]}${value}`;
+    return `${source.slice(0, record.start)}${replacement}${source.slice(record.end)}`;
+  }
+  return null;
 }
 
 /**
@@ -517,7 +559,12 @@ function itemFieldFromText(text, field) {
  */
 export function parseFollowupItems(body) {
   const source = String(body || '');
-  const matches = [...source.matchAll(FOLLOWUP_ITEM_HEADING_RE)];
+  const matches = [];
+  for (const record of markdownRecords(source)) {
+    if (record.protected) continue;
+    const match = FOLLOWUP_ITEM_HEADING_LINE_RE.exec(record.line);
+    if (match) matches.push({ ...match, index: record.start });
+  }
   const parsed = matches.map((match, index) => {
     const heading = match[0];
     const start = match.index ?? 0;
@@ -555,6 +602,22 @@ export function parseFollowupItems(body) {
   // destructive rewrite).  State examples inside quotes/fences are ignored by
   // `hasDuplicateItemState` and cannot poison a valid item.
   return parsed.some((item) => item.stateConflict) ? [] : parsed;
+}
+
+/** Extract source PRs only from live `Sources` metadata of a daily bucket. */
+export function dailyBucketSourcePrNumbers(body) {
+  const numbers = [];
+  for (const item of parseFollowupItems(body)) {
+    for (const field of ['Sources', 'Source']) {
+      for (const value of fieldValuesOutsideMarkdownProtection(item.text, field)) {
+        for (const match of value.matchAll(/\bPR\s+#(\d+)\b/gi)) {
+          const number = Number(match[1]);
+          if (Number.isInteger(number) && number > 0) numbers.push(number);
+        }
+      }
+    }
+  }
+  return [...new Set(numbers)];
 }
 
 function sourceValuesFromText(text) {
@@ -691,6 +754,36 @@ export function hasStableItemIds(body) {
     && new Set(ids).size === ids.length;
 }
 
+/** Return the daily key embedded in one stable item ID, or null when malformed. */
+export function followupItemDailyKey(itemId) {
+  const match = /^FU-(\d{4}-\d{2}-\d{2})-\d{3}$/i.exec(String(itemId || '').trim());
+  return match ? match[1] : null;
+}
+
+/** Return the bucket's declared daily key from its unprotected header metadata. */
+export function dailyKeyFromBucketBody(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const values = fieldValuesOutsideMarkdownProtection(head, 'Daily key');
+  const keys = values
+    .map((value) => /^(\d{4}-\d{2}-\d{2})\b/.exec(value)?.[1] || null)
+    .filter(Boolean);
+  return keys.length === 1 && values.length === 1 ? keys[0] : null;
+}
+
+/** Require unique stable IDs whose date is exactly the bucket's daily key. */
+export function hasStableItemIdsForDailyKey(bodyOrItems, dailyKey) {
+  const key = String(dailyKey || '').trim();
+  const items = Array.isArray(bodyOrItems) ? bodyOrItems : parseFollowupItems(bodyOrItems);
+  const ids = items.map((item) => typeof item === 'string' ? item : item?.id);
+  return /^\d{4}-\d{2}-\d{2}$/.test(key)
+    && ids.length > 0
+    && ids.every((id) => FOLLOWUP_ITEM_ID_SINGLE_RE.test(String(id || ''))
+      && followupItemDailyKey(id) === key)
+    && new Set(ids.map((id) => String(id).toUpperCase())).size === ids.length;
+}
+
 /** Return the bucket-level collecting/sealed state, or null for malformed bodies. */
 export function bucketState(body) {
   const source = String(body || '');
@@ -716,10 +809,8 @@ export function updateFollowupItemState(body, itemId, state) {
   const item = parseFollowupItems(source).find((candidate) => candidate.id?.toUpperCase() === wanted);
   if (!item || !item.state) return null;
   const next = String(state).toLowerCase();
-  const updatedRaw = item.raw.replace(
-    /^(\s*-\s+State\s*:\s*)(?:open|in-progress|done|blocked)(\s*)$/im,
-    `$1${next}$2`,
-  );
+  const updatedRaw = replaceFirstUnprotectedField(item.raw, 'State', next);
+  if (!updatedRaw) return null;
   return `${source.slice(0, item.start)}${updatedRaw}${source.slice(item.end)}`;
 }
 

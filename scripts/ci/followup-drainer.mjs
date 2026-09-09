@@ -69,6 +69,7 @@ import {
   bucketState,
   dailyBucketInfo,
   hasStableItemIds,
+  hasStableItemIdsForDailyKey,
   followupItemMarkers,
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
@@ -97,6 +98,9 @@ export function dailyBucketQueueDecision(issue) {
   if (!info) return { eligible: true, reason: null, item: null };
   if (bucketState(issue?.body || '') !== 'sealed') return { eligible: false, reason: 'bucket-collecting', item: null };
   if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
+  if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {
+    return { eligible: false, reason: 'mismatched-stable-item-id', item: null };
+  }
   const item = selectFirstOpenItem(issue?.body || '');
   return item
     ? { eligible: true, reason: null, item }

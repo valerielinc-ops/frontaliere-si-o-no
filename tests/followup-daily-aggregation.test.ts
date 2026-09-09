@@ -2,20 +2,29 @@ import { describe, it, expect, afterEach } from 'vitest';
 import {
   bucketState,
   canonicalDailyBuckets,
+  dailyBucketSourcePrNumbers,
   dailyBucketIdentity,
   dailyBucketInfo,
   dailyBucketTitle,
+  dailyKeyFromBucketBody,
   dailyKeyZurich,
   dailyItemFingerprint,
   dedupeDailyItems,
   followupFingerprint,
   followupItemId,
   hasStableItemIds,
+  hasStableItemIdsForDailyKey,
   parseFollowupItems,
   selectFirstOpenItem,
   updateFollowupItemState,
 } from '../scripts/ci/followup-resolution-match.mjs';
-import { decideDailyMintGate, decideMintGate, mergeDailyBucketBodies, retitleDailyBucket } from '../scripts/ci/gate-minted-followups.mjs';
+import {
+  dailyBucketRecoveryDecision,
+  decideDailyMintGate,
+  decideMintGate,
+  mergeDailyBucketBodies,
+  retitleDailyBucket,
+} from '../scripts/ci/gate-minted-followups.mjs';
 import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
 import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, openPrForDailyItem } from '../scripts/ci/followup-drainer.mjs';
 import { triageDailyKey } from '../scripts/ci/collect-followup-batch.mjs';
@@ -120,6 +129,46 @@ describe('daily follow-up identity and dedup', () => {
     expect(canonicalDailyBuckets(issues).get(`${DAY}|other/repo`)?.number).toBe(3);
   });
 
+  it('recupera un collecting storico solo con Sources e marker per ogni PR', () => {
+    expect(dailyBucketRecoveryDecision({
+      state: 'collecting',
+      sourcePrs: [8101, 8102],
+      triagedPrs: [8101, 8102],
+    })).toMatchObject({ eligible: true, reason: 'historical-triage-markers' });
+    expect(dailyBucketRecoveryDecision({
+      state: 'collecting',
+      sourcePrs: [8101, 8102],
+      triagedPrs: [8101],
+    })).toMatchObject({
+      eligible: false,
+      reason: 'historical-triage-incomplete',
+      missingPrs: [8102],
+    });
+    expect(dailyBucketRecoveryDecision({
+      state: 'collecting',
+      sourcePrs: [],
+      triagedPrs: [],
+    })).toMatchObject({ eligible: false, reason: 'no-source-pr-markers' });
+    expect(dailyBucketRecoveryDecision({
+      state: 'collecting',
+      sourcePrs: [8101],
+      triagedPrs: [8101],
+      scanOk: false,
+    })).toMatchObject({ eligible: false, reason: 'historical-triage-scan-unavailable' });
+    expect(dailyBucketRecoveryDecision({
+      state: 'sealed',
+      sourcePrs: [8101],
+      triagedPrs: [8101],
+    })).toMatchObject({ eligible: false, reason: 'bucket-not-collecting' });
+  });
+
+  it('legge Sources e Daily key solo fuori da fence/quote', () => {
+    const source = body(item(`FU-${DAY}-001`))
+      .replace('- Sources: PR #8101; reviewer 🟡', '- Sources: PR #8101; reviewer 🟡\n```md\n- Sources: PR #9999\n```\n> - Sources: PR #8888');
+    expect(dailyKeyFromBucketBody(source)).toBe(DAY);
+    expect(dailyBucketSourcePrNumbers(source)).toEqual([8101]);
+  });
+
   it('consolida i bucket duplicati, rimappa ID collidenti e deduplica le Sources', () => {
     const title = dailyBucketTitle(DAY, 'owner/repo', 1);
     const merged = mergeDailyBucketBodies(
@@ -169,6 +218,35 @@ describe('daily item parsing and lifecycle', () => {
       '- State: collecting\n- State: sealed',
     );
     expect(bucketState(duplicateBucketState)).toBeNull();
+  });
+
+  it('close e reconcile ignorano headings/campi annidati in fence e quote', () => {
+    const nested = body(item(`FU-${DAY}-001`)).replace(
+      '- Original text:\n  > il controllo non è sempre applicato',
+      '- Original text:\n```md\n### FU-2020-01-01-999 — item finto\n- State: done\n- Suggested action: aggiungi `ghost()` in `scripts/example.mjs`\n```\n> ### FU-2020-01-01-998 — item citato\n> - State: done\n  > il controllo non è sempre applicato',
+    ).replace('- State: collecting', '- State: sealed');
+    expect(parseFollowupItems(nested).map((entry) => entry.id)).toEqual([`FU-${DAY}-001`]);
+    const reconciled = reconcileDailyItems(nested, resolvedIo, DAY);
+    expect(reconciled.changes.map((change) => change.id)).toEqual([`FU-${DAY}-001`]);
+    expect(dailyBucketCloseGate(reconciled.body, resolvedIo, DAY).blocks).toBe(false);
+  });
+
+  it('rifiuta gli ID FU con data diversa dalla chiave del bucket in close/reconcile/drainer', () => {
+    const wrong = body(item('FU-2026-09-08-001')).replace('- State: collecting', '- State: sealed');
+    expect(dailyKeyFromBucketBody(wrong)).toBe(DAY);
+    expect(hasStableItemIdsForDailyKey(wrong, DAY)).toBe(false);
+    expect(dailyBucketCloseGate(wrong, resolvedIo, DAY)).toMatchObject({
+      blocks: true,
+      reason: 'mismatched-stable-item-id',
+    });
+    expect(reconcileDailyItems(wrong, resolvedIo, DAY)).toMatchObject({
+      changed: false,
+      reason: 'mismatched-stable-item-id',
+    });
+    expect(dailyBucketQueueDecision({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: wrong,
+    })).toMatchObject({ eligible: false, reason: 'mismatched-stable-item-id' });
   });
 });
 
