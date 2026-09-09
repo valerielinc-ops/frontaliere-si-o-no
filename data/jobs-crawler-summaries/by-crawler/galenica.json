@@ -1,40 +1,38 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-08T23:18:36.827Z",
-  "total": 372,
+  "generatedAt": "2026-09-09T13:43:45.021Z",
+  "total": 373,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 88686,
-  "avgDurationMs": 88686,
+  "unchangedCount": 0,
+  "durationMs": 99494,
+  "avgDurationMs": 99494,
   "durationHistory": [
-    88686
+    99494
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Assistant en pharmacie / Assistante en pharmacie (h/f/d)",
-      "company": "Galenica (Galenica)",
+      "title": "Senior Agile and Product Coach (f/h/d)",
+      "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3135390.4064198",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3133525.4060323",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistant en pharmacie / Assistante en pharmacie (h/f/d) presso Galenica (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "descriptionIt": "Senior Agile and Product Coach (f/h/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "it",
-      "slug": "galenica-galenica-assistant-en-pharmacie-assistante-en-pharmacie-h-f-d-bern",
-      "id": "galenica-c2a8475fb9fb",
+      "slug": "galenica-galenica-ag-senior-agile-and-product-coach-f-h-d-bern",
+      "id": "galenica-089b2fa2d56b",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 115000,
+      "salaryMax": 160000,
       "currency": "CHF",
       "salarySource": "estimated",
       "streetAddress": "Untermattweg 8",
@@ -42,8 +40,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

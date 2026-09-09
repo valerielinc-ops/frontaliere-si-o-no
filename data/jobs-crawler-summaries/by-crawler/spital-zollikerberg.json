@@ -1,39 +1,38 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-08T23:17:02.877Z",
-  "total": 9,
+  "generatedAt": "2026-09-09T13:42:09.545Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 9,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 36150,
-  "avgDurationMs": 36150,
+  "unchangedCount": 0,
+  "durationMs": 35133,
+  "avgDurationMs": 35133,
   "durationHistory": [
-    36150
+    35133
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-63ba0b3fc37b",
-      "slug": "dipl-expert-dipl-expert-emergency-care-nds-hf-spital-zollikerberg-zollikerberg",
+      "id": "spital-zollikerberg-b5fb35335179",
+      "slug": "fachfrau-fachmann-gesundheit-station-chirurgie-und-gynakologie-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Dipl. Expertin / Dipl. Experte Notfallpflege NDS HF",
+      "title": "Fachfrau / Fachmann Gesundheit Station Chirurgie und Gynäkologie",
+      "needsRetranslation": false,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fb145b91-897b-4450-acb4-5ae57ad38c4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6bb62d84-38d8-40f8-a059-3049211ef8b4,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-07T23:22:45.353Z",
+      "crawledAt": "2026-09-09T13:42:03.262Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -47,20 +46,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=fb145b91-897b-4450-acb4-5ae57ad38c4b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=6bb62d84-38d8-40f8-a059-3049211ef8b4,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
