@@ -138,6 +138,16 @@ const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
   || process.env.RUN_ID
   || `${process.pid}_${Date.now()}`;
 
+export const NEWSLETTER_JOB_LIMIT = 4;
+
+export function getNewsletterCandidateLimit(rankingVariant) {
+  return rankingVariant === 'treatment' ? 12 : NEWSLETTER_JOB_LIMIT;
+}
+
+export function rankNewsletterJobs(jobs, options = {}) {
+  return rankEmailJobs(jobs, { ...options, limit: NEWSLETTER_JOB_LIMIT });
+}
+
 /**
  * Run async tasks with bounded concurrency.
  * @param {Array} items
@@ -2370,20 +2380,19 @@ async function main() {
     });
     // Treatment gets a wider candidate pool so exploration can surface a
     // relevant low-impression job; control keeps the historical top-four pool.
-    const candidateLimit = rankingVariant === 'treatment' ? 12 : 4;
+    const candidateLimit = getNewsletterCandidateLimit(rankingVariant);
     const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, candidateLimit, locale);
     const validatedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
       ...job,
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),
     }));
-    const matchedJobs = rankEmailJobs(validatedJobs, {
+    const matchedJobs = rankNewsletterJobs(validatedJobs, {
       statsByJob: newsletterRankingStats,
       variant: rankingVariant,
       surface: 'newsletter',
       surfaceId: 'newsletter_weekly',
       campaignId,
       randomSeed: subscriber.email,
-      limit: 4,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
