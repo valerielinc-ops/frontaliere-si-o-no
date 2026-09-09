@@ -30,10 +30,11 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import type { Locale } from '@/services/i18n';
-import { getLocale } from '@/services/i18n';
+import { getLocale, useLocale } from '@/services/i18n';
 import { companyAlertKey } from '@/services/jobAlertService';
 import { useHydrationIslands } from '@/hooks/useHydrationIslands';
 import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta';
+import { CompanyFollowPopup } from './CompanyFollowCta';
 
 interface CompanyFollowMountProps {
   company: string;
@@ -100,6 +101,7 @@ const ANALYTICS_SURFACE: Record<string, CompanyFollowSurface> = {
 };
 
 const CompanyFollowMount: React.FC = () => {
+  const [activeLocale] = useLocale();
   const targets = useHydrationIslands<CompanyFollowMountProps>({
     attribute: 'data-company-follow-mount',
     mountedAttribute: 'data-company-follow-mounted',
@@ -151,16 +153,26 @@ const CompanyFollowMount: React.FC = () => {
   return (
     <>
       {targets.map((t, i) =>
-        createPortal(
-          <CompanyFollowCta
-            company={t.props.company}
-            companyKey={t.props.companyKey}
-            locale={t.props.locale}
-            surface={t.props.surface}
-          />,
-          t.el,
-          `company-follow-mount-${i}`,
-        ),
+        t.el.isConnected
+          ? createPortal(
+              <React.Fragment>
+                <CompanyFollowCta
+                  company={t.props.company}
+                  companyKey={t.props.companyKey}
+                  locale={activeLocale}
+                  surface={t.props.surface}
+                />
+                <CompanyFollowPopup
+                  company={t.props.company}
+                  companyKey={t.props.companyKey}
+                  locale={activeLocale}
+                  surface={t.props.surface}
+                />
+              </React.Fragment>,
+              t.el,
+              `company-follow-mount-${i}`,
+            )
+          : null,
       )}
     </>
   );
