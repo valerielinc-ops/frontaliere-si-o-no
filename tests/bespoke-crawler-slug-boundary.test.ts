@@ -285,7 +285,10 @@ describe('Workday shared client compatibility', () => {
     const consumers = fs.readdirSync(PARSER_DIR)
       .filter((file) => file.endsWith('-job-parser.mjs'))
       .map((file) => ({ file, source: fs.readFileSync(path.join(PARSER_DIR, file), 'utf8') }))
-      .filter(({ source }) => source.includes("from './ats-clients/workday-client.mjs'"));
+      // Other Workday parsers may import the shared location helper without
+      // being identity consumers; keep this invariant scoped to the identity
+      // fan-out it is intended to measure.
+      .filter(({ source }) => source.includes('extractWorkdayJobIdentity'));
     const callCount = consumers.reduce((total, { source }) => (
       total + (source.match(/extractWorkdayJobIdentity\s*\(/g)?.length || 0)
     ), 0);
@@ -318,6 +321,34 @@ describe('Workday shared client compatibility', () => {
       externalPath: '/job/Zurich/123',
     });
     expect(identity.applyUrl).toBe('https://acme.wd3.myworkdayjobs.com/en/Careers/job/Zurich/123');
+  });
+
+  it('keeps the city when Workday prefixes it with the country code', () => {
+    const identity = extractWorkdayJobIdentity({
+      title: 'Senior Process Engineer',
+      externalPath: '/job/Visp/456',
+      locationsText: 'CH - Visp',
+    });
+
+    expect(identity.location).toBe('Visp');
+    expect(extractWorkdayJobIdentity({
+      title: 'Relationship Manager',
+      externalPath: '/job/Lugano/789',
+      locationsText: 'CHE - Lugano',
+    }).location).toBe('Lugano');
+  });
+
+  it('splits on en/em dash so cantonal suffixes stay out of the city', () => {
+    expect(extractWorkdayJobIdentity({
+      title: 'Conseiller clientèle',
+      externalPath: '/job/Sion/321',
+      locationsText: 'Sion \u2013 VS',
+    }).location).toBe('Sion');
+    expect(extractWorkdayJobIdentity({
+      title: 'Conseiller clientèle',
+      externalPath: '/job/Sion/322',
+      locationsText: 'CH \u2014 Sion',
+    }).location).toBe('Sion');
   });
 
   it('caps long shared output at a deterministic token boundary', () => {
