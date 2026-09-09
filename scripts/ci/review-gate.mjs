@@ -5,6 +5,9 @@
  *
  * Un finding 🔴 Important puo' essere declassato solo quando tutti i file che
  * cita sono risolti nel tree della PR e nessuno appartiene al diff corrente.
+ * Le review successive non possono cancellare uno storico Important: resta
+ * aperto finche' una review successiva conferma esplicitamente il fix dell'ancora
+ * (`Fix di L<linea>: ok.`), oppure il finding viene classificato fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
  */
@@ -21,6 +24,7 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*/u;
 const FINDING_MARKER_RE = /🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}\s*[:—-]|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}\s*[:—-]|❓\s*q\s*:/gu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
+const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+(?:`([^`\n]+)`|L(\d+))\s*:\s*ok\b/iu;
 const FILE_CITATION_RE = /(?:^|[\s([{"'`])((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
 
 /**
@@ -396,6 +400,90 @@ function reviewerList(raw) {
   return raw.flatMap((page) => Array.isArray(page) ? page : [page]);
 }
 
+function findingKey(finding) {
+  const anchors = (finding?.citations || [])
+    .map((citation) => `${normalizePath(citation.path)}:${citation.line || ''}`)
+    .sort()
+    .join('|');
+  return anchors || String(finding?.text || finding?.line || '').replace(/\s+/gu, ' ').trim();
+}
+
+function fixConfirmations(body) {
+  const confirmations = [];
+  for (const line of String(body || '').split(/\r?\n/u)) {
+    const match = line.match(FIX_CONFIRMATION_RE);
+    if (!match) continue;
+    if (match[1]) {
+      const citations = extractFileCitations(match[1]);
+      if (citations.length > 0) confirmations.push(...citations);
+    } else {
+      confirmations.push({ path: null, line: Number(match[2]) });
+    }
+  }
+  return confirmations;
+}
+
+function citationConfirmed(citation, confirmations) {
+  return confirmations.some((confirmation) => confirmation.line === citation.line
+    && (!confirmation.path || confirmation.path === citation.path));
+}
+
+/**
+ * Return Important findings opened by an earlier bot review and not explicitly
+ * closed by a later `Fix di ...: ok.` confirmation. GitHub already persists the
+ * review bodies; this preserves the path+line anchors without adding storage.
+ * `includeLatest` is used by the reviewer bundle, before the new review exists.
+ */
+export function historicalImportantFindings(reviews, { includeLatest = false } = {}) {
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
+  );
+  if (bots.length < (includeLatest ? 1 : 2)) return [];
+
+  const open = new Map();
+  const latestIndex = bots.length - 1;
+  for (const [index, review] of bots.entries()) {
+    const confirmations = fixConfirmations(review?.body);
+    for (const [key, entry] of open.entries()) {
+      if (entry.reviewIndex >= index || entry.finding.citations.length === 0) continue;
+      if (entry.finding.citations.every((citation) => citationConfirmed(citation, confirmations))) {
+        open.delete(key);
+      }
+    }
+    if (!includeLatest && index === latestIndex) break;
+
+    for (const finding of importantFindings(review?.body)) {
+      open.set(findingKey(finding), {
+        finding,
+        reviewIndex: index,
+        reviewCommit: review.commit_id || '',
+      });
+    }
+  }
+
+  return [...open.values()].map(({ finding, reviewCommit }) => ({
+    ...finding,
+    reviewCommit,
+  }));
+}
+
+/** Insert inherited findings before the latest review's LGTM marker. */
+export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
+  const currentKeys = new Set(importantFindings(body).map(findingKey));
+  const carry = (historicalFindings || []).filter((finding) => !currentKeys.has(findingKey(finding)));
+  if (carry.length === 0) return String(body || '');
+
+  const section = [
+    '## Findings ereditati da review precedenti',
+    '',
+    ...carry.map((finding) => finding.text),
+    '',
+  ].join('\n');
+  const lgtm = String(body || '').search(/^## LGTM\b/imu);
+  if (lgtm === -1) return `${String(body || '').trimEnd()}\n\n${section}`;
+  return `${String(body || '').slice(0, lgtm)}${section}${String(body || '').slice(lgtm)}`;
+}
+
 function latestReviewer(reviews) {
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
@@ -604,15 +692,19 @@ export async function runReviewGate({
   mutate = true,
   reviews,
   fingerprintFn = fingerprint,
+  classifyAndMintReviewFn = classifyAndMintReview,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
-  const latest = latestReviewer(reviews ?? readReviews(repo, pr));
+  const reviewHistory = reviews ?? readReviews(repo, pr);
+  const latest = latestReviewer(reviewHistory);
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
   const body = String(latest.body || '');
-  const findings = importantFindings(body);
+  const historical = historicalImportantFindings(reviewHistory);
+  const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
+  const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
   let classification = emptyClassification(findings);
 
@@ -621,7 +713,7 @@ export async function runReviewGate({
   // the gate correctly blocks on the changed contribution.
   const applies = reviewAppliesToHead(reviewCommit, headSha, fingerprintFn);
   if (findings.length > 0 && applies) {
-    classification = await classifyAndMintReview(body, {
+    classification = await classifyAndMintReviewFn(effectiveBody, {
       repo,
       pr,
       prUrl: prUrl || process.env.PR_URL,
