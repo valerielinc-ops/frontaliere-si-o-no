@@ -397,10 +397,8 @@ export function classifyRecipientConsent(newsletterDoc, jobAlertDoc) {
 export function hasDeferredCompanyAlertWork(alerts) {
   return (alerts || []).some((alert) => {
     const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
-    const state = deferredStateForAlert(alert);
-    if (isDeferredExhausted(alert, ledger)) return false;
-    return state === DELIVERY_STATES.DEFERRED
-      || Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
+    if (isDeferredExhausted(alert)) return false;
+    return Object.values(ledger).some((entry) => entry.state === DELIVERY_STATES.DEFERRED);
   });
 }
 
@@ -408,21 +406,18 @@ function deferredStateForAlert(alert) {
   return String(alert?.deliveryDeferredState || '').trim().toLowerCase();
 }
 
-function deferredAttemptsForAlert(alert, ledger) {
+function deferredAttemptsForAlert(alert) {
   const storedAttempts = Number(alert?.deliveryDeferredAttempts);
-  if (Number.isInteger(storedAttempts) && storedAttempts > 0) return storedAttempts;
-  return Object.values(ledger || {}).reduce((max, entry) => {
-    if (entry.state !== DELIVERY_STATES.DEFERRED
-      && entry.state !== DELIVERY_STATES.DEFERRED_EXHAUSTED) return max;
-    const attempts = Number(entry.attempts);
-    return Number.isInteger(attempts) && attempts > max ? attempts : max;
-  }, 0);
+  return Number.isInteger(storedAttempts) && storedAttempts > 0 ? storedAttempts : 0;
 }
 
-function isDeferredExhausted(alert, ledger) {
+function isDeferredExhausted(alert) {
   return deferredStateForAlert(alert) === DELIVERY_STATES.DEFERRED_EXHAUSTED
-    || Object.values(ledger || {}).some((entry) => entry.state === DELIVERY_STATES.DEFERRED_EXHAUSTED)
-    || deferredAttemptsForAlert(alert, ledger) >= DEFERRED_MAX_ATTEMPTS;
+    || deferredAttemptsForAlert(alert) >= DEFERRED_MAX_ATTEMPTS;
+}
+
+function isThroughputDeferReason(reason) {
+  return reason === 'per-run-cap' || reason === 'card-cap';
 }
 
 function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
@@ -439,7 +434,7 @@ function candidateJobsForAlert(alert, newJobs, allJobs = newJobs) {
   for (const job of newJobs || []) add(job);
 
   const ledger = normalizeDeliveryLedger(alert?.deliveryLedger);
-  const alertDeferredExhausted = isDeferredExhausted(alert, ledger);
+  const alertDeferredExhausted = isDeferredExhausted(alert);
   const deferredKeys = alertDeferredExhausted
     ? new Set()
     : new Set(Object.entries(ledger)
@@ -552,8 +547,10 @@ export function buildRecipientSections(
  *
  * The job key is stored, not the rendered email: the next run rehydrates the
  * same job from the full dataset and re-runs the open/matching guards. The
- * attempt counter is deliberately alert-level, because a consent defer can
- * happen with no current job key (or with a different job key on each run).
+ * Consent/suppression deferrals count at alert level, because they can happen
+ * with no current job key (or with a different job key on each run). The
+ * throughput reasons (`per-run-cap` and `card-cap`) remain per-job: they are
+ * allocator outcomes, not another attempt to resolve consent.
  *
  * @param {object[]} sections
  * @param {number} nowMs
@@ -562,12 +559,41 @@ export function buildRecipientSections(
  */
 export function planDeferredDeliveryWrites(sections, nowMs, reason) {
   const normalizedReason = String(reason || '').trim() || 'deferred';
+  const alertLevel = !isThroughputDeferReason(normalizedReason);
   return (sections || [])
     .filter((section) => section?.alert?.ref)
     .map((section) => {
       let deliveryLedger = normalizeDeliveryLedger(section.alert.deliveryLedger);
-      const previousAttempts = deferredAttemptsForAlert(section.alert, deliveryLedger);
-      const alreadyExhausted = isDeferredExhausted(section.alert, deliveryLedger);
+      if (!alertLevel) {
+        for (const job of section.jobs || []) {
+          const key = jobDedupKey(job);
+          if (!key) continue;
+          const previous = deliveryLedger[key];
+          if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+          const attempts = previous?.state === DELIVERY_STATES.DEFERRED
+            ? (Number(previous.attempts) || 0) + 1
+            : 1;
+          const state = attempts >= DEFERRED_MAX_ATTEMPTS
+            ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+            : DELIVERY_STATES.DEFERRED;
+          deliveryLedger = mergeDeliveryLedger(
+            deliveryLedger,
+            [job],
+            nowMs,
+            state,
+            { reason: normalizedReason, attempts },
+          );
+        }
+        return {
+          ref: section.alert.ref,
+          deliveryLedger,
+          reason: normalizedReason,
+          at: nowMs,
+        };
+      }
+
+      const previousAttempts = deferredAttemptsForAlert(section.alert);
+      const alreadyExhausted = isDeferredExhausted(section.alert);
       const attempts = alreadyExhausted
         ? Math.max(previousAttempts, DEFERRED_MAX_ATTEMPTS)
         : previousAttempts + 1;
@@ -575,13 +601,10 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
         ? DELIVERY_STATES.DEFERRED_EXHAUSTED
         : DELIVERY_STATES.DEFERRED;
 
-      if (state === DELIVERY_STATES.DEFERRED_EXHAUSTED) {
-        deliveryLedger = Object.fromEntries(Object.entries(deliveryLedger).map(([key, entry]) => (
-          entry.state === DELIVERY_STATES.DEFERRED
-            ? [key, { ...entry, state, attempts }]
-            : [key, entry]
-        )));
-      }
+      // Do not promote older ledger entries here. Their per-job state may have
+      // come from the pre-alert-level schema or from a different deferral
+      // reason; the alert-level terminal state blocks their rehydration without
+      // rewriting unrelated evidence.
       for (const job of section.jobs || []) {
         const key = jobDedupKey(job);
         if (!key) continue;
@@ -620,8 +643,19 @@ function coalesceDeliveryWrites(writes) {
       continue;
     }
     prior.deliveryLedger = { ...prior.deliveryLedger, ...write.deliveryLedger };
-    prior.deliveryDeferredAttempts = write.deliveryDeferredAttempts;
-    prior.deliveryDeferredState = write.deliveryDeferredState;
+    const writeAttempts = deferredAttemptsForAlert(write);
+    if (writeAttempts > 0) {
+      prior.deliveryDeferredAttempts = Math.max(
+        deferredAttemptsForAlert(prior),
+        writeAttempts,
+      );
+      const priorState = deferredStateForAlert(prior);
+      const writeState = deferredStateForAlert(write);
+      prior.deliveryDeferredState = priorState === DELIVERY_STATES.DEFERRED_EXHAUSTED
+        || writeState === DELIVERY_STATES.DEFERRED_EXHAUSTED
+        ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+        : (writeState || priorState);
+    }
     prior.reason = write.reason || prior.reason;
     prior.at = Math.max(prior.at || 0, write.at || 0);
   }
@@ -661,15 +695,8 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
         if (!snapshot?.exists) continue;
         const currentData = snapshot.data() || {};
         const current = normalizeDeliveryLedger(currentData.deliveryLedger);
-        const priorAttempts = deferredAttemptsForAlert(currentData, current);
-        const currentExhausted = isDeferredExhausted(currentData, current);
-        const plannedAttempts = Number(write.deliveryDeferredAttempts) || 0;
-        const deferredAttempts = currentExhausted
-          ? Math.max(priorAttempts, DEFERRED_MAX_ATTEMPTS)
-          : Math.max(priorAttempts + 1, plannedAttempts);
-        const deferredState = currentExhausted || deferredAttempts >= DEFERRED_MAX_ATTEMPTS
-          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
-          : DELIVERY_STATES.DEFERRED;
+        const hasAlertLevelAttempt = deferredAttemptsForAlert(write) > 0;
+        const currentExhausted = isDeferredExhausted(currentData);
         const desired = normalizeDeliveryLedger(write.deliveryLedger);
         const next = { ...current };
         for (const [key, entry] of Object.entries(desired)) {
@@ -680,20 +707,27 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
           next[key] = entry;
         }
-        if (deferredState === DELIVERY_STATES.DEFERRED_EXHAUSTED) {
-          for (const [key, entry] of Object.entries(next)) {
-            if (entry.state === DELIVERY_STATES.DEFERRED) {
-              next[key] = { ...entry, state: deferredState, attempts: deferredAttempts };
-            }
-          }
-        }
-        tx.update(write.ref, {
+        const update = {
           deliveryLedger: next,
-          deliveryDeferredAttempts: deferredAttempts,
-          deliveryDeferredState: deferredState,
           deliveryLastDeferredReason: write.reason,
           deliveryLastDeferredAt: write.at,
-        });
+        };
+        if (hasAlertLevelAttempt) {
+          // This callback runs inside Firestore's transaction. If another run
+          // commits first, Firestore retries the callback with its new
+          // deliveryDeferredAttempts, so concurrent deferrals cannot both
+          // commit the same alert-level value.
+          const priorAttempts = deferredAttemptsForAlert(currentData);
+          const plannedAttempts = deferredAttemptsForAlert(write);
+          const deferredAttempts = currentExhausted
+            ? Math.max(priorAttempts, DEFERRED_MAX_ATTEMPTS)
+            : Math.max(priorAttempts + 1, plannedAttempts);
+          update.deliveryDeferredAttempts = deferredAttempts;
+          update.deliveryDeferredState = deferredAttempts >= DEFERRED_MAX_ATTEMPTS
+            ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+            : DELIVERY_STATES.DEFERRED;
+        }
+        tx.update(write.ref, update);
       }
     });
   }
@@ -877,6 +911,8 @@ export function planDeliveryWriteback(alertData, sentJobs, outcome, nowMs, provi
       deliveryLedger: removeDeliveryLedgerJobs(base.deliveryLedger, jobs),
       matchCountDelta: jobs.length,
       deliveryLastOutcomeReason: 'provider-acknowledged',
+      resetDeferredAttemptState: Object.prototype.hasOwnProperty.call(data, 'deliveryDeferredAttempts')
+        || Object.prototype.hasOwnProperty.call(data, 'deliveryDeferredState'),
     };
   }
   if (state === 'ambiguous') {
@@ -954,6 +990,12 @@ export async function finalizeRecipientDelivery(
         deliveryLastOutcomeReason: plan.deliveryLastOutcomeReason,
       };
       if (plan.sentJobIds) update.sentJobIds = plan.sentJobIds;
+      if (plan.resetDeferredAttemptState) {
+        // A successful delivery is a new, consent-approved send boundary. Do
+        // not carry a previous consent-defer terminal into the next alert.
+        update.deliveryDeferredAttempts = 0;
+        update.deliveryDeferredState = null;
+      }
       if (plan.matchCountDelta > 0) {
         update.lastMatchedAt = typeof fieldValues.serverTimestamp === 'function'
           ? fieldValues.serverTimestamp()
