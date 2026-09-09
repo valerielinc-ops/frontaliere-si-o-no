@@ -66,6 +66,9 @@ describe('recommendedBlock selection', () => {
     expect(href).toContain('utm_medium=email');
     expect(href).toContain('utm_campaign=weekly');
     expect(href).toContain('as=weather-hub');
+    const affiliateParams = new URL(href).searchParams;
+    expect(affiliateParams.get('utm_content')).toBe(`recommended-1-control-${rec!.goId}`);
+    expect(affiliateParams.get('utm_content')).not.toBe(rec!.id);
     // Placement slot: utm_campaign dice quale email, `pos` dove dentro (#7527).
     // La campagna e' dentro lo slot perche' quattro superfici rendono lo stesso
     // blocco verso lo stesso /go/{goId}/ (#7695).
