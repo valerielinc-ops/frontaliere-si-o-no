@@ -80867,6 +80867,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-yumo-piattaforma-giovani-finanza': {
+    title: 'YUMO, piattaforma UBS per educazione finanziaria',
+    description: 'UBS lancia YUMO, piattaforma gratuita per insegnare finanza ed economia ai giovani svizzeri. Disponibile in 4 lingue: tedesco, francese, italiano e inglese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, yumo, piattaforma, educazione, finanziaria',
+    ogTitle: 'YUMO lancia piattaforma educazione finanziaria giovani',
+    ogDescription: 'UBS presenta YUMO, la nuova piattaforma digitale gratuita per insegnare ai giovani svizzeri come gestire il denaro, risparmi e investimenti. Con contenuti in tedesco, francese, italiano e inglese per approfondire economia e finanza personale.',
+    canonicalPath: '/articoli-svizzera/yumo-piattaforma-giovani-finanza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "YUMO, piattaforma UBS per educazione finanziaria",
+      "description": "UBS lancia YUMO, piattaforma gratuita per insegnare finanza ed economia ai giovani svizzeri. Disponibile in 4 lingue: tedesco, francese, italiano e inglese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/yumo-piattaforma-giovani-finanza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovani che imparano finanza ed economia su una piattaforma digitale in Svizzera"
+      },
+      "datePublished": "2026-09-09T20:44:51+00:00",
+      "dateModified": "2026-09-09T20:44:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/yumo-piattaforma-giovani-finanza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -6229,6 +6229,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-svitto-guida.title': 'Allocations familiales Schwyz : fonctionnement et demande',
     'blog.article.assegni-familiari-svitto-guida.excerpt': 'Dans le canton de Schwyz, tout parent ayant des enfants a droit à des allocations familiales mensuelles. Voici les procédures de demande, les compétences administratives et où vérifier les montants mis à jour.',
     'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Famille suisse examinant les documents d\'allocations familiales à domicile',
+    'blog.article.yumo-piattaforma-giovani-finanza.title': 'YUMO, plateforme UBS pour l\'éducation financière',
+    'blog.article.yumo-piattaforma-giovani-finanza.excerpt': 'UBS lance YUMO, une plateforme gratuite pour apprendre aux jeunes à gérer l\'argent, l\'épargne et les investissements. Disponible en 4 langues en Suisse.',
+    'blog.article.yumo-piattaforma-giovani-finanza.imageAlt': 'Jeunes apprenant la finance et l\'économie sur une plateforme numérique en Suisse',
 };
 
 export default blogMetaChFr;

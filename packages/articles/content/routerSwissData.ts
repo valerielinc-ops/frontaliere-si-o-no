@@ -2102,6 +2102,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'divieto-oro-sudan-consiglio-federale': { it: 'divieto-oro-sudan-consiglio-federale', en: 'sudan-gold-import-ban-switzerland-2026', de: 'sudan-gold-verbot-schweiz-2026', fr: 'embargo-or-soudan-suisse-2026' },
  'aeroporto-zurigo-shuttle-autonomi': { it: 'aeroporto-zurigo-shuttle-autonomi', en: 'zurich-airport-autonomous-shuttles', de: 'flughafen-zurich-autonome-shuttles', fr: 'aeroport-zurich-navettes-autonomes' },
  'assegni-familiari-svitto-guida': { it: 'assegni-familiari-svitto-guida', en: 'family-allowances-schwyz-guide', de: 'familienbeihilfe-schwyz-anleitung', fr: 'allocations-familiales-schwyz-guide' },
+ 'yumo-piattaforma-giovani-finanza': { it: 'yumo-piattaforma-giovani-finanza', en: 'yumo-platform-young-people-finance', de: 'yumo-plattform-junge-leute-finanzen', fr: 'yumo-plateforme-jeunes-finance' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
