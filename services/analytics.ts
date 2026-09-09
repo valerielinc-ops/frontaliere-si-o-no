@@ -104,6 +104,71 @@ import {
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
 
+export interface AnalyticsPageViewIdentity {
+ jobSlug?: string;
+ employerKey?: string;
+}
+
+export type AnalyticsJobIdentitySource = {
+ slug?: string | null;
+ slugByLocale?: Partial<Record<string, string | null>> | null;
+ previousSlugs?: readonly string[] | null;
+ previousSlugsByLocale?: Partial<Record<string, readonly string[]>> | null;
+ companyKey?: string | null;
+};
+
+/**
+ * Resolve the identity carried by job analytics from the canonical job fields.
+ * The caller must already have resolved route aliases/locales to the current
+ * job record; this helper deliberately never derives an employer key from its
+ * display name.
+ */
+export function resolveAnalyticsJobIdentity(
+ job: AnalyticsJobIdentitySource,
+): AnalyticsPageViewIdentity | null {
+ const jobSlug = String(job.slugByLocale?.it || job.slug || '').trim();
+ const employerKey = String(job.companyKey || '').trim();
+ if (!jobSlug || !employerKey) return null;
+ return { jobSlug, employerKey };
+}
+
+/**
+ * A company hub is attributable only when all matching records agree on the
+ * canonical companyKey. Refuse collisions instead of guessing from a route
+ * slug that was built from a display name.
+ */
+export function resolveAnalyticsCompanyHubKey(
+ employerKeys: readonly (string | null | undefined)[],
+): string | null {
+ const uniqueKeys = new Set(
+  employerKeys
+   .map((key) => String(key || '').trim())
+   .filter(Boolean),
+ );
+ return uniqueKeys.size === 1 ? [...uniqueKeys][0] : null;
+}
+
+/** Build only the employer/job attribution fields for a GA4 page_view. */
+export function buildPageViewAttributionParams(
+ path: string,
+ identity?: AnalyticsPageViewIdentity | null,
+): Record<string, string> {
+ const pageContext = deriveAnalyticsPageContext(path);
+ const employerKey = identity?.employerKey?.trim();
+ if (!employerKey) return {};
+
+ if (pageContext.pageTemplate === 'job_detail') {
+  const jobSlug = identity?.jobSlug?.trim();
+  return jobSlug ? { job_slug: jobSlug, employer_key: employerKey } : {};
+ }
+
+ if (pageContext.pageTemplate === 'jobs_company') {
+  return { employer_key: employerKey };
+ }
+
+ return {};
+}
+
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
 // Clarity's JS API: clarity('set', key, value) and clarity('event', name).
@@ -856,7 +921,7 @@ export const Analytics = {
  * This means non-blocked users get a duplicate page_view (gtag + Firebase)
  * on the initial page, which is a minor metric inflation but correct.
  */
- trackPageView: (path: string, title?: string) => {
+ trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
  const now = Date.now();
  if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
  // NOTE: We intentionally do NOT skip Firebase page_view even when
@@ -897,6 +962,7 @@ export const Analytics = {
  content_locale: pageContext.contentLocale,
  route_family: pageContext.routeFamily,
  engagement_time_msec: timeOnPrevPage > 0 ? Math.min(timeOnPrevPage, 3600000) : undefined,
+ ...buildPageViewAttributionParams(path, identity),
  });
  // Bridge: tag Clarity session with page template for filtering
  tagClarity('page_template', pageContext.pageTemplate);
@@ -1600,7 +1666,7 @@ export const Analytics = {
 
  /**
  * Candidatura su un annuncio — emette `job_apply` con attribuzione per-azienda
- * pulita. `employer_key` è una stable slug (companyKey o derivata dal nome) e
+ * pulita. `employer_key` è la chiave canonica `companyKey` del dataset e
  * `is_sponsored` distingue annunci sponsorizzati (featured) da quelli crawlati.
  * Entrambi i parametri sono custom dimension GA4 registrate, così il report
  * "candidati inviati per azienda" è interrogabile via Data API. Affianca (non
