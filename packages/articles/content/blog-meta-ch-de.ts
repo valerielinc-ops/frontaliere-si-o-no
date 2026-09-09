@@ -6205,6 +6205,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Stellenangebote in der Bundesverwaltung',
     'blog.article.opportunita-lavoro-federale.excerpt': 'Die Bundesverwaltung bietet Praktika für Hochschulabsolventen, 50 Berufsausbildungen und Flexibilitätsvorteile. Erfahren Sie, wie Sie sich bewerben können.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Modernes Büro der Bundesverwaltung mit Fachleuten, die an innovativen Projekten zusammenarbeiten.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Kanton und Gemeinden tauschen sich über Steuern und ARP-Reform aus',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Dialog Kanton-Gemeinden über Steuern, Tessin 2020 und ARP-Reform. Im Zentrum: Abschaffung des Bundesmietwerts und Besteuerung von Zweitwohnungen',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, Sitz der Kantonsadministration während Dialog Kanton-Gemeinden zu Fiskalpolitik und Reformen',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet schneidet in Winterthur, Unia auf dem Feld',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 Stellen auf 730 Stellen bei Zimmer Biomet (Winterthur). Die Gewerkschaft Unia protestiert: Die Arbeitnehmer müssen nicht für die Bereicherung der Aktionäre bezahlen.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur, wo 580 von 730 Arbeitsplätzen abgebaut werden',
+    'blog.article.banda-larga-consiglio-federale.title': 'Ländliches Breitband: das Bundesprogramm 2030-2037',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'Der Bundesrat genehmigt am 9. September 2026 das Breitband-Förderprogramm. Investition von 365 Mio. CHF des Bundes, um schnelles Internet in ländliche Gebiete zu bringen.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Techniker installiert Glasfaserkabel auf einem Schweizer Landhaus und symbolisiert die Breitbandexpansion in abgelegenen Gebieten.',
 };
 
 export default blogMetaChDe;

@@ -6205,6 +6205,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Job opportunities in the Federal Administration',
     'blog.article.opportunita-lavoro-federale.excerpt': 'The Federal Administration offers internships for recent graduates, 50 professional trainings and flexibility benefits. Find out how to apply.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Modern federal administration office with professionals collaborating on innovative projects.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton and Municipalities discuss tax and ARP reform',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzona, Cantone-Comuni dialogue on tax, Ticino 2020 and ARP reform. At center: abolition of federal rental value and secondary residence tax',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, seat of the Ticino Cantonal Administration, during Canton-Municipalities dialogue on fiscal and administrative reforms',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet cuts in Winterthur, Unia in the field',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 cuts on 730 seats at Zimmer Biomet (Winterthur). The Unia union protests: workers do not have to pay for the enrichment of shareholders.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Zimmer Biomet production facility in Winterthur, where 580 job cuts out of 730 employees are planned',
+    'blog.article.banda-larga-consiglio-federale.title': 'Rural Broadband: The Federal 2030-2037 Program',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'The Federal Council approves the broadband support programme on 9 September 2026. Investment of 365 million federal CHF to bring fast internet to rural areas.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Technician installing fiber optic cables on a Swiss countryside house, symbolizing rural broadband expansion in remote areas.',
 };
 
 export default blogMetaChEn;

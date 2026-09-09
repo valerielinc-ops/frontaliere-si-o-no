@@ -451,7 +451,7 @@ describe('all supported registration methods after account-delete', () => {
     expect(after.reactivated_at).toBeUndefined();
   });
 
-  it('an autologin code in a leftover email starts a new Auth session', async () => {
+  it('an autologin code in a leftover email starts Auth without granting newsletter consent', async () => {
     const { cleanupUserDataForDeletedAccount } = await import(
       '../functions/src/authAccountCleanup.js'
     );
@@ -489,9 +489,9 @@ describe('all supported registration methods after account-delete', () => {
       expect(result.status).toBe(200);
       expect(result.json).toEqual({ success: true, authToken: 'custom-auth-token' });
       const after = db.store[`newsletter_subscribers/${EMAIL}`];
-      expect(after.status).toBe('confirmed');
-      expect(after.isActive).toBe(true);
-      expect(after.account_deleted_at).toBe('__delete__');
+      expect(after.status).toBe('unsubscribed');
+      expect(after.isActive).toBe(false);
+      expect(after.account_deleted_at).toBeTruthy();
     } finally {
       admin.auth = originalAuth;
     }

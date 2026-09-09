@@ -6205,6 +6205,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.opportunita-lavoro-federale.title': 'Opportunités de travail dans l\'administration fédérale',
     'blog.article.opportunita-lavoro-federale.excerpt': 'L\'Administration fédérale offre des stages pour jeunes diplômés, 50 formations professionnelles et des avantages de flexibilité. Découvrez comment postuler.',
     'blog.article.opportunita-lavoro-federale.imageAlt': 'Bureau moderne de l\'administration fédérale avec des professionnels collaborant sur des projets innovants.',
+    'blog.article.cantone-comuni-fisco-riforma-arp.title': 'Canton et communes se confrontent sur la fiscalité et la réforme de l\'ARP',
+    'blog.article.cantone-comuni-fisco-riforma-arp.excerpt': 'Bellinzone, dialogue cantonal-commun sur le fisc, Tessin 2020 et réforme de l\'ARP. Au centre : abolition de la valeur locative fédérale et de l\'impôt sur les résidences secondaires',
+    'blog.article.cantone-comuni-fisco-riforma-arp.imageAlt': 'Bellinzona, siège de l\'Administration cantonale, lors du dialogue Kanton-Communes sur la fiscalité et réformes',
+    'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet coupe à Winterthour, Unia sur le terrain',
+    'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 coupes sur 730 places à Zimmer Biomet (Winterthour). Le syndicat Unia proteste : les travailleurs n\'ont pas à payer pour l\'enrichissement des actionnaires.',
+    'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Usine de production Zimmer Biomet à Winterthour, où 580 suppressions d\'emploi sur 730 sont envisagées',
+    'blog.article.banda-larga-consiglio-federale.title': 'Large bande rurale : le programme fédéral 2030-2037',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'Le Conseil fédéral approuve le 9 septembre 2026 le programme de soutien au haut débit. Investissement de 365 millions de CHF fédéraux pour apporter Internet rapide dans les zones rurales.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Technicien installant des câbles en fibre optique sur une maison rurale suisse symbolisant l\'expansion du haut débit dans les zones reculées.',
 };
 
 export default blogMetaChFr;
