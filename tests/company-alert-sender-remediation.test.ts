@@ -15,6 +15,7 @@ import {
   hasDeferredCompanyAlertWork,
   hasExplicitProviderAcceptance,
   isOpenCompanyAlertJob,
+  markRecipientDeliveryAttempted,
   PER_RUN_CAP,
   planDeferredDeliveryWrites,
   planDeliveryWriteback,
@@ -235,12 +236,44 @@ describe('B4 — delivery ledger blocks unsafe retries', () => {
     });
   });
 
+  it('allocates from the fresh unsent set, including a section outside the stale cap', async () => {
+    const source = Array.from({ length: 21 }, (_, index) => {
+      const sourceAlert = alert(`b4-fresh-allocator-${index}`, 'Acme');
+      const sourceJob = job(`b4-fresh-allocator-job-${index}`, 'Acme', 'acme');
+      return { sourceAlert, sourceJob, section: buildRecipientSections([sourceAlert], [sourceJob], NOW)[0] };
+    });
+    const initial = Object.fromEntries(source.map(({ sourceAlert, sourceJob }, index) => [
+      sourceAlert.ref.path,
+      {
+        ...sourceAlert,
+        ref: undefined,
+        ...(index === 0 ? { sentJobIds: { [sourceJob.id]: NOW } } : {}),
+      },
+    ]));
+    const db = serializedDb(initial);
+
+    const claimed = await claimRecipientSections(db, source.map((item) => item.section), NOW, 'claim-fresh-allocator');
+    expect(claimed).toHaveLength(20);
+    expect(claimed.some((section) => section.jobs[0].id === 'b4-fresh-allocator-job-0')).toBe(false);
+    expect(claimed.some((section) => section.jobs[0].id === 'b4-fresh-allocator-job-20')).toBe(true);
+  });
+
   it('keeps a claimed job blocked when accepted-provider writeback fails', async () => {
     const sourceAlert = alert('b4-writeback', 'Acme');
     const sourceJob = job('b4-writeback-job', 'Acme', 'acme');
     const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
     const db = serializedDb({ [sourceAlert.ref.path]: { ...sourceAlert, ref: undefined } });
     const [claimed] = await claimRecipientSections(db, [section], NOW, 'claim-writeback');
+    expect(await markRecipientDeliveryAttempted(
+      db,
+      [{ ref: sourceAlert.ref, sentJobs: claimed.jobs }],
+      NOW,
+      'claim-writeback',
+    )).toBe(1);
+    expect(db.docs.get(sourceAlert.ref.path)?.deliveryLedger?.['b4-writeback-job']).toMatchObject({
+      state: DELIVERY_STATES.AMBIGUOUS,
+      reason: 'provider-attempt-unknown',
+    });
     const failedWritebackDb = {
       runTransaction: async (fn: (tx: any) => Promise<unknown>) => fn({
         get: async (documentRef: { path: string }) => {
@@ -258,7 +291,7 @@ describe('B4 — delivery ledger blocks unsafe retries', () => {
       NOW,
     )).rejects.toThrow('controlled writeback failure');
     const current = db.docs.get(sourceAlert.ref.path)!;
-    expect(current.deliveryLedger['b4-writeback-job']).toMatchObject({ state: DELIVERY_STATES.CLAIMED });
+    expect(current.deliveryLedger['b4-writeback-job']).toMatchObject({ state: DELIVERY_STATES.AMBIGUOUS });
     expect(filterUnsentJobs(
       [sourceJob],
       {},

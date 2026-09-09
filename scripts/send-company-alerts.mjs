@@ -500,6 +500,7 @@ export function buildRecipientSections(
       nowMs,
       dedupWindowMs,
       alert.deliveryLedger,
+      true,
     )
       .sort((a, b) => toMillis(b.firstSeenAt) - toMillis(a.firstSeenAt));
     if (unsent.length === 0) continue;
@@ -602,7 +603,7 @@ async function persistDeferredDeliveryWrites(db, writes, dryRun) {
           // A concurrent sender may have claimed or marked the same job after
           // this plan was built. Never let a stale deferred write downgrade a
           // retry-blocking state and reopen a duplicate-send race.
-          if (deliveryEntryBlocksRetry(current[key])) continue;
+          if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
           next[key] = entry;
         }
         tx.update(write.ref, {
@@ -638,19 +639,14 @@ export async function claimRecipientSections(db, sections, nowMs, claimId) {
     throw new Error('Firestore transaction support is required before sending CompanyAlerts');
   }
   const safeClaimId = String(claimId || `company-alert-${nowMs}`).slice(0, 120);
-  // Claim only jobs the email builder can render. Jobs outside the per-section
-  // or total card budget must stay unclaimed so they remain eligible for the
-  // next run; claiming the full candidate pool would strand them forever.
-  const renderableJobsByAlertId = new Map(
-    allocateCompanyAlertCards(claimable).map((section) => [
-      section.alert.id,
-      section.jobs,
-    ]),
-  );
   return db.runTransaction(async (tx) => {
     const snapshots = [];
     for (const section of claimable) snapshots.push(await tx.get(section.alert.ref));
-    const claimed = [];
+    // Re-run every mutable guard on the same transaction snapshot before the
+    // allocator. If another sender accepted one card, allocating from the
+    // stale pre-transaction list could claim a different set from the one the
+    // builder will render and leave those cards with no deferred record.
+    const freshCandidates = [];
     for (let index = 0; index < claimable.length; index += 1) {
       const section = claimable[index];
       const snapshot = snapshots[index];
@@ -659,9 +655,8 @@ export async function claimRecipientSections(db, sections, nowMs, claimId) {
       if (!isImmediateCompanyAlert(freshAlert) || companyAlertQuarantineReason(freshAlert)) continue;
       const sentMap = normalizeSentMap(freshAlert.sentJobIds);
       const ledger = normalizeDeliveryLedger(freshAlert.deliveryLedger);
-      const renderableJobs = renderableJobsByAlertId.get(section.alert.id) || [];
       const freshProfile = buildAlertProfile(freshAlert, null, {});
-      const freshMatchedJobs = renderableJobs
+      const freshMatchedJobs = section.jobs
         .filter((job) => isOpenCompanyAlertJob(job, nowMs))
         .filter((job) => !jobCompanyIdentityQuarantineReason(job, freshProfile))
         .filter((job) => scoreJobForAlert(job, freshProfile, nlNormLocale(freshAlert.locale)) > 0);
@@ -671,11 +666,31 @@ export async function claimRecipientSections(db, sections, nowMs, claimId) {
         nowMs,
         DEDUP_WINDOW_MS,
         ledger,
+        true,
       );
       if (unsent.length === 0) continue;
+      freshCandidates.push({
+        ...section,
+        alert: { ...section.alert, ...freshAlert, ref: section.alert.ref },
+        sentMap,
+        deliveryLedger: ledger,
+        jobs: unsent,
+        locale: nlNormLocale(freshAlert.locale),
+        companyName: companyDisplayName(freshAlert, unsent),
+        freshestMs: toMillis(unsent[0]?.firstSeenAt),
+      });
+    }
+
+    // Claim only jobs the email builder can render. Jobs outside the per-section
+    // or total card budget stay unclaimed and remain eligible for the next run.
+    const renderableSections = allocateCompanyAlertCards(freshCandidates);
+    const claimed = [];
+    for (const renderableSection of renderableSections) {
+      const section = freshCandidates.find((candidate) => candidate.alert.id === renderableSection.alert.id);
+      if (!section || renderableSection.jobs.length === 0) continue;
       const nextLedger = mergeDeliveryLedger(
-        ledger,
-        unsent,
+        section.deliveryLedger,
+        renderableSection.jobs,
         nowMs,
         DELIVERY_STATES.CLAIMED,
         { claimId: safeClaimId },
@@ -686,16 +701,73 @@ export async function claimRecipientSections(db, sections, nowMs, claimId) {
       });
       claimed.push({
         ...section,
-        alert: { ...section.alert, ...freshAlert, ref: section.alert.ref, deliveryLedger: nextLedger },
-        sentMap,
+        alert: { ...section.alert, deliveryLedger: nextLedger },
         deliveryLedger: nextLedger,
-        jobs: unsent,
-        companyName: companyDisplayName(freshAlert, unsent),
-        freshestMs: toMillis(unsent[0]?.firstSeenAt),
+        jobs: renderableSection.jobs,
       });
     }
     claimed.sort((a, b) => (b.freshestMs - a.freshestMs) || a.companyName.localeCompare(b.companyName));
     return claimed;
+  });
+}
+
+/**
+ * Move a recipient's rendered jobs from a short-lived pre-provider claim to a
+ * durable ambiguous attempt marker. This transaction is deliberately all or
+ * nothing: no provider call is allowed for an email whose complete rendered
+ * set is not marked first.
+ *
+ * `claimed` is reclaimable after CLAIM_TTL_MS; `ambiguous` is not. Therefore a
+ * worker dying before this function runs can recover, while a worker dying
+ * after it runs cannot silently resend a message that the provider may have
+ * accepted. Reconciliation can later resolve the ambiguous entry.
+ *
+ * @param {object} db
+ * @param {object[]} dedupWrites
+ * @param {number} nowMs
+ * @param {string} claimId
+ * @returns {Promise<number>} number of alert documents marked
+ */
+export async function markRecipientDeliveryAttempted(db, dedupWrites, nowMs, claimId) {
+  const writes = (dedupWrites || []).filter((write) => write?.ref && (write.sentJobs || []).length > 0);
+  if (writes.length === 0) return 0;
+  if (!db || typeof db.runTransaction !== 'function') {
+    throw new Error('Firestore transaction support is required before CompanyAlert provider attempt');
+  }
+  const safeClaimId = String(claimId || '').slice(0, 120);
+  return db.runTransaction(async (tx) => {
+    const snapshots = [];
+    for (const write of writes) snapshots.push(await tx.get(write.ref));
+    const rows = [];
+    for (let index = 0; index < writes.length; index += 1) {
+      const write = writes[index];
+      const snapshot = snapshots[index];
+      if (!snapshot?.exists) return 0;
+      const current = normalizeDeliveryLedger(snapshot.data()?.deliveryLedger);
+      const keys = (write.sentJobs || []).map(jobDedupKey).filter(Boolean);
+      if (keys.length === 0 || keys.some((key) => {
+        const entry = current[key];
+        return entry?.state !== DELIVERY_STATES.CLAIMED
+          || (safeClaimId && entry.claimId !== safeClaimId);
+      })) return 0;
+      rows.push({ write, current });
+    }
+    for (const { write, current } of rows) {
+      const nextLedger = mergeDeliveryLedger(
+        current,
+        write.sentJobs,
+        nowMs,
+        DELIVERY_STATES.AMBIGUOUS,
+        { reason: 'provider-attempt-unknown' },
+      );
+      tx.update(write.ref, {
+        deliveryLedger: nextLedger,
+        deliveryLastOutcome: 'ambiguous',
+        deliveryLastOutcomeAt: nowMs,
+        deliveryLastOutcomeReason: 'provider-attempt-unknown',
+      });
+    }
+    return rows.length;
   });
 }
 
@@ -758,8 +830,9 @@ export function planDeliveryWriteback(alertData, sentJobs, outcome, nowMs, provi
 
 /**
  * Finalise a claimed recipient atomically across all rendered alert sections.
- * If this transaction fails, the pre-send `claimed` ledger stays in place and
- * the next run cannot resend the accepted/unknown message as if it were new.
+ * If this transaction fails, the pre-provider `ambiguous` ledger stays in
+ * place and the next run cannot resend the accepted/unknown message as if it
+ * were new.
  *
  * @param {object} db
  * @param {object[]} dedupWrites
@@ -1338,15 +1411,33 @@ async function main() {
     return;
   }
 
+  // A claimed ledger entry is only a recoverable reservation. Before crossing
+  // the provider boundary, atomically mark every rendered job in the email as
+  // an ambiguous attempt. If the process dies after this point, a later run
+  // must reconcile the provider result instead of blindly sending a duplicate.
+  const attemptedEmails = [];
+  for (const email of emailsToSend) {
+    const marked = await markRecipientDeliveryAttempted(db, email.dedupWrites, now, claimId);
+    if (marked !== email.dedupWrites.length) {
+      console.warn('   ⚠️  Claim ownership changed before provider attempt — email skipped for recovery');
+      continue;
+    }
+    attemptedEmails.push(email);
+  }
+  if (attemptedEmails.length === 0) {
+    console.log('   No email retained a complete provider-attempt claim — nothing sent.');
+    return;
+  }
+
   let result;
   try {
-    result = await sendBatch(emailsToSend);
+    result = await sendBatch(attemptedEmails);
   } catch (error) {
     // The provider boundary did not return a classified result. Preserve the
     // pre-send claim as ambiguous before surfacing the run failure; a retry
     // must not assume that a transport exception means "never accepted".
     console.error(`   ⚠️  Provider cascade aborted — recording ambiguous delivery state (${String(error?.message || error).slice(0, 120)})`);
-    for (const email of emailsToSend) {
+    for (const email of attemptedEmails) {
       await finalizeRecipientDelivery(
         db,
         email.dedupWrites,
@@ -1368,7 +1459,7 @@ async function main() {
   let acceptedEmails = 0;
   let ambiguousEmails = 0;
   let failedEmails = 0;
-  for (const email of emailsToSend) {
+  for (const email of attemptedEmails) {
     const delivery = deliveryOutcomeForEmail(email, result);
     if (delivery.outcome === 'accepted') acceptedEmails += 1;
     else if (delivery.outcome === 'ambiguous') ambiguousEmails += 1;

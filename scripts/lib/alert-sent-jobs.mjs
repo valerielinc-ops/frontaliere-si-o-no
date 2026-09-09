@@ -28,6 +28,11 @@ import { extractStableJobId, hasUsableJobId } from './job-match-key.mjs';
 // preferable to permanently hiding a still-relevant listing.
 export const DEDUP_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
+// A claim that never reaches the provider-attempt marker is recoverable after
+// a dead worker. Once the marker is written, the state becomes `ambiguous` and
+// remains retry-blocking until a provider result or reconciliation resolves it.
+export const CLAIM_TTL_MS = 2 * 60 * 60 * 1000; // 2 hours
+
 // Hard cap on retained entries per alert (most-recent kept). 500 × ~40 bytes ≈
 // 20 KB, comfortably under the Firestore doc limit even with the rest of the
 // alert config.
@@ -42,13 +47,13 @@ export const SENT_JOBS_CAP = 500;
  * runs can both observe the same empty map.  The immediate sender therefore
  * writes a small per-job ledger before handing the email to the provider.
  *
- * `claimed` is deliberately retry-blocking.  If the final writeback cannot
- * prove what happened, the job stays reserved instead of being sent again.
- * The sender may move it to `ambiguous`, `deferred` or `failed` only after a
- * provider outcome is available.  `deferred` is observable backlog work and
- * remains eligible for a later run.  `accepted` is retained only as a
- * legacy read shape; the current finalizer removes it after updating
- * `sentJobIds`.
+ * `claimed` is retry-blocking only for CLAIM_TTL_MS: it is the recoverable
+ * reservation before the provider boundary. The sender then moves it to
+ * `ambiguous` before the provider call; if the final writeback cannot prove
+ * what happened, that durable state stays reserved instead of being sent
+ * again. `deferred` is observable backlog work and remains eligible for a
+ * later run. `accepted` is retained only as a legacy read shape; the current
+ * finalizer removes it after updating `sentJobIds`.
  */
 export const DELIVERY_STATES = Object.freeze({
   CLAIMED: 'claimed',
@@ -161,13 +166,18 @@ export function jobIdentityQuarantineReason(job) {
  * reads an older ledger shape.
  *
  * @param {object|null|undefined} entry
+ * @param {number} [nowMs=Date.now()]
  * @returns {boolean}
  */
-export function deliveryEntryBlocksRetry(entry) {
+export function deliveryEntryBlocksRetry(entry, nowMs = Date.now()) {
   const state = String(entry?.state || '').trim().toLowerCase();
-  return state === DELIVERY_STATES.CLAIMED
-    || state === DELIVERY_STATES.AMBIGUOUS
-    || state === 'accepted';
+  if (state === DELIVERY_STATES.CLAIMED) {
+    const at = coerceMillis(entry?.at);
+    // Missing timestamps are not safe to reclaim: an unbounded block is safer
+    // than guessing that an old hand-edited entry never reached the provider.
+    return !at || !Number.isFinite(nowMs) || nowMs - at < CLAIM_TTL_MS;
+  }
+  return state === DELIVERY_STATES.AMBIGUOUS || state === 'accepted';
 }
 
 /**
@@ -223,6 +233,7 @@ export function removeDeliveryLedgerJobs(rawLedger, jobs) {
  * @param {number} nowMs
  * @param {number} [windowMs=DEDUP_WINDOW_MS]
  * @param {Record<string, object>} [deliveryLedger] Durable sender outcomes.
+ * @param {boolean} [quarantineIdless=true] Exclude jobs without a stable key.
  * @returns {object[]} jobs not yet sent (or sent before the window).
  */
 export function filterUnsentJobs(
@@ -231,13 +242,14 @@ export function filterUnsentJobs(
   nowMs,
   windowMs = DEDUP_WINDOW_MS,
   deliveryLedger = {},
+  quarantineIdless = true,
 ) {
   const map = sentMap || {};
   const ledger = normalizeDeliveryLedger(deliveryLedger);
   return (jobs || []).filter((job) => {
     const key = jobDedupKey(job);
-    if (!key) return false; // cannot make an id-less send idempotent: quarantine it
-    if (deliveryEntryBlocksRetry(ledger[key])) return false;
+    if (!key) return !quarantineIdless; // sender passes true to make quarantine explicit
+    if (deliveryEntryBlocksRetry(ledger[key], nowMs)) return false;
     const sentAt = map[key];
     if (!Number.isFinite(sentAt)) return true; // never sent
     return nowMs - sentAt >= windowMs; // sent, but outside the window

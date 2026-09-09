@@ -10,6 +10,7 @@ import {
   mergeDeliveryLedger,
   deliveryEntryBlocksRetry,
   DELIVERY_STATES,
+  CLAIM_TTL_MS,
 } from '../scripts/lib/alert-sent-jobs.mjs';
 
 const NOW = 1_700_000_000_000;
@@ -96,6 +97,20 @@ describe('delivery ledger', () => {
     );
     expect(deliveryEntryBlocksRetry(ledger['deferred-job'])).toBe(false);
     expect(filterUnsentJobs([{ id: 'deferred-job' }], {}, NOW, DEDUP_WINDOW_MS, ledger)).toHaveLength(1);
+  });
+
+  it('reclaims a stale pre-provider claim but keeps a fresh one blocked', () => {
+    const stale = { state: DELIVERY_STATES.CLAIMED, at: NOW - CLAIM_TTL_MS - 1 };
+    const fresh = { state: DELIVERY_STATES.CLAIMED, at: NOW };
+    expect(deliveryEntryBlocksRetry(stale, NOW)).toBe(false);
+    expect(deliveryEntryBlocksRetry(fresh, NOW)).toBe(true);
+    expect(filterUnsentJobs(
+      [{ id: 'stale-claim' }],
+      {},
+      NOW,
+      DEDUP_WINDOW_MS,
+      { 'stale-claim': stale },
+    )).toEqual([{ id: 'stale-claim' }]);
   });
 });
 

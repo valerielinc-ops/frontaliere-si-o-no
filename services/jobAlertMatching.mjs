@@ -145,9 +145,9 @@ function normalizeCompanyToken(value) {
  * Company token for the PINNED-employer comparison, with declared brand aliases folded
  * onto their canonical.
  *
- * Kept separate from {@link normalizeCompanyToken} to make the hard pinned
- * path explicit at its call site. Both helpers use the same canonical slug;
- * the pinned comparison below is equality, never substring containment.
+ * Alias for {@link normalizeCompanyToken}, kept at the pinned call site so
+ * the hard path stays explicit. Both paths use the same canonical slug; the
+ * pinned comparison below is equality, never substring containment.
  *
  * It survived review twice because the two brands under test hide it: Lidl folds every
  * variant to `lidl` on both sides, and `migros-ticino` happens to CONTAIN `migros`, so the
@@ -160,8 +160,7 @@ function normalizeCompanyToken(value) {
  * @returns {string}
  */
 function canonicalCompanyToken(value) {
-  const t = canonicalCompanyProfileSlug(value, value).replace(/-/g, '');
-  return t.length >= 3 ? t : '';
+  return normalizeCompanyToken(value);
 }
 
 /**
