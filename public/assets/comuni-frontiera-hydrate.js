@@ -43,10 +43,10 @@
           route,
           wait,
           destinationData,
-          minutes: destinationData.baseMinutes + wait.minutes,
+          minutes: wait.minutes == null ? null : destinationData.baseMinutes + wait.minutes,
         };
       })
-      .sort((a, b) => a.minutes - b.minutes)[0];
+      .sort((a, b) => (a.minutes == null ? Infinity : a.minutes) - (b.minutes == null ? Infinity : b.minutes))[0];
   }
 
   function fillTemplate(template, values) {
@@ -73,8 +73,8 @@
     function render() {
       const selected = bestRoute(data, destination, peak);
       if (!selected) return;
-      const minutes = `${selected.minutes} ${data.labels.minutesSuffix}`;
-      const waitLabel = selected.wait.label || `${selected.wait.minutes} ${data.labels.minutesSuffix}`;
+      const minutes = selected.minutes == null ? 'n.d.' : `${selected.minutes} ${data.labels.minutesSuffix}`;
+      const waitLabel = selected.wait.label || (selected.wait.minutes == null ? 'n.d.' : `${selected.wait.minutes} ${data.labels.minutesSuffix}`);
       if (minutesNode) minutesNode.textContent = minutes;
       if (crossingNode) crossingNode.textContent = selected.route.name;
       if (costNode) costNode.textContent = `${money(selected.destinationData.costMonthly, data)}${data.labels.monthlySuffix}`;

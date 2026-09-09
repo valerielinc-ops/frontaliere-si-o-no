@@ -34698,6 +34698,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'casnate-bernate-trasferimento',
+ category: 'pratico',
+ date: '2026-09-09T13:14:22.087Z',
+ image: '/images/blog/casnate-bernate-trasferimento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

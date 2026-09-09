@@ -80009,6 +80009,279 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-amministrati-concorrenza-potere': {
+    title: 'Prezzi amministrati: effetti su concorrenza e potere',
+    description: 'Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, amministrati, effetti, concorrenza',
+    ogTitle: 'Prezzi amministrati: effetti su concorrenza e potere',
+    ogDescription: 'Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile alla media europea, ma molto dipende dal settore.',
+    canonicalPath: '/articoli-svizzera/prezzi-amministrati-concorrenza-potere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi amministrati: effetti su concorrenza e potere",
+      "description": "Il Consiglio federale adotta il 9 settembre 2026 un rapporto sui prezzi amministrati in Svizzera. La quota inferiore al 10% sul bilancio domestico è simile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-amministrati-concorrenza-potere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala riunioni del Consiglio federale svizzero durante sessione di analisi economia e politica dei prezzi amministrati in Svizzera"
+      },
+      "datePublished": "2026-09-09T10:57:15+00:00",
+      "dateModified": "2026-09-09T10:57:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-amministrati-concorrenza-potere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stablecoin-franco-fase-operativa': {
+    title: 'Stablecoin in franchi: il progetto entra in fase operativa',
+    description: 'Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, stablecoin, franchi, progetto, entra',
+    ogTitle: 'Stablecoin in franchi: il progetto entra in fase',
+    ogDescription: 'Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi della stablecoin fino a fine 2026.',
+    canonicalPath: '/articoli-svizzera/stablecoin-franco-fase-operativa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stablecoin in franchi: il progetto entra in fase operativa",
+      "description": "Il progetto CHFD per una moneta digitale legata al franco svizzero entra nella fase di testing. Nove partner finanziari svizzeri sperimentano concreti utilizzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stablecoin-franco-fase-operativa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio fintech svizzero con professionisti che gestiscono stablecoin e blockchain su schermi digitali"
+      },
+      "datePublished": "2026-09-09T11:48:44+00:00",
+      "dateModified": "2026-09-09T11:48:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stablecoin-franco-fase-operativa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-accordo-clima-commercio-consultazione': {
+    title: 'Accordo climatico e commercio: consultazione conclusa',
+    description: 'Consiglio federale conclude consultazione ACCTS il 9 settembre: 42 favorevoli su 45. Accordo Svizzera-Costa Rica-Islanda-Nuova Zelanda su clima, commercio',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, climatico, commercio, consultazione',
+    ogTitle: 'ACCTS: conclusa consultazione su clima e commercio',
+    ogDescription: 'Il Consiglio federale ha concluso il 9 settembre la consultazione sull\'Accordo climatico-commerciale (ACCTS) tra Svizzera, Costa Rica, Islanda e Nuova Zelanda. 42 pareri favorevoli su 45. L\'Accordo promuove tecnologie ambientali, regolazioni',
+    canonicalPath: '/articoli-svizzera/accordo-clima-commercio-consultazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordo climatico e commercio: consultazione conclusa",
+      "description": "Consiglio federale conclude consultazione ACCTS il 9 settembre: 42 favorevoli su 45. Accordo Svizzera-Costa Rica-Islanda-Nuova Zelanda su clima, commercio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/accordo-clima-commercio-consultazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula parlamentare federale svizzera, sede delle decisioni sulla politica commerciale internazionale"
+      },
+      "datePublished": "2026-09-09T12:32:04+00:00",
+      "dateModified": "2026-09-09T12:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordo-clima-commercio-consultazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-internet-banda-larga-svizzera': {
+    title: 'Internet veloce in tutta la Svizzera: piano federale',
+    description: 'Il Consiglio federale adotta un programma da 730 milioni CHF per portare internet a 1 Gb/s nelle zone poco popolate svizzere. Finanziamento 50-50',
+    keywords: 'frontalieri, ticino, svizzera, italia, internet, veloce, tutta, piano',
+    ogTitle: 'Internet veloce in tutta la Svizzera: piano federale',
+    ogDescription: 'Scopri il nuovo programma federale svizzero da 730 milioni CHF per espandere la banda larga moderna nelle zone rurali e poco popolate. Obiettivo: 1 Gb/s, inizio 2030. Cosa cambia per economie domestiche e attività commerciali.',
+    canonicalPath: '/articoli-svizzera/internet-banda-larga-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Internet veloce in tutta la Svizzera: piano federale",
+      "description": "Il Consiglio federale adotta un programma da 730 milioni CHF per portare internet a 1 Gb/s nelle zone poco popolate svizzere. Finanziamento 50-50",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/internet-banda-larga-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino svizzero con infrastrutture digitali: fibra ottica in zone rurali"
+      },
+      "datePublished": "2026-09-09T12:52:12+00:00",
+      "dateModified": "2026-09-09T12:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/internet-banda-larga-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giornata-informativa-esercito-donne': {
+    title: 'Giornata informativa obbligatoria per le donne svizzere',
+    description: 'Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull\'esercito e protezione civile per le donne. Votazione nel 2028',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornata, informativa, obbligatoria, donne',
+    ogTitle: 'Consiglio federale approva giornata informativa per donne',
+    ogDescription: 'Il Consiglio federale ha approvato il 9 settembre 2026 il messaggio per una giornata informativa obbligatoria sull\'esercito e la protezione civile per le cittadine svizzere. Richiede modifiche costituzionali e una votazione popolare nel 2028',
+    canonicalPath: '/articoli-svizzera/giornata-informativa-esercito-donne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giornata informativa obbligatoria per le donne svizzere",
+      "description": "Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull'esercito e protezione civile per le donne. Votazione nel 2028",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giornata-informativa-esercito-donne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo istituzionale svizzero con bandiera nazionale, simbolo dell'amministrazione federale e delle decisioni politiche del Consiglio federale"
+      },
+      "datePublished": "2026-09-09T13:28:14+00:00",
+      "dateModified": "2026-09-09T13:28:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giornata-informativa-esercito-donne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-legge-militare-struttura-condotta-2026': {
+    title: 'Consiglio federale: nuova struttura esercito svizzero',
+    description: 'Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all\'estero per militari di milizia, protezione',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, nuova, struttura',
+    ogTitle: 'Nuova struttura dell\'esercito svizzero',
+    ogDescription: 'Il Consiglio federale trasforma la struttura dell\'esercito per rafforzare la difesa. Scopri le novità su obblighi militari, protezione da spionaggio e progetti pilota.',
+    canonicalPath: '/articoli-svizzera/legge-militare-struttura-condotta-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: nuova struttura esercito svizzero",
+      "description": "Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all'estero per militari di milizia, protezione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/legge-militare-struttura-condotta-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parlamento federale svizzero a Berna, sede del Consiglio federale che ha avviato la consultazione sulla riforma dell'esercito"
+      },
+      "datePublished": "2026-09-09T13:43:52+00:00",
+      "dateModified": "2026-09-09T13:43:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/legge-militare-struttura-condotta-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-ruag-mro': {
+    title: 'Consiglio federale: RUAG MRO diventa società pubblica',
+    description: 'Consiglio federale adotta messaggio per trasformare RUAG MRO da società privata a società pubblica con legge speciale e governance più trasparente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, ruag, diventa',
+    ogTitle: 'Consiglio federale: RUAG MRO diventa società pubblica',
+    ogDescription: 'RUAG MRO diventa società pubblica con legge speciale. Governance più trasparente, controllo federale rafforzato e nuove regole su conflitti di interesse nella gestione dell\'azienda d\'armamento della Confederazione.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-ruag-mro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: RUAG MRO diventa società pubblica",
+      "description": "Consiglio federale adotta messaggio per trasformare RUAG MRO da società privata a società pubblica con legge speciale e governance più trasparente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-ruag-mro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona, capitale del Ticino e rappresentante della Svizzera"
+      },
+      "datePublished": "2026-09-09T14:04:13+00:00",
+      "dateModified": "2026-09-09T14:04:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-ruag-mro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

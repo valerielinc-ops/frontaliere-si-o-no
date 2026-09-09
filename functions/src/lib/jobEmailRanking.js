@@ -22,7 +22,16 @@ export const JOB_EMAIL_RANKING_DEFAULTS = Object.freeze({
 export const JOB_EMAIL_RANKING_WINDOWS = Object.freeze([7, 30, 90]);
 
 const DEFAULT_PRIOR_CTR = 0.05;
-const MAX_SAFE_SCORE = 1_000_000;
+import {
+  MAX_SAFE_SCORE,
+  stableJobId as stableJobIdPure,
+  appendJobRankingParams,
+  parseJobRankingClick,
+} from './jobEmailRankingLinks.js';
+
+// Ri-esportati perche' i consumatori storici li importano da qui; la
+// definizione vive nel modulo privo di dipendenze Node (vedi il suo docblock).
+export { MAX_SAFE_SCORE, appendJobRankingParams, parseJobRankingClick };
 
 function parseBoolean(value, fallback) {
   if (value === undefined || value === null || value === '') return fallback;
@@ -85,12 +94,7 @@ export function assignJobRankingVariant({
 }
 
 export function stableJobId(jobOrId) {
-  if (typeof jobOrId === 'string' || typeof jobOrId === 'number') return String(jobOrId);
-  const job = jobOrId || {};
-  const direct = job.jobId || job.id || job.publisherJobId || job.slug;
-  if (direct) return String(direct);
-  if (job.url) return createHash('sha256').update(String(job.url)).digest('hex').slice(0, 24);
-  return createHash('sha256').update(String(job.title || '')).digest('hex').slice(0, 24);
+  return stableJobIdPure(jobOrId, (seed) => createHash('sha256').update(seed).digest('hex'));
 }
 
 /** One-way identifier used in the ranking data, never placed in an href. */
@@ -380,86 +384,6 @@ export function rankEmailJobs(jobs, {
   }));
 }
 
-function finiteParam(value, fallback, { min = -Infinity, max = Infinity } = {}) {
-  const parsed = Number(value);
-  if (!Number.isFinite(parsed)) return fallback;
-  return Math.min(max, Math.max(min, parsed));
-}
-
-/** Add the per-job attribution fields used by the click webhook. */
-export function appendJobRankingParams(url, {
-  jobId,
-  surface,
-  surfaceId,
-  deliveryId,
-  position,
-  variant,
-  alertId,
-  newsletterId,
-  rankingScore,
-  relevanceScore,
-  ctrShrink,
-  randomBoost,
-} = {}) {
-  if (!url || !jobId || !surface) return String(url || '');
-  let parsed;
-  try {
-    parsed = new URL(String(url), 'https://frontaliereticino.ch');
-  } catch {
-    return String(url);
-  }
-  parsed.searchParams.set('je', '1');
-  parsed.searchParams.set('job_id', String(jobId));
-  parsed.searchParams.set('surface', String(surface));
-  if (surfaceId) parsed.searchParams.set('surface_id', String(surfaceId));
-  if (deliveryId) parsed.searchParams.set('delivery_id', String(deliveryId));
-  if (Number.isFinite(Number(position))) parsed.searchParams.set('position', String(Math.max(1, Math.trunc(Number(position)))));
-  if (variant) parsed.searchParams.set('variant', String(variant));
-  if (alertId) parsed.searchParams.set('job_alert_id', String(alertId));
-  if (newsletterId) parsed.searchParams.set('newsletter_id', String(newsletterId));
-  if (Number.isFinite(Number(rankingScore))) parsed.searchParams.set('ranking_score', finiteParam(rankingScore, 0, { min: 0, max: MAX_SAFE_SCORE }).toFixed(6));
-  if (Number.isFinite(Number(relevanceScore))) parsed.searchParams.set('relevance_score', finiteParam(relevanceScore, 0, { min: 0, max: MAX_SAFE_SCORE }).toFixed(6));
-  if (Number.isFinite(Number(ctrShrink))) parsed.searchParams.set('ctr_shrink', finiteParam(ctrShrink, 0, { min: 0, max: 1 }).toFixed(6));
-  if (Number.isFinite(Number(randomBoost))) parsed.searchParams.set('random_boost', finiteParam(randomBoost, 0, { min: 0, max: 1 }).toFixed(6));
-  return parsed.toString();
-}
-
-function optionalParam(params, key) {
-  const value = params.get(key);
-  return value ? value : null;
-}
-
-/** Parse only our attribution fields; arbitrary URLs remain ignored. */
-export function parseJobRankingClick(url) {
-  if (!url) return null;
-  let parsed;
-  try {
-    parsed = new URL(String(url).replace(/&amp;/g, '&'), 'https://frontaliereticino.ch');
-  } catch {
-    return null;
-  }
-  if (parsed.searchParams.get('je') !== '1') return null;
-  const jobId = parsed.searchParams.get('job_id');
-  const surface = parsed.searchParams.get('surface');
-  if (!jobId || !['job_alert', 'newsletter'].includes(surface)) return null;
-  const surfaceId = optionalParam(parsed.searchParams, 'surface_id');
-  const deliveryId = optionalParam(parsed.searchParams, 'delivery_id');
-  const position = Math.max(1, Math.trunc(finiteParam(parsed.searchParams.get('position'), 1, { min: 1, max: 1000 })));
-  return {
-    jobId,
-    surface,
-    surfaceId,
-    deliveryId,
-    position,
-    variant: optionalParam(parsed.searchParams, 'variant') || 'unknown',
-    alertId: optionalParam(parsed.searchParams, 'job_alert_id') || optionalParam(parsed.searchParams, 'alert_id'),
-    newsletterId: optionalParam(parsed.searchParams, 'newsletter_id'),
-    rankingScore: finiteParam(parsed.searchParams.get('ranking_score'), null, { min: 0, max: MAX_SAFE_SCORE }),
-    relevanceScore: finiteParam(parsed.searchParams.get('relevance_score'), null, { min: 0, max: MAX_SAFE_SCORE }),
-    ctrShrink: finiteParam(parsed.searchParams.get('ctr_shrink'), null, { min: 0, max: 1 }),
-    randomBoost: finiteParam(parsed.searchParams.get('random_boost'), null, { min: 0, max: 1 }),
-  };
-}
 
 /** Safe key for a nested `ranking_stats` field in an alert document. */
 export function rankingStatsKey(jobId) {

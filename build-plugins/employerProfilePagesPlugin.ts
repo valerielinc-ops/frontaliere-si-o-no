@@ -646,7 +646,7 @@ function emitEmployerBelowFloorBridge(rec: BelowFloorRecord, locale: Locale): st
 ${breadcrumbHtml(locale, rec.name)}
 <h1 class="text-2xl font-bold text-strong mb-3">${esc(rec.name)}</h1>
 <p class="text-body mb-5">${esc(lede[locale])}</p>
-${companyFollowMountPlaceholder({ company: rec.name, companyKey: null, locale, surface: 'employer_below_floor' })}
+${companyFollowMountPlaceholder({ company: rec.name, companyKey: null, locale, surface: 'employer_below_floor', popupEligible: false })}
 <ul class="space-y-2 list-none p-0 m-0">
 <li><a href="${esc(cantonPath)}" class="text-sm font-semibold text-link">${esc(ALL_JOBS_IN[locale])} ${esc(canton)} →</a></li>
 <li><a href="${esc(weekly)}" class="text-sm font-semibold text-link">${esc(WEEKLY_LINK_LABEL[locale])} →</a></li>

@@ -3772,7 +3772,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
       <p style="${LEDE_STYLE}">${esc(heroSummary)}</p>
     </div>
   </header>
-  ${companyFollowMountPlaceholder({ company: employer, companyKey: stats.employerKey, locale, surface: 'employer_city' })}
+  ${companyFollowMountPlaceholder({ company: employer, companyKey: stats.employerKey, locale, surface: 'employer_city', popupEligible: variant === 'current' })}
   ${ccStatsHtml}
   ${ccAdviceBannerHtml}
   ${ccCtaHtml}

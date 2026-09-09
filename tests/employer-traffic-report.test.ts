@@ -1,5 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { aggregateGa4Rows } from '../scripts/employer-traffic-report.mjs';
+import {
+  aggregateGa4Rows,
+  postHogBaseQuery,
+  resolveGa4Employers,
+} from '../scripts/employer-traffic-report.mjs';
+
+const WINDOW = {
+  from: '2026-06-10T22:00:00.000Z',
+  to: '2026-09-08T22:00:00.000Z',
+};
 
 function ga4Row(key: string, sponsored: boolean, users: number, sessions: number, clicks: number) {
   return {
@@ -36,5 +45,28 @@ describe('aggregateGa4Rows', () => {
   it('returns [] for empty rows', () => {
     expect(aggregateGa4Rows([])).toEqual([]);
     expect(aggregateGa4Rows(undefined as unknown as [])).toEqual([]);
+  });
+
+  it('keeps a zero-valued event row in the resolved employer population', () => {
+    const companies = new Map([
+      ['acme', { key: 'acme', name: 'Acme SA', aliases: new Set(['acme']) }],
+    ]);
+    const [row] = aggregateGa4Rows([ga4Row('acme', false, 0, 0, 0)]);
+    const result = resolveGa4Employers([row], companies);
+
+    expect(result.employers).toHaveLength(1);
+    expect(result.employers[0]).toMatchObject({ key: 'acme', observed: 0, applyClicks: 0 });
+  });
+});
+
+describe('postHogBaseQuery', () => {
+  it('orders company groups and resumes after an explicit company cursor', () => {
+    const firstPage = postHogBaseQuery(WINDOW);
+    const nextPage = postHogBaseQuery(WINDOW, 'acme');
+
+    expect(firstPage).toContain('ORDER BY company');
+    expect(firstPage).not.toContain('OFFSET');
+    expect(nextPage).toContain("> 'acme'");
+    expect(nextPage).not.toContain('OFFSET');
   });
 });

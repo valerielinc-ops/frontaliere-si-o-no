@@ -1,0 +1,65 @@
+name: sync-pharmacy-duties
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-pharmacy-duties
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      # Il ruleset del repo rifiuta il GITHUB_TOKEN ambientale sui push diretti
+      # a main (GH013), quindi la credenziale va caricata PRIMA del push, non
+      # dopo: e' l'invariante che tests/main-push-auth-wiring.test.ts verifica.
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Fetch and validate Ticino duty schedules
+        run: node scripts/sync-pharmacy-duties.mjs
+      - name: Commit changed duty snapshots
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
+            echo "No pharmacy duty data changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+          git commit -m "chore(data): refresh Ticino pharmacy duties"
+          bash scripts/lib/configure-main-push-auth.sh
+          git push origin HEAD:main

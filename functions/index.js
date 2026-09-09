@@ -630,8 +630,8 @@ export const newsletterManageSubscription = onRequest(
  // was actually created, so there is no consent to attribute here. Same
  // non-overwrite/non-create/non-throw contract as stampConsentIp's other
  // two callers above.
- if (action === 'create_alert' && result.status === 200) {
- await stampConsentIp(req, email);
+ if (action === 'create_alert' && result.status === 200 && !specificCompanyKey) {
+  await stampConsentIp(req, email);
  }
 
  // exchange_auth_code always returns JSON (no HTML page)
@@ -641,6 +641,7 @@ export const newsletterManageSubscription = onRequest(
  const jsonBody = { success: result.status === 200 };
  if (result.authToken) jsonBody.authToken = result.authToken;
  if (result.alreadyConfirmed != null) jsonBody.alreadyConfirmed = result.alreadyConfirmed;
+ if (result.companyFollowFollowup) jsonBody.companyFollowFollowup = result.companyFollowFollowup;
  res.status(result.status).type('json').json(jsonBody);
  } else {
  res.status(result.status).type('html').send(result.html);
@@ -677,6 +678,10 @@ async function stampConsentIp(req, email) {
     const ref = getAdminDb().collection('newsletter_subscribers').doc(email);
     const snap = await ref.get();
     if (!snap.exists) return;
+    // Company-follow consent is intentionally purpose-scoped and stores no
+    // network/user-agent evidence. The click itself remains the proof; this
+    // helper must not add newsletter PII to that purpose.
+    if (snap.data()?.consent_purpose === 'companyFollow') return;
     const existing = snap.data()?.consent_ip;
     if (typeof existing === 'string' && existing.trim()) return;
     await ref.set(stamp, { merge: true });

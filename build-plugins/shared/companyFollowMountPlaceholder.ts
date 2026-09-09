@@ -68,8 +68,10 @@ interface CompanyFollowMountPlaceholderOptions {
   companyKey?: string | null;
   /** Page locale, so the mounted alert is created in the language being read. */
   locale: string;
-  /** Funnel provenance (`employer_profile`, `employer_below_floor`). */
+  /** Funnel provenance (`employer_profile`, `employer_city`, `employer_below_floor`). */
   surface: string;
+  /** Whether the C4 auto-opened popup is allowed on this placeholder. */
+  popupEligible?: boolean;
 }
 
 export function companyFollowMountPlaceholder({
@@ -77,13 +79,15 @@ export function companyFollowMountPlaceholder({
   companyKey,
   locale,
   surface,
+  popupEligible = true,
 }: CompanyFollowMountPlaceholderOptions): string {
   // An employer with no name has no alert key either (`companyAlertKey('')` is
   // ''), so emit nothing rather than a placeholder that would hydrate into a
   // button rendering null and leave an empty box on the page.
   if (!company) return '';
   const label = FOLLOW_CTA_LABEL[locale] || FOLLOW_CTA_LABEL.it;
-  return `<div data-company-follow-mount data-company="${escHtml(company)}" data-company-key="${escHtml(companyKey || '')}" data-locale="${escHtml(locale)}" data-surface="${escHtml(surface)}" class="mb-5">
+  const popupAttribute = ` data-popup-eligible="${popupEligible ? 'true' : 'false'}"`;
+  return `<div data-company-follow-mount data-company="${escHtml(company)}" data-company-key="${escHtml(companyKey || '')}" data-locale="${escHtml(locale)}" data-surface="${escHtml(surface)}"${popupAttribute} class="mb-5">
 <div aria-hidden="true" class="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold rounded-lg border border-edge bg-surface-raised text-muted">${escHtml(label)}</div>
 </div>`;
 }

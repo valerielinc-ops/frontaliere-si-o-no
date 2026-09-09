@@ -158,9 +158,18 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
-function postHogBaseQuery(window) {
+const POSTHOG_COMPANY_EXPRESSION = "splitByChar('_', coalesce(toString(properties.item_id), ''))[1]";
+
+function postHogCursorValue(value) {
+  return String(value).replaceAll('\\', '\\\\').replaceAll("'", "\\'");
+}
+
+export function postHogBaseQuery(window, cursorCompany = null) {
+  const cursorFilter = cursorCompany == null
+    ? ''
+    : " AND " + POSTHOG_COMPANY_EXPRESSION + " > '" + postHogCursorValue(cursorCompany) + "'";
   return `
-    SELECT splitByChar('_', coalesce(toString(properties.item_id), ''))[1] AS company,
+    SELECT ${POSTHOG_COMPANY_EXPRESSION} AS company,
            count(DISTINCT person_id) AS persons,
            count(DISTINCT properties.$session_id) AS sessions,
            count() AS clicks
@@ -169,9 +178,9 @@ function postHogBaseQuery(window) {
       AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title')
       AND coalesce(toString(properties.item_id), '') != ''
       AND timestamp >= toDateTime('${hogqlDate(window.from)}')
-      AND timestamp < toDateTime('${hogqlDate(window.to)}')
+      AND timestamp < toDateTime('${hogqlDate(window.to)}')${cursorFilter}
     GROUP BY company
-    ORDER BY persons DESC
+    ORDER BY company
   `.trim();
 }
 
@@ -260,6 +269,11 @@ export function aggregatePostHogRows(rows, companies = new Map()) {
   };
 }
 
+function postHogCompanyFromRow(row) {
+  const company = Array.isArray(row) ? row[0] : row?.company;
+  return company == null ? null : String(company);
+}
+
 async function fromPostHog(window, companies) {
   const baseQuery = postHogBaseQuery(window);
   const queryHash = crypto.createHash('sha256').update(baseQuery).digest('hex');
@@ -267,11 +281,20 @@ async function fromPostHog(window, companies) {
   const totalRows = Math.max(0, Math.trunc(numberOr(countRows?.[0]?.[0] ?? countRows?.[0]?.total)));
   const rawRows = [];
   let pages = 0;
-  for (let offset = 0; offset < totalRows || (totalRows === 0 && pages === 0); offset += REPORT_PAGE_SIZE) {
-    const page = await postHogQuery(`${baseQuery} LIMIT ${REPORT_PAGE_SIZE} OFFSET ${offset}`);
+  let cursorCompany = null;
+  while (true) {
+    const page = await postHogQuery(postHogBaseQuery(window, cursorCompany) + ' LIMIT ' + REPORT_PAGE_SIZE);
     rawRows.push(...page);
     pages += 1;
+    if (!page.length) break;
+    const nextCursor = postHogCompanyFromRow(page.at(-1));
+    if (!nextCursor) throw new Error('posthog page missing company cursor');
+    if (cursorCompany !== null && nextCursor <= cursorCompany) {
+      throw new Error('posthog company cursor did not advance');
+    }
+    cursorCompany = nextCursor;
     if (page.length < REPORT_PAGE_SIZE) break;
+    if (totalRows > 0 && rawRows.length >= totalRows) break;
   }
   const aggregated = aggregatePostHogRows(rawRows, companies);
   return {
@@ -344,7 +367,7 @@ export function aggregateGa4Rows(rows) {
   }));
 }
 
-function resolveGa4Employers(rows, companies) {
+export function resolveGa4Employers(rows, companies) {
   const aliasToKeys = identityIndex(companies);
   const employers = new Map();
   const residuals = Object.create(null);
@@ -353,7 +376,6 @@ function resolveGa4Employers(rows, companies) {
   for (const row of rows || []) {
     const sourceObserved = Math.max(0, numberOr(row.observed, row.clicks));
     observed += sourceObserved;
-    if (!sourceObserved) continue;
     const resolved = resolveCompany(row.key, aliasToKeys);
     if (!resolved.key) {
       residuals[resolved.reason] = (residuals[resolved.reason] || 0) + sourceObserved;

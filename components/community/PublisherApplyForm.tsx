@@ -166,7 +166,7 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
 
       const consentText = t('publisherApply.consent');
       const db = getFirestore(await getApp());
-      await addDoc(collection(db, 'applications'), {
+      const application = await addDoc(collection(db, 'applications'), {
         jobId,
         publisherUid,
         // Denormalised so the candidate's profile can list the offer (title +
@@ -190,7 +190,7 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       // A submitted application is the strongest apply signal — count it as an
       // apply click so the publisher's conversion rate reflects direct-scroll
       // applicants too (session-debounced: no double-count with the page CTAs).
-      void trackPublisherApplyClick(jobId);
+      void trackPublisherApplyClick(jobId, { eventId: application.id });
       setStatus('success');
     } catch (error) {
       setStatus('error');
