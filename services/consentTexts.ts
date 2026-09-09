@@ -271,7 +271,8 @@ export type ConsentMethod =
 export type ConsentAct =
   | 'authentication'
   | 'typed_email_submit'
-  | 'email_link_click';
+  | 'email_link_click'
+  | 'company_follow_click';
 
 export type ConsentProofEntry = {
   /** Stable grouping key. Never a substitute for `text` when answering art. 25. */
@@ -614,12 +615,18 @@ export const CONSENT_TEXTS = Object.freeze({
     act: 'typed_email_submit',
   }),
 
-  /** CompanyFollowButton — moved here VERBATIM. See `saveJobSignIn`. */
+  /** Direct CompanyAlert follow — deliberately excludes newsletter preferences. */
   companyFollow: entry({
     id: 'company_follow',
-    version: '1',
-    text: 'Seguendo un\'azienda, accetto di ricevere una email quando pubblica nuovi annunci e la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.',
-    displayed: false,
+    version: '2026-09-09.1',
+    text: 'Seguendo questa azienda chiedo di ricevere una email quando pubblica nuovi annunci. Posso disiscrivermi in qualsiasi momento.',
+    texts: {
+      it: 'Seguendo questa azienda chiedo di ricevere una email quando pubblica nuovi annunci. Posso disiscrivermi in qualsiasi momento.',
+      en: 'By following this company, I ask to receive an email when it posts new jobs. I can unsubscribe at any time.',
+      de: 'Wenn ich diesem Unternehmen folge, bitte ich um eine E-Mail, sobald es neue Stellen veröffentlicht. Ich kann mich jederzeit abmelden.',
+      fr: 'En suivant cette entreprise, je demande à recevoir un e-mail lorsqu’elle publie de nouvelles offres. Je peux me désabonner à tout moment.',
+    },
+    displayed: true,
     act: 'typed_email_submit',
   }),
 
@@ -687,13 +694,14 @@ export function consentProof(
    * `newsletter.consentLabel` in German and STORE the Italian literal.
    */
   locale?: string,
+  act?: ConsentAct,
 ): ConsentProofInput {
   const proof = CONSENT_TEXTS[key];
   return {
     consentText: consentDisplayText(key, locale),
     consentTextVersion: proof.version,
     consentTextDisplayed: proof.displayed,
-    consentAct: proof.act,
+    consentAct: act || proof.act,
     consentMethod: method,
     consentUserAgent:
       typeof navigator !== 'undefined' && typeof navigator.userAgent === 'string'

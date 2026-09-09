@@ -426,8 +426,12 @@ export function scoreJobForAlert(job, profile, locale) {
     const jobCompanyKey = canonicalCompanyToken(job.companyKey || job.company);
     const idHit = pinnedJobs.includes(String(job.id || ''))
       || pinnedJobs.includes(String(job.publisherJobId || ''));
+    // A company pin is an identity, not a text-search hint. Substring matching
+    // made `acme` match `acme-holdings` and allowed one employer's alerts to
+    // cross into another legal entity. Aliases are already folded on both sides
+    // by canonicalCompanyToken, so equality is the complete predicate.
     const companyHit = Boolean(pinnedCompany && jobCompanyKey
-      && (jobCompanyKey.includes(pinnedCompany) || pinnedCompany.includes(jobCompanyKey)));
+      && jobCompanyKey === pinnedCompany);
     return (idHit || companyHit) ? 10 : 0;
   }
 

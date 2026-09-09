@@ -14,6 +14,7 @@
 
 import type { Firestore } from 'firebase/firestore';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
+import { companyAlertDocumentId } from './companyAlertIdentity';
 import {
   buildJobAlertConsentProof,
   planJobAlertConsentUpgrade,
@@ -83,6 +84,19 @@ export interface JobAlertConfig {
    * backwards-compatible with alerts created before the field existed.
    */
   minNetMonthlyCHF?: number | null;
+  /** Purpose-specific proof for a direct CompanyAlert follow. */
+  companyFollowConsent?: CompanyFollowConsent | null;
+}
+
+export interface CompanyFollowConsent {
+  purpose: 'companyFollow';
+  text: string;
+  version: string;
+  displayed: boolean;
+  act: string;
+  method: string;
+  sourceUrl?: string | null;
+  userAgent?: string | null;
 }
 
 export interface JobAlert extends JobAlertConfig {
@@ -172,6 +186,13 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
+function firestoreDate(value: unknown): Date | null {
+  if (value && typeof (value as { toDate?: unknown }).toDate === 'function') {
+    return (value as { toDate: () => Date }).toDate();
+  }
+  return value instanceof Date ? value : null;
+}
+
 /**
  * Normalise the canton filter for Firestore storage and matching:
  *  - `null` / `undefined` / empty array → `null` (= "all cantons").
@@ -226,6 +247,46 @@ export async function createAlert(
   } = await import('firebase/firestore');
 
   const normalizedEmail = normalizeEmail(email);
+  const isCompanyPin = Boolean(config.specificCompanyKey);
+  const canonicalCompanyKey = isCompanyPin
+    ? companyAlertKey(String(config.specificCompanyKey || ''))
+    : '';
+  if (isCompanyPin && !canonicalCompanyKey) {
+    throw new Error('company-alert/invalid-company-key');
+  }
+
+  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
+  const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
+  const deterministicRef = isCompanyPin
+    ? doc(alertsRef, companyAlertDocumentId(normalizedEmail, canonicalCompanyKey))
+    : null;
+  let existingCompanyData: Record<string, unknown> | null = null;
+  // Company follows are one logical subscription. Read the deterministic
+  // document before the cap query so a double-click/retry is an idempotent
+  // success and a soft-deleted follow can be explicitly reactivated.
+  if (deterministicRef) {
+    // Keep the new read primitive lazy: the existing generic-alert test seams
+    // intentionally mock the pre-CompanyAlert Firestore surface and must not
+    // need to grow just because a non-pinned alert was created.
+    const { getDoc } = await import('firebase/firestore');
+    const existingCompany = await getDoc(deterministicRef);
+    if (existingCompany.exists()) {
+      existingCompanyData = existingCompany.data() as Record<string, unknown>;
+      if (existingCompanyData.active !== false) {
+        return {
+          id: existingCompany.id,
+          userId,
+          email: normalizedEmail,
+          ...config,
+          specificCompanyKey: canonicalCompanyKey,
+          active: true,
+          createdAt: firestoreDate(existingCompanyData.createdAt) || new Date(),
+          lastMatchedAt: firestoreDate(existingCompanyData.lastMatchedAt),
+          matchCount: Number(existingCompanyData.matchCount || 0),
+        } as JobAlert;
+      }
+    }
+  }
 
   // Enforce per-user limit across all subscriber docs.
   // NOTE: the `orderBy('createdAt', 'desc')` is REQUIRED, not cosmetic — it makes
@@ -246,7 +307,6 @@ export async function createAlert(
   const existing = await getDocs(existingQ);
   // Two budgets, counted apart — see MAX_COMPANY_ALERTS_PER_USER. The read is
   // the same one document set either way, so this costs nothing extra.
-  const isCompanyPin = Boolean(config.specificCompanyKey);
   const sameKind = existing.docs.filter(
     (d) => Boolean((d.data() as { specificCompanyKey?: string | null }).specificCompanyKey) === isCompanyPin,
   ).length;
@@ -260,7 +320,6 @@ export async function createAlert(
   }
 
   // Ensure the parent subscriber doc exists.
-  const subscriberRef = doc(db, SUBSCRIBERS_COLLECTION, normalizedEmail);
   await setDoc(
     subscriberRef,
     {
@@ -281,7 +340,6 @@ export async function createAlert(
   );
 
   // Write the alert as a subdocument.
-  const alertsRef = collection(subscriberRef, ALERTS_SUBCOLLECTION);
   const cantonFilter = normalizeCantonFilter(config.cantonFilter);
   const docData = {
     // Denormalized fields needed for collectionGroup queries + security rules.
@@ -308,17 +366,36 @@ export async function createAlert(
     // Canonicalised on the ONE write path (#5012) so no caller can persist a
     // raw company name the matcher would never match.
     specificCompanyKey: config.specificCompanyKey
-      ? companyAlertKey(config.specificCompanyKey)
+      ? canonicalCompanyKey
       : null,
     // Salary expectation prefilled from the calculator (issue #4469).
     minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
     // State.
     active: true,
-    createdAt: serverTimestamp(),
-    lastMatchedAt: null,
-    matchCount: 0,
+    createdAt: existingCompanyData?.createdAt || serverTimestamp(),
+    lastMatchedAt: existingCompanyData?.lastMatchedAt || null,
+    matchCount: Number(existingCompanyData?.matchCount || 0),
+    ...(config.companyFollowConsent
+      ? {
+          consent_purpose: config.companyFollowConsent.purpose,
+          consent_text: config.companyFollowConsent.text,
+          consent_text_version: config.companyFollowConsent.version,
+          consent_text_displayed: config.companyFollowConsent.displayed,
+          consent_act: config.companyFollowConsent.act,
+          consent_method: config.companyFollowConsent.method,
+          consent_source_url: config.companyFollowConsent.sourceUrl ?? null,
+          consent_user_agent: config.companyFollowConsent.userAgent ?? null,
+        }
+      : {}),
   };
-  const ref = await addDoc(alertsRef, docData);
+  const ref = deterministicRef || await addDoc(alertsRef, docData);
+  if (deterministicRef) {
+    await setDoc(deterministicRef, {
+      ...docData,
+      resubscribed_at: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    }, { merge: true });
+  }
 
   // GA4 user-scoped `is_job_alert_subscriber` custom dimension (analytics
   // Stage 1, revenue-per-user segmentation). Fired on every genuine new
@@ -333,6 +410,7 @@ export async function createAlert(
     userId,
     email: normalizedEmail,
     ...config,
+    ...(isCompanyPin ? { specificCompanyKey: canonicalCompanyKey } : {}),
     cantonFilter,
     frequencyOverride: config.frequencyOverride === true,
     minNetMonthlyCHF: normalizeMinNet(config.minNetMonthlyCHF),
@@ -600,6 +678,7 @@ export interface JobAlertSource {
   slug?: string | null;
   url?: string | null;
   title?: string | null;
+  companyFollowConsent?: CompanyFollowConsent | null;
 }
 
 /**
@@ -759,6 +838,7 @@ export async function subscribeCompanyAlert(
     sourceJobSlug: source?.slug ?? null,
     sourceJobUrl: source?.url ?? null,
     sourceJobTitle: source?.title ?? null,
+    companyFollowConsent: source?.companyFollowConsent ?? null,
   };
   return createAlert(userId, email, config);
 }

@@ -37,7 +37,8 @@ export const SENT_JOBS_CAP = 500;
  * Stable de-dup key for a job. Prefers the crawler-assigned `id` (present on
  * every job in data/jobs.json and what the pinned-alert matcher already keys
  * on), then the URL-derived stable id, then the slug. Returns '' when a job has
- * no usable identifier (caller should treat it as non-dedupable).
+ * no usable identifier (caller must quarantine it rather than mail a job that
+ * cannot be made exactly-once).
  *
  * @param {object} job
  * @returns {string}
@@ -82,7 +83,7 @@ export function filterUnsentJobs(jobs, sentMap, nowMs, windowMs = DEDUP_WINDOW_M
   const map = sentMap || {};
   return (jobs || []).filter((job) => {
     const key = jobDedupKey(job);
-    if (!key) return true; // can't dedup an id-less job — let it through
+    if (!key) return false; // unknown identity is deferred, never sent blindly
     const sentAt = map[key];
     if (!Number.isFinite(sentAt)) return true; // never sent
     return nowMs - sentAt >= windowMs; // sent, but outside the window

@@ -495,7 +495,7 @@ async function run() {
       touch: item._touch,
       sentAt: new Date().toISOString(),
       provider: result.provider,
-      messageId: result.messageId,
+      messageId: result?.messageId || null,
     });
     saveSendLog(logPath, sendLog);
     // Mirror to Firestore (best-effort, non-blocking) so the admin dashboard

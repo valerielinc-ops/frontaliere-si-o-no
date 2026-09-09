@@ -138,6 +138,50 @@ describe('captureNewsletterSubscriber — a new subscriber cannot exist without 
     expect(payloadOf().consent_text).toBe('formula precedente');
     expect(payloadOf().consent_text_version).toBe('1');
   });
+
+  it('keeps newsletter preferences and proof separate from a company follow', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        email: 'known@example.com',
+        status: 'confirmed',
+        isActive: true,
+        preferences: { exchangeRate: false, traffic: true, taxUpdates: false, tips: false },
+        consent_text: 'newsletter proof',
+        consent_text_version: 'newsletter-v1',
+        consent_text_displayed: true,
+        consent_purpose: 'communicationsOptIn',
+      }),
+    });
+
+    await captureNewsletterSubscriber({} as any, {
+      email: 'known@example.com',
+      source: 'company_follow_button',
+      companyFollowOnly: true,
+      preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: true },
+      consentPurpose: 'companyFollow',
+      ...consentProof('companyFollow', 'email_submit', 'it'),
+      companyFollowIntent: {
+        company: 'Guess Ticino',
+        companyKey: 'guess-europe-sagl',
+        locale: 'it',
+        consentPurpose: 'companyFollow',
+        consentText: CONSENT_TEXTS.companyFollow.text,
+        consentTextVersion: CONSENT_TEXTS.companyFollow.version,
+        consentTextDisplayed: true,
+        consentAct: 'email_submit',
+        consentMethod: 'email_submit',
+      },
+    });
+
+    const payload = payloadOf();
+    expect(payload.preferences).toEqual({ exchangeRate: false, traffic: true, taxUpdates: false, tips: false });
+    expect(payload.consent_text).toBe('newsletter proof');
+    expect(payload.consent_purpose).toBe('communicationsOptIn');
+    expect(payload.company_follow_intents).toEqual([
+      expect.objectContaining({ company_key: 'guess-europe-sagl', consent_purpose: 'companyFollow' }),
+    ]);
+  });
 });
 
 describe('the consent block written alongside the text', () => {
@@ -408,10 +452,6 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
       version: '1',
       text: 'Accedendo per salvare un annuncio, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.',
     },
-    companyFollow: {
-      version: '1',
-      text: 'Seguendo un\'azienda, accetto di ricevere una email quando pubblica nuovi annunci e la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.',
-    },
     publisherGateSocial: {
       version: '1',
       text: 'Accedendo per pubblicare un\'offerta, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.',
@@ -420,8 +460,11 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
       version: '1',
       text: 'Accedendo per pubblicare un\'offerta, accetto di ricevere la newsletter per frontalieri (cambio CHF/EUR, traffico e novità fiscali). Posso disiscrivermi in qualsiasi momento.',
     },
+    companyFollow: {
+      version: '2026-09-09.1',
+      text: 'Seguendo questa azienda chiedo di ricevere una email quando pubblica nuovi annunci. Posso disiscrivermi in qualsiasi momento.',
+    },
   };
-
 
   /**
    * The three non-Italian strings of every entry that claims `displayed:
@@ -448,6 +491,11 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
     },
     communicationsSignIn: { ...SIGN_IN_LOCALES },
     communicationsSignInEmail: { ...SIGN_IN_LOCALES },
+    companyFollow: {
+      en: 'By following this company, I ask to receive an email when it posts new jobs. I can unsubscribe at any time.',
+      de: 'Wenn ich diesem Unternehmen folge, bitte ich um eine E-Mail, sobald es neue Stellen veröffentlicht. Ich kann mich jederzeit abmelden.',
+      fr: 'En suivant cette entreprise, je demande à recevoir un e-mail lorsqu’elle publie de nouvelles offres. Je peux me désabonner à tout moment.',
+    },
   };
 
   it('pins every formula and its version literally', () => {
@@ -489,7 +537,7 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
     // change what FUTURE subscribers are recorded as having been told, for a
     // reason that has nothing to do with this fix.
     expect(CONSENT_TEXTS.saveJobSignIn.text).toContain('Accedendo per salvare un annuncio');
-    expect(CONSENT_TEXTS.companyFollow.text).toContain('Seguendo un\'azienda');
+    expect(CONSENT_TEXTS.companyFollow.text).toContain('Seguendo questa azienda');
     expect(CONSENT_TEXTS.publisherGateSocial.text).toBe(CONSENT_TEXTS.publisherGateEmail.text);
     // Same notice, different act — which is why they are two entries.
     expect(CONSENT_TEXTS.publisherGateSocial.act).toBe('authentication');
@@ -527,6 +575,7 @@ describe('the register is versioned, and editing a formula cannot be silent', ()
       'communicationsOptIn',
       'communicationsSignIn',
       'communicationsSignInEmail',
+      'companyFollow',
     ]);
     for (const [key, proof] of Object.entries(CONSENT_TEXTS)) {
       expect(proof.displayed, `${key}.displayed`).toBe(RENDERED.has(key));

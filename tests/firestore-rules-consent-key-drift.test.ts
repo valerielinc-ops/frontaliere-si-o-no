@@ -52,6 +52,8 @@ const WRITERS = [
   'newsletterConsentUpgrade.ts',
   // upgradeBackfilledAlertConsent: updateDoc field-level sugli alert travasati.
   'jobAlertConsentUpgrade.ts',
+  // subscribeCompanyAlert: direct CompanyAlert writes carry the purpose-specific proof.
+  'jobAlertService.ts',
 ];
 
 /**

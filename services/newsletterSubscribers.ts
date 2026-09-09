@@ -161,6 +161,8 @@ export type NewsletterUpsertInput = {
  consentTextDisplayed?: boolean;
  /** What the person physically did: authentication / typed_email_submit / email_link_click. */
  consentAct?: string | null;
+ /** Purpose of the proof; CompanyAlert keeps it separate from newsletter consent. */
+ consentPurpose?: string | null;
  /**
   * Network provenance of the consent, ALREADY TRUNCATED (/24 IPv4, /48 IPv6).
   *
@@ -177,8 +179,30 @@ export type NewsletterUpsertInput = {
   * recipient — the only thing that may lift a recorded opt-out (see
   * `inferNewsletterSubscriptionState`). Never set it from an authentication
   * event: signing in is not consent to receive mail you already refused.
-  */
+ */
  reconsent?: boolean;
+ /** A direct CompanyAlert follow is its own purpose and must not enable newsletter defaults. */
+ companyFollowOnly?: boolean;
+ /** Make a pending CompanyAlert capture fail visibly when confirmation dispatch fails. */
+ requireConfirmationDelivery?: boolean;
+ /** Server-side source of truth replayed by the confirmation handler. */
+ companyFollowIntent?: CompanyFollowIntentInput | null;
+};
+
+export type CompanyFollowIntentInput = {
+ company: string;
+ companyKey?: string | null;
+ locale: 'it' | 'en' | 'de' | 'fr';
+ sourceJobSlug?: string | null;
+ sourceJobUrl?: string | null;
+ sourceJobTitle?: string | null;
+ consentPurpose: 'companyFollow';
+ consentText: string;
+ consentTextVersion: string;
+ consentTextDisplayed: boolean;
+ consentAct: string;
+ consentMethod: string;
+ consentUserAgent?: string | null;
 };
 
 export type NewsletterEventInput = {
@@ -226,6 +250,13 @@ const DEFAULT_PREFERENCES: NewsletterPreferences = {
  exchangeRate: true,
  traffic: true,
  taxUpdates: true,
+ tips: false,
+};
+
+const COMPANY_FOLLOW_EMPTY_PREFERENCES: NewsletterPreferences = {
+ exchangeRate: false,
+ traffic: false,
+ taxUpdates: false,
  tips: false,
 };
 
@@ -281,6 +312,51 @@ function defaultPreferences(prefs?: NewsletterPreferences | null): NewsletterPre
  ...DEFAULT_PREFERENCES,
  ...(prefs || {}),
  };
+}
+
+function normalizeCompanyFollowIntent(
+ input?: CompanyFollowIntentInput | null,
+): Record<string, unknown> | null {
+ if (!input || input.consentPurpose !== 'companyFollow') return null;
+ const company = sanitizeString(input.company);
+ const key = sanitizeString(input.companyKey);
+ const text = sanitizeString(input.consentText);
+ if (!company || !text || !sanitizeString(input.consentTextVersion)) return null;
+ return {
+ company,
+ company_key: key,
+ locale: ['it', 'en', 'de', 'fr'].includes(input.locale) ? input.locale : 'it',
+ source_job_slug: sanitizeString(input.sourceJobSlug),
+ source_job_url: sanitizeString(input.sourceJobUrl),
+ source_job_title: sanitizeString(input.sourceJobTitle),
+ consent_purpose: 'companyFollow',
+ consent_text: text,
+ consent_text_version: sanitizeString(input.consentTextVersion),
+ consent_text_displayed: input.consentTextDisplayed === true,
+ consent_act: sanitizeString(input.consentAct) || 'typed_email_submit',
+ consent_method: sanitizeString(input.consentMethod) || 'email_submit',
+ consent_user_agent: sanitizeString(input.consentUserAgent),
+ saved_at: nowIso(),
+ status: 'pending',
+ };
+}
+
+function mergeCompanyFollowIntents(
+ existing: unknown,
+ incoming: Record<string, unknown> | null,
+): Record<string, unknown>[] {
+ const source = Array.isArray(existing)
+   ? existing.filter((v): v is Record<string, unknown> => Boolean(v && typeof v === 'object'))
+   : [];
+ const next = source.map((v) => ({ ...v }));
+ if (incoming) {
+   const identity = String(incoming.company_key || incoming.company || '').toLowerCase();
+   const index = next.findIndex((v) => String(v.company_key || v.company || '').toLowerCase() === identity);
+   if (index >= 0 && next[index].status === 'created') return next.slice(-20);
+   if (index >= 0) next.splice(index, 1);
+   next.push(incoming);
+ }
+ return next.slice(-20);
 }
 
 function normalizeSourceChannel(input: NewsletterUpsertInput): NewsletterSourceChannel {
@@ -929,14 +1005,23 @@ export async function captureNewsletterSubscriber(
  const optedOut = optOutBinding && !reOptInGranted;
  const resolved = await resolveCaptureDefaults(input);
  const sourceChannel = resolved.sourceChannel;
+ const companyFollowIntent = normalizeCompanyFollowIntent(input.companyFollowIntent);
+ const companyFollowOnly = input.companyFollowOnly === true;
  const jobContext = input.jobContext || {};
- const interests = dedupeStrings([
- ...(input.interests || []),
- ...(Object.entries(defaultPreferences(input.preferences))
- .filter(([, enabled]) => Boolean(enabled))
- .map(([key]) => key)),
- sanitizeString(input.locationInterest),
- sanitizeString(input.sectorInterest),
+ const preferences = companyFollowOnly
+ ? (existingData?.preferences && typeof existingData.preferences === 'object'
+   ? existingData.preferences
+   : COMPANY_FOLLOW_EMPTY_PREFERENCES)
+ : defaultPreferences(input.preferences || existingData?.preferences);
+ const interests = companyFollowOnly
+ ? (Array.isArray(existingData?.interests) ? existingData.interests : [])
+ : dedupeStrings([
+   ...(input.interests || []),
+   ...(Object.entries(preferences)
+   .filter(([, enabled]) => Boolean(enabled))
+   .map(([key]) => key)),
+   sanitizeString(input.locationInterest),
+   sanitizeString(input.sectorInterest),
  ]);
 
  const alreadyActive =
@@ -948,6 +1033,33 @@ export async function captureNewsletterSubscriber(
  (existingData?.status === 'confirmed' || existingData?.isActive === true || existingData?.active === true);
 
  const now = nowIso();
+ const preserveExistingConsent = companyFollowOnly && existing.exists() && Boolean(existingData?.consent_text);
+ const consentText = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_text)
+   : resolvedConsentText;
+ const consentTextVersion = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_text_version)
+   : sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.consent_text_version);
+ const consentTextDisplayed = preserveExistingConsent
+   ? (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null)
+   : (typeof input.consentTextDisplayed === 'boolean'
+     ? input.consentTextDisplayed
+     : (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null));
+ const consentAct = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_act)
+   : sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act);
+ const consentPurpose = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_purpose)
+   : sanitizeString(input.consentPurpose) || sanitizeString(existingData?.consent_purpose);
+ const consentMethod = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_method) || sourceChannel
+   : sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel;
+ const consentSourceUrl = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_source_url)
+   : sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || sanitizeString(existingData?.consent_source_url);
+ const consentUserAgent = preserveExistingConsent
+   ? sanitizeString(existingData?.consent_user_agent)
+   : sanitizeString(input.consentUserAgent) || sanitizeString(existingData?.consent_user_agent) || (typeof navigator !== 'undefined' ? navigator.userAgent : null);
  const mergedData = {
  email,
  user_id: sanitizeString(input.userId) || sanitizeString(existingData?.user_id),
@@ -965,7 +1077,7 @@ export async function captureNewsletterSubscriber(
  last_seen_locale: sanitizeString(input.lastSeenLocale) || sanitizeString(existingData?.last_seen_locale) || resolved.lastSeenLocale,
  type: sanitizeString(input.type) || sanitizeString(existingData?.type),
  leadMagnet: sanitizeString(input.leadMagnet) || sanitizeString(existingData?.leadMagnet),
- preferences: defaultPreferences(input.preferences || existingData?.preferences),
+ preferences,
  interests,
  location_interest: sanitizeString(input.locationInterest) || sanitizeString(existingData?.location_interest),
  sector_interest: sanitizeString(input.sectorInterest) || sanitizeString(existingData?.sector_interest),
@@ -988,17 +1100,16 @@ export async function captureNewsletterSubscriber(
  consent_given_at: input.consentGiven
  ? (existingData?.consent_given_at || now)
  : (existingData?.consent_given_at || null),
- consent_text: resolvedConsentText,
- consent_text_version: sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.consent_text_version),
+ consent_text: consentText,
+ consent_text_version: consentTextVersion,
  // Tri-state on purpose: `null` means "never recorded" (every document written
  // before #5678) and must stay distinguishable from an explicit `false`.
- consent_text_displayed: typeof input.consentTextDisplayed === 'boolean'
- ? input.consentTextDisplayed
- : (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null),
- consent_act: sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act),
- consent_method: sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
- consent_source_url: sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || sanitizeString(existingData?.consent_source_url),
- consent_user_agent: sanitizeString(input.consentUserAgent) || sanitizeString(existingData?.consent_user_agent) || (typeof navigator !== 'undefined' ? navigator.userAgent : null),
+ consent_text_displayed: consentTextDisplayed,
+ consent_act: consentAct,
+ consent_purpose: consentPurpose,
+ consent_method: consentMethod,
+ consent_source_url: consentSourceUrl,
+ consent_user_agent: consentUserAgent,
  // EXISTING VALUE WINS — the inverse of every other field here, and
  // deliberate. `consent_ip` must be the network the consent came from, not
  // the network of whatever write happened last. A sign-in six months later
@@ -1014,6 +1125,13 @@ export async function captureNewsletterSubscriber(
  updatedAt: serverTimestamp(),
  updated_at: serverTimestamp(),
  } as Record<string, any>;
+
+ if (companyFollowIntent) {
+ mergedData.company_follow_intents = mergeCompanyFollowIntents(
+   existingData?.company_follow_intents,
+   companyFollowIntent,
+ );
+ }
 
  if (isAccountDeletionReRegistration(input, existingData)) {
  // Keep the historical opt-out stamps as evidence, but remove the account
@@ -1327,10 +1445,17 @@ export async function upsertNewsletterSubscriber(
  // every caller passes.
  if (result.status === 'pending' && !result.hadConfirmationProof) {
  markNewsletterPendingLocally(input.email);
- requestConfirmationEmail(input.email).catch((err) => {
- console.warn('[newsletter] Confirmation email request failed (non-blocking):', err?.message || err);
- reportCaughtError(err, 'newsletter.requestConfirmationEmail');
- });
+ if (input.requireConfirmationDelivery) {
+   const confirmation = await requestConfirmationEmail(input.email);
+   if (!confirmation.success) {
+     throw new Error(`newsletter/confirmation-email-failed:${confirmation.error || 'unknown_error'}`);
+   }
+ } else {
+   requestConfirmationEmail(input.email).catch((err) => {
+     console.warn('[newsletter] Confirmation email request failed (non-blocking):', err?.message || err);
+     reportCaughtError(err, 'newsletter.requestConfirmationEmail');
+   });
+ }
  }
 
  // Welcome email for new PRE-CONFIRMED subscribers (Google One Tap,

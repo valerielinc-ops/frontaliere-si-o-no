@@ -1,6 +1,6 @@
 /**
  * companyFollowMountPlaceholder — the "Segui questa azienda" hydration island
- * for the SSG employer-profile pages `/aziende/<slug>/` (issue #5012, phase 2).
+ * for public single-company SSG pages (issue #5012, phase 2).
  *
  * The issue names this surface FIRST ("Ogni pagina azienda … deve avere un
  * pulsante/CTA: Segui questa azienda") and it is the one that matters most for
@@ -68,7 +68,7 @@ interface CompanyFollowMountPlaceholderOptions {
   companyKey?: string | null;
   /** Page locale, so the mounted alert is created in the language being read. */
   locale: string;
-  /** Funnel provenance (`employer_profile`, `employer_below_floor`). */
+  /** Funnel provenance (`employer_profile`, `employer_below_floor`, `employer_city`). */
   surface: string;
 }
 

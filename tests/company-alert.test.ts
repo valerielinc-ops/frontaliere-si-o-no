@@ -22,6 +22,9 @@ import { buildAlertProfile, scoreJobForAlert } from '@/services/jobAlertMatching
 // Hoisted by vitest above every import below.
 const addDocMock = vi.fn<(...args: unknown[]) => Promise<{ id: string }>>(async () => ({ id: 'alert-id' }));
 const setDocMock = vi.fn<(...args: unknown[]) => Promise<void>>(async () => undefined);
+const getDocMock = vi.fn<(...args: unknown[]) => Promise<{ exists: () => boolean; id: string; data: () => undefined }>>(
+  async () => ({ exists: () => false, id: 'deterministic-alert', data: () => undefined }),
+);
 const getDocsMock = vi.fn<(...args: unknown[]) => Promise<{ size: number; docs: unknown[] }>>(
   async () => ({ size: 0, docs: [] }),
 );
@@ -31,6 +34,7 @@ vi.mock('firebase/firestore', () => ({
   addDoc: (...args: unknown[]) => addDocMock(...args),
   doc: vi.fn(() => ({})),
   setDoc: (...args: unknown[]) => setDocMock(...args),
+  getDoc: (...args: unknown[]) => getDocMock(...args),
   updateDoc: vi.fn(async () => undefined),
   query: vi.fn(() => ({})),
   where: vi.fn(() => ({})),
@@ -65,10 +69,13 @@ import {
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mjs';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
+import { companyFilterSlugFromPath, shouldReloadForCompanyFilter } from '@/services/companyHistoryIdentity';
 import {
   buildRecipientSections,
+  claimRecipientDelivery,
   DEDUP_CHUNK_SIZE,
   groupAlertsByRecipient,
+  markRecipientDeliveryAmbiguous,
   pickOneClickUnsubscribeUrl,
   selectNewlyPublishedJobs,
   selectPersistableSends,
@@ -220,7 +227,7 @@ describe('matcher pin still fires with the shared normalisation (#5012)', () => 
 
   it('matches a job of the pinned employer and nothing else', () => {
     const profile = alertFor(canonicalCompanyProfileSlug('Board International'));
-    const hit = { id: 'a', title: 'Sviluppatore', company: 'Board International SA', canton: 'TI' };
+    const hit = { id: 'a', title: 'Sviluppatore', company: 'Board International SA', companyKey: 'board-international', canton: 'TI' };
     const miss = { id: 'b', title: 'Sviluppatore', company: 'Medacta International SA', canton: 'TI' };
     expect(scoreJobForAlert(hit, profile)).toBeGreaterThan(0);
     expect(scoreJobForAlert(miss, profile)).toBe(0);
@@ -256,13 +263,12 @@ describe('token-mode Cloud Function accepts a company-only alert (#5012)', () =>
     expect(cf).toContain('specificCompanyKey: typeof data?.specificCompanyKey');
   });
 
-  it('mirrors baseCompanySlug exactly (bundle cannot import outside functions/)', () => {
+  it('mirrors canonicalCompanyProfileSlug exactly (bundle cannot import outside functions/)', async () => {
     const fn = /function normalizeCompanyAlertKey\(value\) \{[\s\S]*?\n\}/.exec(cf)?.[0] || '';
-    expect(fn).toBeTruthy();
-    // eslint-disable-next-line no-new-func
-    const mirror = new Function(`${fn}; return normalizeCompanyAlertKey;`)() as (v: string) => string;
+    expect(fn).toContain('canonicalCompanyProfileSlug(value, value)');
+    const { canonicalCompanyProfileSlug: mirror } = await import('../functions/src/lib/companyProfileSlug.js');
     for (const name of ['Board International', 'Bürgenstock Hotels & Resort', 'Lidl Schweiz AG', 'Coop', '']) {
-      expect(mirror(name)).toBe(baseCompanySlug(name, name));
+      expect(mirror(name, name)).toBe(canonicalCompanyProfileSlug(name, name));
     }
   });
 });
@@ -421,13 +427,15 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
   beforeEach(() => {
     addDocMock.mockClear();
     setDocMock.mockClear();
+    getDocMock.mockClear();
+    getDocMock.mockResolvedValue({ exists: () => false, id: 'deterministic-alert', data: () => undefined });
     getDocsMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
   });
 
   it('writes frequency:immediate with a sticky override and the canonical key', async () => {
     await subscribeCompanyAlert('user-1', 'Foo@Example.COM', { name: 'Migros Ticino' }, 'it');
-    const payload = (addDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    const payload = (setDocMock.mock.calls.at(-1) as unknown[])[1] as Record<string, unknown>;
     expect(payload).toMatchObject({
       frequency: 'immediate',
       // Sticky: without it the adaptive-cadence engine
@@ -857,6 +865,7 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
       { name: 'Board International SA', companyKey: null },
       'it',
       {
+        companyFollowConsent: null,
         slug: 'sviluppatore-full-stack',
         url: 'https://frontaliereticino.ch/lavoro/sviluppatore-full-stack/',
         title: 'Sviluppatore Full Stack',
@@ -874,12 +883,13 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     expect(readPendingCompanyFollows()).toHaveLength(1);
   });
 
-  it('clears the queue even when the write keeps failing', async () => {
+  it('keeps the queue recoverable when the write keeps failing', async () => {
     savePendingCompanyFollow(intent);
     const subscribe = vi.fn(async () => { throw new Error('Maximum 10 active alerts per user.'); });
     expect(await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never)).toEqual([]);
-    // Otherwise a permanently-failing intent retries on every page load forever.
-    expect(readPendingCompanyFollows()).toHaveLength(0);
+    // The server confirmation path is authoritative, but a browser fallback
+    // failure must stay recoverable instead of silently losing the follow.
+    expect(readPendingCompanyFollows()).toHaveLength(1);
   });
 
   it('reuses the shared pending-intent store instead of a fourth localStorage helper', () => {
@@ -960,8 +970,8 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // alerts for people who only typed an address to follow an employer. The
     // shared mechanism this test is really about is the register: one formula,
     // rendered and stored by the same function.
-    expect(button).toContain("consentProof('communicationsOptIn'");
-    expect(button).toContain('<ConsentNotice consentKey="communicationsOptIn"');
+    expect(button).toContain("consentProof('companyFollow'");
+    expect(button).toContain('<ConsentNotice consentKey="companyFollow"');
     expect(button).not.toContain('consentGiven: true');
     // No bespoke token, no bespoke confirmation endpoint.
     expect(button.includes('createHmac')).toBe(false);
@@ -974,6 +984,16 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
 });
 
 describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', () => {
+  it('guards history re-entry by canonical company identity, not only by DOM presence', () => {
+    expect(companyFilterSlugFromPath('/cerca-lavoro-ticino/azienda-coop/')).toBe('coop');
+    expect(companyFilterSlugFromPath('/en/find-jobs-ticino/company-guess-europe/')).toBe('guess-europe');
+    expect(companyFilterSlugFromPath('/azienda/coop/?t=private-token')).toBeNull();
+    expect(shouldReloadForCompanyFilter('/azienda-coop/', new Set())).toBe(false);
+    expect(shouldReloadForCompanyFilter('/azienda-coop/', new Set(['coop']))).toBe(false);
+    expect(shouldReloadForCompanyFilter('/azienda-migros-ticino/', new Set(['migros']))).toBe(false);
+    expect(shouldReloadForCompanyFilter('/azienda-eoc/', new Set(['coop']))).toBe(true);
+  });
+
   it('emits a hydration island, not a second copy of the button', () => {
     // /aziende/<slug>/ resolves to { activeTab: 'job-board', staticOverlay: true },
     // so the SPA renders header+footer only and the static body stays visible —
@@ -997,8 +1017,8 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     // bug when forgotten — createPortal appends (skeleton stays underneath), the
     // MutationObserver re-fires on its own mutations (infinite re-add), an SPA
     // navigation swaps the static body (one-shot scan stops hydrating), and a
-    // re-scan must append rather than replace (portals from the previous page
-    // unmount). Non-Negotiable #6.
+    // re-scan must preserve connected portals while pruning detached targets
+    // from the previous page. Non-Negotiable #6.
     for (const rel of [
       'components/community/CompanyFollowMount.tsx',
       'components/community/NewsletterMount.tsx',
@@ -1012,7 +1032,24 @@ describe('CTA on the SSG employer pages /aziende/<slug>/ (#5012 requisito 1)', (
     expect(hook).toContain("el.innerHTML = ''");
     expect(hook).toContain('new MutationObserver');
     expect(hook).toContain("window.addEventListener('popstate'");
-    expect(hook).toContain('setTargets((prev) => [...prev, ...next])');
+    expect(hook).toContain('const connected = prev.filter(({ el }) => el.isConnected)');
+  });
+
+  it('adds one localized popup to every public single-company island, including city pages', () => {
+    const mount = readRepoFile('components/community/CompanyFollowMount.tsx');
+    expect(mount).toContain("t.props.surface === 'company_follow_city'");
+    expect(mount).toContain('<CompanyFollowPopup');
+    const popup = readRepoFile('components/community/CompanyFollowPopup.tsx');
+    expect(popup).toContain('BottomPromptShell');
+    expect(popup).toContain('POPUP_PRIORITY.COMPANY_ALERT_POPUP');
+    expect(popup).toContain('onShown={() => Analytics.trackUIInteraction');
+    expect(popup).toContain("localStorage.setItem(DISMISSED_AT_KEY");
+    for (const label of ['Vuoi sapere', 'Want to know', 'Möchtest du', 'Voulez-vous']) {
+      expect(popup).toContain(label);
+    }
+    const hubPlugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(hubPlugin).toContain("import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder'");
+    expect(hubPlugin).toContain("surface: 'employer_profile'");
   });
 
   it('is mounted unconditionally from App.tsx, like NewsletterMount', () => {
@@ -1408,6 +1445,10 @@ const jobDoc = (id: string, company: string, ageHours: number, title = `Ruolo ${
   id,
   title,
   company,
+  companyKey: company
+    .replace(/\s+(SA|AG|Sagl)$/i, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-'),
   location: 'Lugano',
   canton: 'TI',
   firstSeenAt: hoursAgo(ageHours),
@@ -1770,16 +1811,42 @@ describe('dedup survives grouping (residuo #5283, the non-negotiable)', () => {
     expect(persistable.map((e) => e.to)).toEqual(['ok@b.ch']);
   });
 
-  it('treats an AMBIGUOUS delivery as sent — the one case where not marking is worse', () => {
+  it('quarantines an AMBIGUOUS delivery instead of marking it sent', () => {
     // #4911: the provider accepted the message and then failed on the response,
-    // so it may already be in the inbox. Re-sending it produces exactly the
-    // duplicate this whole change exists to remove; the flag was added so
-    // callers could tell "never sent" from "unknown, do not resend blindly".
+    // so it may already be in the inbox. Re-sending it blindly produces a
+    // duplicate; the durable claim state must block the next run.
     const persistable = selectPersistableSends(
       [{ to: 'maybe@b.ch' }],
       [{ recipient: { email: 'maybe@b.ch' }, ambiguousDelivery: true }],
     );
-    expect(persistable.map((e) => e.to)).toEqual(['maybe@b.ch']);
+    expect(persistable).toHaveLength(0);
+  });
+
+  it('keeps an ambiguous delivery quarantined after the lease expires', async () => {
+    const docs = new Map<string, Record<string, unknown>>();
+    const db = {
+      collection: (_name: string) => ({
+        doc: (id: string) => ({
+          id,
+          set: async (value: Record<string, unknown>, options?: { merge?: boolean }) => {
+            docs.set(id, options?.merge ? { ...(docs.get(id) || {}), ...value } : value);
+          },
+          delete: async () => { docs.delete(id); },
+        }),
+      }),
+      runTransaction: async (fn: (tx: {
+        get: (ref: { id: string }) => Promise<{ exists: boolean; data: () => Record<string, unknown> }>;
+        set: (ref: { id: string }, value: Record<string, unknown>, options?: { merge?: boolean }) => void;
+      }) => Promise<boolean>) => fn({
+        get: async (ref) => ({ exists: docs.has(ref.id), data: () => docs.get(ref.id) || {} }),
+        set: (ref, value, options) => { docs.set(ref.id, options?.merge ? { ...(docs.get(ref.id) || {}), ...value } : value); },
+      }),
+    };
+    const first = await claimRecipientDelivery(db, 'maybe@b.ch', 1000);
+    expect(first.claimed).toBe(true);
+    await markRecipientDeliveryAmbiguous(db, 'maybe@b.ch', 'provider acknowledgement unavailable', 1001);
+    const retry = await claimRecipientDelivery(db, 'maybe@b.ch', 1000 + 60 * 60 * 1000);
+    expect(retry.claimed).toBe(false);
   });
 
   it('persists everything when nothing failed, and nothing when everything did', () => {

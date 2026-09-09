@@ -18,11 +18,13 @@
  * Cloud Function returns. Only THEN does a `userId` exist, and only then is
  * there recorded consent to email this address.
  *
- * So the follow cannot be written at click time. It is parked here, and
- * `flushPendingCompanyFollows` replays it the moment the confirmation lands.
- * An unconfirmed address therefore never produces an alert document — an
- * un-consented subscription that emails somebody is a GDPR problem, not a
- * conversion optimisation.
+ * So the follow cannot be written at click time. The authoritative intent is
+ * parked on the server-side subscriber document by the capture; this browser
+ * queue is a compatibility fallback for clients that started before that
+ * path. The confirmation function replays the server intent, so an
+ * unconfirmed address never produces an alert document — an un-consented
+ * subscription that emails somebody is a GDPR problem, not a conversion
+ * optimisation.
  *
  * ── STORAGE ───────────────────────────────────────────────────────────────
  * Storage/TTL/guard mechanics come from `services/pendingIntentStore.ts`, the
@@ -39,16 +41,15 @@
  * visitor who does not check their inbox immediately — a silent no-op with the
  * UI still saying "controlla la posta".
  *
- * localStorage, not a Firestore `pending_follows` collection: a new collection
- * means a new query shape means a new composite index, and
- * `firestore.indexes.json` is NOT applied by CI (see `subscribeCompanyAlert`'s
- * docblock). The cost is that a confirmation opened on a DIFFERENT device loses
- * the parked follow — the subscriber is still created and confirmed, the user
- * simply taps "Segui" again, now signed in. Losing a tap is the correct trade
- * against shipping a query that fails in production.
+ * The compatibility queue is localStorage, not a new Firestore
+ * `pending_follows` collection: a new collection means a new query shape and
+ * index surface. The server-side subscriber document is already part of the
+ * confirmation read/write, so a confirmation opened on a DIFFERENT device
+ * still replays the follow. If localStorage is unavailable, only the legacy
+ * fallback is lost; the authoritative intent remains recoverable server-side.
  */
 
-import type { JobAlert } from './jobAlertService';
+import type { CompanyFollowConsent, JobAlert } from './jobAlertService';
 import { clearIntent, peekIntent, saveIntent } from './pendingIntentStore';
 
 const KEY = 'company_follow_pending';
@@ -74,6 +75,8 @@ export interface PendingCompanyFollow {
   email: string;
   /** ms epoch. */
   savedAt: number;
+  /** Purpose-specific proof used by the server confirmation replay. */
+  companyFollowConsent?: CompanyFollowConsent | null;
 }
 
 function readRaw(): PendingCompanyFollow[] {
@@ -129,10 +132,11 @@ export function clearPendingCompanyFollows(): void {
  * after `signInWithCustomAuthToken`.
  *
  * Best-effort by contract: a failure here must never break the confirmation
- * flow (the subscriber IS confirmed, which is the important half). Entries are
- * cleared regardless of per-item outcome so a permanently failing intent — an
- * employer whose slug no longer resolves, or a user already at
- * MAX_ALERTS_PER_USER — cannot retry on every future page load.
+ * flow (the subscriber IS confirmed, which is the important half). Successful
+ * entries are cleared; failed entries stay recoverable for the next signed-in
+ * replay. The confirmation endpoint is authoritative and persists the intent
+ * server-side, so this browser queue is only a compatibility fallback for
+ * already-parked clients.
  *
  * @param subscribe Injected for tests; defaults to the real write path.
  * @returns the alerts actually created.
@@ -145,7 +149,7 @@ export async function flushPendingCompanyFollows(
     email: string,
     company: { name: string; companyKey?: string | null },
     locale: 'it' | 'en' | 'de' | 'fr',
-    source?: { slug?: string | null; url?: string | null; title?: string | null },
+    source?: { slug?: string | null; url?: string | null; title?: string | null; companyFollowConsent?: CompanyFollowConsent | null },
   ) => Promise<JobAlert>,
 ): Promise<JobAlert[]> {
   const normalized = String(email || '').trim().toLowerCase();
@@ -158,6 +162,7 @@ export async function flushPendingCompanyFollows(
     || (await import('./jobAlertService')).subscribeCompanyAlert;
 
   const created: JobAlert[] = [];
+  const completed = new Set<PendingCompanyFollow>();
   for (const intent of mine) {
     try {
       created.push(
@@ -170,14 +175,19 @@ export async function flushPendingCompanyFollows(
             slug: intent.sourceJobSlug ?? null,
             url: intent.sourceJobUrl ?? null,
             title: intent.sourceJobTitle ?? null,
+            companyFollowConsent: intent.companyFollowConsent ?? null,
           },
         ),
       );
+      completed.add(intent);
     } catch {
       // Swallowed on purpose — see the docblock. The loop continues so one bad
       // intent cannot block the others.
     }
   }
-  writeRaw(all.filter((e) => e.email !== normalized));
+  // The server-side intent is now the primary path. This local replay remains a
+  // best-effort fallback, but a failed write must stay recoverable rather than
+  // being erased on the next App.tsx confirmation effect.
+  writeRaw(all.filter((e) => e.email !== normalized || !completed.has(e)));
   return created;
 }

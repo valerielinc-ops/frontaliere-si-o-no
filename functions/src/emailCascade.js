@@ -875,6 +875,23 @@ async function fetchOrTagAmbiguous(url, opts) {
   }
 }
 
+/**
+ * Preserve a provider's acceptance when its 2xx response has no usable id.
+ * The absence of an identifier is not a provider failure and must not make
+ * sendSingle() fall through to another provider.
+ * @param {string} provider
+ * @param {unknown} rawMessageId
+ * @returns {{ messageId: string|null, provider: string, ack: 'identified'|'unidentifiable' }}
+ */
+function providerAck(provider, rawMessageId) {
+  const messageId = rawMessageId == null ? '' : String(rawMessageId).trim();
+  return {
+    messageId: messageId || null,
+    provider,
+    ack: messageId ? 'identified' : 'unidentifiable',
+  };
+}
+
 // ── Mailjet API (v3.1) ──────────────────────────────────────
 // Docs: https://dev.mailjet.com/email/guides/send-api-v31/
 
@@ -919,7 +936,7 @@ async function sendViaMailjet(email, _scheduledAt, signal) {
   if (msg?.Status === 'error') {
     throw new Error(`Mailjet error: ${JSON.stringify(msg.Errors).slice(0, 200)}`);
   }
-  return { messageId: String(msg?.To?.[0]?.MessageID || `mj-${Date.now()}`), provider: 'mailjet' };
+  return providerAck('mailjet', msg?.To?.[0]?.MessageID);
 }
 
 // ── Mailgun API (v3) ─────────────────────────────────────────
@@ -989,7 +1006,7 @@ async function sendViaMailgun(email, scheduledAt, signal) {
   }
 
   const data = await res.json().catch(() => ({}));
-  return { messageId: data?.id || `mg-${Date.now()}`, provider: 'mailgun' };
+  return providerAck('mailgun', data?.id);
 }
 
 // ── Mailtrap Send API ────────────────────────────────────────
@@ -1027,7 +1044,7 @@ async function sendViaMailtrap(email, _scheduledAt, signal) {
   }
 
   const data = await res.json().catch(() => ({}));
-  return { messageId: data?.message_ids?.[0] || `mailtrap-${Date.now()}`, provider: 'mailtrap' };
+  return providerAck('mailtrap', data?.message_ids?.[0]);
 }
 
 // ── Maileroo API (v2) ────────────────────────────────────────
@@ -1083,7 +1100,7 @@ async function sendViaMaileroo(email, scheduledAt, signal) {
   if (data?.success === false) {
     throw new Error(`Maileroo error: ${String(data.message || 'unknown').slice(0, 200)}`);
   }
-  return { messageId: data?.data?.reference_id || `maileroo-${Date.now()}`, provider: 'maileroo' };
+  return providerAck('maileroo', data?.data?.reference_id);
 }
 
 // ── Resend API (fallback) ────────────────────────────────────
@@ -1135,7 +1152,7 @@ async function sendViaResend(email, scheduledAt, signal) {
   }
 
   const data = await res.json().catch(() => ({}));
-  return { messageId: data?.id || `resend-${Date.now()}`, provider: 'resend' };
+  return providerAck('resend', data?.id);
 }
 
 // ── Cloudflare Email Service REST API ─────────────────────────
@@ -1232,10 +1249,11 @@ async function sendViaCloudflare(email, _scheduledAt, signal) {
   const accepted = [].concat(result?.delivered || [], result?.queued || []);
   const bounced = result?.permanent_bounces || [];
   const messageId = result?.message_id || result?.id || accepted[0]?.id || accepted[0]?.message_id;
-  if (!messageId && bounced.length > 0) {
+  const ack = providerAck('cloudflare', messageId);
+  if (ack.ack === 'unidentifiable' && bounced.length > 0) {
     throw new Error(`Cloudflare permanent_bounce: ${JSON.stringify(bounced).slice(0, 200)}`);
   }
-  return { messageId: String(messageId || `cf-${Date.now()}`), provider: 'cloudflare' };
+  return ack;
 }
 
 // ── Provider dispatch ────────────────────────────────────────
@@ -1253,7 +1271,7 @@ const SEND_FNS = {
  * Send a single email via the first available provider with remaining quota.
  * @param {Object} email - Email payload (may carry an optional `scheduledAt`)
  * @param {string} [forceProvider] - If set, only use this specific provider
- * @returns {{ messageId: string, provider: string, scheduledFor: string|null }}
+ * @returns {{ messageId: string|null, provider: string, ack: 'identified'|'unidentifiable', scheduledFor: string|null }}
  */
 /**
  * Detect a hard rate-limit / quota-reached signal in a provider error message.
@@ -1687,4 +1705,4 @@ export async function getAvailableCascadeQuota() {
     .reduce((sum, p) => sum + remainingQuota(p.id), 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit, computeMailerooDynamicDailyLimit, computeMailtrapDynamicDailyLimit };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag, fetchResendDailyUsage, resolveScheduledAt, toRfc2822Utc, resendCycleBounds, computeResendDynamicDailyLimit, computeMailerooDynamicDailyLimit, computeMailtrapDynamicDailyLimit, SEND_FNS as PROVIDER_SENDERS };

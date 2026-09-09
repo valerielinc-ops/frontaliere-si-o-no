@@ -70,6 +70,7 @@ service cloud.firestore {
     function consentFieldsTouched(newData, oldData) {
       return newData.diff(oldData).affectedKeys().hasAny([
         'consent_text', 'consent_text_version', 'consent_text_displayed',
+        'consent_purpose',
         'consent_page_version', 'consent_act', 'consent_origin',
         'consent_method', 'consent_given', 'consent_given_at',
         'consent_source_url', 'consent_user_agent', 'consent_ip',

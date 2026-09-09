@@ -31,8 +31,11 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import type { Locale } from '@/services/i18n';
 import { getLocale } from '@/services/i18n';
+import { companyAlertKey } from '@/services/jobAlertService';
+import { shouldReloadForCompanyFilter } from '@/services/companyHistoryIdentity';
 import { useHydrationIslands } from '@/hooks/useHydrationIslands';
 import CompanyFollowCta, { type CompanyFollowSurface } from './CompanyFollowCta';
+import CompanyFollowPopup from './CompanyFollowPopup';
 
 interface CompanyFollowMountProps {
   company: string;
@@ -85,7 +88,38 @@ const CompanyFollowMount: React.FC = () => {
     },
   });
 
+  // C1b: `useNavigationState` quite correctly keeps company-filter pages as
+  // static overlays because their build-time HTML is the SEO source. Its
+  // generic re-entry guard used only "is there a <main>?"; after A → B → back →
+  // forward that main was A, so the URL became B while the body stayed A.
+  // On the only event that can re-enter a different history document without
+  // a network request (`popstate`), compare the target leaf with the mounted
+  // island's canonical key and let the browser fetch B when they differ.
+  const mountedCompanyKeys = React.useMemo(() => {
+    const keys = new Set<string>();
+    for (const target of targets) {
+      const key = companyAlertKey(target.props.company, target.props.companyKey || undefined);
+      if (key) keys.add(key);
+    }
+    return keys;
+  }, [targets]);
+
+  React.useEffect(() => {
+    if (mountedCompanyKeys.size === 0) return undefined;
+    const onPopState = () => {
+      if (!shouldReloadForCompanyFilter(window.location.pathname, mountedCompanyKeys)) return;
+      window.location.reload();
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [mountedCompanyKeys]);
+
   if (targets.length === 0) return null;
+  const popupTarget = targets.find((t) => (
+    t.props.surface === 'company_follow_profile'
+      || t.props.surface === 'company_follow_below_floor'
+      || t.props.surface === 'company_follow_city'
+  ));
   return (
     <>
       {targets.map((t, i) =>
@@ -99,6 +133,14 @@ const CompanyFollowMount: React.FC = () => {
           t.el,
           `company-follow-mount-${i}`,
         ),
+      )}
+      {popupTarget && (
+        <CompanyFollowPopup
+          company={popupTarget.props.company}
+          companyKey={popupTarget.props.companyKey}
+          locale={popupTarget.props.locale}
+          surface={popupTarget.props.surface}
+        />
       )}
     </>
   );

@@ -22,8 +22,10 @@
  *     pages swaps the static body without a reload, so a one-shot scan on mount
  *     silently stops hydrating from the second page onward. Hence `popstate` +
  *     MutationObserver.
- *  4. **Never drop the state.** Targets accumulate; a re-scan appends rather
- *     than replaces, or portals from a previous page would unmount.
+ *  4. **Keep live state, prune stale state.** A re-scan keeps targets whose
+ *     placeholders are still connected, but removes detached targets left by
+ *     the previous staticOverlay page. Otherwise portals from a previous page
+ *     can remain mounted after SPA navigation.
  *
  * `NewsletterMount` had all four inline; `CompanyFollowMount` was about to have
  * a second copy (surfaced by check-sibling-patterns). Non-Negotiable #6.
@@ -57,8 +59,9 @@ export interface UseHydrationIslandsOptions<P> {
 }
 
 /**
- * Scan the document for hydration placeholders and return the accumulated
- * targets to portal into. Returns a stable, append-only array.
+ * Scan the document for hydration placeholders and return the connected
+ * targets to portal into. Detached targets from a previous SPA page are
+ * pruned during each scan.
  */
 export function useHydrationIslands<P>({
   attribute,
@@ -71,7 +74,6 @@ export function useHydrationIslands<P>({
     const selector = `[${attribute}]:not([${mountedAttribute}])`;
     const scan = () => {
       const elements = Array.from(document.querySelectorAll<HTMLElement>(selector));
-      if (elements.length === 0) return;
       const next: Array<IslandTarget<P>> = [];
       for (const el of elements) {
         const props = readProps(el);
@@ -81,7 +83,11 @@ export function useHydrationIslands<P>({
         el.innerHTML = '';
         next.push({ el, props });
       }
-      if (next.length > 0) setTargets((prev) => [...prev, ...next]);
+      setTargets((prev) => {
+        const connected = prev.filter(({ el }) => el.isConnected);
+        if (next.length === 0 && connected.length === prev.length) return prev;
+        return [...connected, ...next];
+      });
     };
     scan();
     // Re-scan on SPA navigation between static-overlay pages (no reload): the

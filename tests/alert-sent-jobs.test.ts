@@ -61,8 +61,8 @@ describe('filterUnsentJobs', () => {
     expect(filterUnsentJobs(jobs, {}, NOW)).toHaveLength(3);
   });
 
-  it('lets an id-less job through (cannot dedup it)', () => {
-    expect(filterUnsentJobs([{ slug: '' } as never], {}, NOW)).toHaveLength(1);
+  it('quarantines an id-less job instead of sending it without deduplication', () => {
+    expect(filterUnsentJobs([{ slug: '' } as never], {}, NOW)).toHaveLength(0);
   });
 });
 

@@ -95,6 +95,7 @@ export interface CompanyFollowCtaProps {
    * flipped to "following".
    */
   lookupAlert?: typeof findCompanyAlert;
+  emailInputId?: string;
 }
 
 const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
@@ -108,6 +109,7 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
   userId,
   email,
   lookupAlert,
+  emailInputId,
 }) => {
   const { user } = useAuth();
   // An employer with no name has no alert key either: rendering would strand an
@@ -142,6 +144,7 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
         // (`findCompanyAlert`), so the six surfaces that pass nothing keep
         // querying exactly as before.
         lookup={lookupAlert}
+        emailInputId={emailInputId}
         onSubscribed={() => {
           Analytics.trackJobAlertCtaClick(surface, 'success', String(company));
           Analytics.trackJobAlertCreated({

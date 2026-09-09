@@ -286,6 +286,92 @@ describe('handleSubscriptionManagement — confirm action', () => {
   });
 });
 
+describe('CompanyFollow intent replay at confirm', () => {
+  function createReplayDb() {
+    const subscribers: Record<string, any> = {};
+    const parents: Record<string, any> = {};
+    const alerts: Record<string, any> = {};
+    const events: any[] = [];
+    const alertCollection = {
+      get: async () => ({
+        forEach: (callback: (snap: any) => void) => {
+          for (const data of Object.values(alerts)) callback({ data: () => data });
+        },
+      }),
+      doc: (id: string) => ({
+        id,
+        get: async () => ({ exists: Boolean(alerts[id]), data: () => alerts[id] }),
+        set: async (data: any) => { alerts[id] = { ...(alerts[id] || {}), ...data }; },
+      }),
+    };
+    const collection = (name: string) => ({
+      doc: (id: string) => ({
+        get: async () => ({
+          exists: name === 'newsletter_subscribers' ? Boolean(subscribers[id]) : Boolean(parents[id]),
+          data: () => name === 'newsletter_subscribers' ? subscribers[id] : parents[id],
+        }),
+        set: async (data: any) => {
+          if (name === 'newsletter_subscribers') subscribers[id] = { ...(subscribers[id] || {}), ...data };
+          else parents[id] = { ...(parents[id] || {}), ...data };
+        },
+        collection: (subName: string) => subName === 'alerts'
+          ? alertCollection
+          : { add: async (data: any) => { events.push({ collection: `${name}/${id}/${subName}`, ...data }); } },
+      }),
+    });
+    return {
+      subscribers,
+      parents,
+      alerts,
+      events,
+      collection,
+    };
+  }
+
+  it('creates the canonical alert from the server-side intent and is replay-idempotent', async () => {
+    const { replayCompanyFollowIntents } = await import('../functions/src/newsletterSubscriptionManagement.js');
+    const db = createReplayDb();
+    const email = 'cross-device@example.com';
+    const intent = {
+      company: 'Guess Ticino',
+      company_key: 'guess-ticino',
+      locale: 'it',
+      consent_purpose: 'companyFollow',
+      consent_text: 'Seguendo questa azienda chiedo di ricevere una email quando pubblica nuovi annunci.',
+      consent_text_version: '2026-09-09.1',
+      consent_text_displayed: true,
+      consent_act: 'email_submit',
+      consent_method: 'email_submit',
+      status: 'pending',
+    };
+
+    const first = await replayCompanyFollowIntents(db, email, 'uid-cross-device', [intent]);
+    expect(first).toEqual({ created: 1, deferred: 0 });
+    expect(Object.values(db.alerts)).toHaveLength(1);
+    const alert = Object.values(db.alerts)[0] as Record<string, unknown>;
+    expect(alert).toMatchObject({
+      specificCompanyKey: 'guess-europe-sagl',
+      frequency: 'immediate',
+      active: true,
+      consent_purpose: 'companyFollow',
+      consent_text_displayed: true,
+    });
+    expect(db.subscribers[email].company_follow_intents[0]).toMatchObject({
+      status: 'created',
+      alert_id: Object.keys(db.alerts)[0],
+    });
+
+    const second = await replayCompanyFollowIntents(
+      db,
+      email,
+      'uid-cross-device',
+      db.subscribers[email].company_follow_intents,
+    );
+    expect(second).toEqual({ created: 0, deferred: 0 });
+    expect(Object.values(db.alerts)).toHaveLength(1);
+  });
+});
+
 // ── Client-side pending email helpers ───────────────────────
 
 describe('newsletter pending email helpers', () => {

@@ -96,6 +96,7 @@ import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } fr
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { commitInChunks, FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
+import { crawlerJobActivity } from './lib/crawler-job-activity.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -166,7 +167,77 @@ const PER_RUN_CAP = 300;
  * (`DEDUP_CHUNK_SIZE × COMPANY_ALERT_MAX_TOTAL_CARDS ≤ FIRESTORE_BATCH_SIZE`)
  * instead of restating the arithmetic as a source-scan.
  */
-export const DEDUP_CHUNK_SIZE = Math.max(1, Math.floor(FIRESTORE_BATCH_SIZE / COMPANY_ALERT_MAX_TOTAL_CARDS));
+// One successful recipient write also deletes its delivery claim. Keep the
+// whole recipient (up to 20 section updates + 1 claim delete) in one batch.
+export const DEDUP_CHUNK_SIZE = Math.max(1, Math.floor(FIRESTORE_BATCH_SIZE / (COMPANY_ALERT_MAX_TOTAL_CARDS + 1)));
+
+const DELIVERY_CLAIM_COLLECTION = 'company_alert_delivery_claims';
+const DELIVERY_CLAIM_LEASE_MS = 15 * 60 * 1000;
+const DELIVERY_CLAIM_RETENTION_MS = DEDUP_WINDOW_MS;
+
+export function deliveryClaimId(email) {
+  return encodeURIComponent(String(email || '').trim().toLowerCase());
+}
+
+/**
+ * Reserve one grouped recipient before the provider call.
+ *
+ * The sender groups all sections for an address into one email, so one claim
+ * per recipient closes the race between two workflow invocations. A fresh
+ * pending claim wins over a second attempt; an expired claim can be recovered
+ * by the next run. An ambiguous provider result is persisted as a durable
+ * quarantine state and never becomes retryable by time alone. A successful
+ * writeback deletes the claim in the same batch.
+ */
+export async function claimRecipientDelivery(db, email, nowMs = Date.now()) {
+  if (!db?.runTransaction || !db?.collection) throw new Error('company-alert/claim-store-unavailable');
+  const ref = db.collection(DELIVERY_CLAIM_COLLECTION).doc(deliveryClaimId(email));
+  const claimed = await db.runTransaction(async (tx) => {
+    const snap = await tx.get(ref);
+    const data = snap.exists ? (snap.data() || {}) : null;
+    if (data?.state === 'ambiguous') return false;
+    const activeUntil = Number(data?.expiresAt || 0);
+    if (data && activeUntil > nowMs) return false;
+    tx.set(ref, {
+      state: 'pending',
+      claimedAt: nowMs,
+      expiresAt: nowMs + DELIVERY_CLAIM_LEASE_MS,
+      retentionUntil: nowMs + DELIVERY_CLAIM_RETENTION_MS,
+    }, { merge: true });
+    return true;
+  });
+  return { claimed: claimed === true, ref };
+}
+
+export async function markRecipientDeliveryAmbiguous(db, email, error, nowMs = Date.now()) {
+  if (!db?.collection) throw new Error('company-alert/claim-store-unavailable');
+  const ref = db.collection(DELIVERY_CLAIM_COLLECTION).doc(deliveryClaimId(email));
+  if (ref?.set) {
+    await ref.set({
+      state: 'ambiguous',
+      ambiguousAt: nowMs,
+      ambiguousReason: String(error || 'provider acknowledgement unavailable').slice(0, 500),
+      expiresAt: 0,
+      retentionUntil: nowMs + DELIVERY_CLAIM_RETENTION_MS,
+    }, { merge: true });
+    return;
+  }
+  if (!db.runTransaction) throw new Error('company-alert/claim-store-unavailable');
+  await db.runTransaction(async (tx) => {
+    tx.set(ref, {
+      state: 'ambiguous',
+      ambiguousAt: nowMs,
+      ambiguousReason: String(error || 'provider acknowledgement unavailable').slice(0, 500),
+      expiresAt: 0,
+      retentionUntil: nowMs + DELIVERY_CLAIM_RETENTION_MS,
+    }, { merge: true });
+  });
+}
+
+export async function releaseRecipientDeliveryClaim(db, email) {
+  const ref = db?.collection?.(DELIVERY_CLAIM_COLLECTION)?.doc?.(deliveryClaimId(email));
+  if (ref?.delete) await ref.delete();
+}
 
 const TARGET_EMAIL_RAW = (process.env.TARGET_EMAIL || '').trim().toLowerCase();
 const ALLOWED_EMAILS = TARGET_EMAIL_RAW ? new Set([TARGET_EMAIL_RAW]) : null;
@@ -211,6 +282,7 @@ function toMillis(v) {
 export function selectNewlyPublishedJobs(jobs, nowMs, windowMs = IMMEDIATE_WINDOW_MS) {
   const cutoff = nowMs - windowMs;
   return (jobs || []).filter((j) => {
+    if (crawlerJobActivity(j) === 'expired') return false;
     const seen = toMillis(j?.firstSeenAt);
     return seen > 0 && seen >= cutoff;
   });
@@ -355,14 +427,11 @@ export function pickOneClickUnsubscribeUrl(renderedSections, unsubscribeAllUrl) 
  * of one message: either the whole email went out, or none of its employers
  * count as delivered.
  *
- * `ambiguousDelivery` (#4911) is the one case that inverts. The cascade sets it
- * when a provider ACCEPTED the message and then failed on the response, so the
- * email may well be sitting in the inbox already; re-sending it is how the
- * reader gets the duplicate this whole change exists to remove. The flag was
- * added precisely so callers could tell "never sent" from "unknown, do not
- * resend blindly" — so an ambiguous send is treated as delivered here, and the
- * cost of being wrong is bounded: only those jobs are missed, and the next ad
- * from the same employer still arrives.
+ * `ambiguousDelivery` (#4911) is a durable quarantine, not a successful
+ * delivery. The cascade sets it when a provider ACCEPTED the message and then
+ * failed on the response; re-sending it blindly can duplicate the email. The
+ * caller persists that state in the delivery-claim store and requires manual
+ * reconciliation before another attempt.
  *
  * Pure — no IO.
  *
@@ -373,7 +442,6 @@ export function pickOneClickUnsubscribeUrl(renderedSections, unsubscribeAllUrl) 
 export function selectPersistableSends(emails, failedItems) {
   const blocked = new Set(
     (failedItems || [])
-      .filter((f) => !f?.ambiguousDelivery)
       .map((f) => String(f?.recipient?.email || f?.to || '').toLowerCase().trim())
       .filter(Boolean),
   );
@@ -534,6 +602,7 @@ async function main() {
   // the asymmetry is deliberate.
   const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
   const suppressed = new Set();
+  const deferredSuppression = new Set();
   const LOOKUP_CHUNK_SIZE = 200;
   for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
     const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
@@ -549,15 +618,22 @@ async function main() {
         if (jaDoc.exists && isJobAlertExcluded((jaDoc.data() || {}).status)) suppressed.add(e);
       });
     } catch (err) {
-      // Fail-open but observable — identical policy to the digest's batched
-      // lookup: a transient read blip must not drop valid recipients.
-      console.warn(`   ⚠️  suppression lookup failed for ${chunk.length} address(es): ${err?.message || err}`);
+      // A lookup failure is not evidence of consent. Defer the whole chunk so
+      // the next run can retry; fail-open here would turn an infrastructure
+      // blip into a real unsolicited send.
+      chunk.forEach((email) => deferredSuppression.add(email));
+      console.warn(`   ⏸️  suppression lookup deferred for ${chunk.length} address(es): ${err?.message || err}`);
     }
   }
   if (suppressed.size > 0) {
     const before = alerts.length;
     alerts = alerts.filter((a) => !suppressed.has(String(a.email || '').toLowerCase()));
     console.log(`   🚫 Suppressed (newsletter opt-out / bounced / complained / provider list): ${before - alerts.length} alert(s) skipped`);
+  }
+  if (deferredSuppression.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => !deferredSuppression.has(String(a.email || '').toLowerCase()));
+    console.log(`   ⏸️  Suppression unknown — ${before - alerts.length} alert(s) deferred for retry`);
   }
 
   // ── ONE EMAIL PER RECIPIENT ──────────────────────────────────────────────
@@ -568,7 +644,7 @@ async function main() {
   const recipients = [...alertsByRecipient.keys()].sort();
   console.log(`   Recipients in scope: ${recipients.length} (from ${alerts.length} alert(s))`);
 
-  const emailsToSend = [];
+  let emailsToSend = [];
   for (let i = 0; i < recipients.length; i += 1) {
     if (emailsToSend.length >= PER_RUN_CAP) {
       console.log(`   📉 PER_RUN_CAP (${PER_RUN_CAP} recipients) reached — ${recipients.length - i} recipient(s) deferred to the next run`);
@@ -703,31 +779,112 @@ async function main() {
     return;
   }
 
+  const claimedEmails = [];
+  for (const email of emailsToSend) {
+    try {
+      const claim = await claimRecipientDelivery(db, email.to, now);
+      if (!claim.claimed) {
+        console.log(`   ⏸️  ${email.to}: delivery claim already active — deferred`);
+        continue;
+      }
+      claimedEmails.push({ ...email, claimRef: claim.ref });
+    } catch (err) {
+      // Claim storage is part of exactly-once protection. Unknown claim state is
+      // safer as a deferral than as a provider call that can duplicate a send.
+      console.warn(`   ⏸️  ${email.to}: delivery claim unavailable — deferred (${err?.message || err})`);
+    }
+  }
+  emailsToSend = claimedEmails;
+  if (emailsToSend.length === 0) {
+    console.log('   No recipient acquired a delivery claim — nothing to send.');
+    return;
+  }
+
   const result = await sendBatch(emailsToSend);
   console.log(`   ✅ Sent ${result.sent.length} · ❌ failed ${result.failed.length}`);
 
   // Persist the dedup map + counters, per alert, for the sends that went out —
-  // see selectPersistableSends for the failure semantics (and why an ambiguous
-  // delivery counts as sent). Grouping does NOT move the dedup record: it stays
+  // see selectPersistableSends for the failure semantics (ambiguous delivery
+  // is quarantined, not marked sent). Grouping does NOT move the dedup record: it stays
   // on each alert, because "already sent" belongs to the subscription, not to
   // whichever email happened to carry it.
   const { FieldValue } = await import('firebase-admin/firestore');
-  const toUpdate = selectPersistableSends(emailsToSend, result.failed)
+  const persistable = selectPersistableSends(emailsToSend, result.failed);
+  const persistableRecipients = new Set(persistable.map((e) => String(e.to || '').toLowerCase().trim()));
+  const ambiguousRecipients = new Set(
+    (result.failed || [])
+      .filter((f) => f?.ambiguousDelivery)
+      .map((f) => String(f?.recipient?.email || f?.to || '').toLowerCase().trim())
+      .filter(Boolean),
+  );
+  // A provider success without a durable sentJobIds writeback is just as
+  // ambiguous as a missing provider acknowledgement: the next run cannot
+  // prove the message was delivered and would resend it blindly. Production
+  // alert docs always carry `ref`; this guard keeps malformed legacy docs from
+  // turning that assumption into a duplicate-send path.
+  const missingWritebackRecipients = new Set(
+    persistable
+      .filter((e) => e.dedupWrites.length === 0)
+      .map((e) => String(e.to || '').toLowerCase().trim())
+      .filter(Boolean),
+  );
+  const quarantinedRecipients = new Set([
+    ...ambiguousRecipients,
+    ...missingWritebackRecipients,
+  ]);
+  await Promise.all(
+    emailsToSend
+      .filter((e) => quarantinedRecipients.has(String(e.to || '').toLowerCase().trim()))
+      .map((e) => {
+        const recipient = String(e.to || '').toLowerCase().trim();
+        const ambiguousFailure = result.failed.find((f) => (
+          f?.ambiguousDelivery
+          && String(f?.recipient?.email || f?.to || '').toLowerCase().trim() === recipient
+        ));
+        const reason = ambiguousFailure?.error || (
+          missingWritebackRecipients.has(recipient)
+            ? 'sent email has no durable alert writeback'
+            : 'provider acknowledgement unavailable'
+        );
+        return markRecipientDeliveryAmbiguous(db, e.to, reason).catch((err) => {
+        console.error(`   ❗ Could not persist ambiguous delivery for ${e.to}: ${err?.message || err}`);
+        });
+      }),
+  );
+  await Promise.all(
+    emailsToSend
+      .filter((e) => (
+        !persistableRecipients.has(String(e.to || '').toLowerCase().trim())
+        && !quarantinedRecipients.has(String(e.to || '').toLowerCase().trim())
+      ))
+      .map((e) => releaseRecipientDeliveryClaim(db, e.to).catch(() => {})),
+  );
+  const toUpdate = persistable
     .filter((e) => e.dedupWrites.length > 0);
   // One item = one recipient = one email, and its whole writeback lands in a
   // single batch (DEDUP_CHUNK_SIZE keeps ops under the 400 cap). All-or-nothing
   // per email: a chunk that fails leaves every one of that email's employers
   // unmarked, so the next run re-sends the whole message rather than a
   // half-remembered fragment of it.
-  await commitInChunks(db, toUpdate, (batch, e) => {
-    for (const write of e.dedupWrites) {
-      batch.update(write.ref, {
-        lastMatchedAt: FieldValue.serverTimestamp(),
-        matchCount: FieldValue.increment(write.matchCount),
-        sentJobIds: mergeSentJobs(write.sentMap, write.sentJobs, now, DEDUP_WINDOW_MS),
-      });
-    }
-  }, { chunkSize: DEDUP_CHUNK_SIZE });
+  try {
+    await commitInChunks(db, toUpdate, (batch, e) => {
+      for (const write of e.dedupWrites) {
+        batch.update(write.ref, {
+          lastMatchedAt: FieldValue.serverTimestamp(),
+          matchCount: FieldValue.increment(write.matchCount),
+          sentJobIds: mergeSentJobs(write.sentMap, write.sentJobs, now, DEDUP_WINDOW_MS),
+        });
+      }
+      if (e.claimRef) batch.delete(e.claimRef);
+    }, { chunkSize: DEDUP_CHUNK_SIZE });
+  } catch (err) {
+    // The provider already accepted at least one recipient. A writeback error
+    // must not turn the next run into a blind resend; quarantine every claim
+    // whose email was part of this commit attempt before surfacing the error.
+    await Promise.all(toUpdate.map((e) => markRecipientDeliveryAmbiguous(db, e.to, `writeback failed: ${err?.message || err}`, now)
+      .catch((markErr) => console.error(`   ❗ Could not quarantine ${e.to}: ${markErr?.message || markErr}`))));
+    throw err;
+  }
   const updatedAlerts = toUpdate.reduce((sum, e) => sum + e.dedupWrites.length, 0);
   console.log(`   📊 Firestore updated — ${updatedAlerts} alert(s) across ${toUpdate.length} delivered email(s)`);
 }

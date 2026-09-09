@@ -8,7 +8,6 @@ import {
   deleteAlert,
   findCompanyAlert,
   subscribeCompanyAlert,
-  upgradeBackfilledAlertConsent,
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { upsertNewsletterSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
@@ -60,8 +59,9 @@ export interface CompanyFollowButtonProps {
   lookup?: typeof findCompanyAlert;
   subscribe?: typeof subscribeCompanyAlert;
   unfollow?: typeof deleteAlert;
-  upgradeConsent?: typeof upgradeBackfilledAlertConsent;
   captureEmail?: (email: string, intent: { company: string; companyKey?: string | null }) => Promise<void>;
+  /** Avoid duplicate input ids when the contextual popup and inline CTA coexist. */
+  emailInputId?: string;
 }
 
 /**
@@ -122,8 +122,8 @@ export default function CompanyFollowButton({
   lookup = findCompanyAlert,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
-  upgradeConsent = upgradeBackfilledAlertConsent,
   captureEmail,
+  emailInputId = 'company-follow-email',
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
@@ -156,26 +156,30 @@ export default function CompanyFollowButton({
     if (!signedIn) { setStatus('capture'); return; }
     setStatus('submitting');
     try {
+      const followProof = { ...consentProof('companyFollow', 'company_follow_click', locale, 'company_follow_click') };
       const created = await subscribe(userId as string, email as string, { name: company, companyKey }, locale, {
         slug: sourceJobSlug ?? null,
         url: sourceJobUrl ?? null,
         title: sourceJobTitle ?? null,
+        companyFollowConsent: {
+          purpose: 'companyFollow',
+          text: followProof.consentText,
+          version: followProof.consentTextVersion,
+          displayed: followProof.consentTextDisplayed,
+          act: followProof.consentAct,
+          method: followProof.consentMethod,
+          sourceUrl: typeof window !== 'undefined' ? window.location.href : null,
+          userAgent: followProof.consentUserAgent,
+        },
       });
       setAlertId(created.id);
-      // #5876 — following a company is the same explicit act, behind the same
-      // notice (rendered below on the capture form), as the other 7 surfaces
-      // this issue wires up. If this email also carries a travaso alert, the
-      // act converts its deduced consent into an explicit one. Never awaited
-      // into the error path: a proof that fails to land must not turn a
-      // successful follow into an error toast.
-      void upgradeConsent(email as string, locale).catch(() => {});
       setStatus('following');
       if (onSubscribed) onSubscribed();
     } catch (error: unknown) {
       setStatus('error');
       if (onErrored) onErrored(error);
     }
-  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, upgradeConsent, userId]);
+  }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   /**
    * Anonymous submit. Reuses the site's ONE consent mechanism end to end:
@@ -197,13 +201,19 @@ export default function CompanyFollowButton({
     setCaptureError('');
     setStatus('submitting');
     try {
+      const proof = { ...consentProof('companyFollow', 'email_submit', locale) };
       if (captureEmail) {
         await captureEmail(trimmed, { company, companyKey });
       } else {
         const firestore = getFirestore(await getApp());
         const upsert = await upsertNewsletterSubscriber(firestore, {
           email: trimmed,
-          preferences: { exchangeRate: true, traffic: true, taxUpdates: true, tips: false },
+          // Following an employer is not a newsletter opt-in. A new subscriber
+          // starts with every newsletter preference off; an existing subscriber
+          // keeps their already-recorded preferences in captureNewsletterSubscriber.
+          preferences: { exchangeRate: false, traffic: false, taxUpdates: false, tips: false },
+          companyFollowOnly: true,
+          requireConfirmationDelivery: true,
           source: 'company_follow_button',
           sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
           sourceCta: 'company_follow_button',
@@ -212,12 +222,32 @@ export default function CompanyFollowButton({
           locale: typeof navigator !== 'undefined' ? navigator.language || 'it-IT' : 'it-IT',
           // #5712/#5718: the notice under this form renders the same string
           // in the same locale, so what is stored is what was read.
-          ...consentProof('communicationsOptIn', 'email_submit', locale),
+          consentPurpose: 'companyFollow',
+          ...proof,
+          companyFollowIntent: {
+            company,
+            companyKey: slug,
+            locale: locale as 'it' | 'en' | 'de' | 'fr',
+            sourceJobSlug: sourceJobSlug ?? null,
+            sourceJobUrl: sourceJobUrl ?? null,
+            sourceJobTitle: sourceJobTitle ?? null,
+            consentPurpose: 'companyFollow',
+            consentText: proof.consentText,
+            consentTextVersion: proof.consentTextVersion,
+            consentTextDisplayed: proof.consentTextDisplayed,
+            consentAct: proof.consentAct,
+            consentMethod: proof.consentMethod,
+            consentUserAgent: proof.consentUserAgent,
+          },
           // No `consentGiven`: this form has no consent checkbox, so nothing here
           // is an affirmative opt-in — only "was shown" is true. See the
           // `consentGiven` section of services/consentTexts.ts (#5712).
         });
-        if (upsert.existed) await requestConfirmationEmail(trimmed, 'login');
+        if (upsert.optedOut) throw new Error('newsletter/company-follow-opted-out');
+        if (upsert.existed) {
+          const requested = await requestConfirmationEmail(trimmed, 'login');
+          if (!requested.success) throw new Error(`newsletter/confirmation-email-failed:${requested.error || 'unknown_error'}`);
+        }
       }
       // Park the follow. It becomes an alert only after the confirmation link
       // lands (App.tsx → flushPendingCompanyFollows), never before.
@@ -229,6 +259,15 @@ export default function CompanyFollowButton({
         sourceJobUrl: sourceJobUrl ?? null,
         sourceJobTitle: sourceJobTitle ?? null,
         email: trimmed,
+        companyFollowConsent: {
+          purpose: 'companyFollow',
+          text: proof.consentText,
+          version: proof.consentTextVersion,
+          displayed: proof.consentTextDisplayed,
+          act: proof.consentAct,
+          method: proof.consentMethod,
+          userAgent: proof.consentUserAgent,
+        },
       });
       setStatus('pendingOptIn');
       if (onOptInRequested) onOptInRequested(trimmed);
@@ -288,7 +327,7 @@ export default function CompanyFollowButton({
   if (status === 'capture' || (busy && !signedIn)) {
     return (
       <form className="mt-3 rounded-lg border border-edge bg-surface-raised px-4 py-3" onSubmit={handleCaptureSubmit}>
-        <label className="block text-sm font-semibold text-heading" htmlFor="company-follow-email">
+        <label className="block text-sm font-semibold text-heading" htmlFor={emailInputId}>
           {t('jobAlert.companyFollow.emailLabel')}
         </label>
         <p className="mt-1 text-xs text-muted">
@@ -296,7 +335,7 @@ export default function CompanyFollowButton({
         </p>
         <div className="mt-2 flex flex-col sm:flex-row gap-2">
           <EmailInput
-            id="company-follow-email"
+            id={emailInputId}
             value={typedEmail}
             onChange={setTypedEmail}
             className="flex-1"
@@ -312,7 +351,7 @@ export default function CompanyFollowButton({
             {t('jobAlert.companyFollow.cta')}
           </button>
         </div>
-        <ConsentNotice consentKey="communicationsOptIn" locale={locale} className="mt-2 text-[10px] text-muted leading-snug block" />
+        <ConsentNotice consentKey="companyFollow" locale={locale} className="mt-2 text-[10px] text-muted leading-snug block" />
         {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
       </form>
     );
@@ -363,7 +402,7 @@ export default function CompanyFollowButton({
         // or the write would assert consent_text_displayed:true for a formula
         // nobody saw.
         <ConsentNotice
-          consentKey="communicationsOptIn"
+          consentKey="companyFollow"
           locale={locale}
           className="mt-2 text-[10px] text-muted leading-snug block"
         />

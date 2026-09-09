@@ -90,6 +90,7 @@ import {
  renderRightRail,
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
+import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import {
@@ -8285,7 +8286,7 @@ ${staticAnalyticsHtml}
  const alsoHiringHtml = renderCompanyHubAlsoHiringHtml(cSlug, canton, locale);
  const faqItems = buildCompanyHubFaqItems(companyName, cDisplay, cappedJobs, locale);
  const { html: faqHtml, ld: faqLd } = renderCompanyHubFaqHtml(faqItems, locale);
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n${companyFollowMountPlaceholder({ company: companyName, companyKey: cSlug, locale, surface: 'employer_profile' })}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default

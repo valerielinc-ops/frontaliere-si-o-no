@@ -59,6 +59,8 @@ import {
  scopeForAction,
  TOKEN_SCOPES,
 } from './lib/newsletterActionToken.js';
+import { companyAlertDocumentId } from './lib/companyAlertIdentity.js';
+import { canonicalCompanyProfileSlug } from './lib/companyProfileSlug.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 // Proxied by the CF Worker straight to this function (see UNSUB_PROXIES in
@@ -287,25 +289,13 @@ function normalizeBool(value) {
 /**
  * Canonical CompanyAlert key (#5012).
  *
- * MUST stay byte-equivalent to `baseCompanySlug`
- * (build-plugins/shared/companyProfileSlug.mjs) — the Cloud Functions bundle
- * cannot import anything outside `functions/`, so this is a deliberate,
- * pinned mirror rather than a fourth independent normalisation. Parity is
- * asserted by tests/company-alert.test.ts. The brand-alias fold is NOT
- * mirrored: the token API stores what the client canonicalised, and a key that
- * arrives already folded passes through unchanged.
+ * MUST stay byte-equivalent to `canonicalCompanyProfileSlug`
+ * (build-plugins/shared/companyProfileSlug.mjs). The Cloud Functions bundle
+ * cannot import anything outside `functions/`, so the runtime mirror is kept in
+ * lib/companyProfileSlug.js and parity is asserted by tests/company-alert.test.ts.
  */
 function normalizeCompanyAlertKey(value) {
- const norm = (x) => String(x || '')
- .toLowerCase()
- .normalize('NFD')
- .replace(/[\u0300-\u036f]/g, '')
- .replace(/[^a-z0-9]+/g, ' ')
- .trim();
- const n = norm(value);
- if (!n) return '';
- if (n.includes('lidl')) return 'lidl';
- return n.replace(/\s+/g, '-');
+ return canonicalCompanyProfileSlug(value, value);
 }
 
 function serializeAlertDoc(id, data) {
@@ -341,6 +331,134 @@ function serializeAlertDoc(id, data) {
  ? new Date(lastMatched.toMillis()).toISOString()
  : (typeof lastMatched === 'string' ? lastMatched : null),
  };
+}
+
+/**
+ * Turn persisted anonymous CompanyFollow intents into alerts after confirmation.
+ *
+ * This is the authoritative path for the anonymous funnel. localStorage replay
+ * remains only a best-effort compatibility fallback; a confirmation opened on a
+ * different device still has the intent here, and every alert uses the same
+ * deterministic id as the signed-in and token writers.
+ */
+// Exported for the emulator/stub test seam: the confirmation handler remains
+// the only production caller, while the cross-device guarantee stays directly
+// executable without requiring a live Auth exchange.
+export async function replayCompanyFollowIntents(db, email, userId, rawIntents) {
+ if (!userId || !Array.isArray(rawIntents) || rawIntents.length === 0) {
+   return { created: 0, deferred: 0 };
+ }
+ const parentRef = db.collection('job_alert_subscribers').doc(email);
+ const alertsCol = parentRef.collection('alerts');
+ const existing = await alertsCol.get();
+ let activeCompanyCount = 0;
+ existing.forEach((snap) => {
+   const data = snap.data() || {};
+   if (data.active !== false && data.specificCompanyKey) activeCompanyCount += 1;
+ });
+
+ const intents = rawIntents.map((entry) => ({ ...entry }));
+ let created = 0;
+ let deferred = 0;
+ for (const intent of intents) {
+   if (intent.status === 'created') continue;
+   const rawCompanyKey = String(intent.company_key || intent.company || '').trim();
+   const companyKey = normalizeCompanyAlertKey(rawCompanyKey);
+   const proofOk = intent.consent_purpose === 'companyFollow'
+     && Boolean(intent.consent_text)
+     && Boolean(intent.consent_text_version)
+     && intent.consent_text_displayed === true;
+   if (!companyKey || !proofOk) {
+     intent.status = 'deferred';
+     intent.last_error = !companyKey ? 'invalid_company_key' : 'invalid_company_consent';
+     deferred += 1;
+     continue;
+   }
+
+   const ref = alertsCol.doc(companyAlertDocumentId(email, companyKey));
+   try {
+     const existingAlert = await ref.get();
+     const existingData = existingAlert.exists ? (existingAlert.data() || {}) : null;
+     if (!existingData || existingData.active === false) {
+       if (!existingData && activeCompanyCount >= MAX_COMPANY_ALERTS_PER_USER) {
+         intent.status = 'deferred';
+         intent.last_error = 'alert_limit_reached';
+         deferred += 1;
+         continue;
+       }
+       await ref.set({
+         email,
+         userId,
+         keywords: [],
+         locations: [],
+         sectors: [],
+         specificCompanyKey: companyKey,
+         specificJobId: null,
+         frequency: 'immediate',
+         frequencyOverride: true,
+         locale: ['it', 'en', 'de', 'fr'].includes(intent.locale) ? intent.locale : 'it',
+         sourceJobSlug: intent.source_job_slug || null,
+         sourceJobUrl: intent.source_job_url || null,
+         sourceJobTitle: intent.source_job_title || null,
+         active: true,
+         createdAt: existingData?.createdAt || admin.firestore.FieldValue.serverTimestamp(),
+         lastMatchedAt: existingData?.lastMatchedAt || null,
+         matchCount: Number(existingData?.matchCount || 0),
+         consent_purpose: 'companyFollow',
+         consent_text: intent.consent_text,
+         consent_text_version: intent.consent_text_version,
+         consent_text_displayed: true,
+         consent_act: intent.consent_act || 'typed_email_submit',
+         consent_method: intent.consent_method || 'email_submit',
+         consent_source_url: null,
+         consent_user_agent: intent.consent_user_agent || null,
+         ...(existingData ? {
+           resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+           updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+         } : {}),
+       }, { merge: true });
+       if (!existingData) activeCompanyCount += 1;
+     } else {
+       // A best-effort local fallback may have created the deterministic row
+       // before this confirmation request reached the server. The row is still
+       // idempotent, but the server proof must be present on it too.
+       await ref.set({
+         consent_purpose: 'companyFollow',
+         consent_text: intent.consent_text,
+         consent_text_version: intent.consent_text_version,
+         consent_text_displayed: true,
+         consent_act: intent.consent_act || 'typed_email_submit',
+         consent_method: intent.consent_method || 'email_submit',
+         consent_user_agent: intent.consent_user_agent || null,
+       }, { merge: true });
+     }
+     intent.status = 'created';
+     intent.alert_id = ref.id;
+     delete intent.last_error;
+     created += 1;
+   } catch (err) {
+     intent.status = 'deferred';
+     intent.last_error = 'write_failed';
+     deferred += 1;
+     console.warn('[newsletterManage] CompanyFollow replay deferred:', err?.message || err);
+   }
+ }
+
+ await db.collection('newsletter_subscribers').doc(email).set({
+   company_follow_intents: intents,
+   updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ await parentRef.set({
+   email,
+   userId,
+   status: 'active',
+   isActive: true,
+   active: true,
+   updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   updated_at: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ return { created, deferred };
 }
 
 /**
@@ -837,7 +955,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // stays visible so the user can resume it.
  if (a.active === false) return;
  const created = a.createdAt;
- alerts.push({
+  alerts.push({
  id: d.id,
  keywords: Array.isArray(a.keywords) ? a.keywords : [],
  locations: Array.isArray(a.locations) ? a.locations : [],
@@ -845,8 +963,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  frequency: typeof a.frequency === 'string' ? a.frequency : 'weekly',
  frequencyOverride: a.frequencyOverride === true,
  active: true,
- paused: a.paused === true,
- createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
+   paused: a.paused === true,
+   specificCompanyKey: typeof a.specificCompanyKey === 'string' && a.specificCompanyKey ? a.specificCompanyKey : null,
+   specificJobId: typeof a.specificJobId === 'string' && a.specificJobId ? a.specificJobId : null,
+   createdAt: created && typeof created.toMillis === 'function' ? created.toMillis() : null,
  });
  });
 
@@ -1034,7 +1154,16 @@ export async function handleSubscriptionManagement({ action, email, token, local
  return { status: 400, json: { success: false, error: 'invalid_alert_id' } };
  }
  try {
- await db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id).delete();
+ const alertRef = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts').doc(id);
+ const existingAlert = await alertRef.get();
+ if (existingAlert.exists) {
+ await alertRef.set({
+ active: false,
+ unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+ unsubscribe_source: 'preferences_link',
+ updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+ }, { merge: true });
+ }
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
  event_type: 'job_alert_deleted',
@@ -1093,7 +1222,12 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // back into a normal alert — the token-mode counterpart of updateAlert() in
  // services/jobAlertService.ts.
  if (specificCompanyKey !== undefined) {
- patch.specificCompanyKey = normalizeCompanyAlertKey(specificCompanyKey) || null;
+ const rawCompanyKey = String(specificCompanyKey || '').trim();
+ const normalizedCompanyKey = normalizeCompanyAlertKey(rawCompanyKey);
+ if (rawCompanyKey && !normalizedCompanyKey) {
+ return { status: 400, json: { success: false, error: 'invalid_company_key' } };
+ }
+ patch.specificCompanyKey = normalizedCompanyKey || null;
  fields.push('specificCompanyKey');
  }
  if (specificJobId !== undefined) {
@@ -1141,7 +1275,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // specificJobId and bypasses keyword/geo scoring entirely, so requiring a
  // keyword or a location here rejected every "follow this employer"
  // subscription with `missing_filters` — the one shape CompanyAlert needs.
- const companyPin = normalizeCompanyAlertKey(specificCompanyKey);
+ const rawCompanyKey = String(specificCompanyKey || '').trim();
+ const companyPin = normalizeCompanyAlertKey(rawCompanyKey);
+ if (rawCompanyKey && !companyPin) {
+ return { status: 400, json: { success: false, error: 'invalid_company_key' } };
+ }
  const jobPin = String(specificJobId || '').trim().slice(0, 120);
  if (kw.length === 0 && loc.length === 0 && !companyPin && !jobPin) {
  return { status: 400, json: { success: false, error: 'missing_filters' } };
@@ -1158,6 +1296,26 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  try {
  const alertsCol = db.collection('job_alert_subscribers').doc(normalizedEmail).collection('alerts');
+ const deterministicRef = companyPin
+   ? alertsCol.doc(companyAlertDocumentId(normalizedEmail, companyPin))
+   : null;
+ let existingDeterministic = null;
+ if (deterministicRef) {
+   const existingSnap = await deterministicRef.get();
+   if (existingSnap.exists) {
+     existingDeterministic = existingSnap.data() || {};
+     if (existingDeterministic.active !== false) {
+       return {
+         status: 200,
+         json: {
+           success: true,
+           duplicate: true,
+           alert: serializeAlertDoc(deterministicRef.id, existingDeterministic),
+         },
+       };
+     }
+   }
+ }
  // Enforce the cap of the KIND being created (count active docs). Two budgets:
  // following employers must not consume the keyword-alert allowance, or the
  // feature that asks users to follow ten companies breaks the next saved search
@@ -1202,9 +1360,20 @@ export async function handleSubscriptionManagement({ action, email, token, local
  frequencyOverride: true,
  active: true,
  email: normalizedEmail,
- createdAt: admin.firestore.FieldValue.serverTimestamp(),
- };
- const newRef = await alertsCol.add(docData);
+  createdAt: existingDeterministic?.createdAt || admin.firestore.FieldValue.serverTimestamp(),
+  lastMatchedAt: existingDeterministic?.lastMatchedAt || null,
+  matchCount: Number(existingDeterministic?.matchCount || 0),
+  };
+ const newRef = deterministicRef || await alertsCol.add(docData);
+ if (deterministicRef) {
+ await newRef.set({
+   ...docData,
+   ...(existingDeterministic ? {
+     resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   } : {}),
+ }, { merge: true });
+ }
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
@@ -1347,21 +1516,38 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  // Generate a custom auth token for auto-login after confirmation
  let authToken = null;
+ let authUid = null;
  try {
  ensureAdminApp();
- let uid = null;
  try {
  const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
- uid = userRecord.uid;
+ authUid = userRecord.uid;
  } catch {
  const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
- uid = newUser.uid;
+ authUid = newUser.uid;
  }
- if (uid) {
- authToken = await admin.auth().createCustomToken(uid);
+ if (authUid) {
+ authToken = await admin.auth().createCustomToken(authUid);
  }
  } catch (authErr) {
  console.warn('[newsletterManage] Failed to generate auth token for confirm:', authErr?.message);
+ }
+
+ let companyFollow = { created: 0, deferred: 0 };
+ if (authUid) {
+   try {
+     companyFollow = await replayCompanyFollowIntents(
+       db,
+       normalizedEmail,
+       authUid,
+       subscriberDoc.exists ? subscriberDoc.data()?.company_follow_intents : [],
+     );
+   } catch (replayErr) {
+     // Confirmation stays successful; the intent remains on the subscriber
+     // document and a later confirmation/autologin retry can replay it.
+     console.warn('[newsletterManage] CompanyFollow replay unavailable:', replayErr?.message || replayErr);
+     companyFollow = { created: 0, deferred: 1 };
+   }
  }
 
  const confirmTitle = alreadyConfirmed
@@ -1375,6 +1561,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
  status: 200,
  authToken,
  alreadyConfirmed,
+ companyFollow,
  html: buildResponseHtml({
  title: confirmTitle,
  message: confirmMessage,
