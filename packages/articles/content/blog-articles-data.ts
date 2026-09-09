@@ -34689,6 +34689,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'avs-eta-pensionabile-frontalieri',
+ category: 'pensione',
+ date: '2026-09-09T09:51:32.794Z',
+ image: '/images/blog/avs-eta-pensionabile-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
