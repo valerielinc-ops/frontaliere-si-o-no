@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
   extractCityFromLocationText,
   resolveLindtSpruengliCanton,
+  resolveLindtLocationText,
 } from '../scripts/lib/lindt-spruengli-job-parser.mjs';
 import {
   SPRUENGLI_KEY,
@@ -120,6 +121,14 @@ describe('Lindt & Sprüngli crawler parser', () => {
     it('returns empty for blank input', () => {
       expect(extractCityFromLocationText('')).toBe('');
       expect(extractCityFromLocationText(undefined as unknown as string)).toBe('');
+    });
+  });
+
+  describe('detail location resolution', () => {
+    it('resolves the detail city after an aggregated listing summary', () => {
+      expect(resolveLindtLocationText({
+        location: 'Kilchberg, Switzerland',
+      }, '2 Locations')).toBe('Kilchberg, Switzerland');
     });
   });
 

@@ -41,8 +41,9 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
-import { rescueSwissCityFromText } from './target-swiss-locations.mjs';
+import { isSwissLocationText, rescueSwissCityFromText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -74,6 +75,15 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isSwissLocationCandidate(locationText) {
+  return /\b(?:ch|switzerland|schweiz|suisse|svizzera)\b/i.test(locationText)
+    || isSwissLocationText(locationText);
+}
+
+export function hasNvidiaSwissLocation(info = {}, listingLocation = '') {
+  return getWorkdayLocationCandidates(info, listingLocation).some(isSwissLocationCandidate);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -203,9 +213,7 @@ export async function fetchAllNvidiaZurichJobs() {
     // only reports "N Locations" for these multi-country reqs.
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const info = detail?.jobPostingInfo || {};
-    const primaryLocation = String(info.location || '');
-    const additionalLocations = Array.isArray(info.additionalLocations) ? info.additionalLocations : [];
-    const isSwissRole = /switzerland/i.test(primaryLocation) || additionalLocations.some((l) => /switzerland/i.test(String(l)));
+    const isSwissRole = hasNvidiaSwissLocation(info, listing.locationsText);
     // Rescue: the search facet already scoped this listing to Switzerland
     // (locationHierarchy1), so a literal-text miss on the detail payload
     // doesn't necessarily mean a foreign role — give it the same

@@ -62,15 +62,16 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetail,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
+  getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -220,6 +221,14 @@ export function extractCityFromLocationText(raw = '') {
   return '';
 }
 
+export function resolveLindtLocationText(info = {}, listingLocationRaw = '') {
+  const candidates = getWorkdayLocationCandidates(info, listingLocationRaw)
+    .filter((candidate) => extractCityFromLocationText(candidate));
+  return candidates.find((candidate) => !isLocationExplicitlyForeign(candidate))
+    || candidates[0]
+    || '';
+}
+
 /**
  * Resolve the canton for a job's already-extracted city, or signal (via
  * null) that it should be skipped.
@@ -319,11 +328,28 @@ export async function fetchAllLindtSpruengliJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    if (isLocationExplicitlyForeign(listing.locationRaw)) continue;
+    const publicUrl = listing.url || CAREER_URL;
+    if (seen.has(publicUrl)) continue;
+    seen.add(publicUrl);
 
-    const city = extractCityFromLocationText(listing.locationRaw);
+    // The listing endpoint can collapse a multi-site posting to "N Locations".
+    // Resolve the detail before applying the foreign/unresolved guard so a real
+    // Swiss city in the detail is not discarded with the summary placeholder.
+    let detail = null;
+    try {
+      detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
+    } catch {
+      detail = null;
+    }
+    await new Promise((r) => setTimeout(r, 350));
+
+    const info = detail?.jobPostingInfo || {};
+    const locationRaw = resolveLindtLocationText(info, listing.locationRaw);
+    if (isLocationExplicitlyForeign(locationRaw)) continue;
+
+    const city = extractCityFromLocationText(locationRaw);
     if (!city) {
-      console.log(`   ⏭️ Skipped unresolved/ambiguous location: "${listing.locationRaw}" — ${title}`);
+      console.log(`   ⏭️ Skipped unresolved/ambiguous location: "${locationRaw || listing.locationRaw}" — ${title}`);
       continue;
     }
 
@@ -334,18 +360,16 @@ export async function fetchAllLindtSpruengliJobs() {
     }
     const { postalCode, streetAddress } = resolveAddress(city);
 
-    const publicUrl = listing.url || CAREER_URL;
-    if (seen.has(publicUrl)) continue;
-    seen.add(publicUrl);
-
-    // Workday listing endpoint never returns the job body — fetch detail.
-    let detailDescription = '';
-    try {
-      detailDescription = await fetchWorkdayJobDescriptionText(WORKDAY_API_BASE, listing.externalPath, stripHtml);
-    } catch {
-      detailDescription = '';
-    }
-    await new Promise((r) => setTimeout(r, 350));
+    const descriptionHtml = String(info.jobDescription || '').trim();
+    const detailDescription = descriptionHtml
+      ? normalizeDescriptionBullets(
+          stripHtml(descriptionHtml)
+            .replace(/[ \t]+/g, ' ')
+            .replace(/[ \t]*\n[ \t]*/g, '\n')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim(),
+        ).slice(0, 4000)
+      : '';
 
     const fallbackDescription = [
       `${title} — ${LINDT_SPRUENGLI_COMPANY_NAME}, ${city}.`,
