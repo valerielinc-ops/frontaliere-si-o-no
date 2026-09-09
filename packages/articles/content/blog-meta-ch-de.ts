@@ -6226,6 +6226,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Flughafen Zürich: Selbstfahrende Shuttles ohne Fahrer',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Zwei voll autonome Elektro-Shuttles am Flughafen Zürich ab September. Erstes Level-4-Projekt, über 15.000 getestete Kilometer.',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Autonome Shuttles am Flughafen Zürich: fahrerlose Elektrobusse im Betrieb',
+    'blog.article.assegni-familiari-svitto-guida.title': 'Familienzulagen Kanton Schwyz: Funktionsweise und Beantragung',
+    'blog.article.assegni-familiari-svitto-guida.excerpt': 'Im Kanton Schwyz hat jeder Elternteil mit Kindern Anspruch auf monatliche Familienzulagen. Hier finden Sie Antragsverfahren, Verwaltungsbefugnisse und wo Sie die aktualisierten Beträge überprüfen können.',
+    'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Schweizer Familie überprüft Familienbeihilfedokumente zu Hause',
 };
 
 export default blogMetaChDe;

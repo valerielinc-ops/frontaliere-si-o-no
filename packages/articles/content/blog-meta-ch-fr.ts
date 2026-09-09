@@ -6226,6 +6226,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Aéroport de Zurich : navette autonome sans chauffeur',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Deux navettes électriques entièrement autonomes à l\'aéroport de Zurich à partir de septembre. Premier projet de niveau 4, plus de 15 000 kilomètres testés.',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Navettes autonomes à l\'aéroport de Zurich: navettes électriques sans chauffeur en service',
+    'blog.article.assegni-familiari-svitto-guida.title': 'Allocations familiales Schwyz : fonctionnement et demande',
+    'blog.article.assegni-familiari-svitto-guida.excerpt': 'Dans le canton de Schwyz, tout parent ayant des enfants a droit à des allocations familiales mensuelles. Voici les procédures de demande, les compétences administratives et où vérifier les montants mis à jour.',
+    'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Famille suisse examinant les documents d\'allocations familiales à domicile',
 };
 
 export default blogMetaChFr;

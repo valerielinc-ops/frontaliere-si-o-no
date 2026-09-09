@@ -6226,6 +6226,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aeroporto-zurigo-shuttle-autonomi.title': 'Zurich Airport: Driverless Self-Driving Shuttles',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.excerpt': 'Two fully autonomous electric shuttles at Zurich Airport starting in September. First level 4 project, over 15,000 kilometres tested.',
     'blog.article.aeroporto-zurigo-shuttle-autonomi.imageAlt': 'Autonomous shuttles at Zurich airport: driverless electric shuttle buses in operation',
+    'blog.article.assegni-familiari-svitto-guida.title': 'Canton Svitto family allowances: how they work and how to claim them',
+    'blog.article.assegni-familiari-svitto-guida.excerpt': 'In the canton of Swift, every parent with children is entitled to monthly family allowances. Here are application procedures, administrative skills, and where to check for updated amounts.',
+    'blog.article.assegni-familiari-svitto-guida.imageAlt': 'Swiss family reviewing family allowance documents at home',
 };
 
 export default blogMetaChEn;
