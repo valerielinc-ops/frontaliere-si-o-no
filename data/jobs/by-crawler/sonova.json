@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-09-09T13:42:00.761Z",
+  "assembledAt": "2026-09-09T23:01:29.876Z",
   "jobs": [
     {
       "id": "sonova-c2b12b6fa110",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Manager/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.411Z",
+      "crawledAt": "2026-09-09T23:01:18.176Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -95,7 +95,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-International-Customer-Service-Specialist-%28mwd%29/1416178333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.405Z",
+      "crawledAt": "2026-09-09T23:01:18.172Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -120,8 +120,8 @@
           "international-servizio-clienti-specialista-m-w-d-sonova-staefa-switzerland"
         ]
       },
-      "firstSeenAt": "2026-08-05T22:19:22.435Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-05T22:19:22.435Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -167,7 +167,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.399Z",
+      "crawledAt": "2026-09-09T23:01:18.168Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.392Z",
+      "crawledAt": "2026-09-09T23:01:18.161Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -316,7 +316,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.386Z",
+      "crawledAt": "2026-09-09T23:01:18.155Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -341,8 +341,8 @@
           "technical-specialista-production-tsp-m-f-d-sonova-staefa"
         ]
       },
-      "firstSeenAt": "2026-06-23T12:18:52.625Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-23T12:18:52.625Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -388,7 +388,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.380Z",
+      "crawledAt": "2026-09-09T23:01:18.148Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -426,8 +426,8 @@
           "practical-trainee-power-management-m-f-d-sonova-staefa"
         ]
       },
-      "firstSeenAt": "2026-07-24T22:05:37.985Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-24T22:05:37.985Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -473,7 +473,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.374Z",
+      "crawledAt": "2026-09-09T23:01:18.141Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -498,8 +498,8 @@
           "elaborazione-dei-segnali-ric-e-bte-m-f-d-sonova-staefa-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-29T13:55:14.784Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T13:55:14.784Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -510,84 +510,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-755bb818c5fe",
-      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
-        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
-        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
-        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
-        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.368Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
-          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
-        ],
-        "en": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -623,7 +545,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Informatikerin-EFZ-Applikationsentwicklung-%28mfd%29/1421272633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.361Z",
+      "crawledAt": "2026-09-09T23:01:18.132Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -672,6 +594,84 @@
       }
     },
     {
+      "id": "sonova-755bb818c5fe",
+      "slug": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+      "slugByLocale": {
+        "it": "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa",
+        "en": "apprenticeship-of-plastics-technologist-login-efz-m-f-d-sonova-staefa-switzerland",
+        "de": "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "fr": "apprentissage-de-technologue-login-en-matiere-plastique-efz-m-f-d-sonova-staefa-switzerland"
+      },
+      "company": "Sonova",
+      "companyKey": "sonova",
+      "companyDomain": "sonova.com",
+      "title": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+      "titleByLocale": {
+        "it": "Apprendistato Kunststofftechnologe/-login CFC (m/w/d)",
+        "en": "Apprenticeship of plastics technologist/login EFZ (m/f/d)",
+        "de": "Lehrstelle Kunststofftechnologe/-login EFZ (m/w/d)",
+        "fr": "Apprentissage de technologue/login en matière plastique EFZ (m/f/d)"
+      },
+      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+      "descriptionByLocale": {
+        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione sonora con un'alta rilevanza pratica, perché sono nostri specialisti e manager di domani.\n\nUlteriori informazioni sul vostro lavoro da sogno come un technologist plastics/login EFZ e le condizioni necessarie possono essere trovate a:\n\nPlastics technologist/login EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners sound training with a high practical relevance, because they are our specialists and managers of tomorrow.\n\nFurther information about your dream job as a plastics technologist/login EFZ as well as the necessary conditions can be found at:\n\nPlastics technologist/login EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.\n\nWeitere Informationen zu deinem Traumberuf als Kunststofftechnologe/-login EFZ sowie die notwendigen Voraussetzungen findest du auf:\n\nKunststofftechnologe/-login EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une bonne formation avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain.\n\nDe plus amples informations sur votre travail de rêve en tant que technologue/login en plastique EFZ ainsi que les conditions nécessaires peuvent être trouvées à:\n\nTechnologue/logiciel en plastique EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+      },
+      "location": "Staefa, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
+      "source": "Sonova Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-09T23:01:18.125Z",
+      "addressLocality": "Staefa",
+      "addressRegion": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421323633/?locale=en_US",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+        "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch",
+          "apprendistato-kunststofftechnologe-login-cfc-m-w-d-sonova-staefa"
+        ],
+        "en": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ],
+        "fr": [
+          "lehrstelle-kunststofftechnologe-login-efz-m-w-d-sonova-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.246Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "sonova-7216a949a6f1",
       "slug": "apprendistato-koch-kochin-cfc-m-w-d-sonova-staefa",
       "slugByLocale": {
@@ -702,7 +702,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-KochK%C3%B6chin-EFZ-%28mwd%29/1421319833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.355Z",
+      "crawledAt": "2026-09-09T23:01:18.117Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -782,7 +782,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Konstrukteurin-EFZ-%28mwd%29/1421328433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.350Z",
+      "crawledAt": "2026-09-09T23:01:18.110Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -815,8 +815,8 @@
           "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:06:52.240Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.240Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -862,7 +862,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.339Z",
+      "crawledAt": "2026-09-09T23:01:18.104Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -895,8 +895,8 @@
           "lehrstelle-logistiker-in-efz-m-w-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:06:52.194Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.194Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -942,7 +942,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.323Z",
+      "crawledAt": "2026-09-09T23:01:18.099Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -975,8 +975,8 @@
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-07-31T22:06:52.177Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-31T22:06:52.177Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1022,7 +1022,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.304Z",
+      "crawledAt": "2026-09-09T23:01:18.090Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1092,7 +1092,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Clinical-Affairs-Manager-%28mfd%29/1433380733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.292Z",
+      "crawledAt": "2026-09-09T23:01:18.082Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1120,8 +1120,8 @@
           "clinical-affairs-manager-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-09-03T13:31:34.722Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:31:34.722Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1167,7 +1167,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Sachbearbeiter-Service-Administration-%28mwd%29/1433282633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:41:42.273Z",
+      "crawledAt": "2026-09-09T23:01:18.059Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1244,7 +1244,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-%28Embedded-Software-Development-&-Python%29-%28mfd%29/1392838033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.255Z",
+      "crawledAt": "2026-09-09T23:01:18.050Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1275,8 +1275,8 @@
           "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
         ]
       },
-      "firstSeenAt": "2026-09-03T13:31:34.793Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:31:34.793Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1322,7 +1322,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Sound-Quality-Engineer-%28mfd%29/1434799633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.236Z",
+      "crawledAt": "2026-09-09T23:01:18.038Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1403,7 +1403,7 @@
       "url": "https://jobs.sonova.com/job/Murten-RF-Design-Engineer-%28mfd%29/1414301033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-09T13:41:42.013Z",
+      "crawledAt": "2026-09-09T23:01:17.912Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
