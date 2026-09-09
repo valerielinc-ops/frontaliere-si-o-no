@@ -118,7 +118,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nurse/nurse professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Infirmière/infirmière professionnelle"
@@ -193,7 +193,6 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:48:39.892Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -722,7 +721,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Registered Nurse / Nursing Professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -797,8 +796,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -1941,7 +1939,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -1992,7 +1990,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2102,7 +2099,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -2162,7 +2159,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2510,7 +2506,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -2571,7 +2567,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2918,7 +2913,7 @@
       "title": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -2967,7 +2962,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3238,7 +3232,7 @@
       "title": "Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Certificato esperto / certificato di assistenza di emergenza NDS HF",
-        "en": "Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert certifié / Expert certifié Soins d'urgence NDS HF"
       },
@@ -3291,7 +3285,6 @@
         "dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3741,7 +3734,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -3813,8 +3806,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-803625157377",
@@ -4223,7 +4215,7 @@
       "title": "Compensation & Benefits Analyst",
       "titleByLocale": {
         "it": "Compensation & Benefits Analista",
-        "en": "Compensation & Benefits Analyst",
+        "en": "Compensation and Benefits Analyst",
         "de": "Compensation & Benefits Analyst",
         "fr": "Compensation & Benefits Analyste"
       },
@@ -4269,7 +4261,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:06:51.497Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4301,7 +4292,7 @@
         "it": "mentore pratico",
         "en": "Practical mentor",
         "de": "Praxismentor/in",
-        "fr": "Praxismentor/in"
+        "fr": "Maître de pratique"
       },
       "description": "Aufgaben:\n• Beratung, Begleitung und Unterstützung der Berufsbildner/innen in pädagogischen Fragestellungen.\n\n• Coaching und individuelle Begleitung von Lernenden und Studierenden in ihrem Lern- und Entwicklungsprozess.\n\n• Planung, Gestaltung und Durchführung von praxisnahen Lerneinheiten (Einführung, Peermentoring etc.)\n\n• Mitwirkung bei der Weiterentwicklung und Sicherstellung der Ausbildungsqualität in der Praxis.\n\nAnforderungen:\n• Dipl. Pflegefachfrau HF / FH\n\n• Zwei Jahre Berufserfahrung als Berufsbildner/in Pflege\n\n• Eidg. FA Ausbilder/in oder die Bereitschaft, diesen zu absolvieren\n\n• Sie zeichnen sich durch eine gute Organisationsfähigkeit, hohe Sozial- und Selbstkompetenz aus.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -4349,7 +4340,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T22:20:09.667Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4455,7 +4445,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse / nurse surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -4512,7 +4502,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.727Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4625,7 +4614,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -4680,7 +4669,6 @@
         "pflegeexpertin-pflegeexperte-ksa-ch"
       ],
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4710,7 +4698,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -4760,7 +4748,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4975,7 +4962,7 @@
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Laurea specialistica Dipl. Expert / Expert Emergency Care NDS HF",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Postgraduate Degree Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Diplôme supérieur Dipl. Expert / Expert Soins d'urgence NDS HF"
       },
@@ -5024,7 +5011,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5054,7 +5040,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care",
-        "en": "Dipl. Expertin / Experte Intensivpflege",
+        "en": "Dipl. Expert / Expert Intensive Care",
         "de": "Dipl. Expertin / Experte Intensivpflege",
         "fr": "Dipl. Expert / Expert soins intensifs"
       },
@@ -5089,7 +5075,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5118,7 +5103,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Registered Nurse / Nursing Specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -5179,7 +5164,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5369,7 +5353,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "terapeuta del lavoro",
-        "en": "Ergotherapeut/in",
+        "en": "Occupational therapists",
         "de": "Ergotherapeut/in",
         "fr": "ergothérapeute"
       },
@@ -5417,7 +5401,6 @@
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5718,7 +5701,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -5779,7 +5762,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6152,7 +6134,7 @@
       "title": "Betriebselektriker/in",
       "titleByLocale": {
         "it": "Società elettrica",
-        "en": "Betriebselektriker/in",
+        "en": "Business electricians",
         "de": "Betriebselektriker/in",
         "fr": "Entreprise électricienne"
       },
@@ -6402,7 +6384,7 @@
         "it": "Controller di cura",
         "en": "Care controller",
         "de": "Pflegecontroller/in",
-        "fr": "Pflegecontroller/in"
+        "fr": "Contrôleur de soins"
       },
       "description": "Aufgaben:\n• Die finanzielle Führung des gesamten KSA läuft in der Direktion Finanzen zusammen. Du bist Teil dieses engagierten Teams und zuständig für die finanziellen Belange der Direktion CNO.\n\n• Du übernimmst eine zentrale Rolle in der betriebswirtschaftlichen Führung und Steuerung des Pflegebereichs und unterstützen die CNO sowie die Pflegeverantwortlichen in der finanziellen Führung. Insbesondere überwachst du die Budgeteinhaltung der Direktion CNO.\n\n• Du gestaltest die Finanz- und Budgetplanung des Pflegebereichs aktiv mit und erstellst Kalkulationen zur Ressourcen- und Personalplanung, unter anderem auf Basis von NHPPD (Nursing Hours Per Patient Day).\n\n• Du analysierst Personal-, Leistungs-, Belegungs- und Qualitätsdaten, erkennst Entwicklungspotenziale und leitest gemeinsam mit der CNO sowie den Verantwortlichen der Pflege konkrete Massnahmen zur Optimierung der Prozesse ab.\n\n• Du verantwortest pflegespezifische Datenerhebungen und Auswertungen, insbesondere in den Bereichen LEP, NHPPD und Pflegekomplexbehandlung (CHOP) sowie weiterer gesetzlicher und betrieblicher Anforderungen.\n\n• Du entwickelst Steuerungsinstrumente, Kennzahlenmodelle und Reportings kontinuierlich weiter und leistest damit einen wichtigen Beitrag zur datenbasierten Steuerung der Direktion CNO.\n\nAnforderungen:\n• Abgeschlossenes Studium auf Fachhochschul- oder Hochschulniveau, vorzugsweise mit betriebswirtschaftlichem, gesundheitsökonomischem oder pflegerischem Hintergrund.\n\n• Mehrjährige Berufserfahrung in einer betriebswirtschaftlichen Steuerungsfunktion im Gesundheitswesen, idealerweise im Pflegecontrolling, Gesundheitsmanagement oder einem vergleichbaren Umfeld.\n\n• Ausgeprägtes Verständnis für betriebswirtschaftliche Zusammenhänge sowie Erfahrung in der Beratung und Unterstützung von Führungskräften bei strategischen und operativen Fragestellungen.\n\n• Sehr gute analytische und konzeptionelle Fähigkeiten, hohe Zahlen- und IT-Affinität sowie fundierte Kenntnisse in der Datenanalyse; Erfahrung mit LEP ist von Vorteil.\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise mit hoher Eigenverantwortung sowie Freude daran, Veränderungsprozesse aktiv mitzugestalten und eine moderne, datenbasierte Unternehmenssteuerung weiterzuentwickeln.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -6465,7 +6447,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:42:21.739Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6675,7 +6656,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -6766,7 +6747,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:58:26.812Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6872,7 +6852,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermiera / nurse professionale",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -6925,7 +6905,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -6954,7 +6933,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
+        "it": "Dipl. Infermieristica professionale / infermieristica IMC",
         "en": "Registered Nurse / Nursing Specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann IMC",
         "fr": "Infirmier / Infirmière Diplômé(e)"
@@ -7019,7 +6998,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7048,7 +7026,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
+        "it": "Dipl. Infermiera / Infermiera specialista dialisi",
         "en": "Dipl. Nurse / nurse specialist Dialysis",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
         "fr": "Dipl. Infirmière / Infirmière spécialiste Dialyse"
@@ -7095,7 +7073,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
