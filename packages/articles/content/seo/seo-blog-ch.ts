@@ -80282,6 +80282,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-zimmer-biomet-tagli-impieghi': {
+    title: 'Zimmer Biomet taglia fino a 580 impieghi a Winterthur',
+    description: 'Zimmer Biomet annuncia tagli fino a 580 posti a Winterthur nel cantone Zurigo. Procedura di consultazione con i lavoratori avviata. Accesso ai benefici',
+    keywords: 'frontalieri, ticino, svizzera, italia, zimmer, biomet, taglia, fino',
+    ogTitle: 'Zimmer Biomet taglia fino a 580 impieghi a Winterthur',
+    ogDescription: 'Il colosso statunitense Zimmer Biomet ha comunicato il taglio di fino a 580 posti presso lo stabilimento di Winterthur. La procedura di consultazione con i lavoratori è stata avviata oggi.',
+    canonicalPath: '/articoli-svizzera/zimmer-biomet-tagli-impieghi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zimmer Biomet taglia fino a 580 impieghi a Winterthur",
+      "description": "Zimmer Biomet annuncia tagli fino a 580 posti a Winterthur nel cantone Zurigo. Procedura di consultazione con i lavoratori avviata. Accesso ai benefici",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/zimmer-biomet-tagli-impieghi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento produttivo di Zimmer Biomet a Winterthur nel cantone Zurigo, dove saranno tagliati fino a 580 posti di lavoro"
+      },
+      "datePublished": "2026-09-09T14:26:36+00:00",
+      "dateModified": "2026-09-09T14:26:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zimmer-biomet-tagli-impieghi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

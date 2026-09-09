@@ -6184,6 +6184,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-ruag-mro.title': 'Bundesrat: RUAG MRO wird Aktiengesellschaft',
     'blog.article.consiglio-federale-ruag-mro.excerpt': 'Der Bundesrat verabschiedet die Botschaft, RUAG MRO von einer Privatgesellschaft in eine öffentlich-rechtliche Gesellschaft mit Sondergesetz umzuwandeln. Transparentere Governance und verstärkte föderale Kontrolle.',
     'blog.article.consiglio-federale-ruag-mro.imageAlt': 'Ansicht von Bellinzona, Hauptstadt des Tessins',
+    'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet streicht bis zu 580 Stellen in Winterthur',
+    'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Der US-Riese leitet das Konsultationsverfahren mit den Arbeitnehmern ein, um das Personal zu reduzieren. Verfahren und Leistungen für die betroffenen Mitarbeiter.',
+    'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Produktionsanlage von Zimmer Biomet in Winterthur im Kanton Zürich, wo bis zu 580 Arbeitsplätze abgebaut werden',
 };
 
 export default blogMetaChDe;
