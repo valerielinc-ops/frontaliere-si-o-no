@@ -6,7 +6,7 @@
  * all return 0. It performs no network calls and never invokes `gh`.
  */
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
-import { findGhRunMutation, readHookCommand } from './lib/hook-command-parser.mjs';
+import { findGhRunMutation, normalizeRepository, readHookCommand } from './lib/hook-command-parser.mjs';
 import { claimMarker } from './lib/hook-state.mjs';
 
 export const MUTATION_REASON_ENV = 'FRONTALIERE_RUN_MUTATION_REASON';
@@ -45,7 +45,10 @@ async function main() {
   // to a trustworthy run id yet.
   if (!mutation.runId) return;
 
-  const repo = String(process.env.GITHUB_REPOSITORY ?? process.env.GH_REPO ?? 'ambient-repository');
+  const repo =
+    mutation.repo ??
+    normalizeRepository(process.env.GITHUB_REPOSITORY ?? process.env.GH_REPO) ??
+    'ambient-repository';
   const marker = claimMarker({
     scope: 'run-mutations',
     key: `${repo}:${mutation.runId}`,

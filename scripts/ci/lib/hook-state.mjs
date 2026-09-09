@@ -16,6 +16,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { isAbsolute, join, resolve } from 'node:path';
+import { normalizeRepository } from './hook-command-parser.mjs';
 
 const STATE_DIR_ENV = 'FRONTALIERE_HOOK_STATE_DIR';
 const WORKSPACE_ENV = 'WORKSPACE';
@@ -160,12 +161,12 @@ function readOriginRepository(commonGitDir) {
   const config = readSmallFile(join(commonGitDir, 'config'));
   if (!config) return undefined;
 
-  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n[ \t]*\[|$)/gim);
+  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n[ \t]*\[|$)/gi);
   for (const section of sections) {
     if (section[1] !== 'origin') continue;
     const url = section[2].match(/^\s*url\s*=\s*(\S+)\s*$/im)?.[1];
-    const match = url?.match(/github\.com[/:]([^/\s:]+)\/([^/\s]+?)(?:\.git)?$/i);
-    if (match) return `${match[1]}/${match[2]}`;
+    const repository = normalizeRepository(url);
+    if (repository) return repository;
   }
   return undefined;
 }

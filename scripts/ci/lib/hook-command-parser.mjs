@@ -130,7 +130,7 @@ export function parseShellCommands(input) {
  * Find an actual `gh run rerun|cancel` invocation.
  *
  * @param {unknown} input
- * @returns {{action:'rerun'|'cancel', runId?:string}|null}
+ * @returns {{action:'rerun'|'cancel', runId?:string, repo?:string}|null}
  */
 export function findGhRunMutation(input) {
   const parsed = parseShellCommands(input);
@@ -147,7 +147,8 @@ export function findGhRunMutation(input) {
 
     const action = words[index + 1];
     const runId = words.slice(index + 2).find((word) => /^\d+$/.test(word));
-    return { action, ...(runId ? { runId } : {}) };
+    const repo = normalizeRepository(globalOptions.repo ?? findRepositoryFlag(words, index + 2));
+    return { action, ...(runId ? { runId } : {}), ...(repo ? { repo } : {}) };
   }
   return null;
 }
@@ -318,6 +319,14 @@ function skipGhGlobalOptions(words, index) {
   return { index: cursor, repo };
 }
 
+function findRepositoryFlag(words, start) {
+  for (let index = start; index < words.length; index += 1) {
+    if (words[index] === '--repo' || words[index] === '-R') return words[index + 1];
+    if (words[index].startsWith('--repo=')) return words[index].slice('--repo='.length);
+  }
+  return undefined;
+}
+
 function firstNumericEnv(env, names) {
   for (const name of names) {
     const value = env[name];
@@ -334,11 +343,18 @@ function firstStringEnv(env, names) {
   return undefined;
 }
 
-function normalizeRepository(value) {
+export function normalizeRepository(value) {
   if (typeof value !== 'string') return undefined;
   const normalized = value.trim();
   if (!normalized || /[$`]/.test(normalized)) return undefined;
-  return normalized;
+
+  const githubUrl = normalized.match(
+    /^(?:(?:https?|ssh):\/\/)?(?:[^@/\s]+@)?github\.com(?::\d+)?[/:]([^/\s]+)\/([^/\s]+?)(?:\.git)?\/?$/i,
+  );
+  if (githubUrl) return `${githubUrl[1]}/${githubUrl[2]}`.toLowerCase();
+
+  const slug = normalized.match(/^([^/\s]+)\/([^/\s]+?)(?:\.git)?\/?$/);
+  return slug ? `${slug[1]}/${slug[2]}`.toLowerCase() : undefined;
 }
 
 function repoFromPullUrl(url) {

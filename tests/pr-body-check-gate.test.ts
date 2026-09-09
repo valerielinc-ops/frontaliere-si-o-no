@@ -386,6 +386,16 @@ describe('B22 review-efficiency gates — process invariants', () => {
     expect(second.stderr).toMatch(/tetto|cap/i);
   });
 
+  it('keeps the authorized run cap separate for repositories sharing a run number', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    };
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/one run rerun 123', env).status).toBe(0);
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/two run rerun 123', env).status).toBe(0);
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/one run cancel 123', env).status).toBe(EXIT_BLOCK);
+  });
+
   it.each([
     ['quoted data', `printf '%s' 'gh run rerun 123'`],
     ['heredoc data', "cat <<'EOF'\ngh run rerun 123\nEOF"],
@@ -465,7 +475,7 @@ describe('B22 review-efficiency gates — process invariants', () => {
     };
     expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
     expect(
-      runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/repo --body "second"', env).status,
+      runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo github.com/OWNER/REPO --body "second"', env).status,
     ).toBe(EXIT_BLOCK);
   });
 
