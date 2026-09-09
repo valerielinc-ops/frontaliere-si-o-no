@@ -23,7 +23,12 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { hasFalsifiableAcceptance, ACCEPTANCE_CONDITION } from '../scripts/ci/followup-resolution-match.mjs';
-import { aggregateCloseGate } from '../scripts/ci/reconcile-followups.mjs';
+import {
+  aggregateCloseGate,
+  isCurrentUnclassifiable,
+  unclassifiableMarker,
+  UNCLASSIFIABLE_LABEL,
+} from '../scripts/ci/reconcile-followups.mjs';
 import { decideMintGate } from '../scripts/ci/gate-minted-followups.mjs';
 
 const prose = `
@@ -109,6 +114,67 @@ describe('il gate dell\'aggregata', () => {
   });
 });
 
+describe('cache delle aggregate non classificabili', () => {
+  const commit = 'a'.repeat(40);
+  const classifierVersion = 'b'.repeat(64);
+  const humanComments = [{
+    id: 'human-1',
+    body: 'Serve ancora una decisione sullo scope.',
+    createdAt: '2026-09-08T08:00:00Z',
+  }];
+  const issue = {
+    number: 7556,
+    title: 'follow-up(#7556): 3 items deferred — decisione ancora aperta',
+    body: 'prosa libera senza sezioni a item',
+    labels: [{ name: 'follow-up' }, { name: UNCLASSIFIABLE_LABEL }],
+  };
+  const markerComment = (marker = unclassifiableMarker(issue, humanComments, { commit, classifierVersion })) => ({
+    id: 'marker-1',
+    body: marker,
+    createdAt: '2026-09-08T08:01:00Z',
+  });
+
+  it('una issue marcata e invariata è saltata dalla passata', () => {
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(true);
+  });
+
+  it('una modifica alla issue rimette in coda anche se resta non classificabile', () => {
+    const changed = { ...issue, body: 'prosa libera senza sezioni a item, aggiornata dal proprietario' };
+    expect(isCurrentUnclassifiable(changed, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(false);
+  });
+
+  it('una modifica al titolo, a una label o ai commenti umani rimette in coda', () => {
+    const comments = [...humanComments, markerComment()];
+    expect(isCurrentUnclassifiable({ ...issue, title: 'follow-up(#7556): 4 items deferred — decisione ancora aperta' }, comments, { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable({ ...issue, labels: [...issue.labels, { name: 'keep-open' }] }, comments, { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, [...comments, {
+      id: 'human-2',
+      body: 'Nuovo contesto aggiunto.',
+      createdAt: '2026-09-09T08:00:00Z',
+    }], { commit, classifierVersion })).toBe(false);
+  });
+
+  it('una marcatura riferita a commit o classificatore precedenti rimette in coda', () => {
+    const oldCommitMarker = unclassifiableMarker(issue, humanComments, {
+      commit: 'c'.repeat(40),
+      classifierVersion,
+    });
+    const oldClassifierMarker = unclassifiableMarker(issue, humanComments, {
+      commit,
+      classifierVersion: 'd'.repeat(64),
+    });
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(oldCommitMarker)], { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(oldClassifierMarker)], { commit, classifierVersion })).toBe(false);
+  });
+
+  it('marker illeggibile, label assente o commenti illeggibili non autorizzano lo skip', () => {
+    const malformed = '<!-- reconcile-unclassifiable schema=1 broken -->';
+    expect(isCurrentUnclassifiable(issue, [...humanComments, markerComment(malformed)], { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable({ ...issue, labels: [{ name: 'follow-up' }] }, [...humanComments, markerComment()], { commit, classifierVersion })).toBe(false);
+    expect(isCurrentUnclassifiable(issue, null, { commit, classifierVersion })).toBe(false);
+  });
+});
+
 describe('pin sul sorgente', () => {
   // I test comportamentali sopra restano verdi anche se il difetto rientra:
   // esercitano `aggregateCloseGate` in isolamento, mentre il difetto vero
@@ -121,6 +187,14 @@ describe('pin sul sorgente', () => {
     expect(src).toMatch(/aggGate\s*=\s*isAggregateTitle\([^)]*\)\s*\n?\s*\?\s*aggregateCloseGate\(/);
     expect(src).toContain('const isAggregate = aggGate.blocks;');
     expect(src).not.toMatch(/const isAggregate = isAggregateTitle\(iss\.title\);/);
+  });
+
+  it('la marcatura corrente viene verificata prima del detector costoso', () => {
+    const src = read('../scripts/ci/reconcile-followups.mjs');
+    const skipGuard = src.indexOf('if (comments && isCurrentUnclassifiable(iss, comments))');
+    expect(skipGuard).toBeGreaterThanOrEqual(0);
+    expect(skipGuard).toBeLessThan(src.indexOf('detectAlreadyResolved(iss.body'));
+    expect(src).toContain('cache-skipped');
   });
 
   it('il prompt che conia gli item porta la regola', () => {
