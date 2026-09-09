@@ -6181,6 +6181,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.legge-militare-struttura-condotta-2026.title': 'Conseil fédéral : nouvelle structure armée suisse',
     'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Le Conseil fédéral entame des consultations sur les modifications de la loi militaire : nouvelle structure de conduite, services à l\'étranger pour les militaires de milice, protection contre l\'espionnage.',
     'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Parlement fédéral suisse à Berne, siège du Conseil fédéral qui a lancé la consultation',
+    'blog.article.consiglio-federale-ruag-mro.title': 'Conseil fédéral : RUAG MRO devient société publique',
+    'blog.article.consiglio-federale-ruag-mro.excerpt': 'Le Conseil fédéral adopte le message pour transformer RUAG MRO de société privée en société publique avec loi spéciale. Gouvernance plus transparente et contrôle fédéral renforcé.',
+    'blog.article.consiglio-federale-ruag-mro.imageAlt': 'Vue de Bellinzona, chef-lieu du Tessin',
 };
 
 export default blogMetaChFr;

@@ -2086,6 +2086,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'internet-banda-larga-svizzera': { it: 'internet-banda-larga-svizzera', en: 'fast-internet-broadband-switzerland', de: 'schnelles-internet-breitband-schweiz', fr: 'internet-rapide-haut-debit-suisse' },
  'giornata-informativa-esercito-donne': { it: 'giornata-informativa-esercito-donne', en: 'mandatory-information-day-military-women', de: 'obligatorischer-informationstag-militar-frauen', fr: 'journee-information-obligatoire-armee-femmes' },
  'legge-militare-struttura-condotta-2026': { it: 'legge-militare-struttura-condotta-2026', en: 'military-law-command-structure-2026', de: 'militaergesetz-kommandostruktur-2026', fr: 'loi-militaire-structure-commandement-2026' },
+ 'consiglio-federale-ruag-mro': { it: 'consiglio-federale-ruag-mro', en: 'federal-council-ruag-mro', de: 'bundesrat-ruag-mro', fr: 'conseil-federal-ruag-mro' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

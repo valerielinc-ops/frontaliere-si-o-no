@@ -6181,6 +6181,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.legge-militare-struttura-condotta-2026.title': 'Bundesrat: Neue Struktur Schweizer Armee',
     'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Der Bundesrat eröffnet die Vernehmlassung zu Änderungen des Militärgesetzes: neue Führungsstruktur, Auslandsdienste für Milizsoldaten, Spionageschutz.',
     'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Schweizer Bundesparlament in Bern, Sitz des Bundesrates, der das Konsultationsverfahren eingeleitet hat',
+    'blog.article.consiglio-federale-ruag-mro.title': 'Bundesrat: RUAG MRO wird Aktiengesellschaft',
+    'blog.article.consiglio-federale-ruag-mro.excerpt': 'Der Bundesrat verabschiedet die Botschaft, RUAG MRO von einer Privatgesellschaft in eine öffentlich-rechtliche Gesellschaft mit Sondergesetz umzuwandeln. Transparentere Governance und verstärkte föderale Kontrolle.',
+    'blog.article.consiglio-federale-ruag-mro.imageAlt': 'Ansicht von Bellinzona, Hauptstadt des Tessins',
 };
 
 export default blogMetaChDe;
