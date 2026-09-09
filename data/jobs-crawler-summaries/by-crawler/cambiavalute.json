@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-09-08T23:44:19.460Z",
-  "total": 3,
+  "generatedAt": "2026-09-09T14:04:37.577Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 155543,
-  "avgDurationMs": 155543,
+  "durationMs": 65907,
+  "avgDurationMs": 65907,
   "durationHistory": [
-    155543
+    65907
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-08T23:44:15.988Z",
+      "crawledAt": "2026-09-09T14:04:34.204Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -76,7 +76,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-07T23:46:20.943Z",
+      "crawledAt": "2026-09-09T14:04:34.204Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -87,7 +87,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -96,7 +95,9 @@
         "translation": 23,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "company-viaqie",
       "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
@@ -130,16 +131,14 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
