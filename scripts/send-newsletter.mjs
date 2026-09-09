@@ -2583,6 +2583,9 @@ async function main() {
       rankingVariant: rankingVariant || 'control',
       newsletterId: campaignId,
       rankingDeliveryId,
+      // Il template non puo' importare crypto (finisce nel bundle del browser):
+      // l'hash del fallback per i job senza id lo forniamo noi, che giriamo in Node.
+      rankingStableJobId: stableJobId,
       // makeUnsubscribeUrl points at the site root and is handled by the SPA,
       // which REJECTS it with "Link non valido" unless the URL carries the `ac`
       // autologin code. That code is normally injected a few lines below by
