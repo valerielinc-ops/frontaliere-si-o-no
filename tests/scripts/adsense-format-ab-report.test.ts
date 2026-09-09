@@ -18,6 +18,9 @@ const {
   parseCoveragePct,
   pctDelta,
   computeDeltas,
+  computePrimaryMetric,
+  computePrimaryDeltas,
+  buildMeasurementMetadata,
   computeEngagementDeltas,
   postHogTrickleHasAnyData,
   fetchChannelReport,
@@ -42,6 +45,9 @@ const {
   parseCoveragePct: (v: unknown) => number | null;
   pctDelta: (treatment: number | null, control: number | null) => number | null;
   computeDeltas: (control: any, treatment: any) => { rpmPct: number | null; coveragePct: number | null; earningsPerPageviewPct: number | null };
+  computePrimaryMetric: (row: any) => number | null;
+  computePrimaryDeltas: (control: any, treatment: any) => number | null;
+  buildMeasurementMetadata: (experiment: any, currencyCode?: string) => Record<string, unknown>;
   computeEngagementDeltas: (control: any, treatment: any) => Record<string, number | null>;
   postHogTrickleHasAnyData: (posthog: any) => boolean;
   fetchChannelReport: (token: string, experiment?: any) => Promise<any>;
@@ -171,6 +177,33 @@ describe('adsense-format-ab-report / computeDeltas() + computeEngagementDeltas()
     };
     expect(computeEngagementDeltas(null, {})).toEqual(expected);
     expect(computeEngagementDeltas({}, null)).toEqual(expected);
+  });
+});
+
+describe('adsense-format-ab-report / primary metric', () => {
+  it('normalizes estimated earnings to the AdSense page-view denominator', () => {
+    const control = { earnings: 0.49, pageViews: 165 };
+    const treatment = { earnings: 0.43, pageViews: 114 };
+    expect(computePrimaryMetric(control)).toBe(2.9697);
+    expect(computePrimaryMetric(treatment)).toBe(3.7719);
+    expect(computePrimaryDeltas(control, treatment)).toBe(27);
+  });
+
+  it('keeps zero/unknown denominators unmeasurable instead of inventing a zero', () => {
+    expect(computePrimaryMetric({ earnings: 1, pageViews: 0 })).toBeNull();
+    expect(computePrimaryMetric({ earnings: 1, pageViews: null })).toBeNull();
+  });
+
+  it('declares the source, currency and denominator in the machine-readable measurement', () => {
+    const measurement = buildMeasurementMetadata(findExperiment('svizzera-ticino'), 'EUR');
+    expect(measurement).toMatchObject({
+      source: 'AdSense Reporting API v2',
+      numerator: 'ESTIMATED_EARNINGS',
+      denominator: 'PAGE_VIEWS',
+      scale: 1000,
+      currencyCode: 'EUR',
+      assignmentUnit: 'canonical_url',
+    });
   });
 });
 

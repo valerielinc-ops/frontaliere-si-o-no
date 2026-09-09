@@ -12,6 +12,7 @@
  * can reliably assert one `<ins class="adsbygoogle">` per render function.
  */
 import { AD_CLIENT, AD_SLOTS } from '../../services/adsenseSlots';
+import { INFEED_AD_EXPERIMENT_ID, INFEED_AD_VARIANTS } from '../../services/adExperiment';
 
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
@@ -64,7 +65,7 @@ export function infeedAdListItemHtml(opts?: { spanFull?: boolean }): string {
  *  (e.g. the canton `data-listing-grid` of `<article>`s, not a `<ul>`/`<li>`).
  *  Spans every grid column so the ad keeps full width. */
 export function infeedAdGridBlockHtml(): string {
-  return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation">${infeedAdInnerHtml()}</div>`;
+  return `<div class="ft-infeed-ad my-3 sm:col-span-2 lg:col-span-3" role="presentation" data-ad-experiment="${INFEED_AD_EXPERIMENT_ID}" data-ad-variant="${INFEED_AD_VARIANTS.control}">${infeedAdInnerHtml()}</div>`;
 }
 
 /**

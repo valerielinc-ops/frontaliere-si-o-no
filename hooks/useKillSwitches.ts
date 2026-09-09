@@ -33,7 +33,8 @@ export type KillSwitchKey =
   | 'articleRailAds'
   | 'desktopTopBanner'
   | 'calculatorFormBox'
-  | 'headerBidding';
+  | 'headerBidding'
+  | 'adInfeedExperiment';
 
 export type KillSwitchState = Readonly<Record<KillSwitchKey, boolean>>;
 
@@ -53,6 +54,7 @@ export const KILL_SWITCH_RC_KEYS: Readonly<Record<KillSwitchKey, string>> = {
   desktopTopBanner: 'KILL_DESKTOP_TOP_BANNER',
   calculatorFormBox: 'KILL_CALCULATOR_FORM_BOX',
   headerBidding: 'KILL_HEADER_BIDDING',
+  adInfeedExperiment: 'KILL_JOBLIST_INFEED_EXPERIMENT',
 } as const;
 
 const DEFAULT_STATE: KillSwitchState = {
@@ -66,6 +68,7 @@ const DEFAULT_STATE: KillSwitchState = {
   desktopTopBanner: false,
   calculatorFormBox: false,
   headerBidding: false,
+  adInfeedExperiment: false,
 } as const;
 
 function parseBooleanFlag(value: string | undefined | null): boolean {

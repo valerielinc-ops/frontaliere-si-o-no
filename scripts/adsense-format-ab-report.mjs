@@ -105,6 +105,23 @@ export const ADSENSE_ACCOUNT = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
 
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 
+export const PRIMARY_REVENUE_METRIC = Object.freeze({
+  id: 'estimated_earnings_per_1000_pageviews',
+  numerator: 'ESTIMATED_EARNINGS',
+  denominator: 'PAGE_VIEWS',
+  scale: 1000,
+  source: 'AdSense Reporting API v2',
+});
+
+export const URL_SURFACE_DESIGN = Object.freeze({
+  assignmentUnit: 'canonical_url',
+  randomization: 'none',
+  population: 'Italian job-search landing pages in the configured URL pair',
+  treatment: 'manual in-feed slot suppressed; Auto Ads and CMP unchanged',
+  overlapRule: 'only the two configured URL surfaces are queried; other routes are excluded',
+  causalLimit: 'descriptive URL-surface comparison, not a randomized user-level A/B test',
+});
+
 /**
  * One configuration per independent experiment. The legacy comparison keeps
  * URL_CHANNEL_NAME so its existing history remains comparable. The new
@@ -114,6 +131,7 @@ const SITE_ORIGIN = 'https://frontaliereticino.ch';
  */
 export const EXPERIMENTS = Object.freeze([
   Object.freeze({
+    ...URL_SURFACE_DESIGN,
     id: 'basilea-lucerna',
     firstFullTreatmentDate: '2026-08-26',
     adsenseDimension: 'URL_CHANNEL_NAME',
@@ -129,6 +147,7 @@ export const EXPERIMENTS = Object.freeze([
     }),
   }),
   Object.freeze({
+    ...URL_SURFACE_DESIGN,
     id: 'svizzera-ticino',
     // Conservative clean-window boundary: the deployment may complete after
     // midnight on 2026-09-02, so the first unquestionably full day is Sep 3.
@@ -163,6 +182,19 @@ export function classifyWindow(experiment, window) {
   if (window.end < experiment.firstFullTreatmentDate) return 'pre-treatment';
   if (window.start < experiment.firstFullTreatmentDate) return 'mixed';
   return 'post-treatment';
+}
+
+export function buildMeasurementMetadata(experiment, currencyCode = 'EUR') {
+  return {
+    source: PRIMARY_REVENUE_METRIC.source,
+    metric: PRIMARY_REVENUE_METRIC.id,
+    numerator: PRIMARY_REVENUE_METRIC.numerator,
+    denominator: PRIMARY_REVENUE_METRIC.denominator,
+    scale: PRIMARY_REVENUE_METRIC.scale,
+    currencyCode,
+    assignmentUnit: experiment.assignmentUnit,
+    population: experiment.population,
+  };
 }
 
 // Metrics pulled per dimension value. Order here is also the `cells[]` order
@@ -238,9 +270,26 @@ export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT)
     const coverageRaw = cells[4]?.value ?? null;
     const coveragePct = parseCoveragePct(cells[4]?.value);
     const pageViews = parseCellNumber(cells[5]?.value);
-    const earningsPerPageviewCHF =
+    const earningsPerPageview =
       earningsCHF !== null && pageViews ? Number((earningsCHF / pageViews).toFixed(4)) : null;
-    return { channel: adsenseValue, impressions, rpmCHF, earningsCHF, coverageRaw, coveragePct, pageViews, earningsPerPageviewCHF };
+    const earningsPerThousandPageviews =
+      earningsCHF !== null && pageViews ? Number(((earningsCHF / pageViews) * 1000).toFixed(4)) : null;
+    return {
+      channel: adsenseValue,
+      impressions,
+      // Canonical currency-neutral names. The *CHF aliases remain for the
+      // existing JSONL history and callers; `currencyCode` is authoritative.
+      rpm: rpmCHF,
+      earnings: earningsCHF,
+      earningsPerPageview,
+      earningsPerThousandPageviews,
+      rpmCHF,
+      earningsCHF,
+      coverageRaw,
+      coveragePct,
+      pageViews,
+      earningsPerPageviewCHF: earningsPerPageview,
+    };
   };
 
   const currencyCode = data.headers?.find((header) => header.currencyCode)?.currencyCode || 'EUR';
@@ -262,12 +311,32 @@ export function pctDelta(treatment, control) {
   return Number((((treatment - control) / control) * 100).toFixed(1));
 }
 
+function metricValue(row, canonical, legacy) {
+  if (!row) return null;
+  return row[canonical] ?? row[legacy] ?? null;
+}
+
+export function computePrimaryMetric(row) {
+  const earnings = metricValue(row, 'earnings', 'earningsCHF');
+  const pageViews = row?.pageViews;
+  return earnings !== null && earnings !== undefined && pageViews > 0
+    ? Number(((earnings / pageViews) * PRIMARY_REVENUE_METRIC.scale).toFixed(4))
+    : null;
+}
+
+export function computePrimaryDeltas(control, treatment) {
+  return pctDelta(computePrimaryMetric(treatment), computePrimaryMetric(control));
+}
+
 export function computeDeltas(control, treatment) {
   if (!control || !treatment) return { rpmPct: null, coveragePct: null, earningsPerPageviewPct: null };
   return {
-    rpmPct: pctDelta(treatment.rpmCHF, control.rpmCHF),
+    rpmPct: pctDelta(metricValue(treatment, 'rpm', 'rpmCHF'), metricValue(control, 'rpm', 'rpmCHF')),
     coveragePct: pctDelta(treatment.coveragePct, control.coveragePct),
-    earningsPerPageviewPct: pctDelta(treatment.earningsPerPageviewCHF, control.earningsPerPageviewCHF),
+    earningsPerPageviewPct: pctDelta(
+      metricValue(treatment, 'earningsPerPageview', 'earningsPerPageviewCHF'),
+      metricValue(control, 'earningsPerPageview', 'earningsPerPageviewCHF'),
+    ),
   };
 }
 
@@ -518,10 +587,17 @@ export function buildMarkdown(report, history) {
   const treatmentLabel = experiment.treatment.label;
   const currencyCode = report.currencyCode || 'EUR';
   const windowPhase = report.windowPhase || classifyWindow(experiment, window);
+  const measurement = report.measurement || buildMeasurementMetadata(experiment, currencyCode);
+  const primaryDelta = report.primaryDeltas?.earningsPerThousandPageviewsPct ?? computePrimaryDeltas(control, treatment);
   const lines = [];
   lines.push(`# AdSense format A/B: ${controlLabel} (controllo) vs ${treatmentLabel} (trattamento)`);
   lines.push('');
   lines.push(`**Finestra:** ${window.start} → ${window.end} (ultimi 7 giorni pieni)`);
+  lines.push('');
+  lines.push(`**Disegno:** ${experiment.causalLimit}. Unità di assegnazione: \`${experiment.assignmentUnit}\`; randomizzazione: \`${experiment.randomization}\`.`);
+  lines.push(`**Popolazione:** ${experiment.population}. ${experiment.overlapRule}.`);
+  lines.push(`**Fonte primaria:** ${measurement.source}; valuta: \`${measurement.currencyCode}\`; numeratore: \`${measurement.numerator}\`; denominatore: \`${measurement.denominator}\`; scala: ×${measurement.scale}.`);
+  lines.push(`**Trattamento osservato:** ${experiment.treatment}.`);
   lines.push('');
   if (windowPhase !== 'post-treatment') {
     const phaseLabel = windowPhase === 'pre-treatment' ? 'interamente precedente' : 'mista pre/post trattamento';
@@ -546,12 +622,19 @@ export function buildMarkdown(report, history) {
     lines.push('|---|---:|---:|---:|');
     lines.push(`| Impressioni | ${control.impressions ?? '—'} | ${treatment.impressions ?? '—'} | ${pctDelta(treatment.impressions, control.impressions) ?? '—'}% |`);
     lines.push(`| Page view | ${control.pageViews ?? '—'} | ${treatment.pageViews ?? '—'} | ${pctDelta(treatment.pageViews, control.pageViews) ?? '—'}% |`);
-    lines.push(`| Earnings (${currencyCode}) | ${control.earningsCHF ?? '—'} | ${treatment.earningsCHF ?? '—'} | ${pctDelta(treatment.earningsCHF, control.earningsCHF) ?? '—'}% |`);
-    lines.push(`| RPM (${currencyCode}/1000 impr.) | ${control.rpmCHF ?? '—'} | ${treatment.rpmCHF ?? '—'} | ${deltas.rpmPct ?? '—'}% |`);
+    const controlEarnings = metricValue(control, 'earnings', 'earningsCHF');
+    const treatmentEarnings = metricValue(treatment, 'earnings', 'earningsCHF');
+    const controlRpm = metricValue(control, 'rpm', 'rpmCHF');
+    const treatmentRpm = metricValue(treatment, 'rpm', 'rpmCHF');
+    const controlEarningsPerPageview = metricValue(control, 'earningsPerPageview', 'earningsPerPageviewCHF');
+    const treatmentEarningsPerPageview = metricValue(treatment, 'earningsPerPageview', 'earningsPerPageviewCHF');
+    lines.push(`| Earnings (${currencyCode}) | ${controlEarnings ?? '—'} | ${treatmentEarnings ?? '—'} | ${pctDelta(treatmentEarnings, controlEarnings) ?? '—'}% |`);
+    lines.push(`| RPM (${currencyCode}/1000 impr.) | ${controlRpm ?? '—'} | ${treatmentRpm ?? '—'} | ${deltas.rpmPct ?? '—'}% |`);
     lines.push(`| Coverage (%) | ${control.coveragePct ?? '—'} | ${treatment.coveragePct ?? '—'} | ${deltas.coveragePct ?? '—'}% |`);
-    lines.push(`| **Earnings / pageview (${currencyCode})** | **${control.earningsPerPageviewCHF ?? '—'}** | **${treatment.earningsPerPageviewCHF ?? '—'}** | **${deltas.earningsPerPageviewPct ?? '—'}%** |`);
+    lines.push(`| Earnings / pageview (${currencyCode}) | ${controlEarningsPerPageview ?? '—'} | ${treatmentEarningsPerPageview ?? '—'} | ${deltas.earningsPerPageviewPct ?? '—'}% |`);
+    lines.push(`| **Earnings / 1.000 pageview (${currencyCode}) — primaria** | **${computePrimaryMetric(control) ?? '—'}** | **${computePrimaryMetric(treatment) ?? '—'}** | **${primaryDelta ?? '—'}%** |`);
     lines.push('');
-    lines.push('Earnings/pageview è la metrica più onesta per confrontare due format diversi (in-feed manuale vs solo Auto Ads) quando controllo e trattamento hanno pageview leggermente diversi — normalizza per il traffico invece di dividere per "impressioni", che dipende esso stesso dal format in test.');
+    lines.push('La metrica primaria normalizza il ricavo stimato AdSense per le pageview della stessa coorte URL. RPM e coverage restano secondarie: il numero di impressioni dipende dal format e non basta per dichiarare successo.');
     lines.push('');
 
     const smallControl = control.pageViews !== null && control.pageViews < SMALL_SAMPLE_PAGEVIEWS;
@@ -682,36 +765,51 @@ export function buildMarkdown(report, history) {
 export function buildHistoryEntry(report) {
   const { window, control, treatment, deltas, engagement, engagementDeltas, cwv } = report;
   const experiment = report.experiment || DEFAULT_EXPERIMENT;
+  const currencyCode = report.currencyCode || 'EUR';
+  const measurement = report.measurement || buildMeasurementMetadata(experiment, currencyCode);
+  const primaryDeltas = report.primaryDeltas || {
+    earningsPerThousandPageviewsPct: computePrimaryDeltas(control, treatment),
+  };
   return {
     date: new Date().toISOString().slice(0, 10),
     experimentId: experiment.id,
     windowPhase: report.windowPhase || classifyWindow(experiment, window),
     adsenseDimension: experiment.adsenseDimension,
-    currencyCode: report.currencyCode || 'EUR',
+    currencyCode,
+    measurement,
     window,
     control: {
       label: experiment.control.label,
       path: experiment.control.path,
       channel: experiment.control.adsenseValue,
       impressions: control.impressions,
-      rpmCHF: control.rpmCHF,
-      earningsCHF: control.earningsCHF,
+      rpm: metricValue(control, 'rpm', 'rpmCHF'),
+      earnings: metricValue(control, 'earnings', 'earningsCHF'),
+      earningsPerPageview: metricValue(control, 'earningsPerPageview', 'earningsPerPageviewCHF'),
+      earningsPerThousandPageviews: computePrimaryMetric(control),
+      rpmCHF: metricValue(control, 'rpm', 'rpmCHF'),
+      earningsCHF: metricValue(control, 'earnings', 'earningsCHF'),
       coveragePct: control.coveragePct,
       pageViews: control.pageViews,
-      earningsPerPageviewCHF: control.earningsPerPageviewCHF,
+      earningsPerPageviewCHF: metricValue(control, 'earningsPerPageview', 'earningsPerPageviewCHF'),
     },
     treatment: {
       label: experiment.treatment.label,
       path: experiment.treatment.path,
       channel: experiment.treatment.adsenseValue,
       impressions: treatment.impressions,
-      rpmCHF: treatment.rpmCHF,
-      earningsCHF: treatment.earningsCHF,
+      rpm: metricValue(treatment, 'rpm', 'rpmCHF'),
+      earnings: metricValue(treatment, 'earnings', 'earningsCHF'),
+      earningsPerPageview: metricValue(treatment, 'earningsPerPageview', 'earningsPerPageviewCHF'),
+      earningsPerThousandPageviews: computePrimaryMetric(treatment),
+      rpmCHF: metricValue(treatment, 'rpm', 'rpmCHF'),
+      earningsCHF: metricValue(treatment, 'earnings', 'earningsCHF'),
       coveragePct: treatment.coveragePct,
       pageViews: treatment.pageViews,
-      earningsPerPageviewCHF: treatment.earningsPerPageviewCHF,
+      earningsPerPageviewCHF: metricValue(treatment, 'earningsPerPageview', 'earningsPerPageviewCHF'),
     },
     deltas,
+    primaryDeltas,
     // Best-effort — null when a source was unavailable that week. Kept in
     // the same history line (not a separate file) so a reader sees all three
     // signals for a given week together.
@@ -807,6 +905,9 @@ async function main() {
     }
   }
   const deltas = computeDeltas(control, treatment);
+  const primaryDeltas = {
+    earningsPerThousandPageviewsPct: computePrimaryDeltas(control, treatment),
+  };
 
   // ── 2. GA4 engagement guardrail + 3a. GA4 web_vitals attempt ────────
   let engagement = null;
@@ -852,7 +953,22 @@ async function main() {
   }
 
   const windowPhase = classifyWindow(experiment, window);
-  const report = { experiment, windowPhase, currencyCode, window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings };
+  const measurement = buildMeasurementMetadata(experiment, currencyCode);
+  const report = {
+    experiment,
+    windowPhase,
+    currencyCode,
+    measurement,
+    window,
+    control,
+    treatment,
+    deltas,
+    primaryDeltas,
+    engagement,
+    engagementDeltas,
+    cwv,
+    warnings,
+  };
   const historySummary = readHistorySummary(experiment);
 
   if (flags.json) {
@@ -863,6 +979,7 @@ async function main() {
     console.log(`AdSense format A/B ${experiment.id} — ${window.start} → ${window.end}`);
     console.log(`  ${experiment.control.label} (controllo): impr=${control?.impressions ?? '—'} rpm=${control?.rpmCHF ?? '—'} coverage=${control?.coveragePct ?? '—'}% pv=${control?.pageViews ?? '—'} epv=${control?.earningsPerPageviewCHF ?? '—'}`);
     console.log(`  ${experiment.treatment.label} (trattamento): impr=${treatment?.impressions ?? '—'} rpm=${treatment?.rpmCHF ?? '—'} coverage=${treatment?.coveragePct ?? '—'}% pv=${treatment?.pageViews ?? '—'} epv=${treatment?.earningsPerPageviewCHF ?? '—'}`);
+    console.log(`  Primaria earnings/1.000 pageview (${currencyCode}): controllo=${computePrimaryMetric(control) ?? '—'} trattamento=${computePrimaryMetric(treatment) ?? '—'} Δ=${primaryDeltas.earningsPerThousandPageviewsPct ?? '—'}%`);
     console.log(`  Δ rpm=${deltas.rpmPct ?? '—'}% coverage=${deltas.coveragePct ?? '—'}% earnings/pageview=${deltas.earningsPerPageviewPct ?? '—'}%`);
     if (engagement?.control && engagement?.treatment) {
       console.log(`  Engagement ${experiment.control.label}: sessions=${engagement.control.sessions} engRate=${engagement.control.engagementRatePct}% bounce=${engagement.control.bounceRatePct}%`);

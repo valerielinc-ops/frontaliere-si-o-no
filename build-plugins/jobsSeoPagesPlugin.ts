@@ -73,6 +73,7 @@ import {
 } from './shared/jobCardHtml';
 import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
+import { isInfeedAdExperimentActiveFromEnv } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
 import {
@@ -210,6 +211,11 @@ import { logBuildMem } from './shared/buildMemLog';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+
+// Static HTML cannot read the runtime Remote Config hook. The same kill key is
+// accepted by the build so a rollback can restore the manual slot on the
+// treatment pages without touching Auto Ads or control pages.
+const STATIC_INFEED_AD_EXPERIMENT_ACTIVE = isInfeedAdExperimentActiveFromEnv(process.env);
 
 // ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
 // `logBuildMem` now lives in ./shared/buildMemLog so employerProfilePagesPlugin
@@ -10439,8 +10445,11 @@ ${staticAnalyticsHtml}
            // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
            // slot on this specific canton's static index page without
            // touching any other canton or any other listing surface.
-           const ad =
-             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, { canton: entry.key })
+             const ad =
+             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, {
+               canton: entry.key,
+               adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
+             })
                ? infeedAdGridBlockHtml()
                : '';
            return card + ad;
