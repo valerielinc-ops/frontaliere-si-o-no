@@ -646,4 +646,3 @@ export function isHealthPremiumsPath(pathname: string): boolean {
   const normalised = leading.endsWith('/') ? leading : `${leading}/`;
   return HEALTH_PREMIUMS_ROUTE_SET.has(normalised);
 }
-
