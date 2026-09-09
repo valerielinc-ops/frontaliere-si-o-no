@@ -24,21 +24,24 @@ describe('aggregateGa4Rows', () => {
       ga4Row('casale-sa', true, 40, 40, 50),
     ]);
     expect(rows).toHaveLength(1);
-    expect(rows[0].candidates).toBe(9);
+    expect(rows[0].applyClickProxy).toBe(9);
+    expect(rows[0]).not.toHaveProperty('candidates');
     expect(rows[0].persons).toBe(9);
     expect(rows[0].sessions).toBe(9);
     expect(rows[0].clicks).toBe(12);
     expect(rows[0].sponsored).toBe(40);
   });
 
-  it('candidates = min(persons, sessions), free-only', () => {
+  it('applyClickProxy = min(persons, sessions), free-only', () => {
     const rows = aggregateGa4Rows([ga4Row('acme', false, 15, 10, 20)]);
-    expect(rows[0].candidates).toBe(10);
+    expect(rows[0].applyClickProxy).toBe(10);
+    expect(rows[0]).not.toHaveProperty('candidates');
   });
 
-  it('employer with only sponsored ads gets 0 free candidates', () => {
+  it('employer with only sponsored ads gets 0 free proxy signals', () => {
     const rows = aggregateGa4Rows([ga4Row('sponsored-only', true, 25, 25, 30)]);
-    expect(rows[0].candidates).toBe(0);
+    expect(rows[0].applyClickProxy).toBe(0);
+    expect(rows[0]).not.toHaveProperty('candidates');
     expect(rows[0].sponsored).toBe(25);
   });
 

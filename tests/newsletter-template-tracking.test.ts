@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest';
 
 const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/newsletter-template.mjs');
 const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT, decayFactor } = await import('@/services/newsletter-content.mjs');
+const { PARTNERS_REGISTRY } = await import('@/functions/src/lib/affiliatePartnersRegistry.js');
+const { NEWSLETTER_JOB_LIMIT } = await import('@/functions/src/lib/jobEmailRankingLinks.js');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
 const SAMPLE_FACT = { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' };
@@ -92,6 +94,27 @@ describe('newsletter template v2', () => {
     });
 
     expect(html).toContain('Questa settimana il cambio CHF/EUR sale!');
+  });
+
+  it('renders the shared newsletter job limit', () => {
+    const matchedJobs = Array.from({ length: NEWSLETTER_JOB_LIMIT + 1 }, (_, index) => ({
+      title: `Limit Test Job ${index}`,
+      company: `Company ${index}`,
+      location: 'Lugano',
+      url: `/cerca-lavoro-ticino/limit-test-job-${index}/`,
+    }));
+
+    const html = buildNewsletter({
+      exchangeRate: SAMPLE_EXCHANGE,
+      matchedJobs,
+      featuredTool: SAMPLE_TOOL,
+      weeklyFact: SAMPLE_FACT,
+      locale: 'it',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    });
+
+    expect(html.match(/class="job-title"/g)).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    expect(html).not.toContain(`Limit Test Job ${NEWSLETTER_JOB_LIMIT}`);
   });
 });
 
@@ -399,6 +422,22 @@ describe('affiliate partner rows carry their position', () => {
       expect(params.get('utm_source')).toBe('newsletter');
       expect(params.get('utm_medium')).toBe('email');
       expect(params.get('utm_campaign')).toMatch(/^weekly_\d{4}-\d{2}-\d{2}$/);
+    }
+  });
+
+  it('omits a disabled partner row instead of emitting a dead link', async () => {
+    const fineco = PARTNERS_REGISTRY.find((partner) => partner.id === 'fineco');
+    expect(fineco).toBeDefined();
+    const wasEnabled = fineco.enabled;
+    fineco.enabled = false;
+
+    try {
+      const html = await buildPartnerNewsletter();
+      expect(html).not.toContain('Fineco Bank');
+      expect(html).not.toContain('/go/fineco/');
+      expect(goHrefs(html)).toHaveLength(2);
+    } finally {
+      fineco.enabled = wasEnabled;
     }
   });
 });

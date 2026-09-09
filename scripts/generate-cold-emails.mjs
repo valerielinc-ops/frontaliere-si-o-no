@@ -25,7 +25,7 @@
  *   --out DIR        cartella bozze (default data/employer-outreach/drafts)
  *   --top N          genera per le prime N aziende per metrica (default 10)
  *   --min N          soglia minima della metrica (default 10)
- *   --days-label STR etichetta periodo nelle email (default "negli ultimi 3 mesi")
+ *   --days-label STR compatibilità legacy: la bozza usa comunque la finestra del report
  *
  * Nessuna azienda è esclusa: il settore è solo un'etichetta di contesto.
  */
@@ -91,10 +91,14 @@ function run() {
   const outDir = arg('--out', path.join(ROOT, 'data/employer-outreach/drafts'));
   const top = Number(arg('--top', '10'));
   const min = Number(arg('--min', '10'));
-  const periodLabel = typeof arg('--days-label', 0) === 'string' ? arg('--days-label') : 'negli ultimi 3 mesi';
 
   const report = loadJson(path.resolve(reportPath), null);
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
+  if (!report.window || typeof report.window !== 'object' || !report.window.from || !report.window.to) {
+    console.error('report senza finestra esplicita: nessuna bozza numerica generata');
+    process.exit(1);
+  }
+  const periodLabel = `${report.window.from} → ${report.window.to}`;
   const contacts = loadJson(path.resolve(contactsPath), {});
 
   // Nessuna azienda esclusa: top `top` per metrica, sopra la soglia `min`.
@@ -122,7 +126,6 @@ function run() {
     const metric = selectOutreachMetric(e);
     const seq = buildSequence({
       company: e.name,
-      candidates: e.candidates,
       metricValue: metric?.value,
       metricLabel: metric?.label,
       periodLabel,

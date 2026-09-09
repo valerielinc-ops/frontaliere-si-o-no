@@ -358,6 +358,7 @@ const deComparatori: Record<string, string> = {
  'affiliate.sectionTitle': 'Empfohlene Tools',
  'affiliate.disclosure': 'Einige Links können eine Provision generieren, die uns hilft, den Service kostenlos zu halten.',
  'affiliate.cta': 'Entdecken →',
+ 'affiliate.cta.benefit': 'Angebot vergleichen →',
  'affiliate.badge.recommended': 'Empfohlen',
  'affiliate.badge.mostUsed': 'Meistgenutzt',
  'affiliate.badge.official': 'Offiziell',

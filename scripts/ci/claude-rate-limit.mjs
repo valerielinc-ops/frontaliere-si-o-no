@@ -69,6 +69,8 @@
  * senza alcun guadagno di comportamento. Vedi `## Non implementato` della PR.
  */
 
+import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
+
 /** Codice FIX_OUTCOME granulare per una run che non è mai partita per quota. */
 export const RATE_LIMITED_OUTCOME = 'rate-limited';
 
@@ -179,23 +181,86 @@ export function parseQuotaResetsAt(body) {
   return n > 1e11 ? Math.round(n / 1000) : Math.round(n);
 }
 
+function commentTimestamp(comment) {
+  const at = Date.parse(String(comment?.createdAt ?? comment?.created_at ?? ''));
+  return Number.isFinite(at) ? at : null;
+}
+
+// I fallback deterministici del backstop non sono verdetti del fixer per il
+// rescue, ma restano FIX_OUTCOME validi come prova che una run è arrivata oltre
+// il pre-flight quota. Il chiamante sceglie quindi esplicitamente se ignorarli.
+const BACKSTOP_MARKER = 'post-step deterministico';
+
+function fixOutcomeEntry(comment, { ignoreBackstop = false } = {}) {
+  const body = String(comment?.body || '');
+  if (ignoreBackstop && body.includes(BACKSTOP_MARKER)) return null;
+  const match = FIX_OUTCOME_RE.exec(body);
+  if (!match) return null;
+  const at = commentTimestamp(comment);
+  if (at === null) return null;
+  return { outcome: match[1].toLowerCase(), at };
+}
+
 /**
- * L'epoch di reset più LONTANO fra i beacon presenti in una lista di commenti,
- * o null. Il più lontano e non il più recente: se una issue ha accumulato più
- * beacon (finestre successive), quella che conta per il backoff è l'ultima a
- * chiudersi — riaprire il drain prima del reset reale riprodurrebbe esattamente
- * la cascata che il backoff esiste per fermare.
+ * ULTIMO marker FIX_OUTCOME autentico (commento più recente) di una lista,
+ * con il suo timestamp: `{ outcome, at }`, entrambi `null` se non c'è.
+ * Pura (niente gh) → testabile. Ignora i fallback del backstop così solo i
+ * verdetti autentici del fixer contano per il rescue.
+ *
+ * @param {Array<{body?: string, createdAt?: string, created_at?: string}>} comments
+ * @returns {{outcome: string|null, at: number|null}}
+ */
+export function latestFixOutcomeEntryFromComments(comments) {
+  let latest = null;
+  for (const comment of comments || []) {
+    const entry = fixOutcomeEntry(comment, { ignoreBackstop: true });
+    if (entry && (!latest || entry.at >= latest.at)) latest = entry;
+  }
+  return latest || { outcome: null, at: null };
+}
+
+/** Proiezione sul solo codice per i chiamanti che non devono scopare il
+ * verdetto a una run. Pura → testabile. */
+export function latestFixOutcomeFromComments(comments) {
+  return latestFixOutcomeEntryFromComments(comments).outcome;
+}
+
+function hasSubsequentNonRateLimitedOutcome(comments, beacon) {
+  const beaconAt = commentTimestamp(beacon);
+  if (beaconAt === null) return false;
+
+  for (const comment of comments) {
+    const entry = fixOutcomeEntry(comment);
+    if (entry && entry.at > beaconAt && entry.outcome !== RATE_LIMITED_OUTCOME) return true;
+  }
+  return false;
+}
+
+/**
+ * L'epoch di reset più LONTANO fra i beacon ancora vivi in una lista di
+ * commenti, o null. Un beacon non è più vivo quando la stessa issue porta un
+ * `FIX_OUTCOME` successivo per timestamp che non sia `rate-limited`: quella
+ * run è arrivata oltre il punto in cui la quota risultava esaurita. Un altro
+ * `rate-limited` non invalida il beacon, perché non prova che Claude sia
+ * riuscito a partire.
+ *
+ * Fra i beacon vivi vince quello che si chiude per ULTIMO, non il più recente:
+ * se una issue ha accumulato finestre successive, riaprire il drain prima del
+ * reset reale riprodurrebbe esattamente la cascata che il backoff esiste per
+ * fermare.
  *
  * Unico punto di verità: la usano sia il pre-flight `check-quota-backoff.mjs`
  * sia `followup-drainer.mjs`. Duplicarla in due file la farebbe divergere alla
  * prima modifica (AGENTS.md #6). Pura → testabile.
  *
- * @param {Array<{body?: string}>} comments
+ * @param {Array<{body?: string, createdAt?: string, created_at?: string}>} comments
  * @returns {number|null}
  */
 export function maxQuotaResetsAt(comments) {
   let best = null;
-  for (const c of comments || []) {
+  const list = comments || [];
+  for (const c of list) {
+    if (hasSubsequentNonRateLimitedOutcome(list, c)) continue;
     const r = parseQuotaResetsAt(c?.body || '');
     if (r !== null && (best === null || r > best)) best = r;
   }

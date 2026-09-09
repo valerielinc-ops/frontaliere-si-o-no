@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  NEWSLETTER_JOB_LIMIT,
+  getNewsletterCandidateLimit,
+  rankNewsletterJobs,
+} from '../scripts/send-newsletter.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -30,7 +35,10 @@ describe('loadDashboardMetrics', () => {
   });
 
   it('newsletter-content.mjs exports loadDashboardMetrics', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content.mjs'), 'utf-8');
+    // L'implementazione sta nel core privo di dipendenze Node (#8125);
+    // `newsletter-content.mjs` e' la facciata che la ri-esporta ai consumatori
+    // Node dopo aver installato il lettore dei dataset.
+    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content-core.mjs'), 'utf-8');
     expect(content).toContain('export function loadDashboardMetrics');
   });
 
@@ -78,17 +86,19 @@ describe('newsletter article header images', () => {
 });
 
 describe('newsletter job selection defaults', () => {
-  it('send-newsletter.mjs requests 4 jobs per subscriber', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'scripts', 'send-newsletter.mjs'), 'utf-8');
-    const calls = content.match(/matchJobsForSubscriber\([^)]+\)/g) || [];
-    expect(calls.length).toBeGreaterThan(0);
-    for (const call of calls) {
-      expect(call).toContain(', 4');
-    }
+  it('keeps four rendered jobs while treatment inspects a wider candidate pool', () => {
+    const candidates = Array.from({ length: getNewsletterCandidateLimit('treatment') }, (_, index) => ({
+      slug: `job-${index}`,
+      relevanceScore: 1,
+    }));
+
+    expect(getNewsletterCandidateLimit('control')).toBe(NEWSLETTER_JOB_LIMIT);
+    expect(getNewsletterCandidateLimit('treatment')).toBeGreaterThan(NEWSLETTER_JOB_LIMIT);
+    expect(rankNewsletterJobs(candidates, { variant: 'treatment' })).toHaveLength(NEWSLETTER_JOB_LIMIT);
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content.mjs'), 'utf-8');
+    const content = fs.readFileSync(path.join(ROOT, 'services', 'newsletter-content-core.mjs'), 'utf-8');
     expect(content).toContain('120');
     expect(content).toContain('passesQualityGate');
   });

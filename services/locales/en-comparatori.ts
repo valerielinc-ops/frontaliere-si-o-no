@@ -358,6 +358,7 @@ const enComparatori: Record<string, string> = {
  'affiliate.sectionTitle': 'Recommended tools',
  'affiliate.disclosure': 'Some links may generate a commission that helps us keep the service free.',
  'affiliate.cta': 'Discover →',
+ 'affiliate.cta.benefit': 'Compare offer →',
  'affiliate.badge.recommended': 'Recommended',
  'affiliate.badge.mostUsed': 'Most used',
  'affiliate.badge.official': 'Official',

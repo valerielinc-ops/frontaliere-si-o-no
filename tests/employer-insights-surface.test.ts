@@ -12,6 +12,10 @@ const publisherPage = readFileSync(
   new URL('../components/pages/PublisherDashboardPage.tsx', import.meta.url),
   'utf8',
 );
+const adminPage = readFileSync(
+  new URL('../components/pages/AdminPanel.tsx', import.meta.url),
+  'utf8',
+);
 
 const localeFiles = [
   '../services/locales/it-core.ts',
@@ -20,10 +24,15 @@ const localeFiles = [
   '../services/locales/fr-core.ts',
 ].map((path) => readFileSync(new URL(path, import.meta.url), 'utf8'));
 
-const presentSnapshot = (id: string, candidates?: number) => ({
+const WINDOW = {
+  from: '2026-06-10T22:00:00.000Z',
+  to: '2026-09-08T22:00:00.000Z',
+};
+
+const presentSnapshot = (id: string, data: Record<string, unknown> = {}) => ({
   id,
   exists: () => true,
-  data: () => (candidates === undefined ? {} : { candidates }),
+  data: () => data,
 });
 
 const missingSnapshot = (id: string) => ({
@@ -54,6 +63,12 @@ describe('employer insights surface semantics', () => {
       expect(locale).not.toMatch(/Tasso di conversione|Conversion rate|Konversionsrate|Taux de conversion/);
     }
   });
+
+  it('does not aggregate admin rows from different analytics sources', () => {
+    expect(adminPage).toContain('const firstSource = insightsRows[0]?.source || null;');
+    expect(adminPage).toContain('insightsRows.every(r => r.source === firstSource)');
+    expect(adminPage).toContain('source: commonSource');
+  });
 });
 
 describe('publisher crawled traffic states', () => {
@@ -61,13 +76,21 @@ describe('publisher crawled traffic states', () => {
     expect(publisherPage).toContain("crawledTraffic.status === 'zero'");
     expect(publisherPage).toContain("crawledTraffic.status === 'data-missing'");
     expect(publisherPage).toContain("crawledTraffic.status === 'source-unavailable'");
+    expect(publisherPage).not.toContain('crawledTraffic.candidates');
   });
 
-  it('shows zero when an alias record exists without a candidate record', () => {
+  it('shows zero only when an explicit measured value is zero', () => {
     expect(classifyCrawledTrafficState({
       source: 'available',
-      snapshots: [presentSnapshot('alias-without-candidates')],
-    })).toEqual({ status: 'zero' });
+      snapshots: [presentSnapshot('zero', { applyClicks: 0, source: 'ga4', window: WINDOW })],
+    })).toEqual({ status: 'zero', metric: 'applyClicks', source: 'ga4', window: WINDOW });
+  });
+
+  it('does not turn an alias without a measured field into zero', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [presentSnapshot('alias-without-metric', { source: 'ga4', window: WINDOW })],
+    })).toEqual({ status: 'data-missing' });
   });
 
   it('shows missing data when the source responds without an alias record', () => {
@@ -90,11 +113,25 @@ describe('publisher crawled traffic states', () => {
       classifyCrawledTrafficState({
         source: 'available',
         snapshots: [
-          presentSnapshot('alias-without-candidates'),
-          presentSnapshot('first', 4),
-          presentSnapshot('second', 2),
+          presentSnapshot('empty', { source: 'ga4', window: WINDOW }),
+          presentSnapshot('first', { applyClicks: 4, source: 'ga4', window: WINDOW }),
+          presentSnapshot('second', { applyClicks: 2, source: 'ga4', window: WINDOW }),
         ],
       }),
-    ).toEqual({ status: 'available', candidates: 6 });
+    ).toEqual({ status: 'available', value: 6, metric: 'applyClicks', source: 'ga4', window: WINDOW });
+  });
+
+  it('uses the explicitly labelled proxy only when raw apply clicks are unavailable', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [presentSnapshot('proxy', { applyClickProxy: 6, source: 'posthog', window: WINDOW })],
+    })).toEqual({ status: 'available', value: 6, metric: 'interestSignals', source: 'posthog', window: WINDOW });
+  });
+
+  it('rejects a metric without source and explicit window', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [presentSnapshot('unscoped', { applyClicks: 6 })],
+    })).toEqual({ status: 'data-missing' });
   });
 });

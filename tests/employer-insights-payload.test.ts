@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { EmployerInsightsReport } from '../components/pages/EmployerInsightsPage';
+import { serializeEmployerInsightsTotals } from '../functions/src/adminEmployerInsights.js';
 
 const employerPageSource = readFileSync(
   new URL('../components/pages/EmployerInsightsPage.tsx', import.meta.url),
@@ -11,6 +12,34 @@ const employerPageSource = readFileSync(
 );
 const employerTypeSource = readFileSync(
   new URL('../services/employerInsights.ts', import.meta.url),
+  'utf8',
+);
+const adminPageSource = readFileSync(
+  new URL('../components/pages/AdminPanel.tsx', import.meta.url),
+  'utf8',
+);
+const adminApiSource = readFileSync(
+  new URL('../functions/src/adminEmployerInsights.js', import.meta.url),
+  'utf8',
+);
+const adminTypeSource = readFileSync(
+  new URL('../services/adminInsights.ts', import.meta.url),
+  'utf8',
+);
+const reportSource = readFileSync(
+  new URL('../scripts/employer-traffic-report.mjs', import.meta.url),
+  'utf8',
+);
+const writerSource = readFileSync(
+  new URL('../scripts/write-employer-traffic.mjs', import.meta.url),
+  'utf8',
+);
+const sequenceSource = readFileSync(
+  new URL('../functions/src/coldEmailSequence.js', import.meta.url),
+  'utf8',
+);
+const adminSendSource = readFileSync(
+  new URL('../functions/src/adminSendColdEmail.js', import.meta.url),
   'utf8',
 );
 
@@ -67,6 +96,21 @@ function render(data: unknown): string {
 }
 
 describe('employer insights payload UI', () => {
+  it('keeps API zero observed distinct from missing or unscoped data', () => {
+    expect(serializeEmployerInsightsTotals({ views: 0, applyClicks: 0 }, window)).toMatchObject({
+      views: 0,
+      applyClicks: 0,
+    });
+    expect(serializeEmployerInsightsTotals({ views: undefined, applyClicks: undefined }, window)).toMatchObject({
+      views: null,
+      applyClicks: null,
+    });
+    expect(serializeEmployerInsightsTotals({ views: 99, applyClicks: 31 }, null)).toMatchObject({
+      views: null,
+      applyClicks: null,
+    });
+  });
+
   it('renders a missing applyClicks value as unavailable, never as zero', () => {
     const html = render({
       ...basePayload,
@@ -83,6 +127,19 @@ describe('employer insights payload UI', () => {
     const consumerSource = `${employerPageSource}\n${employerTypeSource}`;
     expect(consumerSource).not.toMatch(/\blost\b/i);
     expect(consumerSource).not.toMatch(/(?:views|profileViews)\s*-\s*(?:candidates|applyClicks)/i);
+  });
+
+  it('removes legacy employer candidate/lost fields from transport and admin surfaces', () => {
+    expect(adminPageSource).not.toMatch(/\b(?:candidates|lost|conversionRate)\b/);
+    expect(adminApiSource).not.toMatch(/\b(?:candidates|lost|conversionRate)\b/);
+    expect(adminTypeSource).not.toMatch(/\b(?:candidates|lost|conversionRate)\b/);
+    expect(reportSource).not.toMatch(/\bcandidates\s*:/);
+    expect(writerSource).not.toMatch(/\bcandidates\s*:/);
+    expect(sequenceSource).not.toMatch(/\bcandidates\b/);
+    expect(adminSendSource).not.toMatch(/\b(?:candidates|lost)\b/);
+    expect(adminPageSource).toContain('applyClicks');
+    expect(adminPageSource).toContain('applications');
+    expect(adminPageSource).toContain('profileViews');
   });
 
   it('renders applyClicks, applications and profileViews as separate annotated metrics', () => {
