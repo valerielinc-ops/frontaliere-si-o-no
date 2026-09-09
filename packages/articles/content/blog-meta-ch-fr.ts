@@ -6184,6 +6184,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-ruag-mro.title': 'Conseil fédéral : RUAG MRO devient société publique',
     'blog.article.consiglio-federale-ruag-mro.excerpt': 'Le Conseil fédéral adopte le message pour transformer RUAG MRO de société privée en société publique avec loi spéciale. Gouvernance plus transparente et contrôle fédéral renforcé.',
     'blog.article.consiglio-federale-ruag-mro.imageAlt': 'Vue de Bellinzona, chef-lieu du Tessin',
+    'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet coupe jusqu\'à 580 emplois à Winterthour',
+    'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Le géant américain entame la procédure de consultation avec les travailleurs pour réduire le personnel. Procédures et avantages pour les employés concernés.',
+    'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Usine de fabrication Zimmer Biomet à Winterthour, canton de Zurich, où jusqu\'à 580 emplois seront supprimés',
 };
 
 export default blogMetaChFr;
