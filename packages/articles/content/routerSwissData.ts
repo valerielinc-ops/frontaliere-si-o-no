@@ -2082,6 +2082,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'carburanti-record-prezzi-2026': { it: 'carburanti-record-prezzi-2026', en: 'fuels-record-prices-2026', de: 'treibstoffpreise-record-2026', fr: 'prix-carburants-record-2026' },
  'prezzi-amministrati-concorrenza-potere': { it: 'prezzi-amministrati-concorrenza-potere', en: 'administered-prices-competition-purchasing-power', de: 'regulierte-preise-wettbewerb-kaufkraft', fr: 'prix-administres-concurrence-pouvoir-achat' },
  'stablecoin-franco-fase-operativa': { it: 'stablecoin-franco-fase-operativa', en: 'stablecoin-franc-operational-phase', de: 'stablecoin-franken-operativ-phase', fr: 'stablecoin-franc-phase-operative' },
+ 'accordo-clima-commercio-consultazione': { it: 'accordo-clima-commercio-consultazione', en: 'climate-commerce-agreement-consultation', de: 'klima-handels-vereinbarung-konsultation', fr: 'accord-climat-commerce-consultation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

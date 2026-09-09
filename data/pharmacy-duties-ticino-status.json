@@ -1,0 +1,19 @@
+{
+  "_source": "https://www.ofct.ch/farmacieturno/",
+  "_attemptedAt": "2026-09-09T09:30:00.861Z",
+  "_lastSuccessfulFetchAt": "2026-09-09T09:30:00.861Z",
+  "_successfulRegions": [
+    "mendrisiotto",
+    "luganese",
+    "bellinzonese",
+    "biasca-e-valli"
+  ],
+  "_preservedRegions": [],
+  "_errors": [],
+  "_warnings": [
+    "mendrisiotto: last source row retained as boundary-only and not published",
+    "luganese: last source row retained as boundary-only and not published",
+    "bellinzonese: last source row retained as boundary-only and not published",
+    "biasca-e-valli: last source row retained as boundary-only and not published"
+  ]
+}

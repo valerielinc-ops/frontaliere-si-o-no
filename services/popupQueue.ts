@@ -28,8 +28,8 @@ interface QueueEntry {
 
 let queue: QueueEntry[] = [];
 let activeId: string | null = null;
-let promotionTimer: ReturnType<typeof setTimeout> | null = null;
 const listeners = new Set<Listener>();
+let promotionTimer: ReturnType<typeof setTimeout> | null = null;
 
 function notify() {
  listeners.forEach((fn) => {
@@ -37,11 +37,14 @@ function notify() {
  });
 }
 
-function promoteNext() {
- if (promotionTimer !== null) {
+function cancelPromotionTimer() {
+ if (promotionTimer === null) return;
  clearTimeout(promotionTimer);
  promotionTimer = null;
- }
+}
+
+function promoteNext() {
+ cancelPromotionTimer();
  if (queue.length === 0) {
  activeId = null;
  notify();
@@ -109,7 +112,11 @@ export function requestSlot(id: string, priority: number): boolean {
 export function releaseSlot(id: string) {
  queue = queue.filter((e) => e.id !== id);
  if (activeId === id) {
- promoteNext();
+  promoteNext();
+ } else if (queue.length === 0 && promotionTimer !== null) {
+  cancelPromotionTimer();
+  activeId = null;
+  notify();
  }
 }
 

@@ -27,6 +27,7 @@ import type {
  GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId,
  GlossaryTermId, BorderCrossingId,
 } from '@/services/router';
+import type { PharmacyPath } from '@/services/pharmacies/paths';
 import { setLocale, onLocaleChange, type Locale } from '@/services/i18n';
 import { hasStaticArticleFallback, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
 import { prefetchTab } from '@/services/prefetch';
@@ -87,6 +88,7 @@ export interface NavigationState {
  fiscoSubTab: FiscoSubTab;
  guidaSubTab: GuidaSubTab;
  vitaSubTab: VitaSubTab;
+ pharmacyPath: PharmacyPath | null;
  statsSubTab: StatsSubTab;
  blogArticle: BlogArticleId | null;
  /** Active article section for the `blog` tab: cross-border or Switzerland-wide. */
@@ -118,6 +120,7 @@ export interface NavigationState {
  setFiscoSubTab: Dispatch<SetStateAction<FiscoSubTab>>;
  setGuidaSubTab: Dispatch<SetStateAction<GuidaSubTab>>;
  setVitaSubTab: Dispatch<SetStateAction<VitaSubTab>>;
+ setPharmacyPath: Dispatch<SetStateAction<PharmacyPath | null>>;
  setStatsSubTab: Dispatch<SetStateAction<StatsSubTab>>;
  setBlogArticle: Dispatch<SetStateAction<BlogArticleId | null>>;
  setBlogSection: Dispatch<SetStateAction<'frontaliere' | 'svizzera'>>;
@@ -165,6 +168,7 @@ export function useNavigationState(): NavigationState {
  const [fiscoSubTab, setFiscoSubTab] = useState<FiscoSubTab>(initialRoute.route.fiscoSubTab || 'tax-return');
  const [guidaSubTab, setGuidaSubTab] = useState<GuidaSubTab>(initialRoute.route.guidaSubTab || 'first-day');
  const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
+ const [pharmacyPath, setPharmacyPath] = useState<PharmacyPath | null>(initialRoute.route.pharmacyPath || null);
  const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
  const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
  const [blogSection, setBlogSection] = useState<'frontaliere' | 'svizzera'>(initialRoute.route.blogSection || 'frontaliere');
@@ -394,6 +398,7 @@ export function useNavigationState(): NavigationState {
  if (route.taxReturnCountry) setTaxReturnCountry(route.taxReturnCountry);
  if (route.guidaSubTab) setGuidaSubTab(route.guidaSubTab);
  if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
+ setPharmacyPath(route.pharmacyPath || null);
  if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
  setBlogArticle(route.blogArticle || null);
  setBlogSection(route.blogSection || 'frontaliere');
@@ -597,6 +602,7 @@ export function useNavigationState(): NavigationState {
  }
 
  setActiveTab(tab as ActiveTab);
+ setPharmacyPath(null);
  const route: AppRoute = { activeTab: tab as ActiveTab };
  if (tab === 'confronti' && subTab) { route.confrontiSubTab = subTab as ConfrontiSubTab; setConfrontiSubTab(subTab as ConfrontiSubTab); }
  if (tab === 'fisco' && subTab) { route.fiscoSubTab = subTab as FiscoSubTab; setFiscoSubTab(subTab as FiscoSubTab); }
@@ -647,6 +653,7 @@ export function useNavigationState(): NavigationState {
  // handleTabChange — uses functional setter to capture previousTab without stale closure
  const handleTabChange = useCallback((tab: ActiveTab) => {
  enableRuntimeSeo();
+ setPharmacyPath(null);
  setActiveTab(prevTab => {
  Analytics.trackTabNavigation(prevTab, tab);
  if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: prevTab });
@@ -690,6 +697,7 @@ export function useNavigationState(): NavigationState {
  // handleSearchNavigate
  const handleSearchNavigate = useCallback((tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => {
  enableRuntimeSeo();
+ setPharmacyPath(null);
  suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
  setActiveTab(tab as ActiveTab);
  if (tab !== 'calculator') setSeoLanding(null);
@@ -806,12 +814,12 @@ export function useNavigationState(): NavigationState {
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
- if (!isInitialMount.current && !staticOverlay) {
+ if (!isInitialMount.current && !staticOverlay && !pharmacyPath) {
  pushRoute(route);
  if (!window.location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }
- }, [vitaSubTab]);
+ }, [vitaSubTab, pharmacyPath]);
 
  // calcolatore
  useEffect(() => {
@@ -960,13 +968,13 @@ export function useNavigationState(): NavigationState {
 
  return {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
- guidaSubTab, vitaSubTab, statsSubTab,
+ guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
  blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus,
  notFoundPath, jobBoardFilterParams, staticOverlay,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
- setGuidaSubTab, setVitaSubTab, setStatsSubTab,
+ setGuidaSubTab, setVitaSubTab, setPharmacyPath, setStatsSubTab,
  setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,

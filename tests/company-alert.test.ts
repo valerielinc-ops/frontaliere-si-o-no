@@ -267,6 +267,14 @@ describe('token-mode Cloud Function accepts a company-only alert (#5012)', () =>
     expect(fn).toBeTruthy();
     expect(aliases).toBeTruthy();
     // eslint-disable-next-line no-new-func
+    const mirrorAliases = new Function(`${aliases}; return BRAND_ALIAS_TO_CANONICAL;`)() as Record<string, string>;
+    const sourceAliases = Object.fromEntries(
+      Object.values(BRAND_CANONICAL_MAP).flatMap(({ canonical, aliases: brandAliases }) => (
+        brandAliases.map((alias) => [alias, canonical])
+      )),
+    );
+    expect(mirrorAliases).toEqual(sourceAliases);
+    // eslint-disable-next-line no-new-func
     const mirror = new Function(`${aliases}; ${fn}; return normalizeCompanyAlertKey;`)() as (v: string) => string;
     for (const name of ['Board International', 'Bürgenstock Hotels & Resort', 'Lidl Schweiz AG', 'Coop', '']) {
       expect(mirror(name)).toBe(baseCompanySlug(name, name));

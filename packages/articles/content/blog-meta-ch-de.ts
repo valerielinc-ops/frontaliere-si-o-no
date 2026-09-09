@@ -6169,6 +6169,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.stablecoin-franco-fase-operativa.title': 'Stablecoin in Franken: Projekt geht in Betrieb',
     'blog.article.stablecoin-franco-fase-operativa.excerpt': 'Das CHFD-Projekt für eine digitale Währung, die an den Schweizer Franken gekoppelt ist, befindet sich in der Testphase. Neun Schweizer Finanzpartner experimentieren bis Ende 2026 mit konkreten Verwendungen der Stablecoin.',
     'blog.article.stablecoin-franco-fase-operativa.imageAlt': 'Modernes Schweizer Fintech-Büro mit Finanzfachleuten, die Blockchain- und Stablecoin-Technologie auf digitalen Bildschirmen verwalten',
+    'blog.article.accordo-clima-commercio-consultazione.title': 'Klima- und Handelsabkommen: Konsultation abgeschlossen',
+    'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Bundesrat schliesst ACCTS-Konsultation ab: 42 von 45 Befürwortern. Klima-, Handels- und Nachhaltigkeitsabkommen zwischen der Schweiz, Costa Rica, Island und Neuseeland.',
+    'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Schweizer Bundesparlament, Ort von Entscheidungen zur internationalen Handelspolitik',
 };
 
 export default blogMetaChDe;
