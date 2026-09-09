@@ -6172,6 +6172,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accordo-clima-commercio-consultazione.title': 'Accordo climatico e commercio: consultazione conclusa',
     'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Consiglio federale conclude consultazione ACCTS: 42 favorevoli su 45. Accordo su clima, commercio e sostenibilità tra Svizzera, Costa Rica, Islanda e Nuova Zelanda.',
     'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Aula parlamentare federale svizzera, sede delle decisioni sulla politica commerciale internazionale',
+    'blog.article.internet-banda-larga-svizzera.title': 'Internet veloce in tutta la Svizzera: piano federale',
+    'blog.article.internet-banda-larga-svizzera.excerpt': 'Consiglio federale adotta programma da 730 milioni CHF per banda larga nelle zone poco popolate. Obiettivo: 1 Gb/s entro il 2030.',
+    'blog.article.internet-banda-larga-svizzera.imageAlt': 'Villaggio alpino svizzero con infrastrutture digitali: fibra ottica in zone rurali',
 };
 
 export default blogMetaChIt;

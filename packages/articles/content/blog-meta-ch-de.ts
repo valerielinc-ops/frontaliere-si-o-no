@@ -6172,6 +6172,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accordo-clima-commercio-consultazione.title': 'Klima- und Handelsabkommen: Konsultation abgeschlossen',
     'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Bundesrat schliesst ACCTS-Konsultation ab: 42 von 45 Befürwortern. Klima-, Handels- und Nachhaltigkeitsabkommen zwischen der Schweiz, Costa Rica, Island und Neuseeland.',
     'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Schweizer Bundesparlament, Ort von Entscheidungen zur internationalen Handelspolitik',
+    'blog.article.internet-banda-larga-svizzera.title': 'Schnelles Internet in der ganzen Schweiz: Bundesplan',
+    'blog.article.internet-banda-larga-svizzera.excerpt': 'Der Bundesrat verabschiedet ein Breitbandprogramm über CHF 730 Mio. in dünn besiedelten Gebieten. Ziel: 1 Gb/s bis 2030.',
+    'blog.article.internet-banda-larga-svizzera.imageAlt': 'Schweizer Alpendorf mit Glasfaser-Infrastruktur in ländlichen Gebieten',
 };
 
 export default blogMetaChDe;

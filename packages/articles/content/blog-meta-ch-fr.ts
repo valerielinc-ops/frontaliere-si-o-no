@@ -6172,6 +6172,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.accordo-clima-commercio-consultazione.title': 'Accord climatique et commerce : consultation conclue',
     'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Conseil fédéral conclut consultation ACCTS : 42 voix sur 45. Accord sur le climat, le commerce et la durabilité entre la Suisse, le Costa Rica, l\'Islande et la Nouvelle-Zélande.',
     'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Chambre fédérale suisse du Parlement, lieu des décisions en matière de politique commerciale',
+    'blog.article.internet-banda-larga-svizzera.title': 'Internet rapide dans toute la Suisse : plan fédéral',
+    'blog.article.internet-banda-larga-svizzera.excerpt': 'Le Conseil fédéral adopte un programme de 730 millions de CHF pour le haut débit dans les zones faiblement peuplées. Objectif : 1 Gbit/s d\'ici 2030.',
+    'blog.article.internet-banda-larga-svizzera.imageAlt': 'Village alpin suisse avec infrastructure fibre optique en zones rurales',
 };
 
 export default blogMetaChFr;

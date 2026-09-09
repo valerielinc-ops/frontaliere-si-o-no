@@ -6172,6 +6172,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accordo-clima-commercio-consultazione.title': 'Climate Agreement and Trade: Consultation concluded',
     'blog.article.accordo-clima-commercio-consultazione.excerpt': 'Federal Council concludes accts consultation: 42 in favour out of 45. Agreement on climate, trade and sustainability between Switzerland, Costa Rica, Iceland and New Zealand.',
     'blog.article.accordo-clima-commercio-consultazione.imageAlt': 'Swiss federal parliament chamber, seat of international trade policy decisions',
+    'blog.article.internet-banda-larga-svizzera.title': 'Fast internet throughout Switzerland: federal plan',
+    'blog.article.internet-banda-larga-svizzera.excerpt': 'Federal Council adopts CHF 730 million programme for broadband in sparsely populated areas. Target: 1 Gb/s by 2030.',
+    'blog.article.internet-banda-larga-svizzera.imageAlt': 'Swiss Alpine village with modern fiber optic infrastructure in rural mountains',
 };
 
 export default blogMetaChEn;
