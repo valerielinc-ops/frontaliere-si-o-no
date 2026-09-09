@@ -48,7 +48,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-08T23:31:55.369Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -236,7 +235,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-08T23:31:55.367Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -330,7 +328,8 @@
         "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -348,7 +347,8 @@
           "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -715,8 +715,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

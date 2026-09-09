@@ -307,7 +307,6 @@
           "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -470,7 +469,6 @@
           "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -631,7 +629,6 @@
           "directeur-trice-direv-etat-de-vaud-epalinges"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -902,7 +899,6 @@
           "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -1337,7 +1333,6 @@
           "leiter-in-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1444,7 +1439,6 @@
           "teamleiter-in-psychologieprofil-etat-de-vaud-administration-cantonale-vaudoise-coppet"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1558,7 +1552,6 @@
           "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -1674,7 +1667,6 @@
           "bibliothekar-archivar-beim-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1789,7 +1781,6 @@
           "personalfachperson-etat-de-vaud-administration-cantonale-vaudoise-gland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1895,7 +1886,6 @@
           "hr-projektleiter-in-attraktivitat-und-hr-entwicklung-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -2540,7 +2530,6 @@
           "comptable-etat-de-vaud-lausanne-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2866,7 +2855,6 @@
           "gestionnaire-de-dossiers-domaine-judiciaire-etat-de-vaud-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -3029,7 +3017,6 @@
           "gestionnaire-de-dossiers-en-prefecture-etat-de-vaud-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:24.618Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -3190,7 +3177,6 @@
           "stagiaire-master-ou-post-master-en-sante-publique-ou-domaine-assimile-etat-de-vaud"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 77500,
       "salaryMax": 108000,
@@ -3663,16 +3649,17 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5866",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestionnaire-de-dossiers-etat-de-vaud-lausanne"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-de-dossiers-etat-de-vaud-lausanne"
+          "gestionnaire-de-dossiers-etat-de-vaud-lausanne",
+          "gestionnaire-administratif-ve-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "previousSlugs": [
+        "gestionnaire-de-dossiers-etat-de-vaud-lausanne",
+        "gestionnaire-administratif-ve-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3685,7 +3672,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5816",
