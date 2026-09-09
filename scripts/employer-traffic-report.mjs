@@ -344,7 +344,7 @@ export function aggregateGa4Rows(rows) {
   }));
 }
 
-function resolveGa4Employers(rows, companies) {
+export function resolveGa4Employers(rows, companies) {
   const aliasToKeys = identityIndex(companies);
   const employers = new Map();
   const residuals = Object.create(null);
@@ -353,7 +353,6 @@ function resolveGa4Employers(rows, companies) {
   for (const row of rows || []) {
     const sourceObserved = Math.max(0, numberOr(row.observed, row.clicks));
     observed += sourceObserved;
-    if (!sourceObserved) continue;
     const resolved = resolveCompany(row.key, aliasToKeys);
     if (!resolved.key) {
       residuals[resolved.reason] = (residuals[resolved.reason] || 0) + sourceObserved;

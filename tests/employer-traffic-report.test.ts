@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { aggregateGa4Rows } from '../scripts/employer-traffic-report.mjs';
+import { aggregateGa4Rows, resolveGa4Employers } from '../scripts/employer-traffic-report.mjs';
 
 function ga4Row(key: string, sponsored: boolean, users: number, sessions: number, clicks: number) {
   return {
@@ -36,5 +36,16 @@ describe('aggregateGa4Rows', () => {
   it('returns [] for empty rows', () => {
     expect(aggregateGa4Rows([])).toEqual([]);
     expect(aggregateGa4Rows(undefined as unknown as [])).toEqual([]);
+  });
+
+  it('keeps a zero-valued event row in the resolved employer population', () => {
+    const companies = new Map([
+      ['acme', { key: 'acme', name: 'Acme SA', aliases: new Set(['acme']) }],
+    ]);
+    const [row] = aggregateGa4Rows([ga4Row('acme', false, 0, 0, 0)]);
+    const result = resolveGa4Employers([row], companies);
+
+    expect(result.employers).toHaveLength(1);
+    expect(result.employers[0]).toMatchObject({ key: 'acme', observed: 0, applyClicks: 0 });
   });
 });

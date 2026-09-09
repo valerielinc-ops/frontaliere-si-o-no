@@ -97,6 +97,11 @@ function generatedEventId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+/** Create one stable key for all telemetry emitted by a single UI action. */
+export function createPublisherApplyEventId(): string {
+  return generatedEventId();
+}
+
 function timestampMillis(value: unknown): number | null {
   if (typeof value === 'number' && Number.isFinite(value)) return value;
   if (value instanceof Date && Number.isFinite(value.getTime())) return value.getTime();
@@ -183,5 +188,5 @@ export async function trackPublisherApplyClick(
   options: { eventId?: string } = {},
 ): Promise<void> {
   const eventDocId = publisherJobId(job);
-  return incrementApplyClick(eventDocId, options.eventId || generatedEventId());
+  return incrementApplyClick(eventDocId, options.eventId || createPublisherApplyEventId());
 }

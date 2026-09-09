@@ -28,7 +28,7 @@ const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRa
 const PartnerRecommendations = lazyRetry(() => import('@/components/shared/PartnerRecommendations'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
-import { trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
+import { createPublisherApplyEventId, trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
@@ -6248,9 +6248,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(undefined);
  };
 
+ const trackPublisherApplySignals = (job: JobListing, contentType: string): string => {
+ const eventId = createPublisherApplyEventId();
+ Analytics.trackEvent('select_content', {
+ content_type: contentType,
+ item_id: `${job.company}_${job.title}`,
+ emission_id: eventId,
+ });
+ Analytics.trackEvent('job_apply', {
+ employer_key: canonicalCompanyRouteSlug(job.company, job.companyKey),
+ is_sponsored: job.featured ? 'sponsored' : 'free',
+ job_slug: job.slug || job.id,
+ emission_id: eventId,
+ });
+ return eventId;
+ };
+
  const handleApply = (job: JobListing) => {
- Analytics.trackSelectContent('job_board_apply', `${job.company}_${job.title}`);
- Analytics.trackJobApply(canonicalCompanyRouteSlug(job.company, job.companyKey), Boolean(job.featured), job.slug || job.id);
+ const eventId = trackPublisherApplySignals(job, 'job_board_apply');
  // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
@@ -6258,13 +6273,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // bug). Scroll to the in-page form instead.
  const mode = (job as { applyMode?: string }).applyMode;
  if (mode === 'in_house' || mode === 'forward_email') {
- trackPublisherApplyClick(job as { publisherJobId?: string | null });
+ trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  return;
  }
  // External publisher ads: count the apply click too (session-debounced, so it
  // never double-counts with the header logo/title links). No-op for crawled jobs.
- trackPublisherApplyClick(job as { publisherJobId?: string | null });
+ trackPublisherApplyClick(job as { publisherJobId?: string | null }, { eventId: eventId });
  if (job.url) {
  window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
  // Mutate the page in the same tick as the hand-off — the confirmation is the
@@ -8690,9 +8705,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  target="_blank"
  rel="nofollow noopener noreferrer"
  onClick={() => {
- Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`);
- Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
+ const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply');
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
  }}
  >
  {t('jobBoard.apply')}
@@ -8798,9 +8812,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`);
- Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
+ const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_logo');
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -8827,9 +8840,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rel="nofollow noopener noreferrer"
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
- Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`);
- Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
- trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
+ const eventId = trackPublisherApplySignals(selectedJob, 'job_board_apply_header_title');
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null }, { eventId: eventId });
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
