@@ -67,6 +67,7 @@ import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import {
   bucketState,
+  dailyKeyFromBucketBody,
   dailyBucketInfo,
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
@@ -97,6 +98,9 @@ export function dailyBucketQueueDecision(issue) {
   const info = dailyBucketInfo(issue?.title || '');
   if (!info) return { eligible: true, reason: null, item: null };
   if (bucketState(issue?.body || '') !== 'sealed') return { eligible: false, reason: 'bucket-collecting', item: null };
+  if (dailyKeyFromBucketBody(issue?.body || '') !== info.dailyKey) {
+    return { eligible: false, reason: 'mismatched-daily-key', item: null };
+  }
   if (!hasStableItemIds(issue?.body || '')) return { eligible: false, reason: 'missing-stable-item-id', item: null };
   if (!hasStableItemIdsForDailyKey(issue?.body || '', info.dailyKey)) {
     return { eligible: false, reason: 'mismatched-stable-item-id', item: null };

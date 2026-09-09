@@ -141,8 +141,11 @@ export function partitionDailyBucketItems(body, opts = {}) {
   if (!parsed.length || !hasStableItemIds(src)) {
     return { head: src, valid: [], demoted: [], unparsed: true };
   }
-  const dailyKey = String(opts.dailyKey || dailyKeyFromBucketBody(src) || '').trim();
-  if (!hasStableItemIdsForDailyKey(parsed, dailyKey)) {
+  const bodyDailyKey = dailyKeyFromBucketBody(src);
+  const dailyKey = String(opts.dailyKey || bodyDailyKey || '').trim();
+  if (!bodyDailyKey || (opts.dailyKey && bodyDailyKey !== dailyKey)
+      || !hasStableItemIdsForDailyKey(parsed, bodyDailyKey)
+      || !hasStableItemIdsForDailyKey(parsed, dailyKey)) {
     return { head: src, valid: [], demoted: [], duplicates: [], unparsed: true };
   }
   const firstHeadingAt = parsed[0].start;
@@ -220,11 +223,16 @@ export function mergeDailyBucketBodies(primary, duplicate) {
   if (!primaryInfo || dailyBucketIdentity(primary.title) !== dailyBucketIdentity(duplicate?.title)) return null;
   const primaryBody = String(primary?.body || '');
   const duplicateBody = String(duplicate?.body || '');
+  const primaryBodyKey = dailyKeyFromBucketBody(primaryBody);
+  const duplicateBodyKey = dailyKeyFromBucketBody(duplicateBody);
   const primaryItems = parseFollowupItems(primaryBody);
   const duplicateItems = parseFollowupItems(duplicateBody);
   if (!primaryItems.length || !duplicateItems.length
-      || !hasStableItemIdsForDailyKey(primaryBody, primaryInfo.dailyKey)
-      || !hasStableItemIds(duplicateBody)
+      || primaryBodyKey !== primaryInfo.dailyKey
+      || duplicateBodyKey !== duplicateInfo?.dailyKey
+      || primaryBodyKey !== duplicateBodyKey
+      || !hasStableItemIdsForDailyKey(primaryBody, primaryBodyKey)
+      || !hasStableItemIdsForDailyKey(duplicateBody, duplicateBodyKey)
       || !bucketState(primaryBody) || !bucketState(duplicateBody)
       || !isLosslessSplit(primaryBody) || !isLosslessSplit(duplicateBody)
       || primaryItems.length + duplicateItems.length > 999) return null;
@@ -308,6 +316,9 @@ export function decideDailyMintGate(issue, opts = {}) {
   // also protects a bucket that was already sealed from a failed concurrent pass.
   if (opts.triageComplete === false) {
     return { action: 'skip', reason: 'triage-incomplete', valid: [], demoted: [], duplicates: [], body: null };
+  }
+  if (!daily || dailyKeyFromBucketBody(src) !== daily.dailyKey) {
+    return { action: 'skip', reason: 'mismatched-daily-key', valid: [], demoted: [], duplicates: [], body: null };
   }
   const { head, valid, demoted, duplicates = [], unparsed } = partitionDailyBucketItems(src, {
     ...opts,

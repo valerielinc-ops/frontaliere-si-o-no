@@ -188,6 +188,22 @@ describe('daily follow-up identity and dedup', () => {
       `FU-${DAY}-001`,
       `FU-${DAY}-002`,
     ]);
+
+    const mismatchedPrimaryBody = body(item(`FU-${DAY}-001`)).replace(
+      `- Daily key: ${DAY}`,
+      '- Daily key: 2026-09-08',
+    );
+    expect(mergeDailyBucketBodies(
+      { title, body: mismatchedPrimaryBody },
+      { title, body: body(item(`FU-${DAY}-001`).replace('PR #8101', 'PR #8102')) },
+    )).toBeNull();
+    expect(mergeDailyBucketBodies(
+      { title, body: body(item(`FU-${DAY}-001`)) },
+      {
+        title: dailyBucketTitle('2026-09-08', 'owner/repo', 1),
+        body: body(item('FU-2026-09-08-001')).replace(`- Daily key: ${DAY}`, '- Daily key: 2026-09-08'),
+      },
+    )).toBeNull();
   });
 });
 
@@ -247,6 +263,18 @@ describe('daily item parsing and lifecycle', () => {
       title: dailyBucketTitle(DAY, 'owner/repo', 1),
       body: wrong,
     })).toMatchObject({ eligible: false, reason: 'mismatched-stable-item-id' });
+
+    const mismatchedBodyKey = body(item(`FU-${DAY}-001`))
+      .replace(`- Daily key: ${DAY}`, '- Daily key: 2026-09-08')
+      .replace('- State: collecting', '- State: sealed');
+    expect(decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: mismatchedBodyKey,
+    })).toMatchObject({ action: 'skip', reason: 'mismatched-daily-key' });
+    expect(dailyBucketQueueDecision({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: mismatchedBodyKey,
+    })).toMatchObject({ eligible: false, reason: 'mismatched-daily-key' });
   });
 });
 
