@@ -11622,6 +11622,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.casnate-bernate-trasferimento.title': 'Leben in Casnate, Arbeiten im Tessin',
     'blog.article.casnate-bernate-trasferimento.excerpt': 'Umzug nach Casnate und Arbeit im Tessin: Quellensteuer, AHV/BVG und Verfahren für Grenzgänger ab 2024.',
     'blog.article.casnate-bernate-trasferimento.imageAlt': 'Blick auf Mendrisio im Sonnenuntergang, Tessin, in der Nähe der Schweizer-italienischen Grenze',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Grenzgänger in Lugano: Anfrage der Gemeinde',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht hinterfragt bei der Stadtverwaltung Lugano die Einstellung von Grenzgängern ab 2024. Er bittet um Klarstellung hinsichtlich der Anzahl, der betroffenen Abteilungen und der Auswahlkriterien im öffentlichen Sektor.',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano, wo die Gemeindeveraltung Einstellungen von Grenzgängern verwaltet',
 };
 
 export default blogMetaDe;
