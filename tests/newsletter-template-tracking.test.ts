@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/newsletter-template.mjs');
 const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT, decayFactor } = await import('@/services/newsletter-content.mjs');
+const { NEWSLETTER_JOB_LIMIT } = await import('@/functions/src/lib/jobEmailRankingLinks.js');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
 const SAMPLE_FACT = { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' };
@@ -92,6 +93,27 @@ describe('newsletter template v2', () => {
     });
 
     expect(html).toContain('Questa settimana il cambio CHF/EUR sale!');
+  });
+
+  it('renders the shared newsletter job limit', () => {
+    const matchedJobs = Array.from({ length: NEWSLETTER_JOB_LIMIT + 1 }, (_, index) => ({
+      title: `Limit Test Job ${index}`,
+      company: `Company ${index}`,
+      location: 'Lugano',
+      url: `/cerca-lavoro-ticino/limit-test-job-${index}/`,
+    }));
+
+    const html = buildNewsletter({
+      exchangeRate: SAMPLE_EXCHANGE,
+      matchedJobs,
+      featuredTool: SAMPLE_TOOL,
+      weeklyFact: SAMPLE_FACT,
+      locale: 'it',
+      unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+    });
+
+    expect(html.match(/class="job-title"/g)).toHaveLength(NEWSLETTER_JOB_LIMIT);
+    expect(html).not.toContain(`Limit Test Job ${NEWSLETTER_JOB_LIMIT}`);
   });
 });
 

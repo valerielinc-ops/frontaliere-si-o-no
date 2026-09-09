@@ -14,6 +14,7 @@
  * `jobEmailRanking.js`, che il browser non deve raggiungere.
  */
 
+export const NEWSLETTER_JOB_LIMIT = 4;
 export const MAX_SAFE_SCORE = 1_000_000;
 
 export function finiteParam(value, fallback, { min = -Infinity, max = Infinity } = {}) {

@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  NEWSLETTER_JOB_LIMIT,
+  getNewsletterCandidateLimit,
+  rankNewsletterJobs,
+} from '../scripts/send-newsletter.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -81,13 +86,15 @@ describe('newsletter article header images', () => {
 });
 
 describe('newsletter job selection defaults', () => {
-  it('send-newsletter.mjs requests 4 jobs per subscriber', () => {
-    const content = fs.readFileSync(path.join(ROOT, 'scripts', 'send-newsletter.mjs'), 'utf-8');
-    const calls = content.match(/matchJobsForSubscriber\([^)]+\)/g) || [];
-    expect(calls.length).toBeGreaterThan(0);
-    for (const call of calls) {
-      expect(call).toContain(', 4');
-    }
+  it('keeps four rendered jobs while treatment inspects a wider candidate pool', () => {
+    const candidates = Array.from({ length: getNewsletterCandidateLimit('treatment') }, (_, index) => ({
+      slug: `job-${index}`,
+      relevanceScore: 1,
+    }));
+
+    expect(getNewsletterCandidateLimit('control')).toBe(NEWSLETTER_JOB_LIMIT);
+    expect(getNewsletterCandidateLimit('treatment')).toBeGreaterThan(NEWSLETTER_JOB_LIMIT);
+    expect(rankNewsletterJobs(candidates, { variant: 'treatment' })).toHaveLength(NEWSLETTER_JOB_LIMIT);
   });
 
   it('newsletter-content.mjs quality gate requires 120+ chars', () => {
