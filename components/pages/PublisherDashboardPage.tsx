@@ -1,13 +1,13 @@
 /**
  * PublisherDashboardPage — a publisher's own ads with per-ad metrics, presented
  * as an engaging analytics dashboard:
- *  - an animated "performance" overview band (count-up KPIs + conversion rate),
- *  - per-ad cards with a real views→clicks→applications conversion funnel,
+ *  - an animated "performance" overview band (count-up KPIs + intent/click rate),
+ *  - per-ad cards with a real views→intent clicks→applications funnel,
  *  - a gold "Sponsorizzato" tier identity and a best-performer crown.
  *
  * Reads `publisher_jobs` where publisherUid == current user, then the matching
  * `publisher_job_events/{adId}` counters (views, apply-clicks) written by
- * services/publisherAnalyticsService.ts. All aggregates/conversion rates are
+ * services/publisherAnalyticsService.ts. All aggregates/intent rates are
  * derived client-side from data already loaded — no extra reads.
  */
 
@@ -85,6 +85,43 @@ function slugifyCompanyName(s: string): string {
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+export type CrawledTrafficState =
+  | { status: 'loading' }
+  | { status: 'source-unavailable' }
+  | { status: 'data-missing' }
+  | { status: 'zero' }
+  | { status: 'available'; candidates: number };
+
+type CrawledTrafficSnapshot = {
+  id: string;
+  exists: () => boolean;
+  data: () => unknown;
+};
+
+/**
+ * Keep the source states distinct in the UI. A missing Firestore document is
+ * not an observed zero, and a document without a usable count is not usable
+ * data. Missing alias documents are ignored when at least one candidate key
+ * resolves, because the lookup intentionally tries several naming variants.
+ */
+export function classifyCrawledTrafficState(
+  snapshots: readonly CrawledTrafficSnapshot[],
+): Exclude<CrawledTrafficState, { status: 'loading' }> {
+  const availableSnapshots = snapshots.filter((snapshot) => snapshot.exists());
+  if (availableSnapshots.length === 0) return { status: 'source-unavailable' };
+
+  let candidates = 0;
+  for (const snapshot of availableSnapshots) {
+    const value = (snapshot.data() as Record<string, unknown> | null)?.candidates;
+    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+      return { status: 'data-missing' };
+    }
+    candidates += value;
+  }
+
+  return candidates === 0 ? { status: 'zero' } : { status: 'available', candidates };
+}
+
 const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
 const ARCHIVE_ENDPOINT =
@@ -123,9 +160,9 @@ function CountUpValue({ value, active, decimals = 0 }: { value: number; active: 
 }
 
 /**
- * Conversion funnel: views (100%) → apply clicks → applications, each bar
+ * Intent funnel: views (100%) → apply clicks → applications, each bar
  * scaled to the ad's own views. Bars reveal with a transform (never width) so
- * the motion stays jank-free. Conveys real conversion, not decoration.
+ * the motion stays jank-free. Conveys observed steps, not a conversion claim.
  */
 function FunnelBar({
   icon,
@@ -172,7 +209,7 @@ const PublisherDashboardPage: React.FC = () => {
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
   const [apps, setApps] = useState<ApplicationRow[]>([]);
-  const [crawledCandidates, setCrawledCandidates] = useState(0);
+  const [crawledTraffic, setCrawledTraffic] = useState<CrawledTrafficState>({ status: 'loading' });
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
   const [barsMounted, setBarsMounted] = useState(false);
@@ -313,6 +350,7 @@ const PublisherDashboardPage: React.FC = () => {
     let cancelled = false;
     (async () => {
       setState('loading');
+      setCrawledTraffic({ status: 'loading' });
       try {
         const db = (await import('firebase/firestore')).getFirestore(await getApp());
         const { collection, query, where, orderBy, getDocs, getDoc, doc } = await import('firebase/firestore');
@@ -382,7 +420,7 @@ const PublisherDashboardPage: React.FC = () => {
           // applications optional / index building
         }
 
-        // Crawled "free traffic" we already send this employer (proof + upsell):
+        // Crawled free-listing traffic signal (source status + possible upsell):
         // Build candidate keys from all publisher job docs to handle naming variants
         // (e.g. publisher entered "Migros SA" but PostHog key is "migros"):
         //   1. company.companyKey (pre-computed slug from publisher profile)
@@ -390,7 +428,7 @@ const PublisherDashboardPage: React.FC = () => {
         //   3. legal-suffix-stripped stem (strips -sa/-ag/-gmbh/… from the end)
         // All unique keys are fetched in parallel; candidates are deduplicated by
         // Firestore doc id before summing so the same doc is never counted twice.
-        let crawledCandidates = 0;
+        let nextCrawledTraffic: CrawledTrafficState = { status: 'source-unavailable' };
         try {
           const candidateKeys = Array.from(new Set(
             snap.docs.flatMap((d) => {
@@ -412,21 +450,22 @@ const PublisherDashboardPage: React.FC = () => {
               candidateKeys.map((key) => getDoc(doc(db, 'employer_crawled_traffic', key))),
             );
             const seen = new Set<string>();
-            for (const ct of snapshots) {
-              if (ct.exists() && !seen.has(ct.id)) {
-                seen.add(ct.id);
-                crawledCandidates += Number((ct.data() as Record<string, unknown>)?.candidates) || 0;
-              }
-            }
+            const uniqueSnapshots = snapshots.filter((ct) => {
+              if (!ct.exists() || seen.has(ct.id)) return false;
+              seen.add(ct.id);
+              return true;
+            });
+            nextCrawledTraffic = classifyCrawledTrafficState(uniqueSnapshots);
           }
         } catch {
-          // optional — panel just stays hidden if no match / not yet populated
+          // The source is unavailable; keep that distinct from an observed zero.
+          nextCrawledTraffic = { status: 'source-unavailable' };
         }
 
         if (!cancelled) {
           setRows(result);
           setApps(appRows);
-          setCrawledCandidates(crawledCandidates);
+          setCrawledTraffic(nextCrawledTraffic);
           setState('ready');
           // Defer two frames so the funnel bars animate from 0 on first paint.
           requestAnimationFrame(() =>
@@ -472,9 +511,9 @@ const PublisherDashboardPage: React.FC = () => {
     const views = rows.reduce((s, r) => s + r.views, 0);
     const clicks = rows.reduce((s, r) => s + r.applyClicks, 0);
     const applications = apps.length;
-    // Conversion = apply-clicks per 100 views (intent-to-apply rate), 1 decimal.
-    const conversion = views > 0 ? Math.round((clicks / views) * 1000) / 10 : 0;
-    return { views, clicks, applications, conversion };
+    // Intent/click rate = apply-clicks per 100 views, 1 decimal.
+    const intentRate = views > 0 ? Math.round((clicks / views) * 1000) / 10 : 0;
+    return { views, clicks, applications, intentRate };
   }, [rows, apps]);
 
   // Best performer = the ad with the most views (only worth crowning if >0 and
@@ -554,6 +593,10 @@ const PublisherDashboardPage: React.FC = () => {
   // A draft that was previously in pending_payment (reaped by the stale-checkout
   // reaper) has pendingPaymentAt set. Offer a one-click re-checkout CTA.
   const isReapedDraft = (r: DashboardRow) => r.status === 'draft' && r.pendingPaymentAt != null;
+  const crawledTrafficPanelClass =
+    crawledTraffic.status === 'available' || crawledTraffic.status === 'zero'
+      ? 'bg-success-subtle'
+      : 'bg-surface-alt';
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -653,7 +696,7 @@ const PublisherDashboardPage: React.FC = () => {
                 {[
                   { key: 'clicks', icon: <MousePointerClick className="w-4 h-4" />, value: totals.clicks, label: t('publisherDashboard.kpi.totalClicks'), suffix: '', decimals: 0 },
                   { key: 'apps', icon: <FileText className="w-4 h-4" />, value: totals.applications, label: t('publisherDashboard.kpi.totalApplications'), suffix: '', decimals: 0 },
-                  { key: 'conv', icon: <TrendingUp className="w-4 h-4" />, value: totals.conversion, label: t('publisherDashboard.kpi.conversion'), suffix: '%', decimals: 1 },
+                  { key: 'intent-rate', icon: <TrendingUp className="w-4 h-4" />, value: totals.intentRate, label: t('publisherDashboard.kpi.intentRate'), suffix: '%', decimals: 1 },
                 ].map((m) => (
                   <div key={m.key} className="rounded-2xl bg-surface p-4 border border-edge">
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-subtle text-link mb-2">
@@ -672,20 +715,37 @@ const PublisherDashboardPage: React.FC = () => {
             </div>
           </section>
 
-          {/* ── Crawled "free traffic we already send you" (proof + upsell) ── */}
-          {crawledCandidates > 0 && (
-            <section aria-labelledby="dash-crawled-heading" className="mb-8 animate-fade-in-up">
-              <h2 id="dash-crawled-heading" className="sr-only">{t('publisherDashboard.crawled.heading')}</h2>
-              <div className="rounded-3xl border border-edge bg-success-subtle p-6 sm:p-7">
-                <div className="text-2xl font-extrabold font-display text-strong">
-                  {crawledCandidates} {t('publisherDashboard.crawled.unit')}
-                </div>
-                <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
-              </div>
-            </section>
-          )}
+          {/* ── Crawled free-listing signal with an explicit source state ── */}
+          <section aria-labelledby="dash-crawled-heading" className="mb-8 animate-fade-in-up">
+            <h2 id="dash-crawled-heading" className="sr-only">{t('publisherDashboard.crawled.heading')}</h2>
+            <div className={`rounded-3xl border border-edge p-6 sm:p-7 ${crawledTrafficPanelClass}`} aria-live="polite">
+              {crawledTraffic.status === 'available' && (
+                <>
+                  <div className="text-2xl font-extrabold font-display text-strong">
+                    {crawledTraffic.candidates.toLocaleString('it-CH')} {t('publisherDashboard.crawled.unit')}
+                  </div>
+                  <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
+                </>
+              )}
+              {crawledTraffic.status === 'zero' && (
+                <>
+                  <div className="text-2xl font-extrabold font-display text-strong">
+                    0 {t('publisherDashboard.crawled.unit')}
+                  </div>
+                  <p className="mt-1 text-sm font-semibold text-strong">{t('publisherDashboard.crawled.zero')}</p>
+                  <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
+                </>
+              )}
+              {crawledTraffic.status === 'data-missing' && (
+                <p className="text-sm font-semibold text-strong">{t('publisherDashboard.crawled.dataMissing')}</p>
+              )}
+              {crawledTraffic.status === 'source-unavailable' && (
+                <p className="text-sm font-semibold text-strong">{t('publisherDashboard.crawled.sourceUnavailable')}</p>
+              )}
+            </div>
+          </section>
 
-          {/* ── Per-ad cards with conversion funnel ───────────────── */}
+          {/* ── Per-ad cards with intent funnel ────────────────────── */}
           <section aria-labelledby="dash-ads-heading">
             <h2 id="dash-ads-heading" className="text-lg font-bold font-display text-strong mb-4">
               {t('publisherDashboard.adsHeading')}
@@ -754,7 +814,7 @@ const PublisherDashboardPage: React.FC = () => {
                       <p className="text-xs text-muted mb-3 -mt-2">{modifiedLabel(r)}</p>
                     )}
 
-                    {/* Conversion funnel */}
+                    {/* Intent funnel */}
                     <div className="space-y-2.5">
                       <FunnelBar
                         icon={<Eye className="w-3.5 h-3.5" />}

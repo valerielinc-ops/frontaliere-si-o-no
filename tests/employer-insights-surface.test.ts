@@ -34,19 +34,23 @@ const missingSnapshot = (id: string) => ({
 
 describe('employer insights surface semantics', () => {
   it('does not present proxy metrics as candidates, published ads, or lost applications', () => {
-    expect(employerPage).toContain('Click / intento candidatura');
+    expect(employerPage).toContain('Click sul pulsante candidatura');
     expect(employerPage).toContain('Annunci con visualizzazioni');
     expect(employerPage).toContain('Tasso di intento');
 
     expect(employerPage).not.toContain('candidati inviati');
     expect(employerPage).not.toContain('annunci pubblicati');
     expect(employerPage).not.toContain('candidati lasciati sul tavolo');
+    expect(employerPage).not.toContain('totals.lost');
     expect(employerPage).not.toContain('diventa candidatura oggi');
     expect(employerPage).not.toContain('click in candidature dirette');
+    expect(employerPage).not.toContain('candidature direttamente');
   });
 
   it('uses an intent or click label for the publisher rate in every core locale', () => {
     for (const locale of localeFiles) {
+      expect(locale).toContain('publisherDashboard.kpi.intentRate');
+      expect(locale).not.toContain('publisherDashboard.kpi.conversion');
       expect(locale).not.toMatch(/Tasso di conversione|Conversion rate|Konversionsrate|Taux de conversion/);
     }
   });
