@@ -6133,6 +6133,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Aprire attività Appenzello Interno: costi e registrazione',
     'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Guida completa ad aprire un\'attività in Appenzello Interno: registrazione, capitale minimo e obblighi AVS, LPP, LAMal.',
     'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Ufficio amministrativo svizzero con documenti di registrazione al registro di commercio',
+    'blog.article.pa30-consultazione-agricola.title': 'PA30+: consultazione federale su agricoltura',
+    'blog.article.pa30-consultazione-agricola.excerpt': 'Consultazione PA30+ con tutti gli attori agroalimentari. Novità su voto online a Neuchâtel, malattie rare e fondi clima.',
+    'blog.article.pa30-consultazione-agricola.imageAlt': 'Paesaggio agricolo svizzero con prati alpini e boschi durante ondata di calore estivo',
 };
 
 export default blogMetaChIt;

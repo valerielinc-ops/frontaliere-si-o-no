@@ -6133,6 +6133,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Open Internal Appenzello activity: costs and registration',
     'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Complete guide to opening a business in Appenzello Interno: registration, minimum capital and AVS, LPP, LAMal obligations.',
     'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Swiss administrative office with commercial register documents and official paperwork',
+    'blog.article.pa30-consultazione-agricola.title': 'PA30+: Federal Consultation on Agriculture',
+    'blog.article.pa30-consultazione-agricola.excerpt': 'PA30+ consultation with all agri-food stakeholders. News about online voting in Neuchâtel, rare diseases and climate funds.',
+    'blog.article.pa30-consultazione-agricola.imageAlt': 'Swiss rural landscape with alpine meadows and forests during summer heat wave',
 };
 
 export default blogMetaChEn;

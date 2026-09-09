@@ -79619,6 +79619,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pa30-consultazione-agricola': {
+    title: 'PA30+: consultazione federale su agricoltura | Frontaliere Ticino',
+    description: 'Consultazione PA30+ per riforma agricola svizzera. Novità su voto digitale a Neuchâtel, malattie rare e fondi climate per boschi e agricoltura. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, pa30, consultazione, federale, agricoltura',
+    ogTitle: 'PA30+: consultazione federale su agricoltura',
+    ogDescription: 'Consultazione PA30+ su agricoltura svizzera. Voto online a Neuchâtel, malattie rare, fondi contro canicola. Scadenze 2026: voto 27 settembre, pacchetto UE in Parlamento, sperimentazione e-voting 29 novembre.',
+    canonicalPath: '/articoli-svizzera/pa30-consultazione-agricola/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PA30+: consultazione federale su agricoltura",
+      "description": "Consultazione PA30+ per riforma agricola svizzera. Novità su voto digitale a Neuchâtel, malattie rare e fondi climate per boschi e agricoltura. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pa30-consultazione-agricola.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio agricolo svizzero con prati alpini e boschi durante ondata di calore estivo"
+      },
+      "datePublished": "2026-09-09T01:07:51+00:00",
+      "dateModified": "2026-09-09T01:07:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pa30-consultazione-agricola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

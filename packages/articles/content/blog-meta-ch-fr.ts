@@ -6133,6 +6133,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Ouvrir l\'activité Appenzell Interne : coûts et inscription',
     'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Guide complet pour ouvrir une entreprise à Appenzell Interne : enregistrement, capital minimum et obligations AVS, LPP, LAMal.',
     'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Bureau administratif suisse avec formulaires d\'enregistrement du registre du commerce',
+    'blog.article.pa30-consultazione-agricola.title': 'PA30+ : consultation fédérale sur l\'agriculture',
+    'blog.article.pa30-consultazione-agricola.excerpt': 'Consultation PA30+ avec tous les acteurs agroalimentaires. Nouveautés sur le vote en ligne à Neuchâtel, maladies rares et fonds climat.',
+    'blog.article.pa30-consultazione-agricola.imageAlt': 'Paysage agricole suisse avec prairies alpines et forêts pendant vague de chaleur',
 };
 
 export default blogMetaChFr;

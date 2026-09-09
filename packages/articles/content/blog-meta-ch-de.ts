@@ -6133,6 +6133,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-interno-costi.title': 'Geschäft öffnen Appenzell Innerrhoden: Kosten und Anmeldung',
     'blog.article.aprire-attivita-appenzello-interno-costi.excerpt': 'Vollständiger Leitfaden zur Gründung eines Unternehmens in Appenzell Innerrhoden: Registrierung, Mindestkapital und Pflichten AHV, BVG, KVG.',
     'blog.article.aprire-attivita-appenzello-interno-costi.imageAlt': 'Schweizer Verwaltungsbüro mit Handelsregisterformularen und Registrierungsdokumenten',
+    'blog.article.pa30-consultazione-agricola.title': 'PA30+: Bundeskonsultation zur Landwirtschaft',
+    'blog.article.pa30-consultazione-agricola.excerpt': 'Konsultation PA30+ mit allen Akteuren der Agrar- und Ernährungswirtschaft. Neuigkeiten zur Online-Abstimmung in Neuenburg, zu seltenen Krankheiten und Klimafonds.',
+    'blog.article.pa30-consultazione-agricola.imageAlt': 'Schweizer Landwirtschaftslandschaft mit Alpweiden und Wäldern während Hitzewelle',
 };
 
 export default blogMetaChDe;
