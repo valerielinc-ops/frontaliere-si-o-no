@@ -1,10 +1,14 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
+import { afterEach, beforeEach, describe, it, expect } from 'vitest';
 import {
   reconcileRetranslationState,
   isIncomplete,
   snapshotCompanySignatures,
   changedSlugsSince,
 } from '../scripts/relocalize-pending-jobs.mjs';
+import { translateMissingJobLocales } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 /**
  * Regression gate for the needsRetranslation give-up loop.
@@ -120,6 +124,90 @@ describe('reconcileRetranslationState — give-up convergence', () => {
     expect(job.needsRetranslation).toBeUndefined();
     expect(job.retranslationAttempts).toBeUndefined();
     expect(job.localeMismatchSuppressed).toBeUndefined();
+  });
+});
+
+describe('SKIP_AI_TRANSLATION — suppression guard', () => {
+  let tempDir: string;
+  let jobsPath: string;
+  const originalSkipAiTranslation = process.env.SKIP_AI_TRANSLATION;
+  const originalVitest = process.env.VITEST;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ft-suppression-guard-'));
+    jobsPath = path.join(tempDir, 'jobs.json');
+    process.env.SKIP_AI_TRANSLATION = '1';
+    // Keep the test cache-free even if it is run outside Vitest's usual env setup.
+    process.env.VITEST = '1';
+  });
+
+  afterEach(() => {
+    if (originalSkipAiTranslation === undefined) delete process.env.SKIP_AI_TRANSLATION;
+    else process.env.SKIP_AI_TRANSLATION = originalSkipAiTranslation;
+    if (originalVitest === undefined) delete process.env.VITEST;
+    else process.env.VITEST = originalVitest;
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  });
+
+  function writeSuppressedJob(description: string, snapshotLength: number) {
+    fs.writeFileSync(jobsPath, `${JSON.stringify([{
+      id: 'skip-ai-suppressed',
+      slug: 'skip-ai-suppressed',
+      company: 'Test SA',
+      title: '',
+      description,
+      localeMismatchSuppressed: true,
+      localeMismatchSuppressedLen: snapshotLength,
+      retranslationAttempts: 6,
+      titleByLocale: { it: '', en: '', de: '', fr: '' },
+      descriptionByLocale: {
+        it: description,
+        en: 'Short English copy.',
+        de: 'Kurzer deutscher Text.',
+        fr: 'Courte description française.',
+      },
+      slugByLocale: {
+        it: 'skip-ai-suppressed',
+        en: 'skip-ai-suppressed',
+        de: 'skip-ai-suppressed',
+        fr: 'skip-ai-suppressed',
+      },
+    }], null, 2)}\n`, 'utf-8');
+  }
+
+  it('does not re-raise needsRetranslation when suppression source length is unchanged', async () => {
+    const description = 'Descrizione breve invariata per un annuncio di lavoro locale.';
+    writeSuppressedJob(description, description.length);
+
+    const result = await translateMissingJobLocales({
+      dataJobsPath: jobsPath,
+      companySlug: 'suppression-guard-unchanged',
+    });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(result.changed).toBe(false);
+    expect(job.localeMismatchSuppressed).toBe(true);
+    expect(job.localeMismatchSuppressedLen).toBe(description.length);
+    expect(job.retranslationAttempts).toBe(6);
+    expect(job.needsRetranslation).toBeUndefined();
+  });
+
+  it('re-raises needsRetranslation when the suppressed source length changed', async () => {
+    const snapshot = 'Descrizione breve invariata per un annuncio di lavoro locale.';
+    const changedDescription = `${snapshot} Il contenuto aggiornato aggiunge dettagli operativi e responsabilità. `.repeat(2);
+    writeSuppressedJob(changedDescription, snapshot.length);
+
+    const result = await translateMissingJobLocales({
+      dataJobsPath: jobsPath,
+      companySlug: 'suppression-guard-changed',
+    });
+    const [job] = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+
+    expect(result.changed).toBe(true);
+    expect(job.localeMismatchSuppressed).toBe(true);
+    expect(job.localeMismatchSuppressedLen).toBe(snapshot.length);
+    expect(job.retranslationAttempts).toBe(6);
+    expect(job.needsRetranslation).toBe(true);
   });
 });
 

@@ -31,6 +31,7 @@ import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './crawler-scratch-path.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { isSystemicRejection } from './source-record-quarantine.mjs';
+import { sourceChangedSinceSuppression } from './source-changed-since-suppression.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3095,6 +3096,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   // The centralized translate-pending pipeline handles them later.
   const skipAiTranslation = process.env.SKIP_AI_TRANSLATION === '1';
   let skipAiMarkedCount = 0;
+  let skipAiSuppressedCount = 0;
 
   let cursor = 0;
 
@@ -3150,8 +3152,16 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         // Ensure source locale slots are populated
         const titleLang = pinnedTitleSourceLang(job) || detectJobTitleLang(baseTitle, detectLang(baseDesc || baseTitle, 'it'));
         const descLang = pinnedTitleSourceLang(job) || detectTextLocale(baseDesc || baseTitle, titleLang).lang;
-        if (baseTitle && !job.titleByLocale[titleLang]) job.titleByLocale[titleLang] = baseTitle;
-        if (baseDesc && !job.descriptionByLocale[descLang]) job.descriptionByLocale[descLang] = baseDesc;
+        let sourceLocaleFilled = false;
+        if (baseTitle && !job.titleByLocale[titleLang]) {
+          job.titleByLocale[titleLang] = baseTitle;
+          sourceLocaleFilled = true;
+        }
+        if (baseDesc && !job.descriptionByLocale[descLang]) {
+          job.descriptionByLocale[descLang] = baseDesc;
+          sourceLocaleFilled = true;
+        }
+        if (sourceLocaleFilled) changed = true;
         // FRO-549: If all locale titles are already translated, a cache miss (hash
         // mismatch or missing entry) should not force retranslation. Recache the
         // current state with the new hash to prevent infinite flagging loops.
@@ -3171,6 +3181,10 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           cacheUpdated = true;
           if (job.needsRetranslation) { delete job.needsRetranslation; changed = true; }
         } else {
+          if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) {
+            skipAiSuppressedCount += 1;
+            continue;
+          }
           job.needsRetranslation = true;
           skipAiMarkedCount += 1;
           changed = true;
@@ -3451,8 +3465,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
   if (cacheHits > 0 || cacheMisses > 0) {
     console.log(`  📦 Translation cache [${slug}]: ${cacheHits} hits, ${cacheMisses} misses (${cacheHits + cacheMisses} total)`);
   }
-  if (skipAiTranslation && skipAiMarkedCount > 0) {
-    console.log(`  ℹ️ SKIP_AI_TRANSLATION=1 — using cache only, ${skipAiMarkedCount} jobs need retranslation`);
+  if (skipAiTranslation && (skipAiMarkedCount > 0 || skipAiSuppressedCount > 0)) {
+    console.log(
+      `  ℹ️ SKIP_AI_TRANSLATION=1 — using cache only, ${skipAiMarkedCount} jobs need retranslation, ` +
+      `${skipAiSuppressedCount} suppressed jobs held`,
+    );
   }
 
   if (!changed) {
