@@ -2849,6 +2849,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  applySearchQuery((prev) => (prev === next ? prev : next));
  }, [searchSlugFilter, initialJobSlug]);
 
+ const commitSearchQuery = useCallback((value: string) => {
+ const next = value.trim();
+ applySearchQuery(next);
+ if (!searchSlugFilter) syncQueryParamsToUrl({ q: next || null }, 'push');
+ }, [applySearchQuery, searchSlugFilter]);
+
  /**
  * Initial-mount data load (D9 + D11 + E4).
  *
@@ -5046,12 +5052,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {
  if (!deferredSearchQuery.trim()) {
- syncQueryParamsToUrl({ q: null }, 'push');
+ syncQueryParamsToUrl({ q: null });
  return;
  }
  // Only sync if query didn't come from a slug route (avoid overwriting /ricerca-X URLs)
  if (!searchSlugFilter) {
- syncQueryParamsToUrl({ q: deferredSearchQuery.trim() }, 'push');
+ syncQueryParamsToUrl({ q: deferredSearchQuery.trim() });
  }
  Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
  }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
@@ -9320,9 +9326,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
      but no longer push the first result below the mobile fold. */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
  {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
  { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
@@ -9378,7 +9384,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* Single search-utility mount remains the 0-results alert scroll target. */}
  <div id="jobboard-search-utilities">
- <PopularSearchChips onSelect={applySearchQuery} activeTerm={searchQuery} />
+ <PopularSearchChips onSelect={commitSearchQuery} activeTerm={searchQuery} />
  </div>
 
  {enableJobAlerts && (
@@ -9501,13 +9507,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = setTimeout(() => setSearchQuery(next), 200);
  }}
+ onKeyDown={(e) => {
+ if (e.key === 'Enter') {
+ e.preventDefault();
+ commitSearchQuery(e.currentTarget.value);
+ }
+ }}
  className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-heading placeholder:text-muted focus:outline-none"
  aria-label={t('jobBoard.searchPlaceholder')}
  />
  {searchQuery && (
  <button
  type="button"
- onClick={() => applySearchQuery('')}
+ onClick={() => commitSearchQuery('')}
  className="p-2 mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-muted hover:text-body hover:bg-surface-raised transition-colors"
  aria-label="Clear search"
  >
@@ -9532,7 +9544,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  key={s}
  type="button"
- onClick={() => applySearchQuery(s)}
+ onClick={() => commitSearchQuery(s)}
  className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {s}
@@ -10082,7 +10094,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  key={term}
  type="button"
- onClick={() => applySearchQuery(term)}
+ onClick={() => commitSearchQuery(term)}
  className="px-3 py-1.5 min-h-11 rounded-full text-xs font-medium bg-accent-subtle text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
  >
  {term}
