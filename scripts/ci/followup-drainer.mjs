@@ -1374,6 +1374,11 @@ export function extractCodePaths(text) {
 // per una PR recensibile; il quarto elemento apre un nuovo gruppo.
 export const ISSUE_GROUP_MAX_SIZE = 3;
 export const ISSUE_GROUP_LABEL_PREFIX = 'agent:fix-group:';
+// Contratto consumato dai workflow di entrambi i repo: la forma della label
+// non va ricopiata in YAML, altrimenti il producer può accettare un gruppo che
+// il consumer non riconosce (o viceversa).
+export const ISSUE_GROUP_LABEL_PATTERN = '^agent:fix-group:[0-9a-f]{12}-[0-9]+$';
+const ISSUE_GROUP_LABEL_RE = new RegExp(ISSUE_GROUP_LABEL_PATTERN);
 const AUTO_TITLE_PREFIX_LENGTH = 60;
 const AUTO_TITLE_RE = /^(?:Crawler Failure:|Workflow Failure:|CI Failure(?:\s*\([^)]*\))?:|Validation Failure(?:\s*\([^)]*\))?:|Campaign goal FAILED:)\s*/i;
 const AUTO_BODY_RE = /(?:^|\n)\s*(?:\*\*(?:Workflow|Crawler fallito|Goal id):\*\*|##\s+(?:Workflow fallito|Build fallito|Crawler fallito|Job falliti)\b|Issue aperta automaticamente\b)/i;
@@ -2306,7 +2311,7 @@ function groupDigestFromLabel(label) {
 function activeGroupDigests(issues) {
   const digests = new Set();
   for (const issue of issues || []) {
-    for (const label of names(issue).filter((n) => n.startsWith(ISSUE_GROUP_LABEL_PREFIX))) {
+    for (const label of names(issue).filter((n) => ISSUE_GROUP_LABEL_RE.test(n))) {
       const digest = groupDigestFromLabel(label);
       if (digest) digests.add(digest);
     }
@@ -3777,7 +3782,6 @@ export function runDrain() {
           const overlap = findOverlapFile(paths, prFilesMap);
           if (overlap) {
             console.log(`GROUP-MEMBER-SKIP #${issue.number} (file \`${overlap.file}\` in-volo in PR #${overlap.prNumber}) → il gruppo non ingloba il membro transitorio`);
-            overlapSkipped++;
             continue;
           }
         }
@@ -3823,14 +3827,16 @@ export function runDrain() {
     if (plannedGroup) {
       const leaderNumber = Number(plannedGroup.issues[0]?.number);
       const state = groupStates.get(plannedGroup.label);
-      if (Number(cand.number) !== leaderNumber && state === 'pending') {
-        console.log(`GROUP-WAIT #${cand.number}: attende il leader #${leaderNumber} (${plannedGroup.label}).`);
+      if (Number(cand.number) !== leaderNumber && state !== 'failed') {
+        console.log(`GROUP-SKIP #${cand.number}: leader #${leaderNumber} già gestito (${state || 'stato ignoto'}, ${plannedGroup.label}) → nessuna promozione singola.`);
         continue;
       }
       // Se il leader fallisce un pre-flight, `failed` lascia il membro al
       // flusso singolo già esistente. Se arriva alla promozione di gruppo, lo
       // stato passa a `promoted` e gli altri membri vengono saltati per questo
-      // tick, senza creare run concorrenti.
+      // tick, senza creare run concorrenti. In ogni altro stato il leader è
+      // ancora in attesa o il gruppo è stato abortito: non si crea un fixer
+      // concorrente per un suo membro.
       if (Number(cand.number) === leaderNumber) groupStates.set(plannedGroup.label, 'failed');
     }
 

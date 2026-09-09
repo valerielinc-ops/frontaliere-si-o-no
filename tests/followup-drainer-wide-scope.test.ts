@@ -27,6 +27,8 @@ import {
   detectMalformedBody,
   issueGroupingKey,
   groupIssueQueue,
+  issueGroupLabel,
+  ISSUE_GROUP_LABEL_PATTERN,
   ISSUE_GROUP_MAX_SIZE,
 } from '../scripts/ci/followup-drainer.mjs';
 
@@ -249,5 +251,10 @@ describe('groupIssueQueue — gruppi di issue con punto di riparazione certo', (
     const a = { number: 12, title: 'follow-up(#12): fix', body, repository: 'owner/site' };
     const b = { number: 13, title: 'follow-up(#13): fix', body, repository: 'owner/corpus' };
     expect(issueGroupingKey(a)).not.toBe(issueGroupingKey(b));
+  });
+
+  it('esporta il matcher della label che i consumer usano per validare il gruppo', () => {
+    const label = issueGroupLabel('target-file:owner/site:scripts/lib/shared.mjs', 42);
+    expect(label).toMatch(new RegExp(ISSUE_GROUP_LABEL_PATTERN));
   });
 });
