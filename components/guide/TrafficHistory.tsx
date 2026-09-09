@@ -129,8 +129,8 @@ async function fetchAndAggregate(crossingNames: string[]): Promise<Record<string
  const d = doc.data();
  const day: number = d.dayOfWeek;
  const hour: number = d.hour;
- const minutes: number = d.totalCrossingMinutes ?? d.waitTimeMinutes ?? 0;
- if (day == null || hour == null) return;
+ const minutes = d.totalCrossingMinutes ?? d.waitTimeMinutes;
+ if (day == null || hour == null || typeof minutes !== 'number' || !Number.isFinite(minutes)) return;
 
  if (!acc[day]) acc[day] = {};
  if (!acc[day][hour]) acc[day][hour] = { sum: 0, count: 0 };
@@ -148,7 +148,7 @@ async function fetchAndAggregate(crossingNames: string[]): Promise<Record<string
  aggregated[d][h] = Math.round(acc[d][h].sum / acc[d][h].count);
  }
  }
- result[name] = aggregated;
+ if (Object.keys(aggregated).length > 0) result[name] = aggregated;
  } catch (err) {
  console.warn(`[TrafficHistory] Failed to fetch history for ${name}:`, err);
  reportCaughtError(err, `TrafficHistory.fetch.${slug}`);

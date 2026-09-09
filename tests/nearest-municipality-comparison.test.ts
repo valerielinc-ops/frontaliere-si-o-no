@@ -253,6 +253,22 @@ describe('sui dataset reali il blocco è diverso su ogni pagina', () => {
     expect(block(a)).not.toBe(block(b));
   });
 
+  it('non trasforma l’assenza dello snapshot corrente in una media storica live', () => {
+    const municipality = MUNICIPALITIES.find((m) => TICINO_VITA_CORRIDOR_PROVINCES.has(m.province));
+    if (!municipality) return;
+    const { html } = renderItalianPage({
+      municipality,
+      locale: 'it',
+      dateStamp: '2026-08-24',
+      distDir: '/tmp/does-not-need-to-exist',
+      waitSnapshot: {},
+    });
+    const json = html.match(/<script type="application\/json" data-border-municipality-data>([\s\S]*?)<\/script>/)?.[1];
+    expect(json).toBeTruthy();
+    const data = JSON.parse(json!) as { routes: Array<{ waits: { now: { minutes: number | null; label: string } } }> };
+    expect(data.routes[0]?.waits.now).toEqual({ minutes: null, label: 'n.d.' });
+  });
+
   it('un comune senza addizionale non riceve la frase del delta in euro', () => {
     // I 51 comuni valdostani hanno `irpefAddizionale: 0` per statuto speciale,
     // non perché siano i più economici: `services/irpefAddizionaleRegime.ts`

@@ -82,6 +82,11 @@ import {
 } from './borderWaitHydrationScript';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { slugifyCrossingName } from '../services/borderCrossingSlug';
+import {
+  getBorderComparisonCandidates,
+  renderBorderWaitComparison,
+  renderBorderWaitPicker,
+} from './borderWaitComparison';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
@@ -205,7 +210,7 @@ export interface BorderWaitCurrent {
         approachMinutes?: number;
         totalCrossingMinutes?: number;
         status?: 'green' | 'yellow' | 'red';
-        source: WaitSource;
+        source?: WaitSource;
         lastUpdate: string;
       }
     >
@@ -409,6 +414,44 @@ export function renderTrafficFluidBanner(
      </div>`;
 }
 
+/**
+ * Banner di dato non disponibile per l'hero dell'hub.
+ *
+ * Esiste perche' l'invariante dichiarata sopra il blocco hero — «o l'hero o il
+ * fallback, mai entrambi e mai spazio vuoto» — non regge da sola quando le
+ * letture assenti vengono scartate invece di essere contate come zero: se
+ * nessun valico ha una lettura, o se le letture presenti sono tutte a zero ma
+ * non coprono tutti i valichi in scope, «traffico fluido» sarebbe
+ * un'affermazione su valichi che non abbiamo misurato. Assenza di dato e coda
+ * pari a zero sono cose diverse e la copy le tiene separate.
+ */
+export function renderBorderWaitUnavailableBanner(
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  const copy = {
+    it: {
+      title: 'Tempi di attesa non disponibili',
+      body: 'In questo momento non abbiamo una lettura per i valichi di questa zona. Non e\u0027 una coda pari a zero: e\u0027 un dato mancante. I tempi si aggiornano ogni 15 minuti.',
+    },
+    en: {
+      title: 'Wait times unavailable',
+      body: 'We have no reading for the crossings in this area right now. This is not a zero-minute queue: the data is missing. Wait times refresh every 15 minutes.',
+    },
+    de: {
+      title: 'Wartezeiten nicht verfuegbar',
+      body: 'Fuer die Uebergaenge in diesem Gebiet liegt derzeit keine Messung vor. Das ist keine Wartezeit von null Minuten, sondern ein fehlender Wert. Aktualisierung alle 15 Minuten.',
+    },
+    fr: {
+      title: "Temps d'attente indisponibles",
+      body: "Nous n'avons aucune mesure pour les passages de cette zone actuellement. Il ne s'agit pas d'une file de zero minute : la donnee est manquante. Mise a jour toutes les 15 minutes.",
+    },
+  }[locale];
+  return `<div class="s-7IQhM5">
+       <p class="s-m0_4f0">${esc(copy.title)}</p>
+       <p class="s-Dpu_t7">${esc(copy.body)}</p>
+     </div>`;
+}
+
 /** Look up crossing static metadata from the registry (matches on slug). */
 function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined {
   return borderCrossings.find(
@@ -456,7 +499,7 @@ interface Copy {
     bad: (bestHour: string) => string;
     unknown: string;
   };
-  paragraph: (crossing: string, direction: string, country: ParagraphCountryTokens, bestHour: string, worstHour: string) => string;
+  paragraph: (crossing: string, country: ParagraphCountryTokens, bestHour: string, worstHour: string) => string;
   updatedLabel: string;
   currentStatusLabel: string;
   waitMinutesLabel: string;
@@ -540,8 +583,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
     },
-    paragraph: (c, direction, country, bestHour, worstHour) =>
-      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare (direzione ${direction}) è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che il flusso serale inverte spesso la direzione: tra le 17 e le 19 anche ${c} può registrare code nel senso opposto rispetto al mattino. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nella fascia 6:00–8:00 in direzione Svizzera e nella fascia 17:00–19:30 in direzione ${country.name}, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
+    paragraph: (c, country, bestHour, worstHour) =>
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico TomTom, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
     updatedLabel: 'Aggiornamento',
     currentStatusLabel: 'Stato attuale',
     waitMinutesLabel: 'Minuti di attesa',
@@ -643,8 +686,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
     },
-    paragraph: (c, direction, country, bestHour, worstHour) =>
-      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit (${direction} direction) has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that the evening flow often reverses direction: between 17:00 and 19:00 ${c} can also show queues in the opposite direction compared to the morning. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 inbound to Switzerland and 17:00–19:30 returning to ${country.name}, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
+    paragraph: (c, country, bestHour, worstHour) =>
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by the TomTom traffic cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
     updatedLabel: 'Updated',
     currentStatusLabel: 'Current status',
     waitMinutesLabel: 'Wait minutes',
@@ -746,8 +789,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
     },
-    paragraph: (c, direction, country, bestHour, worstHour) =>
-      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit (Richtung ${direction}) ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich der Verkehr oft umkehrt: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau in Gegenrichtung zum Morgen aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 Uhr in Richtung Schweiz und zwischen 17:00–19:30 Uhr in Richtung ${country.name} statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
+    paragraph: (c, country, bestHour, worstHour) =>
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der TomTom-Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
     updatedLabel: 'Aktualisiert',
     currentStatusLabel: 'Aktueller Stand',
     waitMinutesLabel: 'Wartezeit (Min.)',
@@ -849,8 +892,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       unknown:
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
-    paragraph: (c, direction, country, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit (direction ${direction}) a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que le flux du soir inverse souvent la direction : entre 17h et 19h ${c} aussi peut afficher des files dans le sens opposé à celui du matin. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 en direction de la Suisse et 17h00–19h30 au retour ${country.frDestinationPreposition ?? 'en'} ${country.name}, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
+    paragraph: (c, country, bestHour, worstHour) =>
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par le cron de trafic TomTom, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -1677,11 +1720,6 @@ function renderLeafPage(inp: LeafInputs): string {
   // (Maslianico, Crociale dei Mulini, Clivio-Ligornetto) on the Ticino
   // corridor and nowhere else — see the `faq` field's doc comment.
   const isTicinoCorridor = isTicinoRegion(region);
-  const direction = snapshot?.status === undefined
-    ? `${countryCode}→CH`
-    : new Date().getUTCHours() < 12
-      ? `${countryCode}→CH`
-      : `CH→${countryCode}`;
   const countryTokens = PARAGRAPH_COUNTRY_TOKENS[locale][countryCode];
 
   const todayBuckets = aggregateToday(crossing, history, inp.today);
@@ -1705,7 +1743,7 @@ function renderLeafPage(inp: LeafInputs): string {
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
   const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
   const adviceBannerHtml = renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
-  const paragraph = copy.paragraph(crossingDisplay, direction, countryTokens, bestHour, worstHour);
+  const paragraph = copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour);
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
@@ -1720,14 +1758,15 @@ function renderLeafPage(inp: LeafInputs): string {
   // source is always one of these (never 'static'/'mock', which are the
   // build-time/SPA fallbacks). Omitting 'static' also keeps the "Dati statistici"
   // string out of the page HTML so it never appears for a live-sourced reading.
-  const sourceLabelMap = JSON.stringify({
+  const sourceLabels = {
     bazg: copy.sourceBazg,
     here: copy.sourceHere,
     tomtom: copy.sourceTomtom,
     google: copy.sourceGoogle,
     'google-maps': copy.sourceGoogle,
     webcam: copy.sourceWebcam,
-  });
+  };
+  const sourceLabelMap = JSON.stringify(sourceLabels);
   const staticBannerHtml = staticFallback
     ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
@@ -1829,52 +1868,17 @@ function renderLeafPage(inp: LeafInputs): string {
   </section>`
     : '';
 
-  // B.3 — Alternative routes section: suggest 2-3 nearby crossings per valico
-  // to help users reroute when congested. Brogeda/Chiasso/Gaggiolo get primary
-  // treatment (highest volume). Others get a generic fallback.
-  const ALT_ROUTES: Record<string, BorderCrossingSlug[]> = {
-    'chiasso-brogeda': ['chiasso-strada', 'bizzarone-novazzano', 'crociale-dei-mulini'],
-    'chiasso-centro': ['chiasso-brogeda', 'maslianico-pizzamiglio', 'bizzarone-novazzano'],
-    'chiasso-strada': ['chiasso-brogeda', 'chiasso-centro', 'bizzarone-novazzano'],
-    'gaggiolo': ['san-pietro', 'clivio-ligornetto', 'saltrio-arzo'],
-    'san-pietro': ['gaggiolo', 'clivio-ligornetto', 'rodero-stabio'],
-    'ponte-tresa': ['porto-ceresio-brusino', 'cremenaga-ponte-cremenaga', 'luino-fornasette'],
-    'luino-fornasette': ['cremenaga-ponte-cremenaga', 'ponte-tresa', 'zenna-dirinella'],
-    'maslianico-pizzamiglio': ['chiasso-centro', 'maslianico-roggiana', 'chiasso-brogeda'],
-    'bizzarone-novazzano': ['ronago-novazzano', 'chiasso-brogeda', 'chiasso-strada'],
-    'camedo': ['piaggio-valmara', 'zenna-dirinella', 'biegno-indemini'],
-    'piaggio-valmara': ['camedo', 'zenna-dirinella', 'biegno-indemini'],
-  };
-  const altLabelByLocale: Record<BorderWaitLocale, { h2: string; lead: string }> = {
-    it: { h2: 'Percorsi alternativi', lead: 'Se questo valico è congestionato, questi passaggi vicini sono spesso più fluidi:' },
-    en: { h2: 'Alternative routes', lead: 'If this crossing is congested, these nearby passages are often smoother:' },
-    de: { h2: 'Alternative Routen', lead: 'Wenn dieser Übergang überlastet ist, sind diese nahegelegenen Pässe oft fliessender:' },
-    fr: { h2: 'Itinéraires alternatifs', lead: "Si ce poste est congestionné, ces passages voisins sont souvent plus fluides :" },
-  };
-  const altSlugs = ALT_ROUTES[crossing];
-  const alternativeRoutesHtml = altSlugs && altSlugs.length
-    ? (() => {
-        const { h2, lead } = altLabelByLocale[locale];
-        const items = altSlugs
-          .map((slug) => {
-            const altReg = crossingRegistry(slug);
-            if (!altReg) return '';
-            const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
-            const altDisp = BORDER_CROSSING_DISPLAY[slug];
-            const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning ?? 'n.d.')}`;
-            return `<li class="s-card" style="border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
-          })
-          .filter(Boolean)
-          .join('');
-        return items
-          ? `<section class="s-ziawP1" aria-labelledby="altRoutes">
-    <h2 id="altRoutes" style="${H2_STYLE}">${esc(h2)}</h2>
-    <p class="s-sau7he">${esc(lead)}</p>
-    <ul class="s-eeWB4A">${items}</ul>
-  </section>`
-          : '';
-      })()
-    : '';
+  // B.3 — Real alternatives: nearest crossings in the same regional
+  // corridor, using the shared nearest-neighbour calculation.
+  const comparisonCandidates = getBorderComparisonCandidates(crossing);
+  const alternativeRoutesHtml = renderBorderWaitComparison({
+    locale,
+    currentSlug: crossing,
+    current: snapshot,
+    perCrossing: current.perCrossing,
+    regionLabel: regionDisplay,
+    sourceLabels,
+  });
 
   // FAQ
   const faqItems = copy.faq;
@@ -2075,7 +2079,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // without bypassing buildSeoPageHtml's templating.
   const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
   // Border-wait hydration: replaces pre-rendered numbers with fresh
-  // Firestore values once the page is interactive. Vanilla JS, ~2.8 KB.
+  // Firestore values once the page is interactive. Shared external asset.
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
   const bodyHtml = `<article class="s-xzWvwM">
@@ -2109,8 +2113,8 @@ function renderLeafPage(inp: LeafInputs): string {
     crossingDisplay,
     region,
     reg?.peak ?? '',
-    (ALT_ROUTES[crossing] ?? [])
-      .map((s) => BORDER_CROSSING_DISPLAY[s])
+    comparisonCandidates
+      .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
       .filter(Boolean),
   )}
   <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
@@ -2209,7 +2213,7 @@ function renderHubPage(inp: HubInputs): string {
   const introTagline = taglineByLocale[locale];
 
   // Build live table of all crossings in scope. Each <tr> carries the
-  // data-bw-crossing attribute so the inline hydration IIFE can swap the
+  // data-bw-crossing attribute so the shared hydration asset can swap the
   // pre-rendered minute count AND the source label with the fresh Firestore
   // values at runtime. The source→label map is locale-invariant → build once
   // here, not per row. Live sources only (no 'static' → "Dati statistici" copy
@@ -2228,6 +2232,7 @@ function renderHubPage(inp: HubInputs): string {
     const src: WaitSource = snap?.source ?? 'static';
     const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
+    const updated = snap?.lastUpdate ? snap.lastUpdate.slice(0, 16).replace('T', ' ') : '—';
     return `<tr data-bw-crossing="${esc(c)}">
       <td class="s-tcl">
         <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
@@ -2235,37 +2240,58 @@ function renderHubPage(inp: HubInputs): string {
       <td class="s-tcl" style="text-align:right">
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
+      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}</td>
       <td class="s-tcl" data-bw-field="source" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
-  const tableHtml = `<table class="s-tbl" style="font-size:14px">
+  const tableHtml = `<div class="s-card" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
     <thead><tr>
       <th class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
       <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th class="s-thd">${esc(copy.updatedLabel)}</th>
       <th class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody>${rows.join('')}</tbody>
-  </table>`;
+  </table></div>`;
 
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate
   // case — either unmeasured or perfectly fluid). Either the hero OR the
-  // fallback renders; never both and never empty space.
-  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.map((c) => ({
-    slug: c,
-    labelIt: BORDER_CROSSING_DISPLAY[c],
-    waitTimeMinutes:
-      current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? 0,
-  }));
-  const allZeros = heroInputs.every((c) => c.waitTimeMinutes === 0);
+  // fallback renders; never both and never empty space. Tre casi, non due:
+  // copertura piena a zero => banner «fluido»; almeno una coda => hero;
+  // nessuna lettura, o letture a zero su copertura parziale => banner di dato
+  // non disponibile, che NON e' la stessa affermazione di «fluido».
+  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c) => {
+    const waitTimeMinutes = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes;
+    return waitTimeMinutes == null
+      ? []
+      : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
+  });
+  // Copertura piena e tutte le letture a zero: «fluido» e' un'affermazione
+  // che possiamo fare, perche' abbiamo misurato ogni valico in scope.
+  const allZeros = heroInputs.length > 0
+    && heroInputs.length === crossingsInScope.length
+    && heroInputs.every((c) => c.waitTimeMinutes === 0);
+  // `renderFastestCrossingCard` rende '' quando nessuna lettura e' > 0, e
+  // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
+  // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
+  // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
+  const hasPositiveWait = heroInputs.some((c) => c.waitTimeMinutes > 0);
   const bestBannerHtml = allZeros
     ? renderTrafficFluidBanner(true, locale)
-    : renderFastestCrossingCard(heroInputs, locale);
+    : hasPositiveWait
+      ? renderFastestCrossingCard(heroInputs, locale)
+      : renderBorderWaitUnavailableBanner(locale);
 
   const alternatesHtml = renderHreflangTags(alternates);
+  const pickerHtml = renderBorderWaitPicker({
+    locale,
+    region,
+    crossings: crossingsInScope,
+  });
 
   // JSON-LD
   const breadcrumbItems = [
@@ -2428,18 +2454,20 @@ function renderHubPage(inp: HubInputs): string {
   let statusOk = 0;
   let statusWarn = 0;
   let statusBad = 0;
+  let statusUnknown = 0;
   for (const c of crossingsInScope) {
     const w = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null;
-    if (w === null || w < 5) statusOk += 1;
+    if (w === null) statusUnknown += 1;
+    else if (w < 5) statusOk += 1;
     else if (w < 15) statusWarn += 1;
     else statusBad += 1;
   }
 
-  const hubTileLabels: Record<BorderWaitLocale, { open: string; ok: string; warn: string; bad: string }> = {
-    it: { open: 'Valichi monitorati', ok: 'Scorrevoli', warn: 'Coda moderata', bad: 'Coda lunga' },
-    en: { open: 'Crossings tracked', ok: 'Free-flowing', warn: 'Moderate queue', bad: 'Long queue' },
-    de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange' },
-    fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue' },
+  const hubTileLabels: Record<BorderWaitLocale, { open: string; ok: string; warn: string; bad: string; unknownNotice: string }> = {
+    it: { open: 'Valichi monitorati', ok: 'Scorrevoli', warn: 'Coda moderata', bad: 'Coda lunga', unknownNotice: 'dato non disponibile. Non è una coda pari a zero.' },
+    en: { open: 'Crossings tracked', ok: 'Free-flowing', warn: 'Moderate queue', bad: 'Long queue', unknownNotice: 'data unavailable. This is not a zero-minute queue.' },
+    de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange', unknownNotice: 'Daten nicht verfügbar. Das ist keine Wartezeit von null Minuten.' },
+    fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue', unknownNotice: "donnée indisponible. Il ne s'agit pas d'une file de zéro minute." },
   };
   const hubStatsHtml = `<section class="s-AjDT9y" aria-label="${esc(copy.currentStatusLabel)}">
     <div class="s-SJxWYS">
@@ -2458,6 +2486,7 @@ function renderHubPage(inp: HubInputs): string {
       <div class="s-OYGznH">${esc(hubTileLabels[locale].bad)}</div>
       <div class="s-2B-deU">${statusBad}</div>
     </div>
+    ${statusUnknown > 0 ? `<p class="s-Wnl1Ux">${statusUnknown} · ${esc(hubTileLabels[locale].unknownNotice)}</p>` : ''}
   </section>`;
 
   // Live-badge pre-rendered text (see leaf page for rationale).
@@ -2482,6 +2511,7 @@ function renderHubPage(inp: HubInputs): string {
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
   ${hubStatsHtml}
+  ${pickerHtml}
   ${bestBannerHtml}
   <section class="s-ziawP1" aria-labelledby="crossingTable">
     <h2 id="crossingTable" style="${H2_STYLE}">${esc(
