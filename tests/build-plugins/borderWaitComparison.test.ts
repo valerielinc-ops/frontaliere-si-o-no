@@ -34,7 +34,6 @@ describe('border-wait comparison', () => {
         waitTimeMinutes: 0,
         status: 'green',
         source: 'tomtom',
-        direction: 'IT → CH',
         lastUpdate: '2026-09-09T07:00:00.000Z',
       },
       perCrossing: {
@@ -42,7 +41,6 @@ describe('border-wait comparison', () => {
           totalCrossingMinutes: 14,
           status: 'yellow',
           source: 'here',
-          direction: 'IT → CH',
           lastUpdate: '2026-09-09T07:00:00.000Z',
         },
       },
@@ -52,7 +50,8 @@ describe('border-wait comparison', () => {
 
     expect(html).toContain('data-bw-comparison="true"');
     expect(html).toContain('0 min');
-    expect(html).toContain('IT → CH');
+    expect(html).not.toContain('Direzione');
+    expect(html).not.toContain('IT → CH');
     expect(html).toContain('Stima TomTom');
     expect(html).toContain('14 min');
     expect(html).toContain('Profilo storico indicativo');

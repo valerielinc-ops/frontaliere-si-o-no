@@ -31,15 +31,12 @@ import {
   TABLE_HEAD_CLASS,
 } from './shared/seoContentTokens';
 
-export type BorderWaitDirection = 'IT → CH' | 'CH → IT' | 'Entrambi';
-
 export interface BorderWaitComparisonEntry {
   waitTimeMinutes?: number | null;
   totalCrossingMinutes?: number | null;
   status?: 'green' | 'yellow' | 'red' | null;
   source?: string | null;
   lastUpdate?: string | null;
-  direction?: BorderWaitDirection | null;
 }
 
 export interface BorderComparisonCandidate {
@@ -131,18 +128,6 @@ function statusLabel(status: BorderWaitComparisonEntry['status'], locale: Border
   return labels[locale][status];
 }
 
-function directionLabel(direction: BorderWaitDirection | null | undefined, locale: BorderWaitLocale): string {
-  if (!direction) return '—';
-  if (locale === 'it') return direction;
-  if (locale === 'en') {
-    return direction === 'IT → CH' ? 'Italy → Switzerland' : direction === 'CH → IT' ? 'Switzerland → Italy' : 'Both directions';
-  }
-  if (locale === 'de') {
-    return direction === 'IT → CH' ? 'Italien → Schweiz' : direction === 'CH → IT' ? 'Schweiz → Italien' : 'Beide Richtungen';
-  }
-  return direction === 'IT → CH' ? 'Italie → Suisse' : direction === 'CH → IT' ? 'Suisse → Italie' : 'Les deux directions';
-}
-
 function historicalValue(value: string | undefined, locale: BorderWaitLocale): string {
   if (!value || /^-+$/.test(value.trim())) {
     return locale === 'it' ? 'n.d.' : locale === 'de' ? 'k.A.' : locale === 'fr' ? 'n.d.' : 'n/a';
@@ -159,9 +144,8 @@ function comparisonCopy(locale: BorderWaitLocale, regionLabel: string, count: nu
   return {
     it: {
       heading: 'Confronto tra valichi vicini',
-      lead: `Questo confronto riunisce ${count} valichi dello stesso corridoio ${regionLabel}, ordinati per distanza in linea d'aria. Puoi confrontare la misura osservata, la direzione e la fonte prima di scegliere dove passare.`,
+      lead: `Questo confronto riunisce ${count} valichi dello stesso corridoio ${regionLabel}, ordinati per distanza in linea d'aria. Puoi confrontare la misura osservata e la fonte prima di scegliere dove passare.`,
       observed: 'Attesa osservata',
-      direction: 'Direzione',
       updated: 'Aggiornato',
       source: 'Fonte',
       current: 'Questo valico',
@@ -174,9 +158,8 @@ function comparisonCopy(locale: BorderWaitLocale, regionLabel: string, count: nu
     },
     en: {
       heading: 'Compare nearby crossings',
-      lead: `This comparison groups ${count} crossings in the same ${regionLabel} corridor, ordered by straight-line distance. Compare the observed reading, direction and source before choosing where to cross.`,
+      lead: `This comparison groups ${count} crossings in the same ${regionLabel} corridor, ordered by straight-line distance. Compare the observed reading and source before choosing where to cross.`,
       observed: 'Observed wait',
-      direction: 'Direction',
       updated: 'Updated',
       source: 'Source',
       current: 'This crossing',
@@ -189,9 +172,8 @@ function comparisonCopy(locale: BorderWaitLocale, regionLabel: string, count: nu
     },
     de: {
       heading: 'Nahe Übergänge vergleichen',
-      lead: `Dieser Vergleich bündelt ${count} Übergänge im selben Korridor ${regionLabel}, geordnet nach Luftlinien-Entfernung. Vergleichen Sie Messwert, Richtung und Quelle, bevor Sie den Übergang wählen.`,
+      lead: `Dieser Vergleich bündelt ${count} Übergänge im selben Korridor ${regionLabel}, geordnet nach Luftlinien-Entfernung. Vergleichen Sie Messwert und Quelle, bevor Sie den Übergang wählen.`,
       observed: 'Gemessene Wartezeit',
-      direction: 'Richtung',
       updated: 'Aktualisiert',
       source: 'Quelle',
       current: 'Dieser Übergang',
@@ -204,9 +186,8 @@ function comparisonCopy(locale: BorderWaitLocale, regionLabel: string, count: nu
     },
     fr: {
       heading: 'Comparer les passages proches',
-      lead: `Cette comparaison regroupe ${count} passages du même corridor ${regionLabel}, classés par distance à vol d'oiseau. Comparez la mesure observée, la direction et la source avant de choisir le passage.`,
+      lead: `Cette comparaison regroupe ${count} passages du même corridor ${regionLabel}, classés par distance à vol d'oiseau. Comparez la mesure observée et la source avant de choisir le passage.`,
       observed: 'Attente observée',
-      direction: 'Direction',
       updated: 'Mis à jour',
       source: 'Source',
       current: 'Ce passage',
@@ -261,7 +242,6 @@ export function renderBorderWaitComparison(params: {
         <span data-bw-field="totalCrossingMinutes" style="font-weight:600;color:var(--color-heading)">${escapeHtml(formatWait(wait, locale))}</span>
         <span data-bw-field="status" style="display:block;font-size:12px;color:var(--color-subtle)">${escapeHtml(statusLabel(entry?.status, locale))}</span>
       </td>
-      <td class="${TABLE_CELL_CLASS}" style="white-space:nowrap" data-bw-field="direction">${escapeHtml(directionLabel(entry?.direction, locale))}</td>
       <td class="${TABLE_CELL_CLASS}" style="white-space:nowrap;color:var(--color-subtle)" data-bw-field="lastUpdate">${escapeHtml(formatSnapshotTimestamp(entry?.lastUpdate, locale))}</td>
       <td class="${TABLE_CELL_CLASS}" style="color:var(--color-subtle)" data-bw-field="source" data-bw-source-labels="${sourceLabelMap}">${escapeHtml(sourceLabel(entry?.source, sourceLabels, locale))}</td>
     </tr>`;
@@ -283,7 +263,6 @@ export function renderBorderWaitComparison(params: {
         <thead><tr>
           <th class="${TABLE_HEAD_CLASS}">${locale === 'it' ? 'Valico' : locale === 'de' ? 'Übergang' : locale === 'fr' ? 'Passage' : 'Crossing'}</th>
           <th class="${TABLE_HEAD_CLASS}" style="text-align:right">${escapeHtml(copy.observed)}</th>
-          <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.direction)}</th>
           <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.updated)}</th>
           <th class="${TABLE_HEAD_CLASS}">${escapeHtml(copy.source)}</th>
         </tr></thead>

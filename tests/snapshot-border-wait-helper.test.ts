@@ -103,6 +103,8 @@ describe('snapshotBorderWaitFiles', () => {
           totalCrossingMinutes: 15,
           status: 'amber',
           source: 'tomtom',
+          // Legacy Firestore documents may still carry the former derived
+          // field; the mirror must not preserve or expose it.
           direction: 'IT → CH',
           lastUpdate: { toDate: () => lastUpdate },
         },
@@ -127,9 +129,9 @@ describe('snapshotBorderWaitFiles', () => {
       totalCrossingMinutes: 15,
       status: 'amber',
       source: 'tomtom',
-      direction: 'IT → CH',
       lastUpdate: lastUpdate.toISOString(),
     });
+    expect(current.perCrossing['chiasso-brogeda']).not.toHaveProperty('direction');
   });
 
   it('writes today\'s history file with 24 hour buckets per crossing', async () => {

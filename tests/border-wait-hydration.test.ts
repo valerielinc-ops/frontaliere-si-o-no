@@ -72,7 +72,7 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-hydrated');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('data-bw-live-badge');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('pageToken');
-    expect(BORDER_WAIT_HYDRATION_JS).toContain('direction');
+    expect(BORDER_WAIT_HYDRATION_JS).not.toContain('direction');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('visibilitychange');
   });
 
@@ -114,7 +114,7 @@ describe('border-wait pages — hydration injection', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
     expect(html).toMatch(/\bdata-bw-field=["']?totalCrossingMinutes["']?/);
-    expect(html).toMatch(/\bdata-bw-field=["']?direction["']?/);
+    expect(html).not.toMatch(/\bdata-bw-field=["']?direction["']?/);
     expect(html).toContain('data-bw-live-badge');
   });
 

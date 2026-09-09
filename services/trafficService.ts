@@ -27,7 +27,6 @@ export interface TrafficData {
  crossingName: string;
  waitTimeMinutes: number;
  status: 'green' | 'yellow' | 'red';
- direction: string;
  lastUpdate: Date;
  source: 'tomtom' | 'google-maps' | 'here' | 'webcam' | 'mock' | 'firestore';
  /** Traffic delay on the ≈500 m approach road on the Italian side (set by scheduled function) */
@@ -75,13 +74,12 @@ class TrafficService {
  if (!Array.isArray(parsed?.data) || typeof parsed.timestamp !== 'number') return null;
  if ((Date.now() - parsed.timestamp) >= TRAFFIC_LS_TTL_MS) return null;
  return (parsed.data as Array<{
- crossingName: string; waitTimeMinutes: number; status: string; direction: string;
+ crossingName: string; waitTimeMinutes: number; status: string;
  lastUpdateMs: number; source: string; approachMinutes?: number; totalCrossingMinutes?: number;
  }>).map(d => ({
  crossingName: d.crossingName,
  waitTimeMinutes: d.waitTimeMinutes,
  status: d.status as TrafficData['status'],
- direction: d.direction,
  lastUpdate: new Date(d.lastUpdateMs),
  source: d.source as TrafficData['source'],
  approachMinutes: d.approachMinutes,
@@ -98,7 +96,6 @@ class TrafficService {
  crossingName: d.crossingName,
  waitTimeMinutes: d.waitTimeMinutes,
  status: d.status,
- direction: d.direction,
  lastUpdateMs: d.lastUpdate.getTime(),
  source: d.source,
  approachMinutes: d.approachMinutes,
@@ -169,19 +166,23 @@ class TrafficService {
 
  snapshot.forEach(docSnap => {
  const d = docSnap.data();
- let lastUpdate;
+ let lastUpdate: Date;
  if (d.lastUpdate && typeof d.lastUpdate.toDate === 'function') {
  lastUpdate = d.lastUpdate.toDate();
  } else {
  console.warn(`[trafficService] Missing lastUpdate for Firestore doc ${docSnap.id}`);
- lastUpdate = new Date(d.lastUpdate ?? Date.now());
+ return;
+ }
+
+ if (!Number.isFinite(lastUpdate.getTime()) || typeof d.waitTimeMinutes !== 'number' || !['green', 'yellow', 'red'].includes(d.status)) {
+ console.warn(`[trafficService] Incomplete traffic reading for Firestore doc ${docSnap.id}`);
+ return;
  }
 
  results.push({
  crossingName: d.crossingName,
- waitTimeMinutes: d.waitTimeMinutes ?? 0,
- status: d.status ?? 'green',
- direction: d.direction ?? 'Entrambi',
+ waitTimeMinutes: d.waitTimeMinutes,
+ status: d.status as TrafficData['status'],
  lastUpdate,
  source: 'firestore',
  approachMinutes: d.approachMinutes,
@@ -189,12 +190,17 @@ class TrafficService {
  });
  });
 
- if (results.length > 0 && results.every(r => now - r.lastUpdate.getTime() > STALE_THRESHOLD_MS)) {
+ const freshResults = results.filter(r => now - r.lastUpdate.getTime() <= STALE_THRESHOLD_MS);
+ if (results.length > 0 && freshResults.length === 0) {
  console.warn('[trafficService] Firestore data is stale (>2 h old) — using committed snapshot fallback');
  return [];
  }
 
- return results;
+ if (freshResults.length < results.length) {
+ console.warn('[trafficService] Ignoring stale Firestore readings while keeping fresh crossings');
+ }
+
+ return freshResults;
  }
 
  /**
@@ -206,23 +212,24 @@ class TrafficService {
  * Entries are tagged `source: 'mock'` so `hasLiveTrafficData()` still treats
  * the UI as "not live" (we cannot confirm current conditions without a live
  * feed); the displayed minutes are the real last-known figure, never random.
- * A crossing missing from the snapshot falls back to 0 / green (no queue).
+ * A crossing missing from the snapshot is omitted; absence stays absence until
+ * the UI decides how to represent it.
  */
  private getFallbackTrafficData(): TrafficData[] {
  const perCrossing = BORDER_WAIT_SNAPSHOT.perCrossing ?? {};
  const snapshotUpdate = BORDER_WAIT_SNAPSHOT.updatedAt;
- return BORDER_CROSSINGS.map(({ name }) => {
+ return BORDER_CROSSINGS.flatMap(({ name }) => {
  const entry = perCrossing[slugifyCrossingName(name)];
+ if (!entry || typeof entry.waitTimeMinutes !== 'number') return [];
  return {
  crossingName: name,
- waitTimeMinutes: entry?.waitTimeMinutes ?? 0,
+ waitTimeMinutes: entry.waitTimeMinutes,
  status: (entry?.status as TrafficData['status']) ?? 'green',
- direction: 'Entrambi',
  lastUpdate: new Date(entry?.lastUpdate ?? snapshotUpdate ?? Date.now()),
  source: 'mock',
  approachMinutes: entry?.approachMinutes,
  totalCrossingMinutes: entry?.totalCrossingMinutes,
- };
+  };
  });
  }
 

@@ -433,22 +433,12 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  else if (waitTimeMinutes < 15) status = 'yellow';
  else status = 'red';
 
- // Cloud Functions use UTC by default; derive the local hour in Europe/Rome
- const hour = Number(
- new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome', hour: 'numeric', hour12: false }),
- );
- let direction;
- if (hour >= 6 && hour < 10) direction = 'IT → CH';
- else if (hour >= 16 && hour < 20) direction = 'CH → IT';
- else direction = 'Entrambi';
-
  return {
  crossingName: crossing.name,
  waitTimeMinutes,
  approachMinutes,
  totalCrossingMinutes,
  status,
- direction,
  source,
  };
 }
@@ -579,11 +569,11 @@ export async function saveTrafficToFirestore(crossingResults) {
 /**
  * Builds the same result-object shape `fetchCrossingTraffic` returns, but with
  * the wait derived purely from a webcam congestion score. Pure + synchronous so
- * the status/direction derivation stays unit-testable without network or sharp.
+ * the status derivation stays unit-testable without network or sharp.
  *
  * @param {{ name: string }} crossing
  * @param {number} waitTimeMinutes - already mapped via estimateWaitFromCongestion
- * @returns {{ crossingName: string, waitTimeMinutes: number, approachMinutes: number, totalCrossingMinutes: number, status: string, direction: string, source: string }}
+ * @returns {{ crossingName: string, waitTimeMinutes: number, approachMinutes: number, totalCrossingMinutes: number, status: string, source: string }}
  */
 function buildWebcamCrossingResult(crossing, waitTimeMinutes) {
  const approachMinutes = 0; // no live approach datum from a camera
@@ -595,22 +585,12 @@ function buildWebcamCrossingResult(crossing, waitTimeMinutes) {
  else if (waitTimeMinutes < 15) status = 'yellow';
  else status = 'red';
 
- // Cloud Functions use UTC by default; derive the local hour in Europe/Rome.
- const hour = Number(
- new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome', hour: 'numeric', hour12: false }),
- );
- let direction;
- if (hour >= 6 && hour < 10) direction = 'IT → CH';
- else if (hour >= 16 && hour < 20) direction = 'CH → IT';
- else direction = 'Entrambi';
-
  return {
  crossingName: crossing.name,
  waitTimeMinutes,
  approachMinutes,
  totalCrossingMinutes,
  status,
- direction,
  source: 'webcam',
  };
 }
