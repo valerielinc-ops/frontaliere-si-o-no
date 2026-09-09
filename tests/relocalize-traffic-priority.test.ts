@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   RESERVE_FOR_OLDEST,
+  NEAR_MISS_CAP_FRACTION,
   FRESH_WINDOW_MS,
   freshHeadCeiling,
   strideForReserve,
@@ -180,12 +181,50 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(stats.freshHead).toBe(1);
   });
 
-  it('la finestra e 24 ore esatte: a 25 ore il job non e piu fresco', () => {
+  it('la finestra e 24 ore esatte: a 25 ore il job non e piu fresco ma e near-miss', () => {
     expect(FRESH_WINDOW_MS).toBe(24 * 60 * 60 * 1000);
     const pending = [job('hot', daysAgo(300)), job('old', daysAgo(25 / 24))];
     const { order, stats } = buildTrafficPriority(pending, popularity, { now: NOW, freshFirst: true });
     expect(stats.freshHead).toBe(0);
-    expect(order[0].slug).toBe('hot');
+    expect(stats.nearMiss).toBe(1);
+    expect(order[0].slug).toBe('old');
+  });
+
+  it('riempie con i piu giovani appena scaduti i posti di testa avanzati', () => {
+    const cap = 10;
+    const pending = [
+      job('fresh-newest', daysAgo(0.1)),
+      job('fresh-older', daysAgo(0.2)),
+      job('near-miss-newest', daysAgo(25 / 24)),
+      job('near-miss-older', daysAgo(2)),
+      ...Array.from({ length: 10 }, (_, i) => job(`old-${i}`, daysAgo(30 + i))),
+    ];
+    const { order, selected, stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true, cap });
+
+    expect(NEAR_MISS_CAP_FRACTION).toBe(0.05);
+    expect(stats.freshHead).toBe(2);
+    expect(stats.nearMiss).toBe(1);
+    expect(selected.slice(0, 2).map((j: any) => j.slug)).toEqual(
+      expect.arrayContaining(['fresh-newest', 'fresh-older']),
+    );
+    expect(selected[2].slug).toBe('near-miss-newest');
+    expect(order).toHaveLength(pending.length);
+  });
+
+  it('con la testa fresca piena i near-miss non le rubano posti', () => {
+    const cap = 10;
+    const fresh = Array.from({ length: freshHeadCeiling(cap, RESERVE_FOR_OLDEST) }, (_, i) =>
+      job(`fresh-${i}`, daysAgo(0.1 + i / 100)));
+    const pending = [
+      ...fresh,
+      job('near-miss', daysAgo(25 / 24)),
+      ...Array.from({ length: 10 }, (_, i) => job(`old-${i}`, daysAgo(30 + i))),
+    ];
+    const { order, stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true, cap });
+
+    expect(stats.freshHead).toBe(fresh.length);
+    expect(stats.nearMiss).toBe(0);
+    expect(order.slice(0, fresh.length).every((j: any) => j.slug.startsWith('fresh-'))).toBe(true);
   });
 
   it('un firstSeenAt nel FUTURO non e fresco: niente testa, ma resta in coda (#7363)', () => {
@@ -244,6 +283,7 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     const { order, stats } = buildTrafficPriority([...rest, ...fresh], {}, { now: NOW, freshFirst: true });
     expect(order).toHaveLength(27);
     expect(stats.freshHead).toBe(7);
+    expect(stats.nearMiss).toBe(2);
     expect(order.slice(0, 7).every((j: any) => j.slug.startsWith('f'))).toBe(true);
     expect(new Set(order.map((j: any) => j.slug)).size).toBe(27);
   });
@@ -256,11 +296,13 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
       ...Array.from({ length: 12 }, (_, i) => job(`t${i}`, daysAgo(5), {})),
       job('ancient', daysAgo(400)),
     ];
+    const fresh = Array.from({ length: 15 }, (_, i) => job(`fresh-${i}`, daysAgo(0.1 + i / 100)));
     const pop = Object.fromEntries(rest.map((j, i) => [j.slug, j.slug === 'ancient' ? 0 : 100 - i]));
-    const senza = buildTrafficPriority(rest, pop, { now: NOW });
-    const con = buildTrafficPriority([job('fresh', daysAgo(0.2)), ...rest], pop, { now: NOW, freshFirst: true });
-    expect(con.order[0].slug).toBe('fresh');
-    expect(con.order.slice(1).map((j: any) => j.slug)).toEqual(senza.order.map((j: any) => j.slug));
+    const senza = buildTrafficPriority(rest, pop, { now: NOW, cap: 20 });
+    const con = buildTrafficPriority([...fresh, ...rest], pop, { now: NOW, cap: 20, freshFirst: true });
+    expect(con.stats.nearMiss).toBe(0);
+    expect(con.order.slice(0, fresh.length).every((j: any) => j.slug.startsWith('fresh-'))).toBe(true);
+    expect(con.order.slice(fresh.length).map((j: any) => j.slug)).toEqual(senza.order.map((j: any) => j.slug));
   });
 
   it('un reset di massa di firstSeenAt NON azzera la riserva oldest-first', () => {
@@ -356,6 +398,7 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(off).toContain('off');
     const on = formatPriorityReport(buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, freshFirst: true }).stats).join('\n');
     expect(on).toMatch(/Freshness lane:\s+1 job\(s\) ahead of the stride \(< 24h old\)/);
+    expect(on).toContain('Near-miss admitted:');
   });
 
   it('il mop-up gratuito la accende, il cascade a pagamento no — per VALORE, non per testo', () => {

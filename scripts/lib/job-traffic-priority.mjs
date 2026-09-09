@@ -62,6 +62,22 @@ export const TRAFFIC_SOURCE_PATH = 'data/job-popularity.json';
 export const RESERVE_FOR_OLDEST = 0.2;
 
 /**
+ * Fraction of the caller's cap that may fill unused freshness-head slots with
+ * jobs that just missed the 24-hour window. The fresh head still owns the
+ * slots it needs; this small, bounded bridge prevents the 24-hour boundary
+ * from becoming a cliff without letting a sparse head swallow the whole run.
+ * Override with `NEAR_MISS_CAP_FRACTION` when the live queue needs retuning.
+ */
+function fractionFromEnv(name, fallback) {
+  const raw = process.env[name];
+  if (raw === undefined || raw === null || String(raw).trim() === '') return fallback;
+  const value = Number(String(raw).trim());
+  return Number.isFinite(value) && value >= 0 && value <= 1 ? value : fallback;
+}
+
+export const NEAR_MISS_CAP_FRACTION = fractionFromEnv('NEAR_MISS_CAP_FRACTION', 0.05);
+
+/**
  * Age in days at which the oldest job still in the queue is reported as an
  * ALERT rather than as a number. Sits above the live maximum measured on
  * 2026-08-14 (123,2 days) so the flag means "the tail got OLDER than it has
@@ -153,7 +169,7 @@ export function freshHeadCeiling(capSlots, reserveForOldest = RESERVE_FOR_OLDEST
  */
 export const TRAFFIC_STATS_KEYS = Object.freeze([
   'age', 'freshDeferred', 'freshFirst', 'freshFuture', 'freshHead', 'freshWindowMs',
-  'matchRate', 'matched', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
+  'matchRate', 'matched', 'nearMiss', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
 ]);
 
 /**
@@ -481,12 +497,28 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
   const capSlots = cap === null ? jobs.length : Math.min(cap, jobs.length);
   const freshHeadMax = freshHeadCeiling(capSlots, reserveForOldest);
   const freshHead = freshCohort.slice(0, freshHeadMax);
+  const freshHeadCount = freshHead.length;
   // Cut from the head, NOT from the queue: these go back into the stride with
   // everybody else, where — being the newest jobs in it — they sort last on the
   // age list and cannot take a reserve slot they did not earn.
   const deferred = new Set(freshCohort.slice(freshHeadMax).map((s) => s.index));
+  // A fresh head can be smaller than its ceiling on an ordinary run. Give a
+  // bounded share of those ALREADY AVAILABLE head slots to the youngest jobs
+  // just outside the 24-hour definition, so expiry is a bridge rather than a
+  // cliff. The head ceiling is still the hard upper bound: a full fresh head
+  // leaves no room, and the cap fraction keeps a sparse head from consuming
+  // the whole batch.
+  const nearMissCap = freshFirst ? Math.max(0, freshHeadMax - freshHeadCount) : 0;
+  const nearMiss = freshFirst
+    ? scored
+      .filter((s) => !isFresh(s) && !isFuture(s) && Number.isFinite(s.queuedAt))
+      .sort((a, b) => b.queuedAt - a.queuedAt || b.views - a.views || a.index - b.index)
+      .slice(0, Math.min(nearMissCap, Math.ceil(capSlots * NEAR_MISS_CAP_FRACTION)))
+    : [];
+  const nearMissIdx = new Set(nearMiss.map((s) => s.index));
+  freshHead.push(...nearMiss);
   const rest = freshFirst
-    ? scored.filter((s) => !isFresh(s) || deferred.has(s.index))
+    ? scored.filter((s) => (!isFresh(s) || deferred.has(s.index)) && !nearMissIdx.has(s.index))
     : scored;
 
   // Highest traffic first; ties broken OLDEST first (not by array order) so the
@@ -557,12 +589,16 @@ export function buildTrafficPriority(pending, popularity, opts = {}) {
       // l'unico modo di vedere che la corsia esiste: l'ordinamento non lascia
       // altra traccia, e una corsia che smette di funzionare sarebbe muta.
       freshFirst,
-      freshHead: freshHead.length,
+      freshHead: freshHeadCount,
+      // Quanti job appena oltre la finestra hanno riempito posti di testa
+      // avanzati. Separato da freshHead perche' il confine delle 24 ore resta
+      // misurabile anche quando il ponte e' attivo.
+      nearMiss: nearMiss.length,
       // Quanti job freschi il tetto ha rimandato nello stride. Diverso da zero
       // solo su una coorte piu' grande di meta' batch — cioe' esattamente il
       // caso (reset di massa di `firstSeenAt`) in cui l'ordinamento cambia:
       // senza questo numero la troncatura sarebbe muta.
-      freshDeferred: freshCohort.length - freshHead.length,
+      freshDeferred: freshCohort.length - freshHeadCount,
       // Quanti job la corsia ha escluso perche' datati nel FUTURO. Diverso da
       // zero = c'e' un crawler che scrive date non servibili, da guardare.
       freshFuture,
@@ -653,6 +689,7 @@ export function formatPriorityReport(stats, { freshCoverage = null } = {}) {
           ? ` · ${stats.freshFuture} skipped, dated in the FUTURE (still queued, served by the stride — check the crawler that dated them)`
           : '')
       : 'off (this consumer keeps the plain traffic/age stride)'}`,
+    `   Near-miss admitted:   ${stats.nearMiss}`,
     `   Queue age (from first-seen, upper bound on time-in-queue):`,
     `     oldest ${a.oldestAgeDays ?? 'n/a'}d · p50 ${a.p50AgeDays ?? 'n/a'}d · p90 ${a.p90AgeDays ?? 'n/a'}d` +
       ` · dated ${a.withTimestamp}/${a.count}`,
