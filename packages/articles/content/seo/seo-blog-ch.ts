@@ -79697,6 +79697,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-c-canton-uri-richiesta': {
+    title: 'Permesso C canton Uri: anni e procedura | Frontaliere Ticino',
+    description: 'Guida completa al permesso di domicilio C nel Cantone Uri: requisiti federali (10 anni residenza, 5 UE/AELS), integrazione, lingua e procedura di richiesta',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, anni, procedura',
+    ogTitle: 'Permesso C canton Uri: requisiti e guida pratica',
+    ogDescription: 'Scopri come richiedere il permesso di domicilio C nel Cantone Uri: 10 anni di residenza (5 per UE/AELS), criteri di integrazione, conoscenze linguistiche, procedura SEM e rilascio anticipato.',
+    canonicalPath: '/articoli-svizzera/permesso-c-canton-uri-richiesta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C canton Uri: anni e procedura",
+      "description": "Guida completa al permesso di domicilio C nel Cantone Uri: requisiti federali (10 anni residenza, 5 UE/AELS), integrazione, lingua e procedura di richiesta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-canton-uri-richiesta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'amministrazione cantonale per la gestione dei permessi di domicilio e dell'integrazione dei cittadini stranieri."
+      },
+      "datePublished": "2026-09-09T01:51:36+00:00",
+      "dateModified": "2026-09-09T01:51:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-canton-uri-richiesta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

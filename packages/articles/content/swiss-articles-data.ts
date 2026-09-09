@@ -18415,6 +18415,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-c-canton-uri-richiesta',
+    category: 'pratico',
+    date: '2026-09-09T01:51:36.573Z',
+    image: '/images/blog/permesso-c-canton-uri-richiesta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
