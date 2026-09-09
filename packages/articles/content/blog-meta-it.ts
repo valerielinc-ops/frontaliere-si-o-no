@@ -11624,6 +11624,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.casnate-bernate-trasferimento.title': 'Vivere a Casnate, lavorare in Ticino',
     'blog.article.casnate-bernate-trasferimento.excerpt': 'Trasferirsi a Casnate e lavorare in Ticino: imposta alla fonte, AVS/LPP e procedure per frontalieri dal 2024.',
     'blog.article.casnate-bernate-trasferimento.imageAlt': 'Veduta di Mendrisio al tramonto, Ticino, vicino al confine con l\'Italia',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Frontalieri a Lugano: interrogazione del Municipio',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht interroga il Municipio di Lugano sulle assunzioni di frontalieri dal 2024. Una richiesta di chiarezza su numero, dicasteri e motivi delle selezioni nel settore pubblico.',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano, dove il Municipio gestisce le assunzioni di frontalieri e cittadini stranieri nell\'amministrazione comunale',
 };
 
 export default blogMetaIt;

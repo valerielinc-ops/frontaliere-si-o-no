@@ -11625,6 +11625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.casnate-bernate-trasferimento.title': 'Vivre à Casnate, travailler au Tessin',
     'blog.article.casnate-bernate-trasferimento.excerpt': 'Déménager à Casnate et travailler au Tessin : impôt à la source, AVS/LPP et procédures pour les frontaliers à partir de 2024.',
     'blog.article.casnate-bernate-trasferimento.imageAlt': 'Vue de Mendrisio au coucher du soleil, Tessin, près de la frontière suisse-italienne',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Frontaliers à Lugano : question de la mairie',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht interroge la Mairie de Lugano sur les embauches de frontaliers depuis 2024. Une demande de clarté sur le nombre, les dicastères et les raisons des sélections dans le secteur public.',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano, où la mairie gère les embauches de frontaliers dans l\'administration communale',
 };
 
 export default blogMetaFr;

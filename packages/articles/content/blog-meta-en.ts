@@ -11623,6 +11623,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.casnate-bernate-trasferimento.title': 'Living in Casnate, working in Ticino',
     'blog.article.casnate-bernate-trasferimento.excerpt': 'Moving to Casnate and working in Ticino: tax at source, AVS/LPP and procedures for border workers from 2024.',
     'blog.article.casnate-bernate-trasferimento.imageAlt': 'View of Mendrisio at sunset, Ticino, near the Swiss-Italian border',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.title': 'Frontier workers in Lugano: question from the Municipality',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.excerpt': 'Omar Wicht questions the Municipality of Lugano about the hiring of border workers since 2024. A request for clarity on the number, dicasteries and reasons for the selections in the public sector.',
+    'blog.article.frontalieri-assunzioni-lugano-interrogazione.imageAlt': 'Lugano city administration where cross-border worker hiring is managed and scrutinized',
 };
 
 export default blogMetaEn;
