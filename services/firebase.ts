@@ -103,6 +103,11 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // services/headerBidding.ts). Flip to 'true' to disable Prebid within ~1 min
  // (no redeploy); slots keep serving via GPT/AdSense.
  KILL_HEADER_BIDDING: 'false',
+ // G5: treatment-only rollback for the URL-surface in-feed experiment.
+ // Default 'false' keeps the experiment active; flipping it to 'true'
+ // restores manual in-feed slots on the treatment pages. Auto Ads remain
+ // operational in both states.
+ KILL_JOBLIST_INFEED_EXPERIMENT: 'false',
  // E3: Inline consulting CTA on calculator results view.
  // Default 'true' so the CTA is visible until explicitly disabled via Firebase
  // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.

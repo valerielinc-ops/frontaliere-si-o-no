@@ -28,6 +28,7 @@ describe('useKillSwitches', () => {
       desktopTopBanner: false,
       calculatorFormBox: false,
       headerBidding: false,
+      adInfeedExperiment: false,
     });
   });
 
@@ -78,6 +79,7 @@ describe('useKillSwitches', () => {
       desktopTopBanner: false,
       calculatorFormBox: false,
       headerBidding: false,
+      adInfeedExperiment: false,
     });
   });
 
@@ -87,7 +89,7 @@ describe('useKillSwitches', () => {
     renderHook(() => useKillSwitches());
 
     await waitFor(() => {
-      expect(rcMock).toHaveBeenCalledTimes(10);
+      expect(rcMock).toHaveBeenCalledTimes(11);
     });
 
     const callArgs = rcMock.mock.calls.map(([arg]) => arg);
@@ -101,5 +103,6 @@ describe('useKillSwitches', () => {
     expect(callArgs).toContain('KILL_DESKTOP_TOP_BANNER');
     expect(callArgs).toContain('KILL_CALCULATOR_FORM_BOX');
     expect(callArgs).toContain('KILL_HEADER_BIDDING');
+    expect(callArgs).toContain('KILL_JOBLIST_INFEED_EXPERIMENT');
   });
 });

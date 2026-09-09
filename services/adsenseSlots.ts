@@ -33,6 +33,11 @@
  * AUTHGATE_RAIL_LEFT/RIGHT, JOBDETAIL_SIDEBAR_2 (cannibalized JOBDETAIL_SIDEBAR).
  */
 
+import { shouldSuppressManualInfeedAd } from './adExperiment';
+
+export { INFEED_AD_EXPERIMENT_ID, INFEED_AD_EXPERIMENT_RC_KILL_KEY, INFEED_AD_VARIANTS } from './adExperiment';
+export { INFEED_AD_TREATMENT_CANTONS as INFEED_AD_AB_TEST_SUPPRESSED_CANTONS } from './adExperiment';
+
 export const AD_CLIENT = 'ca-pub-8628054934855353';
 
 export const AD_SLOTS = {
@@ -316,26 +321,23 @@ export const JOBLIST_AD_MAX_PER_LIST = 12;
  *  URL-vs-channel distinction are documented in
  *  `docs/ADSENSE-INFEED-AB-TEST.md`.
  *
- *  Only `shouldPlaceInfeedAd` reads this set — extend it here (never branch
- *  ad hoc in a caller) if the test result motivates expanding treatment to
- *  more cantons. */
-export const INFEED_AD_AB_TEST_SUPPRESSED_CANTONS: ReadonlySet<string> = new Set(['LU', 'TI']);
-
+ *  Treatment membership is centralized in `services/adExperiment.ts`; extend
+ *  it there if the test result motivates expanding treatment to more cantons.
+ */
 /** True when an in-feed ad should be placed immediately after the card at this
  *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`), up
  *  to `JOBLIST_AD_MAX_PER_LIST` ads per list (see cap rationale above).
  *
- *  `opts.canton`, when passed, opt this call site into the canton A/B test
- *  above: a canton in `INFEED_AD_AB_TEST_SUPPRESSED_CANTONS` always returns
- *  `false`, regardless of position/cadence. Omitting `canton` (every existing
- *  caller that isn't the canton job-search listing) preserves the original
- *  cadence-only behaviour unchanged — this is an opt-in branch, not a
- *  behavioural change for callers that don't pass it. */
+ *  `opts.canton`, when passed, opts this call site into the URL-surface
+ *  comparison above. `adExperimentActive: false` is the treatment-only
+ *  rollback and restores the original cadence on the treatment surfaces.
+ *  Omitting `canton` (every existing caller that isn't the canton job-search
+ *  listing) preserves the original cadence-only behaviour unchanged. */
 export function shouldPlaceInfeedAd(
  position1Based: number,
- opts?: { canton?: string | null },
+ opts?: { canton?: string | null; adExperimentActive?: boolean },
 ): boolean {
- if (opts?.canton && INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has(opts.canton.toUpperCase())) {
+ if (shouldSuppressManualInfeedAd(opts?.canton, { active: opts?.adExperimentActive })) {
  return false;
  }
  return (
