@@ -68,6 +68,7 @@ import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plug
 import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
+import { buildPharmacyPath, parsePharmacyPath, type PharmacyPath } from './pharmacies/paths';
 import {
   isFrenchBorderMunicipalityHubPath,
   parseFrenchBorderMunicipalityHubPath,
@@ -828,6 +829,8 @@ export interface AppRoute {
  /** Optional border crossing deep link under guida/border (e.g. /guida/.../border-waiting-times/chiasso-brogeda). */
  borderCrossing?: BorderCrossingId;
  vitaSubTab?: VitaSubTab;
+ /** Route-driven pharmacy surface, preserving the canonical page payload. */
+ pharmacyPath?: PharmacyPath;
  statsSubTab?: StatsSubTab;
  blogArticle?: BlogArticleId;
  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
@@ -2429,6 +2432,11 @@ export function parsePath(pathname: string): ParseResult {
  // over a page that exists. Routed to `vita` for back-nav: daily-life
  // services is the closest existing tab family.
  {
+   const pharmacyPath = parsePharmacyPath(pathname);
+   if (pharmacyPath) {
+     return { route: { activeTab: 'vita', pharmacyPath }, locale: pharmacyPath.locale };
+   }
+
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
    const pharmacyPaths: Record<string, Locale> = {
      '/farmacie/': 'it',
@@ -3474,6 +3482,10 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  const normalizedPath = pathPart === '/' ? '/' : `${pathPart.replace(/\/+$/, '')}/`;
  return hashPart ? `${normalizedPath}#${hashPart}` : normalizedPath;
  };
+
+ if (route.pharmacyPath) {
+   return finish(buildPharmacyPath(route.pharmacyPath, lang) + hashSuffix);
+ }
 
  switch (route.activeTab) {
  case 'calculator': {
