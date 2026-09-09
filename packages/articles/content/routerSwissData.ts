@@ -2107,6 +2107,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svitto-guida-aprire-impresa-costi': { it: 'svitto-guida-aprire-impresa-costi', en: 'switzerland-guide-start-business-costs', de: 'schwytz-leitfaden-geschaft-eroffnen-kosten', fr: 'suisse-guide-ouvrir-entreprise-frais' },
  'premi-lamal-san-gallo-riduzione': { it: 'premi-lamal-san-gallo-riduzione', en: 'health-insurance-premiums-st-gallen-reduction', de: 'krankenversicherungspramien-st-gallen-reduktion', fr: 'primes-assurance-maladie-saint-gall-reduction' },
  'commissioni-extraparlamentari-riorganizzazione': { it: 'commissioni-extraparlamentari-riorganizzazione', en: 'extraparlamentary-commissions-reorganization', de: 'reorganisation-ausserparlamentarischer-kommissionen', fr: 'reorganisation-commissions-extraparliamentaires' },
+ 'svizzera-corruzione-restituzione-banche': { it: 'svizzera-corruzione-restituzione-banche', en: 'switzerland-corruption-restitution-banks', de: 'schweiz-korruption-rueckerstattung-banken', fr: 'suisse-corruption-restitution-banques' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

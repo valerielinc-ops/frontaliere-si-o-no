@@ -6244,6 +6244,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.commissioni-extraparlamentari-riorganizzazione.title': 'Conseil fédéral réorganise les commissions extraparlementaires',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.excerpt': 'Le Conseil fédéral adopte le message sur la réorganisation des commissions extraparlementaires : 3 dissoutes, 7 fusionnées en 2 structures ; économies ~ 100 000 CHF par an à partir de 2028.',
     'blog.article.commissioni-extraparlamentari-riorganizzazione.imageAlt': 'Salle de réunion de l\'Administration fédérale suisse avec documents officiels',
+    'blog.article.svizzera-corruzione-restituzione-banche.title': 'Argent de corruption : le dilemme suisse',
+    'blog.article.svizzera-corruzione-restituzione-banche.excerpt': 'Restitution de fonds illicites : un processus long et complexe. Pourquoi la Suisse n\'oblige-t-elle pas les banques à verser directement aux États lésés ?',
+    'blog.article.svizzera-corruzione-restituzione-banche.imageAlt': 'Autorité bancaire fédérale suisse supervisant les procédures de restitution des fonds illicites',
 };
 
 export default blogMetaChFr;
