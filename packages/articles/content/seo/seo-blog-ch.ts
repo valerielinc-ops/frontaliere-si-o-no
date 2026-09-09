@@ -80360,6 +80360,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-alleanza-energia-elettrica-svizzera': {
+    title: 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    description: 'L\'Alleanza accordo sull\'energia elettrica Svizzera promuove l\'intesa con l\'UE per garantire stabilità della rete e contenere i costi energetici nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alleanza, energia, centro, rete',
+    ogTitle: 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    ogDescription: 'Nasce un\'alleanza di aziende e attori economici svizzeri per sostenere l\'accordo sull\'energia con l\'UE. L\'intesa è fondamentale per la sicurezza dell\'approvvigionamento invernale e la competitività dei produttori svizzeri nel mercato europeo.',
+    canonicalPath: '/articoli-svizzera/alleanza-energia-elettrica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alleanza per l'energia: Svizzera al centro della rete UE",
+      "description": "L'Alleanza accordo sull'energia elettrica Svizzera promuove l'intesa con l'UE per garantire stabilità della rete e contenere i costi energetici nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alleanza-energia-elettrica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di controllo della rete di distribuzione dell'elettricità svizzera, con tecnici che monitorano l'energia europeo"
+      },
+      "datePublished": "2026-09-09T15:04:55+00:00",
+      "dateModified": "2026-09-09T15:04:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alleanza-energia-elettrica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

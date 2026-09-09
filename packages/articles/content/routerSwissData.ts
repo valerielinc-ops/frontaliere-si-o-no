@@ -2089,6 +2089,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'consiglio-federale-ruag-mro': { it: 'consiglio-federale-ruag-mro', en: 'federal-council-ruag-mro', de: 'bundesrat-ruag-mro', fr: 'conseil-federal-ruag-mro' },
  'zimmer-biomet-tagli-impieghi': { it: 'zimmer-biomet-tagli-impieghi', en: 'zimmer-biomet-job-cuts', de: 'zimmer-biomet-stellenabbau', fr: 'zimmer-biomet-suppressions-emplois' },
  'ubs-yumo-educazione-finanziaria': { it: 'ubs-yumo-educazione-finanziaria', en: 'ubs-yumo-financial-education', de: 'ubs-yumo-finanzbildung', fr: 'ubs-yumo-education-financiere' },
+ 'alleanza-energia-elettrica-svizzera': { it: 'alleanza-energia-elettrica-svizzera', en: 'alliance-electricity-switzerland-eu', de: 'allianz-strom-schweiz-eu', fr: 'alliance-energie-electrique-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -6190,6 +6190,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS lancia YUMO: educazione finanziaria gratuita',
     'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese e inglese.',
     'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'Veduta di Lugano con lago e montagne sullo sfondo, simbolo della Svizzera moderna',
+    'blog.article.alleanza-energia-elettrica-svizzera.title': 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'Una nuova alleanza di attori economici sostiene l\'accordo sull\'energia con l\'UE. La Svizzera dipende dalle importazioni invernali ed esporta in estate.',
+    'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Centro di controllo della rete di distribuzione dell\'elettricità svizzera, con tecnici che monitorano l\'energia europeo',
 };
 
 export default blogMetaChIt;
