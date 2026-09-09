@@ -115,6 +115,7 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ env.APP_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           show_full_output: true
           allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
           claude_args: "--effort medium --max-turns 50 --model claude-opus-5 --dangerously-skip-permissions"

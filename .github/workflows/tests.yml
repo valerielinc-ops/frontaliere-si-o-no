@@ -2216,6 +2216,7 @@ jobs:
           # and therefore is not byte-identical to the version on main.
           # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
           github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'

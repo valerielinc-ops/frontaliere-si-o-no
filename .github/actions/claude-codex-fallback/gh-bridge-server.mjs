@@ -6,6 +6,10 @@ import { spawn } from 'node:child_process';
 export const MAX_REQUEST_BYTES = 64 * 1024;
 export const MAX_OUTPUT_BYTES = 1024 * 1024;
 export const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
+export const MAX_ACTIVE_CONNECTIONS = 8;
+export const SOCKET_TIMEOUT_MS = 30_000;
+export const CHILD_TIMEOUT_MS = 120_000;
+export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 
 const allowedCommands = new Set(['api', 'issue', 'label', 'pr', 'run', 'search']);
 const blockedCommands = new Set([
@@ -19,6 +23,10 @@ const blockedFlags = new Set([
 ]);
 const fileFlags = new Set(['--body-file', '--input', '--template']);
 const fieldFlags = new Set(['-F', '--field', '-f', '--raw-field']);
+const apiEndpointValueFlags = new Set([
+  '--method', '-X', '--header', '-H', '--hostname', '--repo',
+  '--input', '--template', '-F', '--field', '-f', '--raw-field',
+]);
 
 function realRoot(value) {
   try { return fs.realpathSync(value); } catch { return ''; }
@@ -31,6 +39,81 @@ function commandIndexFor(args) {
     else index += 1;
   }
   return index;
+}
+
+function normalizedHost(value) {
+  const raw = String(value || '').trim();
+  if (!raw || /[\u0000-\u001f\u007f\s]/.test(raw)) return '';
+  try {
+    const url = raw.includes('://') ? new URL(raw) : new URL(`https://${raw}`);
+    if (url.username || url.password || url.pathname !== '/' || url.search || url.hash) return '';
+    return url.host.toLowerCase();
+  } catch {
+    return '';
+  }
+}
+
+function repositoryName(value) {
+  const raw = String(value || '').trim();
+  return /^[^/\s]+\/[^/\s]+$/.test(raw) ? raw : '';
+}
+
+function optionValue(args, index, name) {
+  const arg = args[index];
+  if (arg === name) return { value: args[index + 1] || '', consumed: 1 };
+  if (arg.startsWith(`${name}=`)) return { value: arg.slice(name.length + 1), consumed: 0 };
+  return null;
+}
+
+function apiEndpoint(args, start) {
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    if (arg === '--') return args[index + 1] || '';
+    if (!arg.startsWith('-')) return arg;
+    if (!arg.includes('=') && apiEndpointValueFlags.has(arg)) index += 1;
+  }
+  return '';
+}
+
+function validateRepositoryAndHost(args, { repository, host } = {}) {
+  const expectedRepository = repositoryName(repository);
+  const expectedHost = normalizedHost(host);
+  if (!expectedRepository || !expectedHost) return 'Codex GitHub bridge context is missing a valid repository/host';
+
+  for (let index = 0; index < args.length; index += 1) {
+    const repoOption = optionValue(args, index, '--repo');
+    if (repoOption) {
+      if (!repoOption.value || repoOption.value !== expectedRepository) {
+        return `gh --repo is restricted to ${expectedRepository}`;
+      }
+      index += repoOption.consumed;
+      continue;
+    }
+    const hostOption = optionValue(args, index, '--hostname');
+    if (hostOption) {
+      if (!hostOption.value || normalizedHost(hostOption.value) !== expectedHost) {
+        return `gh --hostname is restricted to ${expectedHost}`;
+      }
+      index += hostOption.consumed;
+    }
+  }
+  return '';
+}
+
+function validateApiEndpoint(args, commandIndex, repository) {
+  const endpoint = apiEndpoint(args, commandIndex + 1);
+  // Keep the historical validator contract for flag-only requests: gh itself
+  // will reject a missing endpoint, but there is no remote target to broaden.
+  if (!endpoint) return '';
+  if (endpoint === '-' || endpoint.includes('://') || endpoint.startsWith('~')) {
+    return 'gh api requires a relative endpoint for the current repository';
+  }
+  const normalized = endpoint.replace(/^\/+/, '');
+  const match = /^repos\/([^/]+\/[^/?#]+)(?:[/?#]|$)/i.exec(normalized);
+  if (!match || match[1] !== repository) {
+    return 'gh api endpoint is restricted to the current repository';
+  }
+  return '';
 }
 
 function fileError(label, value, { cwd, allowedRoots }) {
@@ -70,7 +153,13 @@ function responseFor(client, { code, stdout = '', stderr = '' }) {
 }
 
 /** Validate model-supplied gh arguments before the host-side token bridge runs. */
-export function validateGhArgs(args, { cwd, workspaceRoot, scratchRoot } = {}) {
+export function validateGhArgs(args, {
+  cwd,
+  workspaceRoot,
+  scratchRoot,
+  repository = process.env.CODEX_GH_REPOSITORY,
+  host = process.env.CODEX_GH_HOST,
+} = {}) {
   if (!Array.isArray(args) || args.some((arg) => typeof arg !== 'string')) return 'invalid args';
   const allowedRoots = [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean);
   const commandIndex = commandIndexFor(args);
@@ -78,6 +167,8 @@ export function validateGhArgs(args, { cwd, workspaceRoot, scratchRoot } = {}) {
   if (blockedCommands.has(command) || !allowedCommands.has(command)) {
     return `gh command is not permitted by the Codex fallback bridge: ${command || '<missing>'}`;
   }
+  const scopeError = validateRepositoryAndHost(args, { repository, host });
+  if (scopeError) return scopeError;
   const context = { cwd: cwd || process.cwd(), allowedRoots };
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
@@ -103,8 +194,12 @@ export function validateGhArgs(args, { cwd, workspaceRoot, scratchRoot } = {}) {
       }
     }
   }
-  if (command === 'api' && blockedApiPath.test(args.slice(commandIndex + 1).join(' '))) {
-    return 'gh api endpoint is not permitted by the Codex fallback bridge';
+  if (command === 'api') {
+    if (blockedApiPath.test(args.slice(commandIndex + 1).join(' '))) {
+      return 'gh api endpoint is not permitted by the Codex fallback bridge';
+    }
+    const endpointError = validateApiEndpoint(args, commandIndex, repository);
+    if (endpointError) return endpointError;
   }
   return '';
 }
@@ -116,16 +211,52 @@ function main() {
   const cwd = process.env.CODEX_GH_CWD;
   const workspaceRoot = process.env.CODEX_GH_WORKSPACE || cwd;
   const scratchRoot = process.env.CODEX_GH_SCRATCH;
-  if (!socketPath || !token || !realGh || !cwd || !workspaceRoot || !scratchRoot) process.exit(2);
+  const repository = repositoryName(process.env.CODEX_GH_REPOSITORY);
+  const host = normalizedHost(process.env.CODEX_GH_HOST);
+  if (!socketPath || !token || !realGh || !cwd || !workspaceRoot || !scratchRoot || !repository || !host) process.exit(2);
   const baseEnv = {
     PATH: process.env.PATH || '/usr/bin:/bin',
     HOME: process.env.HOME || '/tmp',
     GH_TOKEN: token,
+    GH_HOST: host,
+    GH_REPO: repository,
   };
+  let activeConnections = 0;
+  const children = new Set();
   const server = net.createServer((client) => {
+    if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
+      responseFor(client, { code: 2, stderr: 'Codex GitHub bridge is busy; retry later\n' });
+      return;
+    }
+    activeConnections += 1;
+    let released = false;
+    const release = () => {
+      if (released) return;
+      released = true;
+      activeConnections -= 1;
+    };
+    client.once('close', release);
     let request = '';
     let requestBytes = 0;
     let requestTooLarge = false;
+    let child = null;
+    let childTimer = null;
+    let forceKillTimer = null;
+    let responseSent = false;
+    let timedOut = false;
+    const finish = (result) => {
+      if (responseSent) return;
+      responseSent = true;
+      if (childTimer) clearTimeout(childTimer);
+      if (forceKillTimer) clearTimeout(forceKillTimer);
+      responseFor(client, result);
+    };
+    const timeoutClient = () => {
+      timedOut = true;
+      if (child && !child.killed) child.kill('SIGTERM');
+      client.destroy();
+    };
+    client.setTimeout(SOCKET_TIMEOUT_MS, timeoutClient);
     client.setEncoding('utf8');
     client.on('error', () => {});
     client.on('data', (chunk) => {
@@ -143,13 +274,24 @@ function main() {
       let args;
       try {
         args = JSON.parse(request);
-        const validationError = validateGhArgs(args, { cwd, workspaceRoot, scratchRoot });
+        const validationError = validateGhArgs(args, {
+          cwd, workspaceRoot, scratchRoot, repository, host,
+        });
         if (validationError) throw new Error(validationError);
       } catch (error) {
-        responseFor(client, { code: 2, stderr: `bridge request: ${error.message}\n` });
+        finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
-      const child = spawn(realGh, args, { cwd, env: baseEnv });
+      client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
+      child = spawn(realGh, args, { cwd, env: baseEnv });
+      children.add(child);
+      childTimer = setTimeout(() => {
+        timedOut = true;
+        if (!child.killed) child.kill('SIGTERM');
+        forceKillTimer = setTimeout(() => {
+          if (!child.killed) child.kill('SIGKILL');
+        }, 2_000);
+      }, CHILD_TIMEOUT_MS);
       let stdout = '';
       let stderr = '';
       let outputTooLarge = false;
@@ -174,16 +316,24 @@ function main() {
         if (outputTooLarge) child.kill('SIGTERM');
       });
       child.on('error', (error) => {
-        responseFor(client, { code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+        children.delete(child);
+        finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
       });
       child.on('close', (code) => {
-        const detail = outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
-        responseFor(client, { code: outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
+        children.delete(child);
+        const detail = timedOut
+          ? `${stderr}Codex GitHub bridge child timed out\n`
+          : outputTooLarge ? `${stderr}Codex GitHub bridge output exceeded its limit\n` : stderr;
+        finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
       });
     });
   });
+  server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
-  const shutdown = () => server.close(() => process.exit(0));
+  const shutdown = () => {
+    for (const child of children) child.kill('SIGTERM');
+    server.close(() => process.exit(0));
+  };
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);
 }

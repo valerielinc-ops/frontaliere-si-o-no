@@ -261,6 +261,7 @@ jobs:
           # `permissions:` del job (pull-requests/issues write), scade a fine job — NON un
           # PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
           # Il merge che alimenta questo workflow è fatto da automation interna con DUE
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":

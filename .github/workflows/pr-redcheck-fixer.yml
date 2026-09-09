@@ -561,6 +561,7 @@ jobs:
           # Espressione identica a PUSH_TOKEN: se nessuno dei due esiste rende `''`, che è
           # il ramo di default della action = comportamento odierno invariato.
           github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           show_full_output: true
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token

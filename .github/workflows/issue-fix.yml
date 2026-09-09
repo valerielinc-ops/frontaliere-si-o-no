@@ -953,6 +953,7 @@ jobs:
           # valle (anti-ricorsione), quindi `tests` e `pr-review-loop` non partirebbero
           # più sulle PR del fixer e ogni PR resterebbe ferma senza review.
           github_token: ${{ env.APP_TOKEN }}
+          codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           show_full_output: true
           # Whitelist esplicita (hardening #898): mai `*`. I sender bot legittimi
           # del trigger sono `claude[bot]` (cascade fix → re-trigger) e

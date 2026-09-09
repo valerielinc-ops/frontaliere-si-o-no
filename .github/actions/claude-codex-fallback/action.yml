@@ -21,7 +21,11 @@ inputs:
     required: false
     default: ""
   github_token:
-    description: "Token passed to Claude and to the controlled Codex gh bridge."
+    description: "Token passed to the primary Claude action."
+    required: false
+    default: ""
+  codex_github_token:
+    description: "Explicit token passed only to the host-side Codex gh/git bridges."
     required: false
     default: ""
   allowed_bots:
@@ -142,7 +146,7 @@ runs:
       shell: bash
       env:
         CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
-        CODEX_GH_AUTH: ${{ inputs.github_token }}
+        CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
         CODEX_ACTION_PATH: ${{ github.action_path }}
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
@@ -162,7 +166,13 @@ runs:
         # Never print CODEX_GH_AUTH.
         codex_github_auth="${CODEX_GH_AUTH:-}"
         if [ -z "$codex_github_auth" ]; then
-          echo "::error::The Codex fallback requires the caller's explicit github_token input."
+          echo "::error::The Codex fallback requires the caller's explicit codex_github_token input."
+          exit 1
+        fi
+        codex_github_repository="${GITHUB_REPOSITORY:-}"
+        codex_github_host="${GITHUB_SERVER_URL:-}"
+        if [ -z "$codex_github_repository" ] || [ -z "$codex_github_host" ]; then
+          echo "::error::The Codex GitHub bridge requires the runner's current repository and server host."
           exit 1
         fi
 
@@ -389,6 +399,8 @@ runs:
           CODEX_GH_CWD="${PWD:-$(pwd)}" \
           CODEX_GH_WORKSPACE="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}" \
           CODEX_GH_SCRATCH="$scratch_dir" \
+          CODEX_GH_REPOSITORY="$codex_github_repository" \
+          CODEX_GH_HOST="$codex_github_host" \
           PATH="$PATH" \
           HOME="$scratch_home" \
           node "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &

@@ -4,6 +4,10 @@ import { execFileSync, spawn } from 'node:child_process';
 export const MAX_REQUEST_BYTES = 64 * 1024;
 export const MAX_OUTPUT_BYTES = 1024 * 1024;
 export const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
+export const MAX_ACTIVE_CONNECTIONS = 8;
+export const SOCKET_TIMEOUT_MS = 30_000;
+export const CHILD_TIMEOUT_MS = 120_000;
+export const RESPONSE_TIMEOUT_MS = SOCKET_TIMEOUT_MS + CHILD_TIMEOUT_MS;
 
 const allowedCommands = new Set(['push', 'fetch', 'pull', 'ls-remote']);
 const blockedGlobalOptions = new Set(['-C', '-c', '--git-dir', '--work-tree', '--namespace', '--exec-path', '--config-env', '--config', '--global', '--system', '--local', '--worktree', '--upload-pack', '--receive-pack']);
@@ -85,10 +89,42 @@ function main() {
     GIT_CONFIG_KEY_0: 'http.extraheader',
     GIT_CONFIG_VALUE_0: `AUTHORIZATION: basic ${basic}`,
   };
+  let activeConnections = 0;
+  const children = new Set();
   const server = net.createServer((client) => {
+    if (activeConnections >= MAX_ACTIVE_CONNECTIONS) {
+      responseFor(client, { code: 2, stderr: 'Codex Git bridge is busy; retry later\n' });
+      return;
+    }
+    activeConnections += 1;
+    let released = false;
+    const release = () => {
+      if (released) return;
+      released = true;
+      activeConnections -= 1;
+    };
+    client.once('close', release);
     let request = '';
     let requestBytes = 0;
     let requestTooLarge = false;
+    let child = null;
+    let childTimer = null;
+    let forceKillTimer = null;
+    let responseSent = false;
+    let timedOut = false;
+    const finish = (result) => {
+      if (responseSent) return;
+      responseSent = true;
+      if (childTimer) clearTimeout(childTimer);
+      if (forceKillTimer) clearTimeout(forceKillTimer);
+      responseFor(client, result);
+    };
+    const timeoutClient = () => {
+      timedOut = true;
+      if (child && !child.killed) child.kill('SIGTERM');
+      client.destroy();
+    };
+    client.setTimeout(SOCKET_TIMEOUT_MS, timeoutClient);
     client.setEncoding('utf8');
     client.on('error', () => {});
     client.on('data', (chunk) => {
@@ -110,10 +146,19 @@ function main() {
         if (validationError) throw new Error(validationError);
         if (currentOrigin(realGit, cwd) !== expectedRemote) throw new Error('Git origin changed after host-side sanitization');
       } catch (error) {
-        responseFor(client, { code: 2, stderr: `bridge request: ${error.message}\n` });
+        finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
-      const child = spawn(realGit, args, { cwd, env: baseEnv });
+      client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
+      child = spawn(realGit, args, { cwd, env: baseEnv });
+      children.add(child);
+      childTimer = setTimeout(() => {
+        timedOut = true;
+        if (!child.killed) child.kill('SIGTERM');
+        forceKillTimer = setTimeout(() => {
+          if (!child.killed) child.kill('SIGKILL');
+        }, 2_000);
+      }, CHILD_TIMEOUT_MS);
       let stdout = '';
       let stderr = '';
       let outputTooLarge = false;
@@ -138,16 +183,24 @@ function main() {
         if (outputTooLarge) child.kill('SIGTERM');
       });
       child.on('error', (error) => {
-        responseFor(client, { code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+        children.delete(child);
+        finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
       });
       child.on('close', (code) => {
-        const detail = outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
-        responseFor(client, { code: outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
+        children.delete(child);
+        const detail = timedOut
+          ? `${stderr}Codex Git bridge child timed out\n`
+          : outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
+        finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
       });
     });
   });
+  server.maxConnections = MAX_ACTIVE_CONNECTIONS;
   server.listen(socketPath);
-  const shutdown = () => server.close(() => process.exit(0));
+  const shutdown = () => {
+    for (const child of children) child.kill('SIGTERM');
+    server.close(() => process.exit(0));
+  };
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);
 }

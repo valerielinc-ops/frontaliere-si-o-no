@@ -242,6 +242,7 @@ jobs:
           # allowed_non_write_users e' un no-op silenzioso (post-merge-followup,
           # PR #3182).
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          codex_github_token: ${{ secrets.GITHUB_TOKEN }}
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true

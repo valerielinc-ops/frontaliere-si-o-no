@@ -25,11 +25,17 @@ import {
 import {
   MAX_OUTPUT_BYTES as GH_MAX_OUTPUT_BYTES,
   MAX_REQUEST_BYTES as GH_MAX_REQUEST_BYTES,
+  MAX_ACTIVE_CONNECTIONS as GH_MAX_ACTIVE_CONNECTIONS,
+  SOCKET_TIMEOUT_MS as GH_SOCKET_TIMEOUT_MS,
+  CHILD_TIMEOUT_MS as GH_CHILD_TIMEOUT_MS,
   validateGhArgs,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
   MAX_OUTPUT_BYTES as GIT_MAX_OUTPUT_BYTES,
   MAX_REQUEST_BYTES as GIT_MAX_REQUEST_BYTES,
+  MAX_ACTIVE_CONNECTIONS as GIT_MAX_ACTIVE_CONNECTIONS,
+  SOCKET_TIMEOUT_MS as GIT_SOCKET_TIMEOUT_MS,
+  CHILD_TIMEOUT_MS as GIT_CHILD_TIMEOUT_MS,
   validateGitArgs,
 } from '../.github/actions/claude-codex-fallback/git-bridge-server.mjs';
 import { sanitizeGitConfig } from '../.github/actions/claude-codex-fallback/sanitize-git-config.mjs';
@@ -184,7 +190,13 @@ describe('validator dei bridge host-side', () => {
     writeFileSync(join(scratch, 'payload.json'), '{}');
     writeFileSync(outsideAuth, 'fixture-secret');
     symlinkSync(outsideAuth, join(scratch, 'auth-link'));
-    const context = { cwd: workspace, workspaceRoot: workspace, scratchRoot: scratch };
+    const context = {
+      cwd: workspace,
+      workspaceRoot: workspace,
+      scratchRoot: scratch,
+      repository: 'owner/repo',
+      host: 'github.com',
+    };
     try {
       expect(validateGhArgs(['auth', 'token'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['--repo', 'owner/repo', 'auth', 'token'], context)).toMatch(/not permitted/);
@@ -197,6 +209,13 @@ describe('validator dei bridge host-side', () => {
       expect(validateGhArgs(['api', '--template', '{{.number}}'], context)).toBe('');
       expect(validateGhArgs(['pr', 'view', '--verbose'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['api', '/repos/owner/repo/actions/secrets'], context)).toMatch(/not permitted/);
+      expect(validateGhArgs(['issue', 'list', '--repo', 'other/repo'], context)).toMatch(/restricted to owner\/repo/);
+      expect(validateGhArgs(['issue', 'list', '--repo=owner/other'], context)).toMatch(/restricted to owner\/repo/);
+      expect(validateGhArgs(['issue', 'list', '--hostname', 'evil.example'], context)).toMatch(/hostname is restricted/);
+      expect(validateGhArgs(['issue', 'list', '--hostname=github.com'], context)).toBe('');
+      expect(validateGhArgs(['api', 'https://evil.example/repos/owner/repo/issues'], context)).toMatch(/relative endpoint/);
+      expect(validateGhArgs(['api', 'repos/other/repo/issues'], context)).toMatch(/current repository/);
+      expect(validateGhArgs(['api', '/repos/owner/repo/issues'], context)).toBe('');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
@@ -216,8 +235,14 @@ describe('validator dei bridge host-side', () => {
   it('mantiene limiti espliciti del protocollo e output dei due broker', () => {
     expect(GH_MAX_REQUEST_BYTES).toBe(64 * 1024);
     expect(GH_MAX_OUTPUT_BYTES).toBe(1024 * 1024);
+    expect(GH_MAX_ACTIVE_CONNECTIONS).toBe(8);
+    expect(GH_SOCKET_TIMEOUT_MS).toBe(30_000);
+    expect(GH_CHILD_TIMEOUT_MS).toBe(120_000);
     expect(GIT_MAX_REQUEST_BYTES).toBe(64 * 1024);
     expect(GIT_MAX_OUTPUT_BYTES).toBe(1024 * 1024);
+    expect(GIT_MAX_ACTIVE_CONNECTIONS).toBe(8);
+    expect(GIT_SOCKET_TIMEOUT_MS).toBe(30_000);
+    expect(GIT_CHILD_TIMEOUT_MS).toBe(120_000);
   });
 });
 
@@ -248,10 +273,21 @@ describe('copertura workflow diretti', () => {
     expect(workflow.match(/uses: \.\/\.github\/actions\/claude-codex-fallback/g)).toHaveLength(1);
     expect(workflow).toContain('preflight_blocked: ${{ steps.quota.outputs.codex_fallback }}');
     expect(workflow).toContain('codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}');
+    expect(workflow).toContain('codex_github_token:');
     expect(workflow).toContain('github_token:');
     expect(workflow).toContain("CODEX_FALLBACK_MODE: '1'");
     expect(workflow).not.toContain('OPENAI_API_KEY');
     expect(workflow).not.toContain('CODEX_ACCESS_TOKEN');
+  });
+
+  it('separa l’identità Claude dal token del bridge quando il mint App fallisce soft', () => {
+    for (const workflowName of ['tests.yml', 'issue-fix.yml', 'issue-decompose.yml', 'needs-human-sweep.yml', 'growth-report.yml']) {
+      const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
+      expect(workflow).toContain('codex_github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
+    }
+    const issueFix = readFileSync(resolve(repoRoot, '.github', 'workflows', 'issue-fix.yml'), 'utf8');
+    expect(issueFix).toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \}\}/);
+    expect(issueFix).not.toMatch(/\n\s+github_token: \$\{\{ env\.APP_TOKEN \|\| secrets\.GITHUB_TOKEN \}\}/);
   });
 
   it('mantiene il contratto di invocazione Codex e cleanup effimero', () => {
@@ -259,6 +295,8 @@ describe('copertura workflow diretti', () => {
     const actionDir = resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback');
     const ghBridge = readFileSync(resolve(actionDir, 'gh-bridge-server.mjs'), 'utf8');
     const gitBridge = readFileSync(resolve(actionDir, 'git-bridge-server.mjs'), 'utf8');
+    const ghClient = readFileSync(resolve(actionDir, 'gh-bridge-client.mjs'), 'utf8');
+    const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
     const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
     expect(action).toContain('anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636');
     expect(action).not.toContain('anthropics/claude-code-action@v1');
@@ -306,7 +344,10 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('-c shell_environment_policy.ignore_default_excludes=false');
     expect(action).toContain('-c "shell_environment_policy.include_only=$codex_env_patterns"');
     expect(action).toContain('env -i "${codex_env[@]}" codex exec');
-    expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.github_token }}');
+    expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.codex_github_token }}');
+    expect(action).toContain('codex_github_token:');
+    expect(action).toContain('CODEX_GH_REPOSITORY="$codex_github_repository"');
+    expect(action).toContain('CODEX_GH_HOST="$codex_github_host"');
     expect(action).toContain('CODEX_GH_AUTH="$codex_github_auth"');
     expect(action).toContain('unset CODEX_GH_AUTH');
     expect(action).toContain('auth_output="$(gh auth token 2>/dev/null)"');
@@ -339,6 +380,13 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain("'auth', 'config', 'alias', 'extension', 'secret'");
     expect(ghBridge).toContain('const blockedApiPath =');
     expect(ghBridge).toContain('MAX_REQUEST_BYTES');
+    expect(ghBridge).toContain('MAX_ACTIVE_CONNECTIONS');
+    expect(ghBridge).toContain('SOCKET_TIMEOUT_MS');
+    expect(ghBridge).toContain('CHILD_TIMEOUT_MS');
+    expect(ghBridge).toContain('GH_HOST: host');
+    expect(ghBridge).toContain('GH_REPO: repository');
+    expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
+    expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitBridge).toContain('currentOrigin(realGit, cwd)');
     expect(gitBridge).toContain('MAX_REQUEST_BYTES');
     expect(gitSanitizer).toContain('parseNullRecords');
