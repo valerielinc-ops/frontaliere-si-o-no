@@ -38,7 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSequence, OPTOUT_EMAIL, selectOutreachMetric } from './generate-cold-emails.mjs';
-import { bodyToHtml } from './lib/cold-email-sequence.mjs';
+import { bodyToHtml, formatItalianPeriodLabel } from './lib/cold-email-sequence.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
 import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
@@ -347,7 +347,7 @@ async function run() {
     console.error('report senza finestra esplicita: nessuna attività di outreach eseguita');
     process.exit(1);
   }
-  const periodLabel = `${report.window.from} → ${report.window.to}`;
+  const periodLabel = formatItalianPeriodLabel(`${report.window.from} → ${report.window.to}`);
   const contacts = loadJson(contactsPath, {});
   // Overlay admin-edited contacts (Firestore) on the local file so the recipient
   // / personalization fixed in the dashboard actually reaches dry-run, test and
