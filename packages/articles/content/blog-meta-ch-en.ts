@@ -6238,6 +6238,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svitto-guida-aprire-impresa-costi.title': 'How to open a business in Svitto: cost guide',
     'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Registration in the trade register, legal forms, minimum capital and insurance obligations: everything you need to start a business in the canton of Schwyz.',
     'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Swiss entrepreneur reviewing business registration documents with calculator on desk in modern office.',
+    'blog.article.premi-lamal-san-gallo-riduzione.title': 'St Gallen sick pay premiums: reduction and models',
+    'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'Mandatory LAMal in Switzerland: CHF 300–2500 deductibles, alternative models and cantonal procedure for the subsidy. How to request the reduction and deadlines.',
+    'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Person reviewing LAMal mandatory health insurance documents and premium reduction application, Swiss administrative office',
 };
 
 export default blogMetaChEn;

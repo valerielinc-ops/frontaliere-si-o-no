@@ -2105,6 +2105,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'yumo-piattaforma-giovani-finanza': { it: 'yumo-piattaforma-giovani-finanza', en: 'yumo-platform-young-people-finance', de: 'yumo-plattform-junge-leute-finanzen', fr: 'yumo-plateforme-jeunes-finance' },
  'opportunita-lavoro-seco': { it: 'opportunita-lavoro-seco', en: 'seco-job-opportunities', de: 'seco-berufliche-chancen', fr: 'opportunites-emploi-seco' },
  'svitto-guida-aprire-impresa-costi': { it: 'svitto-guida-aprire-impresa-costi', en: 'switzerland-guide-start-business-costs', de: 'schwytz-leitfaden-geschaft-eroffnen-kosten', fr: 'suisse-guide-ouvrir-entreprise-frais' },
+ 'premi-lamal-san-gallo-riduzione': { it: 'premi-lamal-san-gallo-riduzione', en: 'health-insurance-premiums-st-gallen-reduction', de: 'krankenversicherungspramien-st-gallen-reduktion', fr: 'primes-assurance-maladie-saint-gall-reduction' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

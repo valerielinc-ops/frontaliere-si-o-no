@@ -6238,6 +6238,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svitto-guida-aprire-impresa-costi.title': 'So eröffnen Sie ein Geschäft in Schwyz: Kostenleitfaden',
     'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Handelsregistereintrag, Rechtsformen, Mindestkapital und Versicherungspflichten - alles, was Sie brauchen, um ein Unternehmen im Kanton Schwyz zu gründen.',
     'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Schweizer Unternehmer überprüft Geschäftsregistrierungsdokumente mit Taschenrechner auf Schreibtisch im modernen Büro.',
+    'blog.article.premi-lamal-san-gallo-riduzione.title': 'Krankenkassenprämien St. Gallen: Reduktion und Modelle',
+    'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'Obligatorisches KVG in der Schweiz: Franchisen CHF 300–2500, alternative Modelle und kantonales Beitragsverfahren. So beantragen Sie die Kürzung und Fristen.',
+    'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Person mit LAMal Versicherungsdokumenten und Prämiareduktionsformular, Schweizer Verwaltungsbüro',
 };
 
 export default blogMetaChDe;
