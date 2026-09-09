@@ -80243,6 +80243,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-federale-ruag-mro': {
+    title: 'Consiglio federale: RUAG MRO diventa società pubblica',
+    description: 'Consiglio federale adotta messaggio per trasformare RUAG MRO da società privata a società pubblica con legge speciale e governance più trasparente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, ruag, diventa',
+    ogTitle: 'Consiglio federale: RUAG MRO diventa società pubblica',
+    ogDescription: 'RUAG MRO diventa società pubblica con legge speciale. Governance più trasparente, controllo federale rafforzato e nuove regole su conflitti di interesse nella gestione dell\'azienda d\'armamento della Confederazione.',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-ruag-mro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: RUAG MRO diventa società pubblica",
+      "description": "Consiglio federale adotta messaggio per trasformare RUAG MRO da società privata a società pubblica con legge speciale e governance più trasparente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-ruag-mro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Bellinzona, capitale del Ticino e rappresentante della Svizzera"
+      },
+      "datePublished": "2026-09-09T14:04:13+00:00",
+      "dateModified": "2026-09-09T14:04:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-ruag-mro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
