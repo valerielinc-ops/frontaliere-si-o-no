@@ -6238,6 +6238,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svitto-guida-aprire-impresa-costi.title': 'Comment ouvrir une entreprise à Schwyz : guide des coûts',
     'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Inscription au registre du commerce, formes juridiques, capital minimum et obligations d\'assurance : tout ce dont vous avez besoin pour démarrer une entreprise dans le canton de Schwyz.',
     'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Entrepreneur suisse examinant les documents d\'enregistrement commercial avec calculatrice au bureau moderne.',
+    'blog.article.premi-lamal-san-gallo-riduzione.title': 'Primes caisse maladie Saint-Gall : réduction et modèles',
+    'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'LAMal obligatoire en Suisse : franchises CHF 300–2500, modèles alternatifs et procédure cantonale de subvention. Comment demander la réduction et les délais.',
+    'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Personne examinant documents d\'assurance maladie LAMal et formulaire de réduction de prime, bureau administratif suisse',
 };
 
 export default blogMetaChFr;

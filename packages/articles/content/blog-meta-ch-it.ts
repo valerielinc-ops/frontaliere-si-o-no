@@ -6238,6 +6238,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svitto-guida-aprire-impresa-costi.title': 'Come aprire un\'attività in Svitto: guida ai costi',
     'blog.article.svitto-guida-aprire-impresa-costi.excerpt': 'Iscrizione al registro di commercio, forme giuridiche, capitale minimo e obblighi assicurativi: tutto ciò che serve per avviare un\'impresa nel cantone Svitto.',
     'blog.article.svitto-guida-aprire-impresa-costi.imageAlt': 'Imprenditore svizzero consulta documenti di iscrizione commerciale con calcolatrice su scrivania in ufficio moderno.',
+    'blog.article.premi-lamal-san-gallo-riduzione.title': 'Premi cassa malati San Gallo: riduzione e modelli',
+    'blog.article.premi-lamal-san-gallo-riduzione.excerpt': 'LAMal obbligatoria in Svizzera: franchigie CHF 300–2500, modelli alternativi e procedura cantonale per il sussidio. Come richiedere la riduzione e scadenze.',
+    'blog.article.premi-lamal-san-gallo-riduzione.imageAlt': 'Persona con documenti di assicurazione malattia LAMal e modulo di riduzione premio, ufficio amministrativo svizzero',
 };
 
 export default blogMetaChIt;

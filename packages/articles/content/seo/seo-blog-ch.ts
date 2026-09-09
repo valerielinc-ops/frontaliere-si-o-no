@@ -80984,6 +80984,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-san-gallo-riduzione': {
+    title: 'Premi cassa malati San Gallo: riduzione e modelli',
+    description: 'LAMal in Canton San Gallo: franchigie CHF 300–2500, modelli alternativi, sussidio cantonale. Procedura passo-passo per richiedere la riduzione di premio',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, gallo',
+    ogTitle: 'Premi cassa malati San Gallo: riduzione e modelli',
+    ogDescription: 'Scopri come funzionano i premi LAMal in Canton San Gallo. Franchigie fisse CHF 300–2500, modelli alternativi (HMO), sussidio cantonale. Procedura annuale per richiedere la riduzione di premio e scadenze.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-san-gallo-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati San Gallo: riduzione e modelli",
+      "description": "LAMal in Canton San Gallo: franchigie CHF 300–2500, modelli alternativi, sussidio cantonale. Procedura passo-passo per richiedere la riduzione di premio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-san-gallo-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona con documenti di assicurazione malattia LAMal e modulo di riduzione premio, ufficio amministrativo svizzero"
+      },
+      "datePublished": "2026-09-09T22:37:47+00:00",
+      "dateModified": "2026-09-09T22:37:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-san-gallo-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
