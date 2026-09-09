@@ -98,6 +98,7 @@ non imposta `pathToClaudeCodeExecutable` su un percorso inventato.
 
 ## Stato PR
 
-La PR di riparazione non è ancora stata aperta al momento della stesura
-iniziale di questo rapporto; questa sezione va aggiornata dopo il push senza
-approvare o mergiare manualmente alcun check.
+La PR di riparazione è stata aperta come sito PR #8052
+(`fix/sito-review-enoent`). Al momento dell’aggiornamento è aperta e in attesa
+dei check automatici; non è stata approvata né mergiata manualmente. L’esito
+finale della PR va registrato qui dopo il ciclo automatico.
