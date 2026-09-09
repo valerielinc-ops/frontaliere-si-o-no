@@ -6157,6 +6157,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-appenzello-interno-aliquote.title': 'Erbschaftssteuer Appenzell Innerrhoden: Steuersätze und Befreiungen',
     'blog.article.imposta-successione-appenzello-interno-aliquote.excerpt': 'Leitfaden zur Erbschaftsbesteuerung in Appenzell Innerrhoden: Wie funktionieren Verwandtschaftssätze, Ehepartner- und Kinderbefreiungen, Erklärungsverfahren?',
     'blog.article.imposta-successione-appenzello-interno-aliquote.imageAlt': 'Traditionelle Landschaft des Kantons Appenzell Innerrhoden mit Schweizer Architektur',
+    'blog.article.regola-3-30-300-verde-citta.title': 'Stadtgrün: Regel 3-30-300 für frische Städte',
+    'blog.article.regola-3-30-300-verde-citta.excerpt': 'Europäische Studie zu 862 Städten: 28% der Schweizer Bevölkerung leben in grünen Vierteln. Regel 3-30-300 gibt den Weg zu kühleren Städten an',
+    'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole in Bellinzona mit Gebäuden und minimaler Begrünung, Beispiel für städtische Wärmeinsel',
 };
 
 export default blogMetaChDe;

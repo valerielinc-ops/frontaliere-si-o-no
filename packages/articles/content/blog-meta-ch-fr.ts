@@ -6157,6 +6157,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-appenzello-interno-aliquote.title': 'Impôt succession Appenzell Interne : taux et exonérations',
     'blog.article.imposta-successione-appenzello-interno-aliquote.excerpt': 'Guide de la fiscalité successorale à Appenzell Interne : comment fonctionnent les taux par degré de parenté, les exemptions du conjoint et des enfants, la procédure de déclaration.',
     'blog.article.imposta-successione-appenzello-interno-aliquote.imageAlt': 'Paysage traditionnel du canton d\'Appenzell Rhodes-Intérieures avec architecture alpine',
+    'blog.article.regola-3-30-300-verde-citta.title': 'Vert urbain : la règle 3-30-300 pour les villes fraîches',
+    'blog.article.regola-3-30-300-verde-citta.excerpt': 'Étude européenne sur 862 villes : 28% de la population suisse vit dans des quartiers verts. La règle 3-30-300 indique le chemin vers des villes plus fraîches',
+    'blog.article.regola-3-30-300-verde-citta.imageAlt': 'Piazza del Sole à Bellinzona avec bâtiments et peu de végétation, exemple d\'îlot de chaleur urbain',
 };
 
 export default blogMetaChFr;
