@@ -6217,6 +6217,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Casse pensioni svizzere: +0,7% ad agosto',
     'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Azioni estere in spinta (+14%): UBS analizza il rendimento di agosto. Fondi previdenziali verso il 3,3% annuale medio dal 2006.',
     'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Panorama di Lugano con edifici finanziari e paesaggio lacustre, contesto economico svizzero',
+    'blog.article.assegni-familiari-svitto-richiesta.title': 'Assegni familiari in Svitto: come richiederli',
+    'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'Nel Cantone di Svitto gli assegni familiari sono un contributo pubblico per genitori con figli. Scopri chi ha diritto, come fare domanda e quali documenti servono.',
+    'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Famiglia svizzera che esamina documenti degli assegni familiari presso uno sportello amministrativo cantonale',
 };
 
 export default blogMetaChIt;

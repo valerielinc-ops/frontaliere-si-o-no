@@ -6217,6 +6217,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.previdenza-agosto-rendimenti-positivi.title': 'Swiss pension funds: +0.7% in August',
     'blog.article.previdenza-agosto-rendimenti-positivi.excerpt': 'Foreign shares boosted (+14%): UBS analyzes August performance. Social security funds up to 3.3% per year on average since 2006.',
     'blog.article.previdenza-agosto-rendimenti-positivi.imageAlt': 'Lugano skyline with financial buildings and lake landscape in Switzerland',
+    'blog.article.assegni-familiari-svitto-richiesta.title': 'Family allowances in Svitto: how to claim them',
+    'blog.article.assegni-familiari-svitto-richiesta.excerpt': 'In the Canton of Svitto, family allowances are a public contribution for parents with children. Find out who is entitled, how to apply and what documents they need.',
+    'blog.article.assegni-familiari-svitto-richiesta.imageAlt': 'Swiss family reviewing family allowance documents at a cantonal administrative office',
 };
 
 export default blogMetaChEn;
