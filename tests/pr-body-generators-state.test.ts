@@ -215,14 +215,17 @@ describe('generatori del body PR — sezione dei residui', () => {
       'il discovery dei workflow non deve diventare parziale o vuoto',
     ).toEqual(workflowFiles);
 
-    const promptCount = workflowSources.reduce(
-      (total, workflow) => total + promptBlocks(workflow.text).length,
-      0,
+    const promptWorkflows = workflowSources.filter(({ text }) =>
+      /^\s*prompt\s*:\s*[|>]/m.test(text),
     );
-    expect(
-      promptCount,
-      'il discovery dei prompt è diventato parziale o vacuo',
-    ).toBeGreaterThanOrEqual(10);
+    expect(promptWorkflows.length, 'nessun block scalar prompt trovato: il controllo sarebbe vacuo')
+      .toBeGreaterThan(0);
+    for (const workflow of promptWorkflows) {
+      expect(
+        promptBlocks(workflow.text).length,
+        `${workflow.rel}: il parser non ha estratto il block scalar prompt`,
+      ).toBeGreaterThan(0);
+    }
 
     const offenders: string[] = [];
     for (const workflow of workflowSources) {
