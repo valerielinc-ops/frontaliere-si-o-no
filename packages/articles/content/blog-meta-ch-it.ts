@@ -6211,6 +6211,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zimmer-biomet-svizzera-unia.title': 'Zimmer Biomet taglia a Winterthur, Unia in campo',
     'blog.article.zimmer-biomet-svizzera-unia.excerpt': '580 tagli su 730 posti a Zimmer Biomet (Winterthur). Il sindacato Unia protesta: i lavoratori non devono pagare per l\'arricchimento degli azionisti.',
     'blog.article.zimmer-biomet-svizzera-unia.imageAlt': 'Stabilimento di produzione Zimmer Biomet a Winterthur, dove sono previsti 580 tagli su 730 posti di lavoro',
+    'blog.article.banda-larga-consiglio-federale.title': 'Banda larga rurale: il programma federale 2030-2037',
+    'blog.article.banda-larga-consiglio-federale.excerpt': 'Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali per portare Internet veloce in zone rurali.',
+    'blog.article.banda-larga-consiglio-federale.imageAlt': 'Tecnico che installa cavi in fibra ottica su una casa di campagna svizzera, simbolo dell\'espansione della banda larga nelle zone rurali.',
 };
 
 export default blogMetaChIt;

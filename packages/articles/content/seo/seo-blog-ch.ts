@@ -80633,6 +80633,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banda-larga-consiglio-federale': {
+    title: 'Banda larga rurale: il programma federale 2030-2037',
+    description: 'Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali fino al 2037.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banda, larga, rurale, programma',
+    ogTitle: 'Banda larga in Svizzera: il programma del Consiglio federale',
+    ogDescription: 'Il Consiglio federale lancia un programma di 730 milioni CHF per portare Internet veloce (1 Gbps) nelle zone rurali svizzere. Fibra ottica e radiocomunicazione per comuni con bassa redditività dal 2030.',
+    canonicalPath: '/articoli-svizzera/banda-larga-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banda larga rurale: il programma federale 2030-2037",
+      "description": "Il Consiglio federale approva il 9 settembre 2026 il programma di sostegno alla banda larga. Investimento di 365 milioni CHF federali fino al 2037.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banda-larga-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tecnico che installa cavi in fibra ottica su una casa di campagna svizzera, simbolo dell'espansione della banda larga nelle zone rurali."
+      },
+      "datePublished": "2026-09-09T18:15:37+00:00",
+      "dateModified": "2026-09-09T18:15:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banda-larga-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
