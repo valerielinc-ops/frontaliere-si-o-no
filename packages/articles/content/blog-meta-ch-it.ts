@@ -6196,6 +6196,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tour-operator-calo-conflitti.title': 'Tour operator svizzeri in difficoltà: calo fatturato 5-10%',
     'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza.',
     'blog.article.tour-operator-calo-conflitti.imageAlt': 'Veduta di Lugano, destinazione turistica svizzera popolare tra i viaggiatori internazionali',
+    'blog.article.banda-larga-zone-rurali.title': 'Banda larga nelle zone rurali: 730 milioni CHF',
+    'blog.article.banda-larga-zone-rurali.excerpt': 'Il Consiglio federale approva un programma da 730 milioni CHF per connessioni internet veloci nelle zone rurali. Coinvolti cantoni e comuni dal 2030 al 2037 con fibra ottica e radiocomunicazione.',
+    'blog.article.banda-larga-zone-rurali.imageAlt': 'Villaggio rurale svizzero in paesaggio verde con infrastrutture di fibra ottica moderne',
 };
 
 export default blogMetaChIt;

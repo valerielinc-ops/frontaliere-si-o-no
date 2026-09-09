@@ -2091,6 +2091,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ubs-yumo-educazione-finanziaria': { it: 'ubs-yumo-educazione-finanziaria', en: 'ubs-yumo-financial-education', de: 'ubs-yumo-finanzbildung', fr: 'ubs-yumo-education-financiere' },
  'alleanza-energia-elettrica-svizzera': { it: 'alleanza-energia-elettrica-svizzera', en: 'alliance-electricity-switzerland-eu', de: 'allianz-strom-schweiz-eu', fr: 'alliance-energie-electrique-suisse' },
  'tour-operator-calo-conflitti': { it: 'tour-operator-calo-conflitti', en: 'tour-operators-decline-conflicts', de: 'reiseveranstalter-rueckgang-konflikte', fr: 'operateurs-tourisme-baisse-conflits' },
+ 'banda-larga-zone-rurali': { it: 'banda-larga-zone-rurali', en: 'broadband-rural-areas-switzerland', de: 'breitband-laendliche-gebiete', fr: 'haut-debit-zones-rurales-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

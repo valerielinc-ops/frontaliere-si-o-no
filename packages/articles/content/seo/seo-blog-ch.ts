@@ -80438,6 +80438,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banda-larga-zone-rurali': {
+    title: 'Banda larga nelle zone rurali: 730 milioni CHF',
+    description: 'Il Consiglio federale investe 730 milioni CHF per banda larga nelle zone rurali svizzere con il programma LSBL. Cofinanziamento cantonale dal 2030 al 2037.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banda, larga, nelle, zone',
+    ogTitle: 'Banda larga nelle zone rurali: 730 milioni CHF di investimento federale',
+    ogDescription: 'Il Consiglio federale lancia il programma LSBL: 730 milioni CHF per banda larga nelle zone rurali svizzere. Cofinanziamento cantonale paritetico, fibra ottica e radiocomunicazione dal 2030 al 2037. Scopri come accedere ai fondi.',
+    canonicalPath: '/articoli-svizzera/banda-larga-zone-rurali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banda larga nelle zone rurali: 730 milioni CHF",
+      "description": "Il Consiglio federale investe 730 milioni CHF per banda larga nelle zone rurali svizzere con il programma LSBL. Cofinanziamento cantonale dal 2030 al 2037.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banda-larga-zone-rurali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio rurale svizzero in paesaggio verde con infrastrutture di fibra ottica moderne"
+      },
+      "datePublished": "2026-09-09T16:22:52+00:00",
+      "dateModified": "2026-09-09T16:22:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banda-larga-zone-rurali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
