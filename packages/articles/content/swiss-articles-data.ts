@@ -18460,6 +18460,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'imposta-successione-appenzello-interno-aliquote',
+    category: 'fiscale',
+    date: '2026-09-09T04:27:23.212Z',
+    image: '/images/blog/imposta-successione-appenzello-interno-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

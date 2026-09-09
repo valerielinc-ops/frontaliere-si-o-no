@@ -6154,6 +6154,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-ginevra.title': 'AHV und Ergänzungsleistungen Kanton Genf',
     'blog.article.avs-prestazioni-complementari-ginevra.excerpt': 'Wie die AHV im Kanton Genf funktioniert: Ausgleichskasse, Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Existenzminimum.',
     'blog.article.avs-prestazioni-complementari-ginevra.imageAlt': 'Verwaltungsschreibtisch mit Rentenunterlagen und Ergaenzungsleistungsdokumenten, professionelle Bueroumgebung.',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.title': 'Erbschaftssteuer Appenzell Innerrhoden: Steuersätze und Befreiungen',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.excerpt': 'Leitfaden zur Erbschaftsbesteuerung in Appenzell Innerrhoden: Wie funktionieren Verwandtschaftssätze, Ehepartner- und Kinderbefreiungen, Erklärungsverfahren?',
+    'blog.article.imposta-successione-appenzello-interno-aliquote.imageAlt': 'Traditionelle Landschaft des Kantons Appenzell Innerrhoden mit Schweizer Architektur',
 };
 
 export default blogMetaChDe;

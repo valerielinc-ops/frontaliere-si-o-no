@@ -2077,6 +2077,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'f35-caccia-commissione-amherd': { it: 'f35-caccia-commissione-amherd', en: 'f35-fighter-jets-commission-amherd', de: 'f35-kampfflugzeuge-kommission-amherd', fr: 'f35-chasseurs-commission-amherd' },
  'avviare-impresa-canton-appenzello-interno': { it: 'avviare-impresa-canton-appenzello-interno', en: 'start-business-appenzell-canton-guide', de: 'unternehmen-appenzell-kanton-anmelden', fr: 'demarrer-entreprise-canton-appenzell' },
  'avs-prestazioni-complementari-ginevra': { it: 'avs-prestazioni-complementari-ginevra', en: 'avs-complementary-benefits-geneva', de: 'avs-ergaenzungsleistungen-genf', fr: 'avs-prestations-complementaires-geneve' },
+ 'imposta-successione-appenzello-interno-aliquote': { it: 'imposta-successione-appenzello-interno-aliquote', en: 'inheritance-tax-appenzello-innerrhoden-rates', de: 'erbschaftsteuer-appenzell-innerrhoden-saetze', fr: 'impot-succession-appenzell-rhodes-interieures-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
