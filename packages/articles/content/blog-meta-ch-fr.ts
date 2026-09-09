@@ -6196,6 +6196,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tour-operator-calo-conflitti.title': 'Tour-opérateurs suisses en difficulté : baisse du chiffre d\'affaires de 5 à 10 %',
     'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV estime une contraction de 5 à 10% en 2026 en raison de la géopolitique, de la chaleur estivale et de l\'effondrement des visiteurs américains. Frais supplémentaires 2,3 M CHF pour les rapatriements d\'urgence.',
     'blog.article.tour-operator-calo-conflitti.imageAlt': 'Vue de Lugano, destination touristique suisse populaire auprès des voyageurs internationaux',
+    'blog.article.banda-larga-zone-rurali.title': 'Large bande dans les zones rurales : CHF 730 millions',
+    'blog.article.banda-larga-zone-rurali.excerpt': 'Le Conseil fédéral approuve un programme de 730 millions de CHF pour des connexions internet rapides dans les zones rurales. Impliqués cantons et communes de 2030 à 2037 avec fibre optique et radiocommunication.',
+    'blog.article.banda-larga-zone-rurali.imageAlt': 'Petit village rural suisse dans un paysage vert avec infrastructure fibre optique moderne',
 };
 
 export default blogMetaChFr;

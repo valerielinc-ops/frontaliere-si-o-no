@@ -4,6 +4,7 @@ import {
   NVIDIA_ZURICH_COMPANY_NAME,
   isNvidiaZurichJob,
   isTrustedDomain,
+  hasNvidiaSwissLocation,
 } from '../scripts/lib/nvidia-zurich-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,24 @@ describe('NVIDIA (ufficio Zurich) crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('detail location resolution', () => {
+    it('recognizes a Swiss descriptor object in additionalLocations', () => {
+      expect(hasNvidiaSwissLocation({
+        location: 'Germany, Remote',
+        additionalLocations: [
+          { descriptor: 'Zurich, Switzerland', country: { alpha2Code: 'CH' } },
+        ],
+      })).toBe(true);
+
+      expect(hasNvidiaSwissLocation({
+        location: 'Berlin, Germany',
+        additionalLocations: [
+          { descriptor: 'Berlin, Germany', country: { code: 'CH-WID' } },
+        ],
+      })).toBe(false);
     });
   });
 
