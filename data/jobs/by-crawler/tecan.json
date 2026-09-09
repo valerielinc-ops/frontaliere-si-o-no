@@ -382,11 +382,11 @@
     },
     {
       "id": "tecan-cb8135396b83",
-      "slug": "global-trade-compliance-manager-tecan-mannedorf",
+      "slug": "conformita-alle-disposizioni-in-materia-di-commercio-globale-tecan-mannedorf",
       "slugByLocale": {
-        "it": "global-trade-compliance-manager-tecan-mannedorf",
+        "it": "conformita-alle-disposizioni-in-materia-di-commercio-globale-tecan-mannedorf",
         "en": "global-trade-compliance-manager-tecan-mannedorf",
-        "de": "global-trade-compliance-manager-tecan-mannedorf",
+        "de": "die-globale-handels-compliance-tecan-mannedorf",
         "fr": "gestionnaire-de-la-conformite-commerciale-mondiale-tecan-mannedorf"
       },
       "company": "Tecan",
@@ -441,7 +441,18 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "global-trade-compliance-manager-tecan-mannedorf"
+        ],
+        "de": [
+          "global-trade-compliance-manager-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "global-trade-compliance-manager-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-de4d84aa887e",
