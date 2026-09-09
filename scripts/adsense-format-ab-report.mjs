@@ -117,7 +117,7 @@ export const URL_SURFACE_DESIGN = Object.freeze({
   assignmentUnit: 'canonical_url',
   randomization: 'none',
   population: 'Italian job-search landing pages in the configured URL pair',
-  treatment: 'manual in-feed slot suppressed; Auto Ads and CMP unchanged',
+  treatmentDescription: 'manual in-feed slot suppressed; Auto Ads and CMP unchanged',
   overlapRule: 'only the two configured URL surfaces are queried; other routes are excluded',
   causalLimit: 'descriptive URL-surface comparison, not a randomized user-level A/B test',
 });
@@ -597,7 +597,7 @@ export function buildMarkdown(report, history) {
   lines.push(`**Disegno:** ${experiment.causalLimit}. Unità di assegnazione: \`${experiment.assignmentUnit}\`; randomizzazione: \`${experiment.randomization}\`.`);
   lines.push(`**Popolazione:** ${experiment.population}. ${experiment.overlapRule}.`);
   lines.push(`**Fonte primaria:** ${measurement.source}; valuta: \`${measurement.currencyCode}\`; numeratore: \`${measurement.numerator}\`; denominatore: \`${measurement.denominator}\`; scala: ×${measurement.scale}.`);
-  lines.push(`**Trattamento osservato:** ${experiment.treatment}.`);
+  lines.push(`**Trattamento osservato:** ${experiment.treatmentDescription}.`);
   lines.push('');
   if (windowPhase !== 'post-treatment') {
     const phaseLabel = windowPhase === 'pre-treatment' ? 'interamente precedente' : 'mista pre/post trattamento';

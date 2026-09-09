@@ -393,6 +393,12 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
     expect(md).toContain('può includere sotto-URL');
   });
 
+  it('renders the configured treatment description instead of the treatment data object', () => {
+    const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
+    expect(md).toContain('**Trattamento osservato:** manual in-feed slot suppressed; Auto Ads and CMP unchanged.');
+    expect(md).not.toContain('[object Object]');
+  });
+
   it('prints the configured threshold when either weekly sample is small', () => {
     const md = buildMarkdown(
       { ...baseReport, control: { ...baseReport.control, pageViews: SMALL_SAMPLE_PAGEVIEWS - 1 } },
