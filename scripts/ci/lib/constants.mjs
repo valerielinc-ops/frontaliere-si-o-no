@@ -1,18 +1,27 @@
 /**
  * constants.mjs — costanti CI condivise tra gli script di auto-merge/rebase.
  *
- * `VITEST_CHECK_NAME` è il nome del check-run su cui gattano sia
+ * `VITEST_CHECK_NAME` è il nome del check-run required su cui gattano sia
  * `auto-merge-eval.mjs` (gate 3: HEAD vitest == success) sia `pr-autorebase.mjs`
- * (rilevamento head "orfani" a 0 check-run vitest da heal-dispatchare). DEVE
- * matchare byte-per-byte il `name:` del job in `.github/workflows/tests.yml`
- * (source of truth: lo YAML non può importare una const JS). Se i tre punti
- * divergono, `headHasVitestCheck` / il gate vitest leggono length 0 / conclusion
- * "" in silenzio → heal ri-dispatcha all'infinito e nessuna PR mergia. Tenendo
- * i due script `.mjs` su questa singola const, l'unico drift residuo possibile è
- * rinominare il job in tests.yml senza aggiornare qui — coperto dal guard test
- * `tests/ci-vitest-check-name.test.ts`.
+ * (rilevamento head "orfani" a 0 check-run vitest da heal-dispatchare). Il
+ * check viene pubblicato dal wrapper `vitest-required`; DEVE matchare
+ * byte-per-byte il suo `name:` in `.github/workflows/tests.yml` (source of
+ * truth: lo YAML non può importare una const JS). Se i tre punti divergono,
+ * `headHasVitestCheck` / il gate vitest leggono length 0 / conclusion "" in
+ * silenzio → heal ri-dispatcha all'infinito e nessuna PR mergia. Tenendo i due
+ * script `.mjs` su questa singola const, l'unico drift residuo possibile è
+ * rinominare il wrapper in tests.yml senza aggiornare qui — coperto dal guard
+ * test `tests/ci-vitest-check-name.test.ts`.
  */
 export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
+
+/**
+ * Nome del job che esegue checkout, cancelli, test e review. È distinto dal
+ * check required: se questo job viene saltato da un `if:`, il wrapper deve
+ * pubblicare un rosso reale invece di lasciare che GitHub interpreti
+ * `skipped` come soddisfatto.
+ */
+export const VITEST_EXECUTION_JOB_NAME = 'vitest execution';
 
 /**
  * Matcha il nome dei check-run dei singoli SHARD vitest in `tests.yml`

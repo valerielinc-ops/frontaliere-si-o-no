@@ -443,12 +443,12 @@ function fingerprint(sha) {
   }
 }
 
-function reviewAppliesToHead(reviewCommit, headSha) {
+export function reviewAppliesToHead(reviewCommit, headSha, fingerprintFn = fingerprint) {
   if (!reviewCommit || !headSha) return false;
   if (reviewCommit === headSha) return true;
 
-  const headFingerprint = fingerprint(headSha);
-  const reviewFingerprint = fingerprint(reviewCommit);
+  const headFingerprint = fingerprintFn(headSha);
+  const reviewFingerprint = fingerprintFn(reviewCommit);
   if (headFingerprint !== 'NULL' && headFingerprint === reviewFingerprint) {
     console.log(`review-gate: LGTM carry-forward, contributo invariato (${reviewCommit} → ${headSha}).`);
     return true;
@@ -595,12 +595,21 @@ export async function classifyAndMintReview(body, {
 }
 
 /** Execute the extracted decision; exported for integration harnesses. */
-export async function runReviewGate({ repo, pr, headSha, runUrl, prUrl, mutate = true } = {}) {
+export async function runReviewGate({
+  repo,
+  pr,
+  headSha,
+  runUrl,
+  prUrl,
+  mutate = true,
+  reviews,
+  fingerprintFn = fingerprint,
+} = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
-  const latest = latestReviewer(readReviews(repo, pr));
+  const latest = latestReviewer(reviews ?? readReviews(repo, pr));
   if (!latest) return { approved: false, reason: 'nessuna review Claude leggibile' };
   const body = String(latest.body || '');
   const findings = importantFindings(body);
@@ -610,7 +619,7 @@ export async function runReviewGate({ repo, pr, headSha, runUrl, prUrl, mutate =
   // Applicability comes before scope classification. Otherwise a stale review
   // could mint a follow-up for a finding that belongs to an older head before
   // the gate correctly blocks on the changed contribution.
-  const applies = reviewAppliesToHead(reviewCommit, headSha);
+  const applies = reviewAppliesToHead(reviewCommit, headSha, fingerprintFn);
   if (findings.length > 0 && applies) {
     classification = await classifyAndMintReview(body, {
       repo,
