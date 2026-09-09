@@ -150,6 +150,32 @@ describe('employer insights event coverage', () => {
     expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
   });
 
+  it('parses grouped query rows with the emission id after the historical counters', () => {
+    const groupedRow = (eventName: string, eventKey: string) => [
+      eventKey,
+      eventName,
+      '2026-09-01',
+      '/offerte-di-lavoro-ticino/role-it/',
+      'role-it',
+      '',
+      '',
+      'acme',
+      '',
+      eventName === 'select_content' ? 'job_board_apply' : '',
+      1,
+      1,
+      1,
+      'action-array-1',
+    ];
+    const [doc] = build([
+      groupedRow('job_apply', 'job-array-event'),
+      groupedRow('select_content', 'select-array-event'),
+    ]);
+
+    expect(doc.totals.applyClicks).toBe(1);
+    expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
+  });
+
   it('does not pick a company by substring when an explicit alias is ambiguous', () => {
     const jobs = [
       job({ id: 'job-acme', companyKey: 'acme', slug: 'shared-role' }),

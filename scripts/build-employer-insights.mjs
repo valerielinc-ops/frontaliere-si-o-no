@@ -348,7 +348,7 @@ function normalizeEventRow(source) {
   const clicksValue = field(source, 'clicks', 14);
   return {
     eventKey: normalizeText(read(['eventKey', 'event_key', '$insert_id', 'insert_id', 'eventId', 'uuid'], 0)),
-    emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
+    emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 13)),
     event: eventName,
     timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
     week: normalizeWeek(read(['week', 'wk'], 2)),
@@ -960,10 +960,10 @@ function eventSelect(window) {
       coalesce(toString(properties.employer_key), '') AS employer_key,
       coalesce(toString(properties.item_id), '') AS item_id,
       coalesce(toString(properties.content_type), '') AS content_type,
-      coalesce(toString(properties.emission_id), '') AS emission_id,
       count() AS observed,
       count(DISTINCT person_id) AS persons,
-      count(DISTINCT properties.$session_id) AS sessions
+      count(DISTINCT properties.$session_id) AS sessions,
+      coalesce(toString(properties.emission_id), '') AS emission_id
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')
     GROUP BY event_key, event, week, path, job_slug, job_id, provider_id,
