@@ -5,6 +5,7 @@ import {
   buildIdentityCatalog,
   buildInsightsDocuments,
   collapseTechnicalDuplicates,
+  queryEventRows,
 } from '../scripts/build-employer-insights.mjs';
 import {
   APPLY_CLICK_DEDUP_WINDOW_MS,
@@ -23,6 +24,8 @@ const WINDOW = {
 };
 const IN_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() + 60 * 60 * 1000).toISOString();
 const OUTSIDE_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() - 1).toISOString();
+const EMPLOYER_INSIGHTS_SOURCE = readFileSync(new URL('../scripts/build-employer-insights.mjs', import.meta.url), 'utf8');
+const EMPLOYER_TRAFFIC_REPORT_SOURCE = readFileSync(new URL('../scripts/employer-traffic-report.mjs', import.meta.url), 'utf8');
 const JOB_BOARD_SOURCE = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
 const PUBLISHER_APPLY_FORM_SOURCE = readFileSync(new URL('../components/community/PublisherApplyForm.tsx', import.meta.url), 'utf8');
 
@@ -150,7 +153,7 @@ describe('employer insights event coverage', () => {
     expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
   });
 
-  it('parses grouped query rows with the emission id after the historical counters', () => {
+  it('parses grouped query rows with the emission id after views and clicks', () => {
     const groupedRow = (eventName: string, eventKey: string) => [
       eventKey,
       eventName,
@@ -165,7 +168,10 @@ describe('employer insights event coverage', () => {
       1,
       1,
       1,
+      eventName === '$pageview' ? 1 : 0,
+      eventName === 'select_content' || eventName === 'job_apply' ? 1 : 0,
       'action-array-1',
+      '2026-09-01 12:00:00',
     ];
     const [doc] = build([
       groupedRow('job_apply', 'job-array-event'),
@@ -223,6 +229,31 @@ describe('employer insights event coverage', () => {
 });
 
 describe('employer insights technical deduplication', () => {
+  it('retains the ad identity regardless of the arrival order of shared-emission rows', () => {
+    const [doc] = build([
+      event({
+        event: 'select_content',
+        eventKey: 'select-event',
+        emissionId: 'action-order-independent',
+        jobSlug: '',
+        employerKey: '',
+        itemId: 'acme_role-it',
+        contentType: 'job_board_apply',
+      }),
+      event({
+        event: 'job_apply',
+        eventKey: 'job-event',
+        emissionId: 'action-order-independent',
+        jobSlug: 'role-it',
+        employerKey: 'acme',
+      }),
+    ]);
+
+    expect(doc.ads).toHaveLength(1);
+    expect(doc.ads[0]).toMatchObject({ jobId: 'job-1', applyClicks: 1 });
+    expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
+  });
+
   it('removes only repeated rows with the same explicit event key', () => {
     const result = collapseTechnicalDuplicates([
       event({ eventKey: 'event-1', observed: 2 }),
@@ -233,6 +264,84 @@ describe('employer insights technical deduplication', () => {
     expect(result.observed).toBe(4);
     expect(result.removed).toBe(1);
     expect(result.rawObserved).toBe(5);
+  });
+
+  it('keeps views and clicks separate from the emission id in grouped rows', () => {
+    const result = collapseTechnicalDuplicates([[
+      'pageview-event',
+      '$pageview',
+      '2026-09-01',
+      '/offerte-di-lavoro-ticino/role-it/',
+      'role-it',
+      '',
+      '',
+      'acme',
+      '',
+      '',
+      7,
+      1,
+      1,
+      7,
+      0,
+      'action-array-1',
+      '2026-09-01 12:00:00',
+    ]]);
+
+    expect(result.rows[0]).toMatchObject({ views: 7, clicks: 0, emissionId: 'action-array-1' });
+  });
+
+  it('uses keyset pagination for PostHog queries', () => {
+    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(/LIMIT\s+\$\{EVENT_QUERY_PAGE_SIZE\}\s+OFFSET/);
+    const fromPostHogSource = EMPLOYER_TRAFFIC_REPORT_SOURCE.slice(
+      EMPLOYER_TRAFFIC_REPORT_SOURCE.indexOf('async function fromPostHog'),
+      EMPLOYER_TRAFFIC_REPORT_SOURCE.indexOf('async function postHogSourceFrom'),
+    );
+    expect(fromPostHogSource).not.toContain('OFFSET');
+  });
+
+  it('advances event pages with a timestamp and event-key cursor', async () => {
+    const groupedRow = (eventKey: string, timestamp: string) => [
+      eventKey,
+      'scroll_depth',
+      '2026-09-01',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      1,
+      1,
+      1,
+      0,
+      0,
+      '',
+      timestamp,
+    ];
+    const pageRows = [
+      groupedRow('event-a', '2026-09-01 12:00:00.000000'),
+      groupedRow('event-b', '2026-09-01 12:00:01.000000'),
+      groupedRow('event-c', '2026-09-01 12:00:02.000000'),
+    ];
+    const queries: string[] = [];
+    const runQuery = async (query: string) => {
+      queries.push(query);
+      if (query.startsWith('SELECT count() AS total FROM (')) return [[3]];
+      if (query.includes('SELECT count() AS total') && query.includes('FROM events')) return [[3]];
+      if (!query.includes(' LIMIT 2')) throw new Error(`unexpected test query: ${query}`);
+      const pageNumber = queries.filter((candidate) => candidate.includes(' LIMIT 2')).length;
+      return pageNumber === 1 ? pageRows.slice(0, 2) : pageRows.slice(2);
+    };
+
+    const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 2 });
+    const pageQueries = queries.filter((query) => query.includes(' LIMIT 2'));
+
+    expect(result.rows.map((row) => row[0])).toEqual(['event-a', 'event-b', 'event-c']);
+    expect(result.coverage).toMatchObject({ pages: 2, rowsReturned: 3, truncated: false });
+    expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
+    expect(pageQueries[1]).toContain('timestamp >');
+    expect(pageQueries[1]).toContain("event-b");
   });
 });
 
