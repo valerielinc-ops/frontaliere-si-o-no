@@ -6187,6 +6187,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.zimmer-biomet-tagli-impieghi.title': 'Zimmer Biomet taglia fino a 580 impieghi a Winterthur',
     'blog.article.zimmer-biomet-tagli-impieghi.excerpt': 'Il colosso statunitense avvia la procedura di consultazione con i lavoratori per ridurre il personale. Procedure e benefici per i dipendenti colpiti.',
     'blog.article.zimmer-biomet-tagli-impieghi.imageAlt': 'Stabilimento produttivo di Zimmer Biomet a Winterthur nel cantone Zurigo, dove saranno tagliati fino a 580 posti di lavoro',
+    'blog.article.ubs-yumo-educazione-finanziaria.title': 'UBS lancia YUMO: educazione finanziaria gratuita',
+    'blog.article.ubs-yumo-educazione-finanziaria.excerpt': 'Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese e inglese.',
+    'blog.article.ubs-yumo-educazione-finanziaria.imageAlt': 'Veduta di Lugano con lago e montagne sullo sfondo, simbolo della Svizzera moderna',
+    'blog.article.alleanza-energia-elettrica-svizzera.title': 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'Una nuova alleanza di attori economici sostiene l\'accordo sull\'energia con l\'UE. La Svizzera dipende dalle importazioni invernali ed esporta in estate.',
+    'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Centro di controllo della rete di distribuzione dell\'elettricità svizzera, con tecnici che monitorano l\'energia europeo',
+    'blog.article.tour-operator-calo-conflitti.title': 'Tour operator svizzeri in difficoltà: calo fatturato 5-10%',
+    'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza.',
+    'blog.article.tour-operator-calo-conflitti.imageAlt': 'Veduta di Lugano, destinazione turistica svizzera popolare tra i viaggiatori internazionali',
+    'blog.article.banda-larga-zone-rurali.title': 'Banda larga nelle zone rurali: 730 milioni CHF',
+    'blog.article.banda-larga-zone-rurali.excerpt': 'Il Consiglio federale approva un programma da 730 milioni CHF per connessioni internet veloci nelle zone rurali. Coinvolti cantoni e comuni dal 2030 al 2037 con fibra ottica e radiocomunicazione.',
+    'blog.article.banda-larga-zone-rurali.imageAlt': 'Villaggio rurale svizzero in paesaggio verde con infrastrutture di fibra ottica moderne',
 };
 
 export default blogMetaChIt;

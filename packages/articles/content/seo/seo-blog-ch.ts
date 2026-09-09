@@ -80321,6 +80321,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-yumo-educazione-finanziaria': {
+    title: 'UBS lancia YUMO: educazione finanziaria gratuita',
+    description: 'Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese',
+    keywords: 'frontalieri, ticino, svizzera, italia, lancia, yumo, educazione, finanziaria',
+    ogTitle: 'UBS lancia YUMO: educazione finanziaria gratuita per giovani',
+    ogDescription: 'UBS presenta YUMO, la nuova piattaforma digitale gratuita per insegnare ai giovani svizzeri a gestire consapevolmente risparmi, investimenti e denaro personale. Disponibile in italiano, tedesco, francese e inglese.',
+    canonicalPath: '/articoli-svizzera/ubs-yumo-educazione-finanziaria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS lancia YUMO: educazione finanziaria gratuita",
+      "description": "Piattaforma gratuita di UBS per insegnare ai giovani svizzeri a gestire risparmi, investimenti e finanze personali. Disponibile in italiano, tedesco, francese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-yumo-educazione-finanziaria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con lago e montagne sullo sfondo, simbolo della Svizzera moderna"
+      },
+      "datePublished": "2026-09-09T14:43:40+00:00",
+      "dateModified": "2026-09-09T14:43:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-yumo-educazione-finanziaria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-alleanza-energia-elettrica-svizzera': {
+    title: 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    description: 'L\'Alleanza accordo sull\'energia elettrica Svizzera promuove l\'intesa con l\'UE per garantire stabilità della rete e contenere i costi energetici nazionali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, alleanza, energia, centro, rete',
+    ogTitle: 'Alleanza per l\'energia: Svizzera al centro della rete UE',
+    ogDescription: 'Nasce un\'alleanza di aziende e attori economici svizzeri per sostenere l\'accordo sull\'energia con l\'UE. L\'intesa è fondamentale per la sicurezza dell\'approvvigionamento invernale e la competitività dei produttori svizzeri nel mercato europeo.',
+    canonicalPath: '/articoli-svizzera/alleanza-energia-elettrica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alleanza per l'energia: Svizzera al centro della rete UE",
+      "description": "L'Alleanza accordo sull'energia elettrica Svizzera promuove l'intesa con l'UE per garantire stabilità della rete e contenere i costi energetici nazionali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/alleanza-energia-elettrica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di controllo della rete di distribuzione dell'elettricità svizzera, con tecnici che monitorano l'energia europeo"
+      },
+      "datePublished": "2026-09-09T15:04:55+00:00",
+      "dateModified": "2026-09-09T15:04:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alleanza-energia-elettrica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tour-operator-calo-conflitti': {
+    title: 'Tour operator svizzeri in difficoltà: calo fatturato 5-10%',
+    description: 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, tour, operator, svizzeri, difficoltà',
+    ogTitle: 'Tour operator svizzeri in difficoltà: calo fatturato',
+    ogDescription: 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza.',
+    canonicalPath: '/articoli-svizzera/tour-operator-calo-conflitti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tour operator svizzeri in difficoltà: calo fatturato 5-10%",
+      "description": "FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d'emergenza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tour-operator-calo-conflitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano, destinazione turistica svizzera popolare tra i viaggiatori internazionali"
+      },
+      "datePublished": "2026-09-09T16:03:44+00:00",
+      "dateModified": "2026-09-09T16:03:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tour-operator-calo-conflitti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-banda-larga-zone-rurali': {
+    title: 'Banda larga nelle zone rurali: 730 milioni CHF',
+    description: 'Il Consiglio federale investe 730 milioni CHF per banda larga nelle zone rurali svizzere con il programma LSBL. Cofinanziamento cantonale dal 2030 al 2037.',
+    keywords: 'frontalieri, ticino, svizzera, italia, banda, larga, nelle, zone',
+    ogTitle: 'Banda larga nelle zone rurali: 730 milioni CHF di investimento federale',
+    ogDescription: 'Il Consiglio federale lancia il programma LSBL: 730 milioni CHF per banda larga nelle zone rurali svizzere. Cofinanziamento cantonale paritetico, fibra ottica e radiocomunicazione dal 2030 al 2037. Scopri come accedere ai fondi.',
+    canonicalPath: '/articoli-svizzera/banda-larga-zone-rurali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banda larga nelle zone rurali: 730 milioni CHF",
+      "description": "Il Consiglio federale investe 730 milioni CHF per banda larga nelle zone rurali svizzere con il programma LSBL. Cofinanziamento cantonale dal 2030 al 2037.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/banda-larga-zone-rurali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio rurale svizzero in paesaggio verde con infrastrutture di fibra ottica moderne"
+      },
+      "datePublished": "2026-09-09T16:22:52+00:00",
+      "dateModified": "2026-09-09T16:22:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/banda-larga-zone-rurali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
