@@ -717,7 +717,9 @@ const PublisherDashboardPage: React.FC = () => {
 
           {/* ── Crawled free-listing signal with an explicit source state ── */}
           <section aria-labelledby="dash-crawled-heading" className="mb-8 animate-fade-in-up">
-            <h2 id="dash-crawled-heading" className="sr-only">{t('publisherDashboard.crawled.heading')}</h2>
+            <h2 id="dash-crawled-heading" className="text-lg font-bold font-display text-strong mb-3">
+              {t('publisherDashboard.crawled.heading')}
+            </h2>
             <div className={`rounded-3xl border border-edge p-6 sm:p-7 ${crawledTrafficPanelClass}`} aria-live="polite">
               {crawledTraffic.status === 'available' && (
                 <>
