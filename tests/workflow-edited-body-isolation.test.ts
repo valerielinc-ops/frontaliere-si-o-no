@@ -1,12 +1,17 @@
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import { latestCompletedRunByName } from '../scripts/ci/lib/vitestCheck.mjs';
-import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  VITEST_EXECUTION_JOB_NAME,
+} from '../scripts/ci/lib/constants.mjs';
 
 type WorkflowStep = {
   name?: string;
   if?: string;
+  run?: string;
   uses?: string;
   with?: { script?: string };
 };
@@ -14,6 +19,7 @@ type WorkflowStep = {
 type WorkflowJob = {
   name?: string;
   if?: string;
+  needs?: string[] | string;
   steps?: WorkflowStep[];
 };
 
@@ -24,6 +30,7 @@ const workflow = YAML.parse(workflowText) as {
 };
 const jobs = workflow.jobs ?? {};
 const codeJob = jobs.vitest;
+const requiredJob = jobs['vitest-required'];
 const bodyJob = jobs['body-contract'];
 
 const contractStep = (job: WorkflowJob | undefined) =>
@@ -66,7 +73,8 @@ describe('tests.yml: body edit isolation', () => {
   });
 
   it('routes edited to the contract-only job and synchronize to the heavy job', () => {
-    expect(codeJob?.name).toBe(VITEST_CHECK_NAME);
+    expect(codeJob?.name).toBe(VITEST_EXECUTION_JOB_NAME);
+    expect(requiredJob?.name).toBe(VITEST_CHECK_NAME);
     expect(bodyJob?.name).toBe('PR body contract');
     expect(bodyJob?.name).not.toBe(VITEST_CHECK_NAME);
 
@@ -89,15 +97,70 @@ describe('tests.yml: body edit isolation', () => {
     expect(bodyJob?.steps?.[0]?.if).toContain('github.event_name ==');
     expect(bodyJob?.steps?.[0]?.if).not.toContain("github.event.action != 'edited'");
 
+    expect(requiredJob?.if).toContain('always()');
+    expect(requiredJob?.needs).toEqual(['vitest']);
+
+    // Il wrapper deve saltare esattamente dove salta l'esecuzione: altrimenti
+    // su `edited` e sulle label di routine pubblica `failure` sul nome
+    // required e blocca l'auto-merge di una PR sana fino al push successivo.
+    expect(runsForAction(requiredJob?.if, 'edited')).toBe(false);
+    expect(runsForAction(requiredJob?.if, 'synchronize')).toBe(true);
+    expect(requiredJob?.if).toMatch(
+      /github\.event\.action != 'edited'\s*&&\s*\(github\.event\.action != 'labeled' \|\| contains\(github\.event\.pull_request\.labels\.\*\.name, 'stale-review'\)\)/,
+    );
+
     expect(codeJob?.steps?.some((step) => step.name === 'Require approving Claude review')).toBe(true);
+    const skippedReviewGuard = codeJob?.steps?.find(
+      (step) => step.name === 'Fail when required review gate is skipped',
+    );
+    expect(skippedReviewGuard?.if).toContain('always()');
+    expect(skippedReviewGuard?.if).toContain("steps.resolve.outputs.should_review == 'true'");
+    expect(skippedReviewGuard?.if).toContain("steps.guard.outputs.skip != 'true'");
+    expect(skippedReviewGuard?.if).toContain("steps.review_gate.outcome == 'skipped'");
+    expect(skippedReviewGuard?.run).toContain('exit 1');
     expect(codeJob?.steps?.some((step) => step.name === 'Rebase near-merge PRs after review or stale rescue')).toBe(true);
+  });
+
+  it('rende bloccanti skipped, failure e cancelled del job che pubblica il check required', () => {
+    const requiredStep = requiredJob?.steps?.find(
+      (step) => step.name === 'Require vitest execution job to complete',
+    );
+    expect(requiredStep?.if).toContain('always()');
+    expect(requiredStep?.run).toContain('EXECUTION_RESULT');
+    expect(requiredStep?.run).toContain('exit 1');
+
+    const runRequiredCheck = (executionResult: string) => execFileSync(
+      'bash',
+      ['-euo', 'pipefail', '-c', requiredStep?.run ?? ''],
+      {
+        env: { ...process.env, EXECUTION_RESULT: executionResult },
+        stdio: 'ignore',
+      },
+    );
+
+    for (const result of ['skipped', 'failure', 'cancelled']) {
+      expect(() => runRequiredCheck(result), `execution result=${result} deve bloccare`).toThrow();
+    }
+    expect(() => runRequiredCheck('success')).not.toThrow();
+  });
+
+  it('non interpreta skipped o assenza del check required sulla HEAD come verdetto', () => {
+    expect(latestCompletedRunByName([
+      {
+        name: VITEST_CHECK_NAME,
+        status: 'completed',
+        conclusion: 'skipped',
+        completed_at: '2026-09-08T08:20:00Z',
+      },
+    ], VITEST_CHECK_NAME)).toBeNull();
+    expect(latestCompletedRunByName([], VITEST_CHECK_NAME)).toBeNull();
   });
 
   it('does not let the edited body check replace a code verdict', () => {
     const completed = latestCompletedRunByName(
       [
         {
-          name: codeJob?.name,
+          name: requiredJob?.name,
           status: 'completed',
           conclusion: 'failure',
           completed_at: '2026-09-08T08:20:00Z',
@@ -109,7 +172,7 @@ describe('tests.yml: body edit isolation', () => {
           completed_at: '2026-09-08T08:20:05Z',
         },
         {
-          name: codeJob?.name,
+          name: requiredJob?.name,
           status: 'completed',
           conclusion: 'skipped',
           completed_at: '2026-09-08T08:20:10Z',

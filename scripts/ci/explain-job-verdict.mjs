@@ -4,11 +4,12 @@
  * fatto il rosso del check richiesto.
  *
  * Il check che il ruleset richiede su `main` si chiama `vitest (unit +
- * integration)`, ma il job che lo produce porta l'intero cancello: contratto
- * del body della PR, source guard, lint, `tsc`, i test e in fondo il verdetto
- * della Claude review. Un rosso qualunque fra quei ~43 step si presenta al
- * lettore come «vitest», e cinque lettori diversi in un giorno solo ne hanno
- * concluso che fossero rotti i test mentre i test erano verdi.
+ * integration)`. Il job di esecuzione collegato porta l'intero cancello:
+ * contratto del body della PR, source guard, lint, `tsc`, i test e in fondo il
+ * verdetto della Claude review; il wrapper required ne pubblica il risultato.
+ * Un rosso qualunque fra quei ~43 step si presenta al lettore come «vitest»,
+ * e cinque lettori diversi in un giorno solo ne hanno concluso che fossero
+ * rotti i test mentre i test erano verdi.
  *
  * Questo step non cambia il nome del check e non cambia il verdetto: aggiunge
  * una riga leggibile in due secondi sulla pagina della run, che è il primo
@@ -35,7 +36,10 @@
 import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
-import { VITEST_CHECK_NAME } from './lib/constants.mjs';
+import {
+  VITEST_CHECK_NAME,
+  VITEST_EXECUTION_JOB_NAME,
+} from './lib/constants.mjs';
 import { classifyJobFailure, formatJobFailureSummary } from './lib/jobFailureCategory.mjs';
 
 function jobRecencyMs(job) {
@@ -52,7 +56,7 @@ function jobRecencyMs(job) {
 export function selectCurrentJob(
   jobs,
   {
-    jobName = VITEST_CHECK_NAME,
+    jobName = VITEST_EXECUTION_JOB_NAME,
     runnerId = process.env.RUNNER_ID || '',
     runnerName = process.env.RUNNER_NAME || '',
   } = {},
@@ -105,7 +109,7 @@ function currentJobSteps() {
   const jobs = (Array.isArray(payload) ? payload : [payload])
     .flatMap((page) => Array.isArray(page?.jobs) ? page.jobs : []);
   const job = selectCurrentJob(jobs);
-  if (!job) throw new Error(`job "${VITEST_CHECK_NAME}" non trovato nell'attempt ${attempt}`);
+  if (!job) throw new Error(`job "${VITEST_EXECUTION_JOB_NAME}" non trovato nell'attempt ${attempt}`);
   return Array.isArray(job.steps) ? job.steps : [];
 }
 
