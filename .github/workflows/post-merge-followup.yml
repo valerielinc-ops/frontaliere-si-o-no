@@ -65,8 +65,11 @@ jobs:
       #    invocati come subprocess: risparmio preservato anche in batch).
       #  - workflow_dispatch → batch = [pr_number] diretto (backfill volontario,
       #    bypass gate: il prompt Claude ri-verifica eligibility).
-      # PROCEED-SAFE: dubbio/errore su una PR → inclusa nel batch (mai persa).
-      # Emette batch_prs (csv), batch_count, max_turns e daily_key (Europe/Zurich).
+      # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
+      # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
+      # Emette collection_ok, batch_prs (csv), batch_count, max_turns e daily_key
+      # (Europe/Zurich). collection_ok è distinto dal batch vuoto: un errore di
+      # raccolta non può essere interpretato come "nessuna PR".
       # Vedi scripts/ci/collect-followup-batch.mjs.
       - name: Collect follow-up batch
         id: collect
@@ -82,6 +85,7 @@ jobs:
             {
               echo "batch_prs=${PR}"
               echo "batch_count=1"
+              echo "collection_ok=true"
               echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
               echo "daily_key=$(TZ=Europe/Zurich date +%F)"
             } >> "$GITHUB_OUTPUT"
@@ -400,7 +404,9 @@ jobs:
       # after one chunk while the batch still contains other PRs.  The gate may
       # seal a collecting bucket only when every PR in the positive batch carries
       # the required idempotency marker and the action/fallback itself succeeded.
-      # An empty batch is explicitly incomplete, so it can never seal a bucket.
+      # A successful empty collection is complete without invoking Claude; an
+      # empty/failed collection is not. The explicit collection_ok output keeps
+      # those states distinct so a collector error cannot advance the watermark.
       - name: Verify complete follow-up triage (zero-Claude)
         id: triage_complete
         if: always()
@@ -409,6 +415,7 @@ jobs:
           REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
           CLAUDE_OUTCOME: ${{ steps.followup.outputs.claude_outcome }}
           FALLBACK_SUCCESS: ${{ steps.followup.outputs.fallback_success }}
         run: |
@@ -416,14 +423,27 @@ jobs:
           complete=false
           count="${BATCH_COUNT:-}"
           csv="${BATCH_PRS:-}"
+          collection_ok="${COLLECTION_OK:-false}"
           marker_ok=true
           actual=0
           seen=""
-          if ! [[ "$count" =~ ^[1-9][0-9]*$ ]]; then
-            echo "triage incompleta: batch_count non positivo (empty/zero/non numerico)"
+          action_ok=false
+          if [ "$collection_ok" != true ]; then
+            echo "triage incompleta: collection_ok non è true (raccolta fallita/illeggibile)"
             marker_ok=false
-          fi
-          if [ "$marker_ok" = true ]; then
+          elif ! [[ "$count" =~ ^[0-9]+$ ]]; then
+            echo "triage incompleta: batch_count non numerico"
+            marker_ok=false
+          elif [ "$count" -eq 0 ]; then
+            if [ -n "$(printf '%s' "$csv" | tr -d '[:space:]')" ]; then
+              echo "triage incompleta: batch_count=0 ma BATCH_PRS non è vuoto"
+              marker_ok=false
+            else
+              # There is no Claude action for a genuinely empty, successfully
+              # collected window. This is the only zero-batch completion path.
+              action_ok=true
+            fi
+          else
             IFS=',' read -ra prs <<< "$csv"
             for raw_pr in "${prs[@]}"; do
               pr=$(printf '%s' "$raw_pr" | tr -d '[:space:]')
@@ -452,15 +472,21 @@ jobs:
               marker_ok=false
             fi
           fi
-          action_ok=false
-          if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${FALLBACK_SUCCESS:-}" = true ]; then
-            action_ok=true
+          if [ "$count" -gt 0 ] 2>/dev/null; then
+            if [ "${CLAUDE_OUTCOME:-}" = success ] || [ "${FALLBACK_SUCCESS:-}" = true ]; then
+              action_ok=true
+            else
+              echo "triage incompleta: batch positivo senza esito Claude/Codex riuscito"
+            fi
           fi
           if [ "$marker_ok" = true ] && [ "$action_ok" = true ]; then
             complete=true
           fi
           echo "triage_complete=$complete" >> "$GITHUB_OUTPUT"
           echo "triage_complete=$complete (batch_count=${count:-missing}, verified_prs=$actual, action_ok=$action_ok)"
+          if [ "$complete" != true ]; then
+            exit 1
+          fi
 
       # Gate DETERMINISTICO in ingresso sul conio (zero-Claude). Il divieto di mintare
       # item senza condizione di accettazione falsificabile esiste gia' sopra, ma vive
@@ -484,6 +510,7 @@ jobs:
           GH_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
           TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: node scripts/ci/gate-minted-followups.mjs
 
@@ -499,6 +526,7 @@ jobs:
           GATE_PR_REPO: ${{ github.repository }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
+          COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
           TRIAGE_COMPLETE: ${{ steps.triage_complete.outputs.triage_complete }}
         run: |
           if [ -z "${GH_TOKEN:-}" ]; then

@@ -12,8 +12,10 @@ import {
   dedupeDailyItems,
   followupFingerprint,
   followupItemId,
+  hasDailyBucketRepositoryConsistency,
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
+  hasUnterminatedMarkdownFence,
   parseFollowupItems,
   selectFirstOpenItem,
   updateFollowupItemState,
@@ -208,6 +210,33 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('segnala una fence Markdown non terminata e blocca sealing, queue, reconcile e close', () => {
+    const unterminated = body(item(`FU-${DAY}-001`)).replace(
+      '- Acceptance token: `firstGuard()`',
+      '- Acceptance token: `firstGuard()`\n```md\n### FU-2020-01-01-999 — item finto\n- State: done',
+    );
+    const parsed = parseFollowupItems(unterminated);
+    expect(parsed).toHaveLength(1);
+    expect(parsed.unterminatedFence).toBe(true);
+    expect(hasUnterminatedMarkdownFence(unterminated)).toBe(true);
+    expect(decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: unterminated,
+    })).toMatchObject({ action: 'skip', reason: 'unterminated-markdown-fence' });
+    expect(dailyBucketQueueDecision({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: unterminated.replace('- State: collecting', '- State: sealed'),
+    })).toMatchObject({ eligible: false, reason: 'unterminated-markdown-fence' });
+    expect(reconcileDailyItems(unterminated, resolvedIo, DAY)).toMatchObject({
+      changed: false,
+      reason: 'unterminated-markdown-fence',
+    });
+    expect(dailyBucketCloseGate(unterminated, resolvedIo, DAY)).toMatchObject({
+      blocks: true,
+      reason: 'unterminated-markdown-fence',
+    });
+  });
+
   it('selects and updates only the first open item without renumbering IDs', () => {
     const sealed = body(item(`FU-${DAY}-001`, 'done'), distinctItem(`FU-${DAY}-002`));
     const first = selectFirstOpenItem(sealed);
@@ -276,6 +305,51 @@ describe('daily item parsing and lifecycle', () => {
       body: mismatchedBodyKey,
     })).toMatchObject({ eligible: false, reason: 'mismatched-daily-key' });
   });
+
+  it('rifiuta repository incoerenti fra titolo, header, item e fingerprint', () => {
+    const itemWithWrongRepository = item(`FU-${DAY}-001`)
+      .replace('- Target file:', '- Target repository: other/repo\n- Target file:');
+    const wrongItem = body(itemWithWrongRepository);
+    expect(hasDailyBucketRepositoryConsistency(wrongItem, 'owner/repo')).toBe(false);
+    expect(dailyItemFingerprint(parseFollowupItems(wrongItem)[0], 'owner/repo')).toBeNull();
+    expect(decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: wrongItem,
+    })).toMatchObject({ action: 'skip', reason: 'mismatched-target-repository' });
+    const sealedWrongItem = wrongItem.replace('- State: collecting', '- State: sealed');
+    expect(dailyBucketQueueDecision({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: sealedWrongItem,
+    })).toMatchObject({ eligible: false, reason: 'mismatched-target-repository' });
+    expect(reconcileDailyItems(sealedWrongItem, resolvedIo, DAY, 'owner/repo')).toMatchObject({
+      changed: false,
+      reason: 'mismatched-target-repository',
+    });
+    expect(dailyBucketCloseGate(sealedWrongItem, resolvedIo, DAY, 'owner/repo')).toMatchObject({
+      blocks: true,
+      reason: 'mismatched-target-repository',
+    });
+
+    const wrongHeader = body(item(`FU-${DAY}-001`)).replace(
+      '- Target repository: owner/repo',
+      '- Target repository: other/repo',
+    );
+    expect(decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: wrongHeader,
+    })).toMatchObject({ action: 'skip', reason: 'mismatched-target-repository' });
+    expect(mergeDailyBucketBodies(
+      { title: dailyBucketTitle(DAY, 'owner/repo', 1), body: body(item(`FU-${DAY}-001`)) },
+      { title: dailyBucketTitle(DAY, 'owner/repo', 1), body: wrongHeader },
+    )).toBeNull();
+    expect(mergeDailyBucketBodies(
+      { title: dailyBucketTitle(DAY, 'owner/repo', 1), body: body(item(`FU-${DAY}-001`)) },
+      {
+        title: dailyBucketTitle(DAY, 'other/repo', 1),
+        body: wrongHeader,
+      },
+    )).toBeNull();
+  });
 });
 
 describe('daily mint gate and reconciliation', () => {
@@ -323,6 +397,14 @@ describe('daily mint gate and reconciliation', () => {
       body: body(item(`FU-${DAY}-001`)),
     }, { triageComplete: false });
     expect(decision).toMatchObject({ action: 'skip', reason: 'triage-incomplete', body: null });
+  });
+
+  it('ripara un bucket sealed senza ereditare il segnale globale di triage', () => {
+    const decision = decideDailyMintGate({
+      title: dailyBucketTitle(DAY, 'owner/repo', 1),
+      body: body(item(`FU-${DAY}-001`)).replace('- State: collecting', '- State: sealed'),
+    }, { triageComplete: false });
+    expect(decision).toMatchObject({ action: 'keep', reason: 'already-sealed', body: null });
   });
 
   it('demotes an item without acceptance and seals only the valid survivors', () => {

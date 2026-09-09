@@ -493,7 +493,16 @@ function markdownRecords(text) {
     }
     offset = end + 1;
   }
+  Object.defineProperty(records, 'unterminatedFence', {
+    value: !!fence,
+    enumerable: false,
+  });
   return records;
+}
+
+/** True when Markdown opens a fenced block and never closes it. */
+export function hasUnterminatedMarkdownFence(text) {
+  return markdownRecords(text).unterminatedFence === true;
 }
 
 /**
@@ -559,6 +568,7 @@ function replaceFirstUnprotectedField(text, field, value) {
  */
 export function parseFollowupItems(body) {
   const source = String(body || '');
+  const unterminatedFence = hasUnterminatedMarkdownFence(source);
   const matches = [];
   for (const record of markdownRecords(source)) {
     if (record.protected) continue;
@@ -601,7 +611,15 @@ export function parseFollowupItems(body) {
   // unparsed/unsafe and therefore leaves the issue untouched (no queue/close or
   // destructive rewrite).  State examples inside quotes/fences are ignored by
   // `hasDuplicateItemState` and cannot poison a valid item.
-  return parsed.some((item) => item.stateConflict) ? [] : parsed;
+  const result = parsed.some((item) => item.stateConflict) ? [] : parsed;
+  // Keep the signal non-enumerable so existing callers/tests that compare the
+  // parsed item records byte-for-byte retain the legacy shape. Lifecycle callers
+  // can fail closed without rescanning or guessing whether the tail was fenced.
+  Object.defineProperty(result, 'unterminatedFence', {
+    value: unterminatedFence,
+    enumerable: false,
+  });
+  return result;
 }
 
 /** Extract source PRs only from live `Sources` metadata of a daily bucket. */
@@ -682,9 +700,19 @@ function withMergedSources(text, sources) {
 /** Fingerprint one parsed item, or null when the item lacks a usable identity. */
 export function dailyItemFingerprint(item, bucketTargetRepository = '') {
   const text = typeof item === 'string' ? item : item?.text || item?.raw || '';
-  const targetRepository = String(
-    (typeof item === 'object' && item?.targetRepository) || itemFieldFromText(text, 'Target repository') || bucketTargetRepository,
+  const declaredRepositories = fieldValuesOutsideMarkdownProtection(text, 'Target repository');
+  if (declaredRepositories.length > 1) return null;
+  const declaredRepository = String(
+    declaredRepositories.length
+      ? declaredRepositories[0]
+      : (typeof item === 'object' && item?.targetRepository) || '',
   ).trim();
+  const bucketRepository = String(bucketTargetRepository || '').trim();
+  if (bucketRepository && declaredRepository
+      && normalizeRepositoryPart(bucketRepository) !== normalizeRepositoryPart(declaredRepository)) return null;
+  // A bucket-level repository is authoritative. An item field may confirm it, but
+  // must never override it and move a fingerprint into another repository.
+  const targetRepository = bucketRepository || declaredRepository;
   const targetFile = String(
     (typeof item === 'object' && item?.targetFile) || itemFieldFromText(text, 'Target file'),
   ).trim();
@@ -770,6 +798,35 @@ export function dailyKeyFromBucketBody(body) {
     .map((value) => /^(\d{4}-\d{2}-\d{2})\b/.exec(value)?.[1] || null)
     .filter(Boolean);
   return keys.length === 1 && values.length === 1 ? keys[0] : null;
+}
+
+function normalizeRepositoryPart(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+/** Return the single live bucket-level Target repository field, or null. */
+export function dailyBucketTargetRepository(body) {
+  const source = String(body || '');
+  const firstItem = parseFollowupItems(source)[0];
+  const head = source.slice(0, firstItem?.start ?? source.length);
+  const values = fieldValuesOutsideMarkdownProtection(head, 'Target repository');
+  return values.length === 1 ? values[0].trim() : null;
+}
+
+/** Require title/header/item repository declarations to agree when present. */
+export function hasDailyBucketRepositoryConsistency(body, expectedRepository = '') {
+  const items = parseFollowupItems(body);
+  const headerRepository = dailyBucketTargetRepository(body);
+  const expected = String(expectedRepository || '').trim();
+  if (!items.length || !headerRepository
+      || (expected && normalizeRepositoryPart(headerRepository) !== normalizeRepositoryPart(expected))) {
+    return false;
+  }
+  return items.every((item) => {
+    const values = fieldValuesOutsideMarkdownProtection(item.text, 'Target repository');
+    return values.length <= 1 && (!values.length
+      || normalizeRepositoryPart(values[0]) === normalizeRepositoryPart(headerRepository));
+  });
 }
 
 /** Require unique stable IDs whose date is exactly the bucket's daily key. */

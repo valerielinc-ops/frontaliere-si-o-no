@@ -10,6 +10,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   computeWatermarkISO,
+  parseSuccessfulRunList,
+  parseMergedPRPages,
   parseMergedPRs,
   hasTriageComment,
   canonicalLogin,
@@ -57,6 +59,65 @@ describe('computeWatermarkISO', () => {
 
   it('respects a custom fallback window', () => {
     expect(computeWatermarkISO('[]', NOW, 3)).toBe(new Date(NOW - 3 * 3600_000).toISOString());
+  });
+});
+
+describe('collector fail-closed parsing', () => {
+  it('accepts all complete paginated search pages and preserves eligible authors', () => {
+    const pages = [
+      {
+        total_count: 2,
+        incomplete_results: false,
+        items: [{
+          number: 8101,
+          title: 'first',
+          user: { login: 'valerielinc-ops' },
+          pull_request: { merged_at: '2026-09-09T08:00:00Z' },
+          head: { ref: 'feature/first' },
+        }],
+      },
+      {
+        total_count: 2,
+        incomplete_results: false,
+        items: [{
+          number: 8102,
+          title: 'second',
+          user: { login: 'app/frontaliere-automation' },
+          pull_request: { merged_at: '2026-09-09T09:00:00Z' },
+          head: { ref: 'feature/second' },
+        }],
+      },
+    ];
+    const parsed = parseMergedPRPages(JSON.stringify(pages));
+    expect(parsed?.map((pr) => pr.number)).toEqual([8101, 8102]);
+    expect(parseMergedPRs(JSON.stringify(parsed)).map((pr) => pr.number)).toEqual([8101, 8102]);
+  });
+
+  it('rejects incomplete, truncated, duplicated, or malformed pages instead of returning an empty batch', () => {
+    const complete = {
+      total_count: 2,
+      incomplete_results: false,
+      items: [{
+        number: 8101,
+        user: { login: 'valerielinc-ops' },
+        pull_request: { merged_at: '2026-09-09T08:00:00Z' },
+      }],
+    };
+    expect(parseMergedPRPages(JSON.stringify([{ ...complete, incomplete_results: true }]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([complete]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([complete, complete]))).toBeNull();
+    expect(parseMergedPRPages(JSON.stringify([{
+      ...complete,
+      items: [{ ...complete.items[0], pull_request: { merged_at: 'not-a-date' } }],
+      total_count: 1,
+    }]))).toBeNull();
+  });
+
+  it('does not use the fallback watermark for a malformed successful-run response', () => {
+    expect(parseSuccessfulRunList('[]')).toEqual([]);
+    expect(parseSuccessfulRunList(JSON.stringify([{ startedAt: '2026-09-09T08:00:00Z' }]))).toHaveLength(1);
+    expect(parseSuccessfulRunList(JSON.stringify([{}]))).toBeNull();
+    expect(parseSuccessfulRunList('not-json')).toBeNull();
   });
 });
 

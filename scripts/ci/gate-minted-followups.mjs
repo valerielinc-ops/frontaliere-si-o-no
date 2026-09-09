@@ -76,8 +76,10 @@ import {
   dedupeDailyItems,
   dailyBucketInfo,
   hasFalsifiableAcceptance,
+  hasDailyBucketRepositoryConsistency,
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
+  hasUnterminatedMarkdownFence,
   parseFollowupItems,
   selectFirstOpenItem,
   splitFollowupItems,
@@ -93,6 +95,10 @@ const MAX_AGE_MIN = intFromEnv('GATE_MAX_AGE_MIN', 240);
 // signal must never seal a partial bucket. Only the workflow's deterministic
 // verifier can opt into the lifecycle transition with the literal `true`.
 const TRIAGE_COMPLETE = process.env.TRIAGE_COMPLETE === 'true';
+// The workflow exposes collection_ok separately from triage_complete. A failed
+// collector must not trigger historical recovery, but sealed buckets may still be
+// repaired independently because they no longer depend on collection completeness.
+const COLLECTION_OK = process.env.COLLECTION_OK !== 'false';
 const OPEN_FOLLOWUP_LIMIT = 1000;
 // Non esportato di proposito: è una firma per chi legge i commenti, non un'affordance di
 // idempotenza in cerca di consumatore. L'idempotenza qui è per costruzione FINCHE' LE
@@ -138,7 +144,8 @@ export function partitionMintedItems(body, opts = {}) {
 export function partitionDailyBucketItems(body, opts = {}) {
   const src = String(body || '');
   const parsed = parseFollowupItems(src);
-  if (!parsed.length || !hasStableItemIds(src)) {
+  if (hasUnterminatedMarkdownFence(src)
+      || !parsed.length || !hasStableItemIds(src) || !hasDailyBucketRepositoryConsistency(src)) {
     return { head: src, valid: [], demoted: [], unparsed: true };
   }
   const bodyDailyKey = dailyKeyFromBucketBody(src);
@@ -223,11 +230,14 @@ export function mergeDailyBucketBodies(primary, duplicate) {
   if (!primaryInfo || dailyBucketIdentity(primary.title) !== dailyBucketIdentity(duplicate?.title)) return null;
   const primaryBody = String(primary?.body || '');
   const duplicateBody = String(duplicate?.body || '');
+  if (hasUnterminatedMarkdownFence(primaryBody) || hasUnterminatedMarkdownFence(duplicateBody)) return null;
   const primaryBodyKey = dailyKeyFromBucketBody(primaryBody);
   const duplicateBodyKey = dailyKeyFromBucketBody(duplicateBody);
   const primaryItems = parseFollowupItems(primaryBody);
   const duplicateItems = parseFollowupItems(duplicateBody);
   if (!primaryItems.length || !duplicateItems.length
+      || !hasDailyBucketRepositoryConsistency(primaryBody, primaryInfo.targetRepository)
+      || !hasDailyBucketRepositoryConsistency(duplicateBody, duplicateInfo?.targetRepository)
       || primaryBodyKey !== primaryInfo.dailyKey
       || duplicateBodyKey !== duplicateInfo?.dailyKey
       || primaryBodyKey !== duplicateBodyKey
@@ -310,15 +320,21 @@ export function decideDailyMintGate(issue, opts = {}) {
   const src = String(issue?.body || '');
   const state = bucketState(src);
   const daily = dailyBucketInfo(issue?.title || '');
+  if (hasUnterminatedMarkdownFence(src)) {
+    return { action: 'skip', reason: 'unterminated-markdown-fence', valid: [], demoted: [], duplicates: [], body: null };
+  }
   // The Claude/action step can fail after appending only part of a batch. The
   // caller passes `triageComplete=false` in that case; leave any daily body
   // untouched so the successful retry can finish the same bucket/chunk set. This
   // also protects a bucket that was already sealed from a failed concurrent pass.
-  if (opts.triageComplete === false) {
+  if (opts.triageComplete === false && state !== 'sealed') {
     return { action: 'skip', reason: 'triage-incomplete', valid: [], demoted: [], duplicates: [], body: null };
   }
   if (!daily || dailyKeyFromBucketBody(src) !== daily.dailyKey) {
     return { action: 'skip', reason: 'mismatched-daily-key', valid: [], demoted: [], duplicates: [], body: null };
+  }
+  if (!hasDailyBucketRepositoryConsistency(src, daily.targetRepository)) {
+    return { action: 'skip', reason: 'mismatched-target-repository', valid: [], demoted: [], duplicates: [], body: null };
   }
   const { head, valid, demoted, duplicates = [], unparsed } = partitionDailyBucketItems(src, {
     ...opts,
@@ -591,10 +607,13 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
       const issue = parseIssueJson(gh(['issue', 'view', String(member.number), ...repoArgs,
         '--json', 'number,title,body,createdAt'], { allowFail: true }));
       const actualIdentity = dailyBucketIdentity(issue?.title || '');
-      if (!issue || actualIdentity !== identity || typeof issue.body !== 'string'
+      const info = dailyBucketInfo(issue?.title || '');
+      if (!issue || actualIdentity !== identity || !info || typeof issue.body !== 'string'
+          || hasUnterminatedMarkdownFence(issue.body)
+          || !hasDailyBucketRepositoryConsistency(issue.body, info.targetRepository)
           || bucketState(issue.body) !== 'collecting') {
         readable = false;
-        console.log(`⚠️ daily ${identity}: prova storica incompleta/illeggibile su #${member.number} → nessun sealing da batch vuoto.`);
+        console.log(`⚠️ daily ${identity}: prova storica incompleta/illeggibile su #${member.number} → nessun sealing da recovery.`);
         break;
       }
       sourcePrs.push(...dailyBucketSourcePrNumbers(issue.body));
@@ -620,7 +639,7 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
       recovered.add(identity);
       console.log(`✅ daily ${identity}: marker storici verificati (${decision.sourcePrs.map((number) => `PR #${number}`).join(', ')}) → recovery ammesso.`);
     } else {
-      console.log(`ℹ️ daily ${identity}: recovery da batch vuoto negato (${decision.reason}).`);
+      console.log(`ℹ️ daily ${identity}: recovery per bucket negato (${decision.reason}).`);
     }
   }
   return recovered;
@@ -633,9 +652,9 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
  * duplicate is closed only after a successful canonical write and an audit
  * comment, and an unreadable/conflicting group blocks both issues for retry.
  */
-function consolidateDailyBuckets(open, repoArgs, recoverable = new Set(), allowComplete = TRIAGE_COMPLETE) {
+function consolidateDailyBuckets(open, repoArgs, recoverable = new Set()) {
   const blocked = new Set();
-  if (!allowComplete && !(recoverable instanceof Set && recoverable.size)) return blocked;
+  if (!(recoverable instanceof Set && recoverable.size)) return blocked;
   const groups = new Map();
   for (const issue of Array.isArray(open) ? open : []) {
     const identity = dailyBucketIdentity(issue?.title || '');
@@ -645,7 +664,7 @@ function consolidateDailyBuckets(open, repoArgs, recoverable = new Set(), allowC
   }
   for (const [identity, members] of groups) {
     if (members.length < 2) continue;
-    if (!allowComplete && !recoverable.has(identity)) continue;
+    if (!recoverable.has(identity)) continue;
     members.sort((a, b) => Number(a.number) - Number(b.number));
     const canonicalMeta = members[0];
     let canonical = parseIssueJson(gh(['issue', 'view', String(canonicalMeta.number), ...repoArgs,
@@ -768,19 +787,13 @@ function main() {
     const owner = identity ? canonicalDaily.get(identity) : null;
     console.log(`⚠️ #${duplicate.number}: daily bucket duplicato (${identity}) — owner canonico #${owner?.number || 'unknown'}, non lo sigillo né lo accodo.`);
   }
-  // `TRIAGE_COMPLETE=true` is meaningful only for a non-empty batch whose PR/chunk
-  // markers the workflow verifier checked.  With an empty batch, prove recovery from
-  // the bucket's historical Sources instead of treating zero as completion.
-  const batchTriageComplete = TRIAGE_COMPLETE && prs.length > 0;
-  const recoveredDailyIdentities = prs.length
-    ? new Set()
-    : recoverableDailyIdentities(open, repoArgs, prRepoArgs);
-  const blockedDailyIdentities = consolidateDailyBuckets(
-    open,
-    repoArgs,
-    recoveredDailyIdentities,
-    batchTriageComplete,
-  );
+  // Collection completeness is proved per collecting bucket from its own Sources
+  // and triage markers. Sealed buckets take a separate queue-repair path below and
+  // never inherit a batch-wide completion signal.
+  const recoveredDailyIdentities = COLLECTION_OK
+    ? recoverableDailyIdentities(open, repoArgs, prRepoArgs)
+    : new Set();
+  const blockedDailyIdentities = consolidateDailyBuckets(open, repoArgs, recoveredDailyIdentities);
   const report = [];
   const tally = [];
   const machineCache = new Map();
@@ -793,14 +806,13 @@ function main() {
       const found = pr === null
         ? []
         : open.filter((i) => String(i.title || '').startsWith(`follow-up(#${pr})`));
-      // A daily bucket is shared by all source PRs. Once the caller confirms the
-      // triage completed, process every open daily bucket so a late retry can seal
-      // its historical key even when the collector's batch is empty.
-      if (!dailyClaimed && (batchTriageComplete || recoveredDailyIdentities.size)) {
+      // A daily bucket is shared by all source PRs. Inspect every canonical bucket:
+      // sealed buckets may only repair their queue label; collecting buckets are
+      // admitted below only when their own historical marker proof passed.
+      if (!dailyClaimed) {
         found.push(...open.filter((i) => {
           const identity = dailyBucketIdentity(i.title || '');
           return identity && canonicalDaily.get(identity)?.number === i.number
-            && (batchTriageComplete || recoveredDailyIdentities.has(identity))
             && !blockedDailyIdentities.has(identity);
         }));
         dailyClaimed = true;
@@ -818,8 +830,10 @@ function main() {
       }
       for (let iss of issues) {
         const daily = dailyBucketInfo(iss.title || '');
-        const issueTriageComplete = batchTriageComplete
-          || (daily && recoveredDailyIdentities.has(dailyBucketIdentity(iss.title || '')));
+        const issueTriageComplete = daily
+          ? bucketState(iss.body || '') === 'sealed'
+            || recoveredDailyIdentities.has(dailyBucketIdentity(iss.title || ''))
+          : TRIAGE_COMPLETE;
         let d = decideMintGate(iss, {
           machineOptions: { cache: machineCache },
           triageComplete: daily ? issueTriageComplete : TRIAGE_COMPLETE,
@@ -886,13 +900,15 @@ function main() {
           }
           iss = { ...iss, ...latest };
           const latestDaily = dailyBucketInfo(iss.title || '');
-          const latestTriageComplete = batchTriageComplete
-            || (latestDaily && recoveredDailyIdentities.has(dailyBucketIdentity(iss.title || '')));
+          const latestTriageComplete = latestDaily
+            ? bucketState(iss.body || '') === 'sealed'
+              || recoveredDailyIdentities.has(dailyBucketIdentity(iss.title || ''))
+            : TRIAGE_COMPLETE;
           d = decideMintGate(iss, {
             machineOptions: { cache: machineCache },
             triageComplete: latestDaily ? latestTriageComplete : TRIAGE_COMPLETE,
           });
-          commentTargets = daily ? sourcePrNumbers(iss.body, pr) : [pr];
+          commentTargets = latestDaily ? sourcePrNumbers(iss.body, pr) : [pr];
           if (d.action === 'skip' || d.action === 'keep' || !d.body) {
             console.log(`#${iss.number}: body cambiato dopo la lista → decisione ricalcolata (${d.action}/${d.reason}), nessun overwrite stale.`);
             continue;

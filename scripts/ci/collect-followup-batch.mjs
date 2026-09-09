@@ -26,16 +26,18 @@
  *    grandchild-suppression + `followup-has-candidates.mjs` no-op), così il risparmio
  *    dei gate è preservato anche nel modello batch. Tieni solo le PR che passano
  *    ENTRAMBI (mirror esatto dell'`if:` che il workflow aveva sullo step Claude).
- *  - **PROCEED-SAFE:** errore di query/parse su una singola PR (lista, commenti,
- *    gate inconcludente) → la PR viene INCLUSA nel batch (mai escludere per dubbio),
- *    con motivo loggato. Meglio una run Claude in più che perdere un follow-up.
+ *  - **PROCEED-SAFE per i gate per-PR:** un gate inconcludente lascia la PR nel
+ *    batch (mai persa). Le sorgenti della raccolta — watermark, elenco paginato e
+ *    commenti — invece falliscono chiuse: un output vuoto non può mascherare un
+ *    errore e far avanzare il watermark.
  *
- * Output (GITHUB_OUTPUT): `batch_prs=<csv di numeri>`, `batch_count=<n>`,
- *   `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage riuscito in Zurich).
+ * Output (GITHUB_OUTPUT): `collection_ok=true|false`, `batch_prs=<csv di numeri>`,
+ *   `batch_count=<n>`, `max_turns=<n>` e `daily_key=YYYY-MM-DD` (giorno di triage
+ *   riuscito in Zurich).
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
- *       FALLBACK_HOURS (opz, default 6), PR_LIMIT (opz, default 100).
+ *       FALLBACK_HOURS (opz, default 6).
  *       Richiede `gh` in PATH.
  */
 import { execFileSync } from 'node:child_process';
@@ -47,18 +49,19 @@ import { dailyKeyZurich } from './followup-resolution-match.mjs';
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
-const PR_LIMIT = Number(process.env.PR_LIMIT) || 100;
+const SEARCH_PAGE_SIZE = 100;
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 
-const repoArgs = (process.env.GH_REPO || process.env.GITHUB_REPOSITORY)
-  ? ['--repo', process.env.GH_REPO || process.env.GITHUB_REPOSITORY]
+const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+const repoArgs = REPO
+  ? ['--repo', REPO]
   : [];
 
 function gh(args) {
   try {
     return execFileSync('gh', args, { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
   } catch {
-    return ''; // proceed-safe: any gh fault → caller treats as "can't confirm".
+    return null;
   }
 }
 
@@ -102,9 +105,80 @@ export function computeWatermarkISO(runListJson, nowMs = Date.now(), fallbackHou
 }
 
 /**
- * Parse `gh pr list --json number,title,author,mergedAt,headRefName` and keep only
- * eligible-author PRs. Proceed-safe: unparseable list → [] (the run logs it; the
- * next scheduled run re-covers the window since the watermark didn't advance).
+ * Validate the successful-run response before it is allowed to define a
+ * watermark. An empty list is a valid first run; a non-empty list with an
+ * unreadable first timestamp is an incomplete API response and must block the
+ * collector instead of silently falling back to now-minus-six-hours.
+ *
+ * @param {string} runListJson
+ * @returns {Array<{createdAt?:string,startedAt?:string}>|null}
+ */
+export function parseSuccessfulRunList(runListJson) {
+  let runs;
+  try {
+    runs = JSON.parse(runListJson || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(runs)) return null;
+  if (!runs.length) return runs;
+  const first = runs[0];
+  if (!first || typeof first !== 'object' || Array.isArray(first)) return null;
+  const timestamp = first.startedAt || first.createdAt;
+  if (typeof timestamp !== 'string' || Number.isNaN(Date.parse(timestamp))) return null;
+  return runs;
+}
+
+/**
+ * Parse one complete `gh api --paginate --slurp search/issues` response. Search API
+ * caps a query at 1,000 results; a short page set or `incomplete_results` is therefore
+ * an error, not an empty collection. The caller must keep the watermark unchanged.
+ *
+ * @param {string} searchPagesJson
+ * @returns {Array<{number:number,title?:string,author?:{login:string},mergedAt?:string,headRefName?:string}>|null}
+ */
+export function parseMergedPRPages(searchPagesJson) {
+  let pages;
+  try {
+    pages = JSON.parse(searchPagesJson || '');
+  } catch {
+    return null;
+  }
+  if (!Array.isArray(pages) || !pages.length) return null;
+  const records = [];
+  const seen = new Set();
+  let totalCount = null;
+  for (const page of pages) {
+    if (!page || typeof page !== 'object' || Array.isArray(page)
+        || page.incomplete_results !== false || !Array.isArray(page.items)) return null;
+    const pageTotal = Number(page.total_count);
+    if (!Number.isInteger(pageTotal) || pageTotal < 0) return null;
+    if (totalCount === null) totalCount = pageTotal;
+    if (pageTotal !== totalCount) return null;
+    for (const item of page.items) {
+      const number = Number(item?.number);
+      const login = item?.user?.login;
+      const mergedAt = item?.pull_request?.merged_at;
+      if (!Number.isInteger(number) || number <= 0 || typeof login !== 'string' || !login.trim()
+          || typeof mergedAt !== 'string' || Number.isNaN(Date.parse(mergedAt))) return null;
+      if (seen.has(number)) return null;
+      seen.add(number);
+      records.push({
+        number,
+        title: item.title,
+        author: { login },
+        mergedAt,
+        headRefName: item?.head?.ref || '',
+      });
+    }
+  }
+  return totalCount === records.length ? records : null;
+}
+
+/**
+ * Parse a legacy `gh pr list --json number,title,author,mergedAt,headRefName` payload
+ * and keep only eligible-author PRs. This pure compatibility helper remains lenient;
+ * the CLI uses `parseMergedPRPages()` above and fails closed before calling it.
  * @param {string} prListJson
  * @returns {Array<{number:number, title?:string, headRefName?:string}>}
  */
@@ -204,10 +278,12 @@ function runGate(scriptName, prNumber, outputKey) {
   return gateBoolean(runGateOutput(scriptName, prNumber), outputKey);
 }
 
-function emit(batch, dailyKey = triageDailyKey()) {
+function emit(batch, dailyKey = triageDailyKey(), { collectionOk = true } = {}) {
   const csv = batch.join(',');
   const count = batch.length;
+  const ok = collectionOk === true;
   const maxTurns = maxTurnsFor(count);
+  console.log(`collection_ok=${ok}`);
   console.log(`batch_count=${count}`);
   console.log(`batch_prs=${csv}`);
   console.log(`max_turns=${maxTurns}`);
@@ -215,7 +291,7 @@ function emit(batch, dailyKey = triageDailyKey()) {
   if (process.env.GITHUB_OUTPUT) {
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
-      `batch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
+      `collection_ok=${ok}\nbatch_prs=${csv}\nbatch_count=${count}\nmax_turns=${maxTurns}\ndaily_key=${dailyKey}\n`,
     );
   }
   if (process.env.GITHUB_STEP_SUMMARY) {
@@ -229,21 +305,31 @@ function emit(batch, dailyKey = triageDailyKey()) {
 
 export function main() {
   const dailyKey = triageDailyKey();
+  if (!REPO) throw new Error('GH_REPO/GITHUB_REPOSITORY mancante: raccolta non verificabile');
   console.log(`Daily key (successful triage day, Europe/Zurich): ${dailyKey}`);
   // 1. Watermark = start of the last SUCCESSFUL run (failed run → re-covered later).
   const runListRaw = gh([
     'run', 'list', `--workflow=${WORKFLOW}`, '--status', 'success',
     '--json', 'createdAt,startedAt', '--limit', '1', ...repoArgs,
   ]);
+  if (runListRaw === null) throw new Error('gh run list non riuscita: watermark non verificabile');
+  const successfulRuns = parseSuccessfulRunList(runListRaw);
+  if (!successfulRuns) throw new Error('risposta gh run list non parsabile/incompleta: watermark non verificabile');
   const watermark = computeWatermarkISO(runListRaw);
   console.log(`Watermark (last successful run start, fallback now-${FALLBACK_HOURS}h): ${watermark}`);
 
   // 2. Merged PRs since the watermark, eligible authors only.
+  // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
+  // which silently truncated the batch at 100 results and advanced the watermark.
+  const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
   const prListRaw = gh([
-    'pr', 'list', '--state', 'merged', '--search', `merged:>=${watermark}`,
-    '--json', 'number,title,author,mergedAt,headRefName', '--limit', String(PR_LIMIT), ...repoArgs,
+    'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
+    '--paginate', '--slurp', ...repoArgs,
   ]);
-  const candidates = parseMergedPRs(prListRaw);
+  if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
+  const mergedPages = parseMergedPRPages(prListRaw);
+  if (!mergedPages) throw new Error('risposta paginata PR incompleta/non verificabile');
+  const candidates = parseMergedPRs(JSON.stringify(mergedPages));
   console.log(`Merged PRs since watermark (eligible authors): ${candidates.length}`);
 
   const batch = [];
@@ -252,12 +338,16 @@ export function main() {
 
     // Idempotency: already triaged?
     const commentsRaw = gh(['pr', 'view', String(n), ...repoArgs, '--json', 'comments']);
-    if (commentsRaw && hasTriageComment(commentsRaw)) {
+    if (commentsRaw === null) throw new Error(`commenti PR #${n} non leggibili: raccolta incompleta`);
+    let commentsPayload;
+    try { commentsPayload = JSON.parse(commentsRaw); } catch { commentsPayload = null; }
+    if (!Array.isArray(commentsPayload)
+        && !(commentsPayload && Array.isArray(commentsPayload.comments))) {
+      throw new Error(`commenti PR #${n} non parsabili: raccolta incompleta`);
+    }
+    if (hasTriageComment(commentsRaw)) {
       console.log(`PR #${n}: already has '${TRIAGE_COMMENT_PREFIX}' comment → skip (idempotent).`);
       continue;
-    }
-    if (!commentsRaw) {
-      console.log(`PR #${n}: comments unreadable — PROCEED-SAFE (treat as not-yet-triaged).`);
     }
 
     // Gate 1: grandchild-suppression. true → it's a follow-up fix → skip.
@@ -292,13 +382,16 @@ export function main() {
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
-// uncaught error → emit an empty batch (no run; the watermark holds → next
-// scheduled run re-covers the window, nothing lost).
+// An uncaught collection error emits an explicit failed output and exits nonzero;
+// the workflow verifier then fails the job, so the success watermark cannot advance.
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try {
     main();
   } catch (e) {
-    console.log(`collect-followup-batch: unexpected error (${e?.message || e}) — emitting empty batch (window re-covered next run).`);
-    emit([], triageDailyKey());
+    console.error(`collect-followup-batch: unexpected error (${e?.message || e}) — collection_ok=false, watermark invariato.`);
+    try { emit([], triageDailyKey(), { collectionOk: false }); } catch (emitError) {
+      console.error(`collect-followup-batch: impossibile scrivere gli output di errore (${emitError?.message || emitError}).`);
+    }
+    process.exitCode = 1;
   }
 }

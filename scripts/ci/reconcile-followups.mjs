@@ -49,9 +49,11 @@ import {
   dailyKeyFromBucketBody,
   dailyBucketInfo,
   detectAlreadyResolved,
+  hasDailyBucketRepositoryConsistency,
   hasFalsifiableAcceptance,
   hasStableItemIds,
   hasStableItemIdsForDailyKey,
+  hasUnterminatedMarkdownFence,
   isDailyBucketTitle,
   parseFollowupItems,
   updateFollowupItemState,
@@ -304,7 +306,10 @@ export function isStrongAutoCloseEvidence(matchedTokens) {
  * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
  * A single unresolved/ambiguous/weak item vetoes the whole issue.
  */
-export function dailyBucketCloseGate(body, io, expectedDailyKey = null) {
+export function dailyBucketCloseGate(body, io, expectedDailyKey = null, expectedTargetRepository = null) {
+  if (hasUnterminatedMarkdownFence(body)) {
+    return { blocks: true, reason: 'unterminated-markdown-fence', validItems: [], unresolvedItems: [] };
+  }
   const items = parseFollowupItems(body);
   if (!items.length) return { blocks: true, reason: 'aggregate-unparsed', validItems: [], unresolvedItems: [] };
   if (!hasStableItemIds(body)) return { blocks: true, reason: 'missing-stable-item-id', validItems: [], unresolvedItems: items };
@@ -315,6 +320,9 @@ export function dailyBucketCloseGate(body, io, expectedDailyKey = null) {
   }
   if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) {
     return { blocks: true, reason: 'mismatched-stable-item-id', validItems: items, unresolvedItems: items };
+  }
+  if (!hasDailyBucketRepositoryConsistency(body, expectedTargetRepository || '')) {
+    return { blocks: true, reason: 'mismatched-target-repository', validItems: items, unresolvedItems: items };
   }
   const state = bucketState(body);
   if (!state) return { blocks: true, reason: 'ambiguous-bucket-state', validItems: items, unresolvedItems: items };
@@ -340,8 +348,11 @@ export function dailyBucketCloseGate(body, io, expectedDailyKey = null) {
 }
 
 /** Mark only token-confirmed daily items as done; never infer completion from prose. */
-export function reconcileDailyItems(body, io, expectedDailyKey = null) {
+export function reconcileDailyItems(body, io, expectedDailyKey = null, expectedTargetRepository = null) {
   const source = String(body || '');
+  if (hasUnterminatedMarkdownFence(source)) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'unterminated-markdown-fence' };
+  }
   const items = parseFollowupItems(source);
   if (!items.length || !hasStableItemIds(source)) {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'missing-stable-item-id' };
@@ -355,6 +366,9 @@ export function reconcileDailyItems(body, io, expectedDailyKey = null) {
   }
   if (!hasStableItemIdsForDailyKey(items, bodyDailyKey)) {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-stable-item-id' };
+  }
+  if (!hasDailyBucketRepositoryConsistency(source, expectedTargetRepository || '')) {
+    return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'mismatched-target-repository' };
   }
   if (bucketState(source) !== 'sealed') {
     return { body: source, changed: false, changes: [], evidenceById: new Map(), reason: 'bucket-collecting' };
@@ -404,6 +418,7 @@ export function reconcileDailyItems(body, io, expectedDailyKey = null) {
  * @returns {{blocks: boolean, reason: string|null}}
  */
 export function aggregateCloseGate(body, io) {
+  if (hasUnterminatedMarkdownFence(body)) return { blocks: true, reason: 'unterminated-markdown-fence' };
   if (bucketState(body) || hasStableItemIds(body)) return dailyBucketCloseGate(body, io);
   const items = splitFollowupItems(body);
   // Corpo senza struttura a item: non abbiamo riclassificato nulla, quindi
@@ -580,7 +595,7 @@ function main() {
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
-      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, daily.dailyKey);
+      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, daily.dailyKey, daily.targetRepository);
       let reconciledBody = itemReconciliation.body;
       if (itemReconciliation.changed) {
         if (DRY_RUN) {
@@ -605,7 +620,7 @@ function main() {
           }
         }
       }
-      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo, daily.dailyKey);
+      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo, daily.dailyKey, daily.targetRepository);
       if (bucketGate.blocks) {
         console.log(`#${iss.number} daily:${daily.dailyKey}: bucket aperto (${bucketGate.reason}), item non ancora tutti provati.`);
         continue;
@@ -634,7 +649,8 @@ function main() {
       ? aggregateCloseGate(iss.body || '', diskIo)
       : { blocks: false, reason: null };
     if (isDailyBucketTitle(iss.title || '')) {
-      aggGate = dailyBucketCloseGate(iss.body || '', diskIo, dailyBucketInfo(iss.title || '')?.dailyKey);
+      const dailyInfo = dailyBucketInfo(iss.title || '');
+      aggGate = dailyBucketCloseGate(iss.body || '', diskIo, dailyInfo?.dailyKey, dailyInfo?.targetRepository);
     }
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
