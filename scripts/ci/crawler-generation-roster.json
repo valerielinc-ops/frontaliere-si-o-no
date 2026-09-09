@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 600,
+  "crawlerCount": 601,
   "groups": {
     "10": [
       "berit-klinik",
@@ -574,6 +574,7 @@
       "gesundheitszentrum-fricktal",
       "groupe-mutuel",
       "guess-europe",
+      "guggerbach",
       "kzu",
       "medtronic",
       "moncucco",
@@ -876,6 +877,7 @@
     "groupe-e": "data/jobs/by-crawler/groupe-e.json",
     "groupe-mutuel": "data/jobs/by-crawler/groupe-mutuel.json",
     "guess-europe": "data/jobs/by-crawler/guess-europe.json",
+    "guggerbach": "data/jobs/by-crawler/guggerbach.json",
     "gz-dielsdorf": "data/jobs/by-crawler/gz-dielsdorf.json",
     "gzo-wetzikon": "data/jobs/by-crawler/gzo-wetzikon.json",
     "h-ju-hopital-du-jura": "data/jobs/by-crawler/h-ju-hopital-du-jura.json",
@@ -1252,5 +1254,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:60176d0ad1c7a9994a56693723fde97162905feb29c2166af0dbb079cf4e3aae"
+  "digest": "sha256:38c75dbd377f18ab0826a536013f621a1cccbe92e49f93643da1d4b485863219"
 }

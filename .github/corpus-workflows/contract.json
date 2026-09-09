@@ -6,11 +6,11 @@
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 600,
+  "crawlerCount": 601,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:60176d0ad1c7a9994a56693723fde97162905feb29c2166af0dbb079cf4e3aae",
+    "rosterDigest": "sha256:38c75dbd377f18ab0826a536013f621a1cccbe92e49f93643da1d4b485863219",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -214,6 +214,7 @@
     "scripts/update-grand-resort-bad-ragaz-jobs.mjs",
     "scripts/update-groupe-e-jobs.mjs",
     "scripts/update-groupe-mutuel-jobs.mjs",
+    "scripts/update-guggerbach-jobs.mjs",
     "scripts/update-gz-dielsdorf-jobs.mjs",
     "scripts/update-gzo-wetzikon-jobs.mjs",
     "scripts/update-h-ju-hopital-du-jura-jobs.mjs",
@@ -777,8 +778,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "4b6d6ae04a05ed4f29d4a244f844e083469f08a5f85def25fd22cddc2c5d65ec",
-      "artifactSha256": "a687c7406bfc2c0b9f2b0d04ac916c3cedc9bf9597525fc560e1a6ebc9b0ebb3",
+      "sourceSha256": "df377a91d46a54608730922aba6ab4699b26c3196e74171d02d658d5f1c0610a",
+      "artifactSha256": "2aef416bb4085fd5f499450e148f79f60fe2f4c244daa10370a42ad5f3f6444e",
       "members": [
         "spital-emmental",
         "swisslog",
@@ -805,7 +806,8 @@
         "deloitte",
         "clinica-varini",
         "citta-di-lugano",
-        "anker-swiss"
+        "anker-swiss",
+        "guggerbach"
       ]
     },
     {
