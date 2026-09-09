@@ -1,6 +1,6 @@
 {
   "crawlerKey": "villa-im-park",
-  "assembledAt": "2026-09-08T23:22:42.713Z",
+  "assembledAt": "2026-09-09T13:45:17.632Z",
   "jobs": [
     {
       "id": "villa-im-park-2e1ad74d807b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:22:32.049Z",
+      "crawledAt": "2026-09-09T13:45:03.160Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -73,6 +73,89 @@
           "@type": "QuantitativeValue",
           "minValue": 52000,
           "maxValue": 78500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "villa-im-park-56484c4803d5",
+      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
+      "slugByLocale": {
+        "it": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
+        "en": "dipl-expert-anesthesia-care-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
+        "de": "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
+        "fr": "dipl-soins-anesthesiques-specialises-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
+      },
+      "company": "Privatklinik Villa im Park",
+      "companyKey": "villa-im-park",
+      "companyDomain": "swissmedical.net",
+      "title": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
+      "titleByLocale": {
+        "it": "Dipl. Cura di anestesia esperto NDS HF 80-100 %",
+        "en": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
+        "de": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
+        "fr": "Dipl. Soins anesthésiques spécialisés NDS HF 80-100 %"
+      },
+      "description": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Betreuung von Patientinnen und Patienten während der Regional- oder Allgemeinanästhesie unter ärztlicher Aufsicht\n\n• Koordination der interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Handhabung und Bereitstellung sämtlicher Respiratoren, Überwachungsgeräte und Materialien\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Mitarbeit im Pikettdienstsystem (Montag-Freitag)\n\nQualifikationen\n\n• Dipl. Experte/Expertin Anästhesiepflege NDS HF\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Flexible, belastbare sowie lösungsorientierte Persönlichkeit mit hohem Verantwortungsbewusstsein und grosser Dienstleistungsbereitschaft\n\nZusätzliche Informationen\n\n• Möglichkeit zur Mitgestaltung im Bereich Anästhesiepflege bei flacher Hierarchie\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Elektiver OP-Betrieb Mo-Fr",
+      "descriptionByLocale": {
+        "it": "Descrizione aziendale\n\nNella clinica privata Villa im Park, il cui carattere è caratterizzato dalla proprietà storica, storica, circa 40 medici osservanti svolgono più di 1.800 procedure all'anno. Le tre sale operative integrate e completamente digitalizzate della clinica sono tra le più tecnicamente attrezzate del loro genere. Le principali specialità mediche includono chirurgia generale, anestesiologia, chirurgia ortopedica e traumatologia del sistema muscoloscheletrico e ginecologia. Come Listespital, la clinica privata Villa im Park nel cantone di Aargau ha un mandato di servizio pubblico e tratta i pazienti di tutte le classi di assicurazione.\n\nDescrizione del lavoro\n\n• Cura dei pazienti durante l'anestesia regionale o generale sotto supervisione medica\n\n• Coordinamento della cooperazione interdisciplinare e interprofessionale\n\n• Gestione e fornitura di tutti i respiratori, apparecchiature di monitoraggio e materiali\n\n• Sostegno alle attività organizzative e amministrative\n\n• Partecipazione al sistema di servizio Picett (lunedì-venerdì)\n\nQualifiche\n\n• Dipl. Expert/Expert Anesthesia Care NDS HF\n\n• Alto livello di competenza tecnica, d'azione e sociale\n\n• Personalità flessibile, resiliente e orientata alla soluzione con un elevato senso di responsabilità e grande disponibilità a fornire servizi\n\nUlteriori informazioni\n\n• Possibilità di co-design nel campo della cura dell'anestesia con una gerarchia piana\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Modalità operativa Mo-Fr",
+        "en": "Business description\n\nIn the private clinic Villa im Park, whose character is characterized by the stately, historic property, around 40 observing physicians perform more than 1,800 procedures per year. The clinic’s three integrated, fully digitized operating rooms are among the most technically equipped of their kind. Major medical specialties include general surgery, anesthesiology, orthopaedic surgery and traumatology of the musculoskeletal system and gynecology. As a Listespital, the private clinic Villa im Park in the canton of Aargau has a public service mandate and treats patients from all insurance classes.\n\nJob description\n\n• Care of patients during regional or general anesthesia under medical supervision\n\n• Coordination of interdisciplinary and interprofessional cooperation\n\n• Handling and provision of all respirators, monitoring equipment and materials\n\n• Support for organisational and administrative activities\n\n• Participation in the Picett Service System (Monday-Friday)\n\nQualifications\n\n• Dipl. Expert/Expert Anesthesia Care NDS HF\n\n• High level of technical, action and social competence\n\n• Flexible, resilient and solution-oriented personality with a high sense of responsibility and great willingness to provide services\n\nAdditional information\n\n• Possibility for co-design in the field of anesthesia care with a flat hierarchy\n\n• A varied area of responsibility in a lively but manageable environment\n\n• Operational mode Mo-Fr",
+        "de": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Betreuung von Patientinnen und Patienten während der Regional- oder Allgemeinanästhesie unter ärztlicher Aufsicht\n\n• Koordination der interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Handhabung und Bereitstellung sämtlicher Respiratoren, Überwachungsgeräte und Materialien\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Mitarbeit im Pikettdienstsystem (Montag-Freitag)\n\nQualifikationen\n\n• Dipl. Experte/Expertin Anästhesiepflege NDS HF\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Flexible, belastbare sowie lösungsorientierte Persönlichkeit mit hohem Verantwortungsbewusstsein und grosser Dienstleistungsbereitschaft\n\nZusätzliche Informationen\n\n• Möglichkeit zur Mitgestaltung im Bereich Anästhesiepflege bei flacher Hierarchie\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Elektiver OP-Betrieb Mo-Fr",
+        "fr": "Description de l'entreprise\n\nDans la clinique privée Villa im Park, dont le caractère est caractérisé par la propriété majestueuse et historique, environ 40 médecins d'observation effectuent plus de 1800 interventions par an. Les trois salles d'opération intégrées et entièrement numérisées sont parmi les plus techniquement équipées de leur genre. Les principales spécialités médicales comprennent la chirurgie générale, l'anesthésiologie, la chirurgie orthopédique et la traumatologie du système musculo-squelettique et la gynécologie. En tant que Listespital, la clinique privée Villa im Park du canton d'Argovie a un mandat de service public et traite les patients de toutes les classes d'assurance.\n\nDescription du poste\n\n• Soins des patients pendant l'anesthésie régionale ou générale sous surveillance médicale\n\n• Coordination de la coopération interdisciplinaire et interprofessionnelle\n\n• Manipulation et fourniture de tous les respirateurs, équipements de surveillance et matériaux\n\n• Soutien aux activités organisationnelles et administratives\n\n• Participation au système de services Picett (lundi-vendredi)\n\nCompétences\n\n• Dipl. Soins d'anesthésie expert/expert NDS HF\n\n• Niveau élevé de compétence technique, d'action et sociale\n\n• Personnalité flexible, résiliente et orientée vers la solution, avec un haut sens des responsabilités et une grande volonté de fournir des services\n\nInformations complémentaires\n\n• Possibilité de co-conception dans le domaine des soins anesthésiques avec une hiérarchie plate\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Mode opérationnel Mo-Fr"
+      },
+      "location": "Rothrist",
+      "canton": "AG",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
+      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-09T13:45:02.708Z",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "streetAddress": "Rothrist",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4852",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-07",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
+        "dipl-cura-dell-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
+        "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
+          "dipl-cura-dell-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
+          "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
+        ],
+        "en": [
+          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist"
+        ],
+        "fr": [
+          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist"
+        ]
+      },
+      "firstSeenAt": "2026-09-07T23:27:27.215Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       }
@@ -163,89 +246,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "villa-im-park-56484c4803d5",
-      "slug": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
-      "slugByLocale": {
-        "it": "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
-        "en": "dipl-expert-anesthesia-care-nds-hf-80-100-privatklinik-villa-im-park-rothrist",
-        "de": "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
-        "fr": "dipl-soins-anesthesiques-specialises-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
       },
-      "company": "Privatklinik Villa im Park",
-      "companyKey": "villa-im-park",
-      "companyDomain": "swissmedical.net",
-      "title": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
-      "titleByLocale": {
-        "it": "Dipl. Cura di anestesia esperto NDS HF 80-100 %",
-        "en": "Dipl. Expert anesthesia care NDS HF 80-100 %",
-        "de": "Dipl. Experte/Expertin Anästhesiepflege NDS HF 80-100 %",
-        "fr": "Dipl. Soins anesthésiques spécialisés NDS HF 80-100 %"
-      },
-      "description": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Betreuung von Patientinnen und Patienten während der Regional- oder Allgemeinanästhesie unter ärztlicher Aufsicht\n\n• Koordination der interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Handhabung und Bereitstellung sämtlicher Respiratoren, Überwachungsgeräte und Materialien\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Mitarbeit im Pikettdienstsystem (Montag-Freitag)\n\nQualifikationen\n\n• Dipl. Experte/Expertin Anästhesiepflege NDS HF\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Flexible, belastbare sowie lösungsorientierte Persönlichkeit mit hohem Verantwortungsbewusstsein und grosser Dienstleistungsbereitschaft\n\nZusätzliche Informationen\n\n• Möglichkeit zur Mitgestaltung im Bereich Anästhesiepflege bei flacher Hierarchie\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Elektiver OP-Betrieb Mo-Fr",
-      "descriptionByLocale": {
-        "it": "Descrizione aziendale\n\nNella clinica privata Villa im Park, il cui carattere è caratterizzato dalla proprietà storica, storica, circa 40 medici osservanti svolgono più di 1.800 procedure all'anno. Le tre sale operative integrate e completamente digitalizzate della clinica sono tra le più tecnicamente attrezzate del loro genere. Le principali specialità mediche includono chirurgia generale, anestesiologia, chirurgia ortopedica e traumatologia del sistema muscoloscheletrico e ginecologia. Come Listespital, la clinica privata Villa im Park nel cantone di Aargau ha un mandato di servizio pubblico e tratta i pazienti di tutte le classi di assicurazione.\n\nDescrizione del lavoro\n\n• Cura dei pazienti durante l'anestesia regionale o generale sotto supervisione medica\n\n• Coordinamento della cooperazione interdisciplinare e interprofessionale\n\n• Gestione e fornitura di tutti i respiratori, apparecchiature di monitoraggio e materiali\n\n• Sostegno alle attività organizzative e amministrative\n\n• Partecipazione al sistema di servizio Picett (lunedì-venerdì)\n\nQualifiche\n\n• Dipl. Expert/Expert Anesthesia Care NDS HF\n\n• Alto livello di competenza tecnica, d'azione e sociale\n\n• Personalità flessibile, resiliente e orientata alla soluzione con un elevato senso di responsabilità e grande disponibilità a fornire servizi\n\nUlteriori informazioni\n\n• Possibilità di co-design nel campo della cura dell'anestesia con una gerarchia piana\n\n• Una variegata area di responsabilità in un ambiente vivace ma gestibile\n\n• Modalità operativa Mo-Fr",
-        "en": "Business description\n\nIn the private clinic Villa im Park, whose character is characterized by the stately, historic property, around 40 observing physicians perform more than 1,800 procedures per year. The clinic’s three integrated, fully digitized operating rooms are among the most technically equipped of their kind. Major medical specialties include general surgery, anesthesiology, orthopaedic surgery and traumatology of the musculoskeletal system and gynecology. As a Listespital, the private clinic Villa im Park in the canton of Aargau has a public service mandate and treats patients from all insurance classes.\n\nJob description\n\n• Care of patients during regional or general anesthesia under medical supervision\n\n• Coordination of interdisciplinary and interprofessional cooperation\n\n• Handling and provision of all respirators, monitoring equipment and materials\n\n• Support for organisational and administrative activities\n\n• Participation in the Picett Service System (Monday-Friday)\n\nQualifications\n\n• Dipl. Expert/Expert Anesthesia Care NDS HF\n\n• High level of technical, action and social competence\n\n• Flexible, resilient and solution-oriented personality with a high sense of responsibility and great willingness to provide services\n\nAdditional information\n\n• Possibility for co-design in the field of anesthesia care with a flat hierarchy\n\n• A varied area of responsibility in a lively but manageable environment\n\n• Operational mode Mo-Fr",
-        "de": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'800 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Betreuung von Patientinnen und Patienten während der Regional- oder Allgemeinanästhesie unter ärztlicher Aufsicht\n\n• Koordination der interdisziplinären und interprofessionellen Zusammenarbeit\n\n• Handhabung und Bereitstellung sämtlicher Respiratoren, Überwachungsgeräte und Materialien\n\n• Unterstützung bei organisatorischen und administrativen Tätigkeiten\n\n• Mitarbeit im Pikettdienstsystem (Montag-Freitag)\n\nQualifikationen\n\n• Dipl. Experte/Expertin Anästhesiepflege NDS HF\n\n• Hohes Mass an Fach-, Handlungs- und Sozialkompetenz\n\n• Flexible, belastbare sowie lösungsorientierte Persönlichkeit mit hohem Verantwortungsbewusstsein und grosser Dienstleistungsbereitschaft\n\nZusätzliche Informationen\n\n• Möglichkeit zur Mitgestaltung im Bereich Anästhesiepflege bei flacher Hierarchie\n\n• Ein abwechslungsreiches Aufgabengebiet in einem lebhaften aber überschaubaren Umfeld\n\n• Elektiver OP-Betrieb Mo-Fr",
-        "fr": "Description de l'entreprise\n\nDans la clinique privée Villa im Park, dont le caractère est caractérisé par la propriété majestueuse et historique, environ 40 médecins d'observation effectuent plus de 1800 interventions par an. Les trois salles d'opération intégrées et entièrement numérisées sont parmi les plus techniquement équipées de leur genre. Les principales spécialités médicales comprennent la chirurgie générale, l'anesthésiologie, la chirurgie orthopédique et la traumatologie du système musculo-squelettique et la gynécologie. En tant que Listespital, la clinique privée Villa im Park du canton d'Argovie a un mandat de service public et traite les patients de toutes les classes d'assurance.\n\nDescription du poste\n\n• Soins des patients pendant l'anesthésie régionale ou générale sous surveillance médicale\n\n• Coordination de la coopération interdisciplinaire et interprofessionnelle\n\n• Manipulation et fourniture de tous les respirateurs, équipements de surveillance et matériaux\n\n• Soutien aux activités organisationnelles et administratives\n\n• Participation au système de services Picett (lundi-vendredi)\n\nCompétences\n\n• Dipl. Soins d'anesthésie expert/expert NDS HF\n\n• Niveau élevé de compétence technique, d'action et sociale\n\n• Personnalité flexible, résiliente et orientée vers la solution, avec un haut sens des responsabilités et une grande volonté de fournir des services\n\nInformations complémentaires\n\n• Possibilité de co-conception dans le domaine des soins anesthésiques avec une hiérarchie plate\n\n• Un domaine de responsabilité varié dans un environnement animé mais gérable\n\n• Mode opérationnel Mo-Fr"
-      },
-      "location": "Rothrist",
-      "canton": "AG",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-08T23:22:31.216Z",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "streetAddress": "Rothrist",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4852",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-07",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
-        "dipl-cura-dell-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
-        "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist",
-          "dipl-cura-dell-anestesia-esperto-nds-hf-60-90-privatklinik-villa-im-park-rothrist",
-          "dipl-cura-di-anestesia-esperto-nds-hf-80-100-privatklinik-villa-im-park-rothrist"
-        ],
-        "en": [
-          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist"
-        ],
-        "fr": [
-          "dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-villa-im-park-rothrist"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T23:27:27.215Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
