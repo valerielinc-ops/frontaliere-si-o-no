@@ -18604,6 +18604,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'opportunita-lavoro-federale',
+    category: 'pratico',
+    date: '2026-09-09T17:14:57.125Z',
+    image: '/images/blog/opportunita-lavoro-federale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'cantone-comuni-fisco-riforma-arp',
+    category: 'fiscale',
+    date: '2026-09-09T17:32:52.107Z',
+    image: '/images/blog/cantone-comuni-fisco-riforma-arp.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
