@@ -56,7 +56,12 @@ import {
   matchSecretsScopedLabel,
   matchSecretsScopedShape,
 } from '../lib/secrets-scope-detect.mjs';
-import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
+import {
+  isBackoffActive,
+  latestFixOutcomeEntryFromComments,
+  latestFixOutcomeFromComments,
+  maxQuotaResetsAt,
+} from './claude-rate-limit.mjs';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
@@ -67,6 +72,8 @@ export {
   matchSecretsScopedLabel,
   detectRemoteConfigScoped,
   matchSecretsScopedShape,
+  latestFixOutcomeEntryFromComments,
+  latestFixOutcomeFromComments,
 };
 
 // --- BUDGET DI RUN (#5162) ---------------------------------------------------
@@ -758,62 +765,6 @@ export function isDeliveredThisRun({ outcome, outcomeAt, mergedAt, promotedAt } 
   if (!Number.isFinite(outcomeAt) || outcomeAt < promotedAt) return false;
   if (!Number.isFinite(mergedAt) || mergedAt < promotedAt) return false;
   return true;
-}
-
-// I fallback deterministici del backstop (issue-fix.yml "post-step
-// deterministico") taggano run crashate/max_turns con un marker generico: NON
-// sono il verdetto diagnostico del fixer → vanno ignorati, così una run morta
-// resta ri-tentabile (mirror della stessa guardia in harvest-agent-lessons.mjs).
-const BACKSTOP_MARKER = 'post-step deterministico';
-
-/**
- * Codice dell'ULTIMO marker FIX_OUTCOME (commento più recente) di una lista di
- * commenti, o null. Pura (niente gh) → testabile. Ignora i fallback del
- * backstop così solo i verdetti autentici del fixer contano.
- * @param {Array<{body?: string, createdAt?: string}>} comments
- */
-/**
- * ULTIMO marker FIX_OUTCOME (commento più recente) di una lista di commenti,
- * con il suo timestamp: `{ outcome, at }`, entrambi `null` se non c'è.
- * Pura (niente gh) → testabile. Ignora i fallback del backstop così solo i
- * verdetti autentici del fixer contano.
- *
- * Il timestamp serve a scopare il verdetto alla RUN CORRENTE: il marker è uno
- * stato PERSISTENTE della issue e sopravvive a tutte le run successive, quindi
- * senza `at` un `pr-created` vecchio resta «l'ultimo verdetto» anche dopo una
- * run crashata che un verdetto non l'ha mai emesso (vedi `isDeliveredThisRun`).
- * @param {Array<{body?: string, createdAt?: string}>} comments
- * @returns {{outcome: string|null, at: number|null}}
- */
-export function latestFixOutcomeEntryFromComments(comments) {
-  let latest = null;
-  let latestAt = -Infinity;
-  for (const c of comments || []) {
-    const body = String(c?.body || '');
-    if (body.includes(BACKSTOP_MARKER)) continue;
-    const m = FIX_OUTCOME_RE.exec(body);
-    if (!m) continue;
-    // `createdAt ?? created_at`: le due forme in cui GitHub espone lo stesso
-    // campo — GraphQL (`gh issue view --json comments`) e REST
-    // (`gh api .../comments`). Con la sola forma GraphQL questa funzione
-    // restituiva `null` su OGNI lista REST, perché `Date.parse(undefined)` è
-    // NaN e il ramo qui sotto la scartava: un verdetto invisibile, non un
-    // errore. `lastSignificantActivityAt` accetta già entrambe le forme, e
-    // questa funzione va letta sugli stessi commenti (vedi il pool del
-    // parked-retry, che li ha già in mano dalla REST).
-    const at = Date.parse(c?.createdAt ?? c?.created_at);
-    // `>=` così, a parità (o data illeggibile → NaN ignorato), vince l'ultimo
-    // in ordine di lista (i commenti gh sono cronologici).
-    if (!Number.isNaN(at) && at >= latestAt) { latestAt = at; latest = m[1].toLowerCase(); }
-  }
-  return { outcome: latest, at: latest === null ? null : latestAt };
-}
-
-/** Proiezione di `latestFixOutcomeEntryFromComments` sul solo codice: i
- * chiamanti che non devono scopare il verdetto a una run continuano a leggere
- * questa. Pura → testabile. */
-export function latestFixOutcomeFromComments(comments) {
-  return latestFixOutcomeEntryFromComments(comments).outcome;
 }
 
 // --- WORKFLOW-SCOPE PRE-FLIGHT (escalation #1724) ---------------------------

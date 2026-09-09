@@ -134,6 +134,20 @@ describe('buildJobPostingSchema — partial input (missing address + salary)', (
   });
 });
 
+describe('buildJobPostingSchema — application destination', () => {
+  it('marks a job directly applicable when only applyUrl is available', () => {
+    const schema = buildJobPostingSchema({
+      title: 'Operatore sanitario',
+      description:
+        'Descrizione sufficientemente lunga per verificare il percorso di candidatura esterno del lavoro.',
+      company: 'Esempio SA',
+      applyUrl: 'https://jobs.example.test/application/123',
+      url: '',
+    }, OPTS);
+    expect(schema.directApply).toBe(true);
+  });
+});
+
 describe('buildJobPostingSchema — empty-minimum input', () => {
   it('produces a complete schema even when most fields are null', () => {
     const job: JobInput = {}; // no data at all

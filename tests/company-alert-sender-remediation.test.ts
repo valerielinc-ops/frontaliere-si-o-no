@@ -404,6 +404,7 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     ));
     expect(selected).toHaveLength(PER_RUN_CAP);
     expect(deferredPlans).toHaveLength(1);
+    expect(deferredPlans[0]).not.toHaveProperty('deliveryDeferredAttempts');
 
     const deferredAlert = alerts.at(-1)!;
     const deferred = { ...deferredAlert, deliveryLedger: deferredPlans[0].deliveryLedger };
@@ -435,17 +436,127 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
     });
   });
 
+  it('counts repeated deferrals per alert, not per job key', () => {
+    const sourceAlert = alert('b6-alert-attempts', 'Acme');
+    let persistedAlert = sourceAlert;
+
+    for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS; attempt += 1) {
+      const sourceJob = job(`b6-alert-attempt-job-${attempt}`, 'Acme', 'acme');
+      const [write] = planDeferredDeliveryWrites([{
+        alert: persistedAlert,
+        jobs: [sourceJob],
+      }], NOW + attempt, 'consent-lookup-failed');
+      persistedAlert = {
+        ...persistedAlert,
+        deliveryLedger: write.deliveryLedger,
+        deliveryDeferredAttempts: write.deliveryDeferredAttempts,
+        deliveryDeferredState: write.deliveryDeferredState,
+      };
+    }
+
+    expect(persistedAlert.deliveryDeferredAttempts).toBe(DEFERRED_MAX_ATTEMPTS);
+    expect(persistedAlert.deliveryDeferredState).toBe(DELIVERY_STATES.DEFERRED_EXHAUSTED);
+  });
+
+  it('persists repeated deferrals even when no job key is available', () => {
+    const sourceAlert = alert('b6-alert-without-job', 'Acme');
+    let persistedAlert = sourceAlert;
+
+    for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS; attempt += 1) {
+      const [write] = planDeferredDeliveryWrites([{
+        alert: persistedAlert,
+        jobs: [],
+      }], NOW + attempt, 'consent-lookup-failed');
+      persistedAlert = {
+        ...persistedAlert,
+        deliveryLedger: write.deliveryLedger,
+        deliveryDeferredAttempts: write.deliveryDeferredAttempts,
+        deliveryDeferredState: write.deliveryDeferredState,
+      };
+    }
+
+    expect(persistedAlert.deliveryDeferredAttempts).toBe(DEFERRED_MAX_ATTEMPTS);
+    expect(persistedAlert.deliveryDeferredState).toBe(DELIVERY_STATES.DEFERRED_EXHAUSTED);
+    expect(persistedAlert.deliveryLedger).toEqual({});
+    expect(hasDeferredCompanyAlertWork([persistedAlert])).toBe(false);
+    expect(buildRecipientSections(
+      [persistedAlert],
+      [],
+      NOW,
+      DEDUP_WINDOW_MS,
+      [job('b6-alert-without-job-recovery', 'Acme', 'acme')],
+    )).toEqual([]);
+  });
+
+  it('does not bulk-exhaust older ledger entries when the alert counter reaches its limit', () => {
+    const sourceAlert = alert('b6-alert-terminal-scope', 'Acme', {
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS - 1,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED,
+      deliveryLedger: {
+        'b6-old-job-1': { state: DELIVERY_STATES.DEFERRED, at: NOW, attempts: 1 },
+        'b6-old-job-2': { state: DELIVERY_STATES.DEFERRED, at: NOW, attempts: 2 },
+      },
+    });
+    const [write] = planDeferredDeliveryWrites([{
+      alert: sourceAlert,
+      jobs: [job('b6-new-job', 'Acme', 'acme')],
+    }], NOW + 1, 'consent-lookup-failed');
+
+    expect(write.deliveryDeferredState).toBe(DELIVERY_STATES.DEFERRED_EXHAUSTED);
+    expect(write.deliveryLedger['b6-new-job']).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+      attempts: DEFERRED_MAX_ATTEMPTS,
+    });
+    expect(write.deliveryLedger['b6-old-job-1']).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 1,
+    });
+    expect(write.deliveryLedger['b6-old-job-2']).toMatchObject({
+      state: DELIVERY_STATES.DEFERRED,
+      attempts: 2,
+    });
+  });
+
+  it('resets the alert-level defer state after an accepted delivery', async () => {
+    const sourceAlert = alert('b6-reset-after-accepted', 'Acme', {
+      deliveryDeferredAttempts: DEFERRED_MAX_ATTEMPTS,
+      deliveryDeferredState: DELIVERY_STATES.DEFERRED_EXHAUSTED,
+    });
+    const sourceJob = job('b6-reset-after-accepted-job', 'Acme', 'acme');
+    const db = serializedDb({
+      [sourceAlert.ref.path]: { ...sourceAlert, ref: undefined },
+    });
+
+    expect(await finalizeRecipientDelivery(
+      db,
+      [{ ref: sourceAlert.ref, sentJobs: [sourceJob] }],
+      'accepted',
+      NOW,
+    )).toBe(1);
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryDeferredAttempts: 0,
+      deliveryDeferredState: null,
+    });
+  });
+
   it('terminates a deferred job after bounded attempts and never requeues it', () => {
     const sourceAlert = alert('b6-exhausted', 'Acme');
     const sourceJob = job('b6-exhausted-job', 'Acme', 'acme');
     let ledger = {};
+    let persistedAlert = sourceAlert;
 
     for (let attempt = 1; attempt <= DEFERRED_MAX_ATTEMPTS; attempt += 1) {
       const [write] = planDeferredDeliveryWrites([{
-        alert: { ...sourceAlert, deliveryLedger: ledger },
+        alert: persistedAlert,
         jobs: [sourceJob],
       }], NOW + attempt, 'consent-lookup-failed');
       ledger = write.deliveryLedger;
+      persistedAlert = {
+        ...persistedAlert,
+        deliveryLedger: ledger,
+        deliveryDeferredAttempts: write.deliveryDeferredAttempts,
+        deliveryDeferredState: write.deliveryDeferredState,
+      };
       expect(ledger[sourceJob.id].attempts).toBe(attempt);
     }
 
