@@ -2090,6 +2090,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'zimmer-biomet-tagli-impieghi': { it: 'zimmer-biomet-tagli-impieghi', en: 'zimmer-biomet-job-cuts', de: 'zimmer-biomet-stellenabbau', fr: 'zimmer-biomet-suppressions-emplois' },
  'ubs-yumo-educazione-finanziaria': { it: 'ubs-yumo-educazione-finanziaria', en: 'ubs-yumo-financial-education', de: 'ubs-yumo-finanzbildung', fr: 'ubs-yumo-education-financiere' },
  'alleanza-energia-elettrica-svizzera': { it: 'alleanza-energia-elettrica-svizzera', en: 'alliance-electricity-switzerland-eu', de: 'allianz-strom-schweiz-eu', fr: 'alliance-energie-electrique-suisse' },
+ 'tour-operator-calo-conflitti': { it: 'tour-operator-calo-conflitti', en: 'tour-operators-decline-conflicts', de: 'reiseveranstalter-rueckgang-konflikte', fr: 'operateurs-tourisme-baisse-conflits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

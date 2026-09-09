@@ -6193,6 +6193,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.alleanza-energia-elettrica-svizzera.title': 'Alleanza per l\'energia: Svizzera al centro della rete UE',
     'blog.article.alleanza-energia-elettrica-svizzera.excerpt': 'Una nuova alleanza di attori economici sostiene l\'accordo sull\'energia con l\'UE. La Svizzera dipende dalle importazioni invernali ed esporta in estate.',
     'blog.article.alleanza-energia-elettrica-svizzera.imageAlt': 'Centro di controllo della rete di distribuzione dell\'elettricità svizzera, con tecnici che monitorano l\'energia europeo',
+    'blog.article.tour-operator-calo-conflitti.title': 'Tour operator svizzeri in difficoltà: calo fatturato 5-10%',
+    'blog.article.tour-operator-calo-conflitti.excerpt': 'FSV stima contrazione 5-10% nel 2026 per geopolitica, caldo estivo e crollo visitatori USA. Costi aggiuntivi 2.3M CHF per rimpatri d\'emergenza.',
+    'blog.article.tour-operator-calo-conflitti.imageAlt': 'Veduta di Lugano, destinazione turistica svizzera popolare tra i viaggiatori internazionali',
 };
 
 export default blogMetaChIt;
