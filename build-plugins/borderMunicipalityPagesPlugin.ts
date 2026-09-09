@@ -605,16 +605,16 @@ function waitLabel(snapshot: WaitSnapshot, slug: string): string {
   return typeof total === 'number' ? `${Math.max(0, Math.round(total))} min` : 'n.d.';
 }
 
-function waitMinutesFromLabel(label: string, fallback = 8): number {
+function waitMinutesFromLabel(label: string): number | null {
   const values = Array.from(label.matchAll(/\d+/g)).map((match) => Number.parseInt(match[0], 10)).filter(Number.isFinite);
-  if (values.length === 0) return fallback;
+  if (values.length === 0) return null;
   return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length);
 }
 
-function currentWaitMinutes(snapshot: WaitSnapshot, slug: string, fallbackLabel: string): number {
+function currentWaitMinutes(snapshot: WaitSnapshot, slug: string): number | null {
   const current = snapshot.perCrossing?.[slug];
   const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
-  return typeof total === 'number' ? Math.max(0, Math.round(total)) : waitMinutesFromLabel(fallbackLabel);
+  return typeof total === 'number' ? Math.max(0, Math.round(total)) : null;
 }
 
 function trafficTone(level: BorderCrossing['trafficLevel']): string {
@@ -773,14 +773,14 @@ function buildHydrationData(params: {
       summaryTemplate: copy.simulatorSummary('{crossing}', '{destination}', '{minutes}', '{wait}'),
     },
     routes: routes.slice(0, 2).map(({ crossing, slug, distanceKm }) => {
-      // Crossings without traffic-history data yet fall back to 'n.d.'
-      // (matches waitLabel()'s convention) rather than crashing on
-      // `undefined.matchAll(...)` inside waitMinutesFromLabel().
+      // Keep the current reading absent when the snapshot has no entry. The
+      // historical morning/evening labels are separate values and must not be
+      // smuggled into the `now` slot as if they were a live observation.
       const morningLabel = crossing.avgWaitMorning ?? 'n.d.';
       const eveningLabel = crossing.avgWaitEvening ?? 'n.d.';
-      const nowMinutes = currentWaitMinutes(waitSnapshot, slug, morningLabel);
-      const morningMinutes = waitMinutesFromLabel(morningLabel, nowMinutes);
-      const eveningMinutes = waitMinutesFromLabel(eveningLabel, morningMinutes);
+      const nowMinutes = currentWaitMinutes(waitSnapshot, slug);
+      const morningMinutes = waitMinutesFromLabel(morningLabel);
+      const eveningMinutes = waitMinutesFromLabel(eveningLabel);
       const approachMinutes = Math.round(distanceKm * 1.7);
       const destinationBase = destinationBaseMinutes(crossing);
       const carCost = (baseMinutes: number) =>
@@ -827,7 +827,9 @@ function renderHydrationPanel(params: {
   const defaultDest = data.defaultDestination as 'mendrisio' | 'lugano' | 'locarno';
   const defaultDestLabel = data.labels.destination[defaultDest];
   const primaryDest = primaryRoute?.destinations[defaultDest];
-  const initialMinutes = primaryRoute && primaryDest ? `${primaryDest.baseMinutes + primaryRoute.waits.now.minutes} min` : 'n.d.';
+  const initialMinutes = primaryRoute && primaryDest && primaryRoute.waits.now.minutes != null
+    ? `${primaryDest.baseMinutes + primaryRoute.waits.now.minutes} min`
+    : 'n.d.';
   const initialCost = primaryDest ? `EUR ${formatInt(primaryDest.costMonthly, locale)}` : 'n.d.';
   const initialSummary = primaryRoute
     ? copy.simulatorSummary(primaryRoute.name, defaultDestLabel, initialMinutes, primaryWait)

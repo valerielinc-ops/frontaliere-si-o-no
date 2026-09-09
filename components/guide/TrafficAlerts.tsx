@@ -166,17 +166,14 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  const traffic = trafficData.find(t => t.crossingName === c.name);
  return {
  crossing: c,
- traffic: traffic || {
- crossingName: c.name,
- waitTimeMinutes: 0,
- status: 'green' as const,
- direction: 'N/A',
- lastUpdate: new Date(),
- source: 'mock' as const,
- },
+ traffic: traffic ?? null,
  };
  })
- .sort((a, b) => effectiveWait(a.traffic) - effectiveWait(b.traffic));
+ .sort((a, b) => {
+ if (!a.traffic) return b.traffic ? 1 : 0;
+ if (!b.traffic) return -1;
+ return effectiveWait(a.traffic) - effectiveWait(b.traffic);
+ });
  }, [trafficData]);
 
  // Filter-chip options, derived from the crossings actually on screen
@@ -271,10 +268,11 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {filteredCrossingsWithTraffic.map(({ crossing, traffic }) => {
  const isSelected = selectedCrossing === crossing.name;
  const crossingId = slugifyCrossingName(crossing.name);
- const status = effectiveStatus(traffic);
- const bgColor = status === 'green' ? 'bg-success-strong' : status === 'yellow' ? 'bg-warning-strong' : 'bg-danger-strong';
- const borderColor = status === 'green' ? 'border-success' : status === 'yellow' ? 'border-warning' : 'border-danger';
- const textColor = status === 'green' ? 'text-success' : status === 'yellow' ? 'text-warning' : 'text-danger';
+ const status = traffic ? effectiveStatus(traffic) : null;
+ const bgColor = status === 'green' ? 'bg-success-strong' : status === 'yellow' ? 'bg-warning-strong' : status === 'red' ? 'bg-danger-strong' : 'bg-surface-raised';
+ const borderColor = status === 'green' ? 'border-success' : status === 'yellow' ? 'border-warning' : status === 'red' ? 'border-danger' : 'border-edge';
+ const textColor = status === 'green' ? 'text-success' : status === 'yellow' ? 'text-warning' : status === 'red' ? 'text-danger' : 'text-muted';
+ const waitLabel = traffic ? `${effectiveWait(traffic)} min` : t('traffic.notAvailable', 'n.d.');
 
  return (
  <div
@@ -289,8 +287,8 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  }`}
  >
  <div className="flex items-center gap-3 mb-3">
- <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-on-accent font-bold text-xs shadow-md`}>
- {effectiveWait(traffic)}
+ <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center ${traffic ? 'text-on-accent' : 'text-muted'} font-bold text-xs shadow-md`}>
+ {traffic ? effectiveWait(traffic) : t('traffic.notAvailable', 'n.d.')}
  </div>
  <div className="flex-1 min-w-0">
  <h3 className="font-bold text-strong truncate">{crossing.name}</h3>
@@ -300,10 +298,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  <div className="flex items-center justify-between gap-2">
  <span className={`text-sm font-bold ${textColor}`}>
- {t(STATUS_LABEL_KEYS[status])} — {effectiveWait(traffic)} min
+ {status ? `${t(STATUS_LABEL_KEYS[status])} — ${waitLabel}` : waitLabel}
  </span>
  <div className="flex items-center gap-2 shrink-0">
- <span className="text-xs text-muted">{traffic.direction}</span>
  <a
  href={buildOggiPath(locale as BorderWaitLocale, crossingId as BorderCrossingSlug)}
  className="flex items-center gap-1 text-xs text-link hover:underline font-medium no-underline"
@@ -326,7 +323,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <span className="text-muted">{t('traffic.customs')}</span>
  <span className="font-bold">{crossing.customsPresent ? t('traffic.yes') : t('traffic.no')}</span>
  </div>
- {traffic.source && traffic.source !== 'mock' && (
+ {traffic?.source && traffic.source !== 'mock' && (
  <div className="flex justify-between">
  <span className="text-muted">{t('traffic.source')}</span>
  <span className="font-bold">📍 Google Maps</span>
@@ -429,8 +426,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
- const status = traffic ? effectiveStatus(traffic) : 'green';
- const waitTime = traffic ? effectiveWait(traffic) : 0;
+ if (!traffic) return null;
+ const status = effectiveStatus(traffic);
+ const waitTime = effectiveWait(traffic);
  return (
  <Marker
  key={crossing.name}
@@ -450,7 +448,6 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.zone')}</span><span className="font-bold">{crossing.canton} — {crossing.province}</span></div>
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.hours')}</span><span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span></div>
  {crossing.customsPresent && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.customs')}</span><span className="font-bold text-link">{t('traffic.customsPresent')}</span></div>)}
- {traffic?.direction && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.direction')}</span><span className="font-bold">{traffic.direction}</span></div>)}
  {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="font-bold">📍 Google Maps</span></div>)}
  </div>
  <a href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`} target="_blank" rel="noopener noreferrer" style={POPUP_NAV_LINK_STYLE}>{t('traffic.navigateHere')}</a>
@@ -552,8 +549,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
- const status = traffic ? effectiveStatus(traffic) : 'green';
- const waitTime = traffic ? effectiveWait(traffic) : 0;
+ if (!traffic) return null;
+ const status = effectiveStatus(traffic);
+ const waitTime = effectiveWait(traffic);
  return (
  <Marker
  key={crossing.name}
@@ -573,7 +571,6 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.zone')}</span><span className="font-bold">{crossing.canton} — {crossing.province}</span></div>
  <div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.hours')}</span><span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span></div>
  {crossing.customsPresent && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.customs')}</span><span className="font-bold text-link">{t('traffic.customsPresent')}</span></div>)}
- {traffic?.direction && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.direction')}</span><span className="font-bold">{traffic.direction}</span></div>)}
  {traffic?.source && traffic.source !== 'mock' && (<div style={POPUP_ROW_STYLE}><span className="text-muted">{t('traffic.source')}</span><span className="font-bold">📍 Google Maps</span></div>)}
  </div>
  <a href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`} target="_blank" rel="noopener noreferrer" style={POPUP_NAV_LINK_STYLE}>{t('traffic.navigateHere')}</a>
