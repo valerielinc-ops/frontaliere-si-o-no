@@ -5,8 +5,10 @@ import { describe, expect, it } from 'vitest';
 import {
   INFEED_AD_EXPERIMENT_ID,
   INFEED_AD_EXPERIMENT_RC_KILL_KEY,
+  INFEED_AD_EXPERIMENT_SURFACE_CANTONS,
   INFEED_AD_TREATMENT_CANTONS,
   INFEED_AD_VARIANTS,
+  isInfeedAdExperimentSurface,
   isInfeedAdExperimentActiveFromEnv,
   resolveInfeedAdVariant,
   shouldSuppressManualInfeedAd,
@@ -17,11 +19,13 @@ import { infeedAdGridBlockHtml } from '@/build-plugins/lib/adSlotHtml';
 describe('G5 in-feed ad experiment', () => {
   it('keeps the treatment set centralized and resolves URL-surface variants', () => {
     expect([...INFEED_AD_TREATMENT_CANTONS]).toEqual(['LU', 'TI']);
+    expect([...INFEED_AD_EXPERIMENT_SURFACE_CANTONS]).toEqual(['BASILEA', 'LU', 'TI']);
     expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS).toBe(INFEED_AD_TREATMENT_CANTONS);
     expect(resolveInfeedAdVariant('lu')).toBe(INFEED_AD_VARIANTS.treatment);
     expect(resolveInfeedAdVariant(' TI ')).toBe(INFEED_AD_VARIANTS.treatment);
     expect(resolveInfeedAdVariant('BASILEA')).toBe(INFEED_AD_VARIANTS.control);
     expect(resolveInfeedAdVariant(null)).toBe(INFEED_AD_VARIANTS.control);
+    expect(isInfeedAdExperimentSurface('ZH')).toBe(false);
   });
 
   it('rolls back only the treatment to the manual in-feed control', () => {
@@ -40,7 +44,8 @@ describe('G5 in-feed ad experiment', () => {
   });
 
   it('marks manual in-feed markup with the experiment and observed variant', () => {
-    const html = infeedAdGridBlockHtml();
+    expect(infeedAdGridBlockHtml()).not.toContain('data-ad-experiment');
+    const html = infeedAdGridBlockHtml({ experimentVariant: INFEED_AD_VARIANTS.control });
     expect(html).toContain(`data-ad-experiment="${INFEED_AD_EXPERIMENT_ID}"`);
     expect(html).toContain(`data-ad-variant="${INFEED_AD_VARIANTS.control}"`);
   });

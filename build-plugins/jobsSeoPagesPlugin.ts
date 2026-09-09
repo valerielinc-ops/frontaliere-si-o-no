@@ -73,7 +73,7 @@ import {
 } from './shared/jobCardHtml';
 import { infeedAdGridBlockHtml, infeedAdListItemHtml } from './lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
-import { isInfeedAdExperimentActiveFromEnv } from '../services/adExperiment';
+import { isInfeedAdExperimentActiveFromEnv, isInfeedAdExperimentSurface, resolveInfeedAdVariant } from '../services/adExperiment';
 import { LOGO_FALLBACK_SCRIPT } from './shared/logoFallbackScript';
 import { renderJobBoardListingDensityProse, renderListingPaginationProse } from './shared/jobListingProse';
 import {
@@ -10445,12 +10445,15 @@ ${staticAnalyticsHtml}
            // INFEED_AD_AB_TEST_SUPPRESSED_CANTONS) can suppress the manual
            // slot on this specific canton's static index page without
            // touching any other canton or any other listing surface.
+             const adExperimentVariant = isInfeedAdExperimentSurface(entry.key)
+               ? resolveInfeedAdVariant(entry.key, { active: STATIC_INFEED_AD_EXPERIMENT_ACTIVE })
+               : undefined;
              const ad =
              jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, {
                canton: entry.key,
                adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
              })
-               ? infeedAdGridBlockHtml()
+               ? infeedAdGridBlockHtml({ experimentVariant: adExperimentVariant })
                : '';
            return card + ad;
          }).join('') +

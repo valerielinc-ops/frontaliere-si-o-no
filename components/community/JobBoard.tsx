@@ -160,7 +160,12 @@ import { useKillSwitches } from '@/hooks/useKillSwitches';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
 import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
-import { INFEED_AD_EXPERIMENT_ID, INFEED_AD_VARIANTS } from '@/services/adExperiment';
+import {
+ INFEED_AD_EXPERIMENT_ID,
+ isInfeedAdExperimentSurface,
+ resolveInfeedAdVariant,
+} from '@/services/adExperiment';
+import type { InfeedAdVariant } from '@/services/adExperiment';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import {
@@ -2146,6 +2151,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Toggle via Firebase Remote Config — each `<li>` respects its own flag.
  const killSwitches = useKillSwitches();
  const adExperimentActive = !killSwitches.adInfeedExperiment;
+ const adExperimentVariant = isInfeedAdExperimentSurface(initialFilterCanton)
+ ? resolveInfeedAdVariant(initialFilterCanton, { active: adExperimentActive })
+ : undefined;
  // Collapses the 300px xlw rail gutter (both auth-gate and job-detail views
  // below) when ArticleRailAdStack resolves an all-empty verdict per side —
  // shared with JobOrphanView/JobExpiredView/BlogArticles (issue 4830).
@@ -5895,7 +5903,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Device-split in-feed ad, reused across every SPA job-list surface (main
  // list + editorial-landing sections). Mobile vs desktop slot mirrors the
  // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
- const renderInfeedAd = (keySuffix: string, experimentSurface = false): React.ReactNode => {
+ const renderInfeedAd = (keySuffix: string, experimentVariant?: InfeedAdVariant): React.ReactNode => {
  const cfg = isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
  // Reserve from the registry, never a literal: this wrapper hard-coded 280 and
  // silently outlived the #4302 raise to 336, under-reserving every in-feed unit
@@ -5905,9 +5913,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`}
  style={{ ['--ad-mh' as string]: `${cfg.placeholderMinHeight}px` }}
  className="min-h-[var(--ad-mh)]"
- {...(experimentSurface ? {
+ {...(experimentVariant ? {
    'data-ad-experiment': INFEED_AD_EXPERIMENT_ID,
-   'data-ad-variant': INFEED_AD_VARIANTS.control,
+   'data-ad-variant': experimentVariant,
  } : {})}
  >
  <AdSenseBanner
@@ -10040,7 +10048,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  <React.Fragment key={job.id || job.slug || idx}>
  {renderJobCard(job)}
- {showAd && renderInfeedAd(`main-${idx}`, true)}
+ {showAd && renderInfeedAd(`main-${idx}`, adExperimentVariant)}
  {!resultsResolving && pos === utilitiesAfterPosition && postFirstResultsUtilities}
  </React.Fragment>
  );

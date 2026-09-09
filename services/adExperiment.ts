@@ -18,10 +18,17 @@ export const INFEED_AD_VARIANTS = Object.freeze({
 /** The only treatment surfaces in the current URL-level comparison. */
 export const INFEED_AD_TREATMENT_CANTONS: ReadonlySet<string> = new Set(['LU', 'TI']);
 
+/** Canton URL groups included in the two measured control/treatment pairs. */
+export const INFEED_AD_EXPERIMENT_SURFACE_CANTONS: ReadonlySet<string> = new Set(['BASILEA', 'LU', 'TI']);
+
 export type InfeedAdVariant = (typeof INFEED_AD_VARIANTS)[keyof typeof INFEED_AD_VARIANTS];
 
 function normalizeCanton(canton: string | null | undefined): string {
   return String(canton || '').trim().toUpperCase();
+}
+
+export function isInfeedAdExperimentSurface(canton: string | null | undefined): boolean {
+  return INFEED_AD_EXPERIMENT_SURFACE_CANTONS.has(normalizeCanton(canton));
 }
 
 /**
