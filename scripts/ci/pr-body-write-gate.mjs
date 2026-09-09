@@ -6,7 +6,7 @@
  */
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { findPrBodyWrite, readHookCommand } from './lib/hook-command-parser.mjs';
-import { claimMarker } from './lib/hook-state.mjs';
+import { claimMarker, resolveHookRepositoryScope } from './lib/hook-state.mjs';
 
 export const BODY_REWRITE_REASON_ENV = 'FRONTALIERE_ALLOW_PR_BODY_REWRITE_REASON';
 
@@ -23,7 +23,11 @@ async function main() {
   const bodyWrite = findPrBodyWrite(input.command, process.env);
   if (!bodyWrite || !bodyWrite.prNumber) return;
 
-  const repo = bodyWrite.repo ?? 'ambient-repository';
+  const repo = bodyWrite.repo ?? resolveHookRepositoryScope(input.cwd);
+  // Without an explicit repository or a readable local git identity, do not
+  // collapse unrelated PR numbers into one ambient marker. Passing is the
+  // required fail-safe result for an unknown target.
+  if (!repo) return;
   const marker = claimMarker({
     scope: 'pr-body-writes',
     key: `${repo}:${bodyWrite.prNumber}`,

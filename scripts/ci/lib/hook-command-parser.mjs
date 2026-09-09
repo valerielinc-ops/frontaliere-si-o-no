@@ -73,7 +73,11 @@ export async function readHookCommand(stream = process.stdin) {
       const payload = JSON.parse(raw);
       const command = payload?.tool_input?.command ?? payload?.command;
       return typeof command === 'string'
-        ? { ok: true, command }
+        ? {
+            ok: true,
+            command,
+            cwd: typeof payload?.cwd === 'string' ? payload.cwd : undefined,
+          }
         : { ok: false, command: '' };
     } catch {
       // A PreToolUse payload is JSON. Do not reinterpret malformed JSON as
@@ -162,12 +166,20 @@ export function findPrBodyWrite(input, env = process.env) {
 
   for (const segment of parsed.commands) {
     const words = executableWords(segment);
-    if (words[0] !== 'gh' || words[1] !== 'pr' || words[2] !== 'edit') continue;
+    if (words[0] !== 'gh') continue;
+    const ghCommandIndex = skipGhGlobalOptions(words, 1);
+    if (
+      ghCommandIndex < 0 ||
+      words[ghCommandIndex] !== 'pr' ||
+      words[ghCommandIndex + 1] !== 'edit'
+    ) {
+      continue;
+    }
 
     let bodyFlag;
     let prNumber;
     let repo;
-    for (let index = 3; index < words.length; index += 1) {
+    for (let index = ghCommandIndex + 2; index < words.length; index += 1) {
       const word = words[index];
       if (BODY_FLAGS.has(word)) {
         bodyFlag = word;
@@ -223,6 +235,11 @@ function executableWords(segment) {
 
   while (index < words.length) {
     const word = words[index];
+    if (/^\d+$/.test(word) && REDIRECTION_OPERATORS.has(words[index + 1])) {
+      index += 2;
+      if (index < words.length && words[index] !== '>&') index += 1;
+      continue;
+    }
     if (REDIRECTION_OPERATORS.has(word)) {
       index += 1;
       if (index < words.length && words[index] !== '>&') index += 1;
@@ -433,7 +450,10 @@ function maskHeredocBodies(source) {
     if (!heredoc) return { ok: true, text };
     if (!heredoc.ok) return { ok: false, text: '' };
 
-    const chars = [...text];
+    // `findNextHeredoc()` reports JavaScript string offsets (UTF-16 code
+    // units). `split('')` keeps the same indexing model; `[...text]` would
+    // collapse surrogate pairs and shift every later mask boundary.
+    const chars = text.split('');
     maskRange(chars, heredoc.operatorStart, heredoc.headerEnd);
     maskRange(chars, heredoc.bodyStart, heredoc.bodyEnd);
     text = chars.join('');

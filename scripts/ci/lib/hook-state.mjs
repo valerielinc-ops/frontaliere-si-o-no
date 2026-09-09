@@ -20,6 +20,7 @@ import { isAbsolute, join, resolve } from 'node:path';
 const STATE_DIR_ENV = 'FRONTALIERE_HOOK_STATE_DIR';
 const WORKSPACE_ENV = 'WORKSPACE';
 const MAX_MARKER_BYTES = 16 * 1024;
+const MAX_GIT_TEXT_BYTES = 64 * 1024;
 
 /**
  * @param {string} scope
@@ -34,9 +35,11 @@ export function resolveHookStateDir(scope) {
     return join(configured, scope);
   }
 
+  // The root hook configurations export WORKSPACE explicitly. Never fall
+  // back to a child checkout here: that would violate the requirement that
+  // the marker store stays outside every child repository.
   const workspace = validAbsoluteDirectory(process.env[WORKSPACE_ENV]);
-  const root = workspace ?? findWorkspaceRoot(process.cwd());
-  return root ? join(root, '.scratch', 'hook-state', scope) : undefined;
+  return workspace ? join(workspace, '.scratch', 'hook-state', scope) : undefined;
 }
 
 /**
@@ -87,6 +90,33 @@ export function hashKey(key) {
   return createHash('sha256').update(key).digest('hex').slice(0, 32);
 }
 
+/**
+ * Resolve a stable local repository identity from the hook payload cwd.
+ * Explicit `--repo`/GITHUB_REPOSITORY values remain preferable; this fallback
+ * only reads a bounded `.git` pointer/config and never invokes git or the
+ * network. It lets two child repositories with the same PR number keep
+ * separate body markers while sharing one marker across their worktrees.
+ *
+ * @param {unknown} candidate
+ * @returns {string|undefined}
+ */
+export function resolveHookRepositoryScope(candidate = process.cwd()) {
+  let current = validAbsoluteDirectory(candidate);
+  if (!current) return undefined;
+
+  for (let depth = 0; depth < 16; depth += 1) {
+    const commonGitDir = resolveCommonGitDir(join(current, '.git'));
+    if (commonGitDir) {
+      const remote = readOriginRepository(commonGitDir);
+      return remote ? `repo:${remote}` : `git:${commonGitDir}`;
+    }
+    const parent = resolve(current, '..');
+    if (parent === current) break;
+    current = parent;
+  }
+  return undefined;
+}
+
 function validMarker(path) {
   try {
     const stat = statSync(path);
@@ -107,30 +137,42 @@ function validAbsoluteDirectory(candidate) {
   }
 }
 
-function findWorkspaceRoot(start) {
-  let current;
+function resolveCommonGitDir(gitEntry) {
   try {
-    current = resolve(start);
+    const stat = statSync(gitEntry);
+    if (stat.isDirectory()) return resolve(gitEntry);
+    if (!stat.isFile() || stat.size > 4096) return undefined;
+
+    const pointer = readFileSync(gitEntry, 'utf8').match(/^gitdir:\s*(.+)\s*$/im);
+    if (!pointer) return undefined;
+    const gitDir = resolve(join(gitEntry, '..'), pointer[1]);
+    const commondir = readSmallFile(join(gitDir, 'commondir'))?.trim();
+    return commondir ? resolve(gitDir, commondir) : resolve(gitDir, '..', '..');
   } catch {
     return undefined;
   }
+}
 
-  for (let depth = 0; depth < 16; depth += 1) {
-    if (validAbsoluteDirectory(join(current, 'frontaliere-si-o-no')) && hasGitEntry(join(current, '.git'))) {
-      return current;
-    }
-    const parent = resolve(current, '..');
-    if (parent === current) break;
-    current = parent;
+function readOriginRepository(commonGitDir) {
+  const config = readSmallFile(join(commonGitDir, 'config'));
+  if (!config) return undefined;
+
+  const sections = config.matchAll(/\[remote\s+"([^"]+)"\]([\s\S]*?)(?=\n\[|$)/gi);
+  for (const section of sections) {
+    if (section[1] !== 'origin') continue;
+    const url = section[2].match(/^\s*url\s*=\s*(\S+)\s*$/im)?.[1];
+    const match = url?.match(/github\.com[/:]([^/\s:]+)\/([^/\s]+?)(?:\.git)?$/i);
+    if (match) return `${match[1]}/${match[2]}`;
   }
   return undefined;
 }
 
-function hasGitEntry(candidate) {
+function readSmallFile(path) {
   try {
-    statSync(candidate);
-    return true;
+    const stat = statSync(path);
+    if (!stat.isFile() || stat.size > MAX_GIT_TEXT_BYTES) return undefined;
+    return readFileSync(path, 'utf8');
   } catch {
-    return false;
+    return undefined;
   }
 }

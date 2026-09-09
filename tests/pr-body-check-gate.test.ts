@@ -389,10 +389,19 @@ describe('B22 review-efficiency gates — process invariants', () => {
   it.each([
     ['quoted data', `printf '%s' 'gh run rerun 123'`],
     ['heredoc data', "cat <<'EOF'\ngh run rerun 123\nEOF"],
+    [
+      'emoji-prefixed heredoc data',
+      `printf '%s' '${'🙂'.repeat(20)}' <<'EOF'\ngh run rerun 123\nEOF`,
+    ],
     ['comment data', "# gh run rerun 123\nprintf '%s' ok"],
   ])('passes when rerun words are %s, not an executed command', (_label, command) => {
     const res = runReviewGate(RUN_MUTATION_GATE, command);
     expect(res.status).toBe(0);
+  });
+
+  it('recognizes a mutation after an fd redirection', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, '2>/dev/null gh run cancel 456');
+    expect(res.status).toBe(EXIT_BLOCK);
   });
 
   it('passes when mutation state is unreadable (fail-safe)', () => {
@@ -437,6 +446,15 @@ describe('B22 review-efficiency gates — process invariants', () => {
     expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --add-label needs-human', env).status).toBe(0);
     expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
     expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8077 --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/one --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/two --body "first"', env).status).toBe(0);
+  });
+
+  it('recognizes gh global options before the pr subcommand', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const command = 'gh --repo owner/repo pr edit 8076 --body-file /tmp/body.md';
+    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(EXIT_BLOCK);
   });
 
   it('passes on an unparseable command instead of blocking it', () => {
