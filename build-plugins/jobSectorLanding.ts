@@ -276,11 +276,13 @@ export function findMissingSectorHubEntries(
  * `"undefined"` path segment in a canonical sector-hub URL, which Google
  * either de-indexes or 404s on (follow-up #3608 item 2).
  *
- * Node-only: call this from a build-plugin hook (`closeBundle`, etc.),
- * never at module-import time — this file is also imported by the
- * client bundle (`App.tsx`, `services/router.ts`) for `SECTOR_HUB_KEYS`/
- * `buildSectorHubPath`, and a thrown error at import time would crash
- * the live app for every visitor instead of just failing the build.
+ * Node-only: call this from a build-plugin hook (`closeBundle`, etc.), never
+ * at module-import time. Dal 2026-09-09 (#8125) il bundle browser NON raggiunge
+ * piu' questo file — `App.tsx` e `services/router.ts` prendono
+ * `SECTOR_HUB_KEYS`/`buildSectorHubPath` da `./shared/jobSectorPaths`, che e'
+ * privo di dipendenze Node — ma la regola resta: questo modulo e' importato
+ * all'avvio da una dozzina di plugin, e un throw al momento dell'import
+ * romperebbe la build in un punto che non dice quale tabella e' incompleta.
  */
 export function assertSectorHubTablesComplete(): void {
   assertLocaleTablesComplete(
