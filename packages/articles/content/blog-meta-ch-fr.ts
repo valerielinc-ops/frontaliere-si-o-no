@@ -6166,6 +6166,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Prix administrés : effets sur la concurrence et le pouvoir',
     'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'Le Conseil fédéral adopte le 9 septembre 2026 un rapport sur les prix administrés en Suisse. La part inférieure à 10 % du budget des ménages est similaire à la moyenne européenne, mais beaucoup dépend du secteur.',
     'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Salle de réunion du Conseil fédéral suisse lors d\'une session analysant les prix administrés et la politique économique',
+    'blog.article.stablecoin-franco-fase-operativa.title': 'Stablecoin en francs : le projet entre en phase opérationnelle',
+    'blog.article.stablecoin-franco-fase-operativa.excerpt': 'Le projet CHFD pour une monnaie numérique liée au franc suisse entre dans la phase de test. Neuf partenaires financiers suisses expérimentent des utilisations concrètes du stablecoin jusqu\'à fin 2026.',
+    'blog.article.stablecoin-franco-fase-operativa.imageAlt': 'Bureau fintech suisse moderne avec des professionnels de la finance gérant la technologie blockchain et stablecoin sur écrans numériques',
 };
 
 export default blogMetaChFr;

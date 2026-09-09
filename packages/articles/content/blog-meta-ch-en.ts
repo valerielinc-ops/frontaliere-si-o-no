@@ -6166,6 +6166,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-amministrati-concorrenza-potere.title': 'Administered prices: effects on competition and power',
     'blog.article.prezzi-amministrati-concorrenza-potere.excerpt': 'On 9 September 2026, the Federal Council adopted a report on administered prices in Switzerland. The share of less than 10% on the domestic budget is similar to the European average, but much depends on the sector.',
     'blog.article.prezzi-amministrati-concorrenza-potere.imageAlt': 'Swiss Federal Council meeting room during session analyzing administered prices and economic policy impacts on purchasing power',
+    'blog.article.stablecoin-franco-fase-operativa.title': 'Stablecoin in francs: the project enters the operational phase',
+    'blog.article.stablecoin-franco-fase-operativa.excerpt': 'The CHFD project for a digital currency linked to the Swiss franc enters the testing phase. Nine Swiss financial partners are experimenting with concrete uses of the stablecoin until the end of 2026.',
+    'blog.article.stablecoin-franco-fase-operativa.imageAlt': 'Modern Swiss fintech office with finance professionals managing blockchain and stablecoin technology on digital screens',
 };
 
 export default blogMetaChEn;
