@@ -19,6 +19,7 @@ import { Analytics, unlockAchievement, fireCalcEntryIfNeeded } from '@/services/
 import { initPostHog } from '@/services/posthog';
 import { invalidateHeaderBiddingOnNavigation } from '@/services/headerBidding';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
+import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -27,6 +28,11 @@ export interface UIState {
  translationsReady: boolean;
  toggleTheme: () => void;
  setIsFocusMode: (v: boolean) => void;
+}
+
+function deferAttributionPageView(path: string): boolean {
+ const pageTemplate = deriveAnalyticsPageContext(path).pageTemplate;
+ return pageTemplate === 'job_detail' || pageTemplate === 'jobs_company';
 }
 
 export function useUIState(activeTab: ActiveTab): UIState {
@@ -94,7 +100,8 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // so it doesn't block the main thread during page interaction.
  const run = () => {
  Analytics.init();
- Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+ const initialPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+ if (!deferAttributionPageView(initialPath)) Analytics.trackPageView(initialPath);
  // Generic session-init marker (kept for session-level dashboards). The
  // calculator funnel uses `funnel: 'calculator'` instead, emitted via
  // fireCalcEntryIfNeeded — see Phase 4 of the May 18 recovery plan.
@@ -144,7 +151,8 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // Centralized SPA pageview tracking for all route changes
  useEffect(() => {
  const trackCurrentLocation = () => {
- Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+ const path = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+ if (!deferAttributionPageView(path)) Analytics.trackPageView(path);
  // Also emit calc-funnel entry if the new route is any calc URL and we
  // haven't fired it yet this session (deduped via sessionStorage). This
  // covers in-SPA navigation into the calculator from any other tab.
