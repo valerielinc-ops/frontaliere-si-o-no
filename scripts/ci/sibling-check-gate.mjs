@@ -55,6 +55,10 @@ import {
 } from './lib/resolve-merge-base.mjs';
 import { EXIT_BLOCK } from './lib/hook-exit-codes.mjs';
 import { resolveHookTargetCwd, resolveGatedHeadRef } from './lib/hook-target-cwd.mjs';
+import {
+  findIssueFixReadBudgetViolation,
+  formatReadBudgetViolation,
+} from './issue-fix-read-budget.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const checkScript = join(__dirname, 'check-sibling-patterns.mjs');
@@ -157,6 +161,25 @@ async function main() {
     }
   } catch {
     process.exit(0); // stdin failure → fail-safe
+  }
+
+  // issue-fix only: its Claude step is the only one that carries both markers;
+  // stop an unbounded source read before its result enters the transcript.
+  // Other Claude sessions keep the existing hook behaviour.
+  if (
+    process.env.ISSUE_NUMBER &&
+    process.env.FIX_TIER &&
+    !command.includes('gh pr create')
+  ) {
+    try {
+      const violation = findIssueFixReadBudgetViolation({ command, cwd: targetCwd });
+      if (violation) {
+        process.stderr.write(formatReadBudgetViolation(violation));
+        process.exit(EXIT_BLOCK);
+      }
+    } catch {
+      // Read guard failure → fail-safe: preserve context rather than block work.
+    }
   }
 
   if (!command.includes('gh pr create')) {
