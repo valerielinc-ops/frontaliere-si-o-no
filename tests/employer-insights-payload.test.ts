@@ -104,6 +104,24 @@ describe('employer insights payload UI', () => {
     expect(employerPageSource).not.toMatch(/['"](?:ga4|posthog)['"]/i);
   });
 
+  it('keeps observed numbers when timezone is absent but the window is present', () => {
+    const html = render({
+      ...basePayload,
+      window: { ...window, timezone: undefined },
+    });
+
+    expect(html).toContain('>701<');
+    expect(html).toContain('dato osservato');
+    expect(html).toContain('timezone non disponibile');
+  });
+
+  it('treats a payload source literally, even when it matches the UI fallback text', () => {
+    const html = render({ ...basePayload, source: 'sorgente non disponibile' });
+
+    expect(html).toContain('>701<');
+    expect(html).toContain('sorgente non disponibile');
+  });
+
   it('keeps zero observed, missing data and unavailable source distinct', () => {
     const zeroHtml = render({
       ...basePayload,

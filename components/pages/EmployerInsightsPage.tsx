@@ -82,9 +82,10 @@ type MetricValue = number | null | undefined;
 type MetricState = 'observed' | 'zero-observed' | 'data-missing' | 'source-unavailable';
 
 function windowLabel(window: EmployerInsightsWindow | null | undefined): string {
-  if (!window?.from || !window.to || !window.timezone) return 'finestra non disponibile';
+  if (!window?.from || !window.to) return 'finestra non disponibile';
+  const timezone = window.timezone?.trim() || 'timezone non disponibile';
   const inclusive = window.inclusive ? ` · ${window.inclusive}` : '';
-  return `${window.from} → ${window.to} · ${window.timezone}${inclusive}`;
+  return `${window.from} → ${window.to} · ${timezone}${inclusive}`;
 }
 
 function metricState(
@@ -92,13 +93,12 @@ function metricState(
   source: string | null | undefined,
   window: EmployerInsightsWindow | null | undefined,
 ): { display: string; state: MetricState; source: string } {
-  const sourceLabel = typeof source === 'string' && source.trim()
-    ? source.trim()
-    : 'sorgente non disponibile';
-  if (sourceLabel === 'sorgente non disponibile') {
-    return { display: sourceLabel, state: 'source-unavailable', source: sourceLabel };
+  const hasSource = typeof source === 'string' && source.trim().length > 0;
+  const sourceLabel = hasSource ? source.trim() : 'sorgente non disponibile';
+  if (!hasSource) {
+    return { display: 'non disponibile', state: 'source-unavailable', source: sourceLabel };
   }
-  if (!window?.from || !window.to || !window.timezone || typeof value !== 'number' || !Number.isFinite(value)) {
+  if (!window?.from || !window.to || typeof value !== 'number' || !Number.isFinite(value)) {
     return { display: 'non disponibile', state: 'data-missing', source: sourceLabel };
   }
   if (value === 0) return { display: '0', state: 'zero-observed', source: sourceLabel };
@@ -171,7 +171,6 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
   const { totals, trend, ads } = data;
   const eventSource = data.source;
   const applicationSource = data.applicationsCoverage?.source;
-  const applyClicks = totals.applyClicks === undefined ? undefined : totals.applyClicks;
   const trendUp =
     trend.length >= 2 ? trend[trend.length - 1].views >= trend[0].views : true;
 
@@ -195,7 +194,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
         <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           <MetricCard
             icon={<MousePointerClick className="w-5 h-5" />}
-            value={applyClicks}
+            value={totals.applyClicks}
             label="Click per candidarsi"
             description="Segnale di intento; non è un invio di candidatura."
             source={eventSource}
