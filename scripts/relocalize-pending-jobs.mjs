@@ -921,6 +921,26 @@ async function runSharedCrawler(companyKeys, maxJobs) {
 }
 
 /**
+ * Read the shared crawler's company-level coverage observation.
+ *
+ * `localizationCoveredCompanyKeys` includes sterile visits where the crawler
+ * reached a company but had no consumable candidate. That is the observation
+ * needed by the company-skip ledger and by the artifact; `cleared` must never
+ * be used as its proxy.
+ */
+function servedCompanyKeysFromCrawlerResult(crawlerResult) {
+  const companyKeys = Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
+    ? crawlerResult.localizationCoveredCompanyKeys
+    : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
+      ? crawlerResult.localizationAttemptedCompanyKeys : []);
+  return new Set(
+    companyKeys
+      .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
+      .filter(Boolean),
+  );
+}
+
+/**
  * Clear needsRetranslation flag from jobs that are now complete.
  * Returns the number of flags cleared.
  */
@@ -1856,14 +1876,7 @@ export async function runRelocalization(phase) {
       let servedCompanyKeys = new Set();
       try {
         const crawlerResult = await runSharedCrawler(executionKeys, companyJobCount);
-        servedCompanyKeys = new Set(
-          (Array.isArray(crawlerResult?.localizationCoveredCompanyKeys)
-            ? crawlerResult.localizationCoveredCompanyKeys
-            : (Array.isArray(crawlerResult?.localizationAttemptedCompanyKeys)
-              ? crawlerResult.localizationAttemptedCompanyKeys : []))
-            .map((companyKey) => normalizeCompanyKey(companyKey).slice(0, 64))
-            .filter(Boolean),
-        );
+        servedCompanyKeys = servedCompanyKeysFromCrawlerResult(crawlerResult);
       } finally {
         if (armHandle) armHandle.restore();
       }
@@ -1944,6 +1957,7 @@ export async function runRelocalization(phase) {
         // `cleared` e' il delta per azienda: le traduzioni che hanno superato
         // il gate. Anche con un'invocazione aggregata resta una riga per azienda,
         // con il gruppo esplicito per rendere leggibile il costo condiviso.
+        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
         const row = {
           arm: thinkingArm ?? null,
           companyKey,
@@ -1951,6 +1965,7 @@ export async function runRelocalization(phase) {
           elapsedMs: elapsedShare(companyKey),
           attempted: attemptedSlugs.size,
           cleared: companyCleared,
+          companyServed: companyWasServed,
           ...(executionKeys.length > 1 ? { invocationCompanyKeys: [...executionKeys] } : {}),
         };
         thinkingRows.push(row);
@@ -1964,7 +1979,6 @@ export async function runRelocalization(phase) {
         // budget dell'invocazione. Non chiamarla sterile se non e' stata mai
         // servita: il suo lavoro resta pending e deve poter rientrare nella
         // prossima finestra senza accumulare falsi salti.
-        const companyWasServed = servedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64));
         if (companyWasServed) {
           const entry = nextCompanySkipEntry(companySkipState.companies[companyKey], {
             cleared: companyCleared,
@@ -2074,8 +2088,10 @@ export async function runRelocalization(phase) {
           const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
           const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
           const retryStartedMs = LEGACY_CLOCK.now();
+          let retryServedCompanyKeys = new Set();
           try {
-            await runSharedCrawler(retryKeys, count);
+            const retryCrawlerResult = await runSharedCrawler(retryKeys, count);
+            retryServedCompanyKeys = servedCompanyKeysFromCrawlerResult(retryCrawlerResult);
           } finally {
             if (retryHandle) retryHandle.restore();
           }
@@ -2108,6 +2124,7 @@ export async function runRelocalization(phase) {
                 elapsedMs: retryElapsedMs * (retryCompanies.get(companyKey) || 0) / count,
                 attempted: retryAttemptedByCompany.get(companyKey).size,
                 cleared: 0,
+                companyServed: retryServedCompanyKeys.has(normalizeCompanyKey(companyKey).slice(0, 64)),
                 ...(retryKeys.length > 1 ? { invocationCompanyKeys: [...retryKeys] } : {}),
               };
               retryRowsByCompany.set(companyKey, row);
