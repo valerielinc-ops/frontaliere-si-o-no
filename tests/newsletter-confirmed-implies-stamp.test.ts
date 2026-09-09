@@ -316,9 +316,10 @@ describe('every branch that writes the word writes the proof', () => {
 
   it('EVERY action branch writing status: confirmed also writes confirmed_at and confirmedAt', () => {
     const writers = actionBranches(src).filter((b) => WRITES_CONFIRMED.test(stripComments(b.body)));
-    // Both are clicks the RECIPIENT performs. If this list grows, the new
-    // entry must be a click too — an automatic path belongs nowhere near it.
-    expect(writers.map((b) => b.action).sort()).toEqual(['confirm', 'resubscribe']);
+    // These are all affirmative actions the RECIPIENT performs. If this list
+    // grows, the new entry must be an affirmative action too — an automatic
+    // path belongs nowhere near it.
+    expect(writers.map((b) => b.action).sort()).toEqual(['confirm', 'exchange_auth_code', 'resubscribe']);
     for (const b of writers) {
       const body = stripComments(b.body);
       expect(body, `branch '${b.action}' writes confirmed with no confirmed_at`).toMatch(/confirmed_at\s*:/);

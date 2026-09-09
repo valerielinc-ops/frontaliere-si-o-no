@@ -41,6 +41,13 @@ export type NewsletterPreferences = {
 export type NewsletterSubscriberStatus =
  | 'pending'
  | 'confirmed'
+ /**
+  * Explicit reactivation from a preferences surface. This is not double
+  * opt-in confirmation: the HMAC/preferences-link writer records only the
+  * reactivation stamp, while the authenticated SPA also records confirmation
+  * stamps. Senders must keep applying their own proof gate.
+  */
+ | 'subscribed'
  | 'unsubscribed'
  | 'bounced'
  | 'complained'
@@ -513,9 +520,10 @@ function isAccountDeletionReRegistration(
 /**
  * Which half of the status vocabulary a write belongs to.
  *
- * `subscription` — the two outcomes a (re)subscription write can land on. They
- * are the only statuses that say "we may mail this person", so they are the
- * only ones the opt-out post-filter below has any business intercepting.
+ * `subscription` — states on the subscription side of the post-filter. They
+ * are the only statuses that a (re)subscription write may land on, but this
+ * classification does not itself authorise mail: each sender still applies
+ * its own confirmation/proof gate, and `subscribed` is not `confirmed`.
  *
  * `suppression` — an opt-out, or an address-level signal a webhook reports
  * (hard bounce / spam complaint / provider blocklist). Every one of them is at
@@ -535,6 +543,9 @@ function isAccountDeletionReRegistration(
 const NEWSLETTER_STATUS_KIND: Record<NewsletterSubscriberStatus, 'subscription' | 'suppression'> = {
  pending: 'subscription',
  confirmed: 'subscription',
+ // Explicit reactivation is not a suppression, but its status alone is not
+ // double-opt-in proof and must not be promoted to `confirmed` here.
+ subscribed: 'subscription',
  unsubscribed: 'suppression',
  bounced: 'suppression',
  complained: 'suppression',
@@ -624,10 +635,19 @@ function inferSubscriptionStateIgnoringOptOut(
 ): { status: NewsletterSubscriberStatus; isActive: boolean } {
  const explicitStatus = input.status;
  const explicitIsActive = input.isActive;
+ // `subscribed` is written by the reactivation paths with active flags, but
+ // those flags answer activity, not double-opt-in proof. Preserve the named
+ // reactivation state unless a caller explicitly supplies another status.
+ if (existing?.status === 'subscribed' && !explicitStatus) {
+ return {
+ status: 'subscribed',
+ isActive: explicitIsActive ?? (existing?.isActive === true || existing?.active === true),
+ };
+ }
  if (explicitStatus || explicitIsActive !== undefined) {
  return {
  status: explicitStatus || (explicitIsActive ? 'confirmed' : 'pending'),
- isActive: explicitIsActive ?? explicitStatus === 'confirmed',
+ isActive: explicitIsActive ?? (explicitStatus === 'confirmed' || explicitStatus === 'subscribed'),
  };
  }
 

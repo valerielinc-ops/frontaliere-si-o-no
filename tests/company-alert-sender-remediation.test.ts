@@ -178,6 +178,13 @@ describe('B3 — consent and suppression are fail-closed', () => {
       { exists: true, data: { status: 'pending' } },
       knownJobAlert,
     )).toEqual({ action: 'defer', reason: 'newsletter-consent-status-unknown' });
+    expect(classifyRecipientConsent(
+      { exists: true, data: { status: 'subscribed', isActive: true } },
+      knownJobAlert,
+    )).toEqual({
+      action: 'defer',
+      reason: 'newsletter-consent-resubscribe-status',
+    });
     expect(classifyRecipientConsent(undefined, knownJobAlert)).toEqual({
       action: 'defer',
       reason: 'consent-document-missing',
