@@ -1,23 +1,24 @@
 {
   "key": "medics-labor",
   "label": "Medics Labor AG",
-  "generatedAt": "2026-09-09T13:58:51.414Z",
+  "generatedAt": "2026-09-09T23:19:58.157Z",
   "total": 2,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7274,
-  "avgDurationMs": 7274,
+  "durationMs": 6713,
+  "avgDurationMs": 6713,
   "durationHistory": [
-    7274
+    6713
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medics-labor-1fb212dcd631",
       "slug": "mitarbeiter-in-probenannahme-medics-labor-bern",
@@ -25,13 +26,13 @@
       "companyKey": "medics-labor",
       "companyDomain": "medics.ch",
       "title": "Mitarbeiter:in Probenannahme",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://app.reflinejobs.io/1474/0135/pub/101/index.html",
       "source": "Medics Labor Dedicated Parser (Refline 1474)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:58:38.804Z",
+      "crawledAt": "2026-09-09T23:19:45.350Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -47,16 +48,16 @@
       "postedDate": "2026-09-09",
       "applyUrl": "https://app.reflinejobs.io/1474/0135/pub/101/index.html",
       "externalId": "0135",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-09T13:58:38.804Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -91,7 +92,8 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
