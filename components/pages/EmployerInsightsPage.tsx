@@ -194,7 +194,7 @@ export function EmployerInsightsReport({ data }: { data: EmployerInsights }): Re
         <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           <MetricCard
             icon={<MousePointerClick className="w-5 h-5" />}
-            value={totals.applyClicks}
+            value={typeof totals.applyClicks === 'number' ? totals.applyClicks : undefined}
             label="Click per candidarsi"
             description="Segnale di intento; non è un invio di candidatura."
             source={eventSource}
