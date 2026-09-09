@@ -68,7 +68,7 @@ interface CompanyFollowMountPlaceholderOptions {
   companyKey?: string | null;
   /** Page locale, so the mounted alert is created in the language being read. */
   locale: string;
-  /** Funnel provenance (`employer_profile`, `employer_city`, `employer_below_floor`). */
+  /** Funnel provenance (`employer_profile`, `employer_hub`, `employer_city`, `employer_below_floor`). */
   surface: string;
   /** Whether the C4 auto-opened popup is allowed on this placeholder. */
   popupEligible?: boolean;

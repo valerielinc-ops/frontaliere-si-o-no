@@ -99,6 +99,7 @@ const ANALYTICS_SURFACE: Record<string, CompanyFollowSurface> = {
   employer_profile: 'company_follow_profile',
   employer_below_floor: 'company_follow_below_floor',
   employer_city: 'company_follow_city',
+  employer_hub: 'company_follow_hub',
 };
 
 const CompanyFollowMount: React.FC = () => {

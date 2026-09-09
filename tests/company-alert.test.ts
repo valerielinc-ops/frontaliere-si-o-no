@@ -1358,6 +1358,23 @@ describe('cadence per followed company (#5012 fase 2 — frequenze)', () => {
   });
 });
 
+describe('CTA on the static company hubs /cerca-lavoro-.../ (#8105)', () => {
+  it('emits the hydration island from both company-hub SSG emitters', () => {
+    const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(plugin).toContain("import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder'");
+    expect(plugin.match(/companyFollowMountPlaceholder\(\{/g) || []).toHaveLength(2);
+    expect(plugin).toContain("surface: 'employer_hub'");
+    expect(plugin).toContain('popupEligible: true');
+  });
+
+  it('maps the hub surface end to end instead of falling back to profile analytics', () => {
+    expect(readRepoFile('components/community/CompanyFollowMount.tsx'))
+      .toContain("employer_hub: 'company_follow_hub'");
+    expect(readRepoFile('components/community/CompanyFollowCta.tsx')).toContain("'company_follow_hub'");
+    expect(readRepoFile('services/analytics.ts')).toContain("'company_follow_hub'");
+  });
+});
+
 describe('CTA on the per-employer city hubs /aziende-che-assumono/ (#5012)', () => {
   it('the weekly-employers company×city page emits the island', () => {
     // The last SSG surface that names ONE employer and had no follow CTA. Its
