@@ -6178,6 +6178,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.giornata-informativa-esercito-donne.title': 'Giornata informativa obbligatoria per le donne svizzere',
     'blog.article.giornata-informativa-esercito-donne.excerpt': 'Il Consiglio federale approva il messaggio per una giornata informativa obbligatoria sull\'esercito e la protezione civile. Votazione popolare nel 2028, implementazione inizio 2030.',
     'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Palazzo istituzionale svizzero con bandiera nazionale, simbolo dell\'amministrazione federale e delle decisioni politiche del Consiglio federale',
+    'blog.article.legge-militare-struttura-condotta-2026.title': 'Consiglio federale: nuova struttura esercito svizzero',
+    'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Il Consiglio federale avvia consultazione su modifiche legge militare: nuova struttura di condotta, servizi all\'estero per militari di milizia, protezione da spionaggio.',
+    'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Parlamento federale svizzero a Berna, sede del Consiglio federale che ha avviato la consultazione sulla riforma dell\'esercito',
 };
 
 export default blogMetaChIt;

@@ -6178,6 +6178,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.giornata-informativa-esercito-donne.title': 'Journée d\'information obligatoire pour les femmes suisses',
     'blog.article.giornata-informativa-esercito-donne.excerpt': 'Le Conseil fédéral approuve le message relatif à la journée d’information obligatoire sur la défense militaire et civile. Un référendum aura lieu en 2028, et la mise en œuvre est prévue pour début 2030.',
     'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Bâtiment institutionnel suisse avec drapeau national, symbole de l\'administration fédérale et des décisions politiques',
+    'blog.article.legge-militare-struttura-condotta-2026.title': 'Conseil fédéral : nouvelle structure armée suisse',
+    'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Le Conseil fédéral entame des consultations sur les modifications de la loi militaire : nouvelle structure de conduite, services à l\'étranger pour les militaires de milice, protection contre l\'espionnage.',
+    'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Parlement fédéral suisse à Berne, siège du Conseil fédéral qui a lancé la consultation',
 };
 
 export default blogMetaChFr;

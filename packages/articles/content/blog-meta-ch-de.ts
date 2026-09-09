@@ -6178,6 +6178,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.giornata-informativa-esercito-donne.title': 'Obligatorischer Informationstag für Schweizerinnen',
     'blog.article.giornata-informativa-esercito-donne.excerpt': 'Der Bundesrat verabschiedet die Botschaft für einen obligatorischen Informationstag über Armee und Zivilschutz. Volksabstimmung 2028, Umsetzung Anfang 2030.',
     'blog.article.giornata-informativa-esercito-donne.imageAlt': 'Schweizer Verwaltungsgebäude mit Schweizer Flagge, Symbol der Bundesverwaltung und politischen Entscheidungen',
+    'blog.article.legge-militare-struttura-condotta-2026.title': 'Bundesrat: Neue Struktur Schweizer Armee',
+    'blog.article.legge-militare-struttura-condotta-2026.excerpt': 'Der Bundesrat eröffnet die Vernehmlassung zu Änderungen des Militärgesetzes: neue Führungsstruktur, Auslandsdienste für Milizsoldaten, Spionageschutz.',
+    'blog.article.legge-militare-struttura-condotta-2026.imageAlt': 'Schweizer Bundesparlament in Bern, Sitz des Bundesrates, der das Konsultationsverfahren eingeleitet hat',
 };
 
 export default blogMetaChDe;
