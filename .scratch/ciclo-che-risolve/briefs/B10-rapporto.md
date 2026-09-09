@@ -5,9 +5,10 @@ Repo analizzato: `valerielinc-ops/frontaliere-si-o-no`
 
 ## Diagnosi
 
-La causa osservata è il ref flottante `anthropics/claude-code-action@v1` del
-sito, che tra il run riuscito e quelli falliti ha risolto due revisioni upstream
-diverse. L’aggiornamento upstream ha portato l’SDK/native installer da
+La causa osservata è il ref flottante `anthropics/claude-code-action@v1` usato
+dagli invocatori Claude del sito, e in particolare dal check required di
+`.github/workflows/tests.yml`: tra il run riuscito e quelli falliti ha risolto
+due revisioni upstream diverse. L’aggiornamento upstream ha portato l’SDK/native installer da
 `0.3.263/2.1.263` a `0.3.265/2.1.265`; sul runner del sito la nuova installazione
 ha dichiarato successo lasciando però assente `~/.local/bin/claude`. L’SDK ha
 quindi fallito con `ENOENT` prima di poter eseguire la review.
@@ -82,11 +83,18 @@ compatibile con questo errore.
 
 ## Riparazione
 
-In questa branch il solo invocatore required della review in
-`.github/workflows/tests.yml` è stato cambiato da `@v1` al commit upstream
-`9c5ddab2e6d17b83ea679153b31f1d5f023cf636`, che il run #8047 dimostra funzionare
-con `2.1.263`. Non sono stati toccati Headroom, token, flag, checkout, assemble,
-gate o dati generati.
+In questa branch tutti i dieci invocatori del sito sono stati cambiati da `@v1`
+al commit upstream `9c5ddab2e6d17b83ea679153b31f1d5f023cf636`, che il run #8047
+dimostra funzionare con `2.1.263`. Il pin include il check required in
+`.github/workflows/tests.yml` e i nove candidati segnalati dal sibling gate:
+`crawler-content-plausibility-audit.yml`, `growth-report.yml`,
+`issue-decompose.yml`, `issue-fix.yml`, `lessons-harvester.yml`,
+`needs-human-sweep.yml`, `post-merge-followup.yml`, `pr-redcheck-fixer.yml` e
+`pr-redflag-fixer.yml`. Non sono stati toccati Headroom, token, flag, checkout,
+assemble, gate o dati generati.
+
+Il pin è la riparazione upstream prevista: non crea manualmente il binario e
+non imposta `pathToClaudeCodeExecutable` su un percorso inventato.
 
 ## Stato PR
 

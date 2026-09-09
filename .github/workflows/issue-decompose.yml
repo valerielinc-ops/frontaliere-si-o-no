@@ -146,7 +146,7 @@ jobs:
         # Come issue-fix: il colore del job lo decide `Classify outcome` sotto,
         # in base al LAVORO reale (marker sulla issue), non all'exit della CLI.
         continue-on-error: true
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}

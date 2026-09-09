@@ -123,7 +123,7 @@ jobs:
         # Escalations are auto-filed by the harvest step above → Claude is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
