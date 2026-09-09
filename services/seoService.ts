@@ -488,6 +488,7 @@ async function resolveJobSeoBySlug(
  sector: job?.category,
  category: job?.category,
  url: job?.url,
+ applyUrl: job?.applyUrl,
  isRemote,
  };
  const canonicalSchema = buildJobPostingSchema(canonicalInput, {

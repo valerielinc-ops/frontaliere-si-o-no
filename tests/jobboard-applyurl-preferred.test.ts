@@ -9,4 +9,10 @@ describe('JobBoard apply URL preference', () => {
     const source = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
     expect(source).toContain("const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);");
   });
+
+  it('uses the preferred destination for imperative apply hand-offs too', () => {
+    const source = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
+    expect(source).toContain('const applyDestination = job.applyUrl || job.url;');
+    expect(source).toContain("window.open(buildReferralUrl(applyDestination, job), '_blank', 'noopener,noreferrer');");
+  });
 });

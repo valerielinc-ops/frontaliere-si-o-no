@@ -38,7 +38,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml as fetchHtmlResilient, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { isCrossHostRedirect } from './umantis-detail-helpers.mjs';
+import { isCrossHostRedirect, stripUmantisNonContent } from './umantis-detail-helpers.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -275,8 +275,8 @@ function parseSwissDate(raw = '') {
 /**
  * Extract rich description content from an Umantis detail page.
  *
- * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li class="customdatablock"
- * id="customdatablock_NNNN">…</li>` pairs:
+ * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li>` or `<p
+ * class="customdatablock" id="customdatablock_NNNN">…</li>` pairs:
  *   - Header item: contains the section name as plain text (e.g. "Ihre Aufgaben")
  *   - Body item: contains the bullet list inside an inner <ul><li>...</li></ul>
  *
@@ -285,14 +285,48 @@ function parseSwissDate(raw = '') {
  *
  * Returns concatenated plain-text content (\n\n separated sections).
  */
+function findMatchingUmantisElementClose(html, start, tagName) {
+  const tagRx = new RegExp(`<\\s*(\\/?)\\s*${tagName}\\b`, 'gi');
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let match;
+  while ((match = tagRx.exec(html))) {
+    if (match[1] === '/') {
+      depth -= 1;
+      if (depth === 0) return match.index;
+      continue;
+    }
+    const tagEnd = html.indexOf('>', match.index + match[0].length);
+    if (tagEnd !== -1 && !/\/\s*$/.test(html.slice(match.index + match[0].length, tagEnd))) {
+      depth += 1;
+    }
+  }
+  return -1;
+}
+
 export function extractUmantisDetailContent(html) {
   if (!html || typeof html !== 'string') return '';
-  // First try the newer-UI customdatablock pattern
+  const cleanedHtml = stripUmantisNonContent(html);
+  // First try the newer-UI customdatablock pattern. GZF and other tenants
+  // emit the same blocks as <p> elements, sometimes with a malformed closing
+  // tag (e.g. `</p`). Use the element's own closing tag first, with the next
+  // block/container as a defensive boundary for malformed pages.
   const blocks = [];
-  const dataBlockRx = /<li class="customdatablock"[^>]*id="customdatablock_\d+"[^>]*>([\s\S]*?)<\/li\s*>/g;
-  let m;
-  while ((m = dataBlockRx.exec(html))) {
-    let text = m[1]
+  const dataBlockOpenRx = /<(?:li|p)\b(?=[^>]*\bclass\s*=\s*["'][^"']*\bcustomdatablock\b[^"']*["'])(?=[^>]*\bid\s*=\s*["']customdatablock_\d+["'])[^>]*>/gi;
+  const starts = [...cleanedHtml.matchAll(dataBlockOpenRx)];
+  for (let i = 0; i < starts.length; i += 1) {
+    const opening = starts[i][0];
+    const start = (starts[i].index ?? 0) + opening.length;
+    const nextStart = i + 1 < starts.length ? (starts[i + 1].index ?? cleanedHtml.length) : cleanedHtml.length;
+    const chunk = cleanedHtml.slice(start, nextStart);
+    const ownEnd = findMatchingUmantisElementClose(cleanedHtml, start, opening.match(/^<(li|p)\b/i)?.[1] || 'p');
+    const boundaryEnd = chunk.search(/<\/(?:article|main|body|footer|nav)\b/i);
+    const end = Math.min(
+      nextStart,
+      ownEnd >= 0 ? ownEnd : nextStart,
+      boundaryEnd >= 0 ? start + boundaryEnd : nextStart,
+    );
+    let text = cleanedHtml.slice(start, end)
       .replace(/<ul[^>]*>/gi, '')
       .replace(/<\/ul\s*>/gi, '')
       .replace(/<li[^>]*>/gi, '\n• ')
