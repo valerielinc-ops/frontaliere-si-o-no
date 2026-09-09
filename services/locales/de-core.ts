@@ -3812,7 +3812,7 @@ Regeln:
   'publisherDashboard.crawled.unit': 'Intent-Signale',
   'publisherDashboard.crawled.desc': 'In GA4 erfasste Intent-Signale für Ihre kostenlosen Inserate in den letzten 3 Monaten. Sie bestätigen keine eingereichten Bewerbungen.',
   'publisherDashboard.crawled.zero': 'In der GA4-Quelle wurden für den verfügbaren Zeitraum null Signale beobachtet.',
-  'publisherDashboard.crawled.dataMissing': 'Daten fehlen: Die GA4-Quelle ist vorhanden, hat aber keinen verwendbaren Wert geliefert.',
+  'publisherDashboard.crawled.dataMissing': 'Daten fehlen: Die GA4-Quelle hat geantwortet, liefert aber keine verwendbare Messung für diese Inserate.',
   'publisherDashboard.crawled.sourceUnavailable': 'Quelle nicht verfügbar: Der GA4-Bericht für kostenlose Inserate ist derzeit nicht verfügbar.',
  'publisherDashboard.kpi.totalViews': 'Aufrufe insgesamt',
  'publisherDashboard.kpi.totalClicks': 'Bewerbungsklicks',

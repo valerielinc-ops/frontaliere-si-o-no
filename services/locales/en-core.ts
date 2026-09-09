@@ -3809,7 +3809,7 @@ Rules:
   'publisherDashboard.crawled.unit': 'intent signals',
   'publisherDashboard.crawled.desc': 'Intent signals recorded in GA4 for your free listings in the last 3 months. They do not confirm submitted applications.',
   'publisherDashboard.crawled.zero': 'Zero observed in the GA4 source for the available period.',
-  'publisherDashboard.crawled.dataMissing': 'Data missing: the GA4 source is present, but it returned no usable value.',
+  'publisherDashboard.crawled.dataMissing': 'Data missing: the GA4 source responded, but it provides no usable measure for these listings.',
   'publisherDashboard.crawled.sourceUnavailable': 'Source unavailable: the GA4 report for free listings is not available at the moment.',
  'publisherDashboard.kpi.totalViews': 'total views',
  'publisherDashboard.kpi.totalClicks': 'Apply clicks',

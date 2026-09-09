@@ -3899,7 +3899,7 @@ Regole:
   'publisherDashboard.crawled.unit': 'segnali di intento',
   'publisherDashboard.crawled.desc': 'Segnali di intento registrati in GA4 per i tuoi annunci gratuiti negli ultimi 3 mesi. Non confermano candidature inviate.',
   'publisherDashboard.crawled.zero': 'Zero osservato nella sorgente GA4 per il periodo disponibile.',
-  'publisherDashboard.crawled.dataMissing': 'Dato assente: la sorgente GA4 è presente, ma non ha restituito un valore utilizzabile.',
+  'publisherDashboard.crawled.dataMissing': 'Dato assente: la sorgente GA4 risponde, ma non fornisce una misura utilizzabile per questi annunci.',
   'publisherDashboard.crawled.sourceUnavailable': 'Sorgente non disponibile: il report GA4 degli annunci gratuiti non è disponibile al momento.',
  'publisherDashboard.kpi.totalViews': 'visualizzazioni totali',
  'publisherDashboard.kpi.totalClicks': 'Clic candidatura',

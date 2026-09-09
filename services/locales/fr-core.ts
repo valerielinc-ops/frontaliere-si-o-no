@@ -3812,7 +3812,7 @@ Règles :
   'publisherDashboard.crawled.unit': 'signaux d’intention',
   'publisherDashboard.crawled.desc': 'Signaux d’intention enregistrés dans GA4 pour vos annonces gratuites au cours des 3 derniers mois. Ils ne confirment pas des candidatures envoyées.',
   'publisherDashboard.crawled.zero': 'Zéro observé dans la source GA4 pour la période disponible.',
-  'publisherDashboard.crawled.dataMissing': 'Donnée absente : la source GA4 est présente, mais n’a renvoyé aucune valeur utilisable.',
+  'publisherDashboard.crawled.dataMissing': 'Donnée absente : la source GA4 a répondu, mais ne fournit aucune mesure exploitable pour ces annonces.',
   'publisherDashboard.crawled.sourceUnavailable': 'Source indisponible : le rapport GA4 des annonces gratuites n’est pas disponible pour le moment.',
  'publisherDashboard.kpi.totalViews': 'vues au total',
  'publisherDashboard.kpi.totalClicks': 'Clics de candidature',

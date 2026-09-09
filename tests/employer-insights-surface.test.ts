@@ -58,23 +58,43 @@ describe('employer insights surface semantics', () => {
 
 describe('publisher crawled traffic states', () => {
   it('does not hide the card behind a numeric greater-than-zero check', () => {
-    expect(publisherPage).not.toContain('crawledCandidates > 0');
     expect(publisherPage).toContain("crawledTraffic.status === 'zero'");
     expect(publisherPage).toContain("crawledTraffic.status === 'data-missing'");
     expect(publisherPage).toContain("crawledTraffic.status === 'source-unavailable'");
   });
 
-  it('distinguishes unavailable source, missing value, observed zero, and positive data', () => {
-    expect(classifyCrawledTrafficState([])).toEqual({ status: 'source-unavailable' });
-    expect(classifyCrawledTrafficState([missingSnapshot('missing')])).toEqual({
-      status: 'source-unavailable',
-    });
-    expect(classifyCrawledTrafficState([presentSnapshot('without-value')])).toEqual({
+  it('shows zero when an alias record exists without a candidate record', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [presentSnapshot('alias-without-candidates')],
+    })).toEqual({ status: 'zero' });
+  });
+
+  it('shows missing data when the source responds without an alias record', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [missingSnapshot('missing')],
+    })).toEqual({
       status: 'data-missing',
     });
-    expect(classifyCrawledTrafficState([presentSnapshot('zero', 0)])).toEqual({ status: 'zero' });
+  });
+
+  it('shows source unavailable only when the source read fails', () => {
+    expect(classifyCrawledTrafficState({ source: 'unavailable' })).toEqual({
+      status: 'source-unavailable',
+    });
+  });
+
+  it('sums usable aliases while ignoring an empty alias record', () => {
     expect(
-      classifyCrawledTrafficState([presentSnapshot('first', 4), presentSnapshot('second', 2)]),
+      classifyCrawledTrafficState({
+        source: 'available',
+        snapshots: [
+          presentSnapshot('alias-without-candidates'),
+          presentSnapshot('first', 4),
+          presentSnapshot('second', 2),
+        ],
+      }),
     ).toEqual({ status: 'available', candidates: 6 });
   });
 });

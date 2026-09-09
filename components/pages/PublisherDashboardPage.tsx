@@ -98,27 +98,46 @@ type CrawledTrafficSnapshot = {
   data: () => unknown;
 };
 
+type CrawledTrafficRead =
+  | { source: 'unavailable' }
+  | { source: 'available'; snapshots: readonly CrawledTrafficSnapshot[] };
+
 /**
- * Keep the source states distinct in the UI. A missing Firestore document is
- * not an observed zero, and a document without a usable count is not usable
- * data. Missing alias documents are ignored when at least one candidate key
- * resolves, because the lookup intentionally tries several naming variants.
+ * Keep the source states distinct in the UI. A successful lookup without a
+ * matching alias is missing coverage, while a matching alias without a
+ * candidate record is an observed zero. Missing alias documents are ignored
+ * when at least one candidate key resolves, because the lookup intentionally
+ * tries several naming variants.
  */
 export function classifyCrawledTrafficState(
-  snapshots: readonly CrawledTrafficSnapshot[],
+  read: CrawledTrafficRead,
 ): Exclude<CrawledTrafficState, { status: 'loading' }> {
-  const availableSnapshots = snapshots.filter((snapshot) => snapshot.exists());
-  if (availableSnapshots.length === 0) return { status: 'source-unavailable' };
+  if (read.source === 'unavailable') return { status: 'source-unavailable' };
+
+  const availableSnapshots = read.snapshots.filter((snapshot) => snapshot.exists());
+  if (availableSnapshots.length === 0) return { status: 'data-missing' };
 
   let candidates = 0;
+  let hasUsableValue = false;
+  let hasInvalidValue = false;
   for (const snapshot of availableSnapshots) {
-    const value = (snapshot.data() as Record<string, unknown> | null)?.candidates;
-    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
-      return { status: 'data-missing' };
+    const data = snapshot.data();
+    if (data == null || typeof data !== 'object') {
+      hasInvalidValue = true;
+      continue;
     }
+    if (!Object.prototype.hasOwnProperty.call(data, 'candidates')) continue;
+
+    const value = (data as Record<string, unknown>).candidates;
+    if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) {
+      hasInvalidValue = true;
+      continue;
+    }
+    hasUsableValue = true;
     candidates += value;
   }
 
+  if (!hasUsableValue && hasInvalidValue) return { status: 'data-missing' };
   return candidates === 0 ? { status: 'zero' } : { status: 'available', candidates };
 }
 
@@ -428,7 +447,10 @@ const PublisherDashboardPage: React.FC = () => {
         //   3. legal-suffix-stripped stem (strips -sa/-ag/-gmbh/… from the end)
         // All unique keys are fetched in parallel; candidates are deduplicated by
         // Firestore doc id before summing so the same doc is never counted twice.
-        let nextCrawledTraffic: CrawledTrafficState = { status: 'source-unavailable' };
+        let nextCrawledTraffic: CrawledTrafficState = classifyCrawledTrafficState({
+          source: 'available',
+          snapshots: [],
+        });
         try {
           const candidateKeys = Array.from(new Set(
             snap.docs.flatMap((d) => {
@@ -455,11 +477,14 @@ const PublisherDashboardPage: React.FC = () => {
               seen.add(ct.id);
               return true;
             });
-            nextCrawledTraffic = classifyCrawledTrafficState(uniqueSnapshots);
+            nextCrawledTraffic = classifyCrawledTrafficState({
+              source: 'available',
+              snapshots: uniqueSnapshots,
+            });
           }
         } catch {
           // The source is unavailable; keep that distinct from an observed zero.
-          nextCrawledTraffic = { status: 'source-unavailable' };
+          nextCrawledTraffic = classifyCrawledTrafficState({ source: 'unavailable' });
         }
 
         if (!cancelled) {
