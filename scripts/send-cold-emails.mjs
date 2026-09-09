@@ -354,8 +354,14 @@ async function run() {
   mergeFirestoreSends(sendLog, await loadFirestoreSends());
 
   const topExplicit = process.argv.includes('--top');
-  let targets = report.employers.slice(0, top);
+  let targets = report.employers.slice();
   if (onlyCompany && onlyCompany !== true) targets = report.employers.filter((e) => (e.key || '') === onlyCompany);
+  targets = targets
+    .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
+    .sort((a, b) => (b.metric?.value ?? -1) - (a.metric?.value ?? -1)
+      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .slice(0, top)
+    .map(({ entry }) => entry);
   // Guard: a target without a usable outreach metric gets no numeric claim.
   const skipped = targets.filter((e) => {
     const metric = selectOutreachMetric(e);

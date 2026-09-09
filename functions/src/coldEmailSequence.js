@@ -42,7 +42,9 @@ export function buildSequence({ company, candidates, metricValue, metricLabel, p
   const metric = count !== null && count > 0
     ? {
         value: count,
-        label: providedMetric ? (metricLabel || 'click per candidarsi') : 'segnali di interesse',
+        label: metricLabel === 'click per candidarsi' || metricLabel === 'segnali di interesse'
+          ? metricLabel
+          : 'segnali di interesse',
       }
     : null;
   const period = String(periodLabel || '').trim();
@@ -76,9 +78,7 @@ Valerie`,
       touch: 2, gapDays: 4, subject: 'di quei click',
       body: `${hi}
 
-${metricFollowup}
-
-Con l'annuncio sponsorizzato il CV può essere raccolto direttamente nella vostra casella — niente form esterni, niente dispersione. Vi mando un esempio reale?
+${metricFollowup ? `${metricFollowup}\n\n` : ''}Con l'annuncio sponsorizzato il CV può essere raccolto direttamente nella vostra casella — niente form esterni, niente dispersione. Vi mando un esempio reale?
 
 Valerie`,
     },

@@ -69,7 +69,7 @@ function countOrNull(value) {
  */
 export function selectOutreachMetric(entry = {}) {
   const applyClicks = countOrNull(entry.applyClicks);
-  if (applyClicks !== null) {
+  if (applyClicks !== null && applyClicks > 0) {
     return { value: applyClicks, label: 'click per candidarsi', source: 'applyClicks' };
   }
   const proxyField = entry.applyClickProxy !== undefined
@@ -98,10 +98,13 @@ function run() {
   const contacts = loadJson(path.resolve(contactsPath), {});
 
   // Nessuna azienda esclusa: top `top` per metrica, sopra la soglia `min`.
-  const targets = report.employers.filter((e) => {
-    const metric = selectOutreachMetric(e);
-    return metric && metric.value >= min;
-  }).slice(0, top);
+  const targets = report.employers
+    .map((entry) => ({ entry, metric: selectOutreachMetric(entry) }))
+    .filter(({ metric }) => metric && metric.value >= min)
+    .sort((a, b) => b.metric.value - a.metric.value
+      || String(a.entry.key || a.entry.name || '').localeCompare(String(b.entry.key || b.entry.name || '')))
+    .slice(0, top)
+    .map(({ entry }) => entry);
 
   fs.mkdirSync(outDir, { recursive: true });
   console.log('═════════════════════════════════════════════════════════════');

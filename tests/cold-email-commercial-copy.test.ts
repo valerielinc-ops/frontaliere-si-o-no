@@ -27,6 +27,34 @@ describe('cold-email commercial copy', () => {
     });
   });
 
+  it('uses the proxy when raw apply clicks are zero and keeps an unlabeled metric neutral', () => {
+    expect(selectOutreachMetric({ applyClicks: 0, applyClickProxy: 23, candidates: 23 })).toEqual({
+      value: 23,
+      label: 'segnali di interesse',
+      source: 'applyClickProxy',
+    });
+
+    const [t1] = buildSequence({
+      company: 'Acme SA',
+      candidates: 7,
+      metricValue: 23,
+      periodLabel: PERIOD,
+    });
+    expect(t1.body).toContain('23 segnali di interesse');
+    expect(t1.body).not.toContain('23 click per candidarsi');
+  });
+
+  it('omits an empty touch-2 metric hook when its number or period is unavailable', () => {
+    const [, t2] = buildSequence({
+      company: 'Acme SA',
+      candidates: undefined,
+      periodLabel: '',
+      contactName: 'Denise Rossi',
+    });
+    expect(t2.body).toContain('Ciao Denise,\n\nCon l\'annuncio sponsorizzato');
+    expect(t2.body).not.toContain('Ciao Denise,\n\n\nCon l\'annuncio sponsorizzato');
+  });
+
   it.each([
     '23 persone',
     '23 candidati',
@@ -56,10 +84,17 @@ describe('cold-email commercial copy', () => {
         days: 90,
         window: { from: '2026-06-12T00:00:00.000Z', to: '2026-09-10T00:00:00.000Z' },
         employers: [{
-          key: 'acme-sa',
-          name: 'Acme SA',
-          candidates: 23,
-          applyClickProxy: 23,
+          key: 'proxy-first',
+          name: 'Proxy First SA',
+          candidates: 40,
+          applyClickProxy: 40,
+          applyClicks: 5,
+          clicks: 5,
+        }, {
+          key: 'click-first',
+          name: 'Click First SA',
+          candidates: 10,
+          applyClickProxy: 10,
           applyClicks: 31,
           clicks: 31,
         }],
@@ -77,7 +112,9 @@ describe('cold-email commercial copy', () => {
       ], { cwd: path.resolve(import.meta.dirname, '..'), encoding: 'utf8' });
 
       expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
-      const draft = fs.readFileSync(path.join(outDir, '01-acme-sa.md'), 'utf8').toLowerCase();
+      expect(fs.existsSync(path.join(outDir, '01-click-first.md'))).toBe(true);
+      expect(fs.existsSync(path.join(outDir, '01-proxy-first.md'))).toBe(false);
+      const draft = fs.readFileSync(path.join(outDir, '01-click-first.md'), 'utf8').toLowerCase();
       expect(draft).toContain(`click per candidarsi (${PERIOD}): **31**`);
       expect(draft).not.toContain('candidati inviati');
       expect(draft).not.toContain('23 persone');
