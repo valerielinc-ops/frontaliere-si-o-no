@@ -112,6 +112,30 @@ function childEnv(codexHome, codexTmp) {
   return env;
 }
 
+/**
+ * The broker is a long-lived host process, so killing only the direct Codex
+ * child is not enough: the CLI may have helper processes in the same process
+ * group. `detached: true` below makes the child a group leader on POSIX; send
+ * the signal to the negative PGID there and fall back to ChildProcess.kill on
+ * platforms where process groups are not available.
+ */
+function terminateChild(child, signal = 'SIGKILL') {
+  const pid = Number(child?.pid);
+  if (process.platform !== 'win32' && Number.isInteger(pid) && pid > 1 && pid !== process.pid) {
+    try {
+      process.kill(-pid, signal);
+      return;
+    } catch (error) {
+      // The group may have exited between the signal and this call. For any
+      // other failure, still try the direct child handle below.
+      if (!['ESRCH', 'EINVAL', 'EPERM'].includes(error?.code)) {
+        console.error(`Codex auth broker process-group cleanup failed: ${error.message}`);
+      }
+    }
+  }
+  try { child?.kill?.(signal); } catch { /* child already exited */ }
+}
+
 function assertPrivateRuntime(runtimeRoot, directories, files) {
   const root = path.resolve(runtimeRoot);
   const assertInside = (target) => {
@@ -145,12 +169,19 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
   const outputPath = path.join(codexHome, 'last-message.txt');
   const schemaPath = path.join(codexHome, 'output-schema.json');
   let child = null;
+  let runtimeCleaned = false;
 
-  const finish = async () => {
+  const finish = () => {
     // `auth.json`, schema, prompt output, and the private workspace are all
     // below a fresh 0700 root. This runs on success, failure, and timeout.
+    if (runtimeCleaned) return;
+    runtimeCleaned = true;
+    if (activeRuntimeCleanup === finish) activeRuntimeCleanup = null;
     fs.rmSync(runtimeRoot, { recursive: true, force: true });
   };
+  // Register before any setup/spawn work: a signal can arrive while the
+  // runtime tree is being materialized, before the child handle exists.
+  activeRuntimeCleanup = finish;
 
   const run = new Promise((resolve, reject) => {
     try {
@@ -199,13 +230,14 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
         stdio: ['pipe', 'ignore', 'ignore'],
         env: childEnv(codexHome, codexTmp),
         cwd: codexWorkspace,
+        detached: process.platform !== 'win32',
       });
       activeChild = child;
       let settled = false;
       const timer = setTimeout(() => {
         if (settled) return;
         settled = true;
-        child?.kill?.('SIGKILL');
+        terminateChild(child, 'SIGKILL');
         const error = new Error(`Codex CLI timed out after ${timeoutMs}ms`);
         error.name = 'TimeoutError';
         reject(error);
@@ -255,18 +287,25 @@ function validateRequest(request) {
 
 let authJson = '';
 let activeChild = null;
+let activeRuntimeCleanup = null;
 let server;
 let closed = false;
 let consumed = false;
 let expiry;
 
 function cleanup() {
-  if (closed) return;
+  const firstCleanup = !closed;
   closed = true;
   clearTimeout(expiry);
-  activeChild?.kill?.('SIGKILL');
+  terminateChild(activeChild, 'SIGKILL');
   activeChild = null;
   authJson = '';
+  const runtimeCleanup = activeRuntimeCleanup;
+  activeRuntimeCleanup = null;
+  try { runtimeCleanup?.(); } catch (error) {
+    console.error(`Codex auth broker runtime cleanup failed: ${error.message}`);
+  }
+  if (!firstCleanup) return;
   try { server?.close(); } catch { /* already closed */ }
   try { fs.unlinkSync(socketPath); } catch { /* runner cleanup may win */ }
   try { fs.rmdirSync(path.dirname(socketPath)); } catch { /* socket/client may remain */ }
@@ -356,7 +395,7 @@ function handleClient(client) {
     consumed = true;
     requestAccepted = true;
     client.setTimeout(Math.max(5000, Number(parsed.timeoutMs) + 10_000), () => {
-      activeChild?.kill?.('SIGKILL');
+      terminateChild(activeChild, 'SIGKILL');
       client.destroy();
     });
     const credential = authJson;

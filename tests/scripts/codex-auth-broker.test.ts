@@ -67,13 +67,20 @@ function writeFakeCodex(root: string) {
   return fake;
 }
 
-function writeHangingCodex(root: string) {
+function writeHangingCodex(root: string, { descendant = false } = {}) {
   const fake = path.join(root, 'hanging-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
     import fs from 'node:fs';
     import path from 'node:path';
+    import { spawn } from 'node:child_process';
     const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
     const runtimeRoot = path.dirname(path.dirname(output));
+    ${descendant ? `
+    const descendant = spawn(process.execPath, ['-e', 'setInterval(() => {}, 1000)'], {
+      stdio: 'ignore',
+    });
+    fs.writeFileSync(path.join(runtimeRoot, 'descendant'), String(descendant.pid));
+    ` : ''}
     fs.writeFileSync(path.join(runtimeRoot, 'started'), String(process.pid));
     setInterval(() => {}, 1000);
   `);
@@ -107,6 +114,30 @@ function waitForBrokerRuntime(existing: Set<string>) {
   });
 }
 
+function processIsAlive(pid: number) {
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error: any) {
+    return error?.code === 'EPERM';
+  }
+}
+
+function waitForProcessGone(pid: number) {
+  return new Promise<void>((resolve, reject) => {
+    const deadline = Date.now() + 2000;
+    const timer = setInterval(() => {
+      if (!processIsAlive(pid)) {
+        clearInterval(timer);
+        resolve();
+      } else if (Date.now() >= deadline) {
+        clearInterval(timer);
+        reject(new Error(`process group descendant ${pid} did not terminate`));
+      }
+    }, 10);
+  });
+}
+
 const profileConfig = `model_reasoning_effort = "medium"
 default_permissions = "claude-haiku-fallback"
 
@@ -130,6 +161,7 @@ enabled = false
 describe('Codex auth broker runtime contract', () => {
   const children: ReturnType<typeof spawn>[] = [];
   const roots: string[] = [];
+  const descendants: number[] = [];
 
   afterEach(async () => {
     for (const child of children) {
@@ -139,6 +171,11 @@ describe('Codex auth broker runtime contract', () => {
           once(child, 'exit'),
           new Promise((resolve) => setTimeout(resolve, 1000)),
         ]);
+      }
+    }
+    for (const pid of descendants.splice(0)) {
+      if (processIsAlive(pid)) {
+        try { process.kill(pid, 'SIGKILL'); } catch { /* already exited */ }
       }
     }
     children.splice(0);
@@ -309,6 +346,58 @@ describe('Codex auth broker runtime contract', () => {
     ]);
     expect(fs.existsSync(runtimeRoot)).toBe(false);
     expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  it('synchronously cleans auth/runtime and kills the Codex process group on SIGTERM', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const hangingCodex = writeHangingCodex(root, { descendant: true });
+    const existingRuntimes = new Set(
+      brokerTempRoots().flatMap((tempRoot) => fs.readdirSync(tempRoot)
+        .filter((name) => name.startsWith('codex-haiku-broker-'))
+        .map((name) => `${tempRoot}/${name}`)),
+    );
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '600000'], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin', CODEX_CLI_BIN: hangingCodex },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"signal-only"}');
+    await waitForSocket(socketPath, child);
+
+    const client = net.createConnection(socketPath);
+    client.on('error', () => {});
+    await new Promise<void>((resolve, reject) => {
+      client.once('error', reject);
+      client.once('connect', () => {
+        client.removeListener('error', reject);
+        client.write('{"op":"exec","prompt":"hang until SIGTERM","timeoutMs":600000,"schema":null}\n');
+        resolve();
+      });
+    });
+    const runtimeRoot = await waitForBrokerRuntime(existingRuntimes);
+    const descendantPath = path.join(runtimeRoot, 'descendant');
+    const descendantDeadline = Date.now() + 1000;
+    while (!fs.existsSync(descendantPath) && Date.now() < descendantDeadline) {
+      await new Promise((resolve) => setTimeout(resolve, 10));
+    }
+    expect(fs.existsSync(descendantPath)).toBe(true);
+    const descendantPid = Number(fs.readFileSync(descendantPath, 'utf8'));
+    expect(descendantPid).toBeGreaterThan(1);
+    descendants.push(descendantPid);
+
+    const brokerExit = once(child, 'exit');
+    child.kill('SIGTERM');
+    await Promise.race([
+      brokerExit,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after SIGTERM')), 2000)),
+    ]);
+    await waitForProcessGone(descendantPid);
+    expect(fs.existsSync(runtimeRoot)).toBe(false);
+    expect(fs.existsSync(socketPath)).toBe(false);
+    client.destroy();
   });
 
   it('does not consume auth on malformed or unsupported requests', async () => {
