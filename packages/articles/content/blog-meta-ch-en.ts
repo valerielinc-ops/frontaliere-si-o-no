@@ -6136,6 +6136,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pa30-consultazione-agricola.title': 'PA30+: Federal Consultation on Agriculture',
     'blog.article.pa30-consultazione-agricola.excerpt': 'PA30+ consultation with all agri-food stakeholders. News about online voting in Neuchâtel, rare diseases and climate funds.',
     'blog.article.pa30-consultazione-agricola.imageAlt': 'Swiss rural landscape with alpine meadows and forests during summer heat wave',
+    'blog.article.uri-franchigie-modelli-sussidio.title': 'Uri sick fund: deductibles, models and reduction',
+    'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'In Canton Uri, LAMal premiums vary by deductible and insurance model. Discover the bands available (CHF 300–2500), the coverage models and how to access the cantonal subsidy.',
+    'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Modern healthcare office in Switzerland with professionals consulting health insurance documents',
 };
 
 export default blogMetaChEn;

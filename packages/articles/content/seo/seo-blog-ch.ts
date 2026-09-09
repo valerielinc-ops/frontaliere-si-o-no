@@ -79658,6 +79658,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uri-franchigie-modelli-sussidio': {
+    title: 'Cassa malati Uri: franchigie, modelli e riduzione',
+    description: 'Nel Canton Uri, i premi LAMal variano per franchigia e modello assicurativo. Scopri le fasce disponibili (CHF 300–2500), i modelli di copertura e come accedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, franchigie, modelli',
+    ogTitle: 'Cassa malati Uri: franchigie, modelli e riduzione',
+    ogDescription: 'Nel Canton Uri, i premi LAMal variano per franchigia e modello assicurativo. Scopri le fasce disponibili (CHF 300–2500), i modelli di copertura e come accedere al sussidio cantonale.',
+    canonicalPath: '/articoli-svizzera/uri-franchigie-modelli-sussidio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati Uri: franchigie, modelli e riduzione",
+      "description": "Nel Canton Uri, i premi LAMal variano per franchigia e modello assicurativo. Scopri le fasce disponibili (CHF 300–2500), i modelli di copertura e come accedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uri-franchigie-modelli-sussidio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio medico moderno in Svizzera con operatori che consultano documenti di assicurazione malattia"
+      },
+      "datePublished": "2026-09-09T01:23:52+00:00",
+      "dateModified": "2026-09-09T01:23:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-franchigie-modelli-sussidio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

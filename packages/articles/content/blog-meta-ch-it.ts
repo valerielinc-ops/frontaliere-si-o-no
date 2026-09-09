@@ -6136,6 +6136,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pa30-consultazione-agricola.title': 'PA30+: consultazione federale su agricoltura',
     'blog.article.pa30-consultazione-agricola.excerpt': 'Consultazione PA30+ con tutti gli attori agroalimentari. Novità su voto online a Neuchâtel, malattie rare e fondi clima.',
     'blog.article.pa30-consultazione-agricola.imageAlt': 'Paesaggio agricolo svizzero con prati alpini e boschi durante ondata di calore estivo',
+    'blog.article.uri-franchigie-modelli-sussidio.title': 'Cassa malati Uri: franchigie, modelli e riduzione',
+    'blog.article.uri-franchigie-modelli-sussidio.excerpt': 'Nel Canton Uri, i premi LAMal variano per franchigia e modello assicurativo. Scopri le fasce disponibili (CHF 300–2500), i modelli di copertura e come accedere al sussidio cantonale.',
+    'blog.article.uri-franchigie-modelli-sussidio.imageAlt': 'Studio medico moderno in Svizzera con operatori che consultano documenti di assicurazione malattia',
 };
 
 export default blogMetaChIt;
