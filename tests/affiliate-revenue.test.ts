@@ -126,5 +126,21 @@ describe('affiliate revenue reconciliation', () => {
       amount: '1.234,56',
       transaction_date: '2026-09-04',
     })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234.56 }) }));
+
+    expect(normalizeAffiliateTransaction({
+      transaction_id: 'tx-grouped-comma',
+      status: 'approved',
+      currency: 'CHF',
+      amount: '1,234',
+      transaction_date: '2026-09-04',
+    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234 }) }));
+
+    expect(normalizeAffiliateTransaction({
+      transaction_id: 'tx-grouped-dot',
+      status: 'approved',
+      currency: 'CHF',
+      amount: '1.234.567',
+      transaction_date: '2026-09-04',
+    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234567 }) }));
   });
 });

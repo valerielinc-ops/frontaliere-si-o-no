@@ -20,6 +20,7 @@ const STATUS_ALIASES = new Map([
 ]);
 
 const STATUS_PRIORITY = { pending: 1, approved: 2, reversed: 3 };
+const GROUPED_THOUSANDS_RE = /^-?\d{1,3}([,.]\d{3})+$/;
 
 const FIELD_ALIASES = {
   transactionId: ['transactionId', 'transaction_id', 'id', 'commissionId', 'commission_id'],
@@ -59,7 +60,13 @@ function asMoney(raw) {
     const thousands = decimal === ',' ? /\./g : /,/g;
     normalized = compact.replace(thousands, '').replace(decimal, '.');
   } else if (comma !== -1) {
-    normalized = compact.replace(',', '.');
+    normalized = GROUPED_THOUSANDS_RE.test(compact)
+      ? compact.replace(/,/g, '')
+      : compact.replace(',', '.');
+  } else if (dot !== -1) {
+    normalized = GROUPED_THOUSANDS_RE.test(compact)
+      ? compact.replace(/\./g, '')
+      : compact;
   }
   const value = Number(normalized);
   return Number.isFinite(value) ? value : null;
