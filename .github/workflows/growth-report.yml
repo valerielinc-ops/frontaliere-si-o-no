@@ -97,7 +97,7 @@ jobs:
         timeout-minutes: 80
         id: claude_growth
         continue-on-error: true
-        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
+        uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}

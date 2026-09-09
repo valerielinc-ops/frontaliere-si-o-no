@@ -233,7 +233,7 @@ jobs:
         # ridondante (lo step di skip sopra esce 1 e GitHub salta già il resto) ma
         # esplicita: il gate non deve dipendere dall'ordine degli step per reggere.
         if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
-        uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
+        uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}

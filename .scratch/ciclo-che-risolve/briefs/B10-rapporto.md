@@ -6,9 +6,9 @@ Repo analizzato: `valerielinc-ops/frontaliere-si-o-no`
 ## Diagnosi
 
 La causa osservata è il ref flottante `anthropics/claude-code-action@v1` usato
-dagli invocatori Claude del sito, e in particolare dal check required di
-`.github/workflows/tests.yml`: tra il run riuscito e quelli falliti ha risolto
-due revisioni upstream diverse. L’aggiornamento upstream ha portato l’SDK/native installer da
+dal check required di `.github/workflows/tests.yml`: tra il run riuscito e
+quelli falliti ha risolto due revisioni upstream diverse. L’aggiornamento
+upstream ha portato l’SDK/native installer da
 `0.3.263/2.1.263` a `0.3.265/2.1.265`; sul runner del sito la nuova installazione
 ha dichiarato successo lasciando però assente `~/.local/bin/claude`. L’SDK ha
 quindi fallito con `ENOENT` prima di poter eseguire la review.
@@ -81,17 +81,26 @@ Il percorso mancante è sotto `/home/runner`, fuori dal checkout. La coppia
 `fetch-depth: 0` + `filter: blob:none` non è stata modificata e non è una causa
 compatibile con questo errore.
 
+## Scope dei workflow sibling
+
+Il sibling gate ha segnalato nove invocatori Claude aggiuntivi. Sono stati
+ispezionati uno per uno: condividono il nome dell’azione ma appartengono a
+workflow di audit, report, issue/fixer e follow-up, non al check required che ha
+bloccato le PR. Il primo tentativo di pinning di tutti e dieci ha fatto fallire
+la suite preesistente con `4 failed | 2033 passed`: due test cercano ancora
+esplicitamente il marker `anthropics/claude-code-action@v1` e due contratti
+analizzano quei workflow. Quei test non sono stati indeboliti; i nove sibling
+sono stati ripristinati. Per questo incidente sono falsi positivi di scope del
+sibling gate, mentre il pin del check required resta il diff minimo verificabile.
+
 ## Riparazione
 
-In questa branch tutti i dieci invocatori del sito sono stati cambiati da `@v1`
-al commit upstream `9c5ddab2e6d17b83ea679153b31f1d5f023cf636`, che il run #8047
-dimostra funzionare con `2.1.263`. Il pin include il check required in
-`.github/workflows/tests.yml` e i nove candidati segnalati dal sibling gate:
-`crawler-content-plausibility-audit.yml`, `growth-report.yml`,
-`issue-decompose.yml`, `issue-fix.yml`, `lessons-harvester.yml`,
-`needs-human-sweep.yml`, `post-merge-followup.yml`, `pr-redcheck-fixer.yml` e
-`pr-redflag-fixer.yml`. Non sono stati toccati Headroom, token, flag, checkout,
-assemble, gate o dati generati.
+In questa branch il solo invocatore required della review in
+`.github/workflows/tests.yml` è stato cambiato da `@v1` al commit upstream
+`9c5ddab2e6d17b83ea679153b31f1d5f023cf636`, che il run #8047 dimostra funzionare
+con `2.1.263`. I nove sibling restano invariati per mantenere il loro contratto
+di test e perché non sono nel percorso required osservato. Non sono stati
+toccati Headroom, token, flag, checkout, assemble, gate o dati generati.
 
 Il pin è la riparazione upstream prevista: non crea manualmente il binario e
 non imposta `pathToClaudeCodeExecutable` su un percorso inventato.
