@@ -11615,6 +11615,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.libro-boom-frontalieri-svizzera.title': 'Il libro sul boom dei frontalieri in Svizzera',
     'blog.article.libro-boom-frontalieri-svizzera.excerpt': 'Nuovo libro accademico spiega come la Svizzera conta 400.000 frontalieri. Da 84.000 nel 1978 al boom dopo il 2000. Focus su salari, fiscalità, trasporti.',
     'blog.article.libro-boom-frontalieri-svizzera.imageAlt': 'Paesaggio della regione ticinese al confine con l\'Italia, simbolo del mercato del lavoro frontaliero svizzero-italiano.',
+    'blog.article.mesenzana-lavorare-ticino.title': 'Vivere a Mesenzana e lavorare in Ticino',
+    'blog.article.mesenzana-lavorare-ticino.excerpt': 'Scopri come vivere a Mesenzana e lavorare in Ticino da frontaliere: permessi, fiscalità, trasporti, costo della vita e procedimenti. Guida pratica.',
+    'blog.article.mesenzana-lavorare-ticino.imageAlt': 'Paesaggio del confine Ticino-Italia presso il valico di Brogeda, con colline Alpi sullo sfondo',
 };
 
 export default blogMetaIt;
