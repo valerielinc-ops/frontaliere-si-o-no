@@ -77,6 +77,24 @@ describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)'
     expect(maxQuotaResetsAt([{ body: formatRateLimitComment({ resetsAt: resets }) }])).toBe(resets);
   });
 
+  it('beacon senza esito successivo → resta attivo', () => {
+    const resets = nowSec() + 3600;
+    const comments: Comment[] = [
+      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000) },
+    ];
+    expect(maxQuotaResetsAt(comments)).toBe(resets);
+  });
+
+  it('un altro `rate-limited` successivo non supera il beacon precedente', () => {
+    const earlierReset = nowSec() + 7200;
+    const laterReset = nowSec() + 3600;
+    const comments: Comment[] = [
+      { body: formatRateLimitComment({ resetsAt: earlierReset }), createdAt: iso(120_000) },
+      { body: formatRateLimitComment({ resetsAt: laterReset }), createdAt: iso(60_000) },
+    ];
+    expect(maxQuotaResetsAt(comments)).toBe(earlierReset);
+  });
+
   it('con più beacon vince quello che si chiude per ULTIMO', () => {
     const a = nowSec() + 3600;
     const b = nowSec() + 9000;
@@ -93,6 +111,21 @@ describe('maxQuotaResetsAt (beacon di backoff, helper condiviso gate↔drainer)'
     expect(maxQuotaResetsAt([{ body: '<!-- FIX_OUTCOME: no-root-cause -->' }])).toBeNull();
     expect(maxQuotaResetsAt([])).toBeNull();
     expect(maxQuotaResetsAt(undefined as unknown as Comment[])).toBeNull();
+  });
+
+  it('beacon malformato → null (il gate procede)', () => {
+    expect(maxQuotaResetsAt([
+      { body: '<!-- QUOTA_RESETS_AT: non-un-epoch -->', createdAt: iso(60_000) },
+    ])).toBeNull();
+  });
+
+  it('beacon seguito da un esito non-rate-limited → superato', () => {
+    const resets = nowSec() + 3600;
+    const comments: Comment[] = [
+      { body: formatRateLimitComment({ resetsAt: resets }), createdAt: iso(120_000) },
+      { body: '<!-- FIX_OUTCOME: already-fixed -->', createdAt: iso(60_000) },
+    ];
+    expect(maxQuotaResetsAt(comments)).toBeNull();
   });
 });
 
