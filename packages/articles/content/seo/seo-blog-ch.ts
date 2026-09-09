@@ -80126,6 +80126,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-internet-banda-larga-svizzera': {
+    title: 'Internet veloce in tutta la Svizzera: piano federale',
+    description: 'Il Consiglio federale adotta un programma da 730 milioni CHF per portare internet a 1 Gb/s nelle zone poco popolate svizzere. Finanziamento 50-50',
+    keywords: 'frontalieri, ticino, svizzera, italia, internet, veloce, tutta, piano',
+    ogTitle: 'Internet veloce in tutta la Svizzera: piano federale',
+    ogDescription: 'Scopri il nuovo programma federale svizzero da 730 milioni CHF per espandere la banda larga moderna nelle zone rurali e poco popolate. Obiettivo: 1 Gb/s, inizio 2030. Cosa cambia per economie domestiche e attività commerciali.',
+    canonicalPath: '/articoli-svizzera/internet-banda-larga-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Internet veloce in tutta la Svizzera: piano federale",
+      "description": "Il Consiglio federale adotta un programma da 730 milioni CHF per portare internet a 1 Gb/s nelle zone poco popolate svizzere. Finanziamento 50-50",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/internet-banda-larga-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino svizzero con infrastrutture digitali: fibra ottica in zone rurali"
+      },
+      "datePublished": "2026-09-09T12:52:12+00:00",
+      "dateModified": "2026-09-09T12:52:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/internet-banda-larga-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
