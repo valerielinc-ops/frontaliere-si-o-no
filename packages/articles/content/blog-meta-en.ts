@@ -11620,6 +11620,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, the delay on reforms: Economiesuisse\'s alarm',
     'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, outgoing President Economiesuisse, criticizes the government: discussion on the postponed retirement age, risks to the sustainability of the system.',
     'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professional reviews pension documents with view of Ticino-Switzerland border region',
+    'blog.article.casnate-bernate-trasferimento.title': 'Living in Casnate, working in Ticino',
+    'blog.article.casnate-bernate-trasferimento.excerpt': 'Moving to Casnate and working in Ticino: tax at source, AVS/LPP and procedures for border workers from 2024.',
+    'blog.article.casnate-bernate-trasferimento.imageAlt': 'View of Mendrisio at sunset, Ticino, near the Swiss-Italian border',
 };
 
 export default blogMetaEn;

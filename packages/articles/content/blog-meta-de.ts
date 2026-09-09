@@ -11619,6 +11619,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avs-eta-pensionabile-frontalieri.title': 'AHV, Reformverzögerung: Der Alarm von Economiesuisse',
     'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, scheidender Präsident Economiesuisse, kritisiert die Regierung: Diskussion über das aufgeschobene Rentenalter, Risiken für die Nachhaltigkeit des Systems.',
     'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Fachmann überprüft Rentendokumente mit Blick auf die Tessin-Schweiz-Grenzregion',
+    'blog.article.casnate-bernate-trasferimento.title': 'Leben in Casnate, Arbeiten im Tessin',
+    'blog.article.casnate-bernate-trasferimento.excerpt': 'Umzug nach Casnate und Arbeit im Tessin: Quellensteuer, AHV/BVG und Verfahren für Grenzgänger ab 2024.',
+    'blog.article.casnate-bernate-trasferimento.imageAlt': 'Blick auf Mendrisio im Sonnenuntergang, Tessin, in der Nähe der Schweizer-italienischen Grenze',
 };
 
 export default blogMetaDe;

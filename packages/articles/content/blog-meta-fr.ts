@@ -11622,6 +11622,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-eta-pensionabile-frontalieri.title': 'AVS, le retard sur les réformes : l\'alarme d\'Economiesuisse',
     'blog.article.avs-eta-pensionabile-frontalieri.excerpt': 'Mäder, président sortant Economiesuisse, critique le gouvernement : discussion sur l\'âge de départ à la retraite reporté, risques pour la durabilité du système.',
     'blog.article.avs-eta-pensionabile-frontalieri.imageAlt': 'Professionnel examine des documents de retraite avec vue sur la région frontalière Tessin-Suisse',
+    'blog.article.casnate-bernate-trasferimento.title': 'Vivre à Casnate, travailler au Tessin',
+    'blog.article.casnate-bernate-trasferimento.excerpt': 'Déménager à Casnate et travailler au Tessin : impôt à la source, AVS/LPP et procédures pour les frontaliers à partir de 2024.',
+    'blog.article.casnate-bernate-trasferimento.imageAlt': 'Vue de Mendrisio au coucher du soleil, Tessin, près de la frontière suisse-italienne',
 };
 
 export default blogMetaFr;
