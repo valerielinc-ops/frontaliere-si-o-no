@@ -189,6 +189,7 @@ jobs:
           # l'App slug è allowlistato in #2881). Senza token → exit warning (inerte).
           GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          FOLLOWUP_MAX_INFLIGHT_FIX: '3'
           # Fairness di quota (2026-08-21): la quota Claude è condivisa coi run
           # del corpus, e il beacon peer è a senso unico (il corpus cede al
           # sito). Misurato: il sito consuma ogni finestra di reset e il corpus
