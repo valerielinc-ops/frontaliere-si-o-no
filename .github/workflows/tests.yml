@@ -35,9 +35,8 @@ permissions:
   id-token: write
   # Sola lettura, per l'ultimo step del job di esecuzione: legge gli step del
   # job STESSO dalla jobs API per scrivere nello Step Summary quale famiglia ha
-  # fatto rosso. Il wrapper si chiama `vitest (unit + integration)` ma il
-  # dettaglio vive nel job di esecuzione; senza questa riga la pagina della run
-  # continua ad accogliere con 43 step da scorrere.
+  # fatto rosso. Lo stesso job `vitest (unit + integration)` pubblica il check
+  # required e contiene tutti gli step da diagnosticare.
   actions: read
 
 # Two different questions share this workflow, and they do NOT want the same

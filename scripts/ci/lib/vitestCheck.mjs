@@ -57,10 +57,9 @@ export function latestCompletedVitestRun(checkRuns) {
 }
 
 /**
- * Il job che esegue davvero la suite e la review, distinto dal wrapper
- * `VITEST_CHECK_NAME` che pubblica il check required fail-closed. Chi deve
- * leggere gli step del job (non il verdetto required) deve usare questo
- * helper, altrimenti cerca il link Jobs API sul wrapper senza step applicativi.
+ * Il job che esegue la suite e la review pubblica anche il check required.
+ * Questo helper restituisce il suo link Jobs API ai consumer che leggono gli
+ * step; la selezione coincide con quella del verdetto required.
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string, details_url?: string}|null}

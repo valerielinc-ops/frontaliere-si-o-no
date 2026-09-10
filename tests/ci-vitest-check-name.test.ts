@@ -211,7 +211,7 @@ describe('tests.yml dataset assembly predicate (#B4)', () => {
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
   it('matcha byte-per-byte il name: del job required in tests.yml', () => {
-    // Estrae il `name:` del wrapper `vitest:` (può essere quotato o no).
+    // Estrae il `name:` del job `vitest:` (può essere quotato o no).
     const m = TESTS_YML.match(/^[ \t]*vitest:\s*\n\s*name:\s*(.+?)\s*$/m);
     expect(m, 'job `vitest:` con `name:` non trovato in tests.yml').toBeTruthy();
     const jobName = (m![1] || '').replace(/^['"]|['"]$/g, '');
