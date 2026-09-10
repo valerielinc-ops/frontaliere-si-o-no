@@ -6250,6 +6250,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Löhne und Arbeit Thurgau: Branchen, Ebenen und Verträge',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Im Kanton Thurgau gibt es keinen eidgenössischen Mindestlohn; die Wochenstunden betragen je nach Branche 45 oder 50 Stunden, mit AHV/AHV-Beiträgen von 5.3% für den Arbeitnehmer.',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Schweizer Bürogebäude mit Alpenblick, Symbol für den kantonalen Arbeitsmarkt',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd haftet für Mehrkosten',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CDG stellt fest, dass Amherd die Kostenrisiken F-35 Monate zuvor kannte. Dreijährige Verjährung fällig, Wyssmann bittet um Unterbrechung.',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Bundeshaus in Bern mit Schweizer Flagge bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;

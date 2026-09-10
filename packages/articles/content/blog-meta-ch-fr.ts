@@ -6250,6 +6250,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Salaires et travail Thurgovie : secteurs, niveaux et contrats',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Dans le canton de Thurgovie, il n\'existe pas de salaire minimum fédéral ; les heures hebdomadaires sont de 45 ou 50 selon le secteur, avec des cotisations AVS/AHV à 5,3 % pour le salarié.',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Bureau suisse avec panorama alpin, symbole du marché du travail cantonal',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35 : Amherd risque d\'être responsable des coûts supplémentaires',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG constate qu\'Amherd était au courant des risques de coûts F-35 mois plus tôt. Prescription triennale arrivant à échéance, Wyssmann demande l\'interruption.',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Palais fédéral à Berne avec drapeau suisse au coucher du soleil',
 };
 
 export default blogMetaChFr;

@@ -2109,6 +2109,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'commissioni-extraparlamentari-riorganizzazione': { it: 'commissioni-extraparlamentari-riorganizzazione', en: 'extraparlamentary-commissions-reorganization', de: 'reorganisation-ausserparlamentarischer-kommissionen', fr: 'reorganisation-commissions-extraparliamentaires' },
  'svizzera-corruzione-restituzione-banche': { it: 'svizzera-corruzione-restituzione-banche', en: 'switzerland-corruption-restitution-banks', de: 'schweiz-korruption-rueckerstattung-banken', fr: 'suisse-corruption-restitution-banques' },
  'salari-mercato-lavoro-turgovia-settori-livelli': { it: 'salari-mercato-lavoro-turgovia-settori-livelli', en: 'salaries-labour-market-turgovia-sectors-levels', de: 'gehaelter-arbeitsmarkt-turgovia-sektoren-niveaus', fr: 'salaires-marche-travail-turgovia-secteurs-niveaux' },
+ 'f-35-amherd-prescrizione-responsabilita': { it: 'f-35-amherd-prescrizione-responsabilita', en: 'f-35-amherd-statute-limitations-liability', de: 'f-35-amherd-verjaehrung-verantwortung', fr: 'f-35-amherd-prescription-responsabilite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -18748,6 +18748,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'f-35-amherd-prescrizione-responsabilita',
+    category: 'fiscale',
+    date: '2026-09-10T02:33:16.573Z',
+    image: '/images/blog/f-35-amherd-prescrizione-responsabilita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

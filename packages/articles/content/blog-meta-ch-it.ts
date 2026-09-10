@@ -6250,6 +6250,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.title': 'Salari e lavoro Turgovia: settori, livelli e contratti',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.excerpt': 'Nel cantone Turgovia non esiste un salario minimo federale; le ore settimanali sono 45 o 50 a seconda del settore, con contributi AVS/AHV al 5.3% per il dipendente.',
     'blog.article.salari-mercato-lavoro-turgovia-settori-livelli.imageAlt': 'Ufficio svizzero con vista alpina, simbolo del mercato del lavoro cantonale',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd rischia responsabilità per costi extra',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG accerta che Amherd sapeva dei rischi costi F-35 mesi prima. Prescrizione triennale in scadenza, Wyssmann chiede interruzione.',
+    'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Palazzo federale a Berna con bandiera svizzera al tramonto',
 };
 
 export default blogMetaChIt;
