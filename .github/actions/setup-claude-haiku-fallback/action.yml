@@ -196,8 +196,101 @@ runs:
           done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
           return 1
         }
+        report_runtime_candidates() {
+          local path_entry binary candidate resolved mode owner
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            case "$path_entry" in
+              /*) ;;
+              *) continue ;;
+            esac
+            case "$path_entry" in
+              /tmp|/tmp/*|"$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*|"$runner_temp"|"$runner_temp"/*)
+                continue
+                ;;
+            esac
+            for binary in node npm; do
+              candidate="$path_entry/$binary"
+              [ -f "$candidate" ] || continue
+              resolved="$(realpath "$candidate" 2>/dev/null || true)"
+              [ -n "$resolved" ] || continue
+              mode="$(stat_mode "$resolved")"
+              owner="$(stat_owner "$resolved")"
+              [ -n "$mode" ] || mode=unknown
+              [ -n "$owner" ] || owner=unknown
+              printf 'trusted-runtime candidate=%s mode=%s owner=%s\n' \
+                "$resolved" "$mode" "$owner"
+            done
+          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+        }
         node_realpath="$(find_trusted_node || true)"
         npm_realpath="$(find_trusted_npm || true)"
+        if [ -z "$node_realpath" ] || [ -z "$npm_realpath" ]; then
+          report_runtime_candidates
+          # Ubuntu's setup-node toolcache is runner-managed. It is intentionally
+          # rejected by path_components_trusted(), so use a checksum-pinned
+          # release in a private RUNNER_TEMP directory as the fail-closed
+          # fallback instead of trusting a mutable toolcache path.
+          node_version='v24.21.0'
+          node_archive="node-${node_version}-linux-x64.tar.xz"
+          node_url="https://nodejs.org/dist/${node_version}/${node_archive}"
+          node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'
+          uname_cmd=/usr/bin/uname
+          [ -x "$uname_cmd" ] || uname_cmd=/bin/uname
+          [ -x "$uname_cmd" ] || { echo '::error::Trusted uname utility is unavailable.'; exit 1; }
+          case "$($uname_cmd -s 2>/dev/null || true):$($uname_cmd -m 2>/dev/null || true)" in
+            Linux:x86_64) ;;
+            *) echo '::error::Pinned Node fallback requires Linux x64.'; exit 1 ;;
+          esac
+          for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod; do
+            [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
+            path_components_trusted "$host_tool" || {
+              echo "::error::Required host tool path is writable or untrusted: $host_tool"
+              exit 1
+            }
+          done
+          case "$runner_temp" in
+            "$workspace_root"|"$workspace_root"/*|"$action_path"|"$action_path"/*)
+              echo '::error::RUNNER_TEMP must be outside workspace and action directories.'
+              exit 1
+              ;;
+          esac
+          node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/claude-haiku-node.XXXXXX")"
+          /usr/bin/chmod 700 "$node_runtime_root"
+          archive_path="$node_runtime_root/$node_archive"
+          /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+            --output "$archive_path" "$node_url"
+          archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"
+          if [ "$archive_sha256" != "$node_archive_sha256" ]; then
+            echo '::error::Pinned Node archive checksum mismatch.'
+            exit 1
+          fi
+          node_root="$node_runtime_root/node"
+          /usr/bin/mkdir -p "$node_root"
+          /usr/bin/chmod 700 "$node_root"
+          /usr/bin/tar --extract --file "$archive_path" --directory "$node_root" \
+            --strip-components=1 --no-same-owner --use-compress-program=/usr/bin/xz
+          /usr/bin/chmod -R go-rwx "$node_root"
+          node_realpath="$(realpath "$node_root/bin/node")"
+          npm_realpath="$(realpath "$node_root/lib/node_modules/npm/bin/npm-cli.js")"
+          case "$node_realpath:$npm_realpath" in
+            "$node_root"/*:"$node_root"/*) ;;
+            *) echo '::error::Extracted Node/npm escaped the pinned runtime directory.'; exit 1 ;;
+          esac
+          [ -f "$node_realpath" ] && [ -x "$node_realpath" ] && [ ! -L "$node_realpath" ] || {
+            echo '::error::Downloaded Node runtime is not an executable regular file.'
+            exit 1
+          }
+          [ -f "$npm_realpath" ] && [ -x "$npm_realpath" ] && [ ! -L "$npm_realpath" ] || {
+            echo '::error::Downloaded npm runtime is not an executable regular file.'
+            exit 1
+          }
+          node_version_actual="$("$node_realpath" --version 2>/dev/null || true)"
+          [ "$node_version_actual" = "$node_version" ] || {
+            echo '::error::Downloaded Node runtime version mismatch.'
+            exit 1
+          }
+        fi
         if [ -z "$node_realpath" ] || [ -z "$npm_realpath" ]; then
           echo '::error::Trusted Node/npm runtime must resolve outside writable runner trees.'
           exit 1
@@ -314,8 +407,9 @@ runs:
         )
         global_prefix="$(/usr/bin/env -i "${clean_env[@]}" "$trusted_node" "$trusted_npm" prefix --global)"
         global_prefix="$("$realpath_bin" "$global_prefix")"
+        trusted_node_root="$(/usr/bin/dirname "$trusted_node_dir")"
         case "$global_prefix" in
-          /usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;
+          "$trusted_node_root"|"$trusted_node_root"/*|/usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*) ;;
           *) echo '::error::Claude global npm prefix is outside the trusted host toolchain.'; exit 1 ;;
         esac
         /usr/bin/env -i "${clean_env[@]}" "$trusted_node" "$trusted_npm" install --global \
@@ -339,6 +433,7 @@ runs:
           echo "::error::Unexpected Claude Code CLI version: $claude_cli_version"
           exit 1
         fi
+        printf '%s\n' "$trusted_node_dir" >> "${GITHUB_PATH:?GITHUB_PATH is required}"
         rm -rf -- "$install_root"
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=1" >> "$GITHUB_ENV"
 
