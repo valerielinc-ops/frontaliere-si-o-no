@@ -22,7 +22,13 @@ const SITE_ORIGIN = 'https://frontaliereticino.ch';
  */
 function rewrittenUrl(
   html: string,
-  ctx: { search?: string; referrer?: string; readyState?: string; getElementById?: () => unknown },
+  ctx: {
+    search?: string;
+    referrer?: string;
+    readyState?: string;
+    getElementById?: () => unknown;
+    addEventListener?: (event: string, callback: () => void) => void;
+  },
 ): string {
   const start = html.indexOf('var u=');
   const end = html.indexOf('var redirected=false;');
@@ -33,7 +39,7 @@ function rewrittenUrl(
     referrer: ctx.referrer ?? '',
     readyState: ctx.readyState ?? 'loading',
     getElementById: ctx.getElementById ?? (() => null),
-    addEventListener: () => {},
+    addEventListener: ctx.addEventListener ?? (() => {}),
   };
   const location = { search: ctx.search ?? '', origin: SITE_ORIGIN };
   return new Function('document', 'location', 'setTimeout', `${block} return u;`)(
@@ -104,6 +110,14 @@ describe('affiliate redirect pubref', () => {
   it('the build-time destination already carries a default pubref', () => {
     const html = buildRedirectPage(wise);
     expect(html).toContain('pubref=go-redirect');
+
+    const ambiguous = {
+      ...wise,
+      url: 'https://wise.prf.hn/click/camref:1100l4Sfa/destination:https://wise.com/it/send-money/?ref=x',
+    };
+    const ambiguousHtml = buildRedirectPage(ambiguous);
+    expect(ambiguousHtml).not.toContain("searchParams.set('pubref'");
+    expect(ambiguousHtml).toContain(`href="${ambiguous.url}"`);
   });
 
   it('keeps the inline redirect sanitiser aligned on capped pubrefs', () => {
@@ -118,17 +132,20 @@ describe('affiliate redirect pubref', () => {
     expect(rewrittenSlot2).not.toBe(rewrittenSlot3);
   });
 
-  it('retries the visible link when the DOM-ready branch runs before #go-link exists', () => {
+  it('retries the visible link when either readiness branch runs before #go-link exists', () => {
     const html = buildRedirectPage(wise);
-    let calls = 0;
-    let href = '';
-    const link = { setAttribute: (_name: string, value: string) => { href = value; } };
-    rewrittenUrl(html, {
-      readyState: 'complete',
-      search: '?pos=late-dom-slot',
-      getElementById: () => (calls++ === 0 ? null : link),
-    });
-    expect(calls).toBe(2);
-    expect(href).toContain('pubref=late-dom-slot');
+    for (const readyState of ['complete', 'loading']) {
+      let calls = 0;
+      let href = '';
+      const link = { setAttribute: (_name: string, value: string) => { href = value; } };
+      rewrittenUrl(html, {
+        readyState,
+        search: '?pos=late-dom-slot',
+        getElementById: () => (calls++ === 0 ? null : link),
+        addEventListener: (_event, callback) => callback(),
+      });
+      expect(calls).toBe(2);
+      expect(href).toContain('pubref=late-dom-slot');
+    }
   });
 });
