@@ -1244,7 +1244,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Betriebskoordinator: in 80 - 100 %",
       "titleByLocale": {
-        "it": "Betriebskoordinator: in 80 - 100 %",
+        "it": "Coordinatore operativo: 80 - 100 %",
         "en": "Operational coordinator: 80 - 100 %",
         "de": "Betriebskoordinator: in 80 - 100 %",
         "fr": "Coordinateur des opérations : à 80 - 100 %"
@@ -1336,8 +1336,7 @@
         }
       },
       "addressRegion": "NW",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "sbb-8e72f2e32f79",
@@ -1849,7 +1848,7 @@
       "title": "Product Manager Cloud Foundation (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile prodotto Cloud Foundation (m/f/d)",
-        "en": "Product Manager Cloud Foundation (m/w/d)",
+        "en": "Product Manager Cloud Foundation (m/f/d)",
         "de": "Product Manager Cloud Foundation (m/w/d)",
         "fr": "Chef de produit Cloud Foundation (h/f/d)"
       },
@@ -3000,7 +2999,7 @@
       "title": "Operative:r Asset Manager:in Daten",
       "titleByLocale": {
         "it": "Dati del Gestore Operativo degli Asset",
-        "en": "Operative:r Asset Manager:in Daten",
+        "en": "Operational:r Asset Manager Data",
         "de": "Operative:r Asset Manager:in Daten",
         "fr": "Données du gestionnaire d'actifs opérationnel"
       },
@@ -3063,8 +3062,7 @@
       },
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "sbb-2f7875ff9c48",
@@ -6068,7 +6066,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "SAP Enterprise Architect (m/w/d)",
       "titleByLocale": {
-        "it": "SAP Enterprise Architect (m/w/d)",
+        "it": "SAP Enterprise Architect (m/f/d)",
         "en": "SAP Enterprise Architect (m/f/d)",
         "de": "SAP Enterprise Architect (m/w/d)",
         "fr": "Architecte d'entreprise SAP (h/f/d)"
@@ -6109,7 +6107,6 @@
           "sap-enterprise-architect-m-w-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:48:33.449Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
