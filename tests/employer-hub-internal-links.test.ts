@@ -47,6 +47,7 @@ import {
 import { companyHubUrl } from '@/services/companyAlertEmail.mjs';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { employerTitleCandidates } from '../build-plugins/employerProfilePagesPlugin';
+import { buildEmployerLinkItems } from '../build-plugins/employerProfilePagesLinksPlugin';
 import { BRIDGE_FLOOR, MIN_ACTIVE_JOBS } from '../build-plugins/shared/employerProfileConfig.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -327,6 +328,26 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
 
 describe('every active ad links its employer hub (mossa 2)', () => {
   const source = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
+
+  it('keeps noindex profile identities out of crawlable sitemap links', () => {
+    const links = buildEmployerLinkItems([
+      {
+        locale: 'it',
+        path: '/aziende/indexable/',
+        label: 'Indexable',
+        indexable: true,
+        companyKey: 'indexable',
+      },
+      {
+        locale: 'it',
+        path: '/aziende/noindex/',
+        label: 'Noindex',
+        indexable: false,
+        companyKey: 'noindex',
+      },
+    ]);
+    expect(links.it).toEqual([{ href: '/aziende/indexable/', label: 'Indexable' }]);
+  });
 
   it('takes the emitted paths from the build signal, never from an ordering assumption', () => {
     // buildSignals.ts: closeBundle hooks run in PARALLEL. Reading another
