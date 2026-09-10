@@ -398,7 +398,6 @@
           "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -414,8 +413,7 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-2fd5dbfa7f6e",
@@ -592,7 +590,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -609,8 +606,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-c2be30cf246d",
@@ -1139,7 +1135,6 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
       "crawledAt": "2026-09-09T23:25:12.717Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1157,8 +1152,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-d340d5737202",

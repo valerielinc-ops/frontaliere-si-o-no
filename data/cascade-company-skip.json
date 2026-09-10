@@ -1,5 +1,5 @@
 {
-  "run": 19,
+  "run": 20,
   "companies": {
     "postfinance": {
       "sterile": 1,
@@ -40,6 +40,14 @@
     "manor": {
       "sterile": 1,
       "signature": "ced15d04377d89d2"
+    },
+    "burkhalter-group": {
+      "sterile": 1,
+      "signature": "272883b964e59ed3"
+    },
+    "migros-ticino": {
+      "sterile": 1,
+      "signature": "90e473f33488da21"
     }
   }
 }
