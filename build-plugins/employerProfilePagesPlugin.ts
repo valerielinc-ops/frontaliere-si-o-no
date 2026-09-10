@@ -798,15 +798,15 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           // manual slots. Indexable pages are rendered again with the shared
           // list renderer, which inserts ads after cards 3, 6, 9, … up to the
           // site's account-safety cap.
-          const probeBodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
+          const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
           const meetsFloor = liveActive >= MIN_ACTIVE_JOBS || demandHold;
-          const indexable = meetsFloor && countHtmlBodyWords(probeBodyHtml) >= MIN_INDEXABLE_WORDS;
-          const bodyHtml = indexable
+          const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
+          const renderedBodyHtml = indexable
             ? renderProfileBody(liveProfile, listed, locale, group, { interleaveInfeedAds: true })
-            : probeBodyHtml;
-          return { locale, bodyHtml, indexable };
+            : bodyHtml;
+          return { locale, bodyHtml: renderedBodyHtml, indexable };
         });
         if (demandHold && liveActive < MIN_ACTIVE_JOBS && rendered.some((r) => r.indexable)) heldByDemand++;
         const indexableLocales = rendered.filter((r) => r.indexable).map((r) => r.locale);
