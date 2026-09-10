@@ -6256,6 +6256,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist appointed Deputy Director Federal Administration of Finance',
     'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter appoints Stefan Leist as AFF Deputy Director from 1 October 2026. Already leading the Financial Policy Division since 1 March 2026.',
     'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, new deputy director of Federal Finance Administration',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Cantonal taxes Jura: rates, brackets and deductions 2024',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Practical guide to the tax system of the Canton of Jura: three-level structure, municipal multipliers, allowable deductions and official portal for the declaration.',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Swiss cantonal tax office with citizen service counters',
 };
 
 export default blogMetaChEn;

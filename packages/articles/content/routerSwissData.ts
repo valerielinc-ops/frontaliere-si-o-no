@@ -2111,6 +2111,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-turgovia-settori-livelli': { it: 'salari-mercato-lavoro-turgovia-settori-livelli', en: 'salaries-labour-market-turgovia-sectors-levels', de: 'gehaelter-arbeitsmarkt-turgovia-sektoren-niveaus', fr: 'salaires-marche-travail-turgovia-secteurs-niveaux' },
  'f-35-amherd-prescrizione-responsabilita': { it: 'f-35-amherd-prescrizione-responsabilita', en: 'f-35-amherd-statute-limitations-liability', de: 'f-35-amherd-verjaehrung-verantwortung', fr: 'f-35-amherd-prescription-responsabilite' },
  'stefan-leist-vicedirettore-aff-2026': { it: 'stefan-leist-vicedirettore-aff-2026', en: 'stefan-leist-deputy-director-ffa-2026', de: 'stefan-leist-vizedirektor-efv-2026', fr: 'stefan-leist-directeur-adjoint-aff-2026' },
+ 'imposte-cantonali-giura-aliquote-deduzioni': { it: 'imposte-cantonali-giura-aliquote-deduzioni', en: 'jura-cantonal-tax-rates-deductions', de: 'jura-kantonssteuer-saetze-abzuege', fr: 'impots-cantonaux-jura-taux-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

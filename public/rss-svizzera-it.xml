@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Thu, 10 Sep 2026 05:17:54 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 22:13:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,56 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Imposte cantonali Giura: aliquote, scaglioni e deduzioni 2024</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni/</link>
+      <description><![CDATA[Guida pratica al sistema fiscale del Cantone Giura: struttura a tre livelli, moltiplicatori comunali, deduzioni ammesse e portale ufficiale per la dichiarazione.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Il Cantone Giura applica imposte su tre livelli: federale, cantonale e comunale
+- Le aliquote cantonali sono progressive; i comuni applicano un moltiplicatore sull'imposta cantonale
+- Le deduzioni seguono principi federali con integrazioni cantonali specifiche
+- La dichiarazione si presenta online tramite il portale dell'amministrazione fiscale giurassiana
+
+## Fatti chiave
+- **Cosa**: Imposte cantonali e comunali nel Cantone Giura
+- Quando: Scadenza dichiarazione ordinaria 31 marzo (proroghe possibili)
+- Dove: Cantone Giura, Svizzera
+- Chi: Amministrazione fiscale cantonale del Giura (Service des contributions)
+- Importo: Aliquote progressive per scaglioni di reddito e sostanza; moltiplicatori comunali variabili
+
+Il sistema fiscale svizzero si articola su tre livelli: l'imposta federale diretta (IFD) gestita dall'AFC/ESTV, l'imposta cantonale e l'imposta comunale, entrambe di competenza delle amministrazioni cantonali. Nel Cantone Giura, come in tutti i cantoni, la legge fiscale cantonale definisce gli scaglioni di reddito e di sostanza, le aliquote base e le deduzioni ammesse. I comuni giurassiani applicano poi un moltiplicatore (coefficiente) sull'imposta cantonale netta per determinare l'imposta comunale dovuta.
+
+### Struttura a tre livelli e competenze
+L'IFD è identica per tutti i contribuenti svizzeri e viene calcolata sull'imponibile federale. L'imposta cantonale del Giura segue una tariffa progressiva per scaglioni: all'aumentare del reddito imponibile (o della sostanza imponibile) si applicano aliquote marginali crescenti. L'imposta comunale non ha tariffa propria: è il risultato dell'imposta cantonale moltiplicata per il coefficiente comunale, che ogni comune fissa annualmente. Questa architettura rende il carico fiscale finale diverso da comune a comune pur restando all'interno dello stesso cantone.
+
+La distinzione di competenze è rigida: AFC/ESTV gestisce IFD e IVA; le amministrazioni cantonali (nel Giura il Service des contributions) gestiscono imposte cantonali e comunali; UFAS/BSV si occupa di previdenza sociale (AVS/AI/LPP) e non fissa imposte; UST/BFS produce statistiche e non fissa aliquote.
+### Aliquote, scaglioni e moltiplicatori comunali
+Le aliquote cantonali del Giura sono pubblicate ogni anno nel tariffario ufficiale e si applicano per scaglioni di reddito netto imponibile (dopo deduzioni) e di sostanza netta imponibile. Non esiste un'aliquota unica: il sistema è progressivo a scaglioni, quindi la prima tranche di reddito è tassata all'aliquota più bassa, la tranche successiva all'aliquota superiore, e così via. L'imposta cantonale lorda che ne risulta viene poi ridotta degli eventuali abbuoni o crediti d'imposta cantonali per arrivare all'imposta cantonale netta.
+
+Su questa base netta si applica il moltiplicatore comunale. Ogni comune del Giura delibera annualmente il proprio coefficiente (es. 1,45; 1,60; 1,30 ecc.). L'imposta comunale = imposta cantonale netta × moltiplicatore comunale. La somma di imposta cantonale netta + imposta comunale costituisce l'imposta cantonale/comunale complessiva. A questa si aggiunge l'IFD per ottenere l'imposta totale dovuta.
+
+### Deduzioni ammesse: principi federali e specificità cantonali
+Le deduzioni seguono in larga misura i principi del diritto federale armonizzato (LIFD), ma il Cantone Giura può prevedere deduzioni supplementari o parametri propri (es. deduzioni per figli, per spese di guadagno, per premi LAMal/KVG, per versamenti nel pilastro 3a, per interessi passivi, per spese mediche eccedenti una franchigia). L'elenco preciso e gli importi massimi deducibili per l'anno d'imposta in corso sono indicati nelle istruzioni ufficiali della dichiarazione d'imposta giurassiana e sul portale dell'amministrazione fiscale.
+
+Un aspetto pratico rilevante: i contributi sociali trattenuti alla fonte (AVS/AI/IPG 5,3% a carico dipendente, AD/AC 1,1%, LAINF/LAA secondo settore, LPP sul salario coordinato con aliquote per fasce d'età) riducono il reddito lordo per determinare il reddito netto imponibile. I premi LAMal/KVG non sono contributi salariali né tasse, ma sono deducibili entro i limiti cantonali.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).
+### Scadenze, procedura e portale online
+La dichiarazione d'imposta ordinaria va presentata entro il 31 marzo dell'anno successivo a quello d'imposta (salvo proroghe concesse su richiesta all'amministrazione fiscale). Il Cantone Giura mette a disposizione il portale ufficiale per la dichiarazione elettronica (e-tax / dichiarazione online), che guida il contribuente passo passo: importazione dei dati precompilati (certificati di salario, attestati bancari, ecc.), inserimento manuale delle voci mancanti, calcolo automatico dell'imponibile e dell'imposta stimata, invio firmato digitalmente.
+
+Chi non riceve la dichiarazione precompilata o preferisce il cartaceo può richiedere i moduli all'amministrazione fiscale. Dopo l'invio, l'ufficio emette la tassazione definitiva con la decisione di tassazione (Veranlagungsverfügung / décision de taxation). Contro questa è possibile presentare reclamo entro 30 giorni all'autorità di ricorso competente.
+
+### Strumenti utili per il contribuente
+Per simulare l'impatto di reddito, deduzioni, comune di residenza e situazione familiare, il calcolatore stipendio/imposte del sito permette di confrontare scenari. Chi deve coordinare IFD, cantonale/comunale e previdenza (AVS/LPP/pilastro 3a) trova nel calcolatore busta paga una visione d'insieme. Per la dichiarazione vera e propria, il link diretto al portale e-tax del Giura è il canale più rapido.
+
+[Calcola la tua imposta stimata in Giura](nav:calculator)]]></content:encoded>
+      <pubDate>Thu, 10 Sep 2026 22:13:44 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-giura-aliquote-deduzioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-giura-aliquote-deduzioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Stefan Leist nominato vicedirettore Amministrazione federale finanze</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/stefan-leist-vicedirettore-aff-2026/</link>
@@ -3755,84 +3805,6 @@ Per coloro che investono nel terzo pilastro o nella previdenza professionale, è
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/novartis-giornata-nera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/novartis-giornata-nera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Traffico aereo svizzero cresce, ma le emissioni salgono</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/traffico-aereo-svizzero-cresce/</link>
-      <description><![CDATA[Nel 2025 l'aviazione civile ha superato i numeri pre-Covid: 1,4 milioni di movimenti (+5%), 60,5 milioni di passeggeri (+4%). Tuttavia, le emissioni CO2 salgono del 3%.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Nel 2025 il traffico aereo svizzero ha superato per la prima volta i numeri pre-Covid
-- 1,4 milioni di movimenti aerei (+5% vs 2024, +3% vs 2019)
-- 60,5 milioni di passeggeri (+4% vs 2024), Zurigo leader con 32,5 milioni
-- Emissioni CO2 salite del 3% a 5,74 milioni di tonnellate
-
-## Fatti chiave
-- **Cosa**: Aviazione civile svizzera supera numeri pre-Covid nel 2025
-- Quando: Dati diffusi nel 2025 relativi all'anno 2025
-- Dove: Svizzera (hub principali: Zurigo, Basilea-Mulhouse, Ginevra)
-- Chi: UST (Ufficio federale di statistica), settore aviazione civile
-- Movimenti: 1,4 milioni di decolli e atterraggi, +5% rispetto a 2024
-- Passeggeri: 60,5 milioni, +4% vs 2024
-- Emissioni CO2: 5,74 milioni di tonnellate, +3%
-- Carburante: 1,83 milioni di tonnellate rifornite in Svizzera
-
-Nel 2025 la Svizzera ha registrato un traguardo significativo: l'aviazione civile ha superato per la prima volta i numeri registrati prima della crisi del Covid-19. Secondo i dati diffusi oggi dall'Ufficio federale di statistica (UST), il traffico aereo nel nostro paese ha raggiunto 1,4 milioni di movimenti (decolli e atterraggi), in crescita del 5% rispetto al 2024 e del 3% rispetto al 2019, ultimo anno della normalità pre-pandemica. Un ritorno ai livelli pre-Covid che segna un consolidamento della ripresa del settore aviazione svizzero dopo gli anni di crisi.
-
-I numeri sui passeggeri raccontano una storia simile: i 60,5 milioni di passeggeri registrati nel 2025 rappresentano una crescita del 4% rispetto all'anno precedente e del 2% rispetto al 2019. Un'espansione che conferma come le rotte aeree svizzere hanno recuperato non soltanto il volume pre-pandemico, ma hanno continuato a crescere anche oltre.
-
-### Composizione del traffico e mix operativo
-
-La struttura del traffico mostra dinamiche operative interessanti. L'aviazione generale — che opera con velivoli prevalentemente di piccole dimensioni — ha rappresentato circa il 68% dei movimenti aerei totali in Svizzera. Il traffico di linea e charter, invece, ha dominato il flusso di viaggiatori con una quota del 99% dei passeggeri. Questo significa che il volume numerico di decolli e atterraggi è largamente trainato da piccoli velivoli per usi privati e charter, mentre la stragrande maggioranza dei passeggeri — 99 su 100 — viaggia su aerei commerciali di linea.
-
-### Hub aeroportuali: performance differenziate
-
-Gli scali svizzeri principali hanno mostrato andamenti differenziati sul piano dei passeggeri. Zurigo, il più grande hub nazionale e europeo per il traffico di connessione, ha segnato un aumento del 4% arrivando a 32,5 milioni di passeggeri annuali. Basilea-Mulhouse ha performato ancora meglio con un balzo dell'8%, raggiungendo 9,6 milioni di passeggeri. Ginevra, il terzo aeroporto svizzero per traffico di passeggeri, si è mantenuta sostanzialmente stabile a 17,7 milioni di passeggeri.
-
-### Occupazione dei voli e rotte
-
-Un dato che merita attenzione riguarda il tasso di occupazione medio dei posti a bordo: è sceso dall'82% al 79%. Sebbene i passeggeri totali siano cresciuti, le compagnie aeree hanno aumentato l'offerta di posti e voli a un ritmo superiore, comprimendo il tasso di riempimento. La distanza complessivamente percorsa dai passeggeri è cresciuta di oltre il 6%, anche se il calo più significativo in termini di passeggeri si è registrato sulle rotte verso il Nordamerica e l'Asia, due regioni chiave per il business travel e il turismo svizzero.
-### La questione climatica
-
-Con la ripresa del traffico aereo, il consumo di carburante ha subito una contrazione invertita. Nel 2025 sono state rifornite in Svizzera circa 1,83 milioni di tonnellate di carburante per aerei, in aumento rispetto alle 1,77 milioni dell'anno precedente. Sebbene l'incremento sia modesto in termini percentuali, le emissioni di CO2 derivate da questi consumi sono salite di quasi il 3%, raggiungendo 5,74 milioni di tonnellate di anidride carbonica. Non solo: le emissioni di ossidi di azoto, un inquinante atmosferico che contribuisce alla formazione di smog e all'acidificazione dell'aria, sono cresciute proporzionalmente al volume di attività aeroportuale.
-
-Questa dinamica pone una tensione interessante nel panorama della politica ambientale svizzera. Da un lato, la ripresa economica e dei trasporti è un segnale positivo. Dall'altro, gli impegni climatici del paese richiedono una riduzione delle emissioni complessive, indipendentemente dal settore.
-
-### Implicazioni nazionali sui target climatici federali
-
-Per la Svizzera, un paese che si è impegnato con target climatici ambiziosi — inclusa la legge federale sulla CO2 e gli obiettivi di riduzione al 2030 e al 2050 — il rimbalzo dell'aviazione pone una sfida concreta. L'aviazione è un settore "difficile" per la decarbonizzazione: a differenza dei trasporti stradali, dove i veicoli elettrici si stanno diffondendo rapidamente, l'assenza di alternative tecnologiche mature ai combustibili fossili per l'aviazione commerciale rende il controllo delle emissioni più complesso.
-
-La crescita del 3% nelle emissioni CO2 dell'aviazione nel 2025 convive con un'osservazione storica importante: il 2019 ha registrato livelli ancora superiori di emissioni e di volume di traffico. Pertanto, in un'ottica di 20-30 anni, il settore dovrà comunque ridurre significativamente i propri standard di consumo per allinearsi ai target climatici elvetici.
-
-### Contesto europeo e pressioni internazionali
-
-Sebbene i dati UST non forniscono benchmark diretti con altri paesi europei, la crescita del traffico aereo svizzero (+5% annuale, +3% cumulativo vs 2019) riflette una dinamica globale: l'aviazione commerciale si sta riprendendo velocemente dalla pandemia e sta superando i livelli pre-Covid, mentre al contempo la pressione normativa e reputazionale per ridurre le emissioni rimane alta a livello federale, cantonale e internazionale. La Svizzera, storicamente, ha mantenuto standard ambientali tra i più rigidi d'Europa, e questo dato pone una tensione interessante tra la ripresa economica del settore e gli impegni climatici della Confederazione.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).
-### Il dato positivo: sicurezza aerea in miglioramento drammatico
-
-In netto contrasto con la tendenza negativa delle emissioni, l'aviazione svizzera ha registrato un miglioramento drammatico sulla sicurezza aerea nel 2025. Il numero di incidenti e gravi eventi che hanno coinvolto velivoli immatricolati in Svizzera è sceso da 23 a 10, rappresentando una riduzione di oltre il 50%. Si tratta di un dato particolarmente significativo perché è stato raggiunto nonostante il volume di attività aeroportuale sia aumentato sensibilmente.
-
-Le vittime di incidenti hanno registrato una discesa altrettanto significativa: da 5 decessi nel 2024 a 3 nel 2025. I feriti gravi, infine, si sono ridotti da 7 a 5. Sebbene ogni incidente e ogni vittima rimangono tragici dal punto di vista umano, la tendenza al ribasso — in un contesto di traffico in crescita — è un indicatore positivo della qualità della regolamentazione, della manutenzione e degli standard operativi nel settore svizzero.
-
-### Cosa significano questi dati per i passeggeri
-
-Per chi vola in Svizzera o con compagnie aeree svizzere, il miglioramento della sicurezza rappresenta una riduzione concreta del rischio statistico di incidenti gravi. La Svizzera, storicamente, ha mantenuto standard di aviazione civile tra i più rigorosi del mondo. Il dato UST 2025 suggerisce che questo impegno continua a produrre risultati tangibili in termini di sicurezza, anche durante fasi di espansione operativa. I sistemi di controllo del traffico aereo, i protocolli di manutenzione degli aeromobili e la formazione dei piloti rimangono tra i più severi a livello internazionale.
-
-### Come e dove approfondire
-
-Chi desideri comprendere meglio l'impatto economico e ambientale del traffico aereo sulla propria vita quotidiana in Svizzera — sia come passeggero che come contribuente — può consultare i dati dettagliati dell'Ufficio federale di statistica (UST) e monitorare come il governo federale e i cantoni integrano queste statistiche nelle loro politiche di mobilità sostenibile. I costi dei voli, i prezzi dei biglietti, e le tariffe aeroportuali influenzano il costo della vita nazionale e la competitività dei servizi svizzeri nei mercati internazionali.
-
-[Approfondisci il costo della vita in Svizzera](nav:cost-of-living) per comprendere meglio come il traffico aereo, i trasporti e le connessioni internazionali influenzano il vostro bilancio personale e le vostre scelte di mobilità.
-
-Scopri le [offerte di lavoro in Ticino](nav:jobs) aggiornate quotidianamente: oltre 4.000 posizioni da aziende svizzere che assumono frontalieri.
-
-*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/traffico-aereo-svizzero-cresce-e-con-esso-aumentano-le-emissioni/92025181)*]]></content:encoded>
-      <pubDate>Tue, 08 Sep 2026 20:34:24 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/traffico-aereo-svizzero-cresce</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/traffico-aereo-svizzero-cresce.webp" medium="image"/>
     </item>
   </channel>
 </rss>

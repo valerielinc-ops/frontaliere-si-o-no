@@ -6256,6 +6256,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist nommé directeur adjoint de l\'Administration fédérale des finances',
     'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter nomme Stefan Leist directeur adjoint de l\'aff à compter du 1er octobre 2026. Déjà à la tête de la division Politique financière depuis le 1er mars 2026.',
     'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stéfan Leist, nouveau directeur adjoint de l\'Administration fédérale des finances',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.title': 'Impôts cantonaux Jura : taux, échelonnements et déductions 2024',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.excerpt': 'Guide pratique du système fiscal du canton du Jura : structure à trois niveaux, multiplicateurs municipaux, déductions admises et portail officiel de déclaration.',
+    'blog.article.imposte-cantonali-giura-aliquote-deduzioni.imageAlt': 'Administration fiscale cantonale suisse avec guichets pour contribuables',
 };
 
 export default blogMetaChFr;
