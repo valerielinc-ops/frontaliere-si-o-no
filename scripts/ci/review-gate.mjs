@@ -493,21 +493,22 @@ function fixConfirmations(body) {
 }
 
 // Una conferma aggancia una citazione quando denotano lo stesso file e la riga
-// coincide in modo stretto. Il path puo' differire in specificita' — una review
-// cita spesso il nome nudo (`foo.js`) e la conferma il path completo
+// coincide in modo stretto. Se la riga e' cambiata, la conferma puo' seguire
+// l'anchor spostato solo quando quel path identifica una singola citazione nel
+// finding e un singolo finding aperto: cosi' non chiude in blocco citazioni
+// multiple o basename omonimi. Il path puo' differire in specificita' — una
+// review cita spesso il nome nudo (`foo.js`) e la conferma il path completo
 // (`dir/foo.js`) — e quello e' lo stesso suffix-matching che `resolveCitedPath`
-// usa gia'. Una conferma senza riga puo' chiudere un'ancora con riga solo se
-// identifica una singola citazione nel finding e un singolo finding aperto:
-// cosi' non chiude in blocco citazioni multiple o basename omonimi.
+// usa gia'. Una conferma senza riga conserva la stessa guardia di unicita'.
 function citationPathMatches(candidate, wanted) {
   return candidate === wanted
     || suffixMatches(candidate, wanted)
     || suffixMatches(wanted, candidate);
 }
 
-function confirmationHasUniqueTarget(candidate, finding, openFindings) {
+function confirmationHasUniqueTarget(candidate, finding, openFindings, { ignoreLine = false } = {}) {
   const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
-    && (candidate.line === null || candidate.line === citation.line);
+    && (ignoreLine || candidate.line === null || candidate.line === citation.line);
   const findingMatches = finding.citations.filter(matchesCitation);
   if (findingMatches.length !== 1) return false;
 
@@ -515,7 +516,7 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings) {
   // anchor, even when two historical findings carry the same anchor while
   // describing different companion paths. Basenames and path-only confirms
   // still need the global uniqueness guard below.
-  if (candidate.line !== null
+  if (!ignoreLine && candidate.line !== null
       && candidate.path.includes('/')
       && findingMatches[0].path === candidate.path) return true;
 
@@ -528,9 +529,15 @@ function confirmationHasUniqueTarget(candidate, finding, openFindings) {
 function citationConfirmed(citation, confirmations, finding, openFindings) {
   return confirmations.some((confirmation) => confirmation.citations.some((candidate) => {
     if (!citationPathMatches(candidate.path, citation.path)) return false;
-    if (!confirmationHasUniqueTarget(candidate, finding, openFindings)) return false;
-    return candidate.line === citation.line
+    const sameLine = candidate.line === citation.line
       || (candidate.line === null && citation.line !== null);
+    const movedLine = candidate.line !== null
+      && citation.line !== null
+      && candidate.line !== citation.line;
+    if (!sameLine && !movedLine) return false;
+    return confirmationHasUniqueTarget(candidate, finding, openFindings, {
+      ignoreLine: movedLine,
+    });
   }));
 }
 
