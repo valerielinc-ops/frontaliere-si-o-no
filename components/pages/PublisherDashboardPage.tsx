@@ -42,6 +42,13 @@ import type { PublisherJobStatus, PublisherTier } from '@/services/publisherType
 import { canArchive, canRestore, isLiveStatus } from '@/services/publisherTypes';
 import { loadPublisherCredits, type PublisherCredits } from '@/services/publisherCredits';
 
+export type PublisherApplyClickDedupStatus = 'available' | 'dedup non disponibile';
+
+export interface PublisherApplyClickDeduplication {
+  status: PublisherApplyClickDedupStatus;
+  unavailableCount: number;
+}
+
 interface DashboardRow {
   id: string;
   title: string;
@@ -50,6 +57,7 @@ interface DashboardRow {
   locations: number;
   views: number;
   applyClicks: number;
+  applyClicksDeduplication: PublisherApplyClickDeduplication;
   createdAt: number | null;
   renewsAt: number | null;
   publicUrl: string | null;
@@ -157,6 +165,73 @@ function normalizeCrawledTrafficSource(value: unknown): string | null {
 function normalizedNonNegativeNumber(value: unknown): number | null {
   if (value === undefined || value === null || value === '') return null;
   return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function normalizedNonNegativeInteger(value: unknown): number | null {
+  return typeof value === 'number' && Number.isInteger(value) && value >= 0 ? value : null;
+}
+
+/**
+ * Read the publisher-event deduplication state fail-closed. A missing marker
+ * is compatible with pre-ledger documents; a malformed marker is not a
+ * precise measurement and therefore becomes explicitly unavailable.
+ */
+export function normalizePublisherApplyClickDeduplication(
+  data: Record<string, unknown>,
+): PublisherApplyClickDeduplication {
+  const hasNested = Object.prototype.hasOwnProperty.call(data, 'applyClicksDeduplication');
+  const nested = data.applyClicksDeduplication;
+  const nestedData = isRecord(nested) ? nested : null;
+  const hasNestedStatus = nestedData !== null && Object.prototype.hasOwnProperty.call(nestedData, 'status');
+  const nestedStatus = nestedData?.status;
+  const hasNestedCount = nestedData !== null && Object.prototype.hasOwnProperty.call(nestedData, 'unavailableCount');
+  const nestedCount = nestedData ? normalizedNonNegativeInteger(nestedData.unavailableCount) : null;
+  const hasCounter = Object.prototype.hasOwnProperty.call(data, 'applyClicksDedupUnavailable');
+  const counter = hasCounter ? normalizedNonNegativeInteger(data.applyClicksDedupUnavailable) : 0;
+  const knownNestedStatus = nestedStatus === 'available' || nestedStatus === 'dedup non disponibile';
+  const malformed = (hasNested && nestedData === null)
+    || (nestedData !== null && (!hasNestedStatus || !hasNestedCount || !knownNestedStatus || nestedCount === null))
+    || (hasCounter && counter === null);
+  const unavailableCount = Math.max(nestedCount ?? 0, counter ?? 0);
+
+  if (malformed || nestedStatus === 'dedup non disponibile' || unavailableCount > 0) {
+    return { status: 'dedup non disponibile', unavailableCount };
+  }
+  return { status: 'available', unavailableCount: 0 };
+}
+
+export interface PublisherDashboardMetricSummary {
+  views: number;
+  clicks: number | null;
+  applications: number;
+  intentRate: number | null;
+  applyClicksDeduplication: PublisherApplyClickDeduplication;
+}
+
+export function summarizePublisherDashboardMetrics(
+  rows: ReadonlyArray<Pick<DashboardRow, 'views' | 'applyClicks' | 'applyClicksDeduplication'>>,
+  applications: number,
+): PublisherDashboardMetricSummary {
+  const views = rows.reduce((sum, row) => sum + row.views, 0);
+  const hasUnavailable = rows.some((row) => row.applyClicksDeduplication.status === 'dedup non disponibile');
+  const unavailableCount = rows.reduce(
+    (sum, row) => sum + (row.applyClicksDeduplication.status === 'dedup non disponibile'
+      ? row.applyClicksDeduplication.unavailableCount
+      : 0),
+    0,
+  );
+  const deduplication: PublisherApplyClickDeduplication = hasUnavailable
+    ? { status: 'dedup non disponibile', unavailableCount }
+    : { status: 'available', unavailableCount: 0 };
+  const clicks = deduplication.status === 'dedup non disponibile'
+    ? null
+    : rows.reduce((sum, row) => sum + row.applyClicks, 0);
+  const intentRate = clicks !== null && views > 0 ? Math.round((clicks / views) * 1000) / 10 : clicks === null ? null : 0;
+  return { views, clicks, applications, intentRate, applyClicksDeduplication: deduplication };
 }
 
 function hasCurrentCrawledTrafficMetric(record: Record<string, unknown>): boolean {
@@ -318,6 +393,7 @@ function FunnelBar({
   icon,
   label,
   value,
+  unavailableLabel,
   pct,
   tone,
   mounted,
@@ -325,7 +401,8 @@ function FunnelBar({
 }: {
   icon: React.ReactNode;
   label: string;
-  value: number;
+  value: number | null;
+  unavailableLabel: string;
   pct: number;
   tone: string;
   mounted: boolean;
@@ -341,14 +418,14 @@ function FunnelBar({
         <div
           className={`absolute inset-y-0 left-0 rounded-full ${tone} origin-left transition-transform duration-700 ease-out w-[var(--bar-w)] [transform:var(--bar-sx)] [transition-delay:var(--bar-delay)]`}
           style={{
-            ['--bar-w']: `${Math.max(pct, value > 0 ? 4 : 0)}%`,
+            ['--bar-w']: `${Math.max(pct, value !== null && value > 0 ? 4 : 0)}%`,
             ['--bar-sx']: mounted ? 'scaleX(1)' : 'scaleX(0)',
             ['--bar-delay']: `${delayMs}ms`,
           } as React.CSSProperties}
         />
       </div>
-      <span className="text-sm font-semibold tabular-nums text-strong w-12 text-right shrink-0">
-        {value.toLocaleString('it-CH')}
+      <span className="text-sm font-semibold tabular-nums text-strong min-w-12 text-right shrink-0">
+        {value === null ? unavailableLabel : value.toLocaleString('it-CH')}
       </span>
     </div>
   );
@@ -371,6 +448,7 @@ const PublisherDashboardPage: React.FC = () => {
   // remainingUnits null = azienda plan (unlimited), otherwise a number ≥ 0.
   const [credits, setCredits] = useState<PublisherCredits | null>(null);
   const legacyCrawledTrafficCopy = CRAWLED_TRAFFIC_LEGACY_COPY[locale] || CRAWLED_TRAFFIC_LEGACY_COPY.it;
+  const dedupUnavailableLabel = t('publisherDashboard.analytics.dedupUnavailable', 'Dedup non disponibile');
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -521,12 +599,14 @@ const PublisherDashboardPage: React.FC = () => {
             const j = d.data() as Record<string, unknown>;
             let views = 0;
             let applyClicks = 0;
+            let applyClicksDeduplication: PublisherApplyClickDeduplication = { status: 'available', unavailableCount: 0 };
             try {
               const ev = await getDoc(doc(db, 'publisher_job_events', d.id));
               if (ev.exists()) {
                 const e = ev.data() as Record<string, unknown>;
                 views = Number(e.views) || 0;
                 applyClicks = Number(e.applyClicks) || 0;
+                applyClicksDeduplication = normalizePublisherApplyClickDeduplication(e);
               }
             } catch {
               // counters optional
@@ -539,6 +619,7 @@ const PublisherDashboardPage: React.FC = () => {
               locations: Array.isArray(j.locations) ? j.locations.length : 0,
               views,
               applyClicks,
+              applyClicksDeduplication,
               createdAt: tsToMillis(j.createdAt),
               renewsAt: tsToMillis(j.renewsAt),
               publicUrl: typeof j.publicUrl === 'string' ? j.publicUrl : null,
@@ -664,14 +745,10 @@ const PublisherDashboardPage: React.FC = () => {
     return m;
   }, [apps]);
 
-  const totals = useMemo(() => {
-    const views = rows.reduce((s, r) => s + r.views, 0);
-    const clicks = rows.reduce((s, r) => s + r.applyClicks, 0);
-    const applications = apps.length;
-    // Intent/click rate = apply-clicks per 100 views, 1 decimal.
-    const intentRate = views > 0 ? Math.round((clicks / views) * 1000) / 10 : 0;
-    return { views, clicks, applications, intentRate };
-  }, [rows, apps]);
+  const totals = useMemo(
+    () => summarizePublisherDashboardMetrics(rows, apps.length),
+    [rows, apps.length],
+  );
 
   // Best performer = the ad with the most views (only worth crowning if >0 and
   // there's more than one ad to compare).
@@ -859,8 +936,10 @@ const PublisherDashboardPage: React.FC = () => {
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-accent-subtle text-link mb-2">
                       {m.icon}
                     </span>
-                    <p className="text-2xl font-bold font-display text-strong tabular-nums leading-none">
-                      <CountUpValue value={m.value} active={state === 'ready'} decimals={m.decimals} />{m.suffix}
+                    <p className={`font-bold font-display text-strong leading-tight ${m.value === null ? 'text-sm' : 'text-2xl tabular-nums'}`}>
+                      {m.value === null
+                        ? dedupUnavailableLabel
+                        : <><CountUpValue value={m.value} active={state === 'ready'} decimals={m.decimals} />{m.suffix}</>}
                     </p>
                     <p className="text-xs text-subtle mt-1.5 leading-tight">{m.label}</p>
                   </div>
@@ -926,7 +1005,8 @@ const PublisherDashboardPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {rows.map((r, i) => {
                 const applications = appsByJob.get(r.id) ?? 0;
-                const clickPct = r.views > 0 ? (r.applyClicks / r.views) * 100 : 0;
+                const clicksAvailable = r.applyClicksDeduplication.status === 'available';
+                const clickPct = clicksAvailable && r.views > 0 ? (r.applyClicks / r.views) * 100 : 0;
                 const appPct = r.views > 0 ? (applications / r.views) * 100 : 0;
                 const sponsored = isSponsored(r.tier);
                 const azienda = isAzienda(r.tier);
@@ -993,6 +1073,7 @@ const PublisherDashboardPage: React.FC = () => {
                         icon={<Eye className="w-3.5 h-3.5" />}
                         label={t('publisherDashboard.col.views')}
                         value={r.views}
+                        unavailableLabel={dedupUnavailableLabel}
                         pct={r.views > 0 ? 100 : 0}
                         tone="bg-accent"
                         mounted={barsMounted}
@@ -1001,7 +1082,8 @@ const PublisherDashboardPage: React.FC = () => {
                       <FunnelBar
                         icon={<MousePointerClick className="w-3.5 h-3.5" />}
                         label={t('publisherDashboard.col.applyClicks')}
-                        value={r.applyClicks}
+                        value={clicksAvailable ? r.applyClicks : null}
+                        unavailableLabel={dedupUnavailableLabel}
                         pct={clickPct}
                         tone="bg-info"
                         mounted={barsMounted}
@@ -1011,6 +1093,7 @@ const PublisherDashboardPage: React.FC = () => {
                         icon={<FileText className="w-3.5 h-3.5" />}
                         label={t('publisherDashboard.col.applications')}
                         value={applications}
+                        unavailableLabel={dedupUnavailableLabel}
                         pct={appPct}
                         tone="bg-success"
                         mounted={barsMounted}
