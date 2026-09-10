@@ -91,6 +91,7 @@ export function isSwissLocation(location = '') {
   if (isTargetSwissLocation(location)) return true;
   const lower = String(location || '').toLowerCase();
   if (/\b(swiss|switzerland|schweiz|svizzera|suisse)\b/i.test(lower)) return true;
+  if (/(?:^|[\s,])(?:ch|che)(?:$|[\s,])/i.test(lower)) return true;
   return inferAnyCanton(lower) !== '';
 }
 
@@ -112,9 +113,15 @@ export function parseAlpiqJobBlock(block) {
 
   const fullUrl = `${CAREERS_BASE}${relUrl}`;
 
-  // Extract location line — typically "Location - percentage | type"
-  const locationMatch = block.match(/([A-Z][a-zA-ZÀ-ÿ\s]+)\s*[-–]\s*\d{1,3}(?:-\d{1,3})?%\s*(?:\|?\s*(?:Permanent|Temporary|Fixed[\s-]term))?/i);
-  const locationRaw = locationMatch ? normalizeSpace(locationMatch[1]) : '';
+  // The current listing exposes the place in a labelled description line
+  // (`Location: Olten`) and repeats it in the contract row (`Olten, CH`).
+  // Keep the older `Olten - 100%` fallback for archived/fixture markup, but do
+  // not mistake the country code from the contract row for the whole location.
+  const text = stripHtml(block);
+  const labelledLocation = text.match(/\b(?:Location|Standort|Lieu|Luogo)\s*:\s*([^|\n]+)/i);
+  const contractLocation = block.match(/([A-Z][A-Za-zÀ-ÿ.'-]+(?:\s+[A-Z][A-Za-zÀ-ÿ.'-]+){0,5})\s*,\s*(?:CH|CHE)\s*[-–]\s*\d{1,3}(?:-\d{1,3})?%/i);
+  const legacyLocation = block.match(/([A-Z][a-zA-ZÀ-ÿ\s]+)\s*[-–]\s*\d{1,3}(?:-\d{1,3})?%\s*(?:\|?\s*(?:Permanent|Temporary|Fixed[\s-]term))?/i);
+  const locationRaw = normalizeSpace(labelledLocation?.[1] || contractLocation?.[1] || legacyLocation?.[1] || '');
 
   // Extract description snippet
   const descText = normalizeDescriptionSpace(stripHtml(block));
