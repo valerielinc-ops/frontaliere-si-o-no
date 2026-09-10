@@ -70,7 +70,8 @@ export function placementSlot(index) {
 export function placementToken(raw) {
   return String(raw)
     .toLowerCase()
-    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/[^a-z0-9-]+/g, '-')
+    .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
 
@@ -95,7 +96,9 @@ export function placementToken(raw) {
  * @returns {string}
  */
 export function newsletterRecommendedPlacement(campaign, goId, slot) {
-  return `nl-recommended-${placementSlot(slot)}-${placementToken(campaign || 'recommended')}-${goId}`;
+  const recommended = 'recommended';
+  const campaignToken = placementToken(campaign || recommended) || recommended;
+  return `nl-recommended-${placementSlot(slot)}-${campaignToken}-${goId}`;
 }
 
 /**
@@ -104,4 +107,4 @@ export function newsletterRecommendedPlacement(campaign, goId, slot) {
  * sanitiser and still be unreadable by the consumer — the test pins both sides
  * against this.
  */
-export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-\d+-[a-z0-9_-]+)-[a-z0-9-]+$/;
+export const NEWSLETTER_PLACEMENT_RE = /^nl-(partner-\d+|recommended-\d+-[a-z0-9]+(?:-[a-z0-9]+)*)-[a-z0-9]+(?:-[a-z0-9]+)*$/;

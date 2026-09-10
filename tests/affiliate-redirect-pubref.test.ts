@@ -128,7 +128,7 @@ describe('affiliate redirect pubref', () => {
     const rewrittenSlot3 = pubrefOf(rewrittenUrl(html, { search: `?pos=${slot3}` }));
 
     expect(rewrittenSlot2).toBe(sanitizePubref(slot2));
-    expect(rewrittenSlot2).toMatch(/_[a-z0-9]{7}$/);
+    expect(rewrittenSlot2).toMatch(/-[a-z0-9]{7}$/);
     expect(rewrittenSlot2).not.toBe(rewrittenSlot3);
   });
 

@@ -65,6 +65,7 @@ const HISTORY_FILE = resolve(__dirname, '..', 'data', 'revenue-monitor-history.j
 const AFFILIATE_EXPORT_FILE = process.env.AFFILIATE_REVENUE_EXPORT_FILE
   ? resolve(process.env.AFFILIATE_REVENUE_EXPORT_FILE)
   : null;
+const AFFILIATE_REVENUE_AMOUNT_FORMAT = process.env.AFFILIATE_REVENUE_AMOUNT_FORMAT || null;
 
 // ── Baseline captured Apr 6-19 2026 (see docs/revenue-optimization-remaining.md) ──
 // CTR baselines by URL bucket derived from GSC 28-day query bucketed by path prefix
@@ -772,12 +773,13 @@ async function main() {
       const raw = AFFILIATE_EXPORT_FILE.toLowerCase().endsWith('.csv')
         ? parseAffiliateCsv(rawText)
         : JSON.parse(rawText);
-      const parsed = parseAffiliateExport(raw);
+      const parsed = parseAffiliateExport(raw, { amountFormat: AFFILIATE_REVENUE_AMOUNT_FORMAT });
       current.affiliate = reconcileAffiliateTransactions({
         rows: parsed.rows,
         from: affiliateWindow.start,
         to: affiliateWindow.end,
         exposures: parsed.exposures,
+        amountFormat: parsed.amountFormat,
       });
       log(current.affiliate.status === 'measurable' ? '💰' : '⚪',
         `Affiliate commissions: ${current.affiliate.status} (${current.affiliate.deduplicatedTransactions} deduplicated transactions)`);

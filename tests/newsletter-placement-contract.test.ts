@@ -48,7 +48,7 @@ describe('newsletter placement contract', () => {
   });
 
   it('every emitted placement survives the pubref sanitiser unchanged', () => {
-    // Il redirect normalizza a `[a-z0-9_-]` e tronca: una forma che non
+    // Il redirect normalizza a `[a-z0-9-]` e tronca: una forma che non
     // sopravvive intatta arriva a Partnerize diversa da come e' stata emessa,
     // e le due meta' del funnel non si ricongiungono piu'.
     const placements = [
@@ -61,6 +61,24 @@ describe('newsletter placement contract', () => {
       expect(pos).toMatch(NEWSLETTER_PLACEMENT_RE);
       expect(sanitizePubref(pos)).toBe(pos);
     }
+  });
+
+  it('canonicalizes repeated separators before the placement reaches the redirect', () => {
+    const placement = newsletterRecommendedPlacement('weekly__--2026', 'wise');
+
+    expect(placement).toBe('nl-recommended-1-weekly-2026-wise');
+    expect(placement).toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect(sanitizePubref(placement)).toBe(placement);
+    expect('nl-recommended-1-weekly--2026-wise').not.toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect('nl-recommended-1--wise').not.toMatch(NEWSLETTER_PLACEMENT_RE);
+  });
+
+  it('falls back to the recommended campaign when a truthy campaign normalizes empty', () => {
+    const placement = newsletterRecommendedPlacement('☃️', 'wise', 2);
+
+    expect(placement).toBe('nl-recommended-2-recommended-wise');
+    expect(placement).toMatch(NEWSLETTER_PLACEMENT_RE);
+    expect(sanitizePubref(placement)).toBe(placement);
   });
 
   it('the four surfaces rendering the same block do not collapse into one pubref', () => {

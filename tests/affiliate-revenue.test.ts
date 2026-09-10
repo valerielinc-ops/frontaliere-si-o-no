@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   buildAffiliatePubref,
   buildAffiliateLinkHref,
+  safeAffiliateToken,
 } from '../services/affiliateService';
 import {
   normalizeAffiliateTransaction,
   parseAffiliateCsv,
+  parseAffiliateExport,
   reconcileAffiliateTransactions,
 } from '../scripts/lib/affiliateRevenue.mjs';
 
@@ -30,7 +32,7 @@ describe('affiliate link attribution', () => {
       position: 'partner-page-banking-2',
     });
     expect(longPubref.length).toBeLessThanOrEqual(48);
-    expect(longPubref).toMatch(/_[a-z0-9]{7}$/);
+    expect(longPubref).toMatch(/-[a-z0-9]{7}$/);
     expect(longPubref).not.toBe(buildAffiliatePubref({
       ...longDimensions,
       position: 'partner-page-banking-3',
@@ -71,6 +73,25 @@ describe('affiliate link attribution', () => {
     expect(url.searchParams.has('ne')).toBe(false);
     expect(url.searchParams.has('ac')).toBe(false);
   });
+
+  it('preserves the legacy underscore cap for long UTM tokens and hyphenates pubrefs', () => {
+    const longCampaign = `weekly_${'x'.repeat(60)}`;
+    expect(safeAffiliateToken(longCampaign)).toMatch(/_[a-z0-9]{7}$/);
+    const href = buildAffiliateLinkHref({ id: 'wise' }, {
+      surface: 'web',
+      position: 'exchange-1',
+      campaign: longCampaign,
+      variant: 'control',
+    });
+    expect(new URL(href).searchParams.get('utm_campaign')).toMatch(/_[a-z0-9]{7}$/);
+    expect(buildAffiliatePubref({
+      partnerId: 'wise',
+      surface: 'web',
+      position: 'exchange-1',
+      campaign: longCampaign,
+      variant: 'control',
+    })).toMatch(/-[a-z0-9]{7}$/);
+  });
 });
 
 describe('affiliate revenue reconciliation', () => {
@@ -103,6 +124,33 @@ describe('affiliate revenue reconciliation', () => {
     expect(report.reason).toMatch(/denominator/i);
     expect(report.byCurrency.CHF.approvedPer1000Exposures.web).toBeNull();
     expect(report.byCurrency.CHF.approvedPer1000Exposures.email).toBeNull();
+  });
+
+  it('is unmeasurable when every supplied export row is invalid, even with exposures', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{ status: 'approved', currency: 'CHF', amount: '12.500', transaction_date: '2026-09-04' }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+    });
+
+    expect(report.status).toBe('unmeasurable');
+    expect(report.reason).toMatch(/all invalid/i);
+    expect(report.invalidRows).toBe(1);
+    expect(report.deduplicatedTransactions).toBe(0);
+  });
+
+  it('keeps a genuinely empty valid period measurable when exposures exist', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{ ...rows[0], transaction_date: '2026-08-31' }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+    });
+
+    expect(report.status).toBe('measurable');
+    expect(report.reason).toBeNull();
+    expect(report.deduplicatedTransactions).toBe(0);
   });
 
   it('rejects malformed rows with an explicit diagnostic', () => {
@@ -145,7 +193,7 @@ describe('affiliate revenue reconciliation', () => {
       currency: 'CHF',
       amount: '1,234',
       transaction_date: '2026-09-04',
-    })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234 }) }));
+    }, { amountFormat: 'grouped' })).toEqual(expect.objectContaining({ ok: true, value: expect.objectContaining({ amount: 1234 }) }));
 
     expect(normalizeAffiliateTransaction({
       transaction_id: 'tx-grouped-dot',
@@ -173,5 +221,90 @@ describe('affiliate revenue reconciliation', () => {
         value: expect.objectContaining({ amount: expected }),
       }));
     }
+  });
+
+  it('accepts unambiguous mixed separators under either declared format', () => {
+    for (const amount of ['1,234.56', '1.234,56']) {
+      for (const amountFormat of ['decimal', 'grouped'] as const) {
+        expect(normalizeAffiliateTransaction({
+          transaction_id: `tx-mixed-${amount}-${amountFormat}`,
+          status: 'approved',
+          currency: 'CHF',
+          amount,
+          transaction_date: '2026-09-04',
+        }, { amountFormat })).toMatchObject({
+          ok: true,
+          value: { amount: 1234.56 },
+        });
+      }
+    }
+  });
+
+  it('refuses ambiguous three-digit amounts until the export format is declared', () => {
+    const row = {
+      transaction_id: 'tx-ambiguous',
+      status: 'approved',
+      currency: 'CHF',
+      amount: '12.500',
+      transaction_date: '2026-09-04',
+    };
+
+    expect(normalizeAffiliateTransaction(row)).toMatchObject({
+      ok: false,
+      errors: [expect.stringMatching(/ambiguous numeric amount/i)],
+    });
+    expect(normalizeAffiliateTransaction(row, { amountFormat: 'decimal' })).toMatchObject({
+      ok: true,
+      value: { amount: 12.5 },
+    });
+    expect(normalizeAffiliateTransaction(row, { amountFormat: 'grouped' })).toMatchObject({
+      ok: true,
+      value: { amount: 12500 },
+    });
+  });
+
+  it('carries the declared amount format from a network export into reconciliation', () => {
+    const report = reconcileAffiliateTransactions({
+      rows: [{
+        transaction_id: 'tx-export-format',
+        status: 'approved',
+        currency: 'CHF',
+        amount: '12.500',
+        transaction_date: '2026-09-04',
+      }],
+      from: '2026-09-01',
+      to: '2026-09-07',
+      exposures: { web: 1000 },
+      amountFormat: 'decimal',
+    });
+
+    expect(report.invalidRows).toBe(0);
+    expect(report.byCurrency.CHF.approved).toBe(12.5);
+  });
+
+  it('prefers the amount format declared in JSON over the CLI fallback', () => {
+    const parsed = parseAffiliateExport({
+      amountFormat: 'grouped',
+      transactions: [{
+        transaction_id: 'tx-json-format',
+        status: 'approved',
+        currency: 'CHF',
+        amount: '12.500',
+        transaction_date: '2026-09-04',
+      }],
+    }, { amountFormat: 'decimal' });
+
+    expect(parsed.amountFormat).toBe('grouped');
+    const report = reconcileAffiliateTransactions({
+      rows: parsed.rows,
+      exposures: { web: 1000 },
+      amountFormat: parsed.amountFormat,
+    });
+    expect(report.byCurrency.CHF.approved).toBe(12500);
+  });
+
+  it('normalises underscores out of publisher references', () => {
+    expect(buildAffiliatePubref({ partnerId: 'wise', variant: 'control', surface: 'web', position: 'hero_slot', campaign: 'g4' }))
+      .toBe('wise-control-web-hero-slot-g4');
   });
 });
