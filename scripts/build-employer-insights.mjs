@@ -801,6 +801,7 @@ export function buildDryRunPayload({
   if (!Array.isArray(documents)) throw new Error('dry-run documents must be an array');
   if (!window?.from || !window?.to || !window?.timezone) throw new Error('dry-run window must include from, to and timezone');
   assertEmployerInsightsSource(source);
+  const normalizedCoverage = queryCoverageOrDefault(queryCoverage, { rawObserved: null }, window);
   return {
     schemaVersion: INSIGHTS_SCHEMA_VERSION,
     generatedAt,
@@ -808,15 +809,15 @@ export function buildDryRunPayload({
     window,
     coverage: {
       source,
-      sourceObserved: queryCoverage.sourceObserved ?? null,
-      totalRows: queryCoverage.totalRows ?? null,
-      returnedRows: queryCoverage.returnedRows ?? null,
-      returned: queryCoverage.returned ?? null,
-      pages: queryCoverage.pages ?? null,
-      pageSize: queryCoverage.pageSize ?? EVENT_QUERY_PAGE_SIZE,
-      truncated: Boolean(queryCoverage.truncated),
-      queryHash: queryCoverage.queryHash || null,
-      snapshotId: queryCoverage.snapshotId || null,
+      sourceObserved: normalizedCoverage.sourceObserved,
+      totalRows: normalizedCoverage.groupRowsBeforeCut,
+      returnedRows: normalizedCoverage.returnedRows,
+      returned: normalizedCoverage.returned,
+      pages: normalizedCoverage.pages,
+      pageSize: normalizedCoverage.pageSize,
+      truncated: normalizedCoverage.truncated,
+      queryHash: normalizedCoverage.queryHash,
+      snapshotId: normalizedCoverage.snapshotId,
     },
     documents,
   };
