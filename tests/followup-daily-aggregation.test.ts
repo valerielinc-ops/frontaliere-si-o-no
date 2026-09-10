@@ -1,4 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
 import {
   bucketState,
   canonicalDailyBuckets,
@@ -33,6 +36,31 @@ import { dailyBucketQueueDecision, dailyMutexDecision, flattenPaginatedOpenPrs, 
 import { triageDailyKey } from '../scripts/ci/collect-followup-batch.mjs';
 
 const DAY = '2026-09-09';
+const DAILY_MUTEX_GROUP = 'followup-daily-${{ github.repository }}';
+const DAILY_WRITER_WORKFLOWS = [
+  'post-merge-followup.yml',
+  'followup-reconcile.yml',
+  'followup-drainer.yml',
+];
+
+function dailyWriterWorkflow(name: string) {
+  const path = fileURLToPath(new URL(`../.github/workflows/${name}`, import.meta.url));
+  return YAML.parse(readFileSync(path, 'utf8')) as {
+    concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
+  };
+}
+
+describe('daily writer concurrency contract', () => {
+  it('serializes every bucket writer on one repo-scoped, non-canceling mutex', () => {
+    const workflows = DAILY_WRITER_WORKFLOWS.map(dailyWriterWorkflow);
+    expect(workflows.map((workflow) => workflow.concurrency?.group)).toEqual([
+      DAILY_MUTEX_GROUP,
+      DAILY_MUTEX_GROUP,
+      DAILY_MUTEX_GROUP,
+    ]);
+    expect(workflows.every((workflow) => workflow.concurrency?.['cancel-in-progress'] === false)).toBe(true);
+  });
+});
 
 function item(id: string, state = 'open', title = 'Proteggi il comportamento') {
   return [

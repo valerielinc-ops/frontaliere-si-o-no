@@ -24,10 +24,10 @@ permissions:
   actions: read # collect-followup-batch.mjs legge `gh run list` per il watermark
 
 concurrency:
-  # Serializza le run schedulate (cancel-in-progress:false → una run in coda attende,
-  # mai cancellata). Con watermark-su-successo l'overlap non perde dati, ma serializzare
-  # evita doppio-triage concorrente sulla stessa finestra. Pattern = followup-reconcile.yml.
-  group: post-merge-followup
+  # Questo è il mutex condiviso con followup-reconcile.yml e followup-drainer.yml:
+  # gate, reconciler e queue writer possono toccare lo stesso bucket daily. La chiave
+  # è repo-scoped (non workflow-scoped), e cancel:false conserva la run già partita.
+  group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
 jobs:
