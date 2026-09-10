@@ -259,15 +259,6 @@ vi.mock('../functions/src/newsletterWelcomeEmail.js', () => ({
   sendNewsletterWelcomeEmail: vi.fn(async () => ({ success: true })),
 }));
 
-import CompanyFollowMount from '@/components/community/CompanyFollowMount';
-import { companyAlertKey, deleteAlert, subscribeCompanyAlert } from '@/services/jobAlertService';
-import {
-  clearPendingCompanyFollows,
-  flushPendingCompanyFollows,
-  readPendingCompanyFollows,
-} from '@/services/companyFollowIntent';
-import { getActiveSlotId, hasActiveSlot } from '@/services/popupQueue';
-import { getLocale, setLocale } from '@/services/i18n';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import {
@@ -282,6 +273,32 @@ import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mj
 const COMPANY = 'Acme';
 const COMPANY_KEY = 'acme';
 const NOVELTY_WINDOW_MS = 6 * 60 * 60 * 1000;
+
+async function loadChainModules() {
+  // These modules own mutable process-level state. Importing them after a
+  // reset gives every runChain round a fresh queue, pending-intent store,
+  // locale state, and service cache instead of merely resetting the doubles.
+  vi.resetModules();
+  const [companyFollowMount, jobAlertService, companyFollowIntent, popupQueue, i18n] = await Promise.all([
+    import('@/components/community/CompanyFollowMount'),
+    import('@/services/jobAlertService'),
+    import('@/services/companyFollowIntent'),
+    import('@/services/popupQueue'),
+    import('@/services/i18n'),
+  ]);
+  return {
+    CompanyFollowMount: companyFollowMount.default,
+    companyAlertKey: jobAlertService.companyAlertKey,
+    deleteAlert: jobAlertService.deleteAlert,
+    subscribeCompanyAlert: jobAlertService.subscribeCompanyAlert,
+    clearPendingCompanyFollows: companyFollowIntent.clearPendingCompanyFollows,
+    flushPendingCompanyFollows: companyFollowIntent.flushPendingCompanyFollows,
+    readPendingCompanyFollows: companyFollowIntent.readPendingCompanyFollows,
+    getActiveSlotId: popupQueue.getActiveSlotId,
+    hasActiveSlot: popupQueue.hasActiveSlot,
+    setLocale: i18n.setLocale,
+  };
+}
 
 function createManagementDb(email: string, initial: Record<string, any>) {
   const isFirestoreMap = (value: unknown): value is Record<string, any> => Boolean(
@@ -403,9 +420,21 @@ async function runChain(locale: 'it' | 'en', round: number) {
   const now = Date.now();
 
   cleanup();
-  clearPendingCompanyFollows();
   localStorage.clear();
   doubles.reset();
+  const {
+    CompanyFollowMount,
+    companyAlertKey,
+    deleteAlert,
+    subscribeCompanyAlert,
+    clearPendingCompanyFollows,
+    flushPendingCompanyFollows,
+    readPendingCompanyFollows,
+    getActiveSlotId,
+    hasActiveSlot,
+    setLocale,
+  } = await loadChainModules();
+  clearPendingCompanyFollows();
   setLocale(locale);
   window.history.replaceState({}, '', expectedPath);
 
@@ -621,8 +650,6 @@ describe('Company Alerts — complete positive chain in isolation', () => {
     document.body.innerHTML = '';
     localStorage.clear();
     doubles.reset();
-    clearPendingCompanyFollows();
-    setLocale('it');
   });
 
   it('runs all eight rings twice in Italian and English, fail-fast, in one process', async () => {
@@ -639,6 +666,7 @@ describe('Company Alerts — complete positive chain in isolation', () => {
       expect(sameLocale[1], `chain repetitions: ${locale} second run equals first run`).toEqual(sameLocale[0]);
     }
     expect(results.every((result) => result.deliveryOutcome === 'accepted'), 'chain result: every explicit fake-provider ack accepted').toBe(true);
+    const { getLocale } = await import('@/services/i18n');
     expect(getLocale(), 'chain result: final locale is the last exercised real locale').toBe('en');
   });
 });
