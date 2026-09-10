@@ -364,8 +364,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern-3fw4v3",
         "kochin-koch-m-w-d-coop-ristorante-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-pw759l",
@@ -1057,19 +1056,32 @@
         "it": [
           "verkaufer-in-food-coop-genossenschaft-buren-an-der-aare",
           "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm",
-          "verkaufer-in-food-coop-buren-an-der-aare-bern"
+          "verkaufer-in-food-coop-buren-an-der-aare-bern",
+          "venditore-in-food-coop-genossenschaft-wangen-an-der-aare",
+          "verkaufer-in-food-coop-wangen-an-der-aare-bern-h054qj",
+          "seller-in-food-coop-genossenschaft-wangen-an-der-aare",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-wangen-an-der-aare"
         ],
         "en": [
-          "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm"
+          "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm",
+          "seller-in-food-coop-genossenschaft-wangen-an-der-aare"
         ],
         "fr": [
-          "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm"
+          "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-wangen-an-der-aare"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-wangen-an-der-aare-bern-h054qj"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-buren-an-der-aare",
         "verkaufer-in-food-coop-buren-an-der-aare-bern-53sjqm",
-        "verkaufer-in-food-coop-buren-an-der-aare-bern"
+        "verkaufer-in-food-coop-buren-an-der-aare-bern",
+        "venditore-in-food-coop-genossenschaft-wangen-an-der-aare",
+        "verkaufer-in-food-coop-wangen-an-der-aare-bern-h054qj",
+        "seller-in-food-coop-genossenschaft-wangen-an-der-aare",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-wangen-an-der-aare"
       ]
     },
     {
@@ -1410,18 +1422,37 @@
       "previousSlugsByLocale": {
         "it": [
           "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1",
-          "weindegustantin-weindegustant-coop-schafisheim-aargau"
+          "weindegustantin-weindegustant-coop-schafisheim-aargau",
+          "wine-degustantin-wine-degustant-coop-genossenschaft-schafisheim-aargau",
+          "weindegustantin-weindegustant-coop-schafisheim-aargau-x4flcy",
+          "degustantine-de-vin-degustant-de-vin-coop-genossenschaft-schafisheim",
+          "degustatrice-di-vini-degustatore-di-vini-coop-genossenschaft-schafisheim",
+          "weindegustantin-weindegustant-coop-genossenschaft-schafisheim-aargau-x4alwl",
+          "wine-taster-coop-genossenschaft-schafisheim-x4alwl",
+          "degustatrice-de-vins-degustateur-de-vins-coop-genossenschaft-schafisheim-x4alwl"
         ],
         "en": [
-          "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1"
+          "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1",
+          "wine-degustantin-wine-degustant-coop-genossenschaft-schafisheim-aargau"
         ],
         "fr": [
-          "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1"
+          "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1",
+          "degustantine-de-vin-degustant-de-vin-coop-genossenschaft-schafisheim"
+        ],
+        "de": [
+          "weindegustantin-weindegustant-coop-schafisheim-aargau-x4flcy"
         ]
       },
       "previousSlugs": [
         "weindegustantin-weindegustant-coop-schafisheim-aargau-mpvwk1",
-        "weindegustantin-weindegustant-coop-schafisheim-aargau"
+        "weindegustantin-weindegustant-coop-schafisheim-aargau",
+        "wine-degustantin-wine-degustant-coop-genossenschaft-schafisheim-aargau",
+        "weindegustantin-weindegustant-coop-schafisheim-aargau-x4flcy",
+        "degustantine-de-vin-degustant-de-vin-coop-genossenschaft-schafisheim",
+        "degustatrice-di-vini-degustatore-di-vini-coop-genossenschaft-schafisheim",
+        "weindegustantin-weindegustant-coop-genossenschaft-schafisheim-aargau-x4alwl",
+        "wine-taster-coop-genossenschaft-schafisheim-x4alwl",
+        "degustatrice-de-vins-degustateur-de-vins-coop-genossenschaft-schafisheim-x4alwl"
       ]
     },
     {
@@ -1895,7 +1926,8 @@
         "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich-8frsyi",
         "kochin-koch-w-m-d-con-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
         "kochin-koch-w-m-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
-        "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich-u910rz"
+        "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich-u910rz",
+        "kochin-koch-f-m-d-with-stv-managing-director-location-zurich-region-coop-genossenschaft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1909,7 +1941,8 @@
           "kochin-koch-f-m-d-with-stv-managing-director-in-function-location-region-zurich-coop-genossenschaft-zurich",
           "kochin-koch-m-w-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-ristorante-zurich-8frsyi",
           "kochin-koch-w-m-d-con-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
-          "kochin-koch-w-m-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich"
+          "kochin-koch-w-m-d-mit-stv-geschaftsfuhrer-in-funktion-einsatzort-region-zurich-coop-genossenschaft-zurich",
+          "kochin-koch-f-m-d-with-stv-managing-director-location-zurich-region-coop-genossenschaft-zurich"
         ],
         "en": [
           "cook-f-m-d-with-deputy-managing-director-function-location-zurich-region-coop-genossenschaft-zurich",
@@ -2262,14 +2295,32 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-zurich",
-        "associate-gastronomie-coop-ristorante-volketswil-zurich-lq51d1"
+        "associate-gastronomie-coop-ristorante-volketswil-zurich-lq51d1",
+        "collaboratore-trice-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+        "associate-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+        "collaborateur-trice-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-zurich"
+          "mitarbeiter-in-gastronomie-coop-ristorante-volketswil-zurich",
+          "collaboratore-trice-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+          "associate-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+          "collaborateur-trice-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich"
         ],
         "en": [
-          "associate-gastronomie-coop-ristorante-volketswil-zurich-lq51d1"
+          "associate-gastronomie-coop-ristorante-volketswil-zurich-lq51d1",
+          "associate-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m"
+        ],
+        "de": [
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m",
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-volketswil-zurich"
+        ],
+        "fr": [
+          "collaborateur-trice-gastronomie-coop-genossenschaft-volketswil-zurich-ve6m9m"
         ]
       }
     },
@@ -2638,7 +2689,8 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-monchaltorf",
           "verkaufer-in-food-coop-monchaltorf-zurich-2",
           "verkaufer-in-food-coop-monchaltorf-zurich-3d05fg",
-          "verkaufer-in-food-coop-monchaltorf-zurich"
+          "verkaufer-in-food-coop-monchaltorf-zurich",
+          "seller-in-food-coop-genossenschaft-monchaltorf-vmppss"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-monchaltorf",
@@ -2659,7 +2711,8 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-monchaltorf",
         "verkaufer-in-food-coop-monchaltorf-zurich-2",
         "verkaufer-in-food-coop-monchaltorf-zurich-3d05fg",
-        "verkaufer-in-food-coop-monchaltorf-zurich"
+        "verkaufer-in-food-coop-monchaltorf-zurich",
+        "seller-in-food-coop-genossenschaft-monchaltorf-vmppss"
       ]
     },
     {
@@ -2710,7 +2763,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-basel-cf3e63",
-        "en": "chef-chef-m-f-d-coop-genossenschaft-basel",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-basel-0islx1",
         "de": "kochin-koch-m-w-d-coop-ristorante-basel-stadt-0islx1",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-basel-cf3e63"
       },
@@ -2737,7 +2790,8 @@
           "kochin-koch-m-w-d-coop-ristorante-basel-stadt"
         ],
         "en": [
-          "kochin-koch-m-w-d-coop-ristorante-basel-stadt-0islx1"
+          "kochin-koch-m-w-d-coop-ristorante-basel-stadt-0islx1",
+          "chef-chef-m-f-d-coop-genossenschaft-basel"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-basel-stadt-0islx1"
@@ -2745,7 +2799,8 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-basel-stadt-0islx1",
-        "kochin-koch-m-w-d-coop-ristorante-basel-stadt"
+        "kochin-koch-m-w-d-coop-ristorante-basel-stadt",
+        "chef-chef-m-f-d-coop-genossenschaft-basel"
       ]
     },
     {
@@ -3639,7 +3694,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-non-food-coop-goschenen-uri-kh9zhr",
-          "verkaufer-in-food-non-food-coop-goschenen-uri"
+          "verkaufer-in-food-non-food-coop-goschenen-uri",
+          "seller-non-food-coop-genossenschaft-unterentfelden"
         ],
         "en": [
           "verkaufer-in-food-non-food-coop-goschenen-uri-kh9zhr"
@@ -3650,7 +3706,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-non-food-coop-goschenen-uri-kh9zhr",
-        "verkaufer-in-food-non-food-coop-goschenen-uri"
+        "verkaufer-in-food-non-food-coop-goschenen-uri",
+        "seller-non-food-coop-genossenschaft-unterentfelden"
       ]
     },
     {
@@ -4724,18 +4781,35 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufberater-in-non-food-coop-city-zug-t933o1",
-          "verkaufberater-in-non-food-coop-city-zug"
+          "verkaufberater-in-non-food-coop-city-zug",
+          "consulente-vendite-in-non-food-coop-genossenschaft-zug",
+          "sales-advisor-in-non-food-coop-genossenschaft-zug",
+          "verkaufberater-in-non-food-coop-city-zug-seusc9",
+          "conseiller-commercial-en-non-alimentation-coop-genossenschaft-zug",
+          "verkaufberater-in-non-food-coop-genossenschaft-zug",
+          "verkaufberater-in-non-food-coop-genossenschaft-zug-seusc9"
         ],
         "en": [
-          "verkaufberater-in-non-food-coop-city-zug-t933o1"
+          "verkaufberater-in-non-food-coop-city-zug-t933o1",
+          "sales-advisor-in-non-food-coop-genossenschaft-zug"
         ],
         "fr": [
-          "verkaufberater-in-non-food-coop-city-zug-t933o1"
+          "verkaufberater-in-non-food-coop-city-zug-t933o1",
+          "conseiller-commercial-en-non-alimentation-coop-genossenschaft-zug"
+        ],
+        "de": [
+          "verkaufberater-in-non-food-coop-city-zug-seusc9"
         ]
       },
       "previousSlugs": [
         "verkaufberater-in-non-food-coop-city-zug-t933o1",
-        "verkaufberater-in-non-food-coop-city-zug"
+        "verkaufberater-in-non-food-coop-city-zug",
+        "consulente-vendite-in-non-food-coop-genossenschaft-zug",
+        "sales-advisor-in-non-food-coop-genossenschaft-zug",
+        "verkaufberater-in-non-food-coop-city-zug-seusc9",
+        "conseiller-commercial-en-non-alimentation-coop-genossenschaft-zug",
+        "verkaufberater-in-non-food-coop-genossenschaft-zug",
+        "verkaufberater-in-non-food-coop-genossenschaft-zug-seusc9"
       ]
     },
     {
@@ -4810,7 +4884,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-1zhwct",
-          "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern"
+          "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern",
+          "addetto-a-alla-vendita-prodotti-freschi-incl-produzione-coop-genossenschaft-herzogenbuchsee"
         ],
         "en": [
           "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-1zhwct"
@@ -4821,7 +4896,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern-1zhwct",
-        "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern"
+        "verkaufer-in-frischprodukte-inkl-produktion-coop-herzogenbuchsee-bern",
+        "addetto-a-alla-vendita-prodotti-freschi-incl-produzione-coop-genossenschaft-herzogenbuchsee"
       ]
     },
     {
@@ -4964,12 +5040,14 @@
       "previousSlugs": [
         "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil",
         "franchising-partner-in-coop-pronto-con-o-ohne-tankstelle-coop-pronto-allschwil-p24nv0",
-        "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-p24nv0"
+        "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-p24nv0",
+        "partner-franchising-coop-pronto-senza-stazione-di-servizio-impresa-familiare-coop-genossenschaft-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil",
-          "franchising-partner-in-coop-pronto-con-o-ohne-tankstelle-coop-pronto-allschwil-p24nv0"
+          "franchising-partner-in-coop-pronto-con-o-ohne-tankstelle-coop-pronto-allschwil-p24nv0",
+          "partner-franchising-coop-pronto-senza-stazione-di-servizio-impresa-familiare-coop-genossenschaft-allschwil"
         ],
         "en": [
           "franchising-partner-in-coop-pronto-mit-oder-ohne-tankstelle-coop-pronto-allschwil-p24nv0"
@@ -5197,18 +5275,36 @@
       "previousSlugsByLocale": {
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-ed2046",
+          "butcher-meat-specialist-coop-genossenschaft-zweisimmen-ed2046",
+          "macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-t3w4mg",
+          "butcher-meat-specialist-coop-genossenschaft-zweisimmen-t3w4mg",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-t3w4mg"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve",
+          "butcher-meat-specialist-coop-genossenschaft-zweisimmen-t3w4mg"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-ed2046",
+          "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-t3w4mg"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-t3w4mg"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-0blmve",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-ed2046",
+        "butcher-meat-specialist-coop-genossenschaft-zweisimmen-ed2046",
+        "macellaio-specialista-della-carne-coop-genossenschaft-zweisimmen",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zweisimmen-bern-t3w4mg",
+        "butcher-meat-specialist-coop-genossenschaft-zweisimmen-t3w4mg",
+        "boucher-specialiste-de-la-viande-coop-genossenschaft-zweisimmen-t3w4mg"
       ]
     },
     {
@@ -5793,18 +5889,41 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-kehrsatz-bern-c87rw0",
-          "verkaufer-in-food-coop-kehrsatz-bern"
+          "verkaufer-in-food-coop-kehrsatz-bern",
+          "venditore-in-food-coop-genossenschaft-kehrsatz-bern",
+          "seller-in-food-coop-genossenschaft-kehrsatz-bern",
+          "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern-mfbuak",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-kehrsatz-bern",
+          "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern",
+          "seller-in-food-coop-genossenschaft-kehrsatz-5eed28",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-kehrsatz-5eed28",
+          "venditore-in-food-coop-genossenschaft-kehrsatz-5eed28",
+          "verkaufer-in-food-coop-genossenschaft-kehrsatz"
         ],
         "en": [
-          "verkaufer-in-food-coop-kehrsatz-bern-c87rw0"
+          "verkaufer-in-food-coop-kehrsatz-bern-c87rw0",
+          "seller-in-food-coop-genossenschaft-kehrsatz-bern"
         ],
         "fr": [
-          "verkaufer-in-food-coop-kehrsatz-bern-c87rw0"
+          "verkaufer-in-food-coop-kehrsatz-bern-c87rw0",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-kehrsatz-bern"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern-mfbuak"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-kehrsatz-bern-c87rw0",
-        "verkaufer-in-food-coop-kehrsatz-bern"
+        "verkaufer-in-food-coop-kehrsatz-bern",
+        "venditore-in-food-coop-genossenschaft-kehrsatz-bern",
+        "seller-in-food-coop-genossenschaft-kehrsatz-bern",
+        "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern-mfbuak",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-kehrsatz-bern",
+        "verkaufer-in-food-coop-genossenschaft-kehrsatz-bern",
+        "seller-in-food-coop-genossenschaft-kehrsatz-5eed28",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-kehrsatz-5eed28",
+        "venditore-in-food-coop-genossenschaft-kehrsatz-5eed28",
+        "verkaufer-in-food-coop-genossenschaft-kehrsatz"
       ]
     },
     {
@@ -6133,19 +6252,32 @@
         "it": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-munsingen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc",
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern",
+          "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-munsingen",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-mlvynv",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
         ],
         "en": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc",
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-munsingen"
         ],
         "fr": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc",
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
+        ],
+        "de": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-mlvynv"
         ]
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-munsingen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-3q0rlc",
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern",
+        "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-munsingen",
+        "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-munsingen",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-munsingen-bern-mlvynv",
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-munsingen"
       ]
     },
     {
@@ -6564,18 +6696,30 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-bern-oifufo",
-          "verkaufer-in-food-coop-bern"
+          "verkaufer-in-food-coop-bern",
+          "venditore-in-food-coop-genossenschaft-bern-156cf6",
+          "verkaufer-in-food-coop-bern-2"
         ],
         "en": [
-          "verkaufer-in-food-coop-bern-oifufo"
+          "verkaufer-in-food-coop-bern-oifufo",
+          "seller-in-food-coop-genossenschaft-bern-156cf6"
         ],
         "fr": [
-          "verkaufer-in-food-coop-bern-oifufo"
+          "verkaufer-in-food-coop-bern-oifufo",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bern-156cf6"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-bern-h2c8pa"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-bern-oifufo",
-        "verkaufer-in-food-coop-bern"
+        "verkaufer-in-food-coop-bern",
+        "venditore-in-food-coop-genossenschaft-bern-156cf6",
+        "verkaufer-in-food-coop-bern-2",
+        "seller-in-food-coop-genossenschaft-bern-156cf6",
+        "verkaufer-in-food-coop-bern-h2c8pa",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bern-156cf6"
       ]
     },
     {
@@ -6951,7 +7095,7 @@
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/u/a)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinier / Cuisinière (h/f/x)"
       },
@@ -7017,7 +7161,6 @@
         "cuisinier-cuisiniere-f-m-d-coop-genossenschaft-st-gallen",
         "kochin-koch-m-w-d-coop-genossenschaft-st-gallen-sankt-gallen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -10770,13 +10913,23 @@
           "seller-in-food-coop-genossenschaft-bern-36dd0d",
           "seller-in-food-coop-genossenschaft-bern-b19f6d",
           "seller-in-food-coop-genossenschaft-bern-ugpw0w",
-          "seller-in-food-coop-genossenschaft-bern-xfn54z"
+          "seller-in-food-coop-genossenschaft-bern-xfn54z",
+          "venditore-in-food-coop-genossenschaft-bern-156cf6",
+          "seller-in-food-coop-genossenschaft-bern-156cf6",
+          "verkaufer-in-food-coop-bern-h2c8pa",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bern-156cf6",
+          "verkaufer-in-food-coop-bern-2"
         ],
         "en": [
-          "verkaufer-in-food-coop-bern-kr3ykr"
+          "verkaufer-in-food-coop-bern-kr3ykr",
+          "seller-in-food-coop-genossenschaft-bern-156cf6"
         ],
         "fr": [
-          "verkaufer-in-food-coop-bern-kr3ykr"
+          "verkaufer-in-food-coop-bern-kr3ykr",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bern-156cf6"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-bern-h2c8pa"
         ]
       },
       "previousSlugs": [
@@ -10789,7 +10942,12 @@
         "seller-in-food-coop-genossenschaft-bern-36dd0d",
         "seller-in-food-coop-genossenschaft-bern-b19f6d",
         "seller-in-food-coop-genossenschaft-bern-ugpw0w",
-        "seller-in-food-coop-genossenschaft-bern-xfn54z"
+        "seller-in-food-coop-genossenschaft-bern-xfn54z",
+        "venditore-in-food-coop-genossenschaft-bern-156cf6",
+        "seller-in-food-coop-genossenschaft-bern-156cf6",
+        "verkaufer-in-food-coop-bern-h2c8pa",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bern-156cf6",
+        "verkaufer-in-food-coop-bern-2"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -11521,7 +11679,7 @@
         "it": "Sponsorizzazione del responsabile progetto",
         "de": "Project-Manager:in Sponsoring",
         "fr": "Gestionnaire de projet :en commandite",
-        "en": ""
+        "en": "Project Manager Sponsorship"
       },
       "descriptionByLocale": {
         "it": "Responsabile del progetto:in Sponsoring\n\nCooperativa Coop Berna, Berna, Sizzera\n\nAttività Gestisci progetti sponsorizzati entusiasmanti nei settori della famiglia e della gioventù, dello sport e della cultura. dalla pianificazione al completamento di successo. Ti occupi della responsabilità di budgeting. Organizzi, organizzi e realizzi eventi aziendali e pubblici della regione commerciale Coop di Berna, sempre tenendo d'occhio le date, i costi e la qualità. Sviluppi le apparenze sponsorizzate creative insieme a partner interni ed esterni e assicuri la loro implementazione professionale sul sito.\n\nLei negozia con gli stakeholder esterni e collabora con i nostri partner con fiducia. Lei è responsabile della documentazione dei progetti e del controllo dei progetti e assume ulteriori compiti amministrativi relativi ai suoi progetti.\n\nRequisiti Hai una laurea in istruzione superiore o una formazione ulteriore nel campo della sponsorizzazione o della comunicazione. Hai esperienza professionale nella sponsorizzazione e/o gestione di eventi. Lavori indipendentemente, organizzato e affidabile e convinci con la tua flessibilità e il tuo talento organizzativo distintivo. Sei a prova di negoziazione e pronto ad accompagnare gli eventi anche la sera e nei fine settimana.\n\n- Sconti: 5 volte Super punti nel supermercato - Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop - Tempo di lavoro: 5 settimane vacanze - Formazione: Supporto per l'istruzione e la formazione esterna - Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni - Comunicazione: app interna per i dipendenti - Salute: Partecipazione gratuita a varie corse aziendali\n\nIl Suo contatto Peter Zenger HR Marketing\n\nTipo: Part-time",
@@ -11566,7 +11724,6 @@
         "project-manager-in-sponsoring-coop-bern-yk9wx5",
         "project-manager-in-sponsoring-coop-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },
@@ -11636,7 +11793,8 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-bern-0lqzxk",
           "vendeur-dans-la-nourriture-coop-genossenschaft-bern-4lb2b0",
           "vendeur-dans-la-nourriture-coop-genossenschaft-bern-e21b21",
-          "venditore-in-food-coop-genossenschaft-bern-b19f6d"
+          "venditore-in-food-coop-genossenschaft-bern-b19f6d",
+          "venditore-food-coop-genossenschaft-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-city-bern-t43kbh"
@@ -11652,7 +11810,8 @@
         "vendeur-dans-la-nourriture-coop-genossenschaft-bern-0lqzxk",
         "vendeur-dans-la-nourriture-coop-genossenschaft-bern-4lb2b0",
         "vendeur-dans-la-nourriture-coop-genossenschaft-bern-e21b21",
-        "venditore-in-food-coop-genossenschaft-bern-b19f6d"
+        "venditore-in-food-coop-genossenschaft-bern-b19f6d",
+        "venditore-food-coop-genossenschaft-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -12943,12 +13102,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "consulente-commerciale-in-cosmetica-coop-genossenschaft-basel",
-          "verkaufsberater-in-kosmetik-coop-city-basel-stadt-pq9qrw",
-          "sales-consultant-in-cosmetics-coop-genossenschaft-basel-pq9qrw",
-          "consultant-en-vente-en-cosmetique-coop-genossenschaft-basel-pq9qrw",
-          "verkaufsberater-in-kosmetik-coop-city-basel-stadt-z8geqc",
-          "conseiller-de-vente-cosmetiques-bijoux-et-accessoires-coop-genossenschaft-basel",
           "verkaufsberater-in-kosmetik-schmuck-und-accessoires-coop-city-basel-stadt-1bd8ze",
           "sales-consultant-cosmetics-jewelry-and-accessories-coop-genossenschaft-basel",
           "verkaufsberater-in-kosmetik-schmuck-e-accessoires-coop-city-basel-stadt-1bd8ze",
@@ -12956,24 +13109,39 @@
           "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-gk0js5",
           "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5",
           "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5",
-          "verkaufsberater-in-kosmetik-coop-city-basel-stadt"
+          "verkaufsberater-in-kosmetik-coop-city-basel-stadt",
+          "verkaufsberateri-a-kosmetik-coop-genossenschaft-bern-t7hn4h",
+          "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-75ff5c",
+          "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern",
+          "verkaufsberateri-a-kosmetik-coop-genossenschaft-bern",
+          "consulente-di-vendita-cosmetici-coop-genossenschaft-bern",
+          "consulente-vendite-cosmetici-coop-genossenschaft-bern",
+          "consulente-di-vendita-in-cosmetici-coop-genossenschaft-aarau",
+          "sales-consultant-in-cosmetics-coop-genossenschaft-aarau",
+          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-klipnz",
+          "consultant-commercial-en-cosmetique-coop-genossenschaft-aarau",
+          "verkaufsberater-in-kosmetik-coop-city-aarau-aargau",
+          "consulente-di-vendita-in-cosmetici-coop-genossenschaft-bern"
         ],
         "en": [
           "sales-consultant-in-cosmetics-coop-genossenschaft-basel-pq9qrw",
           "verkaufsberater-in-kosmetik-coop-city-basel-stadt-z8geqc",
           "sales-consultant-cosmetics-jewelry-and-accessories-coop-genossenschaft-basel",
-          "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5"
+          "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5",
+          "verkaufsberateri-in-kosmetik-coop-city-bern-7isxrm"
         ],
         "de": [
           "verkaufsberater-in-kosmetik-coop-city-basel-stadt-pq9qrw",
           "verkaufsberater-in-kosmetik-schmuck-und-accessoires-coop-city-basel-stadt-1bd8ze",
-          "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-gk0js5"
+          "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-gk0js5",
+          "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm"
         ],
         "fr": [
           "consultant-en-vente-en-cosmetique-coop-genossenschaft-basel-pq9qrw",
           "verkaufsberater-in-kosmetik-coop-city-basel-stadt-z8geqc",
           "conseiller-de-vente-cosmetiques-bijoux-et-accessoires-coop-genossenschaft-basel",
-          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5"
+          "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5",
+          "verkaufsberateri-a-kosmetik-coop-city-bern-7isxrm"
         ]
       },
       "previousSlugs": [
@@ -12990,7 +13158,22 @@
         "verkaufsberater-in-kosmetik-coop-genossenschaft-basel-stadt-gk0js5",
         "sales-consultant-cosmetics-coop-genossenschaft-basel-gk0js5",
         "consultant-en-vente-en-cosmetiques-coop-genossenschaft-basel-gk0js5",
-        "verkaufsberater-in-kosmetik-coop-city-basel-stadt"
+        "verkaufsberater-in-kosmetik-coop-city-basel-stadt",
+        "verkaufsberateri-a-kosmetik-coop-genossenschaft-bern-t7hn4h",
+        "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-75ff5c",
+        "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern",
+        "verkaufsberateri-a-kosmetik-coop-genossenschaft-bern",
+        "consulente-di-vendita-cosmetici-coop-genossenschaft-bern",
+        "consulente-vendite-cosmetici-coop-genossenschaft-bern",
+        "consulente-di-vendita-in-cosmetici-coop-genossenschaft-aarau",
+        "sales-consultant-in-cosmetics-coop-genossenschaft-aarau",
+        "verkaufsberater-in-kosmetik-coop-city-aarau-aargau-klipnz",
+        "consultant-commercial-en-cosmetique-coop-genossenschaft-aarau",
+        "verkaufsberater-in-kosmetik-coop-city-aarau-aargau",
+        "consulente-di-vendita-in-cosmetici-coop-genossenschaft-bern",
+        "verkaufsberateri-in-kosmetik-coop-city-bern-7isxrm",
+        "verkaufsberateri-in-kosmetik-coop-genossenschaft-bern-7isxrm",
+        "verkaufsberateri-a-kosmetik-coop-city-bern-7isxrm"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -15825,7 +16008,7 @@
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (d/f)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (h/f)"
       },
@@ -15849,7 +16032,6 @@
         "de": "kochin-koch-m-w-d-coop-ristorante-wettingen-aargau-sy3j5i",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-wettingen"
       },
-      "needsRetranslation": true,
       "addressLocality": "Wettingen",
       "sourceLang": "de",
       "addressRegion": "AG",
@@ -15894,7 +16076,6 @@
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau",
         "kochin-koch-m-w-d-coop-genossenschaft-wettingen-aargau-15rrqh"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -15927,7 +16108,7 @@
       "firstSeenAt": "2026-09-07T23:38:12.558Z",
       "titleByLocale": {
         "it": "Chef / Chef (m/f/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "fr": "Chef / Chef (h/f/d)"
       },
       "descriptionByLocale": {
@@ -16376,8 +16557,7 @@
         "kochin-koch-m-w-d-coop-ristorante-oftringen-aargau"
       ],
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-tjkqt3",
@@ -21154,7 +21334,7 @@
         "it": "Macellaio - Macellaio - Macellaio - Carminatore - Macellaio - Macellaio (m/f/d)",
         "en": "Butcher - Butcher - Charcutier - Charcutier (m/f/d)",
         "fr": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "Macellaio - Macellaio / Salumiere - Salumiere (m/f/d)\n\nCoop Genossenschaft — La Tour-de-Peilz, Vaud, Svizzera\n\nMissione\n- Il servizio tradizionale è l'immagine del nostro marchio e un importante punto di contatto per i nostri clienti, che consigliate e servite con passione al buffet.\n- Appena tagliato e ben presentato: prepari i prodotti a base di carne in modo professionale e li presenti in modo attraente, e prepari anche prodotti fatti in casa, come le salsicce.\n- Gestisci la merce self-service e contribuisci attivamente a ottimizzarne la vendita.\n- Prendi gli ordini dei clienti durante le festività natalizie e fuori e li prepari.\n\nCompetenze richieste\n- Ti piace lavorare nella consulenza o nel servizio clienti, idealmente nel settore alimentare, e sei interessato al segmento della carne e del pesce.\n- Costituisce titolo preferenziale l'esperienza presso una macelleria tradizionale. Avere già lavorato come cuoco (m/f/d) ti aiuta anche nel tuo ruolo di consulenza quotidiana.\n- Ti piace lo scambio ravvicinato con i clienti e fornire loro consigli.\n- Attuate sistematicamente istruzioni e direttive sulla qualità.\n- Sconti e riduzioni: sconti sui viaggi presso ITS Coop Travel, 5 volte più superpunti nei supermercati, sconto fino al 20% su diversi servizi assicurativi, sconto fino al 20% in tutti i formati del gruppo Coop, abbonamenti mobili e prepagati scontati presso Coop Mobile, riduzione sulla Reka Card, riduzione sulle tariffe Mobility CarSharing, sconto per il personale concesso anche al partner (convivente), abbonamento ridotto generale, ingresso ridotto a manifestazioni culturali, ingresso ridotto a attività ricreative\n- Condizioni di ingaggio. cassa pensione: coperta da Coop per 2/3 dei contributi, condizioni di lavoro attraenti e parità di retribuzione garantita, premi di anzianità, piano di risparmio della cassa pensione, contratto collettivo di lavoro (CCT), sistema RA flessibile e attraente per il pensionamento anticipato a partire dai 58 anni, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane di ferie, modelli di orario flessibili\n- Formazione continua: Oltre 600 corsi di formazione interni, Talent Management con numerose e diversificate possibilità di sviluppo, per corsi di formazione esterna e perfezionamento\n- Sviluppo sostenibile: un impegno per l'uomo, gli animali e la natura con più di 400 azioni\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– riduzione sull'abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\nIl tuo referente\nViviane Natsch-Artmann\nMarketing delle risorse umane\n\nTipologia: part-time\nLuogo: La Tour-de-Peilz",
@@ -21176,7 +21356,6 @@
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
       },
-      "needsRetranslation": true,
       "addressLocality": "La Tour-de-Peilz",
       "sourceLang": "fr",
       "addressRegion": "VD",
@@ -21204,7 +21383,6 @@
           "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-la-tour-de-peilz-vaud-i41pb9"
         ]
       },
-      "retranslationAttempts": 1,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -21240,7 +21418,7 @@
         "en": "Department Head Convenience Products/Butchery (f/m/d)",
         "de": "Abteilungsleiter/in Convenience-Produkte/Metzgerei (w/m/d)",
         "fr": "Cheffe / Chef de rayon Produits convenience/Boucherie (f/h/d)",
-        "it": ""
+        "it": "Chef / Capo Dipartimento Prodotti convenienza/Boucherie (m/f/d)"
       },
       "descriptionByLocale": {
         "it": "Responsabile reparto prodotti di largo consumo/macelleria (m/f/d)\n\nCoop Genossenschaft — Echallens, Vaud, Svizzera\n\nMissione\n- Nella tua veste di responsabile del reparto Convenience Products e Carne, il tuo obiettivo è offrire ai tuoi clienti un'esperienza d'acquisto incentrata sulla freschezza.\n- Assicuri regolarmente il rifornimento per garantire la costante disponibilità dei prodotti. Una volta sugli scaffali, i prodotti risvegliano immediatamente le papille gustative.\n- Rispondi in modo competente e amichevole alle domande o richieste dei tuoi clienti.\n- Rispetto e buon spirito di squadra sono le tue parole d'ordine come manager.\n\nCompetenze richieste\n- Possiedi una formazione iniziale come macellaio, cuoco nel commercio al dettaglio o esperienza professionale equivalente nel settore dei prodotti pronti/carne. - Hai acquisito esperienza di vendita e di gestione in una funzione simile. - Una buona conoscenza dell'area di responsabilità Prodotti Convenience e Carne costituisce un vantaggio significativo. - Ti piace consigliare i clienti e condividere il tuo interesse per i prodotti di qualità e le tue conoscenze culinarie. - Possiedi un buon livello di francese, sia scritto che parlato. - Sei flessibile in termini di orari. - Ti adatti senza problemi ai nuovi strumenti informatici. - Sconti e riduzioni: sconti sui viaggi presso ITS Coop Travel, 5 volte più superpunti nei supermercati, sconto fino al 20% su diversi servizi assicurativi, sconto fino al 20% in tutti i formati del gruppo Coop, abbonamenti mobili e prepagati scontati presso Coop Mobile, riduzione sulla Reka Card, riduzione sulle tariffe Mobility CarSharing, sconto per il personale concesso anche al partner (convivente), abbonamento ridotto generale, ingresso ridotto a manifestazioni culturali, ingresso ridotto a attività ricreative\n- Condizioni di ingaggio.\n\ncassa pensione: coperta da Coop per 2/3 dei contributi, condizioni di lavoro attraenti e parità di retribuzione garantita, premi di anzianità, piano di risparmio della cassa pensione, contratto collettivo di lavoro (CCT), sistema RA flessibile e attraente per il pensionamento anticipato a partire dai 58 anni, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane di ferie, modelli di orario flessibili\n- Formazione continua: Oltre 600 corsi di formazione interni, Talent Management con numerose e diversificate possibilità di sviluppo, per corsi di formazione esterna e perfezionamento\n- Sviluppo sostenibile: un impegno a favore delle persone, degli animali e della natura con oltre 400 azioni\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– riduzione sull'abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\nIl tuo referente\nNadia Ruetsch\nMarketing delle risorse umane\n\nTipologia: a tempo pieno\nSede: Echallens",
@@ -21265,7 +21443,6 @@
       },
       "addressLocality": "Echallens",
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "addressRegion": "VD",
       "salarySource": "reported",
       "baseSalary": {
@@ -21294,7 +21471,6 @@
         "cheffe-chef-de-rayon-produits-convenience-boucherie-m-w-d-coop-echallens-vaud-igximb",
         "cheffe-chef-de-rayon-produits-convenience-boucherie-m-w-d-coop-echallens-vaud"
       ],
-      "retranslationAttempts": 1,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -24191,7 +24367,7 @@
       "firstSeenAt": "2026-09-04T13:40:01.972Z",
       "titleByLocale": {
         "it": "Cuoca / Cuoco (f/m/d)",
-        "en": "Köchin / Koch (w/m/d)",
+        "en": "Chef / Chef (m/f/d)",
         "de": "Köchin / Koch (w/m/d)",
         "fr": "Cuisinière / Cuisinier (f/m/d)"
       },
@@ -24247,7 +24423,6 @@
         "kochin-koch-m-w-d-coop-ristorante-winterthur-zurich",
         "chef-chef-m-f-d-coop-genossenschaft-winterthur-zurich"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -25546,9 +25721,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zurich-46jnxl",
-          "verkaufer-in-food-coop-zurich",
-          "venditore-in-food-coop-genossenschaft-obfelden-zurich",
           "seller-in-food-coop-genossenschaft-obfelden-zurich",
           "verkaufer-in-food-coop-obfelden-zurich-0u9uo2",
           "vendeur-dans-la-nourriture-coop-genossenschaft-obfelden-zurich",
@@ -25563,21 +25735,29 @@
           "verkaufer-in-food-coop-genossenschaft-stafa-zurich",
           "seller-in-food-coop-genossenschaft-stafa",
           "vendeur-dans-la-nourriture-coop-genossenschaft-stafa",
-          "venditore-in-food-coop-genossenschaft-stafa"
+          "venditore-in-food-coop-genossenschaft-stafa",
+          "verkaufer-in-food-coop-genossenschaft-bulach-zurich",
+          "seller-in-food-coop-genossenschaft-bulach",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bulach",
+          "venditore-in-food-coop-genossenschaft-bulach",
+          "venditore-in-food-coop-genossenschaft-bulach-zurich"
         ],
         "en": [
           "verkaufer-in-food-coop-zurich-46jnxl",
           "seller-in-food-coop-genossenschaft-obfelden-zurich",
-          "seller-in-food-coop-genossenschaft-stafa-zurich"
+          "seller-in-food-coop-genossenschaft-stafa-zurich",
+          "seller-in-food-coop-genossenschaft-bulach-zurich"
         ],
         "de": [
           "verkaufer-in-food-coop-obfelden-zurich-0u9uo2",
-          "verkaufer-in-food-coop-genossenschaft-stafa-zurich-yhe18j"
+          "verkaufer-in-food-coop-genossenschaft-stafa-zurich-yhe18j",
+          "verkaufer-in-food-coop-genossenschaft-bulach-zurich-351y10"
         ],
         "fr": [
           "verkaufer-in-food-coop-zurich-46jnxl",
           "vendeur-dans-la-nourriture-coop-genossenschaft-obfelden-zurich",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-stafa-zurich"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-stafa-zurich",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-bulach-zurich"
         ]
       },
       "previousSlugs": [
@@ -25598,7 +25778,15 @@
         "verkaufer-in-food-coop-genossenschaft-stafa-zurich",
         "seller-in-food-coop-genossenschaft-stafa",
         "vendeur-dans-la-nourriture-coop-genossenschaft-stafa",
-        "venditore-in-food-coop-genossenschaft-stafa"
+        "venditore-in-food-coop-genossenschaft-stafa",
+        "verkaufer-in-food-coop-genossenschaft-bulach-zurich",
+        "seller-in-food-coop-genossenschaft-bulach",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bulach",
+        "venditore-in-food-coop-genossenschaft-bulach",
+        "venditore-in-food-coop-genossenschaft-bulach-zurich",
+        "seller-in-food-coop-genossenschaft-bulach-zurich",
+        "verkaufer-in-food-coop-genossenschaft-bulach-zurich-351y10",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-bulach-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -29245,7 +29433,8 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-koniz-bern-ymljhu",
-          "verkaufer-in-food-coop-koniz-bern"
+          "verkaufer-in-food-coop-koniz-bern",
+          "venditore-food-coop-genossenschaft-koniz"
         ],
         "en": [
           "verkaufer-in-food-coop-koniz-bern-ymljhu"
@@ -29256,7 +29445,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-koniz-bern-ymljhu",
-        "verkaufer-in-food-coop-koniz-bern"
+        "verkaufer-in-food-coop-koniz-bern",
+        "venditore-food-coop-genossenschaft-koniz"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -29955,7 +30145,7 @@
         "it": "Macellaio/a - Addetto/a alla Salumeria (f/h/d)",
         "en": "Butcher/Butchery Clerk (f/h/d)",
         "fr": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "Macellaio - Macellaio / Salumiere - Salumiere (m/f/d)\n\nCoop Genossenschaft — Montagny-près-Yverdon, Vaud, Svizzera\n\nMissione\n- Il servizio tradizionale è l'immagine del nostro marchio e un importante punto di contatto per i nostri clienti, che consigliate e servite con passione al buffet.\n- Appena tagliato e ben presentato: prepari i prodotti a base di carne in modo professionale e li presenti in modo attraente, e prepari anche prodotti fatti in casa, come le salsicce.\n- Gestisci la merce self-service e contribuisci attivamente a ottimizzarne la vendita.\n- Prendi gli ordini dei clienti durante le festività natalizie e fuori e li prepari.\n\nCompetenze richieste\n- Ti piace lavorare nella consulenza o nel servizio clienti, idealmente nel settore alimentare, e sei interessato al segmento della carne e del pesce.\n- Costituisce titolo preferenziale l'esperienza presso una macelleria tradizionale. Avere già lavorato come cuoco (m/f/d) ti aiuta anche nel tuo ruolo di consulenza quotidiana.\n- Ti piace lo scambio ravvicinato con i clienti e fornire loro consigli.\n- Attuate sistematicamente istruzioni e direttive sulla qualità.\n- Sconti e riduzioni: sconti sui viaggi presso ITS Coop Travel, 5 volte più superpunti nei supermercati, sconto fino al 20% su diversi servizi assicurativi, sconto fino al 20% in tutti i formati del gruppo Coop, abbonamenti mobili e prepagati scontati presso Coop Mobile, riduzione sulla Reka Card, riduzione sulle tariffe Mobility CarSharing, sconto per il personale concesso anche al partner (convivente), abbonamento ridotto generale, ingresso ridotto a manifestazioni culturali, ingresso ridotto a attività ricreative\n- Condizioni di ingaggio. cassa pensione: coperta da Coop per 2/3 dei contributi, condizioni di lavoro attraenti e parità di retribuzione garantita, premi di anzianità, piano di risparmio della cassa pensione, contratto collettivo di lavoro (CCT), sistema RA flessibile e attraente per il pensionamento anticipato a partire dai 58 anni, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Orario di lavoro: 5 settimane di ferie, modelli di orario flessibili\n- Formazione continua: Oltre 600 corsi di formazione interni, Talent Management con numerose e diversificate possibilità di sviluppo, per corsi di formazione esterna e perfezionamento\n- Sviluppo sostenibile: un impegno per l'uomo, gli animali e la natura con più di 400 azioni\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– riduzione sull'abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\nIl tuo referente\nNadia Ruetsch\nMarketing delle risorse umane\n\nTipologia: a tempo pieno\nUbicazione: Montagny-près-Yverdon",
@@ -29977,7 +30167,6 @@
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
       },
-      "needsRetranslation": true,
       "addressLocality": "Montagny-près-Yverdon",
       "sourceLang": "fr",
       "addressRegion": "VD",
@@ -30005,7 +30194,6 @@
           "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-montagny-pres-yverdon-vaud-rqmzio"
         ]
       },
-      "retranslationAttempts": 1,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -37057,18 +37245,33 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-in-coop-bern-nfrwm4",
-          "backer-in-coop-bern"
+          "backer-in-coop-bern",
+          "baker-in-pasticceria-in-coop-genossenschaft-bern",
+          "baker-in-confectioner-in-coop-genossenschaft-bern",
+          "backer-in-konditor-in-coop-bern-n5epy7",
+          "baker-in-confiseur-in-coop-genossenschaft-bern",
+          "backer-in-konditor-in-coop-bern"
         ],
         "en": [
-          "backer-in-coop-bern-nfrwm4"
+          "backer-in-coop-bern-nfrwm4",
+          "baker-in-confectioner-in-coop-genossenschaft-bern"
         ],
         "fr": [
-          "backer-in-coop-bern-nfrwm4"
+          "backer-in-coop-bern-nfrwm4",
+          "baker-in-confiseur-in-coop-genossenschaft-bern"
+        ],
+        "de": [
+          "backer-in-konditor-in-coop-bern-n5epy7"
         ]
       },
       "previousSlugs": [
         "backer-in-coop-bern-nfrwm4",
-        "backer-in-coop-bern"
+        "backer-in-coop-bern",
+        "baker-in-pasticceria-in-coop-genossenschaft-bern",
+        "baker-in-confectioner-in-coop-genossenschaft-bern",
+        "backer-in-konditor-in-coop-bern-n5epy7",
+        "baker-in-confiseur-in-coop-genossenschaft-bern",
+        "backer-in-konditor-in-coop-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -51843,7 +52046,7 @@
       "titleByLocale": {
         "it": "Consigliere interno (m/f/d), 70-90 %",
         "en": "Inhouse Counsel (m/f/d), 70-90 %",
-        "fr": ""
+        "fr": "Conseil interne (h/f/d), 70-90 %"
       },
       "descriptionByLocale": {
         "it": "## Consigliere interno (m/f/d), 70-90 %\n\nCoop Cooperative — Basel, Basel City, Svizzera\n\n## Compiti\n- Consulenza legale in vari campi legali per clienti interni di tutti i livelli gerarchici e filiali\n- Partecipazione ai negoziati interni ed esterni e alla rappresentanza della società dinanzi alle autorità pubbliche\n- Attuazione e ulteriore sviluppo dei processi di conformità, incluso il supporto formativo\n- Cooperazione nel programma di conformità della protezione dei dati\n- Rilevamento anticipato, valutazione e divulgazione dei rischi legali\n\n## Requisiti\n- Laurea in giurisprudenza completata (MLaw), idealmente con il brevetto dell’avvocato svizzero\n- Esperienza professionale nell'ambiente legale, preferibilmente in un servizio legale aziendale o in uno studio legale\n- Conoscenza del diritto contrattuale e societario nonché un vantaggio nella protezione dei dati\n- Flusso di lavoro efficiente, pragmatico e orientato alla soluzione\n- Lavoro di squadra, godimento della cooperazione interdisciplinare, nonché alta affinità di consulenza e disponibilità a svolgere\n- Sconti: 5 volte il numero di punti super nel supermercato, fino al 20% di sconto in tutti i formati del Gruppo Coop, Reka-Card: Sconto sull'acquisto\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, 18 settimane di congedo di maternità retribuito e 4 settimane di congedo di paternità pagato, bonus di lealtà, piano di risparmio presso il fondo pensione\n- Ore lavorative: 6 settimane\n- Formazione: oltre 600 corsi di formazione interna, sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie attività aziendali\n\n## La persona di contatto\nConcimazioni Veronica\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Basilea",
@@ -66147,7 +66350,11 @@
         "verkaufer-in-food-coop-altstatten-sankt-gallen",
         "venditore-in-food-coop-genossenschaft-altstatten",
         "seller-in-food-coop-genossenschaft-altstatten",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten",
+        "vendeur-dans-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta",
+        "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+        "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66162,18 +66369,25 @@
           "verkaufer-in-food-coop-altstatten-sankt-gallen",
           "venditore-in-food-coop-genossenschaft-altstatten",
           "seller-in-food-coop-genossenschaft-altstatten",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten",
+          "vendeur-dans-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+          "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta",
+          "venditore-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen",
+          "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "en": [
           "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-4vr0rm",
-          "seller-in-food-coop-genossenschaft-altstatten-sankt-gallen"
+          "seller-in-food-coop-genossenschaft-altstatten-sankt-gallen",
+          "seller-in-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
         ],
         "de": [
-          "verkaufer-in-food-coop-genossenschaft-altstatten-sankt-gallen-kg8kyr"
+          "verkaufer-in-food-coop-genossenschaft-altstatten-sankt-gallen-kg8kyr",
+          "verkaufer-in-food-frische-insel-coop-genossenschaft-st-gallen-sankt-gallen-d9anta"
         ],
         "fr": [
           "verkaufer-in-food-coop-city-st-gallen-sankt-gallen-4vr0rm",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten-sankt-gallen"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-altstatten-sankt-gallen",
+          "vendeur-dans-food-fresh-island-coop-genossenschaft-st-gallen-sankt-gallen"
         ]
       },
       "salarySource": "estimated",
@@ -69089,7 +69303,7 @@
         "it": "Selettori d'ordine: dentro, 60%",
         "en": "Order pickers: inside, 60%",
         "de": "Kommissionierer:innen, 60%",
-        "fr": ""
+        "fr": "Cueilleurs de commandes: à l'intérieur, 60%"
       },
       "descriptionByLocale": {
         "it": "## Selettori d'ordine: dentro, 60%\n\nCoop Cooperative — Langenthal, Bern, Svizzera\n\n## Compiti\n- Seleziona per voce (headset/headphones)\n- Attività di stoccaggio\n- Volontà di aiutare in altri dipartimenti\n\n## Requisiti\n- Esperienza ideale come committente: in warehousing/forwards\n- Lavoro autonomo\n- Affidabilità, flessibilità, puntualità\n- Buona conoscenza del tedesco almeno. Livello A2\n- Nessun parcheggio in loco – Arrivo obbligatorio con i mezzi pubblici\n- Sconti: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino a 20% di sconto su vari servizi assicurativi, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti più economici mobili e prepagati su Coop Mobile, Reka card: sconto su abbonamento, sconto su abbonamento GA, sconti per attività ricreative\n- Condizioni di lavoro: fondo pensione: 2/3 è pagato da Coop, condizioni di lavoro attraenti e parità di retribuzione certificata, contratto collettivo di lavoro (GAV), piano di risparmio presso il fondo pensione\n- Ore lavorative: 5 week-end\n- Formazione: oltre 600 corsi di formazione interna, sostegno all'istruzione esterna e formazione\n- Sostenibilità: Impegno a persone e animali e natura con oltre 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: aggiornamento Fitness: Fr. 200.– Sconto su abbonamento annuale, partecipazione gratuita a varie attività aziendali\n\n## La persona di contatto\nMichèle della Danimarca\nHR Marketing\n\nTipo: Tempo parziale\nLangenthal.",
@@ -69150,7 +69364,6 @@
         "selettori-d-ordine-dentro-60-coop-genossenschaft-langenthal"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -73690,7 +73903,8 @@
           "verkaufer-in-food-studentenaushilfe-coop-zurich-hsjet8",
           "verkaufer-in-food-studentenaushilfe-coop-zurich-2",
           "seller-in-food-student-help-coop-genossenschaft-zurich-fpse6n",
-          "vendeur-in-food-aide-etudiante-coop-genossenschaft-zurich-fpse6n"
+          "vendeur-in-food-aide-etudiante-coop-genossenschaft-zurich-fpse6n",
+          "verkaufer-in-food-studentenaushilfe-coop-zurich-2-2"
         ],
         "en": [
           "verkaufer-in-food-studentenaushilfe-coop-zurich-hsjet8"
@@ -73703,7 +73917,8 @@
         "verkaufer-in-food-studentenaushilfe-coop-zurich-hsjet8",
         "verkaufer-in-food-studentenaushilfe-coop-zurich-2",
         "seller-in-food-student-help-coop-genossenschaft-zurich-fpse6n",
-        "vendeur-in-food-aide-etudiante-coop-genossenschaft-zurich-fpse6n"
+        "vendeur-in-food-aide-etudiante-coop-genossenschaft-zurich-fpse6n",
+        "verkaufer-in-food-studentenaushilfe-coop-zurich-2-2"
       ],
       "salarySource": "estimated",
       "salaryMin": 73500,
@@ -77023,7 +77238,7 @@
       "titleByLocale": {
         "en": "Deputy Head of Department Convenience/Boucherie (m/f/d)",
         "de": "Stellvertretender Abteilungsleiter Convenience/Boucherie (m/w/d)",
-        "it": ""
+        "it": "Vice Capo Dipartimento Convenienza/Boucherie (m/f/d)"
       },
       "descriptionByLocale": {
         "it": "## Vice Capo Dipartimento Convenienza/Boucherie (m/f/d)\n\nCoop Genossenschaft — Epalinges, Vaud, Svizzera\n\n## Missione\n- Come assistente manager del reparto Vini/ Bevande, il vostro obiettivo è quello di offrire ai clienti una piacevole esperienza di shopping.\n- Garantisci la conformità a tutti i processi e le normative.\n- Come parte del lavoro di squadra, sarà volentieri aiutare i colleghi in altri settori.\n- In assenza del vostro superiore diretto, vi assumete la responsabilità del dipartimento.\n\n## Qualifiche\n- Si beneficia di formazione iniziale di vendita e/o di esperienza professionale in questo campo.\n- Hai esperienza in funzioni simili? E' ancora meglio!\n- Siete pienamente investiti e concentrati sul servizio.\n- La flessibilità in termini di orario di lavoro non è un problema per voi.\n- Avete un comando del francese, sia per iscritto che per via orale.\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nNadia Ruetsch\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Scatters",
@@ -81069,18 +81284,31 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-wein-getranke-coop-zurich-k08tmx",
-          "rayonleiter-in-wein-getranke-coop-zurich"
+          "rayonleiter-in-wein-getranke-coop-zurich",
+          "responsabile-reparto-vini-bevande-coop-genossenschaft-grosshochstetten",
+          "rayonleiter-in-wein-getranke-coop-grosshochstetten-bern-burup1",
+          "department-manager-wine-beverages-coop-genossenschaft-grosshochstetten-burup1",
+          "chef-de-rayon-vins-boissons-coop-genossenschaft-grosshochstetten-burup1"
         ],
         "en": [
-          "rayonleiter-in-wein-getranke-coop-zurich-k08tmx"
+          "rayonleiter-in-wein-getranke-coop-zurich-k08tmx",
+          "department-manager-wine-beverages-coop-genossenschaft-grosshochstetten-burup1"
         ],
         "fr": [
-          "rayonleiter-in-wein-getranke-coop-zurich-k08tmx"
+          "rayonleiter-in-wein-getranke-coop-zurich-k08tmx",
+          "chef-de-rayon-vins-boissons-coop-genossenschaft-grosshochstetten-burup1"
+        ],
+        "de": [
+          "rayonleiter-in-wein-getranke-coop-grosshochstetten-bern-burup1"
         ]
       },
       "previousSlugs": [
         "rayonleiter-in-wein-getranke-coop-zurich-k08tmx",
-        "rayonleiter-in-wein-getranke-coop-zurich"
+        "rayonleiter-in-wein-getranke-coop-zurich",
+        "responsabile-reparto-vini-bevande-coop-genossenschaft-grosshochstetten",
+        "rayonleiter-in-wein-getranke-coop-grosshochstetten-bern-burup1",
+        "department-manager-wine-beverages-coop-genossenschaft-grosshochstetten-burup1",
+        "chef-de-rayon-vins-boissons-coop-genossenschaft-grosshochstetten-burup1"
       ],
       "sourceLang": "de",
       "salarySource": "reported",
@@ -81156,18 +81384,62 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw",
-          "verkaufer-in-food-coop-ostermundigen-bern"
+          "verkaufer-in-food-coop-ostermundigen-bern",
+          "seller-food-coop-genossenschaft-ostermundigen",
+          "seller-food-coop-genossenschaft-ostermundigen-5bi52k",
+          "seller-food-coop-genossenschaft-ostermundigen-6e9e52",
+          "seller-food-coop-genossenschaft-ostermundigen-wqa33g",
+          "seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
+          "seller-in-food-coop-genossenschaft-ostermundigen-wqa33g",
+          "venditore-in-food-coop-genossenschaft-ostermundigen",
+          "seller-in-food-coop-genossenschaft-ostermundigen",
+          "verkaufer-in-food-coop-ostermundigen-bern-m24x2y",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen",
+          "venditore-in-food-springer-coop-genossenschaft-ostermundigen",
+          "seller-in-food-springer-coop-genossenschaft-ostermundigen",
+          "verkaufer-in-food-springer-coop-ostermundigen-bern-erjhxr",
+          "vendeur-dans-food-springer-coop-genossenschaft-ostermundigen",
+          "seller-in-food-coop-genossenschaft-ostermundigen-6e9e52",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-5bi52k",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-6e9e52"
         ],
         "en": [
-          "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw"
+          "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw",
+          "seller-in-food-coop-genossenschaft-ostermundigen",
+          "seller-in-food-springer-coop-genossenschaft-ostermundigen"
         ],
         "fr": [
-          "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw"
+          "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen",
+          "vendeur-dans-food-springer-coop-genossenschaft-ostermundigen"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-ostermundigen-bern-m24x2y",
+          "verkaufer-in-food-springer-coop-ostermundigen-bern-erjhxr",
+          "verkaufer-in-food-coop-ostermundigen-bern-fjy35p"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-ostermundigen-bern-wt4cdw",
-        "verkaufer-in-food-coop-ostermundigen-bern"
+        "verkaufer-in-food-coop-ostermundigen-bern",
+        "seller-food-coop-genossenschaft-ostermundigen",
+        "seller-food-coop-genossenschaft-ostermundigen-5bi52k",
+        "seller-food-coop-genossenschaft-ostermundigen-6e9e52",
+        "seller-food-coop-genossenschaft-ostermundigen-wqa33g",
+        "seller-in-food-coop-genossenschaft-ostermundigen-5bi52k",
+        "seller-in-food-coop-genossenschaft-ostermundigen-wqa33g",
+        "venditore-in-food-coop-genossenschaft-ostermundigen",
+        "seller-in-food-coop-genossenschaft-ostermundigen",
+        "verkaufer-in-food-coop-ostermundigen-bern-m24x2y",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen",
+        "venditore-in-food-springer-coop-genossenschaft-ostermundigen",
+        "seller-in-food-springer-coop-genossenschaft-ostermundigen",
+        "verkaufer-in-food-springer-coop-ostermundigen-bern-erjhxr",
+        "vendeur-dans-food-springer-coop-genossenschaft-ostermundigen",
+        "seller-in-food-coop-genossenschaft-ostermundigen-6e9e52",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-5bi52k",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-ostermundigen-6e9e52",
+        "verkaufer-in-food-coop-ostermundigen-bern-fjy35p"
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
@@ -82631,7 +82903,7 @@
       "titleByLocale": {
         "it": "Bouchère - Boucher / Charcutière - Charcutier (f/m/d)",
         "en": "Bouchère - Boucher / Charcutière - Charcutier (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Boucher / Charcutière - Charcutier (m/f/d)\n\nCoop Genossenschaft — Epalinges, Vaud, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nNadia Ruetsch\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Scatters",
@@ -82707,7 +82979,7 @@
       "crawledAt": "2026-09-09T23:16:18.819Z",
       "firstSeenAt": "2026-09-01T02:10:55.599Z",
       "titleByLocale": {
-        "it": "Inventoriste (f/h/d)",
+        "it": "Inventore (m/f/d)",
         "en": "Inventorist (m/f/d)",
         "de": "Erfinder (m/w/d)"
       },
@@ -86765,7 +87037,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -93517,7 +93788,7 @@
       "titleByLocale": {
         "it": "Bouchère - Macellaio/Poissonnier - Fishman (m/f/d)",
         "en": "Bouchère - Butcher/Poissonnier - Fishman (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Butcher/Poissonnier — Fishman (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Macellaio/Poissonnier - Fishman (m/f/d)\n\nCoop Genossenschaft — Crissier, Vaud, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n\n## Cosa offriamo\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nNadia Ruetsch\nHR Marketing\n\nTipo: Tempo parziale\nRevisione:",
@@ -98461,7 +98732,6 @@
         "franchising-partner-in-coop-pronto-mit-tankstelle-coop-pronto-allschwil"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -102121,7 +102391,7 @@
       "titleByLocale": {
         "it": "Bouchère - Boucher / Charcutière - Charcutier (f/m/d)",
         "en": "Bouchère - Boucher / Charcutière - Charcutier (m/f/d)",
-        "de": ""
+        "de": "Bouchère — Boucher / Charcutière — Charcutier (m/w/d)"
       },
       "descriptionByLocale": {
         "it": "## Bouchère - Boucher / Charcutière - Charcutier (m/f/d)\n\nCoop Genossenschaft — Bulle, Fribourg, Svizzera\n\n## Missione\n- Il servizio tradizionale è la nostra immagine di marca e un importante punto di contatto per i nostri clienti, che consigliano e servono con passione al buffet.\n- Affettati e splendidamente presentati: prepari prodotti a base di carne secondo le regole dell'arte e li metta in modo attraente, e fai anche prodotti fatti in casa, come salsicce.\n- Gestisci le merci in self-service e contribuisci attivamente all'ottimizzazione della loro vendita.\n- Prendere ordini del cliente durante il periodo di vacanza e fuori, e prepararli.\n\n## Qualifiche\n- Ti diverti a lavorare in consulenza o servizio clienti, idealmente nel settore agroalimentare, e sei interessato al segmento carne e pesce.\n- Un'esperienza in un negozio di macelleria tradizionale è un vantaggio. Avendo già lavorato come cuoco/cooker (m/f/d) ti aiuta anche nel tuo ruolo consultivo quotidiano.\n- Ti piace il contatto con i clienti e fornire consigli.\n- Si implementa sistematicamente istruzioni e linee guida di qualità.\n- Sconti e sconti: sconti di viaggio a ITS Coop Travel, 5 volte più posti in supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a un prezzo ridotto a Coop Mobile, sconto sulla Reka Card, sconto sulle tariffe di Mobility CarSharing, sconto per il personale anche concesso al partner (vive sotto lo stesso tetto), abbonamenti ridotti a prezzi culturali\n- Condizioni di fidanzamento. fondo pensione: Coop assume oltre 2/3 dei contributi, condizioni di impegno e parità di retribuzione garantita, premi di anzianità, piano di risparmio a fondo pensione, contratto collettivo di lavoro (CCT), piano RA flessibile e attraente per il pensionamento anticipato da 58, 18 settimane di congedo di maternità retribuito e 3 settimane di congedo di paternità retribuito\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione Talent con molte e varie opportunità di sviluppo, per corsi di formazione e aggiornamento esterni\n- Sviluppo sostenibile: impegno per l'uomo, gli animali e la natura con oltre 400 atti\n- Comunicazione: app interna dedicata al personale\n- Salute: Aggiornamento-Fitness: p. 200.– sconto su abbonamento annuale, partecipazione gratuita a varie gare aziendali, attività sportive offerte dall'azienda\n\n## La persona di contatto\nViviane Natsch-Artmann\nHR Marketing\n\nTipo: Tempo parziale\n♪ Sede. ♪ Bulle",
@@ -169318,7 +169588,7 @@
       "titleByLocale": {
         "it": "Trainee 3+1 con vendita di supporto MP",
         "de": "Trainee 3+1 mit MP Support Sale",
-        "en": ""
+        "en": "Trainee 3+1 with MP Support Sale"
       },
       "descriptionByLocale": {
         "it": "## Trainee 3+1 con vendita di supporto MP\n\nCoop — Muttenz, Muttenz, Svizzera\n\n## Le vostre missioni\n• Varie connessioni di vendita\n• Contatto telefonico con negozi\n• Elaborazione di richieste di stand e biglietti ferroviari per i dipendenti\n• Invio di sondaggi e ordini ai negozi tramite Winfo (sistema informatico)\n• Sostegno ai responsabili delle vendite e ai coordinatori delle vendite in vari lavori amministrativi\n• Sostegno alla garanzia della qualità in vari lavori amministrativi\n• Supporto al Servizio Clienti - Reclami di Trattamento\n\n## Cosa ci aspettiamo da te\n• Buoni risultati alla scuola obbligatoria lasciando esami e durante tre anni di palestra\n• Organizzazioni e responsabilità\n• Autonomia e versatilità\n• Vivacia, flessibilità e atteggiamento positivo\n• L'amicizia e l'interesse per i contatti umani\n• Mastery degli strumenti di automazione degli uffici (MS Office)\n• Mastery della lingua francese, facilità di scrittura e buona ortografia\n• tedesco un plus\n\n## Cosa ti offriamo\n- Abbonamento annuo\n- CHF 500 per l'acquisto di un computer portatile o tablet\n- 50% sul pacchetto Coop Mobile Start\n- Abbonamento a mezza quota o partecipazione di 650 CHF all'acquisto della SBB AG\n- Tanti altri vantaggi!\nLinda Terrin\nFormazione professionale\nScegli il tuo carattere\nGrazie ai nostri interessanti stage, avete molte possibilità.\n\nTipo: A tempo pieno\nMuttenz.",
@@ -170628,7 +170898,7 @@
       "titleByLocale": {
         "en": "Logisticsien / Logisticien CFC",
         "de": "Logisticsien / Logisticien CFC",
-        "it": ""
+        "it": "Logistica / Logisticien CFC"
       },
       "descriptionByLocale": {
         "it": "## Logistica / Logisticien CFC\n\nCoop — Muttenz, Muttenz, Svizzera\n\n## Le vostre missioni\n- Ricevete le merci consegnate e le rendete conto nel sistema.\n- Partecipa all'organizzazione del magazzino e effettua controlli di qualità.\n- Si preparano efficacemente i prodotti per la spedizione ai punti di vendita.\n\n## Cosa ci aspettiamo da te\n- Capacità di lavorare come squadra e facilità in contatti\n- Capacità organizzativa e flessibilità\n- Fornitura di autonomia e responsabilità\n- Piacere di evolversi in un'azienda dinamica\n- Capacità di comprensione rapida e metodo di lavoro preciso\n- Piacere di lavorare con le moderne tecnologie\n\n## Cosa ti offriamo\n- Abbonamento annuo\n- CHF 500 per l'acquisto di un computer portatile o tablet\n- 50% sul pacchetto Coop Mobile Start\n- Abbonamento a mezza quota o partecipazione di 650 CHF all'acquisto della SBB AG\n- Tanti altri vantaggi!\nRachel Dogny\nFormazione professionale\nScegli il tuo personaggio - Crea il tuo futuro:\nCostruisci il tuo futuro con l'apprendimento che ti si addice. Coop offre un gran numero di luoghi di apprendimento e opportunità di formazione continua.\n\nTipo: A tempo pieno\nMuttenz.",
