@@ -41,7 +41,7 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import { isSliceFile } from '../scripts/lib/crawler-slice-files.mjs';
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { COMPANY_ROUTE_PREFIX, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { getCantonDisplayName } from './shared/cantonDisplay';
 import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
@@ -173,14 +173,14 @@ const CANTON_CENTRES: Readonly<Record<string, readonly [number, number]>> = {
   ZH: [47.38, 8.54],
 };
 
-function cantonDistanceFromTicino(code: string): number {
+function cantonDistance(code: string, originCode: string): number {
   const centre = CANTON_CENTRES[code];
-  const ticino = CANTON_CENTRES.TI;
-  if (!centre || !ticino) return Number.POSITIVE_INFINITY;
+  const origin = CANTON_CENTRES[originCode] ?? CANTON_CENTRES.TI;
+  if (!centre || !origin) return Number.POSITIVE_INFINITY;
   // One degree of longitude is shorter than one degree of latitude at
-  // Ticino's latitude. Only relative ordering matters here.
-  const latKm = (centre[0] - ticino[0]) * 111;
-  const lonKm = (centre[1] - ticino[1]) * 75;
+  // the origin's latitude. Only relative ordering matters here.
+  const latKm = (centre[0] - origin[0]) * 111;
+  const lonKm = (centre[1] - origin[1]) * 75;
   return Math.hypot(latKm, lonKm);
 }
 
@@ -282,15 +282,16 @@ function loadCompanyCantonAvailability(rootDir: string): CompanyCantonAvailabili
 function findCompanyCantonSuggestions(
   entry: HubEntry,
   availability: CompanyCantonAvailability,
+  currentCanton: string,
 ): CantonSuggestion[] {
   const byCanton = availability.get(entry.companySlug)
     ?? availability.get(slugifyCompanyName(entry.displayName));
   if (!byCanton) return [];
   return [...byCanton.entries()]
-    .filter(([code, count]) => code !== 'TI' && count > 0)
+    .filter(([code, count]) => code !== currentCanton && count > 0)
     .map(([code, count]) => ({ code, count }))
     .sort((a, b) => {
-      const distanceDelta = cantonDistanceFromTicino(a.code) - cantonDistanceFromTicino(b.code);
+      const distanceDelta = cantonDistance(a.code, currentCanton) - cantonDistance(b.code, currentCanton);
       if (distanceDelta !== 0) return distanceDelta;
       if (a.count !== b.count) return b.count - a.count;
       return a.code.localeCompare(b.code);
@@ -311,13 +312,16 @@ function localizedCountLabel(locale: Locale, count: number): string {
 
 function renderOtherCantonBanner(
   entry: HubEntry,
+  currentCanton: string,
   suggestions: readonly CantonSuggestion[],
 ): string {
   const nearest = suggestions[0];
   if (!nearest) return '';
   const locale = entry.locale;
+  const currentCantonLabel = getCantonDisplayName(currentCanton, locale);
   const cantonLabel = getCantonDisplayName(nearest.code, locale);
   const companyLabel = esc(entry.displayName);
+  const currentCantonLabelHtml = esc(currentCantonLabel);
   const cantonLabelHtml = esc(cantonLabel);
   const href = `${BASE_URL}${buildCantonCompanyPath(locale, nearest.code, entry.companySlug)}`;
   const countLabel = localizedCountLabel(locale, nearest.count);
@@ -329,12 +333,12 @@ function renderOtherCantonBanner(
         ? `Weitere Stellen bei ${entry.displayName}`
         : `D'autres offres chez ${entry.displayName}`;
   const body = locale === 'it'
-    ? `Non risultano annunci attivi di ${companyLabel} in Ticino. Il cantone più vicino con offerte è ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
+    ? `Non risultano annunci attivi di ${companyLabel} in ${currentCantonLabelHtml}. Il cantone più vicino con offerte è ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
     : locale === 'en'
-      ? `There are no active ${companyLabel} openings in Ticino. The nearest canton with jobs is ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
+      ? `There are no active ${companyLabel} openings in ${currentCantonLabelHtml}. The nearest canton with jobs is ${cantonLabelHtml}: <strong>${esc(countLabel)}</strong>.`
       : locale === 'de'
-        ? `Derzeit gibt es keine aktiven Stellen von ${companyLabel} im Tessin. Im nächstgelegenen Kanton mit offenen Stellen, ${cantonLabelHtml}, gibt es <strong>${esc(countLabel)}</strong>.`
-        : `Aucune offre active de ${companyLabel} n'est actuellement disponible au Tessin. Le canton le plus proche avec des offres est ${cantonLabelHtml} : <strong>${esc(countLabel)}</strong>.`;
+        ? `Derzeit gibt es keine aktiven Stellen von ${companyLabel} im Kanton ${currentCantonLabelHtml}. Im nächstgelegenen Kanton mit offenen Stellen, ${cantonLabelHtml}, gibt es <strong>${esc(countLabel)}</strong>.`
+        : `Aucune offre active de ${companyLabel} n'est actuellement disponible dans le canton de ${currentCantonLabelHtml}. Le canton le plus proche avec des offres est ${cantonLabelHtml} : <strong>${esc(countLabel)}</strong>.`;
   const cta = locale === 'it'
     ? `Vedi gli annunci in ${cantonLabel}`
     : locale === 'en'
@@ -390,6 +394,14 @@ function pathFromHubUrl(entry: HubEntry): string | null {
 
 function buildEntryHubPath(entry: HubEntry): string {
   return pathFromHubUrl(entry) ?? buildHubPath(entry.locale, entry.companySlug);
+}
+
+/** Resolve the canton section encoded by a legacy company URL. */
+function cantonCodeFromEntry(entry: HubEntry): string {
+  const parts = buildEntryHubPath(entry).split('/').filter(Boolean);
+  const sectionIndex = entry.locale === 'it' ? 0 : 1;
+  const section = parts[sectionIndex] ?? SECTION_SLUG[entry.locale];
+  return ALL_CANTON_CODES.find((code) => resolveCantonSection(entry.locale, code) === section) ?? 'TI';
 }
 
 function sectionPathFromEntry(entry: HubEntry): string {
@@ -611,6 +623,7 @@ export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
 function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
+  const cantonDisplay = getCantonDisplayName(cantonCodeFromEntry(entry), locale);
   const hubPath = buildEntryHubPath(entry);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
   const sectionPath = sectionPathFromEntry(entry);
@@ -622,9 +635,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
   // preserved (CLAUDE.md non-negotiables #15/#17).
   const proseOpts = {
     locale: locale as CantonSeoLocale,
-    // The bridge plugin targets TI-section URLs (cerca-lavoro-ticino/);
-    // canton display is Ticino for every entry in this plugin's data file.
-    cantonDisplay: locale === 'it' ? 'Ticino' : locale === 'en' ? 'Ticino' : locale === 'de' ? 'Tessin' : 'Tessin',
+    cantonDisplay,
     slot: 'company-landing' as const,
     entityName: entry.displayName,
     countHint: entry.jobCount,
@@ -667,12 +678,13 @@ function renderUnmatchedPage(
 ): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  const cantonDisplay = getCantonDisplayName('TI', locale);
+  const currentCanton = cantonCodeFromEntry(entry);
+  const cantonDisplay = getCantonDisplayName(currentCanton, locale);
   const hubPath = buildEntryHubPath(entry);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
   const sectionPath = `${BASE_URL}${sectionPathFromEntry(entry)}`.replace(/(?<!:)\/+/g, '/');
-  const cantonSuggestions = findCompanyCantonSuggestions(entry, availability);
-  const otherCantonBannerHtml = renderOtherCantonBanner(entry, cantonSuggestions);
+  const cantonSuggestions = findCompanyCantonSuggestions(entry, availability, currentCanton);
+  const otherCantonBannerHtml = renderOtherCantonBanner(entry, currentCanton, cantonSuggestions);
   // An unmatched legacy company URL is still a valid canton filter: it means
   // that the employer is known elsewhere, but there is no active posting in
   // this section today. Keep that fact on the URL itself. Do not consolidate
@@ -685,12 +697,12 @@ function renderUnmatchedPage(
         ? `${entry.displayName}: keine Stellen im ${cantonDisplay}`
         : `${entry.displayName} : aucune offre dans le ${cantonDisplay}`;
   const emptyDescription = locale === 'it'
-    ? `Al momento non risultano annunci attivi di ${entry.displayName} in Canton ${cantonDisplay}. Questa pagina mantiene il filtro cantonale e viene aggiornata con il job board.`
+    ? `Al momento non risultano annunci attivi di ${entry.displayName} in ${cantonDisplay}. Questa pagina mantiene il filtro cantonale e viene aggiornata con il job board.`
     : locale === 'en'
-      ? `There are currently no active ${entry.displayName} jobs in the Canton of ${cantonDisplay}. This page keeps the canton filter and is refreshed with the job board.`
+      ? `There are currently no active ${entry.displayName} jobs in ${cantonDisplay}. This page keeps the canton filter and is refreshed with the job board.`
       : locale === 'de'
         ? `Derzeit gibt es keine aktiven Stellen von ${entry.displayName} im Kanton ${cantonDisplay}. Diese Seite behält den Kantonsfilter und wird mit dem Job Board aktualisiert.`
-        : `Il n'y a actuellement aucune offre active de ${entry.displayName} dans le Canton du ${cantonDisplay}. Cette page conserve le filtre cantonal et est actualisée avec le job board.`;
+        : `Il n'y a actuellement aucune offre active de ${entry.displayName} dans le canton de ${cantonDisplay}. Cette page conserve le filtre cantonal et est actualisée avec le job board.`;
   const emptyH1 = locale === 'it'
     ? `Nessun annuncio di ${entry.displayName} in ${cantonDisplay}`
     : locale === 'en'
