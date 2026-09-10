@@ -11633,6 +11633,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-10.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 10. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-10.seoDescription': 'Grenzgänger-Bulletin vom 10. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-10.ogDescription': 'Die Zahlen vom 10. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.uss-stipendi-minimo-2027.title': 'Schweiz, Mindestlohn von 5 \'000 Franken beantragt',
+    'blog.article.uss-stipendi-minimo-2027.excerpt': 'Der Schweizerische Gewerkschaftsbund (SGB) schlägt eine Erhöhung um 2,5 Prozent und einen Mindestlohn von 5000 Franken für Absolventen bis 2027 vor.',
+    'blog.article.uss-stipendi-minimo-2027.imageAlt': 'Professionelle Szene in der Grenzregion Tessin-Italien, Arbeitsplatzkontext, Tageslicht, hohe Qualität',
 };
 
 export default blogMetaDe;
