@@ -199,14 +199,24 @@ export function createAnalyticsEmissionId(): string {
 export interface AnalyticsPageViewEmission {
  path: string;
  emissionId: string;
+ historyEntry: number | null;
 }
 
-/** Reuse the emission id while the SPA remains on the same physical route. */
+/**
+ * Reuse the emission id only while the same page-view lifecycle is open.
+ * `historyEntry` changes on a new pushState entry; popstate/pagehide close the
+ * lifecycle explicitly, so elapsed time never decides whether a visit is new.
+ */
 export function getPageViewEmissionId(
  path: string,
  current: AnalyticsPageViewEmission | null,
+ historyEntry: number | null,
 ): string {
- if (current?.path === path && current.emissionId) return current.emissionId;
+ if (
+  current?.path === path
+  && current.emissionId
+  && current.historyEntry === historyEntry
+ ) return current.emissionId;
  return createAnalyticsEmissionId();
 }
 
@@ -408,9 +418,40 @@ let previousScreen = '';
 let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
 let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
+let pageViewLifecycleWindow: Window | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
+
+function closePageViewLifecycle(): void {
+ currentPageViewEmission = null;
+}
+
+function ensurePageViewLifecycle(): void {
+ if (typeof window === 'undefined') return;
+ if (pageViewLifecycleWindow === window) return;
+
+ if (pageViewLifecycleWindow) {
+  if (typeof pageViewLifecycleWindow.removeEventListener === 'function') {
+   pageViewLifecycleWindow.removeEventListener('popstate', closePageViewLifecycle, true);
+   pageViewLifecycleWindow.removeEventListener('pagehide', closePageViewLifecycle, true);
+  }
+ }
+
+ pageViewLifecycleWindow = window;
+ closePageViewLifecycle();
+ if (typeof window.addEventListener === 'function') {
+  window.addEventListener('popstate', closePageViewLifecycle, true);
+  window.addEventListener('pagehide', closePageViewLifecycle, true);
+ }
+}
+
+function currentPageViewHistoryEntry(): number | null {
+ if (typeof window === 'undefined') return null;
+ const historyRef = (window as unknown as { history?: History }).history;
+ const length = historyRef?.length;
+ return typeof length === 'number' && Number.isInteger(length) ? length : null;
+}
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
 
@@ -969,8 +1010,15 @@ export const Analytics = {
  * on the initial page, which is a minor metric inflation but correct.
  */
  trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
+ ensurePageViewLifecycle();
  const now = Date.now();
- if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
+ const historyEntry = currentPageViewHistoryEntry();
+ if (
+  path === lastTrackedPagePath
+  && now - lastTrackedPageAt < 500
+  && currentPageViewEmission
+  && currentPageViewEmission.historyEntry === historyEntry
+ ) return;
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -998,8 +1046,8 @@ export const Analytics = {
  currentScreen = path;
  _maxScrollDepth = 0; // Reset scroll tracking for new page
  const pageContext = deriveAnalyticsPageContext(path);
- const emissionId = getPageViewEmissionId(path, currentPageViewEmission);
- currentPageViewEmission = { path, emissionId };
+ const emissionId = getPageViewEmissionId(path, currentPageViewEmission, historyEntry);
+ currentPageViewEmission = { path, emissionId, historyEntry };
  log('page_view', {
  page_path: path,
  page_title: title || path,

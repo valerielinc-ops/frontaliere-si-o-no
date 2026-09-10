@@ -117,16 +117,17 @@ describe('GA4 page_view employer attribution', () => {
 
   it('reuses one emission id when the same page view is retried after async identity resolution', async () => {
     expect(analyticsSource).toContain(
-      'getPageViewEmissionId(path, currentPageViewEmission)',
+      'getPageViewEmissionId(path, currentPageViewEmission, historyEntry)',
     );
     const { getPageViewEmissionId } = await loadAnalyticsHelpers();
     const path = '/offerte-di-lavoro-ticino/async-page-view/';
-    const first = getPageViewEmissionId(path, null);
-    const retry = getPageViewEmissionId(path, { path, emissionId: first });
+    const first = getPageViewEmissionId(path, null, 1);
+    const retry = getPageViewEmissionId(path, { path, emissionId: first, historyEntry: 1 }, 1);
     const nextRoute = getPageViewEmissionId('/offerte-di-lavoro-ticino/next/', {
       path,
       emissionId: first,
-    });
+      historyEntry: 1,
+    }, 2);
 
     expect(retry).toBe(first);
     expect(nextRoute).not.toBe(first);
@@ -153,6 +154,38 @@ describe('GA4 page_view employer attribution', () => {
       expect(pageViews).toHaveLength(2);
       expect(pageViews[0][1]).toMatchObject({ emission_id: expect.any(String) });
       expect(pageViews[1][1].emission_id).toBe(pageViews[0][1].emission_id);
+    } finally {
+      now.mockRestore();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('emits a new id when a same-route visit opens a new history entry', async () => {
+    const { Analytics } = await loadAnalyticsHelpers();
+    const { captureEvent } = await import('@/services/posthog');
+    const capture = vi.mocked(captureEvent);
+    const path = '/offerte-di-lavoro-ticino/same-route-new-visit/';
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValueOnce(2_000).mockReturnValueOnce(2_501);
+    const pageWindow = {
+      location: { origin: 'https://example.test', pathname: path },
+      history: { length: 1 },
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+    };
+    vi.stubGlobal('window', pageWindow);
+    vi.stubGlobal('document', { title: 'Same-route new visit' });
+    capture.mockClear();
+
+    try {
+      Analytics.trackPageView(path);
+      pageWindow.history.length = 2;
+      Analytics.trackPageView(path);
+
+      const pageViews = capture.mock.calls.filter(([eventName]) => eventName === '$pageview');
+      expect(pageViews).toHaveLength(2);
+      expect(pageViews[0][1]).toMatchObject({ emission_id: expect.any(String) });
+      expect(pageViews[1][1].emission_id).not.toBe(pageViews[0][1].emission_id);
     } finally {
       now.mockRestore();
       vi.unstubAllGlobals();
