@@ -266,6 +266,10 @@ jobs:
           # PAT statico.
           github_token: ${{ secrets.GITHUB_TOKEN }}
           codex_github_token: ${{ secrets.GITHUB_TOKEN }}
+          # The corpus PAT is a separate host-side bridge scope. It is never
+          # included in the Codex child environment and is accepted only for
+          # nanakokyobashi-rgb/frontaliere-articles issue operations.
+          codex_corpus_github_token: ${{ env.GITHUB_PAT }}
           # Il merge che alimenta questo workflow è fatto da automation interna con DUE
           # actor bot distinti — entrambi vanno in whitelist o claude-code-action aborta
           # "Workflow initiated by non-human actor":

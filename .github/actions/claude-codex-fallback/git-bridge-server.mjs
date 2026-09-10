@@ -179,6 +179,18 @@ function main() {
     process.exit(2);
   }
   const basic = Buffer.from(`x-access-token:${token}`).toString('base64');
+  const configEntries = [
+    ['http.extraheader', `AUTHORIZATION: basic ${basic}`],
+    ['http.proxy', ''],
+    ['http.sslVerify', 'true'],
+    ['credential.helper', ''],
+    ['core.hooksPath', '/dev/null'],
+    ['core.sshCommand', ''],
+    ['core.gitProxy', ''],
+    ['remote.origin.url', expectedRemote],
+    ['remote.origin.uploadpack', ''],
+    ['remote.origin.receivepack', ''],
+  ];
   const baseEnv = {
     PATH: process.env.PATH || '/usr/bin:/bin',
     HOME: process.env.HOME || '/tmp',
@@ -189,10 +201,12 @@ function main() {
     GIT_DIR: gitDir,
     GIT_COMMON_DIR: shadowCommonDir,
     GIT_WORK_TREE: cwd,
-    GIT_CONFIG_COUNT: '1',
-    GIT_CONFIG_KEY_0: 'http.extraheader',
-    GIT_CONFIG_VALUE_0: `AUTHORIZATION: basic ${basic}`,
+    GIT_CONFIG_COUNT: String(configEntries.length),
   };
+  for (const [index, [key, value]] of configEntries.entries()) {
+    baseEnv[`GIT_CONFIG_KEY_${index}`] = key;
+    baseEnv[`GIT_CONFIG_VALUE_${index}`] = value;
+  }
   let activeConnections = 0;
   const children = new Set();
   const clients = new Set();

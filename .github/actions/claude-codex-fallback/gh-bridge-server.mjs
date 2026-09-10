@@ -27,6 +27,11 @@ const allowedSubcommands = new Map([
   ['run', new Set(['list', 'view'])],
   ['search', new Set(['issues'])],
 ]);
+export const CORPUS_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
+const corpusAllowedCommands = new Set(['issue']);
+const corpusAllowedSubcommands = new Map([
+  ['issue', new Set(['view', 'list', 'create', 'comment', 'edit'])],
+]);
 const operationValueFlags = new Set([
   '--repo', '-R', '--hostname', '--method', '-X', '--header', '-H', '--input', '--template',
   '--body-file', '--body', '--title', '--label', '--add-label', '--remove-label',
@@ -158,10 +163,10 @@ function apiMethodError(args, start) {
   return method === 'GET' ? '' : 'gh api mutations are not permitted by the Codex fallback bridge';
 }
 
-function validateOperation(args, commandIndex, command, repository) {
+function validateOperation(args, commandIndex, command, repository, allowedSubcommandMap = allowedSubcommands) {
   if (command === 'api') return apiMethodError(args, commandIndex + 1);
   const operation = firstOperationArg(args, commandIndex + 1);
-  if (!allowedSubcommands.get(command)?.has(operation)) {
+  if (!allowedSubcommandMap.get(command)?.has(operation)) {
     return `gh ${command} operation is not permitted by the Codex fallback bridge: ${operation || '<missing>'}`;
   }
   if (command === 'search' && ((!hasExplicitOption(args, '--repo') && !hasExplicitOption(args, '-R')) || !repository)) {
@@ -173,6 +178,63 @@ function validateOperation(args, commandIndex, command, repository) {
     }
   }
   return '';
+}
+
+function explicitRepositories(args) {
+  const values = [];
+  for (let index = 0; index < args.length; index += 1) {
+    const option = optionValue(args, index, '--repo') || optionValue(args, index, '-R');
+    if (!option) continue;
+    values.push(option.value);
+    index += option.consumed;
+  }
+  return values;
+}
+
+/** Select the host-side credential and command allow-list for one exact repo. */
+export function resolveGhScope(args, {
+  repository,
+  host,
+  siteToken,
+  corpusToken = '',
+  corpusRepository = CORPUS_REPOSITORY,
+} = {}) {
+  if (!Array.isArray(args) || args.some((arg) => typeof arg !== 'string')) return { error: 'invalid args' };
+  const siteRepository = repositoryName(repository);
+  const expectedCorpus = repositoryName(corpusRepository);
+  const expectedHost = normalizedHost(host);
+  if (!siteRepository || !expectedCorpus || expectedCorpus !== CORPUS_REPOSITORY || !expectedHost) {
+    return { error: 'Codex GitHub bridge scope is missing its exact repository/host context' };
+  }
+  const repositories = explicitRepositories(args);
+  if (repositories.some((value) => !repositoryName(value))) {
+    return { error: 'gh --repo must name an exact owner/repository pair' };
+  }
+  const explicitRepository = repositories[0] || siteRepository;
+  if (repositories.some((value) => value !== explicitRepository)) {
+    return { error: 'gh --repo may not select multiple repositories in one request' };
+  }
+  if (explicitRepository === siteRepository) {
+    if (!siteToken) return { error: 'Codex GitHub bridge site credential is unavailable' };
+    return {
+      kind: 'site',
+      repository: siteRepository,
+      token: siteToken,
+      allowedCommandSet: allowedCommands,
+      allowedSubcommandMap: allowedSubcommands,
+    };
+  }
+  if (explicitRepository === expectedCorpus) {
+    if (!corpusToken) return { error: 'Codex corpus bridge credential is unavailable' };
+    return {
+      kind: 'corpus',
+      repository: expectedCorpus,
+      token: corpusToken,
+      allowedCommandSet: corpusAllowedCommands,
+      allowedSubcommandMap: corpusAllowedSubcommands,
+    };
+  }
+  return { error: `gh --repo is restricted to ${siteRepository} or the exact corpus repository` };
 }
 
 function validateRepositoryAndHost(args, { repository, host } = {}) {
@@ -306,17 +368,19 @@ export function validateGhArgs(args, {
   scratchRoot,
   repository = process.env.CODEX_GH_REPOSITORY,
   host = process.env.CODEX_GH_HOST,
+  allowedCommandSet = allowedCommands,
+  allowedSubcommandMap = allowedSubcommands,
 } = {}) {
   if (!Array.isArray(args) || args.some((arg) => typeof arg !== 'string')) return 'invalid args';
   const allowedRoots = [realRoot(workspaceRoot || cwd), realRoot(scratchRoot)].filter(Boolean);
   const commandIndex = commandIndexFor(args);
   const command = args[commandIndex];
-  if (blockedCommands.has(command) || !allowedCommands.has(command)) {
+  if (blockedCommands.has(command) || !allowedCommandSet?.has(command)) {
     return `gh command is not permitted by the Codex fallback bridge: ${command || '<missing>'}`;
   }
   const scopeError = validateRepositoryAndHost(args, { repository, host });
   if (scopeError) return scopeError;
-  const operationError = validateOperation(args, commandIndex, command, repository);
+  const operationError = validateOperation(args, commandIndex, command, repository, allowedSubcommandMap);
   if (operationError) return operationError;
   const positionalUrlErrorMessage = positionalUrlError(args, commandIndex);
   if (positionalUrlErrorMessage) return positionalUrlErrorMessage;
@@ -360,20 +424,21 @@ export function validateGhArgs(args, {
 
 function main() {
   const socketPath = process.env.CODEX_GH_SOCKET;
-  const token = process.env.CODEX_GH_AUTH;
+  const siteToken = process.env.CODEX_GH_AUTH;
+  const corpusToken = process.env.CODEX_GH_CORPUS_AUTH || '';
   const realGh = process.env.CODEX_REAL_GH;
   const cwd = process.env.CODEX_GH_CWD;
   const workspaceRoot = process.env.CODEX_GH_WORKSPACE || cwd;
   const scratchRoot = process.env.CODEX_GH_SCRATCH;
   const repository = repositoryName(process.env.CODEX_GH_REPOSITORY);
   const host = normalizedHost(process.env.CODEX_GH_HOST);
-  if (!socketPath || !token || !realGh || !cwd || !workspaceRoot || !scratchRoot || !repository || !host) process.exit(2);
+  const corpusRepository = process.env.CODEX_GH_CORPUS_REPOSITORY || CORPUS_REPOSITORY;
+  if (!socketPath || !siteToken || !realGh || !cwd || !workspaceRoot || !scratchRoot || !repository || !host
+    || corpusRepository !== CORPUS_REPOSITORY) process.exit(2);
   const baseEnv = {
     PATH: process.env.PATH || '/usr/bin:/bin',
     HOME: process.env.HOME || '/tmp',
-    GH_TOKEN: token,
     GH_HOST: host,
-    GH_REPO: repository,
   };
   let activeConnections = 0;
   const children = new Set();
@@ -447,10 +512,25 @@ function main() {
     client.on('end', () => {
       if (requestTooLarge) return;
       let args;
+      let scope;
       try {
         args = JSON.parse(request);
+        scope = resolveGhScope(args, {
+          repository,
+          host,
+          siteToken,
+          corpusToken,
+          corpusRepository,
+        });
+        if (scope.error) throw new Error(scope.error);
         const validationError = validateGhArgs(args, {
-          cwd, workspaceRoot, scratchRoot, repository, host,
+          cwd,
+          workspaceRoot,
+          scratchRoot,
+          repository: scope.repository,
+          host,
+          allowedCommandSet: scope.allowedCommandSet,
+          allowedSubcommandMap: scope.allowedSubcommandMap,
         });
         if (validationError) throw new Error(validationError);
       } catch (error) {
@@ -458,7 +538,14 @@ function main() {
         return;
       }
       client.setTimeout(RESPONSE_TIMEOUT_MS, timeoutClient);
-      child = spawn(realGh, args, { cwd, env: baseEnv });
+      child = spawn(realGh, args, {
+        cwd,
+        env: {
+          ...baseEnv,
+          GH_TOKEN: scope.token,
+          GH_REPO: scope.repository,
+        },
+      });
       childExited = false;
       children.add(child);
       childTimer = setTimeout(() => terminateChild('child-timeout'), CHILD_TIMEOUT_MS);

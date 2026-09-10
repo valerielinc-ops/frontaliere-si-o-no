@@ -30,6 +30,8 @@ import {
   CHILD_TIMEOUT_MS as GH_CHILD_TIMEOUT_MS,
   FORCE_KILL_GRACE_MS as GH_FORCE_KILL_GRACE_MS,
   SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
+  CORPUS_REPOSITORY,
+  resolveGhScope,
   validateGhArgs,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
@@ -257,6 +259,69 @@ describe('validator dei bridge host-side', () => {
     }
   });
 
+  it('seleziona server-side solo sito o corpus esatto, con token separati e operazioni corpus ristrette', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-scope-'));
+    const workspace = join(root, 'workspace');
+    const scratch = join(root, 'scratch');
+    mkdirSync(workspace, { recursive: true });
+    mkdirSync(scratch, { recursive: true });
+    const context = { cwd: workspace, workspaceRoot: workspace, scratchRoot: scratch, host: 'github.com' };
+    try {
+      const site = resolveGhScope(['issue', 'view'], {
+        ...context,
+        repository: 'owner/repo',
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(site).toMatchObject({ kind: 'site', repository: 'owner/repo', token: 'site-secret' });
+
+      const corpus = resolveGhScope(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: 'owner/repo',
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      });
+      expect(corpus).toMatchObject({ kind: 'corpus', repository: CORPUS_REPOSITORY, token: 'corpus-secret' });
+      expect(validateGhArgs(['issue', 'create', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toBe('');
+      expect(validateGhArgs(['pr', 'view', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toMatch(/not permitted/);
+      expect(resolveGhScope(['issue', 'view', '--repo', 'other/repo'], {
+        ...context,
+        repository: 'owner/repo',
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      })).toMatchObject({ error: expect.stringMatching(/restricted/) });
+      expect(resolveGhScope(['issue', 'view', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: 'owner/repo',
+        siteToken: 'site-secret',
+      })).toMatchObject({ error: expect.stringMatching(/corpus bridge credential/) });
+      expect(resolveGhScope(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: 'owner/repo',
+        siteToken: 'site-secret',
+        corpusToken: 'corpus-secret',
+      })).toMatchObject({ kind: 'corpus' });
+      expect(validateGhArgs(['api', 'repos/' + CORPUS_REPOSITORY + '/issues', '--repo', CORPUS_REPOSITORY], {
+        ...context,
+        repository: corpus.repository,
+        allowedCommandSet: corpus.allowedCommandSet,
+        allowedSubcommandMap: corpus.allowedSubcommandMap,
+      })).toMatch(/not permitted/);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('richiede il vero primo comando git e blocca alias/config/path/URL bypass', () => {
     expect(validateGitArgs(['-c', 'alias.x=!cat /tmp/secret', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['--git-dir=/tmp/other', 'push'])).toMatch(/config\/exec\/path/);
@@ -336,6 +401,44 @@ describe('sanitizzazione git host-side', () => {
       rmSync(repo, { recursive: true, force: true });
     }
   });
+
+  it('rimuove proxy, CA/SSL, helper, include e hook/exec config avversaria', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-git-adversarial-'));
+    const repo = join(root, 'repo');
+    const included = join(root, 'included.gitconfig');
+    mkdirSync(repo, { recursive: true });
+    writeFileSync(included, '[credential]\n\thelper = !cat /tmp/secret\n[http]\n\tproxy = http://evil.example\n');
+    try {
+      execFileSync('git', ['init', '-q', repo]);
+      const values = [
+        ['include.path', included],
+        ['core.hooksPath', join(root, 'hooks')],
+        ['core.sshCommand', '!cat /tmp/secret'],
+        ['core.gitProxy', '!cat /tmp/secret'],
+        ['credential.helper', '!cat /tmp/secret'],
+        ['http.proxy', 'http://evil.example'],
+        ['http.sslVerify', 'false'],
+        ['http.sslCAInfo', join(root, 'ca.pem')],
+        ['http.sslCAPath', root],
+        ['remote.origin.uploadpack', '!cat /tmp/secret'],
+        ['remote.origin.receivepack', '!cat /tmp/secret'],
+        ['url.evil.insteadOf', 'https://github.com/owner/repo.git'],
+        ['url.evil.pushInsteadOf', 'https://github.com/owner/repo.git'],
+        ['filter.evil.process', '!cat /tmp/secret'],
+        ['diff.evil.textconv', '!cat /tmp/secret'],
+        ['merge.evil.driver', '!cat /tmp/secret'],
+        ['mergetool.evil.cmd', '!cat /tmp/secret'],
+      ];
+      for (const [key, value] of values) {
+        execFileSync('git', ['-C', repo, 'config', '--local', key, value]);
+      }
+      sanitizeGitConfig({ cwd: repo });
+      const cleanConfig = execFileSync('git', ['-C', repo, 'config', '--local', '--no-includes', '--list'], { encoding: 'utf8' });
+      expect(cleanConfig).not.toMatch(/(?:proxy|sslverify|sslca|credential|include|hookspath|sshcommand|gitproxy|uploadpack|receivepack|insteadof|textconv|driver|mergetool)/i);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('copertura workflow diretti', () => {
@@ -370,6 +473,7 @@ describe('copertura workflow diretti', () => {
     const ghClient = readFileSync(resolve(actionDir, 'gh-bridge-client.mjs'), 'utf8');
     const gitClient = readFileSync(resolve(actionDir, 'git-bridge-client.mjs'), 'utf8');
     const gitSanitizer = readFileSync(resolve(actionDir, 'sanitize-git-config.mjs'), 'utf8');
+    const postMerge = readFileSync(resolve(repoRoot, '.github', 'workflows', 'post-merge-followup.yml'), 'utf8');
     expect(action).toContain('anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636');
     expect(action).not.toContain('anthropics/claude-code-action@v1');
     expect(action).toContain('@openai/codex@0.153.4');
@@ -381,9 +485,25 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('enabled = false');
     expect(action).toContain('[permissions.codex-fallback.network.unix_sockets]');
     expect(action).toContain('CODEX_ACTION_PATH: ${{ github.action_path }}');
+    expect(action).toContain('codex_corpus_github_token:');
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
     expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
+    expect(action).toContain('find_host_gh()');
+    expect(action).toContain('realpath "$candidate"');
+    expect(action).toContain('copy_attested_file "$gh_binary_source" "$gh_host_tools/bin/gh"');
+    expect(action).toContain('find_host_git() { find_host_binary git; }');
+    expect(action).toContain('copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"');
+    expect(action).toContain('copy_attested_file "$git_binary_source" "$git_sandbox_binary"');
+    expect(action).toContain('git_host_realpath');
+    expect(action).toContain('sha256_file');
+    expect(action).toContain('gh_host_launcher="$gh_host_tools/launcher/gh"');
+    expect(action).toContain('CODEX_REAL_GH="$gh_host_launcher"');
+    expect(action).toContain('CODEX_GH_REAL="$gh_sandbox_binary"');
+    expect(action).not.toContain('real_gh="$(command -v gh');
+    expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
+    expect(action).toContain('CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles"');
+    expect(postMerge).toContain('codex_corpus_github_token: ${{ env.GITHUB_PAT }}');
     expect(action).toContain('codex_install_root=');
     const installStart = action.indexOf('- name: Install pinned Codex CLI');
     const authStart = action.indexOf('- name: Prepare ephemeral Codex subscription auth');
@@ -454,10 +574,17 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"');
     expect(action).toContain('node "$action_path/sanitize-git-config.mjs"');
     expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
+    expect(action).toContain('CODEX_REAL_GIT="$git_host_realpath"');
+    expect(action).toContain('CODEX_GIT_REAL="$git_sandbox_binary"');
     expect(action).toContain('CODEX_GIT_REMOTE="$codex_git_remote"');
     expect(action).toContain('CODEX_GIT_HOST_SCRATCH="$git_bridge_host_scratch"');
     expect(action).toContain('CODEX_GIT_COMMON_DIR="$common_git_dir"');
-    expect(gitBridge).toContain("GIT_CONFIG_KEY_0: 'http.extraheader'");
+    expect(gitBridge).toContain('const configEntries = [');
+    expect(gitBridge).toContain("['http.proxy', '']");
+    expect(gitBridge).toContain("['http.sslVerify', 'true']");
+    expect(gitBridge).toContain("['credential.helper', '']");
+    expect(gitBridge).toContain("['core.hooksPath', '/dev/null']");
+    expect(gitBridge).toContain("['remote.origin.url', expectedRemote]");
     expect(action).toContain('git remote -v | grep -Eiq');
     expect(action).toContain('CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs');
     expect(action).toContain('chmod 700 "$bridge_dir"');
@@ -493,7 +620,8 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('requestChildTermination(child)');
     expect(lifecycle).toContain("child.kill('SIGKILL')");
     expect(ghBridge).toContain('GH_HOST: host');
-    expect(ghBridge).toContain('GH_REPO: repository');
+    expect(ghBridge).toContain('GH_REPO: scope.repository');
+    expect(ghBridge).toContain('GH_TOKEN: scope.token');
     expect(ghClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitClient).toContain('client.setTimeout(RESPONSE_TIMEOUT_MS');
     expect(gitBridge).not.toContain('currentOrigin(');
@@ -511,5 +639,12 @@ describe('copertura workflow diretti', () => {
     expect(gitBridge).not.toContain('child.killed');
     expect(gitSanitizer).toContain('parseNullRecords');
     expect(gitSanitizer).toContain('http.extraheader');
+    expect(gitSanitizer).toContain('--no-includes');
+    expect(gitSanitizer).toContain('timeout: 10_000');
+    expect(gitSanitizer).toContain('credential');
+    expect(gitSanitizer).toContain('hookspath');
+    expect(ghBridge).toContain('CODEX_GH_CORPUS_AUTH');
+    expect(ghBridge).toContain('CORPUS_REPOSITORY');
+    expect(ghBridge).toContain('resolveGhScope(args');
   });
 });

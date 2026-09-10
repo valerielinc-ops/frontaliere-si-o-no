@@ -4,10 +4,21 @@ import { execFileSync } from 'node:child_process';
 
 function gitConfig(args, cwd, { allowMissing = false } = {}) {
   try {
-    return execFileSync('git', args, { cwd, encoding: 'buffer', stdio: ['ignore', 'pipe', 'pipe'] });
+    const configArgs = args[0] === 'config' && !args.includes('--no-includes')
+      ? ['config', '--no-includes', ...args.slice(1)]
+      : args;
+    return execFileSync('git', configArgs, {
+      cwd,
+      encoding: 'buffer',
+      stdio: ['ignore', 'pipe', 'pipe'],
+      timeout: 10_000,
+      killSignal: 'SIGKILL',
+      maxBuffer: 4 * 1024 * 1024,
+    });
   } catch (error) {
     if (allowMissing && (error?.status === 1 || error?.status === 5)) return Buffer.alloc(0);
-    throw new Error(`git config operation failed (exit ${error?.status ?? 'unknown'})`);
+    const timeout = error?.code === 'ETIMEDOUT' || error?.signal === 'SIGKILL' ? ', timed out' : '';
+    throw new Error(`git config operation failed (exit ${error?.status ?? 'unknown'}${timeout})`);
   }
 }
 
@@ -55,24 +66,35 @@ export function sanitizeGitConfig({ cwd = process.cwd() } = {}) {
     }
   }
 
-  // A clean-looking pushurl can still redirect a host-side push. Remove all
-  // pushurl and URL-rewrite entries; the bridge supplies its own fixed remote
-  // and never consults this mutable local config.
-  const rewriteRecords = parseNullRecords(gitConfig([
-    'config', '--local', '--null', '--get-regexp', '^url\\..*\\.',
-  ], cwd, { allowMissing: true })).filter(({ key }) => /\.(?:pushurl|insteadof|pushinsteadof)$/i.test(key));
-  const pushUrlRecords = parseNullRecords(gitConfig([
-    'config', '--local', '--null', '--get-regexp', '^remote\\..*\\.pushurl$',
-  ], cwd, { allowMissing: true }));
-  for (const { key } of [...rewriteRecords, ...pushUrlRecords]) {
+  // A clean-looking pushurl can still redirect a host-side push, and local
+  // Git config can execute helpers or select a proxy/CA before the bridge sees
+  // the request. Read with --no-includes, then remove every network- or
+  // execution-affecting key (including http.extraheader). The bridge supplies its own fixed remote, HTTPS
+  // header, true SSL verification, and empty helpers from an isolated env.
+  const dangerousPatterns = [
+    '^url\\..*(insteadof|pushinsteadof)$',
+    '^remote\\..*\\.(pushurl|uploadpack|receivepack|proxy)$',
+    '^http\\..*',
+    '^credential(\\..*)?$',
+    '^include.*',
+    '^core\\.(hookspath|sshcommand|gitproxy|fsmonitor|editor|pager)$',
+    '^filter\\..*\\.(process|clean|smudge)$',
+    '^diff\\..*\\.(textconv|external)$',
+    '^merge\\..*\\.driver$',
+    '^mergetool\\..*\\.cmd$',
+    '^pager\\..*',
+  ];
+  const dangerousKeys = new Set();
+  for (const pattern of dangerousPatterns) {
+    for (const { key } of parseNullRecords(gitConfig([
+      'config', '--local', '--null', '--get-regexp', pattern,
+    ], cwd, { allowMissing: true }))) {
+      dangerousKeys.add(key);
+    }
+  }
+  for (const key of dangerousKeys) {
     gitConfig(['config', '--local', '--unset-all', key], cwd, { allowMissing: true });
   }
-
-  const headerRecords = parseNullRecords(gitConfig([
-    'config', '--local', '--null', '--get-regexp', '^http\\..*\\.extraheader$',
-  ], cwd, { allowMissing: true }));
-  for (const { key } of headerRecords) gitConfig(['config', '--local', '--unset-all', key], cwd, { allowMissing: true });
-  gitConfig(['config', '--local', '--unset-all', 'http.extraheader'], cwd, { allowMissing: true });
 }
 
 if (process.argv[1] && new URL(`file://${process.argv[1]}`).href === import.meta.url) {

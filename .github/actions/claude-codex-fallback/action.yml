@@ -28,6 +28,10 @@ inputs:
     description: "Explicit token passed only to the host-side Codex gh/git bridges."
     required: false
     default: ""
+  codex_corpus_github_token:
+    description: "Optional separate token for the exact frontaliere-articles corpus scope; host-side bridge only."
+    required: false
+    default: ""
   allowed_bots:
     description: "Bot allow-list passed to the primary Claude action."
     required: false
@@ -205,6 +209,7 @@ runs:
         CODEX_LAUNCHER_DIR: ${{ steps.codex_cli.outputs.codex_launcher_dir }}
         CODEX_RUNTIME_ROOT: ${{ steps.codex_cli.outputs.codex_runtime_root }}
         CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
+        CODEX_CORPUS_GH_AUTH: ${{ inputs.codex_corpus_github_token }}
         CODEX_ACTION_PATH: ${{ github.action_path }}
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
@@ -226,8 +231,12 @@ runs:
         # model can request the already-authorized `gh` operation, but its child
         # environment never contains the credential. The reduced env below also
         # contains no auth.json, Claude token, API key, or other inherited secret.
-        # Never print CODEX_GH_AUTH.
+        # Never print either bridge credential. Capture them into shell locals
+        # and immediately remove their environment bindings before executing or
+        # reading any action/workspace file.
         codex_github_auth="${CODEX_GH_AUTH:-}"
+        codex_corpus_github_auth="${CODEX_CORPUS_GH_AUTH:-}"
+        unset CODEX_GH_AUTH CODEX_CORPUS_GH_AUTH
         if [ -z "$codex_github_auth" ]; then
           echo "::error::The Codex fallback requires the caller's explicit codex_github_token input."
           exit 1
@@ -259,26 +268,121 @@ runs:
         bridge_dir="$scratch_dir/bin"
         mkdir -p "$bridge_dir"
         chmod 700 "$bridge_dir"
-        real_gh="$(command -v gh || true)"
-        case "$real_gh" in
-          ''|"$bridge_dir/gh")
-            echo "::error::The GitHub CLI is required for the Codex fallback."
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        find_host_binary() {
+          local binary="$1" path_entry candidate resolved
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            candidate="$path_entry/$binary"
+            [ -x "$candidate" ] || continue
+            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            [ -n "$resolved" ] || continue
+            case "$resolved" in
+              "$workspace_root"/*|"$action_path"/*|"$scratch_dir"/*|"$runner_temp"/*)
+                continue
+                ;;
+            esac
+            case "$resolved" in
+              *.mjs|*.js) continue ;;
+            esac
+            [ -f "$resolved" ] || continue
+            printf '%s' "$resolved"
+            return 0
+          done < <(printf '%s\n' "$PATH" | tr ':' '\n')
+          return 1
+        }
+        find_host_gh() { find_host_binary gh; }
+        find_host_git() { find_host_binary git; }
+        gh_binary_source="$(find_host_gh || true)"
+        if [ -z "$gh_binary_source" ]; then
+          echo "::error::The GitHub CLI binary must resolve outside the writable workspace/runner-temp trees."
+          exit 1
+        fi
+        git_binary_source="$(find_host_git || true)"
+        if [ -z "$git_binary_source" ]; then
+          echo "::error::The Git CLI binary must resolve outside the writable workspace/runner-temp trees."
+          exit 1
+        fi
+
+        # A caller may have put the writable PR-body gate shim first in PATH.
+        # Resolve the actual GH executable before the model starts, copy it to
+        # a host-only directory, and run only that attested copy with GH_TOKEN.
+        # The model sees a separate read-only scratch copy solely for --version.
+        node_realpath="$(node -p 'process.execPath' 2>/dev/null || true)"
+        node_realpath="$(realpath "$node_realpath" 2>/dev/null || true)"
+        case "$node_realpath" in
+          ''|"$workspace_root"/*|"$action_path"/*|"$scratch_dir"/*|"$runner_temp"/*)
+            echo '::error::The trusted Node runtime could not be resolved outside writable runner trees.'
             exit 1
             ;;
         esac
-        real_git="$(command -v git || true)"
-        case "$real_git" in
-          ''|"$bridge_dir/git")
-            echo "::error::The Git CLI is required for the Codex fallback."
+        [ -x "$node_realpath" ] || { echo '::error::The trusted Node runtime is not executable.'; exit 1; }
+        gh_host_tools="$(mktemp -d "$runner_temp/codex-gh-host.XXXXXX")"
+        chmod 700 "$gh_host_tools"
+        mkdir -p "$gh_host_tools/bin" "$gh_host_tools/launcher" "$gh_host_tools/scripts/ci/lib" "$gh_host_tools/scripts/lib"
+        chmod 700 "$gh_host_tools/bin" "$gh_host_tools/launcher" "$gh_host_tools/scripts" "$gh_host_tools/scripts/ci" "$gh_host_tools/scripts/ci/lib" "$gh_host_tools/scripts/lib"
+        gh_attestation="$gh_host_tools/attestation.txt"
+        : > "$gh_attestation"
+        chmod 600 "$gh_attestation"
+        sha256_file() {
+          "$node_realpath" -e 'const fs=require("node:fs"); const crypto=require("node:crypto"); process.stdout.write(crypto.createHash("sha256").update(fs.readFileSync(process.argv[1])).digest("hex"));' "$1"
+        }
+        copy_attested_file() {
+          local source="$1" target="$2" source_real target_real source_digest target_digest
+          source_real="$(realpath "$source")"
+          cp -- "$source_real" "$target"
+          chmod 700 "$target"
+          target_real="$(realpath "$target")"
+          source_digest="$(sha256_file "$source_real")"
+          target_digest="$(sha256_file "$target_real")"
+          if [ -z "$source_digest" ] || [ "$source_digest" != "$target_digest" ]; then
+            echo '::error::Immutable GH tool digest verification failed.'
             exit 1
-            ;;
-        esac
+          fi
+          printf 'path=%s\nrealpath=%s\nsha256=%s\n' "$source" "$target_real" "$target_digest" >> "$gh_attestation"
+        }
+        copy_attested_file "$gh_binary_source" "$gh_host_tools/bin/gh"
+        gh_sandbox_binary="$bridge_dir/gh-real"
+        copy_attested_file "$gh_binary_source" "$gh_sandbox_binary"
+        gh_source_realpath="$(realpath "$gh_binary_source")"
+        gh_source_digest="$(sha256_file "$gh_source_realpath")"
+        gh_host_realpath="$(realpath "$gh_host_tools/bin/gh")"
+        gh_host_digest="$(sha256_file "$gh_host_realpath")"
+        [ "$gh_source_digest" = "$gh_host_digest" ] || { echo '::error::GH source/host digest mismatch.'; exit 1; }
+        gh_sandbox_realpath="$(realpath "$gh_sandbox_binary")"
+        gh_sandbox_digest="$(sha256_file "$gh_sandbox_realpath")"
+        [ "$gh_source_digest" = "$gh_sandbox_digest" ] || { echo '::error::GH source/sandbox digest mismatch.'; exit 1; }
+        printf 'source_realpath=%s\nsource_sha256=%s\nhost_realpath=%s\nhost_sha256=%s\nsandbox_realpath=%s\nsandbox_sha256=%s\n' \
+          "$gh_source_realpath" "$gh_source_digest" "$gh_host_realpath" "$gh_host_digest" "$gh_sandbox_realpath" "$gh_sandbox_digest" >> "$gh_attestation"
+        gh_host_launcher="$gh_host_tools/launcher/gh"
+        {
+          printf '#!/usr/bin/env bash\nset -euo pipefail\nexec %q %q "$@"\n' \
+            "$node_realpath" "$gh_host_tools/scripts/gh-pr-body-check.mjs"
+        } > "$gh_host_launcher"
+        chmod 700 "$gh_host_launcher"
+        launcher_digest="$(sha256_file "$gh_host_launcher")"
+        printf 'launcher_realpath=%s\nlauncher_sha256=%s\n' "$(realpath "$gh_host_launcher")" "$launcher_digest" >> "$gh_attestation"
+        copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"
+        git_sandbox_binary="$bridge_dir/git-real"
+        copy_attested_file "$git_binary_source" "$git_sandbox_binary"
+        git_source_realpath="$(realpath "$git_binary_source")"
+        git_source_digest="$(sha256_file "$git_source_realpath")"
+        git_host_realpath="$(realpath "$gh_host_tools/bin/git")"
+        git_host_digest="$(sha256_file "$git_host_realpath")"
+        git_sandbox_realpath="$(realpath "$git_sandbox_binary")"
+        git_sandbox_digest="$(sha256_file "$git_sandbox_realpath")"
+        [ "$git_source_digest" = "$git_host_digest" ] || { echo '::error::Git source/host digest mismatch.'; exit 1; }
+        [ "$git_source_digest" = "$git_sandbox_digest" ] || { echo '::error::Git source/sandbox digest mismatch.'; exit 1; }
+        printf 'git_source_realpath=%s\ngit_source_sha256=%s\ngit_host_realpath=%s\ngit_host_sha256=%s\ngit_sandbox_realpath=%s\ngit_sandbox_sha256=%s\n' \
+          "$git_source_realpath" "$git_source_digest" "$git_host_realpath" "$git_host_digest" "$git_sandbox_realpath" "$git_sandbox_digest" >> "$gh_attestation"
+        "$gh_host_tools/bin/gh" --version >/dev/null
+        "$gh_host_tools/bin/git" --version >/dev/null
 
         # Keep the bridge implementation reviewable and testable. Copy only
         # these immutable action-owned files into the exact scratch tree that
         # the Codex profile reopens; the host-side servers are never loaded by
         # model-generated commands with a token-bearing environment.
-        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         copy_bridge_file() {
           local source="$1" target="$2"
           if [ ! -f "$action_path/$source" ]; then
@@ -295,6 +399,12 @@ runs:
         copy_bridge_file git-bridge.sh git
         copy_bridge_file git-bridge-client.mjs git-client.mjs
         copy_bridge_file git-bridge-server.mjs git-server.mjs
+        copy_attested_file "$workspace_root/scripts/gh-pr-body-check.mjs" "$gh_host_tools/scripts/gh-pr-body-check.mjs"
+        copy_attested_file "$workspace_root/scripts/ci/pr-body-check-gate.mjs" "$gh_host_tools/scripts/ci/pr-body-check-gate.mjs"
+        copy_attested_file "$workspace_root/scripts/ci/lib/hook-exit-codes.mjs" "$gh_host_tools/scripts/ci/lib/hook-exit-codes.mjs"
+        copy_attested_file "$workspace_root/scripts/ci/lib/hook-target-cwd.mjs" "$gh_host_tools/scripts/ci/lib/hook-target-cwd.mjs"
+        copy_attested_file "$workspace_root/scripts/ci/lib/false-positive-declaration.mjs" "$gh_host_tools/scripts/ci/lib/false-positive-declaration.mjs"
+        copy_attested_file "$workspace_root/scripts/lib/pr-body-sections-check.mjs" "$gh_host_tools/scripts/lib/pr-body-sections-check.mjs"
         if [ ! -f "$action_path/sanitize-git-config.mjs" ]; then
           echo '::error::Missing Git config sanitizer implementation.'
           exit 1
@@ -483,16 +593,18 @@ runs:
 
         env -i \
           CODEX_GH_AUTH="$codex_github_auth" \
+          CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
-          CODEX_REAL_GH="$real_gh" \
+          CODEX_REAL_GH="$gh_host_launcher" \
           CODEX_GH_CWD="${PWD:-$(pwd)}" \
           CODEX_GH_WORKSPACE="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}" \
           CODEX_GH_SCRATCH="$scratch_dir" \
           CODEX_GH_REPOSITORY="$codex_github_repository" \
           CODEX_GH_HOST="$codex_github_host" \
-          PATH="$PATH" \
+          CODEX_GH_CORPUS_REPOSITORY="nanakokyobashi-rgb/frontaliere-articles" \
+          PATH="$gh_host_tools/bin:$PATH" \
           HOME="$scratch_home" \
-          node "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
+          "$node_realpath" "$bridge_dir/gh-server.mjs" >/dev/null 2>&1 &
         gh_server_pid=$!
         stop_gh_bridge() {
           kill "$gh_server_pid" 2>/dev/null || true
@@ -511,7 +623,7 @@ runs:
         env -i \
           CODEX_GIT_AUTH="$codex_github_auth" \
           CODEX_GIT_SOCKET="$git_socket" \
-          CODEX_REAL_GIT="$real_git" \
+          CODEX_REAL_GIT="$git_host_realpath" \
           CODEX_GIT_CWD="${PWD:-$(pwd)}" \
           CODEX_GIT_DIR="$git_dir" \
           CODEX_GIT_COMMON_DIR="$common_git_dir" \
@@ -519,9 +631,9 @@ runs:
           CODEX_GIT_HOST="$codex_github_host" \
           CODEX_GIT_REPOSITORY="$codex_github_repository" \
           CODEX_GIT_REMOTE="$codex_git_remote" \
-          PATH="$PATH" \
+          PATH="$gh_host_tools/bin:$PATH" \
           HOME="$scratch_home" \
-          node "$bridge_dir/git-server.mjs" >/dev/null 2>&1 &
+          "$node_realpath" "$bridge_dir/git-server.mjs" >/dev/null 2>&1 &
         git_server_pid=$!
         stop_bridge() {
           kill "$gh_server_pid" "$git_server_pid" 2>/dev/null || true
@@ -532,8 +644,15 @@ runs:
         cleanup_bridge() {
           rm -f -- "$outside_probe"
           stop_bridge
+          if [ -d "${gh_host_tools:-}" ]; then
+            case "$gh_host_tools" in
+              "${runner_temp}"/codex-gh-host.*)
+                "$node_realpath" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$gh_host_tools"
+                ;;
+            esac
+          fi
           if [ -d "${git_bridge_host_scratch:-}" ]; then
-            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$git_bridge_host_scratch"
+            "$node_realpath" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$git_bridge_host_scratch"
           fi
         }
         trap cleanup_bridge EXIT
@@ -549,14 +668,13 @@ runs:
         fi
         # Do not let the token remain in the environment inherited by Codex;
         # only the host-side bridge process received it above.
-        unset CODEX_GH_AUTH
         RUNNER_TEMP="$scratch_dir"
 
         # This no-op applies the generated profile before the authenticated
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_GH_REAL="$real_gh" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$real_git" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           test -x "$CODEX_REALPATH"
           "$CODEX_BIN" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
@@ -606,10 +724,10 @@ runs:
           "TMPDIR=$scratch_dir"
           "CODEX_GH_SOCKET=$gh_socket"
           "CODEX_GH_CLIENT=$bridge_dir/gh-client.mjs"
-          "CODEX_GH_REAL=$real_gh"
+          "CODEX_GH_REAL=$gh_sandbox_binary"
           "CODEX_GIT_SOCKET=$git_socket"
           "CODEX_GIT_CLIENT=$bridge_dir/git-client.mjs"
-          "CODEX_GIT_REAL=$real_git"
+          "CODEX_GIT_REAL=$git_sandbox_binary"
           "PWD=${PWD:-$(pwd)}"
           "SHELL=${SHELL:-/bin/bash}"
           "USER=${USER:-runner}"
