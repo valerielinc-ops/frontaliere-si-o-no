@@ -511,8 +511,12 @@ function renderDivider() {
 
 function renderJobs(matchedJobs, locale, totalJobs, rankingContext = null) {
   if (!matchedJobs || matchedJobs.length === 0) return '';
-  const jobCount = totalJobs || matchedJobs.length;
-  const jobCards = matchedJobs.slice(0, NEWSLETTER_JOB_LIMIT).map((job, i) => {
+  // The old `jobCount = totalJobs || matchedJobs.length` advertised the full
+  // dataset even when ranking or validation left fewer visible cards. The CTA
+  // belongs to this rendered block, so its count must match the cards emitted.
+  const visibleJobs = matchedJobs.slice(0, NEWSLETTER_JOB_LIMIT);
+  const jobCount = visibleJobs.length;
+  const jobCards = visibleJobs.map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
     // NonEmpty: this is the card's only label — a `''` refusal (#5452, a job
     // title whose first token alone passes 55 chars, e.g. a German compound)
