@@ -889,14 +889,19 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           collector.add(np.join(distDir, urlPath.replace(/\/+$/, '') + '.html'), html);
           profilePages++;
 
-          if (indexable) {
-            emittedProfiles.push({
-              locale,
-              path: urlPath,
-              label: profile.name,
-              companyKey: profile.companyKey ?? null,
-            });
-          }
+          // Publish identity for every rendered locale, not only indexable
+          // ones. A locale shard may legitimately render a noindex profile;
+          // the hub CTA must still receive the same dominant companyKey rather
+          // than falling back because this one locale missed the indexability
+          // floor. Consumers that need a crawlable destination filter on
+          // `indexable` explicitly.
+          emittedProfiles.push({
+            locale,
+            path: urlPath,
+            label: profile.name,
+            indexable,
+            companyKey: profile.companyKey ?? null,
+          });
 
           if (locale === 'it' && indexable) {
             sitemapEntries.push({ canonical: urlPath, alternates });

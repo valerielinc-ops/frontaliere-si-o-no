@@ -94,6 +94,7 @@ export function buildEmployerLinkItems(
 ): Record<EmitLocale, LinkItem[]> {
   const byLocale: Record<EmitLocale, LinkItem[]> = { it: [], en: [], de: [], fr: [] };
   for (const p of profiles) {
+    if (!p.indexable) continue;
     byLocale[p.locale].push({ href: p.path, label: p.label });
   }
   for (const loc of Object.keys(byLocale) as EmitLocale[]) {

@@ -88,11 +88,13 @@ export interface EmittedFacility {
 const nursingLandingsSignal = makeSignal();
 const healthFacilitiesSignal = makeValueSignal<readonly EmittedFacility[]>();
 
-/** An indexable employer-profile page emitted this build, one entry per locale. */
+/** An employer-profile page emitted this build, one entry per locale. */
 export interface EmittedEmployerProfile {
   readonly locale: 'it' | 'en' | 'de' | 'fr';
   readonly path: string;
   readonly label: string;
+  /** Whether this locale is safe to link from indexable job pages/sitemaps. */
+  readonly indexable: boolean;
   /** The same dominant companyKey used by the profile CTA, or null. */
   readonly companyKey: string | null;
 }
@@ -287,15 +289,12 @@ export function resolveSalaryStatsFlushed(): void {
 }
 
 /**
- * Resolves with every indexable `/aziende/{slug}/` employer-profile page
- * {@link employerProfilePagesPlugin} wrote this build (one entry per
- * indexable locale — below-floor noindex bridges excluded). Consumed by
- * {@link employerProfilePagesLinksPlugin}, which injects a "Lavorare in..."
- * link block into the per-locale HTML sitemap pages so BFS-from-`/` reaches
- * every emitted page (closes the `sitemap-employer-profiles.xml` orphan tier
- * flagged by `audit:max-bfs-depth`, 468/468 unreachable), mirroring the
- * professionCantonsFlushed contract. Carries `label` (the company display
- * name) directly since the URL slug is a one-way hash of it.
+ * Resolves with every `/aziende/{slug}/` employer-profile page
+ * {@link employerProfilePagesPlugin} wrote this build (one entry per locale,
+ * including noindex locales so downstream identity resolution cannot depend on
+ * which shard happened to render an indexable page). Consumers use `indexable`
+ * when they need a crawlable destination. Carries `label` (the company
+ * display name) directly since the URL slug is a one-way hash of it.
  */
 export const employerProfilesFlushed: Promise<readonly EmittedEmployerProfile[]> =
   employerProfilesSignal.promise;
