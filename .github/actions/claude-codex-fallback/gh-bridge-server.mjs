@@ -62,6 +62,15 @@ const apiEndpointValueFlags = new Set([
   '--method', '-X', '--header', '-H', '--hostname', '--repo', '-R',
   '--input', '--template', '-F', '--field', '-f', '--raw-field',
 ]);
+const prBodyFileFlags = new Set(['--body-file', '-F']);
+const prBodyInlineFlags = new Set(['--body', '-b']);
+const MAX_PR_BODY_BYTES = 512 * 1024;
+const IMPLEMENTED_HEADER_RE = /^[ \t]{0,3}#{2,3}[ \t]+Implementato\b/im;
+const NON_IMPLEMENTED_HEADER_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*\(ancora\)/im;
+const NON_IMPLEMENTED_ANY_HEADER_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato\b/im;
+const CHAINED_PR_RE = /\bPR\s+concatenat[ao]\b/i;
+const CHAINED_PR_NUMBER_RE = /\bPR\s+concatenat[ao]\s*#\s*\d+/i;
+const BODY_STATE_RE = /\bin\s+questa\s+PR\b|\bPR\s+concatenat[ao]\s*#\s*\d+\b|\bper\s+scelta\b|\bby\s+construction\b|\bblocked\s*:\s*\S|\bfalso\s+positivo\b/i;
 
 function realRoot(value) {
   try { return fs.realpathSync(value); } catch { return ''; }
@@ -341,6 +350,117 @@ function fieldArgumentValue(arg) {
   return null;
 }
 
+function stripBodyNonContent(value) {
+  return String(value ?? '')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
+}
+
+function bodySection(value, header) {
+  const match = header.exec(value);
+  if (!match) return null;
+  const rest = value.slice(match.index + match[0].length);
+  const nextHeading = /\n(?=#{1,6}[ \t])/.exec(rest);
+  return nextHeading ? rest.slice(0, nextHeading.index) : rest;
+}
+
+function bodyHasMeaningfulContent(value) {
+  const clean = stripBodyNonContent(value);
+  return clean.split('\n').some((line) => {
+    const trimmed = line.trim();
+    if (!trimmed || /^#{1,6}[ \t]/.test(trimmed)) return false;
+    if (/^[-*+](?:[ \t]|$)/.test(trimmed)) return /^[-*+][ \t]+\S/.test(trimmed);
+    return true;
+  });
+}
+
+function bodyBullets(value) {
+  return stripBodyNonContent(value)
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => /^[-*+][ \t]+\S/.test(line));
+}
+
+/** Validate the PR body contract without loading any repository code. */
+export function validatePrBodyContract(body) {
+  const value = String(body ?? '');
+  const violations = [];
+  const implemented = IMPLEMENTED_HEADER_RE.test(value);
+  const nonImplemented = NON_IMPLEMENTED_HEADER_RE.test(value);
+  if (!implemented) violations.push('missing ## Implementato');
+  if (!nonImplemented) {
+    violations.push(NON_IMPLEMENTED_ANY_HEADER_RE.test(value)
+      ? 'missing (ancora) on ## Non implementato'
+      : 'missing ## Non implementato (ancora)');
+  }
+  if (implemented && !bodyHasMeaningfulContent(bodySection(value, IMPLEMENTED_HEADER_RE) ?? '')) {
+    violations.push('empty ## Implementato');
+  }
+  if (nonImplemented) {
+    const section = bodySection(value, NON_IMPLEMENTED_HEADER_RE) ?? '';
+    const bullets = bodyBullets(section);
+    const hasNessuno = /\bnessun[oa]?\b/i.test(stripBodyNonContent(section));
+    if (!hasNessuno && !bodyHasMeaningfulContent(section)) {
+      violations.push('empty ## Non implementato (ancora)');
+    }
+    if (bullets.some((bullet) => CHAINED_PR_RE.test(bullet) && !CHAINED_PR_NUMBER_RE.test(bullet))) {
+      violations.push('PR concatenata requires a #N');
+    }
+    if (bullets.some((bullet) => !BODY_STATE_RE.test(bullet))) {
+      violations.push('every residual bullet requires a literal state');
+    }
+  }
+  return { ok: violations.length === 0, violations };
+}
+
+function bodyFilePath(value, context) {
+  if (!value || value === '-') return { error: 'gh PR body-file must name a readable workspace/scratch file' };
+  const candidate = path.isAbsolute(value) ? value : path.resolve(context.cwd, value);
+  const resolved = realRoot(candidate);
+  let isFile = false;
+  try { isFile = fs.statSync(resolved).isFile(); } catch { /* reported below */ }
+  const allowed = isFile && context.allowedRoots.some(
+    (root) => resolved === root || resolved.startsWith(`${root}${path.sep}`),
+  );
+  if (!allowed) return { error: 'gh PR body-file must resolve under workspace/scratch' };
+  try {
+    const body = fs.readFileSync(resolved);
+    if (body.length > MAX_PR_BODY_BYTES) return { error: 'gh PR body-file exceeds its size limit' };
+    return { body: body.toString('utf8'), resolved };
+  } catch {
+    return { error: 'gh PR body-file is not readable' };
+  }
+}
+
+function prBodyOption(args, start, flags) {
+  for (let index = start; index < args.length; index += 1) {
+    const arg = args[index];
+    for (const flag of flags) {
+      if (arg === flag) return { flag, value: args[index + 1] || '', next: index + 1 };
+      if (arg.startsWith(`${flag}=`)) return { flag, value: arg.slice(flag.length + 1), next: index };
+    }
+  }
+  return null;
+}
+
+function validatePrBodyArgs(args, commandIndex, context) {
+  const operation = firstOperationArg(args, commandIndex + 1);
+  if (operation !== 'create' && operation !== 'edit') return '';
+  const bodyFile = prBodyOption(args, commandIndex + 1, prBodyFileFlags);
+  const bodyInline = prBodyOption(args, commandIndex + 1, prBodyInlineFlags);
+  if (bodyInline) {
+    return `gh pr ${operation} cannot use inline --body; use a validated --body-file`;
+  }
+  if (operation === 'create' && !bodyFile) {
+    return 'gh pr create requires a validated --body-file';
+  }
+  if (!bodyFile) return '';
+  const file = bodyFilePath(bodyFile.value, context);
+  if (file.error) return file.error;
+  const validation = validatePrBodyContract(file.body);
+  return validation.ok ? '' : 'gh PR body contract is not satisfied';
+}
+
 function fileArgumentError(flag, value, context) {
   if (flag === '--template' && value && !value.startsWith('@')) return '';
   const candidate = flag === '--template' ? value?.slice(1) : value;
@@ -385,6 +505,8 @@ export function validateGhArgs(args, {
   const positionalUrlErrorMessage = positionalUrlError(args, commandIndex);
   if (positionalUrlErrorMessage) return positionalUrlErrorMessage;
   const context = { cwd: cwd || process.cwd(), allowedRoots };
+  const bodyError = command === 'pr' ? validatePrBodyArgs(args, commandIndex, context) : '';
+  if (bodyError) return bodyError;
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index];
     if (blockedFlags.has(arg) || [...blockedFlags].some((flag) => arg.startsWith(`${flag}=`))) {

@@ -1,9 +1,11 @@
 import { execFileSync, spawn } from 'node:child_process';
 import {
   existsSync,
+  chmodSync,
   mkdtempSync,
   mkdirSync,
   readFileSync,
+  realpathSync,
   rmSync,
   symlinkSync,
   writeFileSync,
@@ -33,6 +35,7 @@ import {
   SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
   CORPUS_REPOSITORY,
   resolveGhScope,
+  validatePrBodyContract,
   validateGhArgs,
 } from '../.github/actions/claude-codex-fallback/gh-bridge-server.mjs';
 import {
@@ -326,6 +329,48 @@ describe('validator dei bridge host-side', () => {
     }
   });
 
+  it('valida il body delle PR nel bridge senza eseguire codice del workspace', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-pr-body-'));
+    const workspace = join(root, 'workspace');
+    const scratch = join(root, 'scratch');
+    const marker = join(root, 'workspace-executed');
+    const validBody = join(scratch, 'valid.md');
+    const invalidBody = join(scratch, 'invalid.md');
+    mkdirSync(workspace, { recursive: true });
+    mkdirSync(scratch, { recursive: true });
+    writeFileSync(join(workspace, 'gh-pr-body-check.mjs'),
+      `require('node:fs').writeFileSync(${JSON.stringify(marker)}, 'executed');`);
+    writeFileSync(validBody, [
+      '## Implementato',
+      '- Body validation is enforced in questa PR.',
+      '',
+      '## Non implementato (ancora)',
+      'Nessuno',
+      '',
+    ].join('\n'));
+    writeFileSync(invalidBody, '## Summary\n- missing required sections\n');
+    const context = {
+      cwd: workspace,
+      workspaceRoot: workspace,
+      scratchRoot: scratch,
+      repository: 'owner/repo',
+      host: 'github.com',
+    };
+    try {
+      expect(validatePrBodyContract(readFileSync(validBody, 'utf8')).ok).toBe(true);
+      expect(validatePrBodyContract(readFileSync(invalidBody, 'utf8')).ok).toBe(false);
+      expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', validBody], context)).toBe('');
+      expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body-file', invalidBody], context)).toMatch(/body contract/);
+      expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo', '--body', 'inline body'], context)).toMatch(/inline/);
+      expect(validateGhArgs(['pr', 'create', '--repo', 'owner/repo'], context)).toMatch(/body-file/);
+      expect(validateGhArgs(['pr', 'edit', '--repo', 'owner/repo', '--body-file', validBody], context)).toBe('');
+      expect(validateGhArgs(['pr', 'edit', '--repo', 'owner/repo', '--body-file', invalidBody], context)).toMatch(/body contract/);
+      expect(existsSync(marker)).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('richiede il vero primo comando git e blocca alias/config/path/URL bypass', () => {
     expect(validateGitArgs(['-c', 'alias.x=!cat /tmp/secret', 'push'])).toMatch(/config\/exec\/path/);
     expect(validateGitArgs(['--git-dir=/tmp/other', 'push'])).toMatch(/config\/exec\/path/);
@@ -567,8 +612,16 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('copy_attested_file "$git_binary_source" "$git_sandbox_binary"');
     expect(action).toContain('git_host_realpath');
     expect(action).toContain('sha256_file');
-    expect(action).toContain('gh_host_launcher="$gh_host_tools/launcher/gh"');
-    expect(action).toContain('CODEX_REAL_GH="$gh_host_launcher"');
+    expect(action).toContain('Resolve trusted Node runtime');
+    expect(action).toContain('find_trusted_node()');
+    expect(action).toContain('node_sha256=');
+    expect(action).toContain('Snapshot Codex fallback runtime before Claude');
+    expect(action).not.toContain('gh_host_launcher');
+    expect(action).not.toContain('gh-pr-body-check.mjs');
+    expect(action).not.toContain('pr-body-check-gate.mjs');
+    expect(action).not.toContain('scripts/lib/pr-body-sections-check.mjs');
+    expect(action).not.toContain("node -p 'process.execPath'");
+    expect(action).toContain('CODEX_REAL_GH="$gh_host_realpath"');
     expect(action).toContain('CODEX_GH_REAL="$gh_sandbox_binary"');
     expect(action).not.toContain('real_gh="$(command -v gh');
     expect(action).toContain('CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth"');
@@ -597,7 +650,8 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
     expect(codexBlock).toContain('"$CODEX_BIN" --version');
-    expect(action).toContain('node "$action_path/sanitize-git-config.mjs"');
+    expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
+    expect(action).toContain('"$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"');
     expect(action).toContain('git rev-parse --git-dir');
     expect(action).toContain('git rev-parse --git-common-dir');
     expect(action).toContain('"$auth_file_toml" = "deny"');
@@ -642,7 +696,9 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('CODEX_GH_AUTH=$CODEX_GH_AUTH');
     expect(action).not.toContain('CODEX_GH_AUTH"]');
     expect(action).toContain('codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"');
-    expect(action).toContain('node "$action_path/sanitize-git-config.mjs"');
+    expect(action).toContain('CODEX_NODE_REAL=$node_realpath');
+    expect(action).toContain('"$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"');
+    expect(action).toContain('"$TRUSTED_NODE" -e');
     expect(action).toContain('CODEX_GIT_AUTH="$codex_github_auth"');
     expect(action).toContain('CODEX_REAL_GIT="$git_host_realpath"');
     expect(action).toContain('CODEX_GIT_REAL="$git_sandbox_binary"');
@@ -674,6 +730,10 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('OPENAI_API_KEY');
     expect(action).not.toContain('CODEX_ACCESS_TOKEN');
     expect(ghBridge).toContain("'auth', 'config', 'alias', 'extension', 'secret'");
+    expect(ghBridge).toContain('validatePrBodyContract');
+    expect(ghBridge).toContain('validatePrBodyArgs');
+    expect(ghBridge).not.toContain('gh-pr-body-check');
+    expect(gitSanitizer).toContain('CODEX_SANITIZER_GIT');
     expect(ghBridge).toContain('const blockedApiPath =');
     expect(ghBridge).toContain('MAX_REQUEST_BYTES');
     expect(ghBridge).toContain('MAX_ACTIVE_CONNECTIONS');
@@ -722,5 +782,58 @@ describe('copertura workflow diretti', () => {
     expect(ghBridge).toContain('CODEX_GH_CORPUS_AUTH');
     expect(ghBridge).toContain('CORPUS_REPOSITORY');
     expect(ghBridge).toContain('resolveGhScope(args');
+  });
+
+  it('rifiuta uno shim Node nel runner-temp e seleziona il binario attestato fuori dalle radici scrivibili', () => {
+    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
+    const runnerRoot = mkdtempSync(join(tmpdir(), 'codex-node-trust-'));
+    const runnerTemp = join(runnerRoot, 'runner-temp');
+    const workspace = join(runnerRoot, 'workspace');
+    const actionPath = join(runnerRoot, 'action');
+    const trustedDir = mkdtempSync(join(tmpdir(), 'codex-node-host-'));
+    mkdirSync(runnerTemp, { recursive: true });
+    mkdirSync(workspace, { recursive: true });
+    mkdirSync(actionPath, { recursive: true });
+    const resolvedRunnerTemp = realpathSync(runnerTemp);
+    const resolvedWorkspace = realpathSync(workspace);
+    const resolvedActionPath = realpathSync(actionPath);
+    const shim = join(runnerTemp, 'node');
+    const trustedNode = join(trustedDir, 'node');
+    writeFileSync(shim, '#!/bin/sh\nexit 97\n');
+    chmodSync(shim, 0o755);
+    symlinkSync(process.execPath, trustedNode);
+    const stepStart = action.indexOf('    - name: Resolve trusted Node runtime');
+    const snapshotStart = action.indexOf('    - name: Snapshot Codex fallback runtime before Claude');
+    expect(stepStart).toBeGreaterThanOrEqual(0);
+    expect(snapshotStart).toBeGreaterThan(stepStart);
+    const step = action.slice(stepStart, snapshotStart);
+    const functionStart = step.indexOf('        find_trusted_node() {');
+    const functionEnd = step.indexOf('\n        node_realpath=', functionStart);
+    expect(functionStart).toBeGreaterThanOrEqual(0);
+    expect(functionEnd).toBeGreaterThan(functionStart);
+    const functionSource = step.slice(functionStart, functionEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+    const quote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
+    const script = [
+      'set -euo pipefail',
+      `workspace_root=${quote(resolvedWorkspace)}`,
+      `action_path=${quote(resolvedActionPath)}`,
+      `runner_temp=${quote(resolvedRunnerTemp)}`,
+      functionSource,
+      'find_trusted_node',
+    ].join('\n');
+    try {
+      const selected = execFileSync('/bin/bash', ['-c', script], {
+        encoding: 'utf8',
+        env: { PATH: `${resolvedRunnerTemp}:${trustedDir}:/usr/bin:/bin` },
+      }).trim();
+      expect(selected).toBe(realpathSync(process.execPath));
+      expect(selected).not.toContain(resolvedRunnerTemp);
+    } finally {
+      rmSync(runnerRoot, { recursive: true, force: true });
+      rmSync(trustedDir, { recursive: true, force: true });
+    }
   });
 });

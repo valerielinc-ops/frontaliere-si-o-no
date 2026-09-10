@@ -82,15 +82,121 @@ outputs:
 runs:
   using: composite
   steps:
+    - name: Resolve trusted Node runtime
+      id: trusted_node
+      shell: bash
+      env:
+        CODEX_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        workspace_root="$(realpath "$workspace_root")"
+        action_path="$(realpath "$action_path")"
+        runner_temp="$(realpath "$runner_temp")"
+        find_trusted_node() {
+          local path_entry candidate resolved
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            candidate="$path_entry/node"
+            [ -f "$candidate" ] || continue
+            [ -x "$candidate" ] || continue
+            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            [ -n "$resolved" ] || continue
+            case "$resolved" in
+              "$workspace_root"/*|"$action_path"/*|"$runner_temp"/*)
+                continue
+                ;;
+            esac
+            case "$resolved" in
+              *.mjs|*.js) continue ;;
+            esac
+            [ -f "$resolved" ] || continue
+            printf '%s' "$resolved"
+            return 0
+          done < <(printf '%s\n' "${PATH:-}" | tr ':' '\n')
+          return 1
+        }
+        node_realpath="$(find_trusted_node || true)"
+        if [ -z "$node_realpath" ]; then
+          echo '::error::Trusted Node runtime must resolve outside writable runner trees.'
+          exit 1
+        fi
+        case "$node_realpath" in
+          /*) ;;
+          *) echo '::error::Trusted Node runtime path is not absolute.'; exit 1 ;;
+        esac
+        [ -f "$node_realpath" ] && [ -x "$node_realpath" ] || {
+          echo '::error::Trusted Node runtime is not an executable regular file.'
+          exit 1
+        }
+        node_version="$("$node_realpath" --version 2>/dev/null || true)"
+        case "$node_version" in
+          v[0-9]*.[0-9]*.[0-9]*) ;;
+          *) echo '::error::Trusted Node runtime returned an invalid version.'; exit 1 ;;
+        esac
+        node_major="${node_version#v}"
+        node_major="${node_major%%.*}"
+        [ "$node_major" -ge 18 ] || {
+          echo '::error::Trusted Node runtime is older than Node 18.'
+          exit 1
+        }
+        sha256_file() {
+          if [ -x /usr/bin/sha256sum ]; then
+            /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+          elif [ -x /usr/bin/shasum ]; then
+            /usr/bin/shasum -a 256 -- "$1" | /usr/bin/cut -d ' ' -f 1
+          else
+            return 1
+          fi
+        }
+        node_sha256="$(sha256_file "$node_realpath")"
+        [ -n "$node_sha256" ] || { echo '::error::Unable to attest trusted Node runtime.'; exit 1; }
+        printf 'node_realpath=%s\nnode_version=%s\nnode_sha256=%s\n' \
+          "$node_realpath" "$node_version" "$node_sha256" >> "$GITHUB_OUTPUT"
+
+    - name: Snapshot Codex fallback runtime before Claude
+      id: runtime_snapshot
+      shell: bash
+      env:
+        CODEX_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
+        runner_temp="${RUNNER_TEMP:-/tmp}"
+        snapshot_root="$(mktemp -d "$runner_temp/codex-fallback-runtime.XXXXXX")"
+        chmod 700 "$snapshot_root"
+        mkdir -p "$snapshot_root/action" "$snapshot_root/ci"
+        chmod 700 "$snapshot_root/action" "$snapshot_root/ci"
+        snapshot_file() {
+          local source="$1" target="$2"
+          [ -f "$source" ] || { echo "::error::Missing fallback runtime asset: $source"; exit 1; }
+          cp -- "$source" "$target"
+          chmod 600 "$target"
+        }
+        for name in \
+          gh-bridge.sh gh-bridge-client.mjs gh-bridge-server.mjs \
+          git-bridge.sh git-bridge-client.mjs git-bridge-server.mjs \
+          child-lifecycle.mjs sanitize-git-config.mjs; do
+          snapshot_file "$action_path/$name" "$snapshot_root/action/$name"
+        done
+        snapshot_file "$workspace_root/scripts/ci/claude-codex-fallback.mjs" "$snapshot_root/ci/claude-codex-fallback.mjs"
+        snapshot_file "$workspace_root/scripts/ci/claude-rate-limit.mjs" "$snapshot_root/ci/claude-rate-limit.mjs"
+        printf 'runtime_root=%s\n' "$snapshot_root" >> "$GITHUB_OUTPUT"
+
     - name: Decide Claude usage-limit fallback (preflight)
       id: preflight
       shell: bash
       env:
         PREFLIGHT_BLOCKED: ${{ inputs.preflight_blocked }}
         FALLBACK_ATTEMPTED: "false"
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
         set -euo pipefail
-        node scripts/ci/claude-codex-fallback.mjs
+        "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"
 
     - name: Run Claude primary
       id: claude
@@ -114,9 +220,11 @@ runs:
         PREFLIGHT_BLOCKED: "false"
         FALLBACK_ATTEMPTED: ${{ steps.preflight.outputs.fallback }}
         EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
         set -euo pipefail
-        node scripts/ci/claude-codex-fallback.mjs
+        "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs"
 
     - name: Install pinned Codex CLI (without fallback credentials)
       id: codex_cli
@@ -208,6 +316,10 @@ runs:
         CODEX_REALPATH: ${{ steps.codex_cli.outputs.codex_realpath }}
         CODEX_LAUNCHER_DIR: ${{ steps.codex_cli.outputs.codex_launcher_dir }}
         CODEX_RUNTIME_ROOT: ${{ steps.codex_cli.outputs.codex_runtime_root }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        TRUSTED_NODE_VERSION: ${{ steps.trusted_node.outputs.node_version }}
+        TRUSTED_NODE_SHA256: ${{ steps.trusted_node.outputs.node_sha256 }}
+        CODEX_RUNTIME_SNAPSHOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
         CODEX_GH_AUTH: ${{ inputs.codex_github_token }}
         CODEX_CORPUS_GH_AUTH: ${{ inputs.codex_corpus_github_token }}
         CODEX_ACTION_PATH: ${{ github.action_path }}
@@ -217,6 +329,37 @@ runs:
       run: |
         set -euo pipefail
         # The pinned CLI was installed in a separate, credential-free step.
+        # Resolve and attest Node before touching any token-bearing local.
+        trusted_node="${TRUSTED_NODE:?Trusted Node runtime unavailable}"
+        trusted_node_version="${TRUSTED_NODE_VERSION:?Trusted Node version unavailable}"
+        trusted_node_sha256="${TRUSTED_NODE_SHA256:?Trusted Node digest unavailable}"
+        case "$trusted_node" in
+          /*) ;;
+          *) echo '::error::Trusted Node runtime path is not absolute.'; exit 1 ;;
+        esac
+        [ -f "$trusted_node" ] && [ -x "$trusted_node" ] || {
+          echo '::error::Trusted Node runtime is not an executable regular file.'
+          exit 1
+        }
+        node_version="$("$trusted_node" --version 2>/dev/null || true)"
+        [ "$node_version" = "$trusted_node_version" ] || {
+          echo '::error::Trusted Node runtime version changed after attestation.'
+          exit 1
+        }
+        sha256_file() {
+          if [ -x /usr/bin/sha256sum ]; then
+            /usr/bin/sha256sum -- "$1" | /usr/bin/cut -d ' ' -f 1
+          elif [ -x /usr/bin/shasum ]; then
+            /usr/bin/shasum -a 256 -- "$1" | /usr/bin/cut -d ' ' -f 1
+          else
+            return 1
+          fi
+        }
+        [ "$(sha256_file "$trusted_node")" = "$trusted_node_sha256" ] || {
+          echo '::error::Trusted Node runtime digest changed after attestation.'
+          exit 1
+        }
+        node_realpath="$trusted_node"
         codex_bin="${CODEX_BIN:?Pinned Codex CLI path unavailable}"
         codex_realpath="${CODEX_REALPATH:?Pinned Codex CLI realpath unavailable}"
         codex_launcher_dir="${CODEX_LAUNCHER_DIR:?Codex launcher directory unavailable}"
@@ -269,6 +412,7 @@ runs:
         mkdir -p "$bridge_dir"
         chmod 700 "$bridge_dir"
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
+        runtime_snapshot="${CODEX_RUNTIME_SNAPSHOT:?Codex fallback runtime snapshot unavailable}"
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
         find_host_binary() {
           local binary="$1" path_entry candidate resolved
@@ -305,23 +449,10 @@ runs:
           exit 1
         fi
 
-        # A caller may have put the writable PR-body gate shim first in PATH.
-        # Resolve the actual GH executable before the model starts, copy it to
-        # a host-only directory, and run only that attested copy with GH_TOKEN.
-        # The model sees a separate read-only scratch copy solely for --version.
-        node_realpath="$(node -p 'process.execPath' 2>/dev/null || true)"
-        node_realpath="$(realpath "$node_realpath" 2>/dev/null || true)"
-        case "$node_realpath" in
-          ''|"$workspace_root"/*|"$action_path"/*|"$scratch_dir"/*|"$runner_temp"/*)
-            echo '::error::The trusted Node runtime could not be resolved outside writable runner trees.'
-            exit 1
-            ;;
-        esac
-        [ -x "$node_realpath" ] || { echo '::error::The trusted Node runtime is not executable.'; exit 1; }
         gh_host_tools="$(mktemp -d "$runner_temp/codex-gh-host.XXXXXX")"
         chmod 700 "$gh_host_tools"
-        mkdir -p "$gh_host_tools/bin" "$gh_host_tools/launcher" "$gh_host_tools/scripts/ci/lib" "$gh_host_tools/scripts/lib"
-        chmod 700 "$gh_host_tools/bin" "$gh_host_tools/launcher" "$gh_host_tools/scripts" "$gh_host_tools/scripts/ci" "$gh_host_tools/scripts/ci/lib" "$gh_host_tools/scripts/lib"
+        mkdir -p "$gh_host_tools/bin"
+        chmod 700 "$gh_host_tools/bin"
         gh_attestation="$gh_host_tools/attestation.txt"
         : > "$gh_attestation"
         chmod 600 "$gh_attestation"
@@ -355,14 +486,6 @@ runs:
         [ "$gh_source_digest" = "$gh_sandbox_digest" ] || { echo '::error::GH source/sandbox digest mismatch.'; exit 1; }
         printf 'source_realpath=%s\nsource_sha256=%s\nhost_realpath=%s\nhost_sha256=%s\nsandbox_realpath=%s\nsandbox_sha256=%s\n' \
           "$gh_source_realpath" "$gh_source_digest" "$gh_host_realpath" "$gh_host_digest" "$gh_sandbox_realpath" "$gh_sandbox_digest" >> "$gh_attestation"
-        gh_host_launcher="$gh_host_tools/launcher/gh"
-        {
-          printf '#!/usr/bin/env bash\nset -euo pipefail\nexec %q %q "$@"\n' \
-            "$node_realpath" "$gh_host_tools/scripts/gh-pr-body-check.mjs"
-        } > "$gh_host_launcher"
-        chmod 700 "$gh_host_launcher"
-        launcher_digest="$(sha256_file "$gh_host_launcher")"
-        printf 'launcher_realpath=%s\nlauncher_sha256=%s\n' "$(realpath "$gh_host_launcher")" "$launcher_digest" >> "$gh_attestation"
         copy_attested_file "$git_binary_source" "$gh_host_tools/bin/git"
         git_sandbox_binary="$bridge_dir/git-real"
         copy_attested_file "$git_binary_source" "$git_sandbox_binary"
@@ -385,11 +508,11 @@ runs:
         # model-generated commands with a token-bearing environment.
         copy_bridge_file() {
           local source="$1" target="$2"
-          if [ ! -f "$action_path/$source" ]; then
+          if [ ! -f "$runtime_snapshot/action/$source" ]; then
             echo "::error::Missing Codex bridge implementation: $source"
             exit 1
           fi
-          cp -- "$action_path/$source" "$bridge_dir/$target"
+          cp -- "$runtime_snapshot/action/$source" "$bridge_dir/$target"
           chmod 700 "$bridge_dir/$target"
         }
         copy_bridge_file gh-bridge.sh gh
@@ -399,17 +522,12 @@ runs:
         copy_bridge_file git-bridge.sh git
         copy_bridge_file git-bridge-client.mjs git-client.mjs
         copy_bridge_file git-bridge-server.mjs git-server.mjs
-        copy_attested_file "$workspace_root/scripts/gh-pr-body-check.mjs" "$gh_host_tools/scripts/gh-pr-body-check.mjs"
-        copy_attested_file "$workspace_root/scripts/ci/pr-body-check-gate.mjs" "$gh_host_tools/scripts/ci/pr-body-check-gate.mjs"
-        copy_attested_file "$workspace_root/scripts/ci/lib/hook-exit-codes.mjs" "$gh_host_tools/scripts/ci/lib/hook-exit-codes.mjs"
-        copy_attested_file "$workspace_root/scripts/ci/lib/hook-target-cwd.mjs" "$gh_host_tools/scripts/ci/lib/hook-target-cwd.mjs"
-        copy_attested_file "$workspace_root/scripts/ci/lib/false-positive-declaration.mjs" "$gh_host_tools/scripts/ci/lib/false-positive-declaration.mjs"
-        copy_attested_file "$workspace_root/scripts/lib/pr-body-sections-check.mjs" "$gh_host_tools/scripts/lib/pr-body-sections-check.mjs"
-        if [ ! -f "$action_path/sanitize-git-config.mjs" ]; then
+        if [ ! -f "$runtime_snapshot/action/sanitize-git-config.mjs" ]; then
           echo '::error::Missing Git config sanitizer implementation.'
           exit 1
         fi
-        node "$action_path/sanitize-git-config.mjs"
+        CODEX_SANITIZER_GIT="$git_host_realpath" \
+          "$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"
         # Derive the network target only from trusted runner context. Never
         # resolve remote.origin.{url,pushurl} after the model can edit .git.
         codex_git_remote="${codex_github_host%/}/${codex_github_repository}.git"
@@ -497,6 +615,7 @@ runs:
         config_file="$CODEX_HOME/config.toml"
         scratch_dir_toml="$(toml_quote_path "$scratch_dir")"
         bridge_dir_toml="$(toml_quote_path "$bridge_dir")"
+        trusted_node_realpath_toml="$(toml_quote_path "$node_realpath")"
         codex_realpath_toml="$(toml_quote_path "$codex_realpath")"
         codex_launcher_dir_toml="$(toml_quote_path "$codex_launcher_dir")"
         codex_runtime_root_toml="$(toml_quote_path "$codex_runtime_root")"
@@ -535,6 +654,8 @@ runs:
         "." = "read"
         EOF
         cat >> "$config_file" <<EOF
+        [permissions.codex-fallback.filesystem."$trusted_node_realpath_toml"]
+        "." = "read"
         [permissions.codex-fallback.filesystem."$codex_realpath_toml"]
         "." = "read"
         [permissions.codex-fallback.filesystem."$codex_launcher_dir_toml"]
@@ -580,7 +701,7 @@ runs:
         git_filesystem_rules='{"."="write","hooks"="read","config"="read"}'
         common_filesystem_rules='{"."="read","objects"="write","refs"="write","logs"="write","packed-refs"="write","hooks"="read","config"="read"}'
         base_filesystem_rules='{":root"="deny",":minimal"="read",":tmpdir"="deny",":slash_tmp"="deny",":workspace_roots"={"."="write"}'
-        codex_filesystem_rules="\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
+        codex_filesystem_rules="\"$trusted_node_realpath_toml\"={\".\"=\"read\"},\"$codex_realpath_toml\"={\".\"=\"read\"},\"$codex_launcher_dir_toml\"={\".\"=\"read\"}"
         if [ "$codex_runtime_root" != "$codex_launcher_dir" ]; then
           codex_filesystem_rules="$codex_filesystem_rules,\"$codex_runtime_root_toml\"={\".\"=\"read\"}"
         fi
@@ -595,7 +716,7 @@ runs:
           CODEX_GH_AUTH="$codex_github_auth" \
           CODEX_GH_CORPUS_AUTH="$codex_corpus_github_auth" \
           CODEX_GH_SOCKET="$gh_socket" \
-          CODEX_REAL_GH="$gh_host_launcher" \
+          CODEX_REAL_GH="$gh_host_realpath" \
           CODEX_GH_CWD="${PWD:-$(pwd)}" \
           CODEX_GH_WORKSPACE="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}" \
           CODEX_GH_SCRATCH="$scratch_dir" \
@@ -674,7 +795,7 @@ runs:
         # request. It catches malformed/unsupported permission TOML early and
         # uses real file operations: the explicit gitdir/common overrides must
         # create/read/remove probes, while hooks/auth/runner files stay denied.
-        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
+        PATH="$bridge_dir:$PATH" CODEX_HOME="$CODEX_HOME" CODEX_BIN="$codex_bin" CODEX_REALPATH="$codex_realpath" CODEX_NODE_REAL="$node_realpath" CODEX_GH_REAL="$gh_sandbox_binary" CODEX_GH_CLIENT="$bridge_dir/gh-client.mjs" CODEX_GH_SOCKET="$gh_socket" CODEX_GIT_REAL="$git_sandbox_binary" CODEX_GIT_CLIENT="$bridge_dir/git-client.mjs" CODEX_GIT_SOCKET="$git_socket" CODEX_GIT_REMOTE="$codex_git_remote" CODEX_OUTSIDE_PROBE="$outside_probe" TMPDIR="$scratch_dir" "$codex_bin" sandbox -P codex-fallback -C "${PWD:-.}" /bin/sh -c '
           test -x "$CODEX_REALPATH"
           "$CODEX_BIN" --version >/dev/null
           git_dir="$(git rev-parse --git-dir)"
@@ -722,6 +843,7 @@ runs:
           "PATH=$bridge_dir:$PATH"
           "HOME=$scratch_home"
           "TMPDIR=$scratch_dir"
+          "CODEX_NODE_REAL=$node_realpath"
           "CODEX_GH_SOCKET=$gh_socket"
           "CODEX_GH_CLIENT=$bridge_dir/gh-client.mjs"
           "CODEX_GH_REAL=$gh_sandbox_binary"
@@ -738,7 +860,7 @@ runs:
         for name in "${metadata_vars[@]}"; do
           if [ -n "${!name+x}" ]; then codex_env+=("$name=${!name}"); fi
         done
-        codex_env_patterns='["PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
+        codex_env_patterns='["PATH","HOME","TMPDIR","PWD","SHELL","USER","LOGNAME","LANG","LC_*","CI","GITHUB_REPOSITORY","GITHUB_RUN_ID","GITHUB_RUN_ATTEMPT","GITHUB_WORKFLOW","GITHUB_EVENT_NAME","GITHUB_SHA","GITHUB_REF","GITHUB_REF_NAME","GITHUB_HEAD_REF","GITHUB_BASE_REF","GITHUB_SERVER_URL","GITHUB_API_URL","GITHUB_GRAPHQL_URL","GITHUB_WORKSPACE","GITHUB_ACTOR","GITHUB_TRIGGERING_ACTOR","GITHUB_EVENT_PATH","RUNNER_TEMP","CTX_DIR","PR_BODY_GATE_BIN","REPO","ISSUE_NUMBER","ISSUE_TITLE","ISSUE_GROUP","ISSUE_GROUP_LABEL","ISSUE_GROUP_NUMBERS","PR_NUMBER","PR_TITLE","HEAD_SHA","REVIEW_TIER","INCREMENTAL_BASE","FIX_TIER","FIX_ROUND","BATCH_PRS","BATCH_COUNT","TRIAGE_DAILY_KEY","EVENT_NAME","BODY_FILE","CODEX_NODE_REAL","CODEX_GH_SOCKET","CODEX_GH_CLIENT","CODEX_GH_REAL","CODEX_GIT_SOCKET","CODEX_GIT_CLIENT","CODEX_GIT_REAL"]'
 
         set +e
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_bin" exec \
@@ -777,6 +899,8 @@ runs:
         CLAUDE_OUTCOME: ${{ steps.claude.outcome }}
         EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
         EVIDENCE_FILE: ${{ runner.temp }}/codex-fallback-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
       run: |
         set -uo pipefail
         fallback=false
@@ -804,7 +928,7 @@ runs:
           PREFLIGHT_BLOCKED="$preflight_for_evidence" \
           EXEC_FILE="$EXEC_FILE" \
           FALLBACK_ATTEMPTED=false \
-          node scripts/ci/claude-codex-fallback.mjs >/dev/null
+          "$TRUSTED_NODE" "$RUNTIME_ROOT/ci/claude-codex-fallback.mjs" >/dev/null
           if [ -f "$EVIDENCE_FILE" ]; then
             cat "$EVIDENCE_FILE" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             printf 'fallback_evidence_file=%s\n' "$EVIDENCE_FILE" >> "$GITHUB_OUTPUT"
@@ -822,6 +946,7 @@ runs:
       shell: bash
       env:
         CODEX_HOME: ${{ steps.codex_auth.outputs.codex_home }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
       run: |
         set +e
         case "$CODEX_HOME" in
@@ -829,7 +954,11 @@ runs:
             # This is the exact mktemp directory created by the auth step;
             # remove it recursively only after the guarded path check so no
             # runner-wide path can ever be selected here.
-            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_HOME"
+            if [ -x "$TRUSTED_NODE" ]; then
+              "$TRUSTED_NODE" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_HOME"
+            else
+              /usr/bin/rm -rf -- "$CODEX_HOME"
+            fi
             ;;
           *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
         esac
@@ -839,13 +968,32 @@ runs:
       shell: bash
       env:
         CODEX_CLI_ROOT: ${{ steps.codex_cli.outputs.codex_install_root }}
+        TRUSTED_NODE: ${{ steps.trusted_node.outputs.node_realpath }}
       run: |
         set +e
         case "$CODEX_CLI_ROOT" in
           "${RUNNER_TEMP:-/tmp}"/codex-cli-install.*)
-            node -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_CLI_ROOT"
+            if [ -x "$TRUSTED_NODE" ]; then
+              "$TRUSTED_NODE" -e 'const fs=require("node:fs"); fs.rmSync(process.argv[1], {recursive:true, force:true})' "$CODEX_CLI_ROOT"
+            else
+              /usr/bin/rm -rf -- "$CODEX_CLI_ROOT"
+            fi
             ;;
           *) echo "::warning::unexpected Codex CLI install path; leaving it untouched" ;;
+        esac
+
+    - name: Cleanup fallback runtime snapshot
+      if: always() && steps.runtime_snapshot.outputs.runtime_root != ''
+      shell: bash
+      env:
+        RUNTIME_ROOT: ${{ steps.runtime_snapshot.outputs.runtime_root }}
+      run: |
+        set +e
+        case "$RUNTIME_ROOT" in
+          "${RUNNER_TEMP:-/tmp}"/codex-fallback-runtime.*)
+            /usr/bin/rm -rf -- "$RUNTIME_ROOT"
+            ;;
+          *) echo "::warning::unexpected fallback runtime snapshot path; leaving it untouched" ;;
         esac
 
     - name: Preserve primary/fallback outcome

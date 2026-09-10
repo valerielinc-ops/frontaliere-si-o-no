@@ -20,7 +20,7 @@ while [ "$index" -lt "$#" ]; do
 done
 case "$git_command" in
   push|fetch|pull|ls-remote)
-    exec node "${CODEX_GIT_CLIENT:?Codex Git bridge client unavailable}" "$@"
+    exec "${CODEX_NODE_REAL:?Trusted Node runtime unavailable}" "${CODEX_GIT_CLIENT:?Codex Git bridge client unavailable}" "$@"
     ;;
   credential)
     echo 'git credential access is not permitted by the Codex fallback bridge' >&2

@@ -2,12 +2,16 @@
 
 import { execFileSync } from 'node:child_process';
 
+// The authenticated action supplies an attested absolute Git path. Keep the
+// local fallback only for unit tests and non-CI callers.
+const configuredGit = process.env.CODEX_SANITIZER_GIT || 'git';
+
 function gitConfig(args, cwd, { allowMissing = false } = {}) {
   try {
     const configArgs = args[0] === 'config' && !args.includes('--no-includes')
       ? ['config', '--no-includes', ...args.slice(1)]
       : args;
-    return execFileSync('git', configArgs, {
+    return execFileSync(configuredGit, configArgs, {
       cwd,
       encoding: 'buffer',
       stdio: ['ignore', 'pipe', 'pipe'],
