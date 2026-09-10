@@ -1,4 +1,4 @@
-import { execFileSync, spawn } from 'node:child_process';
+import { execFileSync, spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import {
   copyFileSync,
@@ -855,148 +855,59 @@ describe('copertura workflow diretti', () => {
     }
   });
 
-  it.skip('rifiuta gli shim Node/npm/gh/git da /tmp/evil prima dell’attestazione', () => {
-    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    const runnerRoot = mkdtempSync(join(tmpdir(), 'codex-node-trust-'));
-    const runnerTemp = join(runnerRoot, 'runner-temp');
-    const workspace = join(runnerRoot, 'workspace');
-    const actionPath = join(runnerRoot, 'action');
-    const evilDir = mkdtempSync(join(tmpdir(), 'evil-path-'));
-    mkdirSync(runnerTemp, { recursive: true });
-    mkdirSync(workspace, { recursive: true });
-    mkdirSync(actionPath, { recursive: true });
-    const resolvedRunnerTemp = realpathSync(runnerTemp);
-    const resolvedWorkspace = realpathSync(workspace);
-    const resolvedActionPath = realpathSync(actionPath);
-    for (const tool of ['node', 'npm', 'gh', 'git']) {
-      const shim = join(evilDir, tool);
-      writeFileSync(shim, '#!/bin/sh\nexit 97\n');
-      chmodSync(shim, 0o755);
+  function hostResolverSource() {
+    const action = readFileSync(resolve(repoRoot, '.github/actions/claude-codex-fallback/action.yml'), 'utf8');
+    const start = action.indexOf('        trusted_roots=()');
+    const end = action.indexOf('        sha256_file()', start);
+    expect(start).toBeGreaterThan(0);
+    expect(end).toBeGreaterThan(start);
+    return action.slice(start, end).split('\n').map((line) => line.slice(8)).join('\n');
+  }
+
+  it('rifiuta shim gh/git nel PATH e trova i binari di sistema', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-host-trust-'));
+    const evil = join(root, 'evil');
+    mkdirSync(evil);
+    for (const tool of ['gh', 'git']) {
+      writeFileSync(join(evil, tool), '#!/bin/sh\nexit 97\n');
+      chmodSync(join(evil, tool), 0o755);
     }
-    const stepStart = action.indexOf('    - name: Resolve trusted Node runtime');
-    const snapshotStart = action.indexOf('    - name: Snapshot Codex fallback runtime before Claude');
-    expect(stepStart).toBeGreaterThanOrEqual(0);
-    expect(snapshotStart).toBeGreaterThan(stepStart);
-    const step = action.slice(stepStart, snapshotStart);
-    const functionStart = step.indexOf('        workspace_root=');
-    const functionEnd = step.indexOf('\n        node_realpath=', functionStart);
-    expect(functionStart).toBeGreaterThanOrEqual(0);
-    expect(functionEnd).toBeGreaterThan(functionStart);
-    const resolverSource = step.slice(functionStart, functionEnd)
-      .split('\n')
-      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
-      .join('\n');
-    const quote = (value: string) => `'${value.replaceAll("'", "'\\''")}'`;
-    const script = [
-      'set -euo pipefail',
-      resolverSource,
-      'for tool in node npm gh git; do',
-      '  if [ "$tool" = npm ]; then selected="$(find_trusted_npm || true)"; else selected="$(find_trusted_tool "$tool" || true)"; fi',
-      `  case "$selected" in '${evilDir}'/*) exit 1 ;; esac`,
-      'done',
-    ].join('\n');
     try {
-      const selected = execFileSync('/bin/bash', ['-c', script], {
-        encoding: 'utf8',
-        env: {
-          PATH: evilDir,
-          GITHUB_WORKSPACE: resolvedWorkspace,
-          CODEX_ACTION_PATH: resolvedActionPath,
-          RUNNER_TEMP: resolvedRunnerTemp,
-        },
-      }).trim();
-      expect(selected).toBe('');
+      const output = execFileSync('/bin/bash', ['-c', [
+        'set -euo pipefail',
+        `realpath() { "$NODE_TEST" -e 'process.stdout.write(require("node:fs").realpathSync(process.argv[1]))' "$@"; }`,
+        'tr_cmd=/usr/bin/tr',
+        'workspace_root=/unused/workspace; action_path=/unused/action; runner_temp=/unused/temp',
+        hostResolverSource(),
+        'for tool in gh git; do',
+        '  selected="$(find_trusted_tool "$tool" || true)"',
+        '  case "$selected" in "$EVIL"/*) exit 1 ;; esac',
+        'done',
+        // git is present in /usr/bin on both macOS and Ubuntu, even when PATH is poisoned.
+        'find_trusted_tool git',
+      ].join('\n')], { encoding: 'utf8', env: { PATH: evil, EVIL: evil, NODE_TEST: process.execPath } });
+      expect(output.trim()).toBe('/usr/bin/git');
     } finally {
-      rmSync(runnerRoot, { recursive: true, force: true });
-      rmSync(evilDir, { recursive: true, force: true });
+      rmSync(root, { recursive: true, force: true });
     }
   });
 
-  it.skip('accetta permessi eseguibili 0755 e rifiuta directory group/world-writable', () => {
-    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    // Model GitHub's /home/runner/work/_tool layout under a private fixture;
-    // the extracted resolver loop below maps the fixed trusted root to it.
-    const runnerRoot = mkdtempSync(join(repoRoot, '.codex-mode-trust-'));
-    const trustedRoot = join(runnerRoot, 'home', 'runner', 'work', '_tool', 'node', '22.23.2', 'x64', 'bin');
-    const writableDir = join(runnerRoot, 'group-writable');
-    const workspace = join(runnerRoot, 'workspace');
-    const runnerTemp = join(runnerRoot, 'runner-temp');
-    mkdirSync(trustedRoot, { recursive: true, mode: 0o755 });
-    chmodSync(trustedRoot, 0o755);
-    mkdirSync(workspace, { recursive: true, mode: 0o755 });
-    mkdirSync(runnerTemp, { recursive: true, mode: 0o755 });
-    copyFileSync(process.execPath, join(trustedRoot, 'node'));
-    chmodSync(join(trustedRoot, 'node'), 0o755);
-    writeFileSync(join(trustedRoot, 'npm-cli.js'), '// fixture npm launcher\n');
-    chmodSync(join(trustedRoot, 'npm-cli.js'), 0o755);
-    symlinkSync('npm-cli.js', join(trustedRoot, 'npm'));
-    mkdirSync(writableDir, { recursive: true, mode: 0o775 });
-    chmodSync(writableDir, 0o775);
-    const stepStart = action.indexOf('    - name: Resolve trusted Node runtime');
-    const snapshotStart = action.indexOf('    - name: Snapshot Codex fallback runtime before Claude');
-    const step = action.slice(stepStart, snapshotStart);
-    const functionStart = step.indexOf('        workspace_root=');
-    const functionEnd = step.indexOf('\n        node_realpath=', functionStart);
-    expect(functionStart).toBeGreaterThanOrEqual(0);
-    expect(functionEnd).toBeGreaterThan(functionStart);
-    const trustedRootQuoted = trustedRoot.replaceAll("'", "'\\''");
-    const resolverSource = step.slice(functionStart, functionEnd)
-      .split('\n')
-      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
-      .join('\n')
-      .replace(
-        'for trusted_root in /usr/bin /usr/local/bin /bin "$runner_tool_cache" /opt/hostedtoolcache /opt/runner /opt/homebrew; do',
-        `for trusted_root in '${trustedRootQuoted}'; do`,
-      );
-    const rootOwnedResolverSource = resolverSource.replace(
-      /stat_owner\(\) \{[\s\S]*?\n\}/,
-      "stat_owner() { printf '0'; }",
-    );
-    const rootOwnedScript = [
+  it('accetta 0755 root-owned e rifiuta permessi scrivibili o owner runner', () => {
+    // Mock stat only: run the actual ownership and octal-mode predicate on /usr/bin/git.
+    const source = hostResolverSource();
+    const run = (mode: string, owner: string) => spawnSync('/bin/bash', ['-c', [
       'set -euo pipefail',
-      rootOwnedResolverSource,
-      `selected="$(find_trusted_tool node)"`,
-      'test -x "$selected"',
-      'node_mode="$(stat_mode "$selected")"',
-      'test "${node_mode: -3}" = 755',
-      'npm_selected="$(find_trusted_npm)"',
-      'case "$npm_selected" in *.js) ;; *) exit 1 ;; esac',
-      `if trusted_prefix '${realpathSync(workspace)}'; then exit 1; fi`,
-      `if trusted_prefix '${realpathSync(runnerTemp)}'; then exit 1; fi`,
-      `if path_components_trusted '${writableDir}'; then exit 1; fi`,
-    ].join('\n');
-    const runnerOwnedResolverSource = resolverSource.replace(
-      /stat_owner\(\) \{[\s\S]*?\n\}/,
-      "stat_owner() { printf '1001'; }",
-    );
-    const runnerOwnedScript = [
-      'set -euo pipefail',
-      runnerOwnedResolverSource,
-      'selected="$(find_trusted_tool node || true)"',
-      'test -z "$selected"',
-    ].join('\n');
-    try {
-      execFileSync('/bin/bash', ['-c', rootOwnedScript], {
-        encoding: 'utf8',
-        env: {
-          PATH: trustedRoot,
-          GITHUB_WORKSPACE: realpathSync(runnerRoot),
-          CODEX_ACTION_PATH: realpathSync(runnerRoot),
-          RUNNER_TEMP: realpathSync(runnerRoot),
-        },
-      });
-      execFileSync('/bin/bash', ['-c', runnerOwnedScript], {
-        encoding: 'utf8',
-        env: {
-          PATH: trustedRoot,
-          GITHUB_WORKSPACE: realpathSync(runnerRoot),
-          CODEX_ACTION_PATH: realpathSync(runnerRoot),
-          RUNNER_TEMP: realpathSync(runnerRoot),
-        },
-      });
-    } finally {
-      rmSync(runnerRoot, { recursive: true, force: true });
-    }
+      `realpath() { "$NODE_TEST" -e 'process.stdout.write(require("node:fs").realpathSync(process.argv[1]))' "$@"; }`,
+      source,
+      'stat_mode() { printf "%s" "$FIXTURE_MODE"; }',
+      'stat_owner() { printf "%s" "$FIXTURE_OWNER"; }',
+      'path_components_trusted /usr/bin/git',
+    ].join('\n')], { env: { FIXTURE_MODE: mode, FIXTURE_OWNER: owner, NODE_TEST: process.execPath } }).status;
+    expect(run('755', '0')).toBe(0);
+    expect(run('775', '0')).not.toBe(0);
+    expect(run('757', '0')).not.toBe(0);
+    expect(run('755', '1001')).not.toBe(0);
+    expect(run('invalid', '0')).not.toBe(0);
   });
 
   it('propaga ogni failure o skip inatteso dei passi di decisione', () => {
