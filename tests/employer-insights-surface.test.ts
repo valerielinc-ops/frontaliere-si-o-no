@@ -102,6 +102,25 @@ describe('publisher crawled traffic states', () => {
     });
   });
 
+  it('keeps the pre-migration candidates/clicks/windowDays schema visible as legacy data', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [presentSnapshot('legacy', { candidates: 7, clicks: 3, windowDays: 30 })],
+    })).toEqual({ status: 'legacy', candidates: 7, clicks: 3, windowDays: 30 });
+    expect(publisherPage).toContain("crawledTraffic.status === 'legacy'");
+    expect(publisherPage).toContain('Historical data is available in the previous format');
+  });
+
+  it('prefers current traffic records over stale legacy aliases', () => {
+    expect(classifyCrawledTrafficState({
+      source: 'available',
+      snapshots: [
+        presentSnapshot('legacy', { candidates: 7, clicks: 3, windowDays: 30 }),
+        presentSnapshot('current', { applyClicks: 2, source: 'ga4', window: WINDOW }),
+      ],
+    })).toEqual({ status: 'available', value: 2, metric: 'applyClicks', source: 'ga4', window: WINDOW });
+  });
+
   it('shows source unavailable only when the source read fails', () => {
     expect(classifyCrawledTrafficState({ source: 'unavailable' })).toEqual({
       status: 'source-unavailable',

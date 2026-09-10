@@ -42,6 +42,15 @@ describe('buildTrafficDocs', () => {
     expect(docs[0].data).toMatchObject({ applyClicks: 0, applyClickProxy: 0, window: WINDOW });
   });
 
+  it('restores the posthog source when an older report omits it', () => {
+    const docs = buildTrafficDocs({
+      source: null,
+      window: WINDOW,
+      employers: [{ key: 'legacy-source', name: 'Legacy Source', applyClicks: 1 }],
+    });
+    expect(docs[0].data.source).toBe('posthog');
+  });
+
   it('does not persist a number when the report has no explicit window', () => {
     expect(buildTrafficDocs({
       source: 'posthog', days: 90,

@@ -4,7 +4,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { EmployerInsightsReport } from '../components/pages/EmployerInsightsPage';
-import { serializeEmployerInsightsTotals } from '../functions/src/adminEmployerInsights.js';
+import { handleList, serializeEmployerInsightsTotals } from '../functions/src/adminEmployerInsights.js';
 
 const employerPageSource = readFileSync(
   new URL('../components/pages/EmployerInsightsPage.tsx', import.meta.url),
@@ -105,10 +105,47 @@ describe('employer insights payload UI', () => {
       views: null,
       applyClicks: null,
     });
-    expect(serializeEmployerInsightsTotals({ views: 99, applyClicks: 31 }, null)).toMatchObject({
-      views: null,
+    expect(serializeEmployerInsightsTotals({
+      views: 99,
+      visitors: 7,
+      profileViews: 3,
+      applyClicks: 31,
+      applications: 2,
+      applicationsStatus: 'observed',
+      adsCount: 4,
+    }, null)).toMatchObject({
+      views: 99,
+      visitors: 7,
+      profileViews: 3,
       applyClicks: null,
+      applications: null,
+      applicationsStatus: null,
+      adsObserved: 4,
     });
+  });
+
+  it('sorts legacy rows by stored views while keeping missing views after explicit zero', async () => {
+    const row = (id: string, data: Record<string, unknown>) => ({ id, data: () => data });
+    const emptyCollection = { get: async () => ({ docs: [], forEach: () => {} }) };
+    const db = {
+      collection(name: string) {
+        if (name === 'employer_insights') {
+          return {
+            get: async () => ({
+              docs: [
+                row('zero', { companyName: 'Zero', totals: { views: 0, adsCount: 1 } }),
+                row('missing', { companyName: 'Missing', totals: { adsCount: 1 } }),
+                row('high', { companyName: 'High', totals: { views: 42, adsCount: 1 } }),
+              ],
+            }),
+          };
+        }
+        return emptyCollection;
+      },
+    };
+
+    const result = await handleList(db, 'test-secret');
+    expect(result.body.insights.map((insight) => insight.companyKey)).toEqual(['high', 'zero', 'missing']);
   });
 
   it('renders a missing applyClicks value as unavailable, never as zero', () => {

@@ -97,8 +97,28 @@ export type CrawledTrafficState =
   | { status: 'loading' }
   | { status: 'source-unavailable' }
   | { status: 'data-missing' }
+  | { status: 'legacy'; candidates: number; clicks: number; windowDays: number }
   | { status: 'zero'; metric: 'applyClicks' | 'interestSignals'; source: string; window: CrawledTrafficWindow }
   | { status: 'available'; value: number; metric: 'applyClicks' | 'interestSignals'; source: string; window: CrawledTrafficWindow };
+
+const CRAWLED_TRAFFIC_LEGACY_COPY: Record<string, { title: string; period: (days: number) => string }> = {
+  it: {
+    title: 'Dati storici disponibili nel formato precedente: il report aggiornato è in preparazione.',
+    period: (days) => `Periodo storico: ${days} giorni · Il report aggiornato sostituirà questo formato.`,
+  },
+  en: {
+    title: 'Historical data is available in the previous format; the updated report is being prepared.',
+    period: (days) => `Historical period: ${days} days · The updated report will replace this format.`,
+  },
+  de: {
+    title: 'Historische Daten sind im vorherigen Format verfügbar; der aktualisierte Bericht wird vorbereitet.',
+    period: (days) => `Historischer Zeitraum: ${days} Tage · Der aktualisierte Bericht ersetzt dieses Format.`,
+  },
+  fr: {
+    title: 'Des données historiques sont disponibles dans l’ancien format ; le rapport mis à jour est en préparation.',
+    period: (days) => `Période historique : ${days} jours · Le rapport mis à jour remplacera ce format.`,
+  },
+};
 
 type CrawledTrafficSnapshot = {
   id: string;
@@ -139,6 +159,18 @@ function normalizedNonNegativeNumber(value: unknown): number | null {
   return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
 }
 
+function hasCurrentCrawledTrafficMetric(record: Record<string, unknown>): boolean {
+  return Object.prototype.hasOwnProperty.call(record, 'applyClicks')
+    || Object.prototype.hasOwnProperty.call(record, 'applyClickProxy');
+}
+
+function hasLegacyCrawledTrafficMetric(record: Record<string, unknown>): boolean {
+  return Object.prototype.hasOwnProperty.call(record, 'candidates')
+    || Object.prototype.hasOwnProperty.call(record, 'clicks')
+    || Object.prototype.hasOwnProperty.call(record, 'windowDays');
+}
+
+/** classifyCrawledTrafficState() keeps legacy documents visible during writer migration. */
 export function classifyCrawledTrafficState(
   read: CrawledTrafficRead,
 ): Exclude<CrawledTrafficState, { status: 'loading' }> {
@@ -147,19 +179,56 @@ export function classifyCrawledTrafficState(
   const availableSnapshots = read.snapshots.filter((snapshot) => snapshot.exists());
   if (availableSnapshots.length === 0) return { status: 'data-missing' };
 
+  const currentRecords: Record<string, unknown>[] = [];
+  const legacyRecords: Record<string, unknown>[] = [];
+  let hasInvalidRecord = false;
+  for (const snapshot of availableSnapshots) {
+    const data = snapshot.data();
+    if (data == null || typeof data !== 'object') {
+      hasInvalidRecord = true;
+      continue;
+    }
+    const record = data as Record<string, unknown>;
+    if (hasCurrentCrawledTrafficMetric(record)) currentRecords.push(record);
+    else if (hasLegacyCrawledTrafficMetric(record)) legacyRecords.push(record);
+  }
+
+  // Keep already-written documents visible while the writer rolls forward. A
+  // legacy record is deliberately a separate state: its candidate/click fields
+  // are not interchangeable with the current apply-click contract and must not
+  // be presented as fresh data.
+  if (!currentRecords.length && legacyRecords.length) {
+    let candidates = 0;
+    let clicks = 0;
+    let windowDays: number | null = null;
+    let hasInvalidLegacy = hasInvalidRecord;
+    for (const record of legacyRecords) {
+      const legacyCandidates = normalizedNonNegativeNumber(record.candidates);
+      const legacyClicks = normalizedNonNegativeNumber(record.clicks);
+      const legacyWindowDays = normalizedNonNegativeNumber(record.windowDays);
+      if (legacyCandidates === null || legacyClicks === null || legacyWindowDays === null) {
+        hasInvalidLegacy = true;
+        continue;
+      }
+      if (windowDays !== null && windowDays !== legacyWindowDays) {
+        hasInvalidLegacy = true;
+        continue;
+      }
+      candidates += legacyCandidates;
+      clicks += legacyClicks;
+      windowDays = legacyWindowDays;
+    }
+    if (hasInvalidLegacy || windowDays === null || !legacyRecords.length) return { status: 'data-missing' };
+    return { status: 'legacy', candidates, clicks, windowDays };
+  }
+
   let value = 0;
   let metric: 'applyClicks' | 'interestSignals' | null = null;
   let source: string | null = null;
   let window: CrawledTrafficWindow | null = null;
   let hasUsableValue = false;
-  let hasInvalidValue = false;
-  for (const snapshot of availableSnapshots) {
-    const data = snapshot.data();
-    if (data == null || typeof data !== 'object') {
-      hasInvalidValue = true;
-      continue;
-    }
-    const record = data as Record<string, unknown>;
+  let hasInvalidValue = hasInvalidRecord;
+  for (const record of currentRecords) {
     const hasRaw = Object.prototype.hasOwnProperty.call(record, 'applyClicks');
     const hasProxy = Object.prototype.hasOwnProperty.call(record, 'applyClickProxy');
     const raw = normalizedNonNegativeNumber(record.applyClicks);
@@ -301,6 +370,7 @@ const PublisherDashboardPage: React.FC = () => {
   // Unused prepaid location-credits (pay-first funnel) — null while loading/no user,
   // remainingUnits null = azienda plan (unlimited), otherwise a number ≥ 0.
   const [credits, setCredits] = useState<PublisherCredits | null>(null);
+  const legacyCrawledTrafficCopy = CRAWLED_TRAFFIC_LEGACY_COPY[locale] || CRAWLED_TRAFFIC_LEGACY_COPY.it;
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
@@ -836,6 +906,14 @@ const PublisherDashboardPage: React.FC = () => {
               )}
               {crawledTraffic.status === 'source-unavailable' && (
                 <p className="text-sm font-semibold text-strong">{t('publisherDashboard.crawled.sourceUnavailable')}</p>
+              )}
+              {crawledTraffic.status === 'legacy' && (
+                <>
+                  <p className="text-sm font-semibold text-strong">{legacyCrawledTrafficCopy.title}</p>
+                  <p className="mt-1 text-xs text-muted">
+                    {legacyCrawledTrafficCopy.period(crawledTraffic.windowDays)}
+                  </p>
+                </>
               )}
             </div>
           </section>
