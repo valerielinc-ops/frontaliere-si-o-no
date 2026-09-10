@@ -169,6 +169,7 @@ describe('Claude Haiku fallback setup action', () => {
     }).runs?.steps?.find((step) => step.id === 'setup_claude_cli')?.run;
     expect(setupRun).toBeTruthy();
     expect(setupRun).toContain('@anthropic-ai/claude-code@2.1.267');
+    expect(setupRun).toContain('head -n 1');
     expect(setupRun).toContain('NPM_CONFIG_GLOBALCONFIG="$global_npmrc"');
     expect(setupRun).toContain('"$trusted_node" "$trusted_npm" install --global');
 
