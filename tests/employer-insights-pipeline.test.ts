@@ -10,7 +10,7 @@ import {
 } from '../scripts/build-employer-insights.mjs';
 import { validateEmployerInsightsPayload } from '../scripts/ci/validate-employer-insights-payload.mjs';
 import {
-  APPLY_CLICK_DEDUP_WINDOW_MS,
+  appendApplyClickEmissionId,
   decideApplyClickDedup,
 } from '../services/publisherAnalyticsService';
 
@@ -28,6 +28,8 @@ const IN_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() + 60 * 60 * 1000).
 const OUTSIDE_WINDOW_TIMESTAMP = new Date(windowFromDate.getTime() - 1).toISOString();
 const EMPLOYER_INSIGHTS_SOURCE = readFileSync(new URL('../scripts/build-employer-insights.mjs', import.meta.url), 'utf8');
 const EMPLOYER_TRAFFIC_REPORT_SOURCE = readFileSync(new URL('../scripts/employer-traffic-report.mjs', import.meta.url), 'utf8');
+const PUBLISHER_ANALYTICS_SOURCE = readFileSync(new URL('../services/publisherAnalyticsService.ts', import.meta.url), 'utf8');
+const ANALYTICS_SOURCE = readFileSync(new URL('../services/analytics.ts', import.meta.url), 'utf8');
 const JOB_BOARD_SOURCE = readFileSync(new URL('../components/community/JobBoard.tsx', import.meta.url), 'utf8');
 const PUBLISHER_APPLY_FORM_SOURCE = readFileSync(new URL('../components/community/PublisherApplyForm.tsx', import.meta.url), 'utf8');
 
@@ -267,7 +269,42 @@ describe('employer insights event coverage', () => {
 
     expect(doc.totals.applyClicks).toBe(1);
     expect(doc.ads[0].applyClicks).toBe(1);
-    expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
+    expect(doc.coverage).toMatchObject({
+      rawObserved: 2,
+      observed: 1,
+      technicalDuplicatesRemoved: 1,
+      dedupUnavailable: 0,
+      deduplication: { key: 'emission_id', status: 'available', unavailableCount: 0 },
+    });
+  });
+
+  it('counts two actions with different emission ids as two events', () => {
+    const result = collapseTechnicalDuplicates([
+      event({ event: 'job_apply', eventKey: 'same-provider-key', emissionId: 'action-1' }),
+      event({ event: 'select_content', eventKey: 'same-provider-key', emissionId: 'action-2', contentType: 'job_board_apply' }),
+    ]);
+
+    expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 0 });
+  });
+
+  it('does not fuse events without an emission id and marks dedup as unavailable', () => {
+    const rows = [
+      event({ event: 'job_apply', eventKey: 'same-provider-key', emissionId: '' }),
+      event({ event: 'select_content', eventKey: 'same-provider-key', emissionId: '', contentType: 'job_board_apply' }),
+    ];
+    const result = collapseTechnicalDuplicates(rows);
+    const [doc] = build(rows);
+
+    expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 2 });
+    expect(doc.coverage).toMatchObject({
+      technicalDuplicatesRemoved: 0,
+      dedupUnavailable: 2,
+      deduplication: {
+        key: 'emission_id',
+        status: 'dedup non disponibile',
+        unavailableCount: 2,
+      },
+    });
   });
 
   it('parses grouped query rows with the emission id after views and clicks', () => {
@@ -371,16 +408,22 @@ describe('employer insights technical deduplication', () => {
     expect(doc.coverage).toMatchObject({ rawObserved: 2, observed: 1, technicalDuplicatesRemoved: 1 });
   });
 
-  it('removes only repeated rows with the same explicit event key', () => {
+  it('does not use the provider event key as a deduplication fallback', () => {
     const result = collapseTechnicalDuplicates([
-      event({ eventKey: 'event-1', observed: 2 }),
-      event({ eventKey: 'event-2', observed: 1 }),
-      event({ eventKey: '', observed: 2 }),
+      event({ eventKey: 'event-1', emissionId: '', observed: 2 }),
+      event({ eventKey: 'event-1', emissionId: '', observed: 1 }),
     ]);
 
-    expect(result.observed).toBe(4);
-    expect(result.removed).toBe(1);
-    expect(result.rawObserved).toBe(5);
+    expect(result.observed).toBe(3);
+    expect(result.removed).toBe(0);
+    expect(result.rawObserved).toBe(3);
+    expect(result.dedupUnavailable).toBe(3);
+  });
+
+  it('does not use provider identifiers as a query cursor or emission fallback', () => {
+    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(
+      /EVENT_KEY_EXPRESSION|\$insert_id|\$event_id|\b(?:uuid|eventId|insert_id)\b/,
+    );
   });
 
   it('keeps views and clicks separate from the emission id in grouped rows', () => {
@@ -416,9 +459,9 @@ describe('employer insights technical deduplication', () => {
     expect(fromPostHogSource).not.toContain('OFFSET');
   });
 
-  it('advances event pages with a timestamp and event-key cursor', async () => {
-    const groupedRow = (eventKey: string, timestamp: string) => [
-      eventKey,
+  it('advances event pages with a timestamp and grouped-field cursor', async () => {
+    const groupedRow = (unusedSlot: string, timestamp: string) => [
+      unusedSlot,
       'scroll_depth',
       '2026-09-01',
       '',
@@ -435,11 +478,22 @@ describe('employer insights technical deduplication', () => {
       0,
       '',
       timestamp,
+      'scroll_depth',
+      '2026-09-01',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
+      '',
     ];
     const pageRows = [
-      groupedRow('event-a', '2026-09-01 12:00:00.000000'),
-      groupedRow('event-b', '2026-09-01 12:00:01.000000'),
-      groupedRow('event-c', '2026-09-01 12:00:02.000000'),
+      groupedRow('slot-a', '2026-09-01 12:00:00.000000'),
+      groupedRow('slot-b', '2026-09-01 12:00:01.000000'),
+      groupedRow('slot-c', '2026-09-01 12:00:02.000000'),
     ];
     const queries: string[] = [];
     const runQuery = async (query: string) => {
@@ -454,28 +508,46 @@ describe('employer insights technical deduplication', () => {
     const result = await queryEventRows(WINDOW, { query: runQuery, pageSize: 3 });
     const pageQueries = queries.filter((query) => query.includes(' LIMIT 3'));
 
-    expect(result.rows.map((row) => row[0])).toEqual(['event-a', 'event-b', 'event-c']);
+    expect(result.rows.map((row) => row[0])).toEqual(['slot-a', 'slot-b', 'slot-c']);
     expect(result.coverage).toMatchObject({ pages: 2, rowsReturned: 3, truncated: false });
     expect(pageQueries.every((query) => !query.includes('OFFSET'))).toBe(true);
     expect(pageQueries[1]).toContain('timestamp >');
-    expect(pageQueries[1]).toContain("event-b");
+    expect(pageQueries[1]).toContain("2026-09-01 12:00:01.000000");
   });
 });
 
 describe('publisher apply-click deduplication', () => {
-  it('keeps two real clicks distinct and drops only a keyed technical retry', () => {
-    const first = decideApplyClickDedup({ eventId: 'click-1', nowMs: 1000 });
-    const second = decideApplyClickDedup({ eventId: 'click-2', nowMs: 1200 });
+  it('keeps two real clicks distinct and drops only a repeated emission id', () => {
+    const first = decideApplyClickDedup({ eventId: 'click-1' });
+    const second = decideApplyClickDedup({ eventId: 'click-2' });
     const retry = decideApplyClickDedup({
       eventId: 'click-2',
-      previousEventId: 'click-2',
-      previousEventAtMs: 1200,
-      nowMs: 1200 + APPLY_CLICK_DEDUP_WINDOW_MS,
+      seenEventIds: ['click-1', 'click-2'],
     });
 
-    expect(first.record).toBe(true);
-    expect(second.record).toBe(true);
-    expect(retry).toMatchObject({ record: false, removed: 1, reason: 'technical_duplicate' });
+    expect(first).toMatchObject({ record: true, removed: 0, status: 'available' });
+    expect(second).toMatchObject({ record: true, removed: 0, status: 'available' });
+    expect(retry).toMatchObject({ record: false, removed: 1, status: 'available', reason: 'technical_duplicate' });
+  });
+
+  it('records a missing emission id without deduplicating and marks it unavailable', () => {
+    expect(decideApplyClickDedup()).toMatchObject({
+      record: true,
+      removed: 0,
+      unavailable: 1,
+      status: 'dedup non disponibile',
+      reason: 'dedup_unavailable',
+    });
+  });
+
+  it('bounds the publisher emission ledger and marks overflow unavailable', () => {
+    const existing = Array.from({ length: 64 }, (_, index) => `click-${index + 1}`);
+    const next = appendApplyClickEmissionId(existing, 'click-65');
+
+    expect(next).toMatchObject({ unavailable: 1 });
+    expect(next.emissionIds).toHaveLength(64);
+    expect(next.emissionIds[0]).toBe('click-2');
+    expect(next.emissionIds.at(-1)).toBe('click-65');
   });
 
   it('passes a stable emission id at every publisher apply callsite', () => {
@@ -489,5 +561,14 @@ describe('publisher apply-click deduplication', () => {
   it('uses one emission id for both employer apply signals', () => {
     expect(JOB_BOARD_SOURCE).toContain('createPublisherApplyEventId');
     expect(JOB_BOARD_SOURCE.match(/emission_id: eventId/g)).toHaveLength(2);
+  });
+
+  it('instruments page views and outbound clicks with the shared emission id', () => {
+    expect(ANALYTICS_SOURCE).toContain('createAnalyticsEmissionId');
+    expect(ANALYTICS_SOURCE).toMatch(/trackPageView:[\s\S]*?emission_id: emissionId/);
+    expect(ANALYTICS_SOURCE).toMatch(/trackExternalLink:[\s\S]*?emission_id: emissionId/);
+    expect(PUBLISHER_ANALYTICS_SOURCE).toContain('createAnalyticsEmissionId');
+    expect(EMPLOYER_INSIGHTS_SOURCE).not.toMatch(/const dedupKey = row\.emissionId[\s\S]*row\.eventKey/);
+    expect(PUBLISHER_ANALYTICS_SOURCE).not.toContain('APPLY_CLICK_DEDUP_WINDOW_MS');
   });
 });

@@ -2,6 +2,8 @@ import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+vi.mock('@/services/posthog', () => ({ captureEvent: vi.fn() }));
+
 const loadAnalyticsHelpers = async () => vi.importActual<typeof import('@/services/analytics')>('@/services/analytics');
 const jobBoardSource = readFileSync(
   resolve(__dirname, '../components/community/JobBoard.tsx'),
@@ -111,6 +113,50 @@ describe('GA4 page_view employer attribution', () => {
     expect(uiStateSource).toMatch(
       /if \(!deferAttributionPageView\(path\)\) Analytics\.trackPageView\(path\)/,
     );
+  });
+
+  it('reuses one emission id when the same page view is retried after async identity resolution', async () => {
+    expect(analyticsSource).toContain(
+      'getPageViewEmissionId(path, currentPageViewEmission)',
+    );
+    const { getPageViewEmissionId } = await loadAnalyticsHelpers();
+    const path = '/offerte-di-lavoro-ticino/async-page-view/';
+    const first = getPageViewEmissionId(path, null);
+    const retry = getPageViewEmissionId(path, { path, emissionId: first });
+    const nextRoute = getPageViewEmissionId('/offerte-di-lavoro-ticino/next/', {
+      path,
+      emissionId: first,
+    });
+
+    expect(retry).toBe(first);
+    expect(nextRoute).not.toBe(first);
+  });
+
+  it('emits the same id for a same-route page-view retry after async identity resolution', async () => {
+    const { Analytics } = await loadAnalyticsHelpers();
+    const { captureEvent } = await import('@/services/posthog');
+    const capture = vi.mocked(captureEvent);
+    const path = '/offerte-di-lavoro-ticino/direct-page-view-retry/';
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValueOnce(1_000).mockReturnValueOnce(1_501);
+    vi.stubGlobal('window', {
+      location: { origin: 'https://example.test', pathname: path },
+    });
+    vi.stubGlobal('document', { title: 'Direct page-view retry' });
+    capture.mockClear();
+
+    try {
+      Analytics.trackPageView(path);
+      Analytics.trackPageView(path, undefined, { employerKey: 'example-employer' });
+
+      const pageViews = capture.mock.calls.filter(([eventName]) => eventName === '$pageview');
+      expect(pageViews).toHaveLength(2);
+      expect(pageViews[0][1]).toMatchObject({ emission_id: expect.any(String) });
+      expect(pageViews[1][1].emission_id).toBe(pageViews[0][1].emission_id);
+    } finally {
+      now.mockRestore();
+      vi.unstubAllGlobals();
+    }
   });
 
   it('uses the same canonical identity for job_apply instead of a display-name route slug', () => {

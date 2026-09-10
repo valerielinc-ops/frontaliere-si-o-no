@@ -347,7 +347,6 @@ function normalizeEventRow(source) {
   const viewsValue = field(source, 'views', 13);
   const clicksValue = field(source, 'clicks', 14);
   return {
-    eventKey: normalizeText(read(['eventKey', 'event_key', '$insert_id', 'insert_id', 'eventId', 'uuid'], 0)),
     emissionId: normalizeText(read(['emissionId', 'emission_id', 'actionId', 'action_id'], 15)),
     event: eventName,
     timestamp: Array.isArray(source) ? null : toIso(read(['timestamp', 'occurredAt', 'createdAt'], undefined)),
@@ -410,10 +409,10 @@ function compareTechnicalDuplicateRows(candidate, current) {
 }
 
 /**
- * Collapse only a technical duplicate proven by a stable emission or event
- * key. Rows without either key retain their full observed count and are never
- * guessed to be duplicates. An emission key is shared by the two analytics
- * signals produced by one UI action; it is not inferred from timing or text.
+ * Collapse only a technical duplicate proven by a stable emission id. Rows
+ * without that id retain their full observed count and are marked as
+ * unavailable for deduplication. Pagination uses the ordered grouped fields;
+ * no provider identifier is an emission-id substitute.
  */
 export function collapseTechnicalDuplicates(inputRows = []) {
   const rows = inputRows.map(normalizeEventRow);
@@ -422,15 +421,13 @@ export function collapseTechnicalDuplicates(inputRows = []) {
   let rawObserved = 0;
   let observed = 0;
   let removed = 0;
+  let dedupUnavailable = 0;
   for (const row of rows) {
     const count = Math.max(0, numberOr(row.observed, 1));
     rawObserved += count;
-    const dedupKey = row.emissionId
-      ? `emission:${row.emissionId}`
-      : row.eventKey
-        ? `event:${row.eventKey}`
-        : '';
+    const dedupKey = row.emissionId ? `emission:${row.emissionId}` : '';
     if (!dedupKey) {
+      dedupUnavailable += count;
       kept.push({ ...row, observed: count });
       observed += count;
       continue;
@@ -454,7 +451,7 @@ export function collapseTechnicalDuplicates(inputRows = []) {
       existing.row = candidate;
     }
   }
-  return { rows: kept, rawObserved, observed, removed };
+  return { rows: kept, rawObserved, observed, removed, dedupUnavailable };
 }
 
 function pathSegments(pathname) {
@@ -688,6 +685,12 @@ export function aggregateEmployerEvents(inputRows = [], { catalog, window, sourc
     residuals,
     residualTotal,
     technicalDuplicatesRemoved: deduped.removed,
+    dedupUnavailable: deduped.dedupUnavailable,
+    deduplication: {
+      key: 'emission_id',
+      status: deduped.dedupUnavailable > 0 ? 'dedup non disponibile' : 'available',
+      unavailableCount: deduped.dedupUnavailable,
+    },
     invariant: attributed + residualTotal === deduped.observed,
     attributedRows: eventRowsAttributed,
   };
@@ -1017,8 +1020,19 @@ function hogqlDate(iso) {
   return String(iso).replace('T', ' ').replace(/\.\d{3}Z$/, '');
 }
 
-const EVENT_KEY_EXPRESSION = "coalesce(toString(properties.$insert_id), toString(properties.$event_id), toString(uuid), '')";
 const EVENT_CURSOR_TIMESTAMP_INDEX = 16;
+const EVENT_CURSOR_FIELDS = [
+  { name: 'event', index: 17, alias: 'cursor_event', expression: 'toString(event)', objectKeys: ['cursor_event', 'event'] },
+  { name: 'week', index: 18, alias: 'cursor_week', expression: 'toString(toStartOfWeek(timestamp))', objectKeys: ['cursor_week', 'week'] },
+  { name: 'path', index: 19, alias: 'cursor_path', expression: "coalesce(toString(properties.$pathname), '')", objectKeys: ['cursor_path', 'path'] },
+  { name: 'jobSlug', index: 20, alias: 'cursor_job_slug', expression: "coalesce(toString(properties.job_slug), '')", objectKeys: ['cursor_job_slug', 'jobSlug', 'job_slug'] },
+  { name: 'jobId', index: 21, alias: 'cursor_job_id', expression: "coalesce(toString(properties.job_id), '')", objectKeys: ['cursor_job_id', 'jobId', 'job_id'] },
+  { name: 'providerId', index: 22, alias: 'cursor_provider_id', expression: "coalesce(toString(properties.publisher_job_id), '')", objectKeys: ['cursor_provider_id', 'providerId', 'provider_id'] },
+  { name: 'employerKey', index: 23, alias: 'cursor_employer_key', expression: "coalesce(toString(properties.employer_key), '')", objectKeys: ['cursor_employer_key', 'employerKey', 'employer_key'] },
+  { name: 'itemId', index: 24, alias: 'cursor_item_id', expression: "coalesce(toString(properties.item_id), '')", objectKeys: ['cursor_item_id', 'itemId', 'item_id'] },
+  { name: 'contentType', index: 25, alias: 'cursor_content_type', expression: "coalesce(toString(properties.content_type), '')", objectKeys: ['cursor_content_type', 'contentType', 'content_type'] },
+  { name: 'emissionId', index: 26, alias: 'cursor_emission_id', expression: "coalesce(toString(properties.emission_id), '')", objectKeys: ['cursor_emission_id', 'emissionId', 'emission_id'] },
+];
 
 function hogqlString(value) {
   return "'" + String(value).replaceAll('\\', '\\\\').replaceAll("'", "\\'") + "'";
@@ -1033,19 +1047,42 @@ function hogqlTimestamp(value) {
   return whole + '.' + fraction.slice(0, 6).padEnd(6, '0');
 }
 
+function cursorFieldValue(row, field) {
+  if (Array.isArray(row)) return row[field.index];
+  for (const key of field.objectKeys) {
+    if (row?.[key] !== undefined && row?.[key] !== null) return row[key];
+  }
+  return undefined;
+}
+
 function eventCursorFromRow(row) {
   const timestamp = Array.isArray(row)
     ? row[EVENT_CURSOR_TIMESTAMP_INDEX]
     : row?.cursorTimestamp ?? row?.cursor_timestamp ?? row?.timestamp;
-  const eventKey = Array.isArray(row)
-    ? row[0]
-    : row?.eventKey ?? row?.event_key;
-  if (timestamp == null || timestamp === '' || eventKey == null) return null;
-  return { timestamp: String(timestamp), eventKey: String(eventKey) };
+  const values = EVENT_CURSOR_FIELDS.map((field) => [field.name, cursorFieldValue(row, field)]);
+  if (timestamp == null || timestamp === '' || values.some(([, value]) => value == null)) return null;
+  return {
+    timestamp: String(timestamp),
+    ...Object.fromEntries(values.map(([name, value]) => [name, String(value)])),
+  };
 }
 
 function eventCursorSortKey(cursor) {
-  return hogqlTimestamp(cursor.timestamp) + '\u0000' + cursor.eventKey;
+  return [hogqlTimestamp(cursor.timestamp), ...EVENT_CURSOR_FIELDS.map((field) => cursor[field.name])].join('\u0000');
+}
+
+function eventCursorFilter(cursor, cursorTimestamp) {
+  const clauses = EVENT_CURSOR_FIELDS.map((field, index) => {
+    const equalPrefix = EVENT_CURSOR_FIELDS
+      .slice(0, index)
+      .map((prefix) => `${prefix.expression} = ${hogqlString(cursor[prefix.name])}`)
+      .join('\n        AND ');
+    return `${equalPrefix ? equalPrefix + '\n        AND ' : ''}${field.expression} > ${hogqlString(cursor[field.name])}`;
+  });
+  return '\n      AND (\n        timestamp > ' + cursorTimestamp
+    + '\n        OR (timestamp = ' + cursorTimestamp
+    + '\n          AND (\n            ' + clauses.join('\n            OR ')
+    + '\n          )\n        )\n      )';
 }
 
 function eventSelect(window, cursor = null) {
@@ -1055,16 +1092,18 @@ function eventSelect(window, cursor = null) {
     ? 'toDateTime64(' + hogqlString(hogqlTimestamp(cursor.timestamp)) + ', 6)'
     : null;
   const cursorFilter = cursor
-    ? '\n      AND (\n        timestamp > ' + cursorTimestamp
-      + '\n        OR (timestamp = ' + cursorTimestamp
-      + ' AND ' + EVENT_KEY_EXPRESSION + ' > ' + hogqlString(cursor.eventKey) + ')\n      )'
+    ? eventCursorFilter(cursor, cursorTimestamp)
     : '';
+  const cursorSelect = EVENT_CURSOR_FIELDS
+    .map((field) => `${field.expression} AS ${field.alias}`)
+    .join(',\n      ');
+  const cursorOrder = EVENT_CURSOR_FIELDS.map((field) => field.alias).join(', ');
   return `
     SELECT
-      ${EVENT_KEY_EXPRESSION} AS event_key,
+      '' AS unused_cursor_slot,
       event,
       toString(toStartOfWeek(timestamp)) AS week,
-      properties.$pathname AS path,
+      coalesce(toString(properties.$pathname), '') AS path,
       coalesce(toString(properties.job_slug), '') AS job_slug,
       coalesce(toString(properties.job_id), '') AS job_id,
       coalesce(toString(properties.publisher_job_id), '') AS provider_id,
@@ -1077,12 +1116,13 @@ function eventSelect(window, cursor = null) {
       countIf(event IN ('$pageview', 'pageview')) AS views,
       countIf(event = 'job_apply' OR (event = 'select_content' AND properties.content_type IN ('job_board_apply','job_board_apply_header_logo','job_board_apply_header_title'))) AS clicks,
       coalesce(toString(properties.emission_id), '') AS emission_id,
-      toString(timestamp) AS cursor_timestamp
+      toString(timestamp) AS cursor_timestamp,
+      ${cursorSelect}
     FROM events
     WHERE timestamp >= toDateTime('${from}') AND timestamp < toDateTime('${to}')${cursorFilter}
-    GROUP BY event_key, event, week, path, job_slug, job_id, provider_id,
+    GROUP BY event, week, path, job_slug, job_id, provider_id,
              employer_key, item_id, content_type, emission_id, timestamp
-    ORDER BY cursor_timestamp, event_key
+    ORDER BY cursor_timestamp, ${cursorOrder}
   `.trim();
 }
 
