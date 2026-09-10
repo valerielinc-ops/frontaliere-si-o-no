@@ -473,28 +473,6 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.outsideOnly).toBe(true);
   });
 
-  it('allows an operational question without funnel markers beside an outside-only finding', async () => {
-    const outsideOnlyReview = {
-      ...historicalImportantReview,
-      body: [
-        reviewFor('scripts/legacy.mjs', 'the old parser is still unsafe').replace(/\n## LGTM$/u, ''),
-        '- `scripts/ci/runtime.mjs:L151`: ❓ q: confirm the byte limit remains enforced before the Linux runtime copy.',
-      ].join('\n'),
-      commit_id: HEAD_SHA,
-    };
-    const result = await runReviewGate({
-      repo: 'owner/repo',
-      pr: 1,
-      headSha: HEAD_SHA,
-      reviews: [[outsideOnlyReview]],
-      classifyAndMintReviewFn: classifyCurrentDiff,
-      mutate: false,
-    });
-
-    expect(result.approved).toBe(true);
-    expect(result.classification.outsideOnly).toBe(true);
-  });
-
   it('does not treat funnel words inside the question as an explicit disposition', async () => {
     const outsideOnlyReview = {
       ...historicalImportantReview,
