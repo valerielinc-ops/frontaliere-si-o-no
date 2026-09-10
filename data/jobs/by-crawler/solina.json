@@ -1,13 +1,13 @@
 {
   "crawlerKey": "solina",
-  "assembledAt": "2026-09-09T23:05:58.961Z",
+  "assembledAt": "2026-09-10T23:10:27.200Z",
   "jobs": [
     {
       "id": "solina-e0e02df7e063",
       "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "interno-in-stiftung-solina-standortubergreifend",
-        "en": "intern-in-stiftung-solina-standortubergreifend",
+        "en": "trainee-stiftung-solina-standortubergreifend",
         "de": "praktikant-in-solina-standortubergreifend",
         "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
@@ -34,7 +34,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/praktikantin-wh3pi42l",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:51.053Z",
+      "crawledAt": "2026-09-10T23:10:16.471Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,6 +59,8 @@
         "praktikantin-praktikant-solina-standortubergreifend",
         "stagiaire-stagiaire-stiftung-solina-spiez",
         "praktikantin-praktikant-solina-spiez",
+        "intern-in-stiftung-solina-standortubergreifend",
+        "interno-in-stiftung-solina-standortubergreifend",
         "trainee-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
@@ -69,11 +71,13 @@
           "intern-intern-stiftung-solina-spiez",
           "praktikantin-praktikant-solina-standortubergreifend",
           "stagiaire-stagiaire-stiftung-solina-spiez",
-          "praktikantin-praktikant-solina-spiez"
+          "praktikantin-praktikant-solina-spiez",
+          "interno-in-stiftung-solina-standortubergreifend"
         ],
         "en": [
           "praktikant-in-stiftung-solina-standortubergreifend",
           "intern-intern-stiftung-solina-spiez",
+          "intern-in-stiftung-solina-standortubergreifend",
           "trainee-stiftung-solina-standortubergreifend"
         ],
         "de": [
@@ -132,7 +136,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/details/vorpraktikantin-hthofbkc",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:50.619Z",
+      "crawledAt": "2026-09-10T23:10:16.103Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -151,12 +155,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikant-in-solina-spiez",
-        "pre-pratique-en-stiftung-solina-spiez"
+        "pre-pratique-en-stiftung-solina-spiez",
+        "pre-pratico-in-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vorpraktikant-in-solina-spiez",
-          "pre-pratique-en-stiftung-solina-spiez"
+          "pre-pratique-en-stiftung-solina-spiez",
+          "pre-pratico-in-stiftung-solina-spiez"
         ],
         "en": [
           "vorpraktikant-in-solina-spiez"
@@ -212,7 +218,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-8ph7l588",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:50.210Z",
+      "crawledAt": "2026-09-10T23:10:15.738Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -230,11 +236,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+        "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+          "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+          "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
@@ -290,7 +298,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-gesundheit-43ghowzt",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:49.801Z",
+      "crawledAt": "2026-09-10T23:10:14.929Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -308,11 +316,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
+        "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez",
+        "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
+          "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez",
+          "apprendistato-fachfrau-fachmann-gesundheit-stiftung-solina-spiez"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-gesundheit-solina-spiez"
@@ -368,7 +378,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betriebsunterhalt-3rn83ia0",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:49.392Z",
+      "crawledAt": "2026-09-10T23:10:14.565Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -386,11 +396,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
+        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend",
+        "apprendistato-fachfrau-fachmann-betriebsunterhalt-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
+          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend",
+          "apprendistato-fachfrau-fachmann-betriebsunterhalt-stiftung-solina-standortubergreifend"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betriebsunterhalt-solina-standortubergreifend"
@@ -446,7 +458,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/lehrstelle-fachfrau-fachmann-betreuung-dahbks3c",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:48.945Z",
+      "crawledAt": "2026-09-10T23:10:13.729Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -464,11 +476,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
+        "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez",
+        "apprendistato-fachfrau-fachmann-betreuung-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
+          "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez",
+          "apprendistato-fachfrau-fachmann-betreuung-stiftung-solina-spiez"
         ],
         "en": [
           "lehrstelle-fachfrau-fachmann-betreuung-solina-spiez"
@@ -518,12 +532,13 @@
         "de": "Pflegehelfer:in\n\nPensum / Standort: ab 60%, Spiez\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegehelfer:in ab 60% Spiez ab sofort oder nach Vereinbarung\nWir glauben, dass das Leben nicht in Schubladen passt. Darum wohnen bei uns junge und ältere Menschen mit unterschiedlichen Bedürfnissen, Krankheiten und Verhaltensbildern. Sie leben gemeinsam in einem Wohnbereich und schreiben mit dir ein Stück Lebensgeschichte.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Spiez arbeiten 390 Mitarbeitende und wohnen 224 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Praxisnahe und handlungsorientierte Arbeit auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n## Was dich ausmacht\n• Abschluss als Pflegehelfer:in oder Pflegeassistent:in\n• Du bist offen für Neues und bist gerne Teil eines engagierten Teams\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Gute IT-Anwenderkenntnisse\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 655 43 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "assistant infirmier:\n\nPensum / Emplacement: à partir de 60%, Spiez\n\n## Plus que des soins La qualité de vie commence avec vous\nAssistant infirmier: à partir de 60% Spiez dès maintenant ou sur rendez-vous\nNous croyons que la vie n'est pas dans les tiroirs. C'est pourquoi nous avons des jeunes et des personnes âgées qui ont des besoins, des maladies et des comportements différents. Ils vivent ensemble dans un coin de vie et écrivent une histoire de vie avec vous.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nIl y a 390 employés à Solina Spiez et 224 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Travaux pratiques et orientés vers l'action dans le secteur résidentiel\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n## Qu'est-ce qui te fait\n• Diplôme d'assistant infirmier:en ou assistant infirmier:en\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe dédiée\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Bonne connaissance de l'utilisateur informatique\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 655 43 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-fax39qeg",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:48.537Z",
+      "crawledAt": "2026-09-10T23:10:13.351Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -541,11 +556,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-solina-spiez"
+        "pflegehelfer-in-solina-spiez",
+        "assistente-infermieristico-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-solina-spiez"
+          "pflegehelfer-in-solina-spiez",
+          "assistente-infermieristico-stiftung-solina-spiez"
         ],
         "en": [
           "pflegehelfer-in-solina-spiez"
@@ -583,7 +600,7 @@
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -595,12 +612,13 @@
         "de": "Pflegefachfrau / Pflegefachmann\n\nPensum / Standort: ab 40%, Spiez\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegefachfrau / Pflegefachmann Mischkonzept ab 40% Spiez ab sofort oder nach Vereinbarung\nWir glauben, dass das Leben nicht in Schubladen passt. Darum wohnen bei uns junge und ältere Menschen mit unterschiedlichen Bedürfnissen, Krankheiten und Verhaltensbildern. Sie leben gemeinsam in einem Wohnbereich und schreiben mit dir ein Stück Lebensgeschichte.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Spiez arbeiten 390 Mitarbeitende und wohnen 224 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Ausbildung und Begleitung von Lernenden und Studierenden\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Ausbildung als Pflegefachperson\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Freude daran, spezifische Kompetenzen einzubringen\n• Du bist motiviert, innovativ und kommunikativ\n• Du bist offen für Neues und bist gerne Teil eines engagierten Teams\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 655 43 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers\n\nPensum / Emplacement: à partir de 40%, Spiez\n\n## Plus que des soins La qualité de vie commence avec vous\nSpécialiste des soins infirmiers / spécialiste des soins infirmiers concept mixte à partir de 40% Spiez maintenant ou par accord\nNous croyons que la vie n'est pas dans les tiroirs. C'est pourquoi nous avons des jeunes et des personnes âgées qui ont des besoins, des maladies et des comportements différents. Ils vivent ensemble dans un coin de vie et écrivent une histoire de vie avec vous.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nIl y a 390 employés à Solina Spiez et 224 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Formation et soutien aux apprenants et aux étudiants\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Formation en soins infirmiers\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Délices d'apporter des compétences spécifiques\n• Vous êtes motivé, innovant et communicatif\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe dédiée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 655 43 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-pn26ljh7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:48.128Z",
+      "crawledAt": "2026-09-10T23:10:12.987Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -682,7 +700,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-tb2xa9yv",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:47.706Z",
+      "crawledAt": "2026-09-10T23:10:12.617Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -722,7 +740,8 @@
         "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
         "salute-professionale-stiftung-solina-steffisburg-ziegelei-ca5595",
         "professional-health-stiftung-solina-steffisburg-ziegelei-ca5595",
-        "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-ca5595"
+        "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-ca5595",
+        "salute-professionale-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -744,7 +763,8 @@
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-2",
           "salute-professionale-stiftung-solina-steffisburg-ziegelei-ca5595",
           "fachfrau-fachmann-gesundheit-solina-spiez",
-          "professional-health-stiftung-solina-steffisburg-kirchbuhl"
+          "professional-health-stiftung-solina-steffisburg-kirchbuhl",
+          "salute-professionale-stiftung-solina-spiez"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-spiez",
@@ -816,7 +836,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-pc99jrf8",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:47.295Z",
+      "crawledAt": "2026-09-10T23:10:12.250Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -834,11 +854,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-wohnbereichsleiter-in-solina-spiez"
+        "stv-wohnbereichsleiter-in-solina-spiez",
+        "stv-living-area-manager-in-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-wohnbereichsleiter-in-solina-spiez"
+          "stv-wohnbereichsleiter-in-solina-spiez",
+          "stv-living-area-manager-in-stiftung-solina-spiez"
         ],
         "en": [
           "stv-wohnbereichsleiter-in-solina-spiez"
@@ -894,7 +916,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-9hw7nxuu",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:46.885Z",
+      "crawledAt": "2026-09-10T23:10:11.884Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -913,11 +935,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl-f4fv9i"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl-f4fv9i",
+        "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
+          "salute-professionale-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
@@ -977,7 +1001,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-s0jnwdrh",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:46.466Z",
+      "crawledAt": "2026-09-10T23:10:11.517Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1003,7 +1027,8 @@
         "professional-health-stiftung-solina-steffisburg-ziegelei-f58509",
         "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
         "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509",
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-77vq35"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei-77vq35",
+        "salute-professionale-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1014,7 +1039,8 @@
           "professionnels-de-la-sante-de-nuit-stiftung-solina-steffisburg-ziegelei",
           "professional-health-stiftung-solina-steffisburg-ziegelei-f58509",
           "salute-professionale-stiftung-solina-steffisburg-ziegelei-f58509",
-          "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509"
+          "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f58509",
+          "salute-professionale-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
@@ -1076,7 +1102,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-f2mc96am",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:46.044Z",
+      "crawledAt": "2026-09-10T23:10:11.148Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1094,11 +1120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl"
+        "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
+        "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl"
+          "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
+          "stv-living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "stv-wohnbereichsleiter-in-solina-steffisburg-kirchbuhl"
@@ -1136,7 +1164,7 @@
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -1148,12 +1176,13 @@
         "de": "Pflegefachfrau / Pflegefachmann\n\nPensum / Standort: ab 80%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegefachfrau / Pflegefachmann ab 80% Steffisburg Kirchbühl ab sofort oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Eine abgeschlossene Ausbildung auf Tertiärstufe oder eine gleichwertige Anerkennung in der Schweiz\n• Freue daran, deine spezifischen Kompetenzen einzubringen\n• Du bist motiviert, innovativ und kommunikativ\n• Die Autonomie und das Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und bist gerne Teil eines familiären und engagierten Teams\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers\n\nPensum / Emplacement: à partir de 80%, Steffisburg Kirchbühl\n\n## Plus que des soins La qualité de vie commence avec vous\nSpécialiste des soins infirmiers à partir de 80% Steffisburg Kirchbühl désormais ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Études supérieures terminées ou reconnaissance équivalente en Suisse\n• Appréciez vos compétences spécifiques\n• Vous êtes motivé, innovant et communicatif\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe familiale et dévouée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Kirchbühl",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-8xji37oj",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:45.629Z",
+      "crawledAt": "2026-09-10T23:10:10.773Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1177,7 +1206,8 @@
         "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl",
         "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
         "aide-soins-stiftung-solina-steffisburg-kirchbuhl",
-        "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl"
+        "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl",
+        "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1187,7 +1217,8 @@
           "caregiver-caregiver-stiftung-solina-steffisburg-kirchbuhl",
           "pflegehelferin-pflegehelfer-solina-steffisburg-kirchbuhl",
           "aide-soins-stiftung-solina-steffisburg-kirchbuhl",
-          "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl"
+          "infermiera-nurse-professionale-stiftung-solina-steffisburg-kirchbuhl",
+          "infermieristica-professionale-infermieristica-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
@@ -1248,7 +1279,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-betreuung-3ca3t28y",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:45.219Z",
+      "crawledAt": "2026-09-10T23:10:10.403Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1274,7 +1305,8 @@
         "specialista-assistenza-professionale-stiftung-solina-steffisburg-ziegelei",
         "specialist-professional-care-stiftung-solina-steffisburg-ziegelei",
         "specialiste-soins-professionnels-stiftung-solina-steffisburg-ziegelei",
-        "specialist-care-stiftung-solina-spiez"
+        "specialist-care-stiftung-solina-spiez",
+        "specialista-assistenza-professionale-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1286,7 +1318,8 @@
           "specialista-assistenza-professionale-stiftung-solina-steffisburg-ziegelei",
           "specialist-professional-care-stiftung-solina-steffisburg-ziegelei",
           "specialiste-soins-professionnels-stiftung-solina-steffisburg-ziegelei",
-          "specialist-care-stiftung-solina-spiez"
+          "specialist-care-stiftung-solina-spiez",
+          "specialista-assistenza-professionale-stiftung-solina-spiez"
         ],
         "en": [
           "fachfrau-fachmann-betreuung-solina-spiez",
@@ -1322,16 +1355,16 @@
       "slug": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
-        "en": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2",
+        "en": "nursing-professional-nursing-professional-stiftung-solina-steffisburg-kirchbuhl",
         "de": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl",
-        "fr": "pflegefachfrau-pflegefachmann-solina-steffisburg-kirchbuhl-2"
+        "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-stiftung-solina-steffisburg-kirchbuhl"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
       "companyDomain": "solina.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Infermieristica professionale / infermieristica",
+        "it": "Pflegefachfrau / Pflegefachmann",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -1343,12 +1376,13 @@
         "de": "Pflegefachfrau / Pflegefachmann\n\nPensum / Standort: ab 60%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegefachfrau / Pflegefachmann Demenzwohnbereich ab 60% Steffisburg Kirchbühl ab sofort oder nach Vereinbarung\nWir glauben, dass ein Mensch mehr ist als seine Erinnerung. In der Solina leben auch Menschen mit Demenz. Ihr Alltag ist oft anders, manchmal leise, manchmal unruhig. Du gehst mit, hältst aus, bleibst dran. Und schaffst Momente, in denen sich jemand gesehen fühlt, auch wenn vieles nicht mehr greifbar ist.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Eine abgeschlossene Pflegeausbildung auf Tertiärstufe oder eine gleichwertige Anerkennung in der Schweiz\n• Freue daran, spezifische Kompetenzen einzubringen\n• Du bist motiviert, innovativ und kommunikativ\n• Die Autonomie und das Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und bist gerne Teil eines familiären und engagierten Teams\n• Gute IT-Anwenderkenntnisse\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers\n\nPensum / Emplacement: à partir de 60%, Steffisburg Kirchbühl\n\n## Plus que des soins La qualité de vie commence avec vous\nInfirmière / infirmière service de démence de 60% Steffisburg Kirchbühl à partir de maintenant ou par accord\nNous croyons qu'une personne est plus que sa mémoire. La Solina accueille également des personnes atteintes de démence. Leur vie quotidienne est souvent différente, parfois calme, parfois agitée. Allez, restez à l'écoute. Et créez des moments où quelqu'un se sent vu, même si beaucoup n'est plus tangible.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soutien de nos résidents atteints de déficiences cognitives et fonctionnelles\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Formation infirmière terminée au niveau tertiaire ou reconnaissance équivalente en Suisse\n• Vous accompagnez les personnes atteintes de démence avec cœur, empathie et professionnalisme\n• Appréciez vos compétences spécifiques\n• Vous êtes motivé, innovant et communicatif\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe familiale et dévouée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Kirchbühl",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachfrau-pflegefachmann-qkuq6qho",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:44.808Z",
+      "crawledAt": "2026-09-10T23:10:10.033Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1428,7 +1462,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegefachperson-fachperson-gesundheit-ja0t5x3v",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:44.397Z",
+      "crawledAt": "2026-09-10T23:10:09.664Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1450,7 +1484,8 @@
         "infermiera-hf-health-professionista-di-notte-stiftung-solina-spiez",
         "nurse-hf-health-professional-at-night-stiftung-solina-spiez",
         "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
-        "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez"
+        "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez",
+        "infermiera-salute-professionale-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1458,7 +1493,8 @@
           "infermiera-hf-health-professionista-di-notte-stiftung-solina-spiez",
           "nurse-hf-health-professional-at-night-stiftung-solina-spiez",
           "pflegefachperson-hf-fachperson-gesundheit-im-nachtdienst-solina-spiez",
-          "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez"
+          "infirmiere-hf-professionnel-de-la-sante-la-nuit-stiftung-solina-spiez",
+          "infermiera-salute-professionale-stiftung-solina-spiez"
         ],
         "en": [
           "pflegefachperson-fachperson-gesundheit-solina-spiez",
@@ -1513,12 +1549,13 @@
         "de": "Pflegehelfer:in\n\nPensum / Standort: ab 40%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegehelfer:in ab 40% Steffisburg Kirchbühl ab Oktober 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und /oder krankheitsbedingten Beeinträchtigungen\n• Praxisnahe und handlungsorientierte Arbeit auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n## Was dich ausmacht\n• Abschluss als Pflegehelfer:in, Pflegeassistent:in oder Assistent:in Gesundheit und Soziales\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und bist gerne Teil eines engagierten Teams\n• Du verstehst und sprichst die deutsche Sprache\n• Gute IT-Anwenderkenntnisse\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "assistant infirmier:\n\nPensum / Emplacement: à partir de 40%, Steffisburg Kirchbühl\n\n## Plus que des soins La qualité de vie commence avec vous\nAssistant infirmier: à partir de 40% Steffisburg Kirchbühl à partir d'octobre 2026 ou sur rendez-vous\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant différents âges et/ou troubles liés à la maladie\n• Travaux pratiques et orientés vers l'action dans le secteur résidentiel\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n## Qu'est-ce qui te fait\n• Diplôme d'assistant infirmier:in, assistant infirmier:in ou assistant:in santé et social\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe dédiée\n• Vous comprenez et parlez l'allemand\n• Bonne connaissance de l'utilisateur informatique\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Kirchbühl",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-1xcklcar",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:43.982Z",
+      "crawledAt": "2026-09-10T23:10:09.298Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1548,7 +1585,8 @@
         "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
         "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei",
         "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
-        "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
+        "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei",
+        "assistente-infermieristico-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1564,7 +1602,8 @@
           "assistente-infermieristico-srk-stiftung-solina-steffisburg-ziegelei",
           "nursing-assistant-srk-stiftung-solina-steffisburg-ziegelei",
           "pflegehelferin-pflegehelfer-srk-solina-steffisburg-ziegelei",
-          "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei"
+          "assistant-infirmier-srk-stiftung-solina-steffisburg-ziegelei",
+          "assistente-infermieristico-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "pflegehelfer-in-solina-steffisburg-kirchbuhl",
@@ -1625,7 +1664,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/wohnbereichsleiterin-ez10o2q4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:43.568Z",
+      "crawledAt": "2026-09-10T23:10:08.927Z",
       "addressLocality": "Steffisburg Kirchbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1647,7 +1686,8 @@
         "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
         "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl",
         "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
-        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
+        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl",
+        "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1655,7 +1695,8 @@
           "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-kirchbuhl",
           "living-area-management-cadre-stiftung-solina-steffisburg-kirchbuhl",
           "wohnbereichsleitung-kader-solina-steffisburg-kirchbuhl",
-          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl"
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-kirchbuhl",
+          "living-area-manager-in-stiftung-solina-steffisburg-kirchbuhl"
         ],
         "en": [
           "wohnbereichsleiter-in-solina-steffisburg-kirchbuhl",
@@ -1710,12 +1751,13 @@
         "de": "Sozialpädagogin / Sozialpädagoge\n\nPensum / Standort: ab 80%, Spiez\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nSozialpädagogin / Sozialpädagoge Mischkonzept ab 80% Spiez ab Oktober 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Spiez arbeiten 390 Mitarbeitende und wohnen 224 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Betreuung sowie Unterstützung bei Verrichtungen in der Grundpflege unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und/oder krankheitsbedingten Beeinträchtigungen\n• Individuelle Entwicklungsplanung und vielseitige Alltagsgestaltung\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n• Ausbildung und Begleitung von Lernenden\n• Mitwirkung in Projekten und Arbeitsgruppen\n## Was dich ausmacht\n• Ausbildung als Sozialpädagogin/Sozialpädagoge\n• Erfahrung im Psychiatriebereich von Vorteil\n• Kenntnisse über die Grundlagen der systemischen Arbeit und Bereitschaft, diese anzuwenden\n• Kenntnisse IHP - Bedarfsermittlung von Vorteil\n• Freude an der Mitgestaltung von fördernden und fordernden Lebenswelten\n• Du bist offen für Neues und dir ist eine offene Kommunikation wichtig\n• Du bist bereit, Teil eines engagierten Teams zu sein\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 655 43 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Pédagogue sociale / Pédagogue sociale\n\nPensum / Emplacement: à partir de 80%, Spiez\n\n## Plus que des soins La qualité de vie commence avec vous\nPédagogue sociale / Pédagogue sociale Concept mixte à partir de 80% Spiez à partir d'octobre 2026 ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nIl y a 390 employés à Solina Spiez et 224 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soutien aux activités de soins primaires de nos résidents ayant des déficiences d'âge et/ou liées à la maladie différentes\n• Planification du développement individuel et conception quotidienne polyvalente\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n• Formation et accompagnement des apprenants\n• Participation aux projets et aux groupes de travail\n## Qu'est-ce qui te fait\n• Formation en tant qu ' enseignant/éducateur social\n• L'expérience psychiatrique est bénéfique\n• Connaissance des bases du travail systémique et volonté de les appliquer\n• Connaissance du PHI - Évaluation de la demande d'avantages\n• La joie dans la co-création de la promotion et des environnements de vie exigeants\n• Vous êtes ouvert aux nouvelles choses et la communication ouverte est importante pour vous\n• Vous êtes prêt à faire partie d'une équipe dédiée\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 655 43 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-qo6r5vk5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:43.156Z",
+      "crawledAt": "2026-09-10T23:10:08.549Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1734,12 +1776,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-solina-spiez",
-        "sozialpadagoge-sozialpadagogin-solina-spiez"
+        "sozialpadagoge-sozialpadagogin-solina-spiez",
+        "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-sozialpadagoge-solina-spiez",
-          "sozialpadagoge-sozialpadagogin-solina-spiez"
+          "sozialpadagoge-sozialpadagogin-solina-spiez",
+          "pedagoga-sociale-pedagoga-sociale-stiftung-solina-spiez"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-solina-spiez"
@@ -1795,7 +1839,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleitung-ugb7iwhs",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:42.746Z",
+      "crawledAt": "2026-09-10T23:10:08.183Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1817,7 +1861,8 @@
         "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
         "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
         "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
+        "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei",
+        "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1825,7 +1870,8 @@
           "gestione-delle-aree-vive-cadre-stiftung-solina-steffisburg-ziegelei",
           "living-area-management-cadre-stiftung-solina-steffisburg-ziegelei",
           "wohnbereichsleitung-kader-solina-steffisburg-ziegelei",
-          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei"
+          "gestion-de-la-zone-habitable-cadre-stiftung-solina-steffisburg-ziegelei",
+          "stv-linea-di-soggiorno-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "stv-wohnbereichsleitung-solina-steffisburg-ziegelei",
@@ -1886,7 +1932,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/stv-wohnbereichsleiterin-embpvyh4",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:42.332Z",
+      "crawledAt": "2026-09-10T23:10:07.804Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1904,11 +1950,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei"
+        "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
+        "stv-living-area-manager-in-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei"
+          "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
+          "stv-living-area-manager-in-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei"
@@ -1931,85 +1979,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "solina-835a18d4ffa8",
-      "slug": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl-7cddf3",
-      "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "it": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl-7cddf3",
-        "en": "professional-health-stiftung-solina-steffisburg-kirchbuhl-7cddf3",
-        "fr": "sante-professionnelle-stiftung-solina-steffisburg-kirchbuhl-7cddf3"
-      },
-      "company": "Stiftung Solina",
-      "companyKey": "solina",
-      "companyDomain": "solina.ch",
-      "title": "Fachfrau/Fachmann Gesundheit",
-      "titleByLocale": {
-        "de": "Fachfrau/Fachmann Gesundheit",
-        "it": "Salute professionale",
-        "en": "Professional Health",
-        "fr": "Santé professionnelle"
-      },
-      "description": "Fachfrau/Fachmann Gesundheit\n\nPensum / Standort: 60–80%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nFachfrau/Fachmann Gesundheit Nachtdienst, Befristet 60–80% Steffisburg Kirchbühl ab November 2026 oder nach Vereinbarung\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
-      "descriptionByLocale": {
-        "de": "Fachfrau/Fachmann Gesundheit\n\nPensum / Standort: 60–80%, Steffisburg Kirchbühl\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nFachfrau/Fachmann Gesundheit Nachtdienst, Befristet 60–80% Steffisburg Kirchbühl ab November 2026 oder nach Vereinbarung\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
-        "it": "Salute professionale\n\nPensum / Ubicazione: 60-80%, Steffisburg Kirchbühl\n\n## Più che la qualità della cura della vita inizia con voi\nServizio notturno, Temporary 60-80% Steffisburg Kirchbühl dal novembre 2026 o d'accordo\nAbbiamo la nostra squadra notturna. Quindi lavori solo da prima a tardi. Le notti prendono il controllo degli altri.\nCon i nostri due modelli di pool, creiamo flessibilità nella pianificazione operativa e alleviamo i dipendenti permanenti. Così che i giorni liberi rimangono davvero liberi.\nCi fidiamo di te. Puoi contribuire attivamente alla tua conoscenza e assumerti la responsabilità quotidiana. Per domande, una persona di contatto professionale in casa aiuterà.\nScopri tutti i vantaggi\n## Il tuo posto di lavoro\nLa Solina Kirchbühl di Steffisburg conta 73 dipendenti e 47 residenti.\nUlteriori informazioni sulla posizione\n## Dal piatto alla terapia Così vario è il lavoro con Solina\n## Preferireste applicare per posta o per posta?\nlavori solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Tu mandi il Bewerbu ng\n• Controlliamo i vostri documenti\n• In una conversazione personale ci conosciamo\n• Il giorno in cui si vive la vita quotidiana con noi\n• Firma il contratto\n• Tu prendi il posto\n+41 33 439 94 36 lavoro solina ch\n\nLa Fondazione Solina gestisce diversi siti di cura e riabilitazione nell'Oberland Bernese, tra cui Solina Heiligenschwendi e Solina Spiez.",
-        "en": "Professional Health\n\nPensum / Location: 60-80%, Steffisburg Kirchbühl\n\n## More than Care Quality of Life Starts with You\nNight service, Temporary 60-80% Steffisburg Kirchbühl from November 2026 or by agreement\nWe have our own night team. So you only work from early to late. The nights take over others.\nWith our two pool models, we create flexibility in operational planning and relieve permanent employees. So that free days really remain free.\nWe trust you. You can actively contribute your knowledge and take on daily responsibility. For questions, a professional contact person in the house will help.\nDiscover all the benefits\n## Your place of work\nThe Solina Kirchbühl in Steffisburg has 73 employees and 47 residents.\nMore about the location\n## From plate to therapy So diverse is the work with Solina\n## Would you rather apply by mail or post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• You send the Bewerbu ng\n• We check your documents\n• In a personal conversation we get to know each other\n• On the day you experience the everyday life with us\n• You sign the contract\n• You take the place\n+41 33 439 94 36 jobs solina ch\n\nThe Solina Foundation operates several nursing and rehabilitation sites in the Bernese Oberland, including Solina Heiligenschwendi and Solina Spiez.",
-        "fr": "Santé professionnelle\n\nPensum / Endroit: 60-80%, Steffisburg Kirchbühl\n\n## Plus que des soins La qualité de vie commence avec vous\nService de nuit, temporaire 60-80% Steffisburg Kirchbühl à partir de novembre 2026 ou par accord\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
-      },
-      "location": "Steffisburg Kirchbühl",
-      "canton": "BE",
-      "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-i7lc7tmq",
-      "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:41.920Z",
-      "addressLocality": "Steffisburg Kirchbühl",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://stiftung-solina.onlyfy.jobs/application/apply/ejp9huol0pul74lj858o3yai9mdcoh",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-09T23:05:41.920Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-      ]
     },
     {
       "id": "solina-4c775230bf23",
@@ -2037,12 +2006,13 @@
         "de": "Führungsverantwortliche:r Tagestreff\n\nPensum / Standort: 60%, Spiez\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nFührungsverantwortliche:r Tagestreff RAI-Supervisor:in 60% Spiez ab Januar 2027 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Spiez arbeiten 390 Mitarbeitende und wohnen 224 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Du bist zuständig für das Team von 3 Mitarbeitenden und koordinierst den AHV-Tagestreff mit rund 8-9 Tagesgäste.\n• Du begleitest unsere Tagesgäste im Alltag und übernimmst grundpflegerische Verrichtungen.\n• Du gestaltest Einzel- und Gruppenangebote und führst diese durch.\n• Du begleitest Ein- und Austritte sowie Schnuppereinsätze und stehst in regelmässigen Austausch mit Angehörigen.\n• Die elektronische Pflegedokumentation führst du zuverlässig und sorgfältig. Zudem übernimmst du weitere administrative Aufgaben.\n• Du arbeitest interdisziplinär mit den verschiedenen Bereichen und förderst die Teamarbeit.\n• Du begleitest nach Bedarf Praktikant:innen und gibst gerne dein Wissen weiter.\n## Was dich ausmacht\n• Du hast einen Abschluss als diplomierte Pflegefachperson und besitzt die Weiterbildung sowie Praxiserfahrung als RAI-Supervisor:in.\n• Du bringst bereits Berufserfahrung in einem Tagestreff oder einem ähnlichen Angebot für Menschen im AHV Alter mit.\n• Die Betreuung und Begleitung von älteren Menschen ist für dich eine Herzensangelegenheit.\n• Du bist kreativ und bringst Ideen für abwechslungsreiche Aktivierungsangebote mit.\n• Du zeichnest dich durch eine selbständige und verantwortungsbewusste Arbeitsweise aus.\n• Du verfügst über gute IT-Anwenderkenntnisse.\n• Du bist lösungs-, prozess-, und ergebnisorientiert und bringst eine vermittelnde und kommunikative Art ins Team.\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 655 43 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Gestionnaires responsables: réunion de jour\n\nPensum / Endroit: 60%, Spiez\n\n## Plus que des soins La qualité de vie commence avec vous\nSuperviseur RAI: 60% Spiez à partir de janvier 2027 ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nIl y a 390 employés à Solina Spiez et 224 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Vous êtes responsable de l'équipe de 3 employés et coordonnez la réunion de la journée AHV avec environ 8-9 jours invités.\n• Vous accompagnez nos invités de jour dans la vie quotidienne et prenez des activités de soins de base.\n• Vous concevez des offres individuelles et collectives et les réalisez.\n• Vous accompagnez les missions d'entrée et de sortie ainsi que les missions d'essai et vous êtes en échange régulier avec des proches.\n• La documentation de maintenance électronique est fiable et prudente. Vous assumez également des tâches administratives supplémentaires.\n• Vous travaillez interdisciplinaire avec les différents domaines et favorisez le travail d'équipe.\n• Vous accompagnez les stagiaires au besoin et vous transmettrez volontiers vos connaissances.\n## Qu'est-ce qui te fait\n• Vous avez un diplôme en tant qu'infirmière qualifiée et avez une formation complémentaire et une expérience pratique en tant que superviseur RAI:in.\n• Vous apportez déjà une expérience de travail dans une réunion de jour ou une offre similaire pour les personnes d'âge AHV.\n• Prendre soin des personnes âgées et les accompagner est une question qui vous tient à cœur.\n• Vous êtes créatif et apportez des idées pour des offres d'activation variées.\n• Vous êtes caractérisé par une façon de travailler indépendante et responsable.\n• Vous avez une bonne connaissance de l'utilisateur informatique.\n• Vous êtes orienté solution, processus et résultats et apportez une façon médiatrice et communicative dans l'équipe.\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Spiez HRM Stockhornstrasse 12 3700 Spiez\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 655 43 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Spiez",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fuehrungsverantwortlicher-tagestreff-c0mwsdy1",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:41.511Z",
+      "crawledAt": "2026-09-10T23:10:07.433Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2060,11 +2030,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fuhrungsverantwortliche-r-tagestreff-solina-spiez"
+        "fuhrungsverantwortliche-r-tagestreff-solina-spiez",
+        "responsible-manager-r-day-meeting-stiftung-solina-spiez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fuhrungsverantwortliche-r-tagestreff-solina-spiez"
+          "fuhrungsverantwortliche-r-tagestreff-solina-spiez",
+          "responsible-manager-r-day-meeting-stiftung-solina-spiez"
         ],
         "en": [
           "fuhrungsverantwortliche-r-tagestreff-solina-spiez"
@@ -2114,12 +2086,13 @@
         "de": "Pflegehelfer:in\n\nPensum / Standort: ab 40%, Steffisburg Ziegelei\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegehelfer:in ab 40% Steffisburg Ziegelei ab Oktober 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung unserer Bewohnerinnen und Bewohner mit unterschiedlichen alters- und /oder krankheitsbedingten Beeinträchtigungen\n• Praxisnahe und handlungsorientierte Arbeit auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n## Was dich ausmacht\n• Abschluss als Pflegehelfer:in, Pflegeassistent:in oder Assistent:in Gesundheit und Soziales\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und bist gerne Teil eines engagierten Teams\n• Du verstehst und sprichst die deutsche Sprache\n• Gute IT-Anwenderkenntnisse\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "assistant infirmier:\n\nPensum / Endroit: 100–40%, Steffisburg Ziegelei\n\n## Plus que des soins La qualité de vie commence avec vous\nAssistant infirmier: en briqueterie de Steffisburg 100–40% à partir d'octobre 2026 ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Ziegelei à Steffisburg compte 210 employés et 130 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins de nos résidents ayant différents âges et/ou troubles liés à la maladie\n• Travaux pratiques et orientés vers l'action dans le secteur résidentiel\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n## Qu'est-ce qui te fait\n• Diplôme d'assistant infirmier:in, assistant infirmier:in ou assistant:in santé et social\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert à de nouvelles choses et aimez faire partie d'une équipe dédiée\n• Vous comprenez et parlez l'allemand\n• Bonne connaissance de l'utilisateur informatique\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Ziegelei",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-epcqmn6u",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:41.103Z",
+      "crawledAt": "2026-09-10T23:10:07.068Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2137,11 +2110,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-solina-steffisburg-ziegelei"
+        "pflegehelfer-in-solina-steffisburg-ziegelei",
+        "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-solina-steffisburg-ziegelei"
+          "pflegehelfer-in-solina-steffisburg-ziegelei",
+          "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "pflegehelfer-in-solina-steffisburg-ziegelei"
@@ -2191,12 +2166,13 @@
         "de": "Pflegehelfer:in\n\nPensum / Standort: 40%, Steffisburg Ziegelei\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nPflegehelfer:in 40% Steffisburg Ziegelei ab sofort oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Pflege und Betreuung von unseren 14 körperlich- und geistig beeinträchtigten Menschen\n• Praxisnahe und handlungsorientierte Arbeit auf dem Wohnbereich\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Interdisziplinäre Zusammenarbeit\n• Weiterentwicklung des Caring Prozesses\n## Was dich ausmacht\n• Abschluss als Pflegehelfer:in oder Pflegeassistent:in\n• Autonomie und Wohlbefinden unserer Bewohnerinnen und Bewohner sind für dich eine Herzensangelegenheit\n• Du bist offen für Neues und schätzt eine engagierte Teamarbeit\n• Du verstehst und sprichst die deutsche Sprache\n• Gute IT-Anwenderkenntnisse\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "assistant infirmier:\n\nPensum / Endroit: 40%, Steffisburg Ziegelei\n\n## Plus que des soins La qualité de vie commence avec vous\nAssistant infirmier: dans 40% Steffisburg Ziegelei à partir de maintenant ou sur rendez-vous\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Ziegelei à Steffisburg compte 210 employés et 130 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soins à nos 14 personnes handicapées physiques et mentales\n• Travaux pratiques et orientés vers l'action dans le secteur résidentiel\n• Participation au système des personnes de référence et au travail familial\n• Coopération interdisciplinaire\n• Développement du processus de prise en charge\n## Qu'est-ce qui te fait\n• Diplôme d'assistant infirmier:en ou assistant infirmier:en\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous êtes ouvert aux nouvelles choses et appréciez le travail d'équipe engagé\n• Vous comprenez et parlez l'allemand\n• Bonne connaissance de l'utilisateur informatique\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Ziegelei",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/pflegehelferin-aae552r2",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:40.694Z",
+      "crawledAt": "2026-09-10T23:10:06.702Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2215,12 +2191,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelfer-in-solina-steffisburg-ziegelei",
-        "pflegehelfer-in-solina-steffisburg-ziegelei-2"
+        "pflegehelfer-in-solina-steffisburg-ziegelei-2",
+        "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei-fd3006"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-in-solina-steffisburg-ziegelei",
-          "pflegehelfer-in-solina-steffisburg-ziegelei-2"
+          "pflegehelfer-in-solina-steffisburg-ziegelei-2",
+          "assistente-infermieristico-stiftung-solina-steffisburg-ziegelei-fd3006"
         ],
         "en": [
           "pflegehelfer-in-solina-steffisburg-ziegelei-2"
@@ -2279,7 +2257,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/fachfrau-fachmann-gesundheit-gyd1ax2m",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:40.284Z",
+      "crawledAt": "2026-09-10T23:10:06.335Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2297,11 +2275,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+        "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+          "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
@@ -2357,7 +2337,7 @@
       "url": "https://jobs.solina.ch/offene-stellen/weitere-bereiche/microsoft-cloud-engineer-5oych6l5",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:39.871Z",
+      "crawledAt": "2026-09-10T23:10:05.962Z",
       "addressLocality": "Standortübergreifend",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2376,12 +2356,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "microsoft-cloud-engineer-solina-standortubergreifend",
-        "microsoft-cloud-ingegnere-stiftung-solina-steffisburg"
+        "microsoft-cloud-ingegnere-stiftung-solina-steffisburg",
+        "microsoft-cloud-ingegnere-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
           "microsoft-cloud-engineer-solina-standortubergreifend",
-          "microsoft-cloud-ingegnere-stiftung-solina-steffisburg"
+          "microsoft-cloud-ingegnere-stiftung-solina-steffisburg",
+          "microsoft-cloud-ingegnere-stiftung-solina-standortubergreifend"
         ],
         "fr": [
           "microsoft-cloud-engineer-solina-standortubergreifend"
@@ -2428,12 +2410,13 @@
         "de": "Sozialpädagogin/ Sozialpädagoge\n\nPensum / Standort: ab 70%, Steffisburg Ziegelei\n\n## Mehr als Pflege Lebensqualität beginnt mit dir\nSozialpädagogin/ Sozialpädagoge ab 70% Steffisburg Ziegelei ab Dezember 2026 oder nach Vereinbarung\nWir bieten erwachsenen Menschen mit Unterstützungsbedarf eine Perspektive in einem Umfeld, in dem sie sich geborgen fühlen und wo sie individuell und professionell umsorgt werden. Das gelingt nur gemeinsam.\nWir haben ein eigenes Nachtteam. Du arbeitest also nur von Früh bis Spät. Die Nächte übernehmen andere.\nMit unseren zwei Pool-Modellen schaffen wir Flexibilität bei der Einsatzplanung und entlasten die festangestellten Mitarbeitenden. Damit freie Tage auch wirklich frei bleiben.\nWir vertrauen dir. Du kannst dein Wissen aktiv einbringen und Tagesverantwortung übernehmen. Bei Fragen hilft eine professionelle Ansprechperson im Haus.\nAlle Vorteile entdecken\n## Dein Arbeitsort\nIn der Solina Ziegelei in Steffisburg arbeiten 210 Mitarbeitende und wohnen 130 Bewohner:innen.\nMehr zum Standort\n## Wie du wirkst\n• Betreuung sowie Unterstützung bei den Verrichtungen in der Grundpflege unserer 14 körperlich- und geistig beeinträchtigten Bewohner:innen\n• Planung und Durchführung von Beschäftigungs- und Freizeitangeboten\n• Erarbeiten und Umsetzen von Förderzielen und Bereuungsplänen\n• Übernahme der Tagesverantwortung auf dem Wohnbereich\n• Mitwirkung bei der Gestaltung einer sicheren, ressourcenorientierten und wertschätzenden Lebensumgebung\n• Mitarbeit im Bezugspersonensystem und bei der Angehörigenarbeit\n• Weiterentwicklung des Betreuung Prozesses\n• Interdisziplinäre Zusammenarbeit\n• Übernahme organisatorischer und administrativer Aufgaben im Betreuungsprozess\n## Was dich ausmacht\n• Ausbildung als Sozialpädagogin / Sozialpädagoge\n• Kenntnisse IHP-Bedarfsermittlung von Vorteil\n• Freude an der Mitgestaltung von fördernden und fordernden Lebenswelten\n• Verständnis für pflegerische Themen und Bereitschaft zur engen Zusammenarbeit mit der Pflege\n• Du bist offen für Neues und schätzt eine transparente Kommunikation sowie engagierte Teamarbeit\n• Gute IT-Anwenderkenntnisse\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Am Einblickstag erlebst du den Alltag bei uns\n• Du unterschreibst den Vertrag\n• Du trittst die Stelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
         "fr": "Pédagogue sociale/Pédagogue sociale\n\nPensum / Emplacement: à partir de 70%, Steffisburg Ziegelei\n\n## Plus que des soins La qualité de vie commence avec vous\nPédagogue sociale/Pédagogue sociale à partir de 70% Steffisburg Ziegelei à partir de décembre 2026 ou par accord\nNous offrons aux adultes qui ont besoin de soutien une perspective dans un environnement où ils se sentent en sécurité et où ils sont pris en charge individuellement et professionnellement. Cela ne peut se faire qu'en travaillant ensemble.\nNous avons notre propre équipe de nuit. Donc tu ne travailles que de tôt en tard. Les nuits reprennent les autres.\nAvec nos deux modèles de pool, nous créons de la flexibilité dans la planification opérationnelle et libérons les employés permanents. Pour que les jours libres restent vraiment libres.\nNous vous faisons confiance. Vous pouvez contribuer activement à vos connaissances et assumer vos responsabilités quotidiennes. Pour toute question, une personne-ressource professionnelle dans la maison vous aidera.\nDécouvrez tous les avantages\n## Votre lieu de travail\nLe Solina Ziegelei à Steffisburg compte 210 employés et 130 résidents.\nEn savoir plus sur l'emplacement\n## Comment vous travaillez\n• Soins et soutien dans les soins de base de nos 14 résidents handicapés physiques et mentaux :\n• Planification et mise en œuvre des activités d'emploi et de loisirs\n• Élaborer et mettre en œuvre des objectifs de financement et des plans de financement\n• Assomption de la responsabilité quotidienne dans la zone de vie\n• Participation à la conception d ' un cadre de vie sûr, axé sur les ressources et apprécié\n• Participation au système des personnes de référence et au travail familial\n• Développement du processus de prise en charge\n• Coopération interdisciplinaire\n• Assomption des tâches organisationnelles et administratives dans le processus de prise en charge\n## Qu'est-ce qui te fait\n• L'éducation en tant que pédagogie sociale / pédagogie sociale\n• Connaissance de l'évaluation des besoins du PHI\n• La joie dans la co-création de la promotion et des environnements de vie exigeants\n• Comprendre les questions de soins infirmiers et la volonté de travailler en étroite collaboration avec les infirmières\n• Vous êtes ouvert aux nouvelles choses et appréciez la communication transparente et le travail d'équipe engagé\n• Bonne connaissance de l'utilisateur informatique\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Ziegelei HRM Ziegeleistrasse 22 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Le jour où vous vivez la vie quotidienne avec nous\n• Vous signez le contrat\n• Tu prends la place\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
       },
+      "needsRetranslation": true,
       "location": "Steffisburg Ziegelei",
       "canton": "BE",
       "url": "https://jobs.solina.ch/offene-stellen/pflege-betreuung/sozialpaedagogin-sozialpaedagoge-686aezy7",
       "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:05:39.405Z",
+      "crawledAt": "2026-09-10T23:10:05.538Z",
       "addressLocality": "Steffisburg Ziegelei",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2451,11 +2434,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
+        "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei",
+        "pedagoga-sociale-pedagoga-sociale-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
+          "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei",
+          "pedagoga-sociale-pedagoga-sociale-stiftung-solina-steffisburg-ziegelei"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-solina-steffisburg-ziegelei"
@@ -2478,90 +2463,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "solina-b583b3103a94",
-      "slug": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl-4c2e91",
-      "slugByLocale": {
-        "it": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl-4c2e91",
-        "en": "professional-health-stiftung-solina-steffisburg-kirchbuhl-4c2e91",
-        "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "fr": "sante-professionnelle-stiftung-solina-steffisburg-kirchbuhl-4c2e91"
-      },
-      "company": "Stiftung Solina",
-      "companyKey": "solina",
-      "companyDomain": "solina.ch",
-      "title": "Fachfrau/Fachmann Gesundheit",
-      "titleByLocale": {
-        "it": "Salute professionale",
-        "en": "Professional Health",
-        "de": "Fachfrau/Fachmann Gesundheit",
-        "fr": "Santé professionnelle"
-      },
-      "description": "Fachfrau/Fachmann Gesundheit\n\nPensum / Standort: 60–80%, Steffisburg Kirchbühl\n\n## Mehr als Theorie Deine Zukunft beginnt hier\nFachfrau/Fachmann Gesundheit Nachtdienst, Befristet 60–80% Steffisburg Kirchbühl ab November 2026 oder nach Vereinbarung\nIn der Lehre lernst du nicht nur für den Beruf, sondern fürs Leben. In unserem Resilienzprogramm «Gmeinsam starch» stärkst du deine Persönlichkeit, lernst mit Stress umzugehen und bleibst auch dann cool, wenn’s mal schwierig wird.\nMach mit beim Projekt Zackstark : Bleib während der Ausbildung nikotinfrei und verzichte auf Rauchen, Snusen oder Vapen. Wir belohnen dich dafür mit CHF 500.- Franken pro Lehrjahr. Dein Körper freut sich, dein Portemonnaie auch.\nIn unseren regelmässigen Workshops trainierst du, was im Beruf zählt: von Kommunikation über Ernährung bis Körperpflege. Stets abwechslungsreich und auf deine Arbeit zugeschnitten.\n👉 Übrigens: Bei Solina profitierst du nicht nur während der Lehre von vielen Extras. Entdecke, was wir dir als Arbeitgeberin alles bieten: Hier findest du alle Vorteile im Überblick\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Im Berufswahlpraktikum erlebst du unseren Alltag\n• Du unterschreibst den Vertrag\n• Du trittst deine Lehrstelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
-      "descriptionByLocale": {
-        "it": "Salute professionale\n\nPensum / Ubicazione: 40–60%, Steffisburg Kirchbühl\n\n## Più della teoria Il tuo futuro inizia qui\nServizio notturno, Temporary 40–60% Steffisburg Kirchbühl dal novembre 2026 o d'accordo\nNell'insegnamento, si impara non solo per la vostra professione, ma per la vita. Nel nostro programma di resilienza “Gmeinsam amido” rafforzi la tua personalità, impari ad affrontare lo stress e rimanere fresco anche quando diventa difficile.\nUnisciti al progetto Zackstark: Rimani libero dalla nicotina durante l'allenamento e astenersi dal fumo, dal canto o dal vaping. Vi premiamo con CHF 500.- franchi per anno di apprendistato. Anche il tuo corpo e' felice, il tuo portafoglio.\nNei nostri laboratori regolari, si allena ciò che conta nella vostra professione: dalla comunicazione alla nutrizione alla cura personale. Sempre vario e su misura per il vostro lavoro.\nA proposito: A Solina si beneficia non solo durante l'insegnamento di molti extra. Scopri cosa ti offriamo come datore di lavoro: Qui troverete tutti i vantaggi a colpo d'occhio\n## Il tuo posto di lavoro\nLa Solina Kirchbühl di Steffisburg conta 73 dipendenti e 47 residenti.\nUlteriori informazioni sulla posizione\n## E' quello che fai\n• Cura e cura dei nostri residenti con diverse età e/o disturbi legati alla malattia durante la notte\n• Assistenza nell'ulteriore sviluppo del processo di cura\n## Lo porti con te.\n• Hai una laurea in salute o un riconoscimento SRK equivalente in Svizzera e hai già acquisito esperienza professionale\n• Ti piace lavorare in una squadra e durante la notte\n• Hai una buona conoscenza degli utenti IT\n• Autonomia e benessere dei nostri residenti sono una questione di cuore per voi\n• Ti piace assumerti la responsabilità e contribuire a competenze specifiche\n## Dal piatto alla terapia Così vario è il lavoro con Solina\n## Preferireste applicare per posta o per posta?\nlavori solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Tu mandi il Bewerbu ng\n• Controlliamo i vostri documenti\n• In una conversazione personale ci conosciamo\n• Nel tirocinio professionale si vive la nostra vita quotidiana\n• Firma il contratto\n• Prendi la tua posizione di insegnamento\n+41 33 439 94 36 lavoro solina ch\n\nLa Fondazione Solina gestisce diversi siti di cura e riabilitazione nell'Oberland Bernese, tra cui Solina Heiligenschwendi e Solina Spiez.",
-        "en": "Professional Health\n\nPensum / Location: 40–60%, Steffisburg Kirchbühl\n\n## More than theory Your future begins here\nNight service, Temporary 40–60% Steffisburg Kirchbühl from November 2026 or by agreement\nIn teaching, you learn not only for your profession, but for life. In our resilience program “Gmeinsam starch” you strengthen your personality, learn to deal with stress and stay cool even when it gets difficult.\nJoin the project Zackstark: Stay nicotine-free during training and refrain from smoking, snusing or vaping. We reward you with CHF 500.- francs per apprenticeship year. Your body is happy, your wallet too.\nIn our regular workshops, you will train what counts in your profession: from communication to nutrition to personal care. Always varied and tailored to your work.\n👉 By the way: At Solina you benefit not only during the teaching of many extras. Discover what we offer you as an employer: Here you will find all the advantages at a glance\n## Your place of work\nThe Solina Kirchbühl in Steffisburg has 73 employees and 47 residents.\nMore about the location\n## That's what you do\n• Care and care of our residents with different age and/or illness-related impairments during the night\n• Assistance in the further development of the caring process\n## You bring that with you\n• You have a degree as a specialist in health or an equivalent SRK recognition in Switzerland and have already gained professional experience\n• You like working in a team and during the night\n• You have good IT user knowledge\n• Autonomy and well-being of our residents are a matter of the heart for you\n• You enjoy taking responsibility and contributing specific competencies\n## From plate to therapy So diverse is the work with Solina\n## Would you rather apply by mail or post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• You send the Bewerbu ng\n• We check your documents\n• In a personal conversation we get to know each other\n• In the vocational internship you experience our everyday life\n• You sign the contract\n• You take up your teaching position\n+41 33 439 94 36 jobs solina ch\n\nThe Solina Foundation operates several nursing and rehabilitation sites in the Bernese Oberland, including Solina Heiligenschwendi and Solina Spiez.",
-        "de": "Fachfrau/Fachmann Gesundheit\n\nPensum / Standort: 60–80%, Steffisburg Kirchbühl\n\n## Mehr als Theorie Deine Zukunft beginnt hier\nFachfrau/Fachmann Gesundheit Nachtdienst, Befristet 60–80% Steffisburg Kirchbühl ab November 2026 oder nach Vereinbarung\nIn der Lehre lernst du nicht nur für den Beruf, sondern fürs Leben. In unserem Resilienzprogramm «Gmeinsam starch» stärkst du deine Persönlichkeit, lernst mit Stress umzugehen und bleibst auch dann cool, wenn’s mal schwierig wird.\nMach mit beim Projekt Zackstark : Bleib während der Ausbildung nikotinfrei und verzichte auf Rauchen, Snusen oder Vapen. Wir belohnen dich dafür mit CHF 500.- Franken pro Lehrjahr. Dein Körper freut sich, dein Portemonnaie auch.\nIn unseren regelmässigen Workshops trainierst du, was im Beruf zählt: von Kommunikation über Ernährung bis Körperpflege. Stets abwechslungsreich und auf deine Arbeit zugeschnitten.\n👉 Übrigens: Bei Solina profitierst du nicht nur während der Lehre von vielen Extras. Entdecke, was wir dir als Arbeitgeberin alles bieten: Hier findest du alle Vorteile im Überblick\n## Dein Arbeitsort\nIn der Solina Kirchbühl in Steffisburg arbeiten 73 Mitarbeitende und wohnen 47 Bewohner:innen.\nMehr zum Standort\n## Vom Teller bis zur Therapie So vielfältig ist die Arbeit bei Solina\n## Bewerbung lieber per Mail oder Post?\njobs solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Du schickst die Bewerbu ng ab\n• Wir prüfen deine Unterlagen\n• In einem persönlichen Gespräch lernen wir uns kennen\n• Im Berufswahlpraktikum erlebst du unseren Alltag\n• Du unterschreibst den Vertrag\n• Du trittst deine Lehrstelle an\n+41 33 439 94 36 jobs solina ch\n\nDie Stiftung Solina betreibt mehrere Pflege- und Rehabilitationsstandorte im Berner Oberland, darunter Solina Heiligenschwendi und Solina Spiez.",
-        "fr": "Santé professionnelle\n\nPensum / Endroit: 40–60%, Steffisburg Kirchbühl\n\n## Plus que la théorie Votre avenir commence ici\nService de nuit temporaire 40–60% Steffisburg Kirchbühl à partir de novembre 2026 ou par accord\nEn enseignant, vous apprenez non seulement pour votre profession, mais pour la vie. Dans notre programme de résilience, vous renforcez votre personnalité, apprenez à gérer le stress et restez cool même quand il devient difficile.\nRejoignez le projet Zackstark: Restez sans nicotine pendant l'entraînement et évitez de fumer, de ronfler ou de vapoter. Nous vous récompensons avec CHF 500.- francs par année d'apprentissage. Ton corps est heureux, ton portefeuille aussi.\nDans nos ateliers réguliers, vous formerez ce qui compte dans votre profession : de la communication à la nutrition aux soins personnels. Toujours varié et adapté à votre travail.\nAu fait: Chez Solina vous bénéficier non seulement pendant l'enseignement de nombreux extras. Découvrez ce que nous vous proposons en tant qu'employeur: Ici vous trouverez tous les avantages en un coup d'oeil\n## Votre lieu de travail\nLe Solina Kirchbühl à Steffisburg compte 73 employés et 47 résidents.\nEn savoir plus sur l'emplacement\n## C'est ce que tu fais\n• Soins et soins de nos résidents ayant des déficiences d'âge et/ou de maladie différentes pendant la nuit\n• Aide au développement du processus de prise en charge\n## Apporte ça avec toi.\n• Vous avez un diplôme de spécialiste en santé ou une reconnaissance SRK équivalente en Suisse et avez déjà acquis une expérience professionnelle\n• Vous aimez travailler en équipe et pendant la nuit\n• Vous avez une bonne connaissance de l'utilisateur informatique\n• L'autonomie et le bien-être de nos résidents sont une question de cœur pour vous\n• Vous aimez prendre des responsabilités et apporter des compétences spécifiques\n## De la plaque à la thérapie Le travail avec Solina est si varié\n## Préférez-vous postuler par courrier ou par la poste?\nemplois solina ch\nSolina Kirchbühl HRM Ortbühlweg 10 3612 Steffisburg\n• Vous envoyez le Bewerbu ng\n• Nous vérifions vos documents\n• Dans une conversation personnelle, on se connaît.\n• Dans le stage professionnel vous vivez notre vie quotidienne\n• Vous signez le contrat\n• Vous prenez votre poste d'enseignant\n+41 33 439 94 36 emplois solina ch\n\nLa Fondation Solina exploite plusieurs centres de soins infirmiers et de réadaptation dans l'Oberland bernois, dont Solina Heiligenschwendi et Solina Spiez."
-      },
-      "needsRetranslation": false,
-      "location": "Steffisburg Kirchbühl",
-      "canton": "BE",
-      "url": "https://jobs.solina.ch/offene-stellen/ausbildung-praktika/lehrstellen/fachfrau-fachmann-gesundheit-i7lc7tmq",
-      "source": "Stiftung Solina Dedicated Parser (TYPO3 + onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-09T13:48:04.906Z",
-      "addressLocality": "Steffisburg Kirchbühl",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://stiftung-solina.onlyfy.jobs/application/apply/ejp9huol0pul74lj858o3yai9mdcoh",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-        "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl-k7e30r"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl"
-        ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl",
-          "fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl-k7e30r"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T21:53:29.373Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     }
   ]
 }
