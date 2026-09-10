@@ -243,6 +243,18 @@ describe('fuel-daily page generation — content quality', () => {
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);
+    const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
+    // The CTR-facing title follows the exact regional query, while the
+    // visible H1 and WebPage JSON-LD name stay on the existing source label.
+    expect(itBenzinaRegional).toMatch(/<title>Prezzi benzina oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
+    expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina Svizzera oggi/i);
+    expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina Svizzera oggi — Ticino"');
+    for (const [path, html] of Object.entries(pages)) {
+      if (path === '/prezzi-benzina/oggi/') continue;
+      expect(html, `unexpected regional benzina title on ${path}`).not.toMatch(
+        /<title>Prezzi benzina oggi in Ticino ·/i,
+      );
+    }
     for (const html of Object.values(pages)) {
       expect(html).not.toMatch(/\sdark:[a-z-]+/);
     }

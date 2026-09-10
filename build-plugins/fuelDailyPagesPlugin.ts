@@ -1916,8 +1916,14 @@ function renderPage(inp: PageInputs): string {
   // that keeps title !== h1 and `audit:h1-title-duplicates` (baseline 0) green.
   // Falls back to the bare dated title when the price form would overflow the
   // 66-char budget, so this can never add an `audit:title-length` offender.
-  const titleWithDate = `${h1} (${dateDisplay})`;
-  const titleWithPrice = `${h1} · ${priceFmt} CHF/l (${dateDisplay})`;
+  // Match the regional Italian benzina query exactly in the SERP title. Keep
+  // the visible H1 and WebPage JSON-LD name unchanged: they are the source of
+  // the live page label and must not drift as a side effect of a metadata fix.
+  const titleHeadline = !zone && locale === 'it' && fuel === 'benzina'
+    ? 'Prezzi benzina oggi in Ticino'
+    : h1;
+  const titleWithDate = `${titleHeadline} (${dateDisplay})`;
+  const titleWithPrice = `${titleHeadline} · ${priceFmt} CHF/l (${dateDisplay})`;
   const titleBase = titleWithPrice.length <= 66 ? titleWithPrice : titleWithDate;
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
   // `clampMetaDescription` (160) in htmlTemplate always won over this 180-char
