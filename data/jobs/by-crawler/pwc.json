@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pwc",
-  "assembledAt": "2026-09-10T19:23:56.403Z",
+  "assembledAt": "2026-09-10T19:58:58.191Z",
   "jobs": [
     {
       "title": "Manager / Senior Manager – Operations & Manufacturing (Strategy & Transformation) 80-100%",
@@ -122,8 +122,8 @@
       "previousSlugsByLocale": {
         "it": [
           "inizio-carriera-in-audit-banking-autunno-2027-pwc-switzerland-luzern",
-          "career-start-in-audit-banking-herbst-2027-pwc-zurich",
-          "career-start-in-audit-banking-herbst-2027-pwc-luzern"
+          "career-start-in-audit-banking-herbst-2027-pwc-luzern",
+          "career-start-in-audit-banking-herbst-2027-pwc-zurich"
         ],
         "en": [
           "career-start-in-audit-banking-herbst-2027-pwc-luzern"
@@ -520,16 +520,16 @@
       "firstSeenAt": "2026-09-09T23:09:09.021Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-in-audit-insurance-herbst-2027-pwc-zurich",
-          "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich"
+          "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich",
+          "career-start-in-audit-insurance-herbst-2027-pwc-zurich"
         ],
         "fr": [
           "career-start-in-audit-insurance-herbst-2027-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "career-start-in-audit-insurance-herbst-2027-pwc-zurich",
-        "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich"
+        "inizio-carriera-in-audit-assicurazione-autunno-2027-pwc-switzerland-zurich",
+        "career-start-in-audit-insurance-herbst-2027-pwc-zurich"
       ],
       "needsRetranslation": true
     },
@@ -594,8 +594,8 @@
       "previousSlugsByLocale": {
         "it": [
           "inizio-carriera-in-audit-asset-management-autunno-2027-pwc-switzerland-zug",
-          "career-start-in-audit-asset-management-herbst-2027-pwc-zurich",
-          "career-start-in-audit-asset-management-herbst-2027-pwc-zug"
+          "career-start-in-audit-asset-management-herbst-2027-pwc-zug",
+          "career-start-in-audit-asset-management-herbst-2027-pwc-zurich"
         ],
         "en": [
           "career-start-in-audit-asset-management-herbst-2027-pwc-zug"
@@ -605,13 +605,15 @@
         ],
         "fr": [
           "debut-de-carriere-en-verification-gestion-d-actifs-automne-2027-pwc-switzerland-zug",
-          "career-start-in-audit-asset-management-herbst-2027-pwc-zug"
+          "career-start-in-audit-asset-management-herbst-2027-pwc-zug",
+          "career-start-in-audit-asset-management-herbst-2027-pwc-switzerland-zug"
         ]
       },
       "previousSlugs": [
         "inizio-carriera-in-audit-asset-management-autunno-2027-pwc-switzerland-zug",
         "career-start-in-audit-asset-management-herbst-2027-pwc-zug",
         "debut-de-carriere-en-verification-gestion-d-actifs-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-asset-management-herbst-2027-pwc-switzerland-zug",
         "career-start-in-audit-asset-management-herbst-2027-pwc-zurich"
       ]
     },
@@ -684,8 +686,8 @@
       },
       "previousSlugs": [
         "career-start-in-audit-asset-management-herbst-2027-pwc-zurich",
-        "career-start-in-audit-asset-management-herbst-2027-pwc-zug",
-        "debut-de-carriere-en-verification-gestion-d-actifs-automne-2027-pwc-switzerland-zug"
+        "debut-de-carriere-en-verification-gestion-d-actifs-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-asset-management-herbst-2027-pwc-zug"
       ],
       "needsRetranslation": true
     },
@@ -746,7 +748,34 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T19:17:47.787Z"
+      "firstSeenAt": "2026-09-10T19:17:47.787Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
+      ]
     },
     {
       "title": "Career Start - Audit Trade, Industries & Services - Herbst 2027",
@@ -808,11 +837,32 @@
       "firstSeenAt": "2026-09-10T19:17:47.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
       ]
     },
     {
@@ -875,11 +925,32 @@
       "firstSeenAt": "2026-09-10T19:17:47.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
       ]
     },
     {
@@ -942,11 +1013,32 @@
       "firstSeenAt": "2026-09-10T19:17:47.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
       ]
     },
     {
@@ -1009,11 +1101,32 @@
       "firstSeenAt": "2026-09-10T19:17:47.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
       ]
     },
     {
@@ -1076,11 +1189,32 @@
       "firstSeenAt": "2026-09-10T19:17:47.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "en": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "de": [
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
+        ],
+        "fr": [
+          "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+          "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich"
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "debut-de-carriere-en-verification-commerce-industries-et-services-automne-2027-pwc-switzerland-zug",
+        "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
       ]
     },
     {
@@ -1144,8 +1278,8 @@
         "it": [
           "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
           "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
-          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
-          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
+          "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+          "career-start-audit-trade-industries-services-herbst-2027-pwc-zug"
         ],
         "fr": [
           "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug"
@@ -1154,8 +1288,8 @@
       "previousSlugs": [
         "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zurich",
         "career-start-in-audit-trade-industries-services-herbst-2027-pwc-zug",
-        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug",
-        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug"
+        "carriera-inizio-audit-commercio-industrie-e-servizi-autunno-2027-pwc-switzerland-zug",
+        "career-start-audit-trade-industries-services-herbst-2027-pwc-zug"
       ],
       "needsRetranslation": true
     },
@@ -1217,19 +1351,19 @@
       },
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "previousSlugsByLocale": {
-        "it": [
-          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
-        ],
         "fr": [
           "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        ],
+        "it": [
+          "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ],
         "de": [
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich",
-        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich"
+        "directeur-cloud-data-ai-cd-ai-ia-generique-pwc-switzerland-zurich",
+        "director-cloud-data-ai-cd-ai-generative-ai-pwc-zurich"
       ],
       "needsRetranslation": true
     },
@@ -1421,19 +1555,19 @@
       },
       "firstSeenAt": "2026-09-09T13:51:57.507Z",
       "previousSlugsByLocale": {
-        "it": [
-          "director-cio-advisory-middle-markets-pwc-zurich"
-        ],
         "fr": [
           "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+        ],
+        "it": [
+          "director-cio-advisory-middle-markets-pwc-zurich"
         ],
         "de": [
           "director-cio-advisory-middle-markets-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "director-cio-advisory-middle-markets-pwc-zurich",
-        "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich"
+        "directeur-dpi-conseil-marches-moyens-pwc-switzerland-zurich",
+        "director-cio-advisory-middle-markets-pwc-zurich"
       ],
       "needsRetranslation": true
     },
@@ -1844,8 +1978,8 @@
       "firstSeenAt": "2026-09-03T13:39:27.948Z",
       "previousSlugsByLocale": {
         "it": [
-          "audit-career-start-financial-services-automne-2027-pwc-geneva",
           "audit-carriera-start-servizi-finanziari-autunno-2027-pwc-switzerland-geneva",
+          "audit-career-start-financial-services-automne-2027-pwc-geneva",
           "audit-career-start-financial-services-automne-2027-pwc-switzerland-geneva"
         ],
         "de": [
@@ -1853,8 +1987,8 @@
         ]
       },
       "previousSlugs": [
-        "audit-career-start-financial-services-automne-2027-pwc-geneva",
         "audit-carriera-start-servizi-finanziari-autunno-2027-pwc-switzerland-geneva",
+        "audit-career-start-financial-services-automne-2027-pwc-geneva",
         "audit-career-start-financial-services-automne-2027-pwc-switzerland-geneva"
       ],
       "needsRetranslation": true
@@ -3072,16 +3206,16 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "associate-fund-tax-reporting-pwc-zurich",
-          "associati-raccolta-di-fondi-pwc-switzerland-zurich"
+          "associati-raccolta-di-fondi-pwc-switzerland-zurich",
+          "associate-fund-tax-reporting-pwc-zurich"
         ],
         "fr": [
           "associate-fund-tax-reporting-pwc-zurich"
         ]
       },
       "previousSlugs": [
-        "associate-fund-tax-reporting-pwc-zurich",
-        "associati-raccolta-di-fondi-pwc-switzerland-zurich"
+        "associati-raccolta-di-fondi-pwc-switzerland-zurich",
+        "associate-fund-tax-reporting-pwc-zurich"
       ]
     },
     {
@@ -4924,8 +5058,8 @@
           "manager-imposta-sulle-societa-80-100-pwc-switzerland-lucerne",
           "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug",
           "manager-imposta-sulle-societa-80-100-pwc-switzerland-zug",
-          "manager-corporate-tax-80-100-pwc-lucerne",
-          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne"
+          "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne",
+          "manager-corporate-tax-80-100-pwc-lucerne"
         ],
         "fr": [
           "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug"
@@ -4936,8 +5070,8 @@
         "manager-imposta-sulle-societa-80-100-pwc-switzerland-lucerne",
         "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-zug",
         "manager-imposta-sulle-societa-80-100-pwc-switzerland-zug",
-        "manager-corporate-tax-80-100-pwc-lucerne",
-        "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne"
+        "gestionnaire-impot-sur-les-societes-80-100-pwc-switzerland-lucerne",
+        "manager-corporate-tax-80-100-pwc-lucerne"
       ]
     },
     {
