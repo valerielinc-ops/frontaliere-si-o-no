@@ -604,11 +604,13 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "ufficiale-di-controllo-interno-swissquote-gland"
+        "ufficiale-di-controllo-interno-swissquote-gland",
+        "internal-controlling-officer-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ufficiale-di-controllo-interno-swissquote-gland"
+          "ufficiale-di-controllo-interno-swissquote-gland",
+          "internal-controlling-officer-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-07T01:19:10.490Z",
@@ -2409,14 +2411,26 @@
       "firstSeenAt": "2026-09-09T13:59:13.201Z",
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-representative-swissquote-gland"
+          "customer-care-representative-swissquote-gland",
+          "rappresentante-del-cliente-swissquote-gland"
         ],
         "fr": [
-          "customer-care-representative-swissquote-gland"
+          "customer-care-representative-swissquote-gland",
+          "representant-du-service-clientele-swissquote-gland"
+        ],
+        "en": [
+          "customer-care-representative-swissquote-gland-ok5inj"
+        ],
+        "de": [
+          "customer-care-vertreter-swissquote-gland"
         ]
       },
       "previousSlugs": [
-        "customer-care-representative-swissquote-gland"
+        "customer-care-representative-swissquote-gland",
+        "rappresentante-del-cliente-swissquote-gland",
+        "customer-care-representative-swissquote-gland-ok5inj",
+        "customer-care-vertreter-swissquote-gland",
+        "representant-du-service-clientele-swissquote-gland"
       ]
     },
     {
