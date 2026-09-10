@@ -609,7 +609,11 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('find_trusted_npm()');
     expect(action).toContain('trusted_roots=()');
     expect(action).toContain('path_components_trusted()');
+    expect(action).toContain('runner_tool_cache="${RUNNER_TOOL_CACHE:-/opt/hostedtoolcache}"');
+    expect(action).toContain('RUNNER_TOOL_CACHE must be a fixed hosted-toolcache root.');
     expect(action).toContain('/opt/hostedtoolcache');
+    expect(action).toContain('/home/runner/work/_tool|/opt/hostedtoolcache');
+    expect(action).toContain('(( (8#$mode & 022) == 0 )) || return 1');
     expect(action).toContain('npm_realpath=');
     expect(action).toContain('gh_realpath=');
     expect(action).toContain('git_realpath=');
@@ -858,14 +862,17 @@ describe('copertura workflow diretti', () => {
 
   it('accetta permessi eseguibili 0755 e rifiuta directory group/world-writable', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
-    // The resolver intentionally rejects writable ancestors such as the
-    // runner's /tmp. Keep this positive fixture under the checkout, whose
-    // ancestors model the trusted toolcache path on GitHub-hosted runners.
+    // Model GitHub's /home/runner/work/_tool layout under a private fixture;
+    // the extracted resolver loop below maps the fixed trusted root to it.
     const runnerRoot = mkdtempSync(join(repoRoot, '.codex-mode-trust-'));
-    const trustedRoot = join(runnerRoot, 'trusted-bin');
+    const trustedRoot = join(runnerRoot, 'home', 'runner', 'work', '_tool', 'node', '22.23.2', 'x64', 'bin');
     const writableDir = join(runnerRoot, 'group-writable');
+    const workspace = join(runnerRoot, 'workspace');
+    const runnerTemp = join(runnerRoot, 'runner-temp');
     mkdirSync(trustedRoot, { recursive: true, mode: 0o755 });
     chmodSync(trustedRoot, 0o755);
+    mkdirSync(workspace, { recursive: true, mode: 0o755 });
+    mkdirSync(runnerTemp, { recursive: true, mode: 0o755 });
     copyFileSync(process.execPath, join(trustedRoot, 'node'));
     chmodSync(join(trustedRoot, 'node'), 0o755);
     writeFileSync(join(trustedRoot, 'npm-cli.js'), '// fixture npm launcher\n');
@@ -886,7 +893,7 @@ describe('copertura workflow diretti', () => {
       .map((line) => line.startsWith('        ') ? line.slice(8) : line)
       .join('\n')
       .replace(
-        'for trusted_root in /usr/bin /usr/local/bin /bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do',
+        'for trusted_root in /usr/bin /usr/local/bin /bin "$runner_tool_cache" /opt/hostedtoolcache /opt/runner /opt/homebrew; do',
         `for trusted_root in '${trustedRootQuoted}'; do`,
       );
     const script = [
@@ -898,6 +905,8 @@ describe('copertura workflow diretti', () => {
       'test "${node_mode: -3}" = 755',
       'npm_selected="$(find_trusted_npm)"',
       'case "$npm_selected" in *.js) ;; *) exit 1 ;; esac',
+      `if trusted_prefix '${realpathSync(workspace)}'; then exit 1; fi`,
+      `if trusted_prefix '${realpathSync(runnerTemp)}'; then exit 1; fi`,
       `if path_components_trusted '${writableDir}'; then exit 1; fi`,
     ].join('\n');
     try {

@@ -92,6 +92,11 @@ runs:
         workspace_root="${GITHUB_WORKSPACE:-${PWD:-$(pwd)}}"
         action_path="${CODEX_ACTION_PATH:?Codex action path unavailable}"
         runner_temp="${RUNNER_TEMP:-/tmp}"
+        runner_tool_cache="${RUNNER_TOOL_CACHE:-/opt/hostedtoolcache}"
+        case "$runner_tool_cache" in
+          /home/runner/work/_tool|/opt/hostedtoolcache) ;;
+          *) echo '::error::RUNNER_TOOL_CACHE must be a fixed hosted-toolcache root.'; exit 1 ;;
+        esac
         realpath_cmd=''
         for candidate_realpath in /usr/bin/realpath /bin/realpath; do
           if [ -x "$candidate_realpath" ]; then realpath_cmd="$candidate_realpath"; break; fi
@@ -105,7 +110,7 @@ runs:
         action_path="$(realpath "$action_path")"
         runner_temp="$(realpath "$runner_temp")"
         trusted_roots=()
-        for trusted_root in /usr/bin /usr/local/bin /bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do
+        for trusted_root in /usr/bin /usr/local/bin /bin "$runner_tool_cache" /opt/hostedtoolcache /opt/runner /opt/homebrew; do
           [ -d "$trusted_root" ] || continue
           trusted_root="$(realpath "$trusted_root" 2>/dev/null || true)"
           [ -n "$trusted_root" ] && trusted_roots+=("$trusted_root")
@@ -240,6 +245,7 @@ runs:
 
     - name: Snapshot Codex fallback runtime before Claude
       id: runtime_snapshot
+      if: steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         CODEX_ACTION_PATH: ${{ github.action_path }}
@@ -271,6 +277,7 @@ runs:
 
     - name: Decide Claude usage-limit fallback (preflight)
       id: preflight
+      if: steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         PREFLIGHT_BLOCKED: ${{ inputs.preflight_blocked }}
@@ -283,7 +290,7 @@ runs:
 
     - name: Run Claude primary
       id: claude
-      if: steps.preflight.outputs.fallback != 'true'
+      if: steps.trusted_node.outcome == 'success' && steps.preflight.outputs.fallback != 'true'
       continue-on-error: true
       uses: anthropics/claude-code-action@9c5ddab2e6d17b83ea679153b31f1d5f023cf636
       with:
@@ -297,7 +304,7 @@ runs:
 
     - name: Decide Claude usage-limit fallback (runtime)
       id: runtime
-      if: always()
+      if: always() && steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         PREFLIGHT_BLOCKED: "false"
@@ -311,7 +318,7 @@ runs:
 
     - name: Install pinned Codex CLI (without fallback credentials)
       id: codex_cli
-      if: steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true'
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true')
       shell: bash
       env:
         NPM_CONFIG_USERCONFIG: /dev/null
@@ -394,7 +401,7 @@ runs:
 
     - name: Prepare ephemeral Codex subscription auth
       id: codex_auth
-      if: steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true'
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true')
       shell: bash
       env:
         CODEX_AUTH_JSON: ${{ inputs.codex_auth_json }}
@@ -419,7 +426,7 @@ runs:
 
     - name: Run one Codex subscription fallback
       id: codex
-      if: (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true') && steps.codex_auth.outcome == 'success'
+      if: steps.trusted_node.outcome == 'success' && (steps.preflight.outputs.fallback == 'true' || steps.runtime.outputs.fallback == 'true') && steps.codex_auth.outcome == 'success'
       continue-on-error: true
       shell: bash
       env:
@@ -996,7 +1003,7 @@ runs:
 
     - name: Record structured Codex fallback evidence
       id: finalize
-      if: always()
+      if: always() && steps.trusted_node.outcome == 'success'
       shell: bash
       env:
         PREFLIGHT_FALLBACK: ${{ steps.preflight.outputs.fallback }}
@@ -1110,6 +1117,10 @@ runs:
       shell: bash
       run: |
         set -uo pipefail
+        if [ "${{ steps.trusted_node.outcome }}" != 'success' ]; then
+          echo '::error::Trusted Node runtime resolution failed; fallback steps were not run.'
+          exit 1
+        fi
         if [ "${{ steps.finalize.outputs.fallback_used }}" = 'true' ]; then
           if [ "${{ steps.finalize.outputs.fallback_success }}" = 'true' ]; then
             exit 0
