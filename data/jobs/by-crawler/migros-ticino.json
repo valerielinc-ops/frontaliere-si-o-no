@@ -630,7 +630,7 @@
     },
     {
       "id": "company-z3tlnz",
-      "slug": "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz",
+      "slug": "senior-responsabile-sviluppo-dopo-vendite-m-f-d-galaxus-dintikon",
       "company": "Galaxus",
       "title": "Senior After Sales Development Manager (w/m/d)",
       "location": "Dintikon",
@@ -698,10 +698,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz",
+        "it": "senior-responsabile-sviluppo-dopo-vendite-m-f-d-galaxus-dintikon",
         "en": "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz",
         "de": "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz",
-        "fr": "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz"
+        "fr": "responsable-senior-du-developpement-apres-vente-h-f-d-galaxus-dintikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -718,11 +718,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "senior-after-sales-development-manager-m-w-d-galaxus-dintikon"
+          "senior-after-sales-development-manager-m-w-d-galaxus-dintikon",
+          "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz"
+        ],
+        "fr": [
+          "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz"
         ]
       },
       "previousSlugs": [
-        "senior-after-sales-development-manager-m-w-d-galaxus-dintikon"
+        "senior-after-sales-development-manager-m-w-d-galaxus-dintikon",
+        "senior-after-sales-development-manager-m-w-d-galaxus-dintikon-z3tlnz"
       ],
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -1960,9 +1965,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "kassierer-in-e-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8",
-        "en": "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8",
+        "en": "cashier-and-deputy-head-of-cashier-s-office-administration-genossenschaft-migros-luzern-hochdorf",
         "de": "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8",
-        "fr": "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8"
+        "fr": "caissier-et-administrateur-adjoint-du-bureau-administration-du-caissier-genossenschaft-migros-luzern-hochdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1982,10 +1987,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf"
+        ],
+        "en": [
+          "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8"
+        ],
+        "fr": [
+          "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8"
         ]
       },
       "previousSlugs": [
-        "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf"
+        "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf",
+        "kassierer-in-und-stv-fachleiter-in-kasse-administration-genossenschaft-migros-luzern-hochdorf-lovpe8"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
