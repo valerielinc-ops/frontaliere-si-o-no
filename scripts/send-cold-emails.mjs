@@ -38,7 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildSequence, OPTOUT_EMAIL, selectOutreachMetric } from './generate-cold-emails.mjs';
-import { bodyToHtml } from './lib/cold-email-sequence.mjs';
+import { bodyToHtml, formatItalianPeriodLabel } from './lib/cold-email-sequence.mjs';
 import { classifySector } from './lib/employer-sectors.mjs';
 import { buildUnsubUrl } from './lib/outreach-unsubscribe-token.mjs';
 import { buildInsightsUrl } from './lib/employer-insights-token.mjs';
@@ -337,14 +337,17 @@ async function run() {
   const maxTouches = Number(arg('--max-touches', '4'));
   const onlyCompany = arg('--company', '');
   const from = arg('--from', FROM_DEFAULT);
-  const periodLabel = typeof arg('--days-label', 0) === 'string' ? arg('--days-label') : 'negli ultimi 3 mesi';
-
   const isTest = has('--test');
   const isSend = has('--send');
   const targetEmail = arg('--target-email', '');
 
   const report = loadJson(reportPath, null);
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
+  if (!report.window || typeof report.window !== 'object' || !report.window.from || !report.window.to) {
+    console.error('report senza finestra esplicita: nessuna attività di outreach eseguita');
+    process.exit(1);
+  }
+  const periodLabel = formatItalianPeriodLabel(`${report.window.from} → ${report.window.to}`);
   const contacts = loadJson(contactsPath, {});
   // Overlay admin-edited contacts (Firestore) on the local file so the recipient
   // / personalization fixed in the dashboard actually reaches dry-run, test and
@@ -389,7 +392,6 @@ async function run() {
     const metric = selectOutreachMetric(e);
     const seq = buildSequence({
       company: e.name,
-      candidates: e.candidates,
       metricValue: metric?.value,
       metricLabel: metric?.label,
       periodLabel,

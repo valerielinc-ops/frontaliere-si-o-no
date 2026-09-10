@@ -22,6 +22,52 @@ export const PRICE = 'CHF 49 al mese per annuncio';
 // Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
 export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
 
+const OUTREACH_TIME_ZONE = 'Europe/Zurich';
+const ITALIAN_MONTHS = [
+  'gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno',
+  'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre',
+];
+
+function calendarParts(value) {
+  const timestamp = Date.parse(String(value || '').trim());
+  if (!Number.isFinite(timestamp)) return null;
+  const date = new Date(timestamp);
+  try {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: OUTREACH_TIME_ZONE,
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    }).formatToParts(date);
+    const pick = (type) => Number(parts.find((part) => part.type === type)?.value);
+    const year = pick('year');
+    const month = pick('month');
+    const day = pick('day');
+    if ([year, month, day].every(Number.isFinite)) return { year, month, day };
+  } catch {
+    // A missing timezone database is safer as UTC than as a machine timestamp.
+  }
+  return { year: date.getUTCFullYear(), month: date.getUTCMonth() + 1, day: date.getUTCDate() };
+}
+
+function endDateArticle(day) {
+  return day === 8 || day === 11 ? `all'${day}` : `al ${day}`;
+}
+
+/** Convert an ISO range to readable Italian copy without changing the payload. */
+export function formatItalianPeriodLabel(periodLabel) {
+  const raw = String(periodLabel || '').trim();
+  const match = raw.match(/^(.+?)\s*→\s*(.+?)$/);
+  if (!match) return raw;
+  const from = calendarParts(match[1]);
+  const to = calendarParts(match[2]);
+  if (!from || !to || !ITALIAN_MONTHS[from.month - 1] || !ITALIAN_MONTHS[to.month - 1]) return raw;
+
+  const fromDate = `${from.day} ${ITALIAN_MONTHS[from.month - 1]}`;
+  const fromYear = from.year === to.year ? '' : ` ${from.year}`;
+  return `dal ${fromDate}${fromYear} ${endDateArticle(to.day)} ${ITALIAN_MONTHS[to.month - 1]} ${to.year}`;
+}
+
 /**
  * Le 4 email della sequenza. Personalizzazione Livello 4 (skill cold-email):
  * metrica dichiarata di interazione + RUOLO più cliccato, connessi al problema
@@ -47,7 +93,7 @@ export function buildSequence({ company, metricValue, metricLabel, periodLabel, 
           : 'segnali di interesse',
       }
     : null;
-  const period = String(periodLabel || '').trim();
+  const period = formatItalianPeriodLabel(periodLabel);
   const metricSentence = metric && period
     ? `${period} abbiamo registrato ${metric.value} ${metric.label} sugli annunci che pubblichiamo per voi su frontaliereticino.ch.`
     : '';

@@ -38,7 +38,7 @@ import { classifySector } from './lib/employer-sectors.mjs';
 // (AGENTS.md Non-Negotiable #6: no copy-paste of the touch bodies). Re-exported
 // here so send-cold-emails.mjs keeps importing the shared sequence and its
 // outreach metric selector from this file.
-import { buildSequence, OPTOUT_EMAIL } from './lib/cold-email-sequence.mjs';
+import { buildSequence, OPTOUT_EMAIL, formatItalianPeriodLabel } from './lib/cold-email-sequence.mjs';
 
 export { buildSequence, OPTOUT_EMAIL };
 
@@ -98,7 +98,7 @@ function run() {
     console.error('report senza finestra esplicita: nessuna bozza numerica generata');
     process.exit(1);
   }
-  const periodLabel = `${report.window.from} → ${report.window.to}`;
+  const periodLabel = formatItalianPeriodLabel(`${report.window.from} → ${report.window.to}`);
   const contacts = loadJson(path.resolve(contactsPath), {});
 
   // Nessuna azienda esclusa: top `top` per metrica, sopra la soglia `min`.
