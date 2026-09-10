@@ -264,4 +264,59 @@ describe('companyHubBridgePlugin — legacy aliases stay canton-scoped', () => {
     expect(legacyHtml).not.toContain('href="https://frontaliereticino.ch/aziende/nestle/"');
     expect(legacyHtml).not.toContain('history.replaceState');
   });
+
+  it('localizes the empty state and nearest-canton banner for non-Ticino sections', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'company-hub-non-ti-test-'));
+    tmpDirs.push(rootDir);
+
+    fs.mkdirSync(path.join(rootDir, 'dist'), { recursive: true });
+    fs.mkdirSync(path.join(rootDir, 'data', 'jobs', 'by-crawler'), { recursive: true });
+    fs.writeFileSync(
+      path.join(rootDir, 'data', 'jobs', 'by-crawler', 'nestle.json'),
+      JSON.stringify({
+        crawlerKey: 'nestle',
+        assembledAt: new Date().toISOString(),
+        jobs: [
+          { id: 'nestle-be-1', company: 'Nestlé', companyKey: 'nestle', canton: 'BE' },
+          { id: 'nestle-vd-1', company: 'Nestlé', companyKey: 'nestle', canton: 'VD' },
+        ],
+      }),
+      'utf-8',
+    );
+    fs.writeFileSync(
+      path.join(rootDir, 'data', 'employer-profiles.json'),
+      JSON.stringify({
+        profiles: [{ slug: 'nestle', name: 'Nestlé', cantons: [{ name: 'VD', count: 58 }, { name: 'BE', count: 10 }] }],
+      }),
+      'utf-8',
+    );
+    fs.writeFileSync(
+      path.join(rootDir, 'data', 'gsc-company-hubs.json'),
+      JSON.stringify({
+        hubs: [{
+          locale: 'it',
+          companySlug: 'nestle',
+          url: 'https://frontaliereticino.ch/cerca-lavoro-vaud/azienda-nestle/',
+          kind: 'unmatched',
+          displayName: 'Nestlé',
+          jobCount: 0,
+        }],
+      }),
+      'utf-8',
+    );
+
+    const plugin = companyHubBridgePlugin(rootDir) as unknown as {
+      closeBundle: { handler: () => Promise<void> };
+    };
+    await plugin.closeBundle.handler();
+
+    const legacyPath = path.join(rootDir, 'dist', 'cerca-lavoro-vaud', 'azienda-nestle', 'index.html');
+    const legacyHtml = fs.readFileSync(legacyPath, 'utf-8');
+    expect(legacyHtml).toContain('Nessun annuncio di Nestlé in Vaud');
+    expect(legacyHtml).toContain('Non risultano annunci attivi di Nestlé in Vaud');
+    expect(legacyHtml).toContain('data-company-canton-fallback');
+    expect(legacyHtml).toContain('10 annunci');
+    expect(legacyHtml).toContain('href="https://frontaliereticino.ch/cerca-lavoro-berna/azienda-nestle/"');
+    expect(legacyHtml).not.toContain('Nessun annuncio di Nestlé in Ticino');
+  });
 });
