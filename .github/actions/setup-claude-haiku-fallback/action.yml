@@ -86,14 +86,22 @@ runs:
           exit 0
         fi
         chmod 700 "$codex_prefix"
+        npm_home="$codex_prefix/npm-home"
+        npm_cache="$codex_prefix/npm-cache"
+        mkdir -p "$npm_home" "$npm_cache"
+        chmod 700 "$npm_home" "$npm_cache"
         npmrc="$codex_prefix/npmrc"
         : > "$npmrc"
         chmod 600 "$npmrc"
-        # No auth secret is in this step. Also ignore any runner-level package
-        # credentials while downloading the pinned public package.
-        if ! env -u CODEX_AUTH_JSON -u CODEX_AUTH_FILE -u CODEX_API_KEY \
-          -u OPENAI_API_KEY -u OPENAI_BASE_URL -u ANTHROPIC_API_KEY \
-          -u CLAUDE_CODE_OAUTH_TOKEN NPM_CONFIG_USERCONFIG="$npmrc" \
+        # Run npm with a throw-away environment. This strips all job-level
+        # credentials (including GitHub and package-manager tokens) and keeps
+        # user config/cache inside this action-owned temporary prefix.
+        if ! env -i \
+          PATH="$PATH" \
+          HOME="$npm_home" \
+          CI="true" \
+          NPM_CONFIG_USERCONFIG="$npmrc" \
+          npm_config_cache="$npm_cache" \
           npm install --prefix "$codex_prefix" --no-save --no-package-lock \
             --no-fund --no-audit @openai/codex@0.153.4; then
           echo "::warning::Codex CLI install failed; Claude and the normal fallback cascade remain available"
