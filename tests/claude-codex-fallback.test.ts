@@ -606,6 +606,7 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
     expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
     expect(action).toContain('find_trusted_tool()');
+    expect(action).toContain('find_trusted_npm()');
     expect(action).toContain('trusted_roots=()');
     expect(action).toContain('path_components_trusted()');
     expect(action).toContain('/opt/hostedtoolcache');
@@ -645,7 +646,7 @@ describe('copertura workflow diretti', () => {
     expect(installBlock).toContain('env -i');
     expect(installBlock).toContain('NPM_CONFIG_USERCONFIG=/dev/null');
     expect(installBlock).toContain('TRUSTED_NPM: ${{ steps.trusted_node.outputs.npm_realpath }}');
-    expect(installBlock).toContain('"$trusted_npm" install --global');
+    expect(installBlock).toContain('"$trusted_node" "$trusted_npm" install --global');
     expect(installBlock).toContain('PATH="$(/usr/bin/dirname "$trusted_npm"):$(/usr/bin/dirname "$trusted_node"):/usr/bin:/bin"');
     expect(installBlock).toContain('npm_config_prefix="$codex_prefix"');
     expect(installBlock).toContain('codex_path="$codex_prefix/bin/codex"');
@@ -834,7 +835,7 @@ describe('copertura workflow diretti', () => {
       'set -euo pipefail',
       resolverSource,
       'for tool in node npm gh git; do',
-      '  selected="$(find_trusted_tool "$tool" || true)"',
+      '  if [ "$tool" = npm ]; then selected="$(find_trusted_npm || true)"; else selected="$(find_trusted_tool "$tool" || true)"; fi',
       '  test -z "$selected"',
       'done',
     ].join('\n');
@@ -852,6 +853,62 @@ describe('copertura workflow diretti', () => {
     } finally {
       rmSync(runnerRoot, { recursive: true, force: true });
       rmSync(evilDir, { recursive: true, force: true });
+    }
+  });
+
+  it('accetta permessi eseguibili 0755 e rifiuta directory group/world-writable', () => {
+    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
+    const runnerRoot = mkdtempSync(join(tmpdir(), 'codex-mode-trust-'));
+    const trustedRoot = join(runnerRoot, 'trusted-bin');
+    const writableDir = join(runnerRoot, 'group-writable');
+    mkdirSync(trustedRoot, { recursive: true, mode: 0o755 });
+    chmodSync(trustedRoot, 0o755);
+    copyFileSync(process.execPath, join(trustedRoot, 'node'));
+    chmodSync(join(trustedRoot, 'node'), 0o755);
+    writeFileSync(join(trustedRoot, 'npm-cli.js'), '// fixture npm launcher\n');
+    chmodSync(join(trustedRoot, 'npm-cli.js'), 0o755);
+    symlinkSync('npm-cli.js', join(trustedRoot, 'npm'));
+    mkdirSync(writableDir, { recursive: true, mode: 0o775 });
+    chmodSync(writableDir, 0o775);
+    const stepStart = action.indexOf('    - name: Resolve trusted Node runtime');
+    const snapshotStart = action.indexOf('    - name: Snapshot Codex fallback runtime before Claude');
+    const step = action.slice(stepStart, snapshotStart);
+    const functionStart = step.indexOf('        workspace_root=');
+    const functionEnd = step.indexOf('\n        node_realpath=', functionStart);
+    expect(functionStart).toBeGreaterThanOrEqual(0);
+    expect(functionEnd).toBeGreaterThan(functionStart);
+    const trustedRootQuoted = trustedRoot.replaceAll("'", "'\\''");
+    const resolverSource = step.slice(functionStart, functionEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n')
+      .replace(
+        'for trusted_root in /usr/bin /usr/local/bin /bin /opt/hostedtoolcache /opt/runner /opt/homebrew; do',
+        `for trusted_root in '${trustedRootQuoted}'; do`,
+      );
+    const script = [
+      'set -euo pipefail',
+      resolverSource,
+      `selected="$(find_trusted_tool node)"`,
+      'test -x "$selected"',
+      'node_mode="$(stat_mode "$selected")"',
+      'test "${node_mode: -3}" = 755',
+      'npm_selected="$(find_trusted_npm)"',
+      'case "$npm_selected" in *.js) ;; *) exit 1 ;; esac',
+      `if path_components_trusted '${writableDir}'; then exit 1; fi`,
+    ].join('\n');
+    try {
+      execFileSync('/bin/bash', ['-c', script], {
+        encoding: 'utf8',
+        env: {
+          PATH: trustedRoot,
+          GITHUB_WORKSPACE: realpathSync(runnerRoot),
+          CODEX_ACTION_PATH: realpathSync(runnerRoot),
+          RUNNER_TEMP: realpathSync(runnerRoot),
+        },
+      });
+    } finally {
+      rmSync(runnerRoot, { recursive: true, force: true });
     }
   });
 

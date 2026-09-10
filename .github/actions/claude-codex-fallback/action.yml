@@ -125,7 +125,14 @@ runs:
             owner="$(stat_owner "$current")"
             [ -n "$mode" ] && [ -n "$owner" ] || return 1
             mode="${mode: -3}"
-            case "${mode:1:2}" in *[2-7]*) return 1 ;; esac
+            case "$mode" in
+              [0-7][0-7][0-7]) ;;
+              *) return 1 ;;
+            esac
+            # `stat` prints an octal permission string (for example 0755).
+            # Interpret it as octal before masking group/other write bits;
+            # matching the literal digits would incorrectly reject 5 (r-x).
+            (( (8#$mode & 022) == 0 )) || return 1
             [ "$owner" = '0' ] || [ "$owner" = "$current_uid" ] || return 1
             [ "$current" = '/' ] && break
             parent="$(/usr/bin/dirname "$current")"
@@ -158,6 +165,27 @@ runs:
             case "$resolved" in
               *.mjs|*.js) continue ;;
             esac
+            [ -f "$resolved" ] || continue
+            printf '%s' "$resolved"
+            return 0
+          done < <(printf '%s\n' "${PATH:-}" | "$tr_cmd" ':' '\n')
+          return 1
+        }
+        find_trusted_npm() {
+          local path_entry candidate resolved
+          while IFS= read -r path_entry; do
+            [ -n "$path_entry" ] || continue
+            case "$path_entry" in /*) ;; *) continue ;; esac
+            candidate="$path_entry/npm"
+            [ -f "$candidate" ] || continue
+            [ -x "$candidate" ] || continue
+            resolved="$(realpath "$candidate" 2>/dev/null || true)"
+            [ -n "$resolved" ] || continue
+            trusted_prefix "$resolved" || continue
+            path_components_trusted "$resolved" || continue
+            # npm is a JavaScript launcher. It is safe here because it is
+            # invoked through the already-attested Node executable below.
+            case "$resolved" in *.js) ;; *) continue ;; esac
             [ -f "$resolved" ] || continue
             printf '%s' "$resolved"
             return 0
@@ -199,7 +227,7 @@ runs:
         }
         node_sha256="$(sha256_file "$node_realpath")"
         [ -n "$node_sha256" ] || { echo '::error::Unable to attest trusted Node runtime.'; exit 1; }
-        npm_realpath="$(find_trusted_tool npm || true)"
+        npm_realpath="$(find_trusted_npm || true)"
         gh_realpath="$(find_trusted_tool gh || true)"
         git_realpath="$(find_trusted_tool git || true)"
         npm_sha256=''; gh_sha256=''; git_sha256=''
@@ -337,7 +365,7 @@ runs:
           NPM_CONFIG_USERCONFIG=/dev/null \
           npm_config_cache="$install_home/cache" \
           npm_config_prefix="$codex_prefix" \
-          "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
+          "$trusted_node" "$trusted_npm" install --global --no-fund --no-audit @openai/codex@0.153.4 >/dev/null
         codex_path="$codex_prefix/bin/codex"
         case "$codex_path" in
           /*) ;;
