@@ -85,7 +85,10 @@ describe('the hub URL has one shape, whoever builds it', () => {
       "const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${locale}`);",
     );
     expect(plugin).toContain(
-      'const profilePath = (locale: Locale, slug: string): string => `${localePrefix(locale)}/aziende/${slug}/`;',
+      "import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';",
+    );
+    expect(plugin).toContain(
+      'const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);',
     );
   });
 
@@ -280,6 +283,20 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     const src = readRepoFile('components/community/JobBoard.tsx');
     const renders = src.split('<EmployerHubCta').length - 1;
     expect(renders, 'JobBoard must render the hub CTA in the gate AND the detail').toBe(2);
+  });
+
+  it('the active detail company link prefers the proven profile and keeps a safe fallback', () => {
+    const link = readRepoFile('components/community/EmployerCompanyLink.tsx');
+    const board = readRepoFile('components/community/JobBoard.tsx');
+
+    expect(link).toContain("from '@/hooks/useEmployerHub'");
+    expect(link).toContain('href={employerHub?.href ?? fallbackHref}');
+    expect(link).toContain("Analytics.trackSelectContent('employer_hub_open', employerHub.slug)");
+    expect(link).toContain('onFallbackClick(event)');
+    expect(board).toContain("from '@/components/community/EmployerCompanyLink'");
+    expect(board.split('<EmployerCompanyLink').length - 1).toBe(2);
+    expect(board).toContain('fallbackHref={gateCompanyHref}');
+    expect(board).toContain('fallbackHref={companySearchHref}');
   });
 
   it('the runtime helper covers all four locales', () => {

@@ -31,6 +31,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
 import { createPublisherApplyEventId, trackPublisherJobView, trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 import PublisherApplyForm from '@/components/community/PublisherApplyForm';
+import EmployerCompanyLink from '@/components/community/EmployerCompanyLink';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import {
@@ -8056,11 +8057,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="flex-1 min-w-0">
  <h1 className="text-xl font-bold font-display text-heading leading-tight break-words [hyphens:auto]">{localizedTitle}</h1>
  <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
- <a
- href={gateCompanyHref}
- onClickCapture={openGateCompanyFilter}
+ <EmployerCompanyLink
+ company={companyName}
+ companyKey={selectedJob.companyKey}
+ locale={locale as Locale}
+ fallbackHref={gateCompanyHref}
+ onFallbackClick={openGateCompanyFilter}
  className="inline-flex items-center gap-1 hover:text-accent hover:underline underline-offset-2 transition-colors"
- ><Building2 size={14} />{companyName}</a>
+ >
+ <Building2 size={14} />{companyName}
+ </EmployerCompanyLink>
  {jobLocation && gateLocationHref && (
  <a
  href={gateLocationHref}
@@ -8935,11 +8941,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-warning fill-warning" />}
  </h1>
  <p className="mt-1 text-sm text-body break-words">
- <a
- href={companySearchHref}
- onClickCapture={openCompanyFilter}
+ <EmployerCompanyLink
+ company={selectedJob.company}
+ companyKey={selectedJob.companyKey}
+ locale={locale as Locale}
+ fallbackHref={companySearchHref}
+ onFallbackClick={openCompanyFilter}
  className="hover:text-accent hover:underline underline-offset-2 transition-colors"
- >{selectedJob.company}</a>
+ >{selectedJob.company}
+ </EmployerCompanyLink>
  {' · '}
  {detailLocationHref ? (
  <a
