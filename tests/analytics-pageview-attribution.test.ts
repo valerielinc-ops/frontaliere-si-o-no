@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { collapseTechnicalDuplicates } from '../scripts/build-employer-insights.mjs';
 
 vi.mock('@/services/posthog', () => ({ captureEvent: vi.fn() }));
 
@@ -121,13 +122,13 @@ describe('GA4 page_view employer attribution', () => {
     );
     const { getPageViewEmissionId } = await loadAnalyticsHelpers();
     const path = '/offerte-di-lavoro-ticino/async-page-view/';
-    const first = getPageViewEmissionId(path, null, 1);
-    const retry = getPageViewEmissionId(path, { path, emissionId: first, historyEntry: 1 }, 1);
+    const first = getPageViewEmissionId(path, null, 'entry-1');
+    const retry = getPageViewEmissionId(path, { path, emissionId: first, historyEntry: 'entry-1' }, 'entry-1');
     const nextRoute = getPageViewEmissionId('/offerte-di-lavoro-ticino/next/', {
       path,
       emissionId: first,
-      historyEntry: 1,
-    }, 2);
+      historyEntry: 'entry-1',
+    }, 'entry-2');
 
     expect(retry).toBe(first);
     expect(nextRoute).not.toBe(first);
@@ -140,8 +141,16 @@ describe('GA4 page_view employer attribution', () => {
     const path = '/offerte-di-lavoro-ticino/direct-page-view-retry/';
     const now = vi.spyOn(Date, 'now');
     now.mockReturnValueOnce(1_000).mockReturnValueOnce(1_501);
+    let historyState: Record<string, unknown> = { route: { activeTab: 'job-board' } };
+    const historyRef = {
+      length: 1,
+      get state() { return historyState; },
+      replaceState: vi.fn((nextState: Record<string, unknown>) => { historyState = nextState; }),
+      pushState: vi.fn(),
+    };
     vi.stubGlobal('window', {
       location: { origin: 'https://example.test', pathname: path },
+      history: historyRef,
     });
     vi.stubGlobal('document', { title: 'Direct page-view retry' });
     capture.mockClear();
@@ -167,9 +176,15 @@ describe('GA4 page_view employer attribution', () => {
     const path = '/offerte-di-lavoro-ticino/same-route-new-visit/';
     const now = vi.spyOn(Date, 'now');
     now.mockReturnValueOnce(2_000).mockReturnValueOnce(2_501);
+    let historyState: Record<string, unknown> = { route: { entry: 'first' } };
     const pageWindow = {
       location: { origin: 'https://example.test', pathname: path },
-      history: { length: 1 },
+      history: {
+        length: 2,
+        get state() { return historyState; },
+        replaceState: vi.fn((nextState: Record<string, unknown>) => { historyState = nextState; }),
+        pushState: vi.fn(),
+      },
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
     };
@@ -179,13 +194,53 @@ describe('GA4 page_view employer attribution', () => {
 
     try {
       Analytics.trackPageView(path);
-      pageWindow.history.length = 2;
+      expect(historyState).toMatchObject({ route: { entry: 'first' } });
+      historyState = { route: { entry: 'second' } };
       Analytics.trackPageView(path);
 
       const pageViews = capture.mock.calls.filter(([eventName]) => eventName === '$pageview');
       expect(pageViews).toHaveLength(2);
       expect(pageViews[0][1]).toMatchObject({ emission_id: expect.any(String) });
       expect(pageViews[1][1].emission_id).not.toBe(pageViews[0][1].emission_id);
+    } finally {
+      now.mockRestore();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('does not guess an entry id when history state cannot be extended', async () => {
+    const { Analytics } = await loadAnalyticsHelpers();
+    const { captureEvent } = await import('@/services/posthog');
+    const capture = vi.mocked(captureEvent);
+    const path = '/offerte-di-lavoro-ticino/unidentifiable-history-entry/';
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValueOnce(3_000).mockReturnValueOnce(3_501);
+    const historyRef = {
+      length: 2,
+      state: 'state-owned-by-another-navigation',
+      replaceState: vi.fn(),
+      pushState: vi.fn(),
+    };
+    vi.stubGlobal('window', {
+      location: { origin: 'https://example.test', pathname: path },
+      history: historyRef,
+    });
+    vi.stubGlobal('document', { title: 'Unidentifiable history entry' });
+    capture.mockClear();
+
+    try {
+      Analytics.trackPageView(path);
+      Analytics.trackPageView(path);
+
+      const pageViews = capture.mock.calls.filter(([eventName]) => eventName === '$pageview');
+      expect(pageViews).toHaveLength(2);
+      expect(pageViews.every(([, params]) => !Object.prototype.hasOwnProperty.call(params, 'emission_id'))).toBe(true);
+      const result = collapseTechnicalDuplicates(pageViews.map(([, params]) => ({
+        event: '$pageview',
+        observed: 1,
+        emissionId: params.emission_id || '',
+      })));
+      expect(result).toMatchObject({ observed: 2, removed: 0, dedupUnavailable: 2 });
     } finally {
       now.mockRestore();
       vi.unstubAllGlobals();

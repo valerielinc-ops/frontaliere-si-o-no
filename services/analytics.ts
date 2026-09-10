@@ -196,10 +196,49 @@ export function createAnalyticsEmissionId(): string {
  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
+export const PAGE_VIEW_HISTORY_STATE_KEY = '__frontaliere_page_view_entry_id';
+
+type HistoryStateRecord = Record<string, unknown>;
+
+function isHistoryStateRecord(value: unknown): value is HistoryStateRecord {
+ if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
+ try {
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+ } catch {
+  return false;
+ }
+}
+
+function readPageViewHistoryEntryId(state: unknown): string | null {
+ if (!isHistoryStateRecord(state)) return null;
+ const value = state[PAGE_VIEW_HISTORY_STATE_KEY];
+ return typeof value === 'string' && value.trim() ? value : null;
+}
+
+function stateForNewPageViewHistoryEntry(state: unknown, entryId: string): HistoryStateRecord | null {
+ if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
+ if (!isHistoryStateRecord(state)) return null;
+ return { ...state, [PAGE_VIEW_HISTORY_STATE_KEY]: entryId };
+}
+
+function stateForReplacedPageViewHistoryEntry(
+ state: unknown,
+ currentEntryId: string | null,
+ entryId: string,
+): HistoryStateRecord | null {
+ if (state == null) return { [PAGE_VIEW_HISTORY_STATE_KEY]: currentEntryId || entryId };
+ if (!isHistoryStateRecord(state)) return null;
+ return {
+  ...state,
+  [PAGE_VIEW_HISTORY_STATE_KEY]: readPageViewHistoryEntryId(state) || currentEntryId || entryId,
+ };
+}
+
 export interface AnalyticsPageViewEmission {
  path: string;
  emissionId: string;
- historyEntry: number | null;
+ historyEntry: string | null;
 }
 
 /**
@@ -210,8 +249,9 @@ export interface AnalyticsPageViewEmission {
 export function getPageViewEmissionId(
  path: string,
  current: AnalyticsPageViewEmission | null,
- historyEntry: number | null,
+ historyEntry: string | null,
 ): string {
+ if (!historyEntry) return '';
  if (
   current?.path === path
   && current.emissionId
@@ -419,12 +459,87 @@ let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
 let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let pageViewLifecycleWindow: Window | null = null;
+let pageViewHistoryPatch: {
+ history: History;
+ originalPushState: History['pushState'];
+ originalReplaceState: History['replaceState'];
+ patchedPushState?: History['pushState'];
+ patchedReplaceState?: History['replaceState'];
+} | null = null;
 let _maxScrollDepth = 0;
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
 
 function closePageViewLifecycle(): void {
  currentPageViewEmission = null;
+}
+
+function restorePageViewHistoryPatch(): void {
+ if (!pageViewHistoryPatch) return;
+ const patch = pageViewHistoryPatch;
+ try {
+  if (patch.patchedPushState && patch.history.pushState === patch.patchedPushState) {
+   patch.history.pushState = patch.originalPushState;
+  }
+  if (patch.patchedReplaceState && patch.history.replaceState === patch.patchedReplaceState) {
+   patch.history.replaceState = patch.originalReplaceState;
+  }
+ } catch {
+  // History methods may be non-writable in a constrained host.
+ }
+ pageViewHistoryPatch = null;
+}
+
+function patchPageViewHistory(historyRef: History): void {
+ restorePageViewHistoryPatch();
+ const originalPushState = historyRef.pushState;
+ const originalReplaceState = historyRef.replaceState;
+ const patch: NonNullable<typeof pageViewHistoryPatch> = {
+  history: historyRef,
+  originalPushState,
+  originalReplaceState,
+ };
+
+ if (typeof originalPushState === 'function') {
+  const patchedPushState = function patchedPageViewPushState(
+   this: History,
+   state: unknown,
+   unused: string,
+   url?: string | URL | null,
+  ): void {
+   const entryId = createAnalyticsEmissionId();
+   const nextState = stateForNewPageViewHistoryEntry(state, entryId);
+   return originalPushState.call(this, nextState || state, unused, url);
+  } as History['pushState'];
+  try {
+   historyRef.pushState = patchedPushState;
+   patch.patchedPushState = patchedPushState;
+  } catch {
+   // Leave the host's History API untouched if it cannot be patched.
+  }
+ }
+
+ if (typeof originalReplaceState === 'function') {
+  const patchedReplaceState = function patchedPageViewReplaceState(
+   this: History,
+   state: unknown,
+   unused: string,
+   url?: string | URL | null,
+  ): void {
+   const currentEntryId = readPageViewHistoryEntryId(this.state);
+   const entryId = createAnalyticsEmissionId();
+   const nextState = stateForReplacedPageViewHistoryEntry(state, currentEntryId, entryId);
+   return originalReplaceState.call(this, nextState || state, unused, url);
+  } as History['replaceState'];
+  try {
+   historyRef.replaceState = patchedReplaceState;
+   patch.patchedReplaceState = patchedReplaceState;
+  } catch {
+   // Leave the host's History API untouched if it cannot be patched.
+  }
+ }
+
+ if (patch.patchedPushState || patch.patchedReplaceState) pageViewHistoryPatch = patch;
 }
 
 function ensurePageViewLifecycle(): void {
@@ -439,6 +554,8 @@ function ensurePageViewLifecycle(): void {
  }
 
  pageViewLifecycleWindow = window;
+ const historyRef = (window as unknown as { history?: History }).history;
+ if (historyRef) patchPageViewHistory(historyRef);
  closePageViewLifecycle();
  if (typeof window.addEventListener === 'function') {
   window.addEventListener('popstate', closePageViewLifecycle, true);
@@ -446,11 +563,22 @@ function ensurePageViewLifecycle(): void {
  }
 }
 
-function currentPageViewHistoryEntry(): number | null {
+function ensureCurrentPageViewHistoryEntryId(): string | null {
  if (typeof window === 'undefined') return null;
  const historyRef = (window as unknown as { history?: History }).history;
- const length = historyRef?.length;
- return typeof length === 'number' && Number.isInteger(length) ? length : null;
+ if (!historyRef) return null;
+ const currentEntryId = readPageViewHistoryEntryId(historyRef.state);
+ if (currentEntryId) return currentEntryId;
+ if (typeof historyRef.replaceState !== 'function') return null;
+ const entryId = createAnalyticsEmissionId();
+ const nextState = stateForReplacedPageViewHistoryEntry(historyRef.state, null, entryId);
+ if (!nextState) return null;
+ try {
+  historyRef.replaceState(nextState, '', '');
+  return readPageViewHistoryEntryId(historyRef.state) === entryId ? entryId : null;
+ } catch {
+  return null;
+ }
 }
 
 const getEngagementTime = () => Math.round((Date.now() - sessionStartTime) / 1000);
@@ -1012,7 +1140,7 @@ export const Analytics = {
  trackPageView: (path: string, title?: string, identity?: AnalyticsPageViewIdentity | null) => {
  ensurePageViewLifecycle();
  const now = Date.now();
- const historyEntry = currentPageViewHistoryEntry();
+ const historyEntry = ensureCurrentPageViewHistoryEntryId();
  if (
   path === lastTrackedPagePath
   && now - lastTrackedPageAt < 500
