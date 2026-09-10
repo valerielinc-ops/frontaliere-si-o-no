@@ -165,6 +165,32 @@ describe('_claimTitleRequeueBudget — the counter is per-process, not global', 
   });
 });
 
+describe('ensureLocaleFields — short existing localized titles are queued', () => {
+  it('clears a 1–2 character non-source slot before stable-content handling', () => {
+    const out = ensureLocaleFields({
+      id: 'short-existing-localized-title',
+      title: 'Ingenieurwesen',
+      sourceLang: 'de',
+      company: 'Demo AG',
+      location: 'Chur',
+      description:
+        'Wir suchen eine engagierte Persoenlichkeit fuer unser Team in der Haustechnik. ' +
+        'Die Stelle umfasst die Planung und Koordination von Projekten im Tagesgeschaeft.',
+      titleByLocale: {
+        de: 'Ingenieurwesen',
+        it: 'AB',
+        en: 'Engineer',
+        fr: 'Ingénieur',
+      },
+      descriptionByLocale: {},
+      slugByLocale: {},
+    }) as { titleByLocale?: Record<string, string>; needsRetranslation?: boolean };
+
+    expect(out.titleByLocale?.it).toBe('');
+    expect(out.needsRetranslation).toBe(true);
+  });
+});
+
 describe('ensureLocaleFields — unreachable from the scheduled crawler fan-out', () => {
   it('is the only consumer of the requeue budget, and is called from one guarded line', () => {
     const src = readFileSync(resolve(ROOT, 'scripts/lib/shared-jobs-crawler.mjs'), 'utf-8');

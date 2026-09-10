@@ -1974,6 +1974,15 @@ export function ensureLocaleFields(job) {
 
   for (const locale of LOCALES) {
     const currentTitle = normalizeSpace(titleByLocale[locale] || '');
+    // A non-source slot with a pre-existing 1–2 character title is not a
+    // translated title and must not fall through the stable-content branch.
+    // Clear it before the source-copy/empty-slot split so the next
+    // localization pass receives an explicit retranslation signal.
+    if (locale !== titleSourceLang && currentTitle && !hasUsableTitle(currentTitle)) {
+      titleByLocale[locale] = '';
+      out.needsRetranslation = true;
+      continue;
+    }
     if (locale === titleSourceLang) {
       if (!currentTitle || currentTitle !== sourceTitle) {
         if (sourceTitle) titleByLocale[locale] = sourceTitle;
