@@ -36,6 +36,10 @@ const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 // A question is disposable only with the explicit review suffix used by the
 // contract. Words such as "deferred" inside the question itself stay open.
 const NON_FUNNEL_QUESTION_RE = /(?:^|[—–])\s*(?:deferred\s*,\s*)?(?:non[-\s]?funnel(?:[-\s]?critical)?|not[-\s]?funnel(?:[-\s]?critical)?|deferred)\s*[.!]?\s*$/iu;
+// Reviewers also use `❓ q:` for operational/report-only checks. Only a
+// question that explicitly names a funnel surface needs a non-funnel
+// disposition before the outside-only exception can apply.
+const FUNNEL_CRITICAL_QUESTION_RE = /\b(?:funnel(?:[-\s]?critical)?|conversion|checkout|redirect|canonical|routing|route|cta|call[-\s]?to[-\s]?action|click(?:s|ed)?|landing|signup|transaction|affiliate|attribution|pubref|partnerize|campaign|seo)\b/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -242,7 +246,9 @@ function emptyClassification(findings = []) {
 // explicitly disposes of every question as non-funnel/deferred.
 function hasUnresolvedFunnelQuestion(body) {
   return String(body || '').split(/\r?\n/u).some((line) =>
-    QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
+    QUESTION_MARKER_RE.test(line)
+      && FUNNEL_CRITICAL_QUESTION_RE.test(line)
+      && !NON_FUNNEL_QUESTION_RE.test(line));
 }
 
 /**
