@@ -1,21 +1,21 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-09-10T19:52:01.198Z",
-  "total": 7,
+  "generatedAt": "2026-09-10T20:15:22.896Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 7,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10563,
-  "avgDurationMs": 10563,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8969,
+  "avgDurationMs": 8969,
   "durationHistory": [
-    10563
+    8969
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/2BC999723E/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:45.722Z",
+      "crawledAt": "2026-09-10T20:15:10.555Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -70,7 +70,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/DCBD3D6F1B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:44.408Z",
+      "crawledAt": "2026-09-10T20:15:09.027Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -108,7 +108,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:44.719Z",
+      "crawledAt": "2026-09-10T20:15:09.424Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -146,7 +146,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:45.588Z",
+      "crawledAt": "2026-09-10T20:15:10.394Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -185,7 +185,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:45.321Z",
+      "crawledAt": "2026-09-10T20:15:10.084Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -224,7 +224,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-10T19:51:45.152Z",
+      "crawledAt": "2026-09-10T20:15:09.930Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -251,8 +251,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "sophia-genetics-10b09fa34d3b",
       "slug": "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle",
@@ -296,5 +295,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
