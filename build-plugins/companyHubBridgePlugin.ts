@@ -19,9 +19,13 @@
  *     - body: H1 "Annunci di {Company}" + count + locale lede
  *     - SPA hydrates with company filter → real listings + AdSense
  *
- *   unmatched (11 URLs, company has rotated out or never existed):
- *     - canonical → section landing
- *     - body: "Azienda non disponibile" + browse-all CTA
+ *   unmatched (company has rotated out or never existed):
+ *     - when an evergreen `/aziende/<slug>/` profile exists, reuse that full
+ *       HTML and silently rewrite the browser URL to the canonical profile;
+ *       this is the cross-canton fix for legacy aliases such as Nestlé's
+ *       Ticino-scoped URL;
+ *     - otherwise canonical → Switzerland-wide aggregator and body:
+ *       "Azienda non disponibile" + browse-all CTA
  *
  * Both: `robots: 'index,follow'`, collision-safe.
  *
@@ -40,6 +44,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { COMPANY_ROUTE_PREFIX } from './shared/cantonSection';
 import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
+import { buildEmployerProfilePath, canonicalCompanyProfileSlug } from './shared/companyProfileSlug.mjs';
 import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -209,6 +214,55 @@ function buildAggregatorCanonical(locale: Locale): string {
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${AGGREGATOR_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
 }
 
+interface EmployerProfileAlias {
+  readonly canonicalPath: string;
+  readonly indexPath: string;
+}
+
+/**
+ * Resolve a legacy company-hub alias to an already-emitted evergreen employer
+ * profile. The legacy URL may contain either the old URL slug or a crawler's
+ * display-name slug; try both, plus declared brand aliases, while keeping the
+ * canonical profile emitter as the only producer of the page HTML.
+ */
+function resolveEmployerProfileAlias(distDir: string, entry: HubEntry): EmployerProfileAlias | null {
+  const candidates = new Set<string>([
+    entry.companySlug,
+    canonicalCompanyProfileSlug(entry.displayName),
+  ]);
+  const brandCanonical = resolveBrandCanonical(entry.companySlug);
+  if (brandCanonical) candidates.add(brandCanonical);
+
+  for (const slug of candidates) {
+    if (!slug) continue;
+    const canonicalPath = buildEmployerProfilePath(entry.locale, slug);
+    const indexPath = path.join(distDir, canonicalPath, 'index.html');
+    if (fs.existsSync(indexPath)) return { canonicalPath, indexPath };
+  }
+  return null;
+}
+
+/** Add the same pre-hydration URL rewrite used by matched job bridges. */
+function addEmployerProfileAliasRewrite(html: string, legacyPath: string, canonicalPath: string): string {
+  const safeLegacy = JSON.stringify(legacyPath);
+  const safeCanonical = JSON.stringify(canonicalPath);
+  const script = `<script>(function(){try{if(location.pathname===${safeLegacy}){history.replaceState(null,'',${safeCanonical}+location.search+location.hash);}}catch(e){}})();</script>`;
+  return html.includes('</head>') ? html.replace('</head>', `${script}\n </head>`) : html;
+}
+
+/** Reuse the canonical profile artifact so aliases have the full job list,
+ * structured data and ad cadence even without JavaScript. */
+function renderEmployerProfileAlias(entry: HubEntry, distDir: string): string | null {
+  const alias = resolveEmployerProfileAlias(distDir, entry);
+  if (!alias) return null;
+  try {
+    const html = fs.readFileSync(alias.indexPath, 'utf-8');
+    return addEmployerProfileAliasRewrite(html, buildEntryHubPath(entry), alias.canonicalPath);
+  } catch {
+    return null;
+  }
+}
+
 // Reverse-derive [sectionSlug, locale] tuples from the cathedral-allowed
 // SECTION_SLUG map above so the cathedral-no-ti-hardcodes guard only has
 // to track a single canonical source for the TI legacy section literals.
@@ -293,9 +347,9 @@ function parseCompanyHubUrl(rawUrl: string): ParsedCompanyHubUrl | null {
  *  4. `data/jobs/by-crawler/<key>.json`    — forward coverage for every crawler-known company.
  *
  * Entries are always emitted as `kind: 'unmatched'` because the canonical
- * company landing for in-dataset companies is already emitted by
- * `jobsSeoPagesPlugin`; the bridge's existing `fs.existsSync` guard skips
- * any auto-discovered slug whose canonical HTML was already written.
+ * company landing for in-dataset companies is already emitted by the other
+ * SSG plugins. At closeBundle the bridge first reuses an emitted evergreen
+ * employer profile when one matches, then falls back to its generic bridge.
  */
 export function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
   const seen = new Map<string, HubEntry>(); // key = `${locale}::${companySlug}`
@@ -602,11 +656,16 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const brandCanonicalSlug = resolveBrandCanonical(entry.companySlug);
-        const html = (brandCanonicalSlug && isBrandAlias(entry.companySlug))
-          ? renderBrandAliasBridge(entry, brandCanonicalSlug)
-          : entry.kind === 'matched'
-            ? renderMatchedPage(entry, distDir)
-            : renderUnmatchedPage(entry, distDir);
+        const profileAliasHtml = entry.kind === 'unmatched' &&
+          !(brandCanonicalSlug && isBrandAlias(entry.companySlug))
+          ? renderEmployerProfileAlias(entry, distDir)
+          : null;
+        const html = profileAliasHtml
+          ?? ((brandCanonicalSlug && isBrandAlias(entry.companySlug))
+            ? renderBrandAliasBridge(entry, brandCanonicalSlug)
+            : entry.kind === 'matched'
+              ? renderMatchedPage(entry, distDir)
+              : renderUnmatchedPage(entry, distDir));
 
         try {
           fs.mkdirSync(path.dirname(indexTarget), { recursive: true });

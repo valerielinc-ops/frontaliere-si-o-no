@@ -22,7 +22,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as os from 'node:os';
-import { autoDiscoverCompanyHubs } from '../../build-plugins/companyHubBridgePlugin';
+import { autoDiscoverCompanyHubs, companyHubBridgePlugin } from '../../build-plugins/companyHubBridgePlugin';
 
 describe('companyHubBridgePlugin — autoDiscoverCompanyHubs locale coverage (#3310)', () => {
   const tmpDirs: string[] = [];
@@ -196,5 +196,60 @@ describe('companyHubBridgePlugin — autoDiscoverCompanyHubs seeds legacy compan
     );
     const hubs = autoDiscoverCompanyHubs(rootDir).filter((h) => h.companySlug === 'no-key-co');
     expect(hubs.length).toBe(4);
+  });
+});
+
+describe('companyHubBridgePlugin — legacy aliases reuse evergreen employer profiles', () => {
+  const tmpDirs: string[] = [];
+
+  afterEach(() => {
+    for (const dir of tmpDirs.splice(0)) {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('serves the complete profile HTML for a cross-canton legacy company URL', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'company-hub-profile-alias-test-'));
+    tmpDirs.push(rootDir);
+
+    fs.mkdirSync(path.join(rootDir, 'data', 'jobs', 'by-crawler'), { recursive: true });
+    fs.writeFileSync(
+      path.join(rootDir, 'data', 'jobs', 'by-crawler', 'nestle.json'),
+      JSON.stringify({
+        crawlerKey: 'nestle',
+        assembledAt: new Date().toISOString(),
+        jobs: [{ id: 'nestle-1', company: 'Nestlé', companyKey: 'nestle', canton: 'VD' }],
+      }),
+      'utf-8',
+    );
+
+    const canonicalProfilePath = path.join(rootDir, 'dist', 'aziende', 'nestle', 'index.html');
+    fs.mkdirSync(path.dirname(canonicalProfilePath), { recursive: true });
+    fs.writeFileSync(
+      canonicalProfilePath,
+      '<!doctype html><html><head><link rel="canonical" href="https://frontaliereticino.ch/aziende/nestle/"></head>' +
+        '<body><main data-profile-list><article class="jc-card">Nestlé job</article>' +
+        '<li class="ft-infeed-ad">ad</li></main></body></html>',
+      'utf-8',
+    );
+
+    const plugin = companyHubBridgePlugin(rootDir) as unknown as {
+      closeBundle: { handler: () => Promise<void> };
+    };
+    await plugin.closeBundle.handler();
+
+    const legacyPath = path.join(
+      rootDir,
+      'dist',
+      'cerca-lavoro-ticino',
+      'azienda-nestle',
+      'index.html',
+    );
+    const legacyHtml = fs.readFileSync(legacyPath, 'utf-8');
+    expect(legacyHtml).toContain('data-profile-list');
+    expect(legacyHtml).toContain('ft-infeed-ad');
+    expect(legacyHtml).toContain('href="https://frontaliereticino.ch/aziende/nestle/"');
+    expect(legacyHtml).toContain('history.replaceState');
+    expect(legacyHtml).not.toContain('nessun annuncio attivo');
   });
 });
