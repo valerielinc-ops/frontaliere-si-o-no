@@ -455,7 +455,6 @@ const setProps = (properties: Record<string, string>) => {
 let sessionStartTime = Date.now();
 let currentScreen = '/';
 let previousScreen = '';
-let lastTrackedPagePath = '';
 let lastTrackedPageAt = 0;
 let currentPageViewEmission: AnalyticsPageViewEmission | null = null;
 let pageViewLifecycleWindow: Window | null = null;
@@ -1141,12 +1140,9 @@ export const Analytics = {
  ensurePageViewLifecycle();
  const now = Date.now();
  const historyEntry = ensureCurrentPageViewHistoryEntryId();
- if (
-  path === lastTrackedPagePath
-  && now - lastTrackedPageAt < 500
-  && currentPageViewEmission
-  && currentPageViewEmission.historyEntry === historyEntry
- ) return;
+ // Do not use elapsed time to decide whether to emit. Re-emissions for the
+ // same history entry carry the same emission id and are collapsed downstream;
+ // a new entry gets a different id even when it has the same path.
  // NOTE: We intentionally do NOT skip Firebase page_view even when
  // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
  //
@@ -1168,7 +1164,6 @@ export const Analytics = {
  }
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
- lastTrackedPagePath = path;
  lastTrackedPageAt = now;
  previousScreen = currentScreen;
  currentScreen = path;

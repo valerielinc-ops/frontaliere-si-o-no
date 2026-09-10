@@ -247,6 +247,46 @@ describe('GA4 page_view employer attribution', () => {
     }
   });
 
+  it('does not time-debounce a retry that carries the same emission id', async () => {
+    const { Analytics } = await loadAnalyticsHelpers();
+    const { captureEvent } = await import('@/services/posthog');
+    const capture = vi.mocked(captureEvent);
+    const path = '/offerte-di-lavoro-ticino/rapid-page-view-retry/';
+    const now = vi.spyOn(Date, 'now');
+    now.mockReturnValueOnce(4_000).mockReturnValueOnce(4_200);
+    let historyState: Record<string, unknown> = { route: { entry: 'same' } };
+    const historyRef = {
+      length: 1,
+      get state() { return historyState; },
+      replaceState: vi.fn((nextState: Record<string, unknown>) => { historyState = nextState; }),
+      pushState: vi.fn(),
+    };
+    vi.stubGlobal('window', {
+      location: { origin: 'https://example.test', pathname: path },
+      history: historyRef,
+    });
+    vi.stubGlobal('document', { title: 'Rapid page-view retry' });
+    capture.mockClear();
+
+    try {
+      Analytics.trackPageView(path);
+      Analytics.trackPageView(path);
+
+      const pageViews = capture.mock.calls.filter(([eventName]) => eventName === '$pageview');
+      expect(pageViews).toHaveLength(2);
+      expect(pageViews[1][1].emission_id).toBe(pageViews[0][1].emission_id);
+      const result = collapseTechnicalDuplicates(pageViews.map(([, params]) => ({
+        event: '$pageview',
+        observed: 1,
+        emissionId: params.emission_id || '',
+      })));
+      expect(result).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
+    } finally {
+      now.mockRestore();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('uses the same canonical identity for job_apply instead of a display-name route slug', () => {
     const applyBlock = jobBoardSource.match(
       /const trackPublisherApplySignals = \(job: JobListing[\s\S]*?return eventId;/,
