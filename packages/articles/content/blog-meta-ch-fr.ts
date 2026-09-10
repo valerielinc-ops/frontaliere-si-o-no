@@ -6253,6 +6253,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35 : Amherd risque d\'être responsable des coûts supplémentaires',
     'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG constate qu\'Amherd était au courant des risques de coûts F-35 mois plus tôt. Prescription triennale arrivant à échéance, Wyssmann demande l\'interruption.',
     'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Palais fédéral à Berne avec drapeau suisse au coucher du soleil',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist nommé directeur adjoint de l\'Administration fédérale des finances',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter nomme Stefan Leist directeur adjoint de l\'aff à compter du 1er octobre 2026. Déjà à la tête de la division Politique financière depuis le 1er mars 2026.',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stéfan Leist, nouveau directeur adjoint de l\'Administration fédérale des finances',
 };
 
 export default blogMetaChFr;

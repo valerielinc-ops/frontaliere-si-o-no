@@ -6253,6 +6253,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.f-35-amherd-prescrizione-responsabilita.title': 'F-35: Amherd rischia responsabilità per costi extra',
     'blog.article.f-35-amherd-prescrizione-responsabilita.excerpt': 'CdG accerta che Amherd sapeva dei rischi costi F-35 mesi prima. Prescrizione triennale in scadenza, Wyssmann chiede interruzione.',
     'blog.article.f-35-amherd-prescrizione-responsabilita.imageAlt': 'Palazzo federale a Berna con bandiera svizzera al tramonto',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.title': 'Stefan Leist nominato vicedirettore Amministrazione federale finanze',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.excerpt': 'Karin Keller-Sutter nomina Stefan Leist vicedirettore AFF dal 1° ottobre 2026. Già alla guida della divisione Politica finanziaria dal 1° marzo 2026.',
+    'blog.article.stefan-leist-vicedirettore-aff-2026.imageAlt': 'Stefan Leist, nuovo vicedirettore dell\'Amministrazione federale delle finanze',
 };
 
 export default blogMetaChIt;
