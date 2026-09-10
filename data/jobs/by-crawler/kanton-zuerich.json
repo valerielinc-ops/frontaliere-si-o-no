@@ -393,7 +393,7 @@
         "it": "aspirante-di-polizia-kantonale-verwaltung-zurich-zurich-002669",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich-002669",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
+        "fr": "aspirant-policier-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -447,7 +447,7 @@
         "aspirante-polizia-kantonale-verwaltung-zurich-zurich",
         "police-aspirant-in-kantonale-verwaltung-zurich-zurich",
         "aspirante-in-polizia-kantonale-verwaltung-zurich-zurich",
-        "aspirant-policier-kantonale-verwaltung-zurich-zurich"
+        "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -466,7 +466,7 @@
         ],
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
-          "aspirant-policier-kantonale-verwaltung-zurich-zurich"
+          "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z",
@@ -900,7 +900,7 @@
         "it": "supervisore-supervisora-operatore-operatrice-gestione-operativa-cambio-di-carriera-benvenuto-kantonale-verwaltung-zurich",
         "en": "supervisor-officer-operations-coordination-career-changers-welcome-kantonale-verwaltung-zurich-zurich",
         "de": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kanton-zuerich",
-        "fr": "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
+        "fr": "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -988,7 +988,7 @@
         "superviseur-superviseur-en-participants-lateraux-bienvenue-kantonale-verwaltung-zurich-zurich",
         "aufseher-in-betreuer-in-candidato-a-in-riqualificazione-willkommen-kantonale-verwaltung-zurich-zurich",
         "overseer-supervisor-in-lateral-entrants-welcome-kantonale-verwaltung-zurich-zurich",
-        "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
+        "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1012,7 +1012,7 @@
         "fr": [
           "surveillant-accompagnateur-nouveaux-arrivants-bienvenus-kantonale-verwaltung-zurich",
           "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich-zurich",
-          "superviseur-superviseur-disposition-operationnelle-accueil-des-participants-kantonale-verwaltung-zurich-zurich"
+          "aufseher-in-betreuer-in-betriebsdisposition-quereinsteiger-willkommen-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-08-28T05:31:01.828Z",
@@ -6328,12 +6328,12 @@
     },
     {
       "id": "kanton-zuerich-178666eab9ea",
-      "slug": "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich",
+      "slug": "area-di-autorizzazione-principale-team-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "teamchef-in-bewilligungsbereich-kanton-zuerich-zurich",
-        "it": "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich",
-        "en": "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich",
-        "fr": "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich"
+        "it": "area-di-autorizzazione-principale-team-kantonale-verwaltung-zurich-zurich",
+        "en": "team-principal-authorization-area-kantonale-verwaltung-zurich-zurich",
+        "fr": "zone-d-autorisation-principale-de-l-equipe-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6382,11 +6382,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "teamchef-in-bewilligungsbereich-kanton-zuerich-zurich"
+          "teamchef-in-bewilligungsbereich-kanton-zuerich-zurich",
+          "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich"
+        ],
+        "en": [
+          "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "teamchef-in-bewilligungsbereich-kanton-zuerich-zurich"
+        "teamchef-in-bewilligungsbereich-kanton-zuerich-zurich",
+        "teamchef-in-bewilligungsbereich-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8902,9 +8910,9 @@
     },
     {
       "id": "kanton-zuerich-df66f5fc942b",
-      "slug": "rekursjurist-in-befristet-kantonale-verwaltung-zurich",
+      "slug": "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "rekursjurist-in-befristet-kantonale-verwaltung-zurich",
+        "it": "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich",
         "en": "appeal-lawyer-fixed-term-kantonale-verwaltung-zurich-zurich",
         "de": "rekursjurist-in-befristet-kanton-zuerich-zurich",
         "fr": "juriste-en-recours-cdd-kantonale-verwaltung-zurich-zurich"
@@ -8985,12 +8993,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "rekursjurist-in-befristet-kanton-zuerich-zurich",
-        "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich"
+        "rekursjurist-in-befristet-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rekursjurist-in-befristet-kanton-zuerich-zurich",
-          "avvocato-di-ricorso-temporaneo-kantonale-verwaltung-zurich-zurich"
+          "rekursjurist-in-befristet-kantonale-verwaltung-zurich"
         ],
         "en": [
           "rekursjurist-in-befristet-kanton-zuerich-zurich"
@@ -10730,7 +10738,7 @@
       "slug": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
-        "en": "rektor-rektorin-kantonale-verwaltung-zurich",
+        "en": "rector-rector-kantonale-verwaltung-zurich-zurich",
         "de": "rektor-rektorin-kanton-zuerich-zurich",
         "fr": "recteur-recteur-kantonale-verwaltung-zurich-zurich"
       },
@@ -10780,7 +10788,7 @@
       "previousSlugs": [
         "rektor-rektorin-kanton-zuerich-zurich",
         "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-        "rector-rector-kantonale-verwaltung-zurich-zurich"
+        "rektor-rektorin-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10788,7 +10796,7 @@
         ],
         "en": [
           "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-          "rector-rector-kantonale-verwaltung-zurich-zurich"
+          "rektor-rektorin-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "rektor-rektorin-kanton-zuerich-zurich"
@@ -11250,12 +11258,12 @@
     },
     {
       "id": "kanton-zuerich-d9bd710388b0",
-      "slug": "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich",
+      "slug": "insegnante-di-scuola-secondaria-mba-per-francese-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "mittelschullehrperson-mba-fur-franzosisch-kanton-zuerich-zurich",
-        "it": "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich",
-        "en": "mittelschullehrperson-mba-fur-franzosisch-kantonale-verwaltung-zurich-zurich",
-        "fr": "mittelschullehrperson-mba-fur-franzosisch-kantonale-verwaltung-zurich-zurich"
+        "it": "insegnante-di-scuola-secondaria-mba-per-francese-kantonale-verwaltung-zurich-zurich",
+        "en": "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich",
+        "fr": "professeur-d-enseignement-secondaire-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11307,20 +11315,25 @@
           "mittelschullehrperson-mba-fur-franzosisch-kanton-zuerich-zurich",
           "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich-b4r0fh",
           "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich",
-          "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich"
+          "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich",
+          "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich"
         ],
         "en": [
-          "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich"
+          "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich",
+          "mittelschullehrperson-mba-fur-franzosisch-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich"
+          "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich",
+          "mittelschullehrperson-mba-fur-franzosisch-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "mittelschullehrperson-mba-fur-franzosisch-kanton-zuerich-zurich",
         "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich-b4r0fh",
         "secondary-school-teacher-mba-for-french-kantonale-verwaltung-zurich-zurich",
-        "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich"
+        "professeur-d-ecole-secondaire-mba-pour-le-francais-kantonale-verwaltung-zurich-zurich",
+        "mittelschullehrperson-mba-per-franzosisch-kantonale-verwaltung-zurich",
+        "mittelschullehrperson-mba-fur-franzosisch-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -11339,12 +11352,12 @@
     },
     {
       "id": "kanton-zuerich-7a2c207f0bef",
-      "slug": "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
+      "slug": "scuola-sociale-scuola-primaria-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
       "slugByLocale": {
         "de": "schulsozialarbeiter-in-primarschule-danikon-huttikon-kanton-zuerich-danikon-huttikon",
-        "it": "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
-        "en": "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
-        "fr": "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
+        "it": "scuola-sociale-scuola-primaria-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
+        "en": "school-social-worker-primary-school-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon",
+        "fr": "travailleur-social-scolaire-ecole-primaire-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11393,11 +11406,19 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-primarschule-danikon-huttikon-kanton-zuerich-danikon-huttikon"
+          "schulsozialarbeiter-in-primarschule-danikon-huttikon-kanton-zuerich-danikon-huttikon",
+          "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiter-in-primarschule-danikon-huttikon-kanton-zuerich-danikon-huttikon"
+        "schulsozialarbeiter-in-primarschule-danikon-huttikon-kanton-zuerich-danikon-huttikon",
+        "schulsozialarbeiter-in-primarschule-danikon-huttikon-kantonale-verwaltung-zurich-danikon-huttikon"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -12048,7 +12069,7 @@
         "it": "controllore-medico-kantonale-verwaltung-zurich-zurich",
         "en": "medical-controller-kantonale-verwaltung-zurich-zurich",
         "de": "medizincontroller-in-kanton-zuerich-zurich",
-        "fr": "medizincontroller-in-kantonale-verwaltung-zurich"
+        "fr": "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12129,8 +12150,7 @@
         "medizincontroller-in-kantonale-verwaltung-zurich-zurich",
         "medizincontroller-in-kantonale-verwaltung-zurich",
         "controleur-medical-kantonale-verwaltung-zurich-zurich",
-        "le-controleur-medical-kantonale-verwaltung-zurich-zurich",
-        "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
+        "le-controleur-medical-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12145,7 +12165,7 @@
           "controleur-medical-kantonale-verwaltung-zurich-zurich",
           "medizincontroller-in-kantonale-verwaltung-zurich-zurich",
           "le-controleur-medical-kantonale-verwaltung-zurich-zurich",
-          "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich"
+          "medizincontroller-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-08-19T09:50:22.960Z",
@@ -14211,12 +14231,12 @@
     },
     {
       "id": "kanton-zuerich-a2f4a6af1bc7",
-      "slug": "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon",
+      "slug": "marchio-di-manutenzione-stradale-specializzato-kantonale-verwaltung-zurich-pfaffikon",
       "slugByLocale": {
         "de": "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon",
-        "it": "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon",
-        "en": "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon",
-        "fr": "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon"
+        "it": "marchio-di-manutenzione-stradale-specializzato-kantonale-verwaltung-zurich-pfaffikon",
+        "en": "specialist-road-maintenance-marking-kantonale-verwaltung-zurich-pfaffikon",
+        "fr": "marquage-specialise-de-l-entretien-des-routes-kantonale-verwaltung-zurich-pfaffikon"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14265,11 +14285,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon"
+          "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon",
+          "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon"
+        ],
+        "en": [
+          "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon"
+        ],
+        "fr": [
+          "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon"
         ]
       },
       "previousSlugs": [
-        "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon"
+        "facharbeiter-in-strassenunterhalt-markierung-kanton-zuerich-pfaffikon",
+        "facharbeiter-in-strassenunterhalt-markierung-kantonale-verwaltung-zurich-pfaffikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14615,9 +14643,9 @@
     },
     {
       "id": "kanton-zuerich-eee285028d74",
-      "slug": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistenti-temporanei-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistenti-temporanei-kantonale-verwaltung-zurich-regensdorf",
         "en": "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf",
         "de": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf"
@@ -14668,13 +14696,15 @@
       "previousSlugs": [
         "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
         "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
-        "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf"
+        "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
+        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
           "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
-          "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf"
+          "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:00.841Z",
@@ -16002,7 +16032,7 @@
         "it": "supervisore-supervisore-che-lavora-in-amministrazione-e-sede-kantonale-verwaltung-zurich-horgen",
         "en": "supervisor-supervisor-working-in-administration-and-headquarters-kantonale-verwaltung-zurich-horgen",
         "de": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
-        "fr": "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
+        "fr": "superviseurs-superviseurs-travaillant-dans-l-administration-et-le-siege-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16050,7 +16080,8 @@
       "previousSlugs": [
         "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
         "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen",
-        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
+        "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen",
+        "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16061,7 +16092,8 @@
           "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
         ],
         "fr": [
-          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
+          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen",
+          "superviseur-superviseur-travaillant-dans-l-administration-et-le-quartier-general-kantonale-verwaltung-zurich-horgen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:42.444Z",

@@ -1724,12 +1724,12 @@
     },
     {
       "id": "ksw-78acbc0cff05",
-      "slug": "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "dipendente-dipendente-ufficio-ore-centro-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch",
-        "it": "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        "it": "dipendente-dipendente-ufficio-ore-centro-kantonsspital-winterthur-ksw-winterthur",
+        "en": "employee-employee-office-hours-centre-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "centre-d-heures-de-bureau-des-employes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1775,11 +1775,19 @@
       "department": "Pflege Chirurgie",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

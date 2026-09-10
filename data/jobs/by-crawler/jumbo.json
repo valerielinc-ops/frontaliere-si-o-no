@@ -17873,12 +17873,12 @@
     },
     {
       "id": "jumbo-a1e55fe6-2a4",
-      "slug": "verkaufsberater-in-do-it-jumbo-eyholz",
+      "slug": "consulente-commerciale-do-it-jumbo-eyholz",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "it": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "en": "verkaufsberater-in-do-it-jumbo-eyholz",
-        "fr": "verkaufsberater-in-do-it-jumbo-eyholz"
+        "it": "consulente-commerciale-do-it-jumbo-eyholz",
+        "en": "sales-consultant-do-it-jumbo-eyholz",
+        "fr": "consultant-en-ventes-do-it-jumbo-eyholz"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17949,7 +17949,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:06:18.333Z"
+      "firstSeenAt": "2026-09-09T23:06:18.333Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-eyholz"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-eyholz"
+      ]
     }
   ]
 }

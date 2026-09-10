@@ -795,17 +795,14 @@
       "firstSeenAt": "2026-09-02T13:55:00.040Z",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st",
-          "teamchef-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st-gallen"
+          "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st"
         ],
         "de": [
-          "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st",
-          "teamchef-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st-gallen"
+          "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st",
-        "teamchef-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st-gallen"
+        "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st"
       ],
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -2554,12 +2551,12 @@
     },
     {
       "id": "schindler-9c3131208a87",
-      "slug": "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur",
+      "slug": "apparecchio-di-sollevamento-nella-regione-dei-grigioni-m-f-d-80-100-schindler-chur",
       "slugByLocale": {
         "de": "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur",
-        "it": "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur",
+        "it": "apparecchio-di-sollevamento-nella-regione-dei-grigioni-m-f-d-80-100-schindler-chur",
         "en": "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur",
-        "fr": "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur"
+        "fr": "monteur-d-ascenseur-dans-la-region-des-grisons-h-f-d-80-100-schindler-chur"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2615,7 +2612,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:26:03.311Z"
+      "firstSeenAt": "2026-09-09T23:26:03.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur"
+        ],
+        "fr": [
+          "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur"
+        ]
+      },
+      "previousSlugs": [
+        "aufzugsmonteur-in-in-der-region-graubunden-m-w-d-80-100-schindler-chur"
+      ]
     },
     {
       "id": "schindler-c9b9c1a7bae8",
@@ -3459,10 +3467,10 @@
     },
     {
       "id": "schindler-2e6fe74b44d1",
-      "slug": "servicetechniker-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
+      "slug": "tecnici-di-servizio-nella-regione-di-chur-lenzerheide-m-f-d-80-100-schindler-chur",
       "slugByLocale": {
         "de": "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
-        "it": "servicetechniker-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
+        "it": "tecnici-di-servizio-nella-regione-di-chur-lenzerheide-m-f-d-80-100-schindler-chur",
         "en": "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
         "fr": "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur"
       },
@@ -3509,11 +3517,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur"
+          "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
+          "servicetechniker-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur"
+        "servicetechniker-in-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur",
+        "servicetechniker-in-der-region-chur-lenzerheide-m-w-d-80-100-schindler-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3600,7 +3610,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-for-cookie-consents-schindler-ebikon",
-        "fr": "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3652,7 +3662,7 @@
           "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon-8fd086"
+          "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon"
         ]
       },
       "previousSlugs": [
@@ -4400,7 +4410,6 @@
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
           "cookie-einwilligungsmanager-schindler-bussigny",
           "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-          "cookie-consent-manager-schindler-bussigny",
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny"
         ],
         "en": [
@@ -4415,7 +4424,6 @@
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler",
         "cookie-einwilligungsmanager-schindler-bussigny",
         "apprentissage-de-constructeur-d-appareils-industriels-cfc-monteur-d-ascenseurs-schindler-bussigny",
-        "cookie-consent-manager-schindler-bussigny",
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
         "swc-trade-employee-learning-for-2027-schindler-bussigny",
         "swc-trade-employee-learning-fur-2027-schindler-bussigny"
@@ -4805,18 +4813,14 @@
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-          "manager-per-cookie-einwilligungen-schindler-bern",
           "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
         ],
         "de": [
-          "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
         ]
       },
       "previousSlugs": [
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-        "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
       ],
       "salaryMin": 68500,

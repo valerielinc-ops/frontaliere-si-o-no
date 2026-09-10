@@ -24,12 +24,12 @@
         "en": "Employee Compliance Office Private Customers",
         "fr": "Bureau de conformité des employés Clients privés"
       },
-      "slug": "mitarbeiter-in-compliance-office-privatkunden-postfinance",
+      "slug": "clienti-privati-dell-ufficio-di-conformita-dei-dipendenti-postfinance-bern",
       "slugByLocale": {
-        "it": "mitarbeiter-in-compliance-office-privatkunden-postfinance",
-        "en": "mitarbeiter-in-compliance-office-privatkunden-postfinance",
+        "it": "clienti-privati-dell-ufficio-di-conformita-dei-dipendenti-postfinance-bern",
+        "en": "employee-compliance-office-private-customers-postfinance-bern",
         "de": "mitarbeiter-in-compliance-office-privatkunden-postfinance",
-        "fr": "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+        "fr": "bureau-de-conformite-des-employes-clients-prives-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -67,7 +67,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-09T23:11:28.050Z"
+      "firstSeenAt": "2026-09-09T23:11:28.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+        ],
+        "en": [
+          "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+        ],
+        "fr": [
+          "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-compliance-office-privatkunden-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Senior-DevOps-Software-&-Specification-Engineer-%28wmd%29/74128-de_DE",

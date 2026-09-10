@@ -4842,13 +4842,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-          "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
+          "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
-        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "trainee-programm-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
+        "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
       ],
       "salaryMin": 67000,
       "salaryMax": 114000,
@@ -4928,14 +4926,12 @@
       "previousSlugsByLocale": {
         "it": [
           "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-          "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
+          "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
         "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2",
-        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch",
-        "junior-consultant-unabhangige-vermogensberatung-vz-vermogenszentrum-zug"
+        "junior-consultant-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch"
       ],
       "salaryMin": 74500,
       "salaryMax": 131000,
@@ -4954,12 +4950,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-39bb0ef0fd24",
-      "slug": "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern",
+      "slug": "fondi-pensione-integrativi-vz-vermogenszentrum-bern-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-firmeneigene-pensionskassen-vz-vermoegenszentrum-ch",
-        "it": "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern",
-        "en": "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern",
-        "fr": "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern"
+        "it": "fondi-pensione-integrativi-vz-vermogenszentrum-bern-bern",
+        "en": "specialist-captive-pension-funds-vz-vermogenszentrum-bern-bern",
+        "fr": "caisses-de-retraite-captives-specialisees-vz-vermogenszentrum-bern-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5016,11 +5012,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-firmeneigene-pensionskassen-vz-vermoegenszentrum-ch"
+          "fachspezialist-in-firmeneigene-pensionskassen-vz-vermoegenszentrum-ch",
+          "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern"
+        ],
+        "en": [
+          "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-firmeneigene-pensionskassen-vz-vermoegenszentrum-ch"
+        "fachspezialist-in-firmeneigene-pensionskassen-vz-vermoegenszentrum-ch",
+        "fachspezialist-in-firmeneigene-pensionskassen-vz-vermogenszentrum-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -5039,12 +5043,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-d01415e65dd0",
-      "slug": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
+      "slug": "prestazioni-professionali-vz-vermogenszentrum-bern-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
-        "it": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
-        "en": "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern",
-        "fr": "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
+        "it": "prestazioni-professionali-vz-vermogenszentrum-bern-bern",
+        "en": "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
+        "fr": "formation-professionnelle-vz-vermogenszentrum-bern-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5101,11 +5105,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch"
+          "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
+        ],
+        "fr": [
+          "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
+        "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 185000,

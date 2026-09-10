@@ -199,12 +199,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-955195a86d5e",
-      "slug": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt",
       "slugByLocale": {
         "de": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "driver-del-treno-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt",
+        "en": "train-driver-mgbahn-m-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt",
+        "fr": "conducteur-de-train-mgbahn-h-f-d-matterhorn-gotthard-bahn-brig-zermatt-oberwald-andermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -277,7 +277,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-09T23:24:55.229Z"
+      "firstSeenAt": "2026-09-09T23:24:55.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-f35332cd9cf0",

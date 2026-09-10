@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -140,14 +140,6 @@
         "orgLabel": "RTR",
         "pensumMin": 80,
         "pensumMax": 100
-      },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "pratique-pratique-srg-ssr-cuira"
-        ]
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
@@ -2194,12 +2186,12 @@
     },
     {
       "id": "srg-ssr-1db88825ec61",
-      "slug": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
+      "slug": "responsabile-del-progetto-tecnico-srg-ssr-lausanne",
       "slugByLocale": {
         "fr": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-        "it": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-        "en": "charge-e-s-de-projet-technique-srg-ssr-lausanne",
-        "de": "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+        "it": "responsabile-del-progetto-tecnico-srg-ssr-lausanne",
+        "en": "technical-project-manager-srg-ssr-lausanne",
+        "de": "technischer-projektleiter-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -2283,7 +2275,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-09T23:04:42.334Z"
+      "firstSeenAt": "2026-09-09T23:04:42.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+        ],
+        "en": [
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+        ],
+        "de": [
+          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-s-de-projet-technique-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-71d7942b5776",

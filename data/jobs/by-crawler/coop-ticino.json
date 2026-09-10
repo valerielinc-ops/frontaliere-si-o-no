@@ -1228,7 +1228,7 @@
         "it": "vendita-prodotti-freschi-coop-genossenschaft-frick",
         "en": "seller-food-fresh-island-coop-genossenschaft-frick",
         "de": "verkaufer-in-food-frische-insel-coop-frick-aargau-kopmmt",
-        "fr": "verkaufer-in-food-frische-insel-coop-frick-aargau-kopmmt"
+        "fr": "seller-food-fresh-island-coop-genossenschaft-frick-aargau"
       },
       "addressLocality": "Frick",
       "sourceLang": "de",
@@ -1252,6 +1252,9 @@
           "verkaufer-in-food-frische-insel-coop-frick-aargau"
         ],
         "en": [
+          "verkaufer-in-food-frische-insel-coop-frick-aargau-kopmmt"
+        ],
+        "fr": [
           "verkaufer-in-food-frische-insel-coop-frick-aargau-kopmmt"
         ]
       },
@@ -2194,7 +2197,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-ag-aargau-gpsofp",
           "metzger-in-meat-specialist-coop-genossenschaft-muri-ag-gpsofp",
           "metzger-in-specialiste-de-la-viande-coop-genossenschaft-muri-ag-gpsofp",
@@ -2215,7 +2217,6 @@
         ]
       },
       "previousSlugs": [
-        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-muri-ag",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-muri-ag-aargau-gpsofp",
         "metzger-in-meat-specialist-coop-genossenschaft-muri-ag-gpsofp",
         "metzger-in-specialiste-de-la-viande-coop-genossenschaft-muri-ag-gpsofp",
@@ -2865,7 +2866,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-meilen",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-meilen-zurich-nrhsct",
           "metzger-in-meat-specialist-coop-genossenschaft-meilen-nrhsct",
           "metzger-in-specialiste-de-la-viande-coop-genossenschaft-meilen-nrhsct",
@@ -2886,7 +2886,6 @@
         ]
       },
       "previousSlugs": [
-        "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-meilen",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-meilen-zurich-nrhsct",
         "metzger-in-meat-specialist-coop-genossenschaft-meilen-nrhsct",
         "metzger-in-specialiste-de-la-viande-coop-genossenschaft-meilen-nrhsct",
@@ -3130,7 +3129,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-volketswil",
-        "en": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-pz31nx",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-volketswil-zurich",
         "de": "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-pz31nx",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-volketswil"
       },
@@ -3157,6 +3156,9 @@
           "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-pz31nx"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-ristorante-volketswil-zurich-pz31nx"
         ]
       },
@@ -3486,7 +3488,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-kreuzlingen",
-        "en": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-enjtp6",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-kreuzlingen-thurgau",
         "de": "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-enjtp6",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-kreuzlingen"
       },
@@ -3513,6 +3515,9 @@
           "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-enjtp6"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-ristorante-kreuzlingen-thurgau-enjtp6"
         ]
       },
@@ -16127,7 +16132,7 @@
       },
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-rickenbach",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
         "de": "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-afkpv4",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-rickenbach"
       },
@@ -16153,7 +16158,7 @@
         ],
         "en": [
           "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-afkpv4",
-          "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+          "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-afkpv4"
@@ -16162,7 +16167,7 @@
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau-afkpv4",
         "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau",
-        "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+        "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -178128,8 +178133,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
-          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen"
+          "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk"
         ],
         "en": [
           "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
@@ -178145,8 +178149,7 @@
       },
       "previousSlugs": [
         "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen-74b0yk",
-        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-genossenschaft-sankt-gallen-74b0yk",
-        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-sankt-gallen"
+        "metzgerei-nachwuchsfuhrungskrafte-retail-sg-coop-genossenschaft-sankt-gallen-74b0yk"
       ],
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -178223,8 +178226,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
-          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau"
+          "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa"
         ],
         "en": [
           "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
@@ -178240,8 +178242,7 @@
       },
       "previousSlugs": [
         "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau-42zfwa",
-        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-genossenschaft-gossau-42zfwa",
-        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-gossau"
+        "metzgerei-nachwuchsfuhrungskrafte-thurgau-coop-genossenschaft-gossau-42zfwa"
       ],
       "sourceLang": "de",
       "needsRetranslation": true,

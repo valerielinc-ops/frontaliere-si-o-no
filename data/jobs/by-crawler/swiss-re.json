@@ -2503,7 +2503,7 @@
         "it": "investment-contabile-swiss-re-kansas-city-mo-us",
         "en": "investment-accountant-swiss-re-ch",
         "de": "investment-buchhalter-swiss-re-kansas-city-mo-us",
-        "fr": "investment-accountant-swiss-re-kansas-city-mo-us"
+        "fr": "comptable-en-placements-swiss-re-kansas-city-mo-us"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -2544,8 +2544,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "investment-accountant-swiss-re-ch",
-        "comptable-en-placements-swiss-re-kansas-city-mo-us",
-        "comptable-en-investissement-swiss-re-kansas-city-mo-us"
+        "comptable-en-investissement-swiss-re-kansas-city-mo-us",
+        "investment-accountant-swiss-re-kansas-city-mo-us"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2555,8 +2555,8 @@
           "investment-accountant-swiss-re-ch"
         ],
         "fr": [
-          "comptable-en-placements-swiss-re-kansas-city-mo-us",
-          "comptable-en-investissement-swiss-re-kansas-city-mo-us"
+          "comptable-en-investissement-swiss-re-kansas-city-mo-us",
+          "investment-accountant-swiss-re-kansas-city-mo-us"
         ]
       },
       "firstSeenAt": "2026-08-07T01:08:50.566Z",
@@ -3589,7 +3589,7 @@
         "it": "financial-contabile-swiss-re-toronto-ca",
         "en": "financial-accountant-swiss-re-ch",
         "de": "financial-buchhalter-swiss-re-toronto-ca",
-        "fr": "financial-accountant-swiss-re-toronto-ca"
+        "fr": "comptable-financier-swiss-re-toronto-ca"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -3630,7 +3630,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-accountant-swiss-re-ch",
-        "comptable-financier-swiss-re-toronto-ca"
+        "financial-accountant-swiss-re-toronto-ca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3640,7 +3640,7 @@
           "financial-accountant-swiss-re-ch"
         ],
         "fr": [
-          "comptable-financier-swiss-re-toronto-ca"
+          "financial-accountant-swiss-re-toronto-ca"
         ]
       },
       "firstSeenAt": "2026-07-10T13:00:23.593Z",
@@ -4565,7 +4565,7 @@
         "it": "contratti-di-assicurazione-swiss-re-bangalore-in",
         "en": "reinsurance-contracts-counsel-swiss-re-ch",
         "de": "ruckversicherungsvertragsberatung-swiss-re-bangalore-in",
-        "fr": "reinsurance-contracts-counsel-swiss-re-bangalore-in"
+        "fr": "contrats-de-reassurance-swiss-re-bangalore-in"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4606,7 +4606,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "reinsurance-contracts-counsel-swiss-re-ch",
-        "contrats-de-reassurance-swiss-re-bangalore-in"
+        "reinsurance-contracts-counsel-swiss-re-bangalore-in"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4617,7 +4617,7 @@
         ],
         "fr": [
           "reinsurance-contracts-counsel-swiss-re-ch",
-          "contrats-de-reassurance-swiss-re-bangalore-in"
+          "reinsurance-contracts-counsel-swiss-re-bangalore-in"
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:39.757Z",
@@ -4869,7 +4869,7 @@
         "it": "contratti-di-assicurazione-swiss-re-kuala-lumpur-my",
         "en": "reinsurance-contracts-counsel-swiss-re-ch",
         "de": "ruckversicherungsvertragsberatung-swiss-re-kuala-lumpur-my",
-        "fr": "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
+        "fr": "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -4911,7 +4911,7 @@
       "previousSlugs": [
         "reinsurance-contracts-counsel-swiss-re-ch",
         "reinsurance-contracts-counsel-swiss-re-ch-2",
-        "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
+        "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4923,7 +4923,7 @@
         ],
         "fr": [
           "reinsurance-contracts-counsel-swiss-re-ch-2",
-          "contrats-de-reassurance-swiss-re-kuala-lumpur-my"
+          "reinsurance-contracts-counsel-swiss-re-kuala-lumpur-my"
         ]
       },
       "firstSeenAt": "2026-08-11T10:22:19.127Z",
@@ -16624,7 +16624,7 @@
         "it": "assistente-underwriter-swiss-re-zurich",
         "en": "assistant-underwriter-swiss-re-ch",
         "de": "assistent-underwriter-swiss-re-zurich",
-        "fr": "assistant-underwriter-swiss-re-zurich"
+        "fr": "sous-traitant-adjoint-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -16665,7 +16665,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-underwriter-swiss-re-ch",
-        "sous-traitant-adjoint-swiss-re-zurich"
+        "assistant-underwriter-swiss-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16675,7 +16675,7 @@
           "assistant-underwriter-swiss-re-ch"
         ],
         "fr": [
-          "sous-traitant-adjoint-swiss-re-zurich"
+          "assistant-underwriter-swiss-re-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:44:01.875Z",
@@ -17203,9 +17203,9 @@
     },
     {
       "id": "swiss-re-a018b1bfdabd",
-      "slug": "technical-architect-swiss-re-bratislava-sk",
+      "slug": "architetto-tecnico-swiss-re-bratislava-sk",
       "slugByLocale": {
-        "it": "technical-architect-swiss-re-bratislava-sk",
+        "it": "architetto-tecnico-swiss-re-bratislava-sk",
         "en": "technical-architect-swiss-re-ch",
         "de": "technischer-architekt-swiss-re-bratislava-sk",
         "fr": "technical-architecte-swiss-re-bratislava-sk"
@@ -17249,12 +17249,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-architect-swiss-re-ch",
-        "architetto-tecnico-swiss-re-bratislava-sk"
+        "technical-architect-swiss-re-bratislava-sk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-architect-swiss-re-ch",
-          "architetto-tecnico-swiss-re-bratislava-sk"
+          "technical-architect-swiss-re-bratislava-sk"
         ],
         "de": [
           "technical-architect-swiss-re-ch"
@@ -18794,13 +18794,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
-          "apprendistato-kauffrau-mann-cfc-d-a-privatversicherung-2027-swiss-re-zurich-ch"
+          "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch",
-        "apprendistato-kauffrau-mann-cfc-d-a-privatversicherung-2027-swiss-re-zurich-ch"
+        "lehrstelle-kauffrau-mann-efz-d-a-privatversicherung-2027-swiss-re-ch"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,
@@ -21401,7 +21399,7 @@
         "it": "contabile-swiss-re-seoul-kr",
         "en": "accountant-swiss-re-ch",
         "de": "buchhalter-swiss-re-seoul-kr",
-        "fr": "accountant-swiss-re-seoul-kr"
+        "fr": "comptable-swiss-re-seoul-kr"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -21442,7 +21440,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "accountant-swiss-re-ch",
-        "comptable-swiss-re-seoul-kr"
+        "accountant-swiss-re-seoul-kr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21452,7 +21450,7 @@
           "accountant-swiss-re-ch"
         ],
         "fr": [
-          "comptable-swiss-re-seoul-kr"
+          "accountant-swiss-re-seoul-kr"
         ]
       },
       "firstSeenAt": "2026-09-04T13:33:54.994Z",

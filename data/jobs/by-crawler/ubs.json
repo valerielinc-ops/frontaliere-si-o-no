@@ -6520,7 +6520,7 @@
         "it": "pianificatore-di-successione-gestione-della-ricchezza-ubs-zentralschweiz",
         "en": "succession-planner-in-wealth-management-ubs-zentralschweiz",
         "de": "succession-planner-in-wealth-management-ubs-zentralschweiz",
-        "fr": "succession-planner-in-wealth-management-ubs-zentralschweiz"
+        "fr": "succession-planner-gestion-de-patrimoine-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -6579,7 +6579,8 @@
         ],
         "fr": [
           "planificateur-de-releve-gestion-de-la-masse-ubs-zentralschweiz",
-          "planificateur-de-releve-gestion-de-patrimoine-ubs-zentralschweiz"
+          "planificateur-de-releve-gestion-de-patrimoine-ubs-zentralschweiz",
+          "succession-planner-in-wealth-management-ubs-zentralschweiz"
         ]
       },
       "needsRetranslation": true,
@@ -6913,7 +6914,7 @@
         "it": "addetto-agli-eventi-pagato-a-ore-ubs-western-switzerland",
         "en": "event-attendant-hourly-paid-ubs-western-switzerland",
         "de": "veranstaltungsmitarbeiter-stundenweise-bezahlt-ubs-western-switzerland",
-        "fr": "event-attendant-hourly-paid-ubs-western-switzerland"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-western-switzerland"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -6962,15 +6963,14 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "event-attendant-hourly-paid-ubs-western-switzerland",
-        "participant-a-l-evenement-paye-en-heures-ubs-western-switzerland"
+        "event-attendant-hourly-paid-ubs-western-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "event-attendant-hourly-paid-ubs-western-switzerland"
         ],
         "fr": [
-          "participant-a-l-evenement-paye-en-heures-ubs-western-switzerland"
+          "event-attendant-hourly-paid-ubs-western-switzerland"
         ]
       },
       "firstSeenAt": "2026-07-02T15:04:48.362Z",
@@ -7740,7 +7740,7 @@
         "it": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich",
         "en": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich",
         "de": "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich",
-        "fr": "senior-consolidation-sap-s-4hana-group-reporting-sme-ubs-zurich"
+        "fr": "consolidation-senior-groupe-sap-s-4hana-pme-declarantes-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7791,7 +7791,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "consolidation-senior-sap-s-4hana-groupe-pme-declarantes-ubs-zurich",
-          "consolidation-senior-groupe-sap-s-4hana-pme-declarantes-ubs-zurich"
+          "senior-consolidation-sap-s-4hana-group-reporting-sme-ubs-zurich"
         ],
         "it": [
           "senior-consolidation-sap-s-4hana-group-reporting-sme-ubs-zurich"
@@ -7802,9 +7802,7 @@
       },
       "previousSlugs": [
         "consolidation-senior-sap-s-4hana-groupe-pme-declarantes-ubs-zurich",
-        "consolidation-senior-groupe-sap-s-4hana-pme-declarantes-ubs-zurich",
-        "senior-consolidation-sap-s-4hana-group-reporting-sme-ubs-zurich",
-        "sap-s-4hana-general-ledger-consolidation-specialist-ubs-zurich"
+        "senior-consolidation-sap-s-4hana-group-reporting-sme-ubs-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T09:59:16.024Z",

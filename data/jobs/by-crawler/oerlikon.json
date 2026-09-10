@@ -460,11 +460,11 @@
     },
     {
       "id": "oerlikon-8bea31130adc",
-      "slug": "operateur-100-gn-oerlikon-ch",
+      "slug": "operatore-100-gn-oerlikon-brugg",
       "slugByLocale": {
         "de": "operateur-100-gn-oerlikon-ch",
-        "it": "operateur-100-gn-oerlikon-ch",
-        "en": "operateur-100-gn-oerlikon-ch",
+        "it": "operatore-100-gn-oerlikon-brugg",
+        "en": "operator-100-gn-oerlikon-brugg",
         "fr": "operateur-100-gn-oerlikon-ch"
       },
       "company": "Oerlikon",
@@ -521,7 +521,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:25:18.479Z"
+      "firstSeenAt": "2026-09-09T23:25:18.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-100-gn-oerlikon-ch"
+        ],
+        "en": [
+          "operateur-100-gn-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-100-gn-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-356e3fe4d231",

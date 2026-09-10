@@ -13164,12 +13164,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-95710ad21bd4",
-      "slug": "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "impiegato-dipendente-manutenzione-di-pulizia-m-f-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten",
-        "it": "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten",
-        "en": "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten",
-        "fr": "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten"
+        "it": "impiegato-dipendente-manutenzione-di-pulizia-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "en": "employee-employee-maintenance-cleaning-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "nettoyage-d-entretien-des-employes-h-f-d-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13214,11 +13214,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten",
+          "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten"
+        "mitarbeiterin-mitarbeiter-unterhaltsreinigung-w-m-d-soh-solothurner-spitaeler-olten",
+        "mitarbeiterin-collaboratore-trice-unterhaltsreinigung-m-w-d-solothurner-spitaler-ag-soh-olten"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,

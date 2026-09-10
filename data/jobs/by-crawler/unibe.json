@@ -4499,12 +4499,12 @@
     },
     {
       "id": "unibe-be35652b27bd",
-      "slug": "wissenschaftliche-r-collaboratore-trice-universitat-bern",
+      "slug": "personale-scientifico-universitat-bern-bern",
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-unibe-bern",
-        "it": "wissenschaftliche-r-collaboratore-trice-universitat-bern",
-        "en": "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
+        "it": "personale-scientifico-universitat-bern-bern",
+        "en": "scientific-staff-universitat-bern-bern",
+        "fr": "personnel-scientifique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4550,11 +4550,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-unibe-bern"
+          "wissenschaftliche-r-mitarbeiter-in-unibe-bern",
+          "wissenschaftliche-r-collaboratore-trice-universitat-bern"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-unibe-bern"
+        "wissenschaftliche-r-mitarbeiter-in-unibe-bern",
+        "wissenschaftliche-r-collaboratore-trice-universitat-bern",
+        "wissenschaftliche-r-mitarbeiter-in-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4578,7 +4587,7 @@
         "de": "junior-controller-in-unibe-bern",
         "it": "junior-controller-in-unibe-bern",
         "en": "junior-controller-in-unibe-bern",
-        "fr": "junior-controller-in-universitat-bern-bern"
+        "fr": "controleur-junior-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4636,7 +4645,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:24:54.513Z"
+      "firstSeenAt": "2026-09-09T23:24:54.513Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "junior-controller-in-universitat-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "junior-controller-in-universitat-bern-bern"
+      ]
     }
   ]
 }

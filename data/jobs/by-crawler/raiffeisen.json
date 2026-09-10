@@ -4489,7 +4489,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-br-lehrbeginn-august-2027-raiffeisen",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten",
         "apprendistato-come-kauffrau-kaufmann-br-cfc-u-o-berufsmatur-branche-bank-br-lehrbeginn-august-2027-raiffeisen-kleindottingen",
         "apprenticeship-as-a-merchant-merchant-br-efz-u-o-berufsmatur-branche-bank-br-start-of-apprenticeship-august-2027",
         "lehrstelle-als-kauffrau-kaufmann-br-efz-u-o-berufsmatur-branche-bank-br-lehrbeginn-august",
@@ -4498,7 +4497,6 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-bank-br-lehrbeginn-august-2027-raiffeisen",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-br-lehrbeginn-august-2027-raiffeisen-murten",
           "apprendistato-come-kauffrau-kaufmann-br-cfc-u-o-berufsmatur-branche-bank-br-lehrbeginn-august-2027-raiffeisen-kleindottingen",
           "apprenticeship-as-a-merchant-merchant-br-efz-u-o-berufsmatur-branche-bank-br-start-of-apprenticeship-august-2027",
           "lehrstelle-als-kauffrau-kaufmann-br-efz-u-o-berufsmatur-branche-bank-br-lehrbeginn-august",
@@ -12297,16 +12295,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "senior-mitarbeiter-in-front-office-raiffeisen-frick",
-          "senior-collaboratore-trice-front-office-raiffeisen-frick"
+          "senior-mitarbeiter-in-front-office-raiffeisen-frick"
         ],
         "fr": [
           "senior-mitarbeiter-in-front-office-raiffeisen-frick"
         ]
       },
       "previousSlugs": [
-        "senior-mitarbeiter-in-front-office-raiffeisen-frick",
-        "senior-collaboratore-trice-front-office-raiffeisen-frick"
+        "senior-mitarbeiter-in-front-office-raiffeisen-frick"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -12325,12 +12321,12 @@
     },
     {
       "id": "raiffeisen-e343c7e51475",
-      "slug": "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten",
+      "slug": "consulente-prestiti-e-mutui-m-f-d-raiffeisen-kaisten",
       "slugByLocale": {
         "de": "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
-        "it": "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten",
-        "en": "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
-        "fr": "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten"
+        "it": "consulente-prestiti-e-mutui-m-f-d-raiffeisen-kaisten",
+        "en": "loan-and-mortgage-advisor-m-f-d-raiffeisen-kaisten",
+        "fr": "conseiller-en-pret-et-pret-hypothecaire-h-f-d-raiffeisen-kaisten"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12376,11 +12372,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
+          "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten"
+        ],
+        "en": [
+          "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten"
+        ],
+        "fr": [
           "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten"
         ]
       },
       "previousSlugs": [
-        "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten"
+        "kredit-und-hypothekarberater-w-m-d-raiffeisen-kaisten",
+        "kredit-e-hypothekarberater-m-w-d-raiffeisen-kaisten"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

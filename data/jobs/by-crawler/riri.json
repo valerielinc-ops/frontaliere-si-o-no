@@ -49,14 +49,12 @@
       "crawledAt": "2026-09-09T23:09:36.397Z",
       "previousSlugs": [
         "customer-service-specialist-riri-zippers-mendrisio-riri",
-        "customer-service-specialist-riri-zippers-w-m-mendrisio-riri",
-        "servizio-clienti-specialista-riri-zippers-riri-group-mendrisio"
+        "customer-service-specialist-riri-zippers-w-m-mendrisio-riri"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-specialist-riri-zippers-mendrisio-riri",
-          "customer-service-specialist-riri-zippers-w-m-mendrisio-riri",
-          "servizio-clienti-specialista-riri-zippers-riri-group-mendrisio"
+          "customer-service-specialist-riri-zippers-w-m-mendrisio-riri"
         ],
         "de": [
           "customer-service-specialist-riri-zippers-mendrisio-riri"
@@ -87,8 +85,8 @@
       "slugByLocale": {
         "it": "receptionist-riri-group-mendrisio",
         "en": "receptionist-mendrisio-riri",
-        "de": "receptionist-mendrisio-riri",
-        "fr": "receptionist-mendrisio-riri"
+        "de": "rezeptionist-riri-group-mendrisio",
+        "fr": "receptionniste-riri-group-mendrisio"
       },
       "company": "Riri Group",
       "companyKey": "riri",
@@ -129,6 +127,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "receptionist-mendrisio-riri"
+        ],
+        "de": [
+          "receptionist-mendrisio-riri"
+        ],
+        "fr": [
           "receptionist-mendrisio-riri"
         ]
       },

@@ -1177,12 +1177,12 @@
     },
     {
       "id": "patek-philippe-e2d4eb47555e",
-      "slug": "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
+      "slug": "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates",
       "slugByLocale": {
         "fr": "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
-        "it": "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
+        "it": "product-quality-improvement-manager-m-f-patek-philippe-plan-les-ouates",
         "en": "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates",
-        "de": "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
+        "de": "produktqualitatsverbesserung-manager-m-w-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -1240,7 +1240,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:06:51.259Z"
+      "firstSeenAt": "2026-09-09T23:06:51.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
+        ],
+        "de": [
+          "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "charge-d-amelioration-qualite-produit-h-f-patek-philippe-plan-les-ouates"
+      ]
     },
     {
       "id": "patek-philippe-167782b9ac71",

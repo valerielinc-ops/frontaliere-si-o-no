@@ -610,12 +610,12 @@
     },
     {
       "id": "msc-cargo-2e9827752273",
-      "slug": "copywriter-6-months-contract-msc-geneva",
+      "slug": "copywriter-6-mesi-msc-group-geneva",
       "slugByLocale": {
         "en": "copywriter-6-months-contract-msc-geneva",
-        "it": "copywriter-6-months-contract-msc-geneva",
-        "de": "copywriter-6-months-contract-msc-geneva",
-        "fr": "copywriter-6-months-contract-msc-geneva"
+        "it": "copywriter-6-mesi-msc-group-geneva",
+        "de": "texter-6-monate-vertrag-msc-group-geneva",
+        "fr": "redacteur-contrat-de-6-mois-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -671,16 +671,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-09T23:11:05.967Z"
+      "firstSeenAt": "2026-09-09T23:11:05.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "de": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "fr": [
+          "copywriter-6-months-contract-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "copywriter-6-months-contract-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7a52f19823fe",
-      "slug": "senior-category-manager-watch-msc-geneva",
+      "slug": "senior-categoria-manager-orologio-msc-group-geneva",
       "slugByLocale": {
         "en": "senior-category-manager-watch-msc-geneva",
-        "it": "senior-category-manager-watch-msc-geneva",
+        "it": "senior-categoria-manager-orologio-msc-group-geneva",
         "de": "senior-category-manager-watch-msc-geneva",
-        "fr": "senior-category-manager-watch-msc-geneva"
+        "fr": "gestionnaire-de-categorie-senior-watch-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -725,17 +739,15 @@
       },
       "previousSlugs": [
         "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
-        "senior-categoria-manager-orologio-msc-group-geneva",
         "senior-category-manager-watch-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
-          "senior-categoria-manager-orologio-msc-group-geneva",
           "senior-category-manager-watch-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-categorie-senior-watch-msc-group-geneva"
+          "senior-category-manager-watch-msc-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -756,12 +768,12 @@
     },
     {
       "id": "msc-cargo-eea3761c3310",
-      "slug": "retail-learning-development-manager-msc-geneva",
+      "slug": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
       "slugByLocale": {
         "en": "retail-learning-development-manager-msc-geneva",
-        "it": "retail-learning-development-manager-msc-geneva",
+        "it": "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
         "de": "retail-learning-development-manager-msc-geneva",
-        "fr": "retail-learning-development-manager-msc-geneva"
+        "fr": "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -807,18 +819,16 @@
       "previousSlugs": [
         "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
         "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
         "retail-learning-development-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
           "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
           "retail-learning-development-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+          "retail-learning-development-manager-msc-geneva"
         ]
       },
       "needsRetranslation": true,
