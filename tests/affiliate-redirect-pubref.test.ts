@@ -20,7 +20,10 @@ const SITE_ORIGIN = 'https://frontaliereticino.ch';
  * `ref-lavoro` from `ref-lavoro-infermiere-lugano-2026`, which is exactly the
  * distinction the bucket cardinality depends on.
  */
-function rewrittenUrl(html: string, ctx: { search?: string; referrer?: string }): string {
+function rewrittenUrl(
+  html: string,
+  ctx: { search?: string; referrer?: string; readyState?: string; getElementById?: () => unknown },
+): string {
   const start = html.indexOf('var u=');
   const end = html.indexOf('var redirected=false;');
   expect(start).toBeGreaterThan(-1);
@@ -28,12 +31,16 @@ function rewrittenUrl(html: string, ctx: { search?: string; referrer?: string })
   const block = html.slice(start, end);
   const doc = {
     referrer: ctx.referrer ?? '',
-    readyState: 'loading',
-    getElementById: () => null,
+    readyState: ctx.readyState ?? 'loading',
+    getElementById: ctx.getElementById ?? (() => null),
     addEventListener: () => {},
   };
   const location = { search: ctx.search ?? '', origin: SITE_ORIGIN };
-  return new Function('document', 'location', `${block} return u;`)(doc, location) as string;
+  return new Function('document', 'location', 'setTimeout', `${block} return u;`)(
+    doc,
+    location,
+    (callback: () => void) => callback(),
+  ) as string;
 }
 
 const pubrefOf = (url: string) => new URL(url).searchParams.get('pubref');
@@ -52,8 +59,8 @@ describe('affiliate redirect pubref', () => {
 
   it('omits the rewrite on non-Partnerize partners', () => {
     const plain = PARTNERS.find((p) => !isPartnerizeUrl(p.url));
-    if (!plain) return;
-    expect(buildRedirectPage(plain)).not.toContain("searchParams.set('pubref'");
+    expect(plain).toBeDefined();
+    expect(buildRedirectPage(plain!)).not.toContain("searchParams.set('pubref'");
   });
 
   it('keeps the referrer fallback to a bounded set of buckets', () => {
@@ -109,5 +116,19 @@ describe('affiliate redirect pubref', () => {
     expect(rewrittenSlot2).toBe(sanitizePubref(slot2));
     expect(rewrittenSlot2).toMatch(/_[a-z0-9]{7}$/);
     expect(rewrittenSlot2).not.toBe(rewrittenSlot3);
+  });
+
+  it('retries the visible link when the DOM-ready branch runs before #go-link exists', () => {
+    const html = buildRedirectPage(wise);
+    let calls = 0;
+    let href = '';
+    const link = { setAttribute: (_name: string, value: string) => { href = value; } };
+    rewrittenUrl(html, {
+      readyState: 'complete',
+      search: '?pos=late-dom-slot',
+      getElementById: () => (calls++ === 0 ? null : link),
+    });
+    expect(calls).toBe(2);
+    expect(href).toContain('pubref=late-dom-slot');
   });
 });

@@ -121,6 +121,15 @@ describe('affiliateService config gates', () => {
     expect(dest).not.toContain('utm_source');
   });
 
+  it('leaves an ambiguous Partnerize deeplink with destination query untouched', () => {
+    const wise = PARTNERS.find((p) => p.id === 'wise')!;
+    const ambiguous = {
+      ...wise,
+      url: 'https://wise.prf.hn/click/camref:1100l4Sfa/destination:https://wise.com/it/send-money/?ref=x',
+    };
+    expect(buildAffiliateUrl(ambiguous, 'go-redirect', 'nl-partner-2-wise')).toBe(ambiguous.url);
+  });
+
   it('tags Partnerize deeplinks with a per-placement pubref', () => {
     const wise = PARTNERS.find((p) => p.id === 'wise')!;
 
@@ -152,8 +161,8 @@ describe('affiliateService config gates', () => {
     const plain = PARTNERS.find(
       (p) => !p.url.includes('prf.hn') && !p.url.includes('invite') && !p.url.includes('referral'),
     );
-    if (!plain) return;
-    const dest = new URL(buildAffiliateUrl(plain, 'go-redirect'));
+    expect(plain).toBeDefined();
+    const dest = new URL(buildAffiliateUrl(plain!, 'go-redirect'));
     expect(dest.searchParams.get('utm_campaign')).toBe('go-redirect');
     expect(dest.searchParams.get('pubref')).toBeNull();
   });
