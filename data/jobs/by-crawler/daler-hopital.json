@@ -63,13 +63,11 @@
       },
       "externalId": "4231",
       "previousSlugs": [
-        "gestionnaire-en-intendance-daler-hopital-fribourg",
-        "responsabile-della-gestione-hopital-daler-fribourg"
+        "gestionnaire-en-intendance-daler-hopital-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-en-intendance-daler-hopital-fribourg",
-          "responsabile-della-gestione-hopital-daler-fribourg"
+          "gestionnaire-en-intendance-daler-hopital-fribourg"
         ]
       },
       "firstSeenAt": "2026-07-08T06:33:44.056Z",
@@ -89,12 +87,12 @@
     },
     {
       "id": "daler-hopital-4e59ce3b39b0",
-      "slug": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-hopital-daler-fribourg",
+      "slug": "asc-swc-learning-assistente-per-la-cura-e-la-salute-della-comunita-hopital-daler-fribourg",
       "slugByLocale": {
-        "it": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-hopital-daler-fribourg",
-        "en": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg",
-        "de": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg",
-        "fr": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg"
+        "fr": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg",
+        "it": "asc-swc-learning-assistente-per-la-cura-e-la-salute-della-comunita-hopital-daler-fribourg",
+        "en": "asc-swc-learning-community-care-and-health-assistant-hopital-daler-fribourg",
+        "de": "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -138,11 +136,16 @@
       "externalId": "4530",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg",
+          "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-hopital-daler-fribourg"
+        ],
+        "en": [
           "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg"
+        "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-daler-hopital-fribourg",
+        "apprentissage-assc-cfc-assistant-e-en-soins-et-sante-communautaire-hopital-daler-fribourg"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -161,12 +164,12 @@
     },
     {
       "id": "daler-hopital-f47975cfc241",
-      "slug": "apprentissage-cuisinier-ere-cfc-hopital-daler-fribourg",
+      "slug": "imparare-la-cucina-swc-hopital-daler-fribourg",
       "slugByLocale": {
-        "it": "apprentissage-cuisinier-ere-cfc-hopital-daler-fribourg",
-        "en": "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg",
-        "de": "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg",
-        "fr": "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg"
+        "fr": "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg",
+        "it": "imparare-la-cucina-swc-hopital-daler-fribourg",
+        "en": "swc-cooking-learning-hopital-daler-fribourg",
+        "de": "swc-kochen-lernen-hopital-daler-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -210,11 +213,19 @@
       "externalId": "4529",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg",
+          "apprentissage-cuisinier-ere-cfc-hopital-daler-fribourg"
+        ],
+        "en": [
+          "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg"
+        ],
+        "de": [
           "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg"
+        "apprentissage-cuisinier-ere-cfc-daler-hopital-fribourg",
+        "apprentissage-cuisinier-ere-cfc-hopital-daler-fribourg"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -233,12 +244,12 @@
     },
     {
       "id": "daler-hopital-57dc9b4d243c",
-      "slug": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-hopital-daler-fribourg",
+      "slug": "gestore-di-apprendimento-di-ospitalita-e-gestione-cfc-hopital-daler-fribourg",
       "slugByLocale": {
-        "it": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-hopital-daler-fribourg",
-        "en": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg",
-        "de": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg",
-        "fr": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg"
+        "fr": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg",
+        "it": "gestore-di-apprendimento-di-ospitalita-e-gestione-cfc-hopital-daler-fribourg",
+        "en": "learning-manager-of-hospitality-and-stewardship-cfc-hopital-daler-fribourg",
+        "de": "learning-manager-fur-hospitality-und-stewardship-cfc-hopital-daler-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -282,11 +293,19 @@
       "externalId": "4528",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg",
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-hopital-daler-fribourg"
+        ],
+        "en": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg"
+        ],
+        "de": [
           "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg"
+        "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-daler-hopital-fribourg",
+        "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-hopital-daler-fribourg"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -305,12 +324,12 @@
     },
     {
       "id": "daler-hopital-b63e659e9435",
-      "slug": "apprentissage-agent-e-d-exploitation-cfc-hopital-daler-fribourg",
+      "slug": "operazioni-di-apprendimento-ufficiale-cfc-hopital-daler-fribourg",
       "slugByLocale": {
-        "it": "apprentissage-agent-e-d-exploitation-cfc-hopital-daler-fribourg",
-        "en": "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg",
-        "de": "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg",
-        "fr": "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg"
+        "fr": "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg",
+        "it": "operazioni-di-apprendimento-ufficiale-cfc-hopital-daler-fribourg",
+        "en": "learning-operations-officer-cfc-hopital-daler-fribourg",
+        "de": "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg"
       },
       "company": "Hôpital Daler",
       "companyKey": "daler-hopital",
@@ -354,11 +373,16 @@
       "externalId": "4526",
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg",
+          "apprentissage-agent-e-d-exploitation-cfc-hopital-daler-fribourg"
+        ],
+        "en": [
           "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg"
         ]
       },
       "previousSlugs": [
-        "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg"
+        "apprentissage-agent-e-d-exploitation-cfc-daler-hopital-fribourg",
+        "apprentissage-agent-e-d-exploitation-cfc-hopital-daler-fribourg"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,

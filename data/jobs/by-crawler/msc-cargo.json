@@ -81,11 +81,11 @@
     },
     {
       "id": "msc-cargo-2c13ff3f3d54",
-      "slug": "experience-development-delivery-manager-msc-geneva",
+      "slug": "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva",
       "slugByLocale": {
-        "it": "experience-development-delivery-manager-msc-geneva",
         "en": "experience-development-delivery-manager-msc-geneva",
-        "de": "experience-development-delivery-manager-msc-geneva",
+        "it": "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva",
+        "de": "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
         "fr": "experience-development-delivery-manager-msc-geneva"
       },
       "company": "MSC Group",
@@ -145,15 +145,15 @@
       "previousSlugsByLocale": {
         "it": [
           "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-          "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+          "experience-development-delivery-manager-msc-geneva"
         ],
         "de": [
-          "erfahrungsentwicklung-delivery-manager-msc-group-geneva"
+          "experience-development-delivery-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
         "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-        "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+        "experience-development-delivery-manager-msc-geneva"
       ]
     },
     {
@@ -206,14 +206,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-        "jewellery-product-development-senior-manager-msc-geneva",
-        "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva"
+        "jewellery-product-development-senior-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schmuckproduktentwicklung-senior-manager-msc-group-geneva",
-          "jewellery-product-development-senior-manager-msc-geneva",
-          "gioielli-sviluppo-del-prodotto-senior-manager-msc-group-geneva"
+          "jewellery-product-development-senior-manager-msc-geneva"
         ],
         "de": [
           "jewellery-product-development-senior-manager-msc-geneva"
@@ -285,14 +283,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-        "retail-business-analytics-manager-msc-geneva",
-        "responsabile-analisi-aziendale-retail-msc-group-geneva"
+        "retail-business-analytics-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-de-l-analyse-commerciale-de-detail-msc-group-geneva",
-          "retail-business-analytics-manager-msc-geneva",
-          "responsabile-analisi-aziendale-retail-msc-group-geneva"
+          "retail-business-analytics-manager-msc-geneva"
         ],
         "fr": [
           "retail-business-analytics-manager-msc-geneva"
@@ -364,14 +360,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "directeur-du-marketing-de-detail-msc-group-geneva",
-        "retail-marketing-manager-msc-geneva",
-        "responsabile-marketing-al-dettaglio-msc-group-geneva"
+        "retail-marketing-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-du-marketing-de-detail-msc-group-geneva",
-          "retail-marketing-manager-msc-geneva",
-          "responsabile-marketing-al-dettaglio-msc-group-geneva"
+          "retail-marketing-manager-msc-geneva"
         ],
         "fr": [
           "retail-marketing-manager-msc-geneva"
@@ -514,13 +508,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-full-funnel-analyst-msc-geneva",
-        "marketing-full-funnel-analista-msc-group-geneva"
+        "marketing-full-funnel-analyst-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-full-funnel-analyst-msc-geneva",
-          "marketing-full-funnel-analista-msc-group-geneva"
+          "marketing-full-funnel-analyst-msc-geneva"
         ],
         "fr": [
           "marketing-full-funnel-analyst-msc-geneva"
@@ -592,14 +584,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "casino-slots-and-technical-operations-manager-msc-geneva",
-        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-        "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva",
-          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-          "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -734,7 +724,23 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
+        "senior-categoria-manager-orologio-msc-group-geneva",
+        "senior-category-manager-watch-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
+          "senior-categoria-manager-orologio-msc-group-geneva",
+          "senior-category-manager-watch-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-categorie-senior-watch-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T23:11:04.778Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -747,21 +753,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T23:11:04.778Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
-          "senior-categoria-manager-orologio-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-de-categorie-senior-watch-msc-group-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-de-categorie-senior-watch-msc-group-geneva",
-        "senior-categoria-manager-orologio-msc-group-geneva"
-      ]
+      }
     },
     {
       "id": "msc-cargo-eea3761c3310",
@@ -813,7 +805,25 @@
       "requirementsByLocale": {
         "en": []
       },
+      "previousSlugs": [
+        "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
+        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
+        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
+        "retail-learning-development-manager-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
+          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva",
+          "retail-learning-development-manager-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T23:11:03.974Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -826,23 +836,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-09T23:11:03.974Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-          "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-dell-apprendimento-e-dello-sviluppo-al-dettaglio-msc-group-geneva",
-        "gestionnaire-de-l-apprentissage-et-du-developpement-au-detail-msc-group-geneva",
-        "responsabile-dell-apprendimento-al-dettaglio-e-dello-sviluppo-msc-group-geneva"
-      ]
+      }
     },
     {
       "id": "msc-cargo-50d293b9d6b0",
@@ -895,15 +889,13 @@
       "previousSlugs": [
         "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva",
         "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
-        "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+        "sr-director-of-guest-experience-development-delivery-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva",
           "sr-direktor-of-guest-experience-development-delivery-msc-group-geneva",
-          "sr-director-of-guest-experience-development-delivery-msc-geneva",
-          "sr-direttore-of-guest-experience-development-delivery-msc-group-geneva"
+          "sr-director-of-guest-experience-development-delivery-msc-geneva"
         ],
         "de": [
           "sr-director-of-guest-experience-development-delivery-msc-geneva"
@@ -912,8 +904,8 @@
           "directeur-principal-du-developpement-et-de-la-prestation-de-l-experience-client-msc-group-geneva"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:36:20.697Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -977,13 +969,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-product-category-watches-jewellery-msc-geneva",
-        "responsabile-product-category-watches-jewellery-msc-group-geneva"
+        "head-of-product-category-watches-jewellery-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-product-category-watches-jewellery-msc-geneva",
-          "responsabile-product-category-watches-jewellery-msc-group-geneva"
+          "head-of-product-category-watches-jewellery-msc-geneva"
         ],
         "de": [
           "head-of-product-category-watches-jewellery-msc-geneva"
@@ -1057,14 +1047,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva",
-        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-        "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+        "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategie-d-analyse-numerique-test-et-gestionnaire-cro-msc-group-geneva",
-          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva",
-          "strategia-test-e-cro-manager-di-digital-analytics-msc-group-geneva"
+          "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"
         ],
         "fr": [
           "digital-analytics-strategy-testing-and-cro-manager-msc-geneva"

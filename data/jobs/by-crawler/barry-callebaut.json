@@ -50,13 +50,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "finance-business-partner-csd-global-cocoa-barry-callebaut-ch",
-        "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich",
-        "finanza-business-partner-csd-global-cocoa-barry-callebaut-zurich"
+        "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "finance-business-partner-csd-global-cocoa-barry-callebaut-ch",
-          "finanza-business-partner-csd-global-cocoa-barry-callebaut-zurich"
+          "finance-business-partner-csd-global-cocoa-barry-callebaut-ch"
         ],
         "de": [
           "finance-business-partner-csd-global-cocoa-barry-callebaut-ch"
@@ -65,8 +63,8 @@
           "partenaire-d-affaires-financier-csd-global-cocoa-barry-callebaut-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:42:20.856Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -84,12 +82,12 @@
     },
     {
       "id": "barry-callebaut-95b2fa632f94",
-      "slug": "vp-procurement-indirect-spend-barry-callebaut-ch",
+      "slug": "vp-procurement-spesa-indiretta-barry-callebaut-zurich",
       "slugByLocale": {
-        "it": "vp-procurement-indirect-spend-barry-callebaut-ch",
         "en": "vp-procurement-indirect-spend-barry-callebaut-ch",
-        "de": "vp-procurement-indirect-spend-barry-callebaut-ch",
-        "fr": "vp-procurement-indirect-spend-barry-callebaut-ch"
+        "it": "vp-procurement-spesa-indiretta-barry-callebaut-zurich",
+        "de": "vp-beschaffung-indirekte-ausgaben-barry-callebaut-zurich",
+        "fr": "vp-achats-depenses-indirectes-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -142,7 +140,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-09T13:56:54.623Z"
+      "firstSeenAt": "2026-09-09T13:56:54.623Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-procurement-indirect-spend-barry-callebaut-ch"
+        ],
+        "de": [
+          "vp-procurement-indirect-spend-barry-callebaut-ch"
+        ],
+        "fr": [
+          "vp-procurement-indirect-spend-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vp-procurement-indirect-spend-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-9d49e2b2a306",
@@ -191,17 +203,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "executive-assistant-cpco-barry-callebaut-ch",
-        "assistente-esecutivo-cpco-barry-callebaut-zurich"
+        "executive-assistant-cpco-barry-callebaut-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-assistant-cpco-barry-callebaut-ch",
-          "assistente-esecutivo-cpco-barry-callebaut-zurich"
+          "executive-assistant-cpco-barry-callebaut-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:24:25.530Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
