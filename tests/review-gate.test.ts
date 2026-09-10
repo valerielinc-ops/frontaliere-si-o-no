@@ -368,6 +368,26 @@ describe('review gate: unresolvable head verdicts are blocking', () => {
     expect(result.classification.findings).toHaveLength(0);
   });
 
+  it('resolves a PR body finding only with an explicit matching metadata line', () => {
+    const opened = { ...historicalImportantReview, body: 'PR body:L4: 🔴 Important: runner measurements missing.' };
+    const review = (confirmation: string) => ({
+      ...alignmentLgtmReview,
+      body: `## Findings (Important: 0, Nit: 0)\n${confirmation}\n## LGTM`,
+    });
+    for (const confirmation of ['', 'Fix di `PR body:L5`: ok.', 'Fix di `docs/PR.md:L4`: ok.']) {
+      expect(historicalImportantFindings([opened, review(confirmation)], { includeLatest: true })).toHaveLength(1);
+    }
+    expect(historicalImportantFindings([opened, review('Fix di `PR body:L4`: ok.')], { includeLatest: true })).toHaveLength(0);
+    // Metadata is never classified as an outside-diff file.
+    expect(importantFindings(opened.body)[0].citations).toEqual([]);
+  });
+
+  it('does not let a body confirmation resolve accompanying code citations', () => {
+    const opened = { ...historicalImportantReview, body: 'PR body:L4: 🔴 Important: `src/changed.mjs:L12` still breaks.' };
+    const confirmed = { ...alignmentLgtmReview, body: 'Fix di `PR body:L4`: ok.\n## LGTM' };
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(1);
+  });
+
   it('reuses the existing outside-diff declassification for inherited findings', async () => {
     const outsideReview = {
       ...historicalImportantReview,

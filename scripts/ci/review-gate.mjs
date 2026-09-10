@@ -8,7 +8,8 @@
  * Le review successive non possono cancellare uno storico Important: resta
  * aperto finche' una review successiva conferma esplicitamente il fix dell'ancora
  * (`Fix di \`path:L<linea>\`: ok.` oppure, per un finding senza citazioni,
- * `Fix di \`testo normalizzato\`: ok.`), oppure il finding viene classificato
+ * `Fix di \`testo normalizzato\`: ok.`; per il body vale anche l'ancora
+ * `Fix di \`PR body:L<linea>\`: ok.`), oppure il finding viene classificato
  * fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
@@ -437,6 +438,13 @@ function findingKey(finding) {
     .trim();
 }
 
+// PR metadata is not a repository path: keep it out of diff classification.
+// Only an explicit line anchor can resolve a historical body finding.
+function prBodyAnchor(text) {
+  const match = String(text || '').match(/^\s*(?:[-*]\s*)?`?PR body[:#]L?([1-9]\d*)(?:[-–]\d+)?(?=$|[`:\s])/iu);
+  return match ? Number(match[1]) : null;
+}
+
 function fixConfirmations(body) {
   const confirmations = [];
   for (const line of String(body || '').split(/\r?\n/u)) {
@@ -445,6 +453,7 @@ function fixConfirmations(body) {
     const text = match[1].trim();
     confirmations.push({
       citations: extractFileCitations(text),
+      bodyAnchor: prBodyAnchor(text),
       key: findingKey({ citations: [], text }),
     });
   }
@@ -470,7 +479,9 @@ function citationConfirmed(citation, confirmations) {
 
 function findingConfirmed(finding, confirmations) {
   if (finding.citations.length === 0) {
-    return confirmations.some((confirmation) => confirmation.key === findingKey(finding));
+    const bodyAnchor = prBodyAnchor(finding.line);
+    return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
+      || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
   }
   return finding.citations.every((citation) => citationConfirmed(citation, confirmations));
 }
