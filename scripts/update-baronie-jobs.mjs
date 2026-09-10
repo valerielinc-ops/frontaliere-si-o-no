@@ -15,7 +15,8 @@
  *   1. Scrapes the /en/careers page for all /en/jobs/ detail links.
  *   2. Fetches each detail page and extracts structured content.
  *   3. Filters to Swiss-only jobs (JSON-LD addressCountry=CH).
- *   4. Merges into data/jobs.json with stale translation cleanup.
+ *   4. Merges into per-crawler scratch storage with stale translation cleanup;
+ *      mirrors to the optional public path when that workspace is present.
  *   5. Translates and validates locale coverage.
  */
 import fs from 'node:fs';
@@ -53,15 +54,16 @@ import {
 } from './lib/baronie-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
+const COMPANY_KEY = 'baronie';
+const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
+const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'baronie.json');
 
-const COMPANY_KEY = 'baronie';
 const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Baronie';
 const COMPANY_HOST = 'www.baronie.com';
@@ -213,7 +215,9 @@ function mergeJobs(discoveredJobs) {
 
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
-  writeJson(PUBLIC_JOBS, allJobs);
+  if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
+    writeJson(PUBLIC_JOBS, allJobs);
+  }
 
   const afterSnapshot = snapshotJobSlugs(mergedTarget);
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
