@@ -1,21 +1,21 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-09-09T23:05:04.188Z",
-  "total": 3,
+  "generatedAt": "2026-09-10T23:05:16.761Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7196,
-  "avgDurationMs": 7196,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 8093,
+  "avgDurationMs": 8093,
   "durationHistory": [
-    7196
+    8093
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:53.195Z",
+      "crawledAt": "2026-09-10T23:05:05.934Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist",
@@ -47,7 +47,7 @@
       "featured": false,
       "postedDate": "2026-09-07",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000147976139-dipl-experte-expertin-anasthesiepflege-nds-hf-80-100-?oga=true",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-07T23:27:27.215Z",
       "_qualityScore": 83,
       "_qualityBreakdown": {
@@ -69,7 +69,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-09T23:04:53.630Z",
+      "crawledAt": "2026-09-10T23:05:06.393Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -96,8 +96,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "villa-im-park-46eee8e83558",
       "slug": "dipendenti-bistro-privatklinik-villa-im-park-rothrist",
@@ -131,7 +130,6 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -140,5 +138,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
